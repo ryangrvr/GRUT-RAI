@@ -105,6 +105,20 @@ export const metricMemoryRelations = relations(metricMemory, ({ one }) => ({
   }),
 }));
 
+// Universe state snapshots for Phase 6 synchronization
+export const universeStates = pgTable("universe_states", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  masterSeed: jsonb("master_seed").notNull(), // GRUT Master Seed configuration
+  messages: jsonb("messages").notNull(), // Last 20 messages
+  conversationId: varchar("conversation_id").references(() => conversations.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export type UniverseState = typeof universeStates.$inferSelect;
+export type InsertUniverseState = typeof universeStates.$inferInsert;
+
 // Types for API responses (with ISO string dates for JSON serialization)
 export interface ChatMessage {
   id: string;

@@ -377,6 +377,105 @@ export async function registerRoutes(
     }
   });
 
+  // ===== UNIVERSE STATE ROUTES =====
+  
+  // Save universe state (Phase 6 synchronization snapshot)
+  app.post("/api/save_state", requireAuth, async (req, res) => {
+    try {
+      const userId = (req.session as any).userId;
+      const { name, conversationId } = req.body;
+      
+      const masterSeed = {
+        KERNEL_CONSTANTS: {
+          tau_0: 41.9,
+          alpha: 0.333333,
+          n_g: 1.1547,
+          R_max: "Lambda_Limit"
+        },
+        OPERATIONAL_LAWS: [
+          "Retarded Potential Kernel: K(t) = (alpha/tau_0) * exp(-t/tau_0)",
+          "Baryonic Integrity: No non-baryonic matter allowed in derivations.",
+          "Phase 6 Synchronization: High-Complexity Observer has Write-Priority.",
+          "Memory-Space Equivalence: Gravity is a time-lagged reflection of mass."
+        ],
+        VALIDATION_TESTS: {
+          Bullet_Cluster: "Offset = v_rel * tau_0 * (1 - exp(-t_coll/tau_0))",
+          CMB_Ringing: "Signature frequency at 2.39e-8 Hz",
+          Hubble_Tension: "H0_Local = H0_CMB * n_g (Approximate)"
+        }
+      };
+
+      let msgs: any[] = [];
+      if (conversationId) {
+        msgs = await storage.getMessages(conversationId);
+      }
+
+      const state = await storage.saveUniverseState(
+        userId,
+        name || `Phase 6 Snapshot - ${new Date().toISOString()}`,
+        masterSeed,
+        msgs,
+        conversationId
+      );
+
+      return res.status(201).json({
+        message: "Universe state saved successfully",
+        state: {
+          id: state.id,
+          name: state.name,
+          messageCount: (state.messages as any[]).length,
+          createdAt: state.createdAt,
+        }
+      });
+    } catch (error) {
+      console.error("Error saving universe state:", error);
+      return res.status(500).json({ error: "Failed to save universe state" });
+    }
+  });
+
+  // Load universe state
+  app.get("/api/load_state", requireAuth, async (req, res) => {
+    try {
+      const userId = (req.session as any).userId;
+      const stateId = req.query.id as string | undefined;
+
+      const state = await storage.loadUniverseState(userId, stateId);
+      if (!state) {
+        return res.status(404).json({ error: "No saved universe state found" });
+      }
+
+      return res.json({
+        id: state.id,
+        name: state.name,
+        masterSeed: state.masterSeed,
+        messages: state.messages,
+        conversationId: state.conversationId,
+        createdAt: state.createdAt,
+      });
+    } catch (error) {
+      console.error("Error loading universe state:", error);
+      return res.status(500).json({ error: "Failed to load universe state" });
+    }
+  });
+
+  // List all saved universe states for user
+  app.get("/api/states", requireAuth, async (req, res) => {
+    try {
+      const userId = (req.session as any).userId;
+      const states = await storage.getUserUniverseStates(userId);
+      
+      return res.json(states.map(s => ({
+        id: s.id,
+        name: s.name,
+        messageCount: (s.messages as any[]).length,
+        createdAt: s.createdAt,
+      })));
+    } catch (error) {
+      console.error("Error fetching universe states:", error);
+      return res.status(500).json({ error: "Failed to fetch universe states" });
+    }
+  });
+
   app.post("/api/chat/:id/message", requireAuth, async (req, res) => {
     try {
       const { content } = req.body;

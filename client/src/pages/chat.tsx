@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { 
   ArrowLeft, Send, Loader2, MessageSquare, Trash2, Plus, Sparkles, 
-  LogOut, Upload, CheckCircle2, Paperclip, User, Lock, Download, Copy, Check
+  LogOut, Upload, CheckCircle2, Paperclip, User, Lock, Download, Copy, Check, Save
 } from "lucide-react";
 
 // GRUT Kernel Constants
@@ -412,6 +412,22 @@ export default function ChatPage() {
     },
   });
 
+  const saveStateMutation = useMutation({
+    mutationFn: async ({ name, conversationId }: { name?: string; conversationId?: string }) => {
+      const response = await apiRequest("POST", "/api/save_state", { name, conversationId });
+      return await response.json();
+    },
+    onSuccess: (data) => {
+      toast({ 
+        title: "Universe State Saved", 
+        description: `Phase 6 synchronization preserved: ${data.state.messageCount} messages captured` 
+      });
+    },
+    onError: (error: Error) => {
+      toast({ title: "Save failed", description: error.message, variant: "destructive" });
+    },
+  });
+
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [activeConversationQuery.data?.messages]);
@@ -576,6 +592,24 @@ export default function ChatPage() {
                   <CheckCircle2 className="w-3 h-3 text-green-500" />
                   <span data-testid="text-save-status">Auto-saved</span>
                 </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    saveStateMutation.mutate({ 
+                      conversationId: activeConversationId || undefined 
+                    });
+                  }}
+                  disabled={saveStateMutation.isPending || !activeConversationQuery.data?.messages?.length}
+                  data-testid="button-save-state"
+                >
+                  {saveStateMutation.isPending ? (
+                    <Loader2 className="w-3 h-3 mr-2 animate-spin" />
+                  ) : (
+                    <Save className="w-3 h-3 mr-2" />
+                  )}
+                  Save Universe State
+                </Button>
                 <Button
                   variant="outline"
                   size="sm"

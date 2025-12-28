@@ -1,7 +1,7 @@
 import { 
   type User, type InsertUser, type Subscriber, type InsertSubscriber, 
-  type ChatMessage, type ChatConversation, type ChatFileUpload,
-  users, subscribers, conversations, messages, metricMemory, fileUploads
+  type ChatMessage, type ChatConversation, type ChatFileUpload, type UniverseState,
+  users, subscribers, conversations, messages, metricMemory, fileUploads, universeStates
 } from "@shared/schema";
 import { db } from "./db";
 import { pool } from "./db";
@@ -34,6 +34,9 @@ export interface IStorage {
   getTopMetricMemories(conversationId: string, limit?: number, tauSeconds?: number): Promise<WeightedMemory[]>;
   saveFileUpload(data: { conversationId?: string; messageId?: string; userId?: string; filename: string; originalName: string; mimeType: string; size: number }): Promise<ChatFileUpload>;
   getFileUploads(conversationId: string): Promise<ChatFileUpload[]>;
+  saveUniverseState(userId: string, name: string, masterSeed: object, msgs: ChatMessage[], conversationId?: string): Promise<UniverseState>;
+  loadUniverseState(userId: string, stateId?: string): Promise<UniverseState | undefined>;
+  getUserUniverseStates(userId: string): Promise<UniverseState[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -244,6 +247,37 @@ export class DatabaseStorage implements IStorage {
       size: u.size,
       createdAt: u.createdAt.toISOString(),
     }));
+  }
+
+  async saveUniverseState(userId: string, name: string, masterSeed: object, msgs: ChatMessage[], conversationId?: string): Promise<UniverseState> {
+    const last20 = msgs.slice(-20);
+    const [state] = await db.insert(universeStates).values({
+      userId,
+      name,
+      masterSeed,
+      messages: last20,
+      conversationId,
+    }).returning();
+    return state;
+  }
+
+  async loadUniverseState(userId: string, stateId?: string): Promise<UniverseState | undefined> {
+    if (stateId) {
+      const [state] = await db.select().from(universeStates)
+        .where(eq(universeStates.id, stateId));
+      return state || undefined;
+    }
+    const [state] = await db.select().from(universeStates)
+      .where(eq(universeStates.userId, userId))
+      .orderBy(desc(universeStates.createdAt))
+      .limit(1);
+    return state || undefined;
+  }
+
+  async getUserUniverseStates(userId: string): Promise<UniverseState[]> {
+    return await db.select().from(universeStates)
+      .where(eq(universeStates.userId, userId))
+      .orderBy(desc(universeStates.createdAt));
   }
 }
 
