@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { 
   ArrowLeft, Send, Loader2, MessageSquare, Trash2, Plus, Sparkles, 
-  LogOut, Upload, CheckCircle2, Paperclip, User, Lock, Download
+  LogOut, Upload, CheckCircle2, Paperclip, User, Lock, Download, Copy, Check
 } from "lucide-react";
 
 // GRUT Kernel Constants
@@ -19,6 +19,114 @@ const GRUT_CONSTANTS = {
   alpha: 0.333333,
   R_max: "Lambda_Limit"
 };
+
+function CopyButton({ text, className = "" }: { text: string; className?: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className={`p-1 rounded transition-colors hover-elevate ${className}`}
+      data-testid="button-copy"
+    >
+      {copied ? (
+        <Check className="w-3 h-3 text-green-500" />
+      ) : (
+        <Copy className="w-3 h-3 text-muted-foreground" />
+      )}
+    </button>
+  );
+}
+
+function MessageContent({ content, isUser }: { content: string; isUser: boolean }) {
+  const parts: JSX.Element[] = [];
+  let remaining = content;
+  let keyIndex = 0;
+
+  const codeBlockRegex = /```(\w*)\n?([\s\S]*?)```/g;
+  const inlineCodeRegex = /`([^`]+)`/g;
+  const latexBlockRegex = /\\\[([\s\S]*?)\\\]/g;
+  const latexInlineRegex = /\\\(([\s\S]*?)\\\)/g;
+  const dollarBlockRegex = /\$\$([\s\S]*?)\$\$/g;
+
+  const extractBlocks = (text: string): { type: string; content: string; start: number; end: number }[] => {
+    const blocks: { type: string; content: string; start: number; end: number; raw: string }[] = [];
+    
+    let match;
+    codeBlockRegex.lastIndex = 0;
+    while ((match = codeBlockRegex.exec(text)) !== null) {
+      blocks.push({ type: "codeblock", content: match[2], start: match.index, end: match.index + match[0].length, raw: match[0] });
+    }
+    
+    latexBlockRegex.lastIndex = 0;
+    while ((match = latexBlockRegex.exec(text)) !== null) {
+      blocks.push({ type: "latexblock", content: match[1], start: match.index, end: match.index + match[0].length, raw: match[0] });
+    }
+    
+    dollarBlockRegex.lastIndex = 0;
+    while ((match = dollarBlockRegex.exec(text)) !== null) {
+      blocks.push({ type: "latexblock", content: match[1], start: match.index, end: match.index + match[0].length, raw: match[0] });
+    }
+    
+    return blocks.sort((a, b) => a.start - b.start);
+  };
+
+  const blocks = extractBlocks(remaining);
+  let lastEnd = 0;
+
+  blocks.forEach((block) => {
+    if (block.start > lastEnd) {
+      const textBefore = remaining.slice(lastEnd, block.start);
+      parts.push(<span key={keyIndex++}>{textBefore}</span>);
+    }
+
+    if (block.type === "codeblock") {
+      parts.push(
+        <div key={keyIndex++} className="relative my-2 group">
+          <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity">
+            <CopyButton text={block.content.trim()} />
+          </div>
+          <pre className={`p-3 rounded-md text-xs overflow-x-auto ${isUser ? "bg-primary-foreground/10" : "bg-background"}`}>
+            <code>{block.content.trim()}</code>
+          </pre>
+        </div>
+      );
+    } else if (block.type === "latexblock") {
+      parts.push(
+        <div key={keyIndex++} className="relative my-2 group">
+          <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity">
+            <CopyButton text={block.content.trim()} />
+          </div>
+          <div className={`p-2 rounded-md font-mono text-sm ${isUser ? "bg-primary-foreground/10" : "bg-background"}`}>
+            {block.content.trim()}
+          </div>
+        </div>
+      );
+    }
+
+    lastEnd = block.end;
+  });
+
+  if (lastEnd < remaining.length) {
+    parts.push(<span key={keyIndex++}>{remaining.slice(lastEnd)}</span>);
+  }
+
+  if (parts.length === 0) {
+    return <span>{content}</span>;
+  }
+
+  return <>{parts}</>;
+}
 
 function exportMetricLog(messages: ChatMessage[], conversationTitle: string): void {
   const now = new Date();
@@ -534,13 +642,20 @@ export default function ChatPage() {
                       data-testid={`message-${message.id}`}
                     >
                       <Card
-                        className={`max-w-[80%] p-3 ${
+                        className={`relative max-w-[80%] p-3 group ${
                           message.role === "user"
                             ? "bg-primary text-primary-foreground"
                             : "bg-muted"
                         }`}
                       >
-                        <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                        {message.role === "assistant" && (
+                          <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <CopyButton text={message.content} className="bg-background/50" />
+                          </div>
+                        )}
+                        <div className="text-sm whitespace-pre-wrap">
+                          <MessageContent content={message.content} isUser={message.role === "user"} />
+                        </div>
                       </Card>
                     </div>
                   ))
