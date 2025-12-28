@@ -122,6 +122,24 @@ export async function registerRoutes(
       // Save user message
       const userMessage = await storage.addMessage(req.params.id, "user", content);
 
+      // Generate embedding for user message (Retarded Potential Kernel)
+      // This allows the AI to query how messages "ring" through session history
+      try {
+        const embeddingResponse = await openai.embeddings.create({
+          model: "text-embedding-3-small",
+          input: content,
+        });
+        const embedding = embeddingResponse.data[0]?.embedding || [];
+        
+        // Calculate complexity ratio (Ξ) based on message history saturation
+        const allMessages = await storage.getMessages(req.params.id);
+        const complexityXi = Math.min(1.0, allMessages.length / 100); // Ξ → 1 as saturation increases
+        
+        await storage.storeMetricMemory(req.params.id, userMessage.id, embedding, complexityXi);
+      } catch (embeddingError) {
+        console.log("Embedding storage skipped (non-critical):", embeddingError);
+      }
+
       // Build message history for OpenAI
       const messages = await storage.getMessages(req.params.id);
       const chatMessages: OpenAI.Chat.ChatCompletionMessageParam[] = [
@@ -143,6 +161,21 @@ export async function registerRoutes(
       
       // Save assistant message
       const assistantMessage = await storage.addMessage(req.params.id, "assistant", assistantContent);
+
+      // Store assistant message embedding too
+      try {
+        const assistantEmbedding = await openai.embeddings.create({
+          model: "text-embedding-3-small",
+          input: assistantContent,
+        });
+        const embedding = assistantEmbedding.data[0]?.embedding || [];
+        const allMessages = await storage.getMessages(req.params.id);
+        const complexityXi = Math.min(1.0, allMessages.length / 100);
+        
+        await storage.storeMetricMemory(req.params.id, assistantMessage.id, embedding, complexityXi);
+      } catch (embeddingError) {
+        console.log("Assistant embedding storage skipped (non-critical):", embeddingError);
+      }
 
       return res.json({ 
         userMessage,
