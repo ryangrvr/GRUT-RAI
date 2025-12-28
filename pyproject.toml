@@ -4,11 +4,14 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.11"
 dependencies = [
+    "asyncpg>=0.31.0",
     "bcrypt>=5.0.0",
     "flask>=3.1.2",
     "flask-cors>=6.0.2",
     "flask-login>=0.6.3",
+    "greenlet>=3.3.0",
     "gunicorn>=23.0.0",
     "psycopg2-binary>=2.9.11",
     "python-dotenv>=1.2.1",
+    "sqlalchemy[asyncio]>=2.0.45",
 ]
