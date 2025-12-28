@@ -20,7 +20,7 @@ Preferred communication style: Simple, everyday language.
 - **UI Components**: shadcn/ui component library built on Radix UI primitives
 - **Form Handling**: React Hook Form with Zod validation
 - **Build Tool**: Vite with path aliases (@/ for client/src, @shared/ for shared)
-- **API Base URL**: Configurable via VITE_API_BASE_URL (defaults to http://localhost:5001)
+- **API Base URL**: Uses the Express server on port 5000 (same origin)
 
 ### Backend Architecture (Flask - Authentication)
 - **Location**: server_flask/app.py

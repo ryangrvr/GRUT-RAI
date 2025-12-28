@@ -472,4 +472,5 @@ with app.app_context():
         print(f"[FLASK] Async DB init warning: {e}")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    debug_mode = os.environ.get('FLASK_DEBUG', 'false').lower() == 'true'
+    app.run(host='0.0.0.0', port=5001, debug=debug_mode, use_reloader=False)
