@@ -40,9 +40,10 @@ interface MetricDashboardProps {
   messageCount: number;
   constants?: GrutConstantsType;
   isForked?: boolean;
+  userEmail?: string;
 }
 
-function MetricDashboard({ messageCount, constants, isForked }: MetricDashboardProps) {
+function MetricDashboard({ messageCount, constants, isForked, userEmail }: MetricDashboardProps) {
   const xi = calculateComplexityXi(messageCount);
   const xiPercent = (xi * 100).toFixed(1);
   
@@ -64,48 +65,57 @@ function MetricDashboard({ messageCount, constants, isForked }: MetricDashboardP
 
   return (
     <div className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-      <div className="flex items-center justify-center gap-6 px-4 py-2 flex-wrap">
-        <div className="flex items-center gap-2">
-          <Activity className="w-4 h-4 text-primary" />
-          <span className="text-xs font-medium text-muted-foreground">Metric Dashboard</span>
-          {isForked && (
-            <Badge variant="secondary" className="text-xs">
-              <GitBranch className="w-3 h-3 mr-1" />
-              Forked
+      <div className="flex items-center justify-between gap-4 px-4 py-2 flex-wrap">
+        <div className="flex items-center gap-4 flex-wrap">
+          <div className="flex items-center gap-2">
+            <Activity className="w-4 h-4 text-primary" />
+            <span className="text-xs font-medium text-muted-foreground">Metric Dashboard</span>
+            {isForked && (
+              <Badge variant="secondary" className="text-xs">
+                <GitBranch className="w-3 h-3 mr-1" />
+                Forked
+              </Badge>
+            )}
+          </div>
+        
+          <div className="flex items-center gap-1">
+            <span className="text-xs text-muted-foreground">τ₀:</span>
+            <Badge variant="outline" className={`text-xs font-mono ${isForked && constants?.tau_0 !== GRUT_CONSTANTS.tau_0 ? "border-primary text-primary" : ""}`}>
+              {displayConstants.tau_0} Myr
             </Badge>
-          )}
+          </div>
+          
+          <div className="flex items-center gap-1">
+            <span className="text-xs text-muted-foreground">n<sub>g</sub>:</span>
+            <Badge variant="outline" className={`text-xs font-mono ${isForked && constants?.n_g !== GRUT_CONSTANTS.n_g ? "border-primary text-primary" : ""}`}>
+              {displayConstants.n_g}
+            </Badge>
+          </div>
+          
+          <div className="flex items-center gap-1">
+            <span className="text-xs text-muted-foreground">Ξ:</span>
+            <Badge variant="outline" className={`text-xs font-mono ${getEntropyColor(xi)}`}>
+              {xiPercent}%
+            </Badge>
+            <span className={`text-xs ${getEntropyColor(xi)}`}>
+              ({getEntropyStatus(xi)})
+            </span>
+          </div>
+          
+          <div className="flex items-center gap-1">
+            <span className="text-xs text-muted-foreground">Messages:</span>
+            <Badge variant="secondary" className="text-xs">
+              {messageCount}
+            </Badge>
+          </div>
         </div>
         
-        <div className="flex items-center gap-1">
-          <span className="text-xs text-muted-foreground">τ₀:</span>
-          <Badge variant="outline" className={`text-xs font-mono ${isForked && constants?.tau_0 !== GRUT_CONSTANTS.tau_0 ? "border-primary text-primary" : ""}`}>
-            {displayConstants.tau_0} Myr
-          </Badge>
-        </div>
-        
-        <div className="flex items-center gap-1">
-          <span className="text-xs text-muted-foreground">n<sub>g</sub>:</span>
-          <Badge variant="outline" className={`text-xs font-mono ${isForked && constants?.n_g !== GRUT_CONSTANTS.n_g ? "border-primary text-primary" : ""}`}>
-            {displayConstants.n_g}
-          </Badge>
-        </div>
-        
-        <div className="flex items-center gap-1">
-          <span className="text-xs text-muted-foreground">Ξ:</span>
-          <Badge variant="outline" className={`text-xs font-mono ${getEntropyColor(xi)}`}>
-            {xiPercent}%
-          </Badge>
-          <span className={`text-xs ${getEntropyColor(xi)}`}>
-            ({getEntropyStatus(xi)})
-          </span>
-        </div>
-        
-        <div className="flex items-center gap-1">
-          <span className="text-xs text-muted-foreground">Messages:</span>
-          <Badge variant="secondary" className="text-xs">
-            {messageCount}
-          </Badge>
-        </div>
+        {userEmail && (
+          <div className="flex items-center gap-2" data-testid="header-user-email">
+            <User className="w-3 h-3 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground font-mono">{userEmail}</span>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -560,10 +570,10 @@ function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
     },
     onSuccess: (data) => {
       onSuccess(data.user);
-      toast({ title: "Welcome back!", description: `Logged in as ${data.user.email}` });
+      toast({ title: "Observer Authenticated", description: `Causal link established` });
     },
     onError: (error: Error) => {
-      toast({ title: "Login failed", description: error.message, variant: "destructive" });
+      toast({ title: "Authentication Failed", description: error.message, variant: "destructive" });
     },
   });
 
@@ -574,10 +584,10 @@ function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
     },
     onSuccess: (data) => {
       onSuccess(data.user);
-      toast({ title: "Welcome!", description: `Account created for ${data.user.email}` });
+      toast({ title: "Observer Registered", description: `Welcome to the causal network` });
     },
     onError: (error: Error) => {
-      toast({ title: "Registration failed", description: error.message, variant: "destructive" });
+      toast({ title: "Registration Failed", description: error.message, variant: "destructive" });
     },
   });
 
@@ -593,83 +603,103 @@ function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
   const isPending = loginMutation.isPending || registerMutation.isPending;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-background p-4">
-      <Card className="w-full max-w-md p-6 space-y-6">
-        <div className="text-center">
-          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-            <Sparkles className="w-8 h-8 text-primary" />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background p-4" data-testid="observer-entry-page">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/3 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="relative z-10 w-full max-w-md space-y-8">
+        <div className="text-center space-y-4">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full border border-primary/20 bg-primary/5">
+            <Sparkles className="w-10 h-10 text-primary" />
           </div>
-          <h1 className="text-2xl font-bold">GRUT RAI Chat</h1>
-          <p className="text-muted-foreground mt-2">
-            {isRegistering ? "Create an account to continue" : "Sign in to access the chat"}
-          </p>
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold tracking-tight">Observer Entry</h1>
+            <p className="text-muted-foreground text-sm max-w-xs mx-auto">
+              {isRegistering 
+                ? "Register to join the causal intelligence network" 
+                : "Authenticate to access the GRUT RAI system"}
+            </p>
+          </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <div className="relative">
-              <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input
-                id="email"
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="pl-10"
-                required
-                data-testid="input-email"
-              />
+        <Card className="border-border/50 bg-card/50 backdrop-blur-sm p-6">
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-sm font-medium">Observer ID (Email)</Label>
+              <div className="relative">
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="observer@grut.ai"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="pl-10 bg-background/50"
+                  required
+                  data-testid="input-email"
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
-            <div className="relative">
-              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <Input
-                id="password"
-                type="password"
-                placeholder="Enter password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="pl-10"
-                required
-                minLength={6}
-                data-testid="input-password"
-              />
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-sm font-medium">Access Key</Label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Enter access key"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="pl-10 bg-background/50"
+                  required
+                  minLength={6}
+                  data-testid="input-password"
+                />
+              </div>
             </div>
+
+            <Button type="submit" className="w-full" disabled={isPending} data-testid="button-login">
+              {isPending ? (
+                <>
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  {isRegistering ? "Initializing..." : "Authenticating..."}
+                </>
+              ) : (
+                <>
+                  {isRegistering ? "Initialize Observer" : "Enter System"}
+                </>
+              )}
+            </Button>
+          </form>
+
+          <div className="mt-6 pt-4 border-t border-border/50 text-center space-y-3">
+            <Button
+              variant="ghost"
+              onClick={() => setIsRegistering(!isRegistering)}
+              className="text-sm text-muted-foreground"
+              data-testid="button-toggle-auth-mode"
+            >
+              {isRegistering ? "Already registered? Sign in" : "New observer? Register"}
+            </Button>
           </div>
+        </Card>
 
-          <Button type="submit" className="w-full" disabled={isPending} data-testid="button-login">
-            {isPending ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                {isRegistering ? "Creating account..." : "Signing in..."}
-              </>
-            ) : (
-              isRegistering ? "Create Account" : "Sign In"
-            )}
-          </Button>
-        </form>
-
-        <div className="text-center space-y-3">
-          <Button
-            variant="ghost"
-            onClick={() => setIsRegistering(!isRegistering)}
-            className="text-sm"
-            data-testid="button-toggle-auth-mode"
-          >
-            {isRegistering ? "Already have an account? Sign in" : "Need an account? Register"}
-          </Button>
-
-          <div className="bg-muted/50 rounded-md p-3 text-sm">
-            <p className="font-medium mb-1">Demo Credentials:</p>
-            <p className="text-muted-foreground">Email: <code className="bg-muted px-1 rounded">demo@grut.ai</code></p>
-            <p className="text-muted-foreground">Password: <code className="bg-muted px-1 rounded">grut2025</code></p>
+        <div className="text-center space-y-2">
+          <p className="text-xs text-muted-foreground/60">Demo Access</p>
+          <div className="inline-flex items-center gap-3 text-xs text-muted-foreground font-mono bg-muted/30 px-3 py-2 rounded-md">
+            <span>demo@grut.ai</span>
+            <span className="text-border">|</span>
+            <span>grut2025</span>
           </div>
         </div>
-      </Card>
+
+        <p className="text-center text-xs text-muted-foreground/50 mt-8">
+          GRUT RAI Platform v1.0 | Causal Intelligence System
+        </p>
+      </div>
     </div>
   );
 }
@@ -964,7 +994,7 @@ export default function ChatPage() {
           </div>
           <div className="flex items-center gap-2 mb-3 text-sm text-muted-foreground">
             <User className="w-3 h-3" />
-            <span>{user.username}</span>
+            <span className="truncate" title={user.email}>{user.email}</span>
           </div>
           <Button
             onClick={handleStartNewChat}
@@ -1034,6 +1064,7 @@ export default function ChatPage() {
           messageCount={activeConversationQuery.data?.messages?.length || 0}
           constants={activeConversationQuery.data?.constants}
           isForked={!!activeConversationQuery.data?.parentConversationId}
+          userEmail={user?.email}
         />
         
         {!activeConversationId ? (
