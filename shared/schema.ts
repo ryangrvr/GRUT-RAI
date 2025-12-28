@@ -30,3 +30,19 @@ export const insertSubscriberSchema = createInsertSchema(subscribers).pick({
 
 export type InsertSubscriber = z.infer<typeof insertSubscriberSchema>;
 export type Subscriber = typeof subscribers.$inferSelect;
+
+// Chat conversation types (in-memory, not persisted to database)
+export interface ChatMessage {
+  id: string;
+  conversationId: string;
+  role: "user" | "assistant" | "system";
+  content: string;
+  createdAt: string;
+}
+
+export interface ChatConversation {
+  id: string;
+  title: string;
+  createdAt: string;
+  messages: ChatMessage[];
+}

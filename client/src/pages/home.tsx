@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -142,10 +143,10 @@ function HeroSection() {
             asChild
             data-testid="button-explore-theory"
           >
-            <a href="#theory">
+            <Link href="/chat">
               Explore Theory
               <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
+            </Link>
           </Button>
           <Button 
             variant="outline" 
