@@ -571,7 +571,11 @@ function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
       return await response.json();
     },
     onSuccess: (data) => {
-      onSuccess(data.user);
+      const user = {
+        ...data.user,
+        grutConstants: data.user.universeState || data.user.grutConstants
+      };
+      onSuccess(user);
       toast({ title: "Observer Authenticated", description: `Causal link established` });
     },
     onError: (error: Error) => {
@@ -585,7 +589,11 @@ function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
       return await response.json();
     },
     onSuccess: (data) => {
-      onSuccess(data.user);
+      const user = {
+        ...data.user,
+        grutConstants: data.user.universeState || data.user.grutConstants
+      };
+      onSuccess(user);
       toast({ title: "Observer Registered", description: `Welcome to the causal network` });
     },
     onError: (error: Error) => {
@@ -772,12 +780,19 @@ export default function ChatPage() {
   };
 
   useEffect(() => {
-    fetch("/api/auth/me", { credentials: "include" })
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
+    fetch(`${API_BASE_URL}/api/auth/me`, { credentials: "include" })
       .then((res) => {
         if (res.ok) return res.json();
         throw new Error("Not authenticated");
       })
-      .then((data) => setUser(data.user))
+      .then((data) => {
+        const user = {
+          ...data.user,
+          grutConstants: data.user.universeState || data.user.grutConstants || data.user.hydratedConstants
+        };
+        setUser(user);
+      })
       .catch(() => setUser(null))
       .finally(() => setAuthChecked(true));
   }, []);

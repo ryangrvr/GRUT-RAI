@@ -14,7 +14,7 @@ app.secret_key = os.environ.get('SESSION_SECRET', 'grut-rai-secret-key-2025')
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 
-CORS(app, supports_credentials=True, origins=["*"])
+CORS(app, supports_credentials=True, origins=["http://localhost:5000", "http://127.0.0.1:5000", "https://*.replit.dev", "https://*.repl.co"])
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -250,12 +250,15 @@ def update_universe_state():
     if 'tau_0' not in new_state or 'n_g' not in new_state or 'alpha' not in new_state:
         return jsonify({"error": "Invalid universe state. Required: tau_0, n_g, alpha"}), 400
     
-    validated_state = {
-        "tau_0": float(new_state['tau_0']),
-        "n_g": float(new_state['n_g']),
-        "alpha": float(new_state['alpha']),
-        "R_max": str(new_state.get('R_max', 'Lambda_Limit'))
-    }
+    try:
+        validated_state = {
+            "tau_0": float(new_state['tau_0']),
+            "n_g": float(new_state['n_g']),
+            "alpha": float(new_state['alpha']),
+            "R_max": str(new_state.get('R_max', 'Lambda_Limit'))
+        }
+    except (ValueError, TypeError) as e:
+        return jsonify({"error": f"Invalid numeric values: {str(e)}"}), 400
     
     conn = get_db_connection()
     cur = conn.cursor(cursor_factory=RealDictCursor)
