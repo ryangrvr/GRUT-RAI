@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertSubscriberSchema } from "@shared/schema";
 import OpenAI from "openai";
+import { calculateComplexityXi, applyLogicGuard, GRUT_CONSTANTS } from "./grut-logic";
 
 const openai = new OpenAI({
   apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY,
@@ -131,9 +132,9 @@ export async function registerRoutes(
         });
         const embedding = embeddingResponse.data[0]?.embedding || [];
         
-        // Calculate complexity ratio (Ξ) based on message history saturation
+        // Calculate complexity ratio (Ξ) using GRUT logic - tracks informational saturation
         const allMessages = await storage.getMessages(req.params.id);
-        const complexityXi = Math.min(1.0, allMessages.length / 100); // Ξ → 1 as saturation increases
+        const complexityXi = calculateComplexityXi(allMessages.length);
         
         await storage.storeMetricMemory(req.params.id, userMessage.id, embedding, complexityXi);
       } catch (embeddingError) {
@@ -162,7 +163,7 @@ export async function registerRoutes(
       // Save assistant message
       const assistantMessage = await storage.addMessage(req.params.id, "assistant", assistantContent);
 
-      // Store assistant message embedding too
+      // Store assistant message embedding too (Retarded Potential Kernel)
       try {
         const assistantEmbedding = await openai.embeddings.create({
           model: "text-embedding-3-small",
@@ -170,7 +171,7 @@ export async function registerRoutes(
         });
         const embedding = assistantEmbedding.data[0]?.embedding || [];
         const allMessages = await storage.getMessages(req.params.id);
-        const complexityXi = Math.min(1.0, allMessages.length / 100);
+        const complexityXi = calculateComplexityXi(allMessages.length);
         
         await storage.storeMetricMemory(req.params.id, assistantMessage.id, embedding, complexityXi);
       } catch (embeddingError) {
