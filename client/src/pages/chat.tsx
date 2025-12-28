@@ -12,6 +12,7 @@ import {
   LogOut, Upload, CheckCircle2, Paperclip, User, Lock, Download, Copy, Check, Save, Activity,
   GitBranch, X, Settings2, FileJson, ClipboardCopy, FileDown, ChevronRight, ChevronLeft
 } from "lucide-react";
+import { ObserverToolkit } from "@/components/observer-toolkit";
 import {
   Dialog,
   DialogContent,
@@ -121,24 +122,50 @@ function MetricDashboard({ messageCount, constants, isForked, userEmail }: Metri
   );
 }
 
-function CopyButton({ text, className = "" }: { text: string; className?: string }) {
+async function copyToClipboardWithFallback(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (err) {
+    console.warn("Clipboard API failed, trying fallback:", err);
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    textarea.style.pointerEvents = "none";
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      return true;
+    } catch (e) {
+      document.body.removeChild(textarea);
+      return false;
+    }
+  }
+}
+
+function CopyButton({ text, className = "", blockType = "text" }: { text: string; className?: string; blockType?: "code" | "latex" | "text" }) {
   const [copied, setCopied] = useState(false);
+  const { toast } = useToast();
 
   const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(text);
+    const success = await copyToClipboardWithFallback(text);
+    if (success) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy:", err);
+    } else {
+      toast({ title: "Copy Failed", description: "Could not copy to clipboard", variant: "destructive" });
     }
   };
 
   return (
     <button
       onClick={handleCopy}
-      className={`p-1 rounded transition-colors hover-elevate ${className}`}
-      data-testid="button-copy"
+      className={`p-1 rounded transition-colors hover-elevate ${className} ${copied ? "copy-indicator" : ""}`}
+      data-testid={`button-copy-${blockType}`}
+      title={`Copy ${blockType}`}
     >
       {copied ? (
         <Check className="w-3 h-3 text-green-500" />
@@ -193,22 +220,22 @@ function MessageContent({ content, isUser }: { content: string; isUser: boolean 
 
     if (block.type === "codeblock") {
       parts.push(
-        <div key={keyIndex++} className="relative my-2 group">
-          <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity">
-            <CopyButton text={block.content.trim()} />
+        <div key={keyIndex++} className="relative my-2 group" data-block-type="code">
+          <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity flex gap-1 z-10">
+            <CopyButton text={block.content.trim()} blockType="code" />
           </div>
-          <pre className={`p-3 rounded-md text-xs overflow-x-auto ${isUser ? "bg-primary-foreground/10" : "bg-background"}`}>
-            <code>{block.content.trim()}</code>
+          <pre className={`p-3 rounded-md text-xs overflow-x-auto code-block-vacuum ${isUser ? "bg-primary-foreground/10 border-primary-foreground/20" : ""}`}>
+            <code className="font-mono">{block.content.trim()}</code>
           </pre>
         </div>
       );
     } else if (block.type === "latexblock") {
       parts.push(
-        <div key={keyIndex++} className="relative my-2 group">
-          <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity">
-            <CopyButton text={block.content.trim()} />
+        <div key={keyIndex++} className="relative my-2 group" data-block-type="latex">
+          <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity flex gap-1 z-10">
+            <CopyButton text={block.content.trim()} blockType="latex" />
           </div>
-          <div className={`p-2 rounded-md font-mono text-sm ${isUser ? "bg-primary-foreground/10" : "bg-background"}`}>
+          <div className={`p-2 rounded-md font-mono text-sm latex-block-vacuum ${isUser ? "bg-primary-foreground/10 border-primary-foreground/20" : ""}`}>
             {block.content.trim()}
           </div>
         </div>
@@ -1305,15 +1332,14 @@ export default function ChatPage() {
         )}
       </div>
 
-      <ControlPanel
+      <ObserverToolkit
         isOpen={controlPanelOpen}
         onToggle={() => setControlPanelOpen(!controlPanelOpen)}
         conversationId={activeConversationId}
         messages={activeConversationQuery.data?.messages || []}
         conversationTitle={activeConversationQuery.data?.title || "GRUT Chat"}
+        constants={activeConversationQuery.data?.constants || user?.grutConstants}
         onExportJson={handleExportJson}
-        onExportMarkdown={handleExportMarkdown}
-        onCopyAll={handleCopyAll}
         isExporting={isExporting}
       />
 
