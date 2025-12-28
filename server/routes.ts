@@ -290,6 +290,12 @@ export async function registerRoutes(
   // Get files for a conversation (requires authentication)
   app.get("/api/chat/:id/files", requireAuth, async (req, res) => {
     try {
+      const userId = (req.session as any).userId;
+      // Verify conversation ownership before returning files
+      const isOwner = await storage.verifyConversationOwnership(req.params.id, userId);
+      if (!isOwner) {
+        return res.status(403).json({ error: "Access denied" });
+      }
       const files = await storage.getFileUploads(req.params.id);
       return res.json(files);
     } catch (error) {
@@ -521,9 +527,14 @@ export async function registerRoutes(
   // Export conversation as JSON
   app.get("/api/chat/:id/export", requireAuth, async (req, res) => {
     try {
+      const userId = (req.session as any).userId;
       const conversation = await storage.getConversation(req.params.id);
       if (!conversation) {
         return res.status(404).json({ error: "Conversation not found" });
+      }
+      // Verify ownership
+      if (conversation.userId && conversation.userId !== userId) {
+        return res.status(403).json({ error: "Access denied" });
       }
 
       const exportData = {

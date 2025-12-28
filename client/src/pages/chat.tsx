@@ -544,23 +544,23 @@ import { useToast } from "@/hooks/use-toast";
 
 interface AuthUser {
   id: string;
-  username: string;
+  email: string;
 }
 
 function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
   const { toast } = useToast();
 
   const loginMutation = useMutation({
-    mutationFn: async ({ username, password }: { username: string; password: string }) => {
-      const response = await apiRequest("POST", "/api/auth/login", { username, password });
+    mutationFn: async ({ email, password }: { email: string; password: string }) => {
+      const response = await apiRequest("POST", "/api/auth/login", { email, password });
       return await response.json();
     },
     onSuccess: (data) => {
       onSuccess(data.user);
-      toast({ title: "Welcome back!", description: `Logged in as ${data.user.username}` });
+      toast({ title: "Welcome back!", description: `Logged in as ${data.user.email}` });
     },
     onError: (error: Error) => {
       toast({ title: "Login failed", description: error.message, variant: "destructive" });
@@ -568,13 +568,13 @@ function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
   });
 
   const registerMutation = useMutation({
-    mutationFn: async ({ username, password }: { username: string; password: string }) => {
-      const response = await apiRequest("POST", "/api/auth/register", { username, password });
+    mutationFn: async ({ email, password }: { email: string; password: string }) => {
+      const response = await apiRequest("POST", "/api/auth/register", { email, password });
       return await response.json();
     },
     onSuccess: (data) => {
       onSuccess(data.user);
-      toast({ title: "Welcome!", description: `Account created for ${data.user.username}` });
+      toast({ title: "Welcome!", description: `Account created for ${data.user.email}` });
     },
     onError: (error: Error) => {
       toast({ title: "Registration failed", description: error.message, variant: "destructive" });
@@ -584,9 +584,9 @@ function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (isRegistering) {
-      registerMutation.mutate({ username, password });
+      registerMutation.mutate({ email, password });
     } else {
-      loginMutation.mutate({ username, password });
+      loginMutation.mutate({ email, password });
     }
   };
 
@@ -607,18 +607,18 @@ function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="username">Username</Label>
+            <Label htmlFor="email">Email</Label>
             <div className="relative">
               <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
-                id="username"
-                type="text"
-                placeholder="Enter username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="pl-10"
                 required
-                data-testid="input-username"
+                data-testid="input-email"
               />
             </div>
           </div>
@@ -635,6 +635,7 @@ function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
                 onChange={(e) => setPassword(e.target.value)}
                 className="pl-10"
                 required
+                minLength={6}
                 data-testid="input-password"
               />
             </div>
@@ -664,7 +665,7 @@ function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
 
           <div className="bg-muted/50 rounded-md p-3 text-sm">
             <p className="font-medium mb-1">Demo Credentials:</p>
-            <p className="text-muted-foreground">Username: <code className="bg-muted px-1 rounded">demo</code></p>
+            <p className="text-muted-foreground">Email: <code className="bg-muted px-1 rounded">demo@grut.ai</code></p>
             <p className="text-muted-foreground">Password: <code className="bg-muted px-1 rounded">grut2025</code></p>
           </div>
         </div>
