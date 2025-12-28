@@ -280,11 +280,24 @@ export async function registerRoutes(
       const userId = (req.session as any).userId;
       const { constants } = req.body;
       
-      if (!constants || typeof constants.tau_0 !== 'number' || typeof constants.n_g !== 'number') {
-        return res.status(400).json({ error: "Invalid constants format" });
+      // Validate all required fields
+      if (!constants || 
+          typeof constants.tau_0 !== 'number' || 
+          typeof constants.n_g !== 'number' ||
+          typeof constants.alpha !== 'number' ||
+          typeof constants.R_max !== 'string') {
+        return res.status(400).json({ error: "Invalid constants format. Required: tau_0 (number), n_g (number), alpha (number), R_max (string)" });
       }
 
-      const updatedUser = await storage.updateUserConstants(userId, constants);
+      // Create validated constants object
+      const validatedConstants: GrutConstants = {
+        tau_0: constants.tau_0,
+        n_g: constants.n_g,
+        alpha: constants.alpha,
+        R_max: constants.R_max
+      };
+
+      const updatedUser = await storage.updateUserConstants(userId, validatedConstants);
       if (!updatedUser) {
         return res.status(404).json({ error: "User not found" });
       }
