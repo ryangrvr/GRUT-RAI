@@ -31,11 +31,29 @@ export const insertSubscriberSchema = createInsertSchema(subscribers).pick({
 export type InsertSubscriber = z.infer<typeof insertSubscriberSchema>;
 export type Subscriber = typeof subscribers.$inferSelect;
 
+// GRUT Constants interface for timeline customization
+export interface GrutConstants {
+  tau_0: number;
+  n_g: number;
+  alpha: number;
+  R_max: string;
+}
+
+export const DEFAULT_GRUT_CONSTANTS: GrutConstants = {
+  tau_0: 41.9,
+  n_g: 1.1547,
+  alpha: 0.333333,
+  R_max: "Lambda_Limit"
+};
+
 // Chat conversations table - persisted to database
 export const conversations = pgTable("conversations", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   title: text("title").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
+  parentConversationId: varchar("parent_conversation_id").references(() => conversations.id, { onDelete: "set null" }),
+  forkSourceMessageId: varchar("fork_source_message_id"),
+  constants: jsonb("constants").$type<GrutConstants>(),
 });
 
 export type Conversation = typeof conversations.$inferSelect;
@@ -134,6 +152,9 @@ export interface ChatConversation {
   createdAt: string;
   messages: ChatMessage[];
   userId?: string;
+  parentConversationId?: string;
+  forkSourceMessageId?: string;
+  constants?: GrutConstants;
 }
 
 export interface ChatFileUpload {

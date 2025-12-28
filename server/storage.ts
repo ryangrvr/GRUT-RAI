@@ -1,7 +1,7 @@
 import { 
   type User, type InsertUser, type Subscriber, type InsertSubscriber, 
-  type ChatMessage, type ChatConversation, type ChatFileUpload, type UniverseState,
-  users, subscribers, conversations, messages, metricMemory, fileUploads, universeStates
+  type ChatMessage, type ChatConversation, type ChatFileUpload, type UniverseState, type GrutConstants,
+  users, subscribers, conversations, messages, metricMemory, fileUploads, universeStates, DEFAULT_GRUT_CONSTANTS
 } from "@shared/schema";
 import { db } from "./db";
 import { pool } from "./db";
@@ -37,6 +37,8 @@ export interface IStorage {
   saveUniverseState(userId: string, name: string, masterSeed: object, msgs: ChatMessage[], conversationId?: string): Promise<UniverseState>;
   loadUniverseState(userId: string, stateId?: string): Promise<UniverseState | undefined>;
   getUserUniverseStates(userId: string): Promise<UniverseState[]>;
+  forkConversation(sourceConversationId: string, forkMessageId: string, title: string, constants: GrutConstants, userId?: string): Promise<ChatConversation>;
+  getChildConversations(parentId: string): Promise<ChatConversation[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -84,6 +86,9 @@ export class DatabaseStorage implements IStorage {
         content: m.content,
         createdAt: m.createdAt.toISOString(),
       })),
+      parentConversationId: conversation.parentConversationId ?? undefined,
+      forkSourceMessageId: conversation.forkSourceMessageId ?? undefined,
+      constants: conversation.constants ?? DEFAULT_GRUT_CONSTANTS,
     };
   }
 
@@ -105,6 +110,9 @@ export class DatabaseStorage implements IStorage {
       title: c.title,
       createdAt: c.createdAt.toISOString(),
       messages: [],
+      parentConversationId: c.parentConversationId ?? undefined,
+      forkSourceMessageId: c.forkSourceMessageId ?? undefined,
+      constants: c.constants ?? DEFAULT_GRUT_CONSTANTS,
     }));
   }
 
@@ -278,6 +286,67 @@ export class DatabaseStorage implements IStorage {
     return await db.select().from(universeStates)
       .where(eq(universeStates.userId, userId))
       .orderBy(desc(universeStates.createdAt));
+  }
+
+  async forkConversation(
+    sourceConversationId: string, 
+    forkMessageId: string, 
+    title: string, 
+    constants: GrutConstants,
+    userId?: string
+  ): Promise<ChatConversation> {
+    const sourceConvo = await this.getConversation(sourceConversationId);
+    if (!sourceConvo) {
+      throw new Error("Source conversation not found");
+    }
+
+    const forkMsgIndex = sourceConvo.messages.findIndex(m => m.id === forkMessageId);
+    if (forkMsgIndex === -1) {
+      throw new Error("Fork source message not found");
+    }
+
+    const messagesToCopy = sourceConvo.messages.slice(0, forkMsgIndex + 1);
+
+    const [newConvo] = await db.insert(conversations).values({
+      title,
+      parentConversationId: sourceConversationId,
+      forkSourceMessageId: forkMessageId,
+      constants,
+    }).returning();
+
+    for (const msg of messagesToCopy) {
+      await db.insert(messages).values({
+        conversationId: newConvo.id,
+        role: msg.role,
+        content: msg.content,
+      });
+    }
+
+    return {
+      id: newConvo.id,
+      title: newConvo.title,
+      createdAt: newConvo.createdAt.toISOString(),
+      messages: messagesToCopy,
+      parentConversationId: newConvo.parentConversationId ?? undefined,
+      forkSourceMessageId: newConvo.forkSourceMessageId ?? undefined,
+      constants: newConvo.constants ?? DEFAULT_GRUT_CONSTANTS,
+    };
+  }
+
+  async getChildConversations(parentId: string): Promise<ChatConversation[]> {
+    const children = await db.select().from(conversations)
+      .where(eq(conversations.parentConversationId, parentId))
+      .orderBy(desc(conversations.createdAt));
+
+    return children.map(c => ({
+      id: c.id,
+      title: c.title,
+      createdAt: c.createdAt.toISOString(),
+      messages: [],
+      parentConversationId: c.parentConversationId ?? undefined,
+      forkSourceMessageId: c.forkSourceMessageId ?? undefined,
+      constants: c.constants ?? DEFAULT_GRUT_CONSTANTS,
+    }));
   }
 }
 

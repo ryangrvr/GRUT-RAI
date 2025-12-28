@@ -458,6 +458,54 @@ export async function registerRoutes(
     }
   });
 
+  // ===== FORK CONVERSATION ROUTES =====
+
+  // Fork a conversation at a specific message with custom GRUT constants
+  app.post("/api/chat/:id/fork", requireAuth, async (req, res) => {
+    try {
+      const { messageId, title, constants } = req.body;
+      
+      if (!messageId) {
+        return res.status(400).json({ error: "messageId is required" });
+      }
+
+      const customConstants = {
+        tau_0: constants?.tau_0 ?? 41.9,
+        n_g: constants?.n_g ?? 1.1547,
+        alpha: constants?.alpha ?? 0.333333,
+        R_max: constants?.R_max ?? "Lambda_Limit",
+      };
+
+      const userId = (req.session as any).userId;
+      const forkedConversation = await storage.forkConversation(
+        req.params.id,
+        messageId,
+        title || `Forked Timeline - ${new Date().toLocaleString()}`,
+        customConstants,
+        userId
+      );
+
+      return res.status(201).json({
+        message: "Timeline forked successfully",
+        conversation: forkedConversation,
+      });
+    } catch (error) {
+      console.error("Error forking conversation:", error);
+      return res.status(500).json({ error: "Failed to fork conversation" });
+    }
+  });
+
+  // Get child timelines for a conversation
+  app.get("/api/chat/:id/children", requireAuth, async (req, res) => {
+    try {
+      const children = await storage.getChildConversations(req.params.id);
+      return res.json(children);
+    } catch (error) {
+      console.error("Error fetching child conversations:", error);
+      return res.status(500).json({ error: "Failed to fetch child timelines" });
+    }
+  });
+
   // List all saved universe states for user
   app.get("/api/states", requireAuth, async (req, res) => {
     try {
