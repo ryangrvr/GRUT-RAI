@@ -65,6 +65,22 @@ export const metricMemory = pgTable("metric_memory", {
 
 export type MetricMemory = typeof metricMemory.$inferSelect;
 
+// File uploads table for chat attachments
+export const fileUploads = pgTable("file_uploads", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  conversationId: varchar("conversation_id").references(() => conversations.id, { onDelete: "cascade" }),
+  messageId: varchar("message_id").references(() => messages.id, { onDelete: "cascade" }),
+  userId: varchar("user_id").references(() => users.id, { onDelete: "cascade" }),
+  filename: text("filename").notNull(),
+  originalName: text("original_name").notNull(),
+  mimeType: text("mime_type").notNull(),
+  size: real("size").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export type FileUpload = typeof fileUploads.$inferSelect;
+export type InsertFileUpload = typeof fileUploads.$inferInsert;
+
 // Relations (defined after all tables to avoid temporal dead zone)
 export const conversationsRelations = relations(conversations, ({ many }) => ({
   messages: many(messages),
@@ -103,4 +119,17 @@ export interface ChatConversation {
   title: string;
   createdAt: string;
   messages: ChatMessage[];
+  userId?: string;
+}
+
+export interface ChatFileUpload {
+  id: string;
+  conversationId?: string;
+  messageId?: string;
+  userId?: string;
+  filename: string;
+  originalName: string;
+  mimeType: string;
+  size: number;
+  createdAt: string;
 }

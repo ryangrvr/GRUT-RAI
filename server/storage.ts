@@ -1,7 +1,7 @@
 import { 
   type User, type InsertUser, type Subscriber, type InsertSubscriber, 
-  type ChatMessage, type ChatConversation,
-  users, subscribers, conversations, messages, metricMemory
+  type ChatMessage, type ChatConversation, type ChatFileUpload,
+  users, subscribers, conversations, messages, metricMemory, fileUploads
 } from "@shared/schema";
 import { db } from "./db";
 import { pool } from "./db";
@@ -25,12 +25,15 @@ export interface IStorage {
   createSubscriber(subscriber: InsertSubscriber): Promise<Subscriber>;
   getConversation(id: string): Promise<ChatConversation | undefined>;
   getAllConversations(): Promise<ChatConversation[]>;
-  createConversation(title: string): Promise<ChatConversation>;
+  getUserConversations(userId: string): Promise<ChatConversation[]>;
+  createConversation(title: string, userId?: string): Promise<ChatConversation>;
   deleteConversation(id: string): Promise<void>;
   addMessage(conversationId: string, role: "user" | "assistant" | "system", content: string): Promise<ChatMessage>;
   getMessages(conversationId: string): Promise<ChatMessage[]>;
   storeMetricMemory(conversationId: string, messageId: string, embedding: number[], complexityXi: number): Promise<void>;
   getTopMetricMemories(conversationId: string, limit?: number, tauSeconds?: number): Promise<WeightedMemory[]>;
+  saveFileUpload(data: { conversationId?: string; messageId?: string; userId?: string; filename: string; originalName: string; mimeType: string; size: number }): Promise<ChatFileUpload>;
+  getFileUploads(conversationId: string): Promise<ChatFileUpload[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -92,7 +95,17 @@ export class DatabaseStorage implements IStorage {
     }));
   }
 
-  async createConversation(title: string): Promise<ChatConversation> {
+  async getUserConversations(userId: string): Promise<ChatConversation[]> {
+    const convos = await db.select().from(conversations).orderBy(desc(conversations.createdAt));
+    return convos.map(c => ({
+      id: c.id,
+      title: c.title,
+      createdAt: c.createdAt.toISOString(),
+      messages: [],
+    }));
+  }
+
+  async createConversation(title: string, userId?: string): Promise<ChatConversation> {
     const [conversation] = await db.insert(conversations).values({ title }).returning();
     return {
       id: conversation.id,
@@ -189,6 +202,48 @@ export class DatabaseStorage implements IStorage {
       console.error("Error querying metric memories:", error);
       return [];
     }
+  }
+
+  async saveFileUpload(data: { conversationId?: string; messageId?: string; userId?: string; filename: string; originalName: string; mimeType: string; size: number }): Promise<ChatFileUpload> {
+    const [upload] = await db.insert(fileUploads).values({
+      conversationId: data.conversationId,
+      messageId: data.messageId,
+      userId: data.userId,
+      filename: data.filename,
+      originalName: data.originalName,
+      mimeType: data.mimeType,
+      size: data.size,
+    }).returning();
+
+    return {
+      id: upload.id,
+      conversationId: upload.conversationId ?? undefined,
+      messageId: upload.messageId ?? undefined,
+      userId: upload.userId ?? undefined,
+      filename: upload.filename,
+      originalName: upload.originalName,
+      mimeType: upload.mimeType,
+      size: upload.size,
+      createdAt: upload.createdAt.toISOString(),
+    };
+  }
+
+  async getFileUploads(conversationId: string): Promise<ChatFileUpload[]> {
+    const uploads = await db.select().from(fileUploads)
+      .where(eq(fileUploads.conversationId, conversationId))
+      .orderBy(desc(fileUploads.createdAt));
+
+    return uploads.map(u => ({
+      id: u.id,
+      conversationId: u.conversationId ?? undefined,
+      messageId: u.messageId ?? undefined,
+      userId: u.userId ?? undefined,
+      filename: u.filename,
+      originalName: u.originalName,
+      mimeType: u.mimeType,
+      size: u.size,
+      createdAt: u.createdAt.toISOString(),
+    }));
   }
 }
 
