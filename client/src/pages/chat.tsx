@@ -36,9 +36,17 @@ function calculateComplexityXi(messageCount: number): number {
   return XI_MAX * (1 - Math.exp(-SATURATION_RATE * messageCount));
 }
 
-function MetricDashboard({ messageCount }: { messageCount: number }) {
+interface MetricDashboardProps {
+  messageCount: number;
+  constants?: GrutConstantsType;
+  isForked?: boolean;
+}
+
+function MetricDashboard({ messageCount, constants, isForked }: MetricDashboardProps) {
   const xi = calculateComplexityXi(messageCount);
   const xiPercent = (xi * 100).toFixed(1);
+  
+  const displayConstants = constants || GRUT_CONSTANTS;
   
   const getEntropyColor = (value: number) => {
     if (value < 0.3) return "text-green-500";
@@ -56,23 +64,29 @@ function MetricDashboard({ messageCount }: { messageCount: number }) {
 
   return (
     <div className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-      <div className="flex items-center justify-center gap-6 px-4 py-2">
+      <div className="flex items-center justify-center gap-6 px-4 py-2 flex-wrap">
         <div className="flex items-center gap-2">
           <Activity className="w-4 h-4 text-primary" />
           <span className="text-xs font-medium text-muted-foreground">Metric Dashboard</span>
+          {isForked && (
+            <Badge variant="secondary" className="text-xs">
+              <GitBranch className="w-3 h-3 mr-1" />
+              Forked
+            </Badge>
+          )}
         </div>
         
         <div className="flex items-center gap-1">
           <span className="text-xs text-muted-foreground">τ₀:</span>
-          <Badge variant="outline" className="text-xs font-mono">
-            {GRUT_CONSTANTS.tau_0} Myr
+          <Badge variant="outline" className={`text-xs font-mono ${isForked && constants?.tau_0 !== GRUT_CONSTANTS.tau_0 ? "border-primary text-primary" : ""}`}>
+            {displayConstants.tau_0} Myr
           </Badge>
         </div>
         
         <div className="flex items-center gap-1">
           <span className="text-xs text-muted-foreground">n<sub>g</sub>:</span>
-          <Badge variant="outline" className="text-xs font-mono">
-            {GRUT_CONSTANTS.n_g}
+          <Badge variant="outline" className={`text-xs font-mono ${isForked && constants?.n_g !== GRUT_CONSTANTS.n_g ? "border-primary text-primary" : ""}`}>
+            {displayConstants.n_g}
           </Badge>
         </div>
         
@@ -791,12 +805,23 @@ export default function ChatPage() {
                   key={conv.id}
                   className={`flex items-center gap-2 p-2 rounded-md cursor-pointer group ${
                     activeConversationId === conv.id ? "bg-accent" : "hover-elevate"
-                  }`}
+                  } ${conv.parentConversationId ? "ml-3 border-l-2 border-primary/30" : ""}`}
                   onClick={() => setActiveConversationId(conv.id)}
                   data-testid={`conversation-item-${conv.id}`}
                 >
-                  <MessageSquare className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                  <span className="text-sm truncate flex-1">{conv.title}</span>
+                  {conv.parentConversationId ? (
+                    <GitBranch className="w-4 h-4 text-primary flex-shrink-0" />
+                  ) : (
+                    <MessageSquare className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <span className="text-sm truncate block">{conv.title}</span>
+                    {conv.constants && conv.parentConversationId && (
+                      <span className="text-xs text-muted-foreground truncate block">
+                        τ₀={conv.constants.tau_0} n<sub>g</sub>={conv.constants.n_g}
+                      </span>
+                    )}
+                  </div>
                   <Button
                     size="icon"
                     variant="ghost"
@@ -817,7 +842,11 @@ export default function ChatPage() {
       </div>
 
       <div className="flex-1 flex flex-col">
-        <MetricDashboard messageCount={activeConversationQuery.data?.messages?.length || 0} />
+        <MetricDashboard 
+          messageCount={activeConversationQuery.data?.messages?.length || 0}
+          constants={activeConversationQuery.data?.constants}
+          isForked={!!activeConversationQuery.data?.parentConversationId}
+        />
         
         {!activeConversationId ? (
           <div className="flex-1 flex flex-col items-center justify-center p-8" data-testid="chat-welcome">
