@@ -45,7 +45,7 @@ const upload = multer({
 
 // Demo user credentials
 const DEMO_USER = {
-  username: "demo",
+  email: "demo@grut.ai",
   password: "grut2025"
 };
 import { 
@@ -148,11 +148,11 @@ export async function registerRoutes(
   // Create demo user on startup if not exists
   (async () => {
     try {
-      const existingDemo = await storage.getUserByUsername(DEMO_USER.username);
+      const existingDemo = await storage.getUserByEmail(DEMO_USER.email);
       if (!existingDemo) {
-        const hashedPassword = await bcrypt.hash(DEMO_USER.password, 10);
-        await storage.createUser({ username: DEMO_USER.username, password: hashedPassword });
-        console.log("[AUTH] Demo user created: username=demo, password=grut2025");
+        const hashedPassword = await bcrypt.hash(DEMO_USER.password, 12);
+        await storage.createUser(DEMO_USER.email, hashedPassword);
+        console.log("[AUTH] Demo user created: email=demo@grut.ai, password=grut2025");
       }
     } catch (err) {
       console.error("[AUTH] Failed to create demo user:", err);
@@ -162,29 +162,29 @@ export async function registerRoutes(
   // Login endpoint
   app.post("/api/auth/login", async (req, res) => {
     try {
-      const { username, password } = req.body;
+      const { email, password } = req.body;
       
-      if (!username || !password) {
-        return res.status(400).json({ error: "Username and password required" });
+      if (!email || !password) {
+        return res.status(400).json({ error: "Email and password required" });
       }
 
-      const user = await storage.getUserByUsername(username);
+      const user = await storage.getUserByEmail(email);
       if (!user) {
         return res.status(401).json({ error: "Invalid credentials" });
       }
 
-      const validPassword = await bcrypt.compare(password, user.password);
+      const validPassword = await bcrypt.compare(password, user.passwordHash);
       if (!validPassword) {
         return res.status(401).json({ error: "Invalid credentials" });
       }
 
       // Store user in session
       (req.session as any).userId = user.id;
-      (req.session as any).username = user.username;
+      (req.session as any).email = user.email;
 
       return res.json({ 
         message: "Login successful",
-        user: { id: user.id, username: user.username }
+        user: { id: user.id, email: user.email }
       });
     } catch (error) {
       console.error("Login error:", error);
@@ -195,30 +195,37 @@ export async function registerRoutes(
   // Register endpoint
   app.post("/api/auth/register", async (req, res) => {
     try {
-      const parsed = insertUserSchema.safeParse(req.body);
+      const { email, password } = req.body;
       
-      if (!parsed.success) {
-        return res.status(400).json({ error: "Invalid input", details: parsed.error.flatten() });
+      if (!email || !password) {
+        return res.status(400).json({ error: "Email and password required" });
       }
 
-      const existingUser = await storage.getUserByUsername(parsed.data.username);
+      // Basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        return res.status(400).json({ error: "Invalid email format" });
+      }
+
+      if (password.length < 6) {
+        return res.status(400).json({ error: "Password must be at least 6 characters" });
+      }
+
+      const existingUser = await storage.getUserByEmail(email);
       if (existingUser) {
-        return res.status(409).json({ error: "Username already exists" });
+        return res.status(409).json({ error: "Email already registered" });
       }
 
-      const hashedPassword = await bcrypt.hash(parsed.data.password, 10);
-      const user = await storage.createUser({ 
-        username: parsed.data.username, 
-        password: hashedPassword 
-      });
+      const hashedPassword = await bcrypt.hash(password, 12);
+      const user = await storage.createUser(email, hashedPassword);
 
       // Auto-login after registration
       (req.session as any).userId = user.id;
-      (req.session as any).username = user.username;
+      (req.session as any).email = user.email;
 
       return res.status(201).json({ 
         message: "Registration successful",
-        user: { id: user.id, username: user.username }
+        user: { id: user.id, email: user.email }
       });
     } catch (error) {
       console.error("Registration error:", error);
@@ -240,13 +247,13 @@ export async function registerRoutes(
   // Get current user
   app.get("/api/auth/me", (req, res) => {
     const userId = (req.session as any)?.userId;
-    const username = (req.session as any)?.username;
+    const email = (req.session as any)?.email;
     
     if (!userId) {
       return res.status(401).json({ error: "Not authenticated" });
     }
     
-    return res.json({ user: { id: userId, username } });
+    return res.json({ user: { id: userId, email } });
   });
 
   // ===== FILE UPLOAD ROUTES =====
@@ -356,9 +363,14 @@ export async function registerRoutes(
 
   app.get("/api/chat/:id", requireAuth, async (req, res) => {
     try {
+      const userId = (req.session as any).userId;
       const conversation = await storage.getConversation(req.params.id);
       if (!conversation) {
         return res.status(404).json({ error: "Conversation not found" });
+      }
+      // Verify ownership (allow access if no userId or matches)
+      if (conversation.userId && conversation.userId !== userId) {
+        return res.status(403).json({ error: "Access denied" });
       }
       return res.json(conversation);
     } catch (error) {
@@ -369,7 +381,12 @@ export async function registerRoutes(
 
   app.delete("/api/chat/:id", requireAuth, async (req, res) => {
     try {
-      await storage.deleteConversation(req.params.id);
+      const userId = (req.session as any).userId;
+      const isOwner = await storage.verifyConversationOwnership(req.params.id, userId);
+      if (!isOwner) {
+        return res.status(403).json({ error: "Access denied" });
+      }
+      await storage.deleteConversation(req.params.id, userId);
       return res.status(204).send();
     } catch (error) {
       console.error("Error deleting conversation:", error);
@@ -463,10 +480,17 @@ export async function registerRoutes(
   // Fork a conversation at a specific message with custom GRUT constants
   app.post("/api/chat/:id/fork", requireAuth, async (req, res) => {
     try {
+      const userId = (req.session as any).userId;
       const { messageId, title, constants } = req.body;
       
       if (!messageId) {
         return res.status(400).json({ error: "messageId is required" });
+      }
+
+      // Verify user owns the source conversation
+      const isOwner = await storage.verifyConversationOwnership(req.params.id, userId);
+      if (!isOwner) {
+        return res.status(403).json({ error: "Access denied" });
       }
 
       const customConstants = {
@@ -476,7 +500,6 @@ export async function registerRoutes(
         R_max: constants?.R_max ?? "Lambda_Limit",
       };
 
-      const userId = (req.session as any).userId;
       const forkedConversation = await storage.forkConversation(
         req.params.id,
         messageId,
