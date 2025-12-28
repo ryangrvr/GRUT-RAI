@@ -3,7 +3,13 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertSubscriberSchema } from "@shared/schema";
 import OpenAI from "openai";
-import { calculateComplexityXi, applyLogicGuard, GRUT_CONSTANTS } from "./grut-logic";
+import { 
+  calculateComplexityXi, 
+  applyLogicGuard, 
+  calculateMemoryResonanceFromISO,
+  isMemoryActive,
+  GRUT_CONSTANTS 
+} from "./grut-logic";
 
 const openai = new OpenAI({
   apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY,
@@ -141,11 +147,22 @@ export async function registerRoutes(
         console.log("Embedding storage skipped (non-critical):", embeddingError);
       }
 
-      // Build message history for OpenAI
-      const messages = await storage.getMessages(req.params.id);
+      // Build message history for OpenAI with Retarded Potential decay
+      // Messages "muddle out" based on their resonance (age-based decay)
+      const allMessages = await storage.getMessages(req.params.id);
+      
+      // Filter to only "active" memories using the Decay Function K(t) = exp(-t/τ₀)
+      const activeMessages = allMessages.filter((m) => {
+        const resonance = calculateMemoryResonanceFromISO(m.createdAt);
+        return isMemoryActive(resonance, 0.01); // Keep messages with >1% resonance
+      });
+      
+      // Log resonance decay for debugging
+      console.log(`[GRUT] Messages: ${allMessages.length} total, ${activeMessages.length} active (resonance > 0.01)`);
+      
       const chatMessages: OpenAI.Chat.ChatCompletionMessageParam[] = [
         { role: "system", content: GRUT_SYSTEM_PROMPT },
-        ...messages.map((m) => ({
+        ...activeMessages.map((m) => ({
           role: m.role as "user" | "assistant",
           content: m.content,
         })),
