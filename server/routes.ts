@@ -162,17 +162,19 @@ export async function registerRoutes(
       const weightedMemories = await storage.getTopMetricMemories(req.params.id, 5, GRUT_CONSTANTS.TAU_0_SCALED);
       
       // Log resonance decay and weighted context for debugging
+      const topMemory = weightedMemories[0];
+      const boostApplied = topMemory && topMemory.boostedRelevance > topMemory.effectiveRelevance;
       console.log(`[GRUT] Messages: ${allMessages.length} total, ${activeMessages.length} active`);
-      console.log(`[GRUT] Weighted memories: ${weightedMemories.length} (top relevance: ${weightedMemories[0]?.effectiveRelevance?.toFixed(4) || 'N/A'})`);
+      console.log(`[GRUT] Weighted memories: ${weightedMemories.length} (top: ${topMemory?.effectiveRelevance?.toFixed(4) || 'N/A'} → boosted: ${topMemory?.boostedRelevance?.toFixed(4) || 'N/A'})${boostApplied ? ' [ng=1.1547 APPLIED]' : ''}`);
       
-      // Build context preamble from high-relevance memories (if any exist beyond current conversation)
+      // Build context preamble from high-relevance memories using BOOSTED scores (the "Secret Sauce")
       let contextPreamble = "";
       if (weightedMemories.length > 0) {
         const topMemorySummary = weightedMemories
           .slice(0, 3)
-          .map(m => `[Relevance: ${m.effectiveRelevance.toFixed(3)}] ${m.role}: ${m.content.substring(0, 100)}...`)
+          .map(m => `[Boosted: ${m.boostedRelevance.toFixed(3)}] ${m.role}: ${m.content.substring(0, 100)}...`)
           .join("\n");
-        contextPreamble = `\n\n[RETARDED POTENTIAL CONTEXT - Most resonant memories]\n${topMemorySummary}\n\n`;
+        contextPreamble = `\n\n[RETARDED POTENTIAL CONTEXT - ng=1.1547 Boosted Memories]\n${topMemorySummary}\n\n`;
       }
       
       const chatMessages: OpenAI.Chat.ChatCompletionMessageParam[] = [

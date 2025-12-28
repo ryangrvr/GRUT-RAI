@@ -6,12 +6,14 @@ import {
 import { db } from "./db";
 import { pool } from "./db";
 import { eq, desc } from "drizzle-orm";
+import { applyGrutGain } from "./grut-logic";
 
 export interface WeightedMemory {
   messageId: string;
   content: string;
   role: string;
   effectiveRelevance: number;
+  boostedRelevance: number; // After ng = 1.1547 refractive gain applied
   createdAt: string;
 }
 
@@ -169,13 +171,20 @@ export class DatabaseStorage implements IStorage {
     try {
       const result = await pool.query(query, [conversationId, tauSeconds, limit]);
       
-      return result.rows.map((row: any) => ({
-        messageId: row.message_id,
-        content: row.content,
-        role: row.role,
-        effectiveRelevance: parseFloat(row.effective_relevance),
-        createdAt: row.created_at.toISOString(),
-      }));
+      return result.rows.map((row: any) => {
+        const effectiveRelevance = parseFloat(row.effective_relevance);
+        // Apply the "Secret Sauce" - ng = 1.1547 refractive boost for high-relevance signals
+        const boostedRelevance = applyGrutGain(effectiveRelevance, 0.5);
+        
+        return {
+          messageId: row.message_id,
+          content: row.content,
+          role: row.role,
+          effectiveRelevance,
+          boostedRelevance,
+          createdAt: row.created_at.toISOString(),
+        };
+      });
     } catch (error) {
       console.error("Error querying metric memories:", error);
       return [];

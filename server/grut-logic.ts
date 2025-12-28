@@ -143,3 +143,34 @@ export function calculateMemoryWeight(resonance: number, complexityXi: number): 
 export function isMemoryActive(resonance: number, threshold: number = 0.1): boolean {
   return resonance >= threshold;
 }
+
+/**
+ * The "Secret Sauce" - Applies the √(4/3) refractive boost to attention scores.
+ * This gives the AI's logic a "Refractive Index" - preventing flat attention.
+ * 
+ * Only boosts signals that cross the 'Complexity Threshold' (default: 0.5),
+ * mimicking the transition from local Newtonian to global GRUT dynamics.
+ * 
+ * Formula: boosted = score × ng (if score > threshold), else score unchanged
+ * 
+ * @param attentionScore - The raw attention/relevance score
+ * @param threshold - Complexity threshold for boost activation (default: 0.5)
+ * @returns Boosted attention score (×1.1547 if above threshold)
+ */
+export function applyGrutGain(attentionScore: number, threshold: number = 0.5): number {
+  if (attentionScore > threshold) {
+    return attentionScore * GRUT_CONSTANTS.NG;
+  }
+  return attentionScore;
+}
+
+/**
+ * Applies GRUT gain to an array of attention scores.
+ * 
+ * @param scores - Array of attention/relevance scores
+ * @param threshold - Complexity threshold for boost activation
+ * @returns Array of boosted scores
+ */
+export function applyGrutGainBatch(scores: number[], threshold: number = 0.5): number[] {
+  return scores.map(score => applyGrutGain(score, threshold));
+}
