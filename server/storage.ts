@@ -19,15 +19,15 @@ export interface WeightedMemory {
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  getUserByEmail(email: string): Promise<User | undefined>;
+  createUser(email: string, passwordHash: string): Promise<User>;
   getSubscriberByEmail(email: string): Promise<Subscriber | undefined>;
   createSubscriber(subscriber: InsertSubscriber): Promise<Subscriber>;
-  getConversation(id: string): Promise<ChatConversation | undefined>;
+  getConversation(id: string, userId?: string): Promise<ChatConversation | undefined>;
   getAllConversations(): Promise<ChatConversation[]>;
   getUserConversations(userId: string): Promise<ChatConversation[]>;
-  createConversation(title: string, userId?: string): Promise<ChatConversation>;
-  deleteConversation(id: string): Promise<void>;
+  createConversation(title: string, userId: string): Promise<ChatConversation>;
+  deleteConversation(id: string, userId: string): Promise<void>;
   addMessage(conversationId: string, role: "user" | "assistant" | "system", content: string): Promise<ChatMessage>;
   getMessages(conversationId: string): Promise<ChatMessage[]>;
   storeMetricMemory(conversationId: string, messageId: string, embedding: number[], complexityXi: number): Promise<void>;
@@ -37,8 +37,9 @@ export interface IStorage {
   saveUniverseState(userId: string, name: string, masterSeed: object, msgs: ChatMessage[], conversationId?: string): Promise<UniverseState>;
   loadUniverseState(userId: string, stateId?: string): Promise<UniverseState | undefined>;
   getUserUniverseStates(userId: string): Promise<UniverseState[]>;
-  forkConversation(sourceConversationId: string, forkMessageId: string, title: string, constants: GrutConstants, userId?: string): Promise<ChatConversation>;
+  forkConversation(sourceConversationId: string, forkMessageId: string, title: string, constants: GrutConstants, userId: string): Promise<ChatConversation>;
   getChildConversations(parentId: string): Promise<ChatConversation[]>;
+  verifyConversationOwnership(conversationId: string, userId: string): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -47,13 +48,16 @@ export class DatabaseStorage implements IStorage {
     return user || undefined;
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.username, username));
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.email, email.toLowerCase().trim()));
     return user || undefined;
   }
 
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const [user] = await db.insert(users).values(insertUser).returning();
+  async createUser(email: string, passwordHash: string): Promise<User> {
+    const [user] = await db.insert(users).values({
+      email: email.toLowerCase().trim(),
+      passwordHash,
+    }).returning();
     return user;
   }
 
@@ -104,30 +108,40 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getUserConversations(userId: string): Promise<ChatConversation[]> {
-    const convos = await db.select().from(conversations).orderBy(desc(conversations.createdAt));
+    const convos = await db.select().from(conversations)
+      .where(eq(conversations.userId, userId))
+      .orderBy(desc(conversations.createdAt));
     return convos.map(c => ({
       id: c.id,
       title: c.title,
       createdAt: c.createdAt.toISOString(),
       messages: [],
+      userId: c.userId ?? undefined,
       parentConversationId: c.parentConversationId ?? undefined,
       forkSourceMessageId: c.forkSourceMessageId ?? undefined,
       constants: c.constants ?? DEFAULT_GRUT_CONSTANTS,
     }));
   }
 
-  async createConversation(title: string, userId?: string): Promise<ChatConversation> {
-    const [conversation] = await db.insert(conversations).values({ title }).returning();
+  async createConversation(title: string, userId: string): Promise<ChatConversation> {
+    const [conversation] = await db.insert(conversations).values({ title, userId }).returning();
     return {
       id: conversation.id,
       title: conversation.title,
       createdAt: conversation.createdAt.toISOString(),
       messages: [],
+      userId: conversation.userId ?? undefined,
     };
   }
 
-  async deleteConversation(id: string): Promise<void> {
+  async deleteConversation(id: string, userId: string): Promise<void> {
     await db.delete(conversations).where(eq(conversations.id, id));
+  }
+
+  async verifyConversationOwnership(conversationId: string, userId: string): Promise<boolean> {
+    const [conversation] = await db.select().from(conversations)
+      .where(eq(conversations.id, conversationId));
+    return conversation?.userId === userId;
   }
 
   async addMessage(conversationId: string, role: "user" | "assistant" | "system", content: string): Promise<ChatMessage> {
@@ -293,7 +307,7 @@ export class DatabaseStorage implements IStorage {
     forkMessageId: string, 
     title: string, 
     constants: GrutConstants,
-    userId?: string
+    userId: string
   ): Promise<ChatConversation> {
     const sourceConvo = await this.getConversation(sourceConversationId);
     if (!sourceConvo) {
@@ -309,6 +323,7 @@ export class DatabaseStorage implements IStorage {
 
     const [newConvo] = await db.insert(conversations).values({
       title,
+      userId,
       parentConversationId: sourceConversationId,
       forkSourceMessageId: forkMessageId,
       constants,
