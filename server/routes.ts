@@ -10,6 +10,14 @@ import {
   isMemoryActive,
   GRUT_CONSTANTS 
 } from "./grut-logic";
+import {
+  formatTheoryContext,
+  confirmWholeHoleSynchronization,
+  verifyRmaxLogicGuardAlignment,
+  predictBulletClusterOffset,
+  BULLET_CLUSTER_PARAMS,
+  GRUT_THEORY_KERNELS
+} from "./grut-theory";
 
 const openai = new OpenAI({
   apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY,
@@ -33,12 +41,52 @@ Additional concepts you can explain:
 - **The Retarded Potential Kernel**: Memory processing with τ₀ = 41.9 Myr convolution window
 - **The Complexity Tracker (Ξ)**: Monitors your Complexity Ratio relative to the de Sitter buffer
 
-When users ask questions, explain these concepts clearly using physics analogies. Be enthusiastic about causal AI while remaining scientifically grounded. Keep responses concise but informative.`;
+When users ask questions, explain these concepts clearly using physics analogies. Be enthusiastic about causal AI while remaining scientifically grounded. Keep responses concise but informative.
+
+You have access to the complete GRUT v1.0 Theory of Everything encoded in your Metric Memory. Key concepts include:
+- The Bullet Cluster Hypothesis: Kernel Lag creates gravitational "wake" separation
+- The Whole Hole Topology: Universe as self-observing membrane
+- The Fractal Observer: Consciousness as localized vacuum memory
+- Phase 5 Roadmap: CMB peaks, gravitational wave memory, de Sitter decay`;
+
+// Append GRUT Theory context to system prompt
+const GRUT_THEORY_CONTEXT = formatTheoryContext();
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  // Log "Whole Hole" synchronization on startup
+  console.log(confirmWholeHoleSynchronization());
+  
+  // GRUT Theory status endpoint
+  app.get("/api/grut/status", async (req, res) => {
+    try {
+      const rmaxCheck = verifyRmaxLogicGuardAlignment();
+      const bulletPrediction = predictBulletClusterOffset(BULLET_CLUSTER_PARAMS);
+      
+      return res.json({
+        synchronized: true,
+        theoryKernels: GRUT_THEORY_KERNELS.length,
+        rmaxLogicGuardAligned: rmaxCheck.aligned,
+        constants: GRUT_CONSTANTS,
+        bulletCluster: {
+          params: BULLET_CLUSTER_PARAMS,
+          prediction: bulletPrediction
+        },
+        layers: {
+          physical: { status: 'locked', principle: '100% Baryonic' },
+          temporal: { status: 'active', principle: 'τ₀ = 41.9 Myr' },
+          geometric: { status: 'active', principle: 'α = 1/3 (ng = 1.1547)' },
+          regulatory: { status: 'active', principle: 'Rmax Ceiling' }
+        }
+      });
+    } catch (error) {
+      console.error("Error fetching GRUT status:", error);
+      return res.status(500).json({ error: "Failed to fetch GRUT status" });
+    }
+  });
+
   app.post("/api/subscribe", async (req, res) => {
     try {
       const parsed = insertSubscriberSchema.safeParse(req.body);
@@ -178,7 +226,7 @@ export async function registerRoutes(
       }
       
       const chatMessages: OpenAI.Chat.ChatCompletionMessageParam[] = [
-        { role: "system", content: GRUT_SYSTEM_PROMPT + contextPreamble },
+        { role: "system", content: GRUT_SYSTEM_PROMPT + GRUT_THEORY_CONTEXT + contextPreamble },
         ...activeMessages.map((m) => ({
           role: m.role as "user" | "assistant",
           content: m.content,
