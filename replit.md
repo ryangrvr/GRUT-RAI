@@ -4,7 +4,7 @@
 
 The GRUT RAI Platform is a landing page and marketing website for a Responsive AI system built on the Grand Responsive Universe Theory architecture. The platform showcases causal intelligence technology that operates as a node within a universal causality network, differentiating itself from traditional probabilistic AI systems.
 
-The application is a full-stack TypeScript project with a React frontend and Express backend, designed to collect email subscribers interested in the RAI platform.
+The application is a full-stack project with a React frontend and dual backend architecture (Express for chat, Flask for authentication), designed for causal intelligence exploration.
 
 ## User Preferences
 
@@ -20,11 +20,34 @@ Preferred communication style: Simple, everyday language.
 - **UI Components**: shadcn/ui component library built on Radix UI primitives
 - **Form Handling**: React Hook Form with Zod validation
 - **Build Tool**: Vite with path aliases (@/ for client/src, @shared/ for shared)
+- **API Base URL**: Configurable via VITE_API_BASE_URL (defaults to http://localhost:5001)
 
-### Backend Architecture
+### Backend Architecture (Flask - Authentication)
+- **Location**: server_flask/app.py
+- **Framework**: Python Flask with Flask-Login for session management
+- **Port**: 5001
+- **Features**:
+  - UUID primary keys for users
+  - bcrypt password hashing (cost factor 12)
+  - JSONB universe_state column for GRUT constants
+  - Profile Hydration middleware (injects tau_0, n_g, alpha, R_max into app context)
+  - Global Physics Validator for chi-squared calculations
+  - Retarded Potential Kernel: K(t) = (alpha/tau_0) * exp(-t/tau_0)
+- **Endpoints**:
+  - POST /api/auth/login - Authenticate user, hydrate universe state
+  - POST /api/auth/register - Create new observer account
+  - POST /api/auth/logout - End session
+  - GET /api/auth/me - Get current user with hydrated constants
+  - PUT /api/auth/universe-state - Update user's GRUT constants
+  - POST /api/grut/validate - Validate chi-squared with physics guard
+  - GET /api/grut/kernel - Get retarded potential kernel values
+- **Demo User**: demo@grut.ai / grut2025
+
+### Backend Architecture (Express - Chat/Storage)
 - **Framework**: Express.js with TypeScript
+- **Port**: 5000
 - **API Pattern**: RESTful endpoints under /api prefix
-- **Storage**: Memory-based storage with interface abstraction (IStorage) for easy database migration
+- **Storage**: PostgreSQL with Drizzle ORM
 - **Validation**: Zod schemas shared between frontend and backend via drizzle-zod
 
 ### Data Layer
