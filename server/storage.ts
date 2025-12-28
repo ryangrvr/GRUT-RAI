@@ -4,7 +4,16 @@ import {
   users, subscribers, conversations, messages, metricMemory
 } from "@shared/schema";
 import { db } from "./db";
+import { pool } from "./db";
 import { eq, desc } from "drizzle-orm";
+
+export interface WeightedMemory {
+  messageId: string;
+  content: string;
+  role: string;
+  effectiveRelevance: number;
+  createdAt: string;
+}
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
@@ -19,6 +28,7 @@ export interface IStorage {
   addMessage(conversationId: string, role: "user" | "assistant" | "system", content: string): Promise<ChatMessage>;
   getMessages(conversationId: string): Promise<ChatMessage[]>;
   storeMetricMemory(conversationId: string, messageId: string, embedding: number[], complexityXi: number): Promise<void>;
+  getTopMetricMemories(conversationId: string, limit?: number, tauSeconds?: number): Promise<WeightedMemory[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -132,6 +142,44 @@ export class DatabaseStorage implements IStorage {
       complexityRatioXi: complexityXi,
       latencyDeltaTau: "41.9 Myr",
     });
+  }
+
+  /**
+   * Queries metric_memory with "Accordion" logic - weighting by resonance and inverse complexity.
+   * Uses: effective_relevance = (1 - complexity_ratio_xi * 0.5) * exp(-age / τ₀)
+   * This ensures low-complexity, recent memories are prioritized while saturated ones "muddle out".
+   */
+  async getTopMetricMemories(conversationId: string, limit: number = 5, tauSeconds: number = 3600): Promise<WeightedMemory[]> {
+    const query = `
+      SELECT 
+        mm.message_id,
+        m.content,
+        m.role,
+        mm.created_at,
+        (GREATEST(0.1, 1 - mm.complexity_ratio_xi * 0.5) * 
+         exp(-EXTRACT(EPOCH FROM (NOW() - mm.created_at)) / $2)) AS effective_relevance
+      FROM metric_memory mm
+      JOIN messages m ON mm.message_id = m.id
+      WHERE mm.conversation_id = $1
+        AND mm.message_id IS NOT NULL
+      ORDER BY effective_relevance DESC
+      LIMIT $3
+    `;
+
+    try {
+      const result = await pool.query(query, [conversationId, tauSeconds, limit]);
+      
+      return result.rows.map((row: any) => ({
+        messageId: row.message_id,
+        content: row.content,
+        role: row.role,
+        effectiveRelevance: parseFloat(row.effective_relevance),
+        createdAt: row.created_at.toISOString(),
+      }));
+    } catch (error) {
+      console.error("Error querying metric memories:", error);
+      return [];
+    }
   }
 }
 

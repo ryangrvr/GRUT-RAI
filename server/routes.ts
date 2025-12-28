@@ -157,11 +157,26 @@ export async function registerRoutes(
         return isMemoryActive(resonance, 0.01); // Keep messages with >1% resonance
       });
       
-      // Log resonance decay for debugging
-      console.log(`[GRUT] Messages: ${allMessages.length} total, ${activeMessages.length} active (resonance > 0.01)`);
+      // Query top weighted memories using Accordion logic
+      // effective_relevance = inverse_complexity * resonance
+      const weightedMemories = await storage.getTopMetricMemories(req.params.id, 5, GRUT_CONSTANTS.TAU_0_SCALED);
+      
+      // Log resonance decay and weighted context for debugging
+      console.log(`[GRUT] Messages: ${allMessages.length} total, ${activeMessages.length} active`);
+      console.log(`[GRUT] Weighted memories: ${weightedMemories.length} (top relevance: ${weightedMemories[0]?.effectiveRelevance?.toFixed(4) || 'N/A'})`);
+      
+      // Build context preamble from high-relevance memories (if any exist beyond current conversation)
+      let contextPreamble = "";
+      if (weightedMemories.length > 0) {
+        const topMemorySummary = weightedMemories
+          .slice(0, 3)
+          .map(m => `[Relevance: ${m.effectiveRelevance.toFixed(3)}] ${m.role}: ${m.content.substring(0, 100)}...`)
+          .join("\n");
+        contextPreamble = `\n\n[RETARDED POTENTIAL CONTEXT - Most resonant memories]\n${topMemorySummary}\n\n`;
+      }
       
       const chatMessages: OpenAI.Chat.ChatCompletionMessageParam[] = [
-        { role: "system", content: GRUT_SYSTEM_PROMPT },
+        { role: "system", content: GRUT_SYSTEM_PROMPT + contextPreamble },
         ...activeMessages.map((m) => ({
           role: m.role as "user" | "assistant",
           content: m.content,
