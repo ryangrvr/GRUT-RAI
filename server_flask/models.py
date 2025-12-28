@@ -11,6 +11,19 @@ from sqlalchemy.orm import declarative_base, relationship
 
 DATABASE_URL = os.environ.get('DATABASE_URL', '')
 ASYNC_DATABASE_URL = DATABASE_URL.replace('postgresql://', 'postgresql+asyncpg://').replace('postgres://', 'postgresql+asyncpg://')
+ASYNC_CONNECT_ARGS = {}
+
+if '?' in ASYNC_DATABASE_URL:
+    from urllib.parse import urlparse, parse_qs
+    parsed = urlparse(ASYNC_DATABASE_URL)
+    query_params = parse_qs(parsed.query)
+    if 'sslmode' in query_params:
+        ssl_mode = query_params['sslmode'][0]
+        if ssl_mode == 'require':
+            ASYNC_CONNECT_ARGS['ssl'] = True
+        elif ssl_mode == 'disable':
+            ASYNC_CONNECT_ARGS['ssl'] = False
+    ASYNC_DATABASE_URL = ASYNC_DATABASE_URL.split('?')[0]
 
 Base = declarative_base()
 metadata = MetaData()
@@ -103,7 +116,8 @@ def get_async_engine():
         async_engine = create_async_engine(
             ASYNC_DATABASE_URL,
             echo=False,
-            pool_pre_ping=True
+            pool_pre_ping=True,
+            connect_args=ASYNC_CONNECT_ARGS
         )
     return async_engine
 

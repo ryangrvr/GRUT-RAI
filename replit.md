@@ -41,7 +41,12 @@ Preferred communication style: Simple, everyday language.
   - PUT /api/auth/universe-state - Update user's GRUT constants
   - POST /api/grut/validate - Validate chi-squared with physics guard
   - GET /api/grut/kernel - Get retarded potential kernel values
+  - POST /api/universe/save - Atomic commit of session state (chi-squared metrics, kernel weights)
+  - GET /api/universe/snapshots - List user's state snapshots
+  - POST /api/universe/restore/<snapshot_id> - Restore from snapshot
+  - GET /api/universe/benchmark - Cross-universe benchmarking vs global GRUT constants
 - **Demo User**: demo@grut.ai / grut2025
+- **SQLAlchemy Tables**: flask_users, flask_conversations, flask_messages, state_snapshots
 
 ### Backend Architecture (Express - Chat/Storage)
 - **Framework**: Express.js with TypeScript
