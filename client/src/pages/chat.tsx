@@ -9,8 +9,17 @@ import { Label } from "@/components/ui/label";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { 
   ArrowLeft, Send, Loader2, MessageSquare, Trash2, Plus, Sparkles, 
-  LogOut, Upload, CheckCircle2, Paperclip, User, Lock, Download, Copy, Check, Save, Activity
+  LogOut, Upload, CheckCircle2, Paperclip, User, Lock, Download, Copy, Check, Save, Activity,
+  GitBranch, X
 } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 
 // GRUT Kernel Constants
@@ -196,6 +205,149 @@ function MessageContent({ content, isUser }: { content: string; isUser: boolean 
   return <>{parts}</>;
 }
 
+interface GrutConstantsType {
+  tau_0: number;
+  n_g: number;
+  alpha: number;
+  R_max: string;
+}
+
+interface ForkDialogProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onFork: (title: string, constants: GrutConstantsType) => void;
+  isPending: boolean;
+  sourceMessagePreview?: string;
+}
+
+function ForkConversationDialog({ isOpen, onClose, onFork, isPending, sourceMessagePreview }: ForkDialogProps) {
+  const [title, setTitle] = useState("");
+  const [tau0, setTau0] = useState("41.9");
+  const [ng, setNg] = useState("1.1547");
+  const [alpha, setAlpha] = useState("0.333333");
+  const [rmax, setRmax] = useState("Lambda_Limit");
+
+  const handleSubmit = () => {
+    const constants: GrutConstantsType = {
+      tau_0: parseFloat(tau0) || 41.9,
+      n_g: parseFloat(ng) || 1.1547,
+      alpha: parseFloat(alpha) || 0.333333,
+      R_max: rmax || "Lambda_Limit",
+    };
+    onFork(title || `Forked Timeline - ${new Date().toLocaleString()}`, constants);
+  };
+
+  return (
+    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2">
+            <GitBranch className="w-5 h-5 text-primary" />
+            Fork Timeline
+          </DialogTitle>
+          <DialogDescription>
+            Create a new timeline branch with custom GRUT constants. The original thread remains intact.
+          </DialogDescription>
+        </DialogHeader>
+        
+        {sourceMessagePreview && (
+          <div className="p-2 bg-muted rounded-md text-xs text-muted-foreground">
+            <span className="font-medium">Fork point:</span> {sourceMessagePreview.slice(0, 100)}...
+          </div>
+        )}
+
+        <div className="space-y-4 py-2">
+          <div className="space-y-2">
+            <Label htmlFor="fork-title">Timeline Name</Label>
+            <Input
+              id="fork-title"
+              placeholder="Enter timeline name..."
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              data-testid="input-fork-title"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label className="text-sm font-medium">Custom GRUT Constants</Label>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-1">
+                <Label htmlFor="tau0" className="text-xs text-muted-foreground">
+                  τ₀ (Vacuum Relaxation Time, Myr)
+                </Label>
+                <Input
+                  id="tau0"
+                  type="number"
+                  step="0.1"
+                  value={tau0}
+                  onChange={(e) => setTau0(e.target.value)}
+                  data-testid="input-fork-tau0"
+                />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="ng" className="text-xs text-muted-foreground">
+                  n<sub>g</sub> (Refractive Index)
+                </Label>
+                <Input
+                  id="ng"
+                  type="number"
+                  step="0.0001"
+                  value={ng}
+                  onChange={(e) => setNg(e.target.value)}
+                  data-testid="input-fork-ng"
+                />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="alpha" className="text-xs text-muted-foreground">
+                  α (Geometric Lock)
+                </Label>
+                <Input
+                  id="alpha"
+                  type="number"
+                  step="0.000001"
+                  value={alpha}
+                  onChange={(e) => setAlpha(e.target.value)}
+                  data-testid="input-fork-alpha"
+                />
+              </div>
+              <div className="space-y-1">
+                <Label htmlFor="rmax" className="text-xs text-muted-foreground">
+                  R<sub>max</sub> (Curvature Regulator)
+                </Label>
+                <Input
+                  id="rmax"
+                  value={rmax}
+                  onChange={(e) => setRmax(e.target.value)}
+                  data-testid="input-fork-rmax"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <DialogFooter className="gap-2">
+          <Button variant="outline" onClick={onClose} disabled={isPending} data-testid="button-fork-cancel">
+            Cancel
+          </Button>
+          <Button onClick={handleSubmit} disabled={isPending} data-testid="button-fork-confirm">
+            {isPending ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                Creating...
+              </>
+            ) : (
+              <>
+                <GitBranch className="w-4 h-4 mr-2" />
+                Fork Timeline
+              </>
+            )}
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 function exportMetricLog(messages: ChatMessage[], conversationTitle: string): void {
   const now = new Date();
   const timestamp = now.toISOString();
@@ -379,6 +531,8 @@ export default function ChatPage() {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [authChecked, setAuthChecked] = useState(false);
   const [pendingUpload, setPendingUpload] = useState<File | null>(null);
+  const [forkDialogOpen, setForkDialogOpen] = useState(false);
+  const [forkSourceMessage, setForkSourceMessage] = useState<ChatMessage | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -495,6 +649,50 @@ export default function ChatPage() {
       toast({ title: "Save failed", description: error.message, variant: "destructive" });
     },
   });
+
+  const forkConversationMutation = useMutation({
+    mutationFn: async ({ conversationId, messageId, title, constants }: { 
+      conversationId: string; 
+      messageId: string; 
+      title: string; 
+      constants: GrutConstantsType 
+    }) => {
+      const response = await apiRequest("POST", `/api/chat/${conversationId}/fork`, { 
+        messageId, 
+        title, 
+        constants 
+      });
+      return await response.json();
+    },
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["/api/chat"] });
+      setActiveConversationId(data.conversation.id);
+      setForkDialogOpen(false);
+      setForkSourceMessage(null);
+      toast({ 
+        title: "Timeline Forked", 
+        description: `New timeline created with custom GRUT constants` 
+      });
+    },
+    onError: (error: Error) => {
+      toast({ title: "Fork failed", description: error.message, variant: "destructive" });
+    },
+  });
+
+  const handleForkMessage = (message: ChatMessage) => {
+    setForkSourceMessage(message);
+    setForkDialogOpen(true);
+  };
+
+  const handleForkSubmit = (title: string, constants: GrutConstantsType) => {
+    if (!activeConversationId || !forkSourceMessage) return;
+    forkConversationMutation.mutate({
+      conversationId: activeConversationId,
+      messageId: forkSourceMessage.id,
+      title,
+      constants,
+    });
+  };
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -752,11 +950,21 @@ export default function ChatPage() {
                             : "bg-muted"
                         }`}
                       >
-                        {message.role === "assistant" && (
-                          <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <button
+                            onClick={() => handleForkMessage(message)}
+                            className={`p-1 rounded transition-colors hover-elevate ${
+                              message.role === "user" ? "bg-primary-foreground/20" : "bg-background/50"
+                            }`}
+                            title="Fork timeline from this message"
+                            data-testid={`button-fork-message-${message.id}`}
+                          >
+                            <GitBranch className="w-3 h-3" />
+                          </button>
+                          {message.role === "assistant" && (
                             <CopyButton text={message.content} className="bg-background/50" />
-                          </div>
-                        )}
+                          )}
+                        </div>
                         <div className="text-sm whitespace-pre-wrap">
                           <MessageContent content={message.content} isUser={message.role === "user"} />
                         </div>
@@ -831,6 +1039,17 @@ export default function ChatPage() {
           </>
         )}
       </div>
+
+      <ForkConversationDialog
+        isOpen={forkDialogOpen}
+        onClose={() => {
+          setForkDialogOpen(false);
+          setForkSourceMessage(null);
+        }}
+        onFork={handleForkSubmit}
+        isPending={forkConversationMutation.isPending}
+        sourceMessagePreview={forkSourceMessage?.content}
+      />
     </div>
   );
 }
