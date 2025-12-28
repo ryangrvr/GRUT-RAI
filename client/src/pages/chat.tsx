@@ -10,7 +10,7 @@ import { apiRequest, queryClient } from "@/lib/queryClient";
 import { 
   ArrowLeft, Send, Loader2, MessageSquare, Trash2, Plus, Sparkles, 
   LogOut, Upload, CheckCircle2, Paperclip, User, Lock, Download, Copy, Check, Save, Activity,
-  GitBranch, X
+  GitBranch, X, Settings2, FileJson, ClipboardCopy, FileDown, ChevronRight, ChevronLeft
 } from "lucide-react";
 import {
   Dialog,
@@ -232,6 +232,141 @@ interface ForkDialogProps {
   onFork: (title: string, constants: GrutConstantsType) => void;
   isPending: boolean;
   sourceMessagePreview?: string;
+}
+
+interface ControlPanelProps {
+  isOpen: boolean;
+  onToggle: () => void;
+  conversationId: string | null;
+  messages: ChatMessage[];
+  conversationTitle: string;
+  onExportJson: () => void;
+  onExportMarkdown: () => void;
+  onCopyAll: () => void;
+  isExporting: boolean;
+}
+
+function ControlPanel({ 
+  isOpen, 
+  onToggle, 
+  conversationId, 
+  messages, 
+  conversationTitle,
+  onExportJson,
+  onExportMarkdown,
+  onCopyAll,
+  isExporting
+}: ControlPanelProps) {
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  const handleCopyAll = async () => {
+    onCopyAll();
+    setCopySuccess(true);
+    setTimeout(() => setCopySuccess(false), 2000);
+  };
+
+  if (!isOpen) {
+    return (
+      <button
+        onClick={onToggle}
+        className="fixed right-0 top-1/2 -translate-y-1/2 bg-card border border-r-0 border-border rounded-l-md p-2 hover-elevate z-40"
+        data-testid="button-open-control-panel"
+      >
+        <Settings2 className="w-4 h-4" />
+      </button>
+    );
+  }
+
+  return (
+    <div className="w-64 border-l border-border bg-card flex flex-col" data-testid="control-panel">
+      <div className="p-4 border-b border-border flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2">
+          <Settings2 className="w-4 h-4 text-primary" />
+          <span className="font-medium text-sm">Control Panel</span>
+        </div>
+        <Button size="icon" variant="ghost" onClick={onToggle} data-testid="button-close-control-panel">
+          <ChevronRight className="w-4 h-4" />
+        </Button>
+      </div>
+
+      <ScrollArea className="flex-1 p-4">
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <Label className="text-xs text-muted-foreground uppercase tracking-wider">Export Options</Label>
+            
+            <Button
+              variant="outline"
+              className="w-full justify-start gap-2"
+              onClick={onExportJson}
+              disabled={!conversationId || isExporting}
+              data-testid="button-export-json"
+            >
+              {isExporting ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <FileJson className="w-4 h-4" />
+              )}
+              Download JSON
+            </Button>
+
+            <Button
+              variant="outline"
+              className="w-full justify-start gap-2"
+              onClick={onExportMarkdown}
+              disabled={!conversationId || messages.length === 0}
+              data-testid="button-export-markdown"
+            >
+              <FileDown className="w-4 h-4" />
+              Download Markdown
+            </Button>
+          </div>
+
+          <div className="space-y-2">
+            <Label className="text-xs text-muted-foreground uppercase tracking-wider">Copy Options</Label>
+            
+            <Button
+              variant="outline"
+              className="w-full justify-start gap-2"
+              onClick={handleCopyAll}
+              disabled={!conversationId || messages.length === 0}
+              data-testid="button-copy-all"
+            >
+              {copySuccess ? (
+                <>
+                  <Check className="w-4 h-4 text-green-500" />
+                  Copied!
+                </>
+              ) : (
+                <>
+                  <ClipboardCopy className="w-4 h-4" />
+                  Copy All Messages
+                </>
+              )}
+            </Button>
+          </div>
+
+          {conversationId && messages.length > 0 && (
+            <div className="space-y-2 pt-4 border-t border-border">
+              <Label className="text-xs text-muted-foreground uppercase tracking-wider">Session Info</Label>
+              <div className="text-xs space-y-1 text-muted-foreground">
+                <p>Messages: {messages.length}</p>
+                <p>User: {messages.filter(m => m.role === "user").length}</p>
+                <p>RAI: {messages.filter(m => m.role === "assistant").length}</p>
+              </div>
+            </div>
+          )}
+
+          <div className="space-y-2 pt-4 border-t border-border">
+            <Label className="text-xs text-muted-foreground uppercase tracking-wider">Quiet Vacuum Mode</Label>
+            <p className="text-xs text-muted-foreground">
+              The main chat window remains a "Quiet Vacuum" - free from clutter. 
+              All controls are housed here in the Control Panel.
+            </p>
+          </div>
+        </div>
+      </ScrollArea>
+    </div>
+  );
 }
 
 function ForkConversationDialog({ isOpen, onClose, onFork, isPending, sourceMessagePreview }: ForkDialogProps) {
@@ -547,9 +682,61 @@ export default function ChatPage() {
   const [pendingUpload, setPendingUpload] = useState<File | null>(null);
   const [forkDialogOpen, setForkDialogOpen] = useState(false);
   const [forkSourceMessage, setForkSourceMessage] = useState<ChatMessage | null>(null);
+  const [controlPanelOpen, setControlPanelOpen] = useState(false);
+  const [isExporting, setIsExporting] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
+
+  const handleExportJson = async () => {
+    if (!activeConversationId) return;
+    setIsExporting(true);
+    try {
+      const response = await fetch(`/api/chat/${activeConversationId}/export`, {
+        credentials: "include",
+      });
+      if (!response.ok) throw new Error("Export failed");
+      const data = await response.json();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `grut-chat-${activeConversationId}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      toast({ title: "Export Complete", description: "JSON file downloaded successfully" });
+    } catch (error) {
+      toast({ title: "Export Failed", description: "Could not export conversation", variant: "destructive" });
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
+  const handleExportMarkdown = () => {
+    const messages = activeConversationQuery.data?.messages || [];
+    const title = activeConversationQuery.data?.title || "GRUT Chat";
+    exportMetricLog(messages, title);
+    toast({ title: "Export Complete", description: "Markdown file downloaded" });
+  };
+
+  const handleCopyAll = async () => {
+    const messages = activeConversationQuery.data?.messages || [];
+    if (messages.length === 0) return;
+    
+    const formattedText = messages.map((msg, i) => {
+      const role = msg.role === "user" ? "USER" : "RAI";
+      return `[${i + 1}] ${role}:\n${msg.content}`;
+    }).join("\n\n---\n\n");
+    
+    try {
+      await navigator.clipboard.writeText(formattedText);
+      toast({ title: "Copied", description: "All messages copied to clipboard" });
+    } catch (error) {
+      toast({ title: "Copy Failed", description: "Could not copy to clipboard", variant: "destructive" });
+    }
+  };
 
   useEffect(() => {
     fetch("/api/auth/me", { credentials: "include" })
@@ -752,7 +939,7 @@ export default function ChatPage() {
 
   return (
     <div className="flex h-screen bg-background" data-testid="chat-page">
-      <div className="w-64 border-r border-border bg-card flex flex-col">
+      <div className="w-64 border-r border-border bg-card flex flex-col flex-shrink-0">
         <div className="p-4 border-b border-border">
           <div className="flex items-center justify-between mb-3">
             <Button
@@ -1068,6 +1255,18 @@ export default function ChatPage() {
           </>
         )}
       </div>
+
+      <ControlPanel
+        isOpen={controlPanelOpen}
+        onToggle={() => setControlPanelOpen(!controlPanelOpen)}
+        conversationId={activeConversationId}
+        messages={activeConversationQuery.data?.messages || []}
+        conversationTitle={activeConversationQuery.data?.title || "GRUT Chat"}
+        onExportJson={handleExportJson}
+        onExportMarkdown={handleExportMarkdown}
+        onCopyAll={handleCopyAll}
+        isExporting={isExporting}
+      />
 
       <ForkConversationDialog
         isOpen={forkDialogOpen}

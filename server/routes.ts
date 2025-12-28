@@ -495,6 +495,55 @@ export async function registerRoutes(
     }
   });
 
+  // Export conversation as JSON
+  app.get("/api/chat/:id/export", requireAuth, async (req, res) => {
+    try {
+      const conversation = await storage.getConversation(req.params.id);
+      if (!conversation) {
+        return res.status(404).json({ error: "Conversation not found" });
+      }
+
+      const exportData = {
+        exportedAt: new Date().toISOString(),
+        version: "1.0",
+        grutConstants: conversation.constants || {
+          tau_0: 41.9,
+          n_g: 1.1547,
+          alpha: 0.333333,
+          R_max: "Lambda_Limit"
+        },
+        conversation: {
+          id: conversation.id,
+          title: conversation.title,
+          createdAt: conversation.createdAt,
+          parentConversationId: conversation.parentConversationId,
+          forkSourceMessageId: conversation.forkSourceMessageId,
+          messageCount: conversation.messages.length,
+        },
+        messages: conversation.messages.map((msg, index) => ({
+          index: index + 1,
+          id: msg.id,
+          role: msg.role,
+          content: msg.content,
+          createdAt: msg.createdAt,
+        })),
+        metrics: {
+          totalMessages: conversation.messages.length,
+          userMessages: conversation.messages.filter(m => m.role === "user").length,
+          assistantMessages: conversation.messages.filter(m => m.role === "assistant").length,
+          complexityXi: 1.0 * (1 - Math.exp(-0.05 * conversation.messages.length)),
+        }
+      };
+
+      res.setHeader("Content-Type", "application/json");
+      res.setHeader("Content-Disposition", `attachment; filename="grut-chat-${conversation.id}.json"`);
+      return res.json(exportData);
+    } catch (error) {
+      console.error("Error exporting conversation:", error);
+      return res.status(500).json({ error: "Failed to export conversation" });
+    }
+  });
+
   // Get child timelines for a conversation
   app.get("/api/chat/:id/children", requireAuth, async (req, res) => {
     try {
