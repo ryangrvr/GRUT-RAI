@@ -5,13 +5,16 @@ import { z } from "zod";
 
 export const users = pgTable("users", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+  email: text("email").notNull().unique(),
+  passwordHash: text("password_hash").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
 export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
+  email: true,
+  passwordHash: true,
+}).extend({
+  email: z.string().email("Please enter a valid email address"),
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
@@ -49,6 +52,7 @@ export const DEFAULT_GRUT_CONSTANTS: GrutConstants = {
 // Chat conversations table - persisted to database
 export const conversations = pgTable("conversations", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id, { onDelete: "cascade" }),
   title: text("title").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   parentConversationId: varchar("parent_conversation_id").references(() => conversations.id, { onDelete: "set null" }),
