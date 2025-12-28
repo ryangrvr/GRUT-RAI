@@ -9,8 +9,9 @@ import { Label } from "@/components/ui/label";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { 
   ArrowLeft, Send, Loader2, MessageSquare, Trash2, Plus, Sparkles, 
-  LogOut, Upload, CheckCircle2, Paperclip, User, Lock, Download, Copy, Check, Save
+  LogOut, Upload, CheckCircle2, Paperclip, User, Lock, Download, Copy, Check, Save, Activity
 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 // GRUT Kernel Constants
 const GRUT_CONSTANTS = {
@@ -19,6 +20,73 @@ const GRUT_CONSTANTS = {
   alpha: 0.333333,
   R_max: "Lambda_Limit"
 };
+
+function calculateComplexityXi(messageCount: number): number {
+  const XI_MAX = 1.0;
+  const SATURATION_RATE = 0.05;
+  return XI_MAX * (1 - Math.exp(-SATURATION_RATE * messageCount));
+}
+
+function MetricDashboard({ messageCount }: { messageCount: number }) {
+  const xi = calculateComplexityXi(messageCount);
+  const xiPercent = (xi * 100).toFixed(1);
+  
+  const getEntropyColor = (value: number) => {
+    if (value < 0.3) return "text-green-500";
+    if (value < 0.6) return "text-yellow-500";
+    if (value < 0.85) return "text-orange-500";
+    return "text-red-500";
+  };
+
+  const getEntropyStatus = (value: number) => {
+    if (value < 0.3) return "Low Complexity";
+    if (value < 0.6) return "Moderate";
+    if (value < 0.85) return "High Complexity";
+    return "Near Saturation";
+  };
+
+  return (
+    <div className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+      <div className="flex items-center justify-center gap-6 px-4 py-2">
+        <div className="flex items-center gap-2">
+          <Activity className="w-4 h-4 text-primary" />
+          <span className="text-xs font-medium text-muted-foreground">Metric Dashboard</span>
+        </div>
+        
+        <div className="flex items-center gap-1">
+          <span className="text-xs text-muted-foreground">τ₀:</span>
+          <Badge variant="outline" className="text-xs font-mono">
+            {GRUT_CONSTANTS.tau_0} Myr
+          </Badge>
+        </div>
+        
+        <div className="flex items-center gap-1">
+          <span className="text-xs text-muted-foreground">n<sub>g</sub>:</span>
+          <Badge variant="outline" className="text-xs font-mono">
+            {GRUT_CONSTANTS.n_g}
+          </Badge>
+        </div>
+        
+        <div className="flex items-center gap-1">
+          <span className="text-xs text-muted-foreground">Ξ:</span>
+          <Badge variant="outline" className={`text-xs font-mono ${getEntropyColor(xi)}`}>
+            {xiPercent}%
+          </Badge>
+          <span className={`text-xs ${getEntropyColor(xi)}`}>
+            ({getEntropyStatus(xi)})
+          </span>
+        </div>
+        
+        <div className="flex items-center gap-1">
+          <span className="text-xs text-muted-foreground">Messages:</span>
+          <Badge variant="secondary" className="text-xs">
+            {messageCount}
+          </Badge>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function CopyButton({ text, className = "" }: { text: string; className?: string }) {
   const [copied, setCopied] = useState(false);
@@ -551,6 +619,8 @@ export default function ChatPage() {
       </div>
 
       <div className="flex-1 flex flex-col">
+        <MetricDashboard messageCount={activeConversationQuery.data?.messages?.length || 0} />
+        
         {!activeConversationId ? (
           <div className="flex-1 flex flex-col items-center justify-center p-8" data-testid="chat-welcome">
             <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
