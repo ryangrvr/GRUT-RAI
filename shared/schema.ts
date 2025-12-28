@@ -3,10 +3,26 @@ import { pgTable, text, varchar, timestamp, real, jsonb, interval } from "drizzl
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
+// GRUT Constants interface for timeline customization (defined early for use in users table)
+export interface GrutConstants {
+  tau_0: number;
+  n_g: number;
+  alpha: number;
+  R_max: string;
+}
+
+export const DEFAULT_GRUT_CONSTANTS: GrutConstants = {
+  tau_0: 41.9,
+  n_g: 1.1547,
+  alpha: 0.333333,
+  R_max: "Lambda_Limit"
+};
+
 export const users = pgTable("users", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   email: text("email").notNull().unique(),
   passwordHash: text("password_hash").notNull(),
+  grutConstants: jsonb("grut_constants").$type<GrutConstants>(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
@@ -33,21 +49,6 @@ export const insertSubscriberSchema = createInsertSchema(subscribers).pick({
 
 export type InsertSubscriber = z.infer<typeof insertSubscriberSchema>;
 export type Subscriber = typeof subscribers.$inferSelect;
-
-// GRUT Constants interface for timeline customization
-export interface GrutConstants {
-  tau_0: number;
-  n_g: number;
-  alpha: number;
-  R_max: string;
-}
-
-export const DEFAULT_GRUT_CONSTANTS: GrutConstants = {
-  tau_0: 41.9,
-  n_g: 1.1547,
-  alpha: 0.333333,
-  R_max: "Lambda_Limit"
-};
 
 // Chat conversations table - persisted to database
 export const conversations = pgTable("conversations", {

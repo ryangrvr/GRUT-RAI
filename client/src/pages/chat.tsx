@@ -549,12 +549,14 @@ function exportMetricLog(messages: ChatMessage[], conversationTitle: string): vo
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 }
-import type { ChatConversation, ChatMessage, ChatFileUpload } from "@shared/schema";
+import type { ChatConversation, ChatMessage, ChatFileUpload, GrutConstants } from "@shared/schema";
+import { DEFAULT_GRUT_CONSTANTS } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 
 interface AuthUser {
   id: string;
   email: string;
+  grutConstants?: GrutConstants;
 }
 
 function LoginForm({ onSuccess }: { onSuccess: (user: AuthUser) => void }) {
@@ -1062,7 +1064,7 @@ export default function ChatPage() {
       <div className="flex-1 flex flex-col">
         <MetricDashboard 
           messageCount={activeConversationQuery.data?.messages?.length || 0}
-          constants={activeConversationQuery.data?.constants}
+          constants={activeConversationQuery.data?.constants || user?.grutConstants}
           isForked={!!activeConversationQuery.data?.parentConversationId}
           userEmail={user?.email}
         />

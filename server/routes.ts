@@ -2,7 +2,7 @@ import type { Express } from "express";
 import "express-session";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertSubscriberSchema, insertUserSchema } from "@shared/schema";
+import { insertSubscriberSchema, insertUserSchema, DEFAULT_GRUT_CONSTANTS, type GrutConstants } from "@shared/schema";
 import OpenAI from "openai";
 import multer from "multer";
 import bcrypt from "bcrypt";
@@ -184,7 +184,11 @@ export async function registerRoutes(
 
       return res.json({ 
         message: "Login successful",
-        user: { id: user.id, email: user.email }
+        user: { 
+          id: user.id, 
+          email: user.email,
+          grutConstants: user.grutConstants || DEFAULT_GRUT_CONSTANTS
+        }
       });
     } catch (error) {
       console.error("Login error:", error);
@@ -225,7 +229,11 @@ export async function registerRoutes(
 
       return res.status(201).json({ 
         message: "Registration successful",
-        user: { id: user.id, email: user.email }
+        user: { 
+          id: user.id, 
+          email: user.email,
+          grutConstants: DEFAULT_GRUT_CONSTANTS
+        }
       });
     } catch (error) {
       console.error("Registration error:", error);
@@ -245,15 +253,50 @@ export async function registerRoutes(
   });
 
   // Get current user
-  app.get("/api/auth/me", (req, res) => {
+  app.get("/api/auth/me", async (req, res) => {
     const userId = (req.session as any)?.userId;
-    const email = (req.session as any)?.email;
     
     if (!userId) {
       return res.status(401).json({ error: "Not authenticated" });
     }
     
-    return res.json({ user: { id: userId, email } });
+    const user = await storage.getUser(userId);
+    if (!user) {
+      return res.status(401).json({ error: "User not found" });
+    }
+    
+    return res.json({ 
+      user: { 
+        id: user.id, 
+        email: user.email,
+        grutConstants: user.grutConstants || DEFAULT_GRUT_CONSTANTS
+      } 
+    });
+  });
+
+  // Update user's GRUT constants
+  app.put("/api/auth/constants", requireAuth, async (req, res) => {
+    try {
+      const userId = (req.session as any).userId;
+      const { constants } = req.body;
+      
+      if (!constants || typeof constants.tau_0 !== 'number' || typeof constants.n_g !== 'number') {
+        return res.status(400).json({ error: "Invalid constants format" });
+      }
+
+      const updatedUser = await storage.updateUserConstants(userId, constants);
+      if (!updatedUser) {
+        return res.status(404).json({ error: "User not found" });
+      }
+
+      return res.json({ 
+        message: "Constants updated successfully",
+        grutConstants: updatedUser.grutConstants
+      });
+    } catch (error) {
+      console.error("Update constants error:", error);
+      return res.status(500).json({ error: "Failed to update constants" });
+    }
   });
 
   // ===== FILE UPLOAD ROUTES =====

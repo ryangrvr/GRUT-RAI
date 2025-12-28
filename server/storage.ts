@@ -21,6 +21,7 @@ export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
   getUserByEmail(email: string): Promise<User | undefined>;
   createUser(email: string, passwordHash: string): Promise<User>;
+  updateUserConstants(userId: string, constants: GrutConstants): Promise<User | undefined>;
   getSubscriberByEmail(email: string): Promise<Subscriber | undefined>;
   createSubscriber(subscriber: InsertSubscriber): Promise<Subscriber>;
   getConversation(id: string, userId?: string): Promise<ChatConversation | undefined>;
@@ -59,6 +60,14 @@ export class DatabaseStorage implements IStorage {
       passwordHash,
     }).returning();
     return user;
+  }
+
+  async updateUserConstants(userId: string, constants: GrutConstants): Promise<User | undefined> {
+    const [user] = await db.update(users)
+      .set({ grutConstants: constants })
+      .where(eq(users.id, userId))
+      .returning();
+    return user || undefined;
   }
 
   async getSubscriberByEmail(email: string): Promise<Subscriber | undefined> {
