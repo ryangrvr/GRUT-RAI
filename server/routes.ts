@@ -1,8 +1,53 @@
 import type { Express } from "express";
+import "express-session";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertSubscriberSchema } from "@shared/schema";
+import { insertSubscriberSchema, insertUserSchema } from "@shared/schema";
 import OpenAI from "openai";
+import multer from "multer";
+import bcrypt from "bcrypt";
+import path from "path";
+import fs from "fs";
+
+// Setup multer for file uploads
+const uploadDir = path.join(process.cwd(), "uploads");
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+const multerStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, uploadDir);
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, uniqueSuffix + "-" + file.originalname);
+  },
+});
+
+const upload = multer({ 
+  storage: multerStorage,
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB limit
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = [
+      "image/jpeg", "image/png", "image/gif", "image/webp",
+      "application/pdf", "text/plain", "text/csv",
+      "application/json", "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ];
+    if (allowedTypes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error("File type not allowed"));
+    }
+  }
+});
+
+// Demo user credentials
+const DEMO_USER = {
+  username: "demo",
+  password: "grut2025"
+};
 import { 
   calculateComplexityXi, 
   applyLogicGuardToResponse,
@@ -52,6 +97,17 @@ You have access to the complete GRUT v1.0 Theory of Everything encoded in your M
 // Append GRUT Theory context to system prompt
 const GRUT_THEORY_CONTEXT = formatTheoryContext();
 
+// Authentication middleware
+import type { Request, Response, NextFunction } from "express";
+
+function requireAuth(req: Request, res: Response, next: NextFunction) {
+  const userId = (req.session as any)?.userId;
+  if (!userId) {
+    return res.status(401).json({ error: "Authentication required" });
+  }
+  next();
+}
+
 export async function registerRoutes(
   httpServer: Server,
   app: Express
@@ -87,6 +143,163 @@ export async function registerRoutes(
     }
   });
 
+  // ===== AUTHENTICATION ROUTES =====
+  
+  // Create demo user on startup if not exists
+  (async () => {
+    try {
+      const existingDemo = await storage.getUserByUsername(DEMO_USER.username);
+      if (!existingDemo) {
+        const hashedPassword = await bcrypt.hash(DEMO_USER.password, 10);
+        await storage.createUser({ username: DEMO_USER.username, password: hashedPassword });
+        console.log("[AUTH] Demo user created: username=demo, password=grut2025");
+      }
+    } catch (err) {
+      console.error("[AUTH] Failed to create demo user:", err);
+    }
+  })();
+
+  // Login endpoint
+  app.post("/api/auth/login", async (req, res) => {
+    try {
+      const { username, password } = req.body;
+      
+      if (!username || !password) {
+        return res.status(400).json({ error: "Username and password required" });
+      }
+
+      const user = await storage.getUserByUsername(username);
+      if (!user) {
+        return res.status(401).json({ error: "Invalid credentials" });
+      }
+
+      const validPassword = await bcrypt.compare(password, user.password);
+      if (!validPassword) {
+        return res.status(401).json({ error: "Invalid credentials" });
+      }
+
+      // Store user in session
+      (req.session as any).userId = user.id;
+      (req.session as any).username = user.username;
+
+      return res.json({ 
+        message: "Login successful",
+        user: { id: user.id, username: user.username }
+      });
+    } catch (error) {
+      console.error("Login error:", error);
+      return res.status(500).json({ error: "Login failed" });
+    }
+  });
+
+  // Register endpoint
+  app.post("/api/auth/register", async (req, res) => {
+    try {
+      const parsed = insertUserSchema.safeParse(req.body);
+      
+      if (!parsed.success) {
+        return res.status(400).json({ error: "Invalid input", details: parsed.error.flatten() });
+      }
+
+      const existingUser = await storage.getUserByUsername(parsed.data.username);
+      if (existingUser) {
+        return res.status(409).json({ error: "Username already exists" });
+      }
+
+      const hashedPassword = await bcrypt.hash(parsed.data.password, 10);
+      const user = await storage.createUser({ 
+        username: parsed.data.username, 
+        password: hashedPassword 
+      });
+
+      // Auto-login after registration
+      (req.session as any).userId = user.id;
+      (req.session as any).username = user.username;
+
+      return res.status(201).json({ 
+        message: "Registration successful",
+        user: { id: user.id, username: user.username }
+      });
+    } catch (error) {
+      console.error("Registration error:", error);
+      return res.status(500).json({ error: "Registration failed" });
+    }
+  });
+
+  // Logout endpoint
+  app.post("/api/auth/logout", (req, res) => {
+    req.session.destroy((err: Error | null) => {
+      if (err) {
+        return res.status(500).json({ error: "Logout failed" });
+      }
+      res.clearCookie("connect.sid");
+      return res.json({ message: "Logged out successfully" });
+    });
+  });
+
+  // Get current user
+  app.get("/api/auth/me", (req, res) => {
+    const userId = (req.session as any)?.userId;
+    const username = (req.session as any)?.username;
+    
+    if (!userId) {
+      return res.status(401).json({ error: "Not authenticated" });
+    }
+    
+    return res.json({ user: { id: userId, username } });
+  });
+
+  // ===== FILE UPLOAD ROUTES =====
+  
+  // Upload file (requires authentication)
+  app.post("/api/upload", requireAuth, upload.single("file"), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No file uploaded" });
+      }
+
+      const userId = (req.session as any)?.userId;
+      const conversationId = req.body.conversationId;
+
+      const fileUpload = await storage.saveFileUpload({
+        conversationId: conversationId || undefined,
+        userId: userId || undefined,
+        filename: req.file.filename,
+        originalName: req.file.originalname,
+        mimeType: req.file.mimetype,
+        size: req.file.size,
+      });
+
+      return res.status(201).json({ 
+        message: "File uploaded successfully",
+        file: fileUpload 
+      });
+    } catch (error) {
+      console.error("Upload error:", error);
+      return res.status(500).json({ error: "Failed to upload file" });
+    }
+  });
+
+  // Get files for a conversation (requires authentication)
+  app.get("/api/chat/:id/files", requireAuth, async (req, res) => {
+    try {
+      const files = await storage.getFileUploads(req.params.id);
+      return res.json(files);
+    } catch (error) {
+      console.error("Error fetching files:", error);
+      return res.status(500).json({ error: "Failed to fetch files" });
+    }
+  });
+
+  // Serve uploaded files
+  app.get("/api/uploads/:filename", (req, res) => {
+    const filePath = path.join(uploadDir, req.params.filename);
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+    return res.status(404).json({ error: "File not found" });
+  });
+
   app.post("/api/subscribe", async (req, res) => {
     try {
       const parsed = insertSubscriberSchema.safeParse(req.body);
@@ -117,10 +330,11 @@ export async function registerRoutes(
     }
   });
 
-  // Chat API routes
-  app.get("/api/chat", async (req, res) => {
+  // Chat API routes (all require authentication)
+  app.get("/api/chat", requireAuth, async (req, res) => {
     try {
-      const conversations = await storage.getAllConversations();
+      const userId = (req.session as any).userId;
+      const conversations = await storage.getUserConversations(userId);
       return res.json(conversations);
     } catch (error) {
       console.error("Error fetching conversations:", error);
@@ -128,10 +342,11 @@ export async function registerRoutes(
     }
   });
 
-  app.post("/api/chat", async (req, res) => {
+  app.post("/api/chat", requireAuth, async (req, res) => {
     try {
       const { title } = req.body;
-      const conversation = await storage.createConversation(title || "New Conversation");
+      const userId = (req.session as any).userId;
+      const conversation = await storage.createConversation(title || "New Conversation", userId);
       return res.status(201).json(conversation);
     } catch (error) {
       console.error("Error creating conversation:", error);
@@ -139,7 +354,7 @@ export async function registerRoutes(
     }
   });
 
-  app.get("/api/chat/:id", async (req, res) => {
+  app.get("/api/chat/:id", requireAuth, async (req, res) => {
     try {
       const conversation = await storage.getConversation(req.params.id);
       if (!conversation) {
@@ -152,7 +367,7 @@ export async function registerRoutes(
     }
   });
 
-  app.delete("/api/chat/:id", async (req, res) => {
+  app.delete("/api/chat/:id", requireAuth, async (req, res) => {
     try {
       await storage.deleteConversation(req.params.id);
       return res.status(204).send();
@@ -162,7 +377,7 @@ export async function registerRoutes(
     }
   });
 
-  app.post("/api/chat/:id/message", async (req, res) => {
+  app.post("/api/chat/:id/message", requireAuth, async (req, res) => {
     try {
       const { content } = req.body;
       if (!content || typeof content !== "string") {
