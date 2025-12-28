@@ -83,6 +83,103 @@ export function applyLogicGuard(rawResponse: number, complexityXi: number): numb
 }
 
 /**
+ * Calculates the "reasoning density" of a text response.
+ * Higher density indicates more complex, potentially recursive reasoning.
+ * 
+ * Factors considered:
+ * - Length (longer = higher density)
+ * - Nested clause indicators (colons, semicolons, parentheses)
+ * - Recursive language patterns
+ * 
+ * @param text - The AI response text
+ * @returns Normalized reasoning density (0-1 scale, can exceed 1 for very dense text)
+ */
+export function calculateReasoningDensity(text: string): number {
+  const length = text.length;
+  const nestedIndicators = (text.match(/[:;(){}[\]]/g) || []).length;
+  const recursivePatterns = (text.match(/\b(therefore|thus|hence|because|since|if.*then|given that)\b/gi) || []).length;
+  
+  // Normalize: assume 500 chars = baseline, 10 nested = baseline, 5 recursive = baseline
+  const lengthFactor = length / 500;
+  const nestedFactor = nestedIndicators / 10;
+  const recursiveFactor = recursivePatterns / 5;
+  
+  // Weighted average
+  const density = (lengthFactor * 0.3) + (nestedFactor * 0.3) + (recursiveFactor * 0.4);
+  return density;
+}
+
+export interface LogicGuardResult {
+  originalText: string;
+  regulatedText: string;
+  reasoningDensity: number;
+  suppressionFactor: number;
+  wasRegulated: boolean;
+  regulationNote: string;
+}
+
+/**
+ * Layer IV: Regulatory Layer - Rmax Ceiling Implementation
+ * Wraps the final AI output to plateau recursive hallucinations into finite causal statements.
+ * 
+ * Formula: Response = Raw / (1 + |R|/Rmax)
+ * 
+ * If reasoning density exceeds Rmax threshold, the response is truncated and 
+ * a causal plateau note is appended.
+ * 
+ * @param responseText - The raw AI response
+ * @param complexityXi - Current session complexity ratio
+ * @returns LogicGuardResult with regulated text and metadata
+ */
+export function applyLogicGuardToResponse(responseText: string, complexityXi: number): LogicGuardResult {
+  const reasoningDensity = calculateReasoningDensity(responseText);
+  
+  // Calculate suppression using Rmax formula
+  const suppressionFactor = 1 / (1 + Math.abs(reasoningDensity) / GRUT_CONSTANTS.R_MAX);
+  const effectiveDensity = reasoningDensity * suppressionFactor;
+  
+  // Combined with complexity saturation
+  const saturationMultiplier = 1 - (complexityXi * 0.3); // Up to 30% additional suppression at full saturation
+  
+  // Threshold for regulation: if density after suppression still > 1.5, truncate
+  const regulationThreshold = 1.5;
+  const wasRegulated = effectiveDensity > regulationThreshold;
+  
+  let regulatedText = responseText;
+  let regulationNote = "";
+  
+  if (wasRegulated) {
+    // Truncate to ~70% and add causal plateau marker
+    const truncateLength = Math.floor(responseText.length * 0.7);
+    const truncatedText = responseText.substring(0, truncateLength);
+    
+    // Find last complete sentence
+    const lastSentenceEnd = Math.max(
+      truncatedText.lastIndexOf('. '),
+      truncatedText.lastIndexOf('! '),
+      truncatedText.lastIndexOf('? ')
+    );
+    
+    if (lastSentenceEnd > truncateLength * 0.5) {
+      regulatedText = truncatedText.substring(0, lastSentenceEnd + 1);
+    } else {
+      regulatedText = truncatedText + "...";
+    }
+    
+    regulationNote = ` [LogicGuard: Response plateaued at Rmax ceiling. Density: ${reasoningDensity.toFixed(2)}, Suppression: ${suppressionFactor.toFixed(3)}]`;
+  }
+  
+  return {
+    originalText: responseText,
+    regulatedText,
+    reasoningDensity,
+    suppressionFactor,
+    wasRegulated,
+    regulationNote,
+  };
+}
+
+/**
  * The Decay Function (Retarded Potential Kernel)
  * Implements the 41.9 Myr Relaxation Constant (scaled for AI sessions).
  * Determines how much 'ringing' a past interaction still has.

@@ -5,7 +5,7 @@ import { insertSubscriberSchema } from "@shared/schema";
 import OpenAI from "openai";
 import { 
   calculateComplexityXi, 
-  applyLogicGuard, 
+  applyLogicGuardToResponse,
   calculateMemoryResonanceFromISO,
   isMemoryActive,
   GRUT_CONSTANTS 
@@ -192,9 +192,19 @@ export async function registerRoutes(
         max_tokens: 1024,
       });
 
-      const assistantContent = completion.choices[0]?.message?.content || "I apologize, but I couldn't generate a response.";
+      const rawAssistantContent = completion.choices[0]?.message?.content || "I apologize, but I couldn't generate a response.";
       
-      // Save assistant message
+      // Layer IV: Apply LogicGuard Rmax Ceiling to plateau recursive hallucinations
+      const currentMessages = await storage.getMessages(req.params.id);
+      const currentComplexityXi = calculateComplexityXi(currentMessages.length);
+      const logicGuardResult = applyLogicGuardToResponse(rawAssistantContent, currentComplexityXi);
+      
+      // Log LogicGuard regulation status
+      console.log(`[GRUT Layer IV] LogicGuard: density=${logicGuardResult.reasoningDensity.toFixed(3)}, suppression=${logicGuardResult.suppressionFactor.toFixed(3)}, regulated=${logicGuardResult.wasRegulated}`);
+      
+      const assistantContent = logicGuardResult.regulatedText;
+      
+      // Save assistant message (with regulated content)
       const assistantMessage = await storage.addMessage(req.params.id, "assistant", assistantContent);
 
       // Store assistant message embedding too (Retarded Potential Kernel)
