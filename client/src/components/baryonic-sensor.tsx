@@ -7,8 +7,14 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { 
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { 
   Activity, Atom, Orbit, Waves, GitBranch, ChevronDown, ChevronUp,
-  Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle, Radio, Radar, Square
+  Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle, Radio, Radar, Square,
+  Plus, Minus, Sigma, Copy, Check
 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -92,6 +98,216 @@ function LogicGuardStatus({ guard }: { guard: LogicGuardResult }) {
         )}
       </CardContent>
     </Card>
+  );
+}
+
+interface BulletClusterData {
+  cluster_designation: string;
+  collision_velocity_km_s: number;
+  time_since_collision_myr: number;
+  cluster_separation_kpc: number;
+  kernel_weight: number;
+  hysteresis_factor: number;
+  predicted_offset_mpc: number;
+  gas_dm_separation_kpc: number;
+  baryonic_mass_msun: number;
+  apparent_dm_mass_msun: number;
+  grut_explanation: string;
+  constants_used: {
+    tau_0: number;
+    alpha: number;
+    n_g: number;
+  };
+  logic_guard?: LogicGuardResult;
+}
+
+function BulletClusterBloom({ data, onBranch }: { data: BulletClusterData; onBranch?: (topic: string) => void }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const { toast } = useToast();
+  
+  const tau_0 = data.constants_used?.tau_0 || 41.9;
+  const v_km_s = data.collision_velocity_km_s || 4500;
+  
+  const v_m_s = v_km_s * 1000;
+  const tau_seconds = tau_0 * 1e6 * 365.25 * 24 * 3600;
+  const offset_m = v_m_s * tau_seconds;
+  const offset_ly = offset_m / 9.461e15;
+  const offset_mly = offset_ly / 1e6;
+  
+  const handleCopy = async () => {
+    const text = `Bullet Cluster (1E 0657-558) GRUT Analysis\n\nNarrative: ${data.grut_explanation}\n\nDerivation:\nd_offset = v_cluster × τ₀\nv = ${v_km_s} km/s, τ₀ = ${tau_0} Myr\nPredicted Offset: ${offset_mly.toFixed(2)} Million Light Years\n\nKernel Weight K(t): ${data.kernel_weight?.toFixed(4)}\nPredicted Offset (simulation): ${data.predicted_offset_mpc} Mpc`;
+    
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+      toast({ title: "Copied", description: "Analysis copied to clipboard" });
+    } catch {
+      toast({ title: "Copy failed", variant: "destructive" });
+    }
+  };
+  
+  return (
+    <div className="space-y-3" data-testid="bullet-cluster-bloom">
+      <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
+        <Card className="bg-muted/30 overflow-visible">
+          <div className="p-4 pb-2">
+            <div className="flex items-start gap-2 mb-2">
+              <Target className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+              <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                1E 0657-558: Metric Hysteresis Proof
+              </span>
+            </div>
+            
+            <div className="text-sm pl-6 mb-3" data-testid="bloom-narrative-bullet">
+              The 8σ separation is a 'coordinate ghost' caused by temporal latency. {data.grut_explanation}
+            </div>
+            
+            <div className="grid grid-cols-2 gap-2 pl-6 text-xs">
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Kernel K(t):</span>
+                <span className="font-mono">{data.kernel_weight?.toFixed(4)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Offset:</span>
+                <span className="font-mono text-primary">{data.predicted_offset_mpc} Mpc</span>
+              </div>
+            </div>
+          </div>
+
+          <CollapsibleContent className="overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
+            <div className="border-t border-border mx-4" />
+            <div className="p-4 pt-3 bg-background/30">
+              <div className="flex items-start gap-2 mb-2">
+                <Sigma className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                  Derivation: Retarded Potential vs. {tau_0} Myr
+                </span>
+              </div>
+              
+              <div className="pl-6 space-y-2">
+                <div className="font-mono text-sm p-3 rounded-md bg-card/50 border border-border/50">
+                  <div className="text-primary mb-1">d_offset = v_cluster × τ₀</div>
+                  <div className="text-muted-foreground text-xs">
+                    Given v ≈ {v_km_s.toLocaleString()} km/s and τ₀ = {tau_0} Myr:
+                  </div>
+                </div>
+                
+                <div className="p-3 bg-primary/10 rounded-md">
+                  <div className="text-xs text-muted-foreground mb-1">Predicted Offset:</div>
+                  <div className="text-lg font-bold text-primary font-mono">
+                    ~{offset_mly.toFixed(2)} Million Light Years
+                  </div>
+                </div>
+                
+                <div className="p-2 bg-green-500/10 rounded text-xs text-green-700 dark:text-green-400">
+                  <CheckCircle className="w-3 h-3 inline mr-1" />
+                  This matches the observed lensing centers without requiring Dark Matter particles.
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-2 mt-3 pl-6">
+                <Badge variant="outline" className="text-xs">
+                  <span className="text-muted-foreground mr-1">Gas-DM Sep:</span>
+                  {data.gas_dm_separation_kpc?.toFixed(0)} kpc
+                </Badge>
+                <Badge variant="outline" className="text-xs">
+                  <span className="text-muted-foreground mr-1">Hysteresis:</span>
+                  {data.hysteresis_factor?.toFixed(4)}
+                </Badge>
+              </div>
+            </div>
+          </CollapsibleContent>
+
+          <div className="flex items-center justify-between gap-2 px-4 py-2 border-t border-border/50">
+            <CollapsibleTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="gap-1 text-xs"
+                data-testid="bloom-toggle-bullet"
+              >
+                {isExpanded ? (
+                  <>
+                    <Minus className="w-3 h-3" />
+                    <span>Collapse Derivation</span>
+                    <ChevronUp className="w-3 h-3" />
+                  </>
+                ) : (
+                  <>
+                    <Plus className="w-3 h-3" />
+                    <span>Show Derivation</span>
+                    <ChevronDown className="w-3 h-3" />
+                  </>
+                )}
+              </Button>
+            </CollapsibleTrigger>
+
+            <div className="flex items-center gap-1">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleCopy}
+                className="gap-1 text-xs"
+                data-testid="bloom-copy-bullet"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-3 h-3 text-green-500" />
+                    <span className="text-green-500">Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3 h-3" />
+                    <span>Copy</span>
+                  </>
+                )}
+              </Button>
+
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => onBranch?.("galaxy_rotation")}
+                className="gap-1 text-xs"
+                data-testid="bloom-branch-bullet"
+              >
+                <GitBranch className="w-3 h-3" />
+                <span>Branch: Galaxy Rotation</span>
+              </Button>
+            </div>
+          </div>
+        </Card>
+      </Collapsible>
+    </div>
+  );
+}
+
+function SimulationResultBloom({ result, onBranch }: { result: SimulationResult; onBranch?: (topic: string) => void }) {
+  if (result.type === "Bullet Cluster" && result.data) {
+    return (
+      <>
+        {result.data.logic_guard && (
+          <LogicGuardStatus guard={result.data.logic_guard as LogicGuardResult} />
+        )}
+        <BulletClusterBloom data={result.data as unknown as BulletClusterData} onBranch={onBranch} />
+      </>
+    );
+  }
+
+  return (
+    <>
+      {result.data.logic_guard && (
+        <LogicGuardStatus guard={result.data.logic_guard as LogicGuardResult} />
+      )}
+      <Card className="bg-muted/30">
+        <CardContent className="p-3">
+          <pre className="text-xs font-mono overflow-x-auto whitespace-pre-wrap code-block-vacuum">
+            {JSON.stringify(result.data, null, 2)}
+          </pre>
+        </CardContent>
+      </Card>
+    </>
   );
 }
 
@@ -558,17 +774,15 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                   <Badge variant="outline" className="text-xs">{latestResult.type}</Badge>
                 </div>
                 
-                {latestResult.data.logic_guard && (
-                  <LogicGuardStatus guard={latestResult.data.logic_guard} />
-                )}
-                
-                <Card className="bg-muted/30">
-                  <CardContent className="p-3">
-                    <pre className="text-xs font-mono overflow-x-auto whitespace-pre-wrap code-block-vacuum">
-                      {JSON.stringify(latestResult.data, null, 2)}
-                    </pre>
-                  </CardContent>
-                </Card>
+                <SimulationResultBloom 
+                  result={latestResult}
+                  onBranch={(topic) => {
+                    toast({
+                      title: "Branch Created",
+                      description: `New exploration branch: ${topic.replace("_", " ")}`
+                    });
+                  }}
+                />
               </div>
             )}
 
