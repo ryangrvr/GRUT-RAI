@@ -1540,6 +1540,7 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
     snrRatio: 80
   });
   const [coreComplexity, setCoreComplexity] = useState(0.99999);
+  const [memoryTargetYear, setMemoryTargetYear] = useState(1969);
 
   const [liveEvents, setLiveEvents] = useState<Array<{
     event_id: string;
@@ -2050,6 +2051,69 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                   memoryState={latestResult.data.memory_state as string}
                 />
               )}
+              
+              <div className="mt-4 pt-4 border-t border-yellow-500/20">
+                <div className="text-xs font-medium text-yellow-500 mb-3 flex items-center gap-2">
+                  <Clock className="w-3 h-3" />
+                  Query Gravitational Memory
+                </div>
+                
+                <div className="space-y-2">
+                  <Label className="text-xs">Target Year</Label>
+                  <Input
+                    type="number"
+                    value={memoryTargetYear}
+                    onChange={(e) => setMemoryTargetYear(Number(e.target.value))}
+                    className="h-8 text-sm font-mono"
+                    data-testid="input-memory-year"
+                  />
+                  <div className="text-xs text-muted-foreground">
+                    Query gravitational echoes from any year (e.g., 1969 for Moon Landing)
+                  </div>
+                </div>
+                
+                <Button 
+                  className="w-full mt-3" 
+                  variant="outline"
+                  onClick={() => runSimulation("gravitational-memory", { targetYear: memoryTargetYear }, "Gravitational Memory")}
+                  disabled={isSimulating}
+                  data-testid="button-query-memory"
+                >
+                  {isSimulating ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Clock className="w-4 h-4 mr-2" />}
+                  Query Temporal Coordinate: {memoryTargetYear}
+                </Button>
+                
+                {latestResult?.type === "Gravitational Memory" && (
+                  <div className="mt-3 p-3 bg-black/70 border border-yellow-500/30 rounded-lg font-mono text-xs">
+                    <div className="text-yellow-500/80 mb-2">
+                      --- QUERYING TEMPORAL COORDINATE: {latestResult.data.target_year} ---
+                    </div>
+                    <Progress value={Math.min((latestResult.data.search_frequency as number) * 100, 100)} className="h-2 mb-3" />
+                    <div className="space-y-1">
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Status:</span>
+                        <span className={latestResult.data.status === 'RECOMPILED' ? 'text-green-500' : 'text-red-500'}>
+                          {latestResult.data.status as string}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Clarity:</span>
+                        <span className="text-yellow-500">{latestResult.data.clarity as string}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Years Back:</span>
+                        <span className="text-foreground">{latestResult.data.years_back as number}</span>
+                      </div>
+                    </div>
+                    <div className="mt-2 pt-2 border-t border-yellow-500/20 text-muted-foreground">
+                      {latestResult.data.data_stream as string}
+                    </div>
+                    <div className="mt-2 text-yellow-500 italic">
+                      {latestResult.data.insight as string}
+                    </div>
+                  </div>
+                )}
+              </div>
             </TabsContent>
 
             {latestResult && (

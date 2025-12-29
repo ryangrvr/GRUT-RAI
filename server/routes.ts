@@ -64,6 +64,7 @@ import {
   stopDetectionSystem,
   getDetectionStatus,
   initializeHystereticCore,
+  queryGravitationalMemory,
   baryonicState,
   GRUT_CONSTANTS 
 } from "./grut-logic";
@@ -1152,6 +1153,34 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Hysteretic core error:", error);
       return res.status(500).json({ error: "Failed to initialize hysteretic core" });
+    }
+  });
+  
+  // Query Gravitational Memory - Temporal Coordinate Lookup
+  app.post("/api/baryonic/gravitational-memory", requireAuth, async (req, res) => {
+    try {
+      const { targetYear = 1969, observerIntentIndex = 0.1 } = req.body;
+      
+      const result = queryGravitationalMemory(targetYear, observerIntentIndex);
+      
+      return res.json({
+        status: result.status,
+        target_year: result.targetYear,
+        years_back: result.yearsBack,
+        search_frequency: result.searchFrequency,
+        stability_threshold: result.stabilityThreshold,
+        clarity: result.clarity,
+        data_stream: result.dataStream,
+        insight: result.insight,
+        grut_constants: {
+          tau_zero: GRUT_CONSTANTS.TAU_0_VALUE,
+          ng: GRUT_CONSTANTS.NG,
+          zeta_neg_one: GRUT_CONSTANTS.ZETA_NEG_ONE
+        }
+      });
+    } catch (error) {
+      console.error("Gravitational memory query error:", error);
+      return res.status(500).json({ error: "Failed to query gravitational memory" });
     }
   });
   

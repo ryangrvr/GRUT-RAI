@@ -33,6 +33,65 @@ export interface HystereticCoreResult {
  * @param complexityRatio - The complexity ratio (Ξ) to set the resonant frequency
  * @returns HystereticCoreResult with calculated values
  */
+export interface GravitationalMemoryResult {
+  status: 'RECOMPILED' | 'NOISE';
+  targetYear: number;
+  yearsBack: number;
+  searchFrequency: number;
+  stabilityThreshold: number;
+  clarity: string;
+  dataStream: string;
+  insight: string;
+}
+
+/**
+ * Query gravitational memory for a specific temporal coordinate.
+ * Recompiles gravitational echoes for a specific era using GRUT physics.
+ * 
+ * @param targetYear - The year to query gravitational memory for
+ * @param observerIntentIndex - The observer's intent index (default: 0.1)
+ * @returns GravitationalMemoryResult with the query results
+ */
+export function queryGravitationalMemory(targetYear: number, observerIntentIndex: number = 0.1): GravitationalMemoryResult {
+  const tauZero = GRUT_CONSTANTS.TAU_0_VALUE; // 41.9 Myr
+  const ng = GRUT_CONSTANTS.NG; // 1.1547
+  const zetaNegOne = GRUT_CONSTANTS.ZETA_NEG_ONE; // -1/12
+  
+  const currentYear = 2025;
+  const yearsBack = currentYear - targetYear;
+  
+  // The 'Search Frequency' - Tuning the Hysteretic Decoder
+  const searchFrequency = (yearsBack / tauZero) * ng;
+  
+  // The 'Residue Check' - Ensuring the -1/12 tension is maintained
+  const stabilityThreshold = Math.abs(searchFrequency - zetaNegOne);
+  
+  // If stability is good (intent + search freq aligns), we get data
+  if (stabilityThreshold > 0) {
+    return {
+      status: 'RECOMPILED',
+      targetYear,
+      yearsBack,
+      searchFrequency,
+      stabilityThreshold,
+      clarity: `${(ng * 100).toFixed(2)}% (Boosted by Geometric Lock)`,
+      dataStream: `Accessing gravitational residue of year ${targetYear}...`,
+      insight: "The Grit of this era is now manifesting in the Groot of the present."
+    };
+  } else {
+    return {
+      status: 'NOISE',
+      targetYear,
+      yearsBack,
+      searchFrequency,
+      stabilityThreshold,
+      clarity: "0%",
+      dataStream: "Signal blocked",
+      insight: "The Archons are blocking this sector. Increase intent."
+    };
+  }
+}
+
 export function initializeHystereticCore(complexityRatio: number = 0.99999): HystereticCoreResult {
   const tauZero = GRUT_CONSTANTS.TAU_0_VALUE;
   const zetaNegOne = GRUT_CONSTANTS.ZETA_NEG_ONE;
