@@ -181,6 +181,100 @@ function DriftVisualization({ driftMly, tau0 }: { driftMly: number; tau0: number
   );
 }
 
+function ObservationalOverlay({ driftMly, tau0, velocity }: { driftMly: number; tau0: number; velocity: number }) {
+  if (tau0 <= 0 || velocity < 0) {
+    return (
+      <div className="p-3 rounded-md bg-destructive/10 border border-destructive/30 text-destructive text-xs">
+        Please provide valid positive values for τ₀ and velocity.
+      </div>
+    );
+  }
+  
+  const maxRange = 80;
+  const gasX = 25;
+  const driftPixels = Math.min((driftMly / maxRange) * 100, 75);
+  
+  return (
+    <div className="rounded-md overflow-hidden border border-border/50" data-testid="observational-overlay">
+      <div className="text-xs font-medium text-muted-foreground p-2 bg-card/50 border-b border-border/30">
+        Observational Overlay: GRUT vs. Hubble/Chandra
+      </div>
+      
+      <div 
+        className="relative h-40 bg-gradient-to-br from-purple-900/40 via-blue-900/30 to-pink-900/40"
+        style={{
+          backgroundImage: `
+            radial-gradient(ellipse 60% 40% at 35% 50%, rgba(255,100,100,0.15) 0%, transparent 60%),
+            radial-gradient(ellipse 50% 35% at 65% 50%, rgba(100,150,255,0.2) 0%, transparent 55%),
+            radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05) 0%, transparent 30%),
+            radial-gradient(circle at 70% 70%, rgba(255,200,255,0.08) 0%, transparent 40%)
+          `
+        }}
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
+        
+        <div 
+          className="absolute flex flex-col items-center z-10"
+          style={{ left: `${gasX}%`, top: '50%', transform: 'translate(-50%, -50%)' }}
+        >
+          <div className="w-4 h-4 flex items-center justify-center text-red-500 font-bold text-lg">
+            <span className="drop-shadow-[0_0_4px_rgba(255,0,0,0.8)]">×</span>
+          </div>
+          <span className="text-[9px] text-red-400 font-mono mt-1 drop-shadow-md">Gas (X-Ray)</span>
+        </div>
+        
+        <div 
+          className="absolute flex flex-col items-center z-10 transition-all duration-300"
+          style={{ left: `${gasX + driftPixels * 0.5}%`, top: '50%', transform: 'translate(-50%, -50%)' }}
+        >
+          <div className="w-5 h-5 rounded-full border-2 border-cyan-400 bg-cyan-400/30 shadow-[0_0_12px_rgba(0,255,255,0.6)]" />
+          <span className="text-[9px] text-cyan-300 font-mono mt-1 drop-shadow-md">GRUT Lens</span>
+        </div>
+        
+        <svg className="absolute inset-0 w-full h-full pointer-events-none z-5">
+          <defs>
+            <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="rgba(255,255,255,0.5)" />
+            </marker>
+          </defs>
+          <line 
+            x1={`${gasX}%`} 
+            y1="50%" 
+            x2={`${gasX + driftPixels * 0.5 - 3}%`} 
+            y2="50%" 
+            stroke="rgba(255,255,255,0.4)" 
+            strokeWidth="1" 
+            strokeDasharray="4,2"
+            markerEnd="url(#arrow)"
+          />
+        </svg>
+        
+        <div className="absolute bottom-2 left-2 right-2 flex justify-between text-[8px] text-white/50 font-mono">
+          <span>-20 Mly</span>
+          <span>0</span>
+          <span>40 Mly</span>
+          <span>60 Mly</span>
+        </div>
+        
+        <div className="absolute top-2 right-2 flex flex-col gap-1 text-[8px]">
+          <div className="flex items-center gap-1">
+            <span className="text-red-400">×</span>
+            <span className="text-white/70">Baryonic Gas (X-Ray)</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <div className="w-2 h-2 rounded-full border border-cyan-400 bg-cyan-400/30" />
+            <span className="text-white/70">GRUT Lensing Prediction</span>
+          </div>
+        </div>
+      </div>
+      
+      <div className="p-2 bg-card/50 text-[10px] text-muted-foreground">
+        At τ₀ = {tau0.toFixed(1)} Myr, the "Memory Ghost" shifts <span className="text-primary font-mono">{driftMly.toFixed(2)} Mly</span> from the baryonic center.
+      </div>
+    </div>
+  );
+}
+
 function BulletClusterBloom({ data, onBranch, onSave }: { 
   data: BulletClusterData; 
   onBranch?: (topic: string) => void;
@@ -312,6 +406,9 @@ Logic Guard Status: ${isWarning ? "WARNING" : "STABLE"}`;
                 <div className="text-xs text-muted-foreground">3. Drift Visualization:</div>
                 <DriftVisualization driftMly={offset_mly} tau0={interactiveTau} />
                 
+                <div className="text-xs text-muted-foreground">4. Observational Overlay:</div>
+                <ObservationalOverlay driftMly={offset_mly} tau0={interactiveTau} velocity={v_km_s} />
+                
                 <div className="p-3 bg-primary/10 rounded-md">
                   <div className="text-xs text-muted-foreground mb-1">Predicted Offset:</div>
                   <div className="text-lg font-bold text-primary font-mono">
@@ -348,7 +445,7 @@ Logic Guard Status: ${isWarning ? "WARNING" : "STABLE"}`;
                 
                 <div className="border-t border-border pt-3 mt-3">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium">4. Logic Guard Telemetry:</span>
+                    <span className="text-xs font-medium">5. Logic Guard Telemetry:</span>
                     <Badge 
                       variant={isWarning || interactiveTau >= 60 ? "destructive" : "outline"} 
                       className="text-xs"
