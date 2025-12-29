@@ -181,6 +181,91 @@ function DriftVisualization({ driftMly, tau0 }: { driftMly: number; tau0: number
   );
 }
 
+function Poincare3DWake({ tau0 }: { tau0: number }) {
+  const gridSize = 9;
+  const cells: { x: number; y: number; z: number; color: string }[] = [];
+  
+  for (let i = 0; i < gridSize; i++) {
+    for (let j = 0; j < gridSize; j++) {
+      const x = (i - gridSize / 2) * 2;
+      const y = (j - gridSize / 2) * 2;
+      const r2 = x * x + y * y;
+      const z = -(1 / 12) * Math.exp(-r2 / (tau0 / 10 + 0.1));
+      const intensity = Math.abs(z) * 12;
+      const hue = 200 + intensity * 60;
+      cells.push({ x: i, y: j, z, color: `hsl(${hue}, 70%, ${30 + intensity * 40}%)` });
+    }
+  }
+  
+  const maxDepth = Math.max(...cells.map(c => Math.abs(c.z)));
+  const wakeWidth = tau0 > 20 ? "wide" : tau0 > 10 ? "medium" : "narrow";
+  
+  return (
+    <div className="rounded-md overflow-hidden border border-border/50" data-testid="poincare-3d-wake">
+      <div className="text-xs font-medium text-muted-foreground p-2 bg-card/50 border-b border-border/30 flex items-center justify-between gap-2">
+        <span>Hyperbolic Wake Visualizer (3D Poincare)</span>
+        <Badge variant="outline" className="text-[10px]">Wake: {wakeWidth}</Badge>
+      </div>
+      
+      <div 
+        className="relative h-48 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden"
+        style={{ perspective: '600px' }}
+      >
+        <div 
+          className="absolute inset-4 grid gap-px transition-transform duration-300"
+          style={{ 
+            display: 'grid',
+            gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
+            transform: 'rotateX(55deg) rotateZ(-15deg)',
+            transformStyle: 'preserve-3d'
+          }}
+        >
+          {cells.map((cell, idx) => {
+            const depth = Math.abs(cell.z) / (maxDepth || 1);
+            return (
+              <div
+                key={idx}
+                className="transition-all duration-300"
+                style={{
+                  aspectRatio: '1',
+                  background: cell.color,
+                  transform: `translateZ(${cell.z * 80}px)`,
+                  boxShadow: depth > 0.3 ? `0 0 ${depth * 10}px ${cell.color}` : 'none',
+                  opacity: 0.7 + depth * 0.3
+                }}
+              />
+            );
+          })}
+        </div>
+        
+        <div className="absolute bottom-2 left-2 text-[9px] text-white/60 font-mono">
+          <div>X: Space</div>
+          <div>Y: Space</div>
+          <div>Z: Metric Tension (Xi)</div>
+        </div>
+        
+        <div className="absolute top-2 right-2 flex flex-col items-end gap-0.5">
+          <div className="text-[8px] text-white/50">Depth Scale</div>
+          <div className="w-16 h-2 rounded-sm bg-gradient-to-r from-cyan-600 via-blue-500 to-purple-600" />
+          <div className="flex justify-between w-16 text-[7px] text-white/40">
+            <span>0</span>
+            <span>-1/12</span>
+          </div>
+        </div>
+      </div>
+      
+      <div className="p-2 bg-card/50 text-[10px] text-muted-foreground">
+        <span className="font-medium">Metric Hysteresis Wake:</span> The depression in the vacuum. 
+        {tau0 > 50 
+          ? " At high τ₀, the wake becomes shallow and wide (long memory)."
+          : tau0 > 20 
+            ? " Moderate τ₀ creates a balanced memory depression."
+            : " Low τ₀ produces a deep, narrow wake (short memory)."}
+      </div>
+    </div>
+  );
+}
+
 function ObservationalOverlay({ driftMly, tau0, velocity }: { driftMly: number; tau0: number; velocity: number }) {
   if (tau0 <= 0 || velocity < 0) {
     return (
@@ -409,6 +494,9 @@ Logic Guard Status: ${isWarning ? "WARNING" : "STABLE"}`;
                 <div className="text-xs text-muted-foreground">4. Observational Overlay:</div>
                 <ObservationalOverlay driftMly={offset_mly} tau0={interactiveTau} velocity={v_km_s} />
                 
+                <div className="text-xs text-muted-foreground">5. Hyperbolic Wake (3D Poincare):</div>
+                <Poincare3DWake tau0={interactiveTau} />
+                
                 <div className="p-3 bg-primary/10 rounded-md">
                   <div className="text-xs text-muted-foreground mb-1">Predicted Offset:</div>
                   <div className="text-lg font-bold text-primary font-mono">
@@ -445,7 +533,7 @@ Logic Guard Status: ${isWarning ? "WARNING" : "STABLE"}`;
                 
                 <div className="border-t border-border pt-3 mt-3">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium">5. Logic Guard Telemetry:</span>
+                    <span className="text-xs font-medium">6. Logic Guard Telemetry:</span>
                     <Badge 
                       variant={isWarning || interactiveTau >= 60 ? "destructive" : "outline"} 
                       className="text-xs"
