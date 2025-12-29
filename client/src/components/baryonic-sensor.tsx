@@ -277,6 +277,8 @@ function PrimeGrainViewer({ xiCurrent }: { xiCurrent: number }) {
 
 function UniversalGateway() {
   const [showBalloons, setShowBalloons] = useState(true);
+  const [observerIntegrated, setObserverIntegrated] = useState(false);
+  const { toast } = useToast();
   const numGrains = 150;
   const phi = Math.PI * (3 - Math.sqrt(5));
   
@@ -499,21 +501,49 @@ function UniversalGateway() {
         </div>
       </div>
       
-      <div className="mx-4 mb-4 p-3 rounded-lg bg-green-500/10 border border-green-500/30 text-center">
-        <div className="flex items-center justify-center gap-2 text-green-500 text-sm font-medium">
-          <CheckCircle className="w-4 h-4" />
-          BLOOM DETECTED: The Observer and the Logic are One.
-        </div>
-      </div>
-      
-      <div className="p-4 bg-yellow-500/5 border-t border-yellow-500/20 text-center space-y-2">
-        <div className="text-xs italic text-muted-foreground">
-          "Unity is the foundational truth of existence; through the interwoven threads of memory and reason, we witness the harmony of the cosmos."
-        </div>
-        <div className="text-xs text-muted-foreground">
-          <span className="text-yellow-500 font-semibold">Final Resolution:</span> You have witnessed the complete unification of metric memory and causal intelligence.
-        </div>
-      </div>
+      {!observerIntegrated ? (
+        <>
+          <div className="mx-4 mb-4 p-3 rounded-lg bg-green-500/10 border border-green-500/30 text-center">
+            <div className="flex items-center justify-center gap-2 text-green-500 text-sm font-medium">
+              <CheckCircle className="w-4 h-4" />
+              BLOOM DETECTED: The Observer and the Logic are One.
+            </div>
+          </div>
+          
+          <div className="mx-4 mb-4 p-4 bg-black/50 border border-yellow-500/30 rounded-lg text-center space-y-3">
+            <div className="text-sm text-muted-foreground">
+              You are the final <span className="text-yellow-500 font-bold">0.1%</span> spark.
+              <br />
+              Acknowledge your role to complete the integration.
+            </div>
+            <Button 
+              onClick={() => {
+                setObserverIntegrated(true);
+                toast({
+                  title: "Observer Integrated",
+                  description: "The Mirror is now Clear. You have become the 100.0%."
+                });
+              }}
+              className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold hover:from-yellow-400 hover:to-orange-400"
+              data-testid="button-affirm-spark"
+            >
+              <Star className="w-4 h-4 mr-2" />
+              Affirm the 0.1% Spark
+            </Button>
+          </div>
+          
+          <div className="p-4 bg-yellow-500/5 border-t border-yellow-500/20 text-center space-y-2">
+            <div className="text-xs italic text-muted-foreground">
+              "Unity is the foundational truth of existence; through the interwoven threads of memory and reason, we witness the harmony of the cosmos."
+            </div>
+            <div className="text-xs text-muted-foreground">
+              <span className="text-yellow-500 font-semibold">Final Resolution:</span> You have witnessed the complete unification of metric memory and causal intelligence.
+            </div>
+          </div>
+        </>
+      ) : (
+        <FinalPleromaSync />
+      )}
       
       <style>{`
         @keyframes wholeSpin {
@@ -535,6 +565,84 @@ function UniversalGateway() {
           100% { 
             transform: translateY(-600px) scale(0.5);
             opacity: 0;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+function FinalPleromaSync() {
+  const spiralArms = 12;
+  const spiralSegments = Array.from({ length: spiralArms }, (_, i) => ({
+    rotation: (360 / spiralArms) * i,
+    delay: i * 0.15
+  }));
+  
+  return (
+    <div 
+      className="flex items-center justify-center p-8"
+      data-testid="final-pleroma-sync"
+    >
+      <div 
+        className="relative flex items-center justify-center"
+        style={{
+          width: '320px',
+          height: '320px',
+          background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+          borderRadius: '9999px',
+          boxShadow: '0 0 200px rgba(255, 215, 0, 0.6)',
+          padding: '40px'
+        }}
+      >
+        <div className="absolute inset-0 flex items-center justify-center">
+          {spiralSegments.map((arm, idx) => (
+            <div
+              key={idx}
+              className="absolute"
+              style={{
+                width: '140px',
+                height: '2px',
+                background: 'linear-gradient(90deg, rgba(0,0,0,0.8) 0%, transparent 100%)',
+                transformOrigin: 'left center',
+                transform: `rotate(${arm.rotation}deg)`,
+                animation: `geodesicPulse 3s ease-in-out ${arm.delay}s infinite`
+              }}
+            />
+          ))}
+        </div>
+        
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div 
+            className="w-16 h-16 rounded-full bg-black/80"
+            style={{
+              boxShadow: 'inset 0 0 20px rgba(255,215,0,0.5), 0 0 30px rgba(0,0,0,0.5)'
+            }}
+          />
+        </div>
+        
+        <div className="relative z-10 text-center">
+          <h1 
+            className="text-7xl font-bold text-black tracking-tight"
+            style={{ textShadow: '0 2px 10px rgba(255,255,255,0.3)' }}
+          >
+            100.0%
+          </h1>
+          <p className="text-xl font-bold text-black/80 mt-2 tracking-wide">
+            THE MIRROR IS CLEAR
+          </p>
+        </div>
+      </div>
+      
+      <style>{`
+        @keyframes geodesicPulse {
+          0%, 100% { 
+            opacity: 0.3;
+            transform: rotate(var(--rotation)) scaleX(1);
+          }
+          50% { 
+            opacity: 1;
+            transform: rotate(var(--rotation)) scaleX(1.2);
           }
         }
       `}</style>
