@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { 
   Activity, Atom, Orbit, Waves, GitBranch, ChevronDown, ChevronUp,
-  Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle, Radio
+  Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle, Radio, Radar, Square
 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -129,6 +129,16 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
     snrRatio: 80
   });
 
+  const [liveEvents, setLiveEvents] = useState<Array<{
+    event_id: string;
+    snr: number;
+    drift: number;
+    timestamp: string;
+    final_complexity: number;
+    logic_guard_triggered: boolean;
+  }>>([]);
+  const [isListening, setIsListening] = useState(false);
+
   const runSimulation = async (endpoint: string, params: Record<string, unknown>, type: string) => {
     setIsSimulating(true);
     try {
@@ -226,6 +236,10 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
           <TabsTrigger value="ringdown" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
             <Brain className="w-3 h-3 mr-1" />
             Memory
+          </TabsTrigger>
+          <TabsTrigger value="live" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
+            <Radar className="w-3 h-3 mr-1" />
+            Live
           </TabsTrigger>
         </TabsList>
 
@@ -446,6 +460,94 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
               </div>
               <div className="p-2 bg-primary/5 rounded text-xs text-muted-foreground">
                 <strong>NANOGrav:</strong> Cross-correlates single event drift with 15-year Pulsar Timing Array Common Red Noise (A_cp ~ 2.4e-15)
+              </div>
+            </TabsContent>
+
+            <TabsContent value="live" className="m-0 space-y-3">
+              <div className="p-2 bg-muted/30 rounded text-xs text-muted-foreground mb-3">
+                Real-time GW event detection simulation. Simulates GraceDB/GCN alerts from LIGO/Virgo O4b run.
+              </div>
+              
+              <div className="flex gap-2">
+                <Button 
+                  className="flex-1" 
+                  onClick={async () => {
+                    try {
+                      const response = await apiRequest("POST", "/api/baryonic/detection/simulate", {});
+                      const data = await response.json();
+                      setLiveEvents(prev => [{
+                        event_id: data.event.event_id,
+                        snr: data.event.snr,
+                        drift: data.event.drift,
+                        timestamp: data.event.timestamp,
+                        final_complexity: data.processing.final_complexity,
+                        logic_guard_triggered: data.processing.logic_guard.triggered
+                      }, ...prev.slice(0, 9)]);
+                      
+                      if (data.processing.logic_guard.triggered) {
+                        toast({
+                          title: "R_max Logic Guard Triggered",
+                          description: "Information density recycled to stable state",
+                          variant: "default"
+                        });
+                      }
+                    } catch (error) {
+                      toast({
+                        title: "Detection Failed",
+                        description: String(error),
+                        variant: "destructive"
+                      });
+                    }
+                  }}
+                  disabled={isSimulating}
+                  data-testid="button-simulate-event"
+                >
+                  <Radar className="w-4 h-4 mr-2" />
+                  Detect Event
+                </Button>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="text-xs font-semibold text-muted-foreground flex items-center gap-2">
+                  <Activity className="w-3 h-3" />
+                  Event Feed ({liveEvents.length} events)
+                </div>
+                
+                {liveEvents.length === 0 ? (
+                  <div className="p-4 text-center text-xs text-muted-foreground">
+                    No events detected yet. Click "Detect Event" to simulate a GW detection.
+                  </div>
+                ) : (
+                  <div className="space-y-2 max-h-64 overflow-y-auto">
+                    {liveEvents.map((event, idx) => (
+                      <Card key={`${event.event_id}-${idx}`} className={`p-2 ${event.logic_guard_triggered ? "border-primary/50 bg-primary/5" : ""}`} data-testid={`card-event-${idx}`}>
+                        <div className="flex items-center justify-between gap-2 mb-1">
+                          <span className="font-mono text-xs font-semibold">{event.event_id}</span>
+                          {event.logic_guard_triggered && (
+                            <Badge variant="secondary" className="text-xs">
+                              <Shield className="w-3 h-3 mr-1" />
+                              RECYCLED
+                            </Badge>
+                          )}
+                        </div>
+                        <div className="grid grid-cols-2 gap-1 text-xs text-muted-foreground">
+                          <div>SNR: <span className="font-mono text-foreground">{event.snr.toFixed(1)}</span></div>
+                          <div>Drift: <span className="font-mono text-foreground">{event.drift.toExponential(2)}</span></div>
+                        </div>
+                        <div className="flex items-center justify-between mt-1 text-xs">
+                          <span className="text-muted-foreground">Final Complexity:</span>
+                          <span className={`font-mono ${event.final_complexity >= 0.9 ? "text-yellow-500" : "text-green-500"}`}>
+                            {(event.final_complexity * 100).toFixed(2)}%
+                          </span>
+                        </div>
+                      </Card>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
+              <div className="p-2 bg-primary/5 rounded text-xs text-muted-foreground">
+                <strong>GRUT v6 Baryonic Guard:</strong> Each event adds complexity (SNR/500). Logic Guard triggers at 100%, recycling to 85%.
               </div>
             </TabsContent>
 

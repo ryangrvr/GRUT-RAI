@@ -477,6 +477,143 @@ export interface FullPipelineResult {
  * 1. Analyze ringdown memory for a specific event
  * 2. Cross-correlate with NANOGrav 15-year dataset
  */
+// ==========================================
+// Detection Alert System (Real-time GW Monitoring)
+// ==========================================
+
+export interface LiveEvent {
+  eventId: string;
+  snr: number;
+  drift: number;
+  timestamp: string;
+  source: string;
+}
+
+export interface LiveEventResult {
+  event: LiveEvent;
+  processing: {
+    previousComplexity: number;
+    complexityAdjustment: number;
+    finalComplexity: number;
+    logicGuard: { triggered: boolean; status: string };
+    tau0Myr: number;
+    memoryBurdenLogged: boolean;
+  };
+  status: string;
+}
+
+let detectionSystemActive = false;
+let totalEventsProcessed = 0;
+const eventHistory: LiveEventResult[] = [];
+
+/**
+ * Generate a simulated GW detection event mimicking O4b detections
+ */
+export function generateMockEvent(): LiveEvent {
+  const eventId = `GW${Math.floor(250101 + Math.random() * 1130)}`;
+  const snr = 15 + Math.random() * 70; // 15-85 range
+  const drift = (snr / 100) * 1e-21;
+  
+  return {
+    eventId,
+    snr,
+    drift,
+    timestamp: new Date().toISOString(),
+    source: "Simulated GraceDB/GCN"
+  };
+}
+
+/**
+ * Process a live GW event through GRUT Logic Guard
+ */
+export function processLiveEvent(event: LiveEvent): LiveEventResult {
+  console.log(`\n[ALERT] New Event Detected: ${event.eventId}`);
+  console.log(`Relayed SNR: ${event.snr.toFixed(2)}`);
+  console.log(`Processing ${event.eventId} for 41.9 Myr Memory signature...`);
+  
+  // Calculate complexity adjustment based on SNR
+  const complexityAdjustment = event.snr / 500;
+  const previousComplexity = baryonicState.complexityRatio;
+  updateBaryonicComplexity(complexityAdjustment);
+  
+  // Check Logic Guard
+  const guardResult = checkBaryonicLogicGuard();
+  
+  const result: LiveEventResult = {
+    event,
+    processing: {
+      previousComplexity,
+      complexityAdjustment,
+      finalComplexity: baryonicState.complexityRatio,
+      logicGuard: {
+        triggered: guardResult.triggered,
+        status: guardResult.status
+      },
+      tau0Myr: TAU_0_MYR,
+      memoryBurdenLogged: true
+    },
+    status: `Metric Memory Logged. Final Ξ: ${(baryonicState.complexityRatio * 100).toFixed(2)}%`
+  };
+  
+  eventHistory.push(result);
+  totalEventsProcessed++;
+  
+  // Keep history manageable
+  if (eventHistory.length > 100) {
+    eventHistory.shift();
+  }
+  
+  console.log(`Status: ${result.status}`);
+  
+  return result;
+}
+
+/**
+ * Start the detection alert system
+ */
+export function startDetectionSystem(): { status: string; message: string; complexityRatio: number } {
+  detectionSystemActive = true;
+  return {
+    status: "active",
+    message: "GRUT v6 'Baryonic Guard' Active - Listening for LIGO/Virgo O4b Event Alerts",
+    complexityRatio: baryonicState.complexityRatio
+  };
+}
+
+/**
+ * Stop the detection alert system
+ */
+export function stopDetectionSystem(): { status: string; message: string; totalEventsProcessed: number; finalComplexityRatio: number } {
+  detectionSystemActive = false;
+  return {
+    status: "stopped",
+    message: "Shutting down Baryonic Guard. Syncing memory states...",
+    totalEventsProcessed,
+    finalComplexityRatio: baryonicState.complexityRatio
+  };
+}
+
+/**
+ * Get current detection system status
+ */
+export function getDetectionStatus(): {
+  isListening: boolean;
+  complexityRatio: number;
+  totalEventsProcessed: number;
+  recentEvents: LiveEventResult[];
+  logicGuardStatus: string;
+} {
+  return {
+    isListening: detectionSystemActive,
+    complexityRatio: baryonicState.complexityRatio,
+    totalEventsProcessed,
+    recentEvents: eventHistory.slice(-5),
+    logicGuardStatus: baryonicState.complexityRatio < 0.9 ? "STABLE" : (
+      baryonicState.complexityRatio < 1.0 ? "WARNING" : "EXCEEDED"
+    )
+  };
+}
+
 export function runFullBaryonicPipeline(signalDurationSeconds: number = 1.5, snrRatio: number = 80): FullPipelineResult {
   // Step 1: Analyze specific GW event
   const ringdownResult = analyzeRingdownMemory(signalDurationSeconds, snrRatio);

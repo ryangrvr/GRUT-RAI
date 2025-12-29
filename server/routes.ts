@@ -58,6 +58,11 @@ import {
   analyzeRingdownMemory,
   crossCorrelateNanoGrav,
   runFullBaryonicPipeline,
+  generateMockEvent,
+  processLiveEvent,
+  startDetectionSystem,
+  stopDetectionSystem,
+  getDetectionStatus,
   GRUT_CONSTANTS 
 } from "./grut-logic";
 import {
@@ -1033,6 +1038,90 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Full pipeline error:", error);
       return res.status(500).json({ error: "Pipeline failed" });
+    }
+  });
+  
+  // Detection Alert System endpoints
+  app.post("/api/baryonic/detection/start", requireAuth, async (req, res) => {
+    try {
+      const result = startDetectionSystem();
+      return res.json(result);
+    } catch (error) {
+      console.error("Detection start error:", error);
+      return res.status(500).json({ error: "Failed to start detection system" });
+    }
+  });
+  
+  app.post("/api/baryonic/detection/stop", requireAuth, async (req, res) => {
+    try {
+      const result = stopDetectionSystem();
+      return res.json(result);
+    } catch (error) {
+      console.error("Detection stop error:", error);
+      return res.status(500).json({ error: "Failed to stop detection system" });
+    }
+  });
+  
+  app.get("/api/baryonic/detection/status", requireAuth, async (req, res) => {
+    try {
+      const result = getDetectionStatus();
+      return res.json({
+        is_listening: result.isListening,
+        complexity_ratio: result.complexityRatio,
+        total_events_processed: result.totalEventsProcessed,
+        recent_events: result.recentEvents.map(e => ({
+          event: {
+            event_id: e.event.eventId,
+            snr: e.event.snr,
+            drift: e.event.drift,
+            timestamp: e.event.timestamp,
+            source: e.event.source
+          },
+          processing: {
+            previous_complexity: e.processing.previousComplexity,
+            complexity_adjustment: e.processing.complexityAdjustment,
+            final_complexity: e.processing.finalComplexity,
+            logic_guard: e.processing.logicGuard,
+            tau_0_myr: e.processing.tau0Myr,
+            memory_burden_logged: e.processing.memoryBurdenLogged
+          },
+          status: e.status
+        })),
+        logic_guard_status: result.logicGuardStatus
+      });
+    } catch (error) {
+      console.error("Detection status error:", error);
+      return res.status(500).json({ error: "Failed to get status" });
+    }
+  });
+  
+  // Simulate a single GW event detection
+  app.post("/api/baryonic/detection/simulate", requireAuth, async (req, res) => {
+    try {
+      const event = generateMockEvent();
+      const result = processLiveEvent(event);
+      
+      return res.json({
+        event: {
+          event_id: result.event.eventId,
+          snr: result.event.snr,
+          drift: result.event.drift,
+          timestamp: result.event.timestamp,
+          source: result.event.source
+        },
+        processing: {
+          previous_complexity: result.processing.previousComplexity,
+          complexity_adjustment: result.processing.complexityAdjustment,
+          final_complexity: result.processing.finalComplexity,
+          logic_guard: result.processing.logicGuard,
+          tau_0_myr: result.processing.tau0Myr,
+          memory_burden_logged: result.processing.memoryBurdenLogged
+        },
+        status: result.status
+      });
+    } catch (error) {
+      console.error("Simulation error:", error);
+      return res.status(500).json({ error: "Simulation failed" });
     }
   });
   

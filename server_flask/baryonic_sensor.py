@@ -638,3 +638,131 @@ class IntegratedBaryonicSensor(GWSensor):
 def create_integrated_sensor(constants: Optional[Dict] = None) -> IntegratedBaryonicSensor:
     """Create a new IntegratedBaryonicSensor instance with optional custom constants"""
     return IntegratedBaryonicSensor(constants)
+
+
+class DetectionAlertSystem(BaryonicSensorAI):
+    """
+    Real-time Detection Alert System - Simulates GraceDB/GCN event monitoring
+    
+    Monitors for LIGO/Virgo O4b gravitational wave events and processes them
+    through GRUT Logic Guard in real-time.
+    """
+    
+    def __init__(self, constants: Optional[Dict] = None):
+        super().__init__(constants)
+        self.is_listening = False
+        self.event_history: List[Dict[str, Any]] = []
+        self.total_events_processed = 0
+    
+    def generate_mock_event(self) -> Dict[str, Any]:
+        """Generate a simulated GW detection event mimicking O4b detections"""
+        import random
+        
+        event_id = f"GW{random.randint(250101, 251231)}"
+        snr = random.uniform(15, 85)
+        
+        # Higher SNR = more massive merger = higher memory burden
+        drift = (snr / 100) * 1e-21
+        
+        event = {
+            "event_id": event_id,
+            "snr": snr,
+            "drift": drift,
+            "timestamp": __import__('datetime').datetime.now().isoformat(),
+            "source": "Simulated GraceDB/GCN"
+        }
+        
+        return event
+    
+    def process_live_event(self, event: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Process a live GW event through GRUT Logic Guard
+        
+        Args:
+            event: Event dictionary with event_id, snr, drift
+            
+        Returns:
+            Processing result with updated complexity status
+        """
+        event_id = event["event_id"]
+        snr = event["snr"]
+        drift = event["drift"]
+        
+        print(f"\n[ALERT] New Event Detected: {event_id}")
+        print(f"Relayed SNR: {snr:.2f}")
+        print(f"Processing {event_id} for 41.9 Myr Memory signature...")
+        
+        # Calculate complexity adjustment based on SNR
+        # High SNR = Higher Burden = Faster check against Tau_0
+        complexity_adjustment = snr / 500
+        previous_complexity = self.complexity_ratio
+        self.complexity_ratio += complexity_adjustment
+        
+        # Check Logic Guard
+        guard_check = self.check_logic_guard()
+        if isinstance(guard_check, dict):
+            guard_result = {
+                "triggered": guard_check.get("triggered", False),
+                "status": guard_check.get("r_max_status", "STABLE")
+            }
+        else:
+            guard_result = {
+                "triggered": bool(guard_check),
+                "status": "RECYCLED" if guard_check else "STABLE"
+            }
+        
+        result = {
+            "event": event,
+            "processing": {
+                "previous_complexity": previous_complexity,
+                "complexity_adjustment": complexity_adjustment,
+                "final_complexity": self.complexity_ratio,
+                "logic_guard": guard_result,
+                "tau_0_myr": self.tau_0 / (1e6 * 31536000),  # Convert back to Myr
+                "memory_burden_logged": True
+            },
+            "status": f"Metric Memory Logged. Final Ξ: {self.complexity_ratio:.2%}"
+        }
+        
+        self.event_history.append(result)
+        self.total_events_processed += 1
+        
+        print(f"Status: {result['status']}")
+        
+        return result
+    
+    def start_listening(self) -> Dict[str, Any]:
+        """Start the detection alert system"""
+        self.is_listening = True
+        return {
+            "status": "active",
+            "message": "GRUT v6 'Baryonic Guard' Active - Listening for LIGO/Virgo O4b Event Alerts",
+            "complexity_ratio": self.complexity_ratio
+        }
+    
+    def stop_listening(self) -> Dict[str, Any]:
+        """Stop the detection alert system"""
+        self.is_listening = False
+        return {
+            "status": "stopped",
+            "message": "Shutting down Baryonic Guard. Syncing memory states...",
+            "total_events_processed": self.total_events_processed,
+            "final_complexity_ratio": self.complexity_ratio
+        }
+    
+    def get_status(self) -> Dict[str, Any]:
+        """Get current system status"""
+        return {
+            "is_listening": self.is_listening,
+            "complexity_ratio": self.complexity_ratio,
+            "total_events_processed": self.total_events_processed,
+            "recent_events": self.event_history[-5:] if self.event_history else [],
+            "logic_guard_status": "STABLE" if self.complexity_ratio < 0.9 else (
+                "WARNING" if self.complexity_ratio < 1.0 else "EXCEEDED"
+            )
+        }
+
+
+def create_detection_system(constants: Optional[Dict] = None) -> DetectionAlertSystem:
+    """Create a new DetectionAlertSystem instance"""
+    return DetectionAlertSystem(constants)

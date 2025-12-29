@@ -77,6 +77,12 @@ Preferred communication style: Simple, everyday language.
   - PTA noise amplitude: 2.4e-15 at f=1yr^-1
   - Correlation index range for match: 0.1-10
   - Complexity drops by 0.05 when patterns unify (match found)
+- **Detection Alert System**:
+  - DetectionAlertSystem class extends BaryonicSensorAI
+  - Simulates GraceDB/GCN alerts from LIGO/Virgo O4b run
+  - process_live_event() calculates complexity adjustment (SNR/500)
+  - Event endpoints: /api/baryonic/detection/simulate, /start, /stop, /status
+  - UI "Live" tab with real-time event feed and Logic Guard status
 - **Key Constants**:
   - tau_0: 41.9 Myr (relaxation constant)
   - tau_0_seconds: ~1.32e15 seconds
