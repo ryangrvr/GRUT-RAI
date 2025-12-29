@@ -12,10 +12,11 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Progress } from "@/components/ui/progress";
+import { Slider } from "@/components/ui/slider";
 import { 
   Activity, Atom, Orbit, Waves, GitBranch, ChevronDown, ChevronUp, ChevronRight,
   Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle, Radio, Radar, Square,
-  Plus, Minus, Sigma, Copy, Check, Share2, Sprout, FileJson
+  Plus, Minus, Sigma, Copy, Check, Share2, Sprout, FileJson, Clock
 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -122,6 +123,64 @@ interface BulletClusterData {
   logic_guard?: LogicGuardResult;
 }
 
+function DriftVisualization({ driftMly, tau0 }: { driftMly: number; tau0: number }) {
+  const maxDrift = 60;
+  const driftPercent = Math.min((driftMly / maxDrift) * 100, 100);
+  const isUnstable = tau0 >= 60;
+  
+  return (
+    <div className="p-3 rounded-md bg-card/50 border border-border/50" data-testid="drift-visualization">
+      <div className="text-xs font-medium text-muted-foreground mb-2">
+        Theoretical Offset: <span className="text-primary font-mono">{driftMly.toFixed(2)} Million Light Years</span>
+      </div>
+      
+      <div className="relative h-12 bg-muted/50 rounded-md overflow-hidden">
+        <div className="absolute inset-0 flex items-center px-4">
+          <div 
+            className="absolute w-3 h-3 rounded-full bg-red-500 shadow-lg z-10"
+            style={{ left: '16px' }}
+            title="Gas Center (Baryonic Mass)"
+          />
+          <div className="absolute left-6 top-1 text-[10px] text-red-500 font-mono">Gas</div>
+          
+          <div 
+            className={`absolute w-3 h-3 rounded-full shadow-lg z-10 transition-all duration-300 ${isUnstable ? 'bg-yellow-500' : 'bg-blue-500'}`}
+            style={{ left: `${16 + (driftPercent * 2.5)}px` }}
+            title="Lensing Center (Gravitational Potential)"
+          />
+          <div 
+            className={`absolute top-1 text-[10px] font-mono transition-all duration-300 ${isUnstable ? 'text-yellow-500' : 'text-blue-500'}`}
+            style={{ left: `${22 + (driftPercent * 2.5)}px` }}
+          >
+            Lens
+          </div>
+          
+          <div 
+            className="absolute top-1/2 -translate-y-1/2 border-t-2 border-dashed border-muted-foreground/30"
+            style={{ left: '22px', width: `${driftPercent * 2.5}px` }}
+          />
+        </div>
+        
+        <div className="absolute bottom-1 left-4 right-4 flex justify-between text-[9px] text-muted-foreground">
+          <span>0 Mly</span>
+          <span>30 Mly</span>
+          <span>60 Mly</span>
+        </div>
+      </div>
+      
+      <div className="mt-2 flex items-center justify-between text-xs">
+        <span className="text-muted-foreground">
+          τ₀ = 0: <span className="text-foreground">No lag (Newtonian)</span>
+        </span>
+        <span className={`font-mono ${isUnstable ? 'text-yellow-500' : 'text-muted-foreground'}`}>
+          {isUnstable && <AlertTriangle className="w-3 h-3 inline mr-1" />}
+          Metric: {isUnstable ? 'UNSTABLE' : 'STABLE'}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function BulletClusterBloom({ data, onBranch, onSave }: { 
   data: BulletClusterData; 
   onBranch?: (topic: string) => void;
@@ -129,6 +188,7 @@ function BulletClusterBloom({ data, onBranch, onSave }: {
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [interactiveTau, setInteractiveTau] = useState(data.constants_used?.tau_0 || 41.9);
   const { toast } = useToast();
   
   const tau_0 = data.constants_used?.tau_0 || 41.9;
@@ -136,7 +196,7 @@ function BulletClusterBloom({ data, onBranch, onSave }: {
   const v_km_s = data.collision_velocity_km_s || 4500;
   
   const v_m_s = v_km_s * 1000;
-  const tau_seconds = tau_0 * 1e6 * 365.25 * 24 * 3600;
+  const tau_seconds = interactiveTau * 1e6 * 365.25 * 24 * 3600;
   const offset_m = v_m_s * tau_seconds;
   const offset_ly = offset_m / 9.461e15;
   const offset_mly = offset_ly / 1e6;
@@ -210,42 +270,92 @@ Logic Guard Status: ${isWarning ? "WARNING" : "STABLE"}`;
               <div className="flex items-start gap-2 mb-3">
                 <Sigma className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Grit: Retarded Potential & Metric Hysteresis Proof
+                  Grit: Interactive Metric Memory
                 </span>
               </div>
               
               <div className="pl-6 space-y-3">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-3 h-3 text-primary" />
+                    <span className="text-xs font-medium">1. Adjust Temporal Latency (τ₀)</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Slider
+                      value={[interactiveTau]}
+                      onValueChange={(v) => setInteractiveTau(v[0])}
+                      min={0}
+                      max={100}
+                      step={0.1}
+                      className="flex-1"
+                      data-testid="slider-tau0"
+                    />
+                    <Badge variant="outline" className="font-mono text-xs min-w-[60px] justify-center">
+                      {interactiveTau.toFixed(1)} Myr
+                    </Badge>
+                  </div>
+                  <div className="text-[10px] text-muted-foreground">
+                    Increasing τ₀ deepens the hysteresis, causing the potential to lag further behind mass.
+                  </div>
+                </div>
+                
                 <div className="font-mono text-sm p-3 rounded-md bg-card/50 border border-border/50 space-y-1">
-                  <div className="text-primary">K(t - t') = (α/τ₀) × e<sup>-(t-t')/τ₀</sup> × Θ(t - t')</div>
-                  <div className="text-muted-foreground text-xs mt-2">where α = {alpha.toFixed(3)}, τ₀ = {tau_0} Myr</div>
+                  <div className="text-xs text-muted-foreground mb-1">2. Dynamic Kernel (updates with slider):</div>
+                  <div className="text-primary">K(t - t') = (α/{interactiveTau.toFixed(1)}) × e<sup>-(t-t')/{interactiveTau.toFixed(1)}</sup> × Θ(t - t')</div>
+                  <div className="text-muted-foreground text-xs mt-2">where α = {alpha.toFixed(3)}</div>
                 </div>
                 
                 <div className="font-mono text-sm p-3 rounded-md bg-card/50 border border-border/50">
                   <div className="text-primary">Φ(r, t) = -G ∫ ρ(t') K(t, t') / |r - r'| d³r'</div>
                 </div>
                 
+                <div className="text-xs text-muted-foreground">3. Drift Visualization:</div>
+                <DriftVisualization driftMly={offset_mly} tau0={interactiveTau} />
+                
                 <div className="p-3 bg-primary/10 rounded-md">
                   <div className="text-xs text-muted-foreground mb-1">Predicted Offset:</div>
                   <div className="text-lg font-bold text-primary font-mono">
-                    d = v × τ₀ ≈ {offset_mly.toFixed(2)} Mly
+                    d = {v_km_s.toLocaleString()} km/s × {interactiveTau.toFixed(1)} Myr ≈ {offset_mly.toFixed(2)} Mly
                   </div>
                 </div>
                 
-                <div className="p-2 bg-green-500/10 rounded text-xs text-green-700 dark:text-green-400">
-                  <CheckCircle className="w-3 h-3 inline mr-1" />
-                  Matches observed lensing centers without Dark Matter particles.
-                </div>
+                {interactiveTau >= 35 && interactiveTau <= 50 && (
+                  <div className="p-2 bg-green-500/10 rounded text-xs text-green-700 dark:text-green-400">
+                    <CheckCircle className="w-3 h-3 inline mr-1" />
+                    Goldilocks Zone: Matches observed Bullet Cluster lensing separation.
+                  </div>
+                )}
+                
+                {interactiveTau < 35 && (
+                  <div className="p-2 bg-muted/50 rounded text-xs text-muted-foreground">
+                    Low latency: Approaching Newtonian/Einsteinian instantaneous response.
+                  </div>
+                )}
+                
+                {interactiveTau > 50 && interactiveTau < 80 && (
+                  <div className="p-2 bg-yellow-500/10 rounded text-xs text-yellow-700 dark:text-yellow-400">
+                    <AlertTriangle className="w-3 h-3 inline mr-1" />
+                    High latency: Exceeds observed constraints from cluster dynamics.
+                  </div>
+                )}
+                
+                {interactiveTau >= 80 && (
+                  <div className="p-2 bg-red-500/10 rounded text-xs text-red-700 dark:text-red-400">
+                    <AlertTriangle className="w-3 h-3 inline mr-1" />
+                    UNSTABLE: Metric hysteresis too extreme for physical consistency.
+                  </div>
+                )}
                 
                 <div className="border-t border-border pt-3 mt-3">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium">Logic Guard Status:</span>
+                    <span className="text-xs font-medium">4. Logic Guard Telemetry:</span>
                     <Badge 
-                      variant={isWarning ? "destructive" : "outline"} 
+                      variant={isWarning || interactiveTau >= 60 ? "destructive" : "outline"} 
                       className="text-xs"
                       data-testid="grit-logic-guard-status"
                     >
-                      {isWarning ? (
-                        <><AlertTriangle className="w-3 h-3 mr-1" /> WARNING</>
+                      {isWarning || interactiveTau >= 60 ? (
+                        <><AlertTriangle className="w-3 h-3 mr-1" /> {interactiveTau >= 60 ? 'UNSTABLE' : 'WARNING'}</>
                       ) : (
                         <><CheckCircle className="w-3 h-3 mr-1" /> STABLE</>
                       )}
@@ -257,8 +367,11 @@ Logic Guard Status: ${isWarning ? "WARNING" : "STABLE"}`;
                     className={`h-2 ${isWarning ? "[&>div]:bg-yellow-500" : "[&>div]:bg-primary"}`}
                     data-testid="grit-xi-progress"
                   />
-                  <div className="text-xs text-muted-foreground mt-1">
-                    Information Density (Ξ): {(xiValue * 100).toFixed(1)}%
+                  <div className="text-xs text-muted-foreground mt-1 flex items-center justify-between gap-2">
+                    <span>Xi Saturation: {(xiValue * 100).toFixed(1)}%</span>
+                    <span className={`font-mono ${interactiveTau >= 60 ? 'text-yellow-500' : 'text-muted-foreground'}`}>
+                      Metric: {interactiveTau >= 60 ? 'UNSTABLE' : 'STABLE'}
+                    </span>
                   </div>
                 </div>
               </div>

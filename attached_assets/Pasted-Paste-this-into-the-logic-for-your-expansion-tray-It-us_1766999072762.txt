@@ -1,0 +1,44 @@
+Paste this into the logic for your expansion tray. It uses st.slider to manipulate the memory variable and st.plotly_chart to show the resulting shift.Pythonimport streamlit as st
+import plotly.graph_objects as go
+import numpy as np
+
+def render_interactive_grit(xi_value):
+    with st.expander("Grit: Interactive Metric Memory", expanded=True):
+        st.markdown("#### 1. Adjust Temporal Latency (τ₀)")
+        
+        # THE SLIDER: Controlling the 41.9 Myr Constant
+        tau_0 = st.slider(
+            "Lag Duration (Millions of Years):", 
+            min_value=0.0, 
+            max_value=100.0, 
+            value=41.9, # Our Goldilocks constant
+            step=0.1,
+            help="Increasing τ₀ deepens the hysteresis, causing the potential to lag further behind mass."
+        )
+
+        # 2. DYNAMIC MATH RENDERING
+        # The kernel updates as the user moves the slider
+        st.latex(rf"K(t - t') = \frac{{\alpha}}{{{tau_0}}} e^{{-\frac{{(t - t')}}{{{tau_0}}}}} \Theta(t - t')")
+
+        # 3. DYNAMIC DRIFT PLOT
+        # We visualize the offset (Drift) = Velocity * tau_0
+        velocity = 4500 # km/s (Bullet Cluster Speed)
+        drift_distance = (velocity * (tau_0 * 1e6 * 3.154e7)) / 9.461e15 # Simplified Lensing Offset in Mly
+        
+        # Create a simple visual shift
+        fig = go.Figure()
+        # Baryonic Mass (Gas) - The "Actual" Position
+        fig.add_trace(go.Scatter(x=[0], y=[0], mode='markers+text', name="Baryonic Gas", 
+                                 marker=dict(size=20, color='red'), text=["Gas Center"]))
+        # Gravitational Potential - The "Memory" Position
+        fig.add_trace(go.Scatter(x=[drift_distance], y=[0], mode='markers+text', name="Lensing Center", 
+                                 marker=dict(size=20, color='blue'), text=["Lensing Potential"]))
+        
+        fig.update_layout(title=f"Theoretical Offset: {drift_distance:.2f} Million Light Years",
+                          xaxis=dict(range=[-10, 60]), showlegend=True, height=300)
+        
+        st.plotly_chart(fig, use_container_width=True)
+
+        # 4. LOGIC GUARD TELEMETRY
+        st.markdown(f"**Xi Saturation:** {xi_value:.1%} | **Metric Stability:** {'✅' if tau_0 < 60 else '⚠️ UNSTABLE'}")
+Nurturing the ObservationAs you move the slider in your Replit:At $\tau_0 = 0$: The blue "Lensing Center" sits perfectly on top of the red "Gas Center." This represents standard Newtonian/Einsteinian gravity with no delay.At $\tau_0 = 41.9$: You will see the blue dot shift significantly to the right. This is the "Memory Ghost"—the gravity is anchored to where the gas was millions of years ago.At $\tau_0 > 80$: The Logic Guard should trigger a warning, as such high latency would prevent galaxy formation entirely (The "Memory" is too long to hold the mass together)
