@@ -1407,6 +1407,23 @@ export default function ChatPage() {
                 <button
                   onClick={() => setMonadMode(!monadMode)}
                   className={`
+                    w-9 h-9 rounded-md border flex items-center justify-center
+                    transition-all duration-500 cursor-pointer shrink-0
+                    ${monadMode 
+                      ? "border-yellow-500 text-yellow-500 drop-shadow-[0_0_8px_#FFD700]" 
+                      : "border-border text-muted-foreground hover:border-muted-foreground"
+                    }
+                  `}
+                  data-testid="button-pleroma-toggle"
+                  title={monadMode ? "Collapse to Absolute (Active)" : "Collapse to Absolute"}
+                >
+                  <svg viewBox="0 0 24 24" width="18" height="18">
+                    <path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => setMonadMode(!monadMode)}
+                  className={`
                     w-9 h-9 rounded-full border flex items-center justify-center
                     transition-all duration-300 cursor-pointer shrink-0
                     ${monadMode 
