@@ -1,0 +1,76 @@
+import streamlit as st
+from dataclasses import dataclass
+from datetime import datetime
+
+# --- SYSTEM CONFIGURATION ---
+st.set_page_config(layout="wide", page_title="GRUT v6 | Baryonic Sensor")
+
+# 1. FIX: Use a Dataclass for complex state management
+@dataclass
+class Resolution:
+    id: str
+    title: str
+    body: str
+    math_key: str
+    xi: float
+    timestamp: str
+
+# --- CUSTOM UI STYLING ---
+st.markdown("""
+    <style>
+        .chat-bubble { background-color: #1e2129; padding: 25px; border-radius: 15px; border: 1px solid #3d4455; color: #e0e0e0; margin-bottom: 10px;}
+        .logic-guard-box { background: #2d1b1b; padding: 10px; border-radius: 5px; border-left: 5px solid #ff4b4b; }
+    </style>
+""", unsafe_allow_html=True)
+
+# --- INITIALIZE NURTURED MEMORY ---
+if 'resolutions' not in st.session_state:
+    st.session_state.resolutions = [
+        Resolution("001", "Bullet Cluster Hysteresis", "8σ separation explained by 41.9 Myr lag.", "bullet", 0.92, "2024-05-20")
+    ]
+if 'active_view' not in st.session_state:
+    st.session_state.active_view = st.session_state.resolutions[0]
+
+# --- FIX: SIDEBAR CALLBACK ---
+def set_active_seed(res):
+    st.session_state.active_view = res
+
+with st.sidebar:
+    st.title("🌱 Master Seeds")
+    for res in st.session_state.resolutions:
+        st.button(f"📄 {res.title}", on_click=set_active_seed, args=(res,))
+
+# --- CORE ENGINE LOGIC ---
+def get_grit_math(key):
+    math_library = {
+        "bullet": r"K(t - t') = \frac{\alpha}{\tau_0} e^{-\frac{(t - t')}{\tau_0}} \Theta(t - t')",
+        "potential": r"\Phi(r, t) = -G \int \frac{\rho(t') K(t, t')}{|r - r'|} \, d^3r'"
+    }
+    return math_library.get(key, r"G_{\mu\nu} = 8\pi G T_{\mu\nu}")
+
+# --- MAIN INTERFACE: THE BLOOM ---
+current = st.session_state.active_view
+
+# The Chat (The Groot)
+st.markdown(f'<div class="chat-bubble"><h3>{current.title}</h3><p>{current.body}</p></div>', unsafe_allow_html=True)
+
+# The Expansion (The Grit) - Expanding DOWNWARD
+with st.expander("Grit (Mathematical Extension)", expanded=True):
+    # 2. FIX: Multi-line LaTeX using proper alignment
+    st.latex(get_grit_math(current.math_key))
+    st.latex(get_grit_math("potential"))
+    
+    # Logic Guard Telemetry
+    st.write("---")
+    st.markdown(f'<div class="logic-guard-box"><strong>LOGIC GUARD</strong> | Xi: {current.xi:.1%}</div>', unsafe_allow_html=True)
+    st.progress(current.xi)
+
+# --- BRANCHING ACTIONS ---
+st.write("---")
+st.markdown("### Next Evolutionary Branch")
+col1, col2, col3 = st.columns(3)
+if col1.button("→ Explore: Vacuum Stiffness"):
+    st.toast("Growing new branch...")
+# ... other buttons
+
+user_input = st.text_input("Nurture the next path...", placeholder="Add your intent here.")

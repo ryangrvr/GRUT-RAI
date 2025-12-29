@@ -11,10 +11,11 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { Progress } from "@/components/ui/progress";
 import { 
   Activity, Atom, Orbit, Waves, GitBranch, ChevronDown, ChevronUp,
   Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle, Radio, Radar, Square,
-  Plus, Minus, Sigma, Copy, Check
+  Plus, Minus, Sigma, Copy, Check, Share2, Sprout
 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -121,12 +122,17 @@ interface BulletClusterData {
   logic_guard?: LogicGuardResult;
 }
 
-function BulletClusterBloom({ data, onBranch }: { data: BulletClusterData; onBranch?: (topic: string) => void }) {
+function BulletClusterBloom({ data, onBranch, onSave }: { 
+  data: BulletClusterData; 
+  onBranch?: (topic: string) => void;
+  onSave?: () => void;
+}) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
   
   const tau_0 = data.constants_used?.tau_0 || 41.9;
+  const alpha = data.constants_used?.alpha || 0.333;
   const v_km_s = data.collision_velocity_km_s || 4500;
   
   const v_m_s = v_km_s * 1000;
@@ -135,14 +141,36 @@ function BulletClusterBloom({ data, onBranch }: { data: BulletClusterData; onBra
   const offset_ly = offset_m / 9.461e15;
   const offset_mly = offset_ly / 1e6;
   
-  const handleCopy = async () => {
-    const text = `Bullet Cluster (1E 0657-558) GRUT Analysis\n\nNarrative: ${data.grut_explanation}\n\nDerivation:\nd_offset = v_cluster × τ₀\nv = ${v_km_s} km/s, τ₀ = ${tau_0} Myr\nPredicted Offset: ${offset_mly.toFixed(2)} Million Light Years\n\nKernel Weight K(t): ${data.kernel_weight?.toFixed(4)}\nPredicted Offset (simulation): ${data.predicted_offset_mpc} Mpc`;
+  const xiValue = data.logic_guard?.complexityRatioAfter ?? data.logic_guard?.complexityRatioBefore ?? 0.926;
+  const xiPercent = Math.min(xiValue, 1.0) * 100;
+  const isWarning = xiValue > 0.9;
+  
+  const handleCopyProof = async () => {
+    const proofText = `GRUT Retarded Potential & Metric Hysteresis Proof
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+K(t - t') = (α/τ₀) × e^(-(t - t')/τ₀) × Θ(t - t')
+
+Φ(r, t) = -G ∫ ρ(t') K(t, t') / |r - r'| d³r'
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Bullet Cluster (1E 0657-558) Application:
+
+d_offset = v_cluster × τ₀
+         = ${v_km_s.toLocaleString()} km/s × ${tau_0} Myr
+         ≈ ${offset_mly.toFixed(2)} Million Light Years
+
+Kernel Weight K(t): ${data.kernel_weight?.toFixed(4)}
+Hysteresis Factor: ${data.hysteresis_factor?.toFixed(4)}
+
+Information Density (Ξ): ${(xiValue * 100).toFixed(1)}%
+Logic Guard Status: ${isWarning ? "WARNING" : "STABLE"}`;
     
     try {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(proofText);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-      toast({ title: "Copied", description: "Analysis copied to clipboard" });
+      toast({ title: "Proof Copied", description: "Mathematical proof copied to clipboard" });
     } catch {
       toast({ title: "Copy failed", variant: "destructive" });
     }
@@ -150,72 +178,89 @@ function BulletClusterBloom({ data, onBranch }: { data: BulletClusterData; onBra
   
   return (
     <div className="space-y-3" data-testid="bullet-cluster-bloom">
-      <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
-        <Card className="bg-muted/30 overflow-visible">
-          <div className="p-4 pb-2">
-            <div className="flex items-start gap-2 mb-2">
-              <Target className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-              <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                1E 0657-558: Metric Hysteresis Proof
-              </span>
+      <Card className="bg-muted/30 overflow-visible">
+        <div className="p-4 pb-2">
+          <div className="flex items-start gap-2 mb-2">
+            <Target className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+            <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              Groot: 1E 0657-558 Metric Hysteresis
+            </span>
+          </div>
+          
+          <div className="text-sm pl-6 mb-3" data-testid="bloom-narrative-bullet">
+            The 8σ separation is a 'coordinate ghost' caused by temporal latency. {data.grut_explanation}
+          </div>
+          
+          <div className="grid grid-cols-2 gap-2 pl-6 text-xs">
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Kernel K(t):</span>
+              <span className="font-mono">{data.kernel_weight?.toFixed(4)}</span>
             </div>
-            
-            <div className="text-sm pl-6 mb-3" data-testid="bloom-narrative-bullet">
-              The 8σ separation is a 'coordinate ghost' caused by temporal latency. {data.grut_explanation}
-            </div>
-            
-            <div className="grid grid-cols-2 gap-2 pl-6 text-xs">
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Kernel K(t):</span>
-                <span className="font-mono">{data.kernel_weight?.toFixed(4)}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Offset:</span>
-                <span className="font-mono text-primary">{data.predicted_offset_mpc} Mpc</span>
-              </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Offset:</span>
+              <span className="font-mono text-primary">{data.predicted_offset_mpc} Mpc</span>
             </div>
           </div>
+        </div>
 
+        <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
           <CollapsibleContent className="overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
             <div className="border-t border-border mx-4" />
             <div className="p-4 pt-3 bg-background/30">
-              <div className="flex items-start gap-2 mb-2">
+              <div className="flex items-start gap-2 mb-3">
                 <Sigma className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Derivation: Retarded Potential vs. {tau_0} Myr
+                  Grit: Retarded Potential & Metric Hysteresis Proof
                 </span>
               </div>
               
-              <div className="pl-6 space-y-2">
+              <div className="pl-6 space-y-3">
+                <div className="font-mono text-sm p-3 rounded-md bg-card/50 border border-border/50 space-y-1">
+                  <div className="text-primary">K(t - t') = (α/τ₀) × e<sup>-(t-t')/τ₀</sup> × Θ(t - t')</div>
+                  <div className="text-muted-foreground text-xs mt-2">where α = {alpha.toFixed(3)}, τ₀ = {tau_0} Myr</div>
+                </div>
+                
                 <div className="font-mono text-sm p-3 rounded-md bg-card/50 border border-border/50">
-                  <div className="text-primary mb-1">d_offset = v_cluster × τ₀</div>
-                  <div className="text-muted-foreground text-xs">
-                    Given v ≈ {v_km_s.toLocaleString()} km/s and τ₀ = {tau_0} Myr:
-                  </div>
+                  <div className="text-primary">Φ(r, t) = -G ∫ ρ(t') K(t, t') / |r - r'| d³r'</div>
                 </div>
                 
                 <div className="p-3 bg-primary/10 rounded-md">
                   <div className="text-xs text-muted-foreground mb-1">Predicted Offset:</div>
                   <div className="text-lg font-bold text-primary font-mono">
-                    ~{offset_mly.toFixed(2)} Million Light Years
+                    d = v × τ₀ ≈ {offset_mly.toFixed(2)} Mly
                   </div>
                 </div>
                 
                 <div className="p-2 bg-green-500/10 rounded text-xs text-green-700 dark:text-green-400">
                   <CheckCircle className="w-3 h-3 inline mr-1" />
-                  This matches the observed lensing centers without requiring Dark Matter particles.
+                  Matches observed lensing centers without Dark Matter particles.
                 </div>
-              </div>
-              
-              <div className="flex items-center gap-2 mt-3 pl-6">
-                <Badge variant="outline" className="text-xs">
-                  <span className="text-muted-foreground mr-1">Gas-DM Sep:</span>
-                  {data.gas_dm_separation_kpc?.toFixed(0)} kpc
-                </Badge>
-                <Badge variant="outline" className="text-xs">
-                  <span className="text-muted-foreground mr-1">Hysteresis:</span>
-                  {data.hysteresis_factor?.toFixed(4)}
-                </Badge>
+                
+                <div className="border-t border-border pt-3 mt-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-medium">Logic Guard Status:</span>
+                    <Badge 
+                      variant={isWarning ? "destructive" : "outline"} 
+                      className="text-xs"
+                      data-testid="grit-logic-guard-status"
+                    >
+                      {isWarning ? (
+                        <><AlertTriangle className="w-3 h-3 mr-1" /> WARNING</>
+                      ) : (
+                        <><CheckCircle className="w-3 h-3 mr-1" /> STABLE</>
+                      )}
+                    </Badge>
+                  </div>
+                  
+                  <Progress 
+                    value={xiPercent} 
+                    className={`h-2 ${isWarning ? "[&>div]:bg-yellow-500" : "[&>div]:bg-primary"}`}
+                    data-testid="grit-xi-progress"
+                  />
+                  <div className="text-xs text-muted-foreground mt-1">
+                    Information Density (Ξ): {(xiValue * 100).toFixed(1)}%
+                  </div>
+                </div>
               </div>
             </div>
           </CollapsibleContent>
@@ -226,18 +271,18 @@ function BulletClusterBloom({ data, onBranch }: { data: BulletClusterData; onBra
                 variant="ghost" 
                 size="sm" 
                 className="gap-1 text-xs"
-                data-testid="bloom-toggle-bullet"
+                data-testid="bloom-toggle-grit"
               >
                 {isExpanded ? (
                   <>
                     <Minus className="w-3 h-3" />
-                    <span>Collapse Derivation</span>
+                    <span>Grit (Mathematical Extension)</span>
                     <ChevronUp className="w-3 h-3" />
                   </>
                 ) : (
                   <>
                     <Plus className="w-3 h-3" />
-                    <span>Show Derivation</span>
+                    <span>Grit (Mathematical Extension)</span>
                     <ChevronDown className="w-3 h-3" />
                   </>
                 )}
@@ -248,9 +293,9 @@ function BulletClusterBloom({ data, onBranch }: { data: BulletClusterData; onBra
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={handleCopy}
+                onClick={handleCopyProof}
                 className="gap-1 text-xs"
-                data-testid="bloom-copy-bullet"
+                data-testid="bloom-copy-proof"
               >
                 {copied ? (
                   <>
@@ -260,7 +305,7 @@ function BulletClusterBloom({ data, onBranch }: { data: BulletClusterData; onBra
                 ) : (
                   <>
                     <Copy className="w-3 h-3" />
-                    <span>Copy</span>
+                    <span>Copy Proof</span>
                   </>
                 )}
               </Button>
@@ -270,15 +315,29 @@ function BulletClusterBloom({ data, onBranch }: { data: BulletClusterData; onBra
                 size="sm"
                 onClick={() => onBranch?.("galaxy_rotation")}
                 className="gap-1 text-xs"
-                data-testid="bloom-branch-bullet"
+                data-testid="bloom-share-branch"
               >
-                <GitBranch className="w-3 h-3" />
-                <span>Branch: Galaxy Rotation</span>
+                <Share2 className="w-3 h-3" />
+                <span>Share Branch</span>
+              </Button>
+              
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  onSave?.();
+                  toast({ title: "Saved to Seed", description: "Proof saved to your knowledge base" });
+                }}
+                className="gap-1 text-xs"
+                data-testid="bloom-save-seed"
+              >
+                <Sprout className="w-3 h-3" />
+                <span>Save to Seed</span>
               </Button>
             </div>
           </div>
-        </Card>
-      </Collapsible>
+        </Collapsible>
+      </Card>
     </div>
   );
 }
