@@ -13,9 +13,9 @@ import {
 } from "@/components/ui/collapsible";
 import { Progress } from "@/components/ui/progress";
 import { 
-  Activity, Atom, Orbit, Waves, GitBranch, ChevronDown, ChevronUp,
+  Activity, Atom, Orbit, Waves, GitBranch, ChevronDown, ChevronUp, ChevronRight,
   Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle, Radio, Radar, Square,
-  Plus, Minus, Sigma, Copy, Check, Share2, Sprout
+  Plus, Minus, Sigma, Copy, Check, Share2, Sprout, FileJson
 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -342,14 +342,18 @@ Logic Guard Status: ${isWarning ? "WARNING" : "STABLE"}`;
   );
 }
 
-function SimulationResultBloom({ result, onBranch }: { result: SimulationResult; onBranch?: (topic: string) => void }) {
+function SimulationResultBloom({ result, onBranch, onSave }: { result: SimulationResult; onBranch?: (topic: string) => void; onSave?: (result: SimulationResult) => void }) {
   if (result.type === "Bullet Cluster" && result.data) {
     return (
       <>
         {result.data.logic_guard && (
           <LogicGuardStatus guard={result.data.logic_guard as LogicGuardResult} />
         )}
-        <BulletClusterBloom data={result.data as unknown as BulletClusterData} onBranch={onBranch} />
+        <BulletClusterBloom 
+          data={result.data as unknown as BulletClusterData} 
+          onBranch={onBranch} 
+          onSave={() => onSave?.(result)}
+        />
       </>
     );
   }
@@ -370,11 +374,133 @@ function SimulationResultBloom({ result, onBranch }: { result: SimulationResult;
   );
 }
 
+interface MasterSeed {
+  id: string;
+  title: string;
+  body: string;
+  mathKey: string;
+  xi: number;
+  timestamp: string;
+  result?: SimulationResult;
+}
+
+const DEFAULT_SEEDS: MasterSeed[] = [
+  {
+    id: "001",
+    title: "Bullet Cluster Hysteresis",
+    body: "8σ separation explained by 41.9 Myr lag.",
+    mathKey: "bullet",
+    xi: 0.926,
+    timestamp: new Date().toISOString()
+  }
+];
+
+function SeedArchive({ 
+  seeds, 
+  activeSeed, 
+  onSelectSeed 
+}: { 
+  seeds: MasterSeed[]; 
+  activeSeed: MasterSeed | null; 
+  onSelectSeed: (seed: MasterSeed) => void;
+}) {
+  return (
+    <div className="border-b border-border pb-3 mb-3">
+      <div className="flex items-center gap-2 mb-2">
+        <Sprout className="w-4 h-4 text-primary" />
+        <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Master Seeds</span>
+      </div>
+      <div className="space-y-1">
+        {seeds.map((seed) => (
+          <Button
+            key={seed.id}
+            variant={activeSeed?.id === seed.id ? "secondary" : "ghost"}
+            size="sm"
+            className="w-full justify-start gap-2 text-xs"
+            onClick={() => onSelectSeed(seed)}
+            data-testid={`button-seed-${seed.id}`}
+          >
+            <FileJson className="w-3 h-3" />
+            <span className="truncate">{seed.title}</span>
+            <Badge variant="outline" className="ml-auto text-[10px]">
+              {(seed.xi * 100).toFixed(0)}%
+            </Badge>
+          </Button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function BranchExplorer({ onExplore }: { onExplore: (branch: string) => void }) {
+  const [customBranch, setCustomBranch] = useState("");
+  const { toast } = useToast();
+  
+  const branches = [
+    { key: "vacuum_stiffness", label: "Vacuum Stiffness" },
+    { key: "time_delay_lensing", label: "Time-Delay Lensing" },
+    { key: "galaxy_rotation", label: "Galaxy Rotation" }
+  ];
+  
+  const handleCustomBranch = () => {
+    if (customBranch.trim()) {
+      onExplore(customBranch.trim());
+      toast({ title: "Branch Growing", description: `Exploring: ${customBranch}` });
+      setCustomBranch("");
+    }
+  };
+  
+  return (
+    <div className="border-t border-border pt-3 mt-3">
+      <div className="text-xs font-medium text-muted-foreground mb-2 uppercase tracking-wider">
+        Next Evolutionary Branch
+      </div>
+      <div className="grid grid-cols-3 gap-1 mb-2">
+        {branches.map((b) => (
+          <Button
+            key={b.key}
+            variant="outline"
+            size="sm"
+            className="text-[10px] gap-1"
+            onClick={() => onExplore(b.key)}
+            data-testid={`button-branch-${b.key}`}
+          >
+            <ChevronRight className="w-3 h-3" />
+            {b.label}
+          </Button>
+        ))}
+      </div>
+      <div className="flex gap-1">
+        <Input
+          value={customBranch}
+          onChange={(e) => setCustomBranch(e.target.value)}
+          placeholder="Nurture the next path..."
+          className="text-xs h-8"
+          onKeyDown={(e) => e.key === "Enter" && handleCustomBranch()}
+          data-testid="input-custom-branch"
+        />
+        <Button
+          size="sm"
+          variant="outline"
+          onClick={handleCustomBranch}
+          disabled={!customBranch.trim()}
+          data-testid="button-nurture-branch"
+        >
+          <Sprout className="w-3 h-3" />
+        </Button>
+      </div>
+    </div>
+  );
+}
+
 export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorProps) {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("bullet-cluster");
   const [isSimulating, setIsSimulating] = useState(false);
   const [results, setResults] = useState<SimulationResult[]>([]);
+  
+  const [masterSeeds, setMasterSeeds] = useState<MasterSeed[]>(DEFAULT_SEEDS);
+  const [activeSeed, setActiveSeed] = useState<MasterSeed | null>(DEFAULT_SEEDS[0]);
   
   const [bulletParams, setBulletParams] = useState({
     collisionVelocity: 4500,
@@ -489,6 +615,20 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
           </div>
         </div>
       )}
+
+      <div className="p-3">
+        <SeedArchive 
+          seeds={masterSeeds} 
+          activeSeed={activeSeed} 
+          onSelectSeed={(seed) => {
+            setActiveSeed(seed);
+            if (seed.result) {
+              setResults([seed.result, ...results.filter(r => r !== seed.result)]);
+            }
+            toast({ title: "Seed Loaded", description: seed.title });
+          }}
+        />
+      </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col overflow-hidden">
         <TabsList className="w-full justify-start rounded-none border-b p-0 h-auto bg-transparent">
@@ -838,8 +978,22 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                   onBranch={(topic) => {
                     toast({
                       title: "Branch Created",
-                      description: `New exploration branch: ${topic.replace("_", " ")}`
+                      description: `New exploration branch: ${topic.replace(/_/g, " ")}`
                     });
+                  }}
+                  onSave={(result) => {
+                    const xiValue = (result.data.logic_guard as LogicGuardResult | undefined)?.complexityRatioAfter ?? 0.926;
+                    const newSeed: MasterSeed = {
+                      id: `seed-${Date.now()}`,
+                      title: result.type,
+                      body: `Simulation result from ${result.timestamp.toLocaleTimeString()}`,
+                      mathKey: result.type.toLowerCase().replace(/\s/g, "_"),
+                      xi: xiValue,
+                      timestamp: result.timestamp.toISOString(),
+                      result
+                    };
+                    setMasterSeeds(prev => [...prev, newSeed]);
+                    setActiveSeed(newSeed);
                   }}
                 />
               </div>
@@ -872,6 +1026,15 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                 </details>
               </div>
             )}
+
+            <BranchExplorer 
+              onExplore={(branch) => {
+                toast({
+                  title: "Branch Growing",
+                  description: `Exploring: ${branch.replace(/_/g, " ")}`
+                });
+              }}
+            />
           </div>
         </ScrollArea>
       </Tabs>
