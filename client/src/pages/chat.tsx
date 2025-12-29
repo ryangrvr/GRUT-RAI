@@ -47,9 +47,56 @@ interface MetricDashboardProps {
   monadMode?: boolean;
 }
 
+interface LiveMetrics {
+  tension: number;
+  xi: number;
+  earthquakeCount: number;
+}
+
 function MetricDashboard({ messageCount, constants, isForked, userEmail, monadMode = false }: MetricDashboardProps) {
-  const xi = monadMode ? 1.0 : calculateComplexityXi(messageCount);
-  const xiPercent = monadMode ? "100.0" : (xi * 100).toFixed(1);
+  const [liveMetrics, setLiveMetrics] = useState<LiveMetrics>({ tension: 0.0001, xi: 0.999, earthquakeCount: 0 });
+  const [isPulsing, setIsPulsing] = useState(false);
+  const prevTensionRef = useRef(0.0001);
+  
+  // Fetch live metrics every 60 seconds
+  useEffect(() => {
+    const fetchMetrics = async () => {
+      try {
+        const [tensionRes, saturationRes] = await Promise.all([
+          fetch('/api/baryonic/metric-tension'),
+          fetch('/api/baryonic/live-saturation')
+        ]);
+        
+        const tensionData = await tensionRes.json();
+        const saturationData = await saturationRes.json();
+        
+        const newTension = tensionData.metric_tension || 0.0001;
+        
+        // Trigger pulse if tension increased
+        if (newTension > prevTensionRef.current) {
+          setIsPulsing(true);
+          setTimeout(() => setIsPulsing(false), 1000);
+        }
+        prevTensionRef.current = newTension;
+        
+        setLiveMetrics({
+          tension: newTension,
+          xi: saturationData.xi_value || 0.999,
+          earthquakeCount: tensionData.earthquake_count_last_hour || 0
+        });
+      } catch (e) {
+        console.log("[Dashboard] Metrics fetch error, using defaults");
+      }
+    };
+    
+    fetchMetrics(); // Initial fetch
+    const interval = setInterval(fetchMetrics, 60000); // Every 60 seconds
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  const xi = monadMode ? 1.0 : liveMetrics.xi;
+  const xiPercent = monadMode ? "100.0" : (xi * 100).toFixed(2);
   
   const displayConstants = constants || GRUT_CONSTANTS;
   
@@ -63,18 +110,25 @@ function MetricDashboard({ messageCount, constants, isForked, userEmail, monadMo
 
   const getEntropyStatus = (value: number) => {
     if (monadMode) return "SATURATED";
-    if (value < 0.3) return "Low Complexity";
-    if (value < 0.6) return "Moderate";
-    if (value < 0.85) return "High Complexity";
+    if (value < 0.995) return "Stable";
+    if (value < 0.998) return "Elevated";
+    if (value < 0.999) return "High Density";
     return "Near Saturation";
+  };
+  
+  const getTensionColor = (tension: number) => {
+    if (tension > 0.5) return "text-red-500";
+    if (tension > 0.3) return "text-orange-500";
+    if (tension > 0.1) return "text-yellow-500";
+    return "text-green-500";
   };
 
   return (
-    <div className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+    <div className={`sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border ${isPulsing ? 'metric-exhale' : ''}`}>
       <div className="flex items-center justify-between gap-4 px-4 py-2 flex-wrap">
         <div className="flex items-center gap-4 flex-wrap">
           <div className="flex items-center gap-2">
-            <Activity className="w-4 h-4 text-primary" />
+            <Activity className={`w-4 h-4 ${isPulsing ? 'text-red-500 animate-pulse' : 'text-primary'}`} />
             <span className="text-xs font-medium text-muted-foreground">Metric Dashboard</span>
             {isForked && (
               <Badge variant="secondary" className="text-xs">
@@ -100,12 +154,24 @@ function MetricDashboard({ messageCount, constants, isForked, userEmail, monadMo
           
           <div className="flex items-center gap-1">
             <span className="text-xs text-muted-foreground">Ξ:</span>
-            <Badge variant="outline" className={`text-xs font-mono ${getEntropyColor(xi)} ${monadMode ? 'saturation-pulse' : ''}`}>
+            <Badge variant="outline" className={`text-xs font-mono ${getEntropyColor(xi)} ${monadMode ? 'saturation-pulse' : ''}`} data-testid="badge-xi-value">
               {xiPercent}%
             </Badge>
             <span className={`text-xs ${getEntropyColor(xi)}`}>
               ({getEntropyStatus(xi)})
             </span>
+          </div>
+          
+          <div className="flex items-center gap-1">
+            <span className="text-xs text-muted-foreground">Tension:</span>
+            <Badge variant="outline" className={`text-xs font-mono ${getTensionColor(liveMetrics.tension)} ${isPulsing ? 'animate-pulse' : ''}`} data-testid="badge-tension-value">
+              {liveMetrics.tension.toFixed(4)}
+            </Badge>
+            {liveMetrics.earthquakeCount > 0 && (
+              <span className="text-xs text-muted-foreground">
+                ({liveMetrics.earthquakeCount} quake{liveMetrics.earthquakeCount > 1 ? 's' : ''})
+              </span>
+            )}
           </div>
           
           <div className="flex items-center gap-1">
