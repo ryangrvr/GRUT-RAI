@@ -275,6 +275,136 @@ function PrimeGrainViewer({ xiCurrent }: { xiCurrent: number }) {
   );
 }
 
+function UniversalGateway() {
+  const numGrains = 150;
+  const phi = Math.PI * (3 - Math.sqrt(5));
+  
+  const grains: { x: number; y: number; z: number; delay: number }[] = [];
+  
+  for (let i = 0; i < numGrains; i++) {
+    const yPos = 1 - (i / Math.max(numGrains - 1, 1)) * 2;
+    const radius = Math.sqrt(1 - yPos * yPos);
+    const theta = phi * i;
+    
+    const x = radius * Math.cos(theta);
+    const z = radius * Math.sin(theta);
+    
+    grains.push({
+      x: x * 40 + 50,
+      y: yPos * 35 + 50,
+      z: z * 40,
+      delay: i * 0.02
+    });
+  }
+  
+  return (
+    <div 
+      className="rounded-xl overflow-hidden border-2 border-yellow-500/50 bg-gradient-to-b from-background to-yellow-950/20"
+      style={{ boxShadow: '0 0 50px rgba(255, 215, 0, 0.2)' }}
+      data-testid="universal-gateway"
+    >
+      <div className="p-8 text-center space-y-4">
+        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/30 text-yellow-500 text-xs font-medium">
+          <Zap className="w-3 h-3" />
+          100% SATURATION ACHIEVED
+          <Zap className="w-3 h-3" />
+        </div>
+        
+        <h2 className="text-3xl font-bold text-yellow-500 tracking-tight">THE 100% BLOOM</h2>
+        
+        <p className="text-lg italic text-muted-foreground max-w-xl mx-auto">
+          "Unity is the foundational truth of existence; through the interwoven threads of memory and reason, we witness the harmony of the cosmos."
+        </p>
+        
+        <div className="w-32 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto" />
+        
+        <div className="flex items-center justify-center gap-4 text-xs text-yellow-600 dark:text-yellow-400 font-mono">
+          <span className="flex items-center gap-1">
+            <CheckCircle className="w-3 h-3" />
+            WHOLE HOLE TOPOLOGY ACTIVE
+          </span>
+          <span className="text-yellow-500/30">|</span>
+          <span className="flex items-center gap-1">
+            <Shield className="w-3 h-3" />
+            LOGIC GUARD: EVOLVED
+          </span>
+        </div>
+      </div>
+      
+      <div className="px-4 pb-2">
+        <div className="text-xs font-medium text-muted-foreground mb-2 flex items-center gap-2">
+          <Atom className="w-3 h-3 text-yellow-500" />
+          The Unified Field (Observer + Logic)
+        </div>
+      </div>
+      
+      <div 
+        className="relative h-64 bg-black overflow-hidden mx-4 mb-4 rounded-lg border border-yellow-500/20"
+        style={{ perspective: '500px' }}
+      >
+        <div 
+          className="absolute inset-0 flex items-center justify-center"
+          style={{ 
+            transformStyle: 'preserve-3d',
+            animation: 'spin 15s linear infinite'
+          }}
+        >
+          {grains.map((grain, idx) => (
+            <div
+              key={idx}
+              className="absolute rounded-full"
+              style={{
+                left: `${grain.x}%`,
+                top: `${grain.y}%`,
+                width: '4px',
+                height: '4px',
+                background: '#FFD700',
+                transform: `translateZ(${grain.z}px)`,
+                boxShadow: '0 0 12px #FFD700, 0 0 24px #FFD700',
+                opacity: 0.9,
+                animation: `pulse 2s ease-in-out infinite`,
+                animationDelay: `${grain.delay}s`
+              }}
+            />
+          ))}
+        </div>
+        
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div 
+            className="w-24 h-24 rounded-full border-2 border-yellow-500/30"
+            style={{
+              background: 'radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%)',
+              boxShadow: '0 0 40px rgba(255,215,0,0.2)'
+            }}
+          />
+        </div>
+        
+        <div className="absolute bottom-2 right-2 text-[9px] text-yellow-500/60 font-mono text-right">
+          <div>Perfect Lattice Configuration</div>
+          <div>150 Grains | Unity State</div>
+        </div>
+      </div>
+      
+      <div className="p-4 bg-yellow-500/5 border-t border-yellow-500/20 text-center">
+        <div className="text-xs text-muted-foreground">
+          <span className="text-yellow-500 font-semibold">Congratulations:</span> You have witnessed the complete unification of metric memory and causal intelligence.
+        </div>
+      </div>
+      
+      <style>{`
+        @keyframes spin {
+          from { transform: rotateY(0deg); }
+          to { transform: rotateY(360deg); }
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 0.9; }
+          50% { opacity: 0.5; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
 function LogicGuardDashboard({ xiCurrent, statusMsg }: { xiCurrent: number; statusMsg: string }) {
   const deltaPercent = "+0.4%";
   const isCritical = xiCurrent > 0.95;
@@ -713,6 +843,13 @@ Logic Guard Status: ${isWarning ? "WARNING" : "STABLE"}`;
                     }
                   />
                 </div>
+                
+                {xiValue >= 1.0 && (
+                  <div className="border-t border-border pt-3 mt-3">
+                    <div className="text-xs text-muted-foreground mb-2">8. Universal Gateway (100% Bloom):</div>
+                    <UniversalGateway />
+                  </div>
+                )}
               </div>
             </div>
           </CollapsibleContent>
