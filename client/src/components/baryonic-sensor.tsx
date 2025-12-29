@@ -181,6 +181,100 @@ function DriftVisualization({ driftMly, tau0 }: { driftMly: number; tau0: number
   );
 }
 
+function PrimeGrainViewer({ xiCurrent }: { xiCurrent: number }) {
+  const clampedXi = Math.max(0, Math.min(1, xiCurrent));
+  const numGrains = Math.floor(150 * clampedXi);
+  const phi = Math.PI * (3 - Math.sqrt(5));
+  
+  const grains: { x: number; y: number; z: number; color: string; size: number }[] = [];
+  
+  for (let i = 0; i < numGrains; i++) {
+    const yPos = 1 - (i / Math.max(numGrains - 1, 1)) * 2;
+    const radius = Math.sqrt(1 - yPos * yPos);
+    const theta = phi * i;
+    
+    const x = radius * Math.cos(theta);
+    const z = radius * Math.sin(theta);
+    
+    const intensity = i / numGrains;
+    const hue = 30 - intensity * 30;
+    const lightness = 50 + intensity * 30;
+    
+    grains.push({
+      x: x * 40 + 50,
+      y: yPos * 35 + 50,
+      z: z * 40,
+      color: `hsl(${hue}, 100%, ${lightness}%)`,
+      size: 2 + intensity * 2
+    });
+  }
+  
+  return (
+    <div className="rounded-md overflow-hidden border border-border/50" data-testid="prime-grain-viewer">
+      <div className="text-xs font-medium text-muted-foreground p-2 bg-card/50 border-b border-border/30 flex items-center justify-between gap-2">
+        <span>Prime Grain Density (Grit Viewer)</span>
+        <Badge variant="outline" className="text-[10px] font-mono">{numGrains} grains</Badge>
+      </div>
+      
+      <div 
+        className="relative h-56 bg-black overflow-hidden"
+        style={{ perspective: '500px' }}
+      >
+        <div 
+          className="absolute inset-0 flex items-center justify-center"
+          style={{ 
+            transformStyle: 'preserve-3d',
+            animation: 'spin 20s linear infinite'
+          }}
+        >
+          {grains.map((grain, idx) => (
+            <div
+              key={idx}
+              className="absolute rounded-full"
+              style={{
+                left: `${grain.x}%`,
+                top: `${grain.y}%`,
+                width: `${grain.size}px`,
+                height: `${grain.size}px`,
+                background: grain.color,
+                transform: `translateZ(${grain.z}px)`,
+                boxShadow: `0 0 ${grain.size * 2}px ${grain.color}`,
+                opacity: 0.8
+              }}
+            />
+          ))}
+        </div>
+        
+        <div className="absolute top-2 left-2 flex flex-col gap-1">
+          <div className="text-[8px] text-white/50">Colorscale: Hot</div>
+          <div className="w-16 h-2 rounded-sm bg-gradient-to-r from-red-900 via-orange-500 to-yellow-300" />
+          <div className="flex justify-between w-16 text-[7px] text-white/40">
+            <span>Low</span>
+            <span>High</span>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-2 right-2 text-[9px] text-white/60 font-mono text-right">
+          <div>Numerical Hysteresis Map</div>
+          <div>Fibonacci Sphere Lattice</div>
+        </div>
+      </div>
+      
+      <div className="p-2 bg-card/50 text-[10px] text-muted-foreground flex items-center justify-between gap-2">
+        <span>Visualizing <span className="font-mono text-primary">{numGrains}</span> Prime Grains</span>
+        <span>Current Tension: <span className="font-mono text-primary">{(clampedXi * 100).toFixed(1)}%</span></span>
+      </div>
+      
+      <style>{`
+        @keyframes spin {
+          from { transform: rotateY(0deg); }
+          to { transform: rotateY(360deg); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
 function LogicGuardDashboard({ xiCurrent, statusMsg }: { xiCurrent: number; statusMsg: string }) {
   const deltaPercent = "+0.4%";
   const isCritical = xiCurrent > 0.95;
@@ -601,8 +695,11 @@ Logic Guard Status: ${isWarning ? "WARNING" : "STABLE"}`;
                   </div>
                 )}
                 
+                <div className="text-xs text-muted-foreground">6. Prime Grain Viewer:</div>
+                <PrimeGrainViewer xiCurrent={xiValue} />
+                
                 <div className="border-t border-border pt-3 mt-3">
-                  <div className="text-xs text-muted-foreground mb-2">6. Logic Guard Dashboard:</div>
+                  <div className="text-xs text-muted-foreground mb-2">7. Logic Guard Dashboard:</div>
                   <LogicGuardDashboard 
                     xiCurrent={xiValue} 
                     statusMsg={
