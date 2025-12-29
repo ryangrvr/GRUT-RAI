@@ -13,6 +13,7 @@ import {
   GitBranch, X, Settings2, FileJson, ClipboardCopy, FileDown, ChevronRight, ChevronLeft
 } from "lucide-react";
 import { ObserverToolkit } from "@/components/observer-toolkit";
+import { BaryonicSensor } from "@/components/baryonic-sensor";
 import {
   Dialog,
   DialogContent,
@@ -751,6 +752,7 @@ export default function ChatPage() {
   const [forkDialogOpen, setForkDialogOpen] = useState(false);
   const [forkSourceMessage, setForkSourceMessage] = useState<ChatMessage | null>(null);
   const [controlPanelOpen, setControlPanelOpen] = useState(false);
+  const [baryonicSensorOpen, setBaryonicSensorOpen] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -1352,6 +1354,12 @@ export default function ChatPage() {
         onFork={handleForkSubmit}
         isPending={forkConversationMutation.isPending}
         sourceMessagePreview={forkSourceMessage?.content}
+      />
+
+      <BaryonicSensor
+        isOpen={baryonicSensorOpen}
+        onToggle={() => setBaryonicSensorOpen(!baryonicSensorOpen)}
+        constants={user?.grutConstants}
       />
     </div>
   );

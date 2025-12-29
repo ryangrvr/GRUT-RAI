@@ -1,5 +1,6 @@
 import os
 import uuid
+import numpy as np
 from flask import Flask, request, jsonify, g, session
 from flask_cors import CORS
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
@@ -462,6 +463,97 @@ def get_benchmark():
         "baryonicIntegrity": True,
         "darkMatterTerms": 0
     })
+
+from baryonic_sensor import BaryonicSensorAI, create_baryonic_sensor
+
+@app.route('/api/baryonic/retarded-potential', methods=['POST'])
+@profile_hydration_middleware
+def simulate_retarded_potential():
+    data = request.get_json() or {}
+    time_start = data.get('timeStart', 1)
+    time_end = data.get('timeEnd', 100)
+    time_points = data.get('timePoints', 50)
+    delta_mass = data.get('deltaMass', 1e30)
+    
+    constants = {
+        'tau_0': g.tau_0 if hasattr(g, 'tau_0') else 41.9,
+        'alpha': g.alpha if hasattr(g, 'alpha') else 0.333333,
+        'n_g': g.n_g if hasattr(g, 'n_g') else 1.1547
+    }
+    
+    sensor = create_baryonic_sensor(constants)
+    time_scale = list(np.linspace(time_start, time_end, time_points))
+    result = sensor.model_retarded_potential(time_scale, delta_mass)
+    
+    return jsonify(result)
+
+@app.route('/api/baryonic/bullet-cluster', methods=['POST'])
+@profile_hydration_middleware
+def simulate_bullet_cluster():
+    data = request.get_json() or {}
+    collision_velocity = data.get('collisionVelocity', 4500)
+    time_since_collision = data.get('timeSinceCollision', 150)
+    cluster_separation = data.get('clusterSeparation', 720)
+    
+    constants = {
+        'tau_0': g.tau_0 if hasattr(g, 'tau_0') else 41.9,
+        'alpha': g.alpha if hasattr(g, 'alpha') else 0.333333,
+        'n_g': g.n_g if hasattr(g, 'n_g') else 1.1547
+    }
+    
+    sensor = create_baryonic_sensor(constants)
+    result = sensor.simulate_bullet_cluster(collision_velocity, time_since_collision, cluster_separation)
+    
+    return jsonify(result)
+
+@app.route('/api/baryonic/gravitational-waves', methods=['POST'])
+@profile_hydration_middleware
+def simulate_gravitational_waves():
+    data = request.get_json() or {}
+    event_type = data.get('eventType', 'BH_merger')
+    source_distance = data.get('sourceDistance', 40)
+    chirp_mass = data.get('chirpMass', 30)
+    
+    constants = {
+        'tau_0': g.tau_0 if hasattr(g, 'tau_0') else 41.9,
+        'alpha': g.alpha if hasattr(g, 'alpha') else 0.333333,
+        'n_g': g.n_g if hasattr(g, 'n_g') else 1.1547
+    }
+    
+    sensor = create_baryonic_sensor(constants)
+    result = sensor.predict_gravitational_wave_residuals(event_type, source_distance, chirp_mass)
+    
+    return jsonify(result)
+
+@app.route('/api/baryonic/hubble-tension', methods=['POST'])
+@profile_hydration_middleware
+def simulate_hubble_tension():
+    data = request.get_json() or {}
+    local_H0 = data.get('localH0', 73.0)
+    cmb_H0 = data.get('cmbH0', 67.4)
+    
+    constants = {
+        'tau_0': g.tau_0 if hasattr(g, 'tau_0') else 41.9,
+        'alpha': g.alpha if hasattr(g, 'alpha') else 0.333333,
+        'n_g': g.n_g if hasattr(g, 'n_g') else 1.1547
+    }
+    
+    sensor = create_baryonic_sensor(constants)
+    result = sensor.compute_hubble_tension_correction(local_H0, cmb_H0)
+    
+    return jsonify(result)
+
+@app.route('/api/baryonic/connections', methods=['GET'])
+def get_interdisciplinary_connections():
+    sensor = create_baryonic_sensor()
+    result = sensor.get_interdisciplinary_connections()
+    return jsonify(result)
+
+@app.route('/api/baryonic/objections', methods=['GET'])
+def get_philosophical_objections():
+    sensor = create_baryonic_sensor()
+    result = sensor.simulate_philosophical_objections()
+    return jsonify(result)
 
 with app.app_context():
     init_db()

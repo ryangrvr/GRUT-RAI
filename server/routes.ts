@@ -781,5 +781,241 @@ export async function registerRoutes(
     }
   });
 
+  // ========================================
+  // BARYONIC SENSOR AI SIMULATION ENDPOINTS
+  // ========================================
+  
+  app.post("/api/baryonic/retarded-potential", requireAuth, async (req, res) => {
+    try {
+      const user = await storage.getUser((req.session as any).userId!);
+      const constants = user?.grutConstants || DEFAULT_GRUT_CONSTANTS;
+      
+      const { timeStart = 1, timeEnd = 100, timePoints = 50, deltaMass = 1e30 } = req.body;
+      
+      const tau_0 = constants.tau_0;
+      const alpha = constants.alpha;
+      
+      const timeScale: number[] = [];
+      const kernelValues: number[] = [];
+      const potentialValues: number[] = [];
+      
+      const step = (timeEnd - timeStart) / (timePoints - 1);
+      for (let i = 0; i < timePoints; i++) {
+        const t = timeStart + i * step;
+        timeScale.push(t);
+        
+        const K_t = (alpha / tau_0) * Math.exp(-t / tau_0);
+        kernelValues.push(K_t);
+        
+        const G = 6.67430e-11;
+        const c = 299792458;
+        const phi = (G * deltaMass * K_t) / (c ** 2);
+        potentialValues.push(phi);
+      }
+      
+      return res.json({
+        time_scale: timeScale,
+        kernel_values: kernelValues,
+        potential_values: potentialValues,
+        tau_0,
+        alpha,
+        kernel_formula: `K(t) = (${alpha}/${tau_0}) * exp(-t/${tau_0})`,
+        delta_mass_kg: deltaMass
+      });
+    } catch (error) {
+      console.error("Retarded potential error:", error);
+      return res.status(500).json({ error: "Simulation failed" });
+    }
+  });
+  
+  app.post("/api/baryonic/bullet-cluster", requireAuth, async (req, res) => {
+    try {
+      const user = await storage.getUser((req.session as any).userId!);
+      const constants = user?.grutConstants || DEFAULT_GRUT_CONSTANTS;
+      
+      const { 
+        collisionVelocity = 4500,
+        timeSinceCollision = 150,
+        clusterSeparation = 720 
+      } = req.body;
+      
+      const tau_0 = constants.tau_0;
+      const alpha = constants.alpha;
+      const n_g = constants.n_g;
+      
+      const K_t = (alpha / tau_0) * Math.exp(-timeSinceCollision / tau_0);
+      const hysteresis_factor = 1 - K_t;
+      const velocity_ratio = collisionVelocity / 1000;
+      const predicted_offset = clusterSeparation * hysteresis_factor * velocity_ratio / 100;
+      const gas_dm_separation = clusterSeparation * 0.2 * hysteresis_factor;
+      
+      const baryonic_mass = 2.3e14;
+      const apparent_dm_mass = baryonic_mass * (1 + hysteresis_factor * n_g);
+      
+      return res.json({
+        cluster_id: "1E 0657-558",
+        collision_velocity_kms: collisionVelocity,
+        time_since_collision_myr: timeSinceCollision,
+        cluster_separation_kpc: clusterSeparation,
+        kernel_weight: K_t,
+        hysteresis_factor: hysteresis_factor,
+        predicted_offset_mpc: Math.round(predicted_offset * 1000) / 1000,
+        gas_dm_separation_kpc: Math.round(gas_dm_separation * 10) / 10,
+        baryonic_mass_msun: baryonic_mass,
+        apparent_dm_mass_msun: Math.round(apparent_dm_mass * 100) / 100,
+        grut_explanation: "Metric hysteresis from gravitational memory creates lensing offset without dark matter particles",
+        constants_used: { tau_0, alpha, n_g }
+      });
+    } catch (error) {
+      console.error("Bullet cluster error:", error);
+      return res.status(500).json({ error: "Simulation failed" });
+    }
+  });
+  
+  app.post("/api/baryonic/gravitational-waves", requireAuth, async (req, res) => {
+    try {
+      const user = await storage.getUser((req.session as any).userId!);
+      const constants = user?.grutConstants || DEFAULT_GRUT_CONSTANTS;
+      
+      const { 
+        eventType = "BH_merger",
+        sourceDistance = 40,
+        chirpMass = 30 
+      } = req.body;
+      
+      const tau_0 = constants.tau_0;
+      const alpha = constants.alpha;
+      const n_g = constants.n_g;
+      
+      const distance_mpc_to_mly = 3.262;
+      const light_travel_time_myr = sourceDistance * distance_mpc_to_mly;
+      const phase_drift = alpha * (1 - Math.exp(-light_travel_time_myr / tau_0));
+      const dispersion_factor = (n_g - 1) * sourceDistance / 1000;
+      const timing_residual_ms = phase_drift * tau_0 * 1e-3;
+      const strain_modification = 1 + dispersion_factor * 0.01;
+      
+      return res.json({
+        event_type: eventType,
+        source_distance_mpc: sourceDistance,
+        chirp_mass_msun: chirpMass,
+        light_travel_time_myr: Math.round(light_travel_time_myr * 100) / 100,
+        predicted_phase_drift_rad: Math.round(phase_drift * 1e6) / 1e6,
+        dispersion_factor: Math.round(dispersion_factor * 1e6) / 1e6,
+        timing_residual_ms: Math.round(timing_residual_ms * 1e4) / 1e4,
+        strain_modification_factor: Math.round(strain_modification * 1e6) / 1e6,
+        detectability: Math.abs(phase_drift) < 0.01 ? "Marginal with current LIGO sensitivity" : "Potentially detectable",
+        grut_signature: "Cumulative phase drift increasing with distance",
+        constants_used: { tau_0, alpha, n_g }
+      });
+    } catch (error) {
+      console.error("GW simulation error:", error);
+      return res.status(500).json({ error: "Simulation failed" });
+    }
+  });
+  
+  app.post("/api/baryonic/hubble-tension", requireAuth, async (req, res) => {
+    try {
+      const user = await storage.getUser((req.session as any).userId!);
+      const constants = user?.grutConstants || DEFAULT_GRUT_CONSTANTS;
+      
+      const { localH0 = 73.0, cmbH0 = 67.4 } = req.body;
+      
+      const tau_0 = constants.tau_0;
+      const alpha = constants.alpha;
+      const n_g = constants.n_g;
+      
+      const tension = localH0 - cmbH0;
+      const tension_sigma = tension / 1.5;
+      
+      const t_local = 0.01 * 13700;
+      const t_cmb = 0.38;
+      
+      const K_local = (alpha / tau_0) * Math.exp(-Math.max(t_local, 1) / tau_0);
+      const K_cmb = (alpha / tau_0) * Math.exp(-t_cmb / tau_0);
+      
+      const correction_factor = (1 + alpha * (K_cmb - K_local)) * n_g;
+      const corrected_cmb_H0 = cmbH0 * correction_factor;
+      const residual_tension = localH0 - corrected_cmb_H0;
+      
+      return res.json({
+        local_H0: localH0,
+        cmb_H0: cmbH0,
+        observed_tension: Math.round(tension * 100) / 100,
+        tension_sigma: Math.round(tension_sigma * 10) / 10,
+        grut_correction_factor: Math.round(correction_factor * 1e4) / 1e4,
+        corrected_cmb_H0: Math.round(corrected_cmb_H0 * 100) / 100,
+        residual_tension: Math.round(residual_tension * 100) / 100,
+        resolution_status: Math.abs(residual_tension) < Math.abs(tension) * 0.5 ? "Partially resolved" : "Requires further analysis",
+        mechanism: "Metric hysteresis causes H0 to appear lower at high redshift",
+        constants_used: { tau_0, alpha, n_g }
+      });
+    } catch (error) {
+      console.error("Hubble tension error:", error);
+      return res.status(500).json({ error: "Simulation failed" });
+    }
+  });
+  
+  app.get("/api/baryonic/connections", async (req, res) => {
+    const connections = {
+      physics_mathematics: [
+        { from: "Hubble Tension", to: "Poincare Geometry", relation: "Non-Euclidean cosmic structure" },
+        { from: "Primes as Grains", to: "Mass Quantization", relation: "Discrete matter distribution" },
+        { from: "Gravity", to: "Memory Dynamics", relation: "Retarded potential kernel" }
+      ],
+      cosmology_philosophy: [
+        { from: "Dark Matter", to: "Metric Hysteresis", relation: "Apparent vs intrinsic mass" },
+        { from: "Causality", to: "Light Cone Structure", relation: "Information propagation limits" },
+        { from: "Observer", to: "Measurement", relation: "Causal participation in universe" }
+      ],
+      observational_theoretical: [
+        { from: "Bullet Cluster", to: "GRUT Prediction", relation: "Lensing offset from memory" },
+        { from: "GW Signals", to: "Residual Drift", relation: "Cumulative phase effects" },
+        { from: "CMB Peaks", to: "tau_0 Signature", relation: "Delay scale imprint" }
+      ]
+    };
+    
+    return res.json({
+      framework: "GRUT Interdisciplinary Network",
+      connections,
+      core_principle: "The Universe is a closed loop of Light looking at itself through the lens of Time",
+      key_parameters: DEFAULT_GRUT_CONSTANTS
+    });
+  });
+  
+  app.get("/api/baryonic/objections", async (req, res) => {
+    const objections = [
+      {
+        objection: "Cold Dark Matter explains galaxy rotation curves",
+        category: "Empirical",
+        grut_response: "GRUT's metric hysteresis produces identical rotation curve shapes without exotic particles.",
+        key_prediction: "Rotation curve shape should correlate with galaxy formation epoch"
+      },
+      {
+        objection: "CMB third acoustic peak requires dark matter",
+        category: "Cosmological",
+        grut_response: "The third peak amplitude can be matched by adjusting tau_0 and alpha.",
+        key_prediction: "Subtle phase shifts in higher-order peaks that CDM cannot produce"
+      },
+      {
+        objection: "Structure formation requires cold dark matter seeds",
+        category: "Theoretical",
+        grut_response: "GRUT's n_g > 1 gravitational index creates effective amplification of baryonic density perturbations.",
+        key_prediction: "Small-scale structure cutoff at scales related to tau_0"
+      },
+      {
+        objection: "Occam's Razor favors particle dark matter",
+        category: "Philosophical",
+        grut_response: "GRUT uses fewer free parameters than CDM+Lambda cosmology.",
+        key_prediction: "Single theory explains multiple phenomena"
+      }
+    ];
+    
+    return res.json({
+      framework: "GRUT Philosophical Defense",
+      objections_addressed: objections.length,
+      objections
+    });
+  });
+
   return httpServer;
 }
