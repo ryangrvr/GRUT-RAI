@@ -124,6 +124,11 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
     timePoints: 50
   });
 
+  const [ringdownParams, setRingdownParams] = useState({
+    signalDuration: 1.5,
+    snrRatio: 80
+  });
+
   const runSimulation = async (endpoint: string, params: Record<string, unknown>, type: string) => {
     setIsSimulating(true);
     try {
@@ -217,6 +222,10 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
           <TabsTrigger value="kernel" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
             <Activity className="w-3 h-3 mr-1" />
             K(t)
+          </TabsTrigger>
+          <TabsTrigger value="ringdown" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
+            <Brain className="w-3 h-3 mr-1" />
+            Memory
           </TabsTrigger>
         </TabsList>
 
@@ -382,6 +391,46 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
               >
                 {isSimulating ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Activity className="w-4 h-4 mr-2" />}
                 Compute K(t) Series
+              </Button>
+            </TabsContent>
+
+            <TabsContent value="ringdown" className="m-0 space-y-3">
+              <div className="p-2 bg-muted/30 rounded text-xs text-muted-foreground mb-3">
+                Analyze gravitational wave ringdown memory using GRUT relaxation constant (tau_0 = 41.9 Myr).
+              </div>
+              <div className="space-y-2">
+                <Label className="text-xs">Signal Duration (seconds)</Label>
+                <Input
+                  type="number"
+                  step="0.1"
+                  value={ringdownParams.signalDuration}
+                  onChange={(e) => setRingdownParams(p => ({ ...p, signalDuration: Number(e.target.value) }))}
+                  className="h-8 text-sm"
+                  data-testid="input-ringdown-duration"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label className="text-xs">SNR Ratio</Label>
+                <Input
+                  type="number"
+                  step="1"
+                  value={ringdownParams.snrRatio}
+                  onChange={(e) => setRingdownParams(p => ({ ...p, snrRatio: Number(e.target.value) }))}
+                  className="h-8 text-sm"
+                  data-testid="input-ringdown-snr"
+                />
+                <div className="text-xs text-muted-foreground">
+                  GW250114 had SNR of ~80
+                </div>
+              </div>
+              <Button 
+                className="w-full" 
+                onClick={() => runSimulation("ringdown-memory", ringdownParams, "Ringdown Memory")}
+                disabled={isSimulating}
+                data-testid="button-run-ringdown"
+              >
+                {isSimulating ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Brain className="w-4 h-4 mr-2" />}
+                Analyze Memory Burden
               </Button>
             </TabsContent>
 

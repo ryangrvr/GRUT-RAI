@@ -450,7 +450,92 @@ class BaryonicSensorAI:
         }
 
 
+class GWSensor(BaryonicSensorAI):
+    """
+    Gravitational Wave Sensor - Extended BaryonicSensorAI for GW signal analysis
+    
+    Specialized for analyzing gravitational wave ringdown memory effects
+    using GRUT relaxation constants.
+    """
+    
+    def __init__(self, constants: Optional[Dict] = None):
+        super().__init__(constants)
+        # tau_0 in seconds: 41.9 Myr * (1e6 years) * (365.25 days) * (24 hours) * (3600 seconds)
+        self.tau_0_seconds = 41.9 * 1e6 * 365.25 * 24 * 3600  # ~1.32e15 seconds
+    
+    def analyze_ringdown_memory(self, signal_duration_seconds: float, snr_ratio: float) -> Dict[str, Any]:
+        """
+        Analyze gravitational wave ringdown memory effects using GRUT relaxation.
+        
+        Calculates if the observed signal has a decaying 'offset' matching
+        the GRUT relaxation constant tau_0.
+        
+        Args:
+            signal_duration_seconds: Duration of the GW signal in seconds
+            snr_ratio: Signal-to-noise ratio of the detection (e.g., 80 for GW250114)
+        
+        Returns:
+            Dictionary with ringdown analysis results including metric drift
+        """
+        # Time array for the 'long-tail' relaxation (1000 sample points)
+        num_samples = 1000
+        t = [i * signal_duration_seconds / num_samples for i in range(num_samples)]
+        
+        # Predicted GRUT Decay: exp(-t / tau_0)
+        expected_decay = [math.exp(-ti / self.tau_0_seconds) for ti in t]
+        
+        # Memory Burden factor - higher SNR means more detectable burden
+        # Scale to strain units (dimensionless, ~1e-21 for GW signals)
+        burden_factor = (snr_ratio / 100) * 1e-21
+        
+        # Calculate the predicted metric drift
+        predicted_drift = [burden_factor * decay for decay in expected_decay]
+        mean_drift = sum(predicted_drift) / len(predicted_drift)
+        
+        # Update complexity ratio based on SNR (higher SNR = more information)
+        complexity_delta = snr_ratio / 1000
+        self.update_complexity_ratio(complexity_delta)
+        logic_guard_result = self.check_logic_guard()
+        
+        # Calculate decay metrics
+        initial_drift = predicted_drift[0]
+        final_drift = predicted_drift[-1]
+        decay_ratio = final_drift / initial_drift if initial_drift > 0 else 0
+        
+        result = {
+            "analysis_type": "GW_Ringdown_Memory",
+            "signal_duration_seconds": signal_duration_seconds,
+            "snr_ratio": snr_ratio,
+            "tau_0_seconds": self.tau_0_seconds,
+            "tau_0_myr": self.constants.tau_0,
+            "burden_factor_strain": burden_factor,
+            "mean_metric_drift": mean_drift,
+            "initial_drift": initial_drift,
+            "final_drift": final_drift,
+            "decay_ratio": decay_ratio,
+            "sample_points": num_samples,
+            "grut_prediction": f"Metric drift of {mean_drift:.2e} strain over {signal_duration_seconds}s signal",
+            "logic_guard": logic_guard_result,
+            "complexity_ratio": self.complexity_ratio
+        }
+        
+        self.simulation_history.append({
+            "type": "gw_ringdown_memory",
+            "params": {
+                "signal_duration": signal_duration_seconds,
+                "snr": snr_ratio
+            }
+        })
+        
+        return result
+
+
 # Factory function for creating sensors with custom constants
 def create_baryonic_sensor(constants: Optional[Dict] = None) -> BaryonicSensorAI:
     """Create a new BaryonicSensorAI instance with optional custom constants"""
     return BaryonicSensorAI(constants)
+
+
+def create_gw_sensor(constants: Optional[Dict] = None) -> GWSensor:
+    """Create a new GWSensor instance with optional custom constants"""
+    return GWSensor(constants)

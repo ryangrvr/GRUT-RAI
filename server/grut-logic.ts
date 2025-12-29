@@ -360,3 +360,85 @@ export function resetBaryonicSimulationState(): void {
   baryonicState.logicGuardTriggers = 0;
   baryonicState.lastSimulationTime = Date.now();
 }
+
+// ==========================================
+// GW Ringdown Memory Analysis (GWSensor)
+// ==========================================
+
+// tau_0 in seconds: 41.9 Myr in seconds
+const TAU_0_SECONDS = 41.9 * 1e6 * 365.25 * 24 * 3600;  // ~1.32e15 seconds
+
+export interface RingdownMemoryResult {
+  analysisType: string;
+  signalDurationSeconds: number;
+  snrRatio: number;
+  tau0Seconds: number;
+  tau0Myr: number;
+  burdenFactorStrain: number;
+  meanMetricDrift: number;
+  initialDrift: number;
+  finalDrift: number;
+  decayRatio: number;
+  samplePoints: number;
+  grutPrediction: string;
+  logicGuard: RmaxLogicGuardResult;
+  complexityRatio: number;
+}
+
+/**
+ * Analyze gravitational wave ringdown memory effects using GRUT relaxation.
+ * 
+ * Calculates if the observed signal has a decaying 'offset' matching
+ * the GRUT relaxation constant tau_0.
+ * 
+ * @param signalDurationSeconds - Duration of the GW signal in seconds
+ * @param snrRatio - Signal-to-noise ratio of the detection (e.g., 80 for GW250114)
+ * @returns Analysis results including metric drift
+ */
+export function analyzeRingdownMemory(signalDurationSeconds: number, snrRatio: number): RingdownMemoryResult {
+  const numSamples = 1000;
+  
+  // Time array for the 'long-tail' relaxation
+  const t: number[] = [];
+  for (let i = 0; i < numSamples; i++) {
+    t.push(i * signalDurationSeconds / numSamples);
+  }
+  
+  // Predicted GRUT Decay: exp(-t / tau_0)
+  const expectedDecay = t.map(ti => Math.exp(-ti / TAU_0_SECONDS));
+  
+  // Memory Burden factor - higher SNR means more detectable burden
+  // Scale to strain units (dimensionless, ~1e-21 for GW signals)
+  const burdenFactor = (snrRatio / 100) * 1e-21;
+  
+  // Calculate the predicted metric drift
+  const predictedDrift = expectedDecay.map(decay => burdenFactor * decay);
+  const meanDrift = predictedDrift.reduce((a, b) => a + b, 0) / predictedDrift.length;
+  
+  // Update complexity ratio based on SNR (higher SNR = more information)
+  const complexityDelta = snrRatio / 1000;
+  updateBaryonicComplexity(complexityDelta);
+  const logicGuardResult = checkBaryonicLogicGuard();
+  
+  // Calculate decay metrics
+  const initialDrift = predictedDrift[0];
+  const finalDrift = predictedDrift[predictedDrift.length - 1];
+  const decayRatio = initialDrift > 0 ? finalDrift / initialDrift : 0;
+  
+  return {
+    analysisType: "GW_Ringdown_Memory",
+    signalDurationSeconds,
+    snrRatio,
+    tau0Seconds: TAU_0_SECONDS,
+    tau0Myr: 41.9,
+    burdenFactorStrain: burdenFactor,
+    meanMetricDrift: meanDrift,
+    initialDrift,
+    finalDrift,
+    decayRatio,
+    samplePoints: numSamples,
+    grutPrediction: `Metric drift of ${meanDrift.toExponential(2)} strain over ${signalDurationSeconds}s signal`,
+    logicGuard: logicGuardResult,
+    complexityRatio: baryonicState.complexityRatio
+  };
+}

@@ -55,6 +55,7 @@ import {
   isMemoryActive,
   checkBaryonicLogicGuard,
   updateBaryonicComplexity,
+  analyzeRingdownMemory,
   GRUT_CONSTANTS 
 } from "./grut-logic";
 import {
@@ -962,6 +963,34 @@ export async function registerRoutes(
       });
     } catch (error) {
       console.error("Hubble tension error:", error);
+      return res.status(500).json({ error: "Simulation failed" });
+    }
+  });
+  
+  app.post("/api/baryonic/ringdown-memory", requireAuth, async (req, res) => {
+    try {
+      const { signalDuration = 1.5, snrRatio = 80 } = req.body;
+      
+      const result = analyzeRingdownMemory(signalDuration, snrRatio);
+      
+      return res.json({
+        analysis_type: result.analysisType,
+        signal_duration_seconds: result.signalDurationSeconds,
+        snr_ratio: result.snrRatio,
+        tau_0_seconds: result.tau0Seconds,
+        tau_0_myr: result.tau0Myr,
+        burden_factor_strain: result.burdenFactorStrain,
+        mean_metric_drift: result.meanMetricDrift,
+        initial_drift: result.initialDrift,
+        final_drift: result.finalDrift,
+        decay_ratio: result.decayRatio,
+        sample_points: result.samplePoints,
+        grut_prediction: result.grutPrediction,
+        logic_guard: result.logicGuard,
+        complexity_ratio: result.complexityRatio
+      });
+    } catch (error) {
+      console.error("Ringdown memory error:", error);
       return res.status(500).json({ error: "Simulation failed" });
     }
   });
