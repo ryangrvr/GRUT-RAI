@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { ObserverToolkit } from "@/components/observer-toolkit";
 import { BaryonicSensor } from "@/components/baryonic-sensor";
+import { MathematicalBloom, parseContentForBloom } from "@/components/mathematical-bloom";
 import {
   Dialog,
   DialogContent,
@@ -1231,40 +1232,56 @@ export default function ChatPage() {
                     </div>
                   </div>
                 ) : (
-                  activeConversationQuery.data?.messages.map((message) => (
-                    <div
-                      key={message.id}
-                      className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
-                      data-testid={`message-${message.id}`}
-                    >
-                      <Card
-                        className={`relative max-w-[80%] p-3 group ${
-                          message.role === "user"
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-muted"
-                        }`}
+                  activeConversationQuery.data?.messages.map((message, index) => {
+                    const messageXi = calculateComplexityXi(index + 1);
+                    
+                    if (message.role === "assistant") {
+                      const { narrative, mathLatex } = parseContentForBloom(message.content);
+                      
+                      return (
+                        <div
+                          key={message.id}
+                          className="flex justify-start"
+                          data-testid={`message-${message.id}`}
+                        >
+                          <div className="max-w-[85%]">
+                            <MathematicalBloom
+                              narrative={narrative}
+                              mathLatex={mathLatex}
+                              branchId={message.id.toString()}
+                              complexityXi={messageXi}
+                              fullContent={message.content}
+                              onBranch={() => handleForkMessage(message)}
+                            />
+                          </div>
+                        </div>
+                      );
+                    }
+                    
+                    return (
+                      <div
+                        key={message.id}
+                        className="flex justify-end"
+                        data-testid={`message-${message.id}`}
                       >
-                        <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <button
-                            onClick={() => handleForkMessage(message)}
-                            className={`p-1 rounded transition-colors hover-elevate ${
-                              message.role === "user" ? "bg-primary-foreground/20" : "bg-background/50"
-                            }`}
-                            title="Fork timeline from this message"
-                            data-testid={`button-fork-message-${message.id}`}
-                          >
-                            <GitBranch className="w-3 h-3" />
-                          </button>
-                          {message.role === "assistant" && (
-                            <CopyButton text={message.content} className="bg-background/50" />
-                          )}
-                        </div>
-                        <div className="text-sm whitespace-pre-wrap">
-                          <MessageContent content={message.content} isUser={message.role === "user"} />
-                        </div>
-                      </Card>
-                    </div>
-                  ))
+                        <Card className="relative max-w-[80%] p-3 group bg-primary text-primary-foreground">
+                          <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <button
+                              onClick={() => handleForkMessage(message)}
+                              className="p-1 rounded transition-colors hover-elevate bg-primary-foreground/20"
+                              title="Fork timeline from this message"
+                              data-testid={`button-fork-message-${message.id}`}
+                            >
+                              <GitBranch className="w-3 h-3" />
+                            </button>
+                          </div>
+                          <div className="text-sm whitespace-pre-wrap">
+                            <MessageContent content={message.content} isUser={true} />
+                          </div>
+                        </Card>
+                      </div>
+                    );
+                  })
                 )}
                 {sendMessageMutation.isPending && (
                   <div className="flex justify-start" data-testid="message-loading">
