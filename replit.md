@@ -55,6 +55,27 @@ Preferred communication style: Simple, everyday language.
 - **Storage**: PostgreSQL with Drizzle ORM
 - **Validation**: Zod schemas shared between frontend and backend via drizzle-zod
 
+### BaryonicSensorAI & GWSensor (GRUT Physics Simulations)
+- **Location**: server_flask/baryonic_sensor.py (Python reference), server/grut-logic.ts (Express runtime)
+- **Core Features**:
+  - **BaryonicSensorAI**: Base class for GRUT physics simulations
+  - **GWSensor**: Extended class for gravitational wave ringdown memory analysis
+  - **R_max Logic Guard**: Safety valve that recycles information density (Ξ) when it exceeds 100%
+    - Complexity ratio tracked via `complexity_ratio` state
+    - Triggers at Ξ >= 1.0, resets to 0.8 stable state
+    - Status levels: STABLE (<0.9), WARNING (0.9-1.0), EXCEEDED (>=1.0)
+- **Simulation Endpoints** (Express runtime):
+  - POST /api/baryonic/bullet-cluster - Simulate 1E 0657-558 collision dynamics
+  - POST /api/baryonic/gravitational-waves - Predict GW phase drift residuals
+  - POST /api/baryonic/hubble-tension - Analyze H0 discrepancy
+  - POST /api/baryonic/retarded-potential - Compute K(t) kernel series
+  - POST /api/baryonic/ringdown-memory - Analyze GW ringdown memory burden
+- **Key Constants**:
+  - tau_0: 41.9 Myr (relaxation constant)
+  - tau_0_seconds: ~1.32e15 seconds
+  - alpha: 0.333333 (coupling strength)
+  - n_g: 1.1547 (gravitational refractive index)
+
 ### Data Layer
 - **ORM**: Drizzle ORM with PostgreSQL dialect configured
 - **Schema Location**: shared/schema.ts contains all database table definitions
