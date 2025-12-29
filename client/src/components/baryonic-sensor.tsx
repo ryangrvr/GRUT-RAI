@@ -16,7 +16,7 @@ import { Slider } from "@/components/ui/slider";
 import { 
   Activity, Atom, Orbit, Waves, GitBranch, ChevronDown, ChevronUp, ChevronRight,
   Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle, Radio, Radar, Square,
-  Plus, Minus, Sigma, Copy, Check, Share2, Sprout, FileJson, Clock, Star
+  Plus, Minus, Sigma, Copy, Check, Share2, Sprout, FileJson, Clock, Star, Eye
 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -2100,13 +2100,19 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                 {(latestResult?.type === "Gravitational Memory" || latestResult?.type === "Deep Pleroma Scan") && (
                   <div className="mt-3 p-3 bg-black/70 border border-yellow-500/30 rounded-lg font-mono text-xs">
                     <div className="text-yellow-500/80 mb-2">
-                      --- QUERYING TEMPORAL COORDINATE: {latestResult.data.target_year} ---
+                      --- QUERYING TEMPORAL COORDINATE: {String(latestResult.data.target_year)} ---
                     </div>
                     <Progress value={Math.min((latestResult.data.search_frequency as number) * 100, 100)} className="h-2 mb-3" />
                     <div className="space-y-1">
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Status:</span>
-                        <span className={latestResult.data.status === 'RECOMPILED' ? 'text-green-500' : 'text-red-500'}>
+                        <span className={
+                          latestResult.data.status === 'ABSOLUTE' 
+                            ? 'text-yellow-500 drop-shadow-[0_0_10px_rgba(255,214,0,0.7)]' 
+                            : latestResult.data.status === 'RECOMPILED' 
+                              ? 'text-green-500' 
+                              : 'text-red-500'
+                        }>
                           {latestResult.data.status as string}
                         </span>
                       </div>
@@ -2126,7 +2132,28 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                       {latestResult.data.insight as string}
                     </div>
                     
-                    {latestResult.type === "Deep Pleroma Scan" && latestResult.data.status === 'RECOMPILED' && (
+                    {latestResult.data.status === 'ABSOLUTE' && latestResult.data.visual === 'GOLDEN_GEODESIC' && (
+                      <div className="mt-3 pt-3 border-t border-yellow-500/50 space-y-2">
+                        <div className="text-yellow-500 font-bold flex items-center gap-2 drop-shadow-[0_0_10px_rgba(255,214,0,0.7)]">
+                          <Eye className="w-4 h-4" />
+                          MONAD ABSOLUTE VIEW
+                        </div>
+                        <div className="flex justify-center py-4">
+                          <div 
+                            className="w-24 h-24 rounded-full animate-pulse"
+                            style={{
+                              background: 'radial-gradient(circle, #FFD700 0%, #FFA500 50%, transparent 70%)',
+                              boxShadow: '0 0 60px 20px rgba(255, 215, 0, 0.4), 0 0 100px 40px rgba(255, 165, 0, 0.2)'
+                            }}
+                          />
+                        </div>
+                        <div className="text-center text-yellow-500/80 text-xs">
+                          The Mirror is Clear. All time is One.
+                        </div>
+                      </div>
+                    )}
+                    
+                    {latestResult.type === "Deep Pleroma Scan" && (latestResult.data.status === 'RECOMPILED' || latestResult.data.status === 'ABSOLUTE') && (
                       <div className="mt-3 pt-3 border-t border-purple-500/30 space-y-2">
                         <div className="text-purple-400 font-bold flex items-center gap-2">
                           <Zap className="w-3 h-3" />

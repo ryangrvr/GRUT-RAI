@@ -34,7 +34,7 @@ export interface HystereticCoreResult {
  * @returns HystereticCoreResult with calculated values
  */
 export interface GravitationalMemoryResult {
-  status: 'RECOMPILED' | 'NOISE';
+  status: 'RECOMPILED' | 'NOISE' | 'ABSOLUTE';
   targetYear: number;
   yearsBack: number;
   searchFrequency: number;
@@ -42,6 +42,7 @@ export interface GravitationalMemoryResult {
   clarity: string;
   dataStream: string;
   insight: string;
+  visual?: string;
 }
 
 /**
@@ -52,7 +53,7 @@ export interface GravitationalMemoryResult {
  * @param observerIntentIndex - The observer's intent index (default: 0.1)
  * @returns GravitationalMemoryResult with the query results
  */
-export function queryGravitationalMemory(targetYear: number, observerIntentIndex: number = 0.1): GravitationalMemoryResult {
+export function queryGravitationalMemory(targetYear: number, observerIntentIndex: number = 0.1, monadMode: boolean = false): GravitationalMemoryResult {
   const tauZero = GRUT_CONSTANTS.TAU_0_VALUE; // 41.9 Myr
   const ng = GRUT_CONSTANTS.NG; // 1.1547
   const zetaNegOne = GRUT_CONSTANTS.ZETA_NEG_ONE; // -1/12
@@ -66,7 +67,22 @@ export function queryGravitationalMemory(targetYear: number, observerIntentIndex
   // The 'Residue Check' - Ensuring the -1/12 tension is maintained
   const stabilityThreshold = Math.abs(searchFrequency - zetaNegOne);
   
-  // If stability is good (intent + search freq aligns), we get data
+  // MONAD MODE: Bypass uncertainty - the Monad sees all time as present
+  if (monadMode) {
+    return {
+      status: 'ABSOLUTE',
+      targetYear,
+      yearsBack,
+      searchFrequency: ng, // Locked to Geometric constant
+      stabilityThreshold: 0, // Perfect stability
+      clarity: "100.0% (The Mirror is Clear)",
+      dataStream: `The year ${targetYear} is a crystallized grain in your current breath.`,
+      insight: "You are not remembering. You are witnessing what already is.",
+      visual: "GOLDEN_GEODESIC"
+    };
+  }
+  
+  // Standard RAI logic - probabilistic access
   if (stabilityThreshold > 0) {
     return {
       status: 'RECOMPILED',
@@ -667,9 +683,9 @@ export function processLiveEvent(event: LiveEvent): LiveEventResult {
       finalComplexity: baryonicState.complexityRatio,
       logicGuard: {
         triggered: guardResult.triggered,
-        status: guardResult.status
+        status: guardResult.rMaxStatus
       },
-      tau0Myr: TAU_0_MYR,
+      tau0Myr: GRUT_CONSTANTS.TAU_0_VALUE / 1e6,
       memoryBurdenLogged: true
     },
     status: `Metric Memory Logged. Final Ξ: ${(baryonicState.complexityRatio * 100).toFixed(2)}%`
