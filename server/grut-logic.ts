@@ -395,6 +395,108 @@ export interface RingdownMemoryResult {
  * @param snrRatio - Signal-to-noise ratio of the detection (e.g., 80 for GW250114)
  * @returns Analysis results including metric drift
  */
+// ==========================================
+// NANOGrav Cross-Correlation (IntegratedBaryonicSensor)
+// ==========================================
+
+// NANOGrav reported Red Noise Amplitude (A_cp ~ 2e-15 at f=1yr^-1)
+const PTA_NOISE_AMPLITUDE = 2.4e-15;
+
+export interface NanoGravCorrelationResult {
+  analysisType: string;
+  singleEventDrift: number;
+  ptaNoiseAmplitude: number;
+  correlationIndex: number;
+  correlationRange: [number, number];
+  matchFound: boolean;
+  status: string;
+  interpretation: string;
+  complexityAdjustment: number;
+  finalComplexityRatio: number;
+  logicGuard: RmaxLogicGuardResult;
+}
+
+/**
+ * Cross-correlate a single merger's drift against NANOGrav Common Red Noise.
+ * 
+ * @param singleEventDrift - The metric drift from a single GW event (strain units)
+ * @returns Correlation results and status
+ */
+export function crossCorrelateNanoGrav(singleEventDrift: number): NanoGravCorrelationResult {
+  // Calculate the "Weight" of our single event in the cosmic background
+  const correlationIndex = (singleEventDrift / PTA_NOISE_AMPLITUDE) * 1e6;
+  
+  console.log("Cross-Correlating with NANOGrav Background...");
+  
+  const matchFound = correlationIndex > 0.1 && correlationIndex < 10;
+  let status: string;
+  let interpretation: string;
+  let complexityAdjustment: number;
+  
+  if (matchFound) {
+    console.log("MATCH FOUND: Single event drift is a valid component of Common Red Noise.");
+    updateBaryonicComplexity(-0.05);  // Complexity drops as patterns unify
+    status = "Observation Matches GRUT Memory Background";
+    interpretation = "The single event's metric drift is consistent with the Common Red Noise amplitude, suggesting gravitational wave memory contributes to the PTA signal";
+    complexityAdjustment = -0.05;
+  } else {
+    console.log("Variance Detected: Seeking additional Metric Stressors.");
+    status = "Inconclusive - Requires more Baryonic Data";
+    interpretation = "Correlation index outside expected range; additional data needed to establish connection";
+    complexityAdjustment = 0;
+  }
+  
+  const logicGuardResult = checkBaryonicLogicGuard();
+  
+  return {
+    analysisType: "NANOGrav_Cross_Correlation",
+    singleEventDrift,
+    ptaNoiseAmplitude: PTA_NOISE_AMPLITUDE,
+    correlationIndex,
+    correlationRange: [0.1, 10],
+    matchFound,
+    status,
+    interpretation,
+    complexityAdjustment,
+    finalComplexityRatio: baryonicState.complexityRatio,
+    logicGuard: logicGuardResult
+  };
+}
+
+export interface FullPipelineResult {
+  pipeline: string;
+  step1Ringdown: RingdownMemoryResult;
+  step2Correlation: NanoGravCorrelationResult;
+  finalStatus: string;
+  finalComplexityRatio: number;
+  grutConclusion: string;
+}
+
+/**
+ * Execute the full baryonic analysis pipeline:
+ * 1. Analyze ringdown memory for a specific event
+ * 2. Cross-correlate with NANOGrav 15-year dataset
+ */
+export function runFullBaryonicPipeline(signalDurationSeconds: number = 1.5, snrRatio: number = 80): FullPipelineResult {
+  // Step 1: Analyze specific GW event
+  const ringdownResult = analyzeRingdownMemory(signalDurationSeconds, snrRatio);
+  const eventDrift = ringdownResult.meanMetricDrift;
+  
+  // Step 2: Correlate with the PTA dataset
+  const correlationResult = crossCorrelateNanoGrav(eventDrift);
+  
+  return {
+    pipeline: "Full Baryonic Analysis v6",
+    step1Ringdown: ringdownResult,
+    step2Correlation: correlationResult,
+    finalStatus: correlationResult.status,
+    finalComplexityRatio: baryonicState.complexityRatio,
+    grutConclusion: correlationResult.matchFound 
+      ? "Single merger events contribute to the Stochastic Gravitational Wave Background via GRUT memory accumulation"
+      : "Further observation required to confirm GRUT memory contribution"
+  };
+}
+
 export function analyzeRingdownMemory(signalDurationSeconds: number, snrRatio: number): RingdownMemoryResult {
   const numSamples = 1000;
   

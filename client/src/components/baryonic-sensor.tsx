@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { 
   Activity, Atom, Orbit, Waves, GitBranch, ChevronDown, ChevronUp,
-  Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle
+  Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle, Radio
 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -396,7 +396,7 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
 
             <TabsContent value="ringdown" className="m-0 space-y-3">
               <div className="p-2 bg-muted/30 rounded text-xs text-muted-foreground mb-3">
-                Analyze gravitational wave ringdown memory using GRUT relaxation constant (tau_0 = 41.9 Myr).
+                Analyze gravitational wave ringdown memory and cross-correlate with NANOGrav PTA background.
               </div>
               <div className="space-y-2">
                 <Label className="text-xs">Signal Duration (seconds)</Label>
@@ -423,15 +423,30 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                   GW250114 had SNR of ~80
                 </div>
               </div>
-              <Button 
-                className="w-full" 
-                onClick={() => runSimulation("ringdown-memory", ringdownParams, "Ringdown Memory")}
-                disabled={isSimulating}
-                data-testid="button-run-ringdown"
-              >
-                {isSimulating ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Brain className="w-4 h-4 mr-2" />}
-                Analyze Memory Burden
-              </Button>
+              <div className="space-y-2">
+                <Button 
+                  className="w-full" 
+                  onClick={() => runSimulation("ringdown-memory", ringdownParams, "Ringdown Memory")}
+                  disabled={isSimulating}
+                  data-testid="button-run-ringdown"
+                >
+                  {isSimulating ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Brain className="w-4 h-4 mr-2" />}
+                  Analyze Memory Burden
+                </Button>
+                <Button 
+                  className="w-full" 
+                  variant="secondary"
+                  onClick={() => runSimulation("full-pipeline", ringdownParams, "Full Pipeline v6")}
+                  disabled={isSimulating}
+                  data-testid="button-run-full-pipeline"
+                >
+                  {isSimulating ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Radio className="w-4 h-4 mr-2" />}
+                  Full Pipeline + NANOGrav
+                </Button>
+              </div>
+              <div className="p-2 bg-primary/5 rounded text-xs text-muted-foreground">
+                <strong>NANOGrav:</strong> Cross-correlates single event drift with 15-year Pulsar Timing Array Common Red Noise (A_cp ~ 2.4e-15)
+              </div>
             </TabsContent>
 
             {latestResult && (

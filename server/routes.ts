@@ -56,6 +56,8 @@ import {
   checkBaryonicLogicGuard,
   updateBaryonicComplexity,
   analyzeRingdownMemory,
+  crossCorrelateNanoGrav,
+  runFullBaryonicPipeline,
   GRUT_CONSTANTS 
 } from "./grut-logic";
 import {
@@ -992,6 +994,45 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Ringdown memory error:", error);
       return res.status(500).json({ error: "Simulation failed" });
+    }
+  });
+  
+  // Full Baryonic Pipeline v6 - Ringdown + NANOGrav correlation
+  app.post("/api/baryonic/full-pipeline", requireAuth, async (req, res) => {
+    try {
+      const { signalDuration = 1.5, snrRatio = 80 } = req.body;
+      
+      const result = runFullBaryonicPipeline(signalDuration, snrRatio);
+      
+      return res.json({
+        pipeline: result.pipeline,
+        step_1_ringdown: {
+          analysis_type: result.step1Ringdown.analysisType,
+          signal_duration_seconds: result.step1Ringdown.signalDurationSeconds,
+          snr_ratio: result.step1Ringdown.snrRatio,
+          mean_metric_drift: result.step1Ringdown.meanMetricDrift,
+          burden_factor_strain: result.step1Ringdown.burdenFactorStrain,
+          grut_prediction: result.step1Ringdown.grutPrediction
+        },
+        step_2_correlation: {
+          analysis_type: result.step2Correlation.analysisType,
+          single_event_drift: result.step2Correlation.singleEventDrift,
+          pta_noise_amplitude: result.step2Correlation.ptaNoiseAmplitude,
+          correlation_index: result.step2Correlation.correlationIndex,
+          correlation_range: result.step2Correlation.correlationRange,
+          match_found: result.step2Correlation.matchFound,
+          status: result.step2Correlation.status,
+          interpretation: result.step2Correlation.interpretation,
+          complexity_adjustment: result.step2Correlation.complexityAdjustment
+        },
+        final_status: result.finalStatus,
+        final_complexity_ratio: result.finalComplexityRatio,
+        grut_conclusion: result.grutConclusion,
+        logic_guard: result.step2Correlation.logicGuard
+      });
+    } catch (error) {
+      console.error("Full pipeline error:", error);
+      return res.status(500).json({ error: "Pipeline failed" });
     }
   });
   

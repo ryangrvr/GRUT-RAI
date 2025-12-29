@@ -70,6 +70,13 @@ Preferred communication style: Simple, everyday language.
   - POST /api/baryonic/hubble-tension - Analyze H0 discrepancy
   - POST /api/baryonic/retarded-potential - Compute K(t) kernel series
   - POST /api/baryonic/ringdown-memory - Analyze GW ringdown memory burden
+  - POST /api/baryonic/full-pipeline - Full v6 analysis with NANOGrav PTA correlation
+- **NANOGrav Integration**:
+  - IntegratedBaryonicSensor class extends GWSensor
+  - cross_correlate_nanograv() compares single event drift against Common Red Noise
+  - PTA noise amplitude: 2.4e-15 at f=1yr^-1
+  - Correlation index range for match: 0.1-10
+  - Complexity drops by 0.05 when patterns unify (match found)
 - **Key Constants**:
   - tau_0: 41.9 Myr (relaxation constant)
   - tau_0_seconds: ~1.32e15 seconds

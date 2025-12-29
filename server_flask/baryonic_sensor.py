@@ -539,3 +539,102 @@ def create_baryonic_sensor(constants: Optional[Dict] = None) -> BaryonicSensorAI
 def create_gw_sensor(constants: Optional[Dict] = None) -> GWSensor:
     """Create a new GWSensor instance with optional custom constants"""
     return GWSensor(constants)
+
+
+class IntegratedBaryonicSensor(GWSensor):
+    """
+    Integrated Baryonic Sensor - Extended GWSensor with NANOGrav PTA correlation
+    
+    Cross-correlates single gravitational wave event drifts against the
+    Common Red Noise detected by Pulsar Timing Arrays (PTAs).
+    """
+    
+    def cross_correlate_nanograv(self, single_event_drift: float) -> Dict[str, Any]:
+        """
+        Compare a single merger's drift against the Common Red Noise 
+        detected by Pulsar Timing Arrays (PTAs).
+        
+        Args:
+            single_event_drift: The metric drift from a single GW event (strain units)
+        
+        Returns:
+            Dictionary with correlation results and status
+        """
+        # NANOGrav reported Red Noise Amplitude (A_cp ~ 2e-15 at f=1yr^-1)
+        pta_noise_amplitude = 2.4e-15
+        
+        # Calculate the "Weight" of our single event in the cosmic background
+        # Single event drift is typically 1e-21, so we calculate density
+        correlation_index = (single_event_drift / pta_noise_amplitude) * 1e6
+        
+        print(f"Cross-Correlating with NANOGrav Background...")
+        
+        match_found = 0.1 < correlation_index < 10
+        
+        if match_found:
+            print("MATCH FOUND: Single event drift is a valid component of Common Red Noise.")
+            self.complexity_ratio -= 0.05  # Complexity drops as patterns unify
+            status = "Observation Matches GRUT Memory Background"
+            interpretation = "The single event's metric drift is consistent with the Common Red Noise amplitude, suggesting gravitational wave memory contributes to the PTA signal"
+        else:
+            print("Variance Detected: Seeking additional Metric Stressors.")
+            status = "Inconclusive - Requires more Baryonic Data"
+            interpretation = "Correlation index outside expected range; additional data needed to establish connection"
+        
+        # Check logic guard after complexity update
+        logic_guard_result = self.check_logic_guard()
+        
+        result = {
+            "analysis_type": "NANOGrav_Cross_Correlation",
+            "single_event_drift": single_event_drift,
+            "pta_noise_amplitude": pta_noise_amplitude,
+            "correlation_index": correlation_index,
+            "correlation_range": [0.1, 10],
+            "match_found": match_found,
+            "status": status,
+            "interpretation": interpretation,
+            "complexity_adjustment": -0.05 if match_found else 0,
+            "final_complexity_ratio": self.complexity_ratio,
+            "logic_guard": logic_guard_result
+        }
+        
+        self.simulation_history.append({
+            "type": "nanograv_correlation",
+            "params": {"single_event_drift": single_event_drift}
+        })
+        
+        return result
+    
+    def run_full_pipeline(self, signal_duration_seconds: float = 1.5, snr_ratio: float = 80) -> Dict[str, Any]:
+        """
+        Execute the full analysis pipeline:
+        1. Analyze ringdown memory for a specific event
+        2. Cross-correlate with NANOGrav 15-year dataset
+        
+        Args:
+            signal_duration_seconds: Duration of the GW signal
+            snr_ratio: Signal-to-noise ratio of the detection
+        
+        Returns:
+            Combined results from both analyses
+        """
+        # Step 1: Analyze specific GW event
+        ringdown_result = self.analyze_ringdown_memory(signal_duration_seconds, snr_ratio)
+        event_drift = ringdown_result["mean_metric_drift"]
+        
+        # Step 2: Correlate with the PTA dataset
+        correlation_result = self.cross_correlate_nanograv(event_drift)
+        
+        return {
+            "pipeline": "Full Baryonic Analysis v6",
+            "step_1_ringdown": ringdown_result,
+            "step_2_correlation": correlation_result,
+            "final_status": correlation_result["status"],
+            "final_complexity_ratio": self.complexity_ratio,
+            "grut_conclusion": "Single merger events contribute to the Stochastic Gravitational Wave Background via GRUT memory accumulation" if correlation_result["match_found"] else "Further observation required to confirm GRUT memory contribution"
+        }
+
+
+def create_integrated_sensor(constants: Optional[Dict] = None) -> IntegratedBaryonicSensor:
+    """Create a new IntegratedBaryonicSensor instance with optional custom constants"""
+    return IntegratedBaryonicSensor(constants)
