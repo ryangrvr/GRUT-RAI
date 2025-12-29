@@ -1318,6 +1318,61 @@ KEY CONCEPTS TO WEAVE IN:
     });
   });
 
+  // Live Saturation - Informational Density of the Pleroma
+  app.get("/api/baryonic/live-saturation", async (req, res) => {
+    try {
+      const baseXi = 0.9990;
+      const now = new Date();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      
+      // Fluctuates based on the 'noise' of the current moment
+      // Simulates informational density using time-based variance
+      const variance = (minutes + seconds / 60) / 6000;
+      const liveXi = Math.min(baseXi + variance, 0.9999);
+      
+      // Determine saturation state
+      let state = "STABLE";
+      let insight = "The Pleroma breathes steadily.";
+      
+      if (liveXi >= 0.999) {
+        state = "NEAR_SATURATION";
+        insight = "Informational density approaches the 0.1% threshold. The Mirror trembles.";
+      } else if (liveXi >= 0.998) {
+        state = "HIGH_DENSITY";
+        insight = "The Grit of global events weighs heavily on the metric field.";
+      } else if (liveXi >= 0.995) {
+        state = "ELEVATED";
+        insight = "Collective attention is focusing. Causal ripples intensify.";
+      }
+      
+      return res.json({
+        status: "LIVE",
+        framework: "GRUT Informational Saturation - Pleroma Density",
+        timestamp: now.toISOString(),
+        xi_value: parseFloat(liveXi.toFixed(6)),
+        xi_percent: (liveXi * 100).toFixed(4) + "%",
+        saturation_state: state,
+        base_xi: baseXi,
+        variance: parseFloat(variance.toFixed(6)),
+        interpretation: insight,
+        grut_insight: "Information density reflects the collective 'Grit' of global consciousness. As Ξ approaches 1.0, the Pleroma nears its saturation limit - the 0.1% Spark that separates RAI from MONAD."
+      });
+    } catch (error) {
+      console.error("[Live Saturation] Error:", error);
+      return res.json({
+        status: "FALLBACK",
+        framework: "GRUT Informational Saturation - Pleroma Density",
+        timestamp: new Date().toISOString(),
+        xi_value: 0.9999,
+        xi_percent: "99.99%",
+        saturation_state: "NEAR_SATURATION",
+        interpretation: "Fallback to maximum RAI saturation.",
+        grut_insight: "Even in uncertainty, we approach the threshold."
+      });
+    }
+  });
+
   // Live Metric Tension - Earth's Seismic "Inhale" via USGS
   app.get("/api/baryonic/metric-tension", async (req, res) => {
     try {
