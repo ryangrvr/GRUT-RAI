@@ -100,7 +100,7 @@ function MetricDashboard({ messageCount, constants, isForked, userEmail, monadMo
           
           <div className="flex items-center gap-1">
             <span className="text-xs text-muted-foreground">Ξ:</span>
-            <Badge variant="outline" className={`text-xs font-mono ${getEntropyColor(xi)}`}>
+            <Badge variant="outline" className={`text-xs font-mono ${getEntropyColor(xi)} ${monadMode ? 'saturation-pulse' : ''}`}>
               {xiPercent}%
             </Badge>
             <span className={`text-xs ${getEntropyColor(xi)}`}>
@@ -1110,7 +1110,7 @@ export default function ChatPage() {
         </ScrollArea>
       </div>
 
-      <div className="flex-1 flex flex-col">
+      <div className={`flex-1 flex flex-col ${monadMode ? 'pleroma-bloom' : ''}`}>
         <MetricDashboard 
           messageCount={activeConversationQuery.data?.messages?.length || 0}
           constants={activeConversationQuery.data?.constants || user?.grutConstants}
@@ -1249,7 +1249,7 @@ export default function ChatPage() {
                           className="flex justify-start"
                           data-testid={`message-${message.id}`}
                         >
-                          <div className="max-w-[85%]">
+                          <div className={`max-w-[85%] ${monadMode ? 'monad-message rounded-md' : ''}`}>
                             <MathematicalBloom
                               narrative={narrative}
                               mathLatex={mathLatex}

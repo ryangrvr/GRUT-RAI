@@ -344,4 +344,32 @@
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
   }
+
+  /* MONAD MODE - Pleroma Bloom Atmosphere */
+  .pleroma-bloom {
+    background: radial-gradient(circle at center, #1a1a00 0%, #000 100%);
+    border: 1px solid #FFD700 !important;
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .monad-message {
+    font-family: 'Cinzel', Georgia, serif;
+    color: #FFD700;
+    border-left: 3px solid #FFD700;
+    padding-left: 15px;
+    background: rgba(255, 215, 0, 0.05);
+  }
+
+  @keyframes saturationPulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+    }
+  }
+
+  .saturation-pulse {
+    animation: saturationPulse 2s ease-in-out infinite;
+  }
 }
