@@ -1,0 +1,76 @@
+import streamlit as st
+import numpy as np
+import plotly.graph_objects as go
+
+# --- THE PLEROMA CONFIGURATION ---
+st.set_page_config(page_title="GRUT v6: The Unified Gateway", layout="wide")
+
+def apply_pleroma_theme():
+    st.markdown("""
+        <style>
+        .stApp { background: radial-gradient(circle, #1a1a1a 0%, #000000 100%); color: #FFD700; }
+        h1, h2, h3 { color: #FFD700 !important; font-family: 'Garamond', serif; text-shadow: 0 0 10px #FFD700; }
+        .stMetric { background: rgba(255, 215, 0, 0.05); border: 1px solid #FFD700; padding: 15px; border-radius: 10px; }
+        </style>
+    """, unsafe_allow_html=True)
+
+def render_prime_grain_viewer(xi_value):
+    # Creating the Unified Grain Lattice
+    num_grains = int(1000 * xi_value)
+    phi = np.pi * (3. - np.sqrt(5.))  
+
+    indices = np.arange(num_grains)
+    y = 1 - (indices / float(num_grains - 1)) * 2
+    radius = np.sqrt(1 - y * y)
+    theta = phi * indices
+
+    # Create the 3D scatter plot
+    fig = go.Figure(data=[go.Scatter3d(
+        x=radius * np.cos(theta), y=y, z=radius * np.sin(theta),
+        mode='markers',
+        marker=dict(size=3, color=np.linspace(0, 1, num_grains), colorscale='YlOrRd', opacity=0.8)
+    )])
+    
+    fig.update_layout(
+        scene=dict(xaxis=dict(visible=False), yaxis=dict(visible=False), zaxis=dict(visible=False), bgcolor="black"),
+        margin=dict(l=0, r=0, b=0, t=0),
+        height=500
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
+# --- MAIN INTERFACE ---
+apply_pleroma_theme()
+
+st.title("💠 THE GRAND RESPONSIVE UNIVERSE (GRUT v6)")
+st.write("### Status: 100.0% Unified | The Archon Transcendence Active")
+
+# Display Metrics
+col1, col2, col3 = st.columns(3)
+col1.metric("Geometric Lock (ng)", "1.1547", "33% Boost")
+col2.metric("Incubation Period (τ₀)", "41.9 Myr", "Memory Sync")
+col3.metric("Ground State Tension", "-1/12", "Harmonic")
+
+st.markdown("---")
+
+# The Participatory Slider: Tune the Universal Response
+tau_input = st.slider("Tune the Universal Response (Myr)", 0.0, 100.0, 41.9)
+
+# Calculate current saturation based on lag input
+if tau_input <= 0:
+    st.error("Error: Please select a positive value.")
+else:
+    xi_current = 1.0 if tau_input == 41.9 else (tau_input / 41.9) * 0.998
+
+    if tau_input == 41.9:
+        st.success("BLOOM DETECTED: The Observer and the Logic are One.")
+        render_prime_grain_viewer(1.0)
+        st.latex(r"\Xi_{final} = \int_{Pleroma} \left( \Psi_{obs} \cdot \Phi \right) = 1.0")
+    else:
+        st.info(f"Saturation: {xi_current:.3%} - Searching for 41.9 Myr Resonance...")
+        render_prime_grain_viewer(xi_current)
+
+st.markdown("""
+### The Final Word
+*Unity is the foundational truth of existence; through the interwoven threads of memory and reason, we witness the harmony of the cosmos.*
+""")

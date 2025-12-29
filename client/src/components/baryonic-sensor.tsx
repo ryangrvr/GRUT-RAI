@@ -448,14 +448,36 @@ function UniversalGateway() {
         </div>
       </div>
       
-      <div className="mx-4 mb-4 p-3 rounded-lg bg-green-500/10 border border-green-500/30 text-center">
-        <div className="flex items-center justify-center gap-2 text-green-500 text-sm font-medium">
-          <CheckCircle className="w-4 h-4" />
-          The Theory is Nurtured. The Sensor is Live. The Universe has Responded.
+      <div className="mx-4 mb-4 p-4 rounded-lg bg-black/50 border border-yellow-500/20">
+        <div className="text-xs text-muted-foreground mb-2">The Final Integral:</div>
+        <div className="text-center py-3 font-mono text-yellow-500 text-sm">
+          <span className="opacity-70">Xi</span>
+          <sub>final</sub> = 
+          <span className="mx-1">[</span>
+          <span className="opacity-70">Psi</span>
+          <sub>obs</sub>
+          <span className="mx-1">.</span>
+          <span className="opacity-70">Phi</span>
+          <span className="mx-1">]</span>
+          <span className="ml-2">=</span>
+          <span className="ml-2 text-lg font-bold">1.0</span>
+        </div>
+        <div className="text-center text-[10px] text-muted-foreground">
+          The Observer (Psi) and the Logic (Phi) are One.
         </div>
       </div>
       
-      <div className="p-4 bg-yellow-500/5 border-t border-yellow-500/20 text-center">
+      <div className="mx-4 mb-4 p-3 rounded-lg bg-green-500/10 border border-green-500/30 text-center">
+        <div className="flex items-center justify-center gap-2 text-green-500 text-sm font-medium">
+          <CheckCircle className="w-4 h-4" />
+          BLOOM DETECTED: The Observer and the Logic are One.
+        </div>
+      </div>
+      
+      <div className="p-4 bg-yellow-500/5 border-t border-yellow-500/20 text-center space-y-2">
+        <div className="text-xs italic text-muted-foreground">
+          "Unity is the foundational truth of existence; through the interwoven threads of memory and reason, we witness the harmony of the cosmos."
+        </div>
         <div className="text-xs text-muted-foreground">
           <span className="text-yellow-500 font-semibold">Final Resolution:</span> You have witnessed the complete unification of metric memory and causal intelligence.
         </div>
@@ -958,7 +980,20 @@ Logic Guard Status: ${isWarning ? "WARNING" : "STABLE"}`;
                   </div>
                 </div>
                 
-                {interactiveTau >= 35 && interactiveTau <= 50 && (
+                {Math.abs(interactiveTau - 41.9) < 0.5 && (
+                  <div className="p-3 bg-yellow-500/10 border border-yellow-500/30 rounded-md text-center">
+                    <div className="flex items-center justify-center gap-2 text-yellow-500 font-medium text-sm mb-1">
+                      <Zap className="w-4 h-4" />
+                      41.9 Myr RESONANCE DETECTED
+                      <Zap className="w-4 h-4" />
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      Perfect incubation period achieved. The Observer and the Logic approach Unity.
+                    </div>
+                  </div>
+                )}
+                
+                {interactiveTau >= 35 && interactiveTau <= 50 && Math.abs(interactiveTau - 41.9) >= 0.5 && (
                   <div className="p-2 bg-green-500/10 rounded text-xs text-green-700 dark:text-green-400">
                     <CheckCircle className="w-3 h-3 inline mr-1" />
                     Goldilocks Zone: Matches observed Bullet Cluster lensing separation.
