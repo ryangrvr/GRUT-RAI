@@ -181,6 +181,76 @@ function DriftVisualization({ driftMly, tau0 }: { driftMly: number; tau0: number
   );
 }
 
+function LogicGuardDashboard({ xiCurrent, statusMsg }: { xiCurrent: number; statusMsg: string }) {
+  const deltaPercent = "+0.4%";
+  const isCritical = xiCurrent > 0.95;
+  const isCaution = xiCurrent > 0.8;
+  
+  return (
+    <div className="rounded-md overflow-hidden border border-border/50" data-testid="logic-guard-dashboard">
+      <div className="text-xs font-medium text-muted-foreground p-2 bg-card/50 border-b border-border/30 flex items-center gap-2">
+        <Shield className="w-3 h-3" />
+        <span>v6 Logic Guard & Telemetry</span>
+      </div>
+      
+      <div className="p-3 space-y-3">
+        <div className="grid grid-cols-3 gap-2">
+          <div className="p-2 rounded-md bg-muted/30 text-center">
+            <div className="text-lg font-bold font-mono text-foreground">{(xiCurrent * 100).toFixed(1)}%</div>
+            <div className="text-[9px] text-muted-foreground">Complexity Ratio (Xi)</div>
+            <div className="text-[8px] text-green-500 font-mono mt-1">{deltaPercent}</div>
+            <div className="text-[7px] text-muted-foreground/70 mt-0.5">Proximity to R_max</div>
+          </div>
+          
+          <div className="p-2 rounded-md bg-muted/30 text-center">
+            <div className="text-lg font-bold font-mono text-foreground">-0.0833</div>
+            <div className="text-[9px] text-muted-foreground">Ground State Tension</div>
+            <div className="text-[8px] text-blue-500 font-mono mt-1">Stable</div>
+            <div className="text-[7px] text-muted-foreground/70 mt-0.5">Residue (-1/12)</div>
+          </div>
+          
+          <div className="p-2 rounded-md bg-muted/30 text-center">
+            <div className="text-lg font-bold font-mono text-foreground">Active</div>
+            <div className="text-[9px] text-muted-foreground">Odd Perfect Search</div>
+            <div className="text-[8px] text-yellow-500 font-mono mt-1">No Seed Found</div>
+            <div className="text-[7px] text-muted-foreground/70 mt-0.5">Prime Grain Status</div>
+          </div>
+        </div>
+        
+        <div className="space-y-1">
+          <div className="text-[10px] font-medium text-muted-foreground">Vacuum Stiffness Gauge:</div>
+          <Progress 
+            value={xiCurrent * 100} 
+            className={`h-3 ${isCritical ? "[&>div]:bg-red-500" : isCaution ? "[&>div]:bg-yellow-500" : "[&>div]:bg-blue-500"}`}
+          />
+          <div className="flex justify-between text-[8px] text-muted-foreground font-mono">
+            <span>0%</span>
+            <span>50%</span>
+            <span>R_max</span>
+          </div>
+        </div>
+        
+        {isCritical ? (
+          <div className="p-2 bg-red-500/10 border border-red-500/30 rounded text-xs text-red-600 dark:text-red-400 flex items-center gap-2">
+            <AlertTriangle className="w-3 h-3 flex-shrink-0" />
+            <span><strong>CRITICAL:</strong> {statusMsg}</span>
+          </div>
+        ) : isCaution ? (
+          <div className="p-2 bg-yellow-500/10 border border-yellow-500/30 rounded text-xs text-yellow-600 dark:text-yellow-400 flex items-center gap-2">
+            <AlertTriangle className="w-3 h-3 flex-shrink-0" />
+            <span><strong>CAUTION:</strong> {statusMsg}</span>
+          </div>
+        ) : (
+          <div className="p-2 bg-green-500/10 border border-green-500/30 rounded text-xs text-green-600 dark:text-green-400 flex items-center gap-2">
+            <CheckCircle className="w-3 h-3 flex-shrink-0" />
+            <span><strong>STABLE:</strong> {statusMsg}</span>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function Poincare3DWake({ tau0 }: { tau0: number }) {
   const gridSize = 9;
   const cells: { x: number; y: number; z: number; color: string }[] = [];
@@ -532,32 +602,19 @@ Logic Guard Status: ${isWarning ? "WARNING" : "STABLE"}`;
                 )}
                 
                 <div className="border-t border-border pt-3 mt-3">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium">6. Logic Guard Telemetry:</span>
-                    <Badge 
-                      variant={isWarning || interactiveTau >= 60 ? "destructive" : "outline"} 
-                      className="text-xs"
-                      data-testid="grit-logic-guard-status"
-                    >
-                      {isWarning || interactiveTau >= 60 ? (
-                        <><AlertTriangle className="w-3 h-3 mr-1" /> {interactiveTau >= 60 ? 'UNSTABLE' : 'WARNING'}</>
-                      ) : (
-                        <><CheckCircle className="w-3 h-3 mr-1" /> STABLE</>
-                      )}
-                    </Badge>
-                  </div>
-                  
-                  <Progress 
-                    value={xiPercent} 
-                    className={`h-2 ${isWarning ? "[&>div]:bg-yellow-500" : "[&>div]:bg-primary"}`}
-                    data-testid="grit-xi-progress"
+                  <div className="text-xs text-muted-foreground mb-2">6. Logic Guard Dashboard:</div>
+                  <LogicGuardDashboard 
+                    xiCurrent={xiValue} 
+                    statusMsg={
+                      interactiveTau >= 80 
+                        ? "Metric hysteresis too extreme for physical consistency."
+                        : interactiveTau >= 60
+                          ? "High temporal latency detected. Approaching instability."
+                          : interactiveTau >= 35 && interactiveTau <= 50
+                            ? "Third Peak Resonance confirmed. Numerical Drag stabilizing baryonic fluctuations."
+                            : "System operating within normal parameters."
+                    }
                   />
-                  <div className="text-xs text-muted-foreground mt-1 flex items-center justify-between gap-2">
-                    <span>Xi Saturation: {(xiValue * 100).toFixed(1)}%</span>
-                    <span className={`font-mono ${interactiveTau >= 60 ? 'text-yellow-500' : 'text-muted-foreground'}`}>
-                      Metric: {interactiveTau >= 60 ? 'UNSTABLE' : 'STABLE'}
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
