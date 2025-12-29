@@ -297,6 +297,22 @@ function UniversalGateway() {
     });
   }
   
+  const wholeHoleParticles: { x: number; y: number; z: number; size: number }[] = [];
+  for (let i = 0; i < 200; i++) {
+    const u = Math.random();
+    const v = Math.random();
+    const theta = 2 * Math.PI * u;
+    const phiAngle = Math.acos(2 * v - 1);
+    const r = 0.3 + Math.random() * 0.7;
+    
+    wholeHoleParticles.push({
+      x: r * Math.sin(phiAngle) * Math.cos(theta) * 40 + 50,
+      y: r * Math.sin(phiAngle) * Math.sin(theta) * 35 + 50,
+      z: r * Math.cos(phiAngle) * 40,
+      size: 2 + Math.random() * 3
+    });
+  }
+  
   return (
     <div 
       className="rounded-xl overflow-hidden border-2 border-yellow-500/50 bg-gradient-to-b from-background to-yellow-950/20"
@@ -331,24 +347,66 @@ function UniversalGateway() {
         </div>
       </div>
       
+      <div className="mx-4 mb-4 p-4 rounded-lg bg-black/50 border border-yellow-500/20">
+        <div className="flex items-center gap-2 text-yellow-500 text-sm font-medium mb-3">
+          <Orbit className="w-4 h-4" />
+          Pleroma Status: 100.0% Unified
+        </div>
+        
+        <blockquote className="border-l-2 border-yellow-500/50 pl-3 mb-4 italic text-muted-foreground text-sm">
+          "The distance between the stars and the mind is now Zero."
+        </blockquote>
+        
+        <div className="grid grid-cols-3 gap-2 text-xs">
+          <div className="p-2 rounded bg-yellow-500/10 text-center">
+            <div className="font-semibold text-yellow-500">Metric Memory</div>
+            <div className="text-muted-foreground">Synchronized</div>
+          </div>
+          <div className="p-2 rounded bg-yellow-500/10 text-center">
+            <div className="font-semibold text-yellow-500">Ground State</div>
+            <div className="text-muted-foreground">Harmonic (-1/12)</div>
+          </div>
+          <div className="p-2 rounded bg-yellow-500/10 text-center">
+            <div className="font-semibold text-yellow-500">Archon Status</div>
+            <div className="text-muted-foreground">Transcended</div>
+          </div>
+        </div>
+      </div>
+      
       <div className="px-4 pb-2">
         <div className="text-xs font-medium text-muted-foreground mb-2 flex items-center gap-2">
           <Atom className="w-3 h-3 text-yellow-500" />
-          The Unified Field (Observer + Logic)
+          The Whole Hole Topology (Center is Everywhere)
         </div>
       </div>
       
       <div 
-        className="relative h-64 bg-black overflow-hidden mx-4 mb-4 rounded-lg border border-yellow-500/20"
-        style={{ perspective: '500px' }}
+        className="relative h-72 bg-black overflow-hidden mx-4 mb-4 rounded-lg border border-yellow-500/20"
+        style={{ perspective: '600px' }}
       >
         <div 
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0"
           style={{ 
             transformStyle: 'preserve-3d',
-            animation: 'spin 15s linear infinite'
+            animation: 'wholeSpin 20s linear infinite'
           }}
         >
+          {wholeHoleParticles.map((particle, idx) => (
+            <div
+              key={`hole-${idx}`}
+              className="absolute rounded-full"
+              style={{
+                left: `${particle.x}%`,
+                top: `${particle.y}%`,
+                width: `${particle.size}px`,
+                height: `${particle.size}px`,
+                background: `rgba(255, 215, 0, ${0.1 + Math.random() * 0.2})`,
+                transform: `translateZ(${particle.z}px)`,
+                boxShadow: '0 0 8px rgba(255, 215, 0, 0.3)'
+              }}
+            />
+          ))}
+          
           {grains.map((grain, idx) => (
             <div
               key={idx}
@@ -371,30 +429,42 @@ function UniversalGateway() {
         
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div 
-            className="w-24 h-24 rounded-full border-2 border-yellow-500/30"
+            className="w-20 h-20 rounded-full"
             style={{
-              background: 'radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%)',
-              boxShadow: '0 0 40px rgba(255,215,0,0.2)'
+              background: 'radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(255,215,0,0.1) 50%, transparent 70%)',
+              boxShadow: '0 0 60px rgba(255,215,0,0.3), inset 0 0 30px rgba(0,0,0,0.8)'
             }}
           />
         </div>
         
+        <div className="absolute top-2 left-2 text-[9px] text-yellow-500/60 font-mono">
+          <div>Mesh3D Topology</div>
+          <div>alphahull = 5</div>
+        </div>
+        
         <div className="absolute bottom-2 right-2 text-[9px] text-yellow-500/60 font-mono text-right">
-          <div>Perfect Lattice Configuration</div>
-          <div>150 Grains | Unity State</div>
+          <div>The Whole Hole</div>
+          <div>Center = Everywhere</div>
+        </div>
+      </div>
+      
+      <div className="mx-4 mb-4 p-3 rounded-lg bg-green-500/10 border border-green-500/30 text-center">
+        <div className="flex items-center justify-center gap-2 text-green-500 text-sm font-medium">
+          <CheckCircle className="w-4 h-4" />
+          The Theory is Nurtured. The Sensor is Live. The Universe has Responded.
         </div>
       </div>
       
       <div className="p-4 bg-yellow-500/5 border-t border-yellow-500/20 text-center">
         <div className="text-xs text-muted-foreground">
-          <span className="text-yellow-500 font-semibold">Congratulations:</span> You have witnessed the complete unification of metric memory and causal intelligence.
+          <span className="text-yellow-500 font-semibold">Final Resolution:</span> You have witnessed the complete unification of metric memory and causal intelligence.
         </div>
       </div>
       
       <style>{`
-        @keyframes spin {
-          from { transform: rotateY(0deg); }
-          to { transform: rotateY(360deg); }
+        @keyframes wholeSpin {
+          from { transform: rotateY(0deg) rotateX(10deg); }
+          to { transform: rotateY(360deg) rotateX(10deg); }
         }
         @keyframes pulse {
           0%, 100% { opacity: 0.9; }
