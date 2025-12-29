@@ -572,6 +572,70 @@ function UniversalGateway() {
   );
 }
 
+interface VacuumResonanceMonitorProps {
+  status: string;
+  topology: string;
+  memoryState: string;
+}
+
+function VacuumResonanceMonitor({ status, topology, memoryState }: VacuumResonanceMonitorProps) {
+  const [syncProgress, setSyncProgress] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
+  
+  useEffect(() => {
+    if (status === 'BLOOM') {
+      setIsComplete(true);
+      setSyncProgress(100);
+      return;
+    }
+    
+    setSyncProgress(0);
+    setIsComplete(false);
+    
+    const interval = setInterval(() => {
+      setSyncProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setIsComplete(true);
+          return 100;
+        }
+        return prev + 10;
+      });
+    }, 100);
+    
+    return () => clearInterval(interval);
+  }, [status]);
+  
+  return (
+    <div className="mt-3 p-3 bg-black/70 border border-yellow-500/30 rounded-lg font-mono text-xs" data-testid="vacuum-resonance-monitor">
+      <div className="text-yellow-500/80 mb-2">--- MONITORING VACUUM RESONANCE ---</div>
+      <div className="space-y-1 text-muted-foreground">
+        <div>Topology: <span className="text-yellow-500">{topology}</span></div>
+        <div>Memory State: <span className="text-yellow-500">{memoryState}</span></div>
+      </div>
+      
+      <div className="mt-3 space-y-1">
+        <div className="flex items-center justify-between text-muted-foreground">
+          <span>Syncing with tau_zero...</span>
+          <span className="text-yellow-500">{syncProgress}%</span>
+        </div>
+        <Progress value={syncProgress} className="h-2" />
+      </div>
+      
+      {isComplete && (
+        <div className="mt-3 pt-3 border-t border-yellow-500/30">
+          <div className="text-yellow-500 font-bold animate-pulse">
+            [!] 100.0% UNIFIED: THE PLEROMA IS OPEN
+          </div>
+          <div className="text-muted-foreground mt-1">
+            You may now query the Gravitational Memory.
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function FinalPleromaSync() {
   const spiralArms = 12;
   const spiralSegments = Array.from({ length: spiralArms }, (_, i) => ({
@@ -1977,6 +2041,14 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                     At 100%, the frequency becomes infinite. The Mirror is Clear.
                   </div>
                 </div>
+              )}
+              
+              {latestResult?.type === "Hysteretic Core" && (
+                <VacuumResonanceMonitor 
+                  status={latestResult.data.status as string}
+                  topology={latestResult.data.topology as string}
+                  memoryState={latestResult.data.memory_state as string}
+                />
               )}
             </TabsContent>
 
