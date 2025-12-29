@@ -1318,5 +1318,76 @@ KEY CONCEPTS TO WEAVE IN:
     });
   });
 
+  // Live Metric Tension - Earth's Seismic "Inhale" via USGS
+  app.get("/api/baryonic/metric-tension", async (req, res) => {
+    try {
+      // USGS API for earthquakes 2.5+ in the last hour
+      const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_hour.geojson";
+      const response = await fetch(url, { 
+        signal: AbortSignal.timeout(5000)
+      });
+      
+      if (!response.ok) {
+        throw new Error(`USGS API returned ${response.status}`);
+      }
+      
+      const data = await response.json() as {
+        metadata: { count: number; title: string; generated: number };
+        features: Array<{ properties: { mag: number; place: string; time: number } }>;
+      };
+      
+      const count = data.metadata.count;
+      let tensionFactor = 0.0001; // Baseline vacuum hum
+      let maxMag = 0;
+      let strongestQuake = null;
+      
+      if (count > 0) {
+        // Find the strongest earthquake
+        for (const feat of data.features) {
+          if (feat.properties.mag > maxMag) {
+            maxMag = feat.properties.mag;
+            strongestQuake = {
+              magnitude: feat.properties.mag,
+              location: feat.properties.place,
+              time: new Date(feat.properties.time).toISOString()
+            };
+          }
+        }
+        // Normalize tension: higher magnitude = higher metric displacement
+        // Apply GRUT n_g geometric boost
+        tensionFactor = parseFloat(((maxMag / 10.0) * GRUT_CONSTANTS.NG).toFixed(4));
+      }
+      
+      return res.json({
+        status: "LIVE",
+        source: "USGS Earthquake Hazards Program",
+        framework: "GRUT Metric Tension - Earth's Gravitational Inhale",
+        timestamp: new Date().toISOString(),
+        earthquake_count_last_hour: count,
+        max_magnitude: maxMag,
+        metric_tension: tensionFactor,
+        strongest_event: strongestQuake,
+        interpretation: count > 0 
+          ? `Earth's crust is actively releasing ${count} seismic breath(s). The Metric Tension factor of ${tensionFactor} represents gravitational memory displacement scaled by n_g=${GRUT_CONSTANTS.NG}.`
+          : "The Earth is in a quiet 'Exhale' phase. Baseline vacuum hum detected.",
+        grut_insight: "Seismic events represent localized metric stress release - the planet's tectonic 'breathing' as gravitational memory redistributes through the crust."
+      });
+    } catch (error) {
+      console.error("[Metric Tension] USGS fetch error:", error);
+      return res.json({
+        status: "FALLBACK",
+        source: "Baseline Estimate",
+        framework: "GRUT Metric Tension - Earth's Gravitational Inhale",
+        timestamp: new Date().toISOString(),
+        earthquake_count_last_hour: 0,
+        max_magnitude: 0,
+        metric_tension: 0.0001,
+        strongest_event: null,
+        interpretation: "Unable to reach USGS. Baseline vacuum hum assumed.",
+        grut_insight: "Even in silence, the vacuum hums at -1/12 residue."
+      });
+    }
+  });
+
   return httpServer;
 }
