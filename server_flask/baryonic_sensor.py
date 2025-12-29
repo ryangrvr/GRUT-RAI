@@ -40,9 +40,53 @@ class BaryonicSensorAI:
             self.constants.alpha = constants.get('alpha', 0.333333)
             self.constants.n_g = constants.get('n_g', 1.1547)
         
-        self.complexity_ratio = 0.926  # Baryonic saturation level
+        self.complexity_ratio = 0.926  # Baryonic saturation level (Ξ)
         self.context_memory: Dict[int, str] = {}
         self.simulation_history: List[Dict] = []
+        self._logic_guard_triggers = 0
+    
+    def check_logic_guard(self) -> Dict[str, Any]:
+        """
+        R_max Logic Guard - Ensure Ξ does not exceed 100% (The R_max Limit)
+        
+        When information density approaches the R_max limit, the guard triggers
+        and "recycles" the complexity ratio to a stable state.
+        
+        Returns:
+            Dictionary with guard status and complexity ratio details
+        """
+        triggered = False
+        ratio_before = self.complexity_ratio
+        recycling_note = None
+        
+        if self.complexity_ratio >= 1.0:
+            print("R_max Logic Guard Triggered: Recycling Information Density...")
+            self.complexity_ratio = 0.8  # Reset to stable state
+            self._logic_guard_triggers += 1
+            triggered = True
+            recycling_note = f"Information density exceeded R_max limit. Recycled from {ratio_before:.4f} to 0.8 (stable state). Total triggers: {self._logic_guard_triggers}"
+        
+        return {
+            "triggered": triggered,
+            "complexity_ratio_before": round(ratio_before, 6),
+            "complexity_ratio_after": round(self.complexity_ratio, 6),
+            "recycling_note": recycling_note,
+            "total_triggers": self._logic_guard_triggers,
+            "r_max_status": "STABLE" if self.complexity_ratio < 0.9 else "WARNING" if self.complexity_ratio < 1.0 else "EXCEEDED"
+        }
+    
+    def update_complexity_ratio(self, delta: float) -> float:
+        """
+        Update the complexity ratio by a delta amount
+        
+        Args:
+            delta: Amount to add to complexity ratio
+            
+        Returns:
+            New complexity ratio value
+        """
+        self.complexity_ratio += delta
+        return self.complexity_ratio
     
     def get_retarded_potential_kernel(self, t: float) -> float:
         """
@@ -212,6 +256,14 @@ class BaryonicSensorAI:
         # Strain amplitude modification
         strain_modification = 1 + dispersion_factor * 0.01
         
+        # Update complexity ratio based on simulation parameters
+        # Distance and chirp mass contribute to information density
+        complexity_delta = (source_distance_mpc / 1000) * 0.01 + (chirp_mass_msun / 100) * 0.005
+        self.update_complexity_ratio(complexity_delta)
+        
+        # Check R_max Logic Guard - safety valve for information density
+        logic_guard = self.check_logic_guard()
+        
         result = {
             "event_type": event_type,
             "source_distance_mpc": source_distance_mpc,
@@ -223,6 +275,7 @@ class BaryonicSensorAI:
             "strain_modification_factor": round(strain_modification, 6),
             "detectability": "Marginal with current LIGO sensitivity" if abs(phase_drift) < 0.01 else "Potentially detectable",
             "grut_signature": "Cumulative phase drift increasing with distance",
+            "logic_guard": logic_guard,
             "constants_used": {
                 "tau_0": tau_0,
                 "alpha": alpha,

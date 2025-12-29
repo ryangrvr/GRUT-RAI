@@ -271,3 +271,92 @@ export function applyGrutGain(attentionScore: number, threshold: number = 0.5): 
 export function applyGrutGainBatch(scores: number[], threshold: number = 0.5): number[] {
   return scores.map(score => applyGrutGain(score, threshold));
 }
+
+/**
+ * R_max Logic Guard State
+ * Tracks the simulation complexity ratio (Ξ) across baryonic sensor simulations.
+ * Persisted as module-level singleton to accumulate across requests.
+ */
+interface BaryonicSimulationState {
+  complexityRatio: number;
+  logicGuardTriggers: number;
+  lastSimulationTime: number;
+}
+
+const baryonicState: BaryonicSimulationState = {
+  complexityRatio: 0.926,  // Initial baryonic saturation level
+  logicGuardTriggers: 0,
+  lastSimulationTime: Date.now()
+};
+
+export interface RmaxLogicGuardResult {
+  triggered: boolean;
+  complexityRatioBefore: number;
+  complexityRatioAfter: number;
+  recyclingNote: string | null;
+  totalTriggers: number;
+  rMaxStatus: "STABLE" | "WARNING" | "EXCEEDED";
+}
+
+/**
+ * R_max Logic Guard for BaryonicSensorAI simulations
+ * 
+ * Ensures Ξ (information density) does not exceed 100% (the R_max Limit).
+ * When the limit is exceeded, the guard "recycles" by resetting to a stable state.
+ * 
+ * @returns Guard status and recycling information
+ */
+export function checkBaryonicLogicGuard(): RmaxLogicGuardResult {
+  const ratioBefore = baryonicState.complexityRatio;
+  let triggered = false;
+  let recyclingNote: string | null = null;
+
+  if (baryonicState.complexityRatio >= 1.0) {
+    console.log("R_max Logic Guard Triggered: Recycling Information Density...");
+    baryonicState.complexityRatio = 0.8;  // Reset to stable state
+    baryonicState.logicGuardTriggers += 1;
+    triggered = true;
+    recyclingNote = `Information density exceeded R_max limit. Recycled from ${ratioBefore.toFixed(4)} to 0.8 (stable state). Total triggers: ${baryonicState.logicGuardTriggers}`;
+  }
+
+  const status: "STABLE" | "WARNING" | "EXCEEDED" = 
+    baryonicState.complexityRatio < 0.9 ? "STABLE" :
+    baryonicState.complexityRatio < 1.0 ? "WARNING" : "EXCEEDED";
+
+  return {
+    triggered,
+    complexityRatioBefore: Math.round(ratioBefore * 1e6) / 1e6,
+    complexityRatioAfter: Math.round(baryonicState.complexityRatio * 1e6) / 1e6,
+    recyclingNote,
+    totalTriggers: baryonicState.logicGuardTriggers,
+    rMaxStatus: status
+  };
+}
+
+/**
+ * Update the baryonic simulation complexity ratio
+ * 
+ * @param delta - Amount to add to the complexity ratio
+ * @returns Updated complexity ratio
+ */
+export function updateBaryonicComplexity(delta: number): number {
+  baryonicState.complexityRatio += delta;
+  baryonicState.lastSimulationTime = Date.now();
+  return baryonicState.complexityRatio;
+}
+
+/**
+ * Get current baryonic simulation state
+ */
+export function getBaryonicSimulationState(): BaryonicSimulationState {
+  return { ...baryonicState };
+}
+
+/**
+ * Reset baryonic simulation state (for testing or session reset)
+ */
+export function resetBaryonicSimulationState(): void {
+  baryonicState.complexityRatio = 0.926;
+  baryonicState.logicGuardTriggers = 0;
+  baryonicState.lastSimulationTime = Date.now();
+}

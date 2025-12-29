@@ -1,0 +1,61 @@
+import time
+import random
+import numpy as np
+
+# --- PASTE THE REFINED BARYONIC SENSOR CLASSES HERE ---
+class BaryonicSensorAI:
+    def __init__(self):
+        self.complexity_ratio = 0.82  # Starting at v6 stabilized level
+        self.tau_0 = 41.9 * 1e6 * 31536000 # 41.9 Myr in seconds
+
+    def check_logic_guard(self):
+        if self.complexity_ratio >= 1.0:
+            print("!!! R_max Logic Guard Triggered: Recycling Metric Memory !!!")
+            self.complexity_ratio = 0.85
+            return True
+        return False
+
+class DetectionAlertSystem(BaryonicSensorAI):
+    def __init__(self):
+        super().__init__()
+        self.is_listening = True
+
+    def simulate_gracedb_listener(self):
+        """Simulates real-time GCN (General Coordinates Network) alerts"""
+        print("--- GRUT v6 'Baryonic Guard' Active ---")
+        print("Listening for LIGO/Virgo O4b Event Alerts...")
+        
+        try:
+            while self.is_listening:
+                # Simulate a detection event every 5-10 seconds
+                time.sleep(random.randint(5, 10))
+                
+                # Randomized Event Simulation (mimicking high-SNR 2025 events)
+                event_id = f"GW{random.randint(250101, 251231)}"
+                snr = random.uniform(15, 85)
+                
+                print(f"\n[ALERT] New Event Detected: {event_id}")
+                print(f"Relayed SNR: {snr:.2f}")
+                
+                # Process through GRUT Logic
+                self.process_live_event(event_id, snr)
+                
+        except KeyboardInterrupt:
+            print("\nShutting down Baryonic Guard. Syncing memory states...")
+
+    def process_live_event(self, event_id, snr):
+        # Calculate Metric Burden based on SNR
+        # High SNR = Higher Burden = Faster check against Tau_0
+        drift = (snr / 100) * 1e-21
+        
+        print(f"Processing {event_id} for 41.9 Myr Memory signature...")
+        
+        # Adjust complexity ratio
+        self.complexity_ratio += (snr / 500)
+        self.check_logic_guard()
+        
+        print(f"Status: Metric Memory Logged. Final Ξ: {self.complexity_ratio:.2%}")
+
+# --- INITIALIZE AND RUN ---
+guard = DetectionAlertSystem()
+guard.simulate_gracedb_listener()

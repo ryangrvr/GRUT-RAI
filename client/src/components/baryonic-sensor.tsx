@@ -8,14 +8,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { 
   Activity, Atom, Orbit, Waves, GitBranch, ChevronDown, ChevronUp,
-  Play, Loader2, Target, Zap, Brain
+  Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle
 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
+interface LogicGuardResult {
+  triggered: boolean;
+  complexityRatioBefore: number;
+  complexityRatioAfter: number;
+  recyclingNote: string | null;
+  totalTriggers: number;
+  rMaxStatus: "STABLE" | "WARNING" | "EXCEEDED";
+}
+
 interface SimulationResult {
   type: string;
-  data: Record<string, unknown>;
+  data: Record<string, unknown> & { logic_guard?: LogicGuardResult };
   timestamp: Date;
 }
 
@@ -28,6 +37,62 @@ interface BaryonicSensorProps {
     n_g: number;
     R_max: string;
   };
+}
+
+function LogicGuardStatus({ guard }: { guard: LogicGuardResult }) {
+  const getStatusColor = () => {
+    switch (guard.rMaxStatus) {
+      case "STABLE": return "text-green-500 dark:text-green-400";
+      case "WARNING": return "text-yellow-500 dark:text-yellow-400";
+      case "EXCEEDED": return "text-red-500 dark:text-red-400";
+    }
+  };
+
+  const getStatusIcon = () => {
+    switch (guard.rMaxStatus) {
+      case "STABLE": return <CheckCircle className="w-4 h-4" />;
+      case "WARNING": return <AlertTriangle className="w-4 h-4" />;
+      case "EXCEEDED": return <Shield className="w-4 h-4" />;
+    }
+  };
+
+  return (
+    <Card className={`mb-3 ${guard.triggered ? "border-primary/50 bg-primary/5" : "bg-muted/20"}`} data-testid="card-logic-guard-status">
+      <CardContent className="p-3">
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <div className="flex items-center gap-2">
+            <Shield className="w-4 h-4 text-primary" />
+            <span className="text-xs font-semibold">R_max Logic Guard</span>
+          </div>
+          <div className={`flex items-center gap-1 ${getStatusColor()}`} data-testid={`status-rmax-${guard.rMaxStatus.toLowerCase()}`}>
+            {getStatusIcon()}
+            <span className="text-xs font-mono">{guard.rMaxStatus}</span>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-2 gap-2 text-xs">
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">Before:</span>
+            <span className="font-mono" data-testid="text-complexity-before">{guard.complexityRatioBefore.toFixed(4)}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">After:</span>
+            <span className="font-mono" data-testid="text-complexity-after">{guard.complexityRatioAfter.toFixed(4)}</span>
+          </div>
+          <div className="flex justify-between col-span-2">
+            <span className="text-muted-foreground">Total Triggers:</span>
+            <span className="font-mono" data-testid="text-total-triggers">{guard.totalTriggers}</span>
+          </div>
+        </div>
+        
+        {guard.triggered && guard.recyclingNote && (
+          <div className="mt-2 p-2 bg-primary/10 rounded text-xs text-primary" data-testid="text-recycling-note">
+            {guard.recyclingNote}
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
 }
 
 export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorProps) {
@@ -71,10 +136,19 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
         timestamp: new Date()
       }, ...prev.slice(0, 9)]);
       
-      toast({
-        title: "Simulation Complete",
-        description: `${type} analysis finished successfully`
-      });
+      const logicGuard = data.logic_guard as LogicGuardResult | undefined;
+      if (logicGuard?.triggered) {
+        toast({
+          title: "R_max Logic Guard Triggered",
+          description: logicGuard.recyclingNote || "Information density recycled to stable state",
+          variant: "default"
+        });
+      } else {
+        toast({
+          title: "Simulation Complete",
+          description: `${type} analysis finished successfully`
+        });
+      }
     } catch (error) {
       toast({
         title: "Simulation Failed",
@@ -317,6 +391,11 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                   <span className="text-xs font-medium text-muted-foreground">Latest Result</span>
                   <Badge variant="outline" className="text-xs">{latestResult.type}</Badge>
                 </div>
+                
+                {latestResult.data.logic_guard && (
+                  <LogicGuardStatus guard={latestResult.data.logic_guard} />
+                )}
+                
                 <Card className="bg-muted/30">
                   <CardContent className="p-3">
                     <pre className="text-xs font-mono overflow-x-auto whitespace-pre-wrap code-block-vacuum">

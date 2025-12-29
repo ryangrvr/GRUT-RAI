@@ -53,6 +53,8 @@ import {
   applyLogicGuardToResponse,
   calculateMemoryResonanceFromISO,
   isMemoryActive,
+  checkBaryonicLogicGuard,
+  updateBaryonicComplexity,
   GRUT_CONSTANTS 
 } from "./grut-logic";
 import {
@@ -894,6 +896,14 @@ export async function registerRoutes(
       const timing_residual_ms = phase_drift * tau_0 * 1e-3;
       const strain_modification = 1 + dispersion_factor * 0.01;
       
+      // Update complexity ratio based on simulation parameters
+      // Distance and chirp mass contribute to information density
+      const complexity_delta = (sourceDistance / 1000) * 0.01 + (chirpMass / 100) * 0.005;
+      updateBaryonicComplexity(complexity_delta);
+      
+      // Check R_max Logic Guard - safety valve for information density
+      const logic_guard = checkBaryonicLogicGuard();
+      
       return res.json({
         event_type: eventType,
         source_distance_mpc: sourceDistance,
@@ -905,6 +915,7 @@ export async function registerRoutes(
         strain_modification_factor: Math.round(strain_modification * 1e6) / 1e6,
         detectability: Math.abs(phase_drift) < 0.01 ? "Marginal with current LIGO sensitivity" : "Potentially detectable",
         grut_signature: "Cumulative phase drift increasing with distance",
+        logic_guard,
         constants_used: { tau_0, alpha, n_g }
       });
     } catch (error) {
