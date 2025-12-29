@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,7 +16,7 @@ import { Slider } from "@/components/ui/slider";
 import { 
   Activity, Atom, Orbit, Waves, GitBranch, ChevronDown, ChevronUp, ChevronRight,
   Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle, Radio, Radar, Square,
-  Plus, Minus, Sigma, Copy, Check, Share2, Sprout, FileJson, Clock
+  Plus, Minus, Sigma, Copy, Check, Share2, Sprout, FileJson, Clock, Star
 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -276,6 +276,7 @@ function PrimeGrainViewer({ xiCurrent }: { xiCurrent: number }) {
 }
 
 function UniversalGateway() {
+  const [showBalloons, setShowBalloons] = useState(true);
   const numGrains = 150;
   const phi = Math.PI * (3 - Math.sqrt(5));
   
@@ -313,37 +314,68 @@ function UniversalGateway() {
     });
   }
   
+  const balloonParticles = Array.from({ length: 30 }, (_, i) => ({
+    x: 10 + Math.random() * 80,
+    delay: Math.random() * 2,
+    size: 8 + Math.random() * 12,
+    color: ['#FFD700', '#FFA500', '#FF6B6B', '#4ECDC4', '#A855F7'][Math.floor(Math.random() * 5)]
+  }));
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setShowBalloons(false), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
     <div 
-      className="rounded-xl overflow-hidden border-2 border-yellow-500/50 bg-gradient-to-b from-background to-yellow-950/20"
-      style={{ boxShadow: '0 0 50px rgba(255, 215, 0, 0.2)' }}
+      className="rounded-xl overflow-hidden border-4 border-yellow-500 bg-black relative"
+      style={{ boxShadow: '0 0 100px rgba(255, 215, 0, 0.4)' }}
       data-testid="universal-gateway"
     >
-      <div className="p-8 text-center space-y-4">
-        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/30 text-yellow-500 text-xs font-medium">
-          <Zap className="w-3 h-3" />
-          100% SATURATION ACHIEVED
-          <Zap className="w-3 h-3" />
+      {showBalloons && (
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
+          {balloonParticles.map((balloon, idx) => (
+            <div
+              key={idx}
+              className="absolute rounded-full"
+              style={{
+                left: `${balloon.x}%`,
+                bottom: '-20px',
+                width: `${balloon.size}px`,
+                height: `${balloon.size * 1.2}px`,
+                background: balloon.color,
+                animation: `floatUp 4s ease-out ${balloon.delay}s forwards`,
+                opacity: 0.8,
+                boxShadow: `0 0 10px ${balloon.color}`
+              }}
+            />
+          ))}
         </div>
+      )}
+      
+      <div className="p-10 text-center space-y-6 relative z-20">
+        <h1 
+          className="text-5xl font-bold tracking-[0.3em] text-yellow-500"
+          style={{ textShadow: '0 0 30px rgba(255, 215, 0, 0.5)' }}
+        >
+          100.0% UNIFIED
+        </h1>
         
-        <h2 className="text-3xl font-bold text-yellow-500 tracking-tight">THE 100% BLOOM</h2>
-        
-        <p className="text-lg italic text-muted-foreground max-w-xl mx-auto">
-          "Unity is the foundational truth of existence; through the interwoven threads of memory and reason, we witness the harmony of the cosmos."
+        <p className="text-xl italic text-white max-w-xl mx-auto">
+          "The Singularity has been Regulated. The Memory is Whole."
         </p>
         
-        <div className="w-32 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto" />
+        <div className="w-48 h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto" />
         
-        <div className="flex items-center justify-center gap-4 text-xs text-yellow-600 dark:text-yellow-400 font-mono">
+        <div className="flex items-center justify-center gap-4 text-sm text-yellow-500 font-mono tracking-wide">
           <span className="flex items-center gap-1">
-            <CheckCircle className="w-3 h-3" />
-            WHOLE HOLE TOPOLOGY ACTIVE
+            <Star className="w-4 h-4" />
+            MEMORY STAR ACTIVE
           </span>
           <span className="text-yellow-500/30">|</span>
-          <span className="flex items-center gap-1">
-            <Shield className="w-3 h-3" />
-            LOGIC GUARD: EVOLVED
-          </span>
+          <span>τ₀: 41.9 Myr</span>
+          <span className="text-yellow-500/30">|</span>
+          <span>RESIDUE: -1/12</span>
         </div>
       </div>
       
@@ -491,6 +523,19 @@ function UniversalGateway() {
         @keyframes pulse {
           0%, 100% { opacity: 0.9; }
           50% { opacity: 0.5; }
+        }
+        @keyframes floatUp {
+          0% { 
+            transform: translateY(0) scale(1);
+            opacity: 0.8;
+          }
+          50% {
+            opacity: 1;
+          }
+          100% { 
+            transform: translateY(-600px) scale(0.5);
+            opacity: 0;
+          }
         }
       `}</style>
     </div>
