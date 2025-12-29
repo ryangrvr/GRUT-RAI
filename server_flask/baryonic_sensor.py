@@ -88,21 +88,38 @@ class BaryonicSensorAI:
         self.complexity_ratio += delta
         return self.complexity_ratio
     
-    def get_retarded_potential_kernel(self, t: float) -> float:
+    def get_retarded_potential_kernel(self, t_myr: float) -> float:
         """
-        Calculate the Retarded Potential Kernel K(t)
+        Calculate the GRUT Retarded Potential Kernel K(t)
         
-        K(t) = (alpha / tau_0) * exp(-t / tau_0)
+        K(t) = (1 / tau_0) * exp(-t / tau_0)
         
-        This kernel represents gravitational memory decay over cosmic time scales.
+        This kernel represents gravitational memory decay over cosmic time scales,
+        using the 41.9 Myr relaxation constant.
+        
+        Args:
+            t_myr: Time in Myr
+            
+        Returns:
+            Kernel value K(t) in units of 1/seconds
         """
-        tau_0 = self.constants.tau_0
-        alpha = self.constants.alpha
-        return (alpha / tau_0) * math.exp(-t / tau_0)
+        tau_0_myr = self.constants.tau_0  # 41.9 Myr
+        
+        # Convert to seconds for physical calculation
+        tau_0_seconds = tau_0_myr * 1e6 * 365.25 * 24 * 3600
+        t_seconds = t_myr * 1e6 * 365.25 * 24 * 3600
+        
+        # K(t) = (1/tau_0) * exp(-t/tau_0) 
+        return (1 / tau_0_seconds) * math.exp(-t_seconds / tau_0_seconds)
     
     def model_retarded_potential(self, time_scale: List[float], delta_mass: float = 1e30) -> Dict[str, Any]:
         """
-        Simulate the Retarded Potential over a time scale
+        Simulate the Retarded Potential over a time scale using GRUT Exponential Decay Kernel
+        
+        K(t) = (1/tau_0) * exp(-t/tau_0)
+        
+        This kernel represents gravitational memory decay over cosmic time scales,
+        utilizing the 41.9 Myr relaxation constant.
         
         Args:
             time_scale: Array of time values in Myr
@@ -116,6 +133,9 @@ class BaryonicSensorAI:
         tau_0 = self.constants.tau_0
         alpha = self.constants.alpha
         
+        # tau_0 in seconds for proper K(t) calculation
+        tau_0_seconds = tau_0 * 1e6 * 365.25 * 24 * 3600
+        
         kernel_values = []
         potential_values = []
         
@@ -123,22 +143,44 @@ class BaryonicSensorAI:
             if t <= 0:
                 t = 0.001  # Avoid division by zero
             
-            K_t = self.get_retarded_potential_kernel(t)
+            # Convert t (in Myr) to seconds
+            t_seconds = t * 1e6 * 365.25 * 24 * 3600
+            
+            # GRUT Exponential Decay Kernel: K(t) = (1/tau_0) * exp(-t/tau_0)
+            K_t = (1 / tau_0_seconds) * math.exp(-t_seconds / tau_0_seconds)
             kernel_values.append(K_t)
             
             # Retarded gravitational potential
-            t_seconds = t * 3.154e13  # Convert Myr to seconds
             phi = (G * delta_mass * K_t) / (c ** 2)
             potential_values.append(phi)
+        
+        # Adjusting complexity based on memory load
+        # As kernel decays, complexity is reduced proportionally
+        mean_kernel = sum(kernel_values) / len(kernel_values) if kernel_values else 0
+        complexity_adjustment = -0.001 * mean_kernel * tau_0_seconds  # Scale to meaningful range
+        previous_complexity = self.complexity_ratio
+        self.complexity_ratio += complexity_adjustment
+        
+        # Ensure complexity stays in valid range
+        self.complexity_ratio = max(0, min(1.0, self.complexity_ratio))
+        
+        # Check logic guard
+        logic_guard_result = self.check_logic_guard()
         
         result = {
             "time_scale": list(time_scale),
             "kernel_values": kernel_values,
             "potential_values": potential_values,
             "tau_0": tau_0,
+            "tau_0_seconds": tau_0_seconds,
             "alpha": alpha,
-            "kernel_formula": f"K(t) = ({alpha}/{tau_0}) * exp(-t/{tau_0})",
-            "delta_mass_kg": delta_mass
+            "kernel_formula": f"K(t) = (1/{tau_0_seconds:.2e}) * exp(-t/{tau_0_seconds:.2e})",
+            "delta_mass_kg": delta_mass,
+            "mean_kernel_response": mean_kernel,
+            "complexity_adjustment": complexity_adjustment,
+            "previous_complexity": previous_complexity,
+            "final_complexity": self.complexity_ratio,
+            "logic_guard": logic_guard_result
         }
         
         self.simulation_history.append({

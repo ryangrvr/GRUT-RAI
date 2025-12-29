@@ -283,7 +283,7 @@ interface BaryonicSimulationState {
   lastSimulationTime: number;
 }
 
-const baryonicState: BaryonicSimulationState = {
+export const baryonicState: BaryonicSimulationState = {
   complexityRatio: 0.926,  // Initial baryonic saturation level
   logicGuardTriggers: 0,
   lastSimulationTime: Date.now()

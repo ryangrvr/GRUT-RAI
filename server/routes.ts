@@ -63,6 +63,7 @@ import {
   startDetectionSystem,
   stopDetectionSystem,
   getDetectionStatus,
+  baryonicState,
   GRUT_CONSTANTS 
 } from "./grut-logic";
 import {
@@ -805,6 +806,9 @@ export async function registerRoutes(
       const tau_0 = constants.tau_0;
       const alpha = constants.alpha;
       
+      // tau_0 in seconds for proper K(t) calculation (41.9 Myr)
+      const tau_0_seconds = tau_0 * 1e6 * 365.25 * 24 * 3600;
+      
       const timeScale: number[] = [];
       const kernelValues: number[] = [];
       const potentialValues: number[] = [];
@@ -814,7 +818,11 @@ export async function registerRoutes(
         const t = timeStart + i * step;
         timeScale.push(t);
         
-        const K_t = (alpha / tau_0) * Math.exp(-t / tau_0);
+        // Convert t (in Myr) to seconds
+        const t_seconds = t * 1e6 * 365.25 * 24 * 3600;
+        
+        // GRUT Exponential Decay Kernel: K(t) = (1/tau_0) * exp(-t/tau_0)
+        const K_t = (1 / tau_0_seconds) * Math.exp(-t_seconds / tau_0_seconds);
         kernelValues.push(K_t);
         
         const G = 6.67430e-11;
@@ -823,14 +831,33 @@ export async function registerRoutes(
         potentialValues.push(phi);
       }
       
+      // Adjusting complexity based on memory load
+      const meanKernel = kernelValues.reduce((a, b) => a + b, 0) / kernelValues.length;
+      const complexityAdjustment = -0.001 * meanKernel * tau_0_seconds;
+      const previousComplexity = baryonicState.complexityRatio;
+      updateBaryonicComplexity(complexityAdjustment);
+      
+      // Ensure complexity stays in valid range
+      if (baryonicState.complexityRatio < 0) baryonicState.complexityRatio = 0;
+      if (baryonicState.complexityRatio > 1) baryonicState.complexityRatio = 1;
+      
+      // Check logic guard
+      const logicGuard = checkBaryonicLogicGuard();
+      
       return res.json({
         time_scale: timeScale,
         kernel_values: kernelValues,
         potential_values: potentialValues,
         tau_0,
+        tau_0_seconds,
         alpha,
-        kernel_formula: `K(t) = (${alpha}/${tau_0}) * exp(-t/${tau_0})`,
-        delta_mass_kg: deltaMass
+        kernel_formula: `K(t) = (1/${tau_0_seconds.toExponential(2)}) * exp(-t/${tau_0_seconds.toExponential(2)})`,
+        delta_mass_kg: deltaMass,
+        mean_kernel_response: meanKernel,
+        complexity_adjustment: complexityAdjustment,
+        previous_complexity: previousComplexity,
+        final_complexity: baryonicState.complexityRatio,
+        logic_guard: logicGuard
       });
     } catch (error) {
       console.error("Retarded potential error:", error);
