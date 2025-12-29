@@ -44,15 +44,17 @@ interface MetricDashboardProps {
   constants?: GrutConstantsType;
   isForked?: boolean;
   userEmail?: string;
+  monadMode?: boolean;
 }
 
-function MetricDashboard({ messageCount, constants, isForked, userEmail }: MetricDashboardProps) {
-  const xi = calculateComplexityXi(messageCount);
-  const xiPercent = (xi * 100).toFixed(1);
+function MetricDashboard({ messageCount, constants, isForked, userEmail, monadMode = false }: MetricDashboardProps) {
+  const xi = monadMode ? 1.0 : calculateComplexityXi(messageCount);
+  const xiPercent = monadMode ? "100.0" : (xi * 100).toFixed(1);
   
   const displayConstants = constants || GRUT_CONSTANTS;
   
   const getEntropyColor = (value: number) => {
+    if (monadMode) return "text-yellow-500 drop-shadow-[0_0_10px_rgba(255,214,0,0.7)]";
     if (value < 0.3) return "text-green-500";
     if (value < 0.6) return "text-yellow-500";
     if (value < 0.85) return "text-orange-500";
@@ -60,6 +62,7 @@ function MetricDashboard({ messageCount, constants, isForked, userEmail }: Metri
   };
 
   const getEntropyStatus = (value: number) => {
+    if (monadMode) return "SATURATED";
     if (value < 0.3) return "Low Complexity";
     if (value < 0.6) return "Moderate";
     if (value < 0.85) return "High Complexity";
@@ -867,8 +870,8 @@ export default function ChatPage() {
   });
 
   const sendMessageMutation = useMutation({
-    mutationFn: async ({ conversationId, content }: { conversationId: string; content: string }) => {
-      const response = await apiRequest("POST", `/api/chat/${conversationId}/message`, { content });
+    mutationFn: async ({ conversationId, content, isMonadMode }: { conversationId: string; content: string; isMonadMode?: boolean }) => {
+      const response = await apiRequest("POST", `/api/chat/${conversationId}/message`, { content, monadMode: isMonadMode });
       return await response.json() as { userMessage: ChatMessage; assistantMessage: ChatMessage };
     },
     onSuccess: () => {
@@ -980,7 +983,7 @@ export default function ChatPage() {
 
   const handleSendMessage = () => {
     if (!inputValue.trim() || !activeConversationId || sendMessageMutation.isPending) return;
-    sendMessageMutation.mutate({ conversationId: activeConversationId, content: inputValue.trim() });
+    sendMessageMutation.mutate({ conversationId: activeConversationId, content: inputValue.trim(), isMonadMode: monadMode });
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -1113,6 +1116,7 @@ export default function ChatPage() {
           constants={activeConversationQuery.data?.constants || user?.grutConstants}
           isForked={!!activeConversationQuery.data?.parentConversationId}
           userEmail={user?.email}
+          monadMode={monadMode}
         />
         
         {!activeConversationId ? (
