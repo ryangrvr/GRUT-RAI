@@ -2072,18 +2072,32 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                   </div>
                 </div>
                 
-                <Button 
-                  className="w-full mt-3" 
-                  variant="outline"
-                  onClick={() => runSimulation("gravitational-memory", { targetYear: memoryTargetYear }, "Gravitational Memory")}
-                  disabled={isSimulating}
-                  data-testid="button-query-memory"
-                >
-                  {isSimulating ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Clock className="w-4 h-4 mr-2" />}
-                  Query Temporal Coordinate: {memoryTargetYear}
-                </Button>
+                <div className="flex gap-2 mt-3">
+                  <Button 
+                    className="flex-1" 
+                    variant="outline"
+                    onClick={() => runSimulation("gravitational-memory", { targetYear: memoryTargetYear }, "Gravitational Memory")}
+                    disabled={isSimulating}
+                    data-testid="button-query-memory"
+                  >
+                    {isSimulating ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Clock className="w-4 h-4 mr-2" />}
+                    Query: {memoryTargetYear}
+                  </Button>
+                  <Button 
+                    className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-500 hover:to-indigo-500" 
+                    onClick={() => {
+                      setMemoryTargetYear(-13800000000);
+                      runSimulation("gravitational-memory", { targetYear: -13800000000 }, "Deep Pleroma Scan");
+                    }}
+                    disabled={isSimulating}
+                    data-testid="button-deep-pleroma"
+                  >
+                    <Orbit className="w-4 h-4 mr-1" />
+                    Deep Scan
+                  </Button>
+                </div>
                 
-                {latestResult?.type === "Gravitational Memory" && (
+                {(latestResult?.type === "Gravitational Memory" || latestResult?.type === "Deep Pleroma Scan") && (
                   <div className="mt-3 p-3 bg-black/70 border border-yellow-500/30 rounded-lg font-mono text-xs">
                     <div className="text-yellow-500/80 mb-2">
                       --- QUERYING TEMPORAL COORDINATE: {latestResult.data.target_year} ---
@@ -2102,7 +2116,7 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                       </div>
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Years Back:</span>
-                        <span className="text-foreground">{latestResult.data.years_back as number}</span>
+                        <span className="text-foreground">{((latestResult.data.years_back as number) / 1e9).toFixed(2)}B years</span>
                       </div>
                     </div>
                     <div className="mt-2 pt-2 border-t border-yellow-500/20 text-muted-foreground">
@@ -2111,6 +2125,36 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                     <div className="mt-2 text-yellow-500 italic">
                       {latestResult.data.insight as string}
                     </div>
+                    
+                    {latestResult.type === "Deep Pleroma Scan" && latestResult.data.status === 'RECOMPILED' && (
+                      <div className="mt-3 pt-3 border-t border-purple-500/30 space-y-2">
+                        <div className="text-purple-400 font-bold flex items-center gap-2">
+                          <Zap className="w-3 h-3" />
+                          ARCHON BYPASS COMPLETE
+                        </div>
+                        <div className="text-muted-foreground">
+                          Memory retrieved from the Pre-Light Era.
+                        </div>
+                        
+                        <div className="mt-3 p-2 bg-purple-500/10 border border-purple-500/30 rounded space-y-2 text-xs">
+                          <div className="font-bold text-purple-300">The GRUT Revelation:</div>
+                          <div className="space-y-1">
+                            <div className="flex items-start gap-2">
+                              <span className="text-purple-400">Grit detected:</span>
+                              <span className="text-muted-foreground">The "Singularity" was actually a <span className="text-yellow-500">Memory Star</span> of infinite potential but finite density.</span>
+                            </div>
+                            <div className="flex items-start gap-2">
+                              <span className="text-purple-400">The -1/12 Effect:</span>
+                              <span className="text-muted-foreground">The vacuum "pushed back" against the collapse, triggering the expansion.</span>
+                            </div>
+                            <div className="flex items-start gap-2">
+                              <span className="text-purple-400">The 41.9 Myr Lag:</span>
+                              <span className="text-muted-foreground">The universe spent its first 41.9 million years "Inhaling" the laws of physics before it was ready to "Exhale" the first stars.</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
