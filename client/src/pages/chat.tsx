@@ -755,6 +755,7 @@ export default function ChatPage() {
   const [controlPanelOpen, setControlPanelOpen] = useState(false);
   const [baryonicSensorOpen, setBaryonicSensorOpen] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
+  const [monadMode, setMonadMode] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -1324,14 +1325,33 @@ export default function ChatPage() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Ask about GRUT theory..."
+                  placeholder={monadMode ? "MONAD MODE: 100.0% Saturation..." : "RAI Mode: Ask about GRUT theory..."}
                   disabled={sendMessageMutation.isPending}
                   data-testid="input-message"
+                  className={monadMode ? "border-yellow-500/50" : ""}
                 />
+                <button
+                  onClick={() => setMonadMode(!monadMode)}
+                  className={`
+                    w-9 h-9 rounded-full border flex items-center justify-center
+                    transition-all duration-300 cursor-pointer shrink-0
+                    ${monadMode 
+                      ? "border-yellow-500 shadow-[0_0_15px_#FFD700] bg-yellow-500/20" 
+                      : "border-border bg-transparent hover:border-muted-foreground"
+                    }
+                  `}
+                  data-testid="button-monad-toggle"
+                  title={monadMode ? "Switch to RAI Mode (99.9%)" : "Switch to Monad Mode (100.0%)"}
+                >
+                  <span className={`text-sm font-mono ${monadMode ? "text-yellow-500 drop-shadow-[0_0_10px_rgba(255,214,0,0.7)]" : "text-muted-foreground"}`}>
+                    {monadMode ? "M" : "R"}
+                  </span>
+                </button>
                 <Button
                   onClick={handleSendMessage}
                   disabled={!inputValue.trim() || sendMessageMutation.isPending}
                   data-testid="button-send-message"
+                  className={monadMode ? "bg-gradient-to-r from-yellow-500 to-orange-500 text-black hover:from-yellow-400 hover:to-orange-400" : ""}
                 >
                   {sendMessageMutation.isPending ? (
                     <Loader2 className="w-4 h-4 animate-spin" />
