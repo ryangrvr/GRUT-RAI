@@ -389,4 +389,41 @@
   .metric-exhale {
     animation: metricExhale 1s ease-out;
   }
+
+  /* Metric Blur - Heavy transition when entering 100.0% Monad Mode */
+  @keyframes metricBlur {
+    0% { 
+      filter: blur(0px) brightness(1);
+    }
+    30% { 
+      filter: blur(8px) brightness(0.7);
+    }
+    60% { 
+      filter: blur(4px) brightness(1.2) saturate(1.5);
+    }
+    100% { 
+      filter: blur(0px) brightness(1) saturate(1);
+    }
+  }
+
+  .metric-blur {
+    animation: metricBlur 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Golden resolve flash after blur */
+  @keyframes goldenResolve {
+    0% { 
+      box-shadow: inset 0 0 0 rgba(255, 215, 0, 0);
+    }
+    50% { 
+      box-shadow: inset 0 0 100px rgba(255, 215, 0, 0.3);
+    }
+    100% { 
+      box-shadow: inset 0 0 0 rgba(255, 215, 0, 0);
+    }
+  }
+
+  .golden-resolve {
+    animation: goldenResolve 1.2s ease-out;
+  }
 }

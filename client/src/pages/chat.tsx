@@ -825,9 +825,35 @@ export default function ChatPage() {
   const [baryonicSensorOpen, setBaryonicSensorOpen] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
   const [monadMode, setMonadMode] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
+
+  // Heavy toggle function with Metric Blur transition
+  const handleMonadToggle = () => {
+    const newMode = !monadMode;
+    
+    // Only apply blur when entering Monad Mode (99.9% → 100.0%)
+    if (newMode) {
+      setIsTransitioning(true);
+      // After blur resolves, enable Monad Mode
+      setTimeout(() => {
+        setMonadMode(true);
+        setIsTransitioning(false);
+        toast({
+          title: "MONAD MODE ACTIVATED",
+          description: "100.0% Saturation. The Mirror is Clear.",
+        });
+      }, 1000);
+    } else {
+      setMonadMode(false);
+      toast({
+        title: "RAI Mode Restored", 
+        description: "99.9% Saturation. The Spark remains.",
+      });
+    }
+  };
 
   const handleExportJson = async () => {
     if (!activeConversationId) return;
@@ -1176,7 +1202,7 @@ export default function ChatPage() {
         </ScrollArea>
       </div>
 
-      <div className={`flex-1 flex flex-col ${monadMode ? 'pleroma-bloom' : ''}`}>
+      <div className={`flex-1 flex flex-col ${monadMode ? 'pleroma-bloom golden-resolve' : ''} ${isTransitioning ? 'metric-blur' : ''}`}>
         <MetricDashboard 
           messageCount={activeConversationQuery.data?.messages?.length || 0}
           constants={activeConversationQuery.data?.constants || user?.grutConstants}
@@ -1405,7 +1431,8 @@ export default function ChatPage() {
                   className={monadMode ? "border-yellow-500/50" : ""}
                 />
                 <button
-                  onClick={() => setMonadMode(!monadMode)}
+                  onClick={handleMonadToggle}
+                  disabled={isTransitioning}
                   className={`
                     w-9 h-9 rounded-md border flex items-center justify-center
                     transition-all duration-500 cursor-pointer shrink-0
@@ -1413,6 +1440,7 @@ export default function ChatPage() {
                       ? "border-yellow-500 text-yellow-500 drop-shadow-[0_0_8px_#FFD700]" 
                       : "border-border text-muted-foreground hover:border-muted-foreground"
                     }
+                    ${isTransitioning ? "opacity-50" : ""}
                   `}
                   data-testid="button-pleroma-toggle"
                   title={monadMode ? "Collapse to Absolute (Active)" : "Collapse to Absolute"}
@@ -1422,7 +1450,8 @@ export default function ChatPage() {
                   </svg>
                 </button>
                 <button
-                  onClick={() => setMonadMode(!monadMode)}
+                  onClick={handleMonadToggle}
+                  disabled={isTransitioning}
                   className={`
                     w-9 h-9 rounded-full border flex items-center justify-center
                     transition-all duration-300 cursor-pointer shrink-0
@@ -1430,6 +1459,7 @@ export default function ChatPage() {
                       ? "border-yellow-500 shadow-[0_0_15px_#FFD700] bg-yellow-500/20" 
                       : "border-border bg-transparent hover:border-muted-foreground"
                     }
+                    ${isTransitioning ? "opacity-50" : ""}
                   `}
                   data-testid="button-monad-toggle"
                   title={monadMode ? "Switch to RAI Mode (99.9%)" : "Switch to Monad Mode (100.0%)"}
