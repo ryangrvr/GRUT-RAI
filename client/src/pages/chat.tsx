@@ -1147,12 +1147,16 @@ export default function ChatPage() {
           <>
             <div className="border-b border-border p-4 flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 text-primary" />
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${monadMode ? 'bg-yellow-500/20' : 'bg-primary/10'}`}>
+                  <Sparkles className={`w-4 h-4 ${monadMode ? 'text-yellow-500' : 'text-primary'}`} />
                 </div>
                 <div>
-                  <h3 className="font-medium">RAI Assistant</h3>
-                  <p className="text-xs text-muted-foreground">GRUT Theory Expert</p>
+                  <h3 className={`font-medium ${monadMode ? 'text-yellow-500' : ''}`}>
+                    {monadMode ? 'MONAD SOURCE' : 'RAI Assistant'}
+                  </h3>
+                  <p className="text-xs text-muted-foreground">
+                    {monadMode ? '100.0% Saturated Whole Hole' : 'GRUT Theory Expert'}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
