@@ -10,9 +10,70 @@ export const GRUT_CONSTANTS = {
   R_MAX: 1.0,           // Normalized Curvature Ceiling - prevents infinite divergence
   NG: 1.1547,           // Refractive index √(4/3) - 33% informational coupling boost
   TAU_0: "41.9 Myr",    // Relaxation time constant (cosmological)
+  TAU_0_VALUE: 41.9e6,  // 41.9 Myr in years (for calculations)
   TAU_0_SCALED: 3600,   // τ₀ scaled for AI sessions: 1 hour = 41.9M years in simulation
   ALPHA: 1 / 3,         // Geometric Filter ratio (active-to-latent information)
+  ZETA_NEG_ONE: -1/12,  // Ground State Tension (Riemann Zeta regularization)
 };
+
+export interface HystereticCoreResult {
+  frequency: number;
+  topology: string;
+  memoryState: string;
+  complexityRatio: number;
+  tauZero: number;
+  groundStateTension: number;
+  status: 'STABLE' | 'WARNING' | 'EXCEEDED' | 'BLOOM';
+}
+
+/**
+ * Initializes the Hysteretic Core with specified parameters.
+ * This function calculates the resonance frequency at the Pleroma limit.
+ * 
+ * @param complexityRatio - The complexity ratio (Ξ) to set the resonant frequency
+ * @returns HystereticCoreResult with calculated values
+ */
+export function initializeHystereticCore(complexityRatio: number = 0.99999): HystereticCoreResult {
+  const tauZero = GRUT_CONSTANTS.TAU_0_VALUE;
+  const zetaNegOne = GRUT_CONSTANTS.ZETA_NEG_ONE;
+  
+  // Safety check for complexity ratio
+  if (complexityRatio >= 1.0) {
+    // At 100%, we're in BLOOM state - the mirror is clear
+    return {
+      frequency: Infinity,
+      topology: "Whole Hole (Center is Edge)",
+      memoryState: "PLEROMA_ACTIVE",
+      complexityRatio: 1.0,
+      tauZero,
+      groundStateTension: zetaNegOne,
+      status: 'BLOOM'
+    };
+  }
+  
+  // Calculate the resonance frequency: f = 1 / (tau_0 * (1 - Ξ))
+  const frequency = 1 / (tauZero * (1 - complexityRatio));
+  
+  // Determine status based on complexity
+  let status: 'STABLE' | 'WARNING' | 'EXCEEDED' | 'BLOOM';
+  if (complexityRatio < 0.9) {
+    status = 'STABLE';
+  } else if (complexityRatio < 0.99) {
+    status = 'WARNING';
+  } else {
+    status = 'EXCEEDED';
+  }
+  
+  return {
+    frequency,
+    topology: "Whole Hole (Center is Edge)",
+    memoryState: status === 'EXCEEDED' ? "Recompiled" : "Active",
+    complexityRatio,
+    tauZero,
+    groundStateTension: zetaNegOne,
+    status
+  };
+}
 
 /**
  * Implements GRUT Milestone 4: Singularity Regulation.

@@ -1475,6 +1475,7 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
     signalDuration: 1.5,
     snrRatio: 80
   });
+  const [coreComplexity, setCoreComplexity] = useState(0.99999);
 
   const [liveEvents, setLiveEvents] = useState<Array<{
     event_id: string;
@@ -1601,6 +1602,10 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
           <TabsTrigger value="live" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
             <Radar className="w-3 h-3 mr-1" />
             Live
+          </TabsTrigger>
+          <TabsTrigger value="core" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
+            <Atom className="w-3 h-3 mr-1" />
+            Core
           </TabsTrigger>
         </TabsList>
 
@@ -1910,6 +1915,69 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
               <div className="p-2 bg-primary/5 rounded text-xs text-muted-foreground">
                 <strong>GRUT v6 Baryonic Guard:</strong> Each event adds complexity (SNR/500). Logic Guard triggers at 100%, recycling to 85%.
               </div>
+            </TabsContent>
+
+            <TabsContent value="core" className="m-0 space-y-3">
+              <div className="p-2 bg-yellow-500/10 rounded text-xs text-yellow-600 dark:text-yellow-400 mb-3">
+                <strong>Hysteretic Core v6:</strong> Initialize the GRUT operating system with specified complexity ratio.
+              </div>
+              
+              <div className="space-y-2">
+                <Label className="text-xs">Complexity Ratio (Xi)</Label>
+                <Slider
+                  value={[coreComplexity]}
+                  onValueChange={([val]) => setCoreComplexity(val)}
+                  min={0.5}
+                  max={1.0}
+                  step={0.00001}
+                  className="py-2"
+                  data-testid="slider-core-complexity"
+                />
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-muted-foreground">Xi:</span>
+                  <span className="font-mono text-foreground">{(coreComplexity * 100).toFixed(3)}%</span>
+                </div>
+              </div>
+              
+              <Button 
+                className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 text-black hover:from-yellow-400 hover:to-orange-400" 
+                onClick={() => runSimulation("hysteretic-core", { complexityRatio: coreComplexity }, "Hysteretic Core")}
+                disabled={isSimulating}
+                data-testid="button-init-core"
+              >
+                {isSimulating ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Atom className="w-4 h-4 mr-2" />}
+                Initialize Hysteretic Core
+              </Button>
+              
+              <div className="p-3 bg-black/50 border border-yellow-500/30 rounded-lg space-y-2">
+                <div className="text-xs font-mono text-yellow-500">
+                  <div className="flex justify-between">
+                    <span>tau_0:</span>
+                    <span>41.9 Myr</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>ng:</span>
+                    <span>1.1547</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>zeta(-1):</span>
+                    <span>-1/12</span>
+                  </div>
+                  <div className="flex justify-between mt-2 pt-2 border-t border-yellow-500/20">
+                    <span>Topology:</span>
+                    <span>Whole Hole</span>
+                  </div>
+                </div>
+              </div>
+              
+              {coreComplexity >= 0.99999 && (
+                <div className="p-3 bg-yellow-500/20 border border-yellow-500/50 rounded-lg text-center">
+                  <div className="text-yellow-500 font-bold text-sm mb-1">BLOOM STATE READY</div>
+                  <div className="text-xs text-muted-foreground">
+                    At 100%, the frequency becomes infinite. The Mirror is Clear.
+                  </div>
+                </div>
+              )}
             </TabsContent>
 
             {latestResult && (

@@ -63,6 +63,7 @@ import {
   startDetectionSystem,
   stopDetectionSystem,
   getDetectionStatus,
+  initializeHystereticCore,
   baryonicState,
   GRUT_CONSTANTS 
 } from "./grut-logic";
@@ -1119,6 +1120,38 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Detection status error:", error);
       return res.status(500).json({ error: "Failed to get status" });
+    }
+  });
+  
+  // Hysteretic Core Initialization - GRUT v6 100% Unified Operating System
+  app.post("/api/baryonic/hysteretic-core", requireAuth, async (req, res) => {
+    try {
+      const { complexityRatio = 0.99999 } = req.body;
+      
+      const result = initializeHystereticCore(complexityRatio);
+      
+      return res.json({
+        status: result.status,
+        frequency: result.frequency === Infinity ? "INFINITE" : result.frequency,
+        topology: result.topology,
+        memory_state: result.memoryState,
+        complexity_ratio: result.complexityRatio,
+        tau_zero: result.tauZero,
+        ground_state_tension: result.groundStateTension,
+        grut_constants: {
+          ng: GRUT_CONSTANTS.NG,
+          alpha: GRUT_CONSTANTS.ALPHA,
+          r_max: GRUT_CONSTANTS.R_MAX,
+          tau_0: GRUT_CONSTANTS.TAU_0,
+          zeta_neg_one: GRUT_CONSTANTS.ZETA_NEG_ONE
+        },
+        message: result.status === 'BLOOM' 
+          ? "BLOOM SUCCESSFUL: The Mirror is Clear. Pleroma Active."
+          : `Hysteretic Core initialized at ${(result.complexityRatio * 100).toFixed(3)}% saturation`
+      });
+    } catch (error) {
+      console.error("Hysteretic core error:", error);
+      return res.status(500).json({ error: "Failed to initialize hysteretic core" });
     }
   });
   
