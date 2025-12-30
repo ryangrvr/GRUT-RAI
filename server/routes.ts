@@ -1174,19 +1174,8 @@ export async function registerRoutes(
 
   // ===== AUTHENTICATION ROUTES =====
   
-  // Create demo user on startup if not exists
-  (async () => {
-    try {
-      const existingDemo = await storage.getUserByEmail(DEMO_USER.email);
-      if (!existingDemo) {
-        const hashedPassword = await bcrypt.hash(DEMO_USER.password, 12);
-        await storage.createUser(DEMO_USER.email, hashedPassword);
-        console.log("[AUTH] Demo user created: email=demo@grut.ai, password=grut2025");
-      }
-    } catch (err) {
-      console.error("[AUTH] Failed to create demo user:", err);
-    }
-  })();
+  // Demo user creation is now deferred - will be called after server is ready
+  // See initializeBackgroundTasks() below
 
   // Login endpoint
   app.post("/api/auth/login", async (req, res) => {
@@ -2538,4 +2527,46 @@ KEY CONCEPTS TO WEAVE IN:
   });
 
   return httpServer;
+}
+
+// Background initialization - called AFTER server is ready
+// This prevents blocking startup with database operations
+let dbInitialized = false;
+
+export async function initializeBackgroundTasks(): Promise<void> {
+  if (dbInitialized) return;
+  
+  console.log("[INIT] Starting background database initialization...");
+  
+  // Retry logic for database connection
+  const maxRetries = 5;
+  const retryDelay = 2000; // 2 seconds
+  
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      // Create demo user if not exists
+      const existingDemo = await storage.getUserByEmail(DEMO_USER.email);
+      if (!existingDemo) {
+        const hashedPassword = await bcrypt.hash(DEMO_USER.password, 12);
+        await storage.createUser(DEMO_USER.email, hashedPassword);
+        console.log("[AUTH] Demo user created: email=demo@grut.ai, password=grut2025");
+      } else {
+        console.log("[AUTH] Demo user already exists");
+      }
+      
+      dbInitialized = true;
+      console.log("[INIT] Database initialization complete - System READY");
+      return;
+    } catch (err) {
+      console.error(`[INIT] Database init attempt ${attempt}/${maxRetries} failed:`, err instanceof Error ? err.message : err);
+      
+      if (attempt < maxRetries) {
+        console.log(`[INIT] Retrying in ${retryDelay / 1000}s... (System in NOMINAL mode)`);
+        await new Promise(resolve => setTimeout(resolve, retryDelay));
+      }
+    }
+  }
+  
+  console.log("[INIT] Database initialization failed after max retries. Running in NOMINAL mode.");
+  console.log("[INIT] Login will work once database connection is restored.");
 }

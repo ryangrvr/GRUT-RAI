@@ -1,6 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
 import session from "express-session";
-import { registerRoutes } from "./routes";
+import { registerRoutes, initializeBackgroundTasks } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 
@@ -106,6 +106,14 @@ app.use((req, res, next) => {
     },
     () => {
       log(`serving on port ${port}`);
+      
+      // Initialize database and background tasks AFTER server is ready
+      // This prevents blocking startup with slow database operations
+      setTimeout(() => {
+        initializeBackgroundTasks().catch(err => {
+          log(`Background init error: ${err.message}`);
+        });
+      }, 1000); // Wait 1 second after server start before DB init
     },
   );
 })();
