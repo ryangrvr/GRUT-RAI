@@ -375,6 +375,190 @@ export async function registerRoutes(
     }
   });
 
+  // ===== PHARMACOLOGY PHYSICS - Toxicity Wake & Dose Optimization =====
+  
+  // Calculate toxicity wake using Retarded Potential Kernel
+  app.post("/api/pharma/toxicity-wake", async (req, res) => {
+    try {
+      const { doseArray = [], timeSteps = [], decayRate = 24.0 } = req.body;
+      
+      if (!doseArray.length || !timeSteps.length) {
+        return res.status(400).json({ error: "doseArray and timeSteps required" });
+      }
+      
+      const TAU_ZERO = 41.9e6;
+      const ALPHA = -1/12;
+      const TOXICITY_THRESHOLD = 0.8;
+      const CRITICAL_TOXICITY = 0.95;
+      
+      const toxicityTimeline: any[] = [];
+      const alerts: any[] = [];
+      
+      for (let i = 0; i < timeSteps.length; i++) {
+        const currentTime = timeSteps[i];
+        let cumulativeToxicity = 0;
+        
+        for (let j = 0; j <= i; j++) {
+          const dose = doseArray[j];
+          const doseTime = timeSteps[j];
+          const deltaT = currentTime - doseTime;
+          
+          if (deltaT >= 0) {
+            const decayFactor = Math.exp(-deltaT / decayRate);
+            const kernelWeight = Math.abs((ALPHA / TAU_ZERO) * Math.exp(-deltaT * 1e-6 / TAU_ZERO));
+            const contribution = dose * decayFactor * (1 + kernelWeight * 1e6);
+            cumulativeToxicity += contribution;
+          }
+        }
+        
+        const normalizedToxicity = Math.min(cumulativeToxicity / (doseArray.length + 1), 1.0);
+        
+        let alertLevel = null;
+        if (normalizedToxicity >= CRITICAL_TOXICITY) {
+          alertLevel = "CRITICAL";
+          alerts.push({
+            time: currentTime,
+            level: "CRITICAL",
+            toxicity: Math.round(normalizedToxicity * 1e4) / 1e4,
+            message: "METRIC FRICTION EXCEEDED: Immediate intervention required"
+          });
+        } else if (normalizedToxicity >= TOXICITY_THRESHOLD) {
+          alertLevel = "WARNING";
+          alerts.push({
+            time: currentTime,
+            level: "WARNING",
+            toxicity: Math.round(normalizedToxicity * 1e4) / 1e4,
+            message: "Approaching Metric Friction threshold"
+          });
+        }
+        
+        toxicityTimeline.push({
+          time: currentTime,
+          cumulativeToxicity: Math.round(cumulativeToxicity * 1e4) / 1e4,
+          normalizedToxicity: Math.round(normalizedToxicity * 1e4) / 1e4,
+          alertLevel
+        });
+      }
+      
+      const peakToxicity = Math.max(...toxicityTimeline.map(t => t.normalizedToxicity));
+      const finalToxicity = toxicityTimeline[toxicityTimeline.length - 1]?.normalizedToxicity || 0;
+      
+      return res.json({
+        calculationType: "TOXICITY_WAKE",
+        doseCount: doseArray.length,
+        timeSpanHours: timeSteps[timeSteps.length - 1] - timeSteps[0],
+        toxicityTimeline,
+        peakToxicity,
+        finalToxicity,
+        threshold: TOXICITY_THRESHOLD,
+        criticalThreshold: CRITICAL_TOXICITY,
+        alerts,
+        alertCount: alerts.length,
+        isSafe: peakToxicity < TOXICITY_THRESHOLD,
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error calculating toxicity wake:", error);
+      return res.status(500).json({ error: "Toxicity calculation failed" });
+    }
+  });
+
+  // Optimize next dose using -1/12 vacuum tension
+  app.post("/api/pharma/optimize-dose", async (req, res) => {
+    try {
+      const { 
+        currentToxicity = 0.5, 
+        targetEffect = 0.7, 
+        previousDoses = [],
+        timeSinceLastDose = 12.0 
+      } = req.body;
+      
+      const VACUUM_TENSION = -1/12;
+      const PHASE_TRANSITION = 0.618;
+      const HEALING_TARGET = 0.3;
+      const DOSE_HALF_LIFE = 24.0;
+      const TOXICITY_THRESHOLD = 0.8;
+      const CRITICAL_TOXICITY = 0.95;
+      
+      const baseDose = previousDoses.length > 0 
+        ? previousDoses.reduce((a: number, b: number) => a + b, 0) / previousDoses.length 
+        : targetEffect * 10;
+      
+      const toxicityGap = HEALING_TARGET - currentToxicity;
+      const vacuumAdjustment = 1 + VACUUM_TENSION * toxicityGap * 12;
+      
+      const timeFactor = Math.exp(-timeSinceLastDose / DOSE_HALF_LIFE);
+      const residualEffect = baseDose * timeFactor * 0.5;
+      
+      let optimalDose = baseDose * PHASE_TRANSITION * vacuumAdjustment;
+      optimalDose = Math.max(0, optimalDose - residualEffect * 0.3);
+      
+      let minDose = baseDose * 0.25;
+      let maxDose = baseDose * 2.0;
+      
+      if (currentToxicity >= TOXICITY_THRESHOLD) {
+        maxDose = baseDose * 0.5;
+        optimalDose = Math.min(optimalDose, maxDose);
+      }
+      
+      optimalDose = Math.max(minDose, Math.min(maxDose, optimalDose));
+      
+      let phaseState: string;
+      if (currentToxicity >= CRITICAL_TOXICITY) {
+        phaseState = "CRITICAL_INTERVENTION";
+        optimalDose = 0;
+      } else if (currentToxicity < 0.2) {
+        phaseState = "MAINTENANCE";
+      } else if (toxicityGap > 0) {
+        phaseState = "HEALING_TRANSITION";
+      } else {
+        phaseState = "TOXICITY_MANAGEMENT";
+      }
+      
+      const projectedToxicity = Math.min(
+        currentToxicity * timeFactor + (optimalDose / (baseDose + 1)) * 0.3,
+        1.0
+      );
+      
+      let recommendation: string;
+      if (phaseState === "CRITICAL_INTERVENTION") {
+        recommendation = "HOLD ALL DOSES. Toxicity critical. Allow clearance before resuming.";
+      } else if (phaseState === "TOXICITY_MANAGEMENT") {
+        recommendation = `Reduced dose of ${optimalDose.toFixed(2)} units recommended. Monitor closely.`;
+      } else if (phaseState === "HEALING_TRANSITION") {
+        recommendation = `Phase transition dose: ${optimalDose.toFixed(2)} units. Optimal for healing trajectory.`;
+      } else {
+        recommendation = `Maintenance dose: ${optimalDose.toFixed(2)} units. Continue current protocol.`;
+      }
+      
+      return res.json({
+        optimizationType: "VACUUM_TENSION_DOSE",
+        currentToxicity,
+        targetEffect,
+        healingTarget: HEALING_TARGET,
+        baseDose: Math.round(baseDose * 1e4) / 1e4,
+        optimalDose: Math.round(optimalDose * 1e4) / 1e4,
+        doseRange: {
+          min: Math.round(minDose * 1e4) / 1e4,
+          max: Math.round(maxDose * 1e4) / 1e4
+        },
+        vacuumTensionFactor: Math.round(VACUUM_TENSION * 1e6) / 1e6,
+        phaseTransitionFactor: PHASE_TRANSITION,
+        vacuumAdjustment: Math.round(vacuumAdjustment * 1e4) / 1e4,
+        timeSinceLastDoseHours: timeSinceLastDose,
+        residualEffect: Math.round(residualEffect * 1e4) / 1e4,
+        phaseState,
+        projectedToxicity: Math.round(projectedToxicity * 1e4) / 1e4,
+        isSafeToDose: currentToxicity < CRITICAL_TOXICITY && optimalDose > 0,
+        recommendation,
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error optimizing dose:", error);
+      return res.status(500).json({ error: "Dose optimization failed" });
+    }
+  });
+
   // Connect sensor data to complexity tracker
   app.post("/api/battery/connect-sensors", async (req, res) => {
     try {
