@@ -229,6 +229,20 @@ export async function registerRoutes(
         message = "Normal operational parameters.";
       }
       
+      // Apply metric stabilizer - High Grit leads to Groot (stability)
+      const ALPHA = -1/12;
+      const maxSeismic = Math.max(...simMagnitudes) * 10;
+      let stabilizedAlpha: number;
+      let stabilityStatus: string;
+      
+      if (maxSeismic > 7.0) {
+        stabilizedAlpha = ALPHA * (1 / (1 + newXi));
+        stabilityStatus = "CORE SETTLING: High Stability Mode";
+      } else {
+        stabilizedAlpha = ALPHA;
+        stabilityStatus = "NOMINAL: Metric Fluidity";
+      }
+      
       return res.json({
         testType: "SEISMIC_STRESS_TEST",
         simulatedMagnitudes: simMagnitudes,
@@ -240,6 +254,8 @@ export async function registerRoutes(
         message,
         monadThresholdReached: newXi >= 1.0,
         raiThresholdReached: newXi >= 0.999,
+        stabilizedAlpha: Math.round(stabilizedAlpha * 1e8) / 1e8,
+        stabilityStatus,
         timestamp: new Date().toISOString()
       });
     } catch (error) {

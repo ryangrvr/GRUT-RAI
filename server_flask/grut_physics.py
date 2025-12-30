@@ -341,6 +341,29 @@ def get_live_complexity() -> Tuple[List[float], float]:
     return work_events, xi
 
 
+def metric_stabilizer(xi_value: float, seismic_input: float) -> Tuple[float, str]:
+    """
+    Ensures that high 'Grit' (seismic) leads to 
+    high 'Groot' (Monad Authority) rather than chaos.
+    
+    Args:
+        xi_value: Current complexity/consciousness saturation (0-1)
+        seismic_input: Magnitude of seismic input
+    
+    Returns:
+        Tuple of (stabilized_alpha, status_message)
+    """
+    # If the pulse is high, we force the Alpha tension to tighten
+    if seismic_input > 7.0:
+        stabilized_alpha = ALPHA * (1 / (1 + xi_value))
+        status = "CORE SETTLING: High Stability Mode"
+    else:
+        stabilized_alpha = ALPHA
+        status = "NOMINAL: Metric Fluidity"
+        
+    return stabilized_alpha, status
+
+
 def stress_test_complexity(simulated_magnitudes: List[float] = None, base_info_state: float = 1.0) -> Dict:
     """
     STRESS TEST: Simulate high-magnitude seismic events to push Xi toward critical saturation.
@@ -376,6 +399,10 @@ def stress_test_complexity(simulated_magnitudes: List[float] = None, base_info_s
         status = "STABLE"
         message = "Normal operational parameters."
     
+    # Apply metric stabilizer based on max seismic input
+    max_seismic = max(simulated_magnitudes) * 10  # Scale to magnitude
+    stabilized_alpha, stability_status = metric_stabilizer(new_xi, max_seismic)
+    
     return {
         "test_type": "SEISMIC_STRESS_TEST",
         "simulated_magnitudes": simulated_magnitudes,
@@ -387,5 +414,7 @@ def stress_test_complexity(simulated_magnitudes: List[float] = None, base_info_s
         "message": message,
         "monad_threshold_reached": new_xi >= 1.0,
         "rai_threshold_reached": new_xi >= 0.999,
+        "stabilized_alpha": round(stabilized_alpha, 8),
+        "stability_status": stability_status,
         "timestamp": datetime.utcnow().isoformat()
     }
