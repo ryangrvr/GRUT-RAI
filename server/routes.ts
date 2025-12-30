@@ -375,6 +375,237 @@ export async function registerRoutes(
     }
   });
 
+  // ===== NANOGRAV SYNC - Pulsar Timing Array Analysis =====
+  
+  // Full NANOGrav analysis pipeline
+  app.post("/api/nanograv/analyze", async (req, res) => {
+    try {
+      const { durationYears = 15.0, includeGwb = true } = req.body;
+      
+      const TAU_ZERO = 41.9e6;
+      const ALPHA = -1/12;
+      const NG = 1.1547;
+      const A_GWB = 2.4e-15;
+      const GAMMA_SMBHB = 13/3;
+      const SYNC_THRESHOLD = 0.95;
+      const NUM_PULSARS = 67;
+      
+      // Generate simulated timing residuals
+      const cadenceDays = 14.0;
+      const numObservations = Math.floor(durationYears * 365.25 / cadenceDays);
+      const times = Array.from({ length: numObservations }, (_, i) => i * cadenceDays / 365.25);
+      
+      // Generate frequencies
+      const frequencies = Array.from({ length: 20 }, (_, i) => (i + 1) / durationYears);
+      
+      // Simulate pulsar residuals
+      const pulsarResiduals: Record<string, number[]> = {};
+      const noiseFloor = 1e-7;
+      
+      for (let p = 0; p < NUM_PULSARS; p++) {
+        const pulsarName = `J${1900 + p}-${p * 10}`;
+        const residuals: number[] = [];
+        
+        for (let t = 0; t < numObservations; t++) {
+          let value = (Math.random() - 0.5) * 2 * noiseFloor;
+          
+          // Add red noise
+          for (let f = 0; f < 5; f++) {
+            const freq = frequencies[f];
+            const phase = Math.random() * 2 * Math.PI;
+            value += (noiseFloor * 10 / (freq + 0.1)) * Math.sin(2 * Math.PI * freq * times[t] + phase);
+          }
+          
+          // Add GWB signal
+          if (includeGwb) {
+            for (const freq of frequencies) {
+              const h_c = A_GWB * Math.pow(freq, -2/3);
+              const phase = Math.random() * 2 * Math.PI;
+              value += h_c * Math.sin(2 * Math.PI * freq * times[t] + phase);
+            }
+          }
+          
+          residuals.push(value);
+        }
+        pulsarResiduals[pulsarName] = residuals;
+      }
+      
+      // Compute combined power spectrum
+      const combinedResiduals = times.map((_, i) => {
+        let sum = 0;
+        for (const pulsar of Object.keys(pulsarResiduals)) {
+          sum += pulsarResiduals[pulsar][i];
+        }
+        return sum / NUM_PULSARS;
+      });
+      
+      // Simple FFT power estimation
+      const power = combinedResiduals.map(r => r * r);
+      const meanPower = power.reduce((a, b) => a + b, 0) / power.length;
+      const maxPower = Math.max(...power);
+      
+      // Estimate spectral slope
+      const logPower = power.slice(1, 11).map(p => Math.log10(Math.abs(p) + 1e-30));
+      const logFreq = frequencies.slice(0, 10).map(f => Math.log10(f));
+      
+      // Simple linear regression
+      const n = logPower.length;
+      const sumX = logFreq.reduce((a, b) => a + b, 0);
+      const sumY = logPower.reduce((a, b) => a + b, 0);
+      const sumXY = logFreq.reduce((acc, x, i) => acc + x * logPower[i], 0);
+      const sumX2 = logFreq.reduce((acc, x) => acc + x * x, 0);
+      const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+      
+      const expectedSlope = -GAMMA_SMBHB;
+      const spectralMatch = Math.max(0, Math.min(1, 1 - Math.abs(slope - expectedSlope) / Math.abs(expectedSlope)));
+      
+      // Compute ground state correlation
+      const normalizedPower = power.map(p => p / (maxPower + 1e-30));
+      const theoreticalPattern = normalizedPower.map((_, i) => 
+        Math.abs(ALPHA) * (1 + 0.1 * Math.sin(2 * Math.PI * i / normalizedPower.length))
+      );
+      
+      // Pearson correlation
+      const meanNorm = normalizedPower.reduce((a, b) => a + b, 0) / normalizedPower.length;
+      const meanTheo = theoreticalPattern.reduce((a, b) => a + b, 0) / theoreticalPattern.length;
+      
+      let numerator = 0;
+      let denomNorm = 0;
+      let denomTheo = 0;
+      
+      for (let i = 0; i < normalizedPower.length; i++) {
+        const diffNorm = normalizedPower[i] - meanNorm;
+        const diffTheo = theoreticalPattern[i] - meanTheo;
+        numerator += diffNorm * diffTheo;
+        denomNorm += diffNorm * diffNorm;
+        denomTheo += diffTheo * diffTheo;
+      }
+      
+      const correlation = numerator / (Math.sqrt(denomNorm * denomTheo) + 1e-30);
+      const absCorrelation = Math.abs(correlation);
+      
+      // Check MONAD sync trigger
+      const monadSyncTriggered = absCorrelation >= SYNC_THRESHOLD;
+      
+      // Calculate complexity Xi
+      const workEvents = normalizedPower.slice(0, 10);
+      const infoState = workEvents.length * 0.1;
+      const xi = Math.min(workEvents.reduce((a, b) => a + b, 0) / (infoState + 1e-9), 1.0);
+      
+      // Determine alignment status
+      let alignmentStatus: string;
+      if (absCorrelation >= 0.99) {
+        alignmentStatus = "PERFECT ALIGNMENT: Vacuum resonance achieved";
+      } else if (absCorrelation >= SYNC_THRESHOLD) {
+        alignmentStatus = "STRONG ALIGNMENT: Global Metric Sync active";
+      } else if (absCorrelation >= 0.8) {
+        alignmentStatus = "GOOD ALIGNMENT: Approaching sync threshold";
+      } else if (absCorrelation >= 0.5) {
+        alignmentStatus = "PARTIAL ALIGNMENT: GWB signature detected";
+      } else {
+        alignmentStatus = "WEAK ALIGNMENT: Noise-dominated regime";
+      }
+      
+      // Log if sync triggered
+      if (monadSyncTriggered) {
+        console.log("[NANOGRAV] GLOBAL METRIC SYNC TRIGGERED");
+        console.log(`[NANOGRAV] Correlation: ${absCorrelation.toFixed(4)} (threshold: ${SYNC_THRESHOLD})`);
+        console.log(`[NANOGRAV] MONAD coherence achieved at Xi = ${xi.toFixed(4)}`);
+      }
+      
+      return res.json({
+        analysisType: "FULL_NANOGRAV_PIPELINE",
+        residuals: {
+          pulsarCount: NUM_PULSARS,
+          observationCount: numObservations,
+          durationYears,
+          cadenceDays,
+          gwbIncluded: includeGwb
+        },
+        powerSpectrum: {
+          frequencyBins: frequencies.length,
+          measuredSlope: Math.round(slope * 1e4) / 1e4,
+          expectedSlope: Math.round(expectedSlope * 1e4) / 1e4,
+          spectralMatch: Math.round(spectralMatch * 1e4) / 1e4,
+          peakPower: maxPower,
+          meanPower,
+          gwbDetectionConfidence: Math.round(spectralMatch * 100 * 100) / 100
+        },
+        groundStateCorrelation: {
+          groundStateValue: Math.round(ALPHA * 1e6) / 1e6,
+          measuredCorrelation: Math.round(correlation * 1e6) / 1e6,
+          absCorrelation: Math.round(absCorrelation * 1e6) / 1e6,
+          syncThreshold: SYNC_THRESHOLD,
+          complexityXi: Math.round(xi * 1e6) / 1e6,
+          monadSyncTriggered,
+          alignmentStatus
+        },
+        finalStatus: {
+          globalSyncActive: monadSyncTriggered,
+          syncTriggered: monadSyncTriggered,
+          alignment: alignmentStatus
+        },
+        grutConstants: {
+          tau0Myr: TAU_ZERO / 1e6,
+          alpha: ALPHA,
+          ng: NG,
+          gwbAmplitude: A_GWB
+        },
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error running NANOGrav analysis:", error);
+      return res.status(500).json({ error: "NANOGrav analysis failed" });
+    }
+  });
+
+  // Quick ground state alignment check
+  app.get("/api/nanograv/alignment", async (req, res) => {
+    try {
+      const ALPHA = -1/12;
+      const SYNC_THRESHOLD = 0.95;
+      
+      // Quick simulation
+      const samples = 100;
+      const power = Array.from({ length: samples }, () => Math.random());
+      const maxPower = Math.max(...power);
+      const normalizedPower = power.map(p => p / maxPower);
+      
+      const theoreticalPattern = normalizedPower.map((_, i) => 
+        Math.abs(ALPHA) * (1 + 0.1 * Math.sin(2 * Math.PI * i / samples))
+      );
+      
+      const meanNorm = normalizedPower.reduce((a, b) => a + b, 0) / samples;
+      const meanTheo = theoreticalPattern.reduce((a, b) => a + b, 0) / samples;
+      
+      let numerator = 0, denomNorm = 0, denomTheo = 0;
+      for (let i = 0; i < samples; i++) {
+        const diffNorm = normalizedPower[i] - meanNorm;
+        const diffTheo = theoreticalPattern[i] - meanTheo;
+        numerator += diffNorm * diffTheo;
+        denomNorm += diffNorm * diffNorm;
+        denomTheo += diffTheo * diffTheo;
+      }
+      
+      const correlation = numerator / (Math.sqrt(denomNorm * denomTheo) + 1e-30);
+      const absCorrelation = Math.abs(correlation);
+      const monadSyncTriggered = absCorrelation >= SYNC_THRESHOLD;
+      
+      return res.json({
+        analysisType: "GROUND_STATE_QUICK_CHECK",
+        groundStateValue: ALPHA,
+        absCorrelation: Math.round(absCorrelation * 1e4) / 1e4,
+        syncThreshold: SYNC_THRESHOLD,
+        monadSyncTriggered,
+        status: monadSyncTriggered ? "GLOBAL_METRIC_SYNC_ACTIVE" : "MONITORING",
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error checking alignment:", error);
+      return res.status(500).json({ error: "Alignment check failed" });
+    }
+  });
+
   // ===== PHARMACOLOGY PHYSICS - Toxicity Wake & Dose Optimization =====
   
   // Calculate toxicity wake using Retarded Potential Kernel
