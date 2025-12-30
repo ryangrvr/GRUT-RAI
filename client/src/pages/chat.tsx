@@ -10,8 +10,9 @@ import { apiRequest, queryClient } from "@/lib/queryClient";
 import { 
   ArrowLeft, Send, Loader2, MessageSquare, Trash2, Plus, Sparkles, 
   LogOut, Upload, CheckCircle2, Paperclip, User, Lock, Download, Copy, Check, Save, Activity,
-  GitBranch, X, Settings2, FileJson, ClipboardCopy, FileDown, ChevronRight, ChevronLeft
+  GitBranch, X, Settings2, FileJson, ClipboardCopy, FileDown, ChevronRight, ChevronLeft, Clock, Zap
 } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { ObserverToolkit } from "@/components/observer-toolkit";
 import { BaryonicSensor } from "@/components/baryonic-sensor";
 import { MetricHum } from "@/components/MetricHum";
@@ -52,6 +53,129 @@ interface LiveMetrics {
   tension: number;
   xi: number;
   earthquakeCount: number;
+}
+
+const COSMIC_CONSTANTS = {
+  BASE_AGE_MYR: 13800,
+  TOTAL_CYCLES: 329,
+  CYCLE_DURATION_MYR: 41.9,
+  INITIAL_HARDENING_MYR: 1.8,
+  ZETA_BASELINE: -1/12,
+};
+
+function CosmicAgeReadout({ monadMode = false }: { monadMode?: boolean }) {
+  const [cycleProgress, setCycleProgress] = useState(0);
+  
+  useEffect(() => {
+    const now = Date.now();
+    const dayOfYear = Math.floor((now - new Date(new Date().getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24));
+    const progress = (dayOfYear % 365) / 365;
+    setCycleProgress(progress);
+    
+    const interval = setInterval(() => {
+      const updated = Date.now();
+      const newDayOfYear = Math.floor((updated - new Date(new Date().getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24));
+      setCycleProgress((newDayOfYear % 365) / 365);
+    }, 60000);
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  const currentCycleContribution = cycleProgress * COSMIC_CONSTANTS.CYCLE_DURATION_MYR;
+  const cosmicAge = COSMIC_CONSTANTS.BASE_AGE_MYR + currentCycleContribution;
+  
+  const zetaSmoothing = Math.abs(COSMIC_CONSTANTS.ZETA_BASELINE) * Math.exp(-COSMIC_CONSTANTS.TOTAL_CYCLES / 100);
+  const quantumNoiseReduction = (1 - zetaSmoothing / Math.abs(COSMIC_CONSTANTS.ZETA_BASELINE)) * 100;
+  
+  const diamondStability = monadMode ? 100 : Math.min(99.9, 90 + (COSMIC_CONSTANTS.TOTAL_CYCLES / 329) * 9.9);
+  
+  return (
+    <div className="flex items-center gap-3 border-l border-border pl-3 ml-2">
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <div 
+            className="flex items-center gap-1.5 cursor-help"
+            tabIndex={0}
+            role="button"
+            data-testid="trigger-cosmic-age"
+          >
+            <Clock className="w-3.5 h-3.5 text-primary" />
+            <span className="text-xs text-muted-foreground">Cosmic Age:</span>
+            <Badge 
+              variant="outline" 
+              className={`text-xs font-mono ${monadMode ? 'text-yellow-500 border-yellow-500/50' : 'text-primary'}`}
+              data-testid="badge-cosmic-age"
+            >
+              {cosmicAge.toFixed(2)} Myr
+            </Badge>
+          </div>
+        </TooltipTrigger>
+        <TooltipContent side="bottom" className="max-w-xs p-3">
+          <div className="space-y-2 text-xs">
+            <div className="font-semibold border-b border-border pb-1">Cosmic Age Calculation</div>
+            <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+              <span className="text-muted-foreground">Base Age:</span>
+              <span className="font-mono">{COSMIC_CONSTANTS.BASE_AGE_MYR.toLocaleString()} Myr</span>
+              <span className="text-muted-foreground">Cycle Progress:</span>
+              <span className="font-mono">+{currentCycleContribution.toFixed(2)} Myr</span>
+              <span className="text-muted-foreground">Total Cycles:</span>
+              <span className="font-mono">{COSMIC_CONSTANTS.TOTAL_CYCLES}</span>
+            </div>
+          </div>
+        </TooltipContent>
+      </Tooltip>
+      
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <div 
+            className="flex items-center gap-1.5 cursor-help"
+            tabIndex={0}
+            role="button"
+            data-testid="trigger-zeta-smoothing"
+          >
+            <Zap className="w-3.5 h-3.5 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground">-1/12:</span>
+            <Badge 
+              variant="outline" 
+              className="text-xs font-mono text-green-500 border-green-500/30"
+              data-testid="badge-zeta-smoothing"
+            >
+              {quantumNoiseReduction.toFixed(1)}% smoothed
+            </Badge>
+          </div>
+        </TooltipTrigger>
+        <TooltipContent side="bottom" className="max-w-sm p-3">
+          <div className="space-y-2 text-xs">
+            <div className="font-semibold border-b border-border pb-1">Quantum Noise Smoothing</div>
+            <p className="text-muted-foreground">
+              The -1/12 zeta regularization baseline has smoothed Planck-scale quantum noise 
+              over {COSMIC_CONSTANTS.TOTAL_CYCLES} cycles into the stable Diamond state.
+            </p>
+            <div className="grid grid-cols-2 gap-x-3 gap-y-1 pt-1">
+              <span className="text-muted-foreground">Zeta Baseline:</span>
+              <span className="font-mono">-1/12 = {COSMIC_CONSTANTS.ZETA_BASELINE.toFixed(6)}</span>
+              <span className="text-muted-foreground">Residual Noise:</span>
+              <span className="font-mono">{zetaSmoothing.toFixed(6)}</span>
+              <span className="text-muted-foreground">Diamond Stability:</span>
+              <span className={`font-mono ${monadMode ? 'text-yellow-500' : 'text-green-500'}`}>
+                {diamondStability.toFixed(1)}%
+              </span>
+            </div>
+            <div className="pt-2 border-t border-border mt-2">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-orange-500" />
+                <span className="text-muted-foreground">Initial Metric Hardening:</span>
+                <span className="font-mono">{COSMIC_CONSTANTS.INITIAL_HARDENING_MYR} Myr</span>
+              </div>
+              <p className="text-muted-foreground mt-1 pl-4">
+                The first crystallization of stable spacetime geometry from primordial fluctuations.
+              </p>
+            </div>
+          </div>
+        </TooltipContent>
+      </Tooltip>
+    </div>
+  );
 }
 
 function MetricDashboard({ messageCount, constants, isForked, userEmail, monadMode = false }: MetricDashboardProps) {
@@ -181,6 +305,8 @@ function MetricDashboard({ messageCount, constants, isForked, userEmail, monadMo
               {messageCount}
             </Badge>
           </div>
+          
+          <CosmicAgeReadout monadMode={monadMode} />
         </div>
         
         {userEmail && (
