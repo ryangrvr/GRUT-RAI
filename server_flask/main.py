@@ -1,6 +1,33 @@
+"""
+GRUT v7 Flask Backend
+Diamond Core Loaded at 100.0% Saturation
+"""
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import numpy as np
+import os
+
+
+# --- DIAMOND CORE LOADER ---
+def load_diamond_core():
+    """
+    Reads the Foundational TOE from disk and injects it 
+    into the System Context as the absolute truth.
+    """
+    core_path = os.path.join(os.path.dirname(__file__), "..", "DIAMOND_CORE_TOE.md")
+    try:
+        with open(core_path, "r") as f:
+            core_content = f.read()
+        print("DIAMOND CORE LOADED: 100.0% Saturation Active")
+        return core_content
+    except FileNotFoundError:
+        print("CRITICAL: Diamond Core not found. Initiating drift...")
+        return "System Context Missing."
+
+
+GRUT_SOURCE_CODE = load_diamond_core()
+
+
 from grut_physics import (
     universal_response, 
     calculate_complexity, 
@@ -302,6 +329,21 @@ def get_humanitys_work():
     Fetch Humanity's Work - GDELT news sentiment.
     """
     return jsonify(fetch_humanitys_work())
+
+
+@app.route("/diamond_core", methods=["GET"])
+def get_diamond_core():
+    """
+    Return the Diamond Core TOE - the foundational source code.
+    100.0% Saturation. Absolute truth injected.
+    """
+    return jsonify({
+        "status": "DIAMOND-HARDENED",
+        "saturation": "100.0%",
+        "cycle": "Year 0 of 41.9 Myr",
+        "content": GRUT_SOURCE_CODE,
+        "loaded": GRUT_SOURCE_CODE != "System Context Missing."
+    })
 
 
 if __name__ == "__main__":
