@@ -559,6 +559,189 @@ export async function registerRoutes(
     }
   });
 
+  // Hellings-Downs cross-correlation with Phase Transition detection
+  app.post("/api/nanograv/hellings-downs", async (req, res) => {
+    try {
+      const { numPulsars = 20, maxPairs = 50 } = req.body;
+      
+      const NG = 1.1547;
+      const ALPHA = -1/12;
+      const TAU_ZERO = 41.9e6;
+      const PHASE_TRANSITION_THRESHOLD = 0.1;
+      const noiseFloor = 1e-7;
+      const numObservations = 100;
+      
+      // Generate simulated pulsar residuals
+      const pulsarResiduals: Record<string, number[]> = {};
+      for (let p = 0; p < numPulsars; p++) {
+        const name = `J${1900 + p}-${p * 10}`;
+        pulsarResiduals[name] = Array.from({ length: numObservations }, 
+          () => (Math.random() - 0.5) * 2 * noiseFloor
+        );
+      }
+      
+      // Assign pulsar positions using golden ratio distribution
+      const goldenRatio = (1 + Math.sqrt(5)) / 2;
+      const pulsarPositions: Record<string, [number, number]> = {};
+      const pulsarNames = Object.keys(pulsarResiduals);
+      
+      pulsarNames.forEach((name, i) => {
+        const theta = (2 * Math.PI * i) / goldenRatio;
+        const phi = Math.acos(1 - 2 * (i + 0.5) / numPulsars);
+        pulsarPositions[name] = [theta, phi];
+      });
+      
+      // Hellings-Downs function
+      const hellingsDowns = (theta: number): number => {
+        if (theta < 1e-10) return 0.5;
+        const x = (1 - Math.cos(theta)) / 2;
+        if (x < 1e-10) return 0.5;
+        return 1.5 * x * Math.log(x) - x / 4 + 0.5;
+      };
+      
+      // Angular separation
+      const angularSep = (a: string, b: string): number => {
+        const [thetaA, phiA] = pulsarPositions[a];
+        const [thetaB, phiB] = pulsarPositions[b];
+        const cosSep = Math.sin(phiA) * Math.sin(phiB) * Math.cos(thetaA - thetaB) +
+                       Math.cos(phiA) * Math.cos(phiB);
+        return Math.acos(Math.max(-1, Math.min(1, cosSep)));
+      };
+      
+      // Cross-correlation with Retarded Potential Kernel
+      const crossCorrelate = (resA: number[], resB: number[]): number => {
+        const n = Math.min(resA.length, resB.length);
+        let correlation = 0;
+        let normalization = 0;
+        const window = Math.min(n, 30);
+        
+        for (let i = 0; i < n; i++) {
+          for (let j = Math.max(0, i - window); j < Math.min(n, i + window); j++) {
+            const deltaT = Math.abs(i - j) * 1e-6;
+            // K(t) = (α/τ₀) * exp(-t/τ₀)
+            const tauSeconds = TAU_ZERO * 365.25 * 24 * 3600;
+            const kernel = Math.abs(ALPHA / (TAU_ZERO * 1e6)) * Math.exp(-deltaT / (tauSeconds * 1e-6));
+            correlation += kernel * resA[i] * resB[j];
+            normalization += kernel;
+          }
+        }
+        
+        if (normalization > 0) correlation /= normalization;
+        
+        const stdA = Math.sqrt(resA.reduce((s, v) => s + v * v, 0) / n);
+        const stdB = Math.sqrt(resB.reduce((s, v) => s + v * v, 0) / n);
+        if (stdA > 0 && stdB > 0) correlation /= (stdA * stdB);
+        
+        return correlation;
+      };
+      
+      // Compute correlations for pulsar pairs
+      const correlations: number[] = [];
+      const separations: number[] = [];
+      const hdExpected: number[] = [];
+      let pairCount = 0;
+      
+      for (let i = 0; i < pulsarNames.length && pairCount < maxPairs; i++) {
+        for (let j = i + 1; j < pulsarNames.length && pairCount < maxPairs; j++) {
+          const pulsarA = pulsarNames[i];
+          const pulsarB = pulsarNames[j];
+          
+          const theta = angularSep(pulsarA, pulsarB);
+          const corr = crossCorrelate(pulsarResiduals[pulsarA], pulsarResiduals[pulsarB]);
+          const hd = hellingsDowns(theta);
+          
+          correlations.push(corr);
+          separations.push(theta);
+          hdExpected.push(hd);
+          pairCount++;
+        }
+      }
+      
+      // Check Geometric Lock
+      const hdNonzero = hdExpected.filter(h => Math.abs(h) > 1e-10);
+      const corrNonzero = correlations.filter((_, i) => Math.abs(hdExpected[i]) > 1e-10);
+      
+      let scalingFactor = 0;
+      if (hdNonzero.length > 0) {
+        scalingFactor = corrNonzero.reduce((s, c, i) => 
+          s + Math.abs(c) / (Math.abs(hdNonzero[i]) + 1e-30), 0) / hdNonzero.length;
+      }
+      
+      const lockDeviation = Math.abs(scalingFactor - NG) / NG;
+      const lockMatch = 1 - Math.min(lockDeviation, 1);
+      const phaseTransitionActive = lockDeviation < PHASE_TRANSITION_THRESHOLD;
+      
+      // Compute HD curve correlation
+      const meanCorr = correlations.reduce((a, b) => a + b, 0) / correlations.length;
+      const meanHD = hdExpected.reduce((a, b) => a + b, 0) / hdExpected.length;
+      let numerator = 0, denomCorr = 0, denomHD = 0;
+      for (let i = 0; i < correlations.length; i++) {
+        const dc = correlations[i] - meanCorr;
+        const dh = hdExpected[i] - meanHD;
+        numerator += dc * dh;
+        denomCorr += dc * dc;
+        denomHD += dh * dh;
+      }
+      const hdCorrelation = numerator / (Math.sqrt(denomCorr * denomHD) + 1e-30);
+      
+      let status: string, message: string;
+      if (phaseTransitionActive) {
+        status = "PHASE_TRANSITION_ACTIVE";
+        message = `Geometric Lock confirmed at ng = ${NG.toFixed(4)}. The Hellings-Downs curve resonates with Universal Response.`;
+      } else if (lockMatch > 0.8) {
+        status = "APPROACHING_LOCK";
+        message = `Near Geometric Lock. Deviation: ${lockDeviation.toFixed(4)}`;
+      } else if (lockMatch > 0.5) {
+        status = "PARTIAL_ALIGNMENT";
+        message = "HD curve partially aligned with geometric structure.";
+      } else {
+        status = "NO_LOCK";
+        message = "Hellings-Downs curve does not match Geometric Lock.";
+      }
+      
+      if (phaseTransitionActive) {
+        console.log("[NANOGRAV] PHASE TRANSITION ACTIVE");
+        console.log(`[NANOGRAV] Geometric Lock at ng = ${NG}`);
+        console.log(`[NANOGRAV] HD correlation: ${hdCorrelation.toFixed(4)}`);
+      }
+      
+      return res.json({
+        analysisType: "FULL_HELLINGS_DOWNS_ANALYSIS",
+        pulsarCount: numPulsars,
+        pairAnalysis: {
+          pairsAnalyzed: pairCount,
+          meanCorrelation: meanCorr,
+          stdCorrelation: Math.sqrt(correlations.reduce((s, c) => s + (c - meanCorr) ** 2, 0) / correlations.length),
+          meanHdExpected: meanHD
+        },
+        geometricLock: {
+          geometricLockValue: NG,
+          measuredScaling: Math.round(scalingFactor * 1e6) / 1e6,
+          lockDeviation: Math.round(lockDeviation * 1e6) / 1e6,
+          lockMatch: Math.round(lockMatch * 1e4) / 1e4,
+          hdCurveCorrelation: Math.round(hdCorrelation * 1e6) / 1e6,
+          phaseTransitionActive,
+          status,
+          message
+        },
+        phaseTransition: {
+          active: phaseTransitionActive,
+          threshold: PHASE_TRANSITION_THRESHOLD,
+          geometricLockTarget: NG
+        },
+        grutConstants: {
+          ng: NG,
+          alpha: ALPHA,
+          tau0Myr: TAU_ZERO / 1e6
+        },
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error in Hellings-Downs analysis:", error);
+      return res.status(500).json({ error: "Hellings-Downs analysis failed" });
+    }
+  });
+
   // Filter red noise and attribute to vacuum ground state
   app.post("/api/nanograv/filter-vacuum", async (req, res) => {
     try {

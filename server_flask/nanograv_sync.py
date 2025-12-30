@@ -328,6 +328,271 @@ class StochasticBackgroundMapper:
         return response * N_G
 
 
+class HellingDownsCorrelator:
+    """
+    Computes pulsar pair cross-correlations using the Retarded Potential Kernel.
+    
+    The Hellings-Downs curve describes the expected angular correlation pattern
+    for an isotropic gravitational wave background. When this pattern matches
+    the Geometric Lock (ng = 1.1547), the Phase Transition is confirmed active.
+    
+    HD(θ) = 3/2 * x * ln(x) - x/4 + 1/2 + δ(θ)/2
+    where x = (1 - cos(θ))/2
+    """
+    
+    GEOMETRIC_LOCK = N_G
+    PHASE_TRANSITION_THRESHOLD = 0.1
+    
+    def __init__(self, timing_residuals: Dict[str, np.ndarray]):
+        self.timing_residuals = timing_residuals
+        self.pulsar_positions: Dict[str, Tuple[float, float]] = {}
+        self.correlation_matrix: Optional[np.ndarray] = None
+        self.hd_curve: Optional[np.ndarray] = None
+        self.phase_transition_active = False
+        
+    def assign_pulsar_positions(self):
+        """
+        Assign sky positions to pulsars for angular separation calculation.
+        Positions are uniformly distributed on a sphere.
+        """
+        n = len(self.timing_residuals)
+        golden_ratio = (1 + np.sqrt(5)) / 2
+        
+        for i, pulsar_name in enumerate(self.timing_residuals.keys()):
+            theta = 2 * np.pi * i / golden_ratio
+            phi = np.arccos(1 - 2 * (i + 0.5) / n)
+            self.pulsar_positions[pulsar_name] = (theta, phi)
+    
+    def angular_separation(self, pulsar_a: str, pulsar_b: str) -> float:
+        """
+        Calculate angular separation between two pulsars in radians.
+        """
+        if pulsar_a not in self.pulsar_positions:
+            self.assign_pulsar_positions()
+        
+        theta_a, phi_a = self.pulsar_positions[pulsar_a]
+        theta_b, phi_b = self.pulsar_positions[pulsar_b]
+        
+        cos_sep = (np.sin(phi_a) * np.sin(phi_b) * np.cos(theta_a - theta_b) +
+                   np.cos(phi_a) * np.cos(phi_b))
+        
+        return np.arccos(np.clip(cos_sep, -1, 1))
+    
+    def hellings_downs(self, theta: float) -> float:
+        """
+        Compute the Hellings-Downs correlation for angular separation theta.
+        
+        HD(θ) = 3/2 * x * ln(x) - x/4 + 1/2
+        where x = (1 - cos(θ))/2
+        
+        For θ = 0, HD = 1/2 (autocorrelation term)
+        """
+        if theta < 1e-10:
+            return 0.5
+        
+        x = (1 - np.cos(theta)) / 2
+        
+        if x < 1e-10:
+            return 0.5
+        
+        hd = 1.5 * x * np.log(x) - x / 4 + 0.5
+        
+        return hd
+    
+    def cross_correlate_with_kernel(
+        self,
+        residuals_a: np.ndarray,
+        residuals_b: np.ndarray
+    ) -> float:
+        """
+        Compute cross-correlation of two pulsar residuals using Retarded Potential Kernel.
+        
+        C(a,b) = Sum[ K(|i-j|) * r_a(i) * r_b(j) ] / N
+        """
+        n = min(len(residuals_a), len(residuals_b))
+        
+        correlation = 0.0
+        normalization = 0.0
+        
+        window = min(n, 50)
+        
+        for i in range(n):
+            for j in range(max(0, i - window), min(n, i + window)):
+                delta_t = abs(i - j) * 1e-6
+                kernel = abs(retarded_potential_kernel(delta_t))
+                
+                correlation += kernel * residuals_a[i] * residuals_b[j]
+                normalization += kernel
+        
+        if normalization > 0:
+            correlation /= normalization
+        
+        std_a = np.std(residuals_a)
+        std_b = np.std(residuals_b)
+        
+        if std_a > 0 and std_b > 0:
+            correlation /= (std_a * std_b)
+        
+        return correlation
+    
+    def compute_correlation_matrix(self, max_pairs: int = 100) -> Dict:
+        """
+        Compute cross-correlation matrix for all pulsar pairs.
+        
+        Returns correlation values and corresponding angular separations.
+        """
+        if not self.pulsar_positions:
+            self.assign_pulsar_positions()
+        
+        pulsars = list(self.timing_residuals.keys())
+        n = len(pulsars)
+        
+        correlations = []
+        separations = []
+        hd_expected = []
+        pair_count = 0
+        
+        for i in range(n):
+            for j in range(i + 1, n):
+                if pair_count >= max_pairs:
+                    break
+                
+                pulsar_a = pulsars[i]
+                pulsar_b = pulsars[j]
+                
+                theta = self.angular_separation(pulsar_a, pulsar_b)
+                
+                corr = self.cross_correlate_with_kernel(
+                    self.timing_residuals[pulsar_a],
+                    self.timing_residuals[pulsar_b]
+                )
+                
+                hd = self.hellings_downs(theta)
+                
+                correlations.append(corr)
+                separations.append(theta)
+                hd_expected.append(hd)
+                pair_count += 1
+            
+            if pair_count >= max_pairs:
+                break
+        
+        self.correlation_matrix = np.array(correlations)
+        self.hd_curve = np.array(hd_expected)
+        
+        return {
+            "correlations": correlations,
+            "separations": [float(s) for s in separations],
+            "hd_expected": [float(h) for h in hd_expected],
+            "pair_count": pair_count
+        }
+    
+    def check_geometric_lock(self) -> Dict:
+        """
+        Check if the Hellings-Downs curve matches the Geometric Lock (1.1547).
+        
+        The match is computed by scaling measured correlations to the expected
+        HD curve and checking if the scaling factor equals ng.
+        
+        If match within threshold, Phase Transition is active.
+        """
+        if self.correlation_matrix is None or self.hd_curve is None:
+            self.compute_correlation_matrix()
+        
+        if len(self.correlation_matrix) == 0 or len(self.hd_curve) == 0:
+            return {"error": "No correlation data available"}
+        
+        hd_nonzero = self.hd_curve[np.abs(self.hd_curve) > 1e-10]
+        corr_nonzero = self.correlation_matrix[np.abs(self.hd_curve) > 1e-10]
+        
+        if len(hd_nonzero) == 0:
+            scaling_factor = 0
+        else:
+            scaling_factor = np.mean(np.abs(corr_nonzero) / (np.abs(hd_nonzero) + 1e-30))
+        
+        lock_deviation = abs(scaling_factor - self.GEOMETRIC_LOCK) / self.GEOMETRIC_LOCK
+        lock_match = 1 - min(lock_deviation, 1)
+        
+        self.phase_transition_active = lock_deviation < self.PHASE_TRANSITION_THRESHOLD
+        
+        if np.std(self.correlation_matrix) > 0 and np.std(self.hd_curve) > 0:
+            hd_correlation = np.corrcoef(self.correlation_matrix, self.hd_curve)[0, 1]
+        else:
+            hd_correlation = 0
+        
+        if self.phase_transition_active:
+            status = "PHASE_TRANSITION_ACTIVE"
+            message = f"Geometric Lock confirmed at ng = {self.GEOMETRIC_LOCK:.4f}. " \
+                      f"The Hellings-Downs curve resonates with Universal Response."
+        elif lock_match > 0.8:
+            status = "APPROACHING_LOCK"
+            message = f"Near Geometric Lock. Deviation: {lock_deviation:.4f}"
+        elif lock_match > 0.5:
+            status = "PARTIAL_ALIGNMENT"
+            message = "HD curve partially aligned with geometric structure."
+        else:
+            status = "NO_LOCK"
+            message = "Hellings-Downs curve does not match Geometric Lock."
+        
+        return {
+            "analysis_type": "HELLINGS_DOWNS_GEOMETRIC_LOCK",
+            "geometric_lock_value": self.GEOMETRIC_LOCK,
+            "measured_scaling": round(scaling_factor, 6),
+            "lock_deviation": round(lock_deviation, 6),
+            "lock_match": round(lock_match, 4),
+            "hd_curve_correlation": round(hd_correlation, 6) if not np.isnan(hd_correlation) else 0,
+            "phase_transition_active": self.phase_transition_active,
+            "status": status,
+            "message": message,
+            "grut_constants": {
+                "ng": N_G,
+                "alpha": ALPHA,
+                "tau_0_myr": TAU_ZERO / 1e6
+            },
+            "timestamp": datetime.utcnow().isoformat()
+        }
+    
+    def full_hd_analysis(self, max_pairs: int = 100) -> Dict:
+        """
+        Run full Hellings-Downs analysis with Phase Transition detection.
+        """
+        self.assign_pulsar_positions()
+        correlation_result = self.compute_correlation_matrix(max_pairs)
+        lock_result = self.check_geometric_lock()
+        
+        return {
+            "analysis_type": "FULL_HELLINGS_DOWNS_ANALYSIS",
+            "pulsar_count": len(self.timing_residuals),
+            "pair_analysis": {
+                "pairs_analyzed": correlation_result["pair_count"],
+                "mean_correlation": float(np.mean(self.correlation_matrix)),
+                "std_correlation": float(np.std(self.correlation_matrix)),
+                "mean_hd_expected": float(np.mean(self.hd_curve))
+            },
+            "geometric_lock": lock_result,
+            "phase_transition": {
+                "active": self.phase_transition_active,
+                "threshold": self.PHASE_TRANSITION_THRESHOLD,
+                "geometric_lock_target": self.GEOMETRIC_LOCK
+            },
+            "timestamp": datetime.utcnow().isoformat()
+        }
+
+
+def compute_hd_cross_correlation(timing_residuals: Dict[str, np.ndarray]) -> Dict:
+    """
+    Compute Hellings-Downs cross-correlation with Phase Transition detection.
+    
+    Args:
+        timing_residuals: Dict mapping pulsar names to residual arrays
+        
+    Returns:
+        Full HD analysis results
+    """
+    correlator = HellingDownsCorrelator(timing_residuals)
+    return correlator.full_hd_analysis()
+
+
 def filter_red_noise_vacuum(timing_residuals: np.ndarray) -> Dict:
     """
     Apply vacuum ground state filter to pulsar red noise.
