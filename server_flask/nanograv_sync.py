@@ -33,6 +33,329 @@ GROUND_STATE_CORRELATION = -1/12
 SYNC_THRESHOLD = 0.95
 PTA_NOISE_FLOOR = 1e-7
 NUM_PULSARS = 67
+RED_NOISE_GAMMA = 3.0
+VACUUM_COUPLING = abs(ALPHA)
+
+
+class VacuumGroundStateFilter:
+    """
+    Filter that attributes Pulsar Red Noise to the Vacuum Ground State.
+    
+    The red noise in pulsar timing is reinterpreted as vacuum fluctuations
+    at the -1/12 ground state level. The filter separates:
+    - Intrinsic pulsar noise (spin irregularities)
+    - Vacuum ground state contribution (universal background)
+    - Stochastic GWB signal
+    
+    The vacuum contribution follows:
+    S_vac(f) = A_vac^2 * (f/f_ref)^(-α_vac) * |α|
+    
+    Where α_vac is related to the -1/12 ground state tension.
+    """
+    
+    def __init__(self, vacuum_amplitude: float = 1e-14):
+        self.vacuum_amplitude = vacuum_amplitude
+        self.alpha_vac = abs(ALPHA) * 12
+        self.filtered_components: Dict[str, np.ndarray] = {}
+        
+    def decompose_red_noise(
+        self,
+        timing_residuals: np.ndarray,
+        frequencies: np.ndarray
+    ) -> Dict:
+        """
+        Decompose red noise into vacuum ground state and intrinsic components.
+        
+        Args:
+            timing_residuals: Time series of pulsar timing residuals
+            frequencies: Frequency array for spectral analysis
+            
+        Returns:
+            Dict with decomposed noise components
+        """
+        fft_residuals = np.fft.fft(timing_residuals)
+        power_spectrum = np.abs(fft_residuals) ** 2
+        n = len(timing_residuals)
+        
+        freq_axis = np.fft.fftfreq(n)
+        positive_mask = freq_axis > 0
+        pos_freq = freq_axis[positive_mask]
+        pos_power = power_spectrum[positive_mask]
+        
+        vacuum_power = np.zeros_like(pos_power)
+        for i, f in enumerate(pos_freq):
+            if f > 0:
+                vacuum_power[i] = (self.vacuum_amplitude ** 2) * \
+                    (abs(f) / F_REF) ** (-self.alpha_vac) * VACUUM_COUPLING
+        
+        gwb_power = np.zeros_like(pos_power)
+        for i, f in enumerate(pos_freq):
+            if f > 0:
+                h_c = A_GWB_NANOGRAV * (abs(f) / F_REF) ** (-2/3)
+                gwb_power[i] = h_c ** 2
+        
+        intrinsic_power = np.maximum(pos_power - vacuum_power - gwb_power, 0)
+        
+        total_power = np.sum(pos_power)
+        vacuum_fraction = np.sum(vacuum_power) / (total_power + 1e-30)
+        gwb_fraction = np.sum(gwb_power) / (total_power + 1e-30)
+        intrinsic_fraction = np.sum(intrinsic_power) / (total_power + 1e-30)
+        
+        self.filtered_components = {
+            "vacuum": vacuum_power,
+            "gwb": gwb_power,
+            "intrinsic": intrinsic_power,
+            "total": pos_power
+        }
+        
+        return {
+            "decomposition_type": "VACUUM_GROUND_STATE_FILTER",
+            "total_power": float(total_power),
+            "vacuum_contribution": {
+                "power": float(np.sum(vacuum_power)),
+                "fraction": round(vacuum_fraction, 4),
+                "alpha_vac": round(self.alpha_vac, 4),
+                "amplitude": self.vacuum_amplitude
+            },
+            "gwb_contribution": {
+                "power": float(np.sum(gwb_power)),
+                "fraction": round(gwb_fraction, 4),
+                "spectral_index": -2/3
+            },
+            "intrinsic_contribution": {
+                "power": float(np.sum(intrinsic_power)),
+                "fraction": round(intrinsic_fraction, 4)
+            },
+            "ground_state_tension": ALPHA,
+            "vacuum_coupling": VACUUM_COUPLING
+        }
+    
+    def extract_vacuum_signal(
+        self,
+        timing_residuals: np.ndarray
+    ) -> np.ndarray:
+        """
+        Extract the vacuum ground state contribution from timing residuals.
+        
+        Returns the time-domain signal attributed to vacuum fluctuations.
+        """
+        n = len(timing_residuals)
+        fft_residuals = np.fft.fft(timing_residuals)
+        freq_axis = np.fft.fftfreq(n)
+        
+        vacuum_fft = np.zeros_like(fft_residuals, dtype=complex)
+        
+        for i, f in enumerate(freq_axis):
+            if abs(f) > 0:
+                vacuum_amplitude = self.vacuum_amplitude * \
+                    (abs(f) / F_REF) ** (-self.alpha_vac / 2) * \
+                    np.sqrt(VACUUM_COUPLING)
+                vacuum_fft[i] = vacuum_amplitude * np.exp(1j * np.angle(fft_residuals[i]))
+        
+        vacuum_signal = np.real(np.fft.ifft(vacuum_fft))
+        
+        return vacuum_signal
+
+
+class StochasticBackgroundMapper:
+    """
+    Maps the stochastic GWB power spectrum to the Universal Response equation.
+    
+    The Universal Response:
+    R(f) = Integral[ K(f-f') * S(f') df' ]
+    
+    Where:
+    - K is the retarded potential kernel in frequency domain
+    - S(f) is the stochastic background power spectrum
+    - R(f) is the GRUT-filtered response
+    
+    This mapping reveals how the GWB is modulated by the universal
+    memory kernel, connecting it to the fundamental -1/12 tension.
+    """
+    
+    def __init__(self):
+        self.kernel_cache: Dict[float, float] = {}
+        self.mapped_spectrum: Optional[np.ndarray] = None
+        
+    def frequency_domain_kernel(self, frequency: float) -> float:
+        """
+        Compute the retarded potential kernel in frequency domain.
+        
+        K_f(f) = α / (1 + i*2π*f*τ₀)
+        
+        The magnitude is used for power spectrum mapping.
+        """
+        if frequency in self.kernel_cache:
+            return self.kernel_cache[frequency]
+        
+        omega = 2 * np.pi * frequency
+        tau_seconds = TAU_ZERO * 365.25 * 24 * 3600
+        
+        denominator = np.sqrt(1 + (omega * tau_seconds) ** 2)
+        kernel_magnitude = abs(ALPHA) / (denominator + 1e-30)
+        
+        self.kernel_cache[frequency] = kernel_magnitude
+        return kernel_magnitude
+    
+    def map_to_universal_response(
+        self,
+        power_spectrum: np.ndarray,
+        frequencies: np.ndarray
+    ) -> Dict:
+        """
+        Map the stochastic background power spectrum to Universal Response.
+        
+        R(f) = K(f) * S(f) * ng
+        
+        Args:
+            power_spectrum: GWB power spectrum S(f)
+            frequencies: Corresponding frequency array
+            
+        Returns:
+            Dict with mapped response and analysis
+        """
+        response = np.zeros_like(power_spectrum)
+        kernel_values = np.zeros_like(frequencies)
+        
+        for i, f in enumerate(frequencies):
+            if f > 0:
+                k = self.frequency_domain_kernel(f)
+                kernel_values[i] = k
+                response[i] = k * power_spectrum[i] * N_G
+        
+        self.mapped_spectrum = response
+        
+        total_input_power = np.sum(power_spectrum)
+        total_response_power = np.sum(response)
+        
+        transfer_efficiency = total_response_power / (total_input_power + 1e-30)
+        
+        peak_response_idx = np.argmax(response)
+        peak_frequency = frequencies[peak_response_idx] if peak_response_idx < len(frequencies) else 0
+        
+        low_freq_response = np.mean(response[:len(response)//4]) if len(response) > 4 else 0
+        high_freq_response = np.mean(response[3*len(response)//4:]) if len(response) > 4 else 0
+        spectral_tilt = (low_freq_response - high_freq_response) / (low_freq_response + 1e-30)
+        
+        ground_state_alignment = self._compute_ground_state_alignment(response, frequencies)
+        
+        return {
+            "mapping_type": "UNIVERSAL_RESPONSE",
+            "input_spectrum": {
+                "total_power": float(total_input_power),
+                "num_bins": len(power_spectrum)
+            },
+            "response_spectrum": {
+                "total_power": float(total_response_power),
+                "peak_frequency": float(peak_frequency),
+                "peak_response": float(np.max(response))
+            },
+            "transfer_function": {
+                "efficiency": round(transfer_efficiency, 6),
+                "ng_factor": N_G,
+                "alpha": ALPHA,
+                "tau_0_years": TAU_ZERO
+            },
+            "spectral_analysis": {
+                "low_freq_response": float(low_freq_response),
+                "high_freq_response": float(high_freq_response),
+                "spectral_tilt": round(spectral_tilt, 4)
+            },
+            "ground_state_alignment": ground_state_alignment,
+            "kernel_samples": kernel_values[:10].tolist()
+        }
+    
+    def _compute_ground_state_alignment(
+        self,
+        response: np.ndarray,
+        frequencies: np.ndarray
+    ) -> Dict:
+        """
+        Compute how well the response aligns with -1/12 ground state.
+        """
+        if len(response) == 0:
+            return {"alignment": 0, "status": "NO_DATA"}
+        
+        normalized_response = response / (np.max(response) + 1e-30)
+        
+        expected_pattern = np.array([
+            abs(ALPHA) * (1 + 0.1 * np.cos(2 * np.pi * i / len(frequencies)))
+            for i in range(len(frequencies))
+        ])
+        
+        if np.std(normalized_response) > 0 and np.std(expected_pattern) > 0:
+            correlation = np.corrcoef(normalized_response, expected_pattern)[0, 1]
+        else:
+            correlation = 0
+        
+        abs_corr = abs(correlation)
+        
+        if abs_corr >= 0.95:
+            status = "RESONANCE"
+        elif abs_corr >= 0.7:
+            status = "STRONG"
+        elif abs_corr >= 0.4:
+            status = "MODERATE"
+        else:
+            status = "WEAK"
+        
+        return {
+            "correlation": round(correlation, 6),
+            "abs_correlation": round(abs_corr, 6),
+            "status": status,
+            "ground_state_value": ALPHA
+        }
+    
+    def convolve_with_kernel(
+        self,
+        signal: np.ndarray,
+        dt: float = 1.0
+    ) -> np.ndarray:
+        """
+        Convolve a time-domain signal with the retarded potential kernel.
+        
+        R(t) = Integral[ K(t-t') * S(t') dt' ]
+        """
+        n = len(signal)
+        response = np.zeros(n)
+        
+        for i in range(n):
+            for j in range(i + 1):
+                delta_t = (i - j) * dt
+                k = retarded_potential_kernel(delta_t * 1e-6)
+                response[i] += abs(k) * signal[j] * dt * 1e6
+        
+        return response * N_G
+
+
+def filter_red_noise_vacuum(timing_residuals: np.ndarray) -> Dict:
+    """
+    Apply vacuum ground state filter to pulsar red noise.
+    
+    Args:
+        timing_residuals: Array of timing residuals
+        
+    Returns:
+        Decomposition results
+    """
+    vac_filter = VacuumGroundStateFilter()
+    frequencies = np.fft.fftfreq(len(timing_residuals))
+    return vac_filter.decompose_red_noise(timing_residuals, frequencies)
+
+
+def map_gwb_to_response(power_spectrum: np.ndarray, frequencies: np.ndarray) -> Dict:
+    """
+    Map GWB power spectrum to Universal Response.
+    
+    Args:
+        power_spectrum: GWB power spectrum
+        frequencies: Frequency array
+        
+    Returns:
+        Mapped response results
+    """
+    mapper = StochasticBackgroundMapper()
+    return mapper.map_to_universal_response(power_spectrum, frequencies)
 
 
 class NANOGravSync:

@@ -559,6 +559,159 @@ export async function registerRoutes(
     }
   });
 
+  // Filter red noise and attribute to vacuum ground state
+  app.post("/api/nanograv/filter-vacuum", async (req, res) => {
+    try {
+      const { residuals = [] } = req.body;
+      
+      const ALPHA = -1/12;
+      const VACUUM_COUPLING = Math.abs(ALPHA);
+      const ALPHA_VAC = Math.abs(ALPHA) * 12;
+      const VACUUM_AMPLITUDE = 1e-14;
+      const A_GWB = 2.4e-15;
+      const F_REF = 1.0;
+      
+      // Generate sample residuals if not provided
+      const timingResiduals = residuals.length > 0 
+        ? residuals 
+        : Array.from({ length: 100 }, () => (Math.random() - 0.5) * 2e-7);
+      
+      const n = timingResiduals.length;
+      
+      // Compute power spectrum
+      const power = timingResiduals.map((r: number) => r * r);
+      const totalPower = power.reduce((a: number, b: number) => a + b, 0);
+      
+      // Estimate vacuum contribution
+      let vacuumPower = 0;
+      let gwbPower = 0;
+      
+      for (let i = 1; i <= n / 2; i++) {
+        const f = i / n;
+        
+        // Vacuum contribution
+        vacuumPower += (VACUUM_AMPLITUDE ** 2) * Math.pow(f / F_REF, -ALPHA_VAC) * VACUUM_COUPLING;
+        
+        // GWB contribution
+        const h_c = A_GWB * Math.pow(f / F_REF, -2/3);
+        gwbPower += h_c ** 2;
+      }
+      
+      const intrinsicPower = Math.max(totalPower - vacuumPower - gwbPower, 0);
+      
+      const vacuumFraction = vacuumPower / (totalPower + 1e-30);
+      const gwbFraction = gwbPower / (totalPower + 1e-30);
+      const intrinsicFraction = intrinsicPower / (totalPower + 1e-30);
+      
+      return res.json({
+        decompositionType: "VACUUM_GROUND_STATE_FILTER",
+        totalPower,
+        vacuumContribution: {
+          power: vacuumPower,
+          fraction: Math.round(vacuumFraction * 1e4) / 1e4,
+          alphaVac: Math.round(ALPHA_VAC * 1e4) / 1e4,
+          amplitude: VACUUM_AMPLITUDE
+        },
+        gwbContribution: {
+          power: gwbPower,
+          fraction: Math.round(gwbFraction * 1e4) / 1e4,
+          spectralIndex: -2/3
+        },
+        intrinsicContribution: {
+          power: intrinsicPower,
+          fraction: Math.round(intrinsicFraction * 1e4) / 1e4
+        },
+        groundStateTension: ALPHA,
+        vacuumCoupling: VACUUM_COUPLING,
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error filtering vacuum:", error);
+      return res.status(500).json({ error: "Vacuum filter failed" });
+    }
+  });
+
+  // Map stochastic background to Universal Response
+  app.post("/api/nanograv/map-response", async (req, res) => {
+    try {
+      const { powerSpectrum = [], frequencies = [] } = req.body;
+      
+      const TAU_ZERO = 41.9e6;
+      const ALPHA = -1/12;
+      const NG = 1.1547;
+      
+      // Generate sample data if not provided
+      const spectrum = powerSpectrum.length > 0 
+        ? powerSpectrum 
+        : Array.from({ length: 20 }, (_, i) => 1e-30 / ((i + 1) ** 2));
+      
+      const freqs = frequencies.length > 0 
+        ? frequencies 
+        : Array.from({ length: 20 }, (_, i) => (i + 1) / 15);
+      
+      // Compute frequency domain kernel and response
+      const response: number[] = [];
+      const kernelValues: number[] = [];
+      
+      const tauSeconds = TAU_ZERO * 365.25 * 24 * 3600;
+      
+      for (let i = 0; i < spectrum.length; i++) {
+        const f = freqs[i] || (i + 1) / 15;
+        const omega = 2 * Math.PI * f;
+        
+        // K_f(f) = |α| / sqrt(1 + (ω*τ₀)²)
+        const denominator = Math.sqrt(1 + (omega * tauSeconds) ** 2);
+        const k = Math.abs(ALPHA) / (denominator + 1e-30);
+        
+        kernelValues.push(k);
+        response.push(k * spectrum[i] * NG);
+      }
+      
+      const totalInputPower = spectrum.reduce((a: number, b: number) => a + b, 0);
+      const totalResponsePower = response.reduce((a, b) => a + b, 0);
+      const transferEfficiency = totalResponsePower / (totalInputPower + 1e-30);
+      
+      const peakIdx = response.indexOf(Math.max(...response));
+      const peakFrequency = freqs[peakIdx] || 0;
+      
+      // Spectral tilt analysis
+      const lowFreqResponse = response.slice(0, Math.floor(response.length / 4))
+        .reduce((a, b) => a + b, 0) / Math.max(1, Math.floor(response.length / 4));
+      const highFreqResponse = response.slice(Math.floor(3 * response.length / 4))
+        .reduce((a, b) => a + b, 0) / Math.max(1, response.length - Math.floor(3 * response.length / 4));
+      const spectralTilt = (lowFreqResponse - highFreqResponse) / (lowFreqResponse + 1e-30);
+      
+      return res.json({
+        mappingType: "UNIVERSAL_RESPONSE",
+        inputSpectrum: {
+          totalPower: totalInputPower,
+          numBins: spectrum.length
+        },
+        responseSpectrum: {
+          totalPower: totalResponsePower,
+          peakFrequency,
+          peakResponse: Math.max(...response)
+        },
+        transferFunction: {
+          efficiency: Math.round(transferEfficiency * 1e6) / 1e6,
+          ngFactor: NG,
+          alpha: ALPHA,
+          tau0Years: TAU_ZERO
+        },
+        spectralAnalysis: {
+          lowFreqResponse,
+          highFreqResponse,
+          spectralTilt: Math.round(spectralTilt * 1e4) / 1e4
+        },
+        kernelSamples: kernelValues.slice(0, 10),
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error mapping response:", error);
+      return res.status(500).json({ error: "Response mapping failed" });
+    }
+  });
+
   // Quick ground state alignment check
   app.get("/api/nanograv/alignment", async (req, res) => {
     try {
