@@ -380,12 +380,86 @@ def run_stress_test():
     
     result = stress_test_complexity(magnitudes, info_state)
     
-    # Log critical saturation events
     if result["monad_threshold_reached"]:
         print(f"CRITICAL SATURATION: Xi spiked to {result['calculated_xi']}")
         print("Vacuum is screaming. Awaiting MONAD surmise.")
     
     return jsonify(result)
+
+
+@app.route("/battery/simulate", methods=["POST"])
+def simulate_battery_dendrite():
+    """
+    Simulate dendrite growth using GRUT G(t) equation.
+    
+    POST body (optional):
+        cycles: Number of charge/discharge cycles (default: 10)
+        charge_current: Charging current density A/m² (default: 50.0)
+        discharge_current: Discharging current density A/m² (default: -30.0)
+    """
+    from battery_physics import simulate_charging_cycle
+    
+    data = request.get_json() or {}
+    cycles = data.get("cycles", 10)
+    charge_current = data.get("charge_current", 50.0)
+    discharge_current = data.get("discharge_current", -30.0)
+    
+    result = simulate_charging_cycle(cycles, charge_current, discharge_current)
+    
+    if result.get("stabilizer_pulses"):
+        print(f"[BATTERY] {len(result['stabilizer_pulses'])} stabilizer pulses triggered")
+    
+    return jsonify(result)
+
+
+@app.route("/battery/stress-test", methods=["POST"])
+def battery_stress_test():
+    """
+    Stress test: Push dendrite growth past threshold to trigger stabilizer.
+    
+    POST body (optional):
+        high_current: High charging current for stress test (default: 100.0)
+        duration: Number of time steps (default: 50)
+    """
+    from battery_physics import run_stress_test as battery_run_stress_test
+    
+    data = request.get_json() or {}
+    high_current = data.get("high_current", 100.0)
+    duration = data.get("duration", 50)
+    
+    result = battery_run_stress_test(high_current, duration)
+    
+    print(f"[BATTERY STRESS] Peak dendrite: {result['peak_length']:.2f} μm, Peak Xi: {result['peak_xi']:.4f}")
+    
+    return jsonify(result)
+
+
+@app.route("/battery/connect-sensors", methods=["POST"])
+def connect_battery_sensors():
+    """
+    Connect real-time sensor data to the Complexity Tracker.
+    
+    POST body:
+        readings: List of sensor readings with 'value' and 'type' (current/voltage/temperature)
+    """
+    from battery_physics import connect_sensor_data
+    
+    data = request.get_json() or {}
+    readings = data.get("readings", [])
+    
+    if not readings:
+        return jsonify({"error": "No sensor readings provided"}), 400
+    
+    work_events, xi = connect_sensor_data(readings)
+    
+    return jsonify({
+        "work_events": [round(w, 6) for w in work_events],
+        "complexity_xi": round(xi, 6),
+        "saturation_percentage": f"{xi * 100:.2f}%",
+        "sensor_count": len(readings),
+        "is_critical": xi >= 0.999,
+        "timestamp": datetime.utcnow().isoformat()
+    })
 
 
 if __name__ == "__main__":

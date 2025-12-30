@@ -264,6 +264,163 @@ export async function registerRoutes(
     }
   });
 
+  // ===== BATTERY PHYSICS - Dendrite Growth Simulation =====
+  
+  // Battery dendrite stress test endpoint
+  app.post("/api/battery/stress-test", async (req, res) => {
+    try {
+      const { highCurrent = 100.0, duration = 50 } = req.body;
+      
+      const NG = 1.1547;
+      const TAU_ZERO = 41.9e6;
+      const ALPHA = -1/12;
+      const DENDRITE_THRESHOLD = 50.0;
+      const GROWTH_RATE = 0.1;
+      const IONIC_DECAY = 0.01;
+      const RESET_PULSE = 0.5;
+      
+      // Simulate dendrite growth
+      let dendriteLength = 0;
+      const currentHistory: number[] = [];
+      const steps: any[] = [];
+      const stabilizerPulses: any[] = [];
+      
+      for (let t = 0; t < duration; t++) {
+        const current = highCurrent * (1 + 0.1 * Math.sin(t * 0.5));
+        currentHistory.push(current);
+        
+        // Calculate growth rate with memory kernel
+        let growthRate = GROWTH_RATE * current;
+        for (let i = 0; i < currentHistory.length - 1; i++) {
+          const deltaT = (t - i) * 1e-6;
+          if (deltaT > 0) {
+            const kernelWeight = Math.abs((ALPHA / TAU_ZERO) * Math.exp(-deltaT / TAU_ZERO));
+            growthRate += kernelWeight * currentHistory[i] * IONIC_DECAY;
+          }
+        }
+        growthRate *= NG;
+        dendriteLength += growthRate;
+        
+        // Calculate Xi
+        const workEvents = currentHistory.slice(-10).map(j => Math.abs(j) / 100.0);
+        const infoState = workEvents.length * 0.1 + 0.1;
+        const xi = Math.min(workEvents.reduce((a, b) => a + b, 0) / infoState, 1.0);
+        
+        // Check threshold and trigger stabilizer
+        let stabilizerTriggered = false;
+        if (dendriteLength >= DENDRITE_THRESHOLD) {
+          stabilizerTriggered = true;
+          const seismicEquiv = (dendriteLength / DENDRITE_THRESHOLD) * 10;
+          
+          let stabilizedAlpha: number;
+          let stabilityStatus: string;
+          if (seismicEquiv > 7.0) {
+            stabilizedAlpha = ALPHA * (1 / (1 + xi));
+            stabilityStatus = "CORE SETTLING: High Stability Mode";
+          } else {
+            stabilizedAlpha = ALPHA;
+            stabilityStatus = "NOMINAL: Metric Fluidity";
+          }
+          
+          const resetFactor = 1.0 - RESET_PULSE * Math.abs(stabilizedAlpha) / Math.abs(ALPHA);
+          const oldLength = dendriteLength;
+          dendriteLength *= resetFactor;
+          
+          stabilizerPulses.push({
+            time: t,
+            oldLength: Math.round(oldLength * 1e4) / 1e4,
+            newLength: Math.round(dendriteLength * 1e4) / 1e4,
+            resetFactor: Math.round(resetFactor * 1e4) / 1e4,
+            stabilizedAlpha: Math.round(stabilizedAlpha * 1e8) / 1e8,
+            status: stabilityStatus
+          });
+          
+          console.log(`[BATTERY] STABILIZER PULSE: ${stabilityStatus}`);
+          console.log(`[BATTERY] Dendrite reset: ${oldLength.toFixed(2)} -> ${dendriteLength.toFixed(2)} um`);
+        }
+        
+        steps.push({
+          time: t,
+          dendriteLength: Math.round(dendriteLength * 1e4) / 1e4,
+          growthRate: Math.round(growthRate * 1e6) / 1e6,
+          complexityXi: Math.round(xi * 1e6) / 1e6,
+          stabilizerTriggered
+        });
+      }
+      
+      const peakLength = Math.max(...steps.map(s => s.dendriteLength));
+      const peakXi = Math.max(...steps.map(s => s.complexityXi));
+      
+      console.log(`[BATTERY STRESS] Peak dendrite: ${peakLength.toFixed(2)} um, Peak Xi: ${peakXi.toFixed(4)}`);
+      
+      return res.json({
+        testType: "BATTERY_STRESS_TEST",
+        simulationType: "DENDRITE_GROWTH",
+        totalSteps: steps.length,
+        finalState: {
+          dendriteLength: steps[steps.length - 1].dendriteLength,
+          complexityXi: steps[steps.length - 1].complexityXi,
+          threshold: DENDRITE_THRESHOLD
+        },
+        stabilizerPulses,
+        stabilizerPulseCount: stabilizerPulses.length,
+        peakLength,
+        peakXi,
+        steps: steps.slice(-10),
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error running battery stress test:", error);
+      return res.status(500).json({ error: "Battery stress test failed" });
+    }
+  });
+
+  // Connect sensor data to complexity tracker
+  app.post("/api/battery/connect-sensors", async (req, res) => {
+    try {
+      const { readings = [] } = req.body;
+      
+      if (!readings.length) {
+        return res.status(400).json({ error: "No sensor readings provided" });
+      }
+      
+      const NG = 1.1547;
+      const workEvents: number[] = [];
+      
+      for (const reading of readings) {
+        const value = reading.value || 0;
+        const sensorType = reading.type || "unknown";
+        
+        let work: number;
+        if (sensorType === "current") {
+          work = Math.abs(value) / 100.0 * NG;
+        } else if (sensorType === "voltage") {
+          work = Math.abs(value - 3.7) / 1.0 * NG;
+        } else if (sensorType === "temperature") {
+          work = Math.max(0, (value - 25) / 50.0) * NG;
+        } else {
+          work = Math.abs(value) / 100.0;
+        }
+        workEvents.push(work);
+      }
+      
+      const infoState = workEvents.length * 0.1 + 0.1;
+      const xi = Math.min(workEvents.reduce((a, b) => a + b, 0) / infoState, 1.0);
+      
+      return res.json({
+        workEvents: workEvents.map(w => Math.round(w * 1e6) / 1e6),
+        complexityXi: Math.round(xi * 1e6) / 1e6,
+        saturationPercentage: `${(xi * 100).toFixed(2)}%`,
+        sensorCount: readings.length,
+        isCritical: xi >= 0.999,
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error connecting sensors:", error);
+      return res.status(500).json({ error: "Sensor connection failed" });
+    }
+  });
+
   // ===== AUTHENTICATION ROUTES =====
   
   // Create demo user on startup if not exists
