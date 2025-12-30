@@ -5,6 +5,10 @@ from grut_physics import (
     universal_response, 
     calculate_complexity, 
     calculate_kernel,
+    fetch_live_work_events,
+    fetch_earths_work,
+    fetch_humanitys_work,
+    get_live_complexity,
     TAU_ZERO, 
     ALPHA, 
     N_G
@@ -255,6 +259,49 @@ def visualize_xi_evolution():
         "success": True,
         "graph": json_str
     })
+
+
+@app.route("/live_work_events", methods=["GET"])
+def get_live_work_events_endpoint():
+    """
+    Fetch live work events from Earth (USGS) and Humanity (GDELT).
+    Returns combined work_events list populated with real data.
+    """
+    global CURRENT_XI, monad_mode, work_events
+    
+    live_data = fetch_live_work_events()
+    
+    work_events = live_data["combined_work_events"]
+    CURRENT_XI = live_data["current_xi"]
+    
+    if CURRENT_XI >= 1.0:
+        monad_mode = True
+    
+    return jsonify({
+        "success": True,
+        "live_data": live_data,
+        "system_state": {
+            "current_xi": CURRENT_XI,
+            "monad_mode": monad_mode,
+            "work_events_count": len(work_events)
+        }
+    })
+
+
+@app.route("/earths_work", methods=["GET"])
+def get_earths_work():
+    """
+    Fetch Earth's Work - USGS seismic data.
+    """
+    return jsonify(fetch_earths_work())
+
+
+@app.route("/humanitys_work", methods=["GET"])
+def get_humanitys_work():
+    """
+    Fetch Humanity's Work - GDELT news sentiment.
+    """
+    return jsonify(fetch_humanitys_work())
 
 
 if __name__ == "__main__":
