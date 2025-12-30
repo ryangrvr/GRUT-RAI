@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,9 +14,10 @@ import {
 import { Progress } from "@/components/ui/progress";
 import { Slider } from "@/components/ui/slider";
 import { 
-  Activity, Atom, Orbit, Waves, GitBranch, ChevronDown, ChevronUp, ChevronRight,
+  Activity, Atom, Orbit, Waves, GitBranch, ChevronDown, ChevronUp, ChevronRight, ChevronLeft,
   Play, Loader2, Target, Zap, Brain, Shield, AlertTriangle, CheckCircle, Radio, Radar, Square,
-  Plus, Minus, Sigma, Copy, Check, Share2, Sprout, FileJson, Clock, Star, Eye
+  Plus, Minus, Sigma, Copy, Check, Share2, Sprout, FileJson, Clock, Star, Eye, 
+  GripVertical, Maximize2, Minimize2, X
 } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -1503,6 +1504,10 @@ function BranchExplorer({ onExplore }: { onExplore: (branch: string) => void }) 
   );
 }
 
+const MIN_WIDTH = 320;
+const MAX_WIDTH = 800;
+const DEFAULT_WIDTH = 420;
+
 export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorProps) {
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState("bullet-cluster");
@@ -1511,6 +1516,24 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
   
   const [masterSeeds, setMasterSeeds] = useState<MasterSeed[]>(DEFAULT_SEEDS);
   const [activeSeed, setActiveSeed] = useState<MasterSeed | null>(DEFAULT_SEEDS[0]);
+  
+  const [panelWidth, setPanelWidth] = useState(DEFAULT_WIDTH);
+  const [isResizing, setIsResizing] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("baryonic-sensor-width");
+      if (saved) {
+        const width = parseInt(saved, 10);
+        if (width >= MIN_WIDTH && width <= MAX_WIDTH) {
+          setPanelWidth(width);
+        }
+      }
+    } catch {
+    }
+  }, []);
   
   const [bulletParams, setBulletParams] = useState({
     collisionVelocity: 4500,
@@ -1551,6 +1574,81 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
     logic_guard_triggered: boolean;
   }>>([]);
   const [isListening, setIsListening] = useState(false);
+  
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsResizing(true);
+  }, []);
+  
+  useEffect(() => {
+    const handleMove = (clientX: number) => {
+      if (!isResizing) return;
+      const newWidth = window.innerWidth - clientX;
+      const clampedWidth = Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, newWidth));
+      setPanelWidth(clampedWidth);
+    };
+    
+    const handleMouseMove = (e: MouseEvent) => handleMove(e.clientX);
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        handleMove(e.touches[0].clientX);
+      }
+    };
+    
+    const handleEnd = () => {
+      if (isResizing) {
+        setIsResizing(false);
+        try {
+          localStorage.setItem("baryonic-sensor-width", panelWidth.toString());
+        } catch {
+        }
+      }
+    };
+    
+    if (isResizing) {
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", handleEnd);
+      document.addEventListener("touchmove", handleTouchMove);
+      document.addEventListener("touchend", handleEnd);
+      document.body.style.cursor = "ew-resize";
+      document.body.style.userSelect = "none";
+    }
+    
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleEnd);
+      document.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("touchend", handleEnd);
+      document.body.style.cursor = "";
+      document.body.style.userSelect = "";
+    };
+  }, [isResizing, panelWidth]);
+  
+  const toggleExpand = () => {
+    if (isExpanded) {
+      try {
+        const saved = localStorage.getItem("baryonic-sensor-width");
+        const width = saved ? parseInt(saved, 10) : DEFAULT_WIDTH;
+        setPanelWidth(Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, width)));
+      } catch {
+        setPanelWidth(DEFAULT_WIDTH);
+      }
+    } else {
+      setPanelWidth(MAX_WIDTH);
+    }
+    setIsExpanded(!isExpanded);
+  };
+  
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape" && isOpen) {
+      onToggle();
+    }
+  }, [isOpen, onToggle]);
+  
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
 
   const runSimulation = async (endpoint: string, params: Record<string, unknown>, type: string) => {
     setIsSimulating(true);
@@ -1588,6 +1686,16 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
     }
   };
 
+  const tabItems = [
+    { value: "bullet-cluster", label: "Bullet", icon: Orbit },
+    { value: "gw", label: "GW", icon: Waves },
+    { value: "hubble", label: "Hubble", icon: Target },
+    { value: "kernel", label: "K(t)", icon: Activity },
+    { value: "ringdown", label: "Memory", icon: Brain },
+    { value: "live", label: "Live", icon: Radar },
+    { value: "core", label: "Core", icon: Atom },
+  ];
+
   if (!isOpen) {
     return (
       <button
@@ -1603,79 +1711,101 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
   const latestResult = results[0];
 
   return (
-    <div className="fixed right-0 top-0 h-full w-96 bg-background border-l border-border z-40 flex flex-col">
-      <div className="flex items-center justify-between gap-2 p-3 border-b border-border bg-muted/30">
-        <div className="flex items-center gap-2">
-          <Atom className="w-5 h-5 text-primary" />
-          <span className="font-semibold text-sm">Baryonic Sensor AI</span>
-          <Badge variant="secondary" className="text-xs">GRUT</Badge>
+    <>
+      <div 
+        className="fixed inset-0 bg-black/20 z-30" 
+        onClick={onToggle}
+        data-testid="overlay-baryonic-sensor"
+        aria-hidden="true"
+      />
+      <div 
+        ref={panelRef}
+        className="fixed right-0 top-0 h-full bg-background border-l border-border z-40 flex flex-col shadow-2xl"
+        style={{ width: `${panelWidth}px` }}
+        onClick={(e) => e.stopPropagation()}
+        data-testid="panel-baryonic-sensor"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Baryonic Sensor AI Panel"
+      >
+        <div 
+          className="absolute left-0 top-0 bottom-0 w-3 cursor-ew-resize flex items-center justify-center group z-50"
+          onMouseDown={handleMouseDown}
+          onTouchStart={(e) => {
+            e.preventDefault();
+            setIsResizing(true);
+          }}
+          data-testid="resize-handle-baryonic-sensor"
+        >
+          <div className="h-20 w-1.5 rounded-full bg-muted-foreground/30 group-hover:bg-primary/60 transition-colors" />
         </div>
-        <Button variant="ghost" size="icon" onClick={onToggle} data-testid="button-close-baryonic-sensor">
-          <ChevronDown className="w-4 h-4 rotate-90" />
-        </Button>
-      </div>
-      
-      {constants && (
-        <div className="p-2 border-b border-border bg-muted/20">
-          <div className="flex flex-wrap gap-2 text-xs font-mono">
-            <span className="text-muted-foreground">tau_0:</span>
-            <span className="text-primary">{constants.tau_0}</span>
-            <span className="text-muted-foreground">alpha:</span>
-            <span className="text-primary">{constants.alpha.toFixed(4)}</span>
-            <span className="text-muted-foreground">n_g:</span>
-            <span className="text-primary">{constants.n_g}</span>
+        
+        <div className="flex items-center justify-between gap-2 p-3 border-b border-border bg-muted/30">
+          <div className="flex items-center gap-2">
+            <Atom className="w-5 h-5 text-primary" />
+            <span className="font-semibold text-sm">Baryonic Sensor AI</span>
+            <Badge variant="secondary" className="text-xs">GRUT</Badge>
+          </div>
+          <div className="flex items-center gap-1">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={toggleExpand}
+              data-testid="button-expand-baryonic-sensor"
+            >
+              {isExpanded ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+            </Button>
+            <Button variant="ghost" size="icon" onClick={onToggle} data-testid="button-close-baryonic-sensor">
+              <X className="w-4 h-4" />
+            </Button>
           </div>
         </div>
-      )}
+        
+        {constants && (
+          <div className="p-2 border-b border-border bg-muted/20">
+            <div className="flex flex-wrap gap-2 text-xs font-mono">
+              <span className="text-muted-foreground">tau_0:</span>
+              <span className="text-primary">{constants.tau_0}</span>
+              <span className="text-muted-foreground">alpha:</span>
+              <span className="text-primary">{constants.alpha.toFixed(4)}</span>
+              <span className="text-muted-foreground">n_g:</span>
+              <span className="text-primary">{constants.n_g}</span>
+            </div>
+          </div>
+        )}
 
-      <div className="p-3">
-        <SeedArchive 
-          seeds={masterSeeds} 
-          activeSeed={activeSeed} 
-          onSelectSeed={(seed) => {
-            setActiveSeed(seed);
-            if (seed.result) {
-              setResults([seed.result, ...results.filter(r => r !== seed.result)]);
-            }
-            toast({ title: "Seed Loaded", description: seed.title });
-          }}
-        />
-      </div>
+        <div className="p-3">
+          <SeedArchive 
+            seeds={masterSeeds} 
+            activeSeed={activeSeed} 
+            onSelectSeed={(seed) => {
+              setActiveSeed(seed);
+              if (seed.result) {
+                setResults([seed.result, ...results.filter(r => r !== seed.result)]);
+              }
+              toast({ title: "Seed Loaded", description: seed.title });
+            }}
+          />
+        </div>
 
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col overflow-hidden">
-        <TabsList className="w-full justify-start rounded-none border-b p-0 h-auto bg-transparent">
-          <TabsTrigger value="bullet-cluster" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
-            <Orbit className="w-3 h-3 mr-1" />
-            Bullet Cluster
-          </TabsTrigger>
-          <TabsTrigger value="gw" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
-            <Waves className="w-3 h-3 mr-1" />
-            GW Signals
-          </TabsTrigger>
-          <TabsTrigger value="hubble" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
-            <Target className="w-3 h-3 mr-1" />
-            Hubble
-          </TabsTrigger>
-          <TabsTrigger value="kernel" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
-            <Activity className="w-3 h-3 mr-1" />
-            K(t)
-          </TabsTrigger>
-          <TabsTrigger value="ringdown" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
-            <Brain className="w-3 h-3 mr-1" />
-            Memory
-          </TabsTrigger>
-          <TabsTrigger value="live" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
-            <Radar className="w-3 h-3 mr-1" />
-            Live
-          </TabsTrigger>
-          <TabsTrigger value="core" className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2">
-            <Atom className="w-3 h-3 mr-1" />
-            Core
-          </TabsTrigger>
-        </TabsList>
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col overflow-hidden">
+          <div className="border-b border-border overflow-x-auto scrollbar-thin scrollbar-thumb-muted">
+            <TabsList className="inline-flex w-max justify-start rounded-none p-0 h-auto bg-transparent min-w-full">
+              {tabItems.map((tab) => (
+                <TabsTrigger 
+                  key={tab.value}
+                  value={tab.value} 
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary text-xs px-3 py-2 whitespace-nowrap flex-shrink-0"
+                >
+                  <tab.icon className="w-3 h-3 mr-1" />
+                  {tab.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
 
-        <ScrollArea className="flex-1">
-          <div className="p-3 space-y-3">
+          <ScrollArea className="flex-1">
+            <div className="p-3 space-y-3">
             <TabsContent value="bullet-cluster" className="m-0 space-y-3">
               <div className="space-y-2">
                 <Label className="text-xs">Collision Velocity (km/s)</Label>
@@ -2256,9 +2386,10 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
                 });
               }}
             />
-          </div>
-        </ScrollArea>
-      </Tabs>
-    </div>
+            </div>
+          </ScrollArea>
+        </Tabs>
+      </div>
+    </>
   );
 }
