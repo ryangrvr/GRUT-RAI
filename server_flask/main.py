@@ -10,6 +10,7 @@ from grut_physics import (
     N_G
 )
 from context_engine import ContextEngineManager
+from visualizer import get_visualization_json, generate_consciousness_field
 
 app = Flask(__name__)
 CORS(app)
@@ -186,6 +187,73 @@ def health_check():
         "status": "healthy",
         "service": "GRUT Physics Engine",
         "version": "v6.0"
+    })
+
+
+@app.route("/visualize/consciousness_field", methods=["GET", "POST"])
+def visualize_consciousness_field():
+    """
+    Generate 3D consciousness field visualization.
+    
+    Z = Ξ · sin(r - t) · K(r)
+    
+    Low Ξ (0.1): Flat surface (Materialism)
+    High Ξ (1.0): Rippling sphere/torus (Whole Hole)
+    """
+    if request.method == "POST":
+        data = request.get_json() or {}
+    else:
+        data = {}
+    
+    xi = data.get("xi", CURRENT_XI)
+    time_phase = data.get("time_phase", 0.0)
+    resolution = data.get("resolution", 50)
+    
+    try:
+        xi = float(xi)
+        time_phase = float(time_phase)
+        resolution = int(resolution)
+    except (TypeError, ValueError):
+        return jsonify({"error": "Invalid parameter types"}), 400
+    
+    graph_data = generate_consciousness_field(xi, time_phase, resolution)
+    
+    return jsonify({
+        "success": True,
+        "xi": xi,
+        "monad_mode": xi >= 1.0,
+        "graph": graph_data
+    })
+
+
+@app.route("/visualize/kernel_decay", methods=["GET"])
+def visualize_kernel_decay():
+    """
+    Generate retarded potential kernel decay visualization.
+    """
+    max_time = request.args.get("max_time_myr", 100.0, type=float)
+    
+    json_str = get_visualization_json(CURRENT_XI, "kernel_decay", max_time_myr=max_time)
+    
+    return jsonify({
+        "success": True,
+        "graph": json_str
+    })
+
+
+@app.route("/visualize/xi_evolution", methods=["POST"])
+def visualize_xi_evolution():
+    """
+    Generate Ξ evolution over time visualization.
+    """
+    data = request.get_json() or {}
+    xi_history = data.get("xi_history", work_events)
+    
+    json_str = get_visualization_json(CURRENT_XI, "xi_evolution", xi_history=xi_history)
+    
+    return jsonify({
+        "success": True,
+        "graph": json_str
     })
 
 
