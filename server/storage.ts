@@ -3,10 +3,24 @@ import {
   type ChatMessage, type ChatConversation, type ChatFileUpload, type UniverseState, type GrutConstants,
   users, subscribers, conversations, messages, metricMemory, fileUploads, universeStates, DEFAULT_GRUT_CONSTANTS
 } from "@shared/schema";
-import { db } from "./db";
-import { pool } from "./db";
+import { db, pool, dbAvailable, dbError } from "./db";
 import { eq, desc } from "drizzle-orm";
 import { applyGrutGain } from "./grut-logic";
+
+// Sovereign Offline Mode: Check if database is available before operations
+function requireDb() {
+  if (!db || !dbAvailable) {
+    throw new Error("SOVEREIGN_OFFLINE_MODE: Database unavailable. The Diamond Core remains accessible.");
+  }
+  return db;
+}
+
+function requirePool() {
+  if (!pool || !dbAvailable) {
+    throw new Error("SOVEREIGN_OFFLINE_MODE: Database pool unavailable.");
+  }
+  return pool;
+}
 
 export interface WeightedMemory {
   messageId: string;
@@ -45,17 +59,17 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async getUser(id: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.id, id));
+    const [user] = await requireDb().select().from(users).where(eq(users.id, id));
     return user || undefined;
   }
 
   async getUserByEmail(email: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.email, email.toLowerCase().trim()));
+    const [user] = await requireDb().select().from(users).where(eq(users.email, email.toLowerCase().trim()));
     return user || undefined;
   }
 
   async createUser(email: string, passwordHash: string): Promise<User> {
-    const [user] = await db.insert(users).values({
+    const [user] = await requireDb().insert(users).values({
       email: email.toLowerCase().trim(),
       passwordHash,
     }).returning();
@@ -63,7 +77,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async updateUserConstants(userId: string, constants: GrutConstants): Promise<User | undefined> {
-    const [user] = await db.update(users)
+    const [user] = await requireDb().update(users)
       .set({ grutConstants: constants })
       .where(eq(users.id, userId))
       .returning();
@@ -71,20 +85,20 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getSubscriberByEmail(email: string): Promise<Subscriber | undefined> {
-    const [subscriber] = await db.select().from(subscribers).where(eq(subscribers.email, email));
+    const [subscriber] = await requireDb().select().from(subscribers).where(eq(subscribers.email, email));
     return subscriber || undefined;
   }
 
   async createSubscriber(insertSubscriber: InsertSubscriber): Promise<Subscriber> {
-    const [subscriber] = await db.insert(subscribers).values(insertSubscriber).returning();
+    const [subscriber] = await requireDb().insert(subscribers).values(insertSubscriber).returning();
     return subscriber;
   }
 
   async getConversation(id: string): Promise<ChatConversation | undefined> {
-    const [conversation] = await db.select().from(conversations).where(eq(conversations.id, id));
+    const [conversation] = await requireDb().select().from(conversations).where(eq(conversations.id, id));
     if (!conversation) return undefined;
 
-    const msgs = await db.select().from(messages)
+    const msgs = await requireDb().select().from(messages)
       .where(eq(messages.conversationId, id))
       .orderBy(messages.createdAt);
 
@@ -106,7 +120,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getAllConversations(): Promise<ChatConversation[]> {
-    const convos = await db.select().from(conversations).orderBy(desc(conversations.createdAt));
+    const convos = await requireDb().select().from(conversations).orderBy(desc(conversations.createdAt));
     
     return convos.map(c => ({
       id: c.id,
@@ -117,7 +131,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getUserConversations(userId: string): Promise<ChatConversation[]> {
-    const convos = await db.select().from(conversations)
+    const convos = await requireDb().select().from(conversations)
       .where(eq(conversations.userId, userId))
       .orderBy(desc(conversations.createdAt));
     return convos.map(c => ({
@@ -133,7 +147,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createConversation(title: string, userId: string): Promise<ChatConversation> {
-    const [conversation] = await db.insert(conversations).values({ title, userId }).returning();
+    const [conversation] = await requireDb().insert(conversations).values({ title, userId }).returning();
     return {
       id: conversation.id,
       title: conversation.title,
@@ -144,17 +158,17 @@ export class DatabaseStorage implements IStorage {
   }
 
   async deleteConversation(id: string, userId: string): Promise<void> {
-    await db.delete(conversations).where(eq(conversations.id, id));
+    await requireDb().delete(conversations).where(eq(conversations.id, id));
   }
 
   async verifyConversationOwnership(conversationId: string, userId: string): Promise<boolean> {
-    const [conversation] = await db.select().from(conversations)
+    const [conversation] = await requireDb().select().from(conversations)
       .where(eq(conversations.id, conversationId));
     return conversation?.userId === userId;
   }
 
   async addMessage(conversationId: string, role: "user" | "assistant" | "system", content: string): Promise<ChatMessage> {
-    const [message] = await db.insert(messages).values({
+    const [message] = await requireDb().insert(messages).values({
       conversationId,
       role,
       content,
@@ -170,7 +184,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getMessages(conversationId: string): Promise<ChatMessage[]> {
-    const msgs = await db.select().from(messages)
+    const msgs = await requireDb().select().from(messages)
       .where(eq(messages.conversationId, conversationId))
       .orderBy(messages.createdAt);
 
@@ -184,7 +198,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async storeMetricMemory(conversationId: string, messageId: string, embedding: number[], complexityXi: number): Promise<void> {
-    await db.insert(metricMemory).values({
+    await requireDb().insert(metricMemory).values({
       conversationId,
       messageId,
       interactionVector: embedding,
@@ -216,7 +230,7 @@ export class DatabaseStorage implements IStorage {
     `;
 
     try {
-      const result = await pool.query(query, [conversationId, tauSeconds, limit]);
+      const result = await requirePool().query(query, [conversationId, tauSeconds, limit]);
       
       return result.rows.map((row: any) => {
         const effectiveRelevance = parseFloat(row.effective_relevance);
@@ -239,7 +253,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async saveFileUpload(data: { conversationId?: string; messageId?: string; userId?: string; filename: string; originalName: string; mimeType: string; size: number }): Promise<ChatFileUpload> {
-    const [upload] = await db.insert(fileUploads).values({
+    const [upload] = await requireDb().insert(fileUploads).values({
       conversationId: data.conversationId,
       messageId: data.messageId,
       userId: data.userId,
@@ -263,7 +277,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getFileUploads(conversationId: string): Promise<ChatFileUpload[]> {
-    const uploads = await db.select().from(fileUploads)
+    const uploads = await requireDb().select().from(fileUploads)
       .where(eq(fileUploads.conversationId, conversationId))
       .orderBy(desc(fileUploads.createdAt));
 
@@ -282,7 +296,7 @@ export class DatabaseStorage implements IStorage {
 
   async saveUniverseState(userId: string, name: string, masterSeed: object, msgs: ChatMessage[], conversationId?: string): Promise<UniverseState> {
     const last20 = msgs.slice(-20);
-    const [state] = await db.insert(universeStates).values({
+    const [state] = await requireDb().insert(universeStates).values({
       userId,
       name,
       masterSeed,
@@ -294,11 +308,11 @@ export class DatabaseStorage implements IStorage {
 
   async loadUniverseState(userId: string, stateId?: string): Promise<UniverseState | undefined> {
     if (stateId) {
-      const [state] = await db.select().from(universeStates)
+      const [state] = await requireDb().select().from(universeStates)
         .where(eq(universeStates.id, stateId));
       return state || undefined;
     }
-    const [state] = await db.select().from(universeStates)
+    const [state] = await requireDb().select().from(universeStates)
       .where(eq(universeStates.userId, userId))
       .orderBy(desc(universeStates.createdAt))
       .limit(1);
@@ -306,7 +320,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getUserUniverseStates(userId: string): Promise<UniverseState[]> {
-    return await db.select().from(universeStates)
+    return await requireDb().select().from(universeStates)
       .where(eq(universeStates.userId, userId))
       .orderBy(desc(universeStates.createdAt));
   }
@@ -330,7 +344,7 @@ export class DatabaseStorage implements IStorage {
 
     const messagesToCopy = sourceConvo.messages.slice(0, forkMsgIndex + 1);
 
-    const [newConvo] = await db.insert(conversations).values({
+    const [newConvo] = await requireDb().insert(conversations).values({
       title,
       userId,
       parentConversationId: sourceConversationId,
@@ -339,7 +353,7 @@ export class DatabaseStorage implements IStorage {
     }).returning();
 
     for (const msg of messagesToCopy) {
-      await db.insert(messages).values({
+      await requireDb().insert(messages).values({
         conversationId: newConvo.id,
         role: msg.role,
         content: msg.content,
@@ -358,7 +372,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getChildConversations(parentId: string): Promise<ChatConversation[]> {
-    const children = await db.select().from(conversations)
+    const children = await requireDb().select().from(conversations)
       .where(eq(conversations.parentConversationId, parentId))
       .orderBy(desc(conversations.createdAt));
 

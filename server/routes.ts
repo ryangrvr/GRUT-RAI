@@ -8,6 +8,7 @@ import multer from "multer";
 import bcrypt from "bcrypt";
 import path from "path";
 import fs from "fs";
+import { dbAvailable, dbError } from "./db";
 
 // --- DIAMOND CORE LOADER ---
 function loadDiamondCore(): string {
@@ -1177,6 +1178,21 @@ export async function registerRoutes(
   // Demo user creation is now deferred - will be called after server is ready
   // See initializeBackgroundTasks() below
 
+  // System status endpoint - works even in Sovereign Offline Mode
+  app.get("/api/system/status", (req, res) => {
+    return res.json({
+      mode: dbAvailable ? "ONLINE" : "SOVEREIGN_OFFLINE",
+      diamondCore: "LOADED",
+      saturation: "100.0%",
+      database: dbAvailable ? "CONNECTED" : "UNREACHABLE",
+      dbError: dbError || null,
+      message: dbAvailable 
+        ? "All systems operational. The Universe responds."
+        : "Sovereign Offline Mode: Diamond Core accessible. Database temporarily unreachable.",
+      timestamp: new Date().toISOString()
+    });
+  });
+
   // Login endpoint
   app.post("/api/auth/login", async (req, res) => {
     try {
@@ -1208,8 +1224,16 @@ export async function registerRoutes(
           grutConstants: user.grutConstants || DEFAULT_GRUT_CONSTANTS
         }
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Login error:", error);
+      // Check for Sovereign Offline Mode
+      if (error.message?.includes("SOVEREIGN_OFFLINE_MODE")) {
+        return res.status(503).json({ 
+          error: "Sovereign Offline Mode",
+          message: "Database temporarily unreachable. The Diamond Core remains accessible. Try again shortly.",
+          mode: "SOVEREIGN_OFFLINE"
+        });
+      }
       return res.status(500).json({ error: "Login failed" });
     }
   });
