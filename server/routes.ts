@@ -264,6 +264,189 @@ export async function registerRoutes(
     }
   });
 
+  // ===== NANOGRAV PTA - Gravitational Wave Correlation =====
+  
+  // Get NANOGrav 15-year summary
+  app.get("/api/nanograv/summary", async (req, res) => {
+    return res.json({
+      dataset: "NANOGrav 15-year",
+      publicationYear: 2023,
+      pulsarsObserved: 67,
+      observationSpanYears: 15,
+      keyFindings: {
+        stochasticBackgroundDetected: true,
+        strainAmplitude1yr: "2.4 × 10⁻¹⁵",
+        spectralIndex: "-2/3",
+        hellingsDowsEvidence: "3.5σ",
+        interpretation: "Supermassive black hole binary population"
+      },
+      grutInterpretation: {
+        commonRedNoise: "τ₀ = 41.9 Myr memory signature",
+        hellingsDowsBoost: "n_g = 1.1547 gravitational index",
+        strainCorrelation: "Retarded Potential Kernel at cosmological scale",
+        complexityLink: "Ξ fluctuations correlate with GW strain variations"
+      },
+      constants: {
+        tau0Myr: 41.9,
+        alpha: -1/12,
+        nG: 1.1547
+      }
+    });
+  });
+
+  // Cross-correlate GW event with NANOGrav background
+  app.post("/api/nanograv/correlate", async (req, res) => {
+    try {
+      const { 
+        eventStrain = 1e-15, 
+        eventFrequency = 3.17e-8,
+        eventDurationDays = 365.25 
+      } = req.body;
+      
+      const NANOGRAV_STRAIN = 2.4e-15;
+      const NANOGRAV_FREQ = 1.0 / (365.25 * 24 * 3600);
+      const SPECTRAL_INDEX = -2/3;
+      const CORR_LOW = 0.1;
+      const CORR_HIGH = 10.0;
+      
+      const expectedStrain = NANOGRAV_STRAIN * Math.pow(eventFrequency / NANOGRAV_FREQ, SPECTRAL_INDEX);
+      const correlationIndex = expectedStrain > 0 ? eventStrain / expectedStrain : 0;
+      
+      const patternsUnified = correlationIndex >= CORR_LOW && correlationIndex <= CORR_HIGH;
+      
+      let status: string;
+      let message: string;
+      let complexityDrop = 0;
+      
+      if (patternsUnified) {
+        complexityDrop = 0.05;
+        status = "PATTERNS_UNIFIED";
+        message = "Event correlates with NANOGrav background. Complexity reduced.";
+      } else if (correlationIndex < CORR_LOW) {
+        status = "BELOW_THRESHOLD";
+        message = "Event strain below NANOGrav correlation threshold.";
+      } else {
+        status = "ABOVE_THRESHOLD";
+        message = "Event strain exceeds NANOGrav correlation range.";
+      }
+      
+      return res.json({
+        eventStrain,
+        eventFrequencyHz: eventFrequency,
+        eventDurationDays,
+        expectedStrain,
+        correlationIndex: Math.round(correlationIndex * 1e6) / 1e6,
+        correlationRange: [CORR_LOW, CORR_HIGH],
+        patternsUnified,
+        complexityDrop,
+        status,
+        message,
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error correlating GW event:", error);
+      return res.status(500).json({ error: "GW correlation failed" });
+    }
+  });
+
+  // Generate Hellings-Downs curve with GRUT n_g boost
+  app.get("/api/nanograv/hellings-downs", async (req, res) => {
+    try {
+      const numPoints = parseInt(req.query.points as string) || 36;
+      const NG = 1.1547;
+      const curve: any[] = [];
+      
+      for (let i = 0; i <= numPoints; i++) {
+        const angle = i * 180 / numPoints;
+        const theta = angle * Math.PI / 180;
+        const x = (1 - Math.cos(theta)) / 2;
+        
+        let hd: number;
+        if (x < 1e-10) {
+          hd = 0.5;
+        } else {
+          hd = 0.5 - 0.25 * x + 1.5 * x * Math.log(x);
+        }
+        
+        const grutHd = Math.max(-1, Math.min(1, hd * NG));
+        
+        curve.push({
+          angleDegrees: angle,
+          hellingsDowsStandard: Math.round(hd * 1e4) / 1e4,
+          hellingsDowsGrut: Math.round(grutHd * 1e4) / 1e4,
+          nGBoost: NG
+        });
+      }
+      
+      return res.json({
+        curveType: "HELLINGS_DOWNS",
+        numPoints: curve.length,
+        curve,
+        grutModification: "Boosted by n_g = 1.1547 gravitational refractive index",
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error generating HD curve:", error);
+      return res.status(500).json({ error: "Hellings-Downs calculation failed" });
+    }
+  });
+
+  // Analyze PTA frequency band
+  app.post("/api/nanograv/frequency-analysis", async (req, res) => {
+    try {
+      const { 
+        minFreqHz = 1e-9, 
+        maxFreqHz = 1e-7, 
+        numPoints = 20 
+      } = req.body;
+      
+      const NANOGRAV_STRAIN = 2.4e-15;
+      const NANOGRAV_FREQ = 1.0 / (365.25 * 24 * 3600);
+      const SPECTRAL_INDEX = -2/3;
+      const TAU_ZERO = 41.9e6;
+      const ALPHA = -1/12;
+      
+      const spectrum: any[] = [];
+      
+      for (let i = 0; i < numPoints; i++) {
+        const f = minFreqHz * Math.pow(maxFreqHz / minFreqHz, i / (numPoints - 1));
+        const strain = NANOGRAV_STRAIN * Math.pow(f / NANOGRAV_FREQ, SPECTRAL_INDEX);
+        
+        const kernelWeight = Math.abs((ALPHA / TAU_ZERO) * Math.exp(-(1/f) * 1e-6 / TAU_ZERO));
+        const kernelBoost = 1 + kernelWeight * 1e10;
+        const grutStrain = strain * kernelBoost;
+        
+        spectrum.push({
+          frequencyHz: f,
+          periodYears: 1 / (f * 365.25 * 24 * 3600),
+          strainNanograv: strain,
+          strainGrut: grutStrain,
+          kernelBoost
+        });
+      }
+      
+      const peakEntry = spectrum.reduce((max, s) => s.strainGrut > max.strainGrut ? s : max, spectrum[0]);
+      
+      return res.json({
+        analysisType: "PTA_FREQUENCY_BAND",
+        frequencyRangeHz: [minFreqHz, maxFreqHz],
+        numPoints,
+        spectrum,
+        peakStrain: peakEntry.strainGrut,
+        peakFrequencyHz: peakEntry.frequencyHz,
+        nanogravReference: {
+          amplitude: NANOGRAV_STRAIN,
+          referenceFreqHz: NANOGRAV_FREQ,
+          spectralIndex: SPECTRAL_INDEX
+        },
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error analyzing PTA frequencies:", error);
+      return res.status(500).json({ error: "Frequency analysis failed" });
+    }
+  });
+
   // ===== BATTERY PHYSICS - Dendrite Growth Simulation =====
   
   // Battery dendrite stress test endpoint
