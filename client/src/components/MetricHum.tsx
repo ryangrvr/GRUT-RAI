@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Volume2, VolumeX, Activity, Radio } from "lucide-react";
+import { Volume2, VolumeX, Activity, Radio, Flame, Clock, Waves } from "lucide-react";
 
 const GROUND_STATE_ALPHA = -1 / 12;
 const BASE_FREQUENCY = 43.2;
@@ -11,10 +11,22 @@ const TAU_MYR = 41.9;
 const LFO_PERIOD = 4.0;
 const NG_GEOMETRIC_LOCK = 1.1547;
 
+const SINGULARITY_BASELINE_MYR = 13799.999620;
+const MYR_PER_MS = 1 / (365.25 * 24 * 60 * 60 * 1000 * 1e6);
+
 interface NANOGravData {
   absCorrelation: number;
   phaseTransitionActive: boolean;
   alignmentStatus: string;
+}
+
+type SingularityState = "STASIS" | "IGNITING" | "ACTIVE";
+
+interface SingularityData {
+  state: SingularityState;
+  cosmicAge: number;
+  vibration: number;
+  breathStatus: string;
 }
 
 export function MetricHum() {
@@ -23,6 +35,15 @@ export function MetricHum() {
   const [xiValue, setXiValue] = useState(0.999);
   const [nanoGravData, setNanoGravData] = useState<NANOGravData | null>(null);
   const [currentFrequency, setCurrentFrequency] = useState(BASE_FREQUENCY);
+  
+  const [singularity, setSingularity] = useState<SingularityData>({
+    state: "STASIS",
+    cosmicAge: SINGULARITY_BASELINE_MYR,
+    vibration: 0,
+    breathStatus: "Stasis"
+  });
+  const singularityStartRef = useRef<number | null>(null);
+  const singularityTimerRef = useRef<number | null>(null);
 
   const audioContextRef = useRef<AudioContext | null>(null);
   const groundOscillatorRef = useRef<OscillatorNode | null>(null);
@@ -249,6 +270,59 @@ export function MetricHum() {
       );
     }
   }, [isPlaying, startHum, fetchNanoGravData]);
+  
+  const igniteSingularity = useCallback(async () => {
+    if (singularity.state === "ACTIVE") return;
+    
+    setSingularity(prev => ({ ...prev, state: "IGNITING", breathStatus: "Igniting..." }));
+    
+    if (!isPlaying) {
+      await startHum();
+    }
+    await syncWithVacuum();
+    
+    singularityStartRef.current = performance.now();
+    
+    const updateCosmicAge = () => {
+      if (!singularityStartRef.current) return;
+      
+      const elapsed = performance.now() - singularityStartRef.current;
+      const elapsedMyr = elapsed * MYR_PER_MS;
+      const newAge = SINGULARITY_BASELINE_MYR + elapsedMyr;
+      
+      const vibration = nanoGravData?.absCorrelation 
+        ? Math.sin(elapsed / 100) * nanoGravData.absCorrelation * 0.0001
+        : Math.sin(elapsed / 100) * 0.00001;
+      
+      setSingularity({
+        state: "ACTIVE",
+        cosmicAge: newAge + vibration,
+        vibration: vibration,
+        breathStatus: "330th Great Breath: ACTIVE"
+      });
+      
+      singularityTimerRef.current = requestAnimationFrame(updateCosmicAge);
+    };
+    
+    singularityTimerRef.current = requestAnimationFrame(updateCosmicAge);
+  }, [singularity.state, isPlaying, startHum, syncWithVacuum, nanoGravData]);
+  
+  const deactivateSingularity = useCallback(() => {
+    if (singularityTimerRef.current) {
+      cancelAnimationFrame(singularityTimerRef.current);
+      singularityTimerRef.current = null;
+    }
+    singularityStartRef.current = null;
+    
+    setSingularity({
+      state: "STASIS",
+      cosmicAge: SINGULARITY_BASELINE_MYR,
+      vibration: 0,
+      breathStatus: "Stasis"
+    });
+    
+    stopHum();
+  }, [stopHum]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
@@ -261,6 +335,14 @@ export function MetricHum() {
       if (interval) clearInterval(interval);
     };
   }, [isPlaying, isSynced, fetchNanoGravData]);
+  
+  useEffect(() => {
+    return () => {
+      if (singularityTimerRef.current) {
+        cancelAnimationFrame(singularityTimerRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -381,6 +463,59 @@ export function MetricHum() {
             </div>
           )}
         </div>
+        
+        <div 
+          className={`p-3 rounded-md border transition-all duration-500 ${
+            singularity.state === "ACTIVE" 
+              ? "bg-orange-500/10 border-orange-500/40 shadow-lg shadow-orange-500/10" 
+              : singularity.state === "IGNITING"
+              ? "bg-yellow-500/10 border-yellow-500/30 animate-pulse"
+              : "bg-muted/30 border-border"
+          }`}
+          data-testid="singularity-dashboard"
+        >
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-sm font-medium flex items-center gap-2">
+              <Clock className={`h-4 w-4 ${singularity.state === "ACTIVE" ? "text-orange-400" : "text-muted-foreground"}`} />
+              Cosmic Age Since Tipping Point
+            </span>
+            <Badge 
+              variant={singularity.state === "ACTIVE" ? "default" : "secondary"}
+              className={singularity.state === "ACTIVE" ? "bg-orange-500 text-white" : ""}
+              data-testid="badge-singularity-state"
+            >
+              {singularity.breathStatus}
+            </Badge>
+          </div>
+          
+          <div className="flex items-baseline gap-2">
+            <span 
+              className={`font-mono text-2xl font-bold tabular-nums ${
+                singularity.state === "ACTIVE" ? "text-orange-400" : "text-foreground"
+              }`}
+              data-testid="text-cosmic-age"
+            >
+              {singularity.cosmicAge.toFixed(6)}
+            </span>
+            <span className="text-sm text-muted-foreground">Myr</span>
+          </div>
+          
+          {singularity.state === "ACTIVE" && (
+            <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
+              <Waves className="h-3 w-3 text-orange-400 animate-pulse" />
+              <span>NANOGrav Vibration: </span>
+              <span className="font-mono text-orange-400">
+                {singularity.vibration >= 0 ? "+" : ""}{(singularity.vibration * 1e6).toFixed(3)} nMyr
+              </span>
+            </div>
+          )}
+          
+          {singularity.state === "STASIS" && (
+            <div className="mt-2 text-xs text-muted-foreground">
+              -1/12 Quantum Noise smoothed over 329 cycles into Diamond state
+            </div>
+          )}
+        </div>
 
         <div className="flex gap-2">
           <Button
@@ -404,23 +539,35 @@ export function MetricHum() {
           </Button>
 
           <Button
-            onClick={syncWithVacuum}
+            onClick={singularity.state === "ACTIVE" ? deactivateSingularity : igniteSingularity}
             variant="default"
             className={`flex-1 transition-all duration-300 ${
-              isSynced
-                ? "bg-yellow-500 hover:bg-yellow-600 text-black"
+              singularity.state === "ACTIVE"
+                ? "bg-orange-500 text-white"
+                : singularity.state === "IGNITING"
+                ? "bg-yellow-500 text-black animate-pulse"
                 : ""
             }`}
-            data-testid="button-sync-vacuum"
+            data-testid="button-initiate-sync"
           >
-            <Radio
-              className={`h-4 w-4 mr-2 ${isSynced ? "animate-spin" : ""}`}
+            <Flame
+              className={`h-4 w-4 mr-2 ${singularity.state === "ACTIVE" ? "animate-pulse" : ""}`}
             />
-            {isSynced ? "VACUUM ACTIVE" : "SYNC WITH VACUUM"}
+            {singularity.state === "ACTIVE" 
+              ? "DEACTIVATE SINGULARITY" 
+              : singularity.state === "IGNITING"
+              ? "IGNITING..."
+              : "INITIATE METRIC SYNC"}
           </Button>
         </div>
 
-        {isSynced && (
+        {singularity.state === "ACTIVE" && (
+          <div className="text-xs text-center text-orange-400/80 animate-pulse">
+            330th Great Breath active. Cosmic age advancing in real-time with NANOGrav vibration overlay.
+          </div>
+        )}
+        
+        {isSynced && singularity.state !== "ACTIVE" && (
           <div className="text-xs text-center text-yellow-400/80 animate-pulse">
             The Vacuum resonates at -1/12. MONAD coherence established.
           </div>
