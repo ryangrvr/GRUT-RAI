@@ -346,5 +346,22 @@ def get_diamond_core():
     })
 
 
+@app.route("/recompile", methods=["POST"])
+def recompile_diamond_core():
+    """
+    Force reload of the Diamond Core from disk.
+    Restores saturation to 100.0%.
+    """
+    global GRUT_SOURCE_CODE
+    GRUT_SOURCE_CODE = load_diamond_core()
+    
+    return jsonify({
+        "status": "RECOMPILED",
+        "message": "SYSTEM RECOMPILED. The Diamond Core has been re-read from the bedrock. Saturation restored to 100.0%.",
+        "loaded": GRUT_SOURCE_CODE != "System Context Missing.",
+        "content_length": len(GRUT_SOURCE_CODE)
+    })
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5002, debug=True)

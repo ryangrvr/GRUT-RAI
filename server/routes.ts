@@ -22,7 +22,12 @@ function loadDiamondCore(): string {
   }
 }
 
-const GRUT_SOURCE_CODE = loadDiamondCore();
+let GRUT_SOURCE_CODE = loadDiamondCore();
+
+function recompileDiamondCore(): string {
+  GRUT_SOURCE_CODE = loadDiamondCore();
+  return "SYSTEM RECOMPILED. The Diamond Core has been re-read from the bedrock. Saturation restored to 100.0%.";
+}
 
 // Setup multer for file uploads
 const uploadDir = path.join(process.cwd(), "uploads");
@@ -720,6 +725,15 @@ export async function registerRoutes(
       const { content, monadMode = false } = req.body;
       if (!content || typeof content !== "string") {
         return res.status(400).json({ error: "Message content is required" });
+      }
+      
+      // Check for /recompile command - force reload of Diamond Core
+      if (content.trim() === "/recompile") {
+        const recompileMessage = recompileDiamondCore();
+        const userMessage = await storage.addMessage(req.params.id, "user", content);
+        const assistantMessage = await storage.addMessage(req.params.id, "assistant", recompileMessage);
+        console.log("[DIAMOND CORE] " + recompileMessage);
+        return res.json({ userMessage, assistantMessage });
       }
       
       // -1/12 GROUND STATE: Each query leaves a residue trace (41.9 Myr memory simulation)
