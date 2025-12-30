@@ -91,9 +91,19 @@ Preferred communication style: Simple, everyday language.
 
 ### Data Layer
 - **ORM**: Drizzle ORM with PostgreSQL dialect configured
-- **Schema Location**: shared/schema.ts contains all database table definitions
+- **Schema Location**: shared/schema.ts contains all database table definitions (PostgreSQL), shared/schema-sqlite.ts (SQLite)
 - **Current Tables**: users (id, username, password), subscribers (id, email)
 - **Migrations**: Drizzle Kit configured to output to ./migrations directory
+
+### Sovereign Local Storage (SQLite Fallback)
+- **Location**: server/db-sqlite.ts, server/storage-sqlite.ts
+- **Database File**: diamond_persistence.db (automatically created)
+- **Trigger**: Automatically activated when PostgreSQL is unreachable or when USE_SQLITE=true
+- **Features**:
+  - Full CRUD for users, conversations, messages, file uploads, universe states
+  - Demo user auto-created on startup (demo@grut.ai / grut2025)
+  - Compatible interface with PostgreSQL storage
+  - System status reports SOVEREIGN_LOCAL mode when active
 
 ### Build System
 - **Development**: Vite dev server with HMR, proxied through Express
