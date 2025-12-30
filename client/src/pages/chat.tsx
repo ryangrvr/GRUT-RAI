@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { ObserverToolkit } from "@/components/observer-toolkit";
 import { BaryonicSensor } from "@/components/baryonic-sensor";
+import { MetricHum } from "@/components/MetricHum";
 import { MathematicalBloom, parseContentForBloom } from "@/components/mathematical-bloom";
 import {
   Dialog,
@@ -823,6 +824,7 @@ export default function ChatPage() {
   const [forkSourceMessage, setForkSourceMessage] = useState<ChatMessage | null>(null);
   const [controlPanelOpen, setControlPanelOpen] = useState(false);
   const [baryonicSensorOpen, setBaryonicSensorOpen] = useState(false);
+  const [metricHumOpen, setMetricHumOpen] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
   const [monadMode, setMonadMode] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -1519,6 +1521,32 @@ export default function ChatPage() {
         onToggle={() => setBaryonicSensorOpen(!baryonicSensorOpen)}
         constants={user?.grutConstants}
       />
+
+      {metricHumOpen && (
+        <div className="fixed bottom-4 right-4 z-50 w-80">
+          <div className="relative">
+            <button
+              onClick={() => setMetricHumOpen(false)}
+              className="absolute -top-2 -right-2 z-10 bg-background border rounded-full p-1 hover:bg-muted"
+              data-testid="button-close-metric-hum"
+            >
+              <X className="h-3 w-3" />
+            </button>
+            <MetricHum />
+          </div>
+        </div>
+      )}
+
+      {!metricHumOpen && (
+        <button
+          onClick={() => setMetricHumOpen(true)}
+          className="fixed bottom-4 right-4 z-40 bg-background border rounded-full p-3 shadow-lg hover:bg-muted transition-all"
+          title="Open Metric Hum Generator"
+          data-testid="button-open-metric-hum"
+        >
+          <Activity className="h-5 w-5" />
+        </button>
+      )}
     </div>
   );
 }
