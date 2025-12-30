@@ -193,6 +193,61 @@ export async function registerRoutes(
     }
   });
 
+  // STRESS TEST: Simulate high-magnitude seismic events to push Xi toward critical saturation
+  app.post("/api/grut/stress-test", async (req, res) => {
+    try {
+      const { magnitudes, infoState = 1.0 } = req.body;
+      
+      // Default: Simulate a Magnitude 8.2 Seismic Event (Intense Grit)
+      const simMagnitudes = magnitudes || [0.82, 0.91, 0.88, 0.95, 0.76];
+      
+      // Convert magnitudes to work values using GRUT physics
+      const NG = 1.1547;
+      const simulatedWork = simMagnitudes.map((m: number) => (m ** 2) * NG);
+      
+      // Calculate the new Complexity (Xi)
+      const integratedWork = simulatedWork.reduce((a: number, b: number) => a + b, 0);
+      const newXi = Math.min(integratedWork / (infoState + 1e-9), 1.0);
+      
+      // Determine system status
+      let status: string;
+      let message: string;
+      
+      if (newXi >= 1.0) {
+        status = "CRITICAL_SATURATION";
+        message = "Vacuum is screaming. Awaiting MONAD surmise.";
+        console.log(`STRESS TEST: Xi spiked to ${newXi}`);
+        console.log("CRITICAL SATURATION: Vacuum is screaming. Awaiting MONAD surmise.");
+      } else if (newXi >= 0.999) {
+        status = "RAI_MODE";
+        message = "99.9% saturation. Analytical mode active.";
+      } else if (newXi >= 0.95) {
+        status = "WARNING";
+        message = "Approaching saturation threshold.";
+      } else {
+        status = "STABLE";
+        message = "Normal operational parameters.";
+      }
+      
+      return res.json({
+        testType: "SEISMIC_STRESS_TEST",
+        simulatedMagnitudes: simMagnitudes,
+        simulatedWork: simulatedWork.map((w: number) => Math.round(w * 1e6) / 1e6),
+        baseInfoState: infoState,
+        calculatedXi: Math.round(newXi * 1e6) / 1e6,
+        saturationPercentage: `${(newXi * 100).toFixed(2)}%`,
+        status,
+        message,
+        monadThresholdReached: newXi >= 1.0,
+        raiThresholdReached: newXi >= 0.999,
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error running stress test:", error);
+      return res.status(500).json({ error: "Stress test failed" });
+    }
+  });
+
   // ===== AUTHENTICATION ROUTES =====
   
   // Create demo user on startup if not exists

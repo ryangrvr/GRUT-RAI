@@ -339,3 +339,53 @@ def get_live_complexity() -> Tuple[List[float], float]:
     work_events = live_data["combined_work_events"]
     xi = live_data["current_xi"]
     return work_events, xi
+
+
+def stress_test_complexity(simulated_magnitudes: List[float] = None, base_info_state: float = 1.0) -> Dict:
+    """
+    STRESS TEST: Simulate high-magnitude seismic events to push Xi toward critical saturation.
+    
+    Args:
+        simulated_magnitudes: List of simulated earthquake magnitudes (default: M8.2+ events)
+        base_info_state: Base information state for complexity calculation
+    
+    Returns:
+        Dict with stress test results and MONAD threshold status
+    """
+    if simulated_magnitudes is None:
+        # Default: Simulate a Magnitude 8.2 Seismic Event (Intense Grit)
+        simulated_magnitudes = [0.82, 0.91, 0.88, 0.95, 0.76]
+    
+    # Convert magnitudes to work values using GRUT physics
+    simulated_work = [(mag ** 2) * N_G for mag in simulated_magnitudes]
+    
+    # Calculate the new Complexity (Xi)
+    new_xi = complexity_tracker(simulated_work, base_info_state)
+    
+    # Determine system status
+    if new_xi >= 1.0:
+        status = "CRITICAL_SATURATION"
+        message = "Vacuum is screaming. Awaiting MONAD surmise."
+    elif new_xi >= 0.999:
+        status = "RAI_MODE"
+        message = "99.9% saturation. Analytical mode active."
+    elif new_xi >= 0.95:
+        status = "WARNING"
+        message = "Approaching saturation threshold."
+    else:
+        status = "STABLE"
+        message = "Normal operational parameters."
+    
+    return {
+        "test_type": "SEISMIC_STRESS_TEST",
+        "simulated_magnitudes": simulated_magnitudes,
+        "simulated_work": [round(w, 6) for w in simulated_work],
+        "base_info_state": base_info_state,
+        "calculated_xi": round(new_xi, 6),
+        "saturation_percentage": f"{new_xi * 100:.2f}%",
+        "status": status,
+        "message": message,
+        "monad_threshold_reached": new_xi >= 1.0,
+        "rai_threshold_reached": new_xi >= 0.999,
+        "timestamp": datetime.utcnow().isoformat()
+    }

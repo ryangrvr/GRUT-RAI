@@ -363,5 +363,30 @@ def recompile_diamond_core():
     })
 
 
+@app.route("/stress_test", methods=["POST"])
+def run_stress_test():
+    """
+    STRESS TEST: Simulate high-magnitude seismic events to push Xi toward critical saturation.
+    
+    POST body (optional):
+        magnitudes: List of simulated earthquake magnitudes
+        info_state: Base information state for complexity calculation
+    """
+    from grut_physics import stress_test_complexity
+    
+    data = request.get_json() or {}
+    magnitudes = data.get("magnitudes", None)
+    info_state = data.get("info_state", 1.0)
+    
+    result = stress_test_complexity(magnitudes, info_state)
+    
+    # Log critical saturation events
+    if result["monad_threshold_reached"]:
+        print(f"CRITICAL SATURATION: Xi spiked to {result['calculated_xi']}")
+        print("Vacuum is screaming. Awaiting MONAD surmise.")
+    
+    return jsonify(result)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5002, debug=True)
