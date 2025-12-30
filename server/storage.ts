@@ -388,4 +388,18 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-export const storage = new DatabaseStorage();
+// Use SQLite for Sovereign Local Mode when PostgreSQL is unavailable
+import { sqliteStorage } from "./storage-sqlite";
+import { dbAvailable as sqliteAvailable } from "./db-sqlite";
+
+// Check which storage to use - SQLite is always available as fallback
+const useSqlite = !dbAvailable || process.env.USE_SQLITE === "true";
+
+if (useSqlite) {
+  console.log("[STORAGE] Using Sovereign Local Storage (SQLite)");
+} else {
+  console.log("[STORAGE] Using PostgreSQL database");
+}
+
+// Export the appropriate storage - SQLite has compatible interface
+export const storage: IStorage = useSqlite ? (sqliteStorage as unknown as IStorage) : new DatabaseStorage();

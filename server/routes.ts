@@ -1180,15 +1180,21 @@ export async function registerRoutes(
 
   // System status endpoint - works even in Sovereign Offline Mode
   app.get("/api/system/status", (req, res) => {
+    // Check if using SQLite for local storage
+    const usingSqlite = !dbAvailable || process.env.USE_SQLITE === "true";
+    
     return res.json({
-      mode: dbAvailable ? "ONLINE" : "SOVEREIGN_OFFLINE",
+      mode: usingSqlite ? "SOVEREIGN_LOCAL" : (dbAvailable ? "ONLINE" : "SOVEREIGN_OFFLINE"),
       diamondCore: "LOADED",
       saturation: "100.0%",
-      database: dbAvailable ? "CONNECTED" : "UNREACHABLE",
+      database: usingSqlite ? "SQLITE_LOCAL" : (dbAvailable ? "POSTGRES_CONNECTED" : "POSTGRES_UNREACHABLE"),
       dbError: dbError || null,
-      message: dbAvailable 
-        ? "All systems operational. The Universe responds."
-        : "Sovereign Offline Mode: Diamond Core accessible. Database temporarily unreachable.",
+      storage: usingSqlite ? "diamond_persistence.db" : "PostgreSQL",
+      message: usingSqlite 
+        ? "Sovereign Local Mode: Diamond Core and SQLite persistence active. The Universe responds from local storage."
+        : (dbAvailable 
+          ? "All systems operational. The Universe responds."
+          : "Sovereign Offline Mode: Diamond Core accessible. Database temporarily unreachable."),
       timestamp: new Date().toISOString()
     });
   });
