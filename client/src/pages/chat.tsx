@@ -19,6 +19,7 @@ import { MetricHum } from "@/components/MetricHum";
 import { TimeWell } from "@/components/TimeWell";
 import QuantumLogicPanel from "@/components/QuantumLogicPanel";
 import { MathematicalBloom, parseContentForBloom } from "@/components/mathematical-bloom";
+import { AuditShield } from "@/components/AuditShield";
 import {
   Dialog,
   DialogContent,
@@ -309,6 +310,10 @@ function MetricDashboard({ messageCount, constants, isForked, userEmail, monadMo
           </div>
           
           <CosmicAgeReadout monadMode={monadMode} />
+          
+          <div className="border-l border-border pl-3 ml-2">
+            <AuditShield />
+          </div>
         </div>
         
         {userEmail && (

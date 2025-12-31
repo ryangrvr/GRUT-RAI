@@ -539,11 +539,16 @@ export async function registerRoutes(
   // SOVEREIGN SELF-AUDIT SYSTEM
   // ============================================
   
-  // Get current audit status (for Shield icon)
+  // Get current audit status (for Shield icon) - automatically scans for drift
   app.get("/api/audit/status", async (_req, res) => {
     try {
       const { getAuditEngine } = await import("./audit-engine");
       const auditEngine = getAuditEngine();
+      
+      // Automatically scan for drift on each status check
+      // This ensures the Shield reflects real-time drift status
+      auditEngine.autoScanForDrift();
+      
       const status = auditEngine.getAuditStatus();
       
       res.json(status);

@@ -207,23 +207,79 @@ class SovereignAuditEngine {
   }
 
   /**
+   * Automatically scan historical resonances for drift (called periodically or on status check).
+   * Returns true if any drift was detected.
+   */
+  autoScanForDrift(): boolean {
+    try {
+      const entries = this.flagUnstableGrit();
+      const hasUnstable = entries.some(e => e.flagged);
+      if (hasUnstable) {
+        this.currentStatus = AuditStatus.METRIC_DRIFT;
+      }
+      return hasUnstable;
+    } catch {
+      return false;
+    }
+  }
+
+  /**
    * Wolfram Bridge: Validate mathematical equations in Ultimate Resolution mode.
+   * If Wolfram API is not available, attempts local evaluation using math expression parsing.
    */
   async wolframBridgeValidate(expression: string, expectedValue: number): Promise<WolframValidationResult> {
     if (!this.wolframAppId) {
-      // Fallback to internal sovereign validation
-      const deviation = Math.abs(expectedValue - GROUND_STATE);
-      const isValid = deviation < DRIFT_THRESHOLD;
+      // Fallback: Try to evaluate simple expressions locally
+      let evaluatedResult: number | null = null;
+      try {
+        // Safe evaluation of simple math expressions (no eval)
+        // Parse basic expressions like "1 + 2", "sqrt(4)", "1/12"
+        const cleaned = expression.replace(/\s/g, "");
+        if (/^[\d+\-*/().^]+$/.test(cleaned)) {
+          // Simple arithmetic expression
+          const result = Function(`"use strict"; return (${cleaned.replace(/\^/g, "**")})`)();
+          if (typeof result === "number" && !isNaN(result)) {
+            evaluatedResult = result;
+          }
+        }
+      } catch {
+        evaluatedResult = null;
+      }
+
+      if (evaluatedResult !== null) {
+        const deviation = Math.abs(evaluatedResult - expectedValue);
+        const isValid = deviation < DRIFT_THRESHOLD;
+        
+        if (!isValid) {
+          this.currentStatus = AuditStatus.WOLFRAM_FAILED;
+        }
+        
+        return {
+          validated: isValid,
+          method: "sovereign_internal_eval",
+          expression,
+          expected: expectedValue,
+          wolframResult: evaluatedResult,
+          deviation,
+          status: isValid ? AuditStatus.WOLFRAM_VALIDATED : AuditStatus.WOLFRAM_FAILED,
+          requiresRegeneration: !isValid,
+          reason: "Wolfram API not configured - used local evaluation"
+        };
+      }
+
+      // Cannot evaluate locally - check if expectedValue aligns with Ground State
+      const groundDeviation = Math.abs(expectedValue - GROUND_STATE);
+      const isAligned = groundDeviation < 0.1; // Looser threshold for alignment check
       
       return {
-        validated: isValid,
+        validated: isAligned,
         method: "sovereign_internal",
         expression,
         expected: expectedValue,
-        deviation,
-        status: isValid ? AuditStatus.STABLE : AuditStatus.WOLFRAM_FAILED,
-        requiresRegeneration: !isValid,
-        reason: "Wolfram API not configured (WOLFRAM_APP_ID required)"
+        deviation: groundDeviation,
+        status: isAligned ? AuditStatus.STABLE : AuditStatus.WOLFRAM_FAILED,
+        requiresRegeneration: !isAligned,
+        reason: "Wolfram API not configured (WOLFRAM_APP_ID required) - expression not evaluable"
       };
     }
 
