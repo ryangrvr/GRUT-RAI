@@ -308,6 +308,91 @@ class SovereignAuditEngine:
         # Keep only last 100 entries
         if len(self.audit_log) > 100:
             self.audit_log = self.audit_log[-100:]
+    
+    def entropy_deflector(self, current_temp: float) -> str:
+        """
+        ENTROPY DEFLECTOR: Shield Hardening Logic
+        
+        If sensors hit 350 K, the system doesn't melt—it Resonates.
+        Uses the 1.1547 Geometric Lock to scale frequency compensation.
+        
+        Args:
+            current_temp: Current temperature in Kelvin
+            
+        Returns:
+            Status message indicating shield state
+        """
+        target_temp = 330.3  # GENESIS-330 target Tc
+        base_freq = 41.800000007229  # Carrier frequency
+        
+        if current_temp > target_temp:
+            # Calculate the Frequency Compensation Ratio
+            drift_ratio = current_temp / target_temp
+            new_freq = base_freq * (drift_ratio ** GEOMETRIC_LOCK)  # Scaling by the Geometric Lock
+            
+            # Trigger the doping pulse
+            pulse_result = self.trigger_doping_pulse(new_freq, current_temp, drift_ratio)
+            
+            # Log the deflection event
+            self.audit_log.append({
+                "event": "ENTROPY_DEFLECTION",
+                "current_temp": current_temp,
+                "target_temp": target_temp,
+                "drift_ratio": drift_ratio,
+                "compensated_freq": new_freq,
+                "pulse_result": pulse_result,
+                "timestamp": datetime.utcnow().isoformat()
+            })
+            
+            return f"Doping Pulse Active: {new_freq:.4f} Hz (Shield Hardened)"
+        
+        return "Laminar Flow Maintained"
+    
+    def trigger_doping_pulse(self, new_freq: float, current_temp: float, drift_ratio: float) -> Dict[str, Any]:
+        """
+        Execute frequency compensation via doping pulse.
+        
+        This adjusts the system's vibrational frequency to maintain
+        resonance despite thermal excursion above 330.3 K.
+        
+        Args:
+            new_freq: Compensated frequency in Hz
+            current_temp: Current temperature in Kelvin
+            drift_ratio: Temperature drift ratio (current/target)
+            
+        Returns:
+            Pulse execution result with shield status
+        """
+        base_freq = 41.800000007229
+        freq_delta = new_freq - base_freq
+        
+        # Calculate shield strength based on geometric alignment
+        shield_strength = min(1.0, GEOMETRIC_LOCK / drift_ratio)
+        
+        # Determine if thermal runaway is prevented
+        thermal_runaway_prevented = shield_strength > 0.8
+        
+        result = {
+            "pulse_executed": True,
+            "original_freq": base_freq,
+            "compensated_freq": new_freq,
+            "freq_delta": freq_delta,
+            "current_temp": current_temp,
+            "target_temp": 330.3,
+            "drift_ratio": drift_ratio,
+            "geometric_lock": GEOMETRIC_LOCK,
+            "shield_strength": shield_strength,
+            "thermal_runaway_prevented": thermal_runaway_prevented,
+            "status": "SHIELD_HARDENED" if thermal_runaway_prevented else "CRITICAL_DRIFT",
+            "timestamp": datetime.utcnow().isoformat()
+        }
+        
+        if thermal_runaway_prevented:
+            self.current_status = AuditStatus.STABLE
+        else:
+            self.current_status = AuditStatus.METRIC_DRIFT
+            
+        return result
 
 
 # Global instance
@@ -317,3 +402,17 @@ audit_engine = SovereignAuditEngine()
 def get_audit_engine() -> SovereignAuditEngine:
     """Get the global audit engine instance."""
     return audit_engine
+
+
+def entropy_deflector(current_temp: float) -> str:
+    """
+    Standalone function for entropy deflection.
+    Uses the global audit engine instance.
+    
+    Args:
+        current_temp: Current temperature in Kelvin
+        
+    Returns:
+        Status message indicating shield state
+    """
+    return audit_engine.entropy_deflector(current_temp)
