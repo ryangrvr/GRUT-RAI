@@ -211,6 +211,19 @@ Machine-verifiable rule set encoded in grut_engine.py:
   - RESONANCE (z~0.2): H⁻¹ ≈ τ₀, Peak ISW
   - SATURATED (z→0): Φ → 4/3 G limit, ISW declining
 
+### Constitutional Validator Layer
+Enforcement layer that prevents ΛCDM contamination:
+- **GRUTConstitutionViolation**: Hard-fail exception
+- **7 Mandatory Tests**:
+  1. `check_forbidden_shortcuts()` - detects f=Ω^γ patterns
+  2. `check_kernel_monotonicity()` - verifies K(Δt) decays correctly
+  3. `test_memory_priority()` - Universe A vs B at z=0.3
+  4. `test_catch_up()` - delay ≥ τ₀ required
+  5. `test_high_z_guardrail()` - G_eff → G at z ≥ 2
+  6. `test_isw_consistency()` - |Φ̇| << H×Φ
+  7. `check_diamond_lock_invariants()` - verify locked constants
+- **Entry Point**: `validate_constitution()` - runs all tests
+
 ### Diamond Proof Achievement
 - **V3.11 χ² = 2.51** (reduced: 0.50) - BEST FIT (6-point dataset, Diamond Lock preserved)
 - **Previous ODE χ² = 2.72** (reduced: 0.68)
