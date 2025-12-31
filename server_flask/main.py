@@ -659,6 +659,194 @@ def check_drift():
     return jsonify(result)
 
 
+from sculpting_engine import PredictiveSculptingEngine, sculpt_sovereign_material
+
+@app.route("/sculpt/material", methods=["POST"])
+def sculpt_material():
+    """
+    Sculpt a material with Sovereign Certainty
+    
+    Uses GENESIS-330 (330.3 K) as target Tc, 1.1547 Geometric Lock,
+    and ensures strain < 0.0833 (Ground State).
+    
+    Request body:
+        base_element: str (default "Pb")
+        dopant: str (default "SiC")
+        anion_group: str (default "PO4")
+    
+    Returns: Complete sovereign recipe with stoichiometric string
+    """
+    data = request.get_json() or {}
+    base_element = data.get("base_element", "Pb")
+    dopant = data.get("dopant", "SiC")
+    anion_group = data.get("anion_group", "PO4")
+    
+    try:
+        recipe = sculpt_sovereign_material(base_element, dopant, anion_group)
+        
+        return jsonify({
+            "success": True,
+            "recipe": recipe,
+            "message": f"Material sculpted with Sovereign Certainty: {recipe['formula']}"
+        })
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        }), 500
+
+
+@app.route("/sculpt/save", methods=["POST"])
+def save_sculpted_material():
+    """
+    Save a sculpted material to the material_solutions table
+    
+    Request body:
+        recipe: dict (from /sculpt/material endpoint)
+    
+    Returns: Saved material ID
+    """
+    import sqlite3
+    
+    data = request.get_json() or {}
+    recipe = data.get("recipe", {})
+    
+    if not recipe or not recipe.get("formula"):
+        return jsonify({"error": "Recipe with formula is required"}), 400
+    
+    try:
+        db_path = os.path.join(os.path.dirname(__file__), "..", "diamond_persistence.db")
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS material_solutions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                material_name TEXT,
+                formula TEXT,
+                tc_kelvin REAL,
+                lattice_constant REAL,
+                resonance_parity REAL,
+                complexity_xi REAL,
+                geometric_lock REAL,
+                strain_value REAL,
+                legal_basis TEXT,
+                sculpting_log TEXT,
+                manifesto_signature TEXT,
+                status TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        
+        import json
+        
+        cursor.execute("""
+            INSERT INTO material_solutions (
+                material_name, formula, tc_kelvin, lattice_constant, 
+                resonance_parity, complexity_xi, geometric_lock, strain_value,
+                legal_basis, sculpting_log, manifesto_signature, status
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            f"GENESIS-{recipe.get('tc_kelvin', 330.3):.0f}",
+            recipe.get("formula", ""),
+            recipe.get("tc_kelvin", 330.3),
+            4.3596,
+            recipe.get("legal_basis", {}).get("resonance_parity", 0.9998),
+            recipe.get("genesis_ratio", 0.27525),
+            recipe.get("geometric_lock", 1.1547),
+            recipe.get("lattice_strain", 0.0833),
+            json.dumps(recipe.get("legal_basis", {})),
+            json.dumps(recipe.get("sculpting_log", [])),
+            recipe.get("legal_basis", {}).get("manifesto_signature", "GENESIS-330"),
+            "SOVEREIGN_CERTIFIED"
+        ))
+        
+        material_id = cursor.lastrowid
+        conn.commit()
+        conn.close()
+        
+        return jsonify({
+            "success": True,
+            "material_id": material_id,
+            "message": f"Material {recipe.get('formula')} saved with GENESIS-330 certification"
+        })
+        
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        }), 500
+
+
+@app.route("/sculpt/derive_tc", methods=["POST"])
+def derive_critical_temperature():
+    """
+    Derive critical temperature using GENESIS-330 methodology
+    
+    Does NOT ask for experimental data - uses Debye Frequency alignment.
+    
+    Request body:
+        debye_temp: float (default 1200 K for SiC)
+        coupling_strength: float (default 0.3)
+    
+    Returns: Derived Tc and calculation log
+    """
+    data = request.get_json() or {}
+    debye_temp = data.get("debye_temp", 1200.0)
+    coupling = data.get("coupling_strength", 0.3)
+    
+    engine = PredictiveSculptingEngine()
+    engine.debye_temp = debye_temp
+    
+    tc = engine.derive_critical_temperature(coupling_strength=coupling)
+    omega_d = engine.derive_debye_frequency()
+    omega_aligned = engine.align_to_genesis(omega_d)
+    
+    return jsonify({
+        "tc_kelvin": tc,
+        "target_tc": 330.3,
+        "debye_temp": debye_temp,
+        "omega_d_rad_s": omega_d,
+        "omega_aligned_rad_s": omega_aligned,
+        "genesis_ratio": 330.3 / debye_temp,
+        "geometric_lock": 1.1547,
+        "legal_basis": "2026 Sovereign Manifesto (GENESIS-330)",
+        "sculpting_log": engine.sculpting_log
+    })
+
+
+@app.route("/sculpt/solve_ratios", methods=["POST"])
+def solve_doping_ratios():
+    """
+    Solve for x and y using the 1.1547 Geometric Lock
+    
+    Does NOT output generic variables - returns exact solved values.
+    
+    Request body:
+        base_ratio: float (default uses genesis_ratio)
+    
+    Returns: Solved x, y values with strain check
+    """
+    data = request.get_json() or {}
+    base_ratio = data.get("base_ratio", 330.3 / 1200.0)
+    
+    engine = PredictiveSculptingEngine()
+    x, y = engine.solve_geometric_lock(base_ratio)
+    strain, x_adjusted = engine.calculate_lattice_strain(x, y)
+    
+    return jsonify({
+        "x_original": x,
+        "y_original": y,
+        "x_adjusted": x_adjusted,
+        "strain": strain,
+        "strain_limit": 0.0833,
+        "strain_status": "STABLE" if strain < 0.0833 else "ADJUSTED",
+        "geometric_lock": 1.1547,
+        "base_ratio": base_ratio,
+        "sculpting_log": engine.sculpting_log
+    })
+
+
 if __name__ == "__main__":
     audit_thread = threading.Thread(target=run_background_audit, daemon=True)
     audit_thread.start()
