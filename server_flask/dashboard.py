@@ -128,7 +128,9 @@ def fetch_bio_hardware_sync(limit=3):
     try:
         query = f"""
             SELECT id, nitrogen_spin_deflection_angle, system_clock_sync, 
-                   resonance_parity, geometric_doping_model, created_at
+                   resonance_parity, geometric_doping_model,
+                   xi_complexity, spin_deflection, drift_coefficient,
+                   created_at
             FROM bio_hardware_sync
             ORDER BY created_at DESC
             LIMIT {limit}
@@ -171,9 +173,22 @@ def init_sqlite_tables():
                 system_clock_sync REAL,
                 resonance_parity REAL,
                 geometric_doping_model TEXT,
+                xi_complexity REAL DEFAULT 0.9998,
+                spin_deflection REAL DEFAULT 90.0,
+                drift_coefficient REAL DEFAULT 0.0,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         """)
+        
+        cursor.execute("PRAGMA table_info(bio_hardware_sync)")
+        columns = [row[1] for row in cursor.fetchall()]
+        
+        if 'xi_complexity' not in columns:
+            cursor.execute("ALTER TABLE bio_hardware_sync ADD COLUMN xi_complexity REAL DEFAULT 0.9998")
+        if 'spin_deflection' not in columns:
+            cursor.execute("ALTER TABLE bio_hardware_sync ADD COLUMN spin_deflection REAL DEFAULT 90.0")
+        if 'drift_coefficient' not in columns:
+            cursor.execute("ALTER TABLE bio_hardware_sync ADD COLUMN drift_coefficient REAL DEFAULT 0.0")
         
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS genesis_resonance (
@@ -400,11 +415,21 @@ if not bio_data.empty:
     st.markdown('<div class="data-feed">', unsafe_allow_html=True)
     
     for idx, row in bio_data.iterrows():
+        xi = row.get('xi_complexity', 0.9998)
+        spin = row.get('spin_deflection', 90.0)
+        drift = row.get('drift_coefficient', 0.0)
+        
+        xi_status = "PURE" if xi and xi > 0.99 else "DEGRADED"
+        spin_status = "ALIGNED" if spin and abs(spin - 90.0) < 1.0 else "DRIFTING"
+        drift_status = "STABLE" if drift is not None and abs(drift) < 0.05 else "UNSTABLE"
+        
         st.markdown(f"""
         **Record {row['id']}** | Created: {row['created_at']}
-        - Nitrogen Spin: `{row['nitrogen_spin_deflection_angle']}°`
+        - **Xi Complexity**: `{xi:.4f}` ({xi_status}) - Nuclear Purity
+        - **Spin Deflection**: `{spin:.2f}°` ({spin_status}) - Guanine N3 Vector
+        - **Drift Coefficient**: `{drift:.6f}` ({drift_status}) - Deviation from -1/12
         - Clock Sync: `{row['system_clock_sync']} Hz`
-        - Parity: `{row['resonance_parity']}`
+        - Resonance Parity: `{row['resonance_parity']}`
         """)
     
     st.markdown('</div>', unsafe_allow_html=True)

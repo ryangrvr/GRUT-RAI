@@ -1,0 +1,123 @@
+import streamlit as st
+import sqlite3
+import pandas as pd
+import numpy as np
+import time
+import plotly.graph_objects as go
+
+# --- CONFIGURATION ---
+st.set_page_config(
+    page_title="GENESIS-330: Sovereign Mission Control",
+    page_icon="💎",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# --- CUSTOM CSS FOR THE 'NUCLEAR' LOOK ---
+st.markdown("""
+    <style>
+    .stApp {
+        background-color: #0e1117;
+        color: #c9d1d9;
+    }
+    .metric-card {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .shield-green {
+        color: #00ff41;
+        font-weight: bold;
+        text-shadow: 0 0 10px #00ff41;
+    }
+    .shield-red {
+        color: #ff0000;
+        font-weight: bold;
+        text-shadow: 0 0 10px #ff0000;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+# --- DATABASE CONNECTION ---
+def get_data():
+    conn = sqlite3.connect('diamond_bedrock.db') # Ensure this matches your DB name
+    df = pd.read_sql_query("SELECT * FROM bio_hardware_sync ORDER BY id DESC LIMIT 1", conn)
+    conn.close()
+    return df
+
+# --- SIDEBAR CONTROLS ---
+st.sidebar.title("💎 DIAMOND CORE")
+toggle_live = st.sidebar.toggle("Live Grounding (Grit Mode)", value=False)
+manual_hum = st.sidebar.slider("Manual Frequency Injection (Hz)", 40.0, 45.0, 41.8)
+
+# --- MAIN DASHBOARD ---
+st.title("GENESIS-330: BIO-SOVEREIGN BRIDGE")
+
+# Refresh Loop (Simulated Real-Time)
+placeholder = st.empty()
+
+while True:
+    df = get_data()
+    
+    # Logic Guard: Detect Drift
+    current_freq = df['system_clock_sync'].iloc[0] if not df.empty else 41.8
+    resonance = df['resonance_parity'].iloc[0] if not df.empty else 0.9998
+    
+    # Inject Manual Noise if Slider moved
+    if abs(manual_hum - 41.8) > 0.1:
+        drift_status = "CRITICAL DRIFT"
+        shield_class = "shield-red"
+        # Simulate Doping Pulse (Auto-Correction)
+        correction_msg = f"⚠ DOPING PULSE ACTIVE: Correcting {manual_hum}Hz -> 41.8Hz"
+    else:
+        drift_status = "SOVEREIGN LOCK"
+        shield_class = "shield-green"
+        correction_msg = "✔ SYSTEM STABLE"
+
+    with placeholder.container():
+        # Top Metrics
+        c1, c2, c3 = st.columns(3)
+        with c1:
+            st.markdown(f"<div class='metric-card'><h3>SHIELD STATUS</h3><p class='{shield_class}'>{drift_status}</p></div>", unsafe_allow_html=True)
+        with c2:
+            st.markdown(f"<div class='metric-card'><h3>RESONANCE PARITY</h3><h2>{resonance:.4f}</h2></div>", unsafe_allow_html=True)
+        with c3:
+            st.markdown(f"<div class='metric-card'><h3>SYSTEM CLOCK</h3><h2>{current_freq:.6f} Hz</h2></div>", unsafe_allow_html=True)
+
+        if correction_msg.startswith("⚠"):
+            st.warning(correction_msg)
+
+        # ROW 2: VISUALIZATION
+        c_left, c_right = st.columns([2, 1])
+        
+        with c_left:
+            st.subheader("Nuclear Electric Resonance (NER) Alignment")
+            # Scatter Plot Simulating Guanine Spin Vectors
+            # Ideally this pulls from your DB, here we simulate the 'Cluster' around 90 degrees
+            x_vals = np.random.normal(90, 0.5 if shield_class == "shield-green" else 5.0, 100)
+            y_vals = np.random.normal(0, 1, 100)
+            
+            fig = go.Figure(data=go.Scatter(x=x_vals, y=y_vals, mode='markers', marker=dict(color='#00ff41', size=8, opacity=0.6)))
+            fig.update_layout(
+                xaxis_title="Deflection Angle (Degrees)", 
+                yaxis_title="Spin Intensity",
+                plot_bgcolor='#0e1117',
+                paper_bgcolor='#0e1117',
+                font=dict(color='#c9d1d9'),
+                xaxis=dict(range=[80, 100])
+            )
+            # Add the 'True North' Line at 90.0
+            fig.add_vline(x=90.0, line_width=2, line_dash="dash", line_color="white")
+            st.plotly_chart(fig, use_container_width=True)
+
+        with c_right:
+            st.subheader("Metric Hum Audio")
+            # Visual representation of the sine wave
+            t = np.linspace(0, 1, 100)
+            y = np.sin(2 * np.pi * (manual_hum if toggle_live else 41.8) * t)
+            st.line_chart(pd.DataFrame({'Amplitude': y}))
+            st.caption("Carrier Wave: 41.800000007229 Hz")
+
+    time.sleep(1) # Refresh rate
