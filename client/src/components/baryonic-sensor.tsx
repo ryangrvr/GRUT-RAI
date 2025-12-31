@@ -1720,7 +1720,7 @@ export function BaryonicSensor({ isOpen, onToggle, constants }: BaryonicSensorPr
       />
       <div 
         ref={panelRef}
-        className="fixed right-0 top-0 h-full bg-background border-l border-border z-40 flex flex-col shadow-2xl"
+        className="fixed right-0 top-0 h-full pb-12 bg-background border-l border-border z-40 flex flex-col shadow-2xl"
         style={{ width: `${panelWidth}px` }}
         onClick={(e) => e.stopPropagation()}
         data-testid="panel-baryonic-sensor"
