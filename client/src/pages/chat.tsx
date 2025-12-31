@@ -1445,8 +1445,8 @@ export default function ChatPage() {
               </div>
             </div>
 
-            <ScrollArea className="flex-1 p-4 pb-16">
-              <div className="space-y-4 max-w-3xl mx-auto pb-12">
+            <ScrollArea className="flex-1 p-4">
+              <div className="space-y-4 max-w-3xl mx-auto pb-2">
                 {filesQuery.data && filesQuery.data.length > 0 && (
                   <div className="flex flex-wrap gap-2 p-2 bg-muted/50 rounded-md">
                     {filesQuery.data.map((file) => (
