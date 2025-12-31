@@ -304,16 +304,6 @@ function MetricDashboard({ messageCount, constants, isForked, userEmail, monadMo
             <AuditShield />
           </div>
         </div>
-        
-        {userEmail && (
-          <div 
-            className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-medium shrink-0" 
-            data-testid="header-user-avatar"
-            title={userEmail}
-          >
-            {userEmail.charAt(0).toUpperCase()}
-          </div>
-        )}
       </div>
     </div>
   );
