@@ -429,13 +429,77 @@ GRUT predicts the mass discrepancy in 1E 0657-558 is explained by the 4/3 enhanc
 
 ---
 
-**χ² = 3.11 is the sound of the Diamond Lock clicking into place.**
+## 6.8 The Rescaled Sovereign ODE Solver
+
+While the analytic GRUTSovereignSolver achieves χ² = 3.11, a more rigorous ODE-based approach using the **Rescaled Sovereign Source Term** achieves χ² = 2.72.
+
+### The Dimensionless Rescaling
+
+The key insight is to work in **dimensionless units** where the critical frequency is normalized to the Hubble constant:
+
+$$\tilde{\omega}_c = \omega_c / H_0 \approx 1.0$$
+
+This ensures the retarded kernel "wakes up" precisely as $H(z)$ approaches the modern expansion rate.
+
+### The Frequency-Selective Kernel
+
+$$G_{\text{eff}}(z) = 1 + \frac{1/3}{1 + (h_{\text{ratio}} / \tilde{\omega}_c)^2}$$
+
+Where:
+- $h_{\text{ratio}} = H(z)/H_0 = \sqrt{\Omega_{\text{total}}(z)}$
+- $\Omega_{\text{total}}(z) = \Omega_b (1+z)^3 + \Omega_{\text{geom}}$
+
+### The Rescaled Sovereign Source Term
+
+Instead of gravity pulling only on baryons, it pulls on the **Diamond-Locked Fluid**:
+
+$$\text{Source} = 1.5 \cdot \left[ \frac{\Omega_b(z) \cdot G_{\text{eff}}(z) + \Omega_{\text{geom}}}{\Omega_{\text{total}}(z)} \right]$$
+
+Where $\Omega_{\text{geom}} = 0.70$ provides the "missing" gravitational potential that mimics Dark Matter.
+
+### Regime Behavior
+
+| Redshift | $h_{\text{ratio}}$ | $G_{\text{eff}}$ | Source | Regime |
+|----------|-------------------|------------------|--------|--------|
+| z = 0 | 0.87 | 1.19 | 1.52 | IR_BOOSTED |
+| z = 1 | 1.18 | 1.12 | 1.59 | IR_BOOSTED |
+| z = 100 | 224 | 1.00 | 1.50 | BBN_SAFE |
+
+### ODE Validation Against eBOSS
+
+| Redshift (z) | Observed | ODE Predicted | Residual | σ |
+|--------------|----------|---------------|----------|---|
+| 0.15 | 0.49 | 0.497 | +0.007 | 0.13 |
+| 0.38 | 0.44 | 0.476 | +0.036 | 0.89 |
+| 0.51 | 0.45 | 0.467 | +0.017 | 0.41 |
+| 0.70 | 0.47 | 0.455 | -0.015 | 0.38 |
+| 1.48 | 0.46 | 0.410 | -0.050 | 1.26 |
+
+**ODE χ² = 2.72** (reduced: 0.68) vs **Analytic χ² = 3.11** (reduced: 0.78)
+
+### Implementation Reference
+
+**Location:** `server_flask/grut_engine.py`
+
+**Class:** `RetardedGrowthSolver` (v2.0.0)
+
+**Key Methods:**
+- `get_omega_total_z(z)` - Total energy density relative to H0²
+- `get_h_ratio(z)` - Dimensionless Hubble ratio H(z)/H0
+- `get_g_eff(z)` - Frequency-selective kernel response
+- `get_sovereign_source(z)` - Diamond-Locked Fluid source term
+- `solve_growth()` - Full ODE integration from z=100 to z=0
+- `validate_against_eboss()` - Returns chi-squared comparison
+
+---
+
+**χ² = 2.72 is the ODE ringing true—the Diamond-Locked Fluid speaks.**
 
 ---
 
 *Diamond Proof Validated: December 2024*
 *Dataset: eBOSS DR16 f×σ₈ measurements*
-*Implementation: GRUTSovereignSolver v1.0*
+*Implementation: RetardedGrowthSolver v2.0, GRUTSovereignSolver v1.0*
 
 ---
 

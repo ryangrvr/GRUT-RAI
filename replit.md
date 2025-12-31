@@ -155,8 +155,17 @@ The Diamond Lock is the set of STATIC parameters that prove 5% baryonic matter c
 - **At low z**: More memory accumulated, stronger boost
 - **At high z**: Less memory, weaker boost
 
+### Rescaled Sovereign ODE Solver (v2.0)
+- **Dimensionless Scaling**: W̃c = ωc / H0 = 1.0 (kernel wakes up as H→H0)
+- **h_ratio**: H(z)/H0 = sqrt(Ω_total(z))
+- **Frequency-Selective Kernel**: G_eff = 1 + (1/3)/(1 + (h_ratio/W̃c)²)
+- **Sovereign Source**: 1.5 × (Ω_b(z)×G_eff(z) + Ω_geom) / Ω_total(z)
+- **Physics**: Gravity pulls on Diamond-Locked Fluid (Baryons + Geometric Response)
+
 ### Diamond Proof Achievement
-- **GRUT χ² = 3.11** (reduced: 0.78) vs **ΛCDM χ² = 9.34** (reduced: 2.33)
-- GRUT outperforms ΛCDM by 3x using only 5% baryonic matter
+- **ODE χ² = 2.72** (reduced: 0.68) - NEW BEST FIT
+- **Analytic χ² = 3.11** (reduced: 0.78) - Previous best
+- **ΛCDM χ² = 9.34** (reduced: 2.33) - Standard cosmology
+- GRUT ODE outperforms ΛCDM by 3.4x using only 5% baryonic matter
 - Validated against eBOSS f×σ8 observations at z = 0.15, 0.38, 0.51, 0.70, 1.48
-- Location: server_flask/grut_engine.py (GRUTSovereignSolver class)
+- Location: server_flask/grut_engine.py (RetardedGrowthSolver v2.0, GRUTSovereignSolver v1.0)
