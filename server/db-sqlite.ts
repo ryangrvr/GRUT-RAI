@@ -178,6 +178,22 @@ export function initializeSqliteTables(): void {
     )
   `);
   
+  // Create cosmological_growth table for Chi-Squared calculations
+  sqliteDb.exec(`
+    CREATE TABLE IF NOT EXISTS cosmological_growth (
+      z_redshift REAL PRIMARY KEY,
+      f_sigma8_obs REAL,
+      f_sigma8_pred REAL,
+      chi_squared REAL
+    )
+  `);
+  
+  // Insert baseline anchor (z=0.57 is a key BOSS pivot point)
+  sqliteDb.exec(`
+    INSERT OR IGNORE INTO cosmological_growth (z_redshift, f_sigma8_obs, f_sigma8_pred)
+    VALUES (0.57, 0.441, 0.441)
+  `);
+  
   // Initialize default quantum modules (OBSERVER_REQUIRED status)
   const defaultModules = [
     { key: 'TIMEWELL', name: 'Time-Well Resonance' },

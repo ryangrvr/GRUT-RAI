@@ -232,3 +232,21 @@ export type ParityCheckLog = typeof parityCheckLog.$inferSelect;
 export const GROUND_STATE_BASELINE = -1/12;
 export const GROUND_STATE_BASELINE_APPROX = -0.0833333333;
 export const PARITY_TOLERANCE_DEFAULT = 0.001;
+
+// Cosmological Growth table for Chi-Squared calculations against live constraints
+export const cosmologicalGrowth = sqliteTable("cosmological_growth", {
+  zRedshift: real("z_redshift").primaryKey(),
+  fSigma8Obs: real("f_sigma8_obs"),  // Observed from BOSS/eBOSS
+  fSigma8Pred: real("f_sigma8_pred"), // Predicted by GENESIS-330
+  chiSquared: real("chi_squared"),
+});
+
+export const insertCosmologicalGrowthSchema = createInsertSchema(cosmologicalGrowth).extend({
+  zRedshift: z.number().min(0).max(10),
+  fSigma8Obs: z.number().optional(),
+  fSigma8Pred: z.number().optional(),
+  chiSquared: z.number().optional(),
+});
+
+export type InsertCosmologicalGrowth = z.infer<typeof insertCosmologicalGrowthSchema>;
+export type CosmologicalGrowth = typeof cosmologicalGrowth.$inferSelect;
