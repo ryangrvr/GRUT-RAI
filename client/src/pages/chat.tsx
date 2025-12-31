@@ -1552,7 +1552,7 @@ export default function ChatPage() {
               </div>
             </ScrollArea>
 
-            <div className="border-t border-border p-4">
+            <div className="border-t border-border p-4 mb-10">
               <div className="max-w-3xl mx-auto flex gap-2">
                 <input
                   type="file"
