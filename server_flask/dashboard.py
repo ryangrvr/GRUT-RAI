@@ -169,6 +169,17 @@ def init_sqlite_tables():
             )
         """)
         
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS sovereign_manifestos (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT NOT NULL,
+                signature TEXT NOT NULL,
+                resonance_parity REAL,
+                content TEXT,
+                timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        
         conn.commit()
         conn.close()
     except Exception as e:
@@ -211,6 +222,23 @@ def fetch_genesis_resonance():
         return df
     except Exception as e:
         return pd.DataFrame()
+
+
+def fetch_sovereign_manifesto():
+    """Fetch the sovereign manifesto - the constitution for all calculations"""
+    conn = get_db_connection()
+    if not conn:
+        return None
+    
+    try:
+        query = "SELECT * FROM sovereign_manifestos ORDER BY timestamp DESC LIMIT 1"
+        df = pd.read_sql(query, conn)
+        conn.close()
+        if not df.empty:
+            return df.iloc[0]
+        return None
+    except Exception as e:
+        return None
 
 
 def create_ner_scatter(is_stable=True, spin_deflection=90.0):
@@ -466,6 +494,22 @@ with col_right:
         st.info("No data in bio_hardware_sync table")
 
 st.markdown("---")
+
+manifesto = fetch_sovereign_manifesto()
+if manifesto is not None:
+    st.subheader("Sovereign Manifesto (BEDROCK CONSTITUTION)")
+    st.markdown(f"""
+    <div class='metric-card' style='text-align: left; border: 2px solid #00ff41;'>
+        <h3 style='color: #00ff41;'>{manifesto['title']}</h3>
+        <p><strong>Signature:</strong> <span style='color: #00ff41;'>{manifesto['signature']}</span> | 
+        <strong>Resonance Parity:</strong> <span style='color: #00ff41;'>{manifesto['resonance_parity']:.4f}</span></p>
+        <hr style='border-color: #30363d;'>
+        <p style='font-style: italic; color: #c9d1d9;'>"{manifesto['content']}"</p>
+        <p style='font-size: 12px; color: #6e7681;'>Etched: {manifesto['timestamp']}</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("---")
 st.subheader("Audit Log")
 st.markdown(f"""
 ```
@@ -474,6 +518,7 @@ st.markdown(f"""
 [{datetime.now().strftime('%H:%M:%S')}] AUDIT: Geometric Lock = {GEOMETRIC_LOCK:.6f} - VERIFIED
 [{datetime.now().strftime('%H:%M:%S')}] AUDIT: Ground State = {SOVEREIGN_GROUND_STATE:.6f} - SOVEREIGN
 [{datetime.now().strftime('%H:%M:%S')}] AUDIT: NER Alignment = {spin_deflection:.1f} - {"LOCKED" if abs(spin_deflection - 90.0) < 1.0 else "DRIFTING"}
+[{datetime.now().strftime('%H:%M:%S')}] AUDIT: Sovereign Manifesto = {"ETCHED" if manifesto else "MISSING"} - CONSTITUTION
 ```
 """)
 
