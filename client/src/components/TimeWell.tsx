@@ -23,9 +23,25 @@ import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useQuery, useMutation } from "@tanstack/react-query";
 
 const COSMIC_AGE_MYR = 13800;
+const METRIC_HUM_COORDINATE = 13799.999620; // Present moment in cosmic time
 const TIPPING_POINT_MYR = 0.00038;
 const GROUND_STATE = -1 / 12;
 const TAU_MYR = 41.9;
+
+// Geometric Resonance: Metric tensor deformation from consciousness
+const calculateGeometricResonance = (anchorMyr: number, markerHash: number): number => {
+  const distanceFromHum = Math.abs(METRIC_HUM_COORDINATE - anchorMyr);
+  const decayFactor = Math.exp(-distanceFromHum / TAU_MYR);
+  const markerModulation = (markerHash % 1000) / 1000;
+  return GROUND_STATE * decayFactor * (1 + markerModulation * 0.1);
+};
+
+// Metric Hum shift: frequency deviation from -1/12 baseline
+const calculateMetricHumShift = (anchorMyr: number): number => {
+  const delta = METRIC_HUM_COORDINATE - anchorMyr;
+  const cycles = delta / TAU_MYR;
+  return GROUND_STATE + (cycles * 0.001); // Subtle drift from ground state
+};
 
 interface TimeWellMetrics {
   rMaxTriggered: boolean;
@@ -40,6 +56,9 @@ interface TimeWellMetrics {
   error?: string;
   message?: string;
   safetyLimit?: number;
+  geometricResonance?: number;
+  metricHumShift?: number;
+  metricTensorDeformation?: number;
 }
 
 interface HistoricalResonance {
@@ -186,7 +205,13 @@ export function TimeWell() {
     
     const time = Date.now() / 1000;
     
+    // Calculate local geometric resonance values
+    const markerHash = biologicalMarker.split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+    const geoRes = calculateGeometricResonance(anchorPointMyr, markerHash);
+    const humShift = calculateMetricHumShift(anchorPointMyr);
+    
     if (isSyncing && metrics?.standingWavePattern) {
+      // GEOMETRIC RESONANCE MODE - Metric tensor visualization
       ctx.strokeStyle = "rgba(147, 51, 234, 0.8)";
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -195,9 +220,10 @@ export function TimeWell() {
       for (let i = 0; i < width; i++) {
         const patternIdx = Math.floor((i / width) * pattern.length);
         const baseY = height / 2;
-        const amplitude = (pattern[patternIdx] || 0) * height * 2;
-        const standingWave = amplitude * Math.sin(time * 0.5);
-        const y = baseY + standingWave;
+        // Geometric curvature instead of particle wave
+        const curvature = (pattern[patternIdx] || 0) * height * 1.5;
+        const metricDeform = curvature * Math.sin(time * 0.3 + geoRes * 10);
+        const y = baseY + metricDeform;
         
         if (i === 0) {
           ctx.moveTo(i, y);
@@ -207,41 +233,62 @@ export function TimeWell() {
       }
       ctx.stroke();
       
-      ctx.fillStyle = "rgba(147, 51, 234, 0.3)";
-      ctx.fillText("STANDING WAVE - STATIC MEMORY", 10, 20);
+      // Draw -1/12 baseline reference
+      ctx.strokeStyle = "rgba(255, 200, 100, 0.4)";
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(0, height / 2);
+      ctx.lineTo(width, height / 2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      
+      ctx.fillStyle = "rgba(147, 51, 234, 0.5)";
+      ctx.font = "10px monospace";
+      ctx.fillText("GEOMETRIC RESONANCE - METRIC TENSOR CURVATURE", 10, 15);
     } else {
-      ctx.strokeStyle = "rgba(34, 197, 94, 0.6)";
+      // METRIC HUM MODE - Ground state oscillation at 13,799.999620 Myr
+      ctx.strokeStyle = "rgba(100, 200, 255, 0.6)";
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       
       for (let i = 0; i < width; i++) {
-        const x = i;
         const baseY = height / 2;
-        const frequency = 0.02;
-        const amplitude = 20;
-        const y = baseY + Math.sin((i + time * 50) * frequency) * amplitude * 
-                  Math.sin(time * 2) * (1 + Math.sin(i * 0.01) * 0.5);
+        // Metric Hum: subtle oscillation around -1/12 baseline
+        const humFreq = 0.015;
+        const humAmp = 15 * (1 + Math.abs(humShift) * 5);
+        const y = baseY + Math.sin((i + time * 30) * humFreq) * humAmp * 
+                  Math.cos(time * 1.5) * (1 + Math.sin(i * 0.008) * 0.3);
         
         if (i === 0) {
-          ctx.moveTo(x, y);
+          ctx.moveTo(i, y);
         } else {
-          ctx.lineTo(x, y);
+          ctx.lineTo(i, y);
         }
       }
       ctx.stroke();
       
-      ctx.fillStyle = "rgba(34, 197, 94, 0.3)";
-      ctx.fillText("LIVE NANOGRAV PULSE", 10, 20);
+      // Draw -1/12 baseline
+      ctx.strokeStyle = "rgba(255, 200, 100, 0.3)";
+      ctx.setLineDash([2, 2]);
+      ctx.beginPath();
+      ctx.moveTo(0, height / 2);
+      ctx.lineTo(width, height / 2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      
+      ctx.fillStyle = "rgba(100, 200, 255, 0.5)";
+      ctx.font = "10px monospace";
+      ctx.fillText(`METRIC HUM @ ${METRIC_HUM_COORDINATE.toFixed(6)} Myr`, 10, 15);
     }
     
     if (metrics?.rMaxTriggered) {
       ctx.fillStyle = "rgba(239, 68, 68, 0.8)";
-      ctx.font = "bold 14px monospace";
-      ctx.fillText("R_MAX LOGIC GUARD ACTIVE", width / 2 - 100, height / 2);
+      ctx.font = "bold 12px monospace";
+      ctx.fillText("R_MAX LOGIC GUARD ACTIVE", width / 2 - 90, height / 2);
     }
     
     animationRef.current = requestAnimationFrame(drawVisualization);
-  }, [isSyncing, metrics]);
+  }, [isSyncing, metrics, biologicalMarker, anchorPointMyr]);
 
   useEffect(() => {
     animationRef.current = requestAnimationFrame(drawVisualization);
@@ -494,7 +541,7 @@ export function TimeWell() {
             data-testid="canvas-resonance-map"
           />
           <div className="absolute bottom-1 right-1 text-xs text-muted-foreground/60">
-            {isSyncing ? "Standing Wave Pattern" : "NANOGrav Pulse"}
+            {isSyncing ? "Geometric Resonance" : "Metric Hum Shift"}
           </div>
         </div>
         
@@ -577,7 +624,7 @@ export function TimeWell() {
         
         {isSyncing && (
           <div className="text-xs text-center text-purple-400/80 animate-pulse">
-            Resonating with {getEraName(anchorPointMyr)}. Standing wave pattern active.
+            Geometric Resonance with {getEraName(anchorPointMyr)}. Metric curvature locked to -1/12 baseline.
           </div>
         )}
       </CardContent>
