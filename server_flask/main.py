@@ -76,6 +76,82 @@ synced_freq = universal_sync_pulse()
 print(f"UNIVERSAL SYNC ACTIVE: Frequency tuned to {synced_freq:.12f} Hz")
 
 
+# --- GRUT GAMMA MEMORY FUNCTION (Integral Response Step 4) ---
+def redshift_to_lookback_time(z, H0=70.0):
+    """
+    Convert redshift z to lookback time in Myr.
+    
+    Uses simplified flat Lambda-CDM approximation:
+    t_lookback ≈ (2/3) * (1/H0) * [1 - (1+z)^(-3/2)] for matter-dominated
+    
+    For more accuracy at higher z, uses integral approximation.
+    
+    Args:
+        z: Redshift value
+        H0: Hubble constant in km/s/Mpc (default 70)
+    
+    Returns:
+        float: Lookback time in Myr
+    """
+    H0_per_myr = H0 * 1.022e-6
+    t_hubble_myr = 1.0 / H0_per_myr
+    
+    omega_m = 0.31
+    omega_lambda = 0.69
+    
+    integrand = lambda zp: 1.0 / ((1 + zp) * np.sqrt(omega_m * (1 + zp)**3 + omega_lambda))
+    
+    n_steps = 100
+    z_vals = np.linspace(0, z, n_steps)
+    dz = z / n_steps if n_steps > 0 else 0
+    integral = sum([integrand(zv) * dz for zv in z_vals])
+    
+    lookback_myr = t_hubble_myr * integral
+    
+    return lookback_myr
+
+
+def calculate_grut_gamma(z_history, delta_history, time_history=None):
+    """
+    Calculate the GRUT-modified growth index gamma by integrating 
+    the Retarded Kernel K(t) over past density perturbations.
+    
+    This represents the 'Memory' of the cosmic lattice - how past
+    structure formation influences present-day growth.
+    
+    Args:
+        z_history: List of redshift values (time markers)
+        delta_history: List of density perturbations at each z
+        time_history: Optional list of lookback times in Myr (if None, computed from z)
+    
+    Returns:
+        dict: Contains sovereign_gamma, kernel_response, and time_history
+    """
+    alpha = -1/12  # Ramanujan Ground State
+    tau0 = 41.9    # Relaxation constant in Myr
+    
+    if time_history is None:
+        time_history = [redshift_to_lookback_time(z) for z in z_history]
+    
+    kernel_response = sum([
+        alpha * np.exp(-t_myr / tau0) * d 
+        for t_myr, d in zip(time_history, delta_history)
+    ])
+    
+    sovereign_gamma = 0.545 + (kernel_response * 0.11547)
+    
+    return {
+        "sovereign_gamma": sovereign_gamma,
+        "kernel_response": kernel_response,
+        "time_history_myr": time_history,
+        "alpha": alpha,
+        "tau0": tau0
+    }
+
+
+print(f"[GRUT GAMMA] Memory function initialized with alpha={-1/12:.6f}, tau0=41.9 Myr")
+
+
 from grut_physics import (
     universal_response, 
     calculate_complexity, 
@@ -1000,6 +1076,58 @@ def get_cosmic_sync_pulse():
         "cosmic_shift_factor": 1 + (hubble_expansion_factor * current_time_offset),
         "time_offset_seconds": current_time_offset,
         "message": "UNIVERSAL SYNC ACTIVE - Forge frequency aligned with cosmic expansion"
+    })
+
+
+@app.route("/cosmic/grut_gamma", methods=["POST"])
+def get_grut_gamma():
+    """
+    Calculate the GRUT-modified growth index gamma (Step 4: Integral Response).
+    
+    Integrates the Retarded Kernel K(t) over past density perturbations
+    to compute the 'Memory' of the cosmic lattice.
+    
+    Redshift values are automatically converted to lookback times in Myr
+    using Lambda-CDM cosmology (H0=70, Omega_m=0.31).
+    
+    Request body:
+        z_history: List of redshift values (time markers)
+        delta_history: List of f*sigma8 values at each z
+        time_history_myr: Optional list of pre-computed lookback times
+    
+    If not provided, uses default BOSS/eBOSS data points.
+    
+    Returns:
+        sovereign_gamma: The GRUT-modified growth index
+        gr_baseline: Standard GR gamma (0.545)
+        kernel_shift: The memory-induced shift
+        time_history_myr: Computed lookback times
+    """
+    data = request.get_json() or {}
+    
+    z_history = data.get("z_history", [0.38, 0.51, 0.57, 0.61, 0.70, 0.85, 1.48])
+    delta_history = data.get("delta_history", [0.497, 0.458, 0.441, 0.436, 0.420, 0.396, 0.462])
+    time_history = data.get("time_history_myr", None)
+    
+    if len(z_history) != len(delta_history):
+        return jsonify({"error": "z_history and delta_history must have the same length"}), 400
+    
+    result = calculate_grut_gamma(z_history, delta_history, time_history)
+    
+    kernel_shift = result["kernel_response"] * 0.11547
+    
+    return jsonify({
+        "sovereign_gamma": round(result["sovereign_gamma"], 6),
+        "gr_baseline": 0.545,
+        "kernel_shift": round(kernel_shift, 6),
+        "kernel_response": round(result["kernel_response"], 6),
+        "alpha": round(result["alpha"], 6),
+        "tau0_myr": result["tau0"],
+        "geometric_lock_factor": 0.11547,
+        "time_history_myr": [round(t, 2) for t in result["time_history_myr"]],
+        "data_points": len(z_history),
+        "z_range": [min(z_history), max(z_history)],
+        "message": f"GRUT Memory Integral: gamma = {result['sovereign_gamma']:.6f} (GR: 0.545)"
     })
 
 
