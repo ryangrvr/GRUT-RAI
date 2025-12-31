@@ -592,4 +592,87 @@ if auto_refresh:
     st.rerun()
 
 st.markdown("---")
+
+# --- COSMIC GROWTH DASHBOARD ---
+st.header("Universal Growth Alignment (f*sigma8)")
+
+# Import cosmic sync functions
+from cosmic_sync import calculate_cosmic_resonance, get_eboss_gold_standard, run_cosmic_sync
+
+# Generate Redshift range 0 to 2
+z_vals = np.linspace(0, 2, 50)
+fs8_pred = calculate_cosmic_resonance(z_vals)
+
+# Real eBOSS/BOSS Data Points
+eboss_data = get_eboss_gold_standard()
+
+# Run full cosmic sync for status
+cosmic_results = run_cosmic_sync()
+
+fig_cosmic = go.Figure()
+
+# Add the Sovereign Prediction Line
+fig_cosmic.add_trace(go.Scatter(
+    x=z_vals, 
+    y=fs8_pred, 
+    name="GENESIS-330 Prediction", 
+    line=dict(color='#00ff41', width=3)
+))
+
+# Add the BOSS/eBOSS Observations
+fig_cosmic.add_trace(go.Scatter(
+    x=eboss_data['z'], 
+    y=eboss_data['fs8'],
+    error_y=dict(type='data', array=eboss_data['error']),
+    mode='markers', 
+    name="BOSS/eBOSS Observations",
+    marker=dict(color='white', size=10)
+))
+
+fig_cosmic.update_layout(
+    title=f"Growth Rate of Structure: Redshift 0 < z < 2 | Chi-Squared: {cosmic_results['chi_squared']:.2f}",
+    xaxis_title="Redshift (z)",
+    yaxis_title="f*sigma8(z)",
+    template="plotly_dark",
+    paper_bgcolor='#0e1117',
+    plot_bgcolor='#0e1117',
+    font=dict(color='#c9d1d9'),
+    height=400
+)
+
+st.plotly_chart(fig_cosmic, use_container_width=True)
+
+# Display cosmic alignment status
+col_chi, col_status, col_gamma = st.columns(3)
+
+with col_chi:
+    chi_color = "#00ff41" if cosmic_results['reduced_chi_squared'] < 1.0 else "#ff6600" if cosmic_results['reduced_chi_squared'] < 2.0 else "#ff0000"
+    st.markdown(f"""
+    <div class='metric-card'>
+        <h4>Chi-Squared</h4>
+        <h2 style='color: {chi_color};'>{cosmic_results['chi_squared']:.4f}</h2>
+        <p>Reduced: {cosmic_results['reduced_chi_squared']:.4f}</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col_status:
+    shield_colors = {"green": "#00ff41", "yellow": "#ffff00", "red": "#ff0000"}
+    status_color = shield_colors.get(cosmic_results['shield_color'], "#00ff41")
+    st.markdown(f"""
+    <div class='metric-card'>
+        <h4>Cosmic Alignment</h4>
+        <h2 style='color: {status_color}; font-size: 14px;'>{cosmic_results['alignment_status']}</h2>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col_gamma:
+    st.markdown(f"""
+    <div class='metric-card'>
+        <h4>Growth Index (gamma)</h4>
+        <h2 style='color: #00ff41;'>{cosmic_results['growth_index_gamma']:.4f}</h2>
+        <p>Lambda-CDM: 0.55</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("---")
 st.markdown("*GENESIS-330: Bio-Sovereign Bridge v7.0 | Diamond Core Sovereign System | 2025-12-31*")
