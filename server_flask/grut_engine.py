@@ -617,6 +617,48 @@ def grut_hubble(z: float) -> float:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# SOVEREIGN PROTECTION LAYER - DIAMOND LOCK CONSTANTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# INVARIANT CONSTANTS - These are universal constants derived from Diamond Lock geometry
+# They must NEVER be tuned to fit residuals - doing so is "paradigm drift"
+DIAMOND_STIFFNESS = 0.70      # Geometric Response (Vacuum Elasticity) - FLOOR
+DIAMOND_LOCK_RATIO = 1.1547   # sqrt(4/3) - Gravitational Refractive Index
+DIAMOND_SIGMA8 = 0.936        # Phase-Locked Amplitude (0.811 × 1.1547)
+
+
+def validate_parameters(stiffness: float, lock: float) -> None:
+    """
+    SOVEREIGN PROTECTION LAYER - Prevent paradigm drift.
+    
+    These are universal constants from Diamond Lock geometry.
+    They must NEVER be adjusted to fit observational residuals.
+    
+    If high-z predictions deviate, adjust the Kernel Power (n) - 
+    the "Gear Shift" for memory relaxation rate - not the Stiffness.
+    
+    Args:
+        stiffness: Geometric Response (must be 0.70)
+        lock: Diamond Lock Ratio (must be 1.1547)
+        
+    Raises:
+        ValueError: If constants have been modified
+    """
+    if abs(stiffness - DIAMOND_STIFFNESS) > 1e-10:
+        raise ValueError(
+            f"PARADIGM DRIFT DETECTED: Stiffness = {stiffness}, expected {DIAMOND_STIFFNESS}. "
+            "Do not tune universal constants to fit residuals. "
+            "Adjust Kernel Power (n) for high-z deviations instead."
+        )
+    if abs(lock - DIAMOND_LOCK_RATIO) > 1e-4:
+        raise ValueError(
+            f"PARADIGM DRIFT DETECTED: Lock = {lock}, expected {DIAMOND_LOCK_RATIO}. "
+            "Do not tune universal constants to fit residuals."
+        )
+    print("CONSTANTS VERIFIED: Proceeding with Causal Diamond Logic.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # RETARDED GROWTH SOLVER - ODE-BASED FREQUENCY-SELECTIVE KERNEL
 # ═══════════════════════════════════════════════════════════════════════════════
 
@@ -633,28 +675,37 @@ class RetardedGrowthSolver:
     ties growth speedup directly to expansion rate - they cancel at Sound Horizon.
     """
     
-    def __init__(self, w_tilde_c: Optional[float] = None):
-        # Diamond Core Constants
+    def __init__(self, w_tilde_c: Optional[float] = None, kernel_power: float = 1.0):
+        # Diamond Core Constants - INVARIANT (from module-level constants)
         self.omega_b = 0.0486           # Baryon Density (Planck 2018)
-        self.omega_geom = 0.70          # Residual Stiffness (0.75 - 0.05 Silk)
-        self.sigma8_0 = 0.936           # Phase-Locked Amplitude (0.811 × 1.1547)
+        self.omega_geom = DIAMOND_STIFFNESS   # Geometric Response - INVARIANT FLOOR
+        self.sigma8_0 = DIAMOND_SIGMA8        # Phase-Locked Amplitude - INVARIANT
         self.H0 = 67.4                  # Planck 2018 Baseline (km/s/Mpc)
+        
+        # Diamond Lock Ratio - INVARIANT
+        # sqrt(4/3) ≈ 1.1547 - the gravitational refractive index
+        self.diamond_lock_ratio = DIAMOND_LOCK_RATIO
+        
+        # SOVEREIGN PROTECTION - Verify constants before proceeding
+        validate_parameters(self.omega_geom, self.diamond_lock_ratio)
         
         # RESCALED DIAMOND LOCK - Dimensionless Scaling
         # W̃c = ωc / H0 ≈ 1.0 ensures the kernel "wakes up" as H(z) → H0
         # The 4/3 boost activates as h_ratio approaches 1.0
         self.w_tilde_c = w_tilde_c if w_tilde_c is not None else 1.0
         
-        # Diamond Lock Ratio - Phase Lock for Growth Rate
-        # sqrt(4/3) ≈ 1.1547 - the gravitational refractive index
-        self.diamond_lock_ratio = 1.1547
+        # KERNEL POWER (n) - The "Gear Shift" for Memory Relaxation
+        # This is the ONLY tunable parameter for high-z deviations
+        # Higher n = faster memory saturation, lower n = slower 4/3 activation
+        # K(t) = (α/τ₀) × exp(-t/τ₀)^n
+        self.kernel_power = kernel_power
         
         # V3.11 Growth Index - Retarded Index with Memory Drag
         self.gamma_base = 0.61          # Base GRUT growth index
         
         # Solver metadata
         self.solver_type = "SOVEREIGN_INTEGRATOR_V3.11"
-        self.version = "3.11.0"
+        self.version = "3.11.1"  # Updated for Kernel Power support
         
         # Cached solutions
         self._cached_z = None
@@ -706,15 +757,19 @@ class RetardedGrowthSolver:
     
     def get_g_eff(self, z: float) -> float:
         """
-        RESCALED Frequency-selective kernel response.
+        RESCALED Frequency-selective kernel response with Kernel Power.
         
-        G_eff(z) = 1 + (1/3) / (1 + (h_ratio / W̃c)²)
+        G_eff(z) = 1 + (1/3) / (1 + (h_ratio / W̃c)^(2n))
         
-        Where h_ratio = H(z)/H0 = sqrt(Ω_total(z))
+        Where:
+        - h_ratio = H(z)/H0 = sqrt(Ω_total(z))
+        - n = kernel_power (the "Gear Shift" for memory relaxation)
         
         Physics:
         - At high-z: h_ratio >> W̃c → G_eff → 1 (BBN-safe)
         - At low-z: h_ratio → W̃c → G_eff → 4/3 (IR enhancement)
+        - Higher n = faster transition (memory saturates quickly)
+        - Lower n = slower transition (delayed memory saturation)
         
         Args:
             z: Redshift
@@ -723,7 +778,9 @@ class RetardedGrowthSolver:
             float: Effective gravitational enhancement G_eff/G
         """
         h_ratio = self.get_h_ratio(z)
-        kernel_response = 1 + (1/3) / (1 + (h_ratio / self.w_tilde_c)**2)
+        # Kernel Power (n) controls the transition rate
+        # Standard n=1.0 gives the baseline behavior
+        kernel_response = 1 + (1/3) / (1 + (h_ratio / self.w_tilde_c)**(2 * self.kernel_power))
         return kernel_response
     
     def get_sovereign_source(self, z: float) -> float:
@@ -1018,10 +1075,15 @@ class RetardedGrowthSolver:
             "comparisons": comparisons,
             "solver_type": self.solver_type,
             "version": self.version,
-            "w_tilde_c": self.w_tilde_c,
+            # INVARIANT CONSTANTS (Diamond Lock - NEVER TUNE)
             "omega_geom": self.omega_geom,
             "sigma8_0": self.sigma8_0,
             "diamond_lock_ratio": self.diamond_lock_ratio,
+            "invariant_status": "DIAMOND_LOCK_VERIFIED",
+            # TUNABLE PARAMETER (Gear Shift for high-z)
+            "kernel_power": self.kernel_power,
+            "w_tilde_c": self.w_tilde_c,
+            # Derived values
             "gamma_formula": "gamma_eff = 1.0519 * omega_eff^0.4688",
             "g_eff_z0": float(self.get_g_eff(0)),
             "g_eff_z100": float(self.get_g_eff(100)),

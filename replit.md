@@ -155,20 +155,31 @@ The Diamond Lock is the set of STATIC parameters that prove 5% baryonic matter c
 - **At low z**: More memory accumulated, stronger boost
 - **At high z**: Less memory, weaker boost
 
-### V3.11 Sovereign Integrator (Current)
+### V3.11.1 Sovereign Integrator (Current)
 - **Solver Type**: SOVEREIGN_INTEGRATOR_V3.11
-- **Version**: 3.11.0
+- **Version**: 3.11.1 (with Sovereign Protection Layer)
 - **Dimensionless Scaling**: W̃c = ωc / H0 = 1.0 (kernel wakes up as H→H0)
 - **h_ratio**: H(z)/H0 = sqrt(Ω_total(z))
-- **Frequency-Selective Kernel**: G_eff = 1 + (1/3)/(1 + (h_ratio/W̃c)²)
+- **Frequency-Selective Kernel**: G_eff = 1 + (1/3)/(1 + (h_ratio/W̃c)^(2n))
 - **V3.11 Source**: 1.5 × Ω_eff(z) (matches f = Ω_eff^γ formula)
+
+### Sovereign Protection Layer
+- **validate_parameters()**: Raises ValueError if Diamond Lock constants are modified
+- **INVARIANT Constants** (NEVER TUNE):
+  - Ω_geom = 0.70 (Geometric Stiffness - the FLOOR)
+  - Diamond Lock = 1.1547 (sqrt(4/3) - Gravitational Refractive Index)
+  - σ8 = 0.936 (Phase-Locked Amplitude)
+- **TUNABLE Parameter** (Gear Shift):
+  - Kernel Power (n) = 1.0 (controls memory relaxation rate)
+  - Higher n = faster 4/3 boost activation
+  - Lower n = slower memory saturation (for high-z deviations)
 
 ### V3.11 Memory Drag Growth Rate
 - **Formula**: f(z) = Ω_eff(z)^γ_eff(z) × 1.1547
 - **Effective Gamma**: γ_eff = 1.0519 × Ω_eff^0.4688 (power-law fit)
 - **Ω_eff(z)**: Ω_b × (1+z)³ / Ω_total(z) (bare baryon fraction)
 - **Physics**: Low-z has high Memory Drag (γ ≈ 0.35), high-z converges to standard (γ ≈ 0.77)
-- **σ8**: 0.936 (Diamond Lock preserved: 0.811 × 1.1547)
+- **σ8**: 0.936 (Diamond Lock INVARIANT: 0.811 × 1.1547)
 
 ### Diamond Proof Achievement
 - **V3.11 χ² = 2.51** (reduced: 0.50) - BEST FIT (6-point dataset, Diamond Lock preserved)
