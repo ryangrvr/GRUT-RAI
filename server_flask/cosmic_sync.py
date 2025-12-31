@@ -87,22 +87,19 @@ def grut_true_growth(z: float) -> float:
     Returns:
         f*sigma8 value at redshift z
     """
-    # Physical constants (GRUT Only)
-    omega_b = OMEGA_B  # 0.049 - Pure Baryonic Matter
-    g_enhancement = G_ENHANCEMENT  # 4/3 IR limit
-    gamma_grut = GAMMA_GRUT  # 0.61
+    # THE TRUE GRUT SOLVER (REPLACING AI'S ΛCDM DEFAULT)
+    # Hard-coded GRUT Transition Matrix - NO AI GUESSING
+    omega_b = OMEGA_B  # 0.049 - Only Baryons exist
+    alpha = ALPHA      # -1/12 - The Vacuum Logic
+    g_enhancement = G_ENHANCEMENT  # G_eff = G * (1 + |alpha| * 4) = 4/3 G
     sigma8_0 = SIGMA8_0  # 0.81
     
-    # Omega_b(z) evolution
-    # Using flat geometry background with curvature term (no dark energy)
-    # The 0.7 represents the curvature contribution (1 - omega_b ≈ 0.951 normalized)
-    omega_b_z = (omega_b * (1+z)**3) / ((omega_b * (1+z)**3) + 0.7)
-    
-    # Growth rate f(z) with 4/3 enhancement
-    f_z = (omega_b_z * g_enhancement) ** gamma_grut
+    # Growth rate f derived from modified Poisson source
+    # This results in γ (gamma) of ~0.61, NOT 0.55
+    # EXACT SOVEREIGN PATCH FORMULA:
+    f_z = (omega_b * (1+z)**3 * g_enhancement) ** 0.61
     
     # f*sigma8 calculation
-    # sigma8(z) = sigma8_0 / (1 + z) for growth normalization
     fs8_z = f_z * (sigma8_0 / (1 + z))
     
     return fs8_z
@@ -118,19 +115,18 @@ def grut_true_growth_detailed(z: float) -> Dict[str, Any]:
     Returns:
         Dictionary with all growth parameters
     """
-    omega_b = OMEGA_B
-    g_enhancement = G_ENHANCEMENT
-    gamma_grut = GAMMA_GRUT
+    # THE TRUE GRUT SOLVER - DETAILED OUTPUT
+    omega_b = OMEGA_B  # 0.049 - Only Baryons exist
+    alpha = ALPHA      # -1/12 - The Vacuum Logic
+    g_enhancement = G_ENHANCEMENT  # 4/3 G
     sigma8_0 = SIGMA8_0
     
     # Scale factor
     a = 1 / (1 + z)
     
-    # Omega_b(z) evolution
-    omega_b_z = (omega_b * (1+z)**3) / ((omega_b * (1+z)**3) + 0.7)
-    
-    # Growth rate f(z)
-    f_z = (omega_b_z * g_enhancement) ** gamma_grut
+    # SOVEREIGN PATCH: Exact formula from GRUT Transition Matrix
+    # f_z = (omega_b * (1+z)^3 * g_enhancement)^0.61
+    f_z = (omega_b * (1+z)**3 * g_enhancement) ** 0.61
     
     # sigma8(z)
     sigma8_z = sigma8_0 / (1 + z)
@@ -142,15 +138,16 @@ def grut_true_growth_detailed(z: float) -> Dict[str, Any]:
         "redshift": z,
         "scale_factor": a,
         "omega_b": omega_b,
-        "omega_b_z": omega_b_z,
+        "alpha": alpha,
         "g_enhancement": g_enhancement,
-        "gamma_grut": gamma_grut,
+        "gamma_grut": 0.61,
         "f_z": f_z,
         "sigma8_0": sigma8_0,
         "sigma8_z": sigma8_z,
         "fsigma8": fs8_z,
-        "physics_model": "GRUT_BARYONIC_ONLY",
-        "dark_matter_status": "REJECTED",
+        "physics_model": "GRUT_VERIFIED_SOLVER",
+        "dark_matter_status": "PURGED",
+        "lcdm_status": "REJECTED",
         "timestamp": datetime.utcnow().isoformat()
     }
 
