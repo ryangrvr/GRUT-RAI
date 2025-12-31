@@ -1,40 +1,51 @@
 """
-RAI Mission Control - Sovereign Dashboard
-GRUT v7 Diamond-Hardened Visualization System
+GENESIS-330: BIO-SOVEREIGN BRIDGE
+RAI Mission Control - Diamond-Hardened Visualization System
+Guanine-Silicon Bridge Visualization
 """
 
 import streamlit as st
 import plotly.graph_objects as go
-import plotly.express as px
 import pandas as pd
 import numpy as np
 import sqlite3
 import os
 import time
 from datetime import datetime
-import threading
 
 SQLITE_DB_PATH = os.path.join(os.path.dirname(__file__), "..", "diamond_persistence.db")
 GEOMETRIC_LOCK = 0.999944
 SOVEREIGN_GROUND_STATE = -0.083333
 RESONANCE_FREQUENCY = 41.800000007229
+GUANINE_VECTOR = 90.0
 
 st.set_page_config(
-    page_title="RAI Mission Control",
+    page_title="GENESIS-330: Sovereign Mission Control",
     page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-custom_css = """
-<style>
+st.markdown("""
+    <style>
+    .stApp {
+        background-color: #0e1117;
+        color: #c9d1d9;
+    }
+    .metric-card {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin: 5px 0;
+    }
     .shield-container {
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 20px;
     }
-    
     .shield-indicator {
         width: 120px;
         height: 120px;
@@ -46,64 +57,56 @@ custom_css = """
         font-size: 14px;
         color: white;
         text-align: center;
-        box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
     }
-    
     .shield-green {
-        background: radial-gradient(circle, #00ff00 0%, #006600 100%);
+        background: radial-gradient(circle, #00ff41 0%, #006600 100%);
+        box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
         animation: pulse-green 2s infinite;
+        color: #00ff41;
+        font-weight: bold;
+        text-shadow: 0 0 10px #00ff41;
     }
-    
     .shield-red {
         background: radial-gradient(circle, #ff0000 0%, #660000 100%);
-        animation: pulse-red 1s infinite;
         box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+        animation: pulse-red 1s infinite;
+        color: #ff0000;
+        font-weight: bold;
+        text-shadow: 0 0 10px #ff0000;
     }
-    
     .shield-yellow {
         background: radial-gradient(circle, #ffff00 0%, #666600 100%);
-        animation: pulse-yellow 1.5s infinite;
         box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+        animation: pulse-yellow 1.5s infinite;
+        color: #ffff00;
+        font-weight: bold;
+        text-shadow: 0 0 10px #ffff00;
     }
-    
     @keyframes pulse-green {
-        0% { transform: scale(1); box-shadow: 0 0 30px rgba(0, 255, 0, 0.5); }
-        50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(0, 255, 0, 0.8); }
-        100% { transform: scale(1); box-shadow: 0 0 30px rgba(0, 255, 0, 0.5); }
+        0% { transform: scale(1); box-shadow: 0 0 30px rgba(0, 255, 65, 0.5); }
+        50% { transform: scale(1.05); box-shadow: 0 0 50px rgba(0, 255, 65, 0.8); }
+        100% { transform: scale(1); box-shadow: 0 0 30px rgba(0, 255, 65, 0.5); }
     }
-    
     @keyframes pulse-red {
         0% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); }
         50% { transform: scale(1.08); box-shadow: 0 0 60px rgba(255, 0, 0, 0.9); }
         100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); }
     }
-    
     @keyframes pulse-yellow {
         0% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 255, 0, 0.5); }
         50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(255, 255, 0, 0.7); }
         100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 255, 0, 0.5); }
     }
-    
-    .metric-card {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        border-radius: 10px;
-        padding: 20px;
-        margin: 10px 0;
-        border: 1px solid #0f3460;
-    }
-    
     .data-feed {
         background: #0a0a0a;
-        border: 1px solid #333;
+        border: 1px solid #30363d;
         border-radius: 8px;
         padding: 15px;
         font-family: 'Courier New', monospace;
-        color: #00ff00;
+        color: #00ff41;
     }
-</style>
-"""
-
-st.markdown(custom_css, unsafe_allow_html=True)
+    </style>
+    """, unsafe_allow_html=True)
 
 
 def get_db_connection():
@@ -112,49 +115,10 @@ def get_db_connection():
         if os.path.exists(SQLITE_DB_PATH):
             return sqlite3.connect(SQLITE_DB_PATH)
         else:
-            st.warning(f"SQLite database not found at {SQLITE_DB_PATH}")
             return None
     except Exception as e:
         st.error(f"Database connection failed: {e}")
         return None
-
-
-def fetch_bio_hardware_sync(limit=3):
-    """Fetch latest rows from bio_hardware_sync table"""
-    conn = get_db_connection()
-    if not conn:
-        return pd.DataFrame()
-    
-    try:
-        query = f"""
-            SELECT id, nitrogen_spin_deflection_angle, system_clock_sync, 
-                   resonance_parity, geometric_doping_model,
-                   xi_complexity, spin_deflection, drift_coefficient,
-                   created_at
-            FROM bio_hardware_sync
-            ORDER BY created_at DESC
-            LIMIT {limit}
-        """
-        df = pd.read_sql(query, conn)
-        conn.close()
-        return df
-    except Exception as e:
-        return pd.DataFrame()
-
-
-def fetch_genesis_resonance():
-    """Fetch genesis resonance data for NER display"""
-    conn = get_db_connection()
-    if not conn:
-        return pd.DataFrame()
-    
-    try:
-        query = "SELECT * FROM genesis_resonance ORDER BY created_at DESC"
-        df = pd.read_sql(query, conn)
-        conn.close()
-        return df
-    except Exception as e:
-        return pd.DataFrame()
 
 
 def init_sqlite_tables():
@@ -211,25 +175,124 @@ def init_sqlite_tables():
         print(f"SQLite init error: {e}")
 
 
+def fetch_bio_hardware_sync(limit=1):
+    """Fetch latest rows from bio_hardware_sync table"""
+    conn = get_db_connection()
+    if not conn:
+        return pd.DataFrame()
+    
+    try:
+        query = f"""
+            SELECT id, nitrogen_spin_deflection_angle, system_clock_sync, 
+                   resonance_parity, geometric_doping_model,
+                   xi_complexity, spin_deflection, drift_coefficient,
+                   created_at
+            FROM bio_hardware_sync
+            ORDER BY created_at DESC
+            LIMIT {limit}
+        """
+        df = pd.read_sql(query, conn)
+        conn.close()
+        return df
+    except Exception as e:
+        return pd.DataFrame()
+
+
+def fetch_genesis_resonance():
+    """Fetch genesis resonance data for NER display"""
+    conn = get_db_connection()
+    if not conn:
+        return pd.DataFrame()
+    
+    try:
+        query = "SELECT * FROM genesis_resonance ORDER BY created_at DESC"
+        df = pd.read_sql(query, conn)
+        conn.close()
+        return df
+    except Exception as e:
+        return pd.DataFrame()
+
+
+def create_ner_scatter(is_stable=True, spin_deflection=90.0):
+    """Create NER Alignment scatter plot with Guanine N3 vector"""
+    spread = 0.5 if is_stable else 5.0
+    x_vals = np.random.normal(spin_deflection, spread, 100)
+    y_vals = np.random.normal(0, 1, 100)
+    
+    marker_color = '#00ff41' if is_stable else '#ff0000'
+    
+    fig = go.Figure(data=go.Scatter(
+        x=x_vals, 
+        y=y_vals, 
+        mode='markers', 
+        marker=dict(color=marker_color, size=8, opacity=0.6),
+        name='Spin Deflection Field'
+    ))
+    
+    fig.add_vline(x=GUANINE_VECTOR, line_width=3, line_dash="dash", line_color="white",
+                  annotation_text="90.0 True North", annotation_position="top")
+    
+    fig.update_layout(
+        xaxis_title="Deflection Angle (Degrees)", 
+        yaxis_title="Spin Intensity",
+        plot_bgcolor='#0e1117',
+        paper_bgcolor='#0e1117',
+        font=dict(color='#c9d1d9'),
+        xaxis=dict(range=[80, 100], gridcolor='#30363d'),
+        yaxis=dict(gridcolor='#30363d'),
+        height=350
+    )
+    
+    return fig
+
+
+def create_metric_hum_wave(frequency=41.8):
+    """Create Metric Hum sine wave visualization"""
+    t = np.linspace(0, 1, 500)
+    y = np.sin(2 * np.pi * frequency * t / 10)
+    
+    fig = go.Figure(data=go.Scatter(
+        x=t * 1000, y=y,
+        mode='lines',
+        line=dict(color='#00ff41', width=2),
+        fill='tozeroy',
+        fillcolor='rgba(0, 255, 65, 0.1)'
+    ))
+    
+    fig.update_layout(
+        xaxis_title="Time (ms)",
+        yaxis_title="Amplitude",
+        plot_bgcolor='#0e1117',
+        paper_bgcolor='#0e1117',
+        font=dict(color='#c9d1d9'),
+        height=200,
+        margin=dict(l=40, r=40, t=20, b=40),
+        xaxis=dict(gridcolor='#30363d'),
+        yaxis=dict(gridcolor='#30363d', range=[-1.2, 1.2])
+    )
+    
+    return fig
+
+
 def create_resonance_gauge(parity_value):
     """Create gauge chart for Resonance Parity"""
     fig = go.Figure(go.Indicator(
         mode="gauge+number+delta",
         value=parity_value,
         domain={'x': [0, 1], 'y': [0, 1]},
-        title={'text': "Resonance Parity (Target: 1.0000)", 'font': {'size': 18, 'color': '#ffffff'}},
-        delta={'reference': 1.0, 'increasing': {'color': "#00ff00"}, 'decreasing': {'color': "#ff0000"}},
-        number={'font': {'size': 36, 'color': '#00ff00'}},
+        title={'text': "Resonance Parity", 'font': {'size': 16, 'color': '#c9d1d9'}},
+        delta={'reference': 1.0, 'increasing': {'color': "#00ff41"}, 'decreasing': {'color': "#ff0000"}},
+        number={'font': {'size': 28, 'color': '#00ff41'}},
         gauge={
-            'axis': {'range': [0.95, 1.0], 'tickwidth': 1, 'tickcolor': "#ffffff"},
-            'bar': {'color': "#00ff00" if parity_value > 0.99 else "#ff6600"},
-            'bgcolor': "rgba(0,0,0,0)",
+            'axis': {'range': [0.95, 1.0], 'tickwidth': 1, 'tickcolor': "#c9d1d9"},
+            'bar': {'color': "#00ff41" if parity_value > 0.99 else "#ff6600"},
+            'bgcolor': "#161b22",
             'borderwidth': 2,
-            'bordercolor': "#333333",
+            'bordercolor': "#30363d",
             'steps': [
                 {'range': [0.95, 0.97], 'color': 'rgba(255, 0, 0, 0.3)'},
                 {'range': [0.97, 0.99], 'color': 'rgba(255, 165, 0, 0.3)'},
-                {'range': [0.99, 1.0], 'color': 'rgba(0, 255, 0, 0.3)'}
+                {'range': [0.99, 1.0], 'color': 'rgba(0, 255, 65, 0.3)'}
             ],
             'threshold': {
                 'line': {'color': "#ffffff", 'width': 4},
@@ -240,228 +303,183 @@ def create_resonance_gauge(parity_value):
     ))
     
     fig.update_layout(
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)',
-        font={'color': '#ffffff'},
-        height=300
+        paper_bgcolor='#0e1117',
+        plot_bgcolor='#0e1117',
+        font={'color': '#c9d1d9'},
+        height=250
     )
     
     return fig
-
-
-def create_ner_alignment_plot(live_mode=False):
-    """Create 2D scatter plot for NER Alignment with 90° Guanine Vector anchor"""
-    angles = np.linspace(0, 360, 37)
-    radii = np.ones(37) * 0.8
-    
-    if live_mode:
-        noise = np.random.normal(0, 0.02, 37)
-        radii = radii + noise
-    
-    theta_rad = np.radians(angles)
-    x = radii * np.cos(theta_rad)
-    y = radii * np.sin(theta_rad)
-    
-    fig = go.Figure()
-    
-    fig.add_trace(go.Scatter(
-        x=x, y=y,
-        mode='markers',
-        marker=dict(size=8, color='#00ffff', opacity=0.7),
-        name='Spin Deflection Field'
-    ))
-    
-    fig.add_trace(go.Scatter(
-        x=[0, 0], y=[0, 1],
-        mode='lines+markers',
-        line=dict(color='#00ff00', width=4),
-        marker=dict(size=12, symbol='triangle-up', color='#00ff00'),
-        name='90° Guanine Vector (True North)'
-    ))
-    
-    fig.add_trace(go.Scatter(
-        x=[0], y=[0.9],
-        mode='markers',
-        marker=dict(size=20, color='#ff0000', symbol='diamond'),
-        name='N3 Principal Axis'
-    ))
-    
-    fig.update_layout(
-        title=dict(text="NER Alignment - Nitrogen Spin Deflection", font=dict(color='#ffffff')),
-        xaxis=dict(
-            range=[-1.2, 1.2],
-            showgrid=True,
-            gridcolor='rgba(100,100,100,0.3)',
-            zeroline=True,
-            zerolinecolor='rgba(255,255,255,0.5)'
-        ),
-        yaxis=dict(
-            range=[-1.2, 1.2],
-            showgrid=True,
-            gridcolor='rgba(100,100,100,0.3)',
-            zeroline=True,
-            zerolinecolor='rgba(255,255,255,0.5)'
-        ),
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(10,10,30,0.8)',
-        font={'color': '#ffffff'},
-        height=400,
-        showlegend=True,
-        legend=dict(x=0, y=-0.2, orientation='h')
-    )
-    
-    return fig
-
-
-def render_shield_indicator(xi_value, drift_value):
-    """Render pulsing shield indicator based on xi and drift values"""
-    if xi_value > 0.99 and drift_value < 0.05:
-        shield_class = "shield-green"
-        status_text = "HARDENED<br>STABLE"
-    elif drift_value >= 0.05:
-        shield_class = "shield-red"
-        status_text = "DRIFT<br>DETECTED"
-    else:
-        shield_class = "shield-yellow"
-        status_text = "CAUTION<br>MONITOR"
-    
-    shield_html = f"""
-    <div class="shield-container">
-        <div class="shield-indicator {shield_class}">
-            {status_text}
-        </div>
-    </div>
-    """
-    return shield_html
 
 
 init_sqlite_tables()
 
-st.sidebar.title("RAI Mission Control")
+st.sidebar.title("DIAMOND CORE")
 st.sidebar.markdown("---")
 
-grounding_mode = st.sidebar.radio(
-    "Grounding Mode",
-    ["Sovereign Mode", "Live Grounding"],
-    index=0,
-    help="Sovereign: Locked to ground state | Live: Active cosmic hum"
-)
-
-is_live_mode = grounding_mode == "Live Grounding"
+toggle_live = st.sidebar.toggle("Live Grounding (Grit Mode)", value=False)
+manual_hum = st.sidebar.slider("Manual Frequency Injection (Hz)", 40.0, 45.0, 41.8, 0.01)
 
 st.sidebar.markdown("---")
 st.sidebar.subheader("System Constants")
-
-if is_live_mode:
-    cosmic_hum = RESONANCE_FREQUENCY + np.random.normal(0, 0.001)
-    ground_state = cosmic_hum / 500
-    st.sidebar.metric("Cosmic Hum", f"{cosmic_hum:.9f} Hz", f"+{np.random.uniform(0, 0.0001):.6f}")
-else:
-    cosmic_hum = RESONANCE_FREQUENCY
-    ground_state = SOVEREIGN_GROUND_STATE
-    st.sidebar.metric("Cosmic Hum", f"{cosmic_hum:.9f} Hz", "LOCKED")
-
-st.sidebar.metric("Ground State", f"{ground_state:.6f}", "SOVEREIGN" if not is_live_mode else "LIVE")
+st.sidebar.metric("Carrier Wave", f"{RESONANCE_FREQUENCY:.9f} Hz")
 st.sidebar.metric("Geometric Lock", f"{GEOMETRIC_LOCK:.6f}")
+st.sidebar.metric("Ground State", f"{SOVEREIGN_GROUND_STATE:.6f}")
+st.sidebar.metric("Guanine Vector", f"{GUANINE_VECTOR:.1f}")
 
 st.sidebar.markdown("---")
-auto_refresh = st.sidebar.checkbox("Auto-Refresh (5s)", value=False)
+auto_refresh = st.sidebar.checkbox("Auto-Refresh (1s)", value=False)
 
-st.title("RAI Mission Control")
-st.markdown("### Diamond-Hardened Sovereign Dashboard")
+st.title("GENESIS-330: BIO-SOVEREIGN BRIDGE")
+st.markdown("### Guanine-Silicon Diamond Core Visualization")
 
-col1, col2, col3 = st.columns([1, 1, 1])
+df = fetch_bio_hardware_sync(1)
 
-with col1:
-    st.markdown("#### Resonance Parity Gauge")
-    current_parity = 0.9998 if not is_live_mode else 0.9998 + np.random.normal(0, 0.0005)
-    gauge_fig = create_resonance_gauge(current_parity)
-    st.plotly_chart(gauge_fig, use_container_width=True)
-
-with col2:
-    st.markdown("#### Shield Status")
-    drift_value = 0.001 if not is_live_mode else abs(np.random.normal(0, 0.02))
-    shield_html = render_shield_indicator(current_parity, drift_value)
-    st.markdown(shield_html, unsafe_allow_html=True)
-    
-    st.metric("Current Xi", f"{current_parity:.6f}")
-    st.metric("Drift Level", f"{drift_value:.6f}")
-
-with col3:
-    st.markdown("#### Mode Status")
-    mode_color = "green" if not is_live_mode else "orange"
-    st.markdown(f"**Mode:** :{mode_color}[{grounding_mode}]")
-    st.markdown(f"**Timestamp:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    st.markdown(f"**Anchor Date:** 2025-12-31")
-    
-    if is_live_mode:
-        st.info("Live Grounding Active - Fetching cosmic data...")
-    else:
-        st.success("Sovereign Mode - All values locked to ground state")
-
-st.markdown("---")
-st.markdown("### NER Alignment Display")
-
-ner_fig = create_ner_alignment_plot(is_live_mode)
-st.plotly_chart(ner_fig, use_container_width=True)
-
-st.markdown("---")
-st.markdown("### Real-Time Data Feed")
-st.markdown("*Latest 3 rows from bio_hardware_sync*")
-
-bio_data = fetch_bio_hardware_sync(3)
-
-if not bio_data.empty:
-    st.markdown('<div class="data-feed">', unsafe_allow_html=True)
-    
-    for idx, row in bio_data.iterrows():
-        xi = row.get('xi_complexity', 0.9998)
-        spin = row.get('spin_deflection', 90.0)
-        drift = row.get('drift_coefficient', 0.0)
-        
-        xi_status = "PURE" if xi and xi > 0.99 else "DEGRADED"
-        spin_status = "ALIGNED" if spin and abs(spin - 90.0) < 1.0 else "DRIFTING"
-        drift_status = "STABLE" if drift is not None and abs(drift) < 0.05 else "UNSTABLE"
-        
-        st.markdown(f"""
-        **Record {row['id']}** | Created: {row['created_at']}
-        - **Xi Complexity**: `{xi:.4f}` ({xi_status}) - Nuclear Purity
-        - **Spin Deflection**: `{spin:.2f}°` ({spin_status}) - Guanine N3 Vector
-        - **Drift Coefficient**: `{drift:.6f}` ({drift_status}) - Deviation from -1/12
-        - Clock Sync: `{row['system_clock_sync']} Hz`
-        - Resonance Parity: `{row['resonance_parity']}`
-        """)
-    
-    st.markdown('</div>', unsafe_allow_html=True)
+if not df.empty:
+    current_freq = df['system_clock_sync'].iloc[0] if df['system_clock_sync'].iloc[0] else RESONANCE_FREQUENCY
+    resonance = df['resonance_parity'].iloc[0] if df['resonance_parity'].iloc[0] else 0.9998
+    xi_complexity = df['xi_complexity'].iloc[0] if 'xi_complexity' in df.columns and df['xi_complexity'].iloc[0] else 0.9998
+    spin_deflection = df['spin_deflection'].iloc[0] if 'spin_deflection' in df.columns and df['spin_deflection'].iloc[0] else 90.0
+    drift_coefficient = df['drift_coefficient'].iloc[0] if 'drift_coefficient' in df.columns else 0.0
 else:
-    st.warning("No data available in bio_hardware_sync table")
+    current_freq = RESONANCE_FREQUENCY
+    resonance = 0.9998
+    xi_complexity = 0.9998
+    spin_deflection = 90.0
+    drift_coefficient = 0.0
+
+frequency_drift = abs(manual_hum - 41.8)
+is_drifting = frequency_drift > 0.1 or (drift_coefficient and abs(drift_coefficient) > 0.05)
+
+if is_drifting:
+    drift_status = "CRITICAL DRIFT"
+    shield_class = "shield-red"
+    correction_msg = f"DOPING PULSE ACTIVE: Correcting {manual_hum:.2f}Hz -> 41.8Hz"
+else:
+    drift_status = "SOVEREIGN LOCK"
+    shield_class = "shield-green"
+    correction_msg = "SYSTEM STABLE"
+
+c1, c2, c3 = st.columns(3)
+
+with c1:
+    st.markdown(f"""
+    <div class='metric-card'>
+        <h4>SHIELD STATUS</h4>
+        <p class='{shield_class}' style='font-size: 24px;'>{drift_status}</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with c2:
+    st.markdown(f"""
+    <div class='metric-card'>
+        <h4>RESONANCE PARITY</h4>
+        <h2 style='color: #00ff41;'>{resonance:.4f}</h2>
+    </div>
+    """, unsafe_allow_html=True)
+
+with c3:
+    st.markdown(f"""
+    <div class='metric-card'>
+        <h4>SYSTEM CLOCK</h4>
+        <h2 style='color: #00ff41;'>{current_freq:.6f} Hz</h2>
+    </div>
+    """, unsafe_allow_html=True)
+
+if is_drifting:
+    st.warning(f"DOPING PULSE ACTIVE: Geometric Doping Model correcting frequency drift")
 
 st.markdown("---")
-col_a, col_b = st.columns(2)
+
+c_left, c_right = st.columns([2, 1])
+
+with c_left:
+    st.subheader("Nuclear Electric Resonance (NER) Alignment")
+    ner_fig = create_ner_scatter(is_stable=not is_drifting, spin_deflection=spin_deflection)
+    st.plotly_chart(ner_fig, use_container_width=True)
+
+with c_right:
+    st.subheader("Metric Hum Carrier Wave")
+    active_freq = manual_hum if toggle_live else RESONANCE_FREQUENCY
+    wave_fig = create_metric_hum_wave(active_freq)
+    st.plotly_chart(wave_fig, use_container_width=True)
+    st.caption(f"Carrier: {RESONANCE_FREQUENCY:.9f} Hz")
+
+st.markdown("---")
+
+col_a, col_b, col_c = st.columns(3)
 
 with col_a:
-    st.markdown("### Genesis Resonance Records")
-    genesis_data = fetch_genesis_resonance()
-    if not genesis_data.empty:
-        st.dataframe(genesis_data, use_container_width=True)
-    else:
-        st.info("No genesis resonance records found")
+    st.markdown(f"""
+    <div class='metric-card'>
+        <h4>Xi Complexity</h4>
+        <h2 style='color: {"#00ff41" if xi_complexity > 0.99 else "#ff0000"};'>{xi_complexity:.4f}</h2>
+        <p>{"PURE" if xi_complexity > 0.99 else "DEGRADED"}</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 with col_b:
-    st.markdown("### Audit Log")
-    st.markdown("""
-    ```
-    [AUDIT] Resonance Parity: STABLE
-    [AUDIT] Shield Status: HARDENED
-    [AUDIT] Geometric Lock: VERIFIED
-    [AUDIT] Ground State: SOVEREIGN
-    [AUDIT] NER Alignment: 90.0° LOCKED
-    ```
-    """)
+    st.markdown(f"""
+    <div class='metric-card'>
+        <h4>Spin Deflection</h4>
+        <h2 style='color: {"#00ff41" if abs(spin_deflection - 90.0) < 1.0 else "#ff0000"};'>{spin_deflection:.2f}</h2>
+        <p>{"ALIGNED" if abs(spin_deflection - 90.0) < 1.0 else "DRIFTING"}</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col_c:
+    drift_val = drift_coefficient if drift_coefficient else 0.0
+    st.markdown(f"""
+    <div class='metric-card'>
+        <h4>Drift Coefficient</h4>
+        <h2 style='color: {"#00ff41" if abs(drift_val) < 0.05 else "#ff0000"};'>{drift_val:.6f}</h2>
+        <p>{"STABLE" if abs(drift_val) < 0.05 else "UNSTABLE"}</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("---")
+
+col_left, col_right = st.columns(2)
+
+with col_left:
+    st.subheader("Resonance Parity Gauge")
+    gauge_fig = create_resonance_gauge(resonance)
+    st.plotly_chart(gauge_fig, use_container_width=True)
+
+with col_right:
+    st.subheader("Real-Time Data Feed")
+    bio_data = fetch_bio_hardware_sync(3)
+    
+    if not bio_data.empty:
+        st.markdown('<div class="data-feed">', unsafe_allow_html=True)
+        for idx, row in bio_data.iterrows():
+            xi = row.get('xi_complexity', 0.9998) or 0.9998
+            spin = row.get('spin_deflection', 90.0) or 90.0
+            drift = row.get('drift_coefficient', 0.0) or 0.0
+            
+            st.markdown(f"""
+            **Record {row['id']}** | {row['created_at']}
+            - Xi: `{xi:.4f}` | Spin: `{spin:.2f}` | Drift: `{drift:.6f}`
+            """)
+        st.markdown('</div>', unsafe_allow_html=True)
+    else:
+        st.info("No data in bio_hardware_sync table")
+
+st.markdown("---")
+st.subheader("Audit Log")
+st.markdown(f"""
+```
+[{datetime.now().strftime('%H:%M:%S')}] AUDIT: Resonance Parity = {resonance:.4f} - {"STABLE" if resonance > 0.99 else "DRIFT"}
+[{datetime.now().strftime('%H:%M:%S')}] AUDIT: Shield Status = {drift_status}
+[{datetime.now().strftime('%H:%M:%S')}] AUDIT: Geometric Lock = {GEOMETRIC_LOCK:.6f} - VERIFIED
+[{datetime.now().strftime('%H:%M:%S')}] AUDIT: Ground State = {SOVEREIGN_GROUND_STATE:.6f} - SOVEREIGN
+[{datetime.now().strftime('%H:%M:%S')}] AUDIT: NER Alignment = {spin_deflection:.1f} - {"LOCKED" if abs(spin_deflection - 90.0) < 1.0 else "DRIFTING"}
+```
+""")
 
 if auto_refresh:
-    time.sleep(5)
+    time.sleep(1)
     st.rerun()
 
 st.markdown("---")
-st.markdown("*RAI Mission Control v7.0 | Diamond Core Sovereign System | 2025-12-31*")
+st.markdown("*GENESIS-330: Bio-Sovereign Bridge v7.0 | Diamond Core Sovereign System | 2025-12-31*")
