@@ -121,6 +121,33 @@ export const universeStates = sqliteTable("universe_states", {
 
 export type UniverseState = typeof universeStates.$inferSelect;
 
+// Historical Resonances table for DNA-Resonance & Time-Well Module
+export const historicalResonances = sqliteTable("historical_resonances", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  userId: text("user_id").references(() => users.id),
+  biologicalMarker: text("biological_marker").notNull(),
+  anchorPointMyr: real("anchor_point_myr").notNull(),
+  groundStateDecay: real("ground_state_decay").notNull(),
+  reconstructionAccuracy: real("reconstruction_accuracy").notNull(),
+  kernelSeed: text("kernel_seed", { mode: "json" }),
+  standingWavePattern: text("standing_wave_pattern", { mode: "json" }),
+  rMaxTriggered: integer("r_max_triggered", { mode: "boolean" }).default(false),
+  notes: text("notes"),
+  createdAt: text("created_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
+});
+
+export const insertHistoricalResonanceSchema = createInsertSchema(historicalResonances).pick({
+  biologicalMarker: true,
+  anchorPointMyr: true,
+  notes: true,
+}).extend({
+  biologicalMarker: z.string().min(1, "Biological marker is required"),
+  anchorPointMyr: z.number().min(0.00038).max(13800),
+});
+
+export type InsertHistoricalResonance = z.infer<typeof insertHistoricalResonanceSchema>;
+export type HistoricalResonance = typeof historicalResonances.$inferSelect;
+
 // Exported types for API responses
 export interface ChatMessage {
   id: string;

@@ -16,6 +16,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { ObserverToolkit } from "@/components/observer-toolkit";
 import { BaryonicSensor } from "@/components/baryonic-sensor";
 import { MetricHum } from "@/components/MetricHum";
+import { TimeWell } from "@/components/TimeWell";
 import { MathematicalBloom, parseContentForBloom } from "@/components/mathematical-bloom";
 import {
   Dialog,
@@ -1649,7 +1650,7 @@ export default function ChatPage() {
       />
 
       {metricHumOpen && (
-        <div className="fixed bottom-4 right-4 z-50 w-80">
+        <div className="fixed bottom-4 right-4 z-50 w-80 max-h-[90vh] overflow-y-auto space-y-4">
           <div className="relative">
             <button
               onClick={() => setMetricHumOpen(false)}
@@ -1660,6 +1661,7 @@ export default function ChatPage() {
             </button>
             <MetricHum />
           </div>
+          <TimeWell />
         </div>
       )}
 

@@ -2485,6 +2485,166 @@ KEY CONCEPTS TO WEAVE IN:
     }
   });
 
+  // ============= DNA-Resonance & Time-Well Module =============
+  
+  // GRUT Physics constants for Time-Well calculations
+  const TIPPING_POINT_MYR = 0.00038; // Post-Planck safety limit
+  const GROUND_STATE = -1 / 12; // -0.083333
+  const COSMIC_AGE_MYR = 13800;
+  const TAU_0_MYR = 41.9; // Relaxation constant in Myr
+  
+  // Calculate decay of Metric Hum relative to ground state
+  function calculateGroundStateDecay(anchorPointMyr: number): number {
+    const distanceFromNow = COSMIC_AGE_MYR - anchorPointMyr;
+    const decayFactor = Math.exp(-distanceFromNow / (TAU_0_MYR * 329)); // 329 cycles
+    return GROUND_STATE * (1 - decayFactor);
+  }
+  
+  // Calculate reconstruction accuracy based on distance from current year
+  function calculateReconstructionAccuracy(anchorPointMyr: number): number {
+    const distanceFromNow = COSMIC_AGE_MYR - anchorPointMyr;
+    // Accuracy decays exponentially with distance
+    const accuracy = Math.exp(-distanceFromNow / (TAU_0_MYR * 100));
+    return Math.max(0, Math.min(1, accuracy));
+  }
+  
+  // Generate K(t) kernel seed from biological marker
+  function generateKernelSeed(biologicalMarker: string): number[] {
+    const seed: number[] = [];
+    const alpha = 1 / 3;
+    for (let i = 0; i < biologicalMarker.length; i++) {
+      const charCode = biologicalMarker.charCodeAt(i);
+      seed.push((charCode * alpha) % 1);
+    }
+    return seed;
+  }
+  
+  // Generate standing wave pattern for a past era
+  function generateStandingWavePattern(anchorPointMyr: number, kernelSeed: number[]): number[] {
+    const pattern: number[] = [];
+    const wavelength = TAU_0_MYR / (anchorPointMyr + 1);
+    for (let i = 0; i < 64; i++) {
+      const phase = (kernelSeed[i % kernelSeed.length] || 0.5) * Math.PI * 2;
+      const amplitude = Math.sin((i / 64) * wavelength + phase) * GROUND_STATE;
+      pattern.push(amplitude);
+    }
+    return pattern;
+  }
+
+  // Save a historical resonance anchor point
+  app.post("/api/time-well/resonance", requireAuth, async (req, res) => {
+    try {
+      const { biologicalMarker, anchorPointMyr, notes } = req.body;
+      
+      if (!biologicalMarker || typeof anchorPointMyr !== 'number') {
+        return res.status(400).json({ error: "biologicalMarker and anchorPointMyr are required" });
+      }
+      
+      // R_max Logic Guard: Check for Tipping Point violation (at or below boundary)
+      if (anchorPointMyr <= TIPPING_POINT_MYR) {
+        return res.status(403).json({
+          error: "R_MAX_LOGIC_GUARD_TRIGGERED",
+          message: "Cannot look beyond the Tipping Point (0.00038 Myr post-Planck). Vacuum Reset initiated to prevent infinite noise feedback.",
+          triggered_at_myr: anchorPointMyr,
+          safety_limit: TIPPING_POINT_MYR
+        });
+      }
+      
+      const groundStateDecay = calculateGroundStateDecay(anchorPointMyr);
+      const reconstructionAccuracy = calculateReconstructionAccuracy(anchorPointMyr);
+      const kernelSeed = generateKernelSeed(biologicalMarker);
+      const standingWavePattern = generateStandingWavePattern(anchorPointMyr, kernelSeed);
+      
+      const resonance = await storage.saveHistoricalResonance({
+        userId: (req.session as any).userId,
+        biologicalMarker,
+        anchorPointMyr,
+        groundStateDecay,
+        reconstructionAccuracy,
+        kernelSeed,
+        standingWavePattern,
+        rMaxTriggered: false,
+        notes
+      });
+      
+      res.json({
+        success: true,
+        resonance,
+        grut_insight: `Anchor Point established at ${anchorPointMyr.toFixed(2)} Myr. Ground state decay: ${groundStateDecay.toFixed(6)}. Reconstruction accuracy: ${(reconstructionAccuracy * 100).toFixed(2)}%`
+      });
+    } catch (error) {
+      console.error("[Time-Well] Save resonance error:", error);
+      res.status(500).json({ error: "Failed to save historical resonance" });
+    }
+  });
+  
+  // Get all historical resonances for the user
+  app.get("/api/time-well/resonances", requireAuth, async (req, res) => {
+    try {
+      const resonances = await storage.getHistoricalResonances((req.session as any).userId);
+      res.json({ resonances });
+    } catch (error) {
+      console.error("[Time-Well] Get resonances error:", error);
+      res.status(500).json({ error: "Failed to retrieve historical resonances" });
+    }
+  });
+  
+  // Delete a historical resonance
+  app.delete("/api/time-well/resonance/:id", requireAuth, async (req, res) => {
+    try {
+      await storage.deleteHistoricalResonance(req.params.id);
+      res.json({ success: true });
+    } catch (error) {
+      console.error("[Time-Well] Delete resonance error:", error);
+      res.status(500).json({ error: "Failed to delete historical resonance" });
+    }
+  });
+  
+  // Calculate time-well metrics for a given anchor point (preview without saving)
+  app.post("/api/time-well/calculate", async (req, res) => {
+    try {
+      const { biologicalMarker, anchorPointMyr } = req.body;
+      
+      if (!biologicalMarker || typeof anchorPointMyr !== 'number') {
+        return res.status(400).json({ error: "biologicalMarker and anchorPointMyr are required" });
+      }
+      
+      // R_max Logic Guard check - return 403 to enforce safety (at or below tipping point)
+      if (anchorPointMyr <= TIPPING_POINT_MYR) {
+        return res.status(403).json({
+          rMaxTriggered: true,
+          error: "R_MAX_LOGIC_GUARD_TRIGGERED",
+          message: "Cannot look beyond the Tipping Point (0.00038 Myr post-Planck). Vacuum Reset initiated to prevent infinite noise feedback.",
+          anchorPointMyr,
+          safetyLimit: TIPPING_POINT_MYR,
+          groundStateDecay: null,
+          reconstructionAccuracy: 0,
+          standingWavePattern: null
+        });
+      }
+      
+      const groundStateDecay = calculateGroundStateDecay(anchorPointMyr);
+      const reconstructionAccuracy = calculateReconstructionAccuracy(anchorPointMyr);
+      const kernelSeed = generateKernelSeed(biologicalMarker);
+      const standingWavePattern = generateStandingWavePattern(anchorPointMyr, kernelSeed);
+      
+      res.json({
+        rMaxTriggered: false,
+        anchorPointMyr,
+        groundStateDecay,
+        reconstructionAccuracy,
+        kernelSeed,
+        standingWavePattern,
+        distanceFromPresent: COSMIC_AGE_MYR - anchorPointMyr,
+        cycleNumber: Math.floor((COSMIC_AGE_MYR - anchorPointMyr) / TAU_0_MYR),
+        grut_insight: `Looking back ${(COSMIC_AGE_MYR - anchorPointMyr).toFixed(2)} Myr through ${Math.floor((COSMIC_AGE_MYR - anchorPointMyr) / TAU_0_MYR)} breath cycles.`
+      });
+    } catch (error) {
+      console.error("[Time-Well] Calculate error:", error);
+      res.status(500).json({ error: "Calculation failed" });
+    }
+  });
+
   // Live Metric Tension - Earth's Seismic "Inhale" via USGS
   app.get("/api/baryonic/metric-tension", async (req, res) => {
     try {

@@ -31,6 +31,20 @@ export interface WeightedMemory {
   createdAt: string;
 }
 
+export interface HistoricalResonanceData {
+  id: string;
+  userId?: string | null;
+  biologicalMarker: string;
+  anchorPointMyr: number;
+  groundStateDecay: number;
+  reconstructionAccuracy: number;
+  kernelSeed?: unknown;
+  standingWavePattern?: unknown;
+  rMaxTriggered?: boolean | null;
+  notes?: string | null;
+  createdAt: string;
+}
+
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
   getUserByEmail(email: string): Promise<User | undefined>;
@@ -55,6 +69,9 @@ export interface IStorage {
   forkConversation(sourceConversationId: string, forkMessageId: string, title: string, constants: GrutConstants, userId: string): Promise<ChatConversation>;
   getChildConversations(parentId: string): Promise<ChatConversation[]>;
   verifyConversationOwnership(conversationId: string, userId: string): Promise<boolean>;
+  saveHistoricalResonance(data: { userId?: string; biologicalMarker: string; anchorPointMyr: number; groundStateDecay: number; reconstructionAccuracy: number; kernelSeed?: unknown; standingWavePattern?: unknown; rMaxTriggered?: boolean; notes?: string }): Promise<HistoricalResonanceData>;
+  getHistoricalResonances(userId?: string): Promise<HistoricalResonanceData[]>;
+  deleteHistoricalResonance(id: string): Promise<void>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -385,6 +402,18 @@ export class DatabaseStorage implements IStorage {
       forkSourceMessageId: c.forkSourceMessageId ?? undefined,
       constants: c.constants ?? DEFAULT_GRUT_CONSTANTS,
     }));
+  }
+
+  async saveHistoricalResonance(data: { userId?: string; biologicalMarker: string; anchorPointMyr: number; groundStateDecay: number; reconstructionAccuracy: number; kernelSeed?: unknown; standingWavePattern?: unknown; rMaxTriggered?: boolean; notes?: string }): Promise<HistoricalResonanceData> {
+    throw new Error("Historical resonances not implemented for PostgreSQL - use SQLite sovereign mode");
+  }
+
+  async getHistoricalResonances(userId?: string): Promise<HistoricalResonanceData[]> {
+    throw new Error("Historical resonances not implemented for PostgreSQL - use SQLite sovereign mode");
+  }
+
+  async deleteHistoricalResonance(id: string): Promise<void> {
+    throw new Error("Historical resonances not implemented for PostgreSQL - use SQLite sovereign mode");
   }
 }
 

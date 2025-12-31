@@ -1,6 +1,6 @@
 import { 
-  type User, type Subscriber, type GrutConstants,
-  users, subscribers, conversations, messages, metricMemory, fileUploads, universeStates, DEFAULT_GRUT_CONSTANTS
+  type User, type Subscriber, type GrutConstants, type HistoricalResonance,
+  users, subscribers, conversations, messages, metricMemory, fileUploads, universeStates, historicalResonances, DEFAULT_GRUT_CONSTANTS
 } from "../shared/schema-sqlite";
 import { db, dbAvailable, sqliteDb } from "./db-sqlite";
 import { eq, desc } from "drizzle-orm";
@@ -307,6 +307,37 @@ export class SqliteStorage implements IStorage {
   async verifyConversationOwnership(conversationId: string, userId: string): Promise<boolean> {
     const [conv] = db.select().from(conversations).where(eq(conversations.id, conversationId)).all();
     return conv?.userId === userId;
+  }
+
+  async saveHistoricalResonance(data: { userId?: string; biologicalMarker: string; anchorPointMyr: number; groundStateDecay: number; reconstructionAccuracy: number; kernelSeed?: unknown; standingWavePattern?: unknown; rMaxTriggered?: boolean; notes?: string }): Promise<HistoricalResonance> {
+    const id = crypto.randomUUID();
+    const result = db.insert(historicalResonances).values({
+      id,
+      userId: data.userId ?? null,
+      biologicalMarker: data.biologicalMarker,
+      anchorPointMyr: data.anchorPointMyr,
+      groundStateDecay: data.groundStateDecay,
+      reconstructionAccuracy: data.reconstructionAccuracy,
+      kernelSeed: data.kernelSeed,
+      standingWavePattern: data.standingWavePattern,
+      rMaxTriggered: data.rMaxTriggered ?? false,
+      notes: data.notes ?? null,
+    }).returning().all();
+    return result[0];
+  }
+
+  async getHistoricalResonances(userId?: string): Promise<HistoricalResonance[]> {
+    if (userId) {
+      return db.select().from(historicalResonances)
+        .where(eq(historicalResonances.userId, userId))
+        .orderBy(desc(historicalResonances.createdAt)).all();
+    }
+    return db.select().from(historicalResonances)
+      .orderBy(desc(historicalResonances.createdAt)).all();
+  }
+
+  async deleteHistoricalResonance(id: string): Promise<void> {
+    db.delete(historicalResonances).where(eq(historicalResonances.id, id)).run();
   }
 }
 
