@@ -501,7 +501,7 @@ class MultiLayerGroundingManager:
             "entropy_threshold": ENTROPY_THRESHOLD
         }
     
-    def query_grit_layer(self, query: str) -> GroundingResult:
+    def query_grit_layer(self, query: str, num_results: int = 5) -> GroundingResult:
         """Query Google Search for 2025 awareness"""
         layer = GroundingLayer.GRIT
         
@@ -528,8 +528,8 @@ class MultiLayerGroundingManager:
                 cached=False
             )
         
-        # Live mode - fetch from Google
-        result = self.google.search(query)
+        # Live mode - fetch from Google with num_results
+        result = self.google.search(query, num_results=num_results)
         
         if result.get("status") == "success":
             # Cache for Sovereign mode

@@ -43,6 +43,30 @@ from grut_physics import (
 from context_engine import ContextEngineManager
 from visualizer import get_visualization_json, generate_consciousness_field
 
+# --- IMPORT API MANAGER (Shell Bridge) ---
+from api_manager import (
+    MultiLayerGroundingManager,
+    GroundingLayer,
+    APIStatus,
+    WolframValidator,
+    PubChemClient,
+    GoogleSearchClient,
+    CosmicEventListener,
+    UniversalSchemaBroker,
+    GEOMETRIC_LOCK,
+    ENTROPY_THRESHOLD
+)
+
+# Initialize the Multi-Layer Grounding Manager
+grounding_manager = MultiLayerGroundingManager(live_grounding_active=False)
+wolfram_validator = WolframValidator()
+pubchem_client = PubChemClient()
+google_search = GoogleSearchClient()
+cosmic_listener = CosmicEventListener()
+schema_broker = UniversalSchemaBroker()
+
+print("[API_MANAGER] Shell Bridge initialized - Multi-Layer Grounding Manager loaded")
+
 app = Flask(__name__)
 CORS(app)
 
@@ -460,6 +484,128 @@ def connect_battery_sensors():
         "is_critical": xi >= 0.999,
         "timestamp": datetime.utcnow().isoformat()
     })
+
+
+# ============================================
+# API MANAGER GROUNDING ENDPOINTS (Shell Bridge)
+# These endpoints expose the Multi-Layer Grounding Manager to Express
+# ============================================
+
+@app.route("/grounding/status", methods=["GET"])
+def get_grounding_status():
+    """Get status of all grounding layers"""
+    return jsonify(grounding_manager.get_status())
+
+
+@app.route("/grounding/toggle", methods=["POST"])
+def toggle_grounding():
+    """Toggle live grounding on/off"""
+    data = request.get_json() or {}
+    active = data.get("active", False)
+    grounding_manager.set_grounding_state(active)
+    return jsonify({
+        "success": True,
+        "live_grounding_active": active,
+        "message": f"Grounding {'ACTIVATED' if active else 'HIBERNATED'}"
+    })
+
+
+@app.route("/grounding/grit", methods=["POST"])
+def query_grit():
+    """Query Grit Layer (Google Search) for 2025 awareness"""
+    data = request.get_json() or {}
+    query = data.get("query", "")
+    num_results = data.get("num_results", 5)
+    
+    if not query:
+        return jsonify({"error": "query is required"}), 400
+    
+    result = grounding_manager.query_grit_layer(query, num_results=num_results)
+    
+    return jsonify({
+        "layer": result.layer.value,
+        "status": result.status.value,
+        "data": result.data,
+        "geometric_alignment": result.geometric_alignment,
+        "entropy_flag": result.entropy_flag,
+        "timestamp": result.timestamp,
+        "cached": result.cached,
+        "live_grounding_active": grounding_manager.live_grounding_active
+    })
+
+
+@app.route("/grounding/molecular", methods=["POST"])
+def query_molecular():
+    """Query Molecular Layer (PubChem) for chemical geometries"""
+    data = request.get_json() or {}
+    compound = data.get("compound", "")
+    
+    if not compound:
+        return jsonify({"error": "compound is required"}), 400
+    
+    result = grounding_manager.query_molecular_layer(compound)
+    
+    return jsonify({
+        "layer": result.layer.value,
+        "status": result.status.value,
+        "data": result.data,
+        "geometric_alignment": result.geometric_alignment,
+        "entropy_flag": result.entropy_flag,
+        "timestamp": result.timestamp,
+        "cached": result.cached
+    })
+
+
+@app.route("/grounding/cosmic", methods=["GET"])
+def query_cosmic():
+    """Query Cosmic Layer (LIGO/USGS) for metric tension"""
+    result = grounding_manager.query_cosmic_layer()
+    
+    return jsonify({
+        "layer": result.layer.value,
+        "status": result.status.value,
+        "data": result.data,
+        "geometric_alignment": result.geometric_alignment,
+        "entropy_flag": result.entropy_flag,
+        "timestamp": result.timestamp,
+        "cached": result.cached
+    })
+
+
+@app.route("/grounding/logic", methods=["POST"])
+def query_logic():
+    """Query Logic Layer (Wolfram) for mathematical validation"""
+    data = request.get_json() or {}
+    expression = data.get("expression", "")
+    expected_result = data.get("expected_result", 0.0)
+    xi_level = data.get("xi_level", 0.5)
+    
+    if not expression:
+        return jsonify({"error": "expression is required"}), 400
+    
+    result = wolfram_validator.validate_calculation(expression, expected_result, xi_level)
+    
+    return jsonify(result)
+
+
+@app.route("/grounding/schema/bond", methods=["POST"])
+def map_bond_to_grut():
+    """Map a chemical bond length to GRUT geometry"""
+    data = request.get_json() or {}
+    bond_length = data.get("bond_length_angstrom", 1.54)
+    
+    result = schema_broker.map_chemical_bond_to_grut(bond_length)
+    return jsonify(result)
+
+
+@app.route("/grounding/schema/frequency", methods=["POST"])
+def map_frequency_to_metric_hum():
+    """Map a frequency to Metric Hum baseline"""
+    data = request.get_json() or {}
+    frequency_hz = data.get("frequency_hz", 1e9)
+    
+    result = schema_broker.map_frequency_to_metric_hum(frequency_hz)
+    return jsonify(result)
 
 
 if __name__ == "__main__":

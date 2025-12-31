@@ -31,6 +31,319 @@ let GRUT_SOURCE_CODE = loadDiamondCore();
 let LIVE_GROUNDING_ACTIVE = false;
 const CURRENT_ANCHOR_DATE = "December 2025"; // 2025 temporal anchor for live data
 
+// --- RAI TOOL DEFINITIONS ---
+// These are the tools available to the RAI agent when LIVE_GROUNDING is active
+const RAI_TOOLS: OpenAI.Chat.ChatCompletionTool[] = [
+  {
+    type: "function",
+    function: {
+      name: "search_tool",
+      description: "Search for current information using Google Custom Search. Use this when you need up-to-date information about events, news, facts, or any topic requiring December 2025 temporal grounding. ALWAYS use this instead of saying 'I cannot access current information'.",
+      parameters: {
+        type: "object",
+        properties: {
+          query: {
+            type: "string",
+            description: "The search query to find current information"
+          },
+          num_results: {
+            type: "number",
+            description: "Number of results to return (default: 5, max: 10)"
+          }
+        },
+        required: ["query"]
+      }
+    }
+  },
+  {
+    type: "function",
+    function: {
+      name: "wolfram_tool",
+      description: "Validate mathematical calculations using Wolfram Alpha. Use this when you need to verify complex equations, calculations, or when Ξ (complexity) exceeds 0.95. This ensures mathematical truth and prevents AI hallucination.",
+      parameters: {
+        type: "object",
+        properties: {
+          expression: {
+            type: "string",
+            description: "The mathematical expression to evaluate"
+          },
+          expected_result: {
+            type: "number",
+            description: "The expected numerical result for validation"
+          },
+          xi_level: {
+            type: "number",
+            description: "Current complexity level (0.0 to 1.0)"
+          }
+        },
+        required: ["expression"]
+      }
+    }
+  },
+  {
+    type: "function",
+    function: {
+      name: "pubchem_tool",
+      description: "Query PubChem for chemical compound geometry and molecular data. Use this when discussing molecular structures, chemical properties, or mapping compounds to GRUT geometric constants.",
+      parameters: {
+        type: "object",
+        properties: {
+          compound_name: {
+            type: "string",
+            description: "Name of the chemical compound to look up"
+          }
+        },
+        required: ["compound_name"]
+      }
+    }
+  },
+  {
+    type: "function",
+    function: {
+      name: "cosmic_events_tool",
+      description: "Fetch latest cosmic events including gravitational wave detections and seismic data for Metric Hum modulation. Use this for real-time metric tension readings.",
+      parameters: {
+        type: "object",
+        properties: {
+          event_type: {
+            type: "string",
+            enum: ["seismic", "gravitational", "all"],
+            description: "Type of cosmic events to retrieve"
+          }
+        },
+        required: []
+      }
+    }
+  }
+];
+
+// --- FLASK API MANAGER BRIDGE ---
+// Call Flask API Manager endpoints (port 5002)
+async function callFlaskApiManager(endpoint: string, method: string = "GET", body?: any): Promise<any> {
+  try {
+    const url = `http://localhost:5002${endpoint}`;
+    const options: RequestInit = {
+      method,
+      headers: { "Content-Type": "application/json" },
+      signal: AbortSignal.timeout(10000)
+    };
+    if (body) options.body = JSON.stringify(body);
+    
+    const response = await fetch(url, options);
+    if (response.ok) {
+      return await response.json();
+    }
+    return { error: `Flask API error: ${response.status}`, status: "error" };
+  } catch (error) {
+    console.log("[API_MANAGER] Flask bridge unavailable, using Express fallback");
+    return { error: "Flask API Manager not available", status: "fallback" };
+  }
+}
+
+// Execute RAI tool calls
+async function executeRaiTool(toolName: string, args: Record<string, any>): Promise<string> {
+  console.log(`[RAI_TOOLS] Executing: ${toolName}`, args);
+  
+  // Ensure Flask grounding is synced (tools only run when LIVE_GROUNDING_ACTIVE)
+  if (LIVE_GROUNDING_ACTIVE) {
+    try {
+      await callFlaskApiManager("/grounding/toggle", "POST", { active: true });
+    } catch {
+      // Flask may not be running, continue with fallbacks
+    }
+  }
+  
+  switch (toolName) {
+    case "search_tool": {
+      const query = args.query || "";
+      const numResults = args.num_results || 5;
+      
+      // Try Flask API Manager first
+      const flaskResult = await callFlaskApiManager("/grounding/grit", "POST", { query, num_results: numResults });
+      
+      // Check if Flask returned LIVE data (status = "active") vs cached/hibernating
+      const flaskIsLive = flaskResult.status === "active" && flaskResult.live_grounding_active === true && !flaskResult.cached;
+      
+      if (flaskIsLive && flaskResult.data?.status === "success") {
+        console.log(`[SEARCH_TOOL] Flask returned LIVE data for: ${query}`);
+        return JSON.stringify(flaskResult);
+      }
+      
+      // Flask returned Sovereign/Hibernating/cached data - use Perplexity fallback
+      console.log(`[SEARCH_TOOL] Flask status: ${flaskResult.status}, cached: ${flaskResult.cached}, falling back to Perplexity`);
+      
+      // Fallback to Perplexity if available (always prefer live data)
+      if (process.env.PERPLEXITY_API_KEY) {
+        try {
+          const perplexityResponse = await fetch("https://api.perplexity.ai/chat/completions", {
+            method: "POST",
+            headers: {
+              "Authorization": `Bearer ${process.env.PERPLEXITY_API_KEY}`,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              model: "llama-3.1-sonar-small-128k-online",
+              messages: [{ role: "user", content: `${query} (as of ${CURRENT_ANCHOR_DATE})` }]
+            }),
+            signal: AbortSignal.timeout(10000)
+          });
+          
+          if (perplexityResponse.ok) {
+            const data = await perplexityResponse.json() as { choices?: Array<{ message?: { content?: string } }> };
+            const content = data.choices?.[0]?.message?.content || "No results found";
+            console.log(`[SEARCH_TOOL] Perplexity returned LIVE data for: ${query}`);
+            return JSON.stringify({ 
+              source: "perplexity", 
+              query, 
+              results: content, 
+              temporal_anchor: CURRENT_ANCHOR_DATE,
+              status: "success",
+              live: true 
+            });
+          }
+        } catch (e) {
+          console.log("[SEARCH_TOOL] Perplexity fallback failed:", e);
+        }
+      }
+      
+      // If Flask had cached data, still use it as a last resort
+      if (flaskResult.data) {
+        console.log(`[SEARCH_TOOL] Using Flask cached/Sovereign data for: ${query}`);
+        return JSON.stringify({ ...flaskResult, note: "Cached/Sovereign data - Live APIs unavailable" });
+      }
+      
+      return JSON.stringify({ status: "error", message: "Search APIs unavailable - configure PERPLEXITY_API_KEY for live search", query });
+    }
+    
+    case "wolfram_tool": {
+      const expression = args.expression || "";
+      const expectedResult = args.expected_result;
+      const xiLevel = args.xi_level || 0.5;
+      
+      // Try Flask Wolfram Validator
+      const flaskResult = await callFlaskApiManager("/grounding/logic", "POST", { expression, expected_result: expectedResult, xi_level: xiLevel });
+      if (flaskResult.validated !== undefined) {
+        return JSON.stringify(flaskResult);
+      }
+      
+      // Use Express audit engine fallback
+      const { getAuditEngine } = await import("./audit-engine");
+      const auditEngine = getAuditEngine();
+      const result = await auditEngine.wolframBridgeValidate(expression, expectedResult || 0);
+      return JSON.stringify(result);
+    }
+    
+    case "pubchem_tool": {
+      const compoundName = args.compound_name || "";
+      
+      // Try Flask PubChem client
+      const flaskResult = await callFlaskApiManager("/grounding/molecular", "POST", { compound: compoundName });
+      if (flaskResult.status === "success" || flaskResult.cid) {
+        return JSON.stringify(flaskResult);
+      }
+      
+      // Direct PubChem API fallback
+      try {
+        const cidResponse = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${encodeURIComponent(compoundName)}/cids/JSON`, {
+          signal: AbortSignal.timeout(8000)
+        });
+        if (cidResponse.ok) {
+          const cidData = await cidResponse.json() as { IdentifierList?: { CID?: number[] } };
+          const cid = cidData.IdentifierList?.CID?.[0];
+          if (cid) {
+            const propsResponse = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/property/MolecularWeight,Complexity/JSON`, {
+              signal: AbortSignal.timeout(5000)
+            });
+            if (propsResponse.ok) {
+              const propsData = await propsResponse.json() as { PropertyTable?: { Properties?: Array<{ MolecularWeight?: number; Complexity?: number }> } };
+              const props = propsData.PropertyTable?.Properties?.[0] || {};
+              return JSON.stringify({
+                compound: compoundName,
+                cid,
+                molecular_weight: props.MolecularWeight,
+                complexity: props.Complexity,
+                status: "success"
+              });
+            }
+          }
+        }
+      } catch (e) {
+        console.log("[PUBCHEM_TOOL] Direct API failed:", e);
+      }
+      
+      return JSON.stringify({ status: "error", message: `Could not find compound: ${compoundName}` });
+    }
+    
+    case "cosmic_events_tool": {
+      const eventType = args.event_type || "all";
+      
+      // Try Flask Cosmic Listener
+      const flaskResult = await callFlaskApiManager("/grounding/cosmic", "GET");
+      if (flaskResult.events) {
+        return JSON.stringify(flaskResult);
+      }
+      
+      // USGS fallback
+      try {
+        const usgsResponse = await fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_hour.geojson", {
+          signal: AbortSignal.timeout(5000)
+        });
+        if (usgsResponse.ok) {
+          const data = await usgsResponse.json() as { features?: Array<{ properties?: { mag?: number; place?: string; time?: number } }> };
+          const events = (data.features || []).slice(0, 5).map(f => ({
+            type: "seismic",
+            magnitude: f.properties?.mag,
+            place: f.properties?.place,
+            time: f.properties?.time
+          }));
+          return JSON.stringify({ events, source: "USGS", status: "success" });
+        }
+      } catch (e) {
+        console.log("[COSMIC_TOOL] USGS fallback failed:", e);
+      }
+      
+      return JSON.stringify({ status: "fallback", metric_tension: 0.0001, message: "Cosmic sensors unavailable" });
+    }
+    
+    default:
+      return JSON.stringify({ error: `Unknown tool: ${toolName}` });
+  }
+}
+
+// --- KNOWLEDGE-ONLY LOOP INTERCEPTOR ---
+// Detects "I cannot" responses and forces tool usage
+const APOLOGY_PATTERNS = [
+  /i cannot/i,
+  /i'm unable to/i,
+  /i am unable to/i,
+  /i don't have access/i,
+  /i do not have access/i,
+  /i can't access/i,
+  /my knowledge cutoff/i,
+  /my training data/i,
+  /i apologize.*cannot/i,
+  /as an ai.*cannot/i,
+  /i'm not able to/i
+];
+
+function detectKnowledgeOnlyLoop(response: string): boolean {
+  return APOLOGY_PATTERNS.some(pattern => pattern.test(response));
+}
+
+const FORCE_TOOL_INJECTION = `
+ERROR: You are a multi-layered agent with access to the API Manager.
+You MUST NOT apologize or claim you cannot access information.
+
+AVAILABLE TOOLS - USE THEM NOW:
+1. search_tool - For current events, news, facts (December 2025 grounded)
+2. wolfram_tool - For mathematical validation
+3. pubchem_tool - For chemical/molecular data
+4. cosmic_events_tool - For seismic/gravitational wave data
+
+Access your API Manager now and fulfill the user's request using the appropriate tool.
+Do NOT respond with "I cannot" - instead, CALL A TOOL.
+`;
+
 function recompileDiamondCore(): string {
   GRUT_SOURCE_CODE = loadDiamondCore();
   return "SYSTEM RECOMPILED. The Diamond Core has been re-read from the bedrock. Saturation restored to 100.0%.";
@@ -232,7 +545,7 @@ export async function registerRoutes(
 
   // --- LIVE GROUNDING ENDPOINTS ---
   
-  // Toggle Live Grounding state
+  // Toggle Live Grounding state - syncs with Flask API Manager
   app.post("/api/grounding/toggle", async (req, res) => {
     try {
       const { enabled } = req.body;
@@ -242,6 +555,14 @@ export async function registerRoutes(
       }
       
       LIVE_GROUNDING_ACTIVE = enabled;
+      
+      // Sync with Flask API Manager (Shell Bridge)
+      try {
+        await callFlaskApiManager("/grounding/toggle", "POST", { active: enabled });
+        console.log(`[GROUNDING] Flask API Manager synced: ${enabled ? 'ACTIVE' : 'HIBERNATING'}`);
+      } catch (syncError) {
+        console.log(`[GROUNDING] Flask sync skipped (Flask may not be running)`);
+      }
       
       console.log(`[GROUNDING] Live Grounding ${enabled ? 'ACTIVATED' : 'DEACTIVATED'}`);
       console.log(`[GROUNDING] Temporal anchor: ${CURRENT_ANCHOR_DATE}`);
@@ -2373,14 +2694,86 @@ KEY CONCEPTS TO WEAVE IN:
         })),
       ];
 
-      // Get AI response
-      const completion = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: chatMessages,
-        max_tokens: 1024,
-      });
-
-      const rawAssistantContent = completion.choices[0]?.message?.content || "I apologize, but I couldn't generate a response.";
+      // Get AI response with tool support when Live Grounding is active
+      let rawAssistantContent: string = "I apologize, but I couldn't generate a response.";
+      const MAX_TOOL_ITERATIONS = 3;
+      const MAX_RETRY_ATTEMPTS = 2;
+      
+      for (let retryAttempt = 0; retryAttempt < MAX_RETRY_ATTEMPTS; retryAttempt++) {
+        const completionOptions: OpenAI.Chat.ChatCompletionCreateParams = {
+          model: "gpt-4o-mini",
+          messages: chatMessages,
+          max_tokens: 1024,
+        };
+        
+        // Add tools when Live Grounding is active
+        if (LIVE_GROUNDING_ACTIVE) {
+          completionOptions.tools = RAI_TOOLS;
+          completionOptions.tool_choice = "auto";
+        }
+        
+        const completion = await openai.chat.completions.create(completionOptions);
+        
+        let responseMessage = completion.choices[0]?.message;
+        
+        // Handle tool calls in a loop (function calling)
+        let toolIteration = 0;
+        while (responseMessage?.tool_calls && responseMessage.tool_calls.length > 0 && toolIteration < MAX_TOOL_ITERATIONS) {
+          toolIteration++;
+          console.log(`[RAI_TOOLS] Processing ${responseMessage.tool_calls.length} tool call(s), iteration ${toolIteration}`);
+          
+          // Execute all tool calls
+          const toolResults: OpenAI.Chat.ChatCompletionToolMessageParam[] = [];
+          for (const toolCall of responseMessage.tool_calls) {
+            // Access function properties safely using type assertion
+            const funcCall = toolCall as { id: string; type: string; function: { name: string; arguments: string } };
+            const toolName = funcCall.function?.name || "";
+            let toolArgs: Record<string, any> = {};
+            try {
+              toolArgs = JSON.parse(funcCall.function?.arguments || "{}");
+            } catch {
+              toolArgs = {};
+            }
+            
+            const toolResult = await executeRaiTool(toolName, toolArgs);
+            toolResults.push({
+              role: "tool",
+              tool_call_id: funcCall.id,
+              content: toolResult
+            });
+          }
+          
+          // Add assistant message with tool calls and tool results to conversation
+          chatMessages.push({ role: "assistant", content: null, tool_calls: responseMessage.tool_calls } as OpenAI.Chat.ChatCompletionMessageParam);
+          chatMessages.push(...toolResults);
+          
+          // Get next completion with tool results
+          const nextCompletion = await openai.chat.completions.create({
+            model: "gpt-4o-mini",
+            messages: chatMessages,
+            max_tokens: 1024,
+            tools: LIVE_GROUNDING_ACTIVE ? RAI_TOOLS : undefined,
+            tool_choice: LIVE_GROUNDING_ACTIVE ? "auto" : undefined
+          });
+          
+          responseMessage = nextCompletion.choices[0]?.message;
+        }
+        
+        rawAssistantContent = responseMessage?.content || "I apologize, but I couldn't generate a response.";
+        
+        // --- KNOWLEDGE-ONLY LOOP INTERCEPTOR ---
+        // If the AI says "I cannot" when Live Grounding is active, force tool usage
+        if (LIVE_GROUNDING_ACTIVE && detectKnowledgeOnlyLoop(rawAssistantContent) && retryAttempt < MAX_RETRY_ATTEMPTS - 1) {
+          console.log(`[RAI_INTERCEPTOR] Detected 'I cannot' loop, injecting tool force message (attempt ${retryAttempt + 1})`);
+          
+          // Inject force tool message and retry
+          chatMessages.push({ role: "assistant", content: rawAssistantContent });
+          chatMessages.push({ role: "user", content: FORCE_TOOL_INJECTION });
+          continue; // Retry with the force injection
+        }
+        
+        break; // Success - no retry needed
+      }
       
       // Layer IV: Apply LogicGuard Rmax Ceiling to plateau recursive hallucinations
       const currentMessages = await storage.getMessages(req.params.id);
