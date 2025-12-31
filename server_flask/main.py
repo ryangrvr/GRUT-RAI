@@ -7,6 +7,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import numpy as np
 import os
+import time
 
 # --- DIAMOND SEAL CONFIGURATION ---
 from config import (
@@ -46,6 +47,33 @@ def load_diamond_core():
 
 
 GRUT_SOURCE_CODE = load_diamond_core()
+
+
+# --- UNIVERSAL SYNC PULSE (Hubble Drift Micro-Adjustment) ---
+def universal_sync_pulse():
+    """
+    Calculates the 'Hubble Drift' in real-time and applies it as a 
+    micro-adjustment to the 41.8 Hz carrier wave.
+    
+    This function syncs the Forge frequency with cosmic expansion,
+    using the BOSS/eBOSS H0 value to compute a per-second shift.
+    
+    Returns:
+        float: The cosmically-shifted frequency
+    """
+    H0_km_s_mpc = 70.0
+    hubble_expansion_factor = H0_km_s_mpc / 3.086e+19
+    
+    base_freq = 41.800000007229
+    
+    current_time_offset = time.time() % 86400
+    cosmic_shift = base_freq * (1 + (hubble_expansion_factor * current_time_offset))
+    
+    return cosmic_shift
+
+
+synced_freq = universal_sync_pulse()
+print(f"UNIVERSAL SYNC ACTIVE: Frequency tuned to {synced_freq:.12f} Hz")
 
 
 from grut_physics import (
@@ -939,6 +967,39 @@ def check_api_allowed():
         "allowed": allowed,
         "sovereign_mode": SOVEREIGN_MODE,
         "reason": "Essential API" if allowed else "Disabled under Sovereign Mode"
+    })
+
+
+@app.route("/cosmic/sync_pulse", methods=["GET"])
+def get_cosmic_sync_pulse():
+    """
+    Get the current Universal Sync Pulse frequency.
+    
+    The Hubble Drift is calculated in real-time and applied as a 
+    micro-adjustment to the 41.8 Hz carrier wave.
+    
+    Returns:
+        - synced_frequency: Current cosmically-shifted frequency
+        - base_frequency: The baseline 41.8 Hz carrier
+        - hubble_constant: H0 in km/s/Mpc
+        - cosmic_shift_factor: The current expansion factor
+        - time_offset: Current time offset within the day (seconds)
+    """
+    H0_km_s_mpc = 70.0
+    hubble_expansion_factor = H0_km_s_mpc / 3.086e+19
+    base_freq = 41.800000007229
+    current_time_offset = time.time() % 86400
+    synced = universal_sync_pulse()
+    
+    return jsonify({
+        "synced_frequency": synced,
+        "synced_frequency_formatted": f"{synced:.12f} Hz",
+        "base_frequency": base_freq,
+        "hubble_constant_km_s_mpc": H0_km_s_mpc,
+        "hubble_expansion_factor": hubble_expansion_factor,
+        "cosmic_shift_factor": 1 + (hubble_expansion_factor * current_time_offset),
+        "time_offset_seconds": current_time_offset,
+        "message": "UNIVERSAL SYNC ACTIVE - Forge frequency aligned with cosmic expansion"
     })
 
 
