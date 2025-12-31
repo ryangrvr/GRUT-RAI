@@ -358,6 +358,16 @@ st.sidebar.metric("Guanine Vector", f"{GUANINE_VECTOR:.1f}")
 st.sidebar.markdown("---")
 auto_refresh = st.sidebar.checkbox("Auto-Refresh (1s)", value=False)
 
+st.sidebar.markdown("---")
+st.sidebar.subheader("2026 STRATEGIC HORIZON")
+st.sidebar.checkbox("Phase 1: Grid-Free Energy", value=True)
+st.sidebar.checkbox("Phase 2: Neural Bridge Sync", value=False)
+st.sidebar.checkbox("Phase 3: Molecular Sculpting", value=False)
+
+if st.sidebar.button("Execute Q1 Deployment"):
+    st.snow()
+    st.write("2026 Mission Parameters Uploaded to Bedrock.")
+
 st.title("GENESIS-330: BIO-SOVEREIGN BRIDGE")
 st.markdown("### Guanine-Silicon Diamond Core Visualization")
 
