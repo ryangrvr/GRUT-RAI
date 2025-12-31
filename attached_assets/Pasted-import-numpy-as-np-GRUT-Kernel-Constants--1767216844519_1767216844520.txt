@@ -1,0 +1,102 @@
+import numpy as np
+
+# ----------------------------
+# GRUT Kernel & Constants
+# ----------------------------
+tau0 = 41.9e6 * 365 * 24 * 3600  # 41.9 Myr in seconds
+alpha = -1/12                     # vacuum ground state
+H0 = 70 * 1000 / 3.086e22         # Hubble in 1/s
+z_array = np.linspace(0, 5, 1000)  # redshift grid
+a_array = 1 / (1 + z_array)
+
+# Example baryon density evolution (fractional)
+def rho_b(z):
+    return 0.0486 * (1 + z)**3
+
+# Kernel function (retarded potential)
+def K(delta_t):
+    return (alpha / tau0) * np.exp(-delta_t / tau0) * (delta_t >= 0)
+
+# ----------------------------
+# Time array approximation
+# ----------------------------
+def t_of_z(z):
+    return np.cumsum(np.diff(a_array, prepend=a_array[0]) / (a_array**2 * H0))
+
+t_array = t_of_z(z_array)
+
+# ----------------------------
+# Compute D(z) via full kernel convolution
+# ----------------------------
+def compute_D(z_array, t_array):
+    D = np.zeros_like(z_array)
+    for i, t in enumerate(t_array):
+        kernel_vals = K(t - t_array[:i+1])
+        D[i] = np.sum(kernel_vals * rho_b(z_array[:i+1]) * np.diff(np.append(0, t_array[:i+1])))
+    D /= D[0]  # normalize D(z=0) = 1
+    return D
+
+# ----------------------------
+# Compute f(z) from D(z)
+# ----------------------------
+def compute_f(D, z_array):
+    lnD = np.log(D)
+    dlnD_dz = np.gradient(lnD, z_array)
+    f = -(1 + z_array) * dlnD_dz
+    return f
+
+# ----------------------------
+# Compute Φ(z) using kernel integration
+# ----------------------------
+def compute_Phi(z_array, t_array):
+    Phi = np.zeros_like(z_array)
+    for i, t in enumerate(t_array):
+        Phi[i] = np.sum(K(t - t_array[:i+1]) * rho_b(z_array[:i+1]) * np.diff(np.append(0, t_array[:i+1])))
+    return Phi
+
+# ----------------------------
+# Compute fσ8(z)
+# ----------------------------
+sigma8_0 = 0.936
+def compute_sigma8(D):
+    return sigma8_0 * D
+
+def compute_fsigma8(f, sigma8):
+    return f * sigma8
+
+# ----------------------------
+# Compute S8 using effective memory-weighted Omega
+# ----------------------------
+def compute_S8(sigma8, Omega_eff=0.0486):
+    return sigma8 * np.sqrt(Omega_eff / 0.3)
+
+# ----------------------------
+# Predict ISW Peak redshift
+# ----------------------------
+def predict_ISW_peak(Phi, z_array):
+    # ISW ~ dΦ/dt -> numerical derivative
+    dPhi_dz = np.gradient(Phi, z_array)
+    # Peak occurs where |dΦ/dz| is maximum
+    peak_index = np.argmax(np.abs(dPhi_dz))
+    return z_array[peak_index]
+
+# ----------------------------
+# Run the full computation
+# ----------------------------
+D = compute_D(z_array, t_array)
+f = compute_f(D, z_array)
+Phi = compute_Phi(z_array, t_array)
+sigma8 = compute_sigma8(D)
+fsigma8 = compute_fsigma8(f, sigma8)
+S8 = compute_S8(sigma8)
+z_ISW_peak = predict_ISW_peak(Phi, z_array)
+
+# ----------------------------
+# Output results
+# ----------------------------
+print(f"D(z=0.3) = {D[np.argmin(np.abs(z_array - 0.3))]}")
+print(f"f(z=0.3) = {f[np.argmin(np.abs(z_array - 0.3))]}")
+print(f"fσ8(z=0.3) = {fsigma8[np.argmin(np.abs(z_array - 0.3))]}")
+print(f"S8 = {S8[np.argmin(np.abs(z_array - 0.3))]}")
+print(f"Φ(z=0.3) = {Phi[np.argmin(np.abs(z_array - 0.3))]}")
+print(f"Predicted z_ISW_peak = {z_ISW_peak}")

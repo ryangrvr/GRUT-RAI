@@ -1,0 +1,295 @@
+Compute D(z) via Full Kernel Integration
+
+In GRUT, the normalized growth factor D(z) is not a simple power-law. Instead, it must integrate the retarded kernel over past epochs:
+
+𝐷
+(
+𝑧
+)
+=
+∫
+0
+𝑡
+𝐾
+(
+𝑡
+−
+𝑡
+′
+)
+ 
+𝛿
+𝜌
+(
+𝑡
+′
+)
+ 
+𝑑
+𝑡
+′
+D(z)=∫
+0
+t
+	​
+
+K(t−t
+′
+)δρ(t
+′
+)dt
+′
+
+Where:
+
+𝐾
+(
+𝑡
+−
+𝑡
+′
+)
+=
+−
+1
+/
+12
+𝜏
+0
+𝑒
+−
+(
+𝑡
+−
+𝑡
+′
+)
+/
+𝜏
+0
+Θ
+(
+𝑡
+−
+𝑡
+′
+)
+K(t−t
+′
+)=
+τ
+0
+	​
+
+−1/12
+	​
+
+e
+−(t−t
+′
+)/τ
+0
+	​
+
+Θ(t−t
+′
+)
+
+𝛿
+𝜌
+(
+𝑡
+′
+)
+δρ(t
+′
+) is the density contrast from baryons at time t'
+
+𝜏
+0
+=
+41.9
+ Myr
+τ
+0
+	​
+
+=41.9 Myr is the memory relaxation time
+
+Implementation Notes:
+
+Use a time grid fine enough to capture early, mid, and late epochs
+
+Apply exponential decay weighting to avoid clipping contributions from older epochs
+
+Normalize D(z) so that D(0) = 1 for convenience
+
+Step 2: Compute f(z) from D(z)
+
+Once D(z) is computed via the kernel convolution:
+
+𝑓
+(
+𝑧
+)
+=
+𝑑
+ln
+⁡
+𝐷
+(
+𝑧
+)
+𝑑
+ln
+⁡
+𝑎
+=
+−
+(
+1
++
+𝑧
+)
+𝑑
+ln
+⁡
+𝐷
+(
+𝑧
+)
+𝑑
+𝑧
+f(z)=
+dlna
+dlnD(z)
+	​
+
+=−(1+z)
+dz
+dlnD(z)
+	​
+
+
+Implementation Notes:
+
+Use finite differences or automatic differentiation to compute dlnD/dz
+
+Ensure you compute before clipping: do not apply any arbitrary min/max to f(z) — the integrator should naturally produce the physical values
+
+The f(z) clip issue usually arises if D(z) is improperly normalized or if contributions from the kernel are truncated too aggressively
+
+Step 3: Check Memory Weighting
+
+Verify that early/mid epoch contributions dominate as expected by GRUT
+
+Late-time contributions should be limited by the kernel decay: 
+𝑒
+−
+Δ
+𝑡
+/
+𝜏
+0
+e
+−Δt/τ
+0
+	​
+
+
+If f(z) is hitting limits, check if Δt is too large or time steps are too coarse — kernel contributions may be overestimated
+
+Step 4: Update S₈ Computation
+
+Once D(z) and f(z) are computed correctly:
+
+𝜎
+8
+(
+𝑧
+)
+=
+𝜎
+8
+0
+𝐷
+(
+𝑧
+)
+𝐷
+(
+0
+)
+σ
+8
+	​
+
+(z)=σ
+8
+0
+	​
+
+D(0)
+D(z)
+	​
+
+𝑆
+8
+=
+𝜎
+8
+(
+𝑧
+)
+Ω
+e
+f
+f
+(
+𝑧
+)
+/
+0.3
+S
+8
+	​
+
+=σ
+8
+	​
+
+(z)
+Ω
+eff
+	​
+
+(z)/0.3
+	​
+
+
+Ensure σ₈ uses kernel-integrated D(z), not a ΛCDM approximation
+
+This will automatically resolve clip issues for S₈ as well
+
+Step 5: Validate the Fix
+
+Run the Memory Priority Test (Universe A vs B)
+
+Run the ISW-Lensing check (
+∣
+Φ
+˙
+∣
+/
+(
+𝐻
+Φ
+)
+≤
+0.1
+∣
+Φ
+˙
+∣/(HΦ)≤0.1)
+
+Confirm no clipping occurs, numeric values are consistent with kernel integration

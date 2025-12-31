@@ -1,0 +1,67 @@
+import numpy as np
+
+# ----------------------------
+# GRUT Kernel Integrator Setup
+# ----------------------------
+
+tau0 = 41.9e6 * 365 * 24 * 3600  # 41.9 Myr in seconds
+alpha = -1/12                     # vacuum ground state
+H0 = 70 * 1000 / 3.086e22         # Hubble in 1/s
+z_array = np.linspace(0, 10, 1000)  # redshift grid
+a_array = 1 / (1 + z_array)
+
+# Example baryon density evolution (fractional)
+def rho_b(z):
+    return 0.0486 * (1 + z)**3
+
+# ----------------------------
+# Kernel function
+# ----------------------------
+def K(delta_t):
+    return (alpha / tau0) * np.exp(-delta_t / tau0) * (delta_t >= 0)
+
+# ----------------------------
+# Compute D(z) via full kernel convolution
+# ----------------------------
+def compute_D(z_array):
+    D = np.zeros_like(z_array)
+    t_array = np.cumsum(np.diff(a_array, prepend=a_array[0]) / (a_array**2 * H0))  # approximate t(z)
+    
+    for i, t in enumerate(t_array):
+        # integrate contributions from all past times
+        kernel_vals = K(t - t_array[:i+1])
+        D[i] = np.sum(kernel_vals * rho_b(z_array[:i+1]) * np.diff(np.append(0, t_array[:i+1])))
+    
+    # Normalize so that D(z=0) = 1
+    D /= D[0]
+    return D
+
+# ----------------------------
+# Compute f(z) from D(z)
+# ----------------------------
+def compute_f(D, z_array):
+    lnD = np.log(D)
+    dlnD_dz = np.gradient(lnD, z_array)
+    f = -(1 + z_array) * dlnD_dz
+    return f
+
+# ----------------------------
+# Compute sigma8(z) and S8
+# ----------------------------
+sigma8_0 = 0.936  # baseline amplitude
+
+def compute_sigma8(D):
+    return sigma8_0 * D  # memory-weighted
+
+def compute_S8(sigma8, Omega_eff):
+    return sigma8 * np.sqrt(Omega_eff / 0.3)  # can replace Omega_eff with kernel-weighted effective value
+
+# ----------------------------
+# Run the computation
+# ----------------------------
+D = compute_D(z_array)
+f = compute_f(D, z_array)
+sigma8 = compute_sigma8(D)
+S8 = compute_S8(sigma8, Omega_eff=0.0486)  # example effective baryon fraction
+
+# Now D(z), f(z), sigma8(z), and S8 are fully kernel-integrated

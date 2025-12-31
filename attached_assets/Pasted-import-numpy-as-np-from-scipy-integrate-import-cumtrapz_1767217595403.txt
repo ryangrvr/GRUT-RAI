@@ -1,0 +1,98 @@
+import numpy as np
+from scipy.integrate import cumtrapz
+
+# ----------------------------
+# GRUT constants
+# ----------------------------
+tau0 = 41.9e6 * 365 * 24 * 3600  # 41.9 Myr in seconds
+alpha = -1/12
+H0 = 70 * 1000 / 3.086e22        # Hubble in 1/s
+Omega_b = 0.0486
+Omega_geom = 0.7
+sigma8_0 = 0.936
+
+# ----------------------------
+# eBOSS redshifts and measurements
+# ----------------------------
+z_obs = np.array([0.15, 0.38, 0.51, 0.70, 1.48])
+fsigma8_obs = np.array([0.49, 0.44, 0.45, 0.47, 0.46])
+sigma_obs = np.array([0.05, 0.04, 0.04, 0.04, 0.04])
+
+# ----------------------------
+# Redshift grid (ascending)
+# ----------------------------
+z_array = np.linspace(0, 2, 1000)
+a_array = 1 / (1 + z_array)
+
+# ----------------------------
+# Hubble parameter H(z)
+# ----------------------------
+H_array = H0 * np.sqrt(Omega_b * (1 + z_array)**3 + Omega_geom)
+
+# ----------------------------
+# Cosmic time t(z)
+# ----------------------------
+t_array = cumtrapz(1 / ((1 + z_array) * H_array), z_array, initial=0)
+
+# ----------------------------
+# Kernel function
+# ----------------------------
+def K(delta_t):
+    return (alpha / tau0) * np.exp(-delta_t / tau0) * (delta_t >= 0)
+
+# ----------------------------
+# Baryon density
+# ----------------------------
+def rho_b(z):
+    return Omega_b * (1 + z)**3
+
+# ----------------------------
+# Compute D(z) via kernel convolution
+# ----------------------------
+def compute_D(z_array, t_array):
+    D = np.zeros_like(z_array)
+    for i, t in enumerate(t_array):
+        kernel_vals = K(t - t_array[:i+1])
+        D[i] = np.sum(kernel_vals * rho_b(z_array[:i+1]) * np.diff(np.append(0, t_array[:i+1])))
+    D /= D[-1]  # normalize D(z=0) = 1
+    return D
+
+# ----------------------------
+# Compute f(z)
+# ----------------------------
+def compute_f(D, z_array):
+    lnD = np.log(D)
+    dlnD_dz = np.gradient(lnD, z_array)
+    f = -(1 + z_array) * dlnD_dz
+    return f
+
+# ----------------------------
+# Compute fσ8
+# ----------------------------
+def compute_fsigma8(f, D):
+    sigma8 = sigma8_0 * D
+    return f * sigma8
+
+# ----------------------------
+# Compute chi-squared
+# ----------------------------
+def compute_chi2(fsigma8_model, z_obs, fsigma8_obs, sigma_obs):
+    model_vals = np.interp(z_obs, z_array, fsigma8_model)
+    chi2 = np.sum(((fsigma8_obs - model_vals) / sigma_obs)**2)
+    return chi2
+
+# ----------------------------
+# Run GRUT computations
+# ----------------------------
+D = compute_D(z_array, t_array)
+f = compute_f(D, z_array)
+fsigma8_model = compute_fsigma8(f, D)
+chi2 = compute_chi2(fsigma8_model, z_obs, fsigma8_obs, sigma_obs)
+
+# ----------------------------
+# Output results
+# ----------------------------
+for i, z in enumerate(z_obs):
+    print(f"z={z:.2f}, fσ8_model={fsigma8_model[np.argmin(np.abs(z_array-z))]:.3f}, fσ8_obs={fsigma8_obs[i]:.3f} ± {sigma_obs[i]:.3f}")
+
+print(f"\nChi-squared against eBOSS: χ² = {chi2:.2f}")
