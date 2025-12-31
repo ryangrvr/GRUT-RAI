@@ -1,0 +1,151 @@
+import numpy as np
+from scipy.integrate import cumtrapz, solve_ivp
+from scipy.ndimage import gaussian_filter1d
+
+# ----------------------------
+# GRUT constants
+# ----------------------------
+tau0 = 41.9e6 * 365 * 24 * 3600  # 41.9 Myr
+alpha = -1/12
+H0 = 70 * 1000 / 3.086e22        # Hubble in 1/s
+Omega_b = 0.0486
+Omega_geom = 0.7
+sigma8_0 = 0.936
+tau_factor = 350
+p = 1.0
+
+# ----------------------------
+# Redshift & scale factor
+# ----------------------------
+z_array = np.linspace(0, 10, 2000)
+a_array = 1 / (1 + z_array)
+ln_a_array = np.log(a_array)
+
+# ----------------------------
+# Hubble parameter H(z)
+# ----------------------------
+H_array = H0 * np.sqrt(Omega_b * (1 + z_array)**3 + Omega_geom)
+
+# ----------------------------
+# Cosmic time
+# ----------------------------
+t_lb = cumtrapz(1 / ((1 + z_array) * H_array), z_array, initial=0)
+t0 = t_lb[-1]
+t_array = t0 - t_lb  # cosmic time: t[0]=today, t[-1]=early universe
+
+z_array = z_array[::-1]
+a_array = a_array[::-1]
+ln_a_array = ln_a_array[::-1]
+H_array = H_array[::-1]
+t_array = t_array[::-1]
+
+# ----------------------------
+# τ_eff(z)
+# ----------------------------
+def tau_eff(z):
+    H_interp = np.interp(z, z_array, H_array)
+    return tau0 * tau_factor * (H0 / H_interp)**p
+
+# ----------------------------
+# Kernel with normalization
+# ----------------------------
+def K_eff(delta_t, z):
+    return 12 * (alpha / tau_eff(z)) * np.exp(-delta_t / tau_eff(z)) * (delta_t >= 0)
+
+# ----------------------------
+# Compute G_eff(z)
+# ----------------------------
+def compute_G_eff(z_array, t_array):
+    G_eff = np.zeros_like(z_array)
+    for i, t_now in enumerate(t_array):
+        delta_t = t_now - t_array[:i+1]  # past → current
+        kernel_vals = K_eff(delta_t, z_array[i])
+        G_eff[i] = 1 + (1/3) * np.sum(kernel_vals * np.diff(np.append(0, t_array[:i+1])))
+    G_eff = gaussian_filter1d(G_eff, sigma=3)
+    return G_eff
+
+# ----------------------------
+# Linear growth ODE in ln(a) with Ω_eff(z)
+# ----------------------------
+def growth_ode_ln_a(ln_a, y, a_array, H_array, G_eff, z_array):
+    D, Dprime = y
+    a = np.exp(ln_a)
+    z = 1/a - 1
+    H = np.interp(a, a_array, H_array)
+    G = np.interp(a, a_array, G_eff)
+    # Redshift-dependent effective matter fraction
+    Omega_eff = Omega_b * (1 + z)**3 / (Omega_b * (1 + z)**3 + Omega_geom)
+    
+    dlnH_dlnA = np.gradient(np.log(H), np.log(a_array))
+    idx = np.searchsorted(a_array, a)
+    dlnH = dlnH_dlnA[idx]
+    
+    dD_dln_a = Dprime
+    dDprime_dln_a = - (2 + dlnH) * Dprime + 1.5 * Omega_eff * (G / (H**2 / H0**2)) * D
+    return [dD_dln_a, dDprime_dln_a]
+
+# ----------------------------
+# Solve growth ODE
+# ----------------------------
+G_eff = compute_G_eff(z_array, t_array)
+D0, Dprime0 = 1e-5, 0.0
+y0 = [D0, Dprime0]
+
+sol = solve_ivp(growth_ode_ln_a, [ln_a_array[0], ln_a_array[-1]], y0,
+                t_eval=ln_a_array,
+                args=(a_array, H_array, G_eff, z_array),
+                method='BDF', rtol=1e-6, atol=1e-9)
+
+D = sol.y[0]
+D /= D[0]  # normalize D(z=0)=1
+f = np.gradient(np.log(D), ln_a_array)
+
+# ----------------------------
+# fσ8 and S8
+# ----------------------------
+sigma8 = sigma8_0 * D
+fsigma8 = f * sigma8
+S8 = sigma8 * np.sqrt(Omega_b / 0.3)
+
+# ----------------------------
+# Φ(z) and ISW peak
+# ----------------------------
+Phi = np.zeros_like(z_array)
+for i, t_now in enumerate(t_array):
+    delta_t = t_now - t_array[:i+1]
+    kernel_vals = K_eff(delta_t, z_array[i])
+    Phi[i] = np.sum(kernel_vals * Omega_b * (1 + z_array[:i+1])**3 * np.diff(np.append(0, t_array[:i+1])))
+
+dPhi_dln_a = np.gradient(Phi, ln_a_array)
+z_ISW_peak = z_array[np.argmax(np.abs(dPhi_dln_a))]
+
+# ----------------------------
+# χ² against eBOSS
+# ----------------------------
+z_obs = np.array([0.15, 0.38, 0.51, 0.70, 1.48])
+fsigma8_obs = np.array([0.49, 0.44, 0.45, 0.47, 0.46])
+sigma_obs = np.array([0.05, 0.04, 0.04, 0.04, 0.04])
+chi2 = np.sum(((fsigma8_obs - np.interp(z_obs, z_array, fsigma8)) / sigma_obs)**2)
+
+# ----------------------------
+# Output
+# ----------------------------
+idx = np.argmin(np.abs(z_array - 0.3))
+print(f"D(z=0.3) = {D[idx]}")
+print(f"f(z=0.3) = {f[idx]}")
+print(f"fσ8(z=0.3) = {fsigma8[idx]}")
+print(f"S8 = {S8[idx]}")
+print(f"Φ(z=0.3) = {Phi[idx]}")
+print(f"Predicted z_ISW_peak = {z_ISW_peak}")
+print(f"Chi-squared against eBOSS: χ² = {chi2:.2f}")
+
+# ----------------------------
+# Optional: Automatic validator
+# ----------------------------
+def validate_memory_priority(G_eff, fsigma8, z_array):
+    # High-z guardrail
+    assert fsigma8[z_array>2].max() < 0.6, "High-z fσ8 too large!"
+    # Memory priority: G_eff rises as z decreases
+    assert np.all(np.diff(G_eff[::-1]) >= -1e-3), "Memory priority violated!"
+validate_memory_priority(G_eff, fsigma8, z_array)
+print("Memory Priority & High-z Guardrail: Passed ✅")
