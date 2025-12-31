@@ -170,19 +170,22 @@ class GRUTSovereignSolver:
     
     def calculate_growth_factor_D(self, z_target: float) -> float:
         """
-        Calculate the GRUT Integrated Growth Factor D(z).
+        Calculate the GRUT Normalized Growth Factor D(z).
         
-        This is the key correction that accounts for the 4/3 G_eff boost
-        accumulating over cosmic time. Instead of simple 1/(1+z) decay,
-        we integrate the boosted f(z)/(1+z) to get proper Baryonic Accumulation.
-        
+        DYNAMIC DIAMOND NORMALIZATION:
         D(z) = exp(-∫₀ᶻ f(z')/(1+z') dz')
+        
+        This ensures D(0) = 1.0 to anchor the present-day amplitude.
+        The negative sign means D(z) < 1 for z > 0 (less growth at earlier times).
+        
+        With the 4/3 G_eff boost in f(z), the integral accumulates more power,
+        raising the predicted f*σ₈ into the observable range.
         
         Args:
             z_target: Target redshift
             
         Returns:
-            float: Growth factor D(z) at z_target
+            float: Normalized growth factor D(z) with D(0) = 1.0
         """
         if z_target <= 0:
             return 1.0
@@ -192,6 +195,9 @@ class GRUTSovereignSolver:
             return self.get_growth_rate(z) / (1 + z)
         
         integral, _ = quad(integrand, 0, z_target)
+        
+        # NORMALIZED GROWTH FACTOR
+        # D(z) = exp(-integral) ensures D(0) = 1.0
         growth_factor = np.exp(-integral)
         
         return growth_factor
