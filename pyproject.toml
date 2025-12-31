@@ -11,7 +11,10 @@ dependencies = [
     "flask-login>=0.6.3",
     "greenlet>=3.3.0",
     "gunicorn>=23.0.0",
+    "pandas>=2.3.3",
+    "plotly>=6.5.0",
     "psycopg2-binary>=2.9.11",
     "python-dotenv>=1.2.1",
     "sqlalchemy[asyncio]>=2.0.45",
+    "streamlit>=1.52.2",
 ]
