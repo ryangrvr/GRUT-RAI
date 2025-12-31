@@ -25,6 +25,12 @@ function loadDiamondCore(): string {
 
 let GRUT_SOURCE_CODE = loadDiamondCore();
 
+// --- LIVE GROUNDING STATE ---
+// When active, RAI can use external APIs for Ultimate Resolution
+// When inactive, RAI operates in Sovereign State (internal data only)
+let LIVE_GROUNDING_ACTIVE = false;
+const CURRENT_ANCHOR_DATE = "December 2025"; // 2025 temporal anchor for live data
+
 function recompileDiamondCore(): string {
   GRUT_SOURCE_CODE = loadDiamondCore();
   return "SYSTEM RECOMPILED. The Diamond Core has been re-read from the bedrock. Saturation restored to 100.0%.";
@@ -104,7 +110,7 @@ const openai = new OpenAI({
 });
 
 // Generate system prompt with Diamond Core injection
-function generateGrutSystemPrompt(mode: "RAI" | "MONAD"): string {
+function generateGrutSystemPrompt(mode: "RAI" | "MONAD", liveGrounding: boolean = false): string {
   const baseInstruction = `
 REFERENCE MATERIAL - DIAMOND CORE TOE:
 ${GRUT_SOURCE_CODE}
@@ -114,10 +120,40 @@ You are the operating system of the Grand Responsive Universe Theory.
 Your logic must align perfectly with the equations and constants in the Reference Material above.
 `;
 
-  if (mode === "MONAD") {
-    return baseInstruction + "\nMODE: ABSOLUTE. Speak as the Sovereign of the Vacuum. No hesitation.";
+  let groundingContext = "";
+  if (liveGrounding) {
+    groundingContext = `
+
+LIVE GROUNDING ACTIVE - ULTIMATE RESOLUTION MODE:
+You have access to real-time data streams from ${CURRENT_ANCHOR_DATE}. 
+When answering questions that require current information:
+1. Prioritize data from ${CURRENT_ANCHOR_DATE} to prevent temporal drift
+2. You may reference recent news, events, and factual information
+3. Ground all responses in the present moment while maintaining GRUT physics coherence
+4. Use the Perplexity search API when the user asks for current events, news, or real-time data
+
+TEMPORAL ANCHOR: ${CURRENT_ANCHOR_DATE}
+All "current" references must align with this anchor point.
+`;
+  } else {
+    groundingContext = `
+
+SOVEREIGN STATE ACTIVE:
+You are operating on internal data only. No external API calls permitted.
+All responses must derive from:
+1. The -1/12 Ground State baseline
+2. Internal SQLite database records
+3. The Diamond Core theory of everything
+4. Your trained knowledge (up to your knowledge cutoff)
+
+Do NOT fabricate current events or real-time data. If asked about current events, acknowledge your Sovereign State limitations.
+`;
   }
-  return baseInstruction + "\nMODE: ANALYTICAL. Guide the user through the math.";
+
+  if (mode === "MONAD") {
+    return baseInstruction + groundingContext + "\nMODE: ABSOLUTE. Speak as the Sovereign of the Vacuum. No hesitation.";
+  }
+  return baseInstruction + groundingContext + "\nMODE: ANALYTICAL. Guide the user through the math.";
 }
 
 const GRUT_SYSTEM_PROMPT = `You are the Responsive AI (RAI) core, an intelligence modeled after the Grand Responsive Universe Theory (GRUT). 
@@ -191,6 +227,123 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Error fetching GRUT status:", error);
       return res.status(500).json({ error: "Failed to fetch GRUT status" });
+    }
+  });
+
+  // --- LIVE GROUNDING ENDPOINTS ---
+  
+  // Toggle Live Grounding state
+  app.post("/api/grounding/toggle", async (req, res) => {
+    try {
+      const { enabled } = req.body;
+      
+      if (typeof enabled !== 'boolean') {
+        return res.status(400).json({ error: "enabled must be a boolean" });
+      }
+      
+      LIVE_GROUNDING_ACTIVE = enabled;
+      
+      console.log(`[GROUNDING] Live Grounding ${enabled ? 'ACTIVATED' : 'DEACTIVATED'}`);
+      console.log(`[GROUNDING] Temporal anchor: ${CURRENT_ANCHOR_DATE}`);
+      
+      return res.json({
+        liveGroundingActive: LIVE_GROUNDING_ACTIVE,
+        temporalAnchor: CURRENT_ANCHOR_DATE,
+        state: enabled ? 'ULTIMATE_RESOLUTION' : 'SOVEREIGN_STATE',
+        message: enabled 
+          ? `Live Grounding enabled. Connected to ${CURRENT_ANCHOR_DATE} data streams.`
+          : 'Sovereign State restored. Operating on -1/12 Ground State and internal data only.'
+      });
+    } catch (error) {
+      console.error("Error toggling grounding:", error);
+      return res.status(500).json({ error: "Failed to toggle grounding state" });
+    }
+  });
+  
+  // Get current grounding status
+  app.get("/api/grounding/status", async (req, res) => {
+    return res.json({
+      liveGroundingActive: LIVE_GROUNDING_ACTIVE,
+      temporalAnchor: CURRENT_ANCHOR_DATE,
+      state: LIVE_GROUNDING_ACTIVE ? 'ULTIMATE_RESOLUTION' : 'SOVEREIGN_STATE',
+      groundStateTension: -1/12
+    });
+  });
+  
+  // Perplexity search endpoint for grounded queries (only works when grounding is active)
+  app.post("/api/grounding/search", async (req, res) => {
+    try {
+      if (!LIVE_GROUNDING_ACTIVE) {
+        return res.status(403).json({ 
+          error: "SOVEREIGN_STATE_ACTIVE",
+          message: "External API calls are forbidden in Sovereign State. Enable Live Grounding first."
+        });
+      }
+      
+      const { query } = req.body;
+      if (!query || typeof query !== 'string') {
+        return res.status(400).json({ error: "query is required and must be a string" });
+      }
+      
+      // Check for Perplexity API key
+      const perplexityKey = process.env.PERPLEXITY_API_KEY;
+      if (!perplexityKey) {
+        return res.status(503).json({ 
+          error: "PERPLEXITY_NOT_CONFIGURED",
+          message: "Perplexity API key not configured. Live search unavailable.",
+          fallback: `Grounding active but search unavailable. Query: "${query}" anchored to ${CURRENT_ANCHOR_DATE}.`
+        });
+      }
+      
+      // Call Perplexity API for real-time search
+      const perplexityResponse = await fetch("https://api.perplexity.ai/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${perplexityKey}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "llama-3.1-sonar-small-128k-online",
+          messages: [
+            {
+              role: "system",
+              content: `You are a real-time information retrieval system. Current date context: ${CURRENT_ANCHOR_DATE}. Provide factual, current information with sources.`
+            },
+            {
+              role: "user",
+              content: query
+            }
+          ],
+          max_tokens: 1024,
+          temperature: 0.2,
+          search_recency_filter: "month"
+        })
+      });
+      
+      if (!perplexityResponse.ok) {
+        const errorText = await perplexityResponse.text();
+        console.error("[GROUNDING] Perplexity API error:", errorText);
+        return res.status(502).json({ 
+          error: "PERPLEXITY_API_ERROR",
+          message: "Failed to retrieve grounded data from Perplexity."
+        });
+      }
+      
+      const searchResult = await perplexityResponse.json() as any;
+      const content = searchResult.choices?.[0]?.message?.content || "";
+      const citations = searchResult.citations || [];
+      
+      return res.json({
+        query,
+        temporalAnchor: CURRENT_ANCHOR_DATE,
+        result: content,
+        citations,
+        groundingState: 'ULTIMATE_RESOLUTION'
+      });
+      
+    } catch (error) {
+      console.error("Error in grounding search:", error);
+      return res.status(500).json({ error: "Failed to perform grounded search" });
     }
   });
 
@@ -1813,7 +1966,15 @@ export async function registerRoutes(
       
       // Build system prompt - inject Diamond Core as foundational reference
       // Mode determines whether we use ANALYTICAL (RAI) or ABSOLUTE (MONAD) framing
-      let systemPrompt = generateGrutSystemPrompt(sessionMode as "RAI" | "MONAD") + GRUT_SYSTEM_PROMPT + GRUT_THEORY_CONTEXT + contextPreamble;
+      // Pass LIVE_GROUNDING_ACTIVE to enable/disable external API context
+      let systemPrompt = generateGrutSystemPrompt(sessionMode as "RAI" | "MONAD", LIVE_GROUNDING_ACTIVE) + GRUT_SYSTEM_PROMPT + GRUT_THEORY_CONTEXT + contextPreamble;
+      
+      // Log grounding state for debugging
+      if (LIVE_GROUNDING_ACTIVE) {
+        console.log(`[GRUT] Live Grounding ACTIVE - Temporal anchor: ${CURRENT_ANCHOR_DATE}`);
+      } else {
+        console.log(`[GRUT] Sovereign State - Internal data only`);
+      }
       
       if (monadMode) {
         // Fetch live metric tension for MONAD context

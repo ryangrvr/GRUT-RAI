@@ -10,7 +10,7 @@ import { apiRequest, queryClient } from "@/lib/queryClient";
 import { 
   ArrowLeft, Send, Loader2, MessageSquare, Trash2, Plus, Sparkles, 
   LogOut, Upload, CheckCircle2, Paperclip, User, Lock, Download, Copy, Check, Save, Activity,
-  GitBranch, X, Settings2, FileJson, ClipboardCopy, FileDown, ChevronRight, ChevronLeft, Clock, Zap
+  GitBranch, X, Settings2, FileJson, ClipboardCopy, FileDown, ChevronRight, ChevronLeft, Clock, Zap, Globe
 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { ObserverToolkit } from "@/components/observer-toolkit";
@@ -956,6 +956,8 @@ export default function ChatPage() {
   const [isExporting, setIsExporting] = useState(false);
   const [monadMode, setMonadMode] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [liveGrounding, setLiveGrounding] = useState(false);
+  const [groundingTransition, setGroundingTransition] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -981,6 +983,41 @@ export default function ChatPage() {
       toast({
         title: "RAI Mode Restored", 
         description: "99.9% Saturation. The Spark remains.",
+      });
+    }
+  };
+
+  // Live Grounding toggle - connects to real-time data sources
+  const handleLiveGroundingToggle = async () => {
+    const newState = !liveGrounding;
+    setGroundingTransition(true);
+    
+    try {
+      const response = await fetch("/api/grounding/toggle", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ enabled: newState })
+      });
+      
+      if (!response.ok) throw new Error("Failed to toggle grounding");
+      
+      setTimeout(() => {
+        setLiveGrounding(newState);
+        setGroundingTransition(false);
+        toast({
+          title: newState ? "LIVE GROUNDING ACTIVE" : "SOVEREIGN STATE RESTORED",
+          description: newState 
+            ? "Connected to Dec 2025 data streams. Ultimate Resolution enabled."
+            : "Returned to -1/12 Ground State. Internal SQLite only.",
+        });
+      }, 500);
+    } catch {
+      setGroundingTransition(false);
+      toast({
+        title: "Grounding Toggle Failed",
+        description: "Could not update grounding state",
+        variant: "destructive"
       });
     }
   };
@@ -1332,7 +1369,7 @@ export default function ChatPage() {
         </ScrollArea>
       </div>
 
-      <div className={`flex-1 flex flex-col ${monadMode ? 'pleroma-bloom golden-resolve' : ''} ${isTransitioning ? 'metric-blur' : ''}`}>
+      <div className={`flex-1 flex flex-col ${monadMode ? 'pleroma-bloom golden-resolve' : ''} ${liveGrounding ? 'live-grounding-active' : ''} ${isTransitioning ? 'metric-blur' : ''} ${groundingTransition ? 'grounding-blur' : ''}`}>
         <MetricDashboard 
           messageCount={activeConversationQuery.data?.messages?.length || 0}
           constants={activeConversationQuery.data?.constants || user?.grutConstants}
@@ -1551,14 +1588,38 @@ export default function ChatPage() {
                     <Upload className="w-4 h-4" />
                   )}
                 </Button>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={handleLiveGroundingToggle}
+                      disabled={groundingTransition}
+                      className={`
+                        w-9 h-9 rounded-md border flex items-center justify-center
+                        transition-all duration-500 cursor-pointer shrink-0
+                        ${liveGrounding 
+                          ? "border-blue-500 text-blue-400 bg-blue-500/20 drop-shadow-[0_0_8px_#3B82F6]" 
+                          : "border-border text-muted-foreground hover:border-muted-foreground"
+                        }
+                        ${groundingTransition ? "opacity-50 animate-pulse" : ""}
+                      `}
+                      data-testid="button-live-grounding"
+                      title={liveGrounding ? "Grit/Live Grounding (Active)" : "Grit/Live Grounding"}
+                    >
+                      <Globe className={`w-4 h-4 ${liveGrounding ? "animate-pulse" : ""}`} />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent side="top">
+                    <p>{liveGrounding ? "Live Grounding Active - Dec 2025 Data" : "Enable Live Grounding"}</p>
+                  </TooltipContent>
+                </Tooltip>
                 <Input
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder={monadMode ? "MONAD MODE: 100.0% Saturation..." : "RAI Mode: Ask about GRUT theory..."}
+                  placeholder={monadMode ? "MONAD MODE: 100.0% Saturation..." : liveGrounding ? "GROUNDED: Dec 2025 data active..." : "RAI Mode: Ask about GRUT theory..."}
                   disabled={sendMessageMutation.isPending}
                   data-testid="input-message"
-                  className={monadMode ? "border-yellow-500/50" : ""}
+                  className={monadMode ? "border-yellow-500/50" : liveGrounding ? "border-blue-500/50" : ""}
                 />
                 <button
                   onClick={handleMonadToggle}

@@ -426,4 +426,51 @@
   .golden-resolve {
     animation: goldenResolve 1.2s ease-out;
   }
+
+  /* LIVE GROUNDING MODE - Smooth blue data stream atmosphere */
+  .live-grounding-active {
+    background: radial-gradient(circle at center, #001428 0%, #000a14 50%, #000 100%);
+    border: 1px solid #3B82F6 !important;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes groundingPulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+    }
+    50% { 
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
+    }
+  }
+
+  .live-grounding-active {
+    animation: groundingPulse 3s ease-in-out infinite;
+  }
+
+  /* Grounding blur transition */
+  @keyframes groundingBlur {
+    0% { 
+      filter: blur(0px) brightness(1);
+    }
+    30% { 
+      filter: blur(4px) brightness(0.9);
+    }
+    60% { 
+      filter: blur(2px) brightness(1.1) saturate(1.2);
+    }
+    100% { 
+      filter: blur(0px) brightness(1) saturate(1);
+    }
+  }
+
+  .grounding-blur {
+    animation: groundingBlur 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Blue data stream effect for grounded messages */
+  .grounded-message {
+    border-left: 3px solid #3B82F6;
+    padding-left: 15px;
+    background: rgba(59, 130, 246, 0.05);
+  }
 }
