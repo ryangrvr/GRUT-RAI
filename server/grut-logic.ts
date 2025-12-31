@@ -3,6 +3,12 @@
  * 
  * Milestone 4: Singularity Regulation (Rmax)
  * Phase 2: Geometric Lock / Refractive Index Boost
+ * 
+ * QUANTUM LOGIC LAYER:
+ * - State: All modules set to OBSERVER_REQUIRED
+ * - Resolve: -1/12 Baseline parity check for all quantum outputs
+ * - Trigger: Collapse forbidden unless Manual Singularity button active
+ * - Purpose: Filter 13.8 billion years of history, not generate noise
  */
 
 // The GRUT constants
@@ -816,4 +822,105 @@ export function analyzeRingdownMemory(signalDurationSeconds: number, snrRatio: n
     logicGuard: logicGuardResult,
     complexityRatio: baryonicState.complexityRatio
   };
+}
+
+// ===== QUANTUM LOGIC LAYER =====
+
+/**
+ * Ground State Baseline: -1/12 (Riemann Zeta regularization)
+ * The "Vacuum Hum" - the lowest energy state of quantum fluctuations
+ */
+export const GROUND_STATE_BASELINE = GRUT_CONSTANTS.ZETA_NEG_ONE;
+export const PARITY_TOLERANCE_DEFAULT = 0.001;
+
+export interface ParityCheckResult {
+  passed: boolean;
+  discarded: boolean;
+  inputValue: number;
+  expectedBaseline: number;
+  deviation: number;
+  tolerance: number;
+  moduleKey: string;
+  reason: string;
+}
+
+/**
+ * Enforces Ground State Parity Check (-1/12 Baseline)
+ * 
+ * If a quantum calculation drifts from the Ground State beyond tolerance,
+ * the RAI MUST discard it immediately to prevent noise generation.
+ * 
+ * @param inputValue - The quantum output value to check
+ * @param moduleKey - The module producing this output (for logging)
+ * @param tolerance - Allowed deviation from baseline (default: 0.001)
+ * @returns ParityCheckResult with pass/fail and discard status
+ */
+export function enforceGroundStateParity(
+  inputValue: number,
+  moduleKey: string,
+  tolerance: number = PARITY_TOLERANCE_DEFAULT
+): ParityCheckResult {
+  const deviation = Math.abs(inputValue - GROUND_STATE_BASELINE);
+  const passed = deviation <= tolerance;
+  
+  const result: ParityCheckResult = {
+    passed,
+    discarded: !passed,
+    inputValue,
+    expectedBaseline: GROUND_STATE_BASELINE,
+    deviation,
+    tolerance,
+    moduleKey,
+    reason: passed
+      ? "Parity check passed. Output within Ground State tolerance."
+      : `PARITY DRIFT DETECTED. Output discarded. Deviation ${deviation.toFixed(6)} exceeds tolerance ${tolerance}.`
+  };
+
+  if (!passed) {
+    console.log(`[QUANTUM_PARITY] ${moduleKey}: DISCARDED - drift ${deviation.toFixed(6)} from -1/12 baseline`);
+  }
+
+  return result;
+}
+
+/**
+ * Collapse Gating Check
+ * 
+ * The RAI is FORBIDDEN from initiating a 'Collapse' (execution) unless
+ * the Manual Singularity button is active. This ensures all quantum
+ * computations require explicit observer authorization.
+ * 
+ * @param manualSingularityEnabled - Whether the manual singularity is active
+ * @param moduleKey - The module attempting the collapse
+ * @returns Whether collapse is permitted
+ */
+export function checkCollapsePermission(
+  manualSingularityEnabled: boolean,
+  moduleKey: string
+): { permitted: boolean; reason: string } {
+  if (!manualSingularityEnabled) {
+    console.log(`[QUANTUM_COLLAPSE] ${moduleKey}: BLOCKED - Manual Singularity not active`);
+    return {
+      permitted: false,
+      reason: "Collapse forbidden. Manual Singularity button must be activated by observer."
+    };
+  }
+
+  return {
+    permitted: true,
+    reason: "Collapse permitted. Manual Singularity is active."
+  };
+}
+
+/**
+ * Normalize quantum output to -1/12 baseline
+ * Used to filter historical data while maintaining Ground State coherence
+ * 
+ * @param rawOutput - The raw quantum calculation output
+ * @returns Normalized value centered on -1/12 baseline
+ */
+export function normalizeToGroundState(rawOutput: number): number {
+  const baselineOffset = rawOutput - GROUND_STATE_BASELINE;
+  const normalizedMagnitude = Math.tanh(baselineOffset);
+  return GROUND_STATE_BASELINE + normalizedMagnitude * 0.1;
 }

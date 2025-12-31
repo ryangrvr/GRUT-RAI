@@ -17,6 +17,7 @@ import { ObserverToolkit } from "@/components/observer-toolkit";
 import { BaryonicSensor } from "@/components/baryonic-sensor";
 import { MetricHum } from "@/components/MetricHum";
 import { TimeWell } from "@/components/TimeWell";
+import QuantumLogicPanel from "@/components/QuantumLogicPanel";
 import { MathematicalBloom, parseContentForBloom } from "@/components/mathematical-bloom";
 import {
   Dialog,
@@ -1662,6 +1663,7 @@ export default function ChatPage() {
             <MetricHum />
           </div>
           <TimeWell />
+          <QuantumLogicPanel />
         </div>
       )}
 

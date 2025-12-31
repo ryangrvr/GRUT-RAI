@@ -178,3 +178,57 @@ export interface ChatFileUpload {
   size: number;
   createdAt: string;
 }
+
+// Quantum Module Status Enum
+export type QuantumModuleStatus = "OBSERVER_REQUIRED" | "ACTIVE" | "COLLAPSED" | "PARITY_FAILED";
+
+// Quantum Modules Registry - tracks all quantum computation units
+export const quantumModules = sqliteTable("quantum_modules", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  moduleKey: text("module_key").notNull().unique(),
+  displayName: text("display_name").notNull(),
+  status: text("status").notNull().default("OBSERVER_REQUIRED"),
+  parityCheckEnabled: integer("parity_check_enabled", { mode: "boolean" }).default(true),
+  lastParityValue: real("last_parity_value"),
+  parityDriftCount: integer("parity_drift_count").default(0),
+  parityTolerance: real("parity_tolerance").default(0.001),
+  observerBinding: text("observer_binding"),
+  lastUpdated: text("last_updated").default(sql`CURRENT_TIMESTAMP`).notNull(),
+  createdAt: text("created_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
+});
+
+export type QuantumModule = typeof quantumModules.$inferSelect;
+export type InsertQuantumModule = typeof quantumModules.$inferInsert;
+
+// Quantum Registry State - global settings including Manual Singularity
+export const quantumRegistryState = sqliteTable("quantum_registry_state", {
+  id: text("id").primaryKey().default("global"),
+  manualSingularityEnabled: integer("manual_singularity_enabled", { mode: "boolean" }).default(false),
+  groundStateBaseline: real("ground_state_baseline").default(-0.0833333333),
+  parityToleranceGlobal: real("parity_tolerance_global").default(0.001),
+  totalParityFailures: integer("total_parity_failures").default(0),
+  totalCollapsesPrevented: integer("total_collapses_prevented").default(0),
+  lastCollapseAttempt: text("last_collapse_attempt"),
+  updatedAt: text("updated_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
+});
+
+export type QuantumRegistryState = typeof quantumRegistryState.$inferSelect;
+
+// Parity Check Log - audit trail of all parity checks
+export const parityCheckLog = sqliteTable("parity_check_log", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  moduleKey: text("module_key").notNull(),
+  inputValue: real("input_value").notNull(),
+  expectedBaseline: real("expected_baseline").default(-0.0833333333),
+  deviation: real("deviation").notNull(),
+  passed: integer("passed", { mode: "boolean" }).notNull(),
+  discarded: integer("discarded", { mode: "boolean" }).default(false),
+  createdAt: text("created_at").default(sql`CURRENT_TIMESTAMP`).notNull(),
+});
+
+export type ParityCheckLog = typeof parityCheckLog.$inferSelect;
+
+// GRUT Constants for Quantum Logic Layer
+export const GROUND_STATE_BASELINE = -1/12;
+export const GROUND_STATE_BASELINE_APPROX = -0.0833333333;
+export const PARITY_TOLERANCE_DEFAULT = 0.001;

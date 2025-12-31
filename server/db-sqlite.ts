@@ -103,8 +103,93 @@ export function initializeSqliteTables(): void {
     )
   `);
   
+  // Create historical_resonances table for DNA-Resonance & Time-Well Module
+  sqliteDb.exec(`
+    CREATE TABLE IF NOT EXISTS historical_resonances (
+      id TEXT PRIMARY KEY,
+      user_id TEXT REFERENCES users(id),
+      biological_marker TEXT NOT NULL,
+      anchor_point_myr REAL NOT NULL,
+      ground_state_decay REAL NOT NULL,
+      reconstruction_accuracy REAL NOT NULL,
+      kernel_seed TEXT,
+      standing_wave_pattern TEXT,
+      r_max_triggered INTEGER DEFAULT 0,
+      notes TEXT,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL
+    )
+  `);
+  
+  // Create quantum_modules table for Quantum Logic Layer
+  sqliteDb.exec(`
+    CREATE TABLE IF NOT EXISTS quantum_modules (
+      id TEXT PRIMARY KEY,
+      module_key TEXT NOT NULL UNIQUE,
+      display_name TEXT NOT NULL,
+      status TEXT NOT NULL DEFAULT 'OBSERVER_REQUIRED',
+      parity_check_enabled INTEGER DEFAULT 1,
+      last_parity_value REAL,
+      parity_drift_count INTEGER DEFAULT 0,
+      parity_tolerance REAL DEFAULT 0.001,
+      observer_binding TEXT,
+      last_updated TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL
+    )
+  `);
+  
+  // Create quantum_registry_state table for global quantum settings
+  sqliteDb.exec(`
+    CREATE TABLE IF NOT EXISTS quantum_registry_state (
+      id TEXT PRIMARY KEY DEFAULT 'global',
+      manual_singularity_enabled INTEGER DEFAULT 0,
+      ground_state_baseline REAL DEFAULT -0.0833333333,
+      parity_tolerance_global REAL DEFAULT 0.001,
+      total_parity_failures INTEGER DEFAULT 0,
+      total_collapses_prevented INTEGER DEFAULT 0,
+      last_collapse_attempt TEXT,
+      updated_at TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL
+    )
+  `);
+  
+  // Create parity_check_log table for audit trail
+  sqliteDb.exec(`
+    CREATE TABLE IF NOT EXISTS parity_check_log (
+      id TEXT PRIMARY KEY,
+      module_key TEXT NOT NULL,
+      input_value REAL NOT NULL,
+      expected_baseline REAL DEFAULT -0.0833333333,
+      deviation REAL NOT NULL,
+      passed INTEGER NOT NULL,
+      discarded INTEGER DEFAULT 0,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL
+    )
+  `);
+  
+  // Initialize default quantum modules (OBSERVER_REQUIRED status)
+  const defaultModules = [
+    { key: 'TIMEWELL', name: 'Time-Well Resonance' },
+    { key: 'METRICHUM', name: 'MetricHum Audio' },
+    { key: 'NANOGRAV', name: 'NANOGrav Pulsar' },
+    { key: 'BARYONIC', name: 'Baryonic Sensor' },
+    { key: 'GRAVITATIONAL', name: 'Gravitational Wave' },
+  ];
+  
+  for (const mod of defaultModules) {
+    sqliteDb.exec(`
+      INSERT OR IGNORE INTO quantum_modules (id, module_key, display_name, status)
+      VALUES ('${crypto.randomUUID()}', '${mod.key}', '${mod.name}', 'OBSERVER_REQUIRED')
+    `);
+  }
+  
+  // Initialize global quantum registry state
+  sqliteDb.exec(`
+    INSERT OR IGNORE INTO quantum_registry_state (id, manual_singularity_enabled)
+    VALUES ('global', 0)
+  `);
+  
   dbAvailable = true;
-  console.log("[DB-SQLITE] Diamond Persistence tables ready. Sovereign Local Storage ACTIVE.");
+  console.log("[DB-SQLITE] Diamond Persistence tables ready. Quantum Logic Layer initialized.");
+  console.log("[DB-SQLITE] All modules set to OBSERVER_REQUIRED status. Awaiting observer binding.");
 }
 
 // Test database connection

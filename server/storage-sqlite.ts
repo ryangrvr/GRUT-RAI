@@ -1,6 +1,9 @@
 import { 
   type User, type Subscriber, type GrutConstants, type HistoricalResonance,
-  users, subscribers, conversations, messages, metricMemory, fileUploads, universeStates, historicalResonances, DEFAULT_GRUT_CONSTANTS
+  type QuantumModule, type QuantumRegistryState, type ParityCheckLog, type QuantumModuleStatus,
+  users, subscribers, conversations, messages, metricMemory, fileUploads, universeStates, historicalResonances,
+  quantumModules, quantumRegistryState, parityCheckLog,
+  DEFAULT_GRUT_CONSTANTS, GROUND_STATE_BASELINE, PARITY_TOLERANCE_DEFAULT
 } from "../shared/schema-sqlite";
 import { db, dbAvailable, sqliteDb } from "./db-sqlite";
 import { eq, desc } from "drizzle-orm";
@@ -338,6 +341,98 @@ export class SqliteStorage implements IStorage {
 
   async deleteHistoricalResonance(id: string): Promise<void> {
     db.delete(historicalResonances).where(eq(historicalResonances.id, id)).run();
+  }
+
+  // ===== QUANTUM LOGIC LAYER METHODS =====
+
+  async getAllQuantumModules(): Promise<QuantumModule[]> {
+    return db.select().from(quantumModules).orderBy(quantumModules.moduleKey).all();
+  }
+
+  async getQuantumModule(moduleKey: string): Promise<QuantumModule | undefined> {
+    const [mod] = db.select().from(quantumModules).where(eq(quantumModules.moduleKey, moduleKey)).all();
+    return mod || undefined;
+  }
+
+  async updateQuantumModuleStatus(moduleKey: string, status: QuantumModuleStatus): Promise<QuantumModule | undefined> {
+    const result = db.update(quantumModules)
+      .set({ status, lastUpdated: new Date().toISOString() })
+      .where(eq(quantumModules.moduleKey, moduleKey))
+      .returning().all();
+    return result[0] || undefined;
+  }
+
+  async recordParityCheck(moduleKey: string, inputValue: number, passed: boolean, discarded: boolean = false): Promise<ParityCheckLog> {
+    const deviation = Math.abs(inputValue - GROUND_STATE_BASELINE);
+    const id = crypto.randomUUID();
+    
+    const result = db.insert(parityCheckLog).values({
+      id,
+      moduleKey,
+      inputValue,
+      expectedBaseline: GROUND_STATE_BASELINE,
+      deviation,
+      passed,
+      discarded,
+    }).returning().all();
+
+    if (!passed) {
+      const currentModule = db.select().from(quantumModules).where(eq(quantumModules.moduleKey, moduleKey)).all()[0];
+      const newDriftCount = (currentModule?.parityDriftCount ?? 0) + 1;
+      
+      db.update(quantumModules)
+        .set({ 
+          parityDriftCount: newDriftCount,
+          lastParityValue: inputValue,
+          lastUpdated: new Date().toISOString()
+        })
+        .where(eq(quantumModules.moduleKey, moduleKey))
+        .run();
+      
+      const currentState = db.select().from(quantumRegistryState).where(eq(quantumRegistryState.id, 'global')).all()[0];
+      const newFailureCount = (currentState?.totalParityFailures ?? 0) + 1;
+      
+      db.update(quantumRegistryState)
+        .set({ totalParityFailures: newFailureCount })
+        .where(eq(quantumRegistryState.id, 'global'))
+        .run();
+    }
+
+    return result[0];
+  }
+
+  async getQuantumRegistryState(): Promise<QuantumRegistryState | undefined> {
+    const [state] = db.select().from(quantumRegistryState).where(eq(quantumRegistryState.id, 'global')).all();
+    return state || undefined;
+  }
+
+  async setManualSingularityEnabled(enabled: boolean): Promise<QuantumRegistryState | undefined> {
+    const result = db.update(quantumRegistryState)
+      .set({ 
+        manualSingularityEnabled: enabled,
+        updatedAt: new Date().toISOString()
+      })
+      .where(eq(quantumRegistryState.id, 'global'))
+      .returning().all();
+    return result[0] || undefined;
+  }
+
+  async recordCollapseAttempt(): Promise<void> {
+    const current = await this.getQuantumRegistryState();
+    db.update(quantumRegistryState)
+      .set({
+        lastCollapseAttempt: new Date().toISOString(),
+        totalCollapsesPrevented: (current?.totalCollapsesPrevented ?? 0) + 1,
+        updatedAt: new Date().toISOString()
+      })
+      .where(eq(quantumRegistryState.id, 'global'))
+      .run();
+  }
+
+  async getRecentParityLogs(limit: number = 50): Promise<ParityCheckLog[]> {
+    return db.select().from(parityCheckLog)
+      .orderBy(desc(parityCheckLog.createdAt))
+      .limit(limit).all();
   }
 }
 

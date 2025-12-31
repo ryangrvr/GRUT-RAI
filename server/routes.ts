@@ -2716,6 +2716,168 @@ KEY CONCEPTS TO WEAVE IN:
     }
   });
 
+  // ===== QUANTUM LOGIC LAYER API =====
+  
+  // Get all quantum modules and their status
+  app.get("/api/quantum/modules", async (req, res) => {
+    try {
+      const modules = await storage.getAllQuantumModules();
+      res.json({ 
+        modules,
+        message: "All quantum modules set to OBSERVER_REQUIRED status. Awaiting observer binding."
+      });
+    } catch (error) {
+      console.error("[Quantum] Get modules error:", error);
+      res.status(500).json({ error: "Failed to retrieve quantum modules" });
+    }
+  });
+  
+  // Get quantum registry state (including manual singularity status)
+  app.get("/api/quantum/state", async (req, res) => {
+    try {
+      const state = await storage.getQuantumRegistryState();
+      res.json({
+        state,
+        groundStateBaseline: GRUT_CONSTANTS.ZETA_NEG_ONE,
+        groundStateDisplay: "-1/12",
+        message: state?.manualSingularityEnabled 
+          ? "Manual Singularity ACTIVE. Collapse operations permitted."
+          : "Manual Singularity INACTIVE. All collapse operations blocked."
+      });
+    } catch (error) {
+      console.error("[Quantum] Get state error:", error);
+      res.status(500).json({ error: "Failed to retrieve quantum state" });
+    }
+  });
+  
+  // Toggle manual singularity (enables/disables collapse operations)
+  app.post("/api/quantum/manual-singularity", async (req, res) => {
+    try {
+      const { enabled } = req.body;
+      
+      if (typeof enabled !== 'boolean') {
+        return res.status(400).json({ error: "enabled must be a boolean" });
+      }
+      
+      const state = await storage.setManualSingularityEnabled(enabled);
+      
+      console.log(`[QUANTUM] Manual Singularity ${enabled ? 'ACTIVATED' : 'DEACTIVATED'} by observer`);
+      
+      res.json({
+        success: true,
+        manualSingularityEnabled: enabled,
+        state,
+        message: enabled 
+          ? "MANUAL SINGULARITY ACTIVATED. Observer has authorized collapse operations."
+          : "MANUAL SINGULARITY DEACTIVATED. All collapse operations are now blocked."
+      });
+    } catch (error) {
+      console.error("[Quantum] Toggle singularity error:", error);
+      res.status(500).json({ error: "Failed to toggle manual singularity" });
+    }
+  });
+  
+  // Parity check endpoint - validates quantum output against -1/12 baseline
+  app.post("/api/quantum/parity-check", async (req, res) => {
+    try {
+      const { inputValue, moduleKey, tolerance } = req.body;
+      
+      if (typeof inputValue !== 'number' || !moduleKey) {
+        return res.status(400).json({ error: "inputValue (number) and moduleKey (string) are required" });
+      }
+      
+      const { enforceGroundStateParity } = await import("./grut-logic");
+      const result = enforceGroundStateParity(inputValue, moduleKey, tolerance);
+      
+      // Log the parity check
+      await storage.recordParityCheck(moduleKey, inputValue, result.passed, result.discarded);
+      
+      if (!result.passed) {
+        return res.status(422).json({
+          ...result,
+          message: "PARITY DRIFT DETECTED. Quantum output discarded to prevent noise generation."
+        });
+      }
+      
+      res.json({
+        ...result,
+        message: "Parity check passed. Output within Ground State tolerance."
+      });
+    } catch (error) {
+      console.error("[Quantum] Parity check error:", error);
+      res.status(500).json({ error: "Parity check failed" });
+    }
+  });
+  
+  // Attempt collapse - validates both parity and manual singularity before allowing execution
+  app.post("/api/quantum/collapse", async (req, res) => {
+    try {
+      const { moduleKey, outputValue } = req.body;
+      
+      if (!moduleKey) {
+        return res.status(400).json({ error: "moduleKey is required" });
+      }
+      
+      // Check if manual singularity is enabled
+      const state = await storage.getQuantumRegistryState();
+      const { checkCollapsePermission, enforceGroundStateParity } = await import("./grut-logic");
+      
+      const collapseCheck = checkCollapsePermission(!!state?.manualSingularityEnabled, moduleKey);
+      
+      if (!collapseCheck.permitted) {
+        await storage.recordCollapseAttempt();
+        return res.status(403).json({
+          permitted: false,
+          reason: collapseCheck.reason,
+          moduleKey,
+          totalCollapsesPrevented: (state?.totalCollapsesPrevented || 0) + 1,
+          message: "COLLAPSE BLOCKED. Activate Manual Singularity to authorize execution."
+        });
+      }
+      
+      // If outputValue provided, also check parity
+      if (typeof outputValue === 'number') {
+        const parityResult = enforceGroundStateParity(outputValue, moduleKey);
+        await storage.recordParityCheck(moduleKey, outputValue, parityResult.passed, parityResult.discarded);
+        
+        if (!parityResult.passed) {
+          return res.status(422).json({
+            permitted: false,
+            reason: parityResult.reason,
+            parityResult,
+            message: "COLLAPSE BLOCKED. Parity drift detected. Output discarded."
+          });
+        }
+      }
+      
+      res.json({
+        permitted: true,
+        moduleKey,
+        message: "COLLAPSE AUTHORIZED. Manual Singularity active and parity check passed.",
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("[Quantum] Collapse attempt error:", error);
+      res.status(500).json({ error: "Collapse validation failed" });
+    }
+  });
+  
+  // Get recent parity check logs
+  app.get("/api/quantum/parity-logs", async (req, res) => {
+    try {
+      const limit = parseInt(req.query.limit as string) || 50;
+      const logs = await storage.getRecentParityLogs(limit);
+      res.json({ 
+        logs,
+        groundStateBaseline: GRUT_CONSTANTS.ZETA_NEG_ONE,
+        message: `Last ${logs.length} parity checks. All drifting outputs have been discarded.`
+      });
+    } catch (error) {
+      console.error("[Quantum] Get parity logs error:", error);
+      res.status(500).json({ error: "Failed to retrieve parity logs" });
+    }
+  });
+
   return httpServer;
 }
 
