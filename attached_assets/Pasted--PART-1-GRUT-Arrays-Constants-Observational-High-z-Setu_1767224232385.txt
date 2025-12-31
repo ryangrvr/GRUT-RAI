@@ -1,0 +1,70 @@
+# ===============================
+# PART 1: GRUT Arrays, Constants, Observational & High-z Setup
+# ===============================
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
+
+# -------------------------
+# GRUT Arrays and Constants
+# -------------------------
+
+# Redshift array (z=0 today -> z=10 early universe)
+z_array = np.linspace(0, 10, 500)  # replace with engine output if available
+
+# Cosmic time array (in seconds) corresponding to z_array
+t_array = np.zeros_like(z_array)  # replace with RAI-computed cosmic time
+
+# Growth factor D(z)
+D = np.ones_like(z_array)  # replace with RAI-computed D(z)
+
+# Linear growth rate f(z)
+f = np.ones_like(z_array) * 0.6  # replace with RAI-computed f(z)
+
+# Effective gravitational coupling G_eff(z)
+G_eff = np.ones_like(z_array)  # replace with RAI-computed G_eff(z)
+
+# Kernel contribution Omega_kernel(z)
+Omega_kernel = np.zeros_like(z_array)  # replace with RAI-computed Omega_kernel(z)
+
+# GRUT constants
+sigma8_0 = 0.936       # baseline σ₈ amplitude
+Omega_b = 0.0486       # baryon density parameter
+Omega_geom = 0.7       # geometric stiffness
+alpha = -1.0 / 12.0    # kernel amplitude factor
+tau0 = 41.9e6 * 365*24*3600  # kernel relaxation time (~41.9 Myr)
+
+# -------------------------
+# Observational datasets
+# -------------------------
+
+z_obs_array = np.array([0.15, 0.38, 0.51, 0.70, 1.48, 2.5])
+fsigma8_obs_array = np.array([0.49, 0.44, 0.45, 0.47, 0.46, 0.46])
+sigma_obs_array = np.array([0.05, 0.04, 0.04, 0.04, 0.04, 0.04])
+
+# -------------------------
+# High-z Lyman-alpha dataset
+# -------------------------
+
+z_high_array = np.array([3.0, 3.5, 4.0, 4.5, 5.0])
+fsigma8_high_obs = np.array([0.44, 0.43, 0.42, 0.41, 0.40])
+sigma_high_obs = np.array([0.04, 0.04, 0.04, 0.04, 0.04])
+
+# -------------------------
+# Kernel fraction function
+# -------------------------
+
+def kernel_fraction(z_val, Omega_kernel_val):
+    Omega_eff_val = Omega_b * (1 + z_val)**3 / (Omega_b * (1 + z_val)**3 + Omega_geom)
+    return Omega_kernel_val / (Omega_eff_val + Omega_kernel_val)
+
+# -------------------------
+# Prepare storage for results
+# -------------------------
+
+D_vals_obs, f_vals_obs, G_eff_vals_obs, Omega_kernel_frac_obs, fsigma8_vals_obs, chi2_terms = [], [], [], [], [], []
+D_vals_high, f_vals_high, G_eff_vals_high, Omega_kernel_frac_high, fsigma8_vals_high, chi2_terms_high = [], [], [], [], [], []
+
+# Print start message
+print("=== RAI Full GRUT Validation Suite Initialization Complete ===")
