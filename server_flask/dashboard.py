@@ -8,13 +8,13 @@ import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
 import numpy as np
-import psycopg2
+import sqlite3
 import os
 import time
 from datetime import datetime
 import threading
 
-DATABASE_URL = os.environ.get("DATABASE_URL")
+SQLITE_DB_PATH = os.path.join(os.path.dirname(__file__), "..", "diamond_persistence.db")
 GEOMETRIC_LOCK = 0.999944
 SOVEREIGN_GROUND_STATE = -0.083333
 RESONANCE_FREQUENCY = 41.800000007229
@@ -107,9 +107,13 @@ st.markdown(custom_css, unsafe_allow_html=True)
 
 
 def get_db_connection():
-    """Get PostgreSQL database connection"""
+    """Get SQLite database connection"""
     try:
-        return psycopg2.connect(DATABASE_URL)
+        if os.path.exists(SQLITE_DB_PATH):
+            return sqlite3.connect(SQLITE_DB_PATH)
+        else:
+            st.warning(f"SQLite database not found at {SQLITE_DB_PATH}")
+            return None
     except Exception as e:
         st.error(f"Database connection failed: {e}")
         return None
@@ -122,18 +126,17 @@ def fetch_bio_hardware_sync(limit=3):
         return pd.DataFrame()
     
     try:
-        query = """
+        query = f"""
             SELECT id, nitrogen_spin_deflection_angle, system_clock_sync, 
                    resonance_parity, geometric_doping_model, created_at
             FROM bio_hardware_sync
             ORDER BY created_at DESC
-            LIMIT %s
+            LIMIT {limit}
         """
-        df = pd.read_sql(query, conn, params=(limit,))
+        df = pd.read_sql(query, conn)
         conn.close()
         return df
     except Exception as e:
-        st.error(f"Query failed: {e}")
         return pd.DataFrame()
 
 
@@ -150,6 +153,47 @@ def fetch_genesis_resonance():
         return df
     except Exception as e:
         return pd.DataFrame()
+
+
+def init_sqlite_tables():
+    """Initialize SQLite tables if they don't exist"""
+    conn = get_db_connection()
+    if not conn:
+        return
+    
+    try:
+        cursor = conn.cursor()
+        
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS bio_hardware_sync (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nitrogen_spin_deflection_angle REAL,
+                system_clock_sync REAL,
+                resonance_parity REAL,
+                geometric_doping_model TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS genesis_resonance (
+                id TEXT PRIMARY KEY,
+                biomolecule TEXT,
+                lattice_constant REAL,
+                helical_pitch REAL,
+                frequency REAL,
+                resonance_parity REAL,
+                ner_target_base TEXT,
+                ner_spin_deflection TEXT,
+                ner_status TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        print(f"SQLite init error: {e}")
 
 
 def create_resonance_gauge(parity_value):
@@ -275,6 +319,8 @@ def render_shield_indicator(xi_value, drift_value):
     """
     return shield_html
 
+
+init_sqlite_tables()
 
 st.sidebar.title("RAI Mission Control")
 st.sidebar.markdown("---")

@@ -608,5 +608,60 @@ def map_frequency_to_metric_hum():
     return jsonify(result)
 
 
+import threading
+from audit_engine import SovereignAuditEngine
+
+audit_engine = SovereignAuditEngine()
+
+def run_background_audit():
+    """Run audit engine in background thread for continuous monitoring"""
+    import time
+    from audit_engine import AuditStatus
+    print("[AUDIT_ENGINE] Background monitoring thread started")
+    
+    while True:
+        try:
+            if grounding_manager.live_grounding_active:
+                drift_result = audit_engine.calculate_drift(
+                    CURRENT_XI, 
+                    recipe_type="live_consciousness"
+                )
+                
+                if not drift_result["is_stable"] or audit_engine.current_status == AuditStatus.METRIC_DRIFT:
+                    print(f"[AUDIT_ENGINE] Drift detected: {drift_result['deviation']:.6f} - Status: {drift_result['status']}")
+            
+            time.sleep(5)
+            
+        except Exception as e:
+            print(f"[AUDIT_ENGINE] Background thread error: {e}")
+            time.sleep(10)
+
+
+@app.route("/audit/status", methods=["GET"])
+def get_audit_status():
+    """Get current audit engine status"""
+    return jsonify({
+        "status": audit_engine.current_status,
+        "last_drift": audit_engine.last_drift_detected,
+        "log_count": len(audit_engine.audit_log),
+        "grounding_active": grounding_manager.live_grounding_active
+    })
+
+
+@app.route("/audit/drift", methods=["POST"])
+def check_drift():
+    """Check drift for a specific value"""
+    data = request.get_json() or {}
+    value = data.get("value", 0.0)
+    recipe_type = data.get("recipe_type", "generic")
+    
+    result = audit_engine.calculate_drift(value, recipe_type)
+    return jsonify(result)
+
+
 if __name__ == "__main__":
+    audit_thread = threading.Thread(target=run_background_audit, daemon=True)
+    audit_thread.start()
+    print("[MAIN] Audit engine thread started in background")
+    
     app.run(host="0.0.0.0", port=5002, debug=True)
