@@ -252,58 +252,47 @@ function MetricDashboard({ messageCount, constants, isForked, userEmail, monadMo
   };
 
   return (
-    <div className={`sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border ${isPulsing ? 'metric-exhale' : ''}`}>
-      <div className="flex items-center justify-between gap-4 px-4 py-2 flex-wrap">
-        <div className="flex items-center gap-4 flex-wrap">
-          <div className="flex items-center gap-2">
-            <Activity className={`w-4 h-4 ${isPulsing ? 'text-red-500 animate-pulse' : 'text-primary'}`} />
-            <span className="text-xs font-medium text-muted-foreground">Metric Dashboard</span>
-            {isForked && (
-              <Badge variant="secondary" className="text-xs">
-                <GitBranch className="w-3 h-3 mr-1" />
-                Forked
-              </Badge>
-            )}
-          </div>
+    <div className={`fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-t border-border ${isPulsing ? 'metric-exhale' : ''}`}>
+      <div className="flex items-center justify-between gap-3 px-4 py-1.5 w-full">
+        <div className="flex items-center gap-3 flex-1 min-w-0">
+          <Activity className={`w-3.5 h-3.5 shrink-0 ${isPulsing ? 'text-red-500 animate-pulse' : 'text-primary'}`} />
+          {isForked && (
+            <Badge variant="secondary" className="text-xs shrink-0">
+              <GitBranch className="w-3 h-3 mr-1" />
+              Forked
+            </Badge>
+          )}
         
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 shrink-0">
             <span className="text-xs text-muted-foreground">τ₀:</span>
             <Badge variant="outline" className={`text-xs font-mono ${isForked && constants?.tau_0 !== GRUT_CONSTANTS.tau_0 ? "border-primary text-primary" : ""}`}>
-              {displayConstants.tau_0} Myr
+              {displayConstants.tau_0}
             </Badge>
           </div>
           
-          <div className="flex items-center gap-1">
-            <span className="text-xs text-muted-foreground">n<sub>g</sub>:</span>
+          <div className="flex items-center gap-1 shrink-0">
+            <span className="text-xs text-muted-foreground">n<sub className="text-[10px]">g</sub>:</span>
             <Badge variant="outline" className={`text-xs font-mono ${isForked && constants?.n_g !== GRUT_CONSTANTS.n_g ? "border-primary text-primary" : ""}`}>
               {displayConstants.n_g}
             </Badge>
           </div>
           
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 shrink-0">
             <span className="text-xs text-muted-foreground">Ξ:</span>
             <Badge variant="outline" className={`text-xs font-mono ${getEntropyColor(xi)} ${monadMode ? 'saturation-pulse' : ''}`} data-testid="badge-xi-value">
               {xiPercent}%
             </Badge>
-            <span className={`text-xs ${getEntropyColor(xi)}`}>
-              ({getEntropyStatus(xi)})
-            </span>
           </div>
           
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 shrink-0">
             <span className="text-xs text-muted-foreground">Tension:</span>
             <Badge variant="outline" className={`text-xs font-mono ${getTensionColor(liveMetrics.tension)} ${isPulsing ? 'animate-pulse' : ''}`} data-testid="badge-tension-value">
               {liveMetrics.tension.toFixed(4)}
             </Badge>
-            {liveMetrics.earthquakeCount > 0 && (
-              <span className="text-xs text-muted-foreground">
-                ({liveMetrics.earthquakeCount} quake{liveMetrics.earthquakeCount > 1 ? 's' : ''})
-              </span>
-            )}
           </div>
           
-          <div className="flex items-center gap-1">
-            <span className="text-xs text-muted-foreground">Messages:</span>
+          <div className="flex items-center gap-1 shrink-0">
+            <span className="text-xs text-muted-foreground">Msgs:</span>
             <Badge variant="secondary" className="text-xs">
               {messageCount}
             </Badge>
@@ -311,15 +300,18 @@ function MetricDashboard({ messageCount, constants, isForked, userEmail, monadMo
           
           <CosmicAgeReadout monadMode={monadMode} />
           
-          <div className="border-l border-border pl-3 ml-2">
+          <div className="border-l border-border pl-2 ml-1 shrink-0">
             <AuditShield />
           </div>
         </div>
         
         {userEmail && (
-          <div className="flex items-center gap-2" data-testid="header-user-email">
-            <User className="w-3 h-3 text-muted-foreground" />
-            <span className="text-xs text-muted-foreground font-mono">{userEmail}</span>
+          <div 
+            className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-medium shrink-0" 
+            data-testid="header-user-avatar"
+            title={userEmail}
+          >
+            {userEmail.charAt(0).toUpperCase()}
           </div>
         )}
       </div>
@@ -1384,7 +1376,7 @@ export default function ChatPage() {
         />
         
         {!activeConversationId ? (
-          <div className="flex-1 flex flex-col items-center justify-center p-8" data-testid="chat-welcome">
+          <div className="flex-1 flex flex-col items-center justify-center p-8 pb-16" data-testid="chat-welcome">
             <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
               <Sparkles className="w-8 h-8 text-primary" />
             </div>
@@ -1463,8 +1455,8 @@ export default function ChatPage() {
               </div>
             </div>
 
-            <ScrollArea className="flex-1 p-4">
-              <div className="space-y-4 max-w-3xl mx-auto">
+            <ScrollArea className="flex-1 p-4 pb-16">
+              <div className="space-y-4 max-w-3xl mx-auto pb-12">
                 {filesQuery.data && filesQuery.data.length > 0 && (
                   <div className="flex flex-wrap gap-2 p-2 bg-muted/50 rounded-md">
                     {filesQuery.data.map((file) => (
