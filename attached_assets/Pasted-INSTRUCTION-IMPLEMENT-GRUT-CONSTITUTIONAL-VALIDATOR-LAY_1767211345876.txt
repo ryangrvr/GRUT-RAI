@@ -1,0 +1,227 @@
+INSTRUCTION: IMPLEMENT GRUT CONSTITUTIONAL VALIDATOR LAYER
+
+Proceed to implement a Constitutional Validator Layer that executes at engine initialization and during all growth / potential computations.
+
+This layer is authoritative and may halt execution.
+
+I. PURPOSE
+
+The validator exists to ensure that no local, instantaneous, or ΛCDM-style reasoning contaminates GRUT computations.
+
+If any violation occurs, the engine must:
+
+Raise a hard error
+
+Refuse to return numerical results
+
+Report which constitutional rule was violated
+
+II. FORBIDDEN SHORTCUT GUARDS (MANDATORY)
+
+Implement explicit detection and rejection of the following patterns:
+
+❌ Forbidden Logic (Hard Fail)
+
+If any function or module:
+
+Computes f = Ω_m^γ
+
+Uses instantaneous G_eff(z) without convolution
+
+Infers gravity from local density at a single redshift
+
+Switches regimes by redshift instead of history
+
+→ Raise GRUTConstitutionViolation
+
+Example detection logic (conceptual):
+
+Regex / AST scan for Omega_m ** gamma
+
+Calls to G_eff(z) outside kernel integration
+
+Any growth function with no time convolution
+
+III. PRIME DIRECTIVE ENFORCEMENT
+
+Explicitly encode the GRUT weighting rule:
+
+Older mass contributions must be weighted more strongly than recent mass.
+
+Implement this as a required monotonic condition on the kernel weight:
+
+𝑑
+𝑑
+𝑡
+′
+𝐾
+(
+𝑡
+−
+𝑡
+′
+)
+>
+0
+for fixed 
+𝑡
+dt
+′
+d
+	​
+
+K(t−t
+′
+)>0for fixed t
+
+If any mass contribution weighting violates:
+
+weight(older_mass) ≤ weight(newer_mass)
+
+
+→ Hard fail
+
+IV. MANDATORY SELF-CHECK TESTS (AUTO-RUN)
+
+These tests must run:
+
+At engine initialization
+
+After any solver modification
+
+Before returning cosmological observables
+
+Test 1 — Memory Priority Test
+
+Setup
+
+Two universes identical until z = 0.8
+
+Universe A: structure formation stops
+
+Universe B: structure continues
+
+Assertion
+
+Φ_A(z=0.3) > Φ_B(z=0.3)
+
+
+Failure meaning: local-density leakage
+
+Test 2 — Catch-Up Condition Test
+
+Assertion
+Universe B may only exceed Universe A after a delay ≥ τ₀
+Never instantaneously, never exceeding the same saturation bound.
+
+Fail if:
+
+Catch-up occurs immediately
+
+Saturation (4/3 G) is exceeded
+
+Test 3 — High-z Guardrail
+
+At z ≥ 2:
+
+G_eff → G
+growth → GR limit
+
+
+Fail if:
+
+4/3 enhancement appears at high redshift
+
+Kernel saturation occurs before sufficient memory integration
+
+V. ISW–LENSING CONSISTENCY CHECK
+
+Enforce the inequality:
+
+∣
+Φ
+˙
+∣
+∼
+Φ
+𝜏
+0
+≪
+𝐻
+Φ
+∣
+Φ
+˙
+∣∼
+τ
+0
+	​
+
+Φ
+	​
+
+≪HΦ
+
+Fail if:
+
+ISW grows faster than allowed
+
+Potential deepens with large Φ̇
+
+Lensing survives but ISW explodes
+
+VI. MINIMAL VALIDATOR SKELETON (REFERENCE)
+class GRUTConstitutionViolation(Exception):
+    pass
+
+
+class GRUTValidator:
+
+    def run_all(self, engine):
+        self.check_forbidden_shortcuts(engine)
+        self.test_memory_priority(engine)
+        self.test_catch_up(engine)
+        self.test_high_z_guardrail(engine)
+        self.test_isw_consistency(engine)
+
+    def check_forbidden_shortcuts(self, engine):
+        if engine.uses_local_growth_law():
+            raise GRUTConstitutionViolation("Local growth law detected")
+
+        if engine.uses_instantaneous_Geff():
+            raise GRUTConstitutionViolation("Instantaneous G_eff detected")
+
+    def test_memory_priority(self, engine):
+        Phi_A = engine.simulate(universe="A", z=0.3)
+        Phi_B = engine.simulate(universe="B", z=0.3)
+        if Phi_A <= Phi_B:
+            raise GRUTConstitutionViolation("Memory Priority violated")
+
+    def test_catch_up(self, engine):
+        if engine.detects_instant_catchup():
+            raise GRUTConstitutionViolation("Instant catch-up forbidden")
+
+    def test_high_z_guardrail(self, engine):
+        if engine.G_eff(z=3.0) > engine.G:
+            raise GRUTConstitutionViolation("High-z GR guardrail violated")
+
+    def test_isw_consistency(self, engine):
+        if not engine.satisfies_isw_inequality():
+            raise GRUTConstitutionViolation("ISW overproduction detected")
+
+
+This is not optional.
+
+VII. EXECUTION RULE
+
+If any validator fails:
+
+Do not return results
+
+Do not “warn and continue”
+
+Halt execution
+
+Correctness > output.
+
+END IMPLEMENTATION DIRECTIVE
