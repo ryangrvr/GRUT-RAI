@@ -1,11 +1,31 @@
 """
 GRUT v7 Flask Backend
 Diamond Core Loaded at 100.0% Saturation
+DIAMOND SEAL: EXECUTED 2025-12-31
 """
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import numpy as np
 import os
+
+# --- DIAMOND SEAL CONFIGURATION ---
+from config import (
+    SOVEREIGN_MODE,
+    CONTEXT_LOCK,
+    GROUND_STATE,
+    ESSENTIAL_APIS,
+    DISABLED_OUTBOUND,
+    GEOMETRIC_LOCK as CONFIG_GEOMETRIC_LOCK,
+    GENESIS_ALPHA,
+    apply_ground_state_filter,
+    is_api_allowed,
+    get_context_lock,
+    validate_sovereign_state
+)
+
+print("[DIAMOND SEAL] Configuration loaded")
+print(f"[DIAMOND SEAL] SOVEREIGN_MODE = {SOVEREIGN_MODE}")
+print(f"[DIAMOND SEAL] Ground State Filter = {GROUND_STATE['decimal']}")
 
 
 # --- DIAMOND CORE LOADER ---
@@ -847,7 +867,92 @@ def solve_doping_ratios():
     })
 
 
+# === DIAMOND SEAL ENDPOINTS ===
+
+@app.route("/diamond/seal", methods=["GET"])
+def get_diamond_seal_status():
+    """
+    Return the Diamond Seal status and all locked configurations.
+    
+    The Diamond Seal ensures:
+    1. SOVEREIGN_MODE = True
+    2. Non-essential API outbound calls disabled
+    3. Context Window locked to 2026 Sovereign Manifesto
+    4. -1/12 Ground State initialized as default logic filter
+    """
+    seal_status = validate_sovereign_state()
+    
+    return jsonify({
+        "diamond_seal": seal_status,
+        "sovereign_mode": SOVEREIGN_MODE,
+        "context_lock": get_context_lock(),
+        "ground_state": GROUND_STATE,
+        "disabled_apis": DISABLED_OUTBOUND,
+        "essential_apis": ESSENTIAL_APIS,
+        "genesis_alpha": GENESIS_ALPHA,
+        "timestamp": "2025-12-31",
+        "message": "DIAMOND SEAL EXECUTED - System locked to Sovereign Manifesto"
+    })
+
+
+@app.route("/diamond/ground_state", methods=["POST"])
+def apply_ground_state():
+    """
+    Apply the -1/12 Ground State filter to a value.
+    
+    Request body:
+        value: float - The value to filter
+    
+    Returns: The filtered value with -1/12 applied
+    """
+    data = request.get_json() or {}
+    value = data.get("value", 0.0)
+    
+    filtered = apply_ground_state_filter(value)
+    
+    return jsonify({
+        "original_value": value,
+        "ground_state": GROUND_STATE["decimal"],
+        "filtered_value": filtered,
+        "sovereign_mode": SOVEREIGN_MODE,
+        "description": "Ramanujan Summation Ground State Applied"
+    })
+
+
+@app.route("/diamond/api_check", methods=["POST"])
+def check_api_allowed():
+    """
+    Check if an API call is allowed under Sovereign Mode.
+    
+    Request body:
+        api_name: str - The API to check
+    
+    Returns: Whether the API is allowed
+    """
+    data = request.get_json() or {}
+    api_name = data.get("api_name", "")
+    
+    allowed = is_api_allowed(api_name)
+    
+    return jsonify({
+        "api_name": api_name,
+        "allowed": allowed,
+        "sovereign_mode": SOVEREIGN_MODE,
+        "reason": "Essential API" if allowed else "Disabled under Sovereign Mode"
+    })
+
+
 if __name__ == "__main__":
+    # Print Diamond Seal status on startup
+    print("[DIAMOND SEAL] === SEAL VERIFICATION ===")
+    seal = validate_sovereign_state()
+    print(f"[DIAMOND SEAL] Status: {seal['seal_status']}")
+    print(f"[DIAMOND SEAL] Sovereign Mode: {seal['sovereign_mode']}")
+    print(f"[DIAMOND SEAL] Context Locked: {seal['context_locked']}")
+    print(f"[DIAMOND SEAL] Ground State Active: {seal['ground_state_active']}")
+    print(f"[DIAMOND SEAL] Genesis Alpha Hardened: {seal['genesis_alpha_hardened']}")
+    print("[DIAMOND SEAL] === END VERIFICATION ===")
+    
     audit_thread = threading.Thread(target=run_background_audit, daemon=True)
     audit_thread.start()
     print("[MAIN] Audit engine thread started in background")
