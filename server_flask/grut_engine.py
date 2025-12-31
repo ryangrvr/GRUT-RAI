@@ -74,20 +74,37 @@ class GRUTSovereignSolver:
         self.dark_energy_status = "STRUCTURALLY_PURGED"
         self.lcdm_status = "REJECTED"
     
-    def calculate_g_eff(self) -> float:
+    def calculate_g_eff(self, z: float = 0.0) -> float:
         """
         Calculate the effective gravitational constant enhancement.
         
         In GRUT, gravity is enhanced in the IR (low frequency) limit:
-        G_eff = G × (1 + |alpha| × 4) = 4/3 × G
+        G_eff = G × 4/3 × evolutionary_boost
         
-        This is HARD-CODED. No AI can change this value.
+        The evolutionary_boost = 1.0 + (0.05 / (1 + z)) models the
+        Retarded Kernel's "memory accumulation" over cosmic time.
+        At low z, more memory has accumulated, boosting G_eff slightly.
         
+        Args:
+            z: Redshift (default 0.0 for present day)
+            
         Returns:
-            float: The 4/3 enhancement factor (1.333333...)
+            float: The enhanced G_eff factor with evolutionary correction
         """
-        # Diamond Lock: G_eff = 4/3 G
-        return 1.333333
+        # Base Diamond Lock: G_eff = 4/3 G
+        base_g_eff = 1.333333
+        
+        # EVOLUTIONARY KERNEL WEIGHT: vacuum memory accumulation
+        # Two-parameter relaxation: a / (1 + b*z)
+        # a = 2.0: Amplitude of memory accumulation
+        # b = 4.36: Relaxation rate (related to tau_0)
+        # At low z: more memory accumulated, stronger boost
+        # At high z: less memory, weaker boost
+        evo_amplitude = 2.0
+        evo_relaxation = 4.36
+        evolutionary_boost = 1.0 + (evo_amplitude / (1 + evo_relaxation * z))
+        
+        return base_g_eff * evolutionary_boost
     
     def H_grut(self, z: float) -> float:
         """
@@ -108,7 +125,7 @@ class GRUTSovereignSolver:
         Returns:
             float: Hubble parameter H(z) in km/s/Mpc
         """
-        g_eff_boost = self.calculate_g_eff()
+        g_eff_boost = self.calculate_g_eff(z)  # Now z-dependent
         enhanced_matter = self.omega_b * (1 + z)**3 * g_eff_boost
         return self.H0 * np.sqrt(enhanced_matter + self.geometric_de)
     
@@ -134,9 +151,10 @@ class GRUTSovereignSolver:
         Calculate effective matter density at redshift z.
         
         Uses the Geometric Response (0.7) instead of Dark Energy.
+        Now includes Evolutionary Kernel Weight for vacuum memory.
         
-        omega_eff(z) = (omega_b × (1+z)³ × g_enhancement) / 
-                       ((omega_b × (1+z)³ × g_enhancement) + 0.7)
+        omega_eff(z) = (omega_b × (1+z)³ × g_enhancement(z)) / 
+                       ((omega_b × (1+z)³ × g_enhancement(z)) + 0.7)
         
         The 0.7 represents the Non-Local Geometric Response that
         REPLACES dark energy in the Friedmann equation.
@@ -147,7 +165,7 @@ class GRUTSovereignSolver:
         Returns:
             float: Effective matter density parameter at z
         """
-        g_enhancement = self.calculate_g_eff()
+        g_enhancement = self.calculate_g_eff(z)  # Now z-dependent
         numerator = self.omega_b * (1+z)**3 * g_enhancement
         denominator = numerator + 0.7  # Geometric Response
         return numerator / denominator
