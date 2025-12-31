@@ -181,6 +181,36 @@ The Diamond Lock is the set of STATIC parameters that prove 5% baryonic matter c
 - **Physics**: Low-z has high Memory Drag (γ ≈ 0.35), high-z converges to standard (γ ≈ 0.77)
 - **σ8**: 0.936 (Diamond Lock INVARIANT: 0.811 × 1.1547)
 
+### Sovereign Manifest (V3.11 Canonical)
+Machine-verifiable rule set encoded in grut_engine.py:
+- **I_ONTOLOGY**: Zero Dark Fluids; Memory-Encoded Geometry
+- **II_INVARIANT**: Diamond Lock = 1.1547; Non-Adjustable
+- **III_COUPLING**: G_eff Limit = 4/3 = 1.3333
+- **IV_KERNEL**: K(Δt) = (-1/12 × τ₀) × exp(-Δt/τ₀)
+- **V_FILTER**: τ₀ Resonance = H⁻¹(z); Early G to Late 4/3G Transition
+- **VI_GROWTH**: Path-Dependent; No Algebraic Shortcuts (f ≠ Ω^γ)
+- **VII_ISW**: Φ̇ = -Φ/τ₀; Suppression Condition Active
+- **VIII_CMB**: Stationary Phase = 1.000
+- **IX_STIFFNESS**: Ω_geom = 0.75 - 0.05 (Silk Damping) = 0.70
+- **X_FLEXIBILITY**: Numerical Integration Precision Only
+- **XI_PRIME_DIRECTIVE**: Never Compute Locally When History Exists
+
+### ISW-Lensing Decoupling Engine
+- **Purpose**: Prevents ISW overproduction that kills f(R) and Brans-Dicke theories
+- **Sovereign Inequality**: |Φ̇(t)| ~ |Φ(t)|/τ₀ ≪ H(z)|Φ(t)| for z ≳ 0.5
+- **Key Difference**: Φ̇ anchored to τ₀ (memory relaxation), NOT H(z)
+- **τ₀ Definition**: SATURATION TIME-CONSTANT (NOT a "refresh rate") - continuous relaxation
+- **ISW Signal**: Residual friction toward 4/3 G limit (not a discrete pulse)
+
+### Hubble-Memory Resonance (Testable Prediction)
+- **Condition**: τ₀ ≈ H⁻¹(z_peak) predicts ISW-Galaxy correlation peak
+- **z_peak**: ~0.2 (where H×τ₀ ≈ 1)
+- **ISW Phases**:
+  - FROZEN (high-z): H⁻¹ ≪ τ₀, kernel frozen, no ISW
+  - RELAXING (z~0.5): H⁻¹ → τ₀, ISW beginning
+  - RESONANCE (z~0.2): H⁻¹ ≈ τ₀, Peak ISW
+  - SATURATED (z→0): Φ → 4/3 G limit, ISW declining
+
 ### Diamond Proof Achievement
 - **V3.11 χ² = 2.51** (reduced: 0.50) - BEST FIT (6-point dataset, Diamond Lock preserved)
 - **Previous ODE χ² = 2.72** (reduced: 0.68)

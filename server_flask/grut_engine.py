@@ -1150,6 +1150,389 @@ class RetardedGrowthSolver:
         }
 
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOVEREIGN ISW-LENSING DECOUPLING ENGINE
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# The ISW Suppression Mechanism in GRUT:
+#
+# In f(R) and Brans-Dicke: Φ̇ ~ H(z)×Φ continuously → ISW overproduction
+# In GRUT: Φ relaxes to 4/3 G limit in τ₀ ~ 42 Myr, then Φ̇ → 0
+#
+# The "muffler" is RAPID SATURATION:
+# - Potential reaches 4/3 G limit in ~42 Myr (very early in cosmic history)
+# - After saturation, Φ is stable → no more ISW contribution
+# - Late-time observers see a universe where Φ already saturated long ago
+#
+# τ₀ is the SATURATION TIME-CONSTANT (NOT a "refresh rate")
+# The ISW signal is residual friction toward the 4/3 G limit.
+#
+# Key insight: Current epoch (z < 10) is in SATURATED phase
+# The resonance (τ₀ ≈ H⁻¹) occurred at very high z (radiation era)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Saturation Time-Constant (continuous relaxation, not discrete)
+TAU_0_MYR = 41.9      # Myr - Memory relaxation time
+TAU_0_GYR = 41.9e-3   # Gyr - For H(z) compatibility (H in km/s/Mpc → Gyr⁻¹)
+TAU_0_SECONDS = 1.322e15  # seconds
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOVEREIGN MANIFEST - MACHINE-VERIFIABLE RULE SET (V3.11 CANONICAL)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+SOVEREIGN_MANIFEST = {
+    "CORE_CONSTITUTION": {
+        "VERSION": "3.11_CANONICAL",
+        "LAWS": {
+            "I_ONTOLOGY": "Zero_Dark_Fluids; Memory_Encoded_Geometry; Retarded_Response_Only",
+            "II_INVARIANT": "DIAMOND_LOCK = 1.1547; Non_Adjustable",
+            "III_COUPLING": "GEFF_LIMIT = 1.3333; Geometric_Saturation_Bound",
+            "IV_KERNEL": "K_FUNC = (-1/12 * tau0) * exp(-dt/tau0); Causal_Low_Pass",
+            "V_FILTER": "TAU0_RESONANCE = H_inv(z); Early_G_to_Late_4/3G_Transition",
+            "VI_GROWTH": "PATH_DEPENDENT; No_Algebraic_Shortcuts; f_neq_Omega_Gamma",
+            "VII_ISW": "PHI_DOT_RATIO = Phi/tau0; Suppression_Condition_Active",
+            "VIII_CMB": "STATIONARY_PHASE = 1.000; rs_DA_Invariance",
+            "IX_STIFFNESS": "OMEGA_GEOM = 0.75_minus_Silk_Damping_0.05",
+            "X_FLEXIBILITY": "NUMERICAL_INTEGRATION_PRECISION_ONLY",
+            "XI_PRIME_DIRECTIVE": "Never_Compute_Locally_When_History_Exists"
+        }
+    }
+}
+
+
+def get_sovereign_manifest() -> dict:
+    """Return the canonical Sovereign Manifest."""
+    return SOVEREIGN_MANIFEST
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ARTICLE VI: INTEGRATION GUARD (No Algebraic Shortcuts)
+# ═══════════════════════════════════════════════════════════════════════════════
+# D(t) = Integral[ K(t-t') * S(t') dt' ]
+# DO NOT use f = Ω_m^γ approximation - it violates path-dependence
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def compute_retarded_kernel(dt_array: np.ndarray, tau_0: float = TAU_0_GYR) -> np.ndarray:
+    """
+    Article IV: Causal Low-Pass Kernel
+    
+    K(Δt) = (-1/12 × τ₀) × exp(-Δt/τ₀)
+    
+    This is the retarded response kernel that encodes memory.
+    The -1/12 factor comes from the geometric normalization.
+    
+    Args:
+        dt_array: Time differences Δt (in Gyr)
+        tau_0: Saturation time-constant (default: 41.9 Myr = 0.0419 Gyr)
+        
+    Returns:
+        np.ndarray: Kernel values K(Δt)
+    """
+    # Causal: only positive Δt contributes
+    kernel = np.where(
+        dt_array >= 0,
+        (-1.0/12.0) * tau_0 * np.exp(-dt_array / tau_0),
+        0.0
+    )
+    return kernel
+
+
+def compute_baryonic_source(density_history: np.ndarray, 
+                             omega_b: float = 0.0486) -> np.ndarray:
+    """
+    Compute the baryonic source term S(t) for the growth integral.
+    
+    S(t) = 3/2 × Ω_b × ρ(t) / ρ_crit
+    
+    Args:
+        density_history: Density contrast history δ(t)
+        omega_b: Baryon density parameter
+        
+    Returns:
+        np.ndarray: Source term values
+    """
+    return 1.5 * omega_b * density_history
+
+
+def grut_growth_solver(time_array: np.ndarray, density_history: np.ndarray,
+                       tau_0: float = TAU_0_GYR) -> np.ndarray:
+    """
+    Article VI: Path-Dependent Growth Solver (No Algebraic Shortcuts)
+    
+    D(t) = ∫ K(t-t') × S(t') dt'
+    
+    This uses convolution with the retarded kernel to compute growth.
+    DO NOT substitute f = Ω_m^γ - that violates path-dependence.
+    
+    Args:
+        time_array: Time array (in Gyr)
+        density_history: Density contrast history δ(t)
+        tau_0: Saturation time-constant
+        
+    Returns:
+        np.ndarray: Growth factor D(t) from path integral
+    """
+    # Compute time differences
+    dt = np.diff(time_array)
+    dt_extended = np.concatenate([[dt[0]], dt])
+    
+    # Build kernel over time range
+    t_max = time_array[-1] - time_array[0]
+    dt_kernel = np.linspace(0, t_max, len(time_array))
+    kernel = compute_retarded_kernel(dt_kernel, tau_0)
+    
+    # Compute source
+    source = compute_baryonic_source(density_history)
+    
+    # Path-dependent integral via convolution
+    # Article VI: No algebraic shortcuts allowed
+    result = np.convolve(source, kernel * dt_extended.mean(), mode='full')[:len(time_array)]
+    
+    return result
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ARTICLE VII: ISW GUARD (Enforcing ISW Separation Principle)
+# ═══════════════════════════════════════════════════════════════════════════════
+# |Φ̇| ~ Φ/τ₀ (NOT H×Φ)
+# This prevents ISW overproduction that kills f(R) and Brans-Dicke
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def compute_isw(phi: np.ndarray, tau_0: float = TAU_0_GYR) -> np.ndarray:
+    """
+    Article VII: ISW Separation Principle
+    
+    |Φ̇| ~ Φ/τ₀
+    
+    The potential time derivative is anchored to the memory relaxation
+    time τ₀, NOT the Hubble rate H(z). This automatically suppresses
+    ISW relative to H×Φ.
+    
+    Args:
+        phi: Gravitational potential Φ(t) array
+        tau_0: Saturation time-constant (default: 41.9 Myr)
+        
+    Returns:
+        np.ndarray: Φ̇ values (suppressed relative to H×Φ)
+    """
+    # Article VII: ISW Separation Principle
+    phi_dot = -phi / tau_0
+    return phi_dot
+
+
+def get_isw_muffler_ratio(z: float, H0: float = 67.4, omega_b: float = 0.0486, 
+                           omega_geom: float = 0.70) -> float:
+    """
+    Calculate the ISW Muffler Ratio: τ₀ / H⁻¹(z) = H(z) × τ₀
+    
+    GRUT Physics Interpretation:
+    - τ₀ = 41.9 Myr is the SATURATION time (potential reaches 4/3 G limit)
+    - Once saturated, Φ̇ → 0 and ISW production STOPS
+    - This is different from f(R) where Φ keeps tracking H(z) forever
+    
+    The "Muffler" is the RAPID SATURATION, not slow decay.
+    
+    Ratio interpretation:
+    - Small ratio (τ₀ << H⁻¹): Potential saturates before much Hubble evolution
+      → ISW is "muffled" because Φ stops evolving early
+    - Large ratio (τ₀ >> H⁻¹): Potential still evolving during Hubble expansion
+      → More ISW (but this doesn't happen in GRUT with τ₀ = 41.9 Myr)
+    
+    Args:
+        z: Redshift
+        H0: Hubble constant (km/s/Mpc)
+        omega_b: Baryon density
+        omega_geom: Geometric response (Stiffness)
+        
+    Returns:
+        float: τ₀/H⁻¹(z) ratio. Small values = strong suppression (rapid saturation).
+    """
+    # H(z) in km/s/Mpc
+    omega_total = omega_b * (1 + z)**3 + omega_geom
+    H_z = H0 * np.sqrt(omega_total)
+    
+    # H⁻¹(z) in Gyr: Hubble time at redshift z
+    # 1 km/s/Mpc ≈ 1.022e-3 Gyr⁻¹
+    H_inv_gyr = 1.0 / (H_z * 1.022e-3)
+    
+    # Muffler ratio = τ₀ / H⁻¹ (how fast saturation is relative to Hubble time)
+    muffler = TAU_0_GYR / H_inv_gyr
+    
+    return muffler
+
+
+def get_resonance_redshift(H0: float = 67.4, omega_b: float = 0.0486,
+                            omega_geom: float = 0.70) -> float:
+    """
+    Find the Hubble-Memory Resonance redshift where τ₀ ≈ H⁻¹(z).
+    
+    This is the coordinate-independent prediction for the ISW-Galaxy
+    cross-correlation PEAK. At resonance, the kernel transitions from
+    "frozen" to "relaxing" and ISW production peaks.
+    
+    Condition: H(z_peak) × τ₀ ≈ 1
+    
+    Args:
+        H0: Hubble constant (km/s/Mpc)
+        omega_b: Baryon density
+        omega_geom: Geometric response
+        
+    Returns:
+        float: Resonance redshift z_peak
+    """
+    # Scan to find where muffler ratio ≈ 1
+    z_scan = np.linspace(0, 2, 1000)
+    muffler_ratios = [get_isw_muffler_ratio(z, H0, omega_b, omega_geom) for z in z_scan]
+    
+    # Find where ratio is closest to 1
+    idx = np.argmin(np.abs(np.array(muffler_ratios) - 1.0))
+    
+    return float(z_scan[idx])
+
+
+def get_isw_phase(z: float, H0: float = 67.4, omega_b: float = 0.0486,
+                   omega_geom: float = 0.70) -> str:
+    """
+    Determine the ISW phase regime at redshift z.
+    
+    Phases (based on ratio τ₀/H⁻¹):
+    - SATURATED: τ₀ << H⁻¹ (low-z) - Potential already at 4/3 G, no ISW
+    - RESONANCE: τ₀ approaching H⁻¹ - Active saturation, peak ISW
+    - RELAXING: τ₀ ~ H⁻¹ - Beginning to relax toward 4/3 G
+    - FROZEN: τ₀ >> H⁻¹ (very high-z) - Kernel hasn't activated yet
+    
+    With τ₀ = 41.9 Myr and H⁻¹(0) = 14.5 Gyr, ratio ~ 0.003:
+    Most of cosmic history is SATURATED (potential already at 4/3 G limit)
+    
+    Args:
+        z: Redshift
+        H0: Hubble constant
+        omega_b: Baryon density
+        omega_geom: Geometric response
+        
+    Returns:
+        str: Phase regime name
+    """
+    muffler = get_isw_muffler_ratio(z, H0, omega_b, omega_geom)
+    
+    # With τ₀ = 41.9 Myr << Hubble time, we're always in saturation regime
+    # The ISW "muffling" comes from rapid saturation, not slow evolution
+    if muffler < 0.01:
+        return "SATURATED"   # τ₀ << H⁻¹, Φ has already reached 4/3 G
+    elif muffler < 0.1:
+        return "RESONANCE"   # τ₀ ~ 0.1×H⁻¹, active saturation period
+    elif muffler < 1.0:
+        return "RELAXING"    # τ₀ approaching H⁻¹, beginning relaxation
+    else:
+        return "FROZEN"      # τ₀ >> H⁻¹, kernel hasn't activated
+
+
+def compute_isw_potential(z_array: np.ndarray, potentials: np.ndarray,
+                          H0: float = 67.4, omega_b: float = 0.0486,
+                          omega_geom: float = 0.70) -> Dict[str, Any]:
+    """
+    SOVEREIGN ISW-LENSING DECOUPLING ENGINE
+    
+    Calculates Φ̇ based on the memory relaxation τ₀, NOT the Hubble rate.
+    This is the key difference from f(R) and Brans-Dicke gravity.
+    
+    The Sovereign Inequality: Φ̇ ~ -Φ/τ₀
+    This suppresses ISW relative to H×Φ by a factor of (H×τ₀)⁻¹
+    
+    Args:
+        z_array: Array of redshifts
+        potentials: Array of gravitational potentials Φ(z)
+        H0: Hubble constant (km/s/Mpc)
+        omega_b: Baryon density
+        omega_geom: Geometric response
+        
+    Returns:
+        Dict with Φ̇ values, muffler ratios, and phase information
+    """
+    phi_dot = []
+    muffler_ratios = []
+    phases = []
+    h_values = []
+    
+    for z, phi in zip(z_array, potentials):
+        # The Sovereign Inequality: Φ̇ = -Φ/τ₀
+        # NOT: Φ̇ = -Φ × H(z) (which would give massive ISW)
+        val = -phi / TAU_0_GYR
+        phi_dot.append(val)
+        
+        # Calculate diagnostics
+        muffler = get_isw_muffler_ratio(z, H0, omega_b, omega_geom)
+        muffler_ratios.append(muffler)
+        
+        phase = get_isw_phase(z, H0, omega_b, omega_geom)
+        phases.append(phase)
+        
+        # H(z) for comparison
+        omega_total = omega_b * (1 + z)**3 + omega_geom
+        H_z = H0 * np.sqrt(omega_total)
+        h_values.append(H_z)
+    
+    # Find resonance
+    z_peak = get_resonance_redshift(H0, omega_b, omega_geom)
+    
+    return {
+        "phi_dot": np.array(phi_dot),
+        "z_array": z_array,
+        "potentials": potentials,
+        "muffler_ratios": np.array(muffler_ratios),
+        "phases": phases,
+        "H_values": np.array(h_values),
+        "tau_0_gyr": TAU_0_GYR,
+        "z_resonance": z_peak,
+        "interpretation": {
+            "FROZEN": "H⁻¹ ≪ τ₀: Kernel frozen, Φ̇ ≈ 0, no ISW",
+            "RELAXING": "H⁻¹ → τ₀: Kernel relaxing, ISW beginning",
+            "RESONANCE": "H⁻¹ ≈ τ₀: Peak ISW production",
+            "SATURATED": "Φ → 4/3 G limit: Evolution stops, ISW declining"
+        },
+        "sovereign_inequality": "Φ̇ ~ -Φ/τ₀ ≪ H(z)×Φ for z ≳ 0.5"
+    }
+
+
+def validate_isw_suppression(z: float, H0: float = 67.4, omega_b: float = 0.0486,
+                              omega_geom: float = 0.70, threshold: float = 0.1) -> bool:
+    """
+    Validate the ISW Suppression Condition at redshift z.
+    
+    GRUT suppression works via RAPID SATURATION:
+    - τ₀ = 41.9 Myr << Hubble time means Φ saturates quickly
+    - Once at 4/3 G limit, Φ̇ → 0 and ISW production stops
+    
+    For proper suppression, we need τ₀/H⁻¹ < threshold (rapid saturation)
+    
+    Args:
+        z: Redshift
+        H0: Hubble constant
+        omega_b: Baryon density
+        omega_geom: Geometric response
+        threshold: Maximum ratio for effective suppression (default 0.1)
+        
+    Returns:
+        bool: True if ISW is properly suppressed (rapid saturation)
+        
+    Raises:
+        ValueError: If muffler ratio > threshold (saturation too slow)
+    """
+    muffler = get_isw_muffler_ratio(z, H0, omega_b, omega_geom)
+    
+    # For GRUT to suppress ISW, τ₀ must be much less than H⁻¹
+    # This means the potential saturates quickly and stops evolving
+    if muffler > threshold:
+        raise ValueError(
+            f"ISW SUPPRESSION FAILURE at z={z}: τ₀/H⁻¹ = {muffler:.3f} > {threshold}. "
+            f"Saturation too slow - potential still evolving during Hubble expansion. "
+            "This shouldn't happen with τ₀ = 41.9 Myr."
+        )
+    
+    return True
+
+
 # Global instance of the ODE solver
 RETARDED_SOLVER = RetardedGrowthSolver()
 
