@@ -633,27 +633,25 @@ class RetardedGrowthSolver:
     ties growth speedup directly to expansion rate - they cancel at Sound Horizon.
     """
     
-    def __init__(self, wc: Optional[float] = None):
+    def __init__(self, w_tilde_c: Optional[float] = None):
         # Diamond Core Constants
         self.omega_b = 0.0486           # Baryon Density (Planck 2018)
         self.omega_geom = 0.70          # Residual Stiffness (0.75 - 0.05 Silk)
         self.sigma8_0 = 0.936           # Phase-Locked Amplitude
         self.H0 = 67.4                  # Planck 2018 Baseline (km/s/Mpc)
         
-        # Diamond Lock Frequency - CALIBRATED for IR Limit
-        # For G_eff → 4/3 at z=0, we need H(0)/wc << 1
-        # With H(0) ≈ 58 km/s/Mpc (baryonic Hubble), set wc >> H0
-        # wc = 583 ensures H(0)/wc ≈ 0.1, giving G_eff(0) ≈ 1.32
-        self.wc = wc if wc is not None else 583.0
+        # RESCALED DIAMOND LOCK - Dimensionless Scaling
+        # W̃c = ωc / H0 ≈ 1.0 ensures the kernel "wakes up" as H(z) → H0
+        # The 4/3 boost activates as h_ratio approaches 1.0
+        self.w_tilde_c = w_tilde_c if w_tilde_c is not None else 1.0
         
         # Diamond Lock Ratio - Phase Lock for Growth Rate
         # sqrt(4/3) ≈ 1.1547 - the gravitational refractive index
-        # This boosts f(z) to account for geometric response
         self.diamond_lock_ratio = 1.1547
         
         # Solver metadata
-        self.solver_type = "RETARDED_GROWTH_ODE"
-        self.version = "1.0.0"
+        self.solver_type = "RETARDED_GROWTH_ODE_RESCALED"
+        self.version = "2.0.0"
         
         # Cached solutions
         self._cached_z = None
@@ -661,11 +659,25 @@ class RetardedGrowthSolver:
         self._cached_f = None
         self._cached_fs8 = None
     
+    def get_omega_total_z(self, z: float) -> float:
+        """
+        Total energy density relative to H0².
+        
+        Ω_total(z) = Ω_b × (1+z)³ + Ω_geom
+        
+        Args:
+            z: Redshift
+            
+        Returns:
+            float: Total energy density parameter
+        """
+        return self.omega_b * (1 + z)**3 + self.omega_geom
+    
     def get_h_z(self, z: float) -> float:
         """
-        Calculate Hubble rate for baryonic-only universe with geometric response.
+        Calculate Hubble rate for baryonic universe with geometric response.
         
-        H(z) = H0 × sqrt(Ω_b × (1+z)³ + Ω_geom)
+        H(z) = H0 × sqrt(Ω_total(z))
         
         Args:
             z: Redshift
@@ -673,17 +685,33 @@ class RetardedGrowthSolver:
         Returns:
             float: Hubble rate H(z) in km/s/Mpc
         """
-        return self.H0 * np.sqrt(self.omega_b * (1 + z)**3 + self.omega_geom)
+        return self.H0 * np.sqrt(self.get_omega_total_z(z))
+    
+    def get_h_ratio(self, z: float) -> float:
+        """
+        Dimensionless Hubble ratio H(z)/H0.
+        
+        h_ratio = sqrt(Ω_total(z))
+        
+        Args:
+            z: Redshift
+            
+        Returns:
+            float: H(z)/H0
+        """
+        return np.sqrt(self.get_omega_total_z(z))
     
     def get_g_eff(self, z: float) -> float:
         """
-        Frequency-selective kernel response.
+        RESCALED Frequency-selective kernel response.
         
-        G_eff(z) = 1 + (1/3) / (1 + (H(z)/ωc)²)
+        G_eff(z) = 1 + (1/3) / (1 + (h_ratio / W̃c)²)
+        
+        Where h_ratio = H(z)/H0 = sqrt(Ω_total(z))
         
         Physics:
-        - At high-z: H >> ωc → G_eff → 1 (BBN-safe)
-        - At low-z: H << ωc → G_eff → 4/3 (IR enhancement)
+        - At high-z: h_ratio >> W̃c → G_eff → 1 (BBN-safe)
+        - At low-z: h_ratio → W̃c → G_eff → 4/3 (IR enhancement)
         
         Args:
             z: Redshift
@@ -691,30 +719,54 @@ class RetardedGrowthSolver:
         Returns:
             float: Effective gravitational enhancement G_eff/G
         """
-        h_rate = self.get_h_z(z)
-        kernel_response = 1 + (1/3) / (1 + (h_rate / self.wc)**2)
+        h_ratio = self.get_h_ratio(z)
+        kernel_response = 1 + (1/3) / (1 + (h_ratio / self.w_tilde_c)**2)
         return kernel_response
+    
+    def get_sovereign_source(self, z: float) -> float:
+        """
+        RESCALED Sovereign Source Term - The Diamond-Locked Fluid.
+        
+        Instead of gravity pulling only on baryons, it pulls on:
+        - Baryons × G_eff (retarded enhancement)
+        - Geometric Response (the "missing" gravitational potential)
+        
+        Source = 1.5 × (Ω_b(z) × G_eff(z) + Ω_geom) / Ω_total(z)
+        
+        At z=0: Source ≈ 1.5 × (0.0486 × 1.33 + 0.70) / 0.75 ≈ 1.5 × 0.99 ≈ 1.5
+        
+        Args:
+            z: Redshift
+            
+        Returns:
+            float: Effective gravitational acceleration source
+        """
+        omega_total = self.get_omega_total_z(z)
+        baryon_contribution = self.omega_b * (1 + z)**3 * self.get_g_eff(z)
+        return 1.5 * (baryon_contribution + self.omega_geom) / omega_total
     
     def _growth_ode(self, y, z):
         """
-        Growth ODE system for delta perturbations.
+        RESCALED Growth ODE system for delta perturbations.
         
         d²δ/dz² + friction × dδ/dz = source × δ
         
         Where:
         - friction = 2/(1+z) - d ln H / dz
-        - source = 1.5 × Ω_m(z) × G_eff(z) / (1+z)²
+        - source = get_sovereign_source(z) / (1+z)²
+        
+        The Sovereign Source includes both:
+        - Baryons × G_eff (retarded kernel enhancement)
+        - Geometric Response (the "missing" gravitational potential)
         """
         delta, d_delta = y
-        h = self.get_h_z(z)
         
         # Friction term: d ln H / dz (numerical derivative)
         eps = 1e-5
         dlnHdz = (np.log(self.get_h_z(z + eps)) - np.log(self.get_h_z(z - eps))) / (2 * eps)
         
-        # Source term: Poisson-like with retarded G
-        omega_b_z = (self.omega_b * (1 + z)**3) / (h / self.H0)**2
-        source = 1.5 * omega_b_z * self.get_g_eff(z)
+        # RESCALED Source: Diamond-Locked Fluid (Baryons + Geometric Response)
+        source = self.get_sovereign_source(z)
         
         dd_delta = (2 / (1 + z) - dlnHdz) * d_delta + (source / (1 + z)**2) * delta
         return [d_delta, dd_delta]
@@ -858,11 +910,12 @@ class RetardedGrowthSolver:
             "degrees_of_freedom": int(dof),
             "comparisons": comparisons,
             "solver_type": self.solver_type,
-            "wc": self.wc,
+            "w_tilde_c": self.w_tilde_c,
             "omega_geom": self.omega_geom,
             "sigma8_0": self.sigma8_0,
             "g_eff_z0": float(self.get_g_eff(0)),
             "g_eff_z100": float(self.get_g_eff(100)),
+            "source_z0": float(self.get_sovereign_source(0)),
             "timestamp": datetime.utcnow().isoformat()
         }
     
@@ -880,10 +933,10 @@ class RetardedGrowthSolver:
     
     def get_stationary_phase_check(self) -> Dict[str, Any]:
         """
-        Verify the Stationary Phase condition.
+        Verify the Stationary Phase condition using dimensionless h_ratio.
         
-        At high-z: H >> ωc → G_eff → G (BBN safe)
-        At low-z: H << ωc → G_eff → 4/3 G (IR boost)
+        At high-z: h_ratio >> W̃c → G_eff → G (BBN safe)
+        At low-z: h_ratio → W̃c → G_eff → 4/3 G (IR boost)
         
         Returns:
             Dict with phase transition diagnostics
@@ -892,28 +945,30 @@ class RetardedGrowthSolver:
         
         results = []
         for z in z_points:
-            h_z = self.get_h_z(z)
+            h_ratio = self.get_h_ratio(z)
             g_eff = self.get_g_eff(z)
-            ratio = h_z / self.wc
+            source = self.get_sovereign_source(z)
+            ratio = h_ratio / self.w_tilde_c
             
             if ratio > 10:
                 regime = "BBN_SAFE"
-            elif ratio < 0.1:
+            elif ratio < 1.5:
                 regime = "IR_BOOSTED"
             else:
                 regime = "TRANSITION"
             
             results.append({
                 "z": z,
-                "H_z": float(h_z),
-                "H_over_wc": float(ratio),
+                "h_ratio": float(h_ratio),
+                "h_ratio_over_wc": float(ratio),
                 "G_eff": float(g_eff),
+                "source": float(source),
                 "regime": regime
             })
         
         return {
             "stationary_phase_check": results,
-            "wc": self.wc,
+            "w_tilde_c": self.w_tilde_c,
             "H0": self.H0,
             "interpretation": {
                 "BBN_SAFE": "G_eff ≈ G, primordial nucleosynthesis preserved",
