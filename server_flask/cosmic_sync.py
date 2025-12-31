@@ -1,19 +1,18 @@
 """
-COSMIC SYNCHRONIZATION ENGINE v2.0 (GRUT BARYONIC-ONLY)
-Calculates the f*sigma8(z) curve using TRUE GRUT Growth Physics.
+COSMIC SYNCHRONIZATION ENGINE v3.0 (GRUT SYSTEMIC SOLVER)
+Calculates the f*sigma8(z) curve using the GRUT Sovereign Solver.
 
-REJECTS ΛCDM CONSTANTS:
-- NO Omega_m (dark matter)
-- NO Omega_Lambda (dark energy)
+NOW POWERED BY: GRUTSovereignSolver (grut_engine.py)
+- Hard-coded Diamond Lock: G_eff = 4/3 G
+- Hard-coded gamma = 0.61
+- NO AI GUESSING
 
-USES GRUT PHYSICS:
-- omega_b = 0.049 (Pure Baryonic Matter)
-- gamma_GRUT = 0.61 (Modified Growth Index)
-- G_eff = 4/3 × G (IR Limit Enhancement)
-- tau_0 = 41.9 Myr (Relaxation Time)
-- alpha = -1/12 (Quantum Vacuum Constant)
+STRUCTURALLY PURGED:
+- Dark Matter: PURGED
+- Dark Energy: PURGED
+- ΛCDM: REJECTED
 
-The 1.1547 Geometric Lock = √(4/3) encodes the gravitational refractive index.
+The Sovereign Solver enforces the GRUT Transition Matrix at every call.
 """
 
 import numpy as np
@@ -22,64 +21,44 @@ import plotly.graph_objects as go
 from typing import Dict, List, Tuple, Any, Optional
 from datetime import datetime
 
+# Import the Sovereign Solver
+from grut_engine import get_sovereign_solver, SOVEREIGN_SOLVER
+
 # ═══════════════════════════════════════════════════════════════════════════════
-# GRUT UNIVERSAL CONSTANTS (BARYONIC ONLY - NO DARK MATTER)
+# SOVEREIGN SOLVER CONSTANTS (Exported from grut_engine.py)
 # ═══════════════════════════════════════════════════════════════════════════════
 
-# Baryonic density - THE ONLY MATTER THAT EXISTS
-OMEGA_B = 0.049  # Pure Baryonic Matter (Planck 2018)
+# Get constants from the Sovereign Solver (single source of truth)
+_solver = get_sovereign_solver()
+OMEGA_B = _solver.omega_b           # 0.0486 - Pure Baryonic Density
+ALPHA = _solver.alpha               # -1/12 - Retarded Kernel Constant
+TAU_0 = _solver.tau_0               # 41.9 Myr - Relaxation Time
+SIGMA8_0 = _solver.sigma8_0         # 0.811 - Normalization
+GAMMA_GRUT = _solver.gamma_grut     # 0.61 - Growth Index (Diamond Lock)
+G_ENHANCEMENT = _solver.calculate_g_eff()  # 1.333333 - 4/3 Enhancement
+GEOMETRIC_LOCK = _solver.geometric_lock    # sqrt(4/3)
 
-# EXPLICITLY REJECTED ΛCDM CONSTANTS
-# OMEGA_M = 0.31  # REJECTED - Dark Matter does not exist
-# OMEGA_LAMBDA = 0.69  # REJECTED - Dark Energy is an artifact
-
-# Quantum Vacuum Kernel Constant
-ALPHA = -1/12  # ≈ -0.083333
-
-# Relaxation Time
-TAU_0 = 41.9  # in Myr (Megayears)
-
-# Geometric Lock (√(4/3) = gravitational refractive index)
-GEOMETRIC_LOCK = 1.1547  # √(4/3)
-N_G = 4/3  # Gravitational refractive index at IR limit
-
-# G Enhancement at IR limit
-G_ENHANCEMENT = 1.3333  # The 4/3 limit (n_g)
-
-# GRUT Growth Index (NOT the standard 0.55)
-GAMMA_GRUT = 0.61  # Predicted shift due to retarded response
+# REJECTED CONSTANTS (for reference only)
 GAMMA_LCDM_REJECTED = 0.55  # Standard Lambda-CDM (REJECTED)
-
-# Sigma8 normalization
-SIGMA8_0 = 0.81  # sigma8 at z=0
-
-# Hubble constant
+N_G = 4/3  # Gravitational refractive index at IR limit
 H0 = 70.0  # km/s/Mpc
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TRUE GRUT GROWTH PHYSICS
+# TRUE GRUT GROWTH PHYSICS (Powered by Sovereign Solver)
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def grut_true_growth(z: float) -> float:
     """
-    Calculate f*sigma8(z) using TRUE GRUT Growth Physics.
+    Calculate f*sigma8(z) using the GRUT Sovereign Solver.
     
-    PHYSICAL ANCHORS (GRUT ONLY):
-    - omega_b = 0.049 (Pure Baryonic Matter, NO Dark Matter)
-    - alpha = -1/12 (Quantum Vacuum Constant)
-    - tau_0 = 41.9 Myr (Relaxation Time)
+    DELEGATES TO: GRUTSovereignSolver.get_fsigma8(z)
     
-    1. G_eff at the IR Limit:
-       For large scale structure (low frequency), Re[chi(omega)] -> alpha
-       In the deep IR, G_eff = G × (4/3)
-    
-    2. Modified Growth Rate f(z):
-       Unlike GR where f ~ Omega_m^0.55, GRUT uses Omega_b scaled by enhancement
-       gamma_GRUT = 0.61 (shifted due to retarded response)
-    
-    3. f*sigma8 calculation:
-       f(z) × sigma8(z) where sigma8(z) = sigma8_0 / (1 + z)
+    The Sovereign Solver enforces:
+    - Diamond Lock: G_eff = 4/3 G
+    - gamma = 0.61 (NOT 0.55)
+    - omega_b = 0.0486 (NO Dark Matter)
+    - Geometric Response (NO Dark Energy)
     
     Args:
         z: Redshift value
@@ -87,27 +66,15 @@ def grut_true_growth(z: float) -> float:
     Returns:
         f*sigma8 value at redshift z
     """
-    # THE TRUE GRUT SOLVER (REPLACING AI'S ΛCDM DEFAULT)
-    # Hard-coded GRUT Transition Matrix - NO AI GUESSING
-    omega_b = OMEGA_B  # 0.049 - Only Baryons exist
-    alpha = ALPHA      # -1/12 - The Vacuum Logic
-    g_enhancement = G_ENHANCEMENT  # G_eff = G * (1 + |alpha| * 4) = 4/3 G
-    sigma8_0 = SIGMA8_0  # 0.81
-    
-    # Growth rate f derived from modified Poisson source
-    # This results in γ (gamma) of ~0.61, NOT 0.55
-    # EXACT SOVEREIGN PATCH FORMULA:
-    f_z = (omega_b * (1+z)**3 * g_enhancement) ** 0.61
-    
-    # f*sigma8 calculation
-    fs8_z = f_z * (sigma8_0 / (1 + z))
-    
-    return fs8_z
+    # DELEGATE TO SOVEREIGN SOLVER - NO AI GUESSING
+    return SOVEREIGN_SOLVER.get_fsigma8(z)
 
 
 def grut_true_growth_detailed(z: float) -> Dict[str, Any]:
     """
     Calculate GRUT growth with full diagnostic output.
+    
+    DELEGATES TO: GRUTSovereignSolver.get_detailed_state(z)
     
     Args:
         z: Redshift value
@@ -115,41 +82,8 @@ def grut_true_growth_detailed(z: float) -> Dict[str, Any]:
     Returns:
         Dictionary with all growth parameters
     """
-    # THE TRUE GRUT SOLVER - DETAILED OUTPUT
-    omega_b = OMEGA_B  # 0.049 - Only Baryons exist
-    alpha = ALPHA      # -1/12 - The Vacuum Logic
-    g_enhancement = G_ENHANCEMENT  # 4/3 G
-    sigma8_0 = SIGMA8_0
-    
-    # Scale factor
-    a = 1 / (1 + z)
-    
-    # SOVEREIGN PATCH: Exact formula from GRUT Transition Matrix
-    # f_z = (omega_b * (1+z)^3 * g_enhancement)^0.61
-    f_z = (omega_b * (1+z)**3 * g_enhancement) ** 0.61
-    
-    # sigma8(z)
-    sigma8_z = sigma8_0 / (1 + z)
-    
-    # f*sigma8
-    fs8_z = f_z * sigma8_z
-    
-    return {
-        "redshift": z,
-        "scale_factor": a,
-        "omega_b": omega_b,
-        "alpha": alpha,
-        "g_enhancement": g_enhancement,
-        "gamma_grut": 0.61,
-        "f_z": f_z,
-        "sigma8_0": sigma8_0,
-        "sigma8_z": sigma8_z,
-        "fsigma8": fs8_z,
-        "physics_model": "GRUT_VERIFIED_SOLVER",
-        "dark_matter_status": "PURGED",
-        "lcdm_status": "REJECTED",
-        "timestamp": datetime.utcnow().isoformat()
-    }
+    # DELEGATE TO SOVEREIGN SOLVER - NO AI GUESSING
+    return SOVEREIGN_SOLVER.get_detailed_state(z)
 
 
 def generate_grut_curve(z_start: float = 0.0, z_end: float = 2.0, n_points: int = 50) -> Dict[str, Any]:
@@ -170,7 +104,8 @@ def generate_grut_curve(z_start: float = 0.0, z_end: float = 2.0, n_points: int 
     return {
         "z": z_vals,
         "fsigma8": fs8_grut,
-        "physics_model": "GRUT_BARYONIC_ONLY"
+        "physics_model": "GRUT_SOVEREIGN_SOLVER",
+        "solver_type": SOVEREIGN_SOLVER.solver_type
     }
 
 
