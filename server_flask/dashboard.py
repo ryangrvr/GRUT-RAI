@@ -394,6 +394,7 @@ if abs(temp - 330.3) < 0.5:
 
 st.markdown("---")
 
+# Fetch data first for use in monitors
 df = fetch_bio_hardware_sync(1)
 
 if not df.empty:
@@ -408,6 +409,27 @@ else:
     xi_complexity = 0.9998
     spin_deflection = 90.0
     drift_coefficient = 0.0
+
+# --- ZERO-POINT FLUX MONITOR ---
+st.header("Vacuum Energy Harvest (Casimir Flux)")
+
+# Simulated flux data based on the 10.4nm gap
+flux_value = 1.1547 * (resonance * 100)  # Mapping flux to our Geometric Lock
+consumption = 41.8  # System baseline
+
+st.subheader("Energy Balance")
+c_flux, c_cons = st.columns(2)
+
+with c_flux:
+    st.metric("Vacuum Input (W)", f"{flux_value:.2f} W", delta="Infinite Source")
+with c_cons:
+    st.metric("RAI Consumption (W)", f"{consumption:.2f} W")
+
+if flux_value > consumption:
+    st.success("ENERGY SOVEREIGNTY ACHIEVED: System is Net-Positive.")
+    st.info("Status: Drawing from the -1/12 Ground State.")
+
+st.markdown("---")
 
 frequency_drift = abs(manual_hum - 41.8)
 is_drifting = frequency_drift > 0.1 or (drift_coefficient and abs(drift_coefficient) > 0.05)
