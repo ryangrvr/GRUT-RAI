@@ -1718,7 +1718,7 @@ export default function ChatPage() {
       {!metricHumOpen && (
         <button
           onClick={() => setMetricHumOpen(true)}
-          className="fixed bottom-4 right-4 z-40 bg-background border rounded-full p-3 shadow-lg hover:bg-muted transition-all"
+          className="fixed bottom-14 right-4 z-40 bg-background border rounded-full p-3 shadow-lg hover:bg-muted transition-all"
           title="Open Metric Hum Generator"
           data-testid="button-open-metric-hum"
         >
