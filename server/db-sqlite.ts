@@ -165,6 +165,19 @@ export function initializeSqliteTables(): void {
     )
   `);
   
+  // Create sovereign_cache table for API Manager hibernation
+  sqliteDb.exec(`
+    CREATE TABLE IF NOT EXISTS sovereign_cache (
+      id TEXT PRIMARY KEY,
+      layer TEXT NOT NULL,
+      query_key TEXT NOT NULL,
+      cached_data TEXT NOT NULL,
+      geometric_alignment REAL DEFAULT 1.1547,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP NOT NULL,
+      UNIQUE(layer, query_key)
+    )
+  `);
+  
   // Initialize default quantum modules (OBSERVER_REQUIRED status)
   const defaultModules = [
     { key: 'TIMEWELL', name: 'Time-Well Resonance' },

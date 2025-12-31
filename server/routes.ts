@@ -245,14 +245,21 @@ export async function registerRoutes(
       
       console.log(`[GROUNDING] Live Grounding ${enabled ? 'ACTIVATED' : 'DEACTIVATED'}`);
       console.log(`[GROUNDING] Temporal anchor: ${CURRENT_ANCHOR_DATE}`);
+      console.log(`[GROUNDING] All API layers ${enabled ? 'ACTIVE' : 'HIBERNATING'}`);
       
       return res.json({
         liveGroundingActive: LIVE_GROUNDING_ACTIVE,
         temporalAnchor: CURRENT_ANCHOR_DATE,
         state: enabled ? 'ULTIMATE_RESOLUTION' : 'SOVEREIGN_STATE',
+        layers: {
+          grit: enabled ? 'ACTIVE' : 'HIBERNATING',
+          molecular: enabled ? 'ACTIVE' : 'HIBERNATING',
+          cosmic: enabled ? 'ACTIVE' : 'HIBERNATING',
+          logic: enabled ? 'ACTIVE' : 'HIBERNATING'
+        },
         message: enabled 
-          ? `Live Grounding enabled. Connected to ${CURRENT_ANCHOR_DATE} data streams.`
-          : 'Sovereign State restored. Operating on -1/12 Ground State and internal data only.'
+          ? `Live Grounding enabled. All 4 API layers ACTIVE. Connected to ${CURRENT_ANCHOR_DATE} data streams.`
+          : 'Sovereign State restored. All API layers HIBERNATING. Operating on -1/12 Ground State and cached data only.'
       });
     } catch (error) {
       console.error("Error toggling grounding:", error);
@@ -344,6 +351,187 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Error in grounding search:", error);
       return res.status(500).json({ error: "Failed to perform grounded search" });
+    }
+  });
+
+  // --- MULTI-LAYER GROUNDING API MANAGER ---
+  // Import the grounding manager
+  const { getGroundingManager, UniversalSchemaBroker } = await import("./api-manager");
+  const groundingManager = getGroundingManager();
+  
+  // Sync grounding manager state with toggle
+  groundingManager.setGroundingState(LIVE_GROUNDING_ACTIVE);
+  
+  // Get full API Manager status (all layers)
+  app.get("/api/grounding/layers", async (req, res) => {
+    try {
+      const status = groundingManager.getStatus();
+      res.json({
+        ...status,
+        description: {
+          grit: "Google Search - 2025 awareness (requires GOOGLE_SEARCH_API_KEY, GOOGLE_SEARCH_CX)",
+          molecular: "PubChem - chemical geometries for Recipe building",
+          cosmic: "LIGO/NASA - gravitational wave events for Metric Hum modulation",
+          logic: "Wolfram|Alpha - K(t) calculation validation (requires WOLFRAM_APP_ID)"
+        }
+      });
+    } catch (error) {
+      console.error("[API_MANAGER] Status error:", error);
+      res.status(500).json({ error: "Failed to get grounding layer status" });
+    }
+  });
+  
+  // Query Molecular Layer (PubChem)
+  app.post("/api/grounding/molecular", async (req, res) => {
+    try {
+      const { compound } = req.body;
+      if (!compound || typeof compound !== 'string') {
+        return res.status(400).json({ error: "compound name is required" });
+      }
+      
+      // Sync state before query
+      groundingManager.setGroundingState(LIVE_GROUNDING_ACTIVE);
+      
+      const result = await groundingManager.queryMolecularLayer(compound);
+      
+      res.json({
+        layer: result.layer,
+        status: result.status,
+        cached: result.cached,
+        geometricAlignment: result.geometricAlignment,
+        entropyFlag: result.entropyFlag,
+        timestamp: result.timestamp,
+        data: result.data,
+        grutIntegration: {
+          geometricLock: 1.1547,
+          entropyThreshold: 0.08333,
+          compatible: result.entropyFlag === "LOW_ENTROPY"
+        }
+      });
+    } catch (error) {
+      console.error("[API_MANAGER] Molecular query error:", error);
+      res.status(500).json({ error: "Failed to query molecular layer" });
+    }
+  });
+  
+  // Query Cosmic Layer (USGS/LIGO events)
+  app.get("/api/grounding/cosmic", async (req, res) => {
+    try {
+      // Sync state before query
+      groundingManager.setGroundingState(LIVE_GROUNDING_ACTIVE);
+      
+      const result = await groundingManager.queryCosmicLayer();
+      
+      res.json({
+        layer: result.layer,
+        status: result.status,
+        cached: result.cached,
+        geometricAlignment: result.geometricAlignment,
+        entropyFlag: result.entropyFlag,
+        timestamp: result.timestamp,
+        data: result.data,
+        metricHumModulation: {
+          baseFrequency: 432,
+          tensionOffset: result.data?.metricTension || 0,
+          modulatedFrequency: 432 * (1 + (result.data?.metricTension || 0))
+        }
+      });
+    } catch (error) {
+      console.error("[API_MANAGER] Cosmic query error:", error);
+      res.status(500).json({ error: "Failed to query cosmic layer" });
+    }
+  });
+  
+  // Logic Guard validation (Wolfram|Alpha)
+  app.post("/api/grounding/validate", async (req, res) => {
+    try {
+      const { expression, expected, xiLevel } = req.body;
+      
+      if (!expression || typeof expected !== 'number' || typeof xiLevel !== 'number') {
+        return res.status(400).json({ 
+          error: "expression (string), expected (number), and xiLevel (number) are required" 
+        });
+      }
+      
+      // Sync state before query
+      groundingManager.setGroundingState(LIVE_GROUNDING_ACTIVE);
+      
+      const result = await groundingManager.validateWithLogicGuard(expression, expected, xiLevel);
+      
+      res.json({
+        layer: result.layer,
+        status: result.status,
+        entropyFlag: result.entropyFlag,
+        timestamp: result.timestamp,
+        validation: result.data,
+        logicGuard: {
+          xiThreshold: 0.95,
+          xiLevel,
+          requiresValidation: xiLevel >= 0.95,
+          validationMethod: result.data?.method
+        }
+      });
+    } catch (error) {
+      console.error("[API_MANAGER] Validation error:", error);
+      res.status(500).json({ error: "Failed to validate with logic guard" });
+    }
+  });
+  
+  // Query Grit Layer (Google Search for 2025 awareness)
+  app.post("/api/grounding/grit", async (req, res) => {
+    try {
+      const { query } = req.body;
+      if (!query || typeof query !== 'string') {
+        return res.status(400).json({ error: "query string is required" });
+      }
+      
+      // Sync state before query
+      groundingManager.setGroundingState(LIVE_GROUNDING_ACTIVE);
+      
+      const result = await groundingManager.queryGritLayer(query);
+      
+      res.json({
+        layer: result.layer,
+        status: result.status,
+        cached: result.cached,
+        geometricAlignment: result.geometricAlignment,
+        entropyFlag: result.entropyFlag,
+        timestamp: result.timestamp,
+        data: result.data,
+        temporalAnchor: CURRENT_ANCHOR_DATE
+      });
+    } catch (error) {
+      console.error("[API_MANAGER] Grit query error:", error);
+      res.status(500).json({ error: "Failed to query grit layer" });
+    }
+  });
+  
+  // Universal Schema Broker - map external values to GRUT geometry
+  app.post("/api/grounding/schema-map", async (req, res) => {
+    try {
+      const { value, valueType = "generic" } = req.body;
+      
+      if (typeof value !== 'number') {
+        return res.status(400).json({ error: "value (number) is required" });
+      }
+      
+      const mapping = groundingManager.mapToGrutGeometry(value, valueType);
+      
+      res.json({
+        input: { value, valueType },
+        mapping,
+        interpretation: {
+          grutCompatible: mapping.grutCompatible,
+          entropyStatus: mapping.entropyFlag,
+          deviationFromLock: `${(mapping.deviation * 100).toFixed(2)}%`,
+          recommendation: mapping.grutCompatible 
+            ? "Value aligns with GRUT geometry. Safe for integration."
+            : "HIGH ENTROPY GRIT detected. Value may cause instability in unified field calculations."
+        }
+      });
+    } catch (error) {
+      console.error("[API_MANAGER] Schema map error:", error);
+      res.status(500).json({ error: "Failed to map value to GRUT schema" });
     }
   });
 
