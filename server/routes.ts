@@ -535,6 +535,125 @@ export async function registerRoutes(
     }
   });
 
+  // ============================================
+  // SOVEREIGN SELF-AUDIT SYSTEM
+  // ============================================
+  
+  // Get current audit status (for Shield icon)
+  app.get("/api/audit/status", async (_req, res) => {
+    try {
+      const { getAuditEngine } = await import("./audit-engine");
+      const auditEngine = getAuditEngine();
+      const status = auditEngine.getAuditStatus();
+      
+      res.json(status);
+    } catch (error) {
+      console.error("[AUDIT_ENGINE] Status error:", error);
+      res.status(500).json({ error: "Failed to get audit status" });
+    }
+  });
+  
+  // Calculate drift for a value against Ground State
+  app.post("/api/audit/drift", async (req, res) => {
+    try {
+      const { value, recipeType = "generic" } = req.body;
+      
+      if (typeof value !== 'number') {
+        return res.status(400).json({ error: "value (number) is required" });
+      }
+      
+      const { getAuditEngine } = await import("./audit-engine");
+      const auditEngine = getAuditEngine();
+      const driftResult = auditEngine.calculateDrift(value, recipeType);
+      
+      res.json(driftResult);
+    } catch (error) {
+      console.error("[AUDIT_ENGINE] Drift calculation error:", error);
+      res.status(500).json({ error: "Failed to calculate drift" });
+    }
+  });
+  
+  // Flag unstable grit entries in historical_resonances
+  app.get("/api/audit/unstable-grit", async (_req, res) => {
+    try {
+      const { getAuditEngine } = await import("./audit-engine");
+      const auditEngine = getAuditEngine();
+      const flaggedEntries = auditEngine.flagUnstableGrit();
+      
+      res.json({
+        count: flaggedEntries.length,
+        unstableCount: flaggedEntries.filter(e => e.flagged).length,
+        entries: flaggedEntries
+      });
+    } catch (error) {
+      console.error("[AUDIT_ENGINE] Unstable grit scan error:", error);
+      res.status(500).json({ error: "Failed to scan for unstable grit" });
+    }
+  });
+  
+  // Triple-Path Reasoning: Submit 3 solutions, get the best aligned one
+  app.post("/api/audit/triple-path", async (req, res) => {
+    try {
+      const { solutions } = req.body;
+      
+      if (!Array.isArray(solutions) || solutions.length < 3) {
+        return res.status(400).json({ 
+          error: "solutions array with at least 3 entries is required",
+          format: "{ solutions: [{ value: number, reasoning: string }, ...] }"
+        });
+      }
+      
+      const { getAuditEngine } = await import("./audit-engine");
+      const auditEngine = getAuditEngine();
+      const result = auditEngine.triplePathReasoning(solutions);
+      
+      res.json(result);
+    } catch (error) {
+      console.error("[AUDIT_ENGINE] Triple-path error:", error);
+      res.status(500).json({ error: "Failed to process triple-path reasoning" });
+    }
+  });
+  
+  // Wolfram Bridge: Validate mathematical expression
+  app.post("/api/audit/wolfram-validate", async (req, res) => {
+    try {
+      const { expression, expectedValue } = req.body;
+      
+      if (!expression || typeof expectedValue !== 'number') {
+        return res.status(400).json({ 
+          error: "expression (string) and expectedValue (number) are required"
+        });
+      }
+      
+      const { getAuditEngine } = await import("./audit-engine");
+      const auditEngine = getAuditEngine();
+      const result = await auditEngine.wolframBridgeValidate(expression, expectedValue);
+      
+      res.json(result);
+    } catch (error) {
+      console.error("[AUDIT_ENGINE] Wolfram validation error:", error);
+      res.status(500).json({ error: "Failed to validate with Wolfram" });
+    }
+  });
+  
+  // Reset audit status (after drift is corrected)
+  app.post("/api/audit/reset", async (_req, res) => {
+    try {
+      const { getAuditEngine } = await import("./audit-engine");
+      const auditEngine = getAuditEngine();
+      auditEngine.resetAuditStatus();
+      
+      res.json({ 
+        success: true, 
+        message: "Audit status reset to STABLE",
+        status: auditEngine.getAuditStatus()
+      });
+    } catch (error) {
+      console.error("[AUDIT_ENGINE] Reset error:", error);
+      res.status(500).json({ error: "Failed to reset audit status" });
+    }
+  });
+
   // STRESS TEST: Simulate high-magnitude seismic events to push Xi toward critical saturation
   app.post("/api/grut/stress-test", async (req, res) => {
     try {
