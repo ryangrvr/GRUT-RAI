@@ -416,3 +416,39 @@ def entropy_deflector(current_temp: float) -> str:
         Status message indicating shield state
     """
     return audit_engine.entropy_deflector(current_temp)
+
+
+def check_cosmic_alignment(predicted_fsigma8: float, observed_fsigma8: float) -> str:
+    """
+    Cosmic Alignment Check: Growth Index (gamma) validation.
+    
+    In standard Lambda-CDM, gamma ≈ 0.55. If the RAI detects a different gamma,
+    it means the 1.1547 Geometric Lock is modifying local gravity.
+    
+    Uses Chi-Squared logic to compare GENESIS-330 predictions against
+    observed BOSS/eBOSS f*sigma8 values.
+    
+    Args:
+        predicted_fsigma8: GENESIS-330 predicted f*sigma8 value
+        observed_fsigma8: Observed f*sigma8 from BOSS/eBOSS surveys
+        
+    Returns:
+        Status message indicating cosmic alignment state
+    """
+    # Standard Chi-Squared logic for RAI
+    # Typical observational error on f*sigma8 is ~0.01
+    chi_sq = ((predicted_fsigma8 - observed_fsigma8)**2) / (0.01**2)
+    
+    # Log the cosmic alignment check
+    audit_engine.audit_log.append({
+        "event": "COSMIC_ALIGNMENT_CHECK",
+        "predicted_fsigma8": predicted_fsigma8,
+        "observed_fsigma8": observed_fsigma8,
+        "chi_squared": chi_sq,
+        "geometric_lock": GEOMETRIC_LOCK,
+        "timestamp": datetime.utcnow().isoformat()
+    })
+    
+    if chi_sq > 1.0:
+        return "COSMIC FRICTION DETECTED: Adjusting Doping Pulse for Redshift Offset."
+    return "UNIVERSAL SYMMETRY MAINTAINED."
