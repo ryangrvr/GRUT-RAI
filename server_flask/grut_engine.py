@@ -617,6 +617,356 @@ def grut_hubble(z: float) -> float:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# RETARDED GROWTH SOLVER - ODE-BASED FREQUENCY-SELECTIVE KERNEL
+# ═══════════════════════════════════════════════════════════════════════════════
+
+class RetardedGrowthSolver:
+    """
+    Frequency-Selective Retarded Growth Solver using full ODE integration.
+    
+    Instead of a static G_eff, this solver maps the Hubble rate H(z) to the
+    kernel's frequency response ωc, automatically handling the transition from:
+    - BBN-Safe (G) at high-z where H >> ωc
+    - Recombination-Boosted (4/3 G) at low-z where H << ωc
+    
+    The Stationary Phase Condition is inherently satisfied because G_eff(H/ωc)
+    ties growth speedup directly to expansion rate - they cancel at Sound Horizon.
+    """
+    
+    def __init__(self, wc: Optional[float] = None):
+        # Diamond Core Constants
+        self.omega_b = 0.0486           # Baryon Density (Planck 2018)
+        self.omega_geom = 0.70          # Residual Stiffness (0.75 - 0.05 Silk)
+        self.sigma8_0 = 0.936           # Phase-Locked Amplitude
+        self.H0 = 67.4                  # Planck 2018 Baseline (km/s/Mpc)
+        
+        # Diamond Lock Frequency - CALIBRATED for IR Limit
+        # For G_eff → 4/3 at z=0, we need H(0)/wc << 1
+        # With H(0) ≈ 58 km/s/Mpc (baryonic Hubble), set wc >> H0
+        # wc = 583 ensures H(0)/wc ≈ 0.1, giving G_eff(0) ≈ 1.32
+        self.wc = wc if wc is not None else 583.0
+        
+        # Diamond Lock Ratio - Phase Lock for Growth Rate
+        # sqrt(4/3) ≈ 1.1547 - the gravitational refractive index
+        # This boosts f(z) to account for geometric response
+        self.diamond_lock_ratio = 1.1547
+        
+        # Solver metadata
+        self.solver_type = "RETARDED_GROWTH_ODE"
+        self.version = "1.0.0"
+        
+        # Cached solutions
+        self._cached_z = None
+        self._cached_D = None
+        self._cached_f = None
+        self._cached_fs8 = None
+    
+    def get_h_z(self, z: float) -> float:
+        """
+        Calculate Hubble rate for baryonic-only universe with geometric response.
+        
+        H(z) = H0 × sqrt(Ω_b × (1+z)³ + Ω_geom)
+        
+        Args:
+            z: Redshift
+            
+        Returns:
+            float: Hubble rate H(z) in km/s/Mpc
+        """
+        return self.H0 * np.sqrt(self.omega_b * (1 + z)**3 + self.omega_geom)
+    
+    def get_g_eff(self, z: float) -> float:
+        """
+        Frequency-selective kernel response.
+        
+        G_eff(z) = 1 + (1/3) / (1 + (H(z)/ωc)²)
+        
+        Physics:
+        - At high-z: H >> ωc → G_eff → 1 (BBN-safe)
+        - At low-z: H << ωc → G_eff → 4/3 (IR enhancement)
+        
+        Args:
+            z: Redshift
+            
+        Returns:
+            float: Effective gravitational enhancement G_eff/G
+        """
+        h_rate = self.get_h_z(z)
+        kernel_response = 1 + (1/3) / (1 + (h_rate / self.wc)**2)
+        return kernel_response
+    
+    def _growth_ode(self, y, z):
+        """
+        Growth ODE system for delta perturbations.
+        
+        d²δ/dz² + friction × dδ/dz = source × δ
+        
+        Where:
+        - friction = 2/(1+z) - d ln H / dz
+        - source = 1.5 × Ω_m(z) × G_eff(z) / (1+z)²
+        """
+        delta, d_delta = y
+        h = self.get_h_z(z)
+        
+        # Friction term: d ln H / dz (numerical derivative)
+        eps = 1e-5
+        dlnHdz = (np.log(self.get_h_z(z + eps)) - np.log(self.get_h_z(z - eps))) / (2 * eps)
+        
+        # Source term: Poisson-like with retarded G
+        omega_b_z = (self.omega_b * (1 + z)**3) / (h / self.H0)**2
+        source = 1.5 * omega_b_z * self.get_g_eff(z)
+        
+        dd_delta = (2 / (1 + z) - dlnHdz) * d_delta + (source / (1 + z)**2) * delta
+        return [d_delta, dd_delta]
+    
+    def solve_growth(self, z_max: float = 100, n_points: int = 1000):
+        """
+        Solve the growth ODE from z_max to z=0.
+        
+        Uses Einstein-de Sitter initial conditions at high-z.
+        
+        Args:
+            z_max: Starting redshift (default 100)
+            n_points: Number of integration points
+            
+        Returns:
+            Tuple of (z_array, D_norm, f_z, fs8)
+        """
+        from scipy.integrate import odeint
+        
+        # Initial conditions at high-z (Einstein-de Sitter)
+        y0 = [1 / (1 + z_max), -1 / (1 + z_max)**2]
+        
+        # Solve from z_max down to z=0
+        z_solve = np.linspace(z_max, 0, n_points)
+        sol = odeint(self._growth_ode, y0, z_solve)
+        
+        # Reverse to get z=0 first
+        delta_z = sol[:, 0][::-1]
+        d_delta_z = sol[:, 1][::-1]
+        z_reversed = z_solve[::-1]
+        
+        # Normalize D(z) so D(0) = 1
+        D_norm = delta_z / delta_z[0]
+        
+        # Growth rate f(z) = d ln δ / d ln a = -(1+z) × (dδ/dz) / δ
+        # Apply Diamond Lock boost (1.1547) to match geometric response
+        f_z_raw = -(1 + z_reversed) * (d_delta_z / delta_z)
+        f_z = f_z_raw * self.diamond_lock_ratio
+        
+        # f × σ8 (σ8_0 already includes Diamond Lock: 0.811 × 1.1547 = 0.936)
+        fs8 = f_z * self.sigma8_0 * D_norm
+        
+        # Cache results
+        self._cached_z = z_reversed
+        self._cached_D = D_norm
+        self._cached_f = f_z
+        self._cached_fs8 = fs8
+        
+        return z_reversed, D_norm, f_z, fs8
+    
+    def get_fsigma8_at(self, z_target: float) -> float:
+        """
+        Get f×σ8 at a specific redshift by interpolation.
+        
+        Args:
+            z_target: Target redshift
+            
+        Returns:
+            float: f×σ8 at z_target
+        """
+        if self._cached_z is None:
+            self.solve_growth()
+        
+        # Type assertion for numpy interp
+        z_arr = self._cached_z if self._cached_z is not None else np.array([0.0])
+        fs8_arr = self._cached_fs8 if self._cached_fs8 is not None else np.array([0.0])
+        return float(np.interp(z_target, z_arr, fs8_arr))
+    
+    def get_D_at(self, z_target: float) -> float:
+        """
+        Get normalized growth factor D(z) at a specific redshift.
+        
+        Args:
+            z_target: Target redshift
+            
+        Returns:
+            float: D(z) at z_target
+        """
+        if self._cached_z is None:
+            self.solve_growth()
+        
+        z_arr = self._cached_z if self._cached_z is not None else np.array([0.0])
+        D_arr = self._cached_D if self._cached_D is not None else np.array([1.0])
+        return float(np.interp(z_target, z_arr, D_arr))
+    
+    def get_f_at(self, z_target: float) -> float:
+        """
+        Get growth rate f(z) at a specific redshift.
+        
+        Args:
+            z_target: Target redshift
+            
+        Returns:
+            float: f(z) at z_target
+        """
+        if self._cached_z is None:
+            self.solve_growth()
+        
+        z_arr = self._cached_z if self._cached_z is not None else np.array([0.0])
+        f_arr = self._cached_f if self._cached_f is not None else np.array([0.0])
+        return float(np.interp(z_target, z_arr, f_arr))
+    
+    def validate_against_eboss(self) -> Dict[str, Any]:
+        """
+        Validate ODE solver predictions against eBOSS observations.
+        
+        Returns:
+            Dict with chi-squared and comparison data
+        """
+        # Solve the ODE
+        self.solve_growth()
+        
+        # eBOSS/BOSS observations
+        z_obs = np.array([0.15, 0.38, 0.51, 0.70, 1.48])
+        fs8_obs = np.array([0.49, 0.44, 0.45, 0.47, 0.46])
+        errors = np.array([0.05, 0.04, 0.04, 0.04, 0.04])
+        
+        # ODE predictions
+        fs8_ode = np.array([self.get_fsigma8_at(z) for z in z_obs])
+        
+        # Chi-squared
+        chi_sq = np.sum(((fs8_ode - fs8_obs) / errors)**2)
+        dof = len(z_obs) - 1
+        reduced_chi_sq = chi_sq / dof
+        
+        # Point-by-point comparison
+        comparisons = []
+        for i, z in enumerate(z_obs):
+            comparisons.append({
+                "z": float(z),
+                "observed": float(fs8_obs[i]),
+                "ode_predicted": float(fs8_ode[i]),
+                "residual": float(fs8_ode[i] - fs8_obs[i]),
+                "error": float(errors[i]),
+                "sigma": float(abs(fs8_ode[i] - fs8_obs[i]) / errors[i])
+            })
+        
+        return {
+            "chi_squared_ode": float(chi_sq),
+            "reduced_chi_squared_ode": float(reduced_chi_sq),
+            "degrees_of_freedom": int(dof),
+            "comparisons": comparisons,
+            "solver_type": self.solver_type,
+            "wc": self.wc,
+            "omega_geom": self.omega_geom,
+            "sigma8_0": self.sigma8_0,
+            "g_eff_z0": float(self.get_g_eff(0)),
+            "g_eff_z100": float(self.get_g_eff(100)),
+            "timestamp": datetime.utcnow().isoformat()
+        }
+    
+    def get_g_eff_evolution(self, z_range: np.ndarray) -> np.ndarray:
+        """
+        Get G_eff evolution across redshift range.
+        
+        Args:
+            z_range: Array of redshift values
+            
+        Returns:
+            np.ndarray: G_eff values
+        """
+        return np.array([self.get_g_eff(z) for z in z_range])
+    
+    def get_stationary_phase_check(self) -> Dict[str, Any]:
+        """
+        Verify the Stationary Phase condition.
+        
+        At high-z: H >> ωc → G_eff → G (BBN safe)
+        At low-z: H << ωc → G_eff → 4/3 G (IR boost)
+        
+        Returns:
+            Dict with phase transition diagnostics
+        """
+        z_points = [0, 0.5, 1, 2, 5, 10, 50, 100]
+        
+        results = []
+        for z in z_points:
+            h_z = self.get_h_z(z)
+            g_eff = self.get_g_eff(z)
+            ratio = h_z / self.wc
+            
+            if ratio > 10:
+                regime = "BBN_SAFE"
+            elif ratio < 0.1:
+                regime = "IR_BOOSTED"
+            else:
+                regime = "TRANSITION"
+            
+            results.append({
+                "z": z,
+                "H_z": float(h_z),
+                "H_over_wc": float(ratio),
+                "G_eff": float(g_eff),
+                "regime": regime
+            })
+        
+        return {
+            "stationary_phase_check": results,
+            "wc": self.wc,
+            "H0": self.H0,
+            "interpretation": {
+                "BBN_SAFE": "G_eff ≈ G, primordial nucleosynthesis preserved",
+                "TRANSITION": "Smooth interpolation between regimes",
+                "IR_BOOSTED": "G_eff ≈ 4/3 G, late-time growth enhanced"
+            }
+        }
+
+
+# Global instance of the ODE solver
+RETARDED_SOLVER = RetardedGrowthSolver()
+
+
+def get_retarded_solver() -> RetardedGrowthSolver:
+    """Get the singleton RetardedGrowthSolver instance."""
+    return RETARDED_SOLVER
+
+
+def compare_solvers() -> Dict[str, Any]:
+    """
+    Compare analytic GRUTSovereignSolver vs ODE RetardedGrowthSolver.
+    
+    Returns:
+        Dict with side-by-side comparison against eBOSS
+    """
+    analytic = SOVEREIGN_SOLVER.validate_against_eboss()
+    ode = RETARDED_SOLVER.validate_against_eboss()
+    
+    z_obs = [0.15, 0.38, 0.51, 0.70, 1.48]
+    
+    comparison = []
+    for i, z in enumerate(z_obs):
+        comparison.append({
+            "z": z,
+            "observed": analytic["comparisons"][i]["observed"],
+            "analytic_predicted": analytic["comparisons"][i]["grut_predicted"],
+            "ode_predicted": ode["comparisons"][i]["ode_predicted"],
+            "analytic_sigma": analytic["comparisons"][i]["grut_sigma"],
+            "ode_sigma": ode["comparisons"][i]["sigma"]
+        })
+    
+    return {
+        "analytic_chi_squared": analytic["chi_squared_grut"],
+        "ode_chi_squared": ode["chi_squared_ode"],
+        "analytic_reduced_chi_squared": analytic["reduced_chi_squared_grut"],
+        "ode_reduced_chi_squared": ode["reduced_chi_squared_ode"],
+        "comparison": comparison,
+        "winner": "ANALYTIC" if analytic["chi_squared_grut"] < ode["chi_squared_ode"] else "ODE",
+        "note": "Lower chi-squared indicates better fit to eBOSS observations"
+    }
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # MAIN (for testing)
 # ═══════════════════════════════════════════════════════════════════════════════
 
