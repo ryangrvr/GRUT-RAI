@@ -376,6 +376,24 @@ st.progress(1.0, text="Resonance Parity: 0.9998 (Diamond Lock)")
 
 st.markdown("---")
 
+# --- FORGE MONITORING MODULE ---
+st.header("41.8 Hz Vibrational Forge")
+
+col_temp, col_hum = st.columns(2)
+with col_temp:
+    temp = st.slider("Furnace Temperature (K)", 300, 1200, 330)
+    st.metric("Target Tc", "330.3 K", delta=f"{temp - 330.3:.2f} K")
+
+with col_hum:
+    st.audio("https://www.soundjay.com/button/beep-07.wav")
+    st.write("Vibrational Forge: **ACTIVE**")
+
+if abs(temp - 330.3) < 0.5:
+    st.balloons()
+    st.success("METRIC LOCK ACHIEVED: Phase Transition Initialized.")
+
+st.markdown("---")
+
 df = fetch_bio_hardware_sync(1)
 
 if not df.empty:
