@@ -52,6 +52,12 @@ class GRUTSovereignSolver:
         # Geometric Lock
         self.geometric_lock = 1.1547  # sqrt(4/3)
         
+        # Hubble Constant (km/s/Mpc)
+        self.H0 = 67.4  # Planck 2018
+        
+        # Geometric Response (Vacuum Elasticity replacing Lambda)
+        self.geometric_de = 0.7
+        
         # System Status
         self.solver_type = "GRUT_SOVEREIGN_SOLVER"
         self.dark_matter_status = "STRUCTURALLY_PURGED"
@@ -72,6 +78,29 @@ class GRUTSovereignSolver:
         """
         # Diamond Lock: G_eff = 4/3 G
         return 1.333333
+    
+    def H_grut(self, z: float) -> float:
+        """
+        Calculate the GRUT Hubble parameter at redshift z.
+        
+        Background expansion driven by Enhanced Baryons + Geometric Response.
+        This REPLACES the standard H(z) integral with the Sovereign formula.
+        
+        H(z) = H0 × sqrt(enhanced_matter + Geometric_DE)
+        
+        Where:
+        - enhanced_matter = Omega_b × (1+z)³ × G_eff_boost
+        - Geometric_DE = 0.7 (Vacuum Elasticity replacing Lambda Fluid)
+        
+        Args:
+            z: Redshift
+            
+        Returns:
+            float: Hubble parameter H(z) in km/s/Mpc
+        """
+        g_eff_boost = self.calculate_g_eff()
+        enhanced_matter = self.omega_b * (1 + z)**3 * g_eff_boost
+        return self.H0 * np.sqrt(enhanced_matter + self.geometric_de)
     
     def calculate_kernel(self, t: float) -> float:
         """
@@ -371,6 +400,19 @@ def grut_gamma() -> float:
     return SOVEREIGN_SOLVER.gamma_grut
 
 
+def grut_hubble(z: float) -> float:
+    """
+    Calculate GRUT Hubble parameter at redshift z.
+    
+    Args:
+        z: Redshift
+        
+    Returns:
+        float: H(z) in km/s/Mpc
+    """
+    return SOVEREIGN_SOLVER.H_grut(z)
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # MAIN (for testing)
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -400,6 +442,11 @@ if __name__ == "__main__":
     for z in z_test:
         fs8 = solver.get_fsigma8(z)
         print(f"  z={z:.2f}: f*σ8 = {fs8:.4f}")
+    
+    print(f"\nH_grut(z) - Sovereign Hubble:")
+    for z in z_test:
+        H_z = solver.H_grut(z)
+        print(f"  z={z:.2f}: H(z) = {H_z:.2f} km/s/Mpc")
     
     print(f"\nValidation Against eBOSS:")
     validation = solver.validate_against_eboss()
