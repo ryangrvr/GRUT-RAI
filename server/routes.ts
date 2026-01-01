@@ -9,6 +9,13 @@ import bcrypt from "bcrypt";
 import path from "path";
 import fs from "fs";
 import { dbAvailable, dbError } from "./db";
+import { 
+  filterResponseThroughMonad, 
+  recordExecution, 
+  getMonadSystemPrompt,
+  getExecutionHistory,
+  type ExecutionRecord
+} from "./monad-authority";
 
 // --- DIAMOND CORE LOADER ---
 function loadDiamondCore(): string {
@@ -523,7 +530,12 @@ const openai = new OpenAI({
 
 // Generate system prompt with Diamond Core injection
 function generateGrutSystemPrompt(mode: "RAI" | "MONAD", liveGrounding: boolean = false): string {
+  // MONAD AUTHORITY DIRECTIVE - Constitutional Rule (prepended to ALL prompts)
+  const monadDirective = getMonadSystemPrompt();
+  
   const baseInstruction = `
+${monadDirective}
+
 REFERENCE MATERIAL - DIAMOND CORE TOE:
 ${GRUT_SOURCE_CODE}
 
@@ -1079,6 +1091,77 @@ export async function registerRoutes(
     }
   });
 
+  // MONAD AUTHORITY: Record external computation execution (from Python solvers)
+  // This allows grut_validation_report.py to report chi_squared and fsigma8 computations
+  app.post("/api/monad/record-execution", async (req, res) => {
+    try {
+      const { 
+        computationType, 
+        parameters = {}, 
+        result = {},
+        deltaT = null
+      } = req.body;
+      
+      if (!computationType) {
+        return res.status(400).json({ error: "computationType is required" });
+      }
+      
+      // Valid computation types per MONAD directive
+      const validTypes = [
+        "fsigma8", "chi_squared", "growth_factor", "kernel_integral",
+        "phase_term", "memory_amplitude"
+      ];
+      
+      if (!validTypes.includes(computationType)) {
+        return res.status(400).json({ 
+          error: `Invalid computationType. Must be one of: ${validTypes.join(", ")}` 
+        });
+      }
+      
+      // Record the execution
+      recordExecution({
+        computationType,
+        timestamp: new Date(),
+        deltaT: deltaT ? { original: deltaT.original, refined: deltaT.refined } : undefined,
+        parameters,
+        result,
+        validated: true
+      });
+      
+      const history = getExecutionHistory();
+      console.log(`[MONAD] External execution recorded: ${computationType} (total: ${history.length})`);
+      
+      return res.json({
+        success: true,
+        message: `Execution recorded: ${computationType}`,
+        totalExecutions: history.length,
+        executedTypes: [...new Set(history.map(h => h.computationType))]
+      });
+    } catch (error) {
+      console.error("[MONAD] Record execution error:", error);
+      return res.status(500).json({ error: "Failed to record execution" });
+    }
+  });
+  
+  // MONAD AUTHORITY: Get execution history
+  app.get("/api/monad/execution-history", async (req, res) => {
+    try {
+      const history = getExecutionHistory();
+      return res.json({
+        totalExecutions: history.length,
+        executedTypes: [...new Set(history.map(h => h.computationType))],
+        history: history.map(h => ({
+          type: h.computationType,
+          timestamp: h.timestamp,
+          hasResult: Object.keys(h.result).length > 0
+        }))
+      });
+    } catch (error) {
+      console.error("[MONAD] Get history error:", error);
+      return res.status(500).json({ error: "Failed to get execution history" });
+    }
+  });
+  
   // STRESS TEST: Simulate high-magnitude seismic events to push Xi toward critical saturation
   app.post("/api/grut/stress-test", async (req, res) => {
     try {
@@ -2882,7 +2965,17 @@ KEY CONCEPTS TO WEAVE IN:
       // Log LogicGuard regulation status
       console.log(`[GRUT Layer IV] LogicGuard: density=${logicGuardResult.reasoningDensity.toFixed(3)}, suppression=${logicGuardResult.suppressionFactor.toFixed(3)}, regulated=${logicGuardResult.wasRegulated}`);
       
-      const assistantContent = logicGuardResult.regulatedText;
+      let assistantContent = logicGuardResult.regulatedText;
+      
+      // MONAD AUTHORITY LAYER - Constitutional validation of numerical claims
+      // Get list of computations that have been executed this session
+      const executedComputations = getExecutionHistory().map(r => r.computationType);
+      const monadResult = filterResponseThroughMonad(assistantContent, executedComputations);
+      
+      if (monadResult.wasFiltered) {
+        console.log(`[MONAD AUTHORITY] ${monadResult.monadNote}`);
+        assistantContent = monadResult.filteredText;
+      }
       
       // Save assistant message (with regulated content)
       const assistantMessage = await storage.addMessage(req.params.id, "assistant", assistantContent);
@@ -2964,6 +3057,17 @@ KEY CONCEPTS TO WEAVE IN:
       // Check logic guard
       const logicGuard = checkBaryonicLogicGuard();
       
+      // MONAD AUTHORITY: Record this execution for numerical validation
+      recordExecution({
+        computationType: "kernel_integral",
+        timestamp: new Date(),
+        deltaT: { original: step },
+        parameters: { timeStart, timeEnd, timePoints, deltaMass, tau_0 },
+        result: { mean_kernel: meanKernel, complexity: baryonicState.complexityRatio },
+        validated: true
+      });
+      console.log(`[MONAD] Recorded execution: kernel_integral (Δt=${step.toFixed(4)} Myr)`);
+      
       return res.json({
         time_scale: timeScale,
         kernel_values: kernelValues,
@@ -3008,6 +3112,16 @@ KEY CONCEPTS TO WEAVE IN:
       
       const baryonic_mass = 2.3e14;
       const apparent_dm_mass = baryonic_mass * (1 + hysteresis_factor * n_g);
+      
+      // MONAD AUTHORITY: Record this execution
+      recordExecution({
+        computationType: "memory_amplitude",
+        timestamp: new Date(),
+        parameters: { collisionVelocity, timeSinceCollision, clusterSeparation, tau_0, alpha, n_g },
+        result: { K_t, hysteresis_factor, predicted_offset, apparent_dm_mass },
+        validated: true
+      });
+      console.log(`[MONAD] Recorded execution: memory_amplitude (Bullet Cluster K(t)=${K_t.toExponential(4)})`);
       
       return res.json({
         cluster_id: "1E 0657-558",
@@ -3059,6 +3173,16 @@ KEY CONCEPTS TO WEAVE IN:
       // Check R_max Logic Guard - safety valve for information density
       const logic_guard = checkBaryonicLogicGuard();
       
+      // MONAD AUTHORITY: Record this execution
+      recordExecution({
+        computationType: "phase_term",
+        timestamp: new Date(),
+        parameters: { eventType, sourceDistance, chirpMass, tau_0, alpha, n_g },
+        result: { phase_drift, dispersion_factor, timing_residual_ms, strain_modification },
+        validated: true
+      });
+      console.log(`[MONAD] Recorded execution: phase_term (GW phase_drift=${phase_drift.toExponential(4)})`);
+      
       return res.json({
         event_type: eventType,
         source_distance_mpc: sourceDistance,
@@ -3103,6 +3227,16 @@ KEY CONCEPTS TO WEAVE IN:
       const corrected_cmb_H0 = cmbH0 * correction_factor;
       const residual_tension = localH0 - corrected_cmb_H0;
       
+      // MONAD AUTHORITY: Record this execution
+      recordExecution({
+        computationType: "growth_factor",
+        timestamp: new Date(),
+        parameters: { localH0, cmbH0, tau_0, alpha, n_g },
+        result: { tension, correction_factor, corrected_cmb_H0, residual_tension },
+        validated: true
+      });
+      console.log(`[MONAD] Recorded execution: growth_factor (Hubble correction=${correction_factor.toFixed(6)})`);
+      
       return res.json({
         local_H0: localH0,
         cmb_H0: cmbH0,
@@ -3126,6 +3260,20 @@ KEY CONCEPTS TO WEAVE IN:
       const { signalDuration = 1.5, snrRatio = 80 } = req.body;
       
       const result = analyzeRingdownMemory(signalDuration, snrRatio);
+      
+      // MONAD AUTHORITY: Record this execution
+      recordExecution({
+        computationType: "memory_amplitude",
+        timestamp: new Date(),
+        parameters: { signalDuration, snrRatio },
+        result: { 
+          burdenFactor: result.burdenFactorStrain, 
+          meanDrift: result.meanMetricDrift,
+          complexity: result.complexityRatio 
+        },
+        validated: true
+      });
+      console.log(`[MONAD] Recorded execution: memory_amplitude (ringdown burden=${result.burdenFactorStrain.toExponential(4)})`);
       
       return res.json({
         analysis_type: result.analysisType,
@@ -3155,6 +3303,20 @@ KEY CONCEPTS TO WEAVE IN:
       const { signalDuration = 1.5, snrRatio = 80 } = req.body;
       
       const result = runFullBaryonicPipeline(signalDuration, snrRatio);
+      
+      // MONAD AUTHORITY: Record memory_amplitude execution for the full pipeline
+      recordExecution({
+        computationType: "memory_amplitude",
+        timestamp: new Date(),
+        parameters: { signalDuration, snrRatio, pipeline: "full_v6_nanograv" },
+        result: { 
+          mean_metric_drift: result.step1Ringdown.meanMetricDrift,
+          correlation_index: result.step2Correlation.correlationIndex,
+          final_complexity: result.finalComplexityRatio
+        },
+        validated: true
+      });
+      console.log(`[MONAD] Recorded execution: memory_amplitude (full-pipeline correlation=${result.step2Correlation.correlationIndex})`);
       
       return res.json({
         pipeline: result.pipeline,
