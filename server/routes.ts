@@ -741,7 +741,7 @@ export async function registerRoutes(
               content: query
             }
           ],
-          max_tokens: 1024,
+          max_tokens: 4096,
           temperature: 0.2,
           search_recency_filter: "month"
         })
@@ -2802,7 +2802,7 @@ KEY CONCEPTS TO WEAVE IN:
         const completionOptions: OpenAI.Chat.ChatCompletionCreateParams = {
           model: "gpt-4o-mini",
           messages: chatMessages,
-          max_tokens: 1024,
+          max_tokens: 4096,
         };
         
         // Add tools when Live Grounding is active
@@ -2850,7 +2850,7 @@ KEY CONCEPTS TO WEAVE IN:
           const nextCompletion = await openai.chat.completions.create({
             model: "gpt-4o-mini",
             messages: chatMessages,
-            max_tokens: 1024,
+            max_tokens: 4096,
             tools: LIVE_GROUNDING_ACTIVE ? RAI_TOOLS : undefined,
             tool_choice: LIVE_GROUNDING_ACTIVE ? "auto" : undefined
           });

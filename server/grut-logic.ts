@@ -283,16 +283,17 @@ export function applyLogicGuardToResponse(responseText: string, complexityXi: nu
   // Combined with complexity saturation
   const saturationMultiplier = 1 - (complexityXi * 0.3); // Up to 30% additional suppression at full saturation
   
-  // Threshold for regulation: if density after suppression still > 1.5, truncate
-  const regulationThreshold = 1.5;
+  // Threshold for regulation: if density after suppression still > 3.0, truncate
+  // Raised from 1.5 to allow longer responses before truncation
+  const regulationThreshold = 3.0;
   const wasRegulated = effectiveDensity > regulationThreshold;
   
   let regulatedText = responseText;
   let regulationNote = "";
   
   if (wasRegulated) {
-    // Truncate to ~70% and add causal plateau marker
-    const truncateLength = Math.floor(responseText.length * 0.7);
+    // Truncate to ~90% and add causal plateau marker (raised from 70% for longer responses)
+    const truncateLength = Math.floor(responseText.length * 0.9);
     const truncatedText = responseText.substring(0, truncateLength);
     
     // Find last complete sentence
