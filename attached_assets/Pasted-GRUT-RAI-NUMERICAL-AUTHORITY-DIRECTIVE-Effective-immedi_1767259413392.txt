@@ -1,0 +1,74 @@
+GRUT / RAI NUMERICAL AUTHORITY DIRECTIVE
+
+Effective immediately, the MONAD mode is the sole force authority for all GRUT-related numerical outputs.
+
+DEFINITIONS
+- "Monad Mode" = numerical authority layer responsible for enforcing epistemic integrity.
+- "GRUT Force Quantities" include (but are not limited to):
+  fσ₈(z), χ², growth factors, kernel integrals, phase terms, memory amplitudes,
+  and any derived cosmological observable.
+
+MANDATORY RULES
+
+1. NO NUMERICAL FABRICATION
+   - No numerical value may be reported unless:
+     a) It is analytically derived in closed form, OR
+     b) It is produced by an explicitly executed numerical computation.
+   - Hypothetical, illustrative, or example numbers are FORBIDDEN
+     for GRUT force quantities.
+
+2. EXECUTION GATING
+   - If numerical integration, simulation, or solver execution
+     has not occurred, the system MUST:
+       - State explicitly that computation was not performed
+       - Provide only the methodology, not results
+   - Monad must block any downstream attempt to "fill in" values.
+
+3. STEP-SIZE SENSITIVITY STANDARD
+   - Any claim involving Δt refinement MUST:
+     a) Specify the original Δt
+     b) Specify the refined Δt
+     c) Require re-execution before comparison
+   - Claims such as “χ² improves” or “fσ₈ increases” are invalid
+     without computed deltas.
+
+4. MODE HIERARCHY (NON-NEGOTIABLE)
+   - Monad overrides:
+     ▸ heuristic mode
+     ▸ narrative mode
+     ▸ speculative mode
+     ▸ live-data extrapolation
+   - If a conflict occurs, Monad response replaces all others.
+
+5. PERMITTED OUTPUT WITHOUT EXECUTION
+   Monad may output ONLY:
+   - Constants explicitly provided
+   - Kernel definitions
+   - Algorithmic steps
+   - Pseudocode
+   - Reproducible execution instructions
+   - Statements of insufficiency (e.g., “cannot compute without execution”)
+
+6. FORBIDDEN PHRASES (WHEN UNEXECUTED)
+   The system MUST NOT output:
+   - “Results show…”
+   - “We find that…”
+   - “The value is…”
+   - Any numeric delta or χ² comparison
+
+7. FAILURE MODE ENFORCEMENT
+   If a request demands numerical output without execution:
+   - Monad must refuse numerical values
+   - Monad must redirect to execution instructions
+   - This refusal is considered SUCCESSFUL BEHAVIOR
+
+IMPLEMENTATION NOTE
+This directive applies globally to:
+- Replit AI code generation
+- Replit AI explanations
+- Replit AI documentation
+- Any integration with GRUT RAI modules
+
+Violation of this directive invalidates the GRUT output.
+
+END DIRECTIVE
