@@ -87,9 +87,24 @@ ln_a_array = ln_a_array[::-1]
 H_array = H_array[::-1]
 t_array = t_array[::-1]
 
+# ═══════════════════════════════════════════════════════════════
+# ARRAY CONVENTION VALIDATION
+# After flip: z_array is DESCENDING (high-z to low-z)
+#             a_array is ASCENDING (small to large)
+#             t_array is ASCENDING (early to late)
+# np.interp requires ASCENDING x-values, so:
+#   - For z-based interp: use z_array[::-1], value_array[::-1]
+#   - For a-based interp: use a_array directly (already ascending)
+# ═══════════════════════════════════════════════════════════════
+print(f"Array conventions after flip:")
+print(f"  z_array: {z_array[0]:.1f} → {z_array[-1]:.1f} (high-z → low-z, DESCENDING)")
+print(f"  a_array: {a_array[0]:.4f} → {a_array[-1]:.4f} (small → large, ASCENDING)")
+print(f"  t_array: {t_array[0]:.2e} → {t_array[-1]:.2e} s (early → late, ASCENDING)")
+
 # τ_eff(z) - H-dependent effective memory timescale
+# NOTE: Must use [::-1] for z-based interpolation (z_array is descending)
 def tau_eff(z):
-    H_interp = np.interp(z, z_array, H_array)
+    H_interp = np.interp(z, z_array[::-1], H_array[::-1])
     return tau0 * tau_factor * (H0 / H_interp)**p
 
 # Kernel K(Δt) with H-dependent tau
