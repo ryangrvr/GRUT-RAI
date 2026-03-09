@@ -1,0 +1,41 @@
+{
+  "title": "GRUT-RAI: Grand Responsive Universe Theory - Responsive AI Engine (Phase II)",
+  "version": "0.2.0-phase-ii",
+  "description": "Phase II release of GRUT-RAI, the auditable FastAPI physics engine for GRUT. Adds quantum bridge decoherence endpoint (EQ-QUANTUM-001, m^-2/3 slope law), Tier 0 local-tau collapse solver restoring physical infall, OP_QPRESS_001 finite-radius endpoint operator, and the full anti-artifact acceptance suite (8 tests). Companion software to the Phase II manuscript (DOI 10.5281/zenodo.18917257). Phase I concept DOI: 10.5281/zenodo.18521060.",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Grover, D. Ryan",
+      "affiliation": "Independent Researcher"
+    }
+  ],
+  "keywords": [
+    "GRUT",
+    "Grand Responsive Universe Theory",
+    "physics engine",
+    "quantum decoherence",
+    "gravitational decoherence",
+    "black hole collapse",
+    "viscoelastic vacuum",
+    "memory kernel",
+    "FastAPI",
+    "auditable physics",
+    "Diosi-Penrose",
+    "vacuum saturation radius"
+  ],
+  "license": "MIT",
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "10.5281/zenodo.18917257",
+      "scheme": "doi",
+      "resource_type": "publication-preprint"
+    },
+    {
+      "relation": "isNewVersionOf",
+      "identifier": "10.5281/zenodo.18521060",
+      "scheme": "doi",
+      "resource_type": "software"
+    }
+  ]
+}
