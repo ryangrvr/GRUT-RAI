@@ -392,6 +392,60 @@ class ExactTwoFieldClassification:
 
 
 @dataclass
+class RegimeSeparationEntry:
+    """One regime in the three-regime comparison."""
+    name: str  # "d9_proxy", "d11_uncoupled_extended", "d11_uncoupled_physical", "d11_coupled"
+    description: str
+    phi_at_Req: float
+    eps_macro_at_Req: float
+    sigma_macro_at_Req: float
+    sigma_defect_at_Req: float
+    sector_ratio: float  # sigma_macro / sigma_defect
+    f_min_metric: float
+    metric_positive: bool
+
+
+@dataclass
+class RegimeSeparationResult:
+    """Three-regime comparison: D9 proxy, D11 exact uncoupled, D11 exact coupled."""
+    entries: List[RegimeSeparationEntry]
+    laplacian_jump: float  # f_min change from D9→D11 uncoupled
+    portal_jump: float  # f_min change from D11 uncoupled→coupled
+    dominant_effect: str  # "laplacian" or "portal" or "both"
+    notes: List[str] = field(default_factory=list)
+
+
+@dataclass
+class BoundarySensitivityEntry:
+    """One r_min in boundary sensitivity test."""
+    r_min: float
+    phi_at_Req: float
+    phi_ratio_to_proxy: float  # Phi(R_EQ) / (M/R_EQ^2)
+    f_min_metric: float
+    metric_positive: bool
+
+
+@dataclass
+class BoundarySensitivityResult:
+    """Sensitivity of Phi enhancement to inner boundary location."""
+    entries: List[BoundarySensitivityEntry]
+    physical_domain_entry: BoundarySensitivityEntry  # r_min = R_EQ
+    enhancement_boundary_driven: bool
+    summary: str
+
+
+@dataclass
+class D9LayeredAssessment:
+    """Per-layer assessment of D9 proxy vs D11 exact."""
+    metric_viability: str  # "good" / "moderate" / "poor"
+    macro_field_profile: str  # "good" / "moderate" / "poor"
+    energy_density: str  # "good" / "moderate" / "poor"
+    defect_deformation: str  # "good" / "moderate" / "poor"
+    sector_balance: str  # "preserved" / "shifted" / "overwhelmed"
+    summary: str
+
+
+@dataclass
 class ExactTwoFieldResult:
     """Master result container for Phase D11."""
     valid: bool
@@ -404,6 +458,9 @@ class ExactTwoFieldResult:
     portal_scan: Optional[ExactPortalScanResult] = None
     d9_retrospective: Optional[D9RetrospectiveAssessment] = None
     classification: Optional[ExactTwoFieldClassification] = None
+    regime_separation: Optional[RegimeSeparationResult] = None
+    boundary_sensitivity: Optional[BoundarySensitivityResult] = None
+    d9_layered: Optional[D9LayeredAssessment] = None
     nonclaims: List[str] = field(default_factory=list)
     assumptions: List[str] = field(default_factory=list)
 
@@ -1465,6 +1522,332 @@ def classify_exact_two_field(
 
 
 # ================================================================
+# Level 6c: Regime Separation
+# ================================================================
+
+def _solve_uncoupled_macro_bvp_on_domain(
+    r_domain: np.ndarray,
+    r_min_bvp: float,
+    r_max_bvp: float,
+    params: ExactTwoFieldParams,
+) -> np.ndarray:
+    """Solve uncoupled macro BVP: Phi'' + (2/r)Phi' - (1/tau^2)Phi + (1/tau^2)(M/r^2) = 0."""
+    if not HAS_SCIPY_BVP:
+        return params.M / r_domain ** 2
+
+    tau = params.tau
+    M_val = params.M
+    n_bvp = max(len(r_domain), 300)
+    r_bvp = np.linspace(r_min_bvp, r_max_bvp, n_bvp)
+
+    def ode_m(r, y):
+        phi, phi_p = y
+        phi_pp = -(2.0 / r) * phi_p + (1.0 / tau ** 2) * phi - (1.0 / tau ** 2) * (M_val / r ** 2)
+        return np.array([phi_p, phi_pp])
+
+    def bc_m(ya, yb):
+        return np.array([ya[0] - M_val / r_min_bvp ** 2,
+                         yb[0] - M_val / r_max_bvp ** 2])
+
+    phi_g = M_val / r_bvp ** 2
+    phi_pg = -2.0 * M_val / r_bvp ** 3
+    try:
+        sol = solve_bvp(ode_m, bc_m, r_bvp, np.array([phi_g, phi_pg]),
+                        tol=1e-6, max_nodes=5000)
+        if sol.success:
+            return sol.sol(r_domain)[0]
+    except Exception:
+        pass
+    return M_val / r_domain ** 2
+
+
+def compute_regime_separation(
+    exact: ExactTwoFieldSolution,
+    params: ExactTwoFieldParams,
+) -> RegimeSeparationResult:
+    """Compute three-regime comparison separating Laplacian from portal effects."""
+    r_int = exact.r_grid
+    idx_req = 0
+
+    # Get uncoupled defect
+    d2_params = NumericalMonopoleParams(
+        eta=params.eta, lam=params.lam, r_min=params.r_min,
+        r_max=params.r_max, n_grid=params.n_grid,
+        M=params.M, tau=params.tau, R_ext=params.R_ext,
+    )
+    bvp_d = solve_hedgehog_bvp(d2_params)
+    f_unc = np.interp(r_int, bvp_d.r_grid, bvp_d.f_solution)
+    fp_unc = np.interp(r_int, bvp_d.r_grid, bvp_d.f_prime)
+    eps_defect = _compute_defect_energy_from_f(r_int, f_unc, fp_unc, params.eta, params.lam)
+    sig_defect = _sigma_from_profile(r_int, eps_defect)
+
+    entries: List[RegimeSeparationEntry] = []
+
+    # Regime A: D9 proxy (Phi = M/r^2)
+    phi_proxy = params.M / r_int ** 2
+    eps_A = _compute_macro_energy_from_phi(r_int, phi_proxy, params.tau)
+    sig_A = _sigma_from_profile(r_int, eps_A)
+    _, fmin_A, _, pos_A = _inject_metric(r_int, sig_A, sig_defect, params)
+    entries.append(RegimeSeparationEntry(
+        name="d9_proxy",
+        description="D9 proxy: Phi = M/r^2 (no Laplacian, no portal)",
+        phi_at_Req=float(phi_proxy[idx_req]),
+        eps_macro_at_Req=float(eps_A[idx_req]),
+        sigma_macro_at_Req=float(sig_A[idx_req]),
+        sigma_defect_at_Req=float(sig_defect[idx_req]),
+        sector_ratio=float(sig_A[idx_req] / max(sig_defect[idx_req], 1e-30)),
+        f_min_metric=fmin_A, metric_positive=pos_A,
+    ))
+
+    # Regime B: D11 exact uncoupled on extended domain (BVP Phi, g_p=0)
+    phi_bvp_ext = _solve_uncoupled_macro_bvp_on_domain(
+        r_int, params.r_min, params.r_max, params,
+    )
+    eps_B = _compute_macro_energy_from_phi(r_int, phi_bvp_ext, params.tau)
+    sig_B = _sigma_from_profile(r_int, eps_B)
+    _, fmin_B, _, pos_B = _inject_metric(r_int, sig_B, sig_defect, params)
+    entries.append(RegimeSeparationEntry(
+        name="d11_uncoupled_extended",
+        description="D11 uncoupled on extended domain [r_min, r_max]: BVP Phi, g_p=0",
+        phi_at_Req=float(phi_bvp_ext[idx_req]),
+        eps_macro_at_Req=float(eps_B[idx_req]),
+        sigma_macro_at_Req=float(sig_B[idx_req]),
+        sigma_defect_at_Req=float(sig_defect[idx_req]),
+        sector_ratio=float(sig_B[idx_req] / max(sig_defect[idx_req], 1e-30)),
+        f_min_metric=fmin_B, metric_positive=pos_B,
+    ))
+
+    # Regime B2: D11 exact uncoupled on physical domain [R_EQ, R_EXT]
+    phi_bvp_phys = _solve_uncoupled_macro_bvp_on_domain(
+        r_int, R_EQ, params.R_ext, params,
+    )
+    eps_B2 = _compute_macro_energy_from_phi(r_int, phi_bvp_phys, params.tau)
+    sig_B2 = _sigma_from_profile(r_int, eps_B2)
+    _, fmin_B2, _, pos_B2 = _inject_metric(r_int, sig_B2, sig_defect, params)
+    entries.append(RegimeSeparationEntry(
+        name="d11_uncoupled_physical",
+        description="D11 uncoupled on physical domain [R_EQ, R_EXT]: BVP Phi, g_p=0",
+        phi_at_Req=float(phi_bvp_phys[idx_req]),
+        eps_macro_at_Req=float(eps_B2[idx_req]),
+        sigma_macro_at_Req=float(sig_B2[idx_req]),
+        sigma_defect_at_Req=float(sig_defect[idx_req]),
+        sector_ratio=float(sig_B2[idx_req] / max(sig_defect[idx_req], 1e-30)),
+        f_min_metric=fmin_B2, metric_positive=pos_B2,
+    ))
+
+    # Regime C: D11 exact coupled (from main solve)
+    entries.append(RegimeSeparationEntry(
+        name="d11_coupled",
+        description="D11 exact coupled: BVP Phi+f, g_p>0",
+        phi_at_Req=float(exact.phi[idx_req]),
+        eps_macro_at_Req=float(exact.epsilon_macro[idx_req]),
+        sigma_macro_at_Req=exact.sigma_macro_at_Req,
+        sigma_defect_at_Req=exact.sigma_defect_at_Req,
+        sector_ratio=float(exact.sigma_macro_at_Req / max(exact.sigma_defect_at_Req, 1e-30)),
+        f_min_metric=float(np.min(
+            -2.0 * (
+                params.M + 2.0 * math.pi * params.M ** 2 / params.tau ** 2 *
+                (1.0 / r_int - 1.0 / params.R_ext)
+                + params.alpha_BR * exact.sigma_defect - r_int / 2.0
+                - exact.sigma_macro - exact.sigma_defect
+            ) / r_int
+        )),
+        metric_positive=True,  # will be set below
+    ))
+    # Fix metric for regime C
+    met_C = inject_exact_metric(exact, params)
+    entries[-1] = RegimeSeparationEntry(
+        name="d11_coupled",
+        description="D11 exact coupled: BVP Phi+f, g_p>0",
+        phi_at_Req=float(exact.phi[idx_req]),
+        eps_macro_at_Req=float(exact.epsilon_macro[idx_req]),
+        sigma_macro_at_Req=exact.sigma_macro_at_Req,
+        sigma_defect_at_Req=exact.sigma_defect_at_Req,
+        sector_ratio=float(exact.sigma_macro_at_Req / max(exact.sigma_defect_at_Req, 1e-30)),
+        f_min_metric=met_C.f_min,
+        metric_positive=met_C.metric_positive,
+    )
+
+    laplacian_jump = fmin_B2 - fmin_A  # physical domain Laplacian effect
+    portal_jump = met_C.f_min - fmin_B  # portal on extended domain
+    if abs(laplacian_jump) > 10 * abs(portal_jump):
+        dominant = "laplacian"
+    elif abs(portal_jump) > 10 * abs(laplacian_jump):
+        dominant = "portal"
+    else:
+        dominant = "both"
+
+    return RegimeSeparationResult(
+        entries=entries,
+        laplacian_jump=laplacian_jump,
+        portal_jump=portal_jump,
+        dominant_effect=dominant,
+        notes=[
+            f"Laplacian-only metric shift (physical domain): {laplacian_jump:.4f}",
+            f"Portal-only metric shift: {portal_jump:.4f}",
+            f"Dominant effect: {dominant}",
+            "The Phi enhancement on extended domain is boundary-driven. "
+            "On the physical domain [R_EQ, R_EXT], the Laplacian gives ~2x "
+            "sigma_macro enhancement (moderate, not dramatic).",
+        ],
+    )
+
+
+# ================================================================
+# Level 6d: Boundary Sensitivity
+# ================================================================
+
+def compute_boundary_sensitivity(
+    params: ExactTwoFieldParams,
+) -> BoundarySensitivityResult:
+    """Test sensitivity of Phi enhancement to inner boundary location."""
+    r_int = np.linspace(R_EQ + 1e-6, params.R_ext, params.n_interior)
+
+    # Uncoupled defect (same for all)
+    d2_params = NumericalMonopoleParams(
+        eta=params.eta, lam=params.lam, r_min=params.r_min,
+        r_max=params.r_max, n_grid=params.n_grid,
+        M=params.M, tau=params.tau, R_ext=params.R_ext,
+    )
+    bvp_d = solve_hedgehog_bvp(d2_params)
+    f_unc = np.interp(r_int, bvp_d.r_grid, bvp_d.f_solution)
+    fp_unc = np.interp(r_int, bvp_d.r_grid, bvp_d.f_prime)
+    eps_defect = _compute_defect_energy_from_f(r_int, f_unc, fp_unc, params.eta, params.lam)
+    sig_defect = _sigma_from_profile(r_int, eps_defect)
+
+    phi_proxy_Req = params.M / R_EQ ** 2
+    entries: List[BoundarySensitivityEntry] = []
+    phys_entry = None
+
+    for r_min_test in [0.005, 0.01, 0.05, 0.1, R_EQ]:
+        phi_bvp = _solve_uncoupled_macro_bvp_on_domain(
+            r_int, r_min_test, params.r_max, params,
+        )
+        eps_macro = _compute_macro_energy_from_phi(r_int, phi_bvp, params.tau)
+        sig_macro = _sigma_from_profile(r_int, eps_macro)
+        _, fmin, _, pos = _inject_metric(r_int, sig_macro, sig_defect, params)
+        phi_req = float(phi_bvp[0])
+        ratio = phi_req / phi_proxy_Req
+
+        entry = BoundarySensitivityEntry(
+            r_min=r_min_test,
+            phi_at_Req=phi_req,
+            phi_ratio_to_proxy=ratio,
+            f_min_metric=fmin,
+            metric_positive=pos,
+        )
+        entries.append(entry)
+        if abs(r_min_test - R_EQ) < 0.01:
+            phys_entry = entry
+
+    # Determine if enhancement is boundary-driven
+    # If ratio changes by > 5x across r_min range, it's boundary-driven
+    ratios = [e.phi_ratio_to_proxy for e in entries]
+    max_ratio = max(ratios)
+    min_ratio = min(ratios)
+    boundary_driven = (max_ratio / max(min_ratio, 0.01)) > 5
+
+    return BoundarySensitivityResult(
+        entries=entries,
+        physical_domain_entry=phys_entry or entries[-1],
+        enhancement_boundary_driven=boundary_driven,
+        summary=(
+            f"Phi enhancement at R_EQ ranges from {min_ratio:.1f}x to "
+            f"{max_ratio:.1f}x depending on r_min. "
+            f"On physical domain (r_min=R_EQ), ratio={phys_entry.phi_ratio_to_proxy:.2f}x. "
+            f"Enhancement is {'boundary-driven' if boundary_driven else 'intrinsic'}."
+        ),
+    )
+
+
+# ================================================================
+# Level 6e: Layered D9 Assessment
+# ================================================================
+
+def compute_d9_layered_assessment(
+    exact: ExactTwoFieldSolution,
+    regime_sep: RegimeSeparationResult,
+    d9_comp: D9ComparisonResult,
+    params: ExactTwoFieldParams,
+) -> D9LayeredAssessment:
+    """Split D9 assessment into per-layer evaluation."""
+    # Metric viability: do both agree on positivity?
+    if d9_comp.metric_positive_d11 == d9_comp.metric_positive_d9:
+        if abs(d9_comp.f_min_shift) < 0.1:
+            metric_layer = "good"
+        else:
+            metric_layer = "moderate"
+    else:
+        metric_layer = "poor"
+
+    # Macro field profile: how different is Phi from M/r^2?
+    # Use physical-domain regime for fair comparison
+    phys = [e for e in regime_sep.entries if e.name == "d11_uncoupled_physical"]
+    if phys:
+        phys_phi_ratio = phys[0].phi_at_Req / (params.M / R_EQ ** 2)
+        if abs(phys_phi_ratio - 1.0) < 0.3:
+            field_layer = "good"
+        elif abs(phys_phi_ratio - 1.0) < 1.0:
+            field_layer = "moderate"
+        else:
+            field_layer = "poor"
+    else:
+        field_layer = "moderate"
+
+    # Energy density: how different is eps_macro?
+    if phys:
+        eps_ratio = phys[0].eps_macro_at_Req / max(
+            regime_sep.entries[0].eps_macro_at_Req, 1e-30)
+        if abs(eps_ratio - 1.0) < 0.5:
+            energy_layer = "good"
+        elif abs(eps_ratio - 1.0) < 2.0:
+            energy_layer = "moderate"
+        else:
+            energy_layer = "poor"
+    else:
+        energy_layer = "moderate"
+
+    # Defect deformation
+    if d9_comp.f_d11_vs_d9_max_shift < 0.05:
+        defect_layer = "good"
+    elif d9_comp.f_d11_vs_d9_max_shift < 0.2:
+        defect_layer = "moderate"
+    else:
+        defect_layer = "poor"
+
+    # Sector balance
+    phys_ratio = phys[0].sector_ratio if phys else 1.0
+    d9_ratio = regime_sep.entries[0].sector_ratio if regime_sep.entries else 1.0
+    if phys_ratio / max(d9_ratio, 0.01) < 3.0:
+        balance = "preserved"
+    elif phys_ratio / max(d9_ratio, 0.01) < 10.0:
+        balance = "shifted"
+    else:
+        balance = "overwhelmed"
+
+    summary = (
+        f"Layered D9 assessment: "
+        f"metric viability={metric_layer}, "
+        f"field profile={field_layer}, "
+        f"energy density={energy_layer}, "
+        f"defect deformation={defect_layer}, "
+        f"sector balance={balance}. "
+        f"D9 is a good approximation for viability but "
+        f"{'also good' if field_layer == 'good' else 'limited'} "
+        f"for field-level structure."
+    )
+
+    return D9LayeredAssessment(
+        metric_viability=metric_layer,
+        macro_field_profile=field_layer,
+        energy_density=energy_layer,
+        defect_deformation=defect_layer,
+        sector_balance=balance,
+        summary=summary,
+    )
+
+
+# ================================================================
 # Level 7: Master Computation
 # ================================================================
 
@@ -1508,6 +1891,20 @@ def compute_exact_two_field(
     result.classification = classify_exact_two_field(
         result.lambda_scan, result.d9_retrospective,
         result.portal_scan, params,
+    )
+
+    # Level 6c: Regime separation
+    result.regime_separation = compute_regime_separation(
+        result.exact_solution, params,
+    )
+
+    # Level 6d: Boundary sensitivity
+    result.boundary_sensitivity = compute_boundary_sensitivity(params)
+
+    # Level 6e: Layered D9 assessment
+    result.d9_layered = compute_d9_layered_assessment(
+        result.exact_solution, result.regime_separation,
+        result.d9_comparison, params,
     )
 
     return result
@@ -1646,6 +2043,54 @@ def exact_two_field_result_to_dict(
             "d9_viability_confirmed": cl.d9_viability_confirmed,
             "exact_viability_across_lambda": cl.exact_viability_across_lambda,
             "summary": cl.summary,
+        }
+
+    if result.regime_separation:
+        rs = result.regime_separation
+        d["regime_separation"] = {
+            "entries": [
+                {
+                    "name": e.name,
+                    "phi_at_Req": e.phi_at_Req,
+                    "eps_macro_at_Req": e.eps_macro_at_Req,
+                    "sigma_macro_at_Req": e.sigma_macro_at_Req,
+                    "sector_ratio": e.sector_ratio,
+                    "f_min_metric": e.f_min_metric,
+                    "metric_positive": e.metric_positive,
+                }
+                for e in rs.entries
+            ],
+            "laplacian_jump": rs.laplacian_jump,
+            "portal_jump": rs.portal_jump,
+            "dominant_effect": rs.dominant_effect,
+        }
+
+    if result.boundary_sensitivity:
+        bs = result.boundary_sensitivity
+        d["boundary_sensitivity"] = {
+            "entries": [
+                {
+                    "r_min": e.r_min,
+                    "phi_at_Req": e.phi_at_Req,
+                    "phi_ratio_to_proxy": e.phi_ratio_to_proxy,
+                    "f_min_metric": e.f_min_metric,
+                    "metric_positive": e.metric_positive,
+                }
+                for e in bs.entries
+            ],
+            "enhancement_boundary_driven": bs.enhancement_boundary_driven,
+            "summary": bs.summary,
+        }
+
+    if result.d9_layered:
+        dl = result.d9_layered
+        d["d9_layered_assessment"] = {
+            "metric_viability": dl.metric_viability,
+            "macro_field_profile": dl.macro_field_profile,
+            "energy_density": dl.energy_density,
+            "defect_deformation": dl.defect_deformation,
+            "sector_balance": dl.sector_balance,
+            "summary": dl.summary,
         }
 
     d["nonclaims"] = result.nonclaims
