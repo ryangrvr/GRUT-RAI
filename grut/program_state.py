@@ -147,9 +147,9 @@ class ProgramIdentity:
 @dataclass
 class SchemaMeta:
     """Schema metadata."""
-    schema_version: str = "1.9.0"
+    schema_version: str = "FINAL"
     last_updated: str = "2026-04"
-    last_book: str = "XVI_Beta_WeakField"
+    last_book: str = "GRUT_IV_Beta_Terminal"
     charter_version: str = "1.0"
 
 
@@ -175,21 +175,17 @@ class ProgramState:
 # =====================================================================
 
 def build_current_state() -> ProgramState:
-    """Build the canonical current program state after Book XVI Beta."""
+    """Build the FINAL program state. GRUT/II/III/IV all closed."""
 
     identity = ProgramIdentity(
         identity_statement=(
-            "GRUT is a dissipative-vacuum-response constitutive architecture "
-            "(tau dPhi/dt + Phi = X) with one irreducible structural claim: "
-            "the constitutive dissipation, coupled to Einstein gravity, predicts "
-            "a specific equilibrium energy-momentum rho_eq = -X^2/(2tau^2), "
-            "w = -1, NEC-saturated (Phase 4, xAct-verified). This is derived "
-            "from one postulate with one free parameter (tau). The claim "
-            "survives adversarial math and cannot be reduced to GR + matter. "
-            "Adverse consequences (worsened interiors, anti-acceleration) are "
-            "the predictions. Five bridge extensions produce matter through "
-            "biology (26 zero-cost targets). Compact-object frontier collapsed "
-            "(XVI Alpha sign error). Next: constrain tau from observation."
+            "GRUT PROGRAM CLOSED (FINAL). Deterministic irreversible "
+            "constitutive framework: tau dPhi/dt + Phi = X. Single attractor. "
+            "Five theorems. 26 biology targets from 5 bridges (16P/11p/1F/6DOF). "
+            "15 routes tested; 0 survived. Gravity: reducible + silent. "
+            "Probability: unique-attractor blocked. GRUT-II: D falsified by O4a. "
+            "GRUT-III: no viable D(r). GRUT-IV: multiplicity was artifact. "
+            "Stable endpoint: the grammar and the audit methodology."
         ),
         public_canon_layer="Omni-ToE v3; Phase I-III locked; NIS-certified packets",
         validated_baseline_layer=(
@@ -197,12 +193,10 @@ def build_current_state() -> ProgramState:
             "matter-within-GR gravity; locked numerical results (tov_interior.py)"
         ),
         active_frontier_layer=(
-            "Equilibrium T^Phi (rho_eq = -X^2/(2tau^2)) is REDUCIBLE to GR + "
-            "massive scalar at equilibrium and OBSERVATIONALLY SILENT at all "
-            "physical tau values (XVI Beta weak-field: corrections 10^-16 or "
-            "smaller). Structural novelty is DYNAMICS ONLY (native dissipation, "
-            "Lyapunov, time-reversal breaking). GGB UNCOMMITTED. Compact-object "
-            "frontier COLLAPSED (XVI Alpha). Surplus = 0."
+            "PROGRAM CLOSED (FINAL). 15 routes tested, 0 survived. "
+            "GRUT: deterministic, single-attractor. GRUT-II: D falsified "
+            "by O4a. GRUT-III: no viable D(r). GRUT-IV: multiplicity "
+            "artifact. Archive frozen. No continuation under GRUT name."
         ),
         toe_status=ToEStatus.CONDITIONALLY_REOPENABLE,
         gravity_identity="Matter/organization theory within standard Einstein gravity",
@@ -407,6 +401,10 @@ def build_current_state() -> ProgramState:
         FailedRoute("Equilibrium compact-object path", "XVI Alpha",
                     "Self-consistent equilibrium mass singular at r ~ 0.75; path not viable",
                     "strong_field_compact", permanently_failed=True),
+        FailedRoute("Equilibrium gravity-distinction claim", "XVI Beta",
+                    "Reducible to GR + massive scalar at equilibrium; "
+                    "observationally silent at all physical tau (corrections 10^-16)",
+                    "strong_field_compact", permanently_failed=True),
     ]
 
     # --- Nonclaims ---
@@ -445,6 +443,11 @@ def build_current_state() -> ProgramState:
         "XVI Alpha: Conditional surpluses COLLAPSE from 2-3 to 0",
         "XVI Alpha: Proper-time rate = 1/tau ALWAYS; no rate amplification mechanism",
         "XVI Alpha: Equilibrium mass ODE SINGULAR (confirms XIII Gamma, tov_interior.py)",
+        "XVI Beta: Equilibrium T^Phi REDUCIBLE to GR + massive scalar (m_phi = 1/tau)",
+        "XVI Beta: Weak-field correction OBSERVATIONALLY SILENT at all physical tau (10^-16)",
+        "XVI Beta: Source identification X AMBIGUOUS in exterior (R = 0 in Schwarzschild)",
+        "XVI Terminal: Equilibrium gravity route formally FROZEN; 10 routes total",
+        "XVI Terminal: Program recentered on dynamical core (5 theorems, unanchored)",
     ]
 
     return ProgramState(
