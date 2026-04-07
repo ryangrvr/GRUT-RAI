@@ -175,17 +175,23 @@ class ProgramState:
 # =====================================================================
 
 def build_current_state() -> ProgramState:
-    """Build the FINAL program state. GRUT/II/III/IV all closed."""
+    """Build the current program state. See CANONICAL_NAMING_AND_LINEAGE_MAP.md."""
 
     identity = ProgramIdentity(
         identity_statement=(
-            "GRUT PROGRAM CLOSED (FINAL). Deterministic irreversible "
+            "GRUT-I CLOSED (FINAL). Deterministic irreversible "
             "constitutive framework: tau dPhi/dt + Phi = X. Single attractor. "
             "Five theorems. 26 biology targets from 5 bridges (16P/11p/1F/6DOF). "
             "15 routes tested; 0 survived. Gravity: reducible + silent. "
-            "Probability: unique-attractor blocked. GRUT-II: D falsified by O4a. "
-            "GRUT-III: no viable D(r). GRUT-IV: multiplicity was artifact. "
-            "Stable endpoint: the grammar and the audit methodology."
+            "Probability: unique-attractor blocked. "
+            "GRUT-I Part 2 (formerly GRUT-II): D falsified by O4a. "
+            "GRUT-I Part 3 (formerly GRUT-III): no viable D(r). "
+            "GRUT-I Part 4 (formerly GRUT-IV): multiplicity was artifact. "
+            "GRUT-II (Theory of Scaling): quantum sector terminally closed "
+            "at Nu-Prime. USL derived from CTP influence functional. "
+            "Hardware-limited, not theory-limited. "
+            "GRUT-III: authorized, not yet started (foundational closure phase). "
+            "See CANONICAL_NAMING_AND_LINEAGE_MAP.md for full alias resolution."
         ),
         public_canon_layer="Omni-ToE v3; Phase I-III locked; NIS-certified packets",
         validated_baseline_layer=(
@@ -193,10 +199,10 @@ def build_current_state() -> ProgramState:
             "matter-within-GR gravity; locked numerical results (tov_interior.py)"
         ),
         active_frontier_layer=(
-            "PROGRAM CLOSED (FINAL). 15 routes tested, 0 survived. "
-            "GRUT: deterministic, single-attractor. GRUT-II: D falsified "
-            "by O4a. GRUT-III: no viable D(r). GRUT-IV: multiplicity "
-            "artifact. Archive frozen. No continuation under GRUT name."
+            "GRUT-I CLOSED. GRUT-II quantum sector CLOSED (Nu-Prime). "
+            "GRUT-II strong-field + foundational sectors: open issues remain. "
+            "GRUT-III AUTHORIZED: foundational-closure / admissibility phase. "
+            "First issue: tau derivation from gravitational spectral density."
         ),
         toe_status=ToEStatus.CONDITIONALLY_REOPENABLE,
         gravity_identity="Matter/organization theory within standard Einstein gravity",
