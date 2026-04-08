@@ -1,0 +1,205 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      6411,        195]
+NotebookOptionsPosition[      5835,        177]
+NotebookOutlinePosition[      6228,        193]
+CellTagsIndexPosition[      6185,        190]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Final", " ", "Grover", " ", 
+    RowBox[{"Law", ":", 
+     RowBox[{
+      RowBox[{"Density", " ", "Correction"}], "+", 
+      RowBox[{"Asymptotic", " ", "Saturation"}]}]}]}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"R", "=", "1.15428"}], ";", 
+    RowBox[{"gamma", "=", "0.45"}], ";", 
+    RowBox[{"sigmaRef", "=", "500"}], ";", 
+    RowBox[{"sMax", "=", "22.0"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"kappa", "=", 
+     RowBox[{"0.8", "/", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"10", "^", "8.5"}], ")"}], "^", 
+       RowBox[{"(", 
+        RowBox[{"1", "/", "3"}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+   "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Refined", " ", "s"}], "-", 
+     RowBox[{"Law", " ", "with", " ", "Saturation"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sScaling", "[", 
+      RowBox[{"mb_", ",", "sigmaB_"}], "]"}], ":=", 
+     RowBox[{"kappa", "*", 
+      RowBox[{"mb", "^", 
+       RowBox[{"(", 
+        RowBox[{"1", "/", "3"}], ")"}]}], "*", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"sigmaRef", "/", "sigmaB"}], ")"}], "^", "gamma"}]}]}], ";"}],
+    "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"sFinal", "[", 
+      RowBox[{"mb_", ",", "sigmaB_"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"sScaling", "[", 
+         RowBox[{"mb", ",", "sigmaB"}], "]"}], "*", "sMax"}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"sScaling", "[", 
+         RowBox[{"mb", ",", "sigmaB"}], "]"}], "+", "sMax"}], ")"}]}]}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Census", " ", 
+     RowBox[{"Data", ":", 
+      RowBox[{"{", 
+       RowBox[{"LogMb", ",", "SigmaB", ",", "r", ",", "Vobs", ",", "Vbar"}], 
+       "}"}]}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"census", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"8.2", ",", "15", ",", "2.5", ",", "82", ",", "12"}], "}"}], ",", 
+       RowBox[{"(*", "Dwarf_A", "*)"}], 
+       RowBox[{"{", 
+        RowBox[{"11.5", ",", "2000", ",", "30.0", ",", "335", ",", "260"}], 
+        "}"}], ",", 
+       RowBox[{"(*", "Elliptical_A", "*)"}], 
+       RowBox[{"{", 
+        RowBox[{"12.5", ",", "1200", ",", "100.0", ",", "380", ",", "200"}], 
+        "}"}]}], " ", 
+      RowBox[{"(*", "Giant_A", "*)"}], "}"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"s", "=", 
+       RowBox[{"sFinal", "[", 
+        RowBox[{
+         RowBox[{"10", "^", "logMb"}], ",", "sigmaB"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"vAnomSq", "=", 
+       RowBox[{
+        RowBox[{"220", "^", "2"}], "*", "r", "*", 
+        RowBox[{"(", 
+         RowBox[{"R", "/", 
+          RowBox[{"(", 
+           RowBox[{"r", "+", "s"}], ")"}]}], ")"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"vPred", "=", 
+       RowBox[{"Sqrt", "[", 
+        RowBox[{
+         RowBox[{"vBar", "^", "2"}], "+", "vAnomSq"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"logMb", ",", 
+        RowBox[{"\"\<Residual\>\"", "->", 
+         RowBox[{"vObs", "-", "vPred"}]}]}], "}"}]}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"logMb", ",", "sigmaB", ",", "r", ",", "vObs", ",", "vBar"}], 
+       "}"}], "->", "census"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.975512454952927*^9, 3.9755124549551973`*^9}},
+ CellLabel->
+  "In[121]:=",ExpressionUUID->"e8a5e522-eef2-4070-98e7-a0d0861acd28"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Nonlist iterator \\!\\(\\*RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{\\\"logMb\\\", \\\",\\\", \\\"sigmaB\\\", \\\",\\\", \\\"r\\\", \\\",\
+\\\", \\\"vObs\\\", \\\",\\\", \\\"vBar\\\"}], \\\"}\\\"}], \\\"\[Rule]\\\", \
+\\\"census\\\"}]\\) at position \\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not \
+evaluate to a real numeric value.\"", 2, 127, 3, 35082726002112432486, 
+   "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.975512456422661*^9},
+ CellLabel->
+  "During evaluation of \
+In[121]:=",ExpressionUUID->"47909726-c44f-45d3-80e4-10f264745d17"],
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"s", "=", 
+     RowBox[{"sFinal", "[", 
+      RowBox[{
+       SuperscriptBox["10", "logMb"], ",", "sigmaB"}], "]"}]}], ";", 
+    RowBox[{"vAnomSq", "=", 
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["220", "2"], " ", "r", " ", "R"}], 
+      RowBox[{"r", "+", "s"}]]}], ";", 
+    RowBox[{"vPred", "=", 
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox["vBar", "2"], "+", "vAnomSq"}]]}], ";", 
+    RowBox[{"{", 
+     RowBox[{"logMb", ",", 
+      RowBox[{"\<\"Residual\"\>", "\[Rule]", 
+       RowBox[{"vObs", "-", "vPred"}]}]}], "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"logMb", ",", "sigmaB", ",", "r", ",", "vObs", ",", "vBar"}], 
+     "}"}], "\[Rule]", "census"}]}], "]"}]], "Output",
+ CellChangeTimes->{3.975512456428814*^9},
+ CellLabel->
+  "Out[127]=",ExpressionUUID->"c66ef384-1dbf-4f5b-af0d-e2f1d322116b"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{132, Automatic}, {Automatic, 44}},
+FrontEndVersion->"14.3 for Mac OS X x86 (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"eb732c56-080d-4f6c-8e6e-9b2bdb59fdd1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 3694, 107, 335, "Input",ExpressionUUID->"e8a5e522-eef2-4070-98e7-a0d0861acd28"],
+Cell[4273, 131, 631, 14, 26, "Message",ExpressionUUID->"47909726-c44f-45d3-80e4-10f264745d17"],
+Cell[4907, 147, 912, 27, 128, "Output",ExpressionUUID->"c66ef384-1dbf-4f5b-af0d-e2f1d322116b"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

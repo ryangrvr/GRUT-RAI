@@ -1,0 +1,134 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      3940,        124]
+NotebookOptionsPosition[      3341,        104]
+NotebookOutlinePosition[      3733,        120]
+CellTagsIndexPosition[      3690,        117]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Grover", " ", 
+    RowBox[{"Protocol", ":", 
+     RowBox[{"Plasma", "-", 
+      RowBox[{"Phase", " ", "Structural", " ", "Refinement"}]}]}]}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"RUniv", "=", "1.15428"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"alpha", "=", "0.5"}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{"Coupling", " ", "to", " ", "entropy"}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"TRef", "=", "0.1"}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{"Galactic", " ", "baseline", " ", "in", " ", "keV"}], "*)"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Thermodynamic", " ", "Boost", " ", "Function"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Boost", "[", 
+      RowBox[{"T_", ",", "fgas_"}], "]"}], ":=", 
+     RowBox[{"1", "+", 
+      RowBox[{"alpha", "*", 
+       RowBox[{"(", 
+        RowBox[{"T", "/", "TRef"}], ")"}], "*", "fgas"}]}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Effective", " ", "Potential", " ", "Strength"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"REff", "[", 
+      RowBox[{"T_", ",", "fgas_"}], "]"}], ":=", 
+     RowBox[{"RUniv", "*", 
+      RowBox[{"Boost", "[", 
+       RowBox[{"T", ",", "fgas"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   "\n", 
+   RowBox[{"(*", 
+    RowBox[{"Comparative", " ", "Test"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Spiral R_eff: \>\"", ",", 
+      RowBox[{"REff", "[", 
+       RowBox[{"0.1", ",", "0.15"}], "]"}]}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Cluster R_eff: \>\"", ",", 
+      RowBox[{"REff", "[", 
+       RowBox[{"10.0", ",", "0.85"}], "]"}]}], "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.975514475675462*^9, 3.9755144756778727`*^9}},
+ CellLabel->
+  "In[128]:=",ExpressionUUID->"5d481f36-8e19-4f0e-8a89-736174323e84"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Spiral R_eff: \"\>", "\[InvisibleSpace]", "1.240851`"}],
+  SequenceForm["Spiral R_eff: ", 1.240851],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.975514476815928*^9},
+ CellLabel->
+  "During evaluation of \
+In[128]:=",ExpressionUUID->"1f1a774f-02bb-47eb-9cb9-2f276397c759"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Cluster R_eff: \"\>", "\[InvisibleSpace]", "50.21118`"}],
+  SequenceForm["Cluster R_eff: ", 50.21118],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.975514476817429*^9},
+ CellLabel->
+  "During evaluation of \
+In[128]:=",ExpressionUUID->"956cc378-e8ff-4e92-b56c-d65c45e9b8b3"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 60}, {Automatic, 52}},
+FrontEndVersion->"14.3 for Mac OS X x86 (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"81ee0be3-02b6-46d4-8206-803dd028b219"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 2053, 56, 294, "Input",ExpressionUUID->"5d481f36-8e19-4f0e-8a89-736174323e84"],
+Cell[CellGroupData[{
+Cell[2654, 82, 327, 8, 23, "Print",ExpressionUUID->"1f1a774f-02bb-47eb-9cb9-2f276397c759"],
+Cell[2984, 92, 329, 8, 23, "Print",ExpressionUUID->"956cc378-e8ff-4e92-b56c-d65c45e9b8b3"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

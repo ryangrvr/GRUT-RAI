@@ -1,0 +1,317 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     10938,        307]
+NotebookOptionsPosition[     10329,        287]
+NotebookOutlinePosition[     10723,        303]
+CellTagsIndexPosition[     10680,        300]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Phase", " ", "1"}], ":", 
+    RowBox[{
+     RowBox[{
+     "Deriving", " ", "the", " ", "Logarithmic", " ", "Tail", " ", "from", " ",
+       "the", " ", "Non"}], "-", 
+     RowBox[{"local", " ", "Anomaly"}]}]}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Define", " ", "the", " ", "non"}], "-", 
+     RowBox[{
+     "local", " ", "operator", " ", "kernel", " ", "in", " ", "momentum", " ",
+       "space", " ", "for", " ", "the", " ", 
+      RowBox[{"1", "/", 
+       RowBox[{"k", "^", "4"}]}], " ", "limit"}]}], "*)"}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"This", " ", "represents", " ", "the", " ", "anomaly"}], "-", 
+     RowBox[{
+     "induced", " ", "correction", " ", "to", " ", "the", " ", "graviton", " ",
+       "propagator"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"kernel", "[", 
+      RowBox[{"k_", ",", "R_"}], "]"}], ":=", 
+     RowBox[{"1", "/", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"k", "^", "2"}], "+", 
+        RowBox[{"R", "*", 
+         RowBox[{"k", "^", "4"}]}]}], ")"}]}]}], ";"}], "\[IndentingNewLine]",
+    "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Fourier", " ", "Transform", " ", "the", " ", "kernel", " ", "to", " ", 
+     "find", " ", "the", " ", "spatial", " ", "potential", " ", "V", 
+     RowBox[{"(", "r", ")"}]}], "*)"}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"For", " ", "a", " ", "point", " ", "source", " ", "delta", 
+      RowBox[{"(", "r", ")"}]}], ",", 
+     RowBox[{"V", 
+      RowBox[{"(", "r", ")"}], " ", "is", " ", "the", " ", 
+      RowBox[{"Green", "'"}], "s", " ", "function", " ", "of", " ", "the", " ",
+       "modified", " ", "Poisson", " ", "eqn"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"potentialDerivation", "=", 
+     RowBox[{"FullSimplify", "[", 
+      RowBox[{"InverseFourierTransform", "[", 
+       RowBox[{
+        RowBox[{"kernel", "[", 
+         RowBox[{
+          RowBox[{"Norm", "[", 
+           RowBox[{"{", 
+            RowBox[{"kx", ",", "ky", ",", "kz"}], "}"}], "]"}], ",", 
+          "R_inv"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"kx", ",", "ky", ",", "kz"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Outputting", " ", "the", " ", "functional", " ", "form", " ", "shows", " ",
+      "the", " ", "emergence", " ", "of", " ", "the", " ", "Log", 
+     RowBox[{"(", "r", ")"}], " ", "term"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Derived Potential Form (r -> Infinity): \>\"", ",", 
+      "potentialDerivation"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"Phase", " ", "2"}], ":", 
+     RowBox[{"Stochastic", " ", "Langevin", " ", "Relaxation", " ", 
+      RowBox[{"(", 
+       RowBox[{
+       "Deriving", " ", "the", " ", "20", " ", "Gyr", " ", "Horizon"}], 
+       ")"}]}]}], "*)"}], "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Modeling", " ", "the", " ", "metric", " ", "memory", " ", "decay", " ", 
+     "as", " ", "a", " ", "dissipative", " ", "system"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"gammaValue", "=", 
+     RowBox[{"1", "/", "20"}]}], ";"}], " ", 
+   RowBox[{"(*", 
+    RowBox[{"Dissipation", " ", "derived", " ", "from", " ", 
+     RowBox[{"Im", "[", 
+      RowBox[{"Self", "-", "Energy"}], "]"}]}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"stochasticEq", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", "'"}], "[", "t", "]"}], "==", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "gammaValue"}], "*", 
+        RowBox[{"x", "[", "t", "]"}]}], "+", 
+       RowBox[{"WhiteNoiseProcess", "[", "]"}]}]}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Solve", " ", "for", " ", "the", " ", "mean", " ", "relaxation", " ", 
+     "of", " ", "a", " ", "metric", " ", "perturbation", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"e", ".", "g", "."}], ",", 
+       RowBox[{"a", " ", "cluster", " ", "collision"}]}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sol", "=", 
+     RowBox[{"SolveValue", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"m", "'"}], "[", "t", "]"}], "==", 
+          RowBox[{
+           RowBox[{"-", "gammaValue"}], "*", 
+           RowBox[{"m", "[", "t", "]"}]}]}], ",", 
+         RowBox[{
+          RowBox[{"m", "[", "0", "]"}], "==", "1"}]}], "}"}], ",", 
+       RowBox[{"m", "[", "t", "]"}], ",", "t"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Plotting", " ", "the", " ", "Microscopic", " ", "Decay", " ", "Law"}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"relaxationPlot", "=", 
+     RowBox[{"Plot", "[", 
+      RowBox[{"sol", ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "60"}], "}"}], ",", 
+       RowBox[{"PlotStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", 
+          RowBox[{"Thickness", "[", "0.01", "]"}]}], "}"}]}], ",", 
+       RowBox[{"Frame", "->", "True"}], ",", 
+       RowBox[{"FrameLabel", "->", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Time (Gyr)\>\"", 
+          ",", "\"\<Metric Memory Amplitude\>\""}], "}"}]}], ",", 
+       RowBox[{
+       "PlotLabel", 
+        "->", "\"\<Derivation: Exponential Relaxation from Stochastic Gravity\
+\>\""}], ",", 
+       RowBox[{"Background", "->", "Black"}], ",", 
+       RowBox[{"FrameStyle", "->", "White"}]}], "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", "relaxationPlot", "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.9755081421070347`*^9, 3.975508142109075*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"b9e83c8c-6be4-4665-b874-98b2aee2c3a5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Derived Potential Form (r -> Infinity): \"\>", "\[InvisibleSpace]", 
+   RowBox[{"InverseFourierTransform", "[", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"Abs", "[", "kx", "]"}], "2"], "+", 
+       SuperscriptBox[
+        RowBox[{"Abs", "[", "ky", "]"}], "2"], "+", 
+       SuperscriptBox[
+        RowBox[{"Abs", "[", "kz", "]"}], "2"], "+", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"Abs", "[", "kx", "]"}], "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"Abs", "[", "ky", "]"}], "2"], "+", 
+           SuperscriptBox[
+            RowBox[{"Abs", "[", "kz", "]"}], "2"]}], ")"}], "2"], " ", 
+        "R_inv"}]}]], ",", 
+     RowBox[{"{", 
+      RowBox[{"kx", ",", "ky", ",", "kz"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}]}],
+  SequenceForm["Derived Potential Form (r -> Infinity): ", 
+   InverseFourierTransform[(Abs[$CellContext`kx]^2 + Abs[$CellContext`ky]^2 + 
+     Abs[$CellContext`kz]^2 + (Abs[$CellContext`kx]^2 + 
+        Abs[$CellContext`ky]^2 + Abs[$CellContext`kz]^2)^2 
+      Pattern[$CellContext`R, 
+        Blank[$CellContext`inv]])^(-1), {$CellContext`kx, $CellContext`ky, \
+$CellContext`kz}, {$CellContext`x, $CellContext`y, $CellContext`z}]],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.975508256830494*^9, 3.9755082570766582`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[56]:=",ExpressionUUID->"c31172b8-6f56-40fc-a87b-f4dead2233cb"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  Background->GrayLevel[0],
+  DefaultBaseStyle->{"PlotGraphics", "Graphics"},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox[
+      TagBox["\"Metric Memory Amplitude\"", HoldForm], TraditionalForm], 
+     None}, {
+     FormBox[
+      TagBox["\"Time (Gyr)\"", HoldForm], TraditionalForm], None}},
+  FrameStyle->GrayLevel[1],
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotInteractivity:>True,
+  PlotLabel->FormBox[
+   "\"Derivation: Exponential Relaxation from Stochastic Gravity\"", 
+    TraditionalForm],
+  PlotRange->{{0, 60}, {0., 0.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Print",
+ CellChangeTimes->{{3.975508256830494*^9, 3.975508257126038*^9}},
+ CellLabel->
+  "During evaluation of \
+In[56]:=",ExpressionUUID->"a9c7f9af-f519-4970-ae50-ebd6dcefd724"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1040, 911},
+WindowMargins->{{Automatic, -97}, {21, Automatic}},
+FrontEndVersion->"14.3 for Mac OS X x86 (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"84ce14a4-2622-4758-9704-8a3295eada30"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 6119, 160, 560, "Input",ExpressionUUID->"b9e83c8c-6be4-4665-b874-98b2aee2c3a5"],
+Cell[CellGroupData[{
+Cell[6720, 186, 1608, 39, 62, "Print",ExpressionUUID->"c31172b8-6f56-40fc-a87b-f4dead2233cb"],
+Cell[8331, 227, 1970, 56, 250, "Print",ExpressionUUID->"a9c7f9af-f519-4970-ae50-ebd6dcefd724"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,123 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      3926,        113]
+NotebookOptionsPosition[      3357,         95]
+NotebookOutlinePosition[      3747,        111]
+CellTagsIndexPosition[      3704,        108]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"R", "=", "1.15428"}], ";", 
+  RowBox[{"\[CurlyPhi]", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}], "/", "2"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[CapitalDelta]S", "[", "\[Alpha]_", "]"}], ":=", 
+   RowBox[{"kB", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Alpha]", " ", 
+       RowBox[{"Log", "[", "\[Alpha]", "]"}]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         RowBox[{"1", "/", "\[Alpha]"}]}], ")"}], " ", 
+       RowBox[{"Log", "[", 
+        RowBox[{"1", "-", 
+         RowBox[{"1", "/", "\[Alpha]"}]}], "]"}]}]}], ")"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[CapitalDelta]S", "[", "\[Alpha]", "]"}], "-", 
+    RowBox[{"\[CapitalDelta]S", "[", "\[CurlyPhi]", "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Alpha]", ",", "0.1", ",", "3"}], "}"}], ",", 
+   RowBox[{
+   "PlotLabel", "\[RightArrow]", "\"\<Entropy drop to \[CurlyPhi]\>\""}]}], 
+  "]"}], "\n"}], "Input",
+ CellChangeTimes->{{3.9754682428773108`*^9, 3.9754682428796988`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"95847595-6bd0-4ae5-b9cc-5753d48bc0bf"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Plot", "nonopt", 
+   "\"Options expected (instead of \\!\\(\\*RowBox[{\\\"PlotLabel\\\", \\\"\
+\[RightArrow]\\\", \\\"\\\\\\\"Entropy drop to \[CurlyPhi]\\\\\\\"\\\"}]\\)) \
+beyond position \\!\\(\\*RowBox[{\\\"2\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"Plot\\\", \\\"[\\\", RowBox[{RowBox[{RowBox[{\\\"\
+\[CapitalDelta]S\\\", \\\"[\\\", \\\"\[Alpha]\\\", \\\"]\\\"}], \\\"-\\\", \
+RowBox[{\\\"\[CapitalDelta]S\\\", \\\"[\\\", \\\"\[CurlyPhi]\\\", \
+\\\"]\\\"}]}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{\\\"\[Alpha]\\\", \
+\\\",\\\", \\\"0.1`\\\", \\\",\\\", \\\"3\\\"}], \\\"}\\\"}], \\\",\\\", \
+RowBox[{\\\"PlotLabel\\\", \\\"\[RightArrow]\\\", \\\"\\\\\\\"Entropy drop to \
+\[CurlyPhi]\\\\\\\"\\\"}]}], \\\"]\\\"}]\\). An option must be a rule or a \
+list of rules.\"", 2, 3, 1, 35082658558853959763, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.975468245751004*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"4417f735-c3e7-4adc-8c6f-f483ea494068"],
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[CapitalDelta]S", "[", "\[Alpha]", "]"}], "-", 
+    RowBox[{"\[CapitalDelta]S", "[", "\[CurlyPhi]", "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Alpha]", ",", "0.1`", ",", "3"}], "}"}], ",", 
+   RowBox[{
+   "PlotLabel", "\[RightArrow]", "\<\"Entropy drop to \[CurlyPhi]\"\>"}]}], 
+  "]"}]], "Output",
+ CellChangeTimes->{3.9754682458320713`*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"540d9ffc-7731-4058-9cd7-8cdf1d855bc5"]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"14.3 for Mac OS X x86 (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c67bff99-a729-438e-aeb5-b2eb4f9e406b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 1221, 35, 90, "Input",ExpressionUUID->"95847595-6bd0-4ae5-b9cc-5753d48bc0bf"],
+Cell[1800, 59, 1040, 19, 42, "Message",ExpressionUUID->"4417f735-c3e7-4adc-8c6f-f483ea494068"],
+Cell[2843, 80, 498, 12, 52, "Output",ExpressionUUID->"540d9ffc-7731-4058-9cd7-8cdf1d855bc5"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
