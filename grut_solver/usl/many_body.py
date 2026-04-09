@@ -407,7 +407,7 @@ if __name__ == "__main__":
     print("=" * 80)
     print()
 
-    m = 1e-14  # 10 fg each
+    m = 1e-14  # 10 pg each
     l = 100e-9  # 100 nm superposition
     R = 50e-9   # 50 nm radius
 

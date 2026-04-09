@@ -345,6 +345,61 @@ def test_many_body_three_way_discriminant():
     print(f"  PASS: test_many_body_three_way_discriminant (GRUT-unique: {disc['percent_difference']:.1f}%)")
 
 
+def test_figure1_kink_data():
+    """Figure 1 data has correct peak and slopes."""
+    from grut_solver.figures import compute_kink_data
+    d = compute_kink_data(m=1e-14, R=50e-9)
+
+    # Peak exists near 1.8R = 90 nm
+    assert 85e-9 < d["l_peak"] < 100e-9, f"Peak at {d['l_peak']*1e9:.1f} nm, expected 85-100"
+    # Peak value is positive
+    assert d["lam_peak"] > 100, f"Peak Λ = {d['lam_peak']}, expected > 100 Hz"
+    # Single maximum: data rises then falls
+    peak_idx = int(np.argmax(d["lam"]))
+    assert np.all(np.diff(d["lam"][:peak_idx]) > -1e-10), "Should increase before peak"
+    # Far-field slope ~ -1
+    assert abs(d["far_slope"] - (-1.0)) < 0.05, f"Far slope = {d['far_slope']}, expected ~ -1"
+    # Power-law fit fails (residual > 0.1 dex)
+    assert d["residual_dex"] > 0.1, f"Residual = {d['residual_dex']}, expected > 0.1"
+
+    print(f"  PASS: test_figure1_kink_data (peak at {d['l_peak']*1e9:.1f} nm, Λ = {d['lam_peak']:.0f} Hz)")
+
+
+def test_figure2_bell_data():
+    """Figure 2 data has correct Bell protection."""
+    from grut_solver.figures import compute_bell_data
+    d = compute_bell_data(m=1e-14, l=100e-9, R=50e-9)
+
+    # Bell < product everywhere in scan range
+    assert np.all(d["lb"] < d["lp"]), "Bell should be below product"
+    # At 200 nm: ratio ~ 0.833
+    assert abs(d["ratio200"] - 0.833) < 0.01, f"Ratio = {d['ratio200']}, expected ~0.833"
+    # Protection decreases with d
+    assert d["protection"][-1] < d["protection"][0], "Protection should decrease with d"
+
+    print(f"  PASS: test_figure2_bell_data (ratio200 = {d['ratio200']:.4f})")
+
+
+def test_figure_files_generated():
+    """Figure generation pipeline produces all output files."""
+    import os, tempfile
+    from grut_solver.figures import generate_all
+
+    with tempfile.TemporaryDirectory() as tmp:
+        generate_all(out_dir=tmp)
+        expected = [
+            "lambda_vs_l_kink.png", "lambda_vs_l_kink.svg", "lambda_vs_l_kink.csv",
+            "bell_vs_product.png", "bell_vs_product.svg", "bell_vs_product.csv",
+            "manifest.txt", "captions.txt",
+        ]
+        for fn in expected:
+            path = os.path.join(tmp, fn)
+            assert os.path.exists(path), f"Missing: {fn}"
+            assert os.path.getsize(path) > 0, f"Empty: {fn}"
+
+    print(f"  PASS: test_figure_files_generated (all {len(expected)} files)")
+
+
 def test_emergent_41_9_myr():
     """The 41.9 Myr emerges at the macromolecular scale."""
     from grut_solver.usl.emergent_scales import locate_41_9_myr
@@ -384,6 +439,10 @@ if __name__ == "__main__":
         test_many_body_bell_protection,
         test_many_body_ghz_scaling,
         test_many_body_three_way_discriminant,
+        # Figures
+        test_figure1_kink_data,
+        test_figure2_bell_data,
+        test_figure_files_generated,
         # New modules
         test_validity_envelope,
         test_systematic_error_budget,

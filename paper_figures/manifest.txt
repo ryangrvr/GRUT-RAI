@@ -1,0 +1,16 @@
+GRUT Paper Figures — Generation Manifest
+Generated: 2026-04-08T09:14:40.936258
+Package version: 1.0.0
+
+Figure 1 parameters:
+  m = 1.00e-14 kg
+  R = 50 nm
+  source: grut_solver.usl.gravitational.lambda_grav
+  peak at l = 91.2 nm, Λ = 694.1 Hz
+  power-law α = 1.16, residual = 0.562 dex
+
+Figure 2 parameters:
+  m = 1.00e-14 kg per particle
+  l = 100 nm, R = 50 nm
+  source: grut_solver.usl.many_body.entanglement_discriminant
+  Bell/product at 200 nm = 0.8325 (protection 16.7%)

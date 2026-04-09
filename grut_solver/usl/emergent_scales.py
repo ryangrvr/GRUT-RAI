@@ -225,7 +225,7 @@ if __name__ == "__main__":
     print(f"  tau_I = hbar/2     | {HBAR/2:.2e} s     | Quantum phase oscillation")
     print(f"  Atomic t_coh       | ~10^+18 yr         | Grav decoh of atom (unobservable)")
     print(f"  41.9 Myr crossover | {TAU_COSMIC_S:.2e} s | Macro-molecular boundary")
-    print(f"  Lab t_coh (10fg)   | ~1.6 ms            | Current experimental target")
+    print(f"  Lab t_coh (10pg)   | ~1.6 ms            | Current experimental target")
     print(f"  Human t_coh        | ~3×10^-29 s        | Instantly classical")
     print(f"  Earth t_coh        | ~4×10^-67 s        | Overwhelmingly classical")
     print()

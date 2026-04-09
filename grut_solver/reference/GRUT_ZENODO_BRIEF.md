@@ -130,7 +130,7 @@ At l/R = 0.1: S = 1.67 × 10⁻⁴. The point-mass formula overestimates by 6,00
 
 ### 5.3 Environmental Channel Budget
 
-For any (m, R, l, T, P), the framework computes all decoherence channels independently: gravitational, gas collision, blackbody scattering/emission, trap recoil, charge noise, vibrational coupling, readout backaction, and the anomaly channel. The total rate, binding constraint, and signal-to-noise ratio are returned. For current nanoparticle experiments, gas collisions are the binding constraint. The crossover pressure P* ≈ 4 × 10⁻⁹ Pa for a 10 fg nanodiamond at 100 nm separation.
+For any (m, R, l, T, P), the framework computes all decoherence channels independently: gravitational, gas collision, blackbody scattering/emission, trap recoil, charge noise, vibrational coupling, readout backaction, and the anomaly channel. The total rate, binding constraint, and signal-to-noise ratio are returned. For current nanoparticle experiments, gas collisions are the binding constraint. The crossover pressure P* ≈ 4 × 10⁻⁹ Pa for a 10 pg nanodiamond at 100 nm separation.
 
 ### 5.4 Quantum-Classical Boundary
 
@@ -148,7 +148,7 @@ The Diósi functional for multi-particle states:
 
 depends on the total mass density of each superposition branch. For entangled states, the density configuration differs from product states, producing state-dependent rates.
 
-**Bell-state protection (N5a).** For two identical particles (m = 10 fg, l = 100 nm) in the anti-correlated Bell state |LR⟩ + |RL⟩, the center of mass is fixed, reducing the gravitational self-energy difference:
+**Bell-state protection (N5a).** For two identical particles (m = 10 pg, l = 100 nm) in the anti-correlated Bell state |LR⟩ + |RL⟩, the center of mass is fixed, reducing the gravitational self-energy difference:
 
 | d_AB | Product rate | Bell rate | Difference |
 |------|-------------|-----------|------------|
@@ -196,7 +196,7 @@ Coherence time at P = 10⁻¹¹ Pa: GRUT = 1.6 ms; QM = 0.6 s. **406× differenc
 
 ### 6.2 Geometry Test (F2)
 
-Same mass (10 fg), different densities at l = 50 nm: gold (S = 0.14) vs aerogel (S = 0.0008). GRUT predicts 170× variation; point-mass models predict zero variation.
+Same mass (10 pg), different densities at l = 50 nm: gold (S = 0.14) vs aerogel (S = 0.0008). GRUT predicts 170× variation; point-mass models predict zero variation.
 
 ### 6.3 Mass Scaling (F1)
 
@@ -396,7 +396,7 @@ Gas collision cross sections (Hornberger-Sipe). Blackbody scattering (Joos-Zeh, 
 |----------|-------|--------|
 | C_Final | 1.14021054 × 10⁻⁴ | Scheme-protected (3-loop) |
 | R | 1.15428 | Verified to 15 digits |
-| Λ_grav (10 fg, 100 nm) | 632.9 Hz | Zero parameters |
+| Λ_grav (10 pg, 100 nm) | 632.9 Hz | Zero parameters |
 | P* (gas-gravity crossover) | 4.05 × 10⁻⁹ Pa | Computed |
 | m* (l=100nm, t=1s) | 0.40 fg | Boundary mass |
 | Bell/product (d=200nm) | 0.833 | 17% protection |

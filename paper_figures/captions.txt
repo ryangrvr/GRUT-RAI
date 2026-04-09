@@ -1,0 +1,5 @@
+Figure 1.
+Gravitational decoherence rate Λ as a function of separation l for a 10 pg particle of radius R = 50 nm. In the near field (l < 2R), the extended-body correction gives Λ ∝ l². In the far field (l > 2R), the universal scaling law gives Λ ∝ 1/l. The resulting peak at l ≈ 1.8R is a geometric fingerprint of the extended-body Diósi functional. A single smooth power-law fit fails to reproduce the full curve.
+
+Figure 2.
+Gravitational decoherence rates for product and Bell states of two identical 10 pg particles as a function of inter-particle spacing d_AB. Anti-correlated Bell states decohere more slowly because the correlated mass distribution reduces the gravitational self-energy difference between branches. At d_AB = 200 nm, the Bell-state decoherence rate is approximately 17% lower than the product-state rate.
