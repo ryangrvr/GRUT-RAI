@@ -117,7 +117,7 @@
       max-width: 1400px; width: 100%; margin: 0 auto;
       padding: 16px 20px;
     }
-    .tab-content { display: none; flex: 1; }
+    .tab-content { display: none; flex: 1; overflow-y: auto; }
     .tab-content.active { display: flex; flex-direction: column; }
 
     /* === Chat Tab (3-panel) === */
@@ -366,8 +366,8 @@
 <!-- ===== HEADER ===== -->
 <div id="app-header">
   <div class="header-top">
-    <h1>GRUT Force RAI</h1>
-    <span class="subtitle">Anamnesis · Narrative + Receipt</span>
+    <h1>GRUT RAI</h1>
+    <span class="subtitle">Universal Response Framework · v4</span>
     <div class="header-right">
       <span id="aiStatus" class="pill">AI: checking...</span>
       <span id="engineVersion" class="pill">engine: --</span>
@@ -420,10 +420,10 @@
         <div class="chat-messages" id="chatMessages">
           <div class="msg assistant">
             <div class="md-content">
-              <p><strong>Welcome to GRUT-RAI.</strong></p>
-              <p>I'm the Responsive AI for the Grand Responsive Universe Theory engine.
-              Ask me about GRUT physics, request simulations, or explore experiments.</p>
-              <p style="color:var(--text-secondary);font-size:12px;">Try: "What is tau0?" or "Run H(z) for matter-only at z=2"</p>
+              <p><strong>Welcome to GRUT-RAI v4.</strong></p>
+              <p>I'm the AI interface for the Grand Responsive Universe Theory — a universal response framework with zero-parameter gravitational decoherence predictions.
+              Ask me about GRUT physics, compute decoherence budgets, explore the 12-sector map, run the 9 applications, or test the six experimental signatures.</p>
+              <p style="color:var(--text-secondary);font-size:12px;">Try: "What is the USL?" · "Compute decoherence for a 10 pg nanoparticle" · "Explain the Bell-state protection" · "What are the six signatures?"</p>
             </div>
           </div>
         </div>
@@ -433,10 +433,14 @@
             <button class="send-btn" id="sendBtn" onclick="sendMessage()">Send</button>
           </div>
           <div class="quick-actions">
+            <button class="quick-btn" onclick="quickAction('What is the Universal Scaling Law and what does it predict?')">USL</button>
+            <button class="quick-btn" onclick="quickAction('Compute the decoherence budget for a 10 pg nanodiamond at 100 nm separation, 10 mK, 1e-10 Pa')">Decoherence</button>
+            <button class="quick-btn" onclick="quickAction('Explain the Bell-state entanglement protection prediction')">Bell Protection</button>
+            <button class="quick-btn" onclick="quickAction('What are the six experimental signatures and how do they discriminate GRUT from alternatives?')">6 Signatures</button>
+            <button class="quick-btn" onclick="quickAction('Give me the 12-sector status summary')">Sectors</button>
+            <button class="quick-btn" onclick="quickAction('What is the 41.9 Myr emergent timescale?')">41.9 Myr</button>
             <button class="quick-btn" onclick="quickAction('Run H(z) for a matter-only universe at z=2')">Run H(z)</button>
-            <button class="quick-btn" onclick="quickAction('What is tau0 and why is it 41.9 Myr?')">Explain tau0</button>
-            <button class="quick-btn" onclick="quickAction('Run the zeta-tau scaling experiment')">Zeta-Tau</button>
-            <button class="quick-btn" onclick="quickAction('What should I try next?')">Suggest</button>
+            <button class="quick-btn" onclick="quickAction('What should I explore next?')">Suggest</button>
           </div>
         </div>
       </div>
@@ -530,6 +534,77 @@
   <!-- ==== EXPERIMENTS TAB ==== -->
   <div class="tab-content" id="tab-experiments">
     <h2 style="margin-bottom:16px;font-size:18px;">Experiments</h2>
+
+    <!-- v4 Applications -->
+    <h3 style="margin:12px 0 8px;font-size:14px;color:var(--accent);">v4 — Universal Scaling Law Applications</h3>
+    <div class="exp-grid">
+      <div class="card exp-card" onclick="runV4Experiment('decoherence_budget')">
+        <div class="card-body">
+          <div class="exp-title">Decoherence Budget</div>
+          <div class="exp-desc">Full multi-channel budget for 10 pg nanoparticle. Zero free parameters. The flagship computation.</div>
+          <div class="exp-status" id="expStatusBudget"></div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Experiment('interferometry_catalog')">
+        <div class="card-body">
+          <div class="exp-title">Interferometry Catalog</div>
+          <div class="exp-desc">GRUT predictions for 7 published + 4 proposed matter-wave experiments. All consistent.</div>
+          <div class="exp-status" id="expStatusInterf"></div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Experiment('bullet_cluster')">
+        <div class="card-body">
+          <div class="exp-title">Bullet Cluster</div>
+          <div class="exp-desc">Cluster lensing analysis. NULL RESULT: classical by 10^54. No lensing modification.</div>
+          <div class="exp-status" id="expStatusBullet"></div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Experiment('observer_hierarchy')">
+        <div class="card-body">
+          <div class="exp-title">Observer Hierarchy</div>
+          <div class="exp-desc">When does a superposition get "measured"? Decoherence timescales from electron to Sun.</div>
+          <div class="exp-status" id="expStatusObserver"></div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Experiment('early_universe')">
+        <div class="card-body">
+          <div class="exp-title">Early Universe</div>
+          <div class="exp-desc">Gravity vs thermal decoherence from Planck epoch to today. Crossover at T ~ 1400 K.</div>
+          <div class="exp-status" id="expStatusEarlyU"></div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Experiment('structure_formation')">
+        <div class="card-body">
+          <div class="exp-title">Structure Formation</div>
+          <div class="exp-desc">Quantum-classical boundary across cosmic history. When did fluctuations become classical?</div>
+          <div class="exp-status" id="expStatusStruct"></div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Experiment('solar_system')">
+        <div class="card-body">
+          <div class="exp-title">Solar System Formation</div>
+          <div class="exp-desc">Dust-to-planet crossover: gravity first matters at R ~ 2 mm (centimeter pebble).</div>
+          <div class="exp-status" id="expStatusSolar"></div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Experiment('biology_decoherence')">
+        <div class="card-body">
+          <div class="exp-title">Biology</div>
+          <div class="exp-desc">Life in the classical regime. Water beats gravity by 10^15 to 10^33 at every scale.</div>
+          <div class="exp-status" id="expStatusBio"></div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Experiment('consciousness')">
+        <div class="card-body">
+          <div class="exp-title">Consciousness</div>
+          <div class="exp-desc">The closing calculation: 38,000 neurons for 40 Hz gamma. 28-order thermal wall kills Orch-OR.</div>
+          <div class="exp-status" id="expStatusConsc"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- v1 Experiments -->
+    <h3 style="margin:20px 0 8px;font-size:14px;color:var(--text-muted);">v1.0 — Cosmological Experiments</h3>
     <div class="exp-grid">
       <div class="card exp-card" onclick="runExperimentDirect('zeta_tau_scaling')">
         <div class="card-body">
@@ -541,21 +616,21 @@
       <div class="card exp-card" onclick="runExperimentDirect('casimir_density_sweep')">
         <div class="card-body">
           <div class="exp-title">Casimir Density Sweep</div>
-          <div class="exp-desc">Instrument-grade sweep testing vacuum screening consistency under Phase I canon (alpha_vac=1/3, S=108pi).</div>
+          <div class="exp-desc">Instrument-grade sweep testing vacuum screening consistency under Phase I canon.</div>
           <div class="exp-status" id="expStatusCasimir"></div>
         </div>
       </div>
       <div class="card exp-card" onclick="runExperimentDirect('pta_dispersion_probe')">
         <div class="card-body">
           <div class="exp-title">PTA Dispersion Probe</div>
-          <div class="exp-desc">Falsification test: does GRUT dispersion survive NANOGrav 15-year PTA bounds on GW phase speed?</div>
+          <div class="exp-desc">Falsification test: does GRUT dispersion survive NANOGrav 15-year PTA bounds?</div>
           <div class="exp-status" id="expStatusPTA"></div>
         </div>
       </div>
       <div class="card exp-card" onclick="runExperimentDirect('glass_transition_sweep')">
         <div class="card-body">
           <div class="exp-title">Glass Transition Sweep</div>
-          <div class="exp-desc">Cosmological Deborah number analysis: is the universe in a "glassy" memory-dominated regime?</div>
+          <div class="exp-desc">Cosmological Deborah number analysis: is the universe in a "glassy" regime?</div>
           <div class="exp-status" id="expStatusGlass"></div>
         </div>
       </div>
@@ -598,18 +673,74 @@
   <div class="tab-content" id="tab-grutipedia">
     <h2 style="margin-bottom:16px;font-size:18px;">GRUTipedia</h2>
     <input class="pedia-search" id="pediaSearch" placeholder="Search topics..." oninput="filterTopics()"/>
-    <div class="topic-grid" id="topicGrid"></div>
-    <div class="card" id="topicDetail" style="display:none;margin-top:16px;">
+    <div class="card" id="topicDetail" style="display:none;margin-bottom:16px;">
       <div class="card-header" id="topicDetailTitle"></div>
       <div class="card-body">
         <div class="md-content" id="topicDetailBody"></div>
       </div>
     </div>
+    <div class="topic-grid" id="topicGrid"></div>
   </div>
 
   <!-- ==== GENERATE TAB ==== -->
   <div class="tab-content" id="tab-generate">
-    <h2 style="margin-bottom:16px;font-size:18px;">Generate Evidence Packet</h2>
+    <h2 style="margin-bottom:16px;font-size:18px;">Generate</h2>
+
+    <!-- v4 Generators -->
+    <h3 style="margin:0 0 12px;font-size:14px;color:var(--accent);">v4 — Solver Computations</h3>
+    <div class="exp-grid">
+      <div class="card exp-card" onclick="runV4Generate('pressure_scan')">
+        <div class="card-body">
+          <div class="exp-title">Pressure Scan (F3)</div>
+          <div class="exp-desc">Decoherence vs pressure — look for the gravitational plateau.</div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Generate('mass_scan')">
+        <div class="card-body">
+          <div class="exp-title">Mass Scan (F1)</div>
+          <div class="exp-desc">Decoherence vs mass — verify m² scaling law.</div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Generate('geometry_scan')">
+        <div class="card-body">
+          <div class="exp-title">Geometry Scan (F2)</div>
+          <div class="exp-desc">Same mass, different densities — test extended-body correction.</div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Generate('bell_scan')">
+        <div class="card-body">
+          <div class="exp-title">Bell vs Product (F5)</div>
+          <div class="exp-desc">Entanglement-dependent decoherence — the three-way discriminant.</div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Generate('kill_test')">
+        <div class="card-body">
+          <div class="exp-title">Kill Test</div>
+          <div class="exp-desc">Adversarial: can any alternative model mimic all GRUT signatures?</div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Generate('boundary_surface')">
+        <div class="card-body">
+          <div class="exp-title">QC Boundary Surface</div>
+          <div class="exp-desc">Quantum-classical boundary mass m*(l, t) — the computed transition.</div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Generate('sector_status','GET')">
+        <div class="card-body">
+          <div class="exp-title">12-Sector Status</div>
+          <div class="exp-desc">Full sector map: 122 tests across 12 physics domains.</div>
+        </div>
+      </div>
+      <div class="card exp-card" onclick="runV4Generate('self_test')">
+        <div class="card-body">
+          <div class="exp-title">6-Signature Self-Test</div>
+          <div class="exp-desc">Full adversarial protocol: plateau + geometry + entanglement + kink + scaling + mass².</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- v1 Generator -->
+    <h3 style="margin:20px 0 12px;font-size:14px;color:var(--text-muted);">v1.0 — Cosmological Sweep</h3>
     <div class="card">
       <div class="card-body gen-form">
         <label>Preset</label>
@@ -629,6 +760,8 @@
         <div class="gen-progress" id="genProgress"></div>
       </div>
     </div>
+
+    <!-- Results Panel (shared) -->
     <div class="card" id="genResults" style="display:none;margin-top:16px;">
       <div class="card-header">Results</div>
       <div class="card-body">
@@ -1173,6 +1306,52 @@ function askAIAboutExperiment() {
   document.getElementById('tab-chat').classList.add('active');
 }
 
+// ===== v4 Experiments =====
+async function runV4Experiment(name) {
+  const panel = document.getElementById('expResultsPanel');
+  panel.style.display = 'none';
+
+  try {
+    const r = await fetch(`/experiments/${name}`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({}),
+    });
+    const data = await r.json();
+
+    panel.style.display = 'block';
+    document.getElementById('expResultTitle').textContent = name.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    document.getElementById('expResultStatus').className = 'status-badge pass';
+    document.getElementById('expResultStatus').textContent = 'COMPUTED';
+    document.getElementById('expResultMetrics').innerHTML = '';
+    document.getElementById('expResultDetails').innerHTML = `<pre style="white-space:pre-wrap;max-height:400px;overflow:auto;font-size:11px;">${JSON.stringify(data, null, 2)}</pre>`;
+    document.getElementById('expResultCert').innerHTML = '<span style="color:var(--teal);">Zero free parameters in the gravitational sector.</span>';
+    lastExpName = name;
+    lastExpResult = data;
+  } catch (e) {
+    showExperimentError(name, e.message);
+  }
+}
+
+// ===== v4 Generate =====
+async function runV4Generate(name, method) {
+  method = method || 'POST';
+  const genResults = document.getElementById('genResults');
+  genResults.style.display = 'block';
+  document.getElementById('genResultsBody').textContent = 'Computing ' + name.replace(/_/g, ' ') + '...';
+
+  try {
+    const opts = {method, headers: {'Content-Type': 'application/json'}};
+    if (method === 'POST') opts.body = JSON.stringify({});
+    const r = await fetch(`/generate/${name}`, opts);
+    const data = await r.json();
+
+    document.getElementById('genResultsBody').textContent = JSON.stringify(data, null, 2);
+  } catch (e) {
+    document.getElementById('genResultsBody').textContent = 'Error: ' + e.message;
+  }
+}
+
 // ===== Library =====
 async function loadLibrary() {
   try {
@@ -1252,6 +1431,8 @@ async function showTopic(slug) {
     document.getElementById('topicDetailTitle').textContent = d.title || slug;
     document.getElementById('topicDetailBody').innerHTML =
       tagLine + marked.parse(body || '_No content_') + linksHtml;
+    document.getElementById('tab-grutipedia').scrollTop = 0;
+    window.scrollTo(0, 0);
   } catch(e) {
     document.getElementById('topicDetail').style.display = 'block';
     document.getElementById('topicDetailTitle').textContent = slug;

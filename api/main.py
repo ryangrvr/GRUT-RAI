@@ -1227,7 +1227,8 @@ DEFAULT_TOPICS = [
 ]
 
 try:
-    db_store.seed_topics(DEFAULT_TOPICS)
+    from api.grutipedia_v4_topics import V4_TOPICS
+    db_store.seed_topics(DEFAULT_TOPICS + V4_TOPICS)
     # Remove stale slugs that have been renamed/replaced
     _canonical_slugs = {t["slug"] for t in DEFAULT_TOPICS}
     _stale = [
@@ -1246,7 +1247,19 @@ except Exception:
     # Non-fatal if seeding fails during certain test harnesses
     pass
 
-app = FastAPI(title="GRUT-RAI v1.0 — Canonical Build (Phases I–III Complete)", version=params.engine_version)
+app = FastAPI(title="GRUT-RAI v4.0 — Universal Response Framework", version=params.engine_version)
+
+# Register v4 endpoints
+try:
+    from api.v4_experiments import router as v4_exp_router
+    app.include_router(v4_exp_router)
+except Exception:
+    pass
+try:
+    from api.v4_generate import router as v4_gen_router
+    app.include_router(v4_gen_router)
+except Exception:
+    pass
 
 
 @app.on_event("startup")

@@ -1,4 +1,4 @@
-# GRUT — General Relaxation Unified Theory
+# GRUT — Grand Responsive Universe Theory
 
 *A universal response framework that derives known physics from a single dynamical principle and predicts a measurable gravitational decoherence effect with no free parameters.*
 

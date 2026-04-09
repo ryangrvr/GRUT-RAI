@@ -230,7 +230,46 @@ This was Gate O3. It is now closed:
 
 ---
 
-## 4. The Status Ledger
+## 4. Application Example: Microtubule Gravitational Decoherence
+
+The USL can be applied to any mass at any separation. As a demonstration of both the framework's reach and its honesty, we compute the gravitational decoherence rate for a biological system: the tubulin dimer conformational superposition proposed in the Penrose-Hameroff Orchestrated Objective Reduction (Orch-OR) hypothesis.
+
+### The computation
+
+A single tubulin dimer has mass m = 110 kDa = 1.83 x 10^-22 kg and a conformational displacement of l = 0.7 nm. The USL gives:
+
+    Lambda_grav = G m^2 / (hbar l) = 3.02 x 10^-11 Hz
+
+This corresponds to a gravitational coherence time of approximately 1,050 years per dimer.
+
+For N dimers acting independently (linear scaling), the total rate is Lambda_total = N x Lambda_single. To reach the 40 Hz frequency of gamma oscillations (tau = 25 ms), the required number of dimers is N = 1.3 x 10^12, corresponding to approximately 33,000 neurons — well within the brain's 86 billion neurons. This numerical coincidence is structurally striking.
+
+### The thermal wall
+
+However, water molecule collisions at biological temperature (T = 310 K) decohere any tubulin-scale superposition in approximately 1.2 femtoseconds. This is 10^25 times faster than the gravitational rate. The quantum superposition is annihilated by the thermal bath 10^13 times faster than a single neuron can fire.
+
+| Timescale | Value |
+|-----------|-------|
+| Water collision decoherence | 1.2 x 10^-15 s |
+| Neural firing | ~10^-3 s |
+| Gamma oscillation | 25 x 10^-3 s |
+| Gravitational collapse (1 dimer) | ~3.3 x 10^10 s (~1,050 years) |
+
+### What this demonstrates
+
+The USL predicts that gravitational decoherence of a tubulin-scale conformational superposition requires approximately 1,000 years per dimer. While linear scaling across ~33,000 neurons would match gamma-oscillation timescales, the thermal decoherence rate in aqueous biological tissue exceeds the gravitational rate by approximately 25 orders of magnitude. Gravitational decoherence is physically relevant only in isolated systems where environmental coupling is suppressed below the gravitational floor — the experimental regime described in the gravitational decoherence sector (Sector 3).
+
+This calculation illustrates the framework's core discipline: the USL computes a number for any system, and if that number is overwhelmed by environmental noise, the framework says so rather than claiming otherwise. The m^2 mass scaling of gravitational decoherence — distinct from the R^2 or R^6 scaling of environmental channels — remains a model-independent experimental signature, but only in systems where the environment is controlled.
+
+---
+
+## 5. Application Examples — Future Work
+
+The microtubule calculation above is the first of a planned series of application examples demonstrating the USL across diverse physical systems. Future examples may include molecular interferometry targets, optomechanical systems, gravitational-wave detector noise floors, and other regimes where the framework produces concrete, testable numbers. These will be collected in a dedicated applications paper.
+
+---
+
+## 6. The Status Ledger
 
 ### What is DEMONSTRATED (locked, verified, reproducible)
 
@@ -282,7 +321,7 @@ This was Gate O3. It is now closed:
 
 ---
 
-## 5. Conclusion
+## 7. Conclusion
 
 Across three parts, GRUT has been reduced from an open-ended theoretical proposal to a mapped candidate framework. Part I established the constitutive axioms and derived a zero-parameter gravitational decoherence prediction. Part II organized twelve physics sectors with standardized status classification, validated computational infrastructure, and explicit closure conditions. Part III documented every open gate, every failed route, and every actionable next step. The result is not a finished theory. It is a program that has been made precise enough to be judged.
 
