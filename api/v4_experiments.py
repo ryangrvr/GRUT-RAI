@@ -359,3 +359,94 @@ def consciousness_calculation():
             "reason": v["reason"],
         },
     })
+
+
+# ================================================================
+# 10. SECTOR 13: CONSCIOUSNESS AND 1 SPACE
+# ================================================================
+
+class Consciousness1SpaceRequest(BaseModel):
+    confinement_factor: float = Field(0.5, description="Ordered water confinement factor [0-1]")
+    n_neurons: int = Field(38000, description="Neurons in conscious network")
+
+@router.post("/consciousness_1space")
+def consciousness_1space(req: Consciousness1SpaceRequest):
+    """Sector 13: Consciousness and 1 Space — speculative extension."""
+    from grut_solver.sectors.consciousness.one_space import (
+        one_space_entropy_bound, one_space_decomposition
+    )
+    from grut_solver.sectors.consciousness.ordered_water import (
+        ordered_water_decoherence_time, gap_analysis
+    )
+    from grut_solver.sectors.consciousness.boundary import (
+        boundary_mass_at_temperature
+    )
+    from grut_solver.sectors.consciousness.resonance import (
+        linear_resonance_condition
+    )
+    from grut_solver.sectors.consciousness.antenna import (
+        coupling_efficiency, impedance_matching
+    )
+    from grut_solver.sectors.consciousness.pattern_survival import (
+        topological_index_survival, entanglement_entropy_decay
+    )
+    from grut_solver.sectors.consciousness.falsifiability import (
+        kill_conditions, adversarial_summary
+    )
+
+    bounds = one_space_entropy_bound()
+    water = ordered_water_decoherence_time(confinement_factor=req.confinement_factor)
+    gap = gap_analysis()
+    boundary = boundary_mass_at_temperature(l=0.7e-9, t_obs=0.025, T=310.0)
+    resonance = linear_resonance_condition(40.0)
+    coupling = coupling_efficiency(n_neurons=req.n_neurons)
+    matching = impedance_matching(n_neurons=req.n_neurons)
+    topo = topological_index_survival(lattice_size=13, gamma=1e15)
+    entropy = entanglement_entropy_decay(n_qubits=8, decoherence_rate=1e15)
+    kills = kill_conditions()
+    summary = adversarial_summary()
+
+    return _sanitize({
+        "speculative_disclaimer": (
+            "Sector 13 is tagged SPECULATIVE / PRE-FORMAL. "
+            "Computed results use standard physics. Interpretive claims "
+            "(1 Space, edge state, antenna) are conjectural."
+        ),
+        "one_space": {
+            "holographic_bound_log10_bits": bounds["holographic_bound_log10_bits"],
+            "coupling_fraction_log10": coupling["log10_coupling_fraction"],
+        },
+        "ordered_water": {
+            "confinement_factor": req.confinement_factor,
+            "t_bulk_s": water["t_bulk_s"],
+            "t_confined_s": water["t_confined_s"],
+            "improvement_orders": water["improvement_orders"],
+            "remaining_gap_orders": water["remaining_gap_orders"],
+        },
+        "boundary": {
+            "m_grav_amu": boundary["m_boundary_grav_amu"],
+            "m_thermal_amu": boundary["m_boundary_thermal_amu"],
+            "binding": boundary["binding_mechanism"],
+        },
+        "resonance": {
+            "N_neurons": resonance["N_neurons"],
+            "brain_fraction": resonance["brain_fraction"],
+        },
+        "pattern_survival": {
+            "topology_helps": topo["topology_helps"],
+            "topology_ratio": topo["ratio_to_local"],
+            "ghz_faster_by": entropy["ratio_entropy_to_water"],
+        },
+        "impedance": {
+            "Z_mismatch": matching["Z_mismatch"],
+            "is_matched": matching["is_matched"],
+        },
+        "kill_conditions": len(kills),
+        "verdict": {
+            "gap_closed": summary["verdict"]["gap_closed"],
+            "remaining_gap": summary["verdict"]["remaining_gap_orders"],
+            "n_computed": summary["n_computed"],
+            "n_speculative": summary["n_speculative"],
+            "assessment": summary["verdict"]["honest_assessment"],
+        },
+    })

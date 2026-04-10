@@ -16,6 +16,7 @@
 | 10 | **Baryogenesis** | Open frontier | CTP nonequilibrium machinery (built-in) | Asymmetry evolution tests, Sakharov condition checks | Realistic baryon asymmetry generation |
 | 11 | **Coupling unification** | Open | Unified sector framework, gauge structure recovered | RG-flow scans, constitutive analogs of running | Consistent convergence of couplings |
 | 12 | **Quantum gravity** | Explicit open gate | Formal CTP interface only | Quantization consistency tests, linearized mode analysis | UV-complete gravitational sector |
+| 13 | **Consciousness / 1 Space** | Speculative | Ordered water correction, boundary metrics, pattern survival, resonance condition, antenna efficiency bound, 7 kill conditions | Reproduce notebook, test confinement factors, propose NMR experiments | Physical mechanism for pattern-level coupling to F[z], or falsification |
 
 ## Status Classification
 
@@ -28,6 +29,7 @@
 | **Open** | Legitimate GRUT entry point exists; no closure yet. |
 | **Open frontier** | Natural target for GRUT machinery; no results yet. |
 | **Explicit nonclaim** | GRUT does not claim this and says so. |
+| **Speculative** | Legitimate extension with computed quantities, but core claims are conjectural. Clearly separated from established results. |
 
 ## Three Levels Within Each Sector
 

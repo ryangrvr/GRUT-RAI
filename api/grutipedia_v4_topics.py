@@ -768,4 +768,141 @@ V4_TOPICS = [
         "edition": 1,
         "tags": ["sector-3", "predictive", "budget", "solver"],
     },
+
+    # ── Sector 13: Consciousness and 1 Space ─────────────────
+    {
+        "slug": "sector-13-consciousness-1space",
+        "title": "Sector 13 — Consciousness and 1 Space",
+        "definition_md": (
+            "The first speculative sector in GRUT. Extends the Application 9 thermal-wall result "
+            "into a new direction: consciousness as an edge state at the quantum-classical boundary, "
+            "with coupling to the universal target functional (1 Space). Tagged Speculative / Pre-formal. "
+            "7 computed results, 4 model-dependent estimates, 5 speculative claims, 7 kill conditions."
+        ),
+        "equations_md": "Status: Speculative / Pre-formal\nModules: 7\nTests: 15 (all passing)\nThermal wall: NOT breached (~25 orders remain)",
+        "edition": 1,
+        "tags": ["sector-13", "speculative", "consciousness"],
+    },
+    {
+        "slug": "one-space-target-functional",
+        "title": "1 Space — The Universal Target Functional",
+        "definition_md": (
+            "1 Space is the totality of F[z] — the universal target functional of the GRUT framework. "
+            "Every physical system is a configuration of z relaxing toward F[z]. Before decoherence "
+            "carves classical branches, everything sits in 1 Space: undifferentiated quantum information. "
+            "Holographic bound: ~10^124 bits for the observable universe."
+        ),
+        "equations_md": "F[z] = integral{c_0|z|^2 + c_2|grad z|^2 + ...}\nS_holo = A/(4 L_P^2) ~ 10^124 bits\nBekenstein: S_Bek <= 2pi R E/(hbar c)",
+        "edition": 1,
+        "tags": ["sector-13", "speculative", "1-space", "information-theory"],
+    },
+    {
+        "slug": "crystalline-boundary",
+        "title": "The Crystalline Boundary",
+        "definition_md": (
+            "The classical world as the outer structure where z has relaxed into definite configurations. "
+            "In GRUT, the quantum-classical boundary is where the constitutive response completes: "
+            "z reaches z_target and superposition collapses. The crystalline boundary is the edge "
+            "of 1 Space — where quantum becomes classical."
+        ),
+        "equations_md": "tau dz/dt + z = z_target[z]\nClassical: z = z_target (response complete)\nQuantum: z != z_target (response ongoing)",
+        "edition": 1,
+        "tags": ["sector-13", "speculative", "boundary", "classical-limit"],
+    },
+    {
+        "slug": "consciousness-edge-state",
+        "title": "Consciousness as Edge State",
+        "definition_md": (
+            "Speculative proposal: consciousness is neither fully quantum nor fully classical. "
+            "It is an edge state at the quantum-classical boundary — a system that maintains a "
+            "live connection to 1 Space while existing as classical structure. A rock is fully "
+            "decohered; a photon is fully coherent; a conscious brain sits at the transition."
+        ),
+        "equations_md": "Edge condition: Lambda_total * t_process ~ O(1)\nFor gamma oscillation: Lambda = 40 Hz, t = 25 ms\nRequires: ~38,000 neurons (biologically feasible)",
+        "edition": 1,
+        "tags": ["sector-13", "speculative", "consciousness", "edge-state"],
+    },
+    {
+        "slug": "ordered-water-correction",
+        "title": "Ordered Water Correction",
+        "definition_md": (
+            "Water confined in microtubule channels (~15 nm diameter) has reduced density and "
+            "mobility compared to bulk water. This module computes the corrected thermal decoherence "
+            "time. Physical estimate: improvement of ~0.01 orders. Even extreme confinement (factor 0.001) "
+            "only improves by ~3 orders. The 25-order thermal wall is NOT breached."
+        ),
+        "equations_md": "Lambda_confined = f * Lambda_bulk\nf = density_factor * sqrt(mobility_factor)\nPhysical f ~ 0.97 (MT channel)\nGap at f=0.001: ~25.6 orders remain",
+        "edition": 1,
+        "tags": ["sector-13", "computed", "ordered-water", "thermal-wall"],
+    },
+    {
+        "slug": "pattern-survival-decoherence",
+        "title": "Pattern Survival Under Decoherence",
+        "definition_md": (
+            "Can collective information survive when individual quantum states decohere? "
+            "Three analyses: (1) Mutual information I(A:B) in coupled chains decays at ~same rate "
+            "as local coherence. (2) Topological winding number on 13-site ring: WORSE than local "
+            "for uncorrelated noise (ratio 0.70x). (3) GHZ entanglement entropy decays N times "
+            "faster than single qubit. All three DISFAVOR naive pattern survival."
+        ),
+        "equations_md": "Mutual info: I(A:B) = S(A) + S(B) - S(AB)\nGHZ t_half = ln2/(2*N*gamma)\nWinding number error: delta_nu ~ sqrt(N)*sigma/(2pi)",
+        "edition": 1,
+        "tags": ["sector-13", "computed", "pattern-survival", "lindblad"],
+    },
+    {
+        "slug": "neural-resonance-condition",
+        "title": "Neural Resonance Condition",
+        "definition_md": (
+            "The 38,000-neuron number: at tubulin mass (110 kDa), conformational displacement (0.7 nm), "
+            "linear scaling gives N = 40 Hz / (Lambda_single * dimers_per_neuron) ~ 38,064 neurons. "
+            "This is ~0.5 cortical columns — a biologically realistic localized network. The resonance "
+            "extends to other brainwave bands: theta (6 Hz) needs ~253,000 neurons, alpha (10 Hz) needs "
+            "~152,000."
+        ),
+        "equations_md": "N = f_target / (Lambda_grav * N_dimers_per_neuron)\nGamma (40 Hz): N ~ 38,000\nAlpha (10 Hz): N ~ 152,000\nTheta (6 Hz): N ~ 253,000",
+        "edition": 1,
+        "tags": ["sector-13", "computed", "resonance", "consciousness"],
+    },
+    {
+        "slug": "antenna-coupling-1space",
+        "title": "Antenna Coupling to 1 Space",
+        "definition_md": (
+            "Information-theoretic upper bound on brain-to-1-Space coupling. A 38,000-neuron network "
+            "has ~10^15 binary degrees of freedom. The universe (holographic bound) has ~10^124 bits. "
+            "Coupling fraction: ~10^-108. Impedance matching at the gamma resonance is exact "
+            "(by construction — this is the resonance tautology made explicit)."
+        ),
+        "equations_md": "eta = D_sub / D_total ~ 10^-108\nD_sub = N_neurons * N_dimers * log2(2)\nD_total = S_holo ~ 10^124 bits\nZ_mismatch = |tau_brain - tau_grav|/tau_brain ~ 0.002",
+        "edition": 1,
+        "tags": ["sector-13", "model-dependent", "antenna", "information-theory"],
+    },
+    {
+        "slug": "structural-shielding-topology",
+        "title": "Structural Shielding and Topology",
+        "definition_md": (
+            "Speculative proposal: the shielding mechanism for consciousness is not physical "
+            "(blocking water molecules) but structural — the microtubule lattice creates a collective "
+            "topology where pattern-level information survives thermal noise. Analogies: impedance "
+            "matching, redundancy, topological protection. Our own computations show topology does NOT "
+            "help for uncorrelated thermal noise. Correlated noise could change this, but no mechanism "
+            "is known."
+        ),
+        "equations_md": "Uncorrelated noise: topology HURTS (ratio 0.70x for N=13)\nCorrelated noise: potentially protective (uncomputed)\nRequired mechanism: unknown",
+        "edition": 1,
+        "tags": ["sector-13", "speculative", "topology", "shielding"],
+    },
+    {
+        "slug": "sector-13-falsifiability",
+        "title": "Sector 13 Falsifiability",
+        "definition_md": (
+            "Seven kill conditions for Sector 13: (1) bulk-like water in MT channels, "
+            "(2) no lattice topological protection, (3) no network significance of 38K neurons, "
+            "(4) gamma frequency uncorrelated with tubulin mass, (5) anesthetics don't bind MT, "
+            "(6) consciousness survives MT disruption, (7) mutual info decays at local rate. "
+            "Five experimental predictions with specific numerical values."
+        ),
+        "equations_md": "Kill conditions: 7 (all testable)\nPredictions: 5 (with numerical values)\nAdversarial summary: 7 computed, 4 model-dependent, 5 speculative\nVerdict: thermal wall NOT breached",
+        "edition": 1,
+        "tags": ["sector-13", "falsifiability", "kill-conditions", "adversarial"],
+    },
 ]
