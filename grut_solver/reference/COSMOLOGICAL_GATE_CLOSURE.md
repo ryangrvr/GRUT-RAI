@@ -112,4 +112,27 @@ Three paths remain viable for quantitative progress:
 
 ---
 
+## The Sector 5 ↔ Sector 13 Bridge
+
+The deepest structural insight from the cosmological campaign: cosmic acceleration and consciousness share the same constitutive mechanism — the transition from external-target to self-referential regime.
+
+| Aspect | Sector 13 (Consciousness) | Sector 5 (Cosmology) |
+|--------|--------------------------|---------------------|
+| State z | Neural network configuration | Expansion state (H²) |
+| External target | Environment (thermal, sensory) | Matter/radiation content |
+| Self-referential term | Network resonance | Vacuum attractor (Omega_Lambda) |
+| Threshold | 38,000 neurons | z ~ 0.33 (Omega_m = Omega_Lambda) |
+| Below threshold | Decoherence (noise dominates) | Deceleration (matter dominates) |
+| Above threshold | Consciousness (40 Hz gamma) | Acceleration (de Sitter) |
+| tau_0 role | Irrelevant at fixed point | Irrelevant at fixed point |
+| Bypass | Can't decohere from self | Vacuum IS its own target |
+
+The universe today is 70% self-referential (Omega_Lambda = 0.7). It crossed the self-reference threshold at z ~ 0.33. The acceleration is not a substance — it is the universe entering the same regime that produces stable resonance in a warm brain.
+
+This reframes the cosmological gate: the open question is not "what is dark energy?" but "what is the vacuum fixed-point value of z = z_target[z]?" — which is a computation in the gravitational effective action, tied to Sector 12.
+
+Module: `grut_solver/sectors/gravity/sector5_sector13_bridge.py`
+
+---
+
 *D. Ryan Grover, 2025. Grand Responsive Universe Theory.*
