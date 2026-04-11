@@ -197,6 +197,41 @@ The constitutive equation does not just describe the universe. At the fixed poin
 
 ---
 
+## 3.5 Candidate Derivation of the Cosmological Constant
+
+After exhausting 18 perturbative routes (all documented in COSMOLOGICAL_GATE_CLOSURE.md), a systematic search over dimensionless combinations of pre-existing GRUT constants produced two candidate formulas for the vacuum fixed point:
+
+**R disambiguation (critical):**
+- R_anomaly = 1.15428: the 3-loop anomaly ratio |C_Cosmo / C_Final|. Derived independently in the gravitational decoherence sector. This is the R that appears in the vacuum formula.
+- R_volumetric = 1.5428: the archival/whole-hole boundary. A different quantity from different physics. Does NOT belong in the vacuum formula (~24% error if used).
+
+**Candidate 1:** H_inf = 1 / (R_anomaly x S x tau_0)
+
+| Quantity | Predicted | Observed | Error |
+|----------|-----------|----------|-------|
+| H_inf | 1.931e-18 Hz | 1.898e-18 Hz | 1.7% |
+| Omega_Lambda | 0.725 | 0.70 | +3.5% |
+
+**Candidate 2 (preferred):** H_inf = (2 - R_anomaly) / (S x tau_0)
+
+| Quantity | Predicted | Observed | Error |
+|----------|-----------|----------|-------|
+| H_inf | 1.885e-18 Hz | 1.898e-18 Hz | 0.7% |
+| Omega_Lambda | 0.691 | 0.6889 (Planck) | 1.3% |
+
+Constants used (all pre-existing, none fitted to cosmology):
+- R_anomaly = 1.15428 (3-loop anomaly ratio)
+- S = 108 pi = 339.292 (CTP normalization)
+- tau_0 = 41.9 Myr (canonical relaxation time)
+
+The (2 - R) factor in Candidate 2 has a geometric interpretation: R measures how far the cosmological anomaly exceeds the local one. (2 - R) = 0.846 is the complementary distance — the fraction of anomaly phase space available for vacuum expansion. The vacuum rate is this fraction divided by the CTP-normalized relaxation time.
+
+**Honest assessment:** ~30 combinations were tested, giving P(coincidence) ~ 30-60%. The formula was found by search, not derived from a Lagrangian. A rigorous CTP calculation producing this exact form would confirm or deny it. Status: CANDIDATE — not confirmed, not dismissed.
+
+Module: grut_solver/sectors/cosmology/vacuum_fixed_point.py
+
+---
+
 ## 4. Software
 
 ### Sector 13 Package (grut_solver/sectors/consciousness/)
@@ -209,8 +244,9 @@ The constitutive equation does not just describe the universe. At the fixed poin
 - 18 tests, all passing
 
 ### Sector 5 Extension (grut_solver/sectors/cosmology/)
-- 1 new module: self_referential_cosmology
+- 2 new modules: self_referential_cosmology, vacuum_fixed_point
 - Parameter sensitivity analysis included
+- Two candidate vacuum formulas with honest assessment
 
 ### Documentation
 - COSMOLOGICAL_GATE_CLOSURE.md: 18 routes documented
@@ -232,7 +268,8 @@ The constitutive equation does not just describe the universe. At the fixed poin
 | Sector 5 - Sector 13 structural bridge | Structural | Validated |
 | Constitutive gravity Bianchi consistency | Symbolic | Verified |
 | Singularity regularization at Planck scale | Computed | Structural positive |
-| Numerical value of Omega_Lambda derived | NOT computed | Open gate |
+| Vacuum fixed point: Omega_Lambda = 0.691 | Candidate formula | CANDIDATE (1.3% accuracy, ~30 combos tested) |
+| R disambiguation (R_anomaly vs R_volumetric) | Documented | Critical — only R_anomaly = 1.15428 gives sub-2% |
 | Consciousness mechanism (subjective experience) | NOT claimed | Nonclaim |
 | GW/QNM observational predictions | Computed | Observationally dead |
 | 18 cosmological routes to derive Lambda | All tested | All negative or negligible |
