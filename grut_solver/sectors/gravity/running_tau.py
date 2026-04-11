@@ -332,7 +332,7 @@ def enhanced_tau_eff(a: float, tau_0_s: float = None,
 
     This means we need a true IR cutoff. Physical options:
       a) k_min = 1/(c × age_of_universe) — the particle horizon
-      b) k_min = 1/(R_Grover × c/H) — the Grover horizon
+      b) k_min = 1/(R_anomaly × c/H) — the anomaly boundary (R = 1.5428)
       c) k_min set by m_eff (the gap regularizes the divergence)
 
     With m_eff regularization (option c):
