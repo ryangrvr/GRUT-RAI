@@ -82,4 +82,20 @@ COMPONENT_STATUS = {
     "cmb_bao_fit":              "NOT IMPLEMENTED",
     "screening_length":         "FREE PARAMETER (naturalness problem)",
     "early_universe_regulator": "CONDITIONAL (not validated)",
+    # ── 2025 Cosmological Campaign Results ──
+    "constitutive_gravity_cosmo":  "EXPLORED (tau*H_0 = 0.003, sub-percent correction)",
+    "running_tau_eff":             "EXPLORED (3 normalizations: 0.008% to 10^126 overshoot)",
+    "constitutive_universe":       "EXPLORED (H_0 within 17%, no matter era)",
+    "memory_as_lambda":            "EXPLORED (memory fraction 10^-11, negligible)",
+    "discrete_era_map":            "EXPLORED (qualitative 3 phases, not quantitative)",
+    "lambda_reinterpretation":     "STRUCTURAL (Lambda = constitutive vacuum attractor)",
+    "vacuum_target_derivation":    "OPEN (requires full CTP vacuum effective action)",
+}
+
+# ── 2025 Campaign: Reinterpretation ────────────────────────
+LAMBDA_REINTERPRETATION = {
+    "what_lambda_is": "The vacuum target of the constitutive equation",
+    "what_changes": "Question shifts from 'what substance?' to 'what vacuum equilibrium?'",
+    "what_remains_open": "Numerical value of H_infinity from first principles",
+    "closure_document": "grut_solver/reference/COSMOLOGICAL_GATE_CLOSURE.md",
 }
