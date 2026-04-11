@@ -14,7 +14,7 @@ The underlying computational modules live in the original GRUT codebase
 This package provides a standardized interface and status documentation.
 """
 
-SECTOR_STATUS = "Partial"
+SECTOR_STATUS = "Partial (expanded)"
 SECTOR_NAME = "Gravity"
 GRAVITY_IDENTITY = "Matter/organization theory within standard Einstein gravity"
 
@@ -40,6 +40,31 @@ COMPONENT_STATUS = {
     "graviton":                     "OPEN (not present)",
     "full_backreaction":            "OPEN (not closed)",
     "uv_completion":                "OPEN (not present)",
+    # ── Direction 2: Constitutive Gravity ──
+    "constitutive_gravity":          "EXPLORED (Bianchi gate: naive FAILS, projected PASSES)",
+    "gw_constitutive":               "COMPUTED (observationally silent for both tau candidates)",
+    "qnm_constitutive":              "COMPUTED (shift ~ 10^-40, unobservable)",
+    "singularity_constitutive":      "COMPUTED (regularizes at Planck time, bouncing cosmology)",
+    "cosmological_memory":           "COMPUTED (negligible at late times with canonical tau)",
+    # ── Direction 1: Stochastic Gravity ──
+    "stochastic_gravity":            "SCAFFOLDED (noise kernel computed, connects to Sector 3)",
+    "einstein_langevin":             "CONSISTENT (automatic from CTP axiom)",
+}
+
+# ── New Directions (2025) ──────────────────────────────────
+NEW_DIRECTIONS = {
+    "direction_2_constitutive": {
+        "equation": "G_mn + tau_grav P_mn^ab u^l nabla_l G_ab = 8piG T_mn",
+        "status": "Viable (projected form passes Bianchi)",
+        "positive_results": ["Singularity regularization at Planck scale"],
+        "negative_results": ["GW/QNM effects observationally dead", "No DE help at canonical tau"],
+    },
+    "direction_1_stochastic": {
+        "equation": "<G_mn> + tau D_t <G_mn> = 8piG <T_mn> + xi_mn",
+        "status": "Consistent (automatic from CTP, zero new structure)",
+        "positive_results": ["Connects USL to metric fluctuations", "UV regulation from tau"],
+        "negative_results": ["Stochastic decoherence subdominant to Diosi"],
+    },
 }
 
 # ── Module map (original codebase, not grut_solver) ─────────

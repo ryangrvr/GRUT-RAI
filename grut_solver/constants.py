@@ -66,6 +66,24 @@ RHO_GOLD: float = 19300.0
 RHO_SILICON: float = 2330.0
 
 # =============================================================================
+# GRAVITATIONAL WAVE / DETECTOR CONSTANTS
+# =============================================================================
+
+# Schwarzschild fundamental QNM (n=0, l=2) — Leaver 1985
+# In units of c^3/(G M)
+QNM_OMEGA_R: float = 0.3737    # Real part (oscillation)
+QNM_OMEGA_I: float = 0.0890    # Imaginary part (damping, positive convention)
+
+# Detector frequency bands [Hz]
+LIGO_F_LOW: float = 10.0
+LIGO_F_HIGH: float = 5000.0
+LISA_F_LOW: float = 1e-4
+LISA_F_HIGH: float = 0.1
+
+# Solar mass [kg]
+M_SUN: float = 1.989e30
+
+# =============================================================================
 # SELF-TEST
 # =============================================================================
 
