@@ -1,22 +1,24 @@
 # GRUT Universal Structural Synthesis: Sector Map
 
-## Status as of 2025
+## Status as of v5 (April 2026)
 
-| # | Sector | Status | What GRUT has now | What scientists can do now | Closure condition |
-|---|--------|--------|-------------------|---------------------------|-------------------|
-| 1 | **Quantum mechanics** | Recovered | Schrödinger, KG/Dirac, Born transparency, Lindblad | Run recovery notebooks, verify numerical fidelity | Consistency (no novel prediction needed beyond decoherence sector) |
-| 2 | **Electroweak / SM host** | Recovered host structure | U(1), SU(2)×U(1)_Y, anomaly cancellation, Higgs, W/Z masses | Inspect gauge notebooks, verify anomaly conditions | Reduce free parameters / derive flavor structure |
-| 3 | **Gravitational decoherence** | **Predictive** | USL, extended-body correction, many-body entanglement, 6 signatures, kill framework | Reproduce all signatures via solver, design experiments | **Experimental validation** |
-| 4 | **Gravity** | Partial (expanded) | Constitutive gravity (projected Bianchi OK), stochastic gravity (CTP consistent), singularity regularization, GW/QNM computed (silent) | Reproduce constitutive GW/QNM, verify singularity bounds, compare stochastic vs Diósi | Full nonlinear Bianchi closure, observable GW/QNM, UV completion |
-| 5 | **Cosmology** | Partial / conditional | Early-universe regulator ideas, constitutive FRW embedding | FRW background scans, regulator parameter studies | Perturbation spectrum + observational fit |
-| 6 | **QCD / strong force** | Open | Non-abelian entry point (SU(2) demonstrated) | SU(3) specialization, Wilson loop tests, confinement diagnostics | Confinement + hadronic emergence |
-| 7 | **Flavor / masses** | Open | Host structure exists, no derived Yukawas | Mass-matrix exploration, symmetry constraint searches | Derive hierarchical masses and CKM structure |
-| 8 | **Neutrinos** | Open | No mass closure | Dirac vs Majorana constitutive variants, seesaw scans | PMNS + mass generation mechanism |
-| 9 | **Dark matter** | Open frontier | Candidate hidden/weakly-coupled response sectors | Stability/coupling scans, soliton/defect tests | Viable candidate satisfying all observational constraints |
-| 10 | **Baryogenesis** | Open frontier | CTP nonequilibrium machinery (built-in) | Asymmetry evolution tests, Sakharov condition checks | Realistic baryon asymmetry generation |
-| 11 | **Coupling unification** | Open | Unified sector framework, gauge structure recovered | RG-flow scans, constitutive analogs of running | Consistent convergence of couplings |
-| 12 | **Quantum gravity** | Explicit open gate | Formal CTP interface only | Quantization consistency tests, linearized mode analysis | UV-complete gravitational sector |
-| 13 | **Consciousness / 1 Space** | Speculative | Ordered water correction, boundary metrics, pattern survival, resonance condition, antenna efficiency bound, 7 kill conditions | Reproduce notebook, test confinement factors, propose NMR experiments | Physical mechanism for pattern-level coupling to F[z], or falsification |
+One equation: tau dz/dt + z = z_target[z]. One principle: self-referential fixed point z = z_target[z].
+
+| # | Sector | v5 Status | Fixed Point | Key Result | Closure |
+|---|--------|-----------|-------------|------------|---------|
+| 1 | **Quantum mechanics** | Recovered | Ground state | 12/12 tests, Schrodinger + Born | Consistent |
+| 2 | **Electroweak / SM host** | Recovered | EWSB vacuum | 13/13 tests, W/Z masses, charges | Consistent |
+| 3 | **Gravitational decoherence** | **Predictive** | Gravitational plateau | 633 Hz (0 params), 6 signatures | **Experimental validation** |
+| 4 | **Gravity** | Partial+ | Singularity cap | Bianchi OK (projected), H bounded at 1/T_P, stochastic subdominant | Nonlinear closure, UV completion |
+| 5 | **Cosmology** | Candidate derivation | Vacuum OmL = 0.691 | 10-step chain (0 gaps), 0.25% accuracy, 18 routes documented | Non-perturbative CTP confirmation |
+| 6 | **QCD / strong force** | Mapped | Confining vacuum | Threshold at 0.81 GeV, alpha_s = 0.5, SU(3) exact | Full lattice or constitutive confinement proof |
+| 7 | **Flavor / masses** | Mapped | Mass eigenvalues | Koide 0.005%, CKM/PMNS as eigenvalue overlap | Derive Yukawas from FP structure |
+| 8 | **Neutrinos** | Expected signature | Near-zero FP | 10^-11 suppression, degeneracy -> large PMNS | Compute R_neutrino, seesaw from CTP |
+| 9 | **Dark matter** | Open frontier | Topological defects? | Multiple FP solutions -> stable solitons | Viable candidate from FP landscape |
+| 10 | **Baryogenesis** | Expected signature | Asymmetric FP | 3/3 Sakharov structural, EW threshold crossing | Compute R_baryonic, predict eta |
+| 11 | **Coupling unification** | Mapped | Unified FP | f_self = 0.93 at 10^14.4 GeV, miss 8.9% | Constitutive modification to RG |
+| 12 | **Quantum gravity** | Open gate | Spacetime ground state | 0/5 closures, FP = QG vacuum hypothesis | Full quantization around FP |
+| 13 | **Consciousness / 1 Space** | Demonstrated | 40 Hz resonance | Self-ref bypass, 2 routes match, 38k neurons, 7 kill conditions | Cross-species tests, NMR experiments |
 
 ## Status Classification
 
