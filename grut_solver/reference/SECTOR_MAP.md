@@ -17,7 +17,7 @@ One equation: tau dz/dt + z = z_target[z]. One principle: self-referential fixed
 | 9 | **Dark matter** | Computed (toy) | Solitonic DM (BPS exact, Q=1) | Superheavy 10^6-10^13 GeV, survives noise, topological stability | WIMP-mass candidate, relic density, detection prediction |
 | 10 | **Baryogenesis** | Expected signature | Asymmetric FP | 3/3 Sakharov structural, EW threshold crossing | Compute R_baryonic, predict eta |
 | 11 | **Coupling unification** | Mapped | Unified FP | f_self = 0.93 at 10^14.4 GeV, miss 8.9% | Constitutive modification to RG |
-| 12 | **Quantum gravity** | Open gate | Spacetime ground state | 0/5 closures, FP = QG vacuum hypothesis | Full quantization around FP |
+| 12 | **Quantum gravity** | Partial (2/5 met) | Spacetime ground state | UV completion + classical GR (minisuperspace), J = OmL, stable FP | Full tensor-sector computation, graviton proof, BH info |
 | 13 | **Consciousness / 1 Space** | Demonstrated | 40 Hz resonance | Self-ref bypass, 2 routes match, 38k neurons, 7 kill conditions | Cross-species tests, NMR experiments |
 
 ## Status Classification
