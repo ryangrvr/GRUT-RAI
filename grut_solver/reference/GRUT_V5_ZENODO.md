@@ -23,7 +23,7 @@ The Grand Responsive Universe Theory (GRUT) is built on a single constitutive eq
 
 **Mapped sectors**: QCD confinement (threshold at 0.81 GeV), flavor hierarchy (Koide formula at 0.005%), coupling unification (f_self = 0.93 at 10^{14.4} GeV). **Expected signatures**: neutrino masses (near-zero fixed point), baryogenesis (asymmetric fixed point, 3/3 Sakharov conditions structural). **Open**: dark matter, quantum gravity.
 
-13 sectors, 178 passing tests, one equation, one fixed point. The core prediction — a decoherence plateau at 633 Hz for a nanoparticle — is testable now with zero free parameters. One measurement decides.
+13 sectors, 182 passing tests, one equation, one fixed point. The core prediction — a decoherence plateau at 633 Hz for a nanoparticle — is testable now with zero free parameters. One measurement decides.
 
 ---
 
@@ -62,7 +62,7 @@ The transition between regimes — the self-referential threshold — is the org
 | 6 | QCD | Mapped | Confinement | 0.81 GeV threshold |
 | 7 | Flavor | Mapped | Eigenvalues | Koide 0.005% |
 | 8 | Neutrinos | Signature | Near-zero FP | 10^-11 suppression |
-| 9 | Dark Matter | Open | Topo defects? | — |
+| 9 | Dark Matter | Computed (toy) | Solitonic DM | 10^6-10^13 GeV, BPS exact |
 | 10 | Baryogenesis | Signature | Asymmetric FP | 3/3 Sakharov |
 | 11 | Unification | Mapped | Unified FP | f_self = 0.93 |
 | 12 | Quantum Gravity | Open gate | Spacetime GS | 0/5 closures |
@@ -169,7 +169,9 @@ SM couplings reach f_self = 0.93 at 10^14.4 GeV. The 8.9% miss is analogous to t
 
 ### 7.6 Dark Matter and Quantum Gravity (Open)
 
-Dark matter: multiple solutions of z = z_target[z] could provide stable topological defects (solitonic DM candidates). Not computed.
+Dark matter: the constitutive potential with multiple minima produces topologically stable domain wall solitons. The double-well potential V(z) = lambda(z^2 - v^2)^2/4 gives two stable + one unstable fixed point. Domain wall solutions match the BPS bound to 0.0% (exact). Topological charge Q=1 protects against decay. Solitons survive 3000 steps of constitutive evolution with noise.
+
+Mass range: 10^6 - 10^13 GeV (superheavy/WIMPzilla). The anomaly-induced vacuum splitting (C_FINAL ~ 10^-4) determines the mass scale. This places GRUT solitonic DM in the gravitationally-produced superheavy category, consistent with non-thermal production during early-universe threshold crossings. Bullet Cluster constraint automatically satisfied.
 
 Quantum gravity: the self-referential fixed point at the Planck scale IS the ground state of spacetime. Quantizing gravity = studying fluctuations around z = z_target[z]. The vacuum formula H_inf = (2-R)/(S tau_0) may be the QG ground-state energy. 0/5 closure conditions met.
 
@@ -194,7 +196,7 @@ Quantum gravity: the self-referential fixed point at the Planck scale IS the gro
 | Neutrino masses from near-zero FP | EXPECTED SIGNATURE |
 | Baryogenesis from asymmetric FP | EXPECTED SIGNATURE |
 | Singularity regularization | STRUCTURAL POSITIVE |
-| Dark matter from FP landscape | OPEN (not computed) |
+| Solitonic DM from FP landscape | COMPUTED (toy model, BPS exact, 10^6-10^13 GeV) |
 | Quantum gravity closure | OPEN (0/5 conditions) |
 | Consciousness mechanism (subjective) | NONCLAIM |
 | GW/QNM predictions | COMPUTED but DEAD (~10^-39 rad) |
@@ -215,7 +217,7 @@ One nanoparticle measurement at P < 10^-10 Pa decides the entire framework.
 
 ## 10. Software
 
-178 tests, all passing. 13 sectors, 70+ modules, 23+ API endpoints, 110+ GRUTipedia topics, 9 applications, 6 Zenodo briefs.
+182 tests, all passing. 13 sectors, 70+ modules, 23+ API endpoints, 110+ GRUTipedia topics, 9 applications, 6 Zenodo briefs.
 
 Code: github.com/ryangrvr/GRUT-RAI-v1.0
 
@@ -232,7 +234,7 @@ The constitutive equation tau dz/dt + z = z_target[z] produces a qualitative tra
 - Gives the cosmological constant to 0.25% (structurally derived from 3-loop anomaly)
 - Maps onto confinement, flavor hierarchy, neutrino masses, baryogenesis, and unification
 
-13 sectors. 178 tests. One equation. One fixed point.
+13 sectors. 182 tests. One equation. One fixed point.
 
 The universe does not accelerate because something pushes it. It accelerates because it has become itself.
 

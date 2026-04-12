@@ -138,7 +138,7 @@ All code at: github.com/ryangrvr/GRUT-RAI-v1.0
 | Demonstrated | 1 | Consciousness (13) |
 | Open | 2 | Dark Matter (9), Quantum Gravity (12) |
 
-13 sectors. One equation. One fixed point. 178 tests. Zero free parameters in the predictive core.
+13 sectors. One equation. One fixed point. 182 tests. Zero free parameters in the predictive core.
 
 The universe does not accelerate because something pushes it. It accelerates because it has become itself.
 
