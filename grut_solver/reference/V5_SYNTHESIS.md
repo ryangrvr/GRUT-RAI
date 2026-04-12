@@ -39,7 +39,7 @@ The transition between these regimes — the **self-referential threshold** — 
 | 9 | Dark Matter | SM vacuum | Topological threshold | Stable solitonic defects | DM candidates | Open frontier |
 | 10 | Baryogenesis | Matter-antimatter symmetry | EW transition ~100 GeV | Asymmetric fixed point | eta ~ 6e-10 | Open |
 | 11 | Coupling Unification | Three separate couplings | ~10^16 GeV | Unified fixed point | Convergence of alpha_i | Open (testable) |
-| 12 | Quantum Gravity | Semiclassical spacetime | Planck scale | Spacetime ground state | QG fluctuations | Open gate |
+| 12 | Quantum Gravity | Semiclassical spacetime | Planck scale | Spacetime ground state (2/5 met) | UV complete + classical GR | Partial (2/5) |
 | 13 | Consciousness / 1 Space | Thermal bath (water) | ~38,000 neurons | 40 Hz gamma resonance | Stable consciousness | Speculative (demonstrated) |
 
 ## The Derivation Chain (10 Steps, 0 Gaps)
@@ -97,7 +97,7 @@ Zero free parameters. Three pre-existing constants. 0.25% accuracy.
 - **Structurally derived**: Omega_Lambda = 0.691 (pending non-perturbative confirmation)
 - **Demonstrated**: Self-referential bypass, three-phase cosmology, bridge
 - **Open (testable)**: QCD confinement, flavor hierarchy, coupling unification
-- **Open (needs theory)**: Baryogenesis, neutrino masses, quantum gravity
+- **Open (needs theory)**: Baryogenesis, neutrino masses, quantum gravity (2/5 partial)
 - **Speculative**: Consciousness interpretation (1 Space, edge states, antenna)
 - **Nonclaim**: Subjective experience mechanism, dark energy as substance
 

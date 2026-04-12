@@ -84,14 +84,15 @@ The self-referential principle extends to every open sector:
 | Koide formula (leptons) | 0.666632 | 0.666667 (2/3) | 0.005% |
 | QCD threshold | 0.81 GeV | ~0.5-1.0 GeV (lattice) | In range |
 | Unification f_self | 0.927 | ~0.97 (MSSM) | 4.4% |
+| QG minisuperspace Jacobian | J = Omega_Lambda = 0.691 | 0.6889 (Planck) | 0.25% |
 
 ---
 
 ## What Is Not Claimed
 
 - Mechanism for subjective experience (consciousness Sector 13 is structural, not phenomenological)
-- Dark matter candidate (Sector 9: open frontier, topological defects hypothesis only)
-- Quantum gravity completion (Sector 12: 0/5 closure conditions met)
+- Dark matter candidate beyond toy model (Sector 9: solitonic DM computed, superheavy 10^6-10^13 GeV, not WIMP scale)
+- Quantum gravity completion (Sector 12: 2/5 met, 3/5 partial)
 - GW/QNM observational predictions (computed but dead at ~10^-39 rad)
 - Dark energy as a substance (Lambda is reinterpreted as the vacuum fixed point)
 - Exact fermion masses from first principles (eigenvalue interpretation mapped, not computed)
@@ -114,7 +115,7 @@ The self-referential principle extends to every open sector:
 |-----------|-------|
 | Sectors | 13 |
 | Modules | 70+ |
-| Tests | 178 (all passing) |
+| Tests | 183 (all passing) |
 | Applications | 9 (Planck to consciousness) |
 | API endpoints | 23+ |
 | GRUTipedia topics | 110+ |
@@ -135,10 +136,11 @@ All code at: github.com/ryangrvr/GRUT-RAI-v1.0
 | Partial+ | 1 | Gravity (4) |
 | Mapped | 3 | QCD (6), Flavor (7), Unification (11) |
 | Signature | 2 | Neutrinos (8), Baryogenesis (10) |
+| Computed (toy) | 1 | Dark Matter (9) |
 | Demonstrated | 1 | Consciousness (13) |
-| Open | 2 | Dark Matter (9), Quantum Gravity (12) |
+| Partial (2/5) | 1 | Quantum Gravity (12) |
 
-13 sectors. One equation. One fixed point. 182 tests. Zero free parameters in the predictive core.
+13 sectors. One equation. One fixed point. 183 tests. Zero free parameters in the predictive core.
 
 The universe does not accelerate because something pushes it. It accelerates because it has become itself.
 
