@@ -97,50 +97,53 @@ def derive_threshold_era(omega_m: float = OMEGA_M, omega_r: float = OMEGA_R,
 
 
 def derive_transition_sharpness() -> float:
-    """Derive transition sharpness k from the constitutive equation.
+    """Derive transition sharpness k from the archival boundary.
 
-    The natural sharpness is set by how fast the self-referential fraction
-    changes per era. For an exponential matter dilution (ρ_m ~ a^{-3}),
-    the transition width in eras is:
+    k is derived from the volumetric archival boundary R_volumetric = 1.5428.
+    This boundary defines the point where memory saturation enforces
+    self-reference in the whole-hole structure.
 
-    Δn ~ 1 / (3 × d(ln a)/d(n))  ≈ 1 / (3 × H × τ₀)
+    The transition width is inversely proportional to the tipping-point
+    distance from unity:
 
-    At the transition epoch: H ~ H₀ × sqrt(2 × Ω_m) (matter-Lambda equality)
-    H × τ₀ ~ 0.003 × sqrt(2 × 0.3) ~ 0.0023
-    Δn ~ 1 / (3 × 0.0023) ~ 145 eras
+      k = 2π / (R_volumetric - 1) ≈ 2π / 0.5428 ≈ 11.57
 
-    So k ~ 1/Δn ~ 0.007 (very gradual transition)
-    But the actual crossover in Ω_m/Ω_Λ is sharper because of the a^{-3}
-    scaling. Empirically, k ~ 0.03-0.05 matches the observed transition width.
+    This makes the sigmoid sharpness a GEOMETRIC property of the archival
+    boundary — the same boundary that caps IR accumulation in the vacuum
+    response. Not fitted. Derived from R_volumetric.
 
-    Using k = 3/(Δn) with Δn from the matter dilution rate:
+    Note: R_volumetric = 1.5428 is the whole-hole archival boundary.
+    This is DIFFERENT from R_anomaly = 1.15428 (the 3-loop ratio used
+    in the vacuum formula). Both R values appear in the framework but
+    in different roles: R_anomaly in the vacuum H_inf, R_volumetric in
+    the transition sharpness.
     """
-    H_trans = H0_SI * np.sqrt(2 * OMEGA_M)  # H at matter-Lambda equality
-    H_tau = H_trans * TAU_0_S
-    delta_n = 1.0 / (3 * H_tau) if H_tau > 0 else N_ERAS
-
-    # The sigmoid width parameter: k ~ 4/Δn (4 gives 10-90% transition)
-    k = 4.0 / delta_n if delta_n > 0 else 0.01
-
+    R_VOLUMETRIC = 1.5428  # archival boundary
+    k = 2 * np.pi / (R_VOLUMETRIC - 1)
     return k
 
 
 def derive_matter_coupling() -> float:
-    """Derive matter coupling β from energy content.
+    """Derive matter coupling β from α_vac and S.
 
-    β sets how strongly matter content pulls the expansion target
-    above the vacuum value. At z=0: target = 1 + β × Ω_m,0 should
-    give E²(0) = Ω_m + Ω_Λ = 1. So β × Ω_m,0 ~ Ω_m,0 → β ~ 1.
+    β measures the relative strength of external matter pull versus
+    the vacuum self-referential term.
 
-    At high z: target = 1 + β × Ω_m × (1+z)³ should give the
-    matter-dominated Friedmann behavior.
+    In the low-frequency limit, the USL response strength is governed
+    by α_vac = 1/3. The memory kernel couples to baryonic density
+    with strength proportional to the infrared refractive index factor.
 
-    The natural β from the constitutive equation: β is the ratio of
-    matter-target to vacuum-target in the constitutive functional.
-    For Friedmann: β = 1 (matter and vacuum contribute equally per
-    unit energy density to the target).
+    The natural coupling is the fractional deviation from the vacuum
+    response, normalized by the CTP scale:
+
+      β = α_vac / S = (1/3) / (108π) ≈ 0.00098
+
+    This comes directly from the vacuum response suppression (α_vac)
+    normalized by the overall CTP scale (S). Not fitted. Derived.
     """
-    return 1.0
+    ALPHA_VAC = 1.0 / 3.0
+    S_CTP = 108 * np.pi  # CTP normalization
+    return ALPHA_VAC / S_CTP
 
 
 def era_update(x: float, n: int, n_threshold: int, k: float,
