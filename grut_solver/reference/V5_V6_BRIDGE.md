@@ -1,163 +1,179 @@
-# GRUT v5 → v6 Bridge Document
+# GRUT v5 → v6 Bridge Document (Updated)
 
-## What v5 Achieved, Where It Stops, and What v6 Must Solve
+## What v5 Achieved, Where It Stops, What Changed Since v5, and What v6 Must Solve
 
 D. Ryan Grover, April 2026
 
 ---
 
-## v5 Final Status (Locked)
+## v5 Final Status
 
-13 sectors. 183 tests. One equation. Every sector has at least a structural result. Zero sectors fully open. The predictive core (USL decoherence) has zero free parameters and is experimentally testable.
+13 sectors. 183 tests. One equation. Every sector has at least a structural result. The predictive core (USL decoherence) has zero free parameters. The cosmological constant candidate gives 0.2% accuracy at H_0 = 70. The graviton propagator gives 3/5 QG closures. DM solitons exist and are stable but underdetermined.
 
-But v5 is 70-75% of a ToE. The remaining 25-30% is specific and identified.
+70-75% of a ToE, honest about the rest.
 
 ---
 
-## Where v5 Stops: The Five Frontiers
+## What Changed Since v5 Was Published
 
-### Frontier 1: Sector 9 — Dark Matter Closure
+### Status Upgrades
 
-**What v5 has:** Stable topological solitons from the double-well fixed-point landscape. BPS exact. Survives noise. Mass range 10^6-10^13 GeV from anomaly splitting.
+| Item | v5 Status | Current Status | What Changed |
+|------|-----------|---------------|--------------|
+| QG closure conditions | 2/5 (minisuperspace) | **3/5** (tensor graviton) | Graviton propagator computed: massless, no ghost, UV 1/omega^3 |
+| A2 (tau_I = hbar/2) | Axiom | **Definition** (normalization choice) | Cannot be derived from A0+A1; it selects the Keldysh normalization that gives QM |
+| Unified z_target | "Specified per sector" | **Conceptually resolved** (S_CTP is the unified object) | Not yet formalized as explicit variational map |
+| DM sigma/m | "Consistent with Bullet Cluster" | **Partially corrected** (viable for M > 10^9 GeV only) | Full sigma/m analysis showed M < 10^9 excluded for natural lambda |
+| DM lambda | "Not fitted" | **Underdetermined** (one equation, two unknowns) | All routes to derive lambda exhaustively tested; none close uniquely |
 
-**Where it stops:** The toy model has two parameters (lambda, v) and one constraint (M from anomaly splitting). lambda is NOT uniquely determined. Every route to derive lambda from existing anomaly constants was exhausted:
+### Status Downgrades (Honest Corrections)
 
-| Route | lambda | Result |
-|-------|--------|--------|
-| C_FINAL | 1.1e-4 | Too small, sigma/m explodes |
-| R-1 | 0.154 | Not uniquely motivated |
-| 2-R | 0.846 | Best structural candidate but not derived |
-| alpha_vac | 0.333 | No derivation linking to soliton coupling |
-| c_2 = tau_I^2/M | Fixes M = 0.25 GeV | Wrong scale entirely |
-| Thin-wall condition | Automatic (R_0/delta = 5847) | Doesn't constrain |
-| BPS stability | Automatic | Doesn't constrain |
+| Item | v5 Claimed | Corrected | Reason |
+|------|-----------|-----------|--------|
+| Benchmark "10pg nanodiamond R=50nm" | Physically realizable | **Inconsistent** | No material has density 19,000 g/cm^3. Replaced with gold microsphere R=1um |
+| "Decoherence is undefined" at fixed point | Broad claim | **Constitutive channel only** | Standard Lindblad decoherence still operates; only the constitutive driving term is zero |
+| "One measurement decides all" | Global falsifiability | **Primary target; other sectors independently testable** | Failed plateau doesn't logically disprove Koide or QCD mapping |
+| "10 steps, 0 gaps" | Complete derivation | **7 computed + 3 structural** | Structural steps constrain but don't constitute conventional derivation |
+| "LOCKED / DEMONSTRATED" labels | Confident | **VERIFIED / COMPUTED** | Toned to match what's actually shown |
+| Omega_Lambda "0.25% accuracy" | Single number | **H_0 dependent** (0.2% at 70, 8.1% at Planck) | Not an independent prediction of Omega_Lambda |
+| DM "Bullet Cluster automatically satisfied" | Assertion | **Viable for M > 10^9 GeV only** | sigma/m exceeds bounds at M = 10^6 for all natural lambda |
+| Heating constraints | "NOT in conflict" | **Order-of-magnitude consistent** | Full constraint analysis not performed |
+| Sector 13 "Consciousness" | Label | **Neural Resonance** (recommended) | Reduces reputational risk without changing the mathematics |
 
-**sigma/m at benchmarks (geometric, upper bound):**
+---
 
-sigma/m [cm^2/g] = 1.96e24 / (lambda^2 M^3)
+## The Five Frontiers
 
-- M = 10^6 GeV: EXCLUDED for all natural lambda (needs lambda > 1400)
-- M = 10^9 GeV: VIABLE for lambda > 0.04 (all O(1) candidates work)
-- M = 10^13 GeV: EASILY VIABLE for any lambda > 0
+### Frontier 1: Unified z_target (CONCEPTUALLY RESOLVED, NOT FORMALIZED)
 
-**The structural reason closure fails:** One equation, two unknowns. The double-well toy model is genuinely underdetermined. This is a model limitation, not a computational one.
+**Resolution:** S_CTP (the CTP effective action) IS the unified object. Each sector's z_target is a different limit of S_CTP:
 
-**What v6 needs:**
+- Real part of S_CTP → z_target (coherent evolution, equations of motion)
+- Imaginary part of S_CTP → noise kernel (decoherence rates)
+- Stationary point of S_CTP → self-referential fixed point
 
-1. **Gauge the Z_2 symmetry** — promote z -> -z to a local gauge symmetry. lambda becomes the gauge self-coupling, fixed by the gauge group. This is the standard route from global to local symmetry.
+**What's missing for v6:** The variational map from S_CTP to z_target must be written as an explicit formalism section showing:
+1. S_CTP[fields, metric] in full generality
+2. Variation delta S / delta z_a = 0 → constitutive equation in general form
+3. NR limit → Sector 1 z_target
+4. Gravitational noise limit → Sector 3 Lambda_grav
+5. FRW minisuperspace limit → Sector 5 z_target
+6. Yang-Mills limit → Sector 6 z_target
 
-2. **Or: embed in electroweak** — if the DM soliton field couples to the Higgs, lambda is related to the Higgs portal coupling. This connects Sectors 2 and 9.
+Until this is written as a single coherent derivation, it is bridge material.
 
-3. **Or: add fermion content** — Yukawa coupling provides the second constraint. This connects Sectors 7 and 9 (flavor hierarchy determines DM coupling).
+### Frontier 2: Cosmology Precision (GENUINELY OPEN)
 
-4. **Or: relic density** — computing the thermal or non-thermal production during early-universe threshold crossings (using the discrete era map from Sector 5) gives an independent constraint on (lambda, v).
+**What exists:** H_inf = (2-R)/(S tau_0) as a structural ansatz. Three steps constrained by symmetry and boundary conditions, not by explicit Lagrangian calculation. Discrete map with derived parameters producing qualitative three-phase behavior.
 
-Each route extends the model beyond v5's content. The most GRUT-native route is #4 (relic density from threshold crossings), because it uses existing Sector 5 machinery.
+**What's missing:**
+1. Explicit 3-loop CTP influence functional at de Sitter background
+2. Proof that the finite part gives exactly (2-R)/(S tau_0) and not some other form
+3. Continuous E(z) compared to Pantheon+/DESI/Planck at percent level
+4. Independent prediction of H_0 (or an H_0-independent observable)
+
+**Difficulty:** Research-level QFT in curved spacetime. Not desk-computable.
+
+**Bridge status:** This frontier stays open until the explicit calculation exists. The structural ansatz is well-motivated but not derived.
+
+### Frontier 3: Quantum Gravity Tensor Sector (3/5 CLOSURES MET)
+
+**What's computed:**
+- Graviton propagator: G(k,w) = -16piG / [(w^2-k^2c^2)(1-iw tau)]
+- Massless graviton (pole at w=kc, same as GR)
+- No ghost (imaginary pole at w = -i/tau is dissipative)
+- UV improved (|G| ~ 1/omega^3 vs 1/omega^2 in GR)
+- Classical GR at LIGO (modification < 10^-10 for T_Planck)
+- Spectral function positive (sign convention verified)
+
+**Closure scorecard:**
+
+| # | Condition | Status | Evidence |
+|---|-----------|--------|----------|
+| 1 | Graviton or equivalent | **DEMONSTRATED** | Massless pole, no ghost, TT modes |
+| 2 | UV completion | **CONFIRMED** | 1/omega^3 falloff, Planck suppression |
+| 3 | Backreaction | STRUCTURAL | Constitutive eq couples metric to T_mn |
+| 4 | BH information | **OPEN** | Requires nonlinear attractor analysis |
+| 5 | Classical GR | **CONFIRMED** | LIGO modification < 10^-10 |
+
+**What's missing for full closure:**
+- Condition 3: Self-consistent backreaction loop (metric affects matter affects metric) must be solved explicitly, not assumed from the fixed-point definition
+- Condition 4: Black hole information requires the full nonlinear attractor basin, including the approach from BH initial conditions. The minisuperspace attractor is necessary but not sufficient.
+
+### Frontier 4: Dark Matter Closure (UNDERDETERMINED)
+
+**What's computed:**
+- Stable topological solitons from double-well potential (BPS exact)
+- sigma/m = 1/(4 sigma_wall) = 1.96e24 / (lambda^2 M^3) cm^2/g
+- Viable mass window: M > 10^9 GeV at natural lambda (0.1-1)
+- Lower end M ~ 10^6 GeV: EXCLUDED for all natural lambda
+
+**The structural problem:** Two parameters (lambda, v), one constraint (M from anomaly splitting). Lambda is NOT uniquely determined. All routes exhausted:
+
+- lambda = C_FINAL: too small
+- lambda = 2-R: structural candidate but not derived
+- lambda from self-consistent c_2: gives fixed mass (wrong)
+- Thin-wall condition: automatic, doesn't constrain
+- BPS stability: automatic, doesn't constrain
+
+**What v6 needs (any ONE of):**
+1. Gauge the Z_2 symmetry → lambda from gauge coupling
+2. Higgs portal → lambda from electroweak sector
+3. Relic density from threshold crossings → independent (lambda, v) constraint
+4. Fermion content (Yukawa) → second equation
 
 **Additionally needed for full scattering:**
-- 3D object type must be unambiguous (thin-wall bubble chosen, but profile must be derived not assumed)
-- Soliton-soliton interaction potential (computed from overlapping profiles or moduli-space approximation)
-- Velocity-dependent cross-section for cluster environments
+- Unambiguous 3D object type (thin-wall bubble chosen but profile must be derived)
+- Soliton-soliton interaction potential
+- Velocity-dependent cross-section
+
+**Bridge status:** Sector 9 is a parametric existence proof with a viability map, not a closed DM model. This stays bridge-side until lambda is fixed by extension.
+
+### Frontier 5: tau_I Derivation (RESOLVED — NEGATIVE)
+
+**Finding:** tau_I = hbar/2 cannot be derived from A0 (CTP doubling) + A1 (directed response) alone. It depends on the normalization of the Keldysh variables, which is a convention.
+
+**The identification tau_I = hbar/2 selects the normalization that makes the constitutive equation reduce to the Schrodinger equation.** This is the content of A2.
+
+**Recommendation for v6:**
+- Reframe A2 from "axiom" to "definition" or "normalization choice"
+- State: "We define the constitutive variable z such that the imaginary relaxation parameter tau_I = hbar/2. This connects the CTP formalism to quantum mechanics. It is a normalization, not a physical axiom."
+- This reduces the axiom count from three to two (A0 + A1), with A2 as a definition.
 
 ---
 
-### Frontier 2: Sector 12 — Quantum Gravity Beyond Minisuperspace
+## Priority for v6 Development
 
-**What v5 has:** 2/5 closure conditions met (UV completion + classical GR recovery) from minisuperspace fluctuation analysis. Jacobian J = Omega_Lambda. Stable fixed point.
-
-**Where it stops:** Minisuperspace is one degree of freedom. The full gravitational sector has tensor modes (2 polarizations of the graviton), vector modes (gauge), and scalar modes (conformal factor). The 3 unmet conditions require the full tensor sector:
-
-- Condition 1 (graviton): need transverse-traceless modes with m = 0 at low k
-- Condition 3 (backreaction): need the full metric-matter loop to close self-consistently
-- Condition 4 (BH info): need the full attractor basin, not just one eigenvalue
-
-**What v6 needs:**
-
-1. **Tensor perturbation analysis** — linearize the constitutive gravity equation (with transverse projector) around de Sitter for tensor modes h_ij^TT. Compute the dispersion relation. Show it gives omega^2 = k^2 c^2 at low k (massless graviton) with 1/omega^2 damping at high k.
-
-2. **Graviton propagator** — compute the retarded propagator from the constitutive equation. This is: G_R(k, omega) = 1 / (omega^2 - k^2 c^2 + i omega / tau_grav). Show it has the correct pole structure.
-
-3. **Full backreaction loop** — solve the constitutive gravity equation coupled to quantum matter self-consistently. The fixed-point condition z = z_target[z] for the coupled system should give the de Sitter vacuum with quantum corrections.
+| Priority | Frontier | What to do | Difficulty |
+|----------|----------|-----------|------------|
+| 1 | F1 (z_target formalism) | Write the explicit variational map from S_CTP to each sector | Medium (writing, not computing) |
+| 2 | F3 (QG conditions 3+4) | Solve backreaction loop; analyze BH attractor | High |
+| 3 | F4 (DM closure) | Extend model: gauge symmetry, portal, or relic density | Medium |
+| 4 | F2 (cosmology) | 3-loop S_CTP at de Sitter | Very high (research frontier) |
+| 5 | F5 (tau reframe) | Rewrite A2 as definition | Easy (writing only) |
 
 ---
 
-### Frontier 3: The tau_I Dimensional Question
+## What v6 Would Look Like
 
-**What v5 has:** tau_I = hbar/2 identified by matching to the Schrodinger equation. The paper acknowledges that tau's physical meaning shifts between sectors.
-
-**Where it stops:** A hostile reviewer can still ask: is tau a relaxation time or not? If it changes meaning in each sector, is "one equation" a genuine unification or just notation?
-
-**What v6 needs:** Either:
-
-1. **Derive tau_I from A0-A1 alone** — show that the CTP doubling + directed response UNIQUELY fix tau_I = hbar/2 without importing the Schrodinger equation. This would make A2 a theorem, not an axiom.
-
-2. **Or: explicitly define the sector-specific tau** — provide a clear map: tau(sector) = f(sector-specific constants). Show that all sector-specific taus reduce to the same constitutive equation via dimensional scaling.
+- **Two axioms** (A0: CTP doubling, A1: directed response) + one definition (tau_I normalization)
+- **One explicit CTP action** → z_target derived for each sector as a limit (formalized, not conceptual)
+- **4/5 or 5/5 QG closures** (backreaction + BH info)
+- **DM with unique lambda** (from gauge extension or relic density)
+- **Precision cosmology** (if 3-loop calculation done; otherwise stays structural)
+- **~85-95% of a ToE** (up from 70-75%)
 
 ---
 
-### Frontier 4: Cosmology Precision
+## The Experimental Program (Independent of v6 Theory)
 
-**What v5 has:** H_inf = (2-R)/(S tau_0) as a structural ansatz. Three structural steps in the derivation chain. Discrete map with derived parameters producing three-phase expansion.
+1. **USL decoherence plateau** — primary falsification test. Gold microsphere, R ~ 0.5-1 um, ultra-high vacuum. Timeline: 2027-2030 with levitated optomechanics.
+2. **Cross-species gamma-tubulin correlation** — neuroscience test of the 40 Hz coincidence. Can be done now.
+3. **R_anomaly precision** — tightens H_inf prediction and DM parameter space.
+4. **Heating/radiation bounds** — full constraint analysis against underground experiments and precision oscillators.
 
-**Where it stops:** The structural steps are constrained (linearity from single insertion, boundaries from CTP doubling) but not derived from a Lagrangian. The discrete map produces qualitative three-phase behavior but not precision E(z).
-
-**What v6 needs:**
-
-1. **Non-perturbative CTP calculation** — evaluate the 3-loop influence functional at the de Sitter fixed point explicitly. Show it produces the (2-R) factor.
-
-2. **Continuous cosmological evolution** — replace the discrete era map with a continuous integrator that solves the constitutive Friedmann equation with the full retarded memory kernel. Compare E(z) to Pantheon+, DESI, and Planck data at percent level.
-
-3. **Independent Omega_Lambda prediction** — derive H_0 as well as H_inf, or show that GRUT predicts a specific (H_0, Omega_Lambda) pair rather than a one-parameter family.
+Theory and experiment develop in parallel. The plateau measurement is the single most important external input.
 
 ---
 
-### Frontier 5: Explicit z_target Derivation
-
-**What v5 has:** z_target specified for QM (c_0 z - c_2 nabla^2 z), cosmology (blended Friedmann + vacuum), and decoherence (noise from CTP influence functional).
-
-**Where it stops:** The z_target forms are STATED, not DERIVED from the CTP action in one unified calculation. Each sector has its own z_target obtained by different methods.
-
-**What v6 needs:** A single derivation that starts from the CTP effective action S_CTP[z+, z-] and produces z_target[z] for ALL sectors as different limits of one functional. This is the "holy grail" computation — it would make the "one equation" claim rigorous.
-
----
-
-## Priority Ranking for v6
-
-| Priority | Frontier | Difficulty | Impact if solved |
-|----------|----------|------------|-----------------|
-| 1 | z_target derivation (F5) | Very high | Makes "one equation" rigorous |
-| 2 | Cosmology precision (F4) | High | Makes Omega_Lambda a prediction |
-| 3 | QG tensor sector (F2) | High | Closes 3 more conditions |
-| 4 | DM closure (F1) | Medium | Makes Sector 9 definite |
-| 5 | tau_I derivation (F3) | Medium | Makes A2 a theorem |
-
----
-
-## What v6 Would Look Like If All Frontiers Are Closed
-
-- One CTP action -> one z_target[z] -> ALL sectors as limits
-- Omega_Lambda derived independently (not conditional on H_0)
-- Graviton from tensor perturbations (5/5 QG closures)
-- DM mass and sigma/m uniquely predicted (one candidate, not a family)
-- tau_I derived from A0-A1 (two axioms, not three)
-- Precision E(z) matching CMB+BAO+SNe jointly
-
-That would be ~95% of a ToE. The remaining 5% would be exact fermion masses, baryon asymmetry value, and neutrino mass splittings — all requiring the multi-generation z_target.
-
----
-
-## The Experimental Arm (Independent of v6 Theory)
-
-While the theory develops, the experimental program can proceed:
-
-1. **USL decoherence plateau** — the primary test. Gold microsphere, R ~ 0.5-1 um, ultra-high vacuum. 2027-2030 timeline with levitated optomechanics.
-
-2. **Cross-species gamma-tubulin correlation** — neuroscience test of the 40 Hz coincidence. Comparatively inexpensive. Can be done now.
-
-3. **R_anomaly precision** — better determination of the 3-loop anomaly coefficients would tighten the H_inf prediction and constrain the DM parameter space.
-
-The theory and experiment can develop in parallel. Neither needs to wait for the other.
-
----
-
-*D. Ryan Grover, April 2026. Bridge document for GRUT v5 -> v6.*
+*D. Ryan Grover, April 2026. Bridge document for GRUT v5 → v6.*
