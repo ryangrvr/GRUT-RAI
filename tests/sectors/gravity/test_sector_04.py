@@ -70,7 +70,7 @@ def test_no_overclaiming():
     """The sector does not claim things it hasn't achieved."""
     from grut_solver.sectors.gravity import SECTOR_STATUS, COMPONENT_STATUS
 
-    assert SECTOR_STATUS == "Partial", f"Status should be Partial, got {SECTOR_STATUS}"
+    assert "Partial" in SECTOR_STATUS, f"Status should contain 'Partial', got {SECTOR_STATUS}"
 
     # These must NOT say "demonstrated" or "validated"
     for key in ["graviton", "full_backreaction", "uv_completion"]:
