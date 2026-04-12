@@ -39,7 +39,9 @@ The Grand Responsive Universe Theory (GRUT) is built on a single constitutive eq
 
 **A2 (Complex Relaxation)**: tau = tau_R + i tau_I with tau_I = hbar/2 (identified by matching to the Schrodinger equation).
 
-**Dimensional note on tau_I**: In the constitutive equation applied to quantum mechanics, hbar/2 carries units of action (J s). The equation is properly dimensioned when z is a wavefunction and z_target includes the Hamiltonian: the combination (hbar/2)(dz/dt) = (i/hbar)Hz gives the Schrodinger equation. The mass-dependent conversion c_2 = tau_I^2/m = hbar^2/(4m) provides the sector-specific translation to SI units. This identification introduces no free parameters.
+**On the nature of tau_I**: hbar/2 has units of action (J s), not time. The constitutive equation (1) is therefore not a standard relaxation equation in every sector — it recovers the form of a relaxation equation only after sector-specific reinterpretation. In the QM sector, the combination tau_I (dz/dt) with z as a wavefunction and z_target encoding the Hamiltonian yields the Schrodinger equation exactly. The conversion c_2 = tau_I^2/m = hbar^2/(4m) translates to SI units per particle species. In the gravitational sector, tau_0 = 41.9 Myr is a derived timescale (from C_FINAL and cosmological parameters), not tau_I directly.
+
+The "one equation everywhere" claim is structural: the same FORM tau dz/dt + z = z_target[z] appears in each sector, but the physical meaning of tau, z, and z_target shifts between sectors. This is analogous to how the action principle S = integral L dt applies everywhere but the Lagrangian L is sector-specific. The content lives in z_target[z], not in the equation's form alone.
 
 ### 1.2 The Fixed Point
 
@@ -56,7 +58,7 @@ The constitutive equation has predictive power only when z_target[z] is specifie
 
 **Sector 1 (QM):** z_target[z] = c_0(x) z - c_2 nabla^2 z, where c_0(x) = 1 + V(x)/(hbar omega) and c_2 = hbar^2/(4m). Substitution recovers the Schrodinger equation exactly.
 
-**Sector 3 (Decoherence):** The decoherence rate Lambda_grav comes from the imaginary part of the CTP influence functional: Im[S_IF] = (G/hbar) integral of the Diosi self-energy kernel over the mass distribution. This is not z_target itself but the noise sector of the CTP action.
+**Sector 3 (Decoherence):** The constitutive equation governs the coherent evolution of z (the center-of-mass wavefunction). z_target is the same as in Sector 1 (potential + kinetic). The decoherence rate Lambda_grav comes from a SEPARATE output of the same CTP action: the imaginary part of the influence functional, Im[S_IF] = (G/hbar) integral of the Diosi self-energy kernel. This noise term drives the system AWAY from z_target, causing loss of coherence. The constitutive equation and the noise kernel are two outputs of one formalism (the CTP action), not one equation doing two things. The decoherence rate is not z_target; it is the strength of the stochastic force in the Langevin extension of the constitutive equation.
 
 **Sector 5 (Cosmology):** z_target(H) = H_inf + (1 - f_self) x (H_Friedmann - H_inf), where H_Friedmann is the standard matter/radiation Hubble rate and f_self is the sigmoid self-referential fraction.
 
@@ -80,7 +82,7 @@ All forms are implemented and tested in the grut_solver codebase.
 | 10 | Baryogenesis | Signature | Asymmetric FP | 3/3 Sakharov |
 | 11 | Unification | Mapped | Unified FP | f_self = 0.93 |
 | 12 | Quantum Gravity | Partial (2/5) | Spacetime GS | UV complete + classical GR |
-| 13 | Consciousness | Demonstrated | 40 Hz resonance | 2 routes match |
+| 13 | Neural Resonance | Demonstrated | 40 Hz fixed point | 2 routes match |
 
 ---
 
@@ -112,7 +114,7 @@ The gravitational decoherence rate implies momentum diffusion:
 
     D_p = Lambda_grav x (hbar/l)^2
 
-For the gold benchmark (m = 80.8 pg, l = 1 um): D_p = 7.7 x 10^-54 kg^2 m^2/s^3. The associated heating rate P = D_p/(2m) = 4.7 x 10^-68 W. This is far below any measurable threshold. The extended-body suppression S(l/R) prevents the UV divergence that causes heating problems in point-mass Diosi-Penrose models. GRUT's gravitational decoherence is NOT in conflict with existing heating or radiation bounds.
+For the gold benchmark (m = 80.8 pg, l = 1 um): D_p = 7.7 x 10^-54 kg^2 m^2/s^3. The associated heating rate P = D_p/(2m) = 4.7 x 10^-68 W. This is far below any measurable threshold. The extended-body suppression S(l/R) prevents the UV divergence that causes heating problems in point-mass Diosi-Penrose models. This order-of-magnitude estimate suggests no conflict with existing heating or radiation bounds. A complete constraint analysis would require propagating the extended-body regularization through the full noise kernel and comparing to specific experimental bounds (underground radiation limits, precision oscillator heating, cryogenic system constraints). This has not been done.
 
 ---
 
@@ -145,7 +147,7 @@ Note: The consciousness interpretation (1 Space, edge states, antenna coupling) 
 | 9 | Boundary Conditions | Structural | f(R) = 2 - R (unique) |
 | 10 | Assembly | Structural | H_inf = (2-R)/(S x tau_0) |
 
-10 steps. 0 gaps. 7 computed, 3 structural.
+10 steps: 7 computed from prior steps, 3 structural (constrained by symmetry and boundary conditions rather than explicit calculation). The structural steps narrow the formula to a unique form but do not constitute a conventional derivation from a Lagrangian. A full non-perturbative CTP calculation would elevate the structural steps to computed ones.
 
 **R disambiguation:** R_anomaly = 1.15428 is the 3-loop anomaly ratio |C_Cosmo/C_Final|, used in the vacuum formula. R_particle (e.g., R = 1 um for the gold benchmark) is the object radius in the decoherence formula S(l/R). These are different quantities.
 
@@ -207,7 +209,7 @@ Neutrinos: near-zero fixed point. Baryogenesis: 3/3 Sakharov conditions structur
 
 ### 7.4 Dark Matter (Computed, toy)
 
-Solitonic DM from double-well fixed-point landscape. BPS exact. Mass 10^6-10^13 GeV (superheavy). Bullet Cluster: geometric cross-section sigma = pi R^2 where R is the soliton radius. For the computed solitons, sigma/m is extremely small at superheavy masses.
+Solitonic DM from double-well fixed-point landscape. BPS exact. Mass 10^6-10^13 GeV (superheavy). Self-interaction: at superheavy masses with femtometer-scale soliton radii, the geometric cross-section sigma ~ pi R_soliton^2 is extremely small relative to the mass, giving sigma/m << 1 cm^2/g. This is consistent with Bullet Cluster bounds but a full microphysical cross-section calculation (beyond the geometric estimate) has not been performed.
 
 ### 7.5 Quantum Gravity (Partial, 2/5)
 
@@ -219,17 +221,17 @@ Minisuperspace fluctuation spectrum: Jacobian J = Omega_Lambda = 0.691. UV compl
 
 | Claim | Status |
 |-------|--------|
-| QM recovery (Schrodinger, Born, Lindblad) | LOCKED (12/12) |
-| Electroweak structure (charges, masses) | LOCKED (13/13) |
-| USL decoherence rate (zero parameters) | LOCKED (14/14) |
+| QM recovery (Schrodinger, Born, Lindblad) | VERIFIED (12/12 tests) |
+| Electroweak structure (charges, masses) | VERIFIED (13/13 tests) |
+| USL decoherence rate (zero parameters) | VERIFIED (14/14 tests, untested experimentally) |
 | Lindblad master equation | DOCUMENTED (verified, max error 1.4e-6) |
 | Heating/radiation constraints | NOT VIOLATED (P = 4.7e-68 W) |
-| Self-referential fixed point mathematics | DEMONSTRATED |
+| Self-referential fixed point mathematics | COMPUTED (numerical verification) |
 | Two routes to 40 Hz (39.9 + 41.7) | DEMONSTRATED |
 | Three-phase cosmology from threshold | DEMONSTRATED (100% robust) |
-| H_inf = 1.885e-18 Hz from (2-R)/(S tau_0) | STRUCTURALLY DERIVED |
-| Omega_Lambda: 0.2% at H0=70, 8.1% at Planck | H_0 DEPENDENT |
-| 10-step derivation chain | COMPLETE (0 gaps) |
+| H_inf = 1.885e-18 Hz from (2-R)/(S tau_0) | STRUCTURAL ANSATZ (constrained, not derived from Lagrangian) |
+| Omega_Lambda: 0.2% at H0=70, 8.1% at Planck | H_0 DEPENDENT (not an independent prediction of Omega_Lambda) |
+| 10-step derivation chain | 7 COMPUTED + 3 STRUCTURAL |
 | Bridge: 40 Hz + H_inf | COMPUTED |
 | QCD confinement mapping | MAPPED (0.81 GeV) |
 | Koide formula as eigenvalue constraint | MAPPED (0.005%) |
@@ -266,7 +268,9 @@ Minisuperspace fluctuation spectrum: Jacobian J = Omega_Lambda = 0.691. UV compl
 5. Any of 7 Sector 13 kill conditions
 6. Heating/radiation bounds exceed the computed D_p (currently safe by >60 orders)
 
-The core prediction (decoherence plateau) requires a mesoscopic object in spatial superposition at P < 10^-10 Pa. Current experiments reach ~10^5 amu; the gold benchmark (R = 500 nm, m ~ 10 pg) requires ~10^10 amu. This is not "within reach" of current technology but is a target for next-generation levitated optomechanics experiments.
+The decoherence plateau is the primary falsification target. Its failure would remove the quantitative grounding for the cosmological formula (which uses tau_0, R_anomaly, and S derived from the same decoherence sector) and weaken the 40 Hz coincidence (which uses Lambda_grav). However, the structural mappings in other sectors (QCD confinement threshold, Koide formula, unification approach) are independently testable and do not logically depend on the plateau measurement.
+
+The plateau measurement requires a mesoscopic object in spatial superposition at P < 10^-10 Pa. Current experiments reach ~10^5 amu; the gold benchmark (R = 500 nm, m ~ 10 pg) requires ~10^10 amu. This is not "within reach" of current technology but is a target for next-generation levitated optomechanics experiments.
 
 ---
 
