@@ -260,7 +260,51 @@ The threshold is not a separate postulate — it is the constitutive equation's 
 
 ---
 
-## IV. Falsification
+## IV. Complete Sector Status
+
+The constitutive response framework addresses 13 sectors of physics. Their status ranges from derived to open. This section gives the honest state of each.
+
+### Sectors 1-3: Core (Derived)
+
+**Sector 1 (Quantum Mechanics):** Schrodinger equation derived as the NR limit of the CTP variation. Born rule, Lindblad thermalization, Ehrenfest theorem, continuity equation all verified. 12/12 tests. **Status: DERIVED.**
+
+**Sector 2 (Electroweak/SM):** Charge quantization (7/7 from Q = T3 + Y/2), gauge boson masses (M_W = 80.3, M_Z = 91.1 GeV), anomaly cancellation, Higgs mechanism. The SM Lagrangian enters as S_classical in the CTP action. 13/13 tests. **Status: DERIVED (host structure).**
+
+**Sector 3 (Gravitational Decoherence):** Lambda_grav = G m^2 S(l/R)/(hbar l) from the CTP noise kernel. Zero free parameters. Corrected benchmark: gold microsphere R = 1 um, Lambda = 689 Hz. Lindblad master equation verified. Heating rate safe by >60 orders. Six discriminating signatures. 14/14 tests. **Status: PREDICTIVE (zero parameters, untested experimentally).**
+
+### Sectors 4, 12: Gravity (Serious Partial Closure)
+
+**Sector 4 (Gravity):** Constitutive gravity equation with transverse projector passes linearized Bianchi identity. Singularity regularization: H bounded at 1/T_Planck. GW/QNM effects computed but observationally dead (~10^-39 rad). Stochastic gravity from CTP consistent, subdominant to Diosi by 18 orders. **Status: PARTIAL+.**
+
+**Sector 12 (Quantum Gravity):** Graviton propagator: massless pole (no ghost), UV 1/omega^3, classical GR at LIGO (mod < 10^-10). Linearized backreaction: coupled metric-matter Jacobian stable at de Sitter fixed point. Minisuperspace: J = Omega_Lambda, stable. 4/5 closure conditions met. BH information requires nonlinear attractor analysis. **Status: PARTIAL (4/5 closures).**
+
+### Sector 5: Cosmology (Structural, Clarified)
+
+**Sector 5 (Cosmology):** H_inf = (2 - R_anomaly)/(S tau_0) = 1.885 × 10^-18 Hz. Structural derivation from the finite anomaly structure: linearity from single 3-loop insertion, boundaries from CTP doubling, dimensional assembly. The standard perturbative loop expansion cannot reach this result because it hits the cosmological constant problem at 1-loop (H ~ M_Planck, 10^61 too large). The structural route uses scheme-protected anomaly coefficients, not the divergent vacuum energy sum. This is not "awaiting loop confirmation" — the loop route is blocked. Non-perturbative discrete map with exact retarded memory kernel produces three-phase expansion with all parameters derived. **Status: STRUCTURAL DERIVATION (the constitutive route; not fully closed in the conventional perturbative sense).**
+
+### Sector 9: Dark Matter (Closed, Gauged Extension)
+
+**Sector 9 (Dark Matter):** The global Z_2 symmetry of the double-well potential is promoted to a local U(1)_dark gauge symmetry. lambda = g_dark^2/2 is fixed by the dark gauge coupling. Two routes to g_dark: RG running from Planck (lambda = 0.42, M = 2.1 × 10^9 GeV) and anomaly extraction (lambda = 3.83, M = 2.3 × 10^8 GeV). Both natural, both viable (sigma/m ~ 10^-3-10^-2 cm^2/g). Dark sector spectrum: massive dark photon (~387 MeV) and dark Higgs at the pion scale. 8/8 gauged tests passing. **Status: CLOSED as gauged completion. Unique branch selection within the viable window remains open.**
+
+### Sectors 6, 7, 8, 10, 11: Mapped/Open
+
+**Sector 6 (QCD):** Confinement interpreted as the fixed point z = z_target[z] for color fields. Self-referential fraction crosses 0.5 at 0.81 GeV (alpha_s = 0.5). SU(3) algebra exact to 10^-16. Wilson loop toy lattice confirms area-law trend. **Status: MAPPED (threshold identified, not derived from S_CTP).**
+
+**Sector 7 (Flavor/Masses):** Koide formula K = 2/3 satisfied to 0.005% for charged leptons. CKM near-diagonal (eigenvalues well-separated), PMNS large-mixing (eigenvalues degenerate). The two Koide parameters (M0, theta) are NOT derivable from existing GRUT constants. The individual Yukawa couplings remain SM free parameters. **Status: MAPPED (trace constraint confirmed, individual masses not derived).**
+
+**Sector 8 (Neutrinos):** Near-zero fixed point explains tiny masses (suppression 10^-11 vs tau). Eigenvalue degeneracy predicts large PMNS mixing. Seesaw reinterpreted as threshold crossing. No numerical mass predictions. **Status: EXPECTED SIGNATURE.**
+
+**Sector 10 (Baryogenesis):** All three Sakharov conditions structural in the CTP framework: B violation from constitutive dynamics, CP from CTP asymmetry (R != 1), nonequilibrium from threshold crossing. No eta computation. **Status: EXPECTED SIGNATURE.**
+
+**Sector 11 (Coupling Unification):** SM couplings reach f_self = 0.93 at 10^14.4 GeV. The 8.9% miss is structurally analogous to the Ward residual. Constitutive modification to RG running not computed. **Status: MAPPED.**
+
+### Sector 13: Neural Resonance (Demonstrated)
+
+**Sector 13 (Neural Resonance):** 38,064 neurons for 40 Hz gamma from two independent routes: gravitational (39.9 Hz) and network topology (41.7 Hz). The fixed point z = z_target[z] makes the constitutive driving term zero — not "decoherence is undefined" but "the constitutive dissipation channel has zero driving force." The consciousness interpretation (1 Space, edge states) is speculative; the computed results (40 Hz, two routes, noise immunity) are structural. 20/20 tests. **Status: DEMONSTRATED (the mathematics; the interpretation is speculative).**
+
+---
+
+## V. Falsification and Experimental Program
 
 ### A. The primary test
 
@@ -286,7 +330,7 @@ If no plateau is observed, then:
 
 ---
 
-## V. Honest Status
+## VI. Derivation Status Summary
 
 ### Derived from S_CTP:
 - Schrodinger equation (NR limit of the variation)
@@ -327,7 +371,7 @@ If no plateau is observed, then:
 
 ---
 
-## VI. Conclusion
+## VII. Conclusion
 
 The CTP effective action (1) produces, through a single variational principle, the constitutive equation (5) whose sector-specific limits recover quantum mechanics, predict gravitational decoherence with zero free parameters, give a structurally motivated cosmological constant, and yield a UV-complete graviton propagator. The fixed point z = z_target[z] (8) organizes these limits as different expressions of the same underlying action at different scales.
 
