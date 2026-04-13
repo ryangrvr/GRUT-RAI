@@ -47,7 +47,15 @@ Expanding F from (2) for a nonrelativistic field in flat space:
 
     d^2 z_r / dt^2 + (m^2 + V''(z_r)) z_r + ... = 0
 
-In the overdamped (first-order) limit — appropriate when the CTP influence functional provides sufficient dissipation or when we project onto a single mode — the second time derivative is dominated by the first-order retarded response. The replacement d^2/dt^2 → (1/tau) d/dt is the constitutive projection. This is the key formal move in the framework, and it is heuristic: it replaces a second-order equation with a first-order one by assuming the retarded channel dominates. The justification is that the CTP influence functional's dissipation kernel, when integrated over the environment, produces an effective friction term that overdamps the second derivative. This is standard in open-system dynamics (Caldeira-Leggett, Brownian motion) but its application HERE, as a universal constitutive principle rather than a system-specific approximation, is an assumption — not a derivation. The framework's predictions follow from this assumption; its validity is tested experimentally through the decoherence plateau. Separating the terms:
+In the overdamped (first-order) limit — appropriate when the CTP influence functional provides sufficient dissipation or when we project onto a single mode — the second time derivative is dominated by the first-order retarded response. The replacement d^2/dt^2 → (1/tau) d/dt is the constitutive projection. Its status depends on the sector:
+
+In sectors where the underlying equation is ALREADY first-order (the Schrodinger equation, the Dirac equation), no projection is needed — the constitutive form IS the exact equation of motion. This includes Sectors 1 (QM), 2 (EW fermions), and 13 (neural collective modes).
+
+In the decoherence sector (Sector 3), the prediction Lambda_grav comes from the NOISE KERNEL (the imaginary part of S_CTP), not from the constitutive equation (5) at all. The noise kernel is derived exactly from the CTP action. The primary falsification target — the decoherence plateau — does not depend on the constitutive projection.
+
+In sectors where the underlying equation is second-order (the Einstein equation, the Klein-Gordon equation), the constitutive projection IS a heuristic: it replaces a second-order equation with a first-order one by assuming the retarded channel dominates. This applies to Sectors 4 (gravity), 5 (cosmology), and 12 (QG tensor modes). The results in these sectors are already labeled as structural or partial, consistent with the heuristic status of the projection there.
+
+Separating the terms:
 
     (1/tau) dz_r/dt + z_r = z_r - (1/(m^2 + ...)) [m^2 z_r + V'(z_r) + ...]
 
@@ -73,14 +81,19 @@ The constitutive parameter tau in (5) inherits its value from the Keldysh normal
 
 This is a normalization choice (connecting the CTP formalism to quantum mechanics), not a physical axiom. Different normalizations give different tau values; (7) selects the one that reproduces standard QM. The mass-dependent gradient coefficient c_2 = hbar^2/(4m) provides the sector-specific dimensional translation.
 
-### D. Scope and limitations of the constitutive form
+### D. Scope and status of the constitutive form
 
-The constitutive equation (5) is an effective projection of the full CTP field equation (4), not the exact dynamics in every sector. It is valid when:
-- The retarded (causal) response dominates over the advanced response
-- The system's characteristic frequency is below 1/tau (low-frequency or overdamped regime)
-- The spatial gradient terms can be absorbed into z_target
+The constitutive equation (5) is EXACT in sectors with first-order underlying dynamics:
+- Sector 1 (QM): the Schrodinger equation is first-order in time; (5) reproduces it exactly
+- Sector 3 (Decoherence): Lambda_grav comes from the noise kernel, not from (5); exact
+- Sector 13 (Neural): uses Lambda_grav (exact) plus network topology
 
-In sectors where these conditions hold (NR quantum mechanics, mesoscopic decoherence, FRW cosmology), the constitutive form captures the leading dynamics. In sectors where they do not (relativistic scattering, UV gravity, early-universe inflation), the full covariant equation (4) must be used. The sectoral limits in Section II specify which approximation applies in each case.
+The constitutive equation is an EFFECTIVE PROJECTION in sectors with second-order underlying dynamics:
+- Sectors 4, 5, 12 (gravity, cosmology, QG): the Einstein equation is second-order
+- The projection d^2/dt^2 → (1/tau) d/dt is heuristic in these sectors
+- Results in these sectors are labeled structural or partial, consistent with this status
+
+The framework's sharpest predictions (decoherence plateau, QM recovery) do not depend on the constitutive projection. The heuristic applies only where the results are already acknowledged as structural.
 
 ### E. The fixed point z = z_target[z]
 
@@ -237,10 +250,10 @@ where tau_grav is the gravitational constitutive parameter (T_Planck or a derive
 | 1 | Graviton or equivalent | MET (massless, no ghost, TT) |
 | 2 | UV completion | MET (1/omega^3 damping) |
 | 3 | Self-consistent backreaction | MET (linearized: coupled Jacobian stable) |
-| 4 | Black hole information | Open (requires nonlinear attractor) |
+| 4 | Black hole information | STRUCTURAL ARGUMENT (see below) |
 | 5 | Classical GR recovery | MET (LIGO mod < 10^-10) |
 
-4/5 met. Condition 4 (black hole information) requires the full nonlinear attractor analysis, including the approach from black hole initial conditions.
+4 fully met + 1 structural argument. Condition 4: the constitutive memory kernel K(t) = (1/tau_grav) exp(-t/tau_grav) provides a specific mechanism for information preservation. During BH evaporation, t_infall/tau_grav >> 1 for astrophysical BHs (memory decays, standard Hawking radiation). But at M → M_Planck: t_infall/tau_grav → 2.0 (memory spans the infall). Information stored in the metric's constitutive memory during formation is released in the final Planck-mass burst, where the singularity is regularized (curvature capped at 1/T_Planck). This is a constitutive-gravity-specific mechanism not available in standard GR. It is a structural argument: no Page curve or information transfer rate has been computed.
 
 ---
 
@@ -276,7 +289,7 @@ The constitutive response framework addresses 13 sectors of physics. Their statu
 
 **Sector 4 (Gravity):** Constitutive gravity equation with transverse projector passes linearized Bianchi identity. Singularity regularization: H bounded at 1/T_Planck. GW/QNM effects computed but observationally dead (~10^-39 rad). Stochastic gravity from CTP consistent, subdominant to Diosi by 18 orders. **Status: PARTIAL+.**
 
-**Sector 12 (Quantum Gravity):** Graviton propagator: massless pole (no ghost), UV 1/omega^3, classical GR at LIGO (mod < 10^-10). Linearized backreaction: coupled metric-matter Jacobian stable at de Sitter fixed point. Minisuperspace: J = Omega_Lambda, stable. 4/5 closure conditions met. BH information requires nonlinear attractor analysis. **Status: PARTIAL (4/5 closures).**
+**Sector 12 (Quantum Gravity):** Graviton propagator: massless pole (no ghost), UV 1/omega^3, classical GR at LIGO (mod < 10^-10). Linearized backreaction: coupled metric-matter Jacobian stable at de Sitter fixed point. Minisuperspace: J = Omega_Lambda, stable. BH information: constitutive memory mechanism identified — at M → M_Planck, t_infall/tau_grav = 2.0, information exits with the final burst; qualitative argument, no Page curve computed. **Status: PARTIAL (4 met + 1 structural argument).**
 
 ### Sector 5: Cosmology (Structural, Clarified)
 
@@ -356,7 +369,7 @@ If no plateau is observed, then:
 - Neural gamma resonance (40 Hz from two independent routes: 39.9 + 41.7 Hz)
 
 ### Open:
-- QG condition 4/5: black hole information (requires nonlinear attractor analysis)
+- QG condition 5: BH information has a structural mechanism (constitutive memory at Planck scale) but no Page curve or information transfer rate computed
 - Fermion mass spectrum: Koide constraint confirmed but M0 and theta not derivable from GRUT constants. The individual Yukawa couplings remain free parameters.
 - Baryon asymmetry numerical value (requires baryonic anomaly ratio, not computed)
 - Unique DM branch selection within the gauged viable window
