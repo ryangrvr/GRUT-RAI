@@ -1,6 +1,6 @@
 # Constitutive Response Theory from the CTP Effective Action
 
-## A Unified Framework for Decoherence, Cosmology, and the Quantum-Classical Transition
+## Gravitational Decoherence, Cosmological Acceleration, and Sectoral Limits from a Single Variational Principle
 
 D. Ryan Grover, April 2026
 
@@ -8,7 +8,7 @@ D. Ryan Grover, April 2026
 
 ## Abstract
 
-We derive a constitutive response equation from the closed-time-path (Schwinger-Keldysh) effective action and show that its variational structure produces sector-specific dynamics in appropriate limits: the Schrodinger equation for nonrelativistic quantum mechanics, a zero-parameter gravitational decoherence rate from the noise kernel, a modified Friedmann equation with memory for cosmology, and a UV-complete graviton propagator for linearized gravity. The self-referential fixed point z = z_target[z] of the constitutive equation organizes these limits as different projections of a single CTP action. We present a corrected experimental benchmark for the decoherence prediction (gold microsphere, R = 1 um, Lambda_grav = 689 Hz) and discuss falsification conditions.
+We derive a constitutive response equation from the closed-time-path (Schwinger-Keldysh) effective action and show that its variational structure produces sector-specific dynamics in appropriate limits: the Schrodinger equation for nonrelativistic quantum mechanics, a zero-parameter gravitational decoherence rate from the noise kernel, a modified Friedmann equation with memory for cosmology, and a UV-complete graviton propagator for linearized gravity. The fixed point z = z_target[z] of the constitutive equation organizes these limits as different projections of a single CTP action. We present a corrected experimental benchmark for the decoherence prediction (gold microsphere, R = 1 um, Lambda_grav = 689 Hz) and discuss falsification conditions.
 
 ---
 
@@ -43,11 +43,21 @@ Variation of (1) with respect to the quantum field z_a yields the equation of mo
 
     delta S_CTP / delta z_a = 0:    F[z_r, g] = 0                           (4)
 
-This is the retarded (causal) equation of motion — the constitutive equation. In the single-mode, nonrelativistic limit where z_r depends on time alone, (4) takes the form:
+Expanding F from (2) for a nonrelativistic field in flat space:
+
+    d^2 z_r / dt^2 + (m^2 + V''(z_r)) z_r + ... = 0
+
+In the overdamped (first-order) limit — appropriate when the CTP influence functional provides sufficient dissipation or when we project onto a single mode — the second time derivative is dominated by the first-order retarded response. Writing d^2/dt^2 → (1/tau) d/dt (the constitutive projection), and separating the terms:
+
+    (1/tau) dz_r/dt + z_r = z_r - (1/(m^2 + ...)) [m^2 z_r + V'(z_r) + ...]
+
+Identifying z_target[z_r] as the right-hand side:
 
     tau dz/dt + z = z_target[z]                                              (5)
 
-where tau is the constitutive relaxation parameter (extracted from the time-derivative structure of F) and z_target[z] encodes the remaining terms in (2).
+where tau is the constitutive relaxation parameter (set by the ratio of the first- to second-order time-derivative coefficients in the CTP action) and z_target[z] = z - F_spatial[z]/F_temporal collects all non-time-derivative terms in F, divided by the time-derivative coefficient. In the NR quantum-mechanical limit, this gives z_target = z + (hbar/2m) nabla^2 z - (i/hbar) V z × tau_I, as shown in Section II.A.
+
+The constitutive form (5) is an effective projection of the full field equation (4), valid when the system's response is dominated by its retarded (causal) channel. It is not the exact field equation in every sector — it is the leading-order constitutive response extracted from the CTP variation. Higher-order corrections (second time derivatives, nonlocal terms) can be systematically included but are suppressed by powers of tau × (characteristic frequency) for low-frequency dynamics.
 
 The second variation delta^2 S / delta z_a^2 = i N gives the noise kernel, which enters the Langevin extension of (5):
 
@@ -63,7 +73,16 @@ The constitutive parameter tau in (5) inherits its value from the Keldysh normal
 
 This is a normalization choice (connecting the CTP formalism to quantum mechanics), not a physical axiom. Different normalizations give different tau values; (7) selects the one that reproduces standard QM. The mass-dependent gradient coefficient c_2 = hbar^2/(4m) provides the sector-specific dimensional translation.
 
-### D. The self-referential fixed point
+### D. Scope and limitations of the constitutive form
+
+The constitutive equation (5) is an effective projection of the full CTP field equation (4), not the exact dynamics in every sector. It is valid when:
+- The retarded (causal) response dominates over the advanced response
+- The system's characteristic frequency is below 1/tau (low-frequency or overdamped regime)
+- The spatial gradient terms can be absorbed into z_target
+
+In sectors where these conditions hold (NR quantum mechanics, mesoscopic decoherence, FRW cosmology), the constitutive form captures the leading dynamics. In sectors where they do not (relativistic scattering, UV gravity, early-universe inflation), the full covariant equation (4) must be used. The sectoral limits in Section II specify which approximation applies in each case.
+
+### E. The fixed point z = z_target[z]
 
 At the fixed point of (5):
 
@@ -79,6 +98,8 @@ the time derivative vanishes and the relaxation parameter tau drops out. The fix
 ## II. Sectoral Limits
 
 Each sector of physics corresponds to a specific choice of field content and approximation in the CTP action (1). The variation (4) produces a sector-specific z_target; the noise kernel (3) produces a sector-specific decoherence rate or fluctuation spectrum.
+
+This section develops four limits in detail: nonrelativistic quantum mechanics (II.A), gravitational decoherence (II.B), FRW cosmology (II.C), and linearized tensor gravity (II.D). Additional sectoral limits — QCD confinement, flavor hierarchy, neutrino masses, baryogenesis, coupling unification, dark matter solitons, and neural gamma resonance — are mapped in the codebase (github.com/ryangrvr/GRUT-RAI-v1.0) with 183 passing tests, but are not derived here in full. Their fixed-point structure is summarized in Section III.
 
 ### A. Quantum Mechanics (nonrelativistic scalar field)
 
@@ -158,15 +179,17 @@ Verified: thermalization to Boltzmann distribution with max population error 1.4
 
 where tau_0 = 41.9 Myr is the canonical relaxation time derived from the 3-loop gravitational anomaly coefficient C_FINAL = 1.14021 × 10^-4.
 
-**Vacuum fixed point:** At z = z_target[z] in the zero-matter limit, the 3-loop anomaly structure of the CTP action gives:
+**Vacuum fixed point:** At the fixed point z = z_target[z] in the zero-matter limit, the CTP action's anomaly structure constrains the vacuum Hubble rate. The constraint takes the form H_inf = f(R_anomaly) / (S × tau_0), where the function f is determined by:
+
+1. **Linearity in R**: The 3-loop anomaly enters the CTP influence functional as a single insertion vertex. Higher powers of R_anomaly would require 6-loop (two insertions) or higher. At 3-loop order, f(R) is forced to be linear.
+2. **Boundary at R = 1**: When the two CTP paths have identical anomaly coefficients (C_Cosmo = C_Final, R = 1), the vacuum response is maximal: f(1) = 1.
+3. **Boundary at R = 2**: When the cosmological anomaly is exactly twice the local one, the Keldysh cross-term changes sign (constructive → destructive interference): f(2) = 0.
+
+These three conditions uniquely fix f(R) = 2 - R, giving:
 
     H_inf = (2 - R_anomaly) / (S × tau_0)                                   (16)
 
-where R_anomaly = 1.15428 (the ratio |C_Cosmo/C_Final| from the 3-loop calculation) and S = 108 pi (the CTP normalization).
-
-**Structural derivation of (16):** The function f(R) in H_inf = f(R)/(S tau_0) is:
-- Linear in R, because the 3-loop anomaly is a single insertion (higher powers require higher loop order)
-- Uniquely f(R) = 2 - R, because f(1) = 1 (CTP paths identical → max rate) and f(2) = 0 (paths cancel → destructive interference)
+where R_anomaly = 1.15428, S = 108 pi, tau_0 = 41.9 Myr. This is a structural ansatz: the three constraints are physically motivated (loop structure, CTP symmetry) but the full non-perturbative CTP calculation at the de Sitter background has not been performed. The derivation has 7 computed steps (from the CTP axioms to tau_0) and 3 structural steps (linearity, boundaries, assembly). The structural steps constrain the formula to a unique form but do not constitute a derivation from a Lagrangian in the conventional sense.
 
 **Numerical result:** H_inf = 1.885 × 10^-18 Hz. This is an absolute prediction independent of H_0. The implied Omega_Lambda depends on the measured H_0:
 
@@ -223,7 +246,7 @@ where tau_grav is the gravitational constitutive parameter (T_Planck or a derive
 
 ## III. The Self-Referential Threshold
 
-Across all sectors, the constitutive equation (5) exhibits a qualitative transition: the shift from external-target dynamics (z evolves toward a target set by external forces) to the self-referential regime (z = z_target[z], the system is its own target).
+Across all sectors, the constitutive equation (5) exhibits a qualitative transition: the shift from external-target dynamics (z evolves toward a target set by external forces) to the fixed-point regime (z = z_target[z], the system is its own target).
 
 | Sector | External target | Threshold | Self-referential state |
 |:---|:---|:---|:---|
@@ -243,7 +266,7 @@ The threshold is not a separate postulate — it is the constitutive equation's 
 
 The gravitational decoherence plateau (12) is testable with zero free parameters. The prediction: at P < 10^-10 Pa, the decoherence rate of a gold microsphere (R ~ 0.5-1 um) saturates at a value set entirely by (m, R, l). Standard QM predicts the rate continues to decrease toward zero.
 
-This is a binary test. The experimental groups capable of performing it (Arndt, Aspelmeyer, Geraci, Bateman) are developing levitated optomechanics platforms that approach the required mass and vacuum regime.
+This is the primary falsification test for the framework. A null result would remove the quantitative grounding for the decoherence sector and weaken (though not logically disprove) the downstream predictions. The experimental groups developing levitated optomechanics platforms that approach the required regime include Arndt, Aspelmeyer, Geraci, and Bateman. The structural mappings in other sectors (QCD threshold, Koide formula, coupling convergence) are independently testable and do not logically depend on the plateau measurement.
 
 The six discriminating signatures (Section II.B) distinguish this prediction from all tested alternative models (constant floor, power-law, CSL, Diosi-Penrose point-mass).
 
@@ -275,7 +298,7 @@ If no plateau is observed, then:
 ### What is structurally motivated but not fully derived:
 - H_inf = (2-R)/(S tau_0) (structural ansatz, 7+3 steps)
 - Three-phase cosmology (discrete map, all parameters derived)
-- Confinement as self-referential vacuum (mapped, not derived)
+- Confinement as fixed-point vacuum (mapped, not derived)
 - Koide formula as eigenvalue constraint (observed, reinterpreted)
 
 ### What is open:
@@ -296,9 +319,9 @@ If no plateau is observed, then:
 
 ## VI. Conclusion
 
-The CTP effective action (1) produces, through a single variational principle, the constitutive equation (5) whose sector-specific limits recover quantum mechanics, predict gravitational decoherence with zero free parameters, give a structurally motivated cosmological constant, and yield a UV-complete graviton propagator. The self-referential fixed point (8) organizes these limits as different expressions of the same underlying action at different scales.
+The CTP effective action (1) produces, through a single variational principle, the constitutive equation (5) whose sector-specific limits recover quantum mechanics, predict gravitational decoherence with zero free parameters, give a structurally motivated cosmological constant, and yield a UV-complete graviton propagator. The fixed point z = z_target[z] (8) organizes these limits as different expressions of the same underlying action at different scales.
 
-The framework is falsifiable through one measurement: the gravitational decoherence plateau at ~689 Hz for a gold microsphere.
+The primary falsification test is the gravitational decoherence plateau at ~689 Hz for a gold microsphere. A null result would remove the predictive core; a positive result would establish the CTP decoherence mechanism and lend credibility to the structural extensions.
 
 ---
 
