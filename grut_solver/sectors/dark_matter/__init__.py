@@ -11,7 +11,7 @@ stable domain wall solitons with:
   - Mass range: 10^6 - 10^13 GeV (superheavy / WIMPzilla)
   - Stabilized by anomaly-induced vacuum splitting (C_FINAL)
 """
-SECTOR_STATUS = "Computed (toy model)"
+SECTOR_STATUS = "Closed (gauged extension)"
 SECTOR_NAME = "Dark Matter"
 
 COMPUTED_RESULTS = [
