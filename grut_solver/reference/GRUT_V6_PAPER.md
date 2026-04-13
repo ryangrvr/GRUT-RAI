@@ -47,7 +47,7 @@ Expanding F from (2) for a nonrelativistic field in flat space:
 
     d^2 z_r / dt^2 + (m^2 + V''(z_r)) z_r + ... = 0
 
-In the overdamped (first-order) limit — appropriate when the CTP influence functional provides sufficient dissipation or when we project onto a single mode — the second time derivative is dominated by the first-order retarded response. Writing d^2/dt^2 → (1/tau) d/dt (the constitutive projection), and separating the terms:
+In the overdamped (first-order) limit — appropriate when the CTP influence functional provides sufficient dissipation or when we project onto a single mode — the second time derivative is dominated by the first-order retarded response. The replacement d^2/dt^2 → (1/tau) d/dt is the constitutive projection. This is the key formal move in the framework, and it is heuristic: it replaces a second-order equation with a first-order one by assuming the retarded channel dominates. The justification is that the CTP influence functional's dissipation kernel, when integrated over the environment, produces an effective friction term that overdamps the second derivative. This is standard in open-system dynamics (Caldeira-Leggett, Brownian motion) but its application HERE, as a universal constitutive principle rather than a system-specific approximation, is an assumption — not a derivation. The framework's predictions follow from this assumption; its validity is tested experimentally through the decoherence plateau. Separating the terms:
 
     (1/tau) dz_r/dt + z_r = z_r - (1/(m^2 + ...)) [m^2 z_r + V'(z_r) + ...]
 
@@ -268,7 +268,7 @@ The constitutive response framework addresses 13 sectors of physics. Their statu
 
 **Sector 1 (Quantum Mechanics):** Schrodinger equation derived as the NR limit of the CTP variation. Born rule, Lindblad thermalization, Ehrenfest theorem, continuity equation all verified. 12/12 tests. **Status: DERIVED.**
 
-**Sector 2 (Electroweak/SM):** Charge quantization (7/7 from Q = T3 + Y/2), gauge boson masses (M_W = 80.3, M_Z = 91.1 GeV), anomaly cancellation, Higgs mechanism. The SM Lagrangian enters as S_classical in the CTP action. 13/13 tests. **Status: DERIVED (host structure).**
+**Sector 2 (Electroweak/SM):** Charge quantization (7/7 from Q = T3 + Y/2), gauge boson masses (M_W = 80.3, M_Z = 91.1 GeV), anomaly cancellation, Higgs mechanism. The SM Lagrangian is IMPORTED as S_classical in the CTP action — GRUT does not derive the Standard Model, it hosts it. The constitutive framework reproduces SM dynamics when the SM Lagrangian is supplied as input. 13/13 tests. **Status: RECOVERED (SM imported as input, constitutive dynamics verified to reproduce SM predictions).**
 
 **Sector 3 (Gravitational Decoherence):** Lambda_grav = G m^2 S(l/R)/(hbar l) from the CTP noise kernel. Zero free parameters. Corrected benchmark: gold microsphere R = 1 um, Lambda = 689 Hz. Lindblad master equation verified. Heating rate safe by >60 orders. Six discriminating signatures. 14/14 tests. **Status: PREDICTIVE (zero parameters, untested experimentally).**
 
@@ -280,11 +280,11 @@ The constitutive response framework addresses 13 sectors of physics. Their statu
 
 ### Sector 5: Cosmology (Structural, Clarified)
 
-**Sector 5 (Cosmology):** H_inf = (2 - R_anomaly)/(S tau_0) = 1.885 × 10^-18 Hz. Structural derivation from the finite anomaly structure: linearity from single 3-loop insertion, boundaries from CTP doubling, dimensional assembly. The standard perturbative loop expansion cannot reach this result because it hits the cosmological constant problem at 1-loop (H ~ M_Planck, 10^61 too large). The structural route uses scheme-protected anomaly coefficients, not the divergent vacuum energy sum. This is not "awaiting loop confirmation" — the loop route is blocked. Non-perturbative discrete map with exact retarded memory kernel produces three-phase expansion with all parameters derived. **Status: STRUCTURAL DERIVATION (the constitutive route; not fully closed in the conventional perturbative sense).**
+**Sector 5 (Cosmology):** H_inf = (2 - R_anomaly)/(S tau_0) = 1.885 × 10^-18 Hz. This result follows from three structural constraints on the anomaly function f(R): linearity from single 3-loop insertion, boundaries from CTP doubling, dimensional assembly. The standard perturbative loop expansion cannot reach this result because it hits the cosmological constant problem at 1-loop (H ~ M_Planck, 10^61 too large). The structural route uses scheme-protected anomaly coefficients, not the divergent vacuum energy sum. Non-perturbative discrete map with exact retarded memory kernel produces three-phase expansion with all parameters derived. **Status: STRUCTURAL — the constitutive route to H_inf, not a conventional perturbative derivation. The formula is well-motivated and numerically striking (Omega_Lambda within 0.2% at H_0 = 70) but the decisive non-perturbative CTP calculation confirming the exact functional form has not been performed. This sector is stronger than an ansatz but weaker than a closed derivation.**
 
 ### Sector 9: Dark Matter (Closed, Gauged Extension)
 
-**Sector 9 (Dark Matter):** The global Z_2 symmetry of the double-well potential is promoted to a local U(1)_dark gauge symmetry. lambda = g_dark^2/2 is fixed by the dark gauge coupling. Two routes to g_dark: RG running from Planck (lambda = 0.42, M = 2.1 × 10^9 GeV) and anomaly extraction (lambda = 3.83, M = 2.3 × 10^8 GeV). Both natural, both viable (sigma/m ~ 10^-3-10^-2 cm^2/g). Dark sector spectrum: massive dark photon (~387 MeV) and dark Higgs at the pion scale. 8/8 gauged tests passing. **Status: CLOSED as gauged completion. Unique branch selection within the viable window remains open.**
+**Sector 9 (Dark Matter):** The global Z_2 symmetry of the double-well potential is promoted to a local U(1)_dark gauge symmetry. lambda = g_dark^2/2 is fixed by the dark gauge coupling. Two routes to g_dark: RG running from Planck (lambda = 0.42, M = 2.1 × 10^9 GeV) and anomaly extraction (lambda = 3.83, M = 2.3 × 10^8 GeV). Both natural, both viable (sigma/m ~ 10^-3-10^-2 cm^2/g). Dark sector spectrum: massive dark photon (~387 MeV) and dark Higgs at the pion scale. 8/8 gauged tests passing. **Status: CLOSED as a gauged completion CLASS — the U(1)_dark extension produces a finite viable parameter window with determined lambda. However, the two routes give different (lambda, v, M) and unique branch selection within the window has not been achieved. Sector 9 is closed as an extension class, not uniquely closed as a single prediction.**
 
 ### Sectors 6, 7, 8, 10, 11: Mapped/Open
 
@@ -340,12 +340,12 @@ If no plateau is observed, then:
 - UV completion (1/omega^3 damping) and classical GR recovery (LIGO mod < 10^-10)
 - Self-consistent backreaction at linearized level (coupled Jacobian stable)
 
-### Structural derivation (the constitutive route, not the perturbative loop route):
-- H_inf = (2-R)/(S tau_0): derived from the FINITE anomaly structure (R, S, tau_0), not from the divergent vacuum energy sum. The standard loop expansion hits the cosmological constant problem at 1-loop (H ~ M_Planck, 10^61 too large). The structural route sidesteps this by using scheme-protected anomaly coefficients. This is not "awaiting loop confirmation" — the loop route is blocked. The structural route IS the GRUT derivation.
+### Structural (the constitutive route, not the perturbative loop route):
+- H_inf = (2-R)/(S tau_0): constrained from the FINITE anomaly structure (R, S, tau_0), not from the divergent vacuum energy sum. The standard loop expansion hits the cosmological constant problem at 1-loop (H ~ M_Planck, 10^61 too large). The structural route uses scheme-protected anomaly coefficients. Stronger than an ansatz (three independent constraints fix the formula uniquely), weaker than a conventional derivation (the full non-perturbative CTP calculation at de Sitter has not been performed).
 - Three-phase cosmology (discrete map, all parameters derived, 100% robust)
 
-### Closed (gauged extension):
-- Dark matter: U(1)_dark gauge extension fixes lambda = g_dark^2/2. Two routes give g_dark (RG running from Planck: lambda = 0.42; anomaly extraction: lambda = 3.83). Both natural, both viable. DM soliton mass: 10^8-10^9 GeV. sigma/m: 10^-3-10^-2 cm^2/g. Dark photon at ~387 MeV. Sector 9 closed as a gauged completion; unique branch selection within the viable window remains open.
+### Closed as extension class (gauged, not uniquely selected):
+- Dark matter: U(1)_dark gauge extension fixes lambda = g_dark^2/2. Two routes give g_dark (RG running from Planck: lambda = 0.42; anomaly extraction: lambda = 3.83). Both natural, both viable. DM soliton mass: 10^8-10^9 GeV. sigma/m: 10^-3-10^-2 cm^2/g. Dark photon at ~387 MeV. The extension class is finite and viable; unique branch selection within the class remains open.
 
 ### Mapped (structural contact, not derived):
 - QCD confinement threshold at 0.81 GeV (self-referential fraction crosses 0.5)
@@ -366,8 +366,7 @@ If no plateau is observed, then:
 - Observable GW or QNM modifications (computed, dead at ~10^-39 rad)
 - Resolution of the Hubble tension
 - Exact fermion masses from first principles
-- Resolution of the Hubble tension
-- "Decoherence is undefined" in the Lindblad sense
+- "Decoherence is undefined" in the Lindblad sense (only the constitutive driving term is zero at the fixed point)
 
 ---
 
