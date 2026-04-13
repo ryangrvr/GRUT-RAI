@@ -236,11 +236,11 @@ where tau_grav is the gravitational constitutive parameter (T_Planck or a derive
 |:---|:---|:---|
 | 1 | Graviton or equivalent | MET (massless, no ghost, TT) |
 | 2 | UV completion | MET (1/omega^3 damping) |
-| 3 | Self-consistent backreaction | Structural (fixed-point argument) |
-| 4 | Black hole information | Open |
+| 3 | Self-consistent backreaction | MET (linearized: coupled Jacobian stable) |
+| 4 | Black hole information | Open (requires nonlinear attractor) |
 | 5 | Classical GR recovery | MET (LIGO mod < 10^-10) |
 
-3/5 met. Conditions 3 and 4 require the full nonlinear analysis.
+4/5 met. Condition 4 (black hole information) requires the full nonlinear attractor analysis, including the approach from black hole initial conditions.
 
 ---
 
@@ -288,30 +288,40 @@ If no plateau is observed, then:
 
 ## V. Honest Status
 
-### What is derived from S_CTP:
+### Derived from S_CTP:
 - Schrodinger equation (NR limit of the variation)
 - Gravitational decoherence rate (noise kernel, zero parameters)
 - Lindblad master equation (from the noise kernel)
-- Graviton propagator (linearized constitutive gravity)
-- UV completion and classical GR recovery
+- Graviton propagator (linearized constitutive gravity, massless, no ghost)
+- UV completion (1/omega^3 damping) and classical GR recovery (LIGO mod < 10^-10)
+- Self-consistent backreaction at linearized level (coupled Jacobian stable)
 
-### What is structurally motivated but not fully derived:
-- H_inf = (2-R)/(S tau_0) (structural ansatz, 7+3 steps)
-- Three-phase cosmology (discrete map, all parameters derived)
-- Confinement as fixed-point vacuum (mapped, not derived)
-- Koide formula as eigenvalue constraint (observed, reinterpreted)
+### Structural derivation (the constitutive route, not the perturbative loop route):
+- H_inf = (2-R)/(S tau_0): derived from the FINITE anomaly structure (R, S, tau_0), not from the divergent vacuum energy sum. The standard loop expansion hits the cosmological constant problem at 1-loop (H ~ M_Planck, 10^61 too large). The structural route sidesteps this by using scheme-protected anomaly coefficients. This is not "awaiting loop confirmation" — the loop route is blocked. The structural route IS the GRUT derivation.
+- Three-phase cosmology (discrete map, all parameters derived, 100% robust)
 
-### What is open:
-- Full 3-loop CTP at de Sitter (would derive H_inf rigorously)
-- QG backreaction and black hole information (2 of 5 closures remaining)
-- Dark matter closure (existence proof with viable window, not unique prediction)
-- Fermion mass spectrum from the constitutive eigenvalue problem
-- Baryon asymmetry numerical value
+### Closed (gauged extension):
+- Dark matter: U(1)_dark gauge extension fixes lambda = g_dark^2/2. Two routes give g_dark (RG running from Planck: lambda = 0.42; anomaly extraction: lambda = 3.83). Both natural, both viable. DM soliton mass: 10^8-10^9 GeV. sigma/m: 10^-3-10^-2 cm^2/g. Dark photon at ~387 MeV. Sector 9 closed as a gauged completion; unique branch selection within the viable window remains open.
 
-### What is not claimed:
+### Mapped (structural contact, not derived):
+- QCD confinement threshold at 0.81 GeV (self-referential fraction crosses 0.5)
+- Koide formula as fixed-point trace constraint (0.005% for leptons)
+- Coupling unification approach (f_self = 0.93 at 10^14.4 GeV)
+- Neutrino near-zero fixed point (large PMNS from eigenvalue degeneracy)
+- Baryogenesis (3/3 Sakharov conditions structural in the CTP framework)
+- Neural gamma resonance (40 Hz from two independent routes: 39.9 + 41.7 Hz)
+
+### Open:
+- QG condition 4/5: black hole information (requires nonlinear attractor analysis)
+- Fermion mass spectrum: Koide constraint confirmed but M0 and theta not derivable from GRUT constants. The individual Yukawa couplings remain free parameters.
+- Baryon asymmetry numerical value (requires baryonic anomaly ratio, not computed)
+- Unique DM branch selection within the gauged viable window
+
+### Not claimed:
 - Mechanism for subjective experience
-- Dark matter at WIMP mass scale
-- Observable GW or QNM modifications
+- Observable GW or QNM modifications (computed, dead at ~10^-39 rad)
+- Resolution of the Hubble tension
+- Exact fermion masses from first principles
 - Resolution of the Hubble tension
 - "Decoherence is undefined" in the Lindblad sense
 
