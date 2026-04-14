@@ -11,7 +11,7 @@ stable domain wall solitons with:
   - Mass range: 10^6 - 10^13 GeV (superheavy / WIMPzilla)
   - Stabilized by anomaly-induced vacuum splitting (C_FINAL)
 """
-SECTOR_STATUS = "Closed (gauged extension)"
+SECTOR_STATUS = "Closed (gauged extension, Route 1 selected)"
 SECTOR_NAME = "Dark Matter"
 
 COMPUTED_RESULTS = [
@@ -34,4 +34,6 @@ MODULE_MAP = {
     "Soliton DM toy model": "grut_solver.sectors.dark_matter.soliton_dark_matter",
     "Candidate criteria": "grut_solver.sectors.dark_matter.candidate_criteria",
     "Stability checks": "grut_solver.sectors.dark_matter.stability_checks",
+    "Gauged DM (U(1)_dark)": "grut_solver.sectors.dark_matter.gauge_dark_matter",
+    "Branch discriminator": "grut_solver.sectors.dark_matter.branch_discriminator",
 }

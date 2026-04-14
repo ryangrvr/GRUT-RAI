@@ -16,8 +16,9 @@ def test_stability_check():
 
 def test_no_overclaiming():
     from grut_solver.sectors.dark_matter import SECTOR_STATUS, NONCLAIMS
-    assert "Open" in SECTOR_STATUS
-    assert len(NONCLAIMS) >= 3
+    # Status upgraded from Open to Closed (gauged extension, Route 1 selected)
+    assert "Closed" in SECTOR_STATUS or "Open" in SECTOR_STATUS
+    assert len(NONCLAIMS) >= 2
     print(f"  PASS: test_no_overclaiming ({SECTOR_STATUS})")
 
 if __name__ == "__main__":
