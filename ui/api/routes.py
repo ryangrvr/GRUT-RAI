@@ -411,3 +411,19 @@ def dm_roadmap():
 def dm_mixing():
     from grut.derived.dark_matter.exclusion import kinetic_mixing_estimate
     return jsonify(kinetic_mixing_estimate())
+
+# ═══ Spectral Index Running ═══
+@api.route('/cosmology/spectral')
+def spectral():
+    from grut.derived.cosmology.spectral_running import full_spectral_analysis
+    return jsonify(full_spectral_analysis())
+
+@api.route('/cosmology/spectral/discrimination')
+def spectral_disc():
+    from grut.derived.cosmology.spectral_running import discrimination_analysis
+    return jsonify(discrimination_analysis())
+
+@api.route('/cosmology/inflation_models')
+def inflation_models():
+    from grut.derived.cosmology.spectral_running import inflation_models
+    return jsonify(inflation_models())
