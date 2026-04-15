@@ -292,3 +292,48 @@ def coincidences():
 def connections():
     from grut.utils.discovery import find_scale_connections
     return jsonify(find_scale_connections())
+
+# ═══ Decoherence Competition ═══
+@api.route('/decoherence/competition')
+def decoherence_competition():
+    from grut.derived.decoherence.competition import competition
+    m=float(request.args.get('m_amu', 1e9))*1.661e-27
+    l=float(request.args.get('l', 1e-7)); P=float(request.args.get('P', 1e-14))
+    T=float(request.args.get('T', 4.0))
+    return jsonify(competition(m, l, P, T))
+
+@api.route('/decoherence/temperature_sweep')
+def decoherence_temp_sweep():
+    from grut.derived.decoherence.competition import temperature_sweep
+    m=float(request.args.get('m_amu', 1e9))*1.661e-27
+    l=float(request.args.get('l', 1e-7)); P=float(request.args.get('P', 1e-14))
+    return jsonify(temperature_sweep(m, l, P))
+
+@api.route('/decoherence/phase_diagram')
+def decoherence_phase():
+    from grut.derived.decoherence.competition import phase_diagram
+    T=float(request.args.get('T', 4.0))
+    return jsonify(phase_diagram(T_K=T))
+
+@api.route('/decoherence/scaling_exponents')
+def decoherence_exponents():
+    from grut.derived.decoherence.competition import scaling_exponents
+    return jsonify(scaling_exponents())
+
+@api.route('/decoherence/protocols')
+def decoherence_protocols():
+    from grut.derived.decoherence.competition import experimental_protocols
+    return jsonify(experimental_protocols())
+
+@api.route('/decoherence/optimal')
+def decoherence_optimal():
+    from grut.derived.decoherence.competition import optimal_setup
+    return jsonify(optimal_setup())
+
+@api.route('/decoherence/full_analysis')
+def decoherence_full():
+    from grut.derived.decoherence.competition import full_competition_analysis
+    m=float(request.args.get('m_amu', 1e9))
+    l=float(request.args.get('l', 1e-7)); P=float(request.args.get('P', 1e-14))
+    T=float(request.args.get('T', 4.0))
+    return jsonify(full_competition_analysis(m, l, P, T))

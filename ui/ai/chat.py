@@ -214,6 +214,29 @@ TOOLS = [
         "description": "Run discovery mode to find unexpected numerical coincidences, scale connections, and parameter correlations in GRUT. Use when someone asks about patterns, coincidences, or hidden connections.",
         "input_schema": {"type": "object", "properties": {}}
     },
+    {
+        "name": "decoherence_competition",
+        "description": "Run the full multi-channel decoherence competition: GRUT vs gas scattering vs blackbody vs EM vs vibrational noise. Returns ratio, dominant channel, regime classification. Use when someone asks about detectability, environmental noise, or whether GRUT can be measured.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "m_amu": {"type": "number", "description": "Mass in amu", "default": 1e9},
+                "l_m": {"type": "number", "description": "Separation in meters", "default": 1e-7},
+                "P_Pa": {"type": "number", "description": "Pressure in Pa", "default": 1e-14},
+                "T_K": {"type": "number", "description": "Temperature in Kelvin", "default": 4.0}
+            }
+        }
+    },
+    {
+        "name": "get_scaling_exponents",
+        "description": "Get the scaling exponent table (alpha, beta, gamma, delta) for all decoherence channels. THE key discriminator: GRUT has beta=-1, all environmental sources have beta=+2. Use when someone asks about how to distinguish GRUT from noise, or about scaling laws vs environmental decoherence.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
+    {
+        "name": "get_experimental_protocols",
+        "description": "Get the three experimental protocols for testing GRUT: Protocol A (mass scaling), Protocol B (separation anti-scaling, STRONGEST), Protocol C (environmental decoupling). Use when someone asks how to test GRUT or design an experiment.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
 ]
 
 # ═══════════════════════════════════════════════════════
@@ -317,6 +340,19 @@ def execute_tool(name, params):
         elif name == "run_discovery":
             from grut.utils.discovery import full_discovery
             return full_discovery()
+
+        elif name == "decoherence_competition":
+            from grut.derived.decoherence.competition import competition
+            m = params.get("m_amu", 1e9) * 1.661e-27
+            return competition(m, params.get("l_m", 1e-7), params.get("P_Pa", 1e-14), params.get("T_K", 4.0))
+
+        elif name == "get_scaling_exponents":
+            from grut.derived.decoherence.competition import scaling_exponents
+            return scaling_exponents()
+
+        elif name == "get_experimental_protocols":
+            from grut.derived.decoherence.competition import experimental_protocols
+            return experimental_protocols()
 
         return {"error": f"Unknown tool: {name}"}
     except Exception as e:
