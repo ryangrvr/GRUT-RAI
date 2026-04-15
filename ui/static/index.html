@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRUT RAI v2</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<div class="header">
+    <div>
+        <h1>GRUT RAI</h1>
+        <div class="subtitle">Grand Responsive Universe Theory</div>
+    </div>
+    <span class="version">v2.0.0</span>
+    <div id="health-indicator" style="margin-left:auto;font-size:12px;color:var(--dim)">Loading...</div>
+</div>
+
+<!-- ═══ TAB BAR ═══ -->
+<div class="tab-bar">
+    <button class="tab active" data-tab="chat" onclick="switchTab('chat')">RAI Chat</button>
+    <button class="tab" data-tab="dashboard" onclick="switchTab('dashboard')">Dashboard</button>
+    <button class="tab" data-tab="grutipedia" onclick="switchTab('grutipedia')">GRUTipedia</button>
+    <button class="tab" data-tab="experiments" onclick="switchTab('experiments')">Experiments</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TAB: RAI CHAT                                          -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="tab-chat" class="tab-content active">
+    <div class="chat-container">
+        <div class="chat-messages" id="chat-messages">
+            <div class="msg system">
+                <strong>GRUT RAI</strong> — I am the computational engine behind the Grand Responsive Universe Theory. Ask me about any GRUT concept, run a calculation, or explore the framework.
+                <br><br>
+                Try: <em>"What is the decoherence rate for a 100 pg gold sphere?"</em> or <em>"Explain the bridge parameter"</em> or <em>"What would falsify GRUT?"</em>
+            </div>
+        </div>
+        <div class="chat-input-row">
+            <input id="chat-input" type="text" placeholder="Ask GRUT RAI anything..." onkeydown="if(event.key==='Enter')sendChat()">
+            <button onclick="sendChat()">Send</button>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TAB: DASHBOARD                                         -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="tab-dashboard" class="tab-content" style="display:none">
+    <div class="grid">
+        <div class="card">
+            <h2>System Status</h2>
+            <div id="status-grid" class="status-grid"></div>
+        </div>
+        <div class="card">
+            <h2>Decoherence Calculator</h2>
+            <h3>&Lambda;<sub>grav</sub> = G m&sup2; S(l/R) / (&hbar; l)</h3>
+            <div class="input-row">
+                <div class="input-group"><label>Mass (kg)</label><input id="dec-m" type="text" value="80.8e-15"></div>
+                <div class="input-group"><label>Separation l (m)</label><input id="dec-l" type="text" value="1e-6"></div>
+                <div class="input-group"><label>Radius R (m)</label><input id="dec-R" type="text" value="1e-6"></div>
+                <button onclick="calcDecoherence()">Compute</button>
+            </div>
+            <div class="result-box">
+                <div class="result-big" id="dec-result">&mdash;</div>
+                <div class="result-label" id="dec-detail"></div>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Scaling Laws: &Lambda; vs Separation</h2>
+            <h3>The geometric kink at l = 1.8R</h3>
+            <canvas id="chart-separation"></canvas>
+        </div>
+        <div class="card">
+            <h2>Mass Dependence: &Lambda; &sim; m&sup2;</h2>
+            <h3>Slope = 2 on log-log</h3>
+            <canvas id="chart-mass"></canvas>
+        </div>
+        <div class="card">
+            <h2>The Bridge: Lab &rarr; Universe</h2>
+            <h3>Measure &Lambda;<sub>grav</sub> &rarr; predict &Omega;<sub>&Lambda;</sub></h3>
+            <div class="bridge-chain">
+                <span class="bridge-step">&Lambda;<sub>grav</sub></span><span class="bridge-arrow">&rarr;</span>
+                <span class="bridge-step">&tau;<sub>0</sub></span><span class="bridge-arrow">&rarr;</span>
+                <span class="bridge-step">H<sub>&infin;</sub></span><span class="bridge-arrow">&rarr;</span>
+                <span class="bridge-step">&Omega;<sub>&Lambda;</sub></span>
+            </div>
+            <div class="input-row">
+                <div class="input-group"><label>&Lambda;<sub>grav</sub> (Hz)</label><input id="br-lambda" type="text" value="689"></div>
+                <button onclick="calcBridge()">Predict</button>
+            </div>
+            <div class="result-box">
+                <div class="result-big" id="br-omega">&mdash;</div>
+                <div class="result-label" id="br-detail"></div>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Constitutive Dynamics</h2>
+            <h3>&tau; dz/dt + z = z<sub>target</sub></h3>
+            <div class="input-row">
+                <div class="input-group"><label>z<sub>0</sub></label><input id="ev-z0" value="1.0"></div>
+                <div class="input-group"><label>z<sub>target</sub></label><input id="ev-zt" value="0.0"></div>
+                <div class="input-group"><label>&tau;</label><input id="ev-tau" value="1.0"></div>
+                <button onclick="calcEvolve()">Evolve</button>
+            </div>
+            <canvas id="chart-evolve"></canvas>
+        </div>
+        <div class="card">
+            <h2>GRUT Constants</h2>
+            <table id="constants-table"><thead><tr><th>Constant</th><th>Value</th></tr></thead><tbody></tbody></table>
+        </div>
+        <div class="card">
+            <h2>3-Loop Anomaly Structure</h2>
+            <div id="anomaly-info"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TAB: GRUTIPEDIA                                        -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="tab-grutipedia" class="tab-content" style="display:none">
+    <div class="wiki-layout">
+        <nav class="wiki-nav">
+            <h2>Topics</h2>
+            <div class="wiki-section">Foundation</div>
+            <a class="wiki-link active" onclick="showArticle('ctp')">CTP Effective Action</a>
+            <a class="wiki-link" onclick="showArticle('constitutive')">Constitutive Equation</a>
+            <a class="wiki-link" onclick="showArticle('noise')">Noise Kernel &amp; FDT</a>
+            <a class="wiki-link" onclick="showArticle('fixedpoint')">Fixed-Point Principle</a>
+            <div class="wiki-section">Derived Results</div>
+            <a class="wiki-link" onclick="showArticle('decoherence')">Gravitational Decoherence</a>
+            <a class="wiki-link" onclick="showArticle('cosmological')">Cosmological Constant</a>
+            <a class="wiki-link" onclick="showArticle('baryogenesis')">Baryon Asymmetry</a>
+            <a class="wiki-link" onclick="showArticle('darkmatter')">Dark Matter</a>
+            <a class="wiki-link" onclick="showArticle('koide')">Koide &amp; 3 Generations</a>
+            <a class="wiki-link" onclick="showArticle('sm')">SM Emergence</a>
+            <div class="wiki-section">Architecture</div>
+            <a class="wiki-link" onclick="showArticle('bridge')">The Bridge Parameter</a>
+            <a class="wiki-link" onclick="showArticle('projection')">Projection Audit</a>
+            <a class="wiki-link" onclick="showArticle('conjectures')">Conjectures</a>
+            <a class="wiki-link" onclick="showArticle('limitations')">Limitations</a>
+        </nav>
+        <article class="wiki-article" id="wiki-article">
+            <!-- Filled by JS -->
+        </article>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TAB: EXPERIMENTS                                        -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div id="tab-experiments" class="tab-content" style="display:none">
+    <div class="exp-layout">
+
+        <div class="exp-hero">
+            <h2>GRUT Predictive Tests</h2>
+            <p>Eight experiments that determine the fate of the framework. Each asks a question only GRUT answers.</p>
+        </div>
+
+        <div class="exp-grid">
+            <div class="exp-card primary">
+                <div class="exp-badge">PRIMARY</div>
+                <h3>Decoherence Plateau</h3>
+                <p class="exp-q">Is there an irreducible decoherence floor from gravity?</p>
+                <table>
+                    <tr><td>Prediction</td><td>&Lambda; ~ 689 Hz (gold 1&mu;m)</td></tr>
+                    <tr><td>Six scaling laws</td><td>m&sup2;, l<sup>-1</sup>, geometry, kink, entanglement, plateau</td></tr>
+                    <tr><td>Feasibility</td><td>5&ndash;10 years (next-gen optomechanics)</td></tr>
+                    <tr><td>Impact</td><td class="exp-impact-high">DECISIVE &mdash; validates or kills the core</td></tr>
+                    <tr><td>Groups</td><td>Arndt, Aspelmeyer, Geraci, Bateman</td></tr>
+                </table>
+            </div>
+
+            <div class="exp-card primary">
+                <div class="exp-badge">PRIMARY</div>
+                <h3>Decoherence &rarr; &Omega;<sub>&Lambda;</sub></h3>
+                <p class="exp-q">Does one lab measurement predict the cosmological constant?</p>
+                <table>
+                    <tr><td>Chain</td><td>&Lambda;<sub>grav</sub> &rarr; &tau;<sub>0</sub> &rarr; H<sub>&infin;</sub> &rarr; &Omega;<sub>&Lambda;</sub> = 0.691</td></tr>
+                    <tr><td>Requires</td><td>Decoherence plateau confirmed first</td></tr>
+                    <tr><td>Impact</td><td class="exp-impact-high">ENORMOUS &mdash; tabletop predicts the universe</td></tr>
+                </table>
+            </div>
+
+            <div class="exp-card now">
+                <div class="exp-badge">TESTABLE NOW</div>
+                <h3>Dark Photon at 387 MeV</h3>
+                <p class="exp-q">Does the U(1)<sub>dark</sub> gauge boson exist?</p>
+                <table>
+                    <tr><td>Mass</td><td>m<sub>A</sub> = 387 MeV (specific, not a range)</td></tr>
+                    <tr><td>Coupling</td><td>g<sub>dark</sub> = 0.917</td></tr>
+                    <tr><td>Channels</td><td>LHCb, Belle II, NA62, SHiP</td></tr>
+                    <tr><td>Impact</td><td class="exp-impact-high">HIGH &mdash; confirms dark sector</td></tr>
+                </table>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">2&ndash;5 YEARS</div>
+                <h3>Koide Precision</h3>
+                <p class="exp-q">Is K = 2/3 exact or a 0.005% coincidence?</p>
+                <table>
+                    <tr><td>Prediction</td><td>K = 2/3 exactly (Z<sub>3</sub> identity)</td></tr>
+                    <tr><td>Test</td><td>Precision &tau; mass: need m<sub>&tau;</sub> = 1776.99 MeV</td></tr>
+                    <tr><td>Current</td><td>1776.86 &plusmn; 0.12 MeV (just outside error bar)</td></tr>
+                </table>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">ONGOING</div>
+                <h3>No Fourth Generation</h3>
+                <p class="exp-q">Are there exactly 3 generations?</p>
+                <table>
+                    <tr><td>Prediction</td><td>N = 3 at ANY mass (Z<sub>3</sub> uniqueness)</td></tr>
+                    <tr><td>Current</td><td>N<sub>&nu;</sub> = 2.984 &plusmn; 0.008 (Z width)</td></tr>
+                    <tr><td>Falsified by</td><td>Any 4th-generation fermion detection</td></tr>
+                </table>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">ONGOING</div>
+                <h3>No Axion</h3>
+                <p class="exp-q">Does strong CP need an axion?</p>
+                <table>
+                    <tr><td>Prediction</td><td>&theta; = 0 from QCD fixed point (no axion needed)</td></tr>
+                    <tr><td>Searches</td><td>ADMX, ABRACADABRA &mdash; should find nothing</td></tr>
+                    <tr><td>Falsified by</td><td>Detection of an axion</td></tr>
+                </table>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">FUTURE</div>
+                <h3>Non-Thermal Hawking Radiation</h3>
+                <p class="exp-q">Is BH radiation information-carrying?</p>
+                <table>
+                    <tr><td>Prediction</td><td>99.94% S<sub>BH</sub> recovered (&tau;<sub>0</sub> branch)</td></tr>
+                    <tr><td>Page curve</td><td>Turnover at halfway point</td></tr>
+                    <tr><td>Feasibility</td><td>Decades+ (primordial BH or analog)</td></tr>
+                </table>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">CMB-S4</div>
+                <h3>Spectral Index Running</h3>
+                <p class="exp-q">Is n<sub>s</sub> = 0.965 from dissipation, not slow-roll?</p>
+                <table>
+                    <tr><td>Prediction</td><td>n<sub>s</sub> = 1 - 2(H&tau;)&sup2;/(1+(H&tau;)&sup2;) at H&tau;=0.134</td></tr>
+                    <tr><td>Discriminator</td><td>Different spectral running from slow-roll</td></tr>
+                    <tr><td>Test</td><td>CMB-S4, spectral distortion measurements</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="exp-falsification">
+            <h2>Falsification Conditions</h2>
+            <div class="exp-grid-small">
+                <div class="exp-kill">No decoherence plateau &rarr; <strong>kills the core</strong></div>
+                <div class="exp-kill">&Lambda;<sub>grav</sub> measured, wrong &Omega;<sub>&Lambda;</sub> &rarr; <strong>kills the bridge</strong></div>
+                <div class="exp-kill">Axion detected &rarr; <strong>kills strong CP conjecture</strong></div>
+                <div class="exp-kill">4th generation found &rarr; <strong>kills N=3 uniqueness</strong></div>
+                <div class="exp-kill">Koide violated &rarr; <strong>kills Z<sub>3</sub> identity</strong></div>
+                <div class="exp-kill">Graviton mass detected &rarr; <strong>kills massless graviton</strong></div>
+            </div>
+            <h2 style="margin-top:16px">What Survives Null Results</h2>
+            <div class="exp-grid-small">
+                <div class="exp-survive">No GW modification &mdash; predicted (10<sup>-39</sup> rad, dead)</div>
+                <div class="exp-survive">Hierarchy unsolved &mdash; acknowledged (honest negative)</div>
+                <div class="exp-survive">Fermion masses not derived &mdash; M<sub>0</sub>, &theta; open</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ VISUALIZE BAR ═══ -->
+<div class="viz-menu" id="viz-menu">
+    <span style="font-size:11px;color:var(--dim);padding:8px 0">Visualize:</span>
+    <button class="viz-menu-btn" onclick="VIZ.open('decoherence_frontier')">Decoherence Frontier</button>
+    <button class="viz-menu-btn" onclick="VIZ.open('scaling_laws')">Scaling Laws</button>
+    <button class="viz-menu-btn" onclick="VIZ.open('era_map')">Era Map</button>
+    <button class="viz-menu-btn" onclick="VIZ.open('bridge')">The Bridge</button>
+</div>
+
+<script src="viz/viz.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "grut-rai-api",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["run_server.sh"],
+      "port": 5000
+    }
+  ]
+}
