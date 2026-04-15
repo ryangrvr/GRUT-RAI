@@ -427,3 +427,23 @@ def spectral_disc():
 def inflation_models():
     from grut.derived.cosmology.spectral_running import inflation_models
     return jsonify(inflation_models())
+
+# ═══ Entanglement Protection ═══
+@api.route('/decoherence/entanglement')
+def entangle():
+    from grut.derived.decoherence.entanglement import entanglement_experiment
+    m=float(request.args.get('m_amu', 1e6)); l=float(request.args.get('l', 1e-7))
+    d=float(request.args.get('d', 1e-7))
+    return jsonify(entanglement_experiment(m, l, d))
+
+@api.route('/decoherence/entanglement/scan')
+def entangle_scan():
+    from grut.derived.decoherence.entanglement import protection_vs_distance
+    m=float(request.args.get('m_amu', 1e6)); l=float(request.args.get('l', 1e-7))
+    return jsonify(protection_vs_distance(m, l))
+
+@api.route('/decoherence/entanglement/full')
+def entangle_full():
+    from grut.derived.decoherence.entanglement import full_entanglement_analysis
+    m=float(request.args.get('m_amu', 1e6))
+    return jsonify(full_entanglement_analysis(m))
