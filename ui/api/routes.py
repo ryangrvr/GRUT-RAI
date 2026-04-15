@@ -337,3 +337,24 @@ def decoherence_full():
     l=float(request.args.get('l', 1e-7)); P=float(request.args.get('P', 1e-14))
     T=float(request.args.get('T', 4.0))
     return jsonify(full_competition_analysis(m, l, P, T))
+
+# ═══ Geometry Kink Scan ═══
+@api.route('/decoherence/kink_scan')
+def kink_scan():
+    from grut.derived.decoherence.kink_scan import kink_scan as ks
+    m=float(request.args.get('m_amu', 1e9))*1.661e-27
+    rho=float(request.args.get('rho', 19300))
+    return jsonify(ks(m, rho))
+
+@api.route('/decoherence/material_comparison')
+def material_comp():
+    from grut.derived.decoherence.kink_scan import material_comparison
+    m=float(request.args.get('m_amu', 1e9))*1.661e-27
+    l=float(request.args.get('l', 1e-7))
+    return jsonify(material_comparison(m, l))
+
+@api.route('/decoherence/kink_full')
+def kink_full():
+    from grut.derived.decoherence.kink_scan import full_kink_analysis
+    m=float(request.args.get('m_amu', 1e9))
+    return jsonify(full_kink_analysis(m))
