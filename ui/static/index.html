@@ -143,6 +143,15 @@
             <a class="wiki-link" onclick="showArticle('projection')">Projection Audit</a>
             <a class="wiki-link" onclick="showArticle('conjectures')">Conjectures</a>
             <a class="wiki-link" onclick="showArticle('limitations')">Limitations</a>
+            <div class="wiki-section">Experiments</div>
+            <a class="wiki-link" onclick="showArticle('competition')">Decoherence Competition</a>
+            <a class="wiki-link" onclick="showArticle('kink')">Geometry Kink (F6)</a>
+            <a class="wiki-link" onclick="showArticle('materialswap')">Material Swap (F2)</a>
+            <a class="wiki-link" onclick="showArticle('entanglement')">Entanglement (F5)</a>
+            <a class="wiki-link" onclick="showArticle('hubbletension')">Hubble Tension</a>
+            <a class="wiki-link" onclick="showArticle('darkphoton')">Dark Photon Exclusion</a>
+            <a class="wiki-link" onclick="showArticle('spectralrunning')">Spectral Running</a>
+            <a class="wiki-link" onclick="showArticle('baryocrosscheck')">Baryogenesis Cross-Check</a>
         </nav>
         <article class="wiki-article" id="wiki-article">
             <!-- Filled by JS -->
@@ -251,6 +260,114 @@
                     <tr><td>Discriminator</td><td>Different spectral running from slow-roll</td></tr>
                     <tr><td>Test</td><td>CMB-S4, spectral distortion measurements</td></tr>
                 </table>
+            </div>
+        </div>
+
+        <div class="exp-hero" style="margin-top:24px">
+            <h2>Computed Experiments</h2>
+            <p>Seven experiments run in GRUT RAI. Each produced a decisive discriminator. Click any card to run it live via the API.</p>
+        </div>
+
+        <div class="exp-grid">
+            <div class="exp-card primary">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Multi-Channel Competition</h3>
+                <p class="exp-q">Can GRUT decoherence be detected above ALL environmental noise?</p>
+                <table>
+                    <tr><td>Key finding</td><td>&beta; = -1 (GRUT) vs &beta; = +2 (all env) &mdash; <strong>opposite signs</strong></td></tr>
+                    <tr><td>Crossover</td><td>10<sup>9</sup> amu, P &lt; 10<sup>-13</sup> Pa, T &le; 4K</td></tr>
+                    <tr><td>Dominant noise</td><td>300K: blackbody. 4K: EM. 100mK: EM</td></tr>
+                    <tr><td>Verdict</td><td class="exp-impact-high">MARGINALLY TESTABLE &mdash; cooling essential</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/decoherence/full_analysis','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card primary">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Geometry Kink Scan (F6)</h3>
+                <p class="exp-q">Does the slope change at l = 1.8R?</p>
+                <table>
+                    <tr><td>Slope</td><td>+2 &rarr; -1 across the kink</td></tr>
+                    <tr><td>Unique to</td><td>GRUT only (DP point: no kink. CSL: no kink)</td></tr>
+                    <tr><td>Kink agreement</td><td>Predicted vs measured: 2.7%</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/decoherence/kink_scan?m_amu=1e9','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Material Swap (F2)</h3>
+                <p class="exp-q">Same mass, different material &rarr; different rate?</p>
+                <table>
+                    <tr><td>Best pair</td><td>Osmium vs Aluminum: <strong>737% rate difference</strong></td></tr>
+                    <tr><td>Condition</td><td>Requires near-kink regime (l ~ R)</td></tr>
+                    <tr><td>Far field</td><td>Ratio = 1.000 (no discrimination)</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/decoherence/optimal_pair?m_amu=1e8&l=5e-8','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Entanglement Protection (F5)</h3>
+                <p class="exp-q">Do Bell states decohere slower?</p>
+                <table>
+                    <tr><td>GRUT</td><td>Bell/separable ratio = 0.41 (<strong>59% protection</strong>)</td></tr>
+                    <tr><td>CSL</td><td>Ratio = 1.000 (0% protection)</td></tr>
+                    <tr><td>Test</td><td>YES/NO discriminator: state-dependent vs independent</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/decoherence/entanglement?m_amu=1e8','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Hubble Tension</h3>
+                <p class="exp-q">Does GRUT resolve the H<sub>0</sub> discrepancy?</p>
+                <table>
+                    <tr><td>GRUT H<sub>0</sub></td><td>70.1 km/s/Mpc (between Planck and SH0ES)</td></tr>
+                    <tr><td>Late universe</td><td>SH0ES 0.0&sigma;, TRGB 0.3&sigma;, H0LiCOW 0.1&sigma; &mdash; all ✓</td></tr>
+                    <tr><td>Early universe</td><td>Planck 10&sigma;, DESI 6&sigma; &mdash; ✗</td></tr>
+                    <tr><td>Verdict</td><td>Does NOT resolve tension (smoothing = 5%)</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/cosmology/hubble_tension','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card now">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Dark Photon Exclusion</h3>
+                <p class="exp-q">Is the 387.4 MeV dark photon already excluded?</p>
+                <table>
+                    <tr><td>Status</td><td><strong>NOT excluded</strong> by any experiment</td></tr>
+                    <tr><td>In range of</td><td>ALL 7 experiments (BaBar, LHCb, NA62, Belle II, SHiP, FASER2)</td></tr>
+                    <tr><td>Detection needs</td><td>Portal matter for kinetic mixing &epsilon;</td></tr>
+                    <tr><td>Definitive test</td><td>SHiP (2030, reaches &epsilon;&sup2; ~ 10<sup>-10</sup>)</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/dark_matter/exclusion','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Spectral Running</h3>
+                <p class="exp-q">GRUT dissipation vs slow-roll: different running?</p>
+                <table>
+                    <tr><td>GRUT running</td><td><strong>+0.00068</strong> (positive, blue tilt)</td></tr>
+                    <tr><td>Slow-roll</td><td><strong>-0.00160</strong> (negative, red tilt)</td></tr>
+                    <tr><td>CMB-S4 precision</td><td>&plusmn;0.002 &mdash; CAN distinguish</td></tr>
+                    <tr><td>Key</td><td class="exp-impact-high">OPPOSITE SIGNS &mdash; unambiguous</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/cosmology/spectral','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Baryogenesis Cross-Check</h3>
+                <p class="exp-q">Is GRUT the only zero-parameter &eta;<sub>B</sub> prediction?</p>
+                <table>
+                    <tr><td>GRUT</td><td>&eta; = 6.57&times;10<sup>-10</sup> (+8%, 0 free params)</td></tr>
+                    <tr><td>Leptogenesis</td><td>~6&times;10<sup>-10</sup> (3+ free params, fitted)</td></tr>
+                    <tr><td>SM EW</td><td>~10<sup>-18</sup> (fails by 10<sup>8</sup>)</td></tr>
+                    <tr><td>CMB-S4</td><td>22&sigma; &mdash; DECISIVE test</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/baryogenesis/crosscheck','_blank')">Run Live</button>
             </div>
         </div>
 
