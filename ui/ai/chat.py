@@ -197,6 +197,23 @@ TOOLS = [
             }
         }
     },
+    {
+        "name": "get_walkthrough",
+        "description": "Get a step-by-step pedagogical walkthrough of a GRUT derivation. Use when someone asks 'how is X derived?' or 'explain the derivation of Y' or 'walk me through Z'.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "topic": {"type": "string", "enum": ["constitutive", "decoherence", "bridge", "c_final"],
+                          "description": "Which derivation to walk through"}
+            },
+            "required": ["topic"]
+        }
+    },
+    {
+        "name": "run_discovery",
+        "description": "Run discovery mode to find unexpected numerical coincidences, scale connections, and parameter correlations in GRUT. Use when someone asks about patterns, coincidences, or hidden connections.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
 ]
 
 # ═══════════════════════════════════════════════════════
@@ -292,6 +309,14 @@ def execute_tool(name, params):
             return snr_calculator(params.get("mass_kg", 80.8e-15), params.get("separation_m", 1e-6),
                                    params.get("radius_m", 1e-6), params.get("integration_time_s", 1.0),
                                    params.get("noise_Hz", 0))
+
+        elif name == "get_walkthrough":
+            from grut.utils.pedagogy import get_walkthrough
+            return get_walkthrough(params["topic"])
+
+        elif name == "run_discovery":
+            from grut.utils.discovery import full_discovery
+            return full_discovery()
 
         return {"error": f"Unknown tool: {name}"}
     except Exception as e:

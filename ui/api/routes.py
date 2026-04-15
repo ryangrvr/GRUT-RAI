@@ -264,3 +264,31 @@ def exp_material():
     from grut.utils.experiment import optimal_material
     m=float(request.args.get('m',80.8e-15)); l=float(request.args.get('l',1e-6))
     return jsonify(optimal_material(m, l))
+
+# ═══ Pedagogy ═══
+@api.route('/walkthrough')
+def walkthrough_list():
+    from grut.utils.pedagogy import list_walkthroughs
+    return jsonify(list_walkthroughs())
+
+@api.route('/walkthrough/<wid>')
+def walkthrough(wid):
+    from grut.utils.pedagogy import get_walkthrough
+    return jsonify(get_walkthrough(wid))
+
+# ═══ Discovery ═══
+@api.route('/discovery')
+def discovery():
+    from grut.utils.discovery import full_discovery
+    return jsonify(full_discovery())
+
+@api.route('/discovery/coincidences')
+def coincidences():
+    from grut.utils.discovery import find_numerical_coincidences
+    threshold = float(request.args.get('threshold', 0.05))
+    return jsonify(find_numerical_coincidences(threshold))
+
+@api.route('/discovery/connections')
+def connections():
+    from grut.utils.discovery import find_scale_connections
+    return jsonify(find_scale_connections())
