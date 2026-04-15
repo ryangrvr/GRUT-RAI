@@ -447,3 +447,24 @@ def entangle_full():
     from grut.derived.decoherence.entanglement import full_entanglement_analysis
     m=float(request.args.get('m_amu', 1e6))
     return jsonify(full_entanglement_analysis(m))
+
+# ═══ Baryogenesis Cross-Check ═══
+@api.route('/baryogenesis/crosscheck')
+def baryo_crosscheck():
+    from grut.derived.baryogenesis.crosscheck import full_baryogenesis_crosscheck
+    return jsonify(full_baryogenesis_crosscheck())
+
+@api.route('/baryogenesis/future')
+def baryo_future():
+    from grut.derived.baryogenesis.crosscheck import future_discrimination
+    return jsonify(future_discrimination())
+
+@api.route('/baryogenesis/models')
+def baryo_models():
+    from grut.derived.baryogenesis.crosscheck import model_comparison
+    return jsonify(model_comparison())
+
+@api.route('/baryogenesis/lithium')
+def baryo_lithium():
+    from grut.derived.baryogenesis.crosscheck import lithium_problem
+    return jsonify(lithium_problem())
