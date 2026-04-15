@@ -395,3 +395,19 @@ def grut_curve():
 def cosmo_consistency():
     from grut.derived.cosmology.hubble_tension import consistency_test
     return jsonify(consistency_test())
+
+# ═══ Dark Photon Exclusion ═══
+@api.route('/dark_matter/exclusion')
+def dm_exclusion():
+    from grut.derived.dark_matter.exclusion import full_exclusion_analysis
+    return jsonify(full_exclusion_analysis())
+
+@api.route('/dark_matter/detection_roadmap')
+def dm_roadmap():
+    from grut.derived.dark_matter.exclusion import detection_roadmap
+    return jsonify(detection_roadmap())
+
+@api.route('/dark_matter/mixing')
+def dm_mixing():
+    from grut.derived.dark_matter.exclusion import kinetic_mixing_estimate
+    return jsonify(kinetic_mixing_estimate())
