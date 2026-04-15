@@ -379,3 +379,19 @@ def ratio_scan():
     m=float(request.args.get('m_amu', 1e9))
     a=request.args.get('mat_a', 'gold'); b=request.args.get('mat_b', 'silica')
     return jsonify(separation_scan_two_materials(m, a, b))
+
+# ═══ Hubble Tension ═══
+@api.route('/cosmology/hubble_tension')
+def hubble_tension():
+    from grut.derived.cosmology.hubble_tension import hubble_tension_analysis
+    return jsonify(hubble_tension_analysis())
+
+@api.route('/cosmology/grut_curve')
+def grut_curve():
+    from grut.derived.cosmology.hubble_tension import grut_prediction_curve
+    return jsonify(grut_prediction_curve())
+
+@api.route('/cosmology/consistency')
+def cosmo_consistency():
+    from grut.derived.cosmology.hubble_tension import consistency_test
+    return jsonify(consistency_test())
