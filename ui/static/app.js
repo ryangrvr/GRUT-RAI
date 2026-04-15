@@ -328,9 +328,14 @@ async function sendChat() {
     if (typing) {
         typing.id = '';
         typing.style.opacity = '1';
-        typing.innerHTML = response + (source === 'claude'
-            ? '<div style="font-size:10px;color:var(--dim);margin-top:4px">via Claude</div>'
-            : '');
+        const msgId = 'msg-' + Date.now();
+        typing.id = msgId;
+        typing.innerHTML = response
+            + `<div class="msg-actions">`
+            + `<button class="msg-action-btn" onclick="copyResponse('${msgId}')">Copy</button>`
+            + `<button class="msg-action-btn viz-btn" onclick="visualizeFromChat('${msgId}')">Visualize</button>`
+            + (source === 'claude' ? `<span class="msg-via">via Claude</span>` : '')
+            + `</div>`;
     }
     messages.scrollTop = messages.scrollHeight;
 }
@@ -342,8 +347,10 @@ function escapeHtml(text) {
 }
 
 function formatMarkdown(text) {
+    // Strip [VIZ:...] tags (visualization is now on every response via the button)
+    let html = text.replace(/\[VIZ:\w+\]/g, '');
     // Basic markdown → HTML
-    let html = text
+    html = html
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
         .replace(/\*(.*?)\*/g, '<em>$1</em>')
         .replace(/`(.*?)`/g, '<code style="background:rgba(79,195,247,0.1);padding:1px 4px;border-radius:3px">$1</code>')
@@ -351,19 +358,41 @@ function formatMarkdown(text) {
         .replace(/\n/g, '<br>')
         .replace(/•/g, '&bull;')
         .replace(/→/g, '&rarr;');
-
-    // Convert [VIZ:name] tags to clickable visualization buttons
-    const vizNames = {
-        'decoherence_frontier': 'Decoherence Frontier',
-        'scaling_laws': 'Scaling Laws',
-        'era_map': 'Era Map',
-        'bridge': 'The Bridge',
-    };
-    html = html.replace(/\[VIZ:(\w+)\]/g, (match, name) => {
-        const label = vizNames[name] || name;
-        return `<button class="viz-btn" onclick="VIZ.open('${name}')">Visualize: ${label}</button>`;
-    });
     return html;
+}
+
+function copyResponse(msgId) {
+    const el = document.getElementById(msgId);
+    if (!el) return;
+    // Get text content without the action buttons
+    const clone = el.cloneNode(true);
+    const actions = clone.querySelector('.msg-actions');
+    if (actions) actions.remove();
+    const text = clone.innerText || clone.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = el.querySelector('.msg-action-btn');
+        if (btn) { const orig = btn.textContent; btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = orig, 1500); }
+    });
+}
+
+function visualizeFromChat(msgId) {
+    const el = document.getElementById(msgId);
+    if (!el) return;
+    const text = (el.innerText || '').toLowerCase();
+    // Auto-detect which visualization fits the context
+    if (text.includes('decoherence') || text.includes('lambda_grav') || text.includes('coherence time') || text.includes('scaling')) {
+        if (text.includes('scaling') || text.includes('kink') || text.includes('geometry') || text.includes('f1') || text.includes('f6'))
+            VIZ.open('scaling_laws');
+        else
+            VIZ.open('decoherence_frontier');
+    } else if (text.includes('era') || text.includes('329') || text.includes('radiation') && text.includes('matter') && text.includes('acceleration')) {
+        VIZ.open('era_map');
+    } else if (text.includes('omega') || text.includes('bridge') || text.includes('cosmological constant') || text.includes('tau_0') || text.includes('τ₀')) {
+        VIZ.open('bridge');
+    } else {
+        // Default: open the most relevant based on any keyword
+        VIZ.open('decoherence_frontier');
+    }
 }
 
 async function keywordFallback(msg) {
