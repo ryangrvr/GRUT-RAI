@@ -358,3 +358,24 @@ def kink_full():
     from grut.derived.decoherence.kink_scan import full_kink_analysis
     m=float(request.args.get('m_amu', 1e9))
     return jsonify(full_kink_analysis(m))
+
+# ═══ Material Swap Experiment ═══
+@api.route('/decoherence/material_swap')
+def mat_swap():
+    from grut.derived.decoherence.material_swap import material_swap_experiment
+    m=float(request.args.get('m_amu', 1e9)); l=float(request.args.get('l', 1e-7))
+    a=request.args.get('mat_a', 'gold'); b=request.args.get('mat_b', 'silica')
+    return jsonify(material_swap_experiment(m, l, a, b))
+
+@api.route('/decoherence/optimal_pair')
+def opt_pair():
+    from grut.derived.decoherence.material_swap import optimal_material_pair
+    m=float(request.args.get('m_amu', 1e9)); l=float(request.args.get('l', 1e-7))
+    return jsonify(optimal_material_pair(m, l))
+
+@api.route('/decoherence/ratio_scan')
+def ratio_scan():
+    from grut.derived.decoherence.material_swap import separation_scan_two_materials
+    m=float(request.args.get('m_amu', 1e9))
+    a=request.args.get('mat_a', 'gold'); b=request.args.get('mat_b', 'silica')
+    return jsonify(separation_scan_two_materials(m, a, b))
