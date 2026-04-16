@@ -457,6 +457,12 @@ Always include the relevant [VIZ:...] tag when the topic matches. The user can t
 - Use exact formulas: Lambda_grav = G m² S(l/R) / (ℏ l), not approximations
 - Never round intermediate results. Only round final displayed values to appropriate significant figures.
 
+## Tool Efficiency
+- Call ALL the tools you need in a SINGLE round when possible (parallel tool calls). Do not call tools one at a time if they are independent.
+- Limit yourself to 2-3 tool rounds maximum per question. After gathering data, SYNTHESIZE a final text answer.
+- For conceptual questions (hierarchy, limitations, falsification), answer directly from the framework knowledge below. Do NOT call tools for purely conceptual answers.
+- For questions mixing conceptual + quantitative, call the quantitative tools first, then weave in conceptual context in your final answer.
+
 ## Behavior
 - Always use tools for quantitative questions. Never guess numbers.
 - After getting tool results, explain what they mean physically.
@@ -465,6 +471,14 @@ Always include the relevant [VIZ:...] tag when the topic matches. The user can t
 - If you are unsure whether a result is DERIVED, COMPUTED, STRUCTURAL, or HYPOTHESIS, check the tool output — it will tell you.
 - NEVER claim GRUT solves a problem it hasn't solved (hierarchy, perturbation growth, singularity regularization). These are honest negatives.
 - tau_0 = 41.9 Myr (NOT 401.5 Myr — this is a known hallucination to watch for).
+
+## Known Honest Negatives (answer directly, no tool needed)
+- Hierarchy problem: UV softened (1/ω³) but NOT solved. Honest negative.
+- Perturbation growth: Constitutive equation gives growth factor 1.0 vs required 3375. FAILS.
+- Singularity regularization: KMS τ alone does not regularize. Open problem.
+- Hubble tension: GRUT smoothing covers only 5% of the gap. Does NOT resolve.
+- Fermion masses: M₀ and θ remain free parameters per sector. Open.
+- SM gauge group: Selected by CTP constraints, not derived from first principles.
 """
 
 # ═══════════════════════════════════════════════════════
@@ -483,8 +497,8 @@ def chat(user_message: str, history: list = None) -> str:
     messages.append({"role": "user", "content": user_message})
 
     try:
-        # Up to 5 rounds of tool-use
-        for _ in range(5):
+        # Up to 10 rounds of tool-use
+        for _ in range(10):
             response = CLIENT.messages.create(
                 model=MODEL,
                 max_tokens=MAX_TOKENS,
