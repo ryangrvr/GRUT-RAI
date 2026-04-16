@@ -94,6 +94,38 @@ def get_anomaly_mechanisms():
     from grut.foundation.osborn_rg import three_mechanisms_summary
     return jsonify(three_mechanisms_summary())
 
+@api.route('/anomaly/assembly')
+def get_anomaly_assembly():
+    """Feed brother's three inputs and compute final Omega_Lambda.
+
+    Query parameters (all optional):
+    - c_w_scalar, c_w_dirac, c_w_vector: 1-loop w_i coefficients
+    - delta_bb: integrated Delta beta_b from M_Planck to M_Z
+    - absorptive: CTP absorptive contribution at 2-loop
+    - H_0: Hubble constant in km/s/Mpc (default 70)
+    - nu: "weyl" or "dirac" (default "weyl")
+    """
+    from grut.foundation.osborn_assembly import compute_omega_lambda_from_inputs
+
+    def _f(key, default=None):
+        v = request.args.get(key)
+        return float(v) if v is not None else default
+
+    return jsonify(compute_omega_lambda_from_inputs(
+        c_w_scalar=_f('c_w_scalar'),
+        c_w_dirac=_f('c_w_dirac'),
+        c_w_vector=_f('c_w_vector'),
+        delta_beta_b_integrated=_f('delta_bb'),
+        absorptive_contribution=_f('absorptive', 0.0),
+        H_0=_f('H_0', 70.0),
+        neutrino_type=request.args.get('nu', 'weyl'),
+    ))
+
+@api.route('/anomaly/state')
+def get_anomaly_state():
+    from grut.foundation.osborn_assembly import show_current_state
+    return jsonify(show_current_state())
+
 # ═══ Bridge ═══
 @api.route('/bridge')
 def bridge():
