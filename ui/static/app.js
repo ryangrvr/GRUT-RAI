@@ -494,18 +494,52 @@ function visualizeFromChat(msgId) {
     const el = document.getElementById(msgId);
     if (!el) return;
     const text = (el.innerText || '').toLowerCase();
-    // Auto-detect which visualization fits the context
-    if (text.includes('decoherence') || text.includes('lambda_grav') || text.includes('coherence time') || text.includes('scaling')) {
-        if (text.includes('scaling') || text.includes('kink') || text.includes('geometry') || text.includes('f1') || text.includes('f6'))
-            VIZ.open('scaling_laws');
-        else
-            VIZ.open('decoherence_frontier');
-    } else if (text.includes('era') || text.includes('329') || text.includes('radiation') && text.includes('matter') && text.includes('acceleration')) {
-        VIZ.open('era_map');
-    } else if (text.includes('omega') || text.includes('bridge') || text.includes('cosmological constant') || text.includes('tau_0') || text.includes('τ₀')) {
-        VIZ.open('bridge');
+
+    // Score each visualization by keyword relevance (most specific first)
+    const scores = {
+        bridge: 0,
+        era_map: 0,
+        scaling_laws: 0,
+        decoherence_frontier: 0,
+    };
+
+    // Bridge: cosmology chain, Omega_Lambda, tau_0, lab-to-universe
+    const bridgeWords = ['bridge', 'omega_lambda', 'cosmological constant', 'tau_0',
+        'dark energy', 'h_0', 'hubble', 'planck 2018', 'lab to universe', 'lab → universe',
+        'predict the universe', 'vacuum', 'chain'];
+    for (const w of bridgeWords) if (text.includes(w)) scores.bridge += 3;
+    if (text.includes('ω_λ') || text.includes('ω_lambda') || text.includes('τ₀')) scores.bridge += 3;
+    if (text.includes('0.6904') || text.includes('0.6889')) scores.bridge += 5;
+
+    // Era map: cosmological eras, expansion, radiation/matter/acceleration
+    const eraWords = ['era map', '329 era', 'expansion history', 'radiation era',
+        'matter era', 'acceleration era', 'constitutive cosmology', 'epoch'];
+    for (const w of eraWords) if (text.includes(w)) scores.era_map += 3;
+    if (text.includes('radiation') && text.includes('matter') && text.includes('acceleration')) scores.era_map += 5;
+
+    // Scaling laws: geometry, kink, material swap, isotope, F1-F6, exponents
+    const scalingWords = ['scaling law', 'scaling exponent', 'kink', 'material swap',
+        'isotope', 'geometry dependence', 'near-field', 'far-field', 'l/r',
+        'suppression factor', 'separation anti', 'protocol a', 'protocol b', 'protocol c',
+        'entanglement protection', 'bell state', 'separable'];
+    for (const w of scalingWords) if (text.includes(w)) scores.scaling_laws += 3;
+    for (const f of ['f1', 'f2', 'f3', 'f4', 'f5', 'f6']) if (text.includes(f + ':') || text.includes(f + ' ')) scores.scaling_laws += 2;
+    if (text.includes('beta = -1') || text.includes('β = -1') || text.includes('anti-scaling')) scores.scaling_laws += 5;
+
+    // Decoherence frontier: rates, masses, coherence time, specific measurements
+    const decoWords = ['lambda_grav', 'coherence time', 't_coh', 'decoherence rate',
+        'gold nanoparticle', 'silica nanoparticle', '689 hz', 'snr', 'signal-to-noise',
+        'detectable', 'environmental noise', 'gas scattering', 'blackbody'];
+    for (const w of decoWords) if (text.includes(w)) scores.decoherence_frontier += 3;
+
+    // Pick the highest scorer; break ties by specificity order
+    const ranked = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+    const best = ranked[0];
+
+    if (best[1] > 0) {
+        VIZ.open(best[0]);
     } else {
-        // Default: open the most relevant based on any keyword
+        // True fallback: no keywords matched at all
         VIZ.open('decoherence_frontier');
     }
 }
