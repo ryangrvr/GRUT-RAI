@@ -517,3 +517,45 @@ def cross_cov():
 def param_errors():
     from grut.utils.covariance import parameter_error_budget
     return jsonify(parameter_error_budget())
+
+# ═══ Multi-Scale Validation ═══
+@api.route('/multiscale')
+def multiscale():
+    from grut.utils.multiscale import compute_hierarchy
+    return jsonify(compute_hierarchy())
+
+@api.route('/multiscale/checks')
+def multiscale_checks():
+    from grut.utils.multiscale import consistency_checks
+    return jsonify(consistency_checks())
+
+@api.route('/multiscale/solar_system')
+def solar_system():
+    from grut.utils.multiscale import solar_system_test
+    return jsonify(solar_system_test())
+
+@api.route('/multiscale/early_universe')
+def early_universe():
+    from grut.utils.multiscale import early_universe_test
+    return jsonify(early_universe_test())
+
+# ═══ Robustness Analysis ═══
+@api.route('/robustness')
+def robustness():
+    from grut.utils.robustness import full_robustness_analysis
+    return jsonify(full_robustness_analysis())
+
+@api.route('/robustness/generations')
+def robustness_gen():
+    from grut.utils.robustness import n_generation_robustness
+    return jsonify(n_generation_robustness())
+
+@api.route('/robustness/r_anomaly')
+def robustness_r():
+    from grut.utils.robustness import r_anomaly_systematic
+    return jsonify(r_anomaly_systematic())
+
+@api.route('/robustness/monte_carlo')
+def robustness_mc():
+    from grut.utils.robustness import simultaneous_variation
+    return jsonify(simultaneous_variation())
