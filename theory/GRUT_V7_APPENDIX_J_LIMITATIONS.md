@@ -110,17 +110,27 @@ cosmological constant a zero-parameter prediction.
 A complete theory of everything requires addressing 13 major physics problems.
 GRUT's status on each:
 
-### Computed (7 results with zero or one free parameter)
+### Derived (2 results independent of anomaly constants)
 
 | Problem | GRUT Result | Status | Params |
 |:---|:---|:---|:---|
-| Gravitational decoherence | Lambda_grav = G m^2 S / (hbar l), 6 scaling laws | DERIVED | 0 |
-| Cosmological constant | Omega_Lambda = 0.6904 (Planck: 0.6889, +0.3%) | COMPUTED | 1 (tau_0) |
-| Baryon asymmetry | eta_B = 6.57 x 10^-10 (observed: 6.1 x 10^-10, +8%) | COMPUTED | 0 |
-| Dark matter sector | m_A = 387.4 MeV dark photon (Route 1, 5/5 tests) | COMPUTED | 0 |
-| Koide identity | K = 2/3 exact, N = 3 unique (algebraic proof) | DERIVED | 0 |
-| SM emergence | 5 CTP constraints select SU(3) x SU(2) x U(1) | COMPUTED | 0 |
-| Quantum gravity (linearized) | 5/5 closure gates passed | COMPUTED | 0 |
+| Gravitational decoherence | Lambda_grav = G m^2 S / (hbar l), 6 scaling laws | DERIVED (Diósi-AH kernel) | 0 |
+| Koide identity | K = 2/3 exact, N = 3 unique (algebraic proof) | DERIVED (observed relation) | 0 |
+
+### Conditional (5 results that depend on the 3-loop anomaly coefficients)
+
+NOTE: These results depend on C_FINAL, R_ANOMALY, and S_CTP, which have been
+assembled from SM field content but have NOT been independently computed from
+Feynman diagrams. If a complete 3-loop calculation confirms R ≈ 1.15, these
+results become COMPUTED. Until then, they are CONDITIONAL.
+
+| Problem | GRUT Result | Status | Dependency |
+|:---|:---|:---|:---|
+| Cosmological constant | Omega_Lambda = 0.6904 if R ≈ 1.15 | CONDITIONAL | C_FINAL, R_ANOMALY, S_CTP, tau_0 |
+| Baryon asymmetry | eta_B = 6.57 x 10^-10 if anomaly confirmed | CONDITIONAL | C_FINAL, R_B decomposition |
+| Dark matter sector | Route 1 structure; specific couplings anomaly-dependent | CONDITIONAL | C_FINAL |
+| SM emergence | 5 CTP constraints select SU(3) x SU(2) x U(1) | STRUCTURAL | Constraint analysis, not derivation |
+| Quantum gravity (linearized) | 5/5 closure gates passed | STRUCTURAL | tau_0 branch |
 
 ### Structural (3 results constrained but not fully derived)
 

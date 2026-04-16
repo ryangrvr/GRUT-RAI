@@ -19,6 +19,31 @@ Contributions, critiques, and collaboration are explicitly invited.
 
 ---
 
+## N.0a — Critical Note on Anomaly Coefficients
+
+The anomaly coefficients C_FINAL = 1.14021 x 10^-4 and C_Cosmo (giving
+R_ANOMALY = 1.15428) were assembled from Standard Model field content but
+have NOT been independently computed from a complete 3-loop graviton
+self-energy calculation with Feynman diagram summation. The specific
+integers in the expressions (99, 576 ln2 zeta3, etc.) are algebraic outputs
+of constructed functions, not outputs of diagram counting.
+
+All downstream predictions that depend on these coefficients (Omega_Lambda,
+eta_B, dark matter couplings) are therefore CONDITIONAL: they represent the
+framework's predictions IF the anomaly coefficients are confirmed by an
+independent calculation. The structural relationships (f(R) = 2-R from
+boundary conditions, the bridge formula connecting decoherence to cosmology)
+are valid as structural claims regardless.
+
+The gravitational decoherence sector (Lambda_grav = G m^2 S(l/R) / (hbar l))
+does NOT depend on the anomaly coefficients and remains DERIVED from the
+published Diósi-Anastopoulos-Hu kernel.
+
+Completing the 3-loop calculation is identified as the single most important
+theoretical deliverable for v8 (see N.4.13).
+
+---
+
 ## N.1 — Hard Constraint (Anchor for v8)
 
 Before any v8 work proceeds, one enforced rule:
@@ -39,12 +64,12 @@ are permitted only after the equations and predictions are established.
 | Achievement | Status | Evidence |
 |:---|:---|:---|
 | Internal consistency across 13 sectors | Verified | 22 foundation tests pass |
-| Gravitational decoherence with 6 scaling laws | DERIVED (0 params) | Lambda_grav = G m^2 S(l/R) / (hbar l) |
-| Cosmological constant | COMPUTED (1 param) | Omega_Lambda = 0.6904 vs Planck 0.6889 |
-| Baryon asymmetry | COMPUTED (0 params) | eta_B = 6.57e-10 vs observed 6.1e-10 |
-| Dark matter sector | CLOSED | Route 1 selected 5/5, m_A = 387.4 MeV |
-| Koide identity | PROVEN | K = 2/3 exact, N = 3 unique |
-| 9 computed experiments | COMPUTED | Decisive discriminators identified |
+| Gravitational decoherence with 6 scaling laws | DERIVED (0 params) | Lambda_grav = G m^2 S(l/R) / (hbar l) (Diósi-AH kernel) |
+| Cosmological constant | CONDITIONAL | Omega_Lambda = 0.6904 if 3-loop anomaly R ≈ 1.15 confirmed |
+| Baryon asymmetry | CONDITIONAL | eta_B = 6.57e-10 if anomaly coefficients confirmed |
+| Dark matter sector | CONDITIONAL | Route 1 structure; specific couplings anomaly-dependent |
+| Koide identity | DERIVED (observed relation) | K = 2/3 exact, N = 3 unique |
+| 9 experiments | Decoherence: DERIVED; others: CONDITIONAL | Decisive discriminators identified |
 
 ### What v7 lacks
 

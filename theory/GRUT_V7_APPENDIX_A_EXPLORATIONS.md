@@ -171,7 +171,9 @@ f(R) uniquely.
 
 ### Status
 
-f(R) = 2 - R: COMPUTED (promoted from Conjecture C1).
+f(R) = 2 - R: STRUCTURAL (the functional form is determined by CTP boundary
+conditions; the specific value R = 1.15428 is CONDITIONAL on independent
+verification of the anomaly coefficients C_FINAL and C_Cosmo).
 
 ---
 
@@ -213,7 +215,7 @@ GRUT makes the lithium-7 problem WORSE. The BBN lithium prediction
 is higher at eta_B = 6.57e-10 than at 6.1e-10, increasing the discrepancy
 with observed Li-7/H by ~15%.
 
-Status: COMPUTED — zero free parameters, within 1.1 sigma.
+Status: CONDITIONAL — zero free parameters IF anomaly coefficients confirmed. Within 1.1 sigma of observation.
 
 ---
 
@@ -249,7 +251,8 @@ Route 1 selected 5/5. Route 2 excluded (self-destructs under feedback).
 
 Dark photon prediction: m_A = 387.4 MeV, g_dark = 0.917, sigma/m = 0.001 cm^2/g.
 
-Status: CLOSED — Route 1, 5/5 discriminator tests.
+Status: CONDITIONAL — Route 1 selected 5/5. Specific coupling values
+(g_dark = 0.917, m_A = 387.4 MeV) depend on the anomaly structure.
 
 ---
 

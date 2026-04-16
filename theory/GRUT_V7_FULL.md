@@ -1101,23 +1101,31 @@ The tau_0 branch produces a smooth, monotonic Page curve with turnover at the ha
 
 | Constant | Value | Origin | Status |
 |:---|:---|:---|:---|
-| R_anomaly = \|C_Cosmo/C_Final\| | 1.15428 | Ratio of 3-loop gravitational anomaly coefficients | COMPUTED |
-| S = 108 pi | 339.292 | CTP normalization (path counting) | COMPUTED |
-| tau_0 | 41.9 Myr = 1.322 × 10^15 s | Canonical constitutive relaxation timescale | COMPUTED |
+| R_anomaly = \|C_Cosmo/C_Final\| | 1.15428 | Ratio of 3-loop gravitational anomaly coefficients | CONDITIONAL (awaiting independent 3-loop calculation) |
+| S = 108 pi | 339.292 | CTP normalization (path counting) | CONDITIONAL (awaiting independent verification) |
+| tau_0 | 41.9 Myr = 1.322 × 10^15 s | Canonical constitutive relaxation timescale | CONDITIONAL (depends on R_anomaly and S) |
 
 Note: R_anomaly = 1.15428 is the anomaly ratio. R_volumetric = 1.5428 is a different quantity (the volumetric ratio in the cosmological map). These are NOT the same and must not be confused.
 
-**The structural derivation (7 computed + 3 structural = 10 steps):**
+**The structural derivation (2 axioms + 5 conditional + 3 structural = 10 steps):**
+
+NOTE: Steps 3-7 depend on the 3-loop anomaly coefficients C_FINAL and C_Cosmo.
+These coefficients have been assembled from SM field content but have NOT been
+independently computed from Feynman diagrams. Their status is CONDITIONAL:
+if a complete 3-loop graviton self-energy calculation confirms values near
+R ≈ 1.15, the downstream predictions follow. Until such a calculation is
+performed by an independent group, these results are conditional on the
+anomaly coefficients being correct.
 
 | Step | Content | Status |
 |:---|:---|:---|
 | 1 | CTP action S_CTP with gravitational sector | Axiom (A0) |
 | 2 | Retarded variation → constitutive equation | Axiom (A1) |
-| 3 | 3-loop anomaly coefficient C_FINAL = 1.14021 × 10^-4 | COMPUTED |
-| 4 | Cosmological anomaly C_Cosmo, ratio R = \|C_Cosmo/C_Final\| = 1.15428 | COMPUTED |
-| 5 | CTP normalization S = 108 pi from path geometry | COMPUTED |
-| 6 | Canonical timescale tau_0 = hbar/(G m_ref^2 S) | COMPUTED |
-| 7 | Noise kernel → decoherence rate → tau_0 grounding | COMPUTED |
+| 3 | 3-loop anomaly coefficient C_FINAL = 1.14021 × 10^-4 | CONDITIONAL (awaiting full 3-loop calculation) |
+| 4 | Cosmological anomaly C_Cosmo, ratio R = \|C_Cosmo/C_Final\| = 1.15428 | CONDITIONAL (awaiting full 3-loop calculation) |
+| 5 | CTP normalization S = 108 pi from path geometry | CONDITIONAL (awaiting independent verification) |
+| 6 | Canonical timescale tau_0 = hbar/(G m_ref^2 S) | CONDITIONAL (depends on S) |
+| 7 | Noise kernel → decoherence rate → tau_0 grounding | DERIVED (Diósi-AH kernel is established) |
 | 8 | **f(R) is linear in R** — the 3-loop anomaly enters as a single insertion; higher powers require 6-loop or above | STRUCTURAL |
 | 9 | **f(1) = 1** — CTP paths identical (C_Cosmo = C_Final) → maximum vacuum response; **f(2) = 0** — paths cancel (destructive Keldysh interference) | STRUCTURAL |
 | 10 | **Unique solution f(R) = 2 - R**, assembled: H_inf = f(R)/(S tau_0) | STRUCTURAL |
@@ -1246,17 +1254,23 @@ Unique solution: A = 2, B = -1. Therefore **f(R) = 2 - R**.
 
 **The 10-step proof chain (now numerically verified):**
 
+NOTE: Step 1 depends on the 3-loop anomaly coefficients. The expression for
+C_FINAL has been assembled from SM field content but has NOT been independently
+computed from Feynman diagrams. Steps 2-10 are structural and follow from the
+CTP formalism IF C_FINAL is correct. The entire chain is CONDITIONAL on an
+independent 3-loop calculation confirming C_FINAL ≈ 1.14 × 10^-4.
+
 | Step | Content | Status |
 |:---|:---|:---|
-| 1 | C_FINAL = 3(99 + 2pi^2 + 576 ln2 zeta3)/(16384 pi^6) = 1.14021 × 10^-4 | COMPUTED (scheme-protected) |
+| 1 | C_FINAL = 3(99 + 2pi^2 + 576 ln2 zeta3)/(16384 pi^6) = 1.14021 × 10^-4 | CONDITIONAL (awaiting independent 3-loop calculation) |
 | 2 | On de Sitter: R = 12H^2, Box has discrete spectrum on S^4 | STANDARD |
 | 3 | 3-loop anomaly enters as single C_FINAL insertion | POWER COUNTING (R^2 suppressed by 10^-4) |
 | 4 | CTP with C_- = R × C_+ → Gamma ~ C_FINAL × (A + BR) | LINEAR IN R (single insertion) |
-| 5 | f(1) = 1 (CTP paths identical → maximum vacuum response) | CTP BOUNDARY (computed: 1.000) |
-| 6 | f(2) = 0 (Keldysh destructive interference) | CTP BOUNDARY (computed: 0.003) |
+| 5 | f(1) = 1 (CTP paths identical → maximum vacuum response) | CTP BOUNDARY |
+| 6 | f(2) = 0 (Keldysh destructive interference) | CTP BOUNDARY |
 | 7 | Unique solution: f(R) = 2-R | ALGEBRAIC (A=2, B=-1) |
-| 8 | H_inf = (2-R)/(S tau_0) = 1.885 × 10^-18 Hz | ASSEMBLED |
-| 9 | Omega_Lambda = 0.691 at H_0 = 70 km/s/Mpc (Planck: 0.689) | COMPARED (+0.3%) |
+| 8 | H_inf = (2-R)/(S tau_0) = 1.885 × 10^-18 Hz | CONDITIONAL (assembled from conditional inputs) |
+| 9 | Omega_Lambda = 0.691 at H_0 = 70 km/s/Mpc (Planck: 0.689) | CONDITIONAL (+0.3% if anomaly coefficients confirmed) |
 | 10 | Noise-feedback alternative f=R(2-R) gives Omega=0.92 | EXCLUDED (+34%) |
 
 **What v7 claims:** The cosmological constant formula H_inf = (2-R)/(S tau_0) is COMPUTED from the 3-loop CTP anomaly structure on de Sitter. The boundary conditions are verified numerically. The linear form f(R) = 2-R is the unique solution and is preferred over the quadratic alternative by a factor of 70 in RMS error and by 34% vs 0.3% in Omega_Lambda accuracy. The sector is upgraded from STRUCTURAL to COMPUTED.
@@ -1662,23 +1676,30 @@ This is the most speculative element of GRUT. No mechanism for subjective experi
 
 ## The 13-Sector Status Table
 
+NOTE ON STATUS TIERS: Results labeled CONDITIONAL depend on the 3-loop anomaly
+coefficients C_FINAL and C_Cosmo, which have been assembled from SM field content
+but have NOT been independently computed from Feynman diagrams. If a complete
+3-loop graviton self-energy calculation confirms R ≈ 1.15, these results become
+COMPUTED. Until then, they represent the framework's predictions conditional on
+the anomaly structure being correct.
+
 | # | Sector | Status | Key result | Tests |
 |:---|:---|:---|:---|:---|
 | 1 | Quantum Mechanics | DERIVED | Schrodinger recovery (exact, 10^-16 deviation) | 12/12 |
 | 2 | Electroweak / SM | RECOVERED | Charge quantization 7/7, gauge masses, rho = 1.000 | 13/13 |
-| 3 | Gravitational Decoherence | DERIVED (predictive) | Lambda_grav(m,l,R), zero free parameters | 14/14 |
+| 3 | Gravitational Decoherence | DERIVED (predictive) | Lambda_grav(m,l,R), zero free parameters (Diósi-AH kernel) | 14/14 |
 | 4 | Gravity | STRUCTURAL | Bianchi preserved (projected), singularity regularized | 8/8 |
-| 5 | Cosmology | COMPUTED (3-loop CTP) | f(R) = 2-R confirmed on S^4, Omega_Lambda = 0.691 (+0.3%) | 10/10 |
+| 5 | Cosmology | CONDITIONAL (3-loop dependent) | f(R) = 2-R structural form; Omega_Lambda = 0.691 if R ≈ 1.15 | 10/10 |
 | 6 | QCD | MAPPED | Confinement threshold at 0.81 GeV, SU(3) verified | 13/13 |
-| 7 | Flavor / Masses | MAPPED | Koide K = 2/3 to 0.005%, M0 and theta NOT derived | 8/8 |
+| 7 | Flavor / Masses | MAPPED | Koide K = 2/3 to 0.005% (observed relation), M0 and theta NOT derived | 8/8 |
 | 8 | Neutrinos | EXPECTED SIGNATURE | Near-zero FP, large PMNS from degeneracy | 3/3 |
-| 9 | Dark Matter | CLOSED (Route 1 selected) | U(1)_dark: g=0.917, lambda=0.42, M=2.1×10^9 GeV, 5/5 discriminator | 26/26 |
-| 10 | Baryogenesis | COMPUTED | eta = 6.56 × 10^-10 (obs: 6.1 × 10^-10, Route 1 within 8%) | 12/12 |
+| 9 | Dark Matter | CONDITIONAL (anomaly dependent) | U(1)_dark sector structure; specific couplings depend on C_FINAL | 26/26 |
+| 10 | Baryogenesis | CONDITIONAL (anomaly dependent) | eta = 6.56 × 10^-10 if anomaly coefficients confirmed; Route 1 within 8% | 12/12 |
 | 11 | Coupling Unification | MAPPED | f_self = 0.93 at 10^14.4 GeV, 8.9% miss | 5/5 |
-| 12 | Quantum Gravity | 5/5 MET (tau_0) | Massless graviton, no ghost, UV 1/omega^3, BH info 99.94% | 12/12 |
-| 13 | Neural Resonance | DEMONSTRATED | 40 Hz from two independent routes, noise immune | 20/20 |
+| 12 | Quantum Gravity | 5/5 MET (tau_0) | Massless graviton, no ghost, UV 1/omega^3 | 12/12 |
+| 13 | Neural Resonance | SPECULATIVE | 40 Hz from two independent routes, noise immune | 20/20 |
 
-**Per-sector subtotal: 156 tests. Full test suite including adversarial, baryonic anomaly, branch discriminator, and TOE gap modules: 250+.**
+**Per-sector subtotal: 156 internal consistency tests. Automated foundation tests in GRUT RAI: 22.**
 
 ## 34. What Is Derived from S_CTP
 
@@ -1826,7 +1847,7 @@ The Z_N circulant mass operator gives a theta-independent Koide ratio ONLY for N
 
 ### ~~Conjecture~~ Result C1 (De Sitter Linearity — CONFIRMED)
 
-**The 3-loop CTP influence functional on de Sitter IS linear in R_anomaly, with f(R) = 2-R confirmed numerically.**
+**The CTP influence functional on de Sitter is structurally linear in R_anomaly, with f(R) = 2-R as the unique solution satisfying the boundary conditions f(1)=1, f(2)=0. The specific value R = 1.15428 is CONDITIONAL on the anomaly coefficients C_FINAL and C_Cosmo being independently verified through a complete 3-loop graviton self-energy calculation.**
 
 This was stated as a conjecture earlier in v7 development. It is now COMPUTED:
 

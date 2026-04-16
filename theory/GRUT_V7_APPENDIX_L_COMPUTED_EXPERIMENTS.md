@@ -214,7 +214,7 @@ semiconductor industry, 99.99% purity).
 | 5 | Hubble tension | H_0 = 70.1, smoothing 5% | Does NOT resolve | HONEST NEGATIVE |
 | 6 | Dark photon | 387.4 MeV, not excluded | SHiP 2030 definitive | COMPUTED |
 | 7 | Spectral running | +0.00068 vs -0.00160 | Opposite signs | HYPOTHESIS |
-| 8 | Baryogenesis | eta_B = 6.57e-10, 0 params | Only zero-param prediction | COMPUTED |
+| 8 | Baryogenesis | eta_B = 6.57e-10 if anomaly confirmed | Zero free params, anomaly-dependent | CONDITIONAL |
 | 9 | Isotope test | Ca: 30.6%, Si: 12.9% | Zero surface systematics | COMPUTED |
 
 ---
