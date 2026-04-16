@@ -171,6 +171,38 @@ If there's a physically motivated single-coupling approximation, QCD is it —
 not because we chose QCD, but because the other groups destructively
 interfere at the relevant level.
 
+### The electroweak cancellation is structural, not fine-tuned
+
+The cancellation between SU(2) (+2.9) and U(1) (−2.6) to residual 0.3 (about
+1% of the QCD term) does NOT depend on tuning any free parameters. It follows
+from the SM field content:
+
+- **Hypercharge assignments:** fixed by anomaly cancellation within the SM
+- **Weak isospin structure:** fixed by the SU(2)_L gauge group
+- **Higgs quantum numbers:** fixed by electroweak symmetry breaking
+
+Change any of these and you change the Standard Model itself. The cancellation
+is a property of the SM spectrum, not a parameter choice.
+
+**Consequence — if Q1 answer is yes:** The story has a specific, testable
+structure:
+
+- The cosmological constant is set by QCD's contribution to the gravitational
+  trace anomaly
+- The electroweak sector contributes at the ~1% level due to a cancellation
+  built into the SM spectrum
+- Different field content (extra generations, extended Higgs sector, BSM
+  fermions) would give a different ε and therefore a different Ω_Λ
+
+That's a **prediction**, not a fit. And it's a falsifiable one: if a BSM
+extension that changes the hypercharge content is discovered, the framework
+predicts a shift in Ω_Λ proportional to the change in ε.
+
+**But this story only holds if Q1 = yes.** Until the brother confirms that
+the CTP construction selects the local-coupling anomaly ε rather than the
+constant-coupling b/a, the SM-structural narrative is attached to a 0.46%
+numerical coincidence, not to a derivation.
+
 ## Why QCD specifically?
 
 If ε_SU3 turns out to be the right object, there's a physical reason
