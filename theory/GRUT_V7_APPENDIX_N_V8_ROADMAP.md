@@ -146,17 +146,19 @@ Strip everything to the minimum:
 - Single scalar GRUT term phi(t)
 - Standard matter and radiation
 
-**Modified Friedmann equation:**
+**Modified Friedmann equation (explicit):**
 
-    H^2 = (8 pi G / 3)(rho_matter + rho_radiation + rho_GRUT)
+    H^2 = (8 pi G / 3) [ rho + (1/2) phi_dot^2 + (1/2) m_phi^2 phi^2 ]
 
 where:
-
-    rho_GRUT = (1/2) phi_dot^2 + V(phi)
+- rho: standard matter + radiation energy density
+- (1/2) phi_dot^2: kinetic energy of the GRUT field
+- (1/2) m_phi^2 phi^2: potential energy V(phi) = (1/2) m_phi^2 phi^2
+  (quadratic potential as the minimal viable form)
 
 The GRUT field equation in FLRW:
 
-    phi_ddot + 3 H phi_dot = V'(phi) + beta D(t)
+    phi_ddot + 3 H phi_dot + m_phi^2 phi = beta D(t)
 
 where D(t) is the decoherence source term and beta is the coupling constant.
 
@@ -321,36 +323,43 @@ on v8 surviving its falsifiability gate.
 For reference, the complete set of equations that define the minimal v8
 field theory:
 
-**(1) Modified Einstein Equation:**
+**(1) Modified Friedmann Equation:**
+
+    H^2 = (8 pi G / 3) [ rho + (1/2) phi_dot^2 + (1/2) m_phi^2 phi^2 ]
+
+**(2) Modified Einstein Equation (covariant form):**
 
     G_mu_nu = 8 pi G (T_mu_nu + T_mu_nu^(phi))
 
-**(2) GRUT Field Stress-Energy:**
+**(3) GRUT Field Stress-Energy:**
 
     T_mu_nu^(phi) = nabla_mu phi nabla_nu phi
                     - (1/2) g_mu_nu (nabla phi)^2
                     - g_mu_nu V(phi)
 
-**(3) GRUT Field Equation:**
+    where V(phi) = (1/2) m_phi^2 phi^2 (minimal quadratic potential)
 
-    Box phi = V'(phi) + beta D(x)
+**(4) GRUT Field Equation:**
 
-**(4) Decoherence Source (Diosi Kernel):**
+    Box phi + m_phi^2 phi = beta D(x)
+
+**(5) Decoherence Source (Diosi Kernel):**
 
     D(x) = integral d^3 x' G rho(x) rho(x') / (hbar |x - x'|)
 
-**(5) Constitutive Constraint (from v7):**
+**(6) Constitutive Constraint (from v7):**
 
     tau d(phi)/dt + phi = phi_target[phi]
 
-    where phi_target is determined by the field equation (3)
+    where phi_target is determined by the field equation (4)
     and tau is the KMS relaxation time
 
-**Connection to v7:** Equation (4) is the noise kernel from v7's
-foundation. Equation (5) is the constitutive equation. The v8
-formalization wraps them in a scalar field theory coupled to gravity.
-No new physics is introduced — the existing structure is repackaged
-in language that interfaces with the GR and QFT communities.
+**Connection to v7:** Equation (1) is the cosmological specialization.
+Equation (5) is the noise kernel from v7's foundation. Equation (6) is
+the constitutive equation. The v8 formalization wraps them in a scalar
+field theory coupled to gravity. No new physics is introduced — the
+existing structure is repackaged in language that interfaces with the
+GR and QFT communities.
 
 ---
 
