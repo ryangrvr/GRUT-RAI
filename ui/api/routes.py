@@ -469,6 +469,40 @@ def baryo_lithium():
     from grut.derived.baryogenesis.crosscheck import lithium_problem
     return jsonify(lithium_problem())
 
+# ═══ Isotope Decoherence Test ═══
+@api.route('/decoherence/isotope')
+def isotope_test():
+    from grut.derived.decoherence.isotope_test import isotope_experiment
+    n=float(request.args.get('n_atoms', 1e9)); l=float(request.args.get('l', 1e-7))
+    a=request.args.get('iso_a', 'Si-28'); b=request.args.get('iso_b', 'Si-30')
+    return jsonify(isotope_experiment(n, l, a, b))
+
+@api.route('/decoherence/isotope/elements')
+def isotope_elements():
+    from grut.derived.decoherence.isotope_test import element_scan
+    n=float(request.args.get('n_atoms', 1e9)); l=float(request.args.get('l', 1e-7))
+    return jsonify(element_scan(n, l))
+
+@api.route('/decoherence/isotope/mass_scan')
+def isotope_mass_scan():
+    from grut.derived.decoherence.isotope_test import mass_scan
+    a=request.args.get('iso_a', 'Si-28'); b=request.args.get('iso_b', 'Si-30')
+    l=float(request.args.get('l', 1e-7))
+    return jsonify(mass_scan(a, b, l))
+
+@api.route('/decoherence/isotope/separation_scan')
+def isotope_sep_scan():
+    from grut.derived.decoherence.isotope_test import separation_scan
+    a=request.args.get('iso_a', 'Si-28'); b=request.args.get('iso_b', 'Si-30')
+    n=float(request.args.get('n_atoms', 1e9))
+    return jsonify(separation_scan(a, b, n))
+
+@api.route('/decoherence/isotope/full')
+def isotope_full():
+    from grut.derived.decoherence.isotope_test import full_isotope_analysis
+    n=float(request.args.get('n_atoms', 1e9)); l=float(request.args.get('l', 1e-7))
+    return jsonify(full_isotope_analysis(n, l))
+
 # ═══ Noise Models ═══
 @api.route('/noise/budget')
 def noise_budget():

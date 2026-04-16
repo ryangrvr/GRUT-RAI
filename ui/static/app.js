@@ -339,6 +339,24 @@ spectralrunning: `<h2>Spectral Index Running</h2>
 </table>
 <p>GRUT running is <strong>positive</strong> (blue tilt at small scales). Slow-roll is <strong>negative</strong>. CMB-S4 precision ±0.002 CAN distinguish (difference = 0.0023).</p>`,
 
+isotopetest: `<h2>Isotope Decoherence Test</h2>
+<span class="status computed">COMPUTED &mdash; cleanest discriminator</span>
+<p>Compare nanoparticles of <strong>different isotopes of the same element</strong>. Same chemistry, same surface, same lattice &mdash; only nuclear mass differs.</p>
+<h3>Why Cleaner Than Material Swap</h3>
+<p>Material swap (gold vs silica) suffers from surface-chemistry systematics. Isotopes (Si-28 vs Si-30) are chemically <strong>identical</strong>. The ONLY difference is nuclear mass &rarr; density &rarr; R &rarr; S(l/R) &rarr; &Lambda;.</p>
+<h3>Results (10&sup9; atoms, l = 100 nm)</h3>
+<table>
+<tr><th>Pair</th><th>GRUT Ratio</th><th>Deviation</th><th>5&sigma; Precision</th></tr>
+<tr><td><strong>Ca-40 vs Ca-48</strong></td><td><strong>0.694</strong></td><td><strong>30.6%</strong></td><td>6.1%</td></tr>
+<tr><td>Ge-70 vs Ge-76</td><td>0.848</td><td>15.2%</td><td>3.0%</td></tr>
+<tr><td>Si-28 vs Si-30</td><td>0.871</td><td>12.9%</td><td>2.6%</td></tr>
+<tr><td>W-182 vs W-186</td><td>0.957</td><td>4.3%</td><td>0.9%</td></tr>
+</table>
+<h3>Environmental Prediction</h3>
+<p>ALL ratios = <strong>1.000</strong> (identical surfaces, identical chemistry). Any deviation from 1.000 is un-fakeable.</p>
+<h3>Recommended</h3>
+<p>Silicon: enriched isotopes commercially available from semiconductor industry (99.99% purity). Ca-48 is strongest but harder to source.</p>`,
+
 baryocrosscheck: `<h2>Baryogenesis Cross-Check</h2>
 <span class="status computed">COMPUTED</span>
 <p>GRUT is the ONLY zero-parameter baryogenesis prediction within 10% of observation.</p>

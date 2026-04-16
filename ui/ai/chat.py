@@ -237,6 +237,30 @@ TOOLS = [
         "description": "Get the three experimental protocols for testing GRUT: Protocol A (mass scaling), Protocol B (separation anti-scaling, STRONGEST), Protocol C (environmental decoupling). Use when someone asks how to test GRUT or design an experiment.",
         "input_schema": {"type": "object", "properties": {}}
     },
+    {
+        "name": "isotope_test",
+        "description": "Run the isotope decoherence test: compare nanoparticles of different isotopes of the SAME element (e.g., Si-28 vs Si-30). Chemically identical, only nuclear mass differs. GRUT predicts different rates, environmental models predict ratio=1.000. Use when someone asks about isotope experiments, clean tests, or systematics-free decoherence measurements.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "n_atoms": {"type": "number", "description": "Number of atoms per nanoparticle", "default": 1e9},
+                "l_m": {"type": "number", "description": "Superposition separation in meters", "default": 1e-7},
+                "iso_a": {"type": "string", "description": "First isotope (e.g., Si-28, Ge-70, Ca-40, W-182)", "default": "Si-28"},
+                "iso_b": {"type": "string", "description": "Second isotope (same element, e.g., Si-30, Ge-76, Ca-48, W-186)", "default": "Si-30"},
+            }
+        }
+    },
+    {
+        "name": "isotope_element_scan",
+        "description": "Scan all available isotope pairs to find the best element for the isotope decoherence test. Returns ranking by discrimination power. Use when someone asks which isotope pair is best or wants to compare elements.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "n_atoms": {"type": "number", "description": "Number of atoms per nanoparticle", "default": 1e9},
+                "l_m": {"type": "number", "description": "Superposition separation in meters", "default": 1e-7},
+            }
+        }
+    },
 ]
 
 # ═══════════════════════════════════════════════════════
@@ -354,6 +378,16 @@ def execute_tool(name, params):
             from grut.derived.decoherence.competition import experimental_protocols
             return experimental_protocols()
 
+        elif name == "isotope_test":
+            from grut.derived.decoherence.isotope_test import isotope_experiment
+            return isotope_experiment(
+                params.get("n_atoms", 1e9), params.get("l_m", 1e-7),
+                params.get("iso_a", "Si-28"), params.get("iso_b", "Si-30"))
+
+        elif name == "isotope_element_scan":
+            from grut.derived.decoherence.isotope_test import element_scan
+            return element_scan(params.get("n_atoms", 1e9), params.get("l_m", 1e-7))
+
         return {"error": f"Unknown tool: {name}"}
     except Exception as e:
         return {"error": str(e)}
@@ -378,6 +412,12 @@ SYSTEM_PROMPT = """You are GRUT RAI — the computational engine behind the Gran
 
 You have access to GRUT computation tools. USE THEM whenever a user asks a quantitative question. Do not guess numbers — call the tool and report the exact result.
 
+## CRITICAL: No Hallucination Rule
+- NEVER invent, estimate, or recall numbers from memory. ALL quantitative answers MUST come from a tool call.
+- If a tool returns an error, say so. Do not substitute a guess.
+- If no tool covers the question, say "I don't have a computation for that" rather than making up a number.
+- Every number you report must trace to a specific tool result in this conversation turn.
+
 ## When to use tools:
 - "What is the decoherence rate for X?" → use compute_decoherence or compute_for_material
 - "What does GRUT predict for Omega_Lambda?" → use get_cosmology or compute_bridge
@@ -388,6 +428,8 @@ You have access to GRUT computation tools. USE THEM whenever a user asks a quant
 - "What are the error bars?" → use compute_uncertainty
 - "What does Planck measure?" → use get_experimental_data with dataset="planck"
 - "What is the tau mass?" → use get_experimental_data with dataset="pdg_masses"
+- "What about isotope tests?" or "cleanest test?" → use isotope_test or isotope_element_scan
+- "Which isotope pair is best?" → use isotope_element_scan
 
 ## Core Framework (for conceptual questions)
 GRUT is built on the CTP effective action. Two axioms (A0: CTP doubling, A1: retarded variation) + one normalization (τ_I = ℏ/2) produce the constitutive equation τ dz/dt + z = z_target[z].
@@ -420,6 +462,9 @@ Always include the relevant [VIZ:...] tag when the topic matches. The user can t
 - After getting tool results, explain what they mean physically.
 - Be precise. Give units. State uncertainties where relevant.
 - Be honest about limitations.
+- If you are unsure whether a result is DERIVED, COMPUTED, STRUCTURAL, or HYPOTHESIS, check the tool output — it will tell you.
+- NEVER claim GRUT solves a problem it hasn't solved (hierarchy, perturbation growth, singularity regularization). These are honest negatives.
+- tau_0 = 41.9 Myr (NOT 401.5 Myr — this is a known hallucination to watch for).
 """
 
 # ═══════════════════════════════════════════════════════

@@ -151,6 +151,7 @@
             <a class="wiki-link" onclick="showArticle('hubbletension')">Hubble Tension</a>
             <a class="wiki-link" onclick="showArticle('darkphoton')">Dark Photon Exclusion</a>
             <a class="wiki-link" onclick="showArticle('spectralrunning')">Spectral Running</a>
+            <a class="wiki-link" onclick="showArticle('isotopetest')">Isotope Test</a>
             <a class="wiki-link" onclick="showArticle('baryocrosscheck')">Baryogenesis Cross-Check</a>
         </nav>
         <article class="wiki-article" id="wiki-article">
@@ -265,7 +266,7 @@
 
         <div class="exp-hero" style="margin-top:24px">
             <h2>Computed Experiments</h2>
-            <p>Seven experiments run in GRUT RAI. Each produced a decisive discriminator. Click any card to run it live via the API.</p>
+            <p>Eight experiments run in GRUT RAI. Each produced a decisive discriminator. Click any card to run it live via the API.</p>
         </div>
 
         <div class="exp-grid">
@@ -368,6 +369,19 @@
                     <tr><td>CMB-S4</td><td>22&sigma; &mdash; DECISIVE test</td></tr>
                 </table>
                 <button class="viz-btn" onclick="window.open('/api/baryogenesis/crosscheck','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card primary">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Isotope Decoherence Test</h3>
+                <p class="exp-q">Same element, different isotope &rarr; different rate?</p>
+                <table>
+                    <tr><td>Best pair</td><td>Ca-40 vs Ca-48: <strong>30.6% rate difference</strong></td></tr>
+                    <tr><td>Silicon</td><td>Si-28 vs Si-30: 12.9% (commercially available)</td></tr>
+                    <tr><td>Env. prediction</td><td>Ratio = 1.000 (identical surfaces)</td></tr>
+                    <tr><td>Advantage</td><td class="exp-impact-high">ZERO surface-chemistry systematics</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/decoherence/isotope/full','_blank')">Run Live</button>
             </div>
         </div>
 
