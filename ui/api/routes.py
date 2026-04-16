@@ -468,3 +468,52 @@ def baryo_models():
 def baryo_lithium():
     from grut.derived.baryogenesis.crosscheck import lithium_problem
     return jsonify(lithium_problem())
+
+# ═══ Noise Models ═══
+@api.route('/noise/budget')
+def noise_budget():
+    from grut.utils.noise_models import full_noise_budget
+    m=float(request.args.get('m', 80.8e-15)); l=float(request.args.get('l', 1e-6))
+    R=float(request.args.get('R', 1e-6)); P=float(request.args.get('P', 1e-12))
+    T=float(request.args.get('T', 4)); shielding=request.args.get('shielding', 'good')
+    isolation=request.args.get('isolation', 'good')
+    return jsonify(full_noise_budget(m, l, R, P, T, 1e-4, isolation, shielding))
+
+@api.route('/noise/optimize')
+def noise_optimize():
+    from grut.utils.noise_models import optimize_experiment
+    m=float(request.args.get('m', 80.8e-15)); l=float(request.args.get('l', 1e-6))
+    target=float(request.args.get('target_snr', 1.0))
+    return jsonify(optimize_experiment(m, l, target_snr=target))
+
+# ═══ Covariance ═══
+@api.route('/uncertainty/full')
+def uncertainty_full():
+    from grut.utils.covariance import full_uncertainty_analysis
+    return jsonify(full_uncertainty_analysis())
+
+@api.route('/uncertainty/omega_lambda')
+def uncertainty_ol():
+    from grut.utils.covariance import propagate_omega_lambda, monte_carlo_omega_lambda
+    return jsonify({"analytical": propagate_omega_lambda(), "monte_carlo": monte_carlo_omega_lambda()})
+
+@api.route('/uncertainty/eta_b')
+def uncertainty_eta():
+    from grut.utils.covariance import propagate_eta_b, monte_carlo_eta_b
+    return jsonify({"analytical": propagate_eta_b(), "monte_carlo": monte_carlo_eta_b()})
+
+@api.route('/uncertainty/lambda_grav')
+def uncertainty_lg():
+    from grut.utils.covariance import propagate_lambda_grav
+    m=float(request.args.get('m', 80.8e-15)); l=float(request.args.get('l', 1e-6)); R=float(request.args.get('R', 1e-6))
+    return jsonify(propagate_lambda_grav(m, l, R))
+
+@api.route('/uncertainty/covariance')
+def cross_cov():
+    from grut.utils.covariance import cross_prediction_covariance
+    return jsonify(cross_prediction_covariance())
+
+@api.route('/uncertainty/parameters')
+def param_errors():
+    from grut.utils.covariance import parameter_error_budget
+    return jsonify(parameter_error_budget())
