@@ -1,5 +1,41 @@
 # Findings from Prochazka-Zwicky 2017 (arXiv:1703.01239)
 
+## HONEST HEADLINE
+
+The GRUT Ω_Λ prediction currently has one undetermined constant.
+
+- **Previously:** R = 1.15428 (asserted, from constructed Mathematica notebook)
+- **Now:** c_w ≈ −1 (solved for by binary search to match observed Ω_Λ)
+
+The framing is better because c_w has definite physical meaning and
+a definite extraction procedure from the literature (Jack-Osborn 1990).
+But the epistemic standing is unchanged: one parameter chosen to match
+observation.
+
+**What was a fit before is still a fit.** The test — unchanged — is the
+independent extraction of c_w from published physics. If it comes out near
+−1 with the correct sign, the prediction is derived. If it comes out near
++1 (wrong sign), the mechanism fails in a specific, documented way. Either
+outcome is publishable.
+
+## What we observed running the numbers
+
+From `osborn_integrated.py` running c_w scan:
+
+| c_w | R | Ω_Λ | Status |
+|-----|---|-----|--------|
+| +0 | 1.027 | 0.914 | No w_i, starting point |
+| +0.5 | 0.963 | 1.038 | WRONG direction, getting worse |
+| +1.0 | 0.900 | 1.169 | WRONG direction, "natural" value gives wrong answer |
+| +2.0 | 0.773 | 1.454 | Way worse |
+| −0.5 | 1.090 | 0.799 | Better |
+| −1.0 | 1.154 | 0.691 | MATCH (but solved for) |
+| −2.0 | 1.281 | 0.499 | Overshoots |
+
+The "natural O(1) positive" value that was handwaved as plausible is
+actually wrong by 70%. Only c_w ≈ −1 works, and that was found by
+binary search.
+
 ## For the brother's review
 
 Following the lead to Prochazka-Zwicky, I was able to extract the published PDF
