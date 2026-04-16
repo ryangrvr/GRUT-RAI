@@ -163,13 +163,13 @@ S = 1 and the ratio collapses to 1.000.
 ## I.2f — Geometry Kink Scan
 
 The extended-body suppression S(l/R) = min(1, (l/R)^3/6) creates a sharp
-slope change at l = 1.8R on a log-log plot:
+slope change at l = 6^(1/3)R ≈ 1.817R on a log-log plot:
 
 - Near field (l < R): Lambda proportional to l^2 (slope +2)
 - Far field (l > R): Lambda proportional to l^-1 (slope -1)
 
 The kink is UNIQUE to GRUT. Diosi-Penrose (point mass) has no kink.
-CSL has no kink. Finding the kink at the predicted location l = 1.8R
+CSL has no kink. Finding the kink at the predicted location l = 6^(1/3)R ≈ 1.817R
 would be a geometry-specific confirmation.
 
 At 10^9 amu gold: R = 27 nm. Kink predicted at l = 49 nm.

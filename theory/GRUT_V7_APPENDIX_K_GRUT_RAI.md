@@ -106,7 +106,7 @@ Self-test: python -m pytest tests/ runs 22 checks verifying all foundation value
 ### Decoherence (7 modules)
 - sector.py: 6 scaling laws, adversarial comparison vs 5 models
 - competition.py: GRUT vs gas/blackbody/EM/vibrational, scaling exponents
-- kink_scan.py: Geometry kink at l = 1.8R
+- kink_scan.py: Geometry kink at l = 6^(1/3)R ≈ 1.817R
 - material_swap.py: Same mass, different material (Os vs Al: 737%)
 - isotope_test.py: Same element, different isotope (Ca: 30.6%, Si: 12.9%)
 - entanglement.py: Bell vs separable (59% protection)

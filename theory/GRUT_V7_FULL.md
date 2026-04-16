@@ -426,7 +426,7 @@ The boundary is not sharp — it is a gradient spanning many decades of mass.
     S(l/R) = { (l/R)^3 / 6    if l < R    (near field: rate suppressed)
              { 1               if l >= R    (far field: point-mass limit)   (28)
 
-The crossover at l ~ R is the geometric signature. Below l = R, the decoherence rate is suppressed by (l/R)^3 because the object's extended mass distribution partially cancels the gravitational self-energy. The specific kink at l = 1.8R (where the slope of log Lambda vs log l changes) distinguishes GRUT from all point-mass models.
+The crossover at l ~ R is the geometric signature. Below l = R, the decoherence rate is suppressed by (l/R)^3 because the object's extended mass distribution partially cancels the gravitational self-energy. The specific kink at l = 6^(1/3)R ≈ 1.817R (where the slope of log Lambda vs log l changes) distinguishes GRUT from all point-mass models.
 
 **The 41.9 Myr crossover:** Setting Lambda_grav = 1/tau_0 with tau_0 = 1.322 × 10^15 s, in the far field (l >> R, S = 1):
 
@@ -448,7 +448,7 @@ At this mass, the gravitational coherence time equals tau_0 = 41.9 Myr. Below m_
 | F3 | Pressure-independent plateau | Lambda → Lambda_grav as P → 0 | Standard QM (Lambda → 0) |
 | F4 | l-scaling with slope -1 | Lambda ~ l^-1 in far field | Power-law alternatives |
 | F5 | Entanglement protection | Lambda(Bell) < Lambda(separable) | State-independent models (CSL) |
-| F6 | Geometric kink at l = 1.8R | d(log Lambda)/d(log l) changes sign | Point-mass models (DP, Penrose) |
+| F6 | Geometric kink at l = 6^(1/3)R ≈ 1.817R | d(log Lambda)/d(log l) changes sign | Point-mass models (DP, Penrose) |
 
 No tested alternative reproduces all six simultaneously (see Book IV, Section 20 for the adversarial comparison).
 
@@ -757,9 +757,9 @@ The rate DECREASES with separation. This is the Newtonian 1/r potential integrat
 
 The rate INCREASES with separation in the near field. The extended-body suppression shuts off decoherence when the superposition separation is smaller than the object. Slope = +2 on a log-log plot.
 
-**Geometric kink at l = 1.8R:**
+**Geometric kink at l = 6^(1/3)R ≈ 1.817R:**
 
-The slope of d(log Lambda)/d(log l) changes sign at l ~ 1.8R — from +2 (near field) to -1 (far field). This is a sharp, measurable feature that NO point-mass model can produce. The kink arises from the finite extent of the mass distribution and is the single most discriminating experimental signature.
+The slope of d(log Lambda)/d(log l) changes sign at l ~ 6^(1/3)R ≈ 1.817R — from +2 (near field) to -1 (far field). This is a sharp, measurable feature that NO point-mass model can produce. The kink arises from the finite extent of the mass distribution and is the single most discriminating experimental signature.
 
 **Geometry dependence (at fixed mass):**
 
@@ -788,7 +788,7 @@ Below P ~ 10^-10 Pa, the decoherence rate saturates at Lambda_grav. Standard QM 
 | F3 | Pressure plateau | Lambda → const as P → 0 | Flat | Standard QM |
 | F4 | Far-field l-scaling | Lambda ~ l^-1 | -1 vs l | Power-law alternatives |
 | F5 | Entanglement | Lambda(Bell) < Lambda(sep) | — | State-independent (CSL) |
-| F6 | Geometric kink | Slope change at l = 1.8R | +2 → -1 | Point-mass (DP) |
+| F6 | Geometric kink | Slope change at l = 6^(1/3)R ≈ 1.817R | +2 → -1 | Point-mass (DP) |
 
 No tested alternative reproduces all six simultaneously. **The scaling laws, not any single number, are the prediction.** A single experiment measuring even three of these six signatures would be decisive.
 
@@ -1934,7 +1934,7 @@ The universe is a closed responsive system. Its dynamics are encoded in a single
 - QCD confinement as a fixed-point transition (MAPPED)
 - Neural resonance at 40 Hz from two independent routes (DEMONSTRATED)
 
-The framework is falsifiable through one primary experiment: the gravitational decoherence plateau. The prediction is not a single number but a set of six scaling laws — mass-squared dependence, geometry dependence, separation scaling with a geometric kink at l = 1.8R, entanglement protection, and pressure independence — that no tested alternative reproduces simultaneously. Zero free parameters. A gold microsphere benchmark gives Lambda ~ 689 Hz at R = l = 1 um.
+The framework is falsifiable through one primary experiment: the gravitational decoherence plateau. The prediction is not a single number but a set of six scaling laws — mass-squared dependence, geometry dependence, separation scaling with a geometric kink at l = 6^(1/3)R ≈ 1.817R, entanglement protection, and pressure independence — that no tested alternative reproduces simultaneously. Zero free parameters. A gold microsphere benchmark gives Lambda ~ 689 Hz at R = l = 1 um.
 
 The theory is not complete. Fermion masses, baryon asymmetry, and unique DM branch selection remain open. The constitutive projection is heuristic in gravity/cosmology sectors. The SM is imported, not derived. Every failure and withdrawal is documented in this volume.
 

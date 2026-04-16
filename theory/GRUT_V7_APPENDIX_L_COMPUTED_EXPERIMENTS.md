@@ -40,7 +40,7 @@ Laser shot noise is the practical bottleneck.
 
 ## L.2 — Geometry Kink Scan
 
-**Question:** Does the decoherence rate show a slope change at l = 1.8R?
+**Question:** Does the decoherence rate show a slope change at l = 6^(1/3)R ≈ 1.817R?
 
 **Method:** Scan Lambda_grav vs separation l through the extended-body
 transition at fixed mass (10^9 amu gold, R = 27 nm).
@@ -208,7 +208,7 @@ semiconductor industry, 99.99% purity).
 | # | Experiment | Key result | Discriminator | Status |
 |:---|:---|:---|:---|:---|
 | 1 | Multi-channel competition | beta = -1 vs +2 | Separation anti-scaling | COMPUTED |
-| 2 | Geometry kink | Slope change at l = 1.8R | Kink vs no kink | COMPUTED |
+| 2 | Geometry kink | Slope change at l = 6^(1/3)R ≈ 1.817R | Kink vs no kink | COMPUTED |
 | 3 | Material swap | Os vs Al: 737% | Geometry vs mass-only | COMPUTED |
 | 4 | Entanglement | Bell/sep = 0.41 | State-dependent vs independent | COMPUTED |
 | 5 | Hubble tension | H_0 = 70.1, smoothing 5% | Does NOT resolve | HONEST NEGATIVE |

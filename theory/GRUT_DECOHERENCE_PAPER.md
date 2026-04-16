@@ -22,7 +22,7 @@ Several proposals have identified gravity as the agent of irreducible decoherenc
 
 In this paper, we derive the gravitational decoherence rate from the closed-time-path (CTP) effective action — the standard formalism for nonequilibrium quantum field theory [3,4]. The derivation requires no assumptions beyond the CTP axioms (path doubling and retarded variation) and the Newtonian limit of the graviton propagator. The result is parameter-free: no coupling constants, collapse rates, or correlation lengths are introduced. The decoherence rate is a direct output of the imaginary part of the CTP influence functional, following the approach of Anastopoulos and Hu [5].
 
-The prediction produces six experimentally discriminating signatures — mass-squared scaling, geometry dependence, pressure-independent plateau, separation scaling, entanglement protection, and a geometric kink at l = 1.8R — that collectively distinguish it from all tested alternatives. We present an adversarial comparison against five competing models and show that no alternative reproduces all six.
+The prediction produces six experimentally discriminating signatures — mass-squared scaling, geometry dependence, pressure-independent plateau, separation scaling, entanglement protection, and a geometric kink at l = 6^(1/3)R ≈ 1.817R — that collectively distinguish it from all tested alternatives. We present an adversarial comparison against five competing models and show that no alternative reproduces all six.
 
 For the full theoretical framework in which this prediction is embedded, see the GRUT v6 formalism paper [6] and the v7 program document [7]. The present paper is self-contained: it derives the decoherence rate from the CTP influence functional alone, without reference to the broader constitutive framework.
 
@@ -75,7 +75,7 @@ with the extended-body suppression factor:
 
 The suppression factor arises from the spatial overlap of the mass distribution with itself at displacement l. When l >> R (far field), the object acts as a point mass and S = 1. When l << R (near field), the self-energy integral partially cancels, suppressing the rate by (l/R)^3.
 
-The crossover between these regimes occurs at l ~ 1.8R, producing a measurable kink in the decoherence rate as a function of separation (signature F6, Section 4).
+The crossover between these regimes occurs at l ~ 6^(1/3)R ≈ 1.817R, producing a measurable kink in the decoherence rate as a function of separation (signature F6, Section 4).
 
 ### 2.4 No free parameters
 
@@ -133,9 +133,9 @@ The rate decreases with separation. Slope = -1 on a log-log plot of Lambda vs l.
 
 An entangled pair decoheres slower than a separable state of the same total mass, because the entangled state's effective mass distribution differs. CSL and other state-independent models cannot reproduce this.
 
-### F6: Geometric kink at l = 1.8R
+### F6: Geometric kink at l = 6^(1/3)R ≈ 1.817R
 
-    d(log Lambda) / d(log l) changes sign at l ~ 1.8R
+    d(log Lambda) / d(log l) changes sign at l ~ 6^(1/3)R ≈ 1.817R
 
 In the near field (l < R): Lambda ~ l^2 (slope +2). In the far field (l > R): Lambda ~ l^-1 (slope -1). The transition produces a sharp, measurable kink. No point-mass model (Diósi-Penrose without extended bodies, Penrose objective reduction) can produce this feature — it requires the finite extent of the mass distribution.
 
@@ -211,7 +211,7 @@ For the gold benchmark: D_p = 7.7 × 10^-54 kg^2 m^2/s^3. Heating rate P = D_p/(
 3. Measure the decoherence rate Lambda as a function of l at fixed mass
 4. Scan pressure P from 10^-8 to 10^-11 Pa to identify the plateau
 5. Repeat with different materials (gold vs silica) at the same mass
-6. Compare Lambda(l) profile to the predicted kink at l = 1.8R
+6. Compare Lambda(l) profile to the predicted kink at l = 6^(1/3)R ≈ 1.817R
 
 ### 6.3 What constitutes a positive result
 
@@ -220,7 +220,7 @@ The decoherence rate must:
 - Scale as m^2 when mass is varied (F1)
 - Differ between gold and silica at the same mass (F2)
 - Show slope -1 on log-log at l > 2R (F4)
-- Show a kink at l ~ 1.8R (F6)
+- Show a kink at l ~ 6^(1/3)R ≈ 1.817R (F6)
 
 Meeting three or more of these signatures at the predicted quantitative level would constitute strong evidence. Meeting all six would be decisive.
 
@@ -247,7 +247,7 @@ If the decoherence experiment measures Lambda_grav at any (m, l), it fixes tau_0
 
 ## 8. Conclusion
 
-The gravitational decoherence rate Lambda_grav = G m^2 S(l/R) / (hbar l) is derived from the CTP influence functional with zero free parameters. It produces six experimentally discriminating signatures that no tested alternative reproduces simultaneously. The prediction is robust against non-Markovian corrections because it depends on the noise kernel (a property of the quantum state and the gravitational field), not on the dynamical evolution equation. The extended-body suppression factor S(l/R) prevents UV divergences, ensures heating safety, and produces the geometric kink at l = 1.8R that is the single most discriminating experimental signature.
+The gravitational decoherence rate Lambda_grav = G m^2 S(l/R) / (hbar l) is derived from the CTP influence functional with zero free parameters. It produces six experimentally discriminating signatures that no tested alternative reproduces simultaneously. The prediction is robust against non-Markovian corrections because it depends on the noise kernel (a property of the quantum state and the gravitational field), not on the dynamical evolution equation. The extended-body suppression factor S(l/R) prevents UV divergences, ensures heating safety, and produces the geometric kink at l = 6^(1/3)R ≈ 1.817R that is the single most discriminating experimental signature.
 
 The experiment is feasible with next-generation optomechanical systems. A positive result would establish gravity as the agent of the quantum-classical transition and, through the decoherence-cosmology bridge, potentially connect a tabletop measurement to the expansion of the universe.
 
