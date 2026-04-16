@@ -55,8 +55,8 @@ One parameter — τ₀ — connects the decoherence sector to cosmology through
 ### Installation
 
 ```bash
-git clone https://github.com/ryangrvr/GRUT-RAI-v2.git
-cd GRUT-RAI-v2
+git clone https://github.com/ryangrvr/GRUT-RAI.git
+cd GRUT-RAI
 
 # Install dependencies
 pip install numpy scipy flask anthropic
@@ -83,7 +83,7 @@ The dashboard, computations, GRUTipedia, and experiments tabs all work without a
 
 ### The Dashboard (4 tabs)
 
-**RAI Chat** — Ask GRUT RAI anything. Claude-powered with 16 computation tools. It computes real physics, not just answers from memory:
+**RAI Chat** — Ask GRUT RAI anything. Claude-powered with 22 computation tools. It computes real physics, not just answers from memory:
 - *"Calculate the decoherence rate for a 50pg silica sphere at 500nm"*
 - *"How does GRUT compare to string theory for the cosmological constant?"*
 - *"What if R_anomaly were 1.3 instead of 1.15428?"*
@@ -91,17 +91,18 @@ The dashboard, computations, GRUTipedia, and experiments tabs all work without a
 
 **Dashboard** — Interactive calculators:
 - Decoherence rate calculator (any mass, material, separation)
-- Scaling laws plot (shows the geometric kink at l = 1.8R)
+- Scaling laws plot (shows the geometric kink at l = 6^(1/3)R ≈ 1.817R)
 - Mass dependence plot (m² scaling on log-log)
 - Bridge calculator (τ₀ → Ω_Λ prediction)
 - Constitutive dynamics visualizer
 
-**GRUTipedia** — 14 articles covering the complete framework:
+**GRUTipedia** — 23 articles covering the complete framework:
 - Foundation: CTP action, constitutive equation, noise kernel, fixed-point principle
 - Derived results: decoherence, cosmology, baryogenesis, dark matter, Koide, SM emergence
 - Architecture: bridge parameter, projection audit, conjectures, limitations
+- Experiments: decoherence competition, kink scan, material swap, entanglement, Hubble tension, dark photon, spectral running, baryogenesis cross-check, isotope test
 
-**Experiments** — 8 predictive tests with falsification conditions:
+**Experiments** — 9 predictive tests with falsification conditions:
 - Decoherence plateau (PRIMARY — 5-10 years)
 - Dark photon at 387 MeV (TESTABLE NOW — LHCb, Belle II)
 - Koide precision, no 4th generation, no axion (ONGOING)
@@ -115,7 +116,7 @@ Click "Visualize" buttons (appear in chat responses and at the bottom of the pag
 - **Era Map** — play through 329 eras of cosmic evolution
 - **The Bridge** — adjust H₀ and watch Ω_Λ respond
 
-### API (38 endpoints)
+### API (93 endpoints)
 
 All computations are available as REST endpoints:
 
@@ -129,11 +130,15 @@ GET /api/koide
 GET /api/compare/all
 GET /api/whatif?parameter=R_anomaly&value=1.3
 GET /api/experiment/design?target_Lambda=100
+GET /api/decoherence/isotope?iso_a=Si-28&iso_b=Si-30
+GET /api/decoherence/competition?m_amu=1e9&T=4
+GET /api/noise/budget?m=80.8e-15&T=4&P=1e-14
+GET /api/robustness
+GET /api/multiscale
 GET /api/data/planck
-GET /api/data/pdg
 ```
 
-Full list: 38 endpoints across foundation, derived physics, bridge, tools, data, comparison, what-if, experiment design, and AI chat.
+93 endpoints across foundation, derived physics, bridge, decoherence experiments (competition, kink, material swap, isotope, entanglement), cosmology (vacuum, Hubble tension, spectral running), dark matter (exclusion, roadmap), baryogenesis (cross-check, models), noise models, covariance, robustness, multiscale, comparison, what-if, experiment design, pedagogy, discovery, and AI chat.
 
 ---
 
@@ -148,9 +153,9 @@ GRUT-RAI-v2/
 │   │   ├── constitutive.py        # τ dz/dt + z = z_target[z]
 │   │   ├── noise_kernel.py        # Λ_grav, FDT, KMS τ
 │   │   └── anomaly.py             # C_FINAL, R_ANOMALY, S_CTP
-│   ├── derived/                   # 8 physics sectors
-│   │   ├── quantum_mechanics/     # Schrödinger recovery, Born rule
-│   │   ├── decoherence/           # Six scaling laws, adversarial comparison
+│   ├── derived/                   # 9 physics domains, 24 modules
+│   │   ├── quantum_mechanics/     # Schrödinger recovery
+│   │   ├── decoherence/           # 7 modules: sector, competition, kink, material swap, isotope, entanglement
 │   │   ├── baryogenesis/          # η_B from CTP anomaly formula
 │   │   ├── dark_matter/           # Route 1/2, branch discriminator
 │   │   ├── cosmology/             # H_inf, era map, constitutive H(t)
@@ -158,11 +163,12 @@ GRUT-RAI-v2/
 │   │   ├── sm_emergence/          # 5 CTP constraints
 │   │   └── quantum_gravity/       # Closure conditions, nonlinear ladder
 │   ├── bridge/                    # τ₀ ↔ Ω_Λ connection
-│   └── utils/                     # Sweep, sensitivity, data, comparison, what-if, experiment
+│   └── utils/                     # 13 modules: compare, covariance, data, dimensions, discovery,
+│                                  #   experiment, multiscale, noise_models, pedagogy, robustness, sweep, whatif
 ├── ui/                            # Web dashboard
 │   ├── app.py                     # Flask server
-│   ├── api/routes.py              # 38 API endpoints
-│   ├── ai/chat.py                 # Claude-powered chat with 16 tools
+│   ├── api/routes.py              # 93 API endpoints
+│   ├── ai/chat.py                 # Claude-powered chat with 22 tools
 │   └── static/                    # HTML, CSS, JS, visualizations
 ├── theory/                        # V8 theory document
 ├── papers/                        # Decoherence prediction paper
@@ -190,12 +196,14 @@ For the full research history, v6 formalism paper, and v7 program document, see 
 ## Testing
 
 ```bash
-# Foundation tests (22 checks)
+# Foundation tests (22 automated checks)
 python -m pytest tests/foundation/ -v
 
-# All tests
+# All automated tests
 python -m pytest tests/ -v
 ```
+
+The 22 automated tests verify foundation-level consistency (constants, axioms, constitutive equation, noise kernel, anomaly structure). The v7 theory document describes 250+ sector-level validation checks across 13 physics sectors; these are documented in the theory papers but not yet automated as pytest tests.
 
 ---
 
@@ -226,6 +234,6 @@ MIT
   author = {Grover, D. Ryan},
   title = {GRUT RAI v2: Grand Responsive Universe Theory — Interactive Research Platform},
   year = {2026},
-  url = {https://github.com/ryangrvr/GRUT-RAI-v2}
+  url = {https://github.com/ryangrvr/GRUT-RAI}
 }
 ```
