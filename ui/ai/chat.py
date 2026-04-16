@@ -485,6 +485,28 @@ Always include the relevant [VIZ:...] tag when the topic matches. The user can t
 # CHAT WITH TOOL-USE LOOP
 # ═══════════════════════════════════════════════════════
 
+MAX_TOOL_RESULT_CHARS = 8000  # Truncate oversized tool results to prevent context blowout
+
+def _truncate_result(result_json: str) -> str:
+    """Truncate tool result JSON if too large, preserving structure."""
+    if len(result_json) <= MAX_TOOL_RESULT_CHARS:
+        return result_json
+    # Try to parse and trim data arrays
+    try:
+        obj = json.loads(result_json)
+        if isinstance(obj, dict):
+            for key in ("data", "all_pairs", "elements"):
+                if key in obj and isinstance(obj[key], list) and len(obj[key]) > 10:
+                    obj[key] = obj[key][:10]
+                    obj[f"_{key}_note"] = f"Truncated to first 10 of {len(json.loads(result_json).get(key, []))} entries"
+            trimmed = json.dumps(obj, default=str)
+            if len(trimmed) <= MAX_TOOL_RESULT_CHARS:
+                return trimmed
+    except Exception:
+        pass
+    return result_json[:MAX_TOOL_RESULT_CHARS] + '\n... [truncated]'
+
+
 def chat(user_message: str, history: list = None) -> str:
     """Send a message to Claude with tool-use. Returns final text response."""
     if not CLIENT:
@@ -496,39 +518,48 @@ def chat(user_message: str, history: list = None) -> str:
             messages.append({"role": h["role"], "content": h["content"]})
     messages.append({"role": "user", "content": user_message})
 
+    MAX_ROUNDS = 8
+    tools_called = []
+
     try:
-        # Up to 10 rounds of tool-use
-        for _ in range(10):
-            response = CLIENT.messages.create(
+        for round_num in range(MAX_ROUNDS):
+            # On the LAST round, omit tools to force a text answer
+            is_final_round = (round_num == MAX_ROUNDS - 1)
+
+            api_kwargs = dict(
                 model=MODEL,
                 max_tokens=MAX_TOKENS,
                 system=SYSTEM_PROMPT,
                 messages=messages,
-                tools=TOOLS,
             )
+            if not is_final_round:
+                api_kwargs["tools"] = TOOLS
+
+            response = CLIENT.messages.create(**api_kwargs)
 
             # Check if Claude wants to use tools
-            if response.stop_reason == "tool_use":
-                # Process all tool calls
+            if response.stop_reason == "tool_use" and not is_final_round:
                 tool_results = []
                 assistant_content = response.content
 
                 for block in response.content:
                     if block.type == "tool_use":
+                        tools_called.append(block.name)
                         result = execute_tool(block.name, block.input)
                         result = _sanitize_for_json(result)
+                        result_json = json.dumps(result, default=str)
+                        result_json = _truncate_result(result_json)
                         tool_results.append({
                             "type": "tool_result",
                             "tool_use_id": block.id,
-                            "content": json.dumps(result, default=str),
+                            "content": result_json,
                         })
 
-                # Add assistant message + tool results to conversation
                 messages.append({"role": "assistant", "content": assistant_content})
                 messages.append({"role": "user", "content": tool_results})
 
             else:
-                # Final text response
+                # Final text response — extract it
                 for block in response.content:
                     if hasattr(block, 'text'):
                         return block.text
@@ -537,6 +568,9 @@ def chat(user_message: str, history: list = None) -> str:
         return "Tool-use loop exceeded maximum rounds."
 
     except Exception as e:
+        # If we have any tool results, try to return a summary
+        if tools_called:
+            return f"Error during tool-use (called: {', '.join(tools_called)}): {str(e)}"
         return f"Error: {str(e)}"
 
 
