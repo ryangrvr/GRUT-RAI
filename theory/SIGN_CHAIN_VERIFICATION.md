@@ -132,10 +132,51 @@ moderate if 2-loop matters).
 
 ---
 
+## UPDATE — correction after closer reading of PZ
+
+Upon checking the actual PZ paper text more carefully (Ryan's pushback):
+**Link 1 is weaker than I claimed.**
+
+PZ's Δb̄ > 0 theorem is proven for "theories conformal at both ends"
+— i.e., flowing between a UV conformal fixed point and an IR conformal
+fixed point. SM QCD satisfies the UV condition (asymptotic freedom →
+Gaussian fixed point) but **not** the IR condition — QCD confines,
+there is no IR conformal fixed point.
+
+The paper also discusses a scheme-dependent monotonic decrease of b̄(μ)
+in MOM and R² schemes, but this is a separate statement that requires
+scheme specification, not a general unitarity theorem.
+
+**Consequence:** The sign of Δb̄ for SM QCD at M_Z is **not locked by
+unitarity.** Link 1 is open, not high-confidence.
+
+This propagates: if Δb̄'s sign is open, and that was feeding the sign
+of w_i through the consistency relations (Link 2), then Links 2 and
+3 together determine the answer without a prior constraint from
+unitarity.
+
+## Revised confidence levels
+
+| Link | Revised confidence | Reason |
+|------|--------------------|--------|
+| 1 | OPEN (was HIGH) | PZ theorem needs conformal endpoints; SM QCD doesn't have IR CFT |
+| 2 | MODERATE | IBP and conventions; direction depends on Link 1 plus extraction |
+| 3 | LOW-MODERATE | Lie derivative conventions |
+| 4 | LOCKED | We already established β_a has no w_i term; ΔR's direction is determined entirely by sign of −L_β w |
+
 ## The bottom line
 
-**Links 1 and 4 are solid.** Links 2 and 3 are where sign errors
-commonly occur. My simulation followed through the chain with one
+**Link 4 is locked** (established earlier in the session: the Osborn
+equation for β_a is 8∂_i β_a = χ^a_ij β^j with no w_i term; only β_b
+has the −L_β w_i asymmetry, so ΔR's direction is determined entirely
+by sign of −L_β w).
+
+**Link 1 is weaker than I claimed** — PZ's unitarity theorem doesn't
+directly force Δb̄ > 0 for SM QCD, because the SM lacks an IR
+conformal fixed point. The sign is not locked by a theorem; it has
+to come from the actual extraction.
+
+**Links 2 and 3** are where the conventions live My simulation followed through the chain with one
 consistent set of conventions and got "ΔR < 0, wrong direction," but
 with two intermediate links that involve multiple sign-flipping
 operations (IBP, Lie derivatives on coupling space, beta function sign
@@ -211,14 +252,28 @@ The real brother, working through the papers himself, will catch any
 slip I made. Until he does, the "HONEST NEGATIVE" conclusion is
 provisional. It's the most likely outcome, but not locked.
 
-**The honest framing to commit to TODAY:**
+**The honest framing to commit to TODAY (revised after PZ correction):**
 
-"Simulated analysis suggests the perturbative Osborn route closes in the
-wrong direction (unitarity-consistent shift moves R down, not up). This
-is a four-step sign chain that requires verification by a working QFT
-theorist. Conclusion is PROVISIONAL pending that verification. If the
-sign chain confirms: cosmological sector is an honest negative. If a
-sign error is found in Links 2 or 3: the route is still open and we run
-the integrated pipeline with the real w_g values."
+"The simulated analysis suggested the perturbative Osborn route closes
+in the wrong direction, but that rested on treating PZ's Δb̄ > 0 as a
+universal theorem. Closer reading shows PZ's unitarity theorem applies
+only to theories with conformal fixed points at both ends of the flow,
+which SM QCD does not have (it confines in the IR).
 
-That's the honest state. Not locked, not dismissed.
+So the sign of Δb̄ for SM QCD is NOT locked by unitarity. The simulation's
+'wrong direction' conclusion was premature.
+
+**Actual status: GENUINELY UNDETERMINED.** The sign of the w_i
+contribution could go either way. Resolution requires:
+
+- Extraction of w_g from Jack-Osborn 1990 section 4 (Link 2)
+- Evaluation of −L_β w_g at M_Z with correct conventions (Link 3)
+
+Link 4 is locked (β_a has no w_i term, so ΔR direction = sign of −L_β w).
+Link 1 is open (no unitarity lock for SM). Links 2 and 3 determine
+the answer.
+
+Both directions remain possible for the cosmological sector."
+
+That's the honest state. Not provisionally negative, not positive —
+genuinely open, pending the brother's paper-access work.
