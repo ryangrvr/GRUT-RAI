@@ -358,6 +358,167 @@ Acceleration when epsilon_H < 1.
 This system is numerically stable, preserves conservation exactly,
 and produces H(z) directly comparable to supernova data and CMB constraints.
 
+### N.4.9 — Map of Modified Equations
+
+The GRUT coupling rho_GRUT = gamma H phi_dot introduces a geometry-scalar-
+expansion feedback loop that propagates unavoidably into every sector of
+gravitational physics. Below is the minimal consistent form each equation
+takes under the v8 structure.
+
+**(1) Einstein Field Equations**
+
+    Standard:  G_mu_nu = 8 pi G T_mu_nu
+    GRUT:      G_mu_nu = 8 pi G (T_mu_nu^(m,r,phi) + T_mu_nu^(GRUT))
+
+The GRUT stress-energy is an effective non-perfect-fluid tensor: not purely
+isotropic in general backgrounds, encoding dissipative energy exchange.
+
+**(2) Conservation / Continuity Equations**
+
+    Standard:  nabla_mu T^mu_nu = 0
+    GRUT:      nabla_mu T^mu_nu_(phi) = Q_nu
+               nabla_mu T^mu_nu_(GRUT) = -Q_nu
+
+In cosmology:
+
+    rho_dot_phi + 3H(rho_phi + p_phi) = Q
+    rho_dot_GRUT + 3H(rho_GRUT + p_GRUT) = -Q
+
+Energy is redistributed between the scalar and GRUT sectors, not lost.
+Total conservation is preserved by construction.
+
+**(3) Klein-Gordon (scalar field)**
+
+    Standard:  Box phi - V'(phi) = 0
+    GRUT:      Box phi - V'(phi) = beta S
+
+The scalar is no longer conservative. It acts as an open system coupled
+to geometry through the source S = -gamma H^2.
+
+**(4) Raychaudhuri Equation (acceleration)**
+
+    Standard:  H_dot = -4 pi G (rho + p)
+    GRUT:      H_dot = -4 pi G (rho_tot + p_tot) + Delta_GRUT
+
+where Delta_GRUT ~ gamma (H_dot phi_dot + H phi_ddot).
+
+This is critical: acceleration is no longer determined purely by the
+equation of state. The system can produce acceleration even when w > -1.
+
+**(5) Poisson Equation (structure formation, Newtonian limit)**
+
+    Standard:  nabla^2 Phi = 4 pi G rho
+    GRUT:      nabla^2 Phi = 4 pi G (rho + rho_GRUT_eff)
+
+Effective gravity is modified. Depending on the regime, this mimics dark
+matter enhancement or modified gravity.
+
+**(6) Growth of Structure Equation**
+
+    Standard:  delta_ddot + 2H delta_dot - 4 pi G rho_m delta = 0
+    GRUT:      delta_ddot + (2H + Gamma_GRUT) delta_dot - 4 pi G_eff rho_m delta = 0
+
+New terms:
+- Gamma_GRUT ~ gamma phi_dot (modified friction)
+- G_eff != G (effective gravitational coupling)
+
+Directly testable via galaxy clustering, weak lensing, and the matter
+power spectrum P(k).
+
+**(7) Geodesic Equation**
+
+    Standard:  d^2 x^mu / d tau^2 + Gamma^mu_alpha_beta u^alpha u^beta = 0
+    GRUT:      d^2 x^mu / d tau^2 + Gamma^mu_alpha_beta u^alpha u^beta = f^mu_GRUT
+
+Test particles may experience an effective extra force depending on
+whether GRUT couples universally or only through the metric.
+
+**(8) Black Hole / Horizon Equations**
+
+Surface gravity is modified:
+
+    kappa -> kappa + Delta(gamma, phi_dot)
+
+The area law acquires a non-equilibrium correction: dA/dt != 0 even in
+apparently stationary configurations. Horizons become dynamical,
+dissipative systems — connecting to the constitutive BH information
+recovery in the main document.
+
+**(9) Effective Equation of State**
+
+    Standard:  w_eff = p_phi / rho_phi
+    GRUT:      w_eff = (p_phi + p_GRUT) / (rho_phi + rho_GRUT)
+
+The observationally inferred w is not fundamental. It is an emergent
+parameter that conflates the scalar dynamics with the GRUT coupling.
+
+**(10) CMB Perturbation Equations**
+
+Metric perturbations acquire anisotropic stress:
+
+    Phi != Psi  (gravitational slip)
+
+This is a direct, testable signature in:
+- CMB lensing
+- Integrated Sachs-Wolfe (ISW) effect
+- E-mode polarization
+
+### N.4.10 — Structural Assessment
+
+GRUT introduces a geometry <-> scalar <-> expansion feedback loop.
+This is not a minor modification — it forces changes in:
+
+| Sector | Status |
+|:---|:---|
+| Background cosmology | Modified (N.4.5-N.4.7) |
+| Conservation laws | Fixed (energy redistribution, not loss) |
+| Perturbations | Modified (anisotropic stress, Phi != Psi) |
+| Gravity (Einstein eq.) | Extended (T_mu_nu^GRUT) |
+| Structure growth | Altered (Gamma_GRUT friction, G_eff) |
+| Horizons | Non-equilibrium (dynamical dA/dt) |
+| Geodesics | Potentially modified (f^mu_GRUT) |
+
+**Closest existing frameworks:**
+- Interacting dark energy (similar energy exchange structure)
+- Bulk viscous cosmology (similar dissipative stress)
+- Scalar-tensor gravity (similar field-metric coupling)
+
+GRUT is distinct from all three in that the source term D(x) is the
+Diosi gravitational self-energy kernel — it connects the cosmological
+modification directly to the decoherence prediction.
+
+### N.4.11 — The Covariant Action Gap (Critical Open Problem)
+
+The v8 base system (N.9) is defined at the equation level. What is
+NOT yet established:
+
+**The covariant GRUT action:**
+
+    S_GRUT[g_mu_nu, phi] = ?
+
+such that:
+- Variation with respect to g_mu_nu produces the modified Einstein equation
+- Variation with respect to phi produces the GRUT field equation
+- Conservation emerges automatically from diffeomorphism invariance
+
+**Why this matters:**
+Without a covariant action:
+- T_mu_nu^(GRUT) has residual ambiguity in non-FLRW backgrounds
+- Perturbation theory risks hidden inconsistencies
+- The theory cannot be systematically quantized
+
+**Why it may exist:**
+The CTP effective action S_CTP IS a covariant action. The v7 constitutive
+equation is derived from it. The v8 formalization should, in principle,
+be obtainable by expanding S_CTP to the appropriate order and reading off
+the effective action for phi coupled to g_mu_nu.
+
+**This is the single most important theoretical deliverable for v8.**
+Community collaboration in mathematical physics and scalar-tensor gravity
+is essential here. The equations work at the FLRW level. The question is
+whether they descend from a consistent covariant action at the full
+tensorial level.
+
 ---
 
 ## N.5 — Phase 3: Falsifiability Gate
