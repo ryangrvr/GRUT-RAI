@@ -78,6 +78,12 @@ def get_anomaly_comparison():
     from grut.foundation.anomaly_derived import compare_to_asserted
     return jsonify(compare_to_asserted())
 
+@api.route('/anomaly/osborn')
+def get_anomaly_osborn():
+    from grut.foundation.osborn_rg import full_osborn_shift
+    w_i = float(request.args.get('w_i', 0.0))
+    return jsonify(full_osborn_shift(w_i_contribution=w_i))
+
 # ═══ Bridge ═══
 @api.route('/bridge')
 def bridge():
