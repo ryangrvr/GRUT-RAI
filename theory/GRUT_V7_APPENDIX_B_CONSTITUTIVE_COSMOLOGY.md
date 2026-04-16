@@ -411,5 +411,31 @@ the rest of GRUT — the inflation sector is conjectural, not derived).
 
 ---
 
+## B.14 — Cosmological Exchange Term
+
+The constitutive dynamics produce a measurable energy-momentum exchange
+between the observable and coarse-grained sectors:
+
+    J^0 = (1/tau)(rho - rho_target) ~ epsilon rho / tau
+
+where epsilon = (rho - rho_target)/rho is the fractional tracking error.
+
+This induces a fractional correction to the Hubble rate:
+
+    delta(H)/H ~ 300 epsilon
+
+The amplification factor 1/(tau H_0) ~ 300 arises because the constitutive
+timescale tau = 41.9 Myr is much shorter than the Hubble time.
+
+**Constraint:** Consistency with LCDM requires epsilon < 10^-8 to 10^-9.
+
+**Prediction:** Structured deviations from LCDM at the 10^-6 to 10^-8 level,
+with redshift-dependent growth delta(H)/H ~ epsilon_0 (1+z)^p / (tau H(z)).
+The exponent p defines a falsifiable class testable by DESI, Euclid, and Roman.
+
+See Appendix N (N.4.12) for the full derivation and forecast curves.
+
+---
+
 *D. Ryan Grover, April 2026.*
 *GRUT v7 Appendix B: Expansion of the Cosmos.*

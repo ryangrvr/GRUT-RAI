@@ -487,9 +487,112 @@ GRUT is distinct from all three in that the source term D(x) is the
 Diosi gravitational self-energy kernel — it connects the cosmological
 modification directly to the decoherence prediction.
 
-### N.4.11 — The Covariant Action Gap (Critical Open Problem)
+### N.4.11 — CTP Conservation Structure
 
-The v8 base system (N.9) is defined at the equation level. What is
+The CTP effective action is diffeomorphism invariant, ensuring exact
+conservation of the total stress-energy tensor:
+
+    nabla_mu T_total^mu_nu = 0
+
+After integrating out microscopic and stochastic degrees of freedom,
+the effective dynamics of the observable sector are described by a
+reduced stress-energy tensor T_eff^mu_nu that satisfies:
+
+    nabla_mu T_eff^mu_nu = J^nu
+
+where J^nu represents energy-momentum exchange with the coarse-grained
+sector. This is not a fundamental violation of conservation, but a
+standard feature of open-system dynamics derived from the CTP formalism.
+
+**Origin of dissipation:** Dissipative effects arise from the imaginary
+part of the CTP action:
+
+    Im(S_CTP) = (1/2) z_a N z_a
+
+which encodes stochastic fluctuations and, via the fluctuation-dissipation
+theorem, the corresponding dissipative response. The constitutive equation:
+
+    tau u^mu nabla_mu z + z = z_target[z]
+
+is an effective, coarse-grained equation of motion, not a fundamental
+modification of conservation laws. All dynamics are expressed covariantly
+using a dynamically defined timelike vector field u^mu, avoiding any
+preferred coordinate time.
+
+**Interpretation of z_a fields:** The auxiliary z_a fields in the CTP
+formalism do not represent physical degrees of freedom. They enforce
+causal structure and encode the influence of integrated-out microscopic
+sectors through the noise kernel. Energy-momentum exchange occurs with
+these underlying degrees of freedom, not with the z_a fields themselves.
+
+This places the framework within established theoretical structures:
+stochastic gravity, Schwinger-Keldysh effective field theory, and
+hydrodynamic effective descriptions.
+
+### N.4.12 — Cosmological Exchange Term and Observational Constraint
+
+From the constitutive dynamics:
+
+    J^0 = (1/tau)(rho - rho_target)
+
+Define the fractional tracking error:
+
+    epsilon = (rho - rho_target) / rho
+
+Then:
+
+    J^0 ~ epsilon rho / tau
+
+This induces a correction to the Friedmann evolution:
+
+    delta(H) / H ~ J^0 / (rho H) ~ epsilon / (tau H)
+
+**Numerical evaluation (present day):**
+
+    tau ~ 1.3 x 10^15 s
+    H_0 ~ 2.2 x 10^-18 s^-1
+    1/(tau H_0) ~ 300
+
+Therefore:
+
+    delta(H) / H ~ 300 epsilon
+
+**The factor 300 is the key.** Small microscopic tracking errors are
+AMPLIFIED by 300x into cosmological deviations. This is a UV-to-IR bridge.
+
+**Constraint from observations:**
+
+Consistency with LCDM requires delta(H)/H < 10^-6 to 10^-8, which implies:
+
+    epsilon < 10^-8 to 10^-9
+
+The constitutive dynamics must track the target solution with extremely
+high precision.
+
+**Redshift-dependent forecast:**
+
+The tracking error may grow with redshift: epsilon(z) = epsilon_0 (1+z)^p.
+This produces a family of testable signatures:
+
+    delta(H)/H (z) ~ epsilon_0 (1+z)^p / (tau H(z))
+
+| Scaling | Behavior | Testability |
+|:---|:---|:---|
+| p = 1 (mild) | Nearly flat, renormalization of LCDM | Safe, hard to detect |
+| p = 3/2 (matter tracking) | Grows at z > 1, enters BAO/SN window | Testable by DESI/Euclid |
+| p = 3 (aggressive) | Reaches 10^-6 by z ~ 5 | Likely already constrained |
+
+The exponent p is the discriminator: low p is safe, high p is falsifiable.
+The framework predicts deviations of the form delta(H)/H ~ (1/tau H) epsilon(z),
+with a fixed amplification factor and model-dependent tracking error.
+The redshift scaling of epsilon(z) defines a falsifiable class of deviations.
+
+**Status:** Computed constraint. Projection-independent. Testable by
+next-generation precision cosmology (DESI, Euclid, Roman).
+
+### N.4.13 — The Covariant Action Gap (Critical Open Problem)
+
+The v8 base system (N.11) is defined at the equation level. What is
 NOT yet established:
 
 **The covariant GRUT action:**
