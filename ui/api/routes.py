@@ -65,7 +65,18 @@ def material():
 
 @api.route('/anomaly')
 def get_anomaly():
-    return jsonify({"C_FINAL":anomaly.C_FINAL,"C_COSMO":float(anomaly.c_cosmo()),"R_ANOMALY":anomaly.R_ANOMALY,"S_CTP":anomaly.S_CTP,"f_R":2-anomaly.R_ANOMALY})
+    return jsonify({"C_FINAL":anomaly.C_FINAL,"C_COSMO":float(anomaly.c_cosmo()),"R_ANOMALY":anomaly.R_ANOMALY,"S_CTP":anomaly.S_CTP,"f_R":2-anomaly.R_ANOMALY,
+                     "status": "CONDITIONAL — these values are asserted, not independently derived from Feynman diagrams. See /anomaly/derived for the honest 1-loop calculation."})
+
+@api.route('/anomaly/derived')
+def get_anomaly_derived():
+    from grut.foundation.anomaly_derived import full_derived_analysis
+    return jsonify(full_derived_analysis())
+
+@api.route('/anomaly/comparison')
+def get_anomaly_comparison():
+    from grut.foundation.anomaly_derived import compare_to_asserted
+    return jsonify(compare_to_asserted())
 
 # ═══ Bridge ═══
 @api.route('/bridge')
