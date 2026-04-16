@@ -84,6 +84,16 @@ def get_anomaly_osborn():
     w_i = float(request.args.get('w_i', 0.0))
     return jsonify(full_osborn_shift(w_i_contribution=w_i))
 
+@api.route('/anomaly/integrated_rg')
+def get_anomaly_integrated_rg():
+    from grut.foundation.osborn_rg import integrated_rg_flow_estimate
+    return jsonify(integrated_rg_flow_estimate())
+
+@api.route('/anomaly/mechanisms')
+def get_anomaly_mechanisms():
+    from grut.foundation.osborn_rg import three_mechanisms_summary
+    return jsonify(three_mechanisms_summary())
+
 # ═══ Bridge ═══
 @api.route('/bridge')
 def bridge():

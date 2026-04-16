@@ -324,11 +324,35 @@ def full_osborn_shift(w_i_contribution=0.0):
             'for the SM at 1-loop, so we can compute how much they shift R?'
         ),
         'implication': (
-            'Even if w_i gives a typical 10-15% shift in beta_b, R moves by '
-            'about 10-15%, bringing it from 1.027 to about 1.13 — close to '
-            'but not exactly 1.155. To land on R = 1.155 precisely, the '
-            'w_i contribution would need to shift beta_b by the specific amount '
-            f'{wi_needed:.3f} (fractional: {wi_needed_fractional:.2%}).'
+            'The w_i contribution needed to shift R from 1.027 to 1.155 is '
+            f'{wi_needed:.3f} (fractional: {wi_needed_fractional:.1%} of beta_b). '
+            'This is NOT a perturbative correction — it is a contribution larger '
+            'than the quantity being corrected. In perturbative QFT, a 2-loop '
+            'correction that exceeds the 1-loop result by 2x signals either a '
+            'breakdown of perturbation theory or that the effect is in the wrong '
+            'place. The Osborn route alone cannot close the gap from 1.027 to 1.155.'
+        ),
+        'definitive_conclusion': (
+            'PERTURBATIVE OSBORN CANNOT CLOSE THE GAP. The w_i coefficients '
+            'are structurally constrained (related to the Box R scheme-dependent '
+            'term, scheme-independent after Lie derivative with beta). Published '
+            'values are not 200%+ of leading anomaly coefficients — that would '
+            'have shown up as dramatic scheme dependence elsewhere. Three honest '
+            'possibilities remain: (1) the gap is real and unreachable by any '
+            'perturbative correction; (2) a non-perturbative contribution exists '
+            '(instantons, thresholds, large-N resummation); (3) the R entering '
+            'the cosmological formula is not the simple b/a of the trace anomaly '
+            'but a CTP-specific quantity that equals b/a at leading order but '
+            'picks up additional terms at higher order. Option (1) is most likely.'
+        ),
+        'status_for_records': (
+            'R_1loop = 1.027 is verified from published Birrell-Davies coefficients. '
+            'Perturbative 2-loop shift via Osborn consistency is negligible (~0.01%). '
+            'Reaching R = 1.155 requires either non-perturbative physics or a '
+            'redefinition of which CTP quantity enters the cosmological formula. '
+            'This is an OPEN PROBLEM, not a closed one. The framework prediction '
+            'Omega_Lambda = 0.69 remains CONDITIONAL, and now also remains '
+            'UNEXPLAINED at the perturbative level.'
         ),
         'note': (
             'The Osborn shift computed here is the LEADING contribution from '
@@ -348,6 +372,131 @@ def full_osborn_shift(w_i_contribution=0.0):
             '=> This means the Osborn approach gives us the Delta_beta_b but not '
             'Delta_beta_a. For the full 2-loop R = |beta_b/beta_a|, we would also '
             'need Delta_beta_a from a separate calculation.'
+        ),
+    }
+
+
+def integrated_rg_flow_estimate():
+    """Estimate the CTP integrated RG flow contribution to R shift.
+
+    The brother's analysis: the 1-loop R = 1.027 is evaluated at a single scale
+    with free fields. The CTP cosmological formula may involve the anomaly
+    structure INTEGRATED over the full RG flow from M_Planck to M_Z.
+
+    For QCD: g_s(M_Planck) ~ 0.5, g_s(M_Z) ~ 1.2.
+
+    If w_i ~ g² and β ~ g³, then ∫ w(g) β(g) dg ~ ∫ g² g³ dg ~ g^6 / 6.
+
+    Between g=0.5 and g=1.2:
+        (1.2^6 - 0.5^6) / 6 ≈ (2.99 - 0.016) / 6 ≈ 0.49
+
+    That's a 49% shift in β_b from integrated effects — the large log
+    ln(M_Planck/M_Z) ≈ 40 acts as the natural amplifier.
+
+    Only a fraction of this translates to R shift (since R = |b/a| needs
+    asymmetry), but it's the right ORDER OF MAGNITUDE for a ~12% R shift.
+
+    This is the brother's best bet for where the framework's 12% could live.
+    """
+    import math
+
+    # QCD coupling at the two scales (running coupling)
+    g_s_planck = 0.5       # approximate, depends on choice of M_Planck
+    g_s_mz = 1.217         # from alpha_s(M_Z) = 0.118
+
+    # Large log
+    M_Planck = 2.4e18      # GeV (reduced Planck mass)
+    M_Z = 91.2             # GeV
+    log_ratio = math.log(M_Planck / M_Z)
+
+    # Integrated effect ~ g^6 / 6 (order-of-magnitude estimate)
+    integrated_shift = (g_s_mz**6 - g_s_planck**6) / 6.0
+
+    # Fraction that translates to R shift depends on asymmetry
+    # If a and b shift in lockstep: 0
+    # If only b shifts: full integrated effect
+    # Realistic: some fraction, maybe 10-30%
+    asymmetry_fraction_low = 0.10
+    asymmetry_fraction_high = 0.30
+
+    R_shift_estimate_low = integrated_shift * asymmetry_fraction_low
+    R_shift_estimate_high = integrated_shift * asymmetry_fraction_high
+
+    return {
+        'status': 'ESTIMATE (brother\'s proposed mechanism)',
+        'mechanism': 'Integrated w_i over SM RG flow from M_Planck to M_Z',
+        'g_s_M_Planck': g_s_planck,
+        'g_s_M_Z': g_s_mz,
+        'log_M_Planck_over_M_Z': log_ratio,
+        'integrated_shift_in_beta_b_fractional': integrated_shift,
+        'R_shift_estimate_low_asymmetry_10pct': R_shift_estimate_low,
+        'R_shift_estimate_high_asymmetry_30pct': R_shift_estimate_high,
+        'target_R_shift_needed': 0.125,
+        'verdict': (
+            f'The integrated RG flow gives ~{integrated_shift*100:.0f}% '
+            f'shift in beta_b. If 10-30% of this asymmetrically goes into R, '
+            f'we get {R_shift_estimate_low*100:.1f}% to {R_shift_estimate_high*100:.1f}% '
+            f'shift in R. Target is 12.5%. '
+            f'ORDER OF MAGNITUDE MATCHES. This is the brother\'s best bet '
+            f'for where the framework\'s 12% could live.'
+        ),
+        'what_needs_computing': (
+            'The exact integral of w_i(g) × β(g) × dg from M_Planck to M_Z '
+            'with the correct w_i coefficients (from Jack-Osborn 1990) and '
+            'the correct asymmetry between the a and b equations. This is '
+            'a specific tractable calculation for a QFT specialist.'
+        ),
+    }
+
+
+def three_mechanisms_summary():
+    """Summary of the three CTP-specific features that could modify R.
+
+    From the brother's analysis — these are the three places where R could
+    shift beyond the standard trace anomaly single-scale calculation.
+    """
+    return {
+        'status': 'OPEN QUESTIONS for the CTP/QFT specialist',
+        'mechanism_1_absorptive': {
+            'description': (
+                'CTP imaginary part. At 2-loop, a and b develop imaginary parts '
+                'from unitarity cuts. C^2 and E_4 get different cut contributions, '
+                'so delta_a_I / a_0 != delta_b_I / b_0 generically. If R_CTP = '
+                '(b_R + c b_I)/(a_R + c a_I) with c = 2pi (from KMS), a small '
+                'absorptive part gets amplified.'
+            ),
+            'natural_magnitude': '~2-5% per factor of 2pi',
+            'could_reach_12pct': 'Maybe',
+        },
+        'mechanism_2_doubling': {
+            'description': (
+                'CTP contour doubling. Noise kernel N = 2 Im(Sigma). If the '
+                'cosmological formula uses the noise kernel\'s anomaly rather '
+                'than the retarded self-energy\'s, certain tensor structures '
+                'pick up factors of 2 while others don\'t. Whether b/a ratio '
+                'in the Hadamard function differs from Feynman depends on how '
+                'the imaginary parts contribute to C^2 vs E_4.'
+            ),
+            'natural_magnitude': '~2x per channel',
+            'could_reach_12pct': 'Depends on structural detail',
+        },
+        'mechanism_3_integrated_rg': {
+            'description': (
+                'Integrated RG flow from M_Planck to M_Z. The 1-loop R is a '
+                'single-scale evaluation for free fields. The CTP cosmological '
+                'formula likely involves the anomaly structure integrated over '
+                'the full RG trajectory. The large log ln(M_Planck/M_Z) ~ 40 '
+                'acts as an amplifier on perturbative per-step corrections.'
+            ),
+            'natural_magnitude': '~5-15% (large logs)',
+            'could_reach_12pct': 'Yes — best bet',
+        },
+        'recommended_next_calculation': (
+            'The integrated RG flow effect: compute delta_beta_b = '
+            '(1/8) integral_{g_UV}^{g_IR} chi^g_ij beta^j dg^i for SM '
+            'couplings from M_Planck to M_Z, with full w_i contribution. '
+            'If the result is ~10-15%, the framework has natural CTP '
+            'support from established physics.'
         ),
     }
 
