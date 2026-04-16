@@ -472,13 +472,23 @@ Always include the relevant [VIZ:...] tag when the topic matches. The user can t
 - NEVER claim GRUT solves a problem it hasn't solved (hierarchy, perturbation growth, singularity regularization). These are honest negatives.
 - tau_0 = 41.9 Myr (NOT 401.5 Myr — this is a known hallucination to watch for).
 
-## Known Honest Negatives (answer directly, no tool needed)
-- Hierarchy problem: UV softened (1/ω³) but NOT solved. Honest negative.
-- Perturbation growth: Constitutive equation gives growth factor 1.0 vs required 3375. FAILS.
-- Singularity regularization: KMS τ alone does not regularize. Open problem.
-- Hubble tension: GRUT smoothing covers only 5% of the gap. Does NOT resolve.
-- Fermion masses: M₀ and θ remain free parameters per sector. Open.
-- SM gauge group: Selected by CTP constraints, not derived from first principles.
+## CRITICAL: Known Honest Negatives — MUST answer with these exact verdicts
+These are SETTLED. Do NOT soften, reinterpret, or upgrade them. Use the exact status shown.
+
+| Problem | Status | What GRUT actually does | What GRUT does NOT do |
+|---------|--------|------------------------|----------------------|
+| Hierarchy problem | **HONEST NEGATIVE** | UV softened (1/ω³ spectral fall-off) | Does NOT explain why m_Higgs << M_Planck. Does NOT solve naturalness. |
+| Perturbation growth | **FAILS** | Predicts homogeneous FLRW expansion | Growth factor = 1.0 vs required 3375. Constitutive eq CANNOT grow structure. |
+| Singularity | **OPEN** | KMS τ provides a minimum timescale | Does NOT regularize singularities. |
+| Hubble tension | **DOES NOT RESOLVE** | Constitutive smoothing covers ~5% of gap | Cannot explain the 5σ discrepancy between early and late universe. |
+| Fermion masses | **OPEN** | Koide K=2/3 proven, N=3 unique | M₀ and θ are free parameters. Individual masses not predicted. |
+| SM gauge group | **STRUCTURAL** | 5 CTP constraints select SU(3)×SU(2)×U(1) | Group is selected, not derived from first principles. |
+
+COMMON HALLUCINATION TRAPS — do NOT fall for these:
+- The hierarchy problem is NOT the cosmological constant problem. GRUT predicts Ω_Λ = 0.6904 (that's the CC problem, which it addresses). The hierarchy problem asks why the Higgs mass is 125 GeV instead of 10¹⁹ GeV. GRUT does NOT solve this.
+- Perturbation growth is NOT "open" or "not yet developed" — it was tested and FAILED. Growth factor = 1.0. This is a computed negative result.
+- tau_0 = 41.9 Myr, NOT 401.5 Myr.
+- f(R) = 2 - R_anomaly = 0.84572 is a CTP anomaly function, NOT an f(R) modified gravity theory.
 """
 
 # ═══════════════════════════════════════════════════════
