@@ -81,26 +81,62 @@ Working honestly from published physics:
 
 3. **Numerical proximity to R_needed = 1.1543** noted (0.46% for QCD alone).
 
-## What would make this a derivation
+## What would make this a derivation — the three sharpened questions
 
-The brother's remaining task becomes much sharper:
+Osborn 2003 eq (36) gives ε_SU3 = 1.160 for SM QCD at M_Z (Dirac
+convention). The cosmological formula needs R ≈ 1.154. These are 0.5%
+apart. The brother's task is to answer three questions in order:
 
-> **"In Osborn's consistency-relation chain (Osborn 1991, Jack-Osborn 1990),
-> what quantity enters the cosmological anomaly formula? Does it equal ε,
-> does it equal b/a, or does it equal some specific combination? At the QCD
-> scale with SM field content, does it reduce to ε_SU3(M_Z)?"**
+### Question 1: Local vs constant coupling anomaly
 
-Two possible outcomes:
+Is ε literally the object that should enter the cosmological formula,
+or is it b/a? In the CTP effective action on a de Sitter background,
+the couplings are effectively local (they run with the Hubble scale).
 
-- **Yes, it reduces to ε_SU3:** Framework derives from QCD trace anomaly
-  at M_Z. Zero free parameters. Prediction Ω_Λ = 0.689 falls out of
-  published 1-loop physics plus the SM.
+**Does the CTP construction naturally produce ε (local-coupling anomaly)
+rather than the constant-coupling b/a?**
 
-- **No, it maps to a different combination:** The 0.46% is a coincidence
-  and we're back to the integrated w_g calculation from the earlier
-  derivation steps.
+If yes: the framework is built on the local-coupling anomaly, and the
+1.160 number from Osborn 2003 is what enters the cosmological formula
+directly.
 
-Either outcome is publishable.
+### Question 2: Single-group dominance in the consistency chain
+
+For a single gauge group dominating (QCD, at 98.8% of the net), does
+the consistency condition chain
+
+    ε → w_g → L_β w → Δβ_b
+
+simplify to something like R_eff = ε₃? Or does the chain introduce
+additional factors (integration over scales, IBP shuffling between
+curvature structures, scheme-dependent redefinitions) that move the
+number away from 1.160?
+
+### Question 3: Known identities relating ε and b/a
+
+Is there a known identity or theorem in the CFT / Weyl-anomaly
+literature that relates:
+
+- ε (local coupling R(∂g)² coefficient)
+- b/a (constant coupling Euler/Weyl² ratio)
+
+in any specific limit (single coupling, specific gauge group, CFT
+fixed point, etc.)? If such an identity exists and applies here,
+that resolves the structural concern.
+
+## Two outcomes
+
+- **Yes to all three (or Q1 + Q2):** Framework derives from SM QCD
+  trace anomaly at M_Z with zero free parameters. The 1.160 number
+  is the cosmological constant, mediated through the gravitational
+  trace anomaly of the strongly-coupled sector.
+
+- **No to Q1 or Q2:** The 0.46% proximity is numerical coincidence,
+  and we return to the integrated w_g calculation in the prior
+  derivation steps document.
+
+Either outcome is publishable. The first would be extraordinary.
+The second is a clean, documented negative result on a specific lead.
 
 ## Honest framing for the record
 
@@ -112,6 +148,28 @@ only the brother's work on the consistency-relation chain can decide
 which.
 
 Until that work is done, the status is: *promising lead, not derivation*.
+
+## The structural argument for QCD dominance
+
+The ε correction for each group scales as A × g², so at M_Z:
+
+| Group | A | g²(M_Z) | A × g² |
+|-------|---|---------|--------|
+| SU(3)_c | +17 | (1.22)² = 1.48 | **+25.3** |
+| SU(2)_L | +83/12 ≈ +6.92 | (0.65)² = 0.43 | +2.9 |
+| U(1)_Y | −245/12 ≈ −20.4 | (0.36)² = 0.13 | −2.6 |
+| **Total** | — | — | **+25.6** |
+
+**QCD contributes 25.3 out of 25.6 = 98.8% of the net positive correction.**
+
+The SU(2) and U(1) contributions nearly cancel each other (+2.9 and −2.6).
+This is not "QCD happens to dominate" — it's a structural feature. The
+electroweak sector cancels almost exactly while QCD provides the entire
+surviving correction.
+
+If there's a physically motivated single-coupling approximation, QCD is it —
+not because we chose QCD, but because the other groups destructively
+interfere at the relevant level.
 
 ## Why QCD specifically?
 
