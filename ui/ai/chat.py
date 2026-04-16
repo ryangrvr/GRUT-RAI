@@ -528,27 +528,22 @@ def chat(user_message: str, history: list = None) -> str:
             messages.append({"role": h["role"], "content": h["content"]})
     messages.append({"role": "user", "content": user_message})
 
-    MAX_ROUNDS = 8
+    MAX_ROUNDS = 6
     tools_called = []
+    collected_results = {}  # tool_name -> result for fallback summary
 
     try:
         for round_num in range(MAX_ROUNDS):
-            # On the LAST round, omit tools to force a text answer
-            is_final_round = (round_num == MAX_ROUNDS - 1)
-
-            api_kwargs = dict(
+            response = CLIENT.messages.create(
                 model=MODEL,
                 max_tokens=MAX_TOKENS,
                 system=SYSTEM_PROMPT,
                 messages=messages,
+                tools=TOOLS,
             )
-            if not is_final_round:
-                api_kwargs["tools"] = TOOLS
 
-            response = CLIENT.messages.create(**api_kwargs)
-
-            # Check if Claude wants to use tools
-            if response.stop_reason == "tool_use" and not is_final_round:
+            if response.stop_reason == "tool_use":
+                # Extract any text Claude wrote alongside tool calls
                 tool_results = []
                 assistant_content = response.content
 
@@ -557,6 +552,7 @@ def chat(user_message: str, history: list = None) -> str:
                         tools_called.append(block.name)
                         result = execute_tool(block.name, block.input)
                         result = _sanitize_for_json(result)
+                        collected_results[block.name] = result
                         result_json = json.dumps(result, default=str)
                         result_json = _truncate_result(result_json)
                         tool_results.append({
@@ -567,18 +563,45 @@ def chat(user_message: str, history: list = None) -> str:
 
                 messages.append({"role": "assistant", "content": assistant_content})
                 messages.append({"role": "user", "content": tool_results})
-
             else:
-                # Final text response — extract it
+                # Final text response
                 for block in response.content:
                     if hasattr(block, 'text'):
                         return block.text
                 return "No response generated."
 
-        return "Tool-use loop exceeded maximum rounds."
+        # ── Loop exhausted: force a final answer ──
+        # Build a CLEAN conversation (no tool_use blocks) so we can
+        # call the API without the tools parameter.
+        summary_parts = []
+        for tname, tresult in collected_results.items():
+            rjson = json.dumps(tresult, default=str)
+            rjson = _truncate_result(rjson)
+            summary_parts.append(f"[{tname}] result:\n{rjson}")
+        tool_summary = "\n\n".join(summary_parts) if summary_parts else "No tool results."
+
+        force_messages = [
+            {"role": "user", "content": (
+                f"Original question: {user_message}\n\n"
+                f"The following GRUT computation tools were called and returned results. "
+                f"Synthesize a clear, complete answer from these results. "
+                f"Do NOT call any more tools.\n\n{tool_summary}"
+            )}
+        ]
+
+        force_response = CLIENT.messages.create(
+            model=MODEL,
+            max_tokens=MAX_TOKENS,
+            system=SYSTEM_PROMPT,
+            messages=force_messages,
+            # NO tools parameter — forces text output
+        )
+        for block in force_response.content:
+            if hasattr(block, 'text'):
+                return block.text
+        return "No response generated."
 
     except Exception as e:
-        # If we have any tool results, try to return a summary
         if tools_called:
             return f"Error during tool-use (called: {', '.join(tools_called)}): {str(e)}"
         return f"Error: {str(e)}"
