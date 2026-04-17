@@ -138,10 +138,19 @@ def scenario_B():
     print("\n" + "=" * 70)
     print("SCENARIO B: Integrated Osborn with w_g (requires brother's extraction)")
     print("=" * 70)
-    print("\n  c_w > 0: w_g positive → −L_β w negative → β_b less negative → |b| decreases → R DOWN")
-    print("  c_w < 0: w_g negative → −L_β w positive → β_b more negative → |b| increases → R UP")
-    print("  (Sign direction depends on conventions in Jack-Osborn — this is the")
-    print("   sign chain the brother needs to verify)\n")
+    # Sign chain for this code's convention:
+    #   c_w > 0 → w_total = Σ(c_w × n_V × b0 × g × 4 × loop²) > 0
+    #           → delta_b = -(w_total) × ln_ratio < 0
+    #           → b_new = b_SM + delta_b more negative (b_SM already negative)
+    #           → |b| increases → R UP (toward Planck target 1.155)
+    print("\n  In this code's convention:")
+    print("    c_w > 0 → delta_b < 0 → |b| INCREASES → R UP   (toward GRUT target)")
+    print("    c_w < 0 → delta_b > 0 → |b| DECREASES → R DOWN (away from target,")
+    print("                                                   eventually b flips sign)")
+    print("  The numbers below are authoritative — the table shows the actual")
+    print("  behavior of the formula. The brother verifies whether his w_g")
+    print("  extraction from Jack-Osborn produces positive or negative c_w in")
+    print("  this parameterization.\n")
 
     print(f"  {'c_w':>8s}  {'Label':<25s}  {'Δb/b':>8s}  {'R':>8s}  {'ΔR%':>8s}  {'Ω_Λ':>8s}")
     print(f"  {'-'*8}  {'-'*25}  {'-'*8}  {'-'*8}  {'-'*8}  {'-'*8}")
