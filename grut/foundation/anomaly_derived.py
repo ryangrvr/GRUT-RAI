@@ -11,9 +11,20 @@ Duff 1977, Christensen-Duff 1978). Higher-loop corrections (2-loop, 3-loop)
 are NOT included and would require professional-level QFT calculation.
 
 The ratio R_1loop computed here is an honest starting point. The gap between
-R_1loop and the value needed for GRUT's cosmological predictions (~1.15) is
-what higher-loop corrections would need to close. Whether they DO close it
-is an open question for a trained theorist.
+R_1loop = |b/a| ≈ 1.027 and the hand-constructed R_anomaly = 1.15428 used by
+GRUT's cosmological formula was a 12.5% gap. Under the subsequent analysis
+(main document §26.1 and theory/ZENODO_EPSILON_IDENTIFICATION.md), the
+resolution is NOT that higher loops close the gap but that the object
+computed by GRUT's CTP-on-S^4 construction is NOT the Birrell-Davies
+ratio |b/a|. It is the coupling-corrected trace-anomaly coefficient
+ε_combined(SM, M_Z) = 1.1537 from Osborn 2003 eq (36), which matches the
+hand-constructed value at 0.05%. See grut/foundation/way2_epsilon_substitution.py
+for the SM-derivable candidate. The perturbative W_i / antisymmetric route
+is structurally closed by the Jack-Osborn 2014 gradient flow theorem
+(see grut/foundation/osborn_fij_estimate.py).
+
+This module retains the 1-loop Birrell-Davies computation as a published
+baseline for reference; it is NOT the physical R in GRUT's formula.
 
 REFERENCES:
 [1] Birrell & Davies, "Quantum Fields in Curved Space", CUP 1982, Table 6.1

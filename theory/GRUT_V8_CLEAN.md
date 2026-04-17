@@ -226,9 +226,31 @@ Unique solution: A = 2, B = -1. Therefore:
 
 Numerical verification on 200 spectral modes of S^4: f(R) matches 2-R with RMS 9.3 × 10^-3. The competing quadratic f = R(2-R) is excluded by factor 70 in RMS and 34% vs 0.3% in Omega_Lambda accuracy.
 
-**Result:** H_inf = 1.885 × 10^-18 Hz. Omega_Lambda = 0.691 at H_0 = 70 km/s/Mpc. Planck: 0.6889. Deviation: +0.3%.
+**Result:** H_inf = 1.885 × 10^-18 Hz. Omega_Lambda = 0.691 at H_0 = 70 km/s/Mpc. Planck: 0.6889. Deviation: +0.3% (given hand-constructed R_anomaly = 1.15428), or +0.42% (given SM candidate R = ε_combined(SM, M_Z) = 1.1537 — see §12.1).
 
-**Status:** COMPUTED. The formula depends on one bridge parameter tau_0 (Section 16).
+**Status:** STRUCTURE COMPUTED, R VALUE CONDITIONAL. The formula f(R) = 2-R is computed from 3-loop CTP on S^4 with boundary conditions verified. The specific value of R was hand-constructed in v7; an SM-derivable candidate R = ε_combined(SM, M_Z) = 1.1537 from Osborn 2003 eq (36) matches at 0.05% and is documented in §12.1. The assembly H_inf = (2-R)/(S tau_0) is computed given R. The formula depends on one bridge parameter tau_0 (Section 16).
+
+## 12.1 SM-Derivable Candidate for R (v8 upgrade path)
+
+The hand-constructed R_anomaly = 1.15428 admits an SM-derivable candidate:
+
+    R = |C_Cosmo / C_Final| = ε_combined(SM, M_Z) = 1.1537                    (17a)
+
+where ε_combined is the Osborn 2003 eq (36) coupling-corrected trace-anomaly coefficient weighted across SM gauge groups at the electroweak scale in Dirac convention. Three arguments support this identification:
+
+(i) **De Sitter is conformally flat** — C_{μνρσ} = 0 on S^4, so the Weyl^2 coefficient a vanishes from the bulk anomaly. Only the Euler-density coefficient (and its coupling-corrected variant ε) contributes.
+
+(ii) **Jack-Osborn 2014 gradient flow theorem** (arXiv:1312.0428) — the antisymmetric part of the coupling-space tensor T_{IJ} drops out identically in the flow equation β^I ∂_I Ã = G_{IJ} β^I β^J. The W_i / antisymmetric perturbative mechanism cannot shift R at any order, closing the perturbative Osborn route structurally.
+
+(iii) **CTP imaginary effective action on S^4** — the Euler density picks up a factor of i under Wick rotation (Euclidean → Lorentzian). GRUT's decoherence-relevant action is Im(Γ_CTP), which sees the coupling-corrected Euler coefficient, not the free-field |b/a|.
+
+**Physical mechanism:** Gibbons-Hawking thermal asymmetry. At T_GH = H_inf/(2π), the CTP forward path samples the vacuum anomaly coefficient (C_Final = b_free) and the backward path samples the thermally-corrected coefficient (C_Cosmo = b_free × ε). Ratio = ε by construction. M_Z enters as the matter-decoupling matching scale.
+
+**Fulcrum structure:** R = 1 is the free-field fulcrum (CTP paths identical, f(1) = 1, maximum vacuum response). R = 2 is Keldysh destructive interference (f(2) = 0, zero response). The observed universe sits at R = 1 + 17 α_s(M_Z)/(4π) ≈ 1.16, a small tilt set by SM loop suppression. This reframes the cosmological constant problem: Ω_Λ is not a 120-order fine-tuning but an O(1) quantity whose size is set by α_s/(4π) — the standard loop suppression of any SM quantum correction.
+
+**Verification path (v8 target):** 3-loop CTP effective action on Euclidean S^4 with SM matter at the EW matching scale, extract C_Cosmo/C_Final, verify equal to ε_combined(SM, M_Z) at leading order. Estimated 2-4 weeks for a curved-space CTP specialist (Bei-Lok Hu, Enric Verdaguer, Albert Roura). Detailed analysis in theory/ZENODO_EPSILON_IDENTIFICATION.md.
+
+**Status:** CONJECTURE with 0.05% numerical agreement and three independent physical arguments. v8 upgrades the cosmological sector from "hand-constructed R" to "R matched by SM expression at 0.05%, verification path identified."
 
 ## 13. Quantum Gravity (Linearized)
 
@@ -334,7 +356,8 @@ A single laboratory measurement of gravitational decoherence determines the vacu
 | K = 2/3 | No (algebraic identity) | PROVEN |
 | N = 3 unique | No (algebraic) | PROVEN |
 | f(R) = 2-R | No (CTP algebra + BCs) | COMPUTED |
-| Omega_Lambda = 0.691 | No (assembly) | COMPUTED |
+| R value | No (hand-constructed; ε candidate) | CONDITIONAL — §12.1 |
+| Omega_Lambda = 0.691 | No (assembly) | COMPUTED given R (+0.3% with R_hand, +0.42% with ε) |
 | eta_B = 6.56 × 10^-10 | No (CTP anomaly) | COMPUTED |
 | DM Route 1 selected | No (self-consistency) | CLOSED |
 | SM emergence | No (constraint analysis) | COMPUTED |

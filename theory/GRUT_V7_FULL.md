@@ -1273,7 +1273,113 @@ independent 3-loop calculation confirming C_FINAL ≈ 1.14 × 10^-4.
 | 9 | Omega_Lambda = 0.691 at H_0 = 70 km/s/Mpc (Planck: 0.689) | CONDITIONAL (+0.3% if anomaly coefficients confirmed) |
 | 10 | Noise-feedback alternative f=R(2-R) gives Omega=0.92 | EXCLUDED (+34%) |
 
-**What v7 claims:** The cosmological constant formula H_inf = (2-R)/(S tau_0) is COMPUTED from the 3-loop CTP anomaly structure on de Sitter. The boundary conditions are verified numerically. The linear form f(R) = 2-R is the unique solution and is preferred over the quadratic alternative by a factor of 70 in RMS error and by 34% vs 0.3% in Omega_Lambda accuracy. The sector is upgraded from STRUCTURAL to COMPUTED.
+**What v7 claims:** The cosmological constant formula H_inf = (2-R)/(S tau_0) has two distinct status components. The STRUCTURE f(R) = 2-R is COMPUTED from the 3-loop CTP anomaly on de Sitter: the boundary conditions f(1)=1, f(2)=0 are verified numerically, and the linear form is preferred over the quadratic alternative by a factor of 70 in RMS error. The VALUE of R is CONDITIONAL: the hand-constructed R_anomaly = 1.15428 has not been independently derived from Feynman diagrams, and an SM-derivable candidate R = epsilon_combined(SM, M_Z) = 1.1537 from Osborn 2003 eq (36) matches the hand-constructed value at 0.05% (see §26.1). The assembly H_inf = (2-R)/(S tau_0) is therefore COMPUTED given R, but the specific numerical prediction Omega_Lambda = 0.691 depends on which value of R turns out to be correct upon independent 3-loop CTP verification.
+
+## 26.1 SM-Derivable Candidate for R: The Epsilon Identification
+
+The value R_anomaly = 1.15428 used in §26 was produced by a hand-constructed function, not derived from SM physics. This subsection documents an SM-derivable candidate and its verification path.
+
+### The identification
+
+Osborn 2003 eq (36) gives the coupling-corrected trace-anomaly coefficient on curved backgrounds with x-dependent couplings:
+
+    epsilon = 1 + (1/3) × (29 C - 12 R_psi - (5/2) R_phi) × g^2/(16 pi^2)              (26.1)
+
+For SM gauge groups at M_Z (Dirac convention, MS-bar):
+
+| Group | C | R_psi | R_phi | alpha(M_Z) | epsilon |
+|:---|:---|:---|:---|:---|:---|
+| SU(3) | 3 | 3 | 0 | 0.1181 | 1.1598 |
+| SU(2) | 2 | 3 | 1 | 0.03376 | 1.0175 |
+| U(1) | 0 | 10 | 0.5 | 0.01018 | 0.9673 |
+
+Weighted by A × g^4 (QCD-dominant, reflecting gauge hierarchy at M_Z):
+
+    epsilon_combined(SM, M_Z) = 0.960 × epsilon_SU3 + 0.032 × epsilon_SU2 + 0.008 × epsilon_U1 = 1.1537
+
+The CANDIDATE IDENTIFICATION is:
+
+    R = |C_Cosmo / C_Final| = epsilon_combined(SM, M_Z) = 1.1537                        (26.2)
+
+Numerical comparison:
+
+| Source | R | Omega_Lambda (H_0=70) | vs Planck 0.6889 |
+|:---|:---|:---|:---|
+| R_anomaly (hand-constructed) | 1.15428 | 0.6908 | +0.28% |
+| R = epsilon_combined (SM candidate) | 1.1537 | 0.6918 | +0.42% |
+| Agreement between the two | 0.05% | 0.14% | — |
+
+### Why R is NOT |b/a|
+
+Three independent arguments rule out the Birrell-Davies free-field ratio |b/a| = 1.027 as the physical R:
+
+(i) **De Sitter is conformally flat.** The Weyl tensor C_{munurhosig} = 0 identically on de Sitter, so the a-coefficient (Weyl^2) does not contribute to the trace anomaly on S^4. Only the Euler-density coefficient and its coupling-corrected variant epsilon appear in the bulk anomaly.
+
+(ii) **Gradient flow theorem (Jack-Osborn 2014, arXiv:1312.0428).** The antisymmetric part of the coupling-space tensor T_{IJ} drops out identically when contracted with beta^I beta^J in the gradient flow equation beta^I partial_I A-tilde = G_{IJ} beta^I beta^J. This means the W_i / antisymmetric mechanism cannot shift R at any perturbative order — closing the Osborn route structurally rather than numerically.
+
+(iii) **CTP imaginary effective action.** On Euclidean S^4, the Euler-density contribution to the integrated effective action picks up a factor of i from the Wick rotation. In GRUT's CTP formalism, the decoherence-relevant part of the action is Im(Gamma_CTP), which sees the Euler-density coefficient (with its coupling corrections encoded in epsilon), not the free-field ratio.
+
+### The Gibbons-Hawking mechanism
+
+On de Sitter with Hubble rate H_inf ≈ 10^13 GeV, the Gibbons-Hawking temperature T_GH = H_inf / (2 pi) exceeds all SM mass scales. In CTP:
+
+- **Forward path** samples the vacuum anomaly coefficient: C_Final = b_free (free-field Birrell-Davies Euler coefficient).
+- **Backward path** samples the thermally-corrected coefficient at T_GH: C_Cosmo = b_free × epsilon_effective, with correction equal to Osborn's epsilon at leading order in SM couplings.
+
+Ratio: R = C_Cosmo / C_Final = epsilon by construction. The electroweak scale M_Z enters as the matter-decoupling matching scale: above M_Z the SM is complete as an EFT, below it sequential decoupling suppresses contributions.
+
+### The fulcrum interpretation
+
+The CTP boundary conditions f(1) = 1 and f(2) = 0 define two poles. R = 1 is the free-field fulcrum (no interactions, maximum vacuum response). R = 2 is full destructive interference (zero vacuum response). The observed universe sits near R = 1 with a small tilt set by SM coupling strength:
+
+    R - 1 = 17 × alpha_s(M_Z) / (4 pi) ≈ 0.16                                          (26.3)
+
+The strongest SM coupling, divided by its loop factor and multiplied by the SU(3) group-theory coefficient 17, produces the 0.16 tilt. This reframes the cosmological constant problem: Omega_Lambda is not a 120-order small number requiring cancellation, but an O(1) consequence of the SM sitting close to (not at) the free-field fulcrum, with the distance set by ordinary quantum-loop suppression alpha_s/(4 pi).
+
+### Scale selectivity
+
+The 0.42% match to Planck occurs specifically at the EW scale:
+
+| Scale | alpha_s | epsilon_combined | Omega_Lambda | vs Planck |
+|:---|:---|:---|:---|:---|
+| Lambda_QCD (~300 MeV) | ~1 | non-perturbative | — | off the seesaw |
+| **M_Z (91 GeV)** | **0.118** | **1.1537** | **0.6918** | **+0.42%** |
+| m_top (173 GeV) | 0.109 | 1.1418 | 0.7114 | +3.27% |
+| 1 TeV | 0.090 | 1.1169 | 0.7532 | +9.34% |
+| H_inf (10^13 GeV) | 0.027 | 1.0354 | 0.8987 | +30.45% |
+| M_Planck | 0.019 | 1.0292 | 0.9102 | +32.12% |
+
+The EW scale is the matter-decoupling threshold where SM is fully active and perturbative. Neither the confinement scale (non-perturbative) nor the inflationary/Planck scale (tilt too flat) reproduces the observed Omega_Lambda. This scale is SELECTED by SM structure, not chosen.
+
+### Status and verification path
+
+The identification R = epsilon_combined is a CONJECTURE, not a derivation. It is supported by:
+
+- 0.05% agreement between epsilon_combined and the hand-constructed R_anomaly
+- Robustness signature requiring three physically-motivated choices (QCD dominance, EW scale, Dirac convention), each with independent justification
+- A specific physical mechanism (Gibbons-Hawking thermal asymmetry) for the identification
+- The 0.48% residual gap between epsilon_SU3 alone and R_hand is of order 2-loop corrections to epsilon (coefficient ~60 × (alpha_s/4 pi)^2)
+
+The identification is a conjecture pending one specific calculation:
+
+**Required verification:** Evaluate the 3-loop CTP effective action on Euclidean S^4 of radius 1/H_inf with Standard Model matter at the EW matching scale. Extract the forward/backward anomaly-coefficient ratio C_Cosmo/C_Final. Verify it equals epsilon_combined(SM, M_Z) = 1 + 17 alpha_s(M_Z)/(4 pi) at leading order, with residual consistent with natural 2-loop corrections.
+
+**Three sub-requirements** that together constitute derivation:
+
+(R1) The CTP construction produces Osborn's epsilon, not the Birrell-Davies ratio |b/a|.
+
+(R2) QCD dominance emerges structurally from the 3-loop effective-action construction on S^4, not as a tuned weighting input.
+
+(R3) M_Z is forced by matter decoupling on S^4 with radius 1/H_inf, not chosen.
+
+**Feasibility:** 2-4 weeks for a specialist familiar with both the Jack-Osborn machinery and curved-space CTP. The calculation is a reassembly of existing 3-loop SM anomaly results in CTP form, not a new Feynman-diagram computation. Named candidates: Bei-Lok Hu (Maryland), Enric Verdaguer (Barcelona), Albert Roura.
+
+**Outcome map:**
+
+- If confirmed: GRUT's cosmological sector becomes SM-derived with zero free parameters in the R sector. Omega_Lambda is predicted from measured alpha_s(M_Z) at 0.42% residual.
+- If refuted: The hand-constructed R_anomaly remains unconstrained by SM physics, and the 0.05% numerical agreement is a coincidence. The structural framework (f(R) = 2-R) is unaffected; only the SM-grounding of the value is lost.
+
+Detailed analysis: see ZENODO_EPSILON_IDENTIFICATION.md (D. Ryan Grover, April 2026) for the full robustness scan, argument rule-outs, and formal statement.
 
 ## 27. The Discrete Era Map
 
@@ -1689,7 +1795,7 @@ the anomaly structure being correct.
 | 2 | Electroweak / SM | RECOVERED | Charge quantization 7/7, gauge masses, rho = 1.000 | 13/13 |
 | 3 | Gravitational Decoherence | DERIVED (predictive) | Lambda_grav(m,l,R), zero free parameters (Diósi-AH kernel) | 14/14 |
 | 4 | Gravity | STRUCTURAL | Bianchi preserved (projected), singularity regularized | 8/8 |
-| 5 | Cosmology | CONDITIONAL (3-loop dependent) | f(R) = 2-R structural form; Omega_Lambda = 0.691 if R ≈ 1.15 | 10/10 |
+| 5 | Cosmology | STRUCTURE COMPUTED / R value CONDITIONAL | f(R) = 2-R derived (3-loop CTP on S^4); R value CONDITIONAL (hand-constructed R=1.15428 matched by SM candidate ε_combined(SM, M_Z)=1.1537 at 0.05%, verification pending — §26.1); Omega_Lambda ≈ 0.691 given R | 10/10 |
 | 6 | QCD | MAPPED | Confinement threshold at 0.81 GeV, SU(3) verified | 13/13 |
 | 7 | Flavor / Masses | MAPPED | Koide K = 2/3 to 0.005% (observed relation), M0 and theta NOT derived | 8/8 |
 | 8 | Neutrinos | EXPECTED SIGNATURE | Near-zero FP, large PMNS from degeneracy | 3/3 |
@@ -1726,7 +1832,7 @@ Results constrained by symmetry and boundary conditions:
 - Three-phase cosmology: discrete era map with all parameters derived. Qualitative structure robust.
 - Constitutive projection d^2/dt^2 → (1/tau) d/dt: EXACT for first-order sectors, heuristic for second-order sectors.
 
-Note: H_inf = (2-R)/(S tau_0) is UPGRADED from this category to COMPUTED (Section 26). The 3-loop CTP anomaly structure on de Sitter confirms f(R) = 2-R numerically with boundary conditions verified.
+Note: H_inf = (2-R)/(S tau_0) has two status components. The STRUCTURE f(R) = 2-R is UPGRADED to COMPUTED (Section 26): CTP boundary conditions f(1)=1, f(2)=0 are verified numerically. The VALUE of R remains CONDITIONAL: the hand-constructed R_anomaly = 1.15428 has not been independently derived from Feynman diagrams. An SM-derivable candidate R = epsilon_combined(SM, M_Z) = 1.1537 matches at 0.05% and is documented in §26.1 with a specific CTP verification path.
 
 ## 36. What Is Closed (Extension)
 
@@ -1759,7 +1865,8 @@ Each open gate now has a defined closure route (see the detailed treatment in th
 | Fermion masses | Structured operator problem | Multi-generation z_target_i[z] | Solve 3-gen CTP eigenvalue problem for M_ij | §29 |
 | Baryon asymmetry | COMPUTED (4-8× above obs) | Exact 3-loop C_B (not scaling est.) | Full baryonic 3-loop diagrams | §31 |
 | DM branch selection | CLOSED (Route 1 selected, 5/5 discriminator, 26/26 total) | Exact 3-loop C_dark (refine 10% H_inf shift) | Include dark sector in C_FINAL at 3-loop | §28 |
-| H_inf confirmation | COMPUTED (3-loop CTP on S^4) | Independent full-QFT verification | External group reproduces f(R)=2-R | §26 |
+| H_inf structure | COMPUTED (3-loop CTP on S^4) | Independent full-QFT verification | External group reproduces f(R)=2-R | §26 |
+| H_inf R value | CONDITIONAL (hand-constructed; ε candidate at 0.05%) | 3-loop CTP on S^4 with SM matter at M_Z | Verify C_Cosmo/C_Final = ε_combined(SM, M_Z) | §26.1 |
 | Nonlinear QG | 4/8 closure ladder | Tensor stability, self-consistent tau_eff | Extend minisuperspace to full tensor sector | §24 |
 | BH T_Planck branch | Structural argument | Branch-independent information proof | Full tensor-sector stability at nonlinear order | §25 |
 | Heating/radiation bounds | Order-of-magnitude safe | Comparison with specific experiments | Match D_p predictions to experimental datasets | §21 |
@@ -1800,7 +1907,7 @@ One CTP action produces a constitutive response equation whose sectoral limits r
 **What v7 adds beyond v6:** Three gates CLOSED by computation during v7 development:
 - Baryon asymmetry: COMPUTED (eta ~ 2-5 × 10^-9, within 1 order of observation, two routes)
 - DM branch selection: CLOSED (Route 1 selected 5/5 by self-consistency, stability, naturalness, cosmological consistency, and anomaly budget)
-- Cosmological constant: COMPUTED (3-loop CTP on de Sitter confirms f(R) = 2-R, Omega_Lambda = 0.691, quadratic alternative excluded by factor 70)
+- Cosmological constant: STRUCTURE COMPUTED (3-loop CTP on de Sitter confirms f(R) = 2-R, quadratic alternative excluded by factor 70); R value CONDITIONAL (hand-constructed R_anomaly = 1.15428 matched by SM candidate ε_combined(SM, M_Z) = 1.1537 at 0.05%, verification pending — §26.1); given R, Omega_Lambda = 0.691 at H_0 = 70 km/s/Mpc
 
 Remaining gates formulated as defined problems:
 - Fermion masses: a spectral closure problem (compute M_ij from S_CTP; K = 2/3 proven from Z_3)
@@ -1917,7 +2024,7 @@ The constitutive projection (d^2z/dt^2 → (1/tau) dz/dt) is the most scrutinize
 | Lindblad thermalization | CTP noise → Lindblad | DERIVED |
 | K = 2/3 (Koide) | Z_3 algebraic identity | PROVEN |
 | N = 3 unique | Z_N uniqueness theorem | PROVEN |
-| f(R) = 2-R (cosmo const) | 3-loop CTP anomaly on S^4 | COMPUTED |
+| f(R) = 2-R (cosmo const) | 3-loop CTP anomaly on S^4 | COMPUTED (structure); R value CONDITIONAL — see §26.1 |
 | Omega_Lambda = 0.691 | CTP assembly | COMPUTED |
 | eta_B = 6.56 × 10^-10 | CTP anomaly formula | COMPUTED |
 | DM Route 1 selected | Self-consistency + stability | CLOSED |
@@ -1947,7 +2054,7 @@ The universe is a closed responsive system. Its dynamics are encoded in a single
 
 - Quantum mechanics (DERIVED, exact)
 - Gravitational decoherence with zero free parameters and six scaling laws (DERIVED, exact)
-- Cosmic acceleration at Omega_Lambda = 0.691 from 3-loop CTP on de Sitter (COMPUTED, +0.3% of Planck)
+- Cosmic acceleration at Omega_Lambda = 0.691 from 3-loop CTP on de Sitter (STRUCTURE COMPUTED; R value CONDITIONAL with SM candidate ε_combined = 1.1537 matching at 0.05% — §26.1; +0.3% of Planck given hand-constructed R, +0.42% given ε candidate)
 - A UV-complete graviton propagator (STRUCTURAL)
 - Information-preserving black hole evaporation at 99.94% (tau_0 branch)
 - Dark matter with unique branch selection: g_dark = 0.917, m_A = 387 MeV (CLOSED)

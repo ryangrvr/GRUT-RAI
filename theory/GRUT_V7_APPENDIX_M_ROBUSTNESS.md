@@ -25,7 +25,7 @@ All inputs to GRUT predictions, with their uncertainties:
 | G | 6.674 x 10^-11 m^3/(kg s^2) | +/- 0.0022% | CODATA 2018 |
 | hbar | 1.055 x 10^-34 J s | exact (definition) | SI 2019 |
 | C_FINAL | 1.14021 x 10^-4 | +/- 0.1% (scheme) | 3-loop CTP |
-| R_ANOMALY | 1.15428 | +/- 0.5% (estimated) | 3-loop CTP |
+| R_ANOMALY | 1.15428 | +/- 0.5% (estimated) | CONDITIONAL — hand-constructed; SM candidate ε_combined(SM, M_Z) = 1.1537 matches at 0.05%, pending 3-loop CTP verification (main doc §26.1) |
 | S_CTP | 339.292 (= 108 pi) | exact (pi) | CTP normalization |
 | H_0 | 70 km/s/Mpc | +/- 1.4% (2 km/s/Mpc) | SH0ES/TRGB mean |
 | J_CP | 3.18 x 10^-5 | +/- 5% | PDG 2024 Jarlskog |
@@ -83,8 +83,9 @@ at ~ 1 sigma even with 50% systematic.
 
 ## M.3 — R_anomaly Viable Window
 
-R_ANOMALY = 1.15428 is the central value from the 3-loop calculation.
-What happens if R shifts?
+R_ANOMALY = 1.15428 is the hand-constructed central value from the
+original 3-loop construction. The SM-derivable candidate (main doc §26.1)
+is ε_combined(SM, M_Z) = 1.1537. What happens if R shifts?
 
 **Scan results:**
 
@@ -93,7 +94,8 @@ What happens if R shifts?
 | 1.10 | 0.900 | 0.780 | +13% |
 | 1.12 | 0.880 | 0.748 | +8.5% |
 | 1.14 | 0.860 | 0.715 | +3.8% |
-| 1.15428 | 0.846 | 0.690 | +0.2% |
+| **1.1537 (ε candidate)** | **0.8463** | **0.692** | **+0.42%** |
+| 1.15428 (hand-constructed) | 0.846 | 0.690 | +0.2% |
 | 1.17 | 0.830 | 0.666 | -3.3% |
 | 1.19 | 0.810 | 0.634 | -8.0% |
 | 1.20 | 0.800 | 0.618 | -10% |
@@ -102,7 +104,9 @@ What happens if R shifts?
 
 This is a 6.5% tolerance — the theory is not fine-tuned with respect
 to R_ANOMALY. Any value within this window produces a cosmological
-constant consistent with observation.
+constant consistent with observation. Both the hand-constructed central
+value (1.15428) and the SM candidate (ε_combined = 1.1537) fall well
+inside the viable window, with the two differing by only 0.05%.
 
 ---
 
@@ -125,6 +129,18 @@ argument). What if N differs?
 - eta_B within 2 sigma of observation
 
 N = 2 and N = 4 both fail on Omega_Lambda. N >= 5 fail on all three criteria.
+
+**Flag (post-ε identification):** The R_ANOMALY column above was computed
+under the hand-constructed 3-loop framework with the standard generation
+scaling. Under the ε identification (main doc §26.1), R = ε_combined
+depends on SM gauge couplings at M_Z. Changing N_gen modifies the running
+of α_s and the fermion trace index R_ψ, so the ε-based R values for
+N ≠ 3 need to be recomputed under the new identification. The N = 3
+row is consistent with both frameworks (matches at 0.05%). The N ≠ 3
+rows in this table should be treated as CONDITIONAL on the hand-constructed
+framework; a parallel ε-based N-generation table is a follow-up
+computation. The qualitative conclusion — N = 3 uniquely selected — is
+robust because the Koide and eta_B criteria are independent of the R framework.
 
 ---
 

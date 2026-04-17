@@ -2,7 +2,20 @@
 GRUT Foundation — 3-Loop Anomaly Structure
 
 The 3-loop gravitational anomaly coefficient C_FINAL and derived quantities.
-These are COMPUTED from the SM field content — not free parameters.
+
+STATUS (per main document §26 and §26.1):
+    C_FINAL: CONDITIONAL — hand-constructed, awaiting independent 3-loop
+             CTP verification.
+    R_ANOMALY = |C_Cosmo / C_Final| = 1.15428: CONDITIONAL — hand-constructed.
+             An SM-derivable candidate R = epsilon_combined(SM, M_Z) = 1.1537
+             from Osborn 2003 eq (36) matches the hand-constructed value
+             at 0.05%. See grut/foundation/way2_epsilon_substitution.py and
+             theory/ZENODO_EPSILON_IDENTIFICATION.md.
+    S_CTP = 108 pi: COMPUTED from CTP path counting.
+
+Formulae retained below for continuity; all consumers should treat
+R_ANOMALY as CONDITIONAL and consult the epsilon candidate as the
+SM-derivable alternative.
 
 C_FINAL = 3(99 + 2 pi^2 + 576 ln(2) zeta(3)) / (16384 pi^6)
 R_ANOMALY = |C_Cosmo / C_Final| = 1.15428
@@ -39,7 +52,18 @@ C_FINAL: float = compute_c_final()
 """3-loop gravitational anomaly coefficient. Scheme-protected (nonlocal operator)."""
 
 R_ANOMALY: float = 1.15428
-"""Anomaly ratio |C_Cosmo / C_Final|. Conditionally scheme-independent."""
+"""Anomaly ratio |C_Cosmo / C_Final|, hand-constructed value.
+CONDITIONAL (see module docstring). The SM-derivable candidate is
+R_EPSILON_CANDIDATE = 1.1537 from Osborn 2003 eq (36), computed in
+grut/foundation/way2_epsilon_substitution.py. The two values agree
+at 0.05%."""
+
+R_EPSILON_CANDIDATE: float = 1.1537
+"""SM-derivable candidate for R from Osborn 2003 eq (36), evaluated at M_Z
+in Dirac convention with A*g^4 weighting across SM gauge groups.
+Matches R_ANOMALY at 0.05%. See theory/ZENODO_EPSILON_IDENTIFICATION.md
+and grut/foundation/way2_epsilon_substitution.py for derivation and
+verification path."""
 
 S_CTP: float = 108.0 * np.pi
 """CTP normalization from path counting. S = 108 pi = 339.292."""

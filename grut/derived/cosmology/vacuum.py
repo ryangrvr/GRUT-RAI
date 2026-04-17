@@ -1,17 +1,47 @@
-"""Cosmological Constant — f(R)=2-R from 3-loop CTP on de Sitter."""
+"""Cosmological Constant — f(R)=2-R from 3-loop CTP on de Sitter.
+
+STATUS (per main doc §26.1):
+    f(R) = 2-R structure: COMPUTED (3-loop CTP on S^4, boundary conditions
+        f(1)=1, f(2)=0 verified numerically).
+    R value: CONDITIONAL. Hand-constructed R_ANOMALY = 1.15428 matches
+        SM-derivable candidate R_EPSILON_CANDIDATE = 1.1537 (Osborn 2003
+        eq 36) at 0.05%. Both yield Omega_Lambda within Planck observational
+        uncertainty.
+
+vacuum_prediction() accepts an optional R_choice parameter to select
+between the hand-constructed and epsilon candidates. Default remains
+R_ANOMALY for backward compatibility with existing tests.
+"""
 import numpy as np
-from grut.foundation.anomaly import C_FINAL, R_ANOMALY, S_CTP
+from grut.foundation.anomaly import (
+    C_FINAL, R_ANOMALY, R_EPSILON_CANDIDATE, S_CTP,
+)
 from grut.foundation.constants import HBAR, G, C as C_LIGHT, K_B, T_PLANCK
 
 TAU_0 = 41.9e6 * 3.156e7
 H_INF = (2 - R_ANOMALY) / (S_CTP * TAU_0)
+H_INF_EPSILON = (2 - R_EPSILON_CANDIDATE) / (S_CTP * TAU_0)
 
-def vacuum_prediction(H_0_kms=70.0):
+def vacuum_prediction(H_0_kms=70.0, R_choice="hand"):
+    """Cosmological prediction.
+
+    Args:
+        H_0_kms: Hubble constant in km/s/Mpc.
+        R_choice: "hand" for R_ANOMALY = 1.15428 (hand-constructed, v7
+            default) or "epsilon" for R_EPSILON_CANDIDATE = 1.1537
+            (SM-derivable from Osborn 2003 eq 36, v8 upgrade path).
+    """
     H_0 = H_0_kms * 1e3 / 3.0857e22
-    OL = (H_INF / H_0)**2
-    return {"H_inf_Hz": H_INF, "H_0_Hz": H_0, "Omega_Lambda": OL,
+    if R_choice == "epsilon":
+        R, H_inf = R_EPSILON_CANDIDATE, H_INF_EPSILON
+        status = "STRUCTURE COMPUTED; R = epsilon_combined(SM, M_Z) CONDITIONAL pending 3-loop CTP verification (§26.1)"
+    else:
+        R, H_inf = R_ANOMALY, H_INF
+        status = "STRUCTURE COMPUTED; R value CONDITIONAL (hand-constructed; epsilon candidate matches at 0.05%, §26.1)"
+    OL = (H_inf / H_0)**2
+    return {"H_inf_Hz": H_inf, "H_0_Hz": H_0, "Omega_Lambda": OL,
             "Planck_OL": 0.6889, "deviation_pct": (OL/0.6889-1)*100,
-            "f_R": 2-R_ANOMALY, "status": "COMPUTED (3-loop CTP on S4)"}
+            "R": R, "R_choice": R_choice, "f_R": 2-R, "status": status}
 
 def era_map(n_eras=329):
     """Discrete constitutive era map."""

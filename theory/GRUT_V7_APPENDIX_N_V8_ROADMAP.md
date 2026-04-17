@@ -39,7 +39,36 @@ The gravitational decoherence sector (Lambda_grav = G m^2 S(l/R) / (hbar l))
 does NOT depend on the anomaly coefficients and remains DERIVED from the
 published Diósi-Anastopoulos-Hu kernel.
 
-Completing the 3-loop calculation is identified as the single most important
+**UPDATE (April 2026 session — v8 upgrade path identified):**
+
+A specific SM-derivable candidate for R has been identified:
+
+    R = |C_Cosmo / C_Final| = epsilon_combined(SM, M_Z) = 1.1537
+
+from Osborn 2003 eq (36) evaluated for SM gauge content at the electroweak
+matching scale in Dirac convention with A*g^4 weighting. This matches the
+hand-constructed R_ANOMALY = 1.15428 at 0.05%, and produces Omega_Lambda =
+0.6918 (within 0.42% of Planck). Three structural arguments support the
+identification:
+
+1. De Sitter is conformally flat (Weyl^2 = 0, only Euler coefficient
+   contributes, coupling-corrected to epsilon).
+2. Jack-Osborn 2014 gradient flow theorem (arXiv:1312.0428) closes the
+   perturbative W_i / antisymmetric route structurally at all orders.
+3. CTP imaginary effective action on S^4 selects the Euler coefficient
+   (with its coupling corrections = epsilon), not the Birrell-Davies |b/a|.
+
+The v8 cosmological sector target is upgraded FROM "complete 3-loop
+graviton self-energy calculation" TO "3-loop CTP on Euclidean S^4 with SM
+matter confirming C_Cosmo/C_Final = epsilon_combined(SM, M_Z) at leading
+order." This is a reassembly of existing 3-loop SM anomaly results
+(Jack-Osborn 1990 eq 5.12, Osborn 2003 eq 36, Chetyrkin-Zoller 2012) in
+CTP form on S^4, not a new Feynman-diagram computation. Estimated 2-4
+weeks for a curved-space CTP specialist.
+
+See main document §26.1 and theory/ZENODO_EPSILON_IDENTIFICATION.md.
+
+Completing this CTP-on-S^4 verification is the single most important
 theoretical deliverable for v8 (see N.4.13).
 
 ---
@@ -646,6 +675,50 @@ Community collaboration in mathematical physics and scalar-tensor gravity
 is essential here. The equations work at the FLRW level. The question is
 whether they descend from a consistent covariant action at the full
 tensorial level.
+
+### N.4.14 — The ε Identification Verification (Critical Open Problem)
+
+Parallel to N.4.13 (the covariant action), v8 has a second high-priority
+theoretical deliverable: verify that the 3-loop CTP effective action on
+Euclidean S^4 with SM matter produces C_Cosmo/C_Final = ε_combined(SM, M_Z)
+= 1.1537 at leading order, with residual consistent with 2-loop corrections
+to ε.
+
+**What is established:**
+- f(R) = 2-R structure on S^4 from CTP (verified numerically, RMS 9.3e-3)
+- ε_combined(SM, M_Z) = 1.1537 matches hand-constructed R_ANOMALY = 1.15428
+  at 0.05% (§26.1 of main document)
+- Three independent structural arguments support the identification
+  (conformal flatness, Jack-Osborn 2014 gradient flow theorem, CTP
+  imaginary effective action)
+- Gibbons-Hawking thermal asymmetry mechanism proposed
+
+**What is missing:**
+Explicit 3-loop CTP calculation on Euclidean S^4 with SM matter,
+extracting the forward/backward anomaly-coefficient ratio and confirming
+it equals ε_combined at leading order in α_s. Three sub-requirements:
+
+(R1) The CTP construction produces Osborn's ε, not the Birrell-Davies |b/a|.
+(R2) QCD dominance emerges structurally from the S^4 construction, not
+     as a tuned weighting input.
+(R3) M_Z is forced by matter decoupling, not chosen.
+
+**Who can do this:**
+Curved-space CTP specialists (Bei-Lok Hu at Maryland, Enric Verdaguer at
+Barcelona, Albert Roura). Estimated 2-4 weeks. Not a new Feynman-diagram
+computation — a reassembly of existing 3-loop SM anomaly results
+(Jack-Osborn 1990 eq 5.12, Osborn 2003 eq 36, Chetyrkin-Zoller 2012) in
+CTP form on S^4.
+
+**Outcome:**
+- If verified: cosmological sector becomes SM-derived at 0.4% residual
+  (Ω_Λ from α_s(M_Z) with no free parameters in the R sector).
+- If refuted: hand-constructed R_ANOMALY remains unconstrained by SM
+  physics, 0.05% agreement is coincidence. Structure f(R) = 2-R
+  unaffected.
+
+**Reference:** theory/ZENODO_EPSILON_IDENTIFICATION.md for the full
+formal statement, robustness analysis, and verification path.
 
 ---
 

@@ -179,18 +179,23 @@ At late times, H approaches the constitutive fixed point:
 
 | Quantity | Value | Origin |
 |:---|:---|:---|
-| R_anomaly | 1.15428 | 3-loop gravitational anomaly ratio |
+| R_anomaly | 1.15428 (hand-constructed) or 1.1537 (ε candidate) | CONDITIONAL (main doc §26.1); SM candidate ε_combined(SM, M_Z) matches hand-constructed at 0.05% |
 | S = 108 pi | 339.292 | CTP normalization (path counting) |
 | tau_0 | 41.9 Myr | Decoherence surface at (m=20818 amu, l=1 um) |
-| f(R) = 2-R | — | Confirmed from 3-loop CTP on S^4 (main document §26) |
+| f(R) = 2-R | — | COMPUTED structure from 3-loop CTP on S^4 (main document §26) |
 
 **The bridge parameter:** H_inf inherits one parameter (tau_0) from the
-decoherence sector. The formula f(R) = 2-R and the normalization S are
-computed. tau_0 = hbar l / (G m^2) has a derived formula but its specific
+decoherence sector. The formula f(R) = 2-R STRUCTURE and the normalization S are
+computed. The VALUE of R is CONDITIONAL (see main doc §26.1): the hand-constructed
+R = 1.15428 and the SM-derivable candidate ε_combined(SM, M_Z) = 1.1537 agree
+at 0.05%, with the latter identification pending one 3-loop CTP verification on S^4.
+tau_0 = hbar l / (G m^2) has a derived formula but its specific
 value depends on the evaluation point (m, l) on the decoherence surface.
 
-**Result:** Omega_Lambda = (H_inf / H_0)^2 = 0.691 at H_0 = 70 km/s/Mpc
-(Planck 2018: 0.6889, deviation +0.3%).
+**Result:** Omega_Lambda = (H_inf / H_0)^2 at H_0 = 70 km/s/Mpc equals:
+- 0.6908 (+0.28% from Planck 0.6889) if R = R_hand = 1.15428
+- 0.6918 (+0.42% from Planck) if R = ε_combined = 1.1537
+Both agree with Planck within observational uncertainty (0.6889 ± 0.0073).
 
 ---
 

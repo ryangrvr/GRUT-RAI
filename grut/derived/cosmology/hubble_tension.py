@@ -1,8 +1,16 @@
 """
 Omega_Lambda vs H_0 Consistency Test — The Hubble Tension in GRUT
 
-GRUT predicts a FIXED H_inf = 1.885×10⁻¹⁸ Hz. Different H_0 values
-give different Omega_Lambda through Omega_Lambda = (H_inf/H_0)².
+GRUT predicts a FIXED H_inf derived from the 3-loop CTP on S^4 structure.
+Different H_0 values give different Omega_Lambda through
+Omega_Lambda = (H_inf/H_0)^2.
+
+STATUS (per main doc §26.1):
+    f(R) = 2-R structure: COMPUTED.
+    R value: CONDITIONAL — hand-constructed R_ANOMALY = 1.15428 gives
+        H_inf = 1.885e-18 Hz; SM candidate R_EPSILON_CANDIDATE = 1.1537
+        (Osborn 2003 eq 36) gives H_inf = 1.873e-18 Hz. Both are within
+        0.7% of each other and within Planck observational bounds.
 
 This module:
 1. Maps the GRUT prediction curve onto the H_0-Omega_Lambda plane
@@ -13,11 +21,12 @@ This module:
 """
 
 import numpy as np
-from grut.foundation.anomaly import R_ANOMALY, S_CTP
+from grut.foundation.anomaly import R_ANOMALY, R_EPSILON_CANDIDATE, S_CTP
 from grut.foundation.constants import HBAR, K_B, T_PLANCK
 
 TAU_0 = 41.9e6 * 3.156e7  # seconds
 H_INF = (2 - R_ANOMALY) / (S_CTP * TAU_0)
+H_INF_EPSILON = (2 - R_EPSILON_CANDIDATE) / (S_CTP * TAU_0)
 
 # ═══════════════════════════════════════════════════════
 # EXPERIMENTAL MEASUREMENTS
