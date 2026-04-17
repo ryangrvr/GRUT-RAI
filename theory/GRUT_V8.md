@@ -406,7 +406,8 @@ The framework has one bridge parameter (tau_0) linking decoherence to cosmology 
 [6] E. Calzetta and B. L. Hu, *Nonequilibrium Quantum Field Theory* (Cambridge, 2008).
 [7] G. C. Ghirardi, A. Rimini, and T. Weber, Phys. Rev. D 34, 470 (1986).
 [8] Planck Collaboration, Astron. Astrophys. 641, A6 (2020).
-[9] D. R. Grover, GRUT v6/v7, Zenodo (2026).
+[9] D. R. Grover, "GRUT v6: The CTP Formalism Paper," Zenodo (2026). doi:10.5281/zenodo.19548049
+[10] D. R. Grover, "GRUT v7: The Responsive Universe Program," Zenodo (2026). doi:10.5281/zenodo.19567567
 
 ---
 

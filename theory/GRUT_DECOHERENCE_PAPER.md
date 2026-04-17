@@ -265,9 +265,9 @@ The experiment is feasible with next-generation optomechanical systems. A positi
 
 [5] C. Anastopoulos and B. L. Hu, "A master equation for gravitational decoherence," Class. Quantum Grav. 30, 165007 (2013).
 
-[6] D. R. Grover, "GRUT v6: The CTP Formalism Paper," Zenodo (2026). doi:10.5281/zenodo.XXXXX
+[6] D. R. Grover, "GRUT v6: The CTP Formalism Paper," Zenodo (2026). doi:10.5281/zenodo.19548049
 
-[7] D. R. Grover, "GRUT v7: The Responsive Universe Program," Zenodo (2026). doi:10.5281/zenodo.XXXXX
+[7] D. R. Grover, "GRUT v7: The Responsive Universe Program," Zenodo (2026). doi:10.5281/zenodo.19567567
 
 [8] G. C. Ghirardi, A. Rimini, and T. Weber, "Unified dynamics for microscopic and macroscopic systems," Phys. Rev. D 34, 470 (1986).
 
