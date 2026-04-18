@@ -468,7 +468,17 @@ R_anomaly in GRUT's cosmological formula has TWO status components:
 
    R = |C_Cosmo / C_Final| = ε_combined(SM, M_Z) = 1.1537
 
-   from Osborn 2003 eq (36): ε = 1 + (1/3)(29C - 12R_ψ - (5/2)R_φ) × g²/(16π²), evaluated for SM gauge content at the electroweak scale in Dirac convention with A × g⁴ weighting across SU(3) / SU(2) / U(1).
+   from H. Osborn, "Local Couplings and Sl(2,R) Invariance for Gauge Theories at One Loop," arXiv:hep-th/0302119 (2003), eq (36): ε = 1 + (1/3)(29C - 12R_ψ - (5/2)R_φ) × g²/(16π²), evaluated for SM gauge content at the electroweak scale in Dirac convention with A × g⁴ weighting across SU(3) / SU(2) / U(1).
+
+   CRITICAL REFINEMENT (from reading eq 35 of the same paper directly, documented in theory/derivation/STEP_03_LOG.md): ε is NOT a multiplicative correction to the Euler-density coefficient. Reading Osborn 2003 eq (35):
+
+      L = n_V × { (1/g²)[α(∇²g)² − 2δ G^μν ∂_μg ∂_νg − (1/3) ε R (∂g)²]
+                − 2κ (1/g³) (∂g)² ∇²g
+                + 2λ (1/g⁴) ((∂g)²)² }
+
+   ε is specifically the 2-loop coefficient of the operator -(1/3) n_V (1/g²) R (∂_μg)² in the local-coupling counterterm Lagrangian. This operator vanishes identically for constant g; it only contributes when the coupling is promoted to an x-dependent field g(x). For the identification R_GRUT = ε to hold on S^4, the CTP construction must produce an effective (∂_μg)² ≠ 0 between forward and backward branches — either through Gibbons-Hawking thermal fluctuations at T_GH = H_inf/(2π) or through CTP source doubling (g_+ ≠ g_-). This mechanism is the open step in the derivation (Step 05-06 of theory/derivation/).
+
+   Cross-check: Jack-Osborn 1990 eq (5.8) contains the same group-theory coefficients (51C-20R, 29C-12R, 11C-4R) in the divergent 2-loop counterterm polynomial. Osborn 2003 is the renormalized rearrangement into the α, δ, ε, κ, λ operator basis.
 
    The two values agree at 0.05%. Both are within Planck observational bounds:
    - R_hand = 1.15428 → Ω_Λ = 0.6908 (+0.28% from Planck 0.6889)

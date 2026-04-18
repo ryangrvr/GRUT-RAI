@@ -1281,7 +1281,7 @@ The value R_anomaly = 1.15428 used in §26 was produced by a hand-constructed fu
 
 ### The identification
 
-Osborn 2003 eq (36) gives the coupling-corrected trace-anomaly coefficient on curved backgrounds with x-dependent couplings:
+Osborn 2003 (arXiv:hep-th/0302119) eq (36), "Local Couplings and Sl(2,R) Invariance for Gauge Theories at One Loop," gives the 2-loop coefficients of the local-coupling counterterm Lagrangian on curved backgrounds with x-dependent couplings. The ε coefficient is specifically the 2-loop coefficient of the operator −(1/3) n_V (1/g²) R (∂_μ g)² in that Lagrangian (not a multiplicative correction to the Euler coefficient; see STEP_03_LOG.md). For the R_GRUT = ε identification, the mechanism linking ε to the CTP asymmetry ratio must produce an effective (∂_μ g)² ≠ 0 on S^4 — through Gibbons-Hawking thermal fluctuations or CTP source doubling. Explicit form of ε:
 
     epsilon = 1 + (1/3) × (29 C - 12 R_psi - (5/2) R_phi) × g^2/(16 pi^2)              (26.1)
 

@@ -9,7 +9,7 @@ April 2026
 
 The Grand Responsive Universe Theory (GRUT) predicts an inflationary Hubble rate through the cosmological formula `H_inf = (2 − R) / (S · τ_0)`, where `f(R) = 2 − R` is structurally derived from the 3-loop closed-time-path (CTP) effective action on Euclidean S⁴ with two CTP boundary conditions, and `R = |C_Cosmo / C_Final|` is a ratio of forward and backward anomaly coefficients in the doubled CTP action. The value of R has, to date, been supplied by a hand-constructed function giving `R_hand = 1.15428`.
 
-This note proposes a candidate Standard-Model-derivable expression for `R` using the coupling-corrected trace-anomaly coefficient `ε` from Osborn (2003) eq (36), evaluated for Standard Model content at the electroweak matching scale in the Dirac convention:
+This note proposes a candidate Standard-Model-derivable expression for `R` using the coupling-corrected trace-anomaly coefficient `ε` from Osborn (2003), arXiv:hep-th/0302119 eq (36), evaluated for Standard Model content at the electroweak matching scale in the Dirac convention:
 
 ```
 ε_combined(SM, M_Z) = 1.1537
@@ -54,7 +54,7 @@ The trace anomaly of a renormalizable gauge theory on a curved background has be
     ⟨T^μ_μ⟩ ⊃ ε(g, μ) × (curvature structure).                            (3)
 ```
 
-The explicit expression from Osborn (2003) eq (36), in Dirac convention for the fermion trace, is:
+The explicit expression from Osborn (2003), arXiv:hep-th/0302119 eq (36), in Dirac convention for the fermion trace, is:
 
 ```
     ε = 1 + (1/3) × (29 C − 12 R_ψ − (5/2) R_φ) × g²/(16π²),              (4)
@@ -101,7 +101,7 @@ Substituting `R = ε_combined(SM, M_Z) = 1.1537` into GRUT's formula:
 
 | Quantity | Value | Origin |
 |---|---|---|
-| `R` (candidate) | 1.1537 | Osborn 2003 eq (36), SM at M_Z, Dirac, QCD-dominant weights |
+| `R` (candidate) | 1.1537 | Osborn 2003 (arXiv:hep-th/0302119) eq (36), SM at M_Z, Dirac, QCD-dominant weights |
 | `R_hand` (original) | 1.15428 | Hand-constructed function, GRUT V7 |
 | Agreement | 0.05% | Structural coincidence if not derivation |
 | `f(R) = 2 − R` | 0.8463 | Derived from CTP in GRUT V7 §26 |
@@ -329,7 +329,7 @@ The required calculation is a reassembly of existing 3-loop SM anomaly results i
 - Jack & Osborn (1990) eq (5.12) and (5.15) for gauge-sector 3-loop anomaly coefficients.
 - Jack & Osborn (2014) for 3-loop Yukawa β-functions and metric G.
 - Chetyrkin & Zoller (2012) for full 3-loop SM β-functions.
-- Osborn (2003) eq (36) for the coupling-corrected anomaly coefficient ε.
+- Osborn (2003), arXiv:hep-th/0302119 eq (36) for the coupling-corrected anomaly coefficient ε.
 - Standard curved-space CTP machinery on Euclidean S⁴ with Gibbons-Hawking temperature.
 
 Researchers equipped to evaluate the identification:
@@ -346,7 +346,7 @@ Estimated effort: 2–4 weeks for a specialist familiar with both the Jack-Osbor
 
 GRUT's cosmological formula `H_inf = (2 − R) / (S · τ_0)` has the structure `f(R) = 2 − R` derived from 3-loop CTP on S⁴ with two CTP boundary conditions. The specific value of R was previously supplied by a hand-constructed function giving `R_hand = 1.15428`.
 
-We propose the SM-derivable candidate `R = ε_combined(SM, M_Z) = 1.1537` from Osborn (2003) eq (36), differing from `R_hand` by 0.05% and producing `Ω_Λ = 0.6918` at 0.42% from Planck. The identification is supported by a robustness signature that requires the intersection of three physically-motivated choices (QCD-dominant weighting, electroweak-scale evaluation, Dirac convention), a physical mechanism (Gibbons-Hawking thermal asymmetry in CTP), and a residual 0.48% gap consistent with natural 2-loop corrections.
+We propose the SM-derivable candidate `R = ε_combined(SM, M_Z) = 1.1537` from Osborn (2003), arXiv:hep-th/0302119 eq (36), differing from `R_hand` by 0.05% and producing `Ω_Λ = 0.6918` at 0.42% from Planck. The identification is supported by a robustness signature that requires the intersection of three physically-motivated choices (QCD-dominant weighting, electroweak-scale evaluation, Dirac convention), a physical mechanism (Gibbons-Hawking thermal asymmetry in CTP), and a residual 0.48% gap consistent with natural 2-loop corrections.
 
 The identification is a conjecture awaiting verification by a specific 3-loop CTP calculation on S⁴ with Standard Model matter. The calculation is bounded (2–4 weeks for a specialist) and decisive (either `R = ε_combined` at leading order, or the identification is a coincidence and the cosmological sector remains numerically conditional).
 
@@ -381,7 +381,7 @@ All results in Section 3 are reproducible to the precision shown.
 
 ## Appendix B: Precise statement of the three requirements for derivation
 
-**R1.** There exists a term in the 3-loop CTP effective action on Euclidean S⁴ with SM matter content of the form `[b_free × (1 + correction)] × E_4`, where `correction` is a function of SM couplings, and this correction equals `ε_correction` from Osborn (2003) eq (36) at leading order in α_s.
+**R1.** There exists a term in the 3-loop CTP effective action on Euclidean S⁴ with SM matter content of the form `[b_free × (1 + correction)] × E_4`, where `correction` is a function of SM couplings, and this correction equals `ε_correction` from Osborn (2003), arXiv:hep-th/0302119 eq (36) at leading order in α_s.
 
 **R2.** The weighting across SM gauge groups in `correction` is the `A × g⁴` structure, emerging from the gauge-boson loop contribution to the 3-loop effective action on S⁴, not from an input choice.
 
