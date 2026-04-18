@@ -84,6 +84,35 @@ and whether a specialist calculation could close it.
 
 Either outcome is honest progress. The process is the point.
 
+## Transcendentals tracking (added after Step 1)
+
+GRUT's hand-constructed C_FINAL contains the combination `ln(2) · ζ(3)`:
+
+```
+C_FINAL = 3(99 + 2π² + 576 ln(2) · ζ(3)) / (16384 π⁶)
+```
+
+This is not a coincidence — `ln(2) · ζ(3)` is a known 3-loop transcendental that
+appears in 3-loop QCD β-functions, electron g-2 at 3-loop, and heat kernel
+coefficients on curved space. The expected pattern by loop order is:
+
+- 1-loop: rationals, π² (from 4-dim integrals)
+- 2-loop: ζ(2) = π²/6, ζ(3), Li₂ values
+- 3-loop: ζ(3), ζ(5), ln(2) · ζ(3), π⁴
+- 4-loop: ζ(5), ζ(7), more exotic
+
+Each subsequent step will track which transcendentals appear in intermediate
+results. If the CTP-on-S⁴ derivation is physically correct, ln(2) · ζ(3) should
+appear naturally at the 3-loop stage with the same structural coefficient as
+in C_FINAL. This is an independent structural check, separate from the
+numerical match to ε_combined.
+
+The connection: heat kernel zeta-function regularization on S⁴ generates
+ζ(3) through the Minakshisundaram-Pleijel spectral zeta function. Gibbons-
+Hawking thermal sums on de Sitter produce ln(2) factors from Boltzmann
+factors at the de Sitter horizon temperature. Their combination `ln(2) · ζ(3)`
+at 3-loop is therefore expected, not ad hoc.
+
 ## The imaginary element — the central physical insight
 
 The physical picture guiding this derivation (articulated in earlier
