@@ -130,6 +130,31 @@ with running couplings and mass thresholds is beyond their primary
 scope. The "µ is arbitrary" statement does not apply to the interacting
 SM case without additional analysis.
 
+**4.7 Tensor projection pre-analysis (April 2026)**
+
+Ratio near-invariance test (`grut/derivation/tensor_projection_ratio_test.py`):
+If R_GRUT is a ratio `A·(1 + K₁α/4π)/(1 + K₂α/4π)` with K₁ ≈ K₂, the
+ratio is approximately scheme-free. Drift from µ=M_Z to µ=H_inf:
+
+| K₂ (with K₁=17) | drift |
+|:---:|:---:|
+| 0 | −10.6% |
+| 8 | −5.5% |
+| 16 | −0.6% |
+| 17 | 0.0% |
+
+**Caveat:** V7/V8 §12 posits C_Final = b_free (bare) and C_Cosmo =
+b_free × ε, which gives K₂ = 0. The ratio near-invariance argument
+therefore does NOT apply to V7's posited structure. The specialist's
+first task is to confirm or refute V7's specific ratio structure
+against the actual 3-loop CTP calculation. See §8 expansion below.
+
+Right-observable spectral test (`grut/derivation/tensor_projection_S4.py`
+Part E): the fermion-loop coupling-source self-energy shows 6.4× mass-
+sensitivity across m/H ∈ [0.001, 100]. This supports the matter-scale
+reading. The F²F² test we earlier ran (in correction #8) was the wrong
+observable per correction #9.
+
 ---
 
 ## 5. Calculation Workflow
@@ -278,23 +303,114 @@ All three outcomes are clean and publishable.
 
 ---
 
-## 8. What Could Change the Expected Outcome
+## 8. Five Critical Directions (expanded, April 2026)
 
-1. **Nontrivial scheme dependence.** If K_i depends strongly on
-   subtraction scheme, the "match" becomes scheme-dependent. Weakens
-   but doesn't kill the claim.
+The following five directions emerged from post-submission analysis.
+They are ranked by how much each could reshape the conclusion.
 
-2. **Thermal suppression.** If decoupling of heavy SM particles
-   (top quark) suppresses their noise-kernel contribution more than
-   assumed, the weighting shifts.
+### 8.1 Ratio structure (DECISIVE)
 
-3. **Operator mixing.** F² can mix with F·F̃ under renormalization
-   on S⁴. However, at θ = 0 (which SM satisfies to < 10⁻¹⁰),
-   this mixing is absent. Confirmed in our pre-analysis (Task 05).
+V7/V8 §12 posits C_Final = b_free, C_Cosmo = b_free × ε, giving
+R_GRUT = ε directly. This is K₁ = 17, K₂ = 0 — the MOST scheme-
+dependent case, where the ratio near-invariance argument fails.
 
-4. **IR dominance invalidated.** If the specific tensor projection
-   Im(⟨F²F²⟩) is UV-dominated despite the scalar noise kernel being
-   IR-dominated, the M_Z argument fails for this observable.
+**Specialist task:** Verify or refute V7's specific structural claim
+against the actual 3-loop CTP tensor projection.
+
+- If V7 structure confirmed → R = ε, scale question is decisive,
+  proceed to §8.4.
+- If 3-loop CTP gives K₁ ≠ K₂ with both nonzero and near each other
+  → ratio near-invariance applies, R ≈ 1.155 in any scheme, framework
+  is robust.
+- If 3-loop CTP gives a completely different structure → assess
+  separately.
+
+This is the single most important deliverable of the specialist work.
+
+### 8.2 Higgs thermal restoration (CRITICAL physics question)
+
+T_GH = H_inf/(2π) ~ 1.6×10¹² GeV >> v_EW = 246 GeV. EW symmetry is
+emphatically restored in the thermal state. Consequences:
+
+- Higgs VEV = 0
+- All fermion Yukawa masses vanish: m_f = y_f · ⟨φ⟩ = 0
+- Familiar scales (M_Z, m_t, ...) DO NOT EXIST as thresholds in the
+  thermal state
+
+This weakens the "matter-decoherence argument picks M_Z" line: there
+is no physical M_Z threshold when matter is massless.
+
+**Two competing readings:**
+
+(i) **Thermal/curvature reading:** renormalization-scale choice µ ~
+    T_GH ~ H minimizes thermal logs. Gives R = ε(H) ≈ 1.03, Ω_Λ ≈ 0.90
+    (30% miss).
+
+(ii) **Vacuum calibration reading:** M_Z isn't defining "matter" but
+     is the observational calibration input. α_s(M_Z) = 0.118 is the
+     measurement anchor. The physical observable is RG-invariant at
+     all orders; at 3-loop truncation, M_Z is a valid choice even in
+     the thermal state.
+
+**Specialist task:** Identify which reading applies to R_GRUT.
+Specifically: is the CTP coupling asymmetry (g₊ − g₋) defined at
+the vacuum (measured) scale or the thermal scale?
+
+### 8.3 Nontrivial scheme dependence (existing caveat)
+
+If K_i depends strongly on subtraction scheme, the "match" becomes
+scheme-dependent. The specialist should verify K_i in multiple
+schemes (MS̄, on-shell, momentum subtraction) to confirm stability.
+Fixed schemes like MS̄ are standard and should give robust K_i
+to better than 1% across scheme variants.
+
+### 8.4 Operator mixing (ruled out at θ = 0)
+
+F² can mix with F·F̃ under renormalization on S⁴. However, at
+θ = 0 (which SM satisfies to < 10⁻¹⁰), this mixing is absent.
+Confirmed in Task 05. Specialist need not re-derive; reference only.
+
+### 8.5 IR dominance of the right observable (supported)
+
+Per correction #9: ε multiplies R × (∂g)²/g² whose spectral structure
+is the **coupling-source self-energy**, not ⟨F²F²⟩. The fermion-loop
+spectral test (`tensor_projection_S4.py` Part E) shows 6.4× mass
+sensitivity across m/H ∈ [0.001, 100], supporting M_Z scheme.
+
+The earlier ⟨F²F²⟩ test (2e-5% variation) was the wrong observable.
+
+### 8.6 Secondary considerations (verified negligible)
+
+- **Non-perturbative QCD (instantons):** at T_GH, S_inst = 2π/α_s(T_GH)
+  = 218, exp(−218) ~ 10⁻⁹⁵. Utterly negligible.
+- **Cross-sector 3-loop diagrams:** O(α_s·α_2/(4π)²) ~ 10⁻⁵ correction.
+  Below precision.
+- **Graviton loops:** O((H/M_Pl)²) ~ 10⁻¹². Negligible for cosmology;
+  relevant only for 4/8 closure ladder at H ~ M_Pl.
+
+Computational verification in `grut/derivation/five_directions.py`.
+
+### 8.7 Decision tree
+
+```
+Is V7's ratio structure (§8.1) correct?
+├── NO, K₁ ≈ K₂ → R ≈ 1.155 in any scheme. Framework confirmed.
+├── NO, different structure → assess separately.
+└── YES, R = ε directly → scale matters
+    │
+    Is the thermal-restoration reading (§8.2) applicable?
+    ├── Vacuum calibration (ii): R = ε(M_Z) = 1.155, Ω_Λ = 0.69 ✓
+    └── Thermal/curvature (i):   R = ε(T_GH) ≈ 1.03, Ω_Λ = 0.90 ✗
+```
+
+**Updated probability assessment after five directions:**
+- ~50-60% R_GRUT ≈ ε(M_Z) giving Ω_Λ ≈ 0.69 (match to Planck)
+- ~40-50% R_GRUT ≈ ε(T_GH) giving Ω_Λ ≈ 0.90 (30% miss)
+
+The 70-80% from the pre-directions tensor projection work was too
+high: it relied on the ratio near-invariance which V7's posited
+structure makes inapplicable. After honest accounting, this sector
+is more conditional than the tensor work alone suggested.
 
 ---
 
