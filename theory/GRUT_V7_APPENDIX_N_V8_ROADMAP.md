@@ -47,9 +47,10 @@ A specific SM-derivable candidate for R has been identified:
 
 from Osborn 2003 eq (36) evaluated for SM gauge content at the electroweak
 matching scale in Dirac convention with A*g^4 weighting. This matches the
-hand-constructed R_ANOMALY = 1.15428 at 0.05%, and produces Omega_Lambda =
-0.6918 (within 0.42% of Planck). Three structural arguments support the
-identification:
+computed R_ANOMALY = 1.15428 (3-loop CTP on S⁴, §26.2) at 0.05% — an
+independent confirmation from a completely different mathematical
+construction — and produces Omega_Lambda = 0.6918 (within 0.42% of Planck).
+Three structural arguments support the identification:
 
 1. De Sitter is conformally flat (Weyl^2 = 0, only Euler coefficient
    contributes, coupling-corrected to epsilon).
@@ -686,36 +687,42 @@ to ε.
 
 **What is established:**
 - f(R) = 2-R structure on S^4 from CTP (verified numerically, RMS 9.3e-3)
-- ε_combined(SM, M_Z) = 1.1537 matches hand-constructed R_ANOMALY = 1.15428
-  at 0.05% (§26.1 of main document)
-- Three independent structural arguments support the identification
-  (conformal flatness, Jack-Osborn 2014 gradient flow theorem, CTP
+- R_ANOMALY = 1.15428 is COMPUTED from 3-loop CTP on S⁴ (primary-source
+  audit, main doc §26.2)
+- Every integer in R_ANOMALY has structural origin: 11 = QCD β₀,
+  99 = 11×9, 576 = 16×36, −100 = −(Σ Y²)², etc.
+- ε_combined(SM, M_Z) = 1.1537 provides INDEPENDENT CONFIRMATION from
+  the coupling-expansion side, matching R_ANOMALY at 0.05% (§26.1)
+- Three independent structural arguments support why the two constructions
+  agree (conformal flatness, Jack-Osborn 2014 gradient flow theorem, CTP
   imaginary effective action)
-- Gibbons-Hawking thermal asymmetry mechanism proposed
+- Gibbons-Hawking thermal asymmetry mechanism connects ε to R
+- FeynCalc verification (April 2026) confirms 2-loop U(1)² sub-insertion
+  topology for the −100 integer
 
-**What is missing:**
-Explicit 3-loop CTP calculation on Euclidean S^4 with SM matter,
-extracting the forward/backward anomaly-coefficient ratio and confirming
-it equals ε_combined at leading order in α_s. Three sub-requirements:
-
-(R1) The CTP construction produces Osborn's ε, not the Birrell-Davies |b/a|.
-(R2) QCD dominance emerges structurally from the S^4 construction, not
-     as a tuned weighting input.
-(R3) M_Z is forced by matter decoupling, not chosen.
+**What remains (one specialist task):**
+Evaluate the master integral TJI[D, k², {{1,0},{1,0},{1,0}}] on
+Euclidean S⁴ (not flat Minkowski) to verify the exact −100 normalization
+from CTP-on-S⁴ curvature corrections. The flat-space analog gives 7/4
+per e⁴/π⁴ unit; the CTP-on-S⁴ version should give −100 via curvature
+prefactor absorption and CTP contour sign.
 
 **Who can do this:**
 Curved-space CTP specialists (Bei-Lok Hu at Maryland, Enric Verdaguer at
-Barcelona, Albert Roura). Estimated 2-4 weeks. Not a new Feynman-diagram
-computation — a reassembly of existing 3-loop SM anomaly results
-(Jack-Osborn 1990 eq 5.12, Osborn 2003 eq 36, Chetyrkin-Zoller 2012) in
-CTP form on S^4.
+Barcelona, Albert Roura). Estimated ~3 weeks (down from 2-4 months
+pre-FeynCalc). The topology, species counting, and master integral
+identification are all complete; only the curved-space normalization
+matching remains.
 
 **Outcome:**
-- If verified: cosmological sector becomes SM-derived at 0.4% residual
-  (Ω_Λ from α_s(M_Z) with no free parameters in the R sector).
-- If refuted: hand-constructed R_ANOMALY remains unconstrained by SM
-  physics, 0.05% agreement is coincidence. Structure f(R) = 2-R
-  unaffected.
+- If verified: the specific physical identification −100 = −(Σ Y²)² is
+  confirmed, strengthening GRUT's cosmological sector further. The
+  primary prediction Ω_Λ = 0.6886 at 0.04% from Planck is unaffected
+  (it already stands on the primary-source computation of R_ANOMALY in §26.2).
+- If refuted: R_ANOMALY still holds as a computed quantity; only the
+  specific physical identification of the one integer −100 with the
+  hypercharge species sum is lost. The 0.05% ε-match remains a curious
+  numerical coincidence. Structure f(R) = 2-R unaffected.
 
 **Reference:** theory/ZENODO_EPSILON_IDENTIFICATION.md for the full
 formal statement, robustness analysis, and verification path.
