@@ -1,8 +1,32 @@
 # The −100 Frontier: Two Hypotheses, Radical Honesty
 
 **Date:** April 2026
-**Status:** Two candidate physical identifications. Neither confirmed.
-Specialist FeynCalc verification is the only way to decide.
+**Status (updated post-FeynCalc):** H1 topology confirmed by FeynCalc,
+exact −100 numerical value NOT reproduced in flat-space analog. See
+FEYNCALC_VERIFICATION_LOG.md for full session details.
+
+## Update after FeynCalc verification session
+
+We ran the full FeynCalc pipeline (FeynArts topology generation through
+TarcerRecurse master-integral reduction) on the flat-space 2-loop QED
+U(1)_Y² vacuum polarization. Key findings:
+
+- **T2 topology confirmed** as sub-insertion (squared propagators in the
+  reduced master integrals, exactly as H1 predicts)
+- **T2 reduces to one master**: `TJI[D, k², {{1,0},{1,0},{1,0}}]` — a
+  standard 3-propagator 2-loop massless propagator integral
+- **T2 finite rational** in flat-space = 7/4 × (e⁴/π⁴ normalization),
+  NOT −100
+- **Sign doesn't match** — flat-space gives positive 7/4, expression
+  B has −100 (negative)
+
+**Interpretation**: the topological structure supports H1, but the exact
+rational constant depends on the **CTP-on-S⁴ measure**, which is
+different from flat-space. The −100 identification remains a plausible
+topological/structural interpretation but is NOT confirmed as exact
+−(Σ Y²)².
+
+## Revised status of the two hypotheses
 
 ## The question
 
