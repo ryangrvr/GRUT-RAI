@@ -1,28 +1,34 @@
 # GRUT Cosmological Sector — Specialist Verification Brief
 
-**Prepared by:** D. Ryan Grover, April 2026
+**Prepared by:** D. Ryan Grover, April 2026 (updated post-FeynCalc session)
 **For:** Curved-space CTP specialists (Bei-Lok Hu, Enric Verdaguer, Albert Roura, or equivalent)
-**Estimated effort:** 2–4 weeks
-**Deliverable:** One dimensionless number per SM gauge group (K_SU3, K_SU2, K_U1)
+**Estimated effort:** ~3 weeks
+**Deliverable:** One number — the finite rational in the Laurent expansion of a single master integral on S⁴
 
 ---
 
-## 1. What We Need
+## 1. What We Need (narrowed after FeynCalc verification)
 
-Compute the noise-kernel projection of the coupling-source self-energy on
-Euclidean S⁴ with Standard Model matter, and verify that the result uses
-SM couplings at the matter-mass scale (M_Z) rather than the curvature
-scale (H_inf).
+**Evaluate the scalar master integral**
 
-Specifically: extract the O(1) coefficient K_i such that the CTP
-forward/backward coupling asymmetry for gauge group i is:
+    TJI[D, k², {{1,0}, {1,0}, {1,0}}]
 
-    (g_+ − g_-)_i = K_i × g_i³/(16π²) × f(T_GH/m)
+    (standard 3-propagator 2-loop massless propagator integral, Tarcer notation)
 
-where f → 1 in the limit T_GH >> m (all SM matter thermally excited).
+**on Euclidean S⁴ of radius 1/H** with Hartle-Hawking thermal state at
+T_GH = H/(2π), at D = 4 − 2ε. Extract the finite (ε⁰) rational part.
 
-If K_SU3 = 17 × (1 + corrections of order α_s/(4π)), the identification
-R_GRUT = ε_combined(SM, M_Z) is verified.
+**Check**: does the CTP-on-S⁴ evaluation produce a finite rational of
+−100 (matching expression B's −100 = −(Σ_SM Y²)² hypercharge-squared
+species sum), versus the flat-space Minkowski answer of +7/4 per e⁴/π⁴?
+
+If yes, the H1 topological identification of −100 with SM U(1)_Y² sub-
+insertion topology is confirmed and GRUT's cosmological prediction
+Ω_Λ = 0.6886 is fully SM-derived with no pending gaps.
+
+If no, the −100 identification is coincidental topologically; the
+framework retains its R = 1.15428 derivation from pure mathematics
+but loses the specific physical identification of that one constant.
 
 ---
 
