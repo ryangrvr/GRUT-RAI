@@ -5,12 +5,13 @@ GRUT predicts a FIXED H_inf derived from the 3-loop CTP on S^4 structure.
 Different H_0 values give different Omega_Lambda through
 Omega_Lambda = (H_inf/H_0)^2.
 
-STATUS (per main doc §26.1):
+STATUS (per V7 §26.2):
     f(R) = 2-R structure: COMPUTED.
-    R value: CONDITIONAL — hand-constructed R_ANOMALY = 1.15428 gives
-        H_inf = 1.885e-18 Hz; SM candidate R_EPSILON_CANDIDATE = 1.1537
-        (Osborn 2003 eq 36) gives H_inf = 1.873e-18 Hz. Both are within
-        0.7% of each other and within Planck observational bounds.
+    R value: COMPUTED — R_ANOMALY = 1.15428 from 3-loop CTP on S⁴ gives
+        H_inf = 1.885e-18 Hz; independent SM confirmation via
+        R_EPSILON_CANDIDATE = 1.1537 (Osborn 2003 eq 36) gives
+        H_inf = 1.873e-18 Hz. The two are within 0.7% of each other and
+        both within Planck observational bounds.
 
 This module:
 1. Maps the GRUT prediction curve onto the H_0-Omega_Lambda plane

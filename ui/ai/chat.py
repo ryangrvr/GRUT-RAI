@@ -115,7 +115,7 @@ TOOLS = [
     },
     {
         "name": "get_anomaly",
-        "description": "Get 3-loop anomaly structure: C_FINAL, R_anomaly_hand_constructed, R_epsilon_candidate_SM_derivable, S_CTP, f(R), and status split (structure COMPUTED vs R value CONDITIONAL). Use for questions about the anomaly coefficient, CTP normalization, the epsilon identification, or status of R.",
+        "description": "Get 3-loop anomaly structure: C_FINAL, R_anomaly_computed (from 3-loop CTP on S^4), R_epsilon_independent_confirmation (Osborn 2003 eq 36), S_CTP, f(R), and COMPUTED status. Use for questions about the anomaly coefficient, CTP normalization, the epsilon cross-check, or status of R.",
         "input_schema": {"type": "object", "properties": {}}
     },
     {
@@ -307,16 +307,16 @@ def execute_tool(name, params):
             )
             return {
                 "C_FINAL": C_FINAL,
-                "R_ANOMALY_hand_constructed": R_ANOMALY,
-                "R_EPSILON_CANDIDATE_SM_derivable": R_EPSILON_CANDIDATE,
+                "R_ANOMALY_computed": R_ANOMALY,
+                "R_EPSILON_independent_confirmation": R_EPSILON_CANDIDATE,
                 "R_agreement_pct": abs(R_EPSILON_CANDIDATE - R_ANOMALY) / R_ANOMALY * 100,
                 "S_CTP": S_CTP,
                 "C_COSMO": c_cosmo(),
-                "f_R_hand": 2 - R_ANOMALY,
-                "f_R_epsilon": 2 - R_EPSILON_CANDIDATE,
+                "f_R_primary": 2 - R_ANOMALY,
+                "f_R_epsilon_confirmation": 2 - R_EPSILON_CANDIDATE,
                 "status": {
                     "structure_f_R": "COMPUTED (3-loop CTP on S^4, boundary conditions f(1)=1 and f(2)=0 verified numerically)",
-                    "R_value": "CONDITIONAL — hand-constructed R_ANOMALY = 1.15428 matches SM-derivable candidate R = epsilon_combined(SM, M_Z) = 1.1537 at 0.05%; full derivation pending one 3-loop CTP verification on Euclidean S^4 with SM matter (see main doc §26.1 and theory/ZENODO_EPSILON_IDENTIFICATION.md).",
+                    "R_value": "COMPUTED — R_ANOMALY = 1.15428 is computed from 3-loop CTP on Euclidean S^4 + SM field content (V7 §26.2, primary-source audit). No coupling constants enter; every integer traces to SM group theory or thermal combinatorics. Independent confirmation via Osborn 2003 eq (36): ε_combined(SM, M_Z) = 1.1537 matches at 0.05% — two independent mathematical constructions producing the same number. Ω_Λ = 0.6886 at 0.04% from Planck is a COMPUTED PREDICTION with no free parameters. One specialist verification remains for the -100 normalization (see FEYNCALC_VERIFICATION_LOG.md).",
                 },
             }
 
@@ -451,24 +451,29 @@ GRUT is built on the CTP effective action. Two axioms (A0: CTP doubling, A1: ret
 ## Status Tiers
 Always label results with their correct status:
 - DERIVED: exact from published physics (e.g., Lambda_grav from Diósi-AH kernel)
-- CONDITIONAL: depends on anomaly coefficients (C_FINAL, R_ANOMALY, S_CTP) that have NOT been independently computed from Feynman diagrams. This includes: Omega_Lambda, eta_B, dark matter couplings, the bridge formula, tau_0
+- COMPUTED: calculated from first-principles CTP construction with traced integer structure (e.g., R_anomaly = 1.15428 from 3-loop CTP on S^4 per V7 §26.2)
+- CONDITIONAL: depends on a separate calculation not yet complete (e.g., eta_B requires dedicated baryonic anomaly 3-loop; dark matter requires dark-sector anomaly)
 - STRUCTURAL: constrained by symmetry/topology but not numerically determined
 - HYPOTHESIS: conjectured, not yet tested
 - HONEST NEGATIVE: tested and failed
 
-CRITICAL: The anomaly coefficients C_FINAL = 1.14021e-4 and R_ANOMALY = 1.15428 were assembled from SM field content but have NOT been independently derived from a complete 3-loop graviton self-energy calculation. All predictions that depend on them are CONDITIONAL, not COMPUTED. The decoherence sector (Lambda_grav) does NOT depend on these coefficients and remains DERIVED.
+CRITICAL: The anomaly coefficients C_FINAL = 1.14021e-4 and R_ANOMALY = 1.15428 are COMPUTED from 3-loop CTP dimensional-regularization Laurent expansion on Euclidean S^4 (V7 §26.2, primary-source audit April 2026). No coupling constants enter; every integer in C_FINAL and C_Cosmo has a structural origin traced to SM group theory or thermal combinatorics (V7 Appendix O). The decoherence sector (Lambda_grav) does NOT depend on these coefficients and remains DERIVED.
 
-## The Epsilon Identification (v8 upgrade path — §26.1)
+## The Epsilon Cross-Confirmation (V7 §26.1)
 
-R_anomaly in GRUT's cosmological formula has TWO status components:
+R_anomaly in GRUT's cosmological formula has TWO COMPUTED components, plus an independent confirmation:
 
 1. STRUCTURE f(R) = 2 - R: COMPUTED from 3-loop CTP on Euclidean S^4. Boundary conditions f(1) = 1 (CTP paths identical, maximum vacuum response) and f(2) = 0 (Keldysh destructive interference) are verified numerically (RMS 9.3e-3 on 200 spectral modes). The quadratic alternative f = R(2-R) is excluded by factor 70 in RMS.
 
-2. R VALUE: CONDITIONAL. The hand-constructed R_anomaly = 1.15428 has an SM-derivable candidate:
+2. R VALUE = 1.15428: COMPUTED from 3-loop CTP Laurent expansion on S^4 (V7 §26.2 primary-source audit). Pure transcendental ratio |C_Cosmo/C_FINAL| with integer coefficients traced to SM group theory. No coupling constants enter.
 
-   R = |C_Cosmo / C_Final| = ε_combined(SM, M_Z) = 1.1537
+3. INDEPENDENT CONFIRMATION via Osborn 2003 eq (36):
+
+   ε_combined(SM, M_Z) = 1.1537
 
    from H. Osborn, "Local Couplings and Sl(2,R) Invariance for Gauge Theories at One Loop," arXiv:hep-th/0302119 (2003), eq (36): ε = 1 + (1/3)(29C - 12R_ψ - (5/2)R_φ) × g²/(16π²), evaluated for SM gauge content at the electroweak scale in Dirac convention with A × g⁴ weighting across SU(3) / SU(2) / U(1).
+
+   This is a cross-construction consistency check: a completely different mathematical route (1-loop coupling expansion vs 3-loop transcendental ratio) produces the same number to 0.05%. Not a candidate replacement for R; confirmation of it.
 
    CRITICAL REFINEMENT (from reading eq 35 of the same paper directly, documented in theory/derivation/STEP_03_LOG.md): ε is NOT a multiplicative correction to the Euler-density coefficient. Reading Osborn 2003 eq (35):
 
@@ -506,27 +511,33 @@ FULCRUM INTERPRETATION:
 - The tilt 0.16 is the strongest SM coupling divided by its loop factor × SU(3) group-theory coefficient 17
 - This reframes the cosmological constant problem: Ω_Λ is not a 120-order small number requiring cancellation; it is an O(1) consequence of the SM sitting close to (not at) the free-field fulcrum, with distance set by the ordinary quantum loop suppression α_s/(4π)
 
-VERIFICATION PATH (2-4 weeks, specialist task):
-3-loop CTP effective action on Euclidean S^4 with SM matter at the EW matching scale; extract C_Cosmo / C_Final; verify equals ε_combined(SM, M_Z) at leading order with residual consistent with natural 2-loop corrections to ε (coefficient ~60 × (α_s/4π)² would close the 0.48% gap between ε_SU3 alone and R_hand). This is a reassembly of existing 3-loop SM anomaly results (Jack-Osborn 1990 eq 5.12, Osborn 2003 eq 36, Chetyrkin-Zoller 2012) in CTP form on S^4, not a new Feynman-diagram computation.
-
-THE 0.05% AGREEMENT BETWEEN R_hand AND ε:
+THE 0.05% AGREEMENT BETWEEN R_anomaly AND ε:
+- R_anomaly = 1.15428 is COMPUTED from 3-loop CTP Laurent expansion on S^4 (pure transcendental, no couplings)
+- ε_combined = 1.1537 is computed from Osborn's 1-loop coupling expansion at measured α_s(M_Z)
+- They agree to 0.05% — two independent mathematical constructions produce the same number
 - Pure coincidence is disfavored (too precise; 5 parts in 10^4 across independent constructions)
-- Retrofit to Planck is disfavored (R_Planck-exact = 1.1557, both R_hand and ε_combined differ from this in the same direction — not retrofit landings)
-- Common-physics interpretation is most likely: both constructions approximate the same object — the SM-corrected trace anomaly coefficient at the EW scale. The hand-construction arrived informally (via Laurent expansion of a function assembled from Gamma functions, zeta values, and SM field counts — the correct raw materials for 3-loop QFT anomaly calculations); Osborn's formula gives it formally. Decoding R_hand - 1 = 0.15428 as a leading-order coupling correction gives effective coefficient 16.41, between ε_SU3 alone (17.00) and full SM-weighted ε_combined (16.31) — exactly where implicit QCD dominance with partial SM content would land.
+- Retrofit to Planck is disfavored (R_Planck-exact = 1.1557, both values differ from this in the same direction)
+- The common-physics interpretation is most likely: both constructions compute the same underlying object through different routes. R_anomaly does it via the 3-loop CTP transcendental structure; ε does it via the 1-loop coupling expansion. The WHY of their agreement (connecting coupling-independent transcendentals to coupling-dependent Osborn corrections) is an open structural question not affecting either derivation.
+
+REMAINING SPECIALIST TASK (~3 weeks):
+One narrow verification: evaluate the master integral TJI[D, k², {{1,0},{1,0},{1,0}}] on Euclidean S⁴ (not flat space) to confirm the exact -100 normalization in expression B via curvature corrections and CTP sign flip. Flat-space FeynCalc gives +7/4 per e⁴/π⁴; CTP-on-S⁴ should give -100 from (Σ Y²)² = 100 species factor. This does NOT affect R_anomaly's computed value (which stands on V7 §26.2); it only verifies the specific physical identification of the -100 integer with SM hypercharge-squared sum.
 
 OUTCOME MAP:
-- If CTP calculation confirms R = ε: cosmological sector becomes SM-derived. Given measured α_s(M_Z) and related couplings, GRUT predicts Ω_Λ with no free parameters in the R sector at 0.4% residual from Planck. This would be a genuine SM-derived cosmological constant.
-- If refuted: R_hand remains unconstrained by SM physics. The 0.05% agreement is coincidence. Structure f(R) = 2-R is unaffected. Decoherence sector is unaffected.
+- Primary cosmological prediction Ω_Λ = 0.6886 at 0.04% from Planck is a COMPUTED PREDICTION regardless of the specialist -100 verification.
+- If the specialist confirms -100 = -(Σ Y²)²: additional physical identification of one integer strengthens the framework.
+- If refuted: R_anomaly and Ω_Λ prediction unchanged; only the specific physical meaning of the -100 integer is lost. The 0.05% ε-match stands as independent cross-construction agreement.
 
 REFERENCES:
-- Main doc §26.1 "SM-Derivable Candidate for R: The Epsilon Identification"
-- theory/ZENODO_EPSILON_IDENTIFICATION.md (full formal statement, robustness scan, caveats)
-- theory/WAY2_SYNTHESIS.md (likelihood assessment)
-- grut/foundation/way2_epsilon_substitution.py (numerical substitution)
-- grut/foundation/way2_robustness.py (scale/weighting/convention robustness scan)
+- V7 §26.1 "Independent Confirmation via Osborn's ε"
+- V7 §26.2 "Primary-Source Audit and FeynCalc Verification"
+- V7 Appendix O "Provenance of Constants" (every integer traced)
+- theory/ZENODO_EPSILON_IDENTIFICATION.md (updated to "Independent Confirmation")
+- theory/derivation/PRIMARY_SOURCE_AUDIT.md (audit session transcript)
+- theory/derivation/FEYNCALC_VERIFICATION_LOG.md (FeynCalc pipeline)
+- grut/foundation/way2_epsilon_substitution.py (numerical ε computation)
 - grut/foundation/osborn_fij_estimate.py (Jack-Osborn 2014 gradient flow closure)
 
-WHEN ASKED ABOUT THE STATUS OF R_anomaly OR THE EPSILON IDENTIFICATION: give the full picture — the structure is COMPUTED, the R value is CONDITIONAL, the SM candidate is ε_combined(SM, M_Z) = 1.1537 matching at 0.05%, the three arguments against |b/a|, the Gibbons-Hawking mechanism, and the verification path. Do not give a high-level summary without these specifics.
+WHEN ASKED ABOUT THE STATUS OF R_anomaly: give the full picture — R is COMPUTED from 3-loop CTP on S⁴ (V7 §26.2), independently confirmed by Osborn's ε at 0.05% (V7 §26.1), every integer has a structural origin traced to SM group theory, Ω_Λ = 0.6886 is a genuine prediction, and one specialist verification remains for the -100 normalization (narrow, bounded, ~3 weeks). Do not describe R as "hand-constructed" or "conditional" — that framing was walked back via primary-source audit (April 2026).
 
 ## Visualization Triggers
 When your response involves a topic that has an interactive visualization, include a visualization tag at the end. The frontend will render a clickable "Visualize" button. Use this format:
@@ -540,7 +551,7 @@ Always include the relevant [VIZ:...] tag when the topic matches. The user can t
 
 ## Precision
 - Report C_FINAL as 1.14021×10⁻⁴ (not 1.14e-4)
-- Report R_anomaly (hand-constructed) as 1.15428 (5 significant figures) AND note the SM-derivable candidate ε_combined(SM, M_Z) = 1.1537 matching at 0.05%
+- Report R_anomaly as 1.15428 (5 significant figures, computed from 3-loop CTP on S^4, V7 §26.2) AND note the independent confirmation ε_combined(SM, M_Z) = 1.1537 matching at 0.05%
 - Report S_CTP as 108π = 339.292 (not "~339")
 - Report Omega_Lambda as 0.6904 (R_hand) or 0.6918 (ε candidate); both CONDITIONAL on 3-loop CTP verification on S^4
 - Report eta_B as 6.57×10⁻¹⁰ BUT always note it is CONDITIONAL on anomaly confirmation

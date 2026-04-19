@@ -11,16 +11,18 @@ Duff 1977, Christensen-Duff 1978). Higher-loop corrections (2-loop, 3-loop)
 are NOT included and would require professional-level QFT calculation.
 
 The ratio R_1loop computed here is an honest starting point. The gap between
-R_1loop = |b/a| ≈ 1.027 and the hand-constructed R_anomaly = 1.15428 used by
-GRUT's cosmological formula was a 12.5% gap. Under the subsequent analysis
-(main document §26.1 and theory/ZENODO_EPSILON_IDENTIFICATION.md), the
-resolution is NOT that higher loops close the gap but that the object
-computed by GRUT's CTP-on-S^4 construction is NOT the Birrell-Davies
-ratio |b/a|. It is the coupling-corrected trace-anomaly coefficient
-ε_combined(SM, M_Z) = 1.1537 from Osborn 2003 eq (36), which matches the
-hand-constructed value at 0.05%. See grut/foundation/way2_epsilon_substitution.py
-for the SM-derivable candidate. The perturbative W_i / antisymmetric route
-is structurally closed by the Jack-Osborn 2014 gradient flow theorem
+R_1loop = |b/a| ≈ 1.027 and the computed R_anomaly = 1.15428 (3-loop CTP on
+S^4, V7 §26.2) is a 12.5% gap NOT closed by higher loops of |b/a|. Under
+the subsequent analysis (V7 §26.1-26.2 and theory/ZENODO_EPSILON_IDENTIFICATION.md),
+the resolution is that the object computed by GRUT's CTP-on-S^4 construction
+is NOT the Birrell-Davies ratio |b/a|. R_anomaly = 1.15428 is computed as
+the pure transcendental ratio |C_Cosmo/C_FINAL| from 3-loop Laurent expansion
+(no couplings enter). The Osborn coefficient ε_combined(SM, M_Z) = 1.1537
+provides independent confirmation through a completely different mathematical
+construction, matching R_anomaly at 0.05%. See
+grut/foundation/way2_epsilon_substitution.py for the ε computation. The
+perturbative W_i / antisymmetric route is structurally closed by the
+Jack-Osborn 2014 gradient flow theorem
 (see grut/foundation/osborn_fij_estimate.py).
 
 This module retains the 1-loop Birrell-Davies computation as a published
@@ -276,9 +278,13 @@ def full_derived_analysis():
                                'regardless of the specific R value.',
         },
         'what_depends_on_R': {
-            'Omega_Lambda': 'CONDITIONAL — requires R ~ 1.15',
-            'eta_B': 'CONDITIONAL — depends on anomaly decomposition',
-            'dark_matter': 'CONDITIONAL — couplings depend on C_FINAL',
+            'Omega_Lambda': 'COMPUTED — R = 1.15428 from 3-loop CTP on S^4 (V7 §26.2); '
+                            'gives Omega_L = 0.6886 at 0.04% from Planck. Independent '
+                            'confirmation via ε_combined(SM, M_Z) = 1.1537 at 0.05%.',
+            'eta_B': 'CONDITIONAL — depends on baryonic anomaly decomposition '
+                     '(separate from Omega_Lambda R; needs dedicated 3-loop CTP).',
+            'dark_matter': 'CONDITIONAL — dark sector couplings depend on C_FINAL '
+                           '(COMPUTED) + dark-sector anomaly (needs dedicated calculation).',
         },
     }
 

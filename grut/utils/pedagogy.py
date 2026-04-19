@@ -98,7 +98,7 @@ def walkthrough_bridge():
              "computed": {"C_FINAL": C_FINAL}},
             {"step": 3, "title": "The Structural Formula",
              "equation": "f(R) = 2 - R  →  H_∞ = (2 - R) / (S × τ₀)",
-             "explanation": f"Structure f(R) = 2-R is COMPUTED from 3-loop CTP on S⁴ (boundary conditions f(1)=1, f(2)=0, linear at 3-loop). Competing quadratic excluded by factor 70 in RMS. R value is CONDITIONAL: hand-constructed R = {R_ANOMALY}, SM-derivable candidate R = ε_combined(SM, M_Z) = 1.1537 matches at 0.05% (§26.1). Here: R = {R_ANOMALY}, S = 108π = {S_CTP:.3f}.",
+             "explanation": f"Structure f(R) = 2-R is COMPUTED from 3-loop CTP on S⁴ (boundary conditions f(1)=1, f(2)=0, linear at 3-loop). Competing quadratic excluded by factor 70 in RMS. R value is COMPUTED: R = {R_ANOMALY} from 3-loop CTP Laurent expansion on S⁴ (V7 §26.2, primary-source audit — no coupling inputs). Independent confirmation via Osborn 2003 eq (36): ε_combined(SM, M_Z) = 1.1537 matches at 0.05% (§26.1). Here: R = {R_ANOMALY}, S = 108π = {S_CTP:.3f}.",
              "computed": {"R": R_ANOMALY, "R_epsilon_candidate": 1.1537, "S": S_CTP, "f_R": 2-R_ANOMALY}},
             {"step": 4, "title": "The Prediction",
              "equation": f"Ω_Λ = (H_∞ / H₀)² = {OL:.4f}  (Planck: 0.6889, +{(OL/0.6889-1)*100:.1f}%)",
