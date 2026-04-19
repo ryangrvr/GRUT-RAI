@@ -29,13 +29,19 @@ derived from three independent routes (CTP variation, Mori-Zwanzig memory kernel
 | Result | Value | Status |
 |:---|:---|:---|
 | Gravitational decoherence | Λ_grav = G m² S(l/R) / (ℏ l) | DERIVED (zero parameters) |
-| Cosmological constant | Ω_Λ = 0.6904 (Planck: 0.6889) | COMPUTED (+0.3%) |
+| Cosmological constant | Ω_Λ = 0.6886 (Planck: 0.6889) | COMPUTED (+0.04%, V7 §26.2) |
 | Baryon asymmetry | η_B = 6.57 × 10⁻¹⁰ (obs: 6.1 × 10⁻¹⁰) | COMPUTED (+8%) |
 | Dark matter | g_dark = 0.917, m_A = 387 MeV | CLOSED (Route 1, 5/5) |
 | Koide identity | K = 2/3 exactly | PROVEN (Z₃ algebraic) |
 | Three generations | N = 3 uniquely θ-independent | PROVEN |
 | SM emergence | Unique minimal EFT from 5 CTP constraints | COMPUTED |
 | Quantum gravity | 5/5 linearized closures (τ₀ branch) | STRUCTURAL |
+
+**R_anomaly = 1.15428** is *computed* from 3-loop CTP on S⁴ (V7 §26.2),
+with primary-source audit confirming pure transcendental structure (no
+coupling inputs; every integer traced to SM group theory). Independent
+confirmation via Osborn 2003 eq (36): ε_combined(SM, M_Z) = 1.1537
+matches at 0.05% — two independent mathematical constructions agreeing.
 
 ### The Bridge Parameter
 
@@ -47,35 +53,58 @@ One parameter — τ₀ — connects the decoherence sector to cosmology through
 
 ### Requirements
 
-- Python 3.9+
-- numpy, scipy
-- Flask (for the web UI)
+- **Python 3.10, 3.11, 3.12, or 3.13**
+  (Python 3.14+ not yet supported — numpy wheels unavailable)
+- numpy ≥ 1.24, scipy ≥ 1.10, flask ≥ 2.3, python-dotenv ≥ 1.0
 - Anthropic API key (optional, for AI chat)
 
-### Installation
+### Quick start
 
 ```bash
 git clone https://github.com/ryangrvr/GRUT-RAI.git
 cd GRUT-RAI
 
-# Install dependencies
-pip install numpy scipy flask anthropic
+# Install runtime dependencies (pinned versions)
+pip install -r requirements.txt
 
-# (Optional) Add your Anthropic API key for AI chat
+# (Optional) Install the AI chat support
+pip install anthropic
 echo "ANTHROPIC_API_KEY=sk-ant-..." > .env
 
-# Run tests
-python -m pytest tests/ -v
+# Run the test suite — 150 tests, should complete in under 1s
+pytest tests/
 
-# Start the dashboard
+# Start the dashboard — auto-detects compatible Python 3.10-3.13
+./run_server.sh
+```
+
+Then open http://localhost:5000.
+
+### Manual server start (if you prefer)
+
+```bash
 python -m flask --app ui.app run --port 5000
 ```
 
-Then open http://localhost:5000
+The `run_server.sh` wrapper is preferred because it auto-detects a
+compatible Python version on systems that have multiple installed, and
+gives clear error messages if dependencies are missing.
 
 ### Without API Key
 
 The dashboard, computations, GRUTipedia, and experiments tabs all work without an API key. The RAI Chat tab falls back to keyword-based responses instead of Claude-powered AI.
+
+### Running tests
+
+```bash
+pytest tests/                    # all 150 tests
+pytest tests/derived/ -v         # sector tests with verbose output
+pytest tests/foundation/ -v      # foundation tests only
+```
+
+Tests cover every V7 numerical claim as a regression check. If any core
+value (R_anomaly, Ω_Λ, H_inf, Koide K, dark photon mass, η_B, τ_0)
+silently changes, the test suite flags it.
 
 ---
 
