@@ -1,0 +1,71 @@
+name: Test
+
+on:
+  push:
+    branches: [main, v2]
+  pull_request:
+    branches: [main, v2]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run foundation tests
+        run: pytest tests/foundation/ -v
+
+      - name: Run derived-sector tests
+        run: pytest tests/derived/ -v
+
+      - name: Run bridge tests
+        run: pytest tests/bridge/ -v
+
+      - name: Run utils tests
+        run: pytest tests/utils/ -v
+
+      - name: Full test suite
+        run: pytest tests/ --tb=short
+
+      - name: Verify sample imports and computations
+        run: |
+          python -c "
+          from grut.foundation.anomaly import C_FINAL, R_ANOMALY, S_CTP, R_EPSILON_CANDIDATE
+          from grut.derived.cosmology.vacuum import vacuum_prediction
+          from grut.derived.koide.identity import koide_check
+          from grut.bridge.parameter import bridge_prediction
+
+          # Foundation values
+          assert abs(R_ANOMALY - 1.15428) < 1e-4, f'R_ANOMALY drift: {R_ANOMALY}'
+          assert abs(S_CTP - 339.292) < 0.01, f'S_CTP drift: {S_CTP}'
+          assert abs(R_EPSILON_CANDIDATE - 1.1537) < 1e-3, f'eps drift: {R_EPSILON_CANDIDATE}'
+
+          # Sector predictions
+          vac = vacuum_prediction(H_0_kms=70.0)
+          assert abs(vac['deviation_pct']) < 1.0, f'Omega_L deviates: {vac}'
+
+          koide = koide_check()
+          assert abs(koide['K'] - 2.0/3.0) < 0.001, f'Koide K drift: {koide}'
+
+          bridge = bridge_prediction(H_0_kms=70.0)
+          assert abs(bridge['tau_0_Myr'] - 41.9) < 0.1, f'tau_0 drift: {bridge}'
+
+          print('All V7 headline values verified on CI.')
+          "
