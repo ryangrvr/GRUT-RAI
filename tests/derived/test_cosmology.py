@@ -92,6 +92,47 @@ class TestEraMap:
         result = era_map()
         assert result["n_eras"] == 329
 
+    def test_no_R_vol_typo(self):
+        """Correction #14: ensure era_map doesn't re-introduce the 1.5428 typo.
+
+        The era map's sigmoid sharpness k = 2π/(R_anomaly − 1) MUST use
+        R_ANOMALY = 1.15428, NOT the typo 1.5428. We verify by checking
+        the executable code (stripping the docstring, which references
+        the typo for historical context).
+        """
+        import grut.derived.cosmology.vacuum as vacuum_module
+        import inspect
+        import ast
+        src = inspect.getsource(vacuum_module.era_map)
+        # Parse AST and extract all numeric literals from the function body
+        tree = ast.parse(src.strip())
+        func_def = tree.body[0]  # the era_map function
+        # Skip the docstring (first stmt is Expr/Constant if it's a docstring)
+        body_stmts = func_def.body
+        if (body_stmts and isinstance(body_stmts[0], ast.Expr) and
+                isinstance(body_stmts[0].value, ast.Constant) and
+                isinstance(body_stmts[0].value.value, str)):
+            body_stmts = body_stmts[1:]
+
+        numeric_literals = []
+        for stmt in body_stmts:
+            for node in ast.walk(stmt):
+                if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+                    numeric_literals.append(node.value)
+
+        # The typo value must NOT appear as a bare numeric literal in executable code
+        assert 1.5428 not in numeric_literals, (
+            "Correction #14 regression: bare literal 1.5428 found in era_map code. "
+            "Use R_ANOMALY = 1.15428 instead."
+        )
+
+    def test_era_map_uses_R_ANOMALY(self):
+        """era_map must reference the R_ANOMALY import, not a local literal."""
+        import grut.derived.cosmology.vacuum as vacuum_module
+        import inspect
+        src = inspect.getsource(vacuum_module.era_map)
+        assert "R_ANOMALY" in src, "era_map should use R_ANOMALY constant"
+
     def test_history_length_matches_n_eras(self):
         from grut.derived.cosmology.vacuum import era_map
         result = era_map(n_eras=100)

@@ -380,7 +380,11 @@ era_map: {
         const slider = document.getElementById('ve-slider');
 
         // Pre-compute era map
-        const alpha = 1 - Math.exp(-1), gamma = 0.000982, k = 2*Math.PI/(1.5428-1), N_th = 215;
+        // Correction #14 (April 2026): k uses R_anomaly = 1.15428 from 3-loop CTP.
+        // Previously typed as 1.5428 (typo — dropped leading '1'). Matches
+        // grut/derived/cosmology/vacuum.py after the same correction.
+        const R_ANOMALY = 1.15428;
+        const alpha = 1 - Math.exp(-1), gamma = 0.000982, k = 2*Math.PI/(R_ANOMALY-1), N_th = 215;
         const eras = [{era:0, x:0, target:0, memory:0}];
         let x = 0, mem = 0;
         for (let n = 1; n <= 329; n++) {

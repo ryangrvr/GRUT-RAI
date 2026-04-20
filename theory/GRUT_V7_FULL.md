@@ -590,7 +590,7 @@ where x_n is the vacuum fraction (0 = radiation/matter, 1 = vacuum).
 |:---|:---|:---|:---|
 | alpha_eff | 1 - e^-1 | 0.6321 | One relaxation time per era |
 | gamma | alpha_vac / S | 9.82 × 10^-4 | Memory feedback = vacuum coupling / CTP normalization |
-| k | 2 pi / (R_vol - 1) | 11.58 | Transition sharpness from R_volumetric = 1.5428 |
+| k | 2 pi / (R_anomaly - 1) | 40.73 | Transition sharpness from R_anomaly = 1.15428 (corrected, §26.2; see Correction #14) |
 | N_threshold | From matter dilution: Omega_m(t) = Omega_Lambda | 215 | Matter-Lambda equality |
 | N_total | 13.8 Gyr / tau_0 | 329 | Age of universe / constitutive timescale |
 
@@ -1105,7 +1105,7 @@ The tau_0 branch produces a smooth, monotonic Page curve with turnover at the ha
 | S = 108 pi | 339.292 | CTP normalization (path counting) | **COMPUTED** (combinatorial factor from CTP construction) |
 | tau_0 | 41.9 Myr = 1.322 × 10^15 s | Canonical constitutive relaxation timescale | **COMPUTED** (noise kernel at gold benchmark; derived formula) |
 
-Note: R_anomaly = 1.15428 is the anomaly ratio. R_volumetric = 1.5428 is a different quantity (the volumetric ratio in the cosmological map). These are NOT the same and must not be confused.
+Note (superseded April 2026): an earlier version of this text distinguished R_anomaly = 1.15428 from a separate "R_volumetric = 1.5428" used in the era-map transition sharpness. Correction #14 identified 1.5428 as a typo of R_anomaly = 1.15428 (dropped leading '1'; the digits 5-4-2-8 match exactly). There is no separate R_volumetric quantity in GRUT. The era map's transition sharpness k = 2π/(R_anomaly − 1) uses the single anomaly ratio. See `theory/derivation/CORRECTION_14_RVOL_TYPO.md`.
 
 **The structural derivation (2 axioms + 5 computed + 3 structural = 10 steps):**
 

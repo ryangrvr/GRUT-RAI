@@ -47,8 +47,23 @@ def vacuum_prediction(H_0_kms=70.0, R_choice="hand"):
             "R": R, "R_choice": R_choice, "f_R": 2-R, "status": status}
 
 def era_map(n_eras=329):
-    """Discrete constitutive era map."""
-    alpha = 1-np.exp(-1); gamma = 0.000982; k = 2*np.pi/(1.5428-1); N_th = 215
+    """Discrete constitutive era map.
+
+    CORRECTION #14 (April 2026): The transition sharpness k was previously
+    computed as k = 2π/(1.5428 - 1), where 1.5428 was a typo of R_ANOMALY =
+    1.15428 (dropped leading '1'). The digits 5-4-2-8 match the last four
+    digits of R_ANOMALY. V7 §27's claim of a separate "R_volumetric = 1.5428"
+    was a phantom parameter — it never had a structural derivation because
+    it was never meant to be a distinct quantity. Corrected to use the
+    imported R_ANOMALY constant directly.
+
+    Blast radius: only affects era_map (sigmoid sharpness k changes from
+    11.58 to 40.72). Does NOT affect vacuum_prediction (H_inf, Ω_Λ formula),
+    which is the main cosmological output. All 173 tests pass after fix.
+
+    See `theory/derivation/CORRECTION_14_RVOL_TYPO.md` for the full audit.
+    """
+    alpha = 1-np.exp(-1); gamma = 0.000982; k = 2*np.pi/(R_ANOMALY-1); N_th = 215
     x, mem = 0.0, 0.0; history = []
     for n in range(n_eras):
         arg = min(500, max(-500, k*(n-N_th)))
