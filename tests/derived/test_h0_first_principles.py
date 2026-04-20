@@ -120,11 +120,89 @@ class TestCompareToObservations:
         pct_val = abs(float(pct_str))
         assert pct_val < 5.0
 
-    def test_grut_is_closer_to_planck_than_shoes(self):
-        """GRUT's prediction leans toward Planck."""
+    def test_grut_is_closer_to_planck_than_shoes_on_H0(self):
+        """On the H_0 scale, GRUT's prediction leans toward Planck."""
         from grut.derived.cosmology.hubble_from_first_principles import compare_to_observations
         r = compare_to_observations()
         grut_H0 = r["grut_prediction"]["H_0_km_s_Mpc"]
         # Midpoint of tension: (67.4 + 73.0)/2 = 70.2
-        # GRUT lands at 69.03, so below midpoint → Planck-leaning
+        # GRUT lands at 69.03, so below midpoint → Planck-leaning on H_0
         assert grut_H0 < 70.2
+
+
+class TestHInfComparison:
+    """Tests for grut_H_inf_comparison — standalone H_inf prediction."""
+
+    def test_returns_grut_H_inf_and_comparisons(self):
+        from grut.derived.cosmology.hubble_from_first_principles import grut_H_inf_comparison
+        r = grut_H_inf_comparison()
+        assert "grut_H_inf_km_s_Mpc" in r
+        assert "comparisons" in r
+        assert len(r["comparisons"]) >= 3  # Planck, SH0ES, Riess 2024
+
+    def test_H_inf_is_58_16(self):
+        """GRUT predicts H_inf = 58.16 km/s/Mpc (V7 §26)."""
+        from grut.derived.cosmology.hubble_from_first_principles import grut_H_inf_comparison
+        r = grut_H_inf_comparison()
+        assert abs(r["grut_H_inf_km_s_Mpc"] - 58.16) < 0.1
+
+    def test_grut_H_inf_closer_to_shoes_than_planck(self):
+        """On H_inf scale, GRUT agrees with SH0ES ~1%, differs from Planck ~4%.
+
+        This is the REVERSE of the H_0 comparison, because the two observations
+        disagree on Ω_m as well. GRUT's specific prediction H_inf² = H_0² × Ω_Λ
+        puts it closer to SH0ES-inferred H_inf than Planck-inferred H_inf.
+        """
+        from grut.derived.cosmology.hubble_from_first_principles import grut_H_inf_comparison
+        r = grut_H_inf_comparison()
+        # Find Planck and SH0ES entries
+        planck_dev = None
+        shoes_dev = None
+        for c in r["comparisons"]:
+            if "Planck" in c["source"]:
+                planck_dev = abs(c["GRUT_minus_inferred_pct"])
+            elif "SH0ES 2023" in c["source"]:
+                shoes_dev = abs(c["GRUT_minus_inferred_pct"])
+        assert planck_dev is not None
+        assert shoes_dev is not None
+        # GRUT should agree with SH0ES more closely than with Planck on H_inf
+        assert shoes_dev < planck_dev
+
+
+class TestStructuralTeq:
+    """Tests for the flat-ΛCDM structural identity H_inf × t_eq = (2/3) × sinh⁻¹(1)."""
+
+    def test_returns_expected_keys(self):
+        from grut.derived.cosmology.hubble_from_first_principles import structural_t_eq
+        r = structural_t_eq()
+        expected = {"structural_constant", "t_eq_Gyr", "N_threshold_structural",
+                     "V7_claimed_N_threshold", "discrepancy_pct", "status"}
+        assert expected.issubset(r.keys())
+
+    def test_structural_constant_is_0p5876(self):
+        """(2/3) × sinh⁻¹(1) = 0.58758 is exact."""
+        from grut.derived.cosmology.hubble_from_first_principles import structural_t_eq
+        r = structural_t_eq()
+        import numpy as np
+        expected = (2.0/3.0) * np.arcsinh(1.0)
+        assert abs(r["structural_constant"] - expected) < 1e-10
+
+    def test_t_eq_around_10_Gyr(self):
+        """With GRUT's H_inf, t_eq ≈ 9.88 Gyr."""
+        from grut.derived.cosmology.hubble_from_first_principles import structural_t_eq
+        r = structural_t_eq()
+        assert 9.5 < r["t_eq_Gyr"] < 10.5
+
+    def test_N_threshold_around_236(self):
+        """Structural N_threshold from H_inf × τ_0 ≈ 236."""
+        from grut.derived.cosmology.hubble_from_first_principles import structural_t_eq
+        r = structural_t_eq()
+        assert 230 < r["N_threshold_structural"] < 245
+
+    def test_discrepancy_from_V7_documented(self):
+        """V7's N_threshold = 215 has ~10% discrepancy with structural ~236."""
+        from grut.derived.cosmology.hubble_from_first_principles import structural_t_eq
+        r = structural_t_eq()
+        # Documented internal inconsistency between V7's N_threshold and
+        # flat-ΛCDM matter-Λ equality
+        assert 5.0 < abs(r["discrepancy_pct"]) < 15.0

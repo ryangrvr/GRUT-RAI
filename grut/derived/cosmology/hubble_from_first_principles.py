@@ -149,34 +149,125 @@ def compare_to_observations():
     }
 
 
-if __name__ == "__main__":
-    result = grut_H_0_prediction()
+def grut_H_inf_comparison():
+    """GRUT's H_inf as a standalone falsifiable prediction.
+
+    The structural identity H_inf² = H_0² × Ω_Λ means GRUT predicts a
+    specific value of H_0 × √Ω_Λ independent of Ω_m/Ω_Λ individually.
+
+    This is the strongest falsifiable cosmological prediction GRUT makes:
+    any (H_0, Ω_Λ) pair consistent with flat ΛCDM should satisfy
+    H_0 × √Ω_Λ = 58.16 km/s/Mpc.
+    """
+    from grut.foundation.anomaly import R_ANOMALY, S_CTP
+    tau_0_s = TAU_0_DEFAULT
+    H_inf_hz = (2 - R_ANOMALY) / (S_CTP * tau_0_s)
+    H_inf_kms = H_inf_hz * HZ_TO_KMSMPC
+
+    sources = [
+        ("Planck CMB", 67.4, 0.6889),
+        ("SH0ES 2023", 73.0, 0.6466),
+        ("Riess 2024", 73.5, 0.6466),  # Ω_Λ approximate
+    ]
+
+    result = {
+        "grut_H_inf_km_s_Mpc": H_inf_kms,
+        "structural_identity": "H_inf² = H_0² × Ω_Λ (flat ΛCDM)",
+        "comparisons": [],
+    }
+
+    for name, H_0, OL in sources:
+        inferred_H_inf = H_0 * np.sqrt(OL)
+        dev_pct = (H_inf_kms / inferred_H_inf - 1) * 100
+        result["comparisons"].append({
+            "source": name,
+            "H_0": H_0,
+            "Omega_Lambda": OL,
+            "inferred_H_inf_km_s_Mpc": inferred_H_inf,
+            "GRUT_minus_inferred_pct": dev_pct,
+        })
+
+    return result
+
+
+def structural_t_eq():
+    """Matter-Λ equality time from flat-ΛCDM structural identity.
+
+    In flat ΛCDM, H_inf × t_eq = (2/3) × sinh⁻¹(1) = 0.5876 is an
+    invariant — independent of Ω_m/Ω_Λ individually. Given GRUT's H_inf,
+    this fixes t_eq structurally.
+
+    Returns t_eq in Gyr and the corresponding N_threshold (era count).
+    """
+    from grut.foundation.anomaly import R_ANOMALY, S_CTP
+    tau_0_s = TAU_0_DEFAULT
+    H_inf_hz = (2 - R_ANOMALY) / (S_CTP * tau_0_s)
+
+    K_eq = (2.0/3.0) * np.arcsinh(1.0)  # = 0.58758
+    t_eq_s = K_eq / H_inf_hz
+    t_eq_Gyr = t_eq_s / YEAR_S / 1e9
+    N_threshold = t_eq_s / tau_0_s
+
+    return {
+        "structural_constant": K_eq,
+        "constant_name": "H_inf × t_eq = (2/3) × sinh⁻¹(1) in flat ΛCDM",
+        "t_eq_Gyr": t_eq_Gyr,
+        "N_threshold_structural": N_threshold,
+        "V7_claimed_N_threshold": 215,
+        "discrepancy_pct": (N_threshold / 215 - 1) * 100,
+        "status": (
+            "COMPUTED — structural identity. "
+            "V7's N_threshold = 215 differs by ~10%, suggesting it is fit "
+            "(not fully structural) or the constitutive cosmology departs "
+            "from flat ΛCDM at the ~10% level at late times."
+        ),
+    }
+
+
+def run_all():
+    """Run all predictions and print the full report."""
     print("=" * 65)
-    print("GRUT first-principles H_0 prediction (prototype, V8 track)")
+    print("GRUT cosmological predictions (V7 §26 + prototype extensions)")
     print("=" * 65)
-    print(f"\nInputs (from GRUT):")
-    print(f"  R = {result['R']:.5f}                  (3-loop CTP on S⁴)")
-    print(f"  τ_0 = {result['tau_0_Myr']:.2f} Myr            (noise kernel, gold benchmark)")
-    print(f"  N_eras = {result['n_eras']}                (era map)")
-    print(f"\nDerived:")
-    print(f"  H_inf  = {result['H_inf_km_s_Mpc']:.2f} km/s/Mpc")
-    print(f"  age    = {result['age_Gyr']:.2f} Gyr")
-    print(f"\nOutputs (flat ΛCDM Friedmann):")
-    print(f"  Ω_m    = {result['Omega_m']:.4f}")
-    print(f"  Ω_Λ    = {result['Omega_Lambda']:.4f}")
-    print(f"  H_0    = {result['H_0_km_s_Mpc']:.2f} km/s/Mpc")
     print()
 
-    print("=" * 65)
-    print("Comparison to observations")
-    print("=" * 65)
-    comp = compare_to_observations()
-    print(f"\nGRUT prediction:  H_0 = {comp['grut_prediction']['H_0_km_s_Mpc']:.2f} km/s/Mpc,"
-          f"  Ω_m = {comp['grut_prediction']['Omega_m']:.4f}")
-    print(f"Planck CMB:       H_0 = 67.4 km/s/Mpc,   Ω_m = 0.3111")
-    print(f"SH0ES ladder:     H_0 = 73.0 km/s/Mpc,   Ω_m = 0.3534")
-    print(f"Riess 2024:       H_0 = 73.5 km/s/Mpc")
+    # H_inf standalone
+    hinf = grut_H_inf_comparison()
+    print("1. H_inf prediction (COMPUTED, V7 §26.2)")
+    print(f"   GRUT: H_inf = {hinf['grut_H_inf_km_s_Mpc']:.2f} km/s/Mpc")
+    print(f"   Identity: {hinf['structural_identity']}")
+    print(f"   Observed H_0 × √Ω_Λ from different sources:")
+    for c in hinf["comparisons"]:
+        print(f"     {c['source']:15s} -> {c['inferred_H_inf_km_s_Mpc']:.2f} km/s/Mpc  "
+              f"(GRUT {c['GRUT_minus_inferred_pct']:+.2f}%)")
     print()
-    print(f"GRUT vs Planck H_0: {comp['grut_vs_planck_H0']}")
-    print(f"GRUT vs SH0ES H_0:  {comp['grut_vs_shoes_H0']}")
-    print(f"GRUT vs Planck Ω_m: {comp['grut_vs_planck_Om']}")
+
+    # Structural t_eq
+    teq = structural_t_eq()
+    print("2. Matter-Λ equality (structural identity)")
+    print(f"   H_inf × t_eq = {teq['structural_constant']:.5f} (flat ΛCDM)")
+    print(f"   t_eq = {teq['t_eq_Gyr']:.2f} Gyr")
+    print(f"   N_threshold = {teq['N_threshold_structural']:.1f}")
+    print(f"   V7 claims N_threshold = 215 (deviation {teq['discrepancy_pct']:+.1f}%)")
+    print()
+
+    # Full H_0 prediction
+    result = grut_H_0_prediction()
+    print("3. H_0 prediction (one-parameter — uses observed age)")
+    print(f"   Inputs: R = {result['R']:.5f}, τ_0 = {result['tau_0_Myr']:.2f} Myr, N_eras = {result['n_eras']}")
+    print(f"   Age (V7): {result['age_Gyr']:.2f} Gyr")
+    print(f"   Outputs: Ω_m = {result['Omega_m']:.4f}, Ω_Λ = {result['Omega_Lambda']:.4f}")
+    print(f"   ===> H_0 = {result['H_0_km_s_Mpc']:.2f} km/s/Mpc")
+    print()
+
+    # Comparison
+    comp = compare_to_observations()
+    print("4. Observational comparison")
+    print(f"   Planck CMB:    67.4 km/s/Mpc  (GRUT {comp['grut_vs_planck_H0']})")
+    print(f"   GRUT:          {comp['grut_prediction']['H_0_km_s_Mpc']:.2f} km/s/Mpc")
+    print(f"   SH0ES 2023:    73.0 km/s/Mpc  (GRUT {comp['grut_vs_shoes_H0']})")
+    print(f"   Riess 2024:    73.5 km/s/Mpc")
+
+
+if __name__ == "__main__":
+    run_all()
