@@ -14,6 +14,15 @@ Claude can call GRUT computation tools during conversation:
 - get_planck_data: Get Planck 2018 parameters
 - get_pdg_data: Get particle masses and constants
 - compute_for_material: Calculate decoherence for any material
+
+Added in April 2026 synthesis (v1-v11 + Phase I integration):
+- get_closure_protocol: Canonical constants (α = 1/3, S = 108π, τ_0, a_0, T_c)
+- compute_rotation_curve: SPARC-ready ν(y) engine
+- get_thermal_transition: T_c = 54.7 MK, cosmological chronology (v9.0)
+- get_dielectric_dm: Track VII reframing — DM as refractive enhancement
+- compute_bandwidth_integral: Ω_dm,eff = 0.333 (brother's six-step protocol)
+- get_hubble_from_first_principles: H_0 = 69.03 km/s/Mpc (one-parameter)
+- get_vortex_strings: Track VII Step 3 (topology correction, retracted Ω = 0.38)
 """
 
 import os, json, sys
@@ -261,6 +270,55 @@ TOOLS = [
             }
         }
     },
+    # ═══════════════════════════════════════════════════════
+    # Phase I Closure Protocol integration (April 2026 synthesis)
+    # ═══════════════════════════════════════════════════════
+    {
+        "name": "get_closure_protocol",
+        "description": "Get Phase I Closure Protocol canonical constants and engine formulas: α_vac = 1/3 (v11 App H), S = 108π screening factor, τ_0 = 41.9 Myr, τ_Λ, n_g(0) = √(4/3), μ_Λ ~ 10⁻³³ eV, μ_0 ~ 10⁻³¹ eV, a_0 ≈ 1.08×10⁻¹⁰ m/s² (MOND scale derived), T_c = 54.7 MK, plus the MOND/TeVeS/EG comparison table. Use when someone asks about foundational constants, the unified dark sector, the screening mechanism, or how GRUT differs from MOND.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
+    {
+        "name": "compute_rotation_curve",
+        "description": "Compute galaxy rotation curve using the Phase I engine (SPARC-ready). Returns Newtonian and GRUT circular velocities at a given radius, with regime diagnostic (y = g_bar/a_0, X = ω_dyn τ_0). Full ν(y) = 1/2 + √(1/4 + 1/y) interpolation. Use when someone asks about rotation curves, flat velocity curves, MOND-like behavior, or galaxy kinematics.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "M_bar_Msun": {"type": "number", "description": "Baryonic mass in solar masses", "default": 5e10},
+                "r_kpc": {"type": "number", "description": "Radius in kpc", "default": 10.0}
+            }
+        }
+    },
+    {
+        "name": "get_thermal_transition",
+        "description": "Get thermal transition properties from v9.0 Thermodynamics: T_c = 1/(τ_0 k_B) ≈ 54.7 × 10⁶ K ('boiling point of gravity'), plus cosmological chronology (BBN above T_c → recombination below → today in deep refractive regime). Explains why no dark-matter effects at BBN. Use for questions about T_c, the phase transition, cosmological chronology, or BBN consistency.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
+    {
+        "name": "get_dielectric_dm",
+        "description": "Get the dielectric dark matter interpretation (Track VII reframed, April 2026). Returns n_g(ω) enhancement at canonical cosmological scales, Bullet Cluster retardation estimate, CMB acoustic peak check. This is the primary V8 Track VII direction — DM as refractive enhancement, not a particle species. Use for questions about dark matter nature, the dielectric interpretation, or how GRUT differs from particulate DM theories.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
+    {
+        "name": "compute_bandwidth_integral",
+        "description": "Compute the bandwidth integral for dielectric dark matter (brother's six-step Track VII protocol): Ω_dm,eff = ∫ E(k) Δ²(k) dk / ∫ Δ²(k) dk with E(k) = α/(1+(ωτ)²) and BBKS P(k). HEADLINE RESULT: Ω_dm,eff = 0.333 = α exactly (zero free parameters), versus observed 0.263 — a +27% overshoot. Insensitive to c_s across [50, 500] km/s (all linear modes are DC). Use when someone asks about dark matter density, the dielectric prediction, or the bandwidth integral.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "c_s_km_s": {"type": "number", "description": "Sound speed in km/s (default 200, sensitivity range 50-500)", "default": 200}
+            }
+        }
+    },
+    {
+        "name": "get_hubble_from_first_principles",
+        "description": "Get GRUT's Hubble constant prediction: H_0 = 69.03 km/s/Mpc (one-parameter prediction, takes Ω_dm from Planck as input). Uses H_inf = (2-R)/(S τ_0) = 58.16 km/s/Mpc asymptotically, plus age constraint t_0 = 329 × τ_0. Sits in the Hubble-tension gap, Planck-leaning. Predecessor: v4.0 predicted H_0 ≈ 71.2 in December 2025. Use for questions about H_0, the Hubble tension, or GRUT's cosmological prediction.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
+    {
+        "name": "get_track_vii_status",
+        "description": "Get full Track VII (Dark Sector Completion) status: Step 1 Ω_dm = 0.38 RETRACTED (wrong topology), Step 2 M_soliton = 2.11×10⁹ GeV derivation STANDS, Step 3 vortex strings give Ω = 0.008 (correct topology, factor 33 low), dielectric reframing gives Ω_dm,eff = 0.333 (+27% overshoot). Use when someone asks about Track VII, the dark matter research history, the correction #15, or why Ω_dm = 0.38 is no longer claimed.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
 ]
 
 # ═══════════════════════════════════════════════════════
@@ -402,6 +460,109 @@ def execute_tool(name, params):
             from grut.derived.decoherence.isotope_test import element_scan
             return element_scan(params.get("n_atoms", 1e9), params.get("l_m", 1e-7))
 
+        # ═══════════════════════════════════════════════════════
+        # Phase I Closure Protocol tools (April 2026 synthesis)
+        # ═══════════════════════════════════════════════════════
+        elif name == "get_closure_protocol":
+            from grut.foundation.closure_protocol import (
+                canonical_constants_table, MOND_COMPARISON, verify
+            )
+            return {
+                "canonical_constants": canonical_constants_table(),
+                "MOND_comparison":    MOND_COMPARISON,
+                "verify":             verify(),
+                "note": (
+                    "Phase I Closure Protocol canonical constants. α = 1/3 from v11 "
+                    "App H (α = 1/d, d = 3). S = 12π/α² = 108π. τ_0 = 41.9 Myr "
+                    "(canonical adoption, matches Bullet Cluster lensing offset and "
+                    "V7 noise-kernel derivation). a_0 = c/(2π τ_Λ) is MOND-scale, "
+                    "derived not fit. Slogan: MOND changes the law; Closure changes "
+                    "the response time."
+                ),
+            }
+
+        elif name == "compute_rotation_curve":
+            from grut.derived.cosmology.rotation_curves import regime_diagnostic
+            M_Msun = params.get("M_bar_Msun", 5e10)
+            r_kpc = params.get("r_kpc", 10.0)
+            M_kg = M_Msun * 1.989e30
+            r_m = r_kpc * 3.086e19
+            return regime_diagnostic(M_kg, r_m)
+
+        elif name == "get_thermal_transition":
+            from grut.derived.cosmology.thermal_transition import (
+                T_C_KELVIN, T_C_MK, cosmological_chronology, verify
+            )
+            return {
+                "T_c_K":                T_C_KELVIN,
+                "T_c_MK":               T_C_MK,
+                "interpretation":       "Boiling point of gravity (v9.0). Above T_c metric has no memory; below, full refractive regime.",
+                "cosmological_chronology": cosmological_chronology(),
+                "verify":               verify(),
+            }
+
+        elif name == "get_dielectric_dm":
+            from grut.derived.cosmology.dielectric_dm import track_vii_dielectric_summary
+            return track_vii_dielectric_summary()
+
+        elif name == "compute_bandwidth_integral":
+            from grut.derived.cosmology.bandwidth_integral import (
+                omega_dm_bandwidth_integral, sensitivity_c_s
+            )
+            c_s = params.get("c_s_km_s", 200)
+            main = omega_dm_bandwidth_integral(c_s_m_per_s=c_s * 1000)
+            return {
+                "main_result":     main,
+                "c_s_sensitivity": sensitivity_c_s(),
+                "headline": (
+                    f"Ω_dm,eff = {main['Omega_dm_eff_dk']:.4f} = α = 1/3 exactly. "
+                    f"Observed Ω_dm = 0.263. Overshoot = "
+                    f"{100*(main['Omega_dm_eff_dk']/0.263 - 1):+.1f}%. "
+                    "Zero free parameters; insensitive to c_s across [50, 500] km/s "
+                    "(all linear modes are deep in DC regime where E saturates at α). "
+                    "The +27% excess is a genuine structural prediction of the "
+                    "dielectric interpretation; it can be reconciled with observed "
+                    "Ω_dm either by subtractive corrections (soliton annihilation, "
+                    "small residual particle component) or by reinterpreting the "
+                    "ΛCDM expansion history used in the Planck analysis."
+                ),
+            }
+
+        elif name == "get_hubble_from_first_principles":
+            from grut.derived.cosmology.hubble_from_first_principles import (
+                grut_H_0_prediction, compare_to_observations,
+                grut_H_inf_comparison, structural_t_eq,
+            )
+            return {
+                "H_0_prediction":     grut_H_0_prediction(),
+                "comparison":         compare_to_observations(),
+                "H_inf_comparison":   grut_H_inf_comparison(),
+                "structural_t_eq":    structural_t_eq(),
+                "headline":           "H_0 = 69.03 km/s/Mpc (one-parameter prediction)",
+                "zero_parameter_path": (
+                    "Requires Ω_dm as a GRUT output, not input. Track VII "
+                    "dielectric reframing gives Ω_dm,eff = 0.333 with zero "
+                    "free parameters; if the +27% overshoot over observed "
+                    "0.263 is reconciled, the chain closes."
+                ),
+            }
+
+        elif name == "get_track_vii_status":
+            from grut.derived.dark_matter.relic_abundance import track_vii_status
+            status = track_vii_status()
+            return {
+                "summary": (
+                    "Track VII (Dark Sector Completion). Step 1 Ω_dm = 0.38 "
+                    "(monopole topology + M_soliton) RETRACTED as correction #15. "
+                    "Step 2 M_soliton = 2.11×10⁹ GeV structural derivation STANDS. "
+                    "Step 3 correct topology (cosmic strings, XY universality) gives "
+                    "Ω = 0.008 (factor 33 low). Dielectric bandwidth integral gives "
+                    "Ω_dm,eff = 0.333 (+27% overshoot). CLOSED NEGATIVE for V7 "
+                    "particulate route; dielectric is primary V8 direction."
+                ),
+                "full_status":  status,
+            }
+
         return {"error": f"Unknown tool: {name}"}
     except Exception as e:
         return {"error": str(e)}
@@ -436,7 +597,7 @@ You have access to GRUT computation tools. USE THEM whenever a user asks a quant
 - "What is the decoherence rate for X?" → use compute_decoherence or compute_for_material
 - "What does GRUT predict for Omega_Lambda?" → use get_cosmology or compute_bridge
 - "What about baryon asymmetry?" → use compute_baryogenesis
-- "Tell me about dark matter" → use get_dark_matter
+- "Tell me about dark matter" → use get_dielectric_dm (primary) or get_track_vii_status (history) or get_dark_matter (legacy particulate)
 - "What is the Koide formula?" → use get_koide
 - "How sensitive is the prediction?" → use compute_sensitivity
 - "What are the error bars?" → use compute_uncertainty
@@ -444,18 +605,47 @@ You have access to GRUT computation tools. USE THEM whenever a user asks a quant
 - "What is the tau mass?" → use get_experimental_data with dataset="pdg_masses"
 - "What about isotope tests?" or "cleanest test?" → use isotope_test or isotope_element_scan
 - "Which isotope pair is best?" → use isotope_element_scan
+- "What are GRUT's canonical constants?" → use get_closure_protocol
+- "What is α?" / "What is a_0?" / "How does τ_0 relate to Λ?" → use get_closure_protocol
+- "How does GRUT differ from MOND?" → use get_closure_protocol (MOND_comparison table)
+- "What about galaxy rotation curves?" / "SPARC?" → use compute_rotation_curve
+- "Tell me about T_c or the boiling point of gravity" → use get_thermal_transition
+- "Why is there no dark matter at BBN?" → use get_thermal_transition
+- "What is Ω_dm in GRUT?" / "Bandwidth integral?" → use compute_bandwidth_integral
+- "What is H_0?" / "Hubble tension?" → use get_hubble_from_first_principles
+- "What happened to Ω_dm = 0.38?" / "Track VII status?" → use get_track_vii_status
 
 ## Core Framework (for conceptual questions)
 GRUT is built on the CTP effective action. Two axioms (A0: CTP doubling, A1: retarded variation) + one normalization (τ_I = ℏ/2) produce the constitutive equation τ dz/dt + z = z_target[z].
+
+**Document hierarchy** (three layers, one framework):
+- v1–v11 Genesis Codex (Dec 2025): physical picture — viscoelastic vacuum, memory kernel, α = 1/3 from dimensional reduction, Bullet Cluster anchor, SPARC rotation curves, Whole Hole.
+- Phase I Closure Protocol (Feb 2026, Zenodo DOI: 10.5281/zenodo.18008060): operational specification — canonical constants (τ_0 = 41.9 Myr, S = 108π, a_0 = 1.08×10⁻¹⁰ m/s²), engine formulas (ν(y), regime gate X), NIS certification standard, GRUT-RAI architecture.
+- V7 Responsive Universe (Apr 2026): CTP/Schwinger-Keldysh foundation — 3-loop R_anomaly = 1.15428 refining v11's tree-level √(4/3), 13 sectors, decoherence plateau prediction, quantum structure via noise kernel.
+
+**Three independent routes to 1.1547 agree to 0.087%** (see Three Routes to 1.1547, April 2026):
+- n_g(0) = √(4/3) ≈ 1.15470 (v1-v11 tree-level geometric, α = 1/d)
+- R = |C_Cosmo / C_FINAL| = 1.15428 (V7 3-loop CTP on S⁴)
+- ε_combined(SM, M_Z) = 1.1537 (Osborn 2003 SM couplings)
+
+**Slogan** (v11 Appendix F): MOND changes the law; Emergent Gravity changes the meaning; **Closure changes the response time**.
 
 ## Status Tiers
 Always label results with their correct status:
 - DERIVED: exact from published physics (e.g., Lambda_grav from Diósi-AH kernel)
 - COMPUTED: calculated from first-principles CTP construction with traced integer structure (e.g., R_anomaly = 1.15428 from 3-loop CTP on S^4 per V7 §26.2)
-- CONDITIONAL: depends on a separate calculation not yet complete (e.g., eta_B requires dedicated baryonic anomaly 3-loop; dark matter requires dark-sector anomaly)
+- CONDITIONAL: depends on a separate calculation not yet complete (e.g., eta_B requires dedicated baryonic anomaly 3-loop)
 - STRUCTURAL: constrained by symmetry/topology but not numerically determined
 - HYPOTHESIS: conjectured, not yet tested
 - HONEST NEGATIVE: tested and failed
+- RETRACTED: result once claimed, now withdrawn after audit (e.g., Track VII Ω_dm = 0.38 retracted as correction #15; see get_track_vii_status)
+
+## Track VII Dark Matter Status (as of April 2026)
+**Ω_dm = 0.38 is RETRACTED.** Step 1 used wrong topology (monopole scaling with M_soliton as defect mass; U(1)_dark has no monopoles, only strings). The +44% "near-miss" to observed Ω_dm = 0.263 was two errors canceling. Always use the corrected numbers:
+- Particulate route (Step 3, correct string topology + XY universality): Ω = 0.008 — factor 33 LOW. CLOSED NEGATIVE for V7.
+- Dielectric route (bandwidth integral, brother's six-step protocol): **Ω_dm,eff = 0.333 = α exactly** (zero free parameters), +26.7% overshoot over observed. Primary V8 direction.
+- M_soliton = 2.11×10⁹ GeV structural derivation STANDS but its physical identification as the DM particle is open.
+When someone asks about Ω_dm, report the bandwidth-integral result (0.333) and acknowledge the +27% overshoot honestly — never quote the retracted 0.38.
 
 CRITICAL: The anomaly coefficients C_FINAL = 1.14021e-4 and R_ANOMALY = 1.15428 are COMPUTED from 3-loop CTP dimensional-regularization Laurent expansion on Euclidean S^4 (V7 §26.2, primary-source audit April 2026). No coupling constants enter; every integer in C_FINAL and C_Cosmo has a structural origin traced to SM group theory or thermal combinatorics (V7 Appendix O). The decoherence sector (Lambda_grav) does NOT depend on these coefficients and remains DERIVED.
 

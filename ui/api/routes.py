@@ -653,3 +653,164 @@ def robustness_r():
 def robustness_mc():
     from grut.utils.robustness import simultaneous_variation
     return jsonify(simultaneous_variation())
+
+# ════════════════════════════════════════════════════════════════════
+# Phase I Closure Protocol & April 2026 Synthesis
+# ════════════════════════════════════════════════════════════════════
+
+@api.route('/closure_protocol')
+def closure_protocol():
+    """Phase I canonical constants + MOND comparison."""
+    from grut.foundation.closure_protocol import (
+        canonical_constants_table, MOND_COMPARISON, verify
+    )
+    return jsonify({
+        "canonical_constants": canonical_constants_table(),
+        "MOND_comparison":     MOND_COMPARISON,
+        "verify":              verify(),
+    })
+
+@api.route('/rotation_curve')
+def rotation_curve():
+    """GRUT rotation curve with regime diagnostic."""
+    from grut.derived.cosmology.rotation_curves import regime_diagnostic
+    M_Msun = float(request.args.get('M_Msun', 5e10))
+    r_kpc  = float(request.args.get('r_kpc', 10.0))
+    M_kg = M_Msun * 1.989e30
+    r_m  = r_kpc * 3.086e19
+    return jsonify(regime_diagnostic(M_kg, r_m))
+
+@api.route('/rotation_curve/sweep')
+def rotation_curve_sweep():
+    """Scan across radii."""
+    from grut.derived.cosmology.rotation_curves import rotation_curve as rc
+    M_Msun = float(request.args.get('M_Msun', 5e10))
+    r_min_kpc = float(request.args.get('r_min', 0.5))
+    r_max_kpc = float(request.args.get('r_max', 100.0))
+    n         = int(request.args.get('n', 30))
+    M_kg = M_Msun * 1.989e30
+    radii = np.logspace(np.log10(r_min_kpc * 3.086e19),
+                         np.log10(r_max_kpc * 3.086e19), n)
+    result = rc(M_kg, radii)
+    return jsonify(result)
+
+@api.route('/thermal_transition')
+def thermal_transition():
+    """T_c = 54.7 MK and cosmological chronology."""
+    from grut.derived.cosmology.thermal_transition import (
+        T_C_KELVIN, T_C_MK, cosmological_chronology, verify
+    )
+    return jsonify({
+        "T_c_K":  T_C_KELVIN,
+        "T_c_MK": T_C_MK,
+        "cosmological_chronology": cosmological_chronology(),
+        "verify": verify(),
+    })
+
+@api.route('/dielectric_dm')
+def dielectric_dm():
+    """Track VII reframing: DM as refractive enhancement."""
+    from grut.derived.cosmology.dielectric_dm import track_vii_dielectric_summary
+    return jsonify(track_vii_dielectric_summary())
+
+@api.route('/bandwidth_integral')
+def bandwidth_integral():
+    """Headline result: Ω_dm,eff = 0.333 from the six-step protocol."""
+    from grut.derived.cosmology.bandwidth_integral import (
+        omega_dm_bandwidth_integral, sensitivity_c_s,
+        sensitivity_tau_0, sensitivity_alpha,
+    )
+    c_s_km_s = float(request.args.get('c_s_km_s', 200))
+    main = omega_dm_bandwidth_integral(c_s_m_per_s=c_s_km_s * 1000)
+    return jsonify({
+        "main_result":        main,
+        "sensitivity_c_s":    sensitivity_c_s(),
+        "sensitivity_tau_0":  sensitivity_tau_0(),
+        "sensitivity_alpha":  sensitivity_alpha(),
+        "headline": (
+            f"Omega_dm_eff = {main['Omega_dm_eff_dk']:.4f} = alpha = 1/3 exactly. "
+            f"Overshoot over observed 0.263: "
+            f"{100*(main['Omega_dm_eff_dk']/0.263 - 1):+.1f}%."
+        ),
+    })
+
+@api.route('/hubble_from_first_principles')
+def hubble_first_principles():
+    """H_0 = 69.03 km/s/Mpc (one-parameter prediction)."""
+    try:
+        from grut.derived.cosmology.hubble_from_first_principles import (
+            grut_H_0_prediction, compare_to_observations,
+            grut_H_inf_comparison, structural_t_eq,
+        )
+        return jsonify({
+            "H_0_prediction":   grut_H_0_prediction(),
+            "comparison":       compare_to_observations(),
+            "H_inf_comparison": grut_H_inf_comparison(),
+            "structural_t_eq":  structural_t_eq(),
+            "headline": (
+                "H_0 = 69.03 km/s/Mpc (ONE-PARAMETER prediction; takes Omega_dm "
+                "from Planck as input). Zero-parameter H_0 requires Track VII "
+                "closure — dielectric bandwidth integral gives Omega_dm_eff = "
+                "0.333 with +27% overshoot over observed 0.263."
+            ),
+        })
+    except Exception as e:
+        return jsonify({
+            "H_0_km_s_Mpc":   69.03,
+            "H_inf_km_s_Mpc": 58.16,
+            "status":         "ONE-PARAMETER (takes Omega_dm from Planck as input)",
+            "predecessor":    "v4.0 December 2025 predicted H_0 ~ 71.2",
+            "error":          str(e) if e else None,
+        })
+
+@api.route('/track_vii_status')
+def track_vii_status():
+    """Full Track VII history: Step 1 retracted, Step 3 reopened, dielectric = 0.333."""
+    from grut.derived.dark_matter.relic_abundance import track_vii_status as get_status
+    return jsonify(get_status())
+
+@api.route('/track_vii/vortex_strings')
+def track_vii_vortex():
+    """Step 3 topology-corrected calculation."""
+    from grut.derived.dark_matter.vortex_strings import track_vii_step_3_summary
+    return jsonify(track_vii_step_3_summary())
+
+@api.route('/track_vii/kibble_zurek')
+def track_vii_kz():
+    """Step 1 machinery (Omega_dm = 0.38 retracted; xi_KZ calculation reused)."""
+    from grut.derived.dark_matter.kibble_zurek import track_vii_step_1_summary
+    return jsonify(track_vii_step_1_summary())
+
+@api.route('/three_routes')
+def three_routes():
+    """The three independent routes to 1.1547 — structural continuity evidence."""
+    from grut.foundation.anomaly import R_ANOMALY
+    from grut.foundation.closure_protocol import N_G_DC
+    return jsonify({
+        "routes": [
+            {"name": "n_g(0) = sqrt(4/3)",
+             "value": N_G_DC,
+             "inputs": "alpha = 1/d = 1/3 (v11 App H, dimensional reduction, zero free params)",
+             "framework": "Nonlocal EFT (v1-v11 Closure Framework)"},
+            {"name": "R = |C_Cosmo/C_FINAL|",
+             "value": R_ANOMALY,
+             "inputs": "pi, ln 2, zeta(3), SM group-theory integers",
+             "framework": "3-loop CTP on S^4 (V7 §26)"},
+            {"name": "epsilon_combined(SM, M_Z)",
+             "value": 1.1537,
+             "inputs": "SU(3) x SU(2) x U(1) group theory + alpha_s(M_Z) = 0.1181",
+             "framework": "Osborn 2003 local RG (1-loop coupling)"},
+        ],
+        "pairwise_agreement": {
+            "n_g_vs_R":       "0.036%",
+            "R_vs_epsilon":   "0.050%",
+            "n_g_vs_epsilon": "0.087%",
+        },
+        "interpretation": (
+            "R = sqrt(4/3) * (1 + delta_3loop) with delta = -3.6e-4. "
+            "Tree-level geometric value refined by 3-loop radiative correction, "
+            "cross-confirmed by Osborn coupling expansion. Three routes, zero "
+            "shared inputs, <0.1% agreement. See theory/GRUT_V7_FULL.md §0.5 "
+            "and the companion preprint 'Three Routes to 1.1547' (April 2026)."
+        ),
+    })
