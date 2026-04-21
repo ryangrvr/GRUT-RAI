@@ -173,6 +173,101 @@
 <div id="tab-experiments" class="tab-content" style="display:none">
     <div class="exp-layout">
 
+        <!-- ═════════════════════════════════════════════════════════════ -->
+        <!-- INTERACTIVE PLAYGROUND — tune sliders, watch GRUT respond      -->
+        <!-- ═════════════════════════════════════════════════════════════ -->
+        <div class="exp-hero">
+            <h2>Interactive Playground</h2>
+            <p>Move the sliders. Watch GRUT respond physically. Every number is live from the engine — no hardcoded answers.</p>
+        </div>
+
+        <!-- Widget 1: Bandwidth Integral (headline result) -->
+        <div class="widget">
+            <div class="widget-head">
+                <h3>Bandwidth Integral — Ω<sub>dm,eff</sub> Live</h3>
+                <div class="widget-stats">
+                    <div><span class="stat-label">Ω<sub>dm,eff</sub></span><span id="bw-omega" class="stat-val">0.333</span></div>
+                    <div><span class="stat-label">OBSERVED</span><span class="stat-val">0.263</span></div>
+                    <div><span class="stat-label">OVERSHOOT</span><span id="bw-overshoot" class="stat-val">+26.7%</span></div>
+                </div>
+            </div>
+            <div class="widget-badge-row">
+                <span id="bw-badge" class="widget-badge badge-full">FULL ENHANCEMENT (DC REGIME)</span>
+                <span class="widget-sub">α/(1+(ωτ₀)²) Lorentzian · BBKS P(k) · Planck cosmology</span>
+            </div>
+            <div class="widget-chart"><canvas id="chart-bandwidth"></canvas></div>
+            <div class="widget-sliders">
+                <div class="slider-row">
+                    <label>α (vacuum impedance)</label>
+                    <input type="range" id="bw-alpha" min="0.28" max="0.38" step="0.001" value="0.3333">
+                    <span id="bw-alpha-val" class="slider-val">0.333</span>
+                </div>
+                <div class="slider-row">
+                    <label>τ₀ factor</label>
+                    <input type="range" id="bw-tau" min="0.9" max="1.1" step="0.01" value="1.0">
+                    <span id="bw-tau-val" class="slider-val">41.9 Myr</span>
+                </div>
+                <div class="slider-row">
+                    <label>c<sub>s</sub> (km/s)</label>
+                    <input type="range" id="bw-cs" min="50" max="500" step="10" value="200">
+                    <span id="bw-cs-val" class="slider-val">200</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Widget 2: Rotation Curve -->
+        <div class="widget">
+            <div class="widget-head">
+                <h3>Rotation Curve — ν(y) Engine</h3>
+                <div class="widget-stats">
+                    <div><span class="stat-label">v<sub>FLAT</sub></span><span id="rc-vflat" class="stat-val">165 km/s</span></div>
+                    <div><span class="stat-label">y = g/a₀</span><span id="rc-y" class="stat-val">0.66</span></div>
+                    <div><span class="stat-label">X = ωτ₀</span><span id="rc-x" class="stat-val">0.63</span></div>
+                </div>
+            </div>
+            <div class="widget-badge-row">
+                <span id="rc-badge" class="widget-badge badge-intermediate">INTERMEDIATE REGIME</span>
+                <span class="widget-sub">ν(y) = ½ + √(¼ + 1/y) · a₀ = 1.08×10⁻¹⁰ m/s² (derived)</span>
+            </div>
+            <div class="widget-chart"><canvas id="chart-rotation"></canvas></div>
+            <div class="widget-sliders">
+                <div class="slider-row">
+                    <label>M<sub>bary</sub> (log₁₀ M<sub>☉</sub>)</label>
+                    <input type="range" id="rc-logM" min="8" max="12" step="0.1" value="10.7">
+                    <span id="rc-logM-val" class="slider-val">5.0×10¹⁰ M☉</span>
+                </div>
+                <div class="slider-row">
+                    <label>Max radius (kpc)</label>
+                    <input type="range" id="rc-rmax" min="10" max="200" step="5" value="60">
+                    <span id="rc-rmax-val" class="slider-val">60 kpc</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Widget 3: Thermal Transition -->
+        <div class="widget">
+            <div class="widget-head">
+                <h3>Thermal Transition — T<sub>c</sub> = 54.7 MK</h3>
+                <div class="widget-stats">
+                    <div><span class="stat-label">T</span><span id="tt-T" class="stat-val">2.7 K</span></div>
+                    <div><span class="stat-label">MEMORY ACTIVATION</span><span id="tt-f" class="stat-val">1.000</span></div>
+                    <div><span class="stat-label">n<sub>g</sub> EFFECTIVE</span><span id="tt-ng" class="stat-val">1.1547</span></div>
+                </div>
+            </div>
+            <div class="widget-badge-row">
+                <span id="tt-badge" class="widget-badge badge-full">DEEP REFRACTIVE REGIME</span>
+                <span class="widget-sub">T<sub>c</sub> = 1/(τ₀ k<sub>B</sub>) · v9.0 "boiling point of gravity"</span>
+            </div>
+            <div class="widget-chart"><canvas id="chart-thermal"></canvas></div>
+            <div class="widget-sliders">
+                <div class="slider-row">
+                    <label>log₁₀(T/K)</label>
+                    <input type="range" id="tt-logT" min="0" max="12" step="0.05" value="0.435">
+                    <span id="tt-logT-val" class="slider-val">T = 2.725 K (today)</span>
+                </div>
+            </div>
+        </div>
+
         <div class="exp-hero">
             <h2>GRUT Predictive Tests</h2>
             <p>Eight experiments that determine the fate of the framework. Each asks a question only GRUT answers.</p>

@@ -672,9 +672,322 @@ async function keywordFallback(msg) {
 // INIT
 // ══════════════════════════════════════════════════════
 
+// ══════════════════════════════════════════════════════
+// INTERACTIVE PLAYGROUND WIDGETS (April 2026 synthesis)
+// ══════════════════════════════════════════════════════
+
+// Fixed constants (Phase I canonical)
+const ALPHA_CANONICAL = 1/3;
+const TAU_0_MYR = 41.9;
+const TAU_0_SEC = TAU_0_MYR * 1e6 * 3.156e7;
+const OMEGA_DM_OBS = 0.263;
+const A0_MS2 = 1.08e-10;
+const T_C_K = 5.47e7;   // 54.7 MK
+const MPC_M = 3.086e22;
+const KPC_M = 3.086e19;
+const MSUN_KG = 1.989e30;
+const G_NEWTON = 6.6743e-11;
+
+// ─────────────────────────────────────────────────────
+// Widget 1: Bandwidth Integral
+// ─────────────────────────────────────────────────────
+function bbks_T(k_h_per_Mpc, Om_m=0.311, Om_b=0.0486, h=0.7) {
+    const Gamma = Om_m * h * Math.exp(-Om_b * (1 + Math.sqrt(2*h)/Om_m));
+    const q = k_h_per_Mpc / Gamma;
+    if (q < 1e-6) return 1 - 1.17*q;
+    const log_term = Math.log(1 + 2.34*q) / (2.34*q);
+    const poly = 1 + 3.89*q + Math.pow(16.1*q, 2) + Math.pow(5.46*q, 3) + Math.pow(6.71*q, 4);
+    return log_term * Math.pow(poly, -0.25);
+}
+
+function delta2(k_h_per_Mpc, n_s=0.965) {
+    const T = bbks_T(k_h_per_Mpc);
+    const P = Math.pow(k_h_per_Mpc, n_s) * T * T;
+    return Math.pow(k_h_per_Mpc, 3) * P / (2 * Math.PI * Math.PI);
+}
+
+function updateBandwidth() {
+    const alpha = parseFloat(document.getElementById('bw-alpha').value);
+    const tauFactor = parseFloat(document.getElementById('bw-tau').value);
+    const cs_km = parseFloat(document.getElementById('bw-cs').value);
+    const tau0 = TAU_0_SEC * tauFactor;
+    const cs = cs_km * 1000;
+    const h = 0.7;
+
+    // Display raw slider values
+    document.getElementById('bw-alpha-val').textContent = alpha.toFixed(3);
+    document.getElementById('bw-tau-val').textContent = (TAU_0_MYR * tauFactor).toFixed(1) + ' Myr';
+    document.getElementById('bw-cs-val').textContent = cs_km + ' km/s';
+
+    // Linear-regime integration (k = 1e-4 to 0.3 h/Mpc)
+    const n = 256;
+    const k_min = 1e-4, k_max = 0.3;
+    const log_k_min = Math.log(k_min), log_k_max = Math.log(k_max);
+    const ks = [], Es = [], D2s = [];
+    for (let i = 0; i < n; i++) {
+        const log_k = log_k_min + (log_k_max - log_k_min) * i / (n-1);
+        const k = Math.exp(log_k);
+        const k_per_m = k * h / MPC_M;
+        const omega = k_per_m * cs;
+        const x = omega * tau0;
+        const E = alpha / (1 + x*x);
+        const D2 = delta2(k);
+        ks.push(k); Es.push(E); D2s.push(D2);
+    }
+    // Weighted average (dk integration)
+    let num = 0, den = 0;
+    for (let i = 0; i < n-1; i++) {
+        const dk = ks[i+1] - ks[i];
+        num += E_trap(Es[i], Es[i+1], D2s[i], D2s[i+1], dk);
+        den += (D2s[i] + D2s[i+1]) / 2 * dk;
+    }
+    const omega_eff = num / den;
+    const overshoot = (omega_eff / OMEGA_DM_OBS - 1) * 100;
+
+    // Update stats
+    document.getElementById('bw-omega').textContent = omega_eff.toFixed(4);
+    const overshootEl = document.getElementById('bw-overshoot');
+    overshootEl.textContent = (overshoot >= 0 ? '+' : '') + overshoot.toFixed(1) + '%';
+    overshootEl.style.color = Math.abs(overshoot) < 5 ? 'var(--green)' : (overshoot > 0 ? '#ffd54f' : '#ff7961');
+
+    // Badge logic
+    const maxX = Math.max(...ks.map(k => (k * h / MPC_M) * cs * tau0));
+    const badge = document.getElementById('bw-badge');
+    if (maxX < 0.01) {
+        badge.textContent = 'FULL ENHANCEMENT (DC REGIME)';
+        badge.className = 'widget-badge badge-full';
+    } else if (maxX < 1) {
+        badge.textContent = 'INTERMEDIATE — PARTIAL SCREENING';
+        badge.className = 'widget-badge badge-intermediate';
+    } else {
+        badge.textContent = 'HIGH-FREQUENCY — SUPPRESSED';
+        badge.className = 'widget-badge badge-suppressed';
+    }
+
+    // Chart: E(k) and Δ²(k) normalized
+    const maxD2 = Math.max(...D2s);
+    const ctx = document.getElementById('chart-bandwidth');
+    if (!ctx) return;
+    if (charts.bandwidth) charts.bandwidth.destroy();
+    charts.bandwidth = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ks.map(k => k.toExponential(1)),
+            datasets: [
+                { label: 'E(k) = α/(1+(ωτ₀)²)', data: Es, borderColor: '#4fc3f7', backgroundColor: 'rgba(79,195,247,0.15)', borderWidth: 2, pointRadius: 0, fill: true, yAxisID: 'y' },
+                { label: 'Δ²(k) · P(k) weight (normalized)', data: D2s.map(d => d/maxD2 * alpha), borderColor: '#ce93d8', borderDash: [5,3], borderWidth: 1.5, pointRadius: 0, yAxisID: 'y' },
+                { label: `α = ${alpha.toFixed(3)} (DC limit)`, data: ks.map(() => alpha), borderColor: '#ffd54f', borderDash: [2,2], borderWidth: 1, pointRadius: 0, yAxisID: 'y' },
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { labels: { color: '#6b7a90', font: { size: 10 } } } },
+            scales: {
+                x: { title: { display: true, text: 'k (h/Mpc)', color: '#6b7a90' }, ticks: { color: '#6b7a90', maxTicksLimit: 8 }, grid: { color: '#1e2a3a' } },
+                y: { title: { display: true, text: 'Enhancement E(k)', color: '#6b7a90' }, ticks: { color: '#6b7a90' }, grid: { color: '#1e2a3a' }, min: 0 },
+            }
+        }
+    });
+}
+function E_trap(e1, e2, d1, d2, dk) { return ((e1*d1 + e2*d2) / 2) * dk; }
+
+// ─────────────────────────────────────────────────────
+// Widget 2: Rotation Curve
+// ─────────────────────────────────────────────────────
+function nu_interp(y) {
+    if (y <= 0) return Infinity;
+    return 0.5 + Math.sqrt(0.25 + 1/y);
+}
+
+function updateRotation() {
+    const logM = parseFloat(document.getElementById('rc-logM').value);
+    const r_max_kpc = parseFloat(document.getElementById('rc-rmax').value);
+    const M_Msun = Math.pow(10, logM);
+    const M_kg = M_Msun * MSUN_KG;
+
+    // Slider display
+    document.getElementById('rc-logM-val').textContent = `${(M_Msun/1e10).toFixed(1)}×10¹⁰ M☉`;
+    document.getElementById('rc-rmax-val').textContent = `${r_max_kpc.toFixed(0)} kpc`;
+
+    // v_flat from BTFR: v^4 = G M a_0
+    const v_flat = Math.pow(G_NEWTON * M_kg * A0_MS2, 0.25);
+    document.getElementById('rc-vflat').textContent = `${(v_flat/1000).toFixed(0)} km/s`;
+
+    // Compute v(r) curve
+    const n = 80;
+    const r_arr_kpc = [];
+    const v_N = [], v_G = [];
+    for (let i = 0; i < n; i++) {
+        const r_kpc = 0.5 + (r_max_kpc - 0.5) * i / (n-1);
+        const r_m = r_kpc * KPC_M;
+        const g_bar = G_NEWTON * M_kg / (r_m * r_m);
+        const v_newton = Math.sqrt(g_bar * r_m);
+        // Self-consistent ω from v_newton
+        const omega = v_newton / r_m;
+        const y = g_bar / A0_MS2;
+        const nu = nu_interp(y);
+        const X = omega * TAU_0_SEC;
+        const g_eff = g_bar * (1 + (nu - 1) / (1 + X*X));
+        const v_grut = Math.sqrt(g_eff * r_m);
+        r_arr_kpc.push(r_kpc);
+        v_N.push(v_newton/1000);
+        v_G.push(v_grut/1000);
+    }
+
+    // Diagnostic at r = 10 kpc
+    const r_diag = 10 * KPC_M;
+    const g_diag = G_NEWTON * M_kg / (r_diag * r_diag);
+    const v_diag = Math.sqrt(g_diag * r_diag);
+    const y_diag = g_diag / A0_MS2;
+    const X_diag = (v_diag / r_diag) * TAU_0_SEC;
+    document.getElementById('rc-y').textContent = y_diag.toFixed(2);
+    document.getElementById('rc-x').textContent = X_diag.toFixed(2);
+
+    // Badge
+    const badge = document.getElementById('rc-badge');
+    if (y_diag > 10) {
+        badge.textContent = 'NEWTONIAN REGIME (INNER)';
+        badge.className = 'widget-badge badge-suppressed';
+    } else if (y_diag < 0.1 && X_diag < 0.1) {
+        badge.textContent = 'DEEP RESPONSE (BTFR FLAT)';
+        badge.className = 'widget-badge badge-full';
+    } else {
+        badge.textContent = 'INTERMEDIATE REGIME';
+        badge.className = 'widget-badge badge-intermediate';
+    }
+
+    // Chart
+    const ctx = document.getElementById('chart-rotation');
+    if (!ctx) return;
+    if (charts.rotation) charts.rotation.destroy();
+    charts.rotation = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: r_arr_kpc.map(r => r.toFixed(0)),
+            datasets: [
+                { label: 'v_Newton (baryons only)', data: v_N, borderColor: '#ff7961', borderWidth: 2, pointRadius: 0, borderDash: [5,3] },
+                { label: 'v_GRUT (ν(y) engine)', data: v_G, borderColor: '#4fc3f7', backgroundColor: 'rgba(79,195,247,0.15)', borderWidth: 2.5, pointRadius: 0, fill: '+1' },
+                { label: `v_flat = ${(v_flat/1000).toFixed(0)} km/s (BTFR)`, data: r_arr_kpc.map(() => v_flat/1000), borderColor: '#66bb6a', borderWidth: 1, pointRadius: 0, borderDash: [2,2] },
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { labels: { color: '#6b7a90', font: { size: 10 } } } },
+            scales: {
+                x: { title: { display: true, text: 'radius (kpc)', color: '#6b7a90' }, ticks: { color: '#6b7a90', maxTicksLimit: 8 }, grid: { color: '#1e2a3a' } },
+                y: { title: { display: true, text: 'v_circ (km/s)', color: '#6b7a90' }, ticks: { color: '#6b7a90' }, grid: { color: '#1e2a3a' }, min: 0 },
+            }
+        }
+    });
+}
+
+// ─────────────────────────────────────────────────────
+// Widget 3: Thermal Transition
+// ─────────────────────────────────────────────────────
+function memoryActivation(T_K) {
+    if (T_K <= 0) return 1.0;
+    const width = 0.3;
+    const x = Math.log(T_C_K / T_K) / width;
+    return 1.0 / (1 + Math.exp(-x));
+}
+
+function updateThermal() {
+    const logT = parseFloat(document.getElementById('tt-logT').value);
+    const T = Math.pow(10, logT);
+    const f = memoryActivation(T);
+    const ng = Math.sqrt(1 + f * ALPHA_CANONICAL);
+
+    // Display
+    let T_display;
+    if (T < 1e3) T_display = T.toFixed(T < 10 ? 2 : 0) + ' K';
+    else if (T < 1e6) T_display = (T/1e3).toFixed(1) + ' kK';
+    else if (T < 1e9) T_display = (T/1e6).toFixed(1) + ' MK';
+    else T_display = (T/1e9).toFixed(1) + ' GK';
+
+    let era = '';
+    if (T < 5) era = 'today (CMB)';
+    else if (T < 1e4) era = 'recombination era';
+    else if (T < 1e7) era = 'approaching T_c';
+    else if (T < 1e8) era = 'crossing T_c transition';
+    else if (T < 1e9) era = 'plasma era (post-BBN)';
+    else era = 'BBN / early universe';
+
+    document.getElementById('tt-T').textContent = T_display;
+    document.getElementById('tt-f').textContent = f.toFixed(4);
+    document.getElementById('tt-ng').textContent = ng.toFixed(4);
+    document.getElementById('tt-logT-val').textContent = `T = ${T_display} (${era})`;
+
+    // Badge
+    const badge = document.getElementById('tt-badge');
+    if (f > 0.99) {
+        badge.textContent = 'DEEP REFRACTIVE REGIME (T ≪ T_c)';
+        badge.className = 'widget-badge badge-full';
+    } else if (f > 0.1) {
+        badge.textContent = 'CROSSING T_c TRANSITION';
+        badge.className = 'widget-badge badge-intermediate';
+    } else {
+        badge.textContent = 'ABOVE BOILING POINT — NO MEMORY';
+        badge.className = 'widget-badge badge-suppressed';
+    }
+
+    // Chart: activation fraction across log(T), mark current T
+    const n = 120;
+    const logT_min = 0, logT_max = 12;
+    const logTs = [], fs = [], ng_arr = [];
+    for (let i = 0; i < n; i++) {
+        const lt = logT_min + (logT_max - logT_min) * i / (n-1);
+        const t = Math.pow(10, lt);
+        const fi = memoryActivation(t);
+        logTs.push(lt);
+        fs.push(fi);
+        ng_arr.push(Math.sqrt(1 + fi * ALPHA_CANONICAL));
+    }
+
+    const ctx = document.getElementById('chart-thermal');
+    if (!ctx) return;
+    if (charts.thermal) charts.thermal.destroy();
+    charts.thermal = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: logTs.map(x => x.toFixed(1)),
+            datasets: [
+                { label: 'Memory activation f(T)', data: fs, borderColor: '#4fc3f7', backgroundColor: 'rgba(79,195,247,0.15)', borderWidth: 2, pointRadius: 0, fill: true, yAxisID: 'y' },
+                { label: 'n_g(T) enhancement', data: ng_arr.map(x => (x - 1) / 0.1547), borderColor: '#ce93d8', borderWidth: 1.5, pointRadius: 0, yAxisID: 'y' },
+                { label: `T_c = 54.7 MK (log₁₀=${Math.log10(T_C_K).toFixed(2)})`, data: [{x: Math.log10(T_C_K), y: 0}, {x: Math.log10(T_C_K), y: 1}], borderColor: '#ffd54f', borderWidth: 1, pointRadius: 0, borderDash: [3,3], type: 'line' },
+                { label: `Current T (log₁₀=${logT.toFixed(2)})`, data: [{x: logT, y: 0}, {x: logT, y: 1}], borderColor: '#66bb6a', borderWidth: 2, pointRadius: 0, type: 'line' },
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { labels: { color: '#6b7a90', font: { size: 10 } } } },
+            scales: {
+                x: { title: { display: true, text: 'log₁₀(T / K)', color: '#6b7a90' }, ticks: { color: '#6b7a90', maxTicksLimit: 8 }, grid: { color: '#1e2a3a' } },
+                y: { title: { display: true, text: 'f(T) / n_g enhancement', color: '#6b7a90' }, ticks: { color: '#6b7a90' }, grid: { color: '#1e2a3a' }, min: 0, max: 1.05 },
+            }
+        }
+    });
+}
+
+// Wire up all sliders to update functions
+function initPlayground() {
+    ['bw-alpha', 'bw-tau', 'bw-cs'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', updateBandwidth);
+    });
+    ['rc-logM', 'rc-rmax'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', updateRotation);
+    });
+    const ttEl = document.getElementById('tt-logT');
+    if (ttEl) ttEl.addEventListener('input', updateThermal);
+    // Initial render
+    try { updateBandwidth(); updateRotation(); updateThermal(); } catch(e) { console.error('Playground init error:', e); }
+}
+
 async function init() {
     await loadHealth();
     await checkAI();
     showArticle('ctp');
+    initPlayground();
 }
 init();
