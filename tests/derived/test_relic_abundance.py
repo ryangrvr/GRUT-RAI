@@ -146,12 +146,26 @@ class TestTrackVIIStatus:
         assert "track" in result
         assert "VII" in result["track"]
 
-    def test_status_is_scoped(self):
-        """Track VII is currently SCOPED (not CLOSED)."""
+    def test_status_is_closed_negative_for_V7(self):
+        """Track VII is CLOSED NEGATIVE for V7 after Step 3 topology audit."""
         from grut.derived.dark_matter.relic_abundance import track_vii_status
         result = track_vii_status()
         assert "status" in result
-        assert "SCOPED" in result["status"]
+        assert "CLOSED NEGATIVE" in result["status"] or "CLOSED" in result["status"]
+
+    def test_step_1_result_retracted(self):
+        """The Ω_dm = 0.38 result from Step 1 is formally retracted."""
+        from grut.derived.dark_matter.relic_abundance import track_vii_status
+        result = track_vii_status()
+        assert "step_1_xy_ballpark" in result
+        assert "RETRACTED" in result["step_1_xy_ballpark"]["status"]
+
+    def test_step_2_M_soliton_derivation_stands(self):
+        """Step 2's structural derivation of M_soliton is preserved."""
+        from grut.derived.dark_matter.relic_abundance import track_vii_status
+        result = track_vii_status()
+        assert "step_2_result" in result
+        assert "STANDS" in result["step_2_result"]["status"]
 
     def test_lists_missing_physics(self):
         from grut.derived.dark_matter.relic_abundance import track_vii_status

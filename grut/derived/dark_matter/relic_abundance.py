@@ -204,19 +204,70 @@ def track_vii_status():
                 "the Kibble-Zurek cooling-rate calculation."
             ),
         },
+        "step_2_result": {
+            "claim": "M_soliton = 2.11×10⁹ GeV is structurally derived",
+            "formula": "M = 2⁹π√N_ERAS / (27 × C_FINAL^(3/2) × λ)",
+            "status": "STANDS — mathematically correct, traces to C_FINAL and BPS λ=g²/2",
+            "caveat": (
+                "The PHYSICAL identification of this mass as the dark matter "
+                "particle is not established. Step 3 showed that M_soliton "
+                "does NOT match the Kibble-Zurek-produced vorton mass on a "
+                "U(1) cosmic-string network. M_soliton's actual physical "
+                "referent is an open question (V8 Track VII)."
+            ),
+        },
+        "step_1_xy_ballpark": {
+            "claim_retracted": "Ω_dm = 0.38 from XY-universality KZ",
+            "reason": (
+                "Step 1 used monopole scaling (n ~ 1/ξ³) with M_soliton as the "
+                "defect mass. U(1)_dark has π_2 = 0 (no monopoles), so this "
+                "topology is forbidden. The 'factor of 2' agreement with "
+                "observed Ω_dm was two errors partially cancelling."
+            ),
+            "status": "RETRACTED (April 20, 2026)",
+        },
+        "step_3_vortex_result": {
+            "topology": "cosmic strings (π_1(U(1)) = ℤ)",
+            "Omega_vorton_XY": 0.008,
+            "ratio_to_observed": 0.032,
+            "verdict": (
+                "With correct U(1)_dark topology and XY universality (the right "
+                "class for U(1) breaking), Kibble-Zurek vortons from ξ_KZ-size "
+                "loops give Ω_dm = 0.008 — factor 33 LOW of observed 0.263. "
+                "The dark sector as currently specified in V7 does NOT produce "
+                "the observed dark matter abundance via Kibble-Zurek. See "
+                "vortex_strings.py for the full calculation."
+            ),
+        },
+        "overall_verdict": (
+            "Track VII CLOSED NEGATIVE for V7. Omega_dm is NOT a native V7 "
+            "output under the simplest dark-matter production mechanisms "
+            "(thermal freeze-out, Kibble-Zurek string vortons) given the "
+            "stated U(1)_dark sector. H_0 stays as a one-parameter prediction "
+            "(H_0 = 69.03 km/s/Mpc) using observed Ω_dm as input. Track VII "
+            "continues in V8 with the re-identification of M_soliton and "
+            "possible dark-sector extension (SU(2)_dark → U(1)_dark two-step "
+            "breaking, non-topological solitons, or dark baryons). See "
+            "theory/derivation/V8_TRACK_VII_ROADMAP.md."
+        ),
         "missing_physics": [
-            "Soliton nucleation rate per Hubble volume at T = v_dark",
+            "Physical referent of M_soliton (non-topological soliton? dark baryon? "
+            "SU(2)_dark monopole at UV scale?)",
+            "Dark-sector UV completion (SU(2)_dark → U(1)_dark breaking chain)",
             "Soliton stability against decay (lifetime > age of universe)",
             "Dark sector phase-transition dynamics (first/second order)",
-            "Effective g_star at the dark phase transition",
+            "Non-Kibble-Zurek production mechanisms (Affleck-Dine, confining dynamics)",
         ],
-        "what_would_close_the_track": (
-            "A specific calculation of the soliton production fraction per "
-            "Hubble volume, derived from the dark-sector effective potential "
-            "at T ~ v_dark. With this number, Ω_dm = Kibble_max × production_fraction "
-            "becomes COMPUTED."
+        "what_would_close_the_track_in_V8": (
+            "Extend V7's dark sector with SU(2)_dark → U(1)_dark at a UV scale "
+            "above v_dark = 422 MeV. Monopoles form at the SU(2) breaking "
+            "(π_2(SU(2)/U(1)) = ℤ), with mass ~M_soliton = 2.11×10⁹ GeV "
+            "and Kibble-Zurek density n ~ 1/ξ_KZ³ at the UV scale. Strings "
+            "form at the subsequent U(1) breaking (cosmologically negligible). "
+            "This would reconcile M_soliton with topological DM and give "
+            "Ω_dm a structural derivation from the UV scale."
         ),
-        "status": "SCOPED — first-principles infrastructure in place; phase-transition physics needed",
+        "status": "CLOSED NEGATIVE for V7. Continues in V8 (roadmap filed).",
     }
 
 

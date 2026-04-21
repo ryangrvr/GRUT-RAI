@@ -1,5 +1,21 @@
 """
-Track VII Step 1 — Kibble-Zurek correlation length and Ω_dm estimate.
+Track VII Step 1 — Kibble-Zurek correlation length (MACHINERY RETAINED,
+Ω_dm RESULT RETRACTED).
+
+⚠️ RETRACTION (April 20, 2026):
+The Ω_dm ≈ 0.38 result this module originally reported (XY universality,
+M_soliton = 2.11×10⁹ GeV as the defect mass, n ~ 1/ξ³ monopole scaling)
+is RETRACTED. The topology was wrong — U(1)_dark has π_1 = ℤ (cosmic
+strings), not point monopoles. With the correct string topology the
+XY-universality vorton result is Ω_dm = 0.008 (factor ~33 low). See
+`grut.derived.dark_matter.vortex_strings` for the corrected calculation
+and `theory/derivation/TRACK_VII_STEP_03_VORTEX.md` for the full audit.
+
+The ξ_KZ calculation itself (correlation_length_MF, scan_critical_exponents,
+noise_kernel_autocorrelation_time) is mechanically correct and still used
+by the vortex_strings module.  The helper omega_dm_from_kibble_zurek
+(which multiplies by M_soliton / ξ³) is retained for historical audit
+only; do NOT treat its output as a GRUT prediction.
 
 Computes the soliton formation density at the dark phase transition
 (T = v_dark = 422 MeV) using the Kibble-Zurek mechanism. This is the
@@ -343,22 +359,19 @@ def track_vii_step_1_summary():
             "UNDER-produces by ~40 orders (see relic_abundance.kibble_upper_bound)"
         ),
         "verdict": (
-            "XY-universality Kibble-Zurek with constitutive τ_KMS gives "
-            "Ω_dm ≈ 0.38, within 44% of observed 0.263. With M_soliton "
-            "structurally derived (Step 2, C_FINAL^(-3/2)), the only free "
-            "inputs are critical exponents (from universality class of the "
-            "dark symmetry breaking) and the geometric factor p_geom = 0.1. "
-            "No phenomenological tuning was used. This is the strongest "
-            "Ω_dm derivation within GRUT to date — but not yet COMPUTED "
-            "since the factor-of-2 gap needs closure via (a) exact XY "
-            "exponents beyond Wilson-Fisher, (b) p_geom from lattice "
-            "simulation of U(1) → 1 transition, (c) soliton annihilation "
-            "during radiation era, (d) full constitutive cooling-rate form."
+            "⚠️ RETRACTED (April 20, 2026). The Ω_dm = 0.38 figure produced "
+            "here used MONOPOLE density scaling (n ~ 1/ξ³) with M_soliton = "
+            "2.11×10⁹ GeV. But U(1)_dark has π_1 = ℤ (strings), not monopoles "
+            "(π_2 = 0). With the correct topology, XY universality, and the "
+            "proper vorton mass, Ω_dm = 0.008 (factor ~33 LOW of observed). "
+            "See grut.derived.dark_matter.vortex_strings for the corrected "
+            "calculation and TRACK_VII_STEP_03_VORTEX.md for the audit. The "
+            "'factor of 2' agreement was two errors partially cancelling."
         ),
         "status": (
-            "STRUCTURAL BALLPARK. Ω_dm bracketed to factor ~2 of observed "
-            "using structurally motivated inputs. Not yet COMPUTED. Listed "
-            "as 'CONSISTENT' in V7-label scheme."
+            "RETRACTED — superseded by Step 3 (vortex_strings.py). "
+            "ξ_KZ machinery itself is correct and reused by Step 3; only "
+            "the Ω_dm number from this module is retracted."
         ),
     }
 

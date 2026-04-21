@@ -158,18 +158,24 @@ class TestStep1Summary:
     """Integration: track_vii_step_1_summary() bundles everything."""
 
     def test_returns_dict_with_XY_result(self):
+        """Machinery check: XY-universality value still computed (used by Step 3)."""
         from grut.derived.dark_matter.kibble_zurek import track_vii_step_1_summary
         r = track_vii_step_1_summary()
         assert "XY_universality_constitutive" in r
-        # XY result should be within factor 2 of observed
-        assert 0.1 < r["XY_universality_constitutive"]["Omega_dm"] < 1.0
 
     def test_includes_noise_kernel_info(self):
         from grut.derived.dark_matter.kibble_zurek import track_vii_step_1_summary
         r = track_vii_step_1_summary()
         assert "noise_kernel_autocorrelation" in r
 
-    def test_status_flags_structural_ballpark(self):
+    def test_status_flags_RETRACTED(self):
+        """Step 1's Ω_dm = 0.38 result is RETRACTED per Step 3 topology audit."""
         from grut.derived.dark_matter.kibble_zurek import track_vii_step_1_summary
         r = track_vii_step_1_summary()
-        assert "STRUCTURAL BALLPARK" in r["status"] or "BALLPARK" in r["status"]
+        assert "RETRACTED" in r["status"]
+
+    def test_verdict_points_to_vortex_strings_module(self):
+        """Verdict directs reader to the Step 3 corrected calculation."""
+        from grut.derived.dark_matter.kibble_zurek import track_vii_step_1_summary
+        r = track_vii_step_1_summary()
+        assert "vortex_strings" in r["verdict"] or "RETRACTED" in r["verdict"]

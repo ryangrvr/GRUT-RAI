@@ -1,22 +1,37 @@
 """
-Prototype: H_0 from GRUT first principles (V8 Track X extension).
+H_0 from GRUT first principles — ONE-PARAMETER prediction.
 
-GRUT computes H_inf = 58.16 km/s/Mpc (asymptotic vacuum rate from the
-3-loop CTP formula) and τ_0 = 41.9 Myr (noise kernel at gold benchmark).
-The era map gives N_total = 329 eras to present → age t_0 = 13.78 Gyr.
+STATUS (April 2026, after Track VII closure-negative):
+    This module produces a ONE-parameter H_0 prediction:
+        Input 1 (observational): Ω_dm (Planck value)
+        Derived: H_inf = 58.16 km/s/Mpc from 3-loop CTP
+        Derived: Ω_Λ = 0.6904 at H_0 = 70 from the vacuum formula
+        Output: H_0 = 69.03 km/s/Mpc
 
-Given H_inf and t_0, flat ΛCDM Friedmann integration uniquely determines
-(Ω_m, Ω_Λ, H_0). This is a one-parameter prediction: age is input, H_0
-is output.
+    The zero-parameter H_0 chain would require Ω_dm as a GRUT output
+    (not an input). Track VII's V7 closure attempt to derive Ω_dm
+    natively via Kibble-Zurek on the U(1)_dark cosmic-string network
+    CLOSED NEGATIVE: XY-universality vortons give Ω_dm = 0.008, factor
+    33 LOW of observed 0.263. See:
+        - theory/derivation/TRACK_VII_STEP_03_VORTEX.md
+        - theory/derivation/V8_TRACK_VII_ROADMAP.md
 
-The age itself in V7 is t_0 = N × τ_0 where N = 329 comes from
-13.8 Gyr / 41.9 Myr. In a truly first-principles framework, N would be
-predicted structurally (via the threshold era N_th = 215 plus post-
-threshold relaxation). For now we treat age as observational input and
-see what H_0 drops out.
+    V7 publishes H_0 = 69.03 km/s/Mpc as a one-parameter prediction.
+    V8 Track VII continues the zero-parameter research program with
+    the re-identification of M_soliton.
 
-Cross-check: result should be near observed H_0 ~ 67-73 km/s/Mpc if
-GRUT's H_inf is consistent with flat ΛCDM cosmology.
+Framework details:
+    GRUT computes H_inf = 58.16 km/s/Mpc (asymptotic vacuum rate from the
+    3-loop CTP formula) and τ_0 = 41.9 Myr (noise kernel at gold benchmark).
+    The era map gives N_total = 329 eras to present → age t_0 = 13.78 Gyr.
+
+    Given H_inf and t_0, flat ΛCDM Friedmann integration uniquely determines
+    (Ω_m, Ω_Λ, H_0). Age is treated as input in this module; future work
+    (V8) could derive age from N_total structurally (failed in 10
+    approaches; see `N_TOTAL_DERIVATION_ATTEMPT.md`).
+
+Cross-check: H_0 = 69.03 km/s/Mpc sits between Planck (67.4) and SH0ES
+(73.0), consistent with flat ΛCDM at the ~2% level.
 """
 
 import numpy as np

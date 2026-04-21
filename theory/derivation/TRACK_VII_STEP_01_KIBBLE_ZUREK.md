@@ -1,8 +1,31 @@
 # Track VII — Step 1: Kibble-Zurek Correlation Length and Ω_dm Estimate
 
 **Date:** April 18, 2026
-**Status:** STRUCTURAL BALLPARK. Ω_dm ≈ 0.38 (XY universality, constitutive τ_KMS).
-Within 44% of observed 0.263 using only structurally motivated inputs.
+**Status:** ⚠️ **RETRACTED (April 20, 2026).** See `TRACK_VII_STEP_03_VORTEX.md` for why.
+
+> **RETRACTION NOTICE**
+>
+> This Step 1 log claimed Ω_dm ≈ 0.38 using mean-field/XY-universality
+> Kibble-Zurek with M_soliton = 2.11×10⁹ GeV as the defect mass. That
+> claim is **retracted** because it used the wrong topology:
+>
+>   - U(1)_dark has π_1 = ℤ (cosmic STRINGS), not π_2 ≠ 0 (monopoles).
+>   - n ~ 1/ξ³ is the MONOPOLE density scaling, not strings.
+>   - M_soliton = 2.11×10⁹ GeV is not the Kibble-Zurek vorton mass;
+>     the natural KZ vorton mass is M = μ × 2π ξ_KZ ≈ 4.7×10⁶ GeV.
+>
+> Correcting to the proper string topology + XY universality (the right
+> class for U(1) breaking) gives **Ω_dm = 0.008**, factor 33 LOW of
+> observed 0.263. The "factor of 2" agreement reported below was a
+> numerical coincidence from two errors partially cancelling.
+>
+> **The ξ_KZ calculation machinery itself is correct and reusable.**
+> The ratio-inversion bug fix in this log still stands as a valid
+> correction. What is retracted is the Ω_dm = 0.38 result and the
+> implied closure claim. Track VII is REOPENED and the physics is
+> continued in Step 3.
+>
+> — Fifteenth correction. Zero hallucinations.
 
 ## Setup
 
