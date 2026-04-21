@@ -17,6 +17,15 @@ function switchTab(tab) {
     el.classList.add('active');
     if (tab === 'dashboard' && !dashboardLoaded) { loadDashboard(); dashboardLoaded = true; }
     if (tab === 'grutipedia') showArticle('ctp');
+    // Charts only render correctly once their container is visible.
+    // Re-trigger playground widget updates whenever the Experiments tab is shown.
+    if (tab === 'experiments') {
+        // Defer one frame so browser has applied display:block before Chart.js measures.
+        requestAnimationFrame(() => {
+            try { updateBandwidth(); updateRotation(); updateThermal(); }
+            catch(e) { console.error('Playground update error:', e); }
+        });
+    }
 }
 
 // ══════════════════════════════════════════════════════
@@ -750,6 +759,18 @@ function updateBandwidth() {
     overshootEl.textContent = (overshoot >= 0 ? '+' : '') + overshoot.toFixed(1) + '%';
     overshootEl.style.color = Math.abs(overshoot) < 5 ? 'var(--green)' : (overshoot > 0 ? '#ffd54f' : '#ff7961');
 
+    // Update STAGE: bar width proportional to Omega_dm_eff / 0.45 scale
+    const SCALE_MAX = 0.45;
+    const bar = document.getElementById('stage-bar');
+    const pred = document.getElementById('stage-pred');
+    if (bar && pred) {
+        const pct = Math.min(1, omega_eff / SCALE_MAX);
+        bar.setAttribute('width', 560 * pct);
+        pred.setAttribute('x', 30 + 560 * pct - 8);
+        pred.textContent = `Ω_eff = ${omega_eff.toFixed(3)}`;
+        pred.setAttribute('text-anchor', 'end');
+    }
+
     // Badge logic
     const maxX = Math.max(...ks.map(k => (k * h / MPC_M) * cs * tau0));
     const badge = document.getElementById('bw-badge');
@@ -843,6 +864,23 @@ function updateRotation() {
     document.getElementById('rc-y').textContent = y_diag.toFixed(2);
     document.getElementById('rc-x').textContent = X_diag.toFixed(2);
 
+    // Update STAGE: velocity labels at fixed radii (5, 10, 20, 50 kpc)
+    [[5, 'stage-v1'], [10, 'stage-v2'], [20, 'stage-v3'], [50, 'stage-v4']].forEach(([rk, id]) => {
+        const rm = rk * KPC_M;
+        const g = G_NEWTON * M_kg / (rm*rm);
+        const vn = Math.sqrt(g * rm);
+        const yv = g / A0_MS2;
+        const Xv = (vn / rm) * TAU_0_SEC;
+        const nuv = nu_interp(yv);
+        const g_eff_v = g * (1 + (nuv - 1) / (1 + Xv*Xv));
+        const v_grut_v = Math.sqrt(g_eff_v * rm) / 1000;
+        const el = document.getElementById(id);
+        if (el) { el.textContent = `${v_grut_v.toFixed(0)} km/s`; }
+    });
+    // Bulge size scales with log(mass)
+    const bulge = document.getElementById('stage-bulge');
+    if (bulge) { bulge.setAttribute('r', 6 + logM); }
+
     // Badge
     const badge = document.getElementById('rc-badge');
     if (y_diag > 10) {
@@ -916,6 +954,16 @@ function updateThermal() {
     document.getElementById('tt-f').textContent = f.toFixed(4);
     document.getElementById('tt-ng').textContent = ng.toFixed(4);
     document.getElementById('tt-logT-val').textContent = `T = ${T_display} (${era})`;
+
+    // Update STAGE: move pointer along the timeline bar (logT = 0..12 → x = 20..580)
+    const pointer = document.getElementById('stage-pointer');
+    const ptrLabel = document.getElementById('stage-ptr-label');
+    if (pointer && ptrLabel) {
+        const x = 20 + (560 * logT / 12);
+        pointer.setAttribute('points', `${x},40 ${x-5},30 ${x+5},30`);
+        ptrLabel.setAttribute('x', x);
+        ptrLabel.textContent = era.toUpperCase();
+    }
 
     // Badge
     const badge = document.getElementById('tt-badge');
