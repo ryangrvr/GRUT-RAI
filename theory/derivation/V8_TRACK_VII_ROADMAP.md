@@ -1,8 +1,38 @@
-# V8 Track VII Roadmap — Re-identifying M_soliton
+# V8 Track VII Roadmap — Re-identifying M_soliton (superseded by dielectric reframing)
 
 **Date filed:** April 20, 2026
+**Updated:** April 20, 2026 (same day, post-PDF audit)
 **Predecessor:** Track VII V7 closed NEGATIVE (see Step 3 log).
-**Status:** Open research program.
+**Status:** SUPERSEDED. See `TRACK_VII_DIELECTRIC_REFRAMING.md` for the
+revised research program.
+
+> **⚠️ UPDATE — Dielectric Reframing**
+>
+> The particle-DM interpretation this roadmap scopes (re-identifying
+> M_soliton as Q-ball, dark baryon, or SU(2)→U(1) monopole) is no
+> longer the primary V8 Track VII direction. The three-routes paper
+> audit plus brother's "R is fixed, vacuum relaxes within it" framing
+> plus Genesis Codex v11.1 Appendix H (α = 1/d, d=3, zero free
+> parameters) all point to a different interpretation:
+>
+>   **Ω_dm is the frequency-dependent refractive enhancement of the
+>   viscoelastic gravitational vacuum, NOT a particle species.**
+>
+> The three candidates below (A/B/C for M_soliton identification) are
+> preserved as fallback options if the dielectric interpretation fails
+> its three diagnostic tests (see `TRACK_VII_DIELECTRIC_REFRAMING.md`).
+> They are NOT the primary research direction.
+>
+> V8 Track VII priority order (revised):
+>   1. Bandwidth integral over matter power spectrum
+>   2. Bullet Cluster memory-kernel reconstruction
+>   3. CMB Boltzmann with n_g(ω) replacing Ω_dm
+>
+> If all three pass: dark matter is eliminated as a particle species
+> and the zero-parameter H_0 chain closes through geometry.
+> If any one fails: fall back to candidates A/B/C below.
+
+---
 
 ## Why this roadmap exists
 
