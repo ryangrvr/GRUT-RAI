@@ -370,6 +370,116 @@ baryocrosscheck: `<h2>Baryogenesis Cross-Check</h2>
 </table>
 <p>CMB-S4 will measure η to ±0.02×10⁻¹⁰ → 22σ discrimination. <strong>DECISIVE test.</strong></p>
 <p>Honest negative: GRUT makes the lithium-7 problem WORSE (+15%).</p>`,
+
+// ════════════════════════════════════════════════════════════════════
+// April 2026 SYNTHESIS: v1-v11 + Phase I integration
+// ════════════════════════════════════════════════════════════════════
+
+closure_protocol: `<h2>Phase I Closure Protocol <small>(Feb 2026)</small></h2>
+<span class="status computed">CANONICAL</span>
+<p>Phase I (<a href="https://doi.org/10.5281/zenodo.18008060" target="_blank">Zenodo DOI: 10.5281/zenodo.18008060</a>) operationalized the v1-v11 physics into a testable protocol. It sits between the Genesis Codex (Dec 2025, discovery) and V7 (Apr 2026, CTP foundation).</p>
+<h3>Canonical Constants <small>(zero free knobs)</small></h3>
+<div class="eq">α<sub>vac</sub> = 1/d = 1/3 &nbsp;&nbsp; (d = 3 spatial dimensions; v11 Appendix H)<br>
+S = 12π/α² = 108π ≈ 339.29 &nbsp;&nbsp; (screening factor)<br>
+τ<sub>0</sub> = τ<sub>Λ</sub>/S ≈ 41.9 Myr &nbsp;&nbsp; (local relaxation time)<br>
+τ<sub>Λ</sub> ≡ H<sub>0</sub><sup>−1</sup> ≈ 14.2 Gyr &nbsp;&nbsp; (cosmic baseline)<br>
+a<sub>0</sub> = c/(2πτ<sub>Λ</sub>) ≈ 1.08×10<sup>−10</sup> m/s² &nbsp;&nbsp; (MOND scale — <em>derived</em>)<br>
+T<sub>c</sub> = 1/(τ<sub>0</sub> k<sub>B</sub>) ≈ 54.7 MK &nbsp;&nbsp; (v9 boiling point of gravity)</div>
+<h3>The Dark-Sector Unification Identity <small>(v11 App I)</small></h3>
+<div class="eq">τ<sub>0</sub> = 1 / √(Λ c)</div>
+<p>Dark energy (Λ) defines horizon-scale curvature. Dark matter phenomenology (τ<sub>0</sub>) is the metric's delayed response within that curvature. <strong>One object, two observations.</strong></p>
+<h3>The Regime Gate <small>(Phase I §8.1)</small></h3>
+<div class="eq">X = ω<sub>dyn</sub> τ<sub>0</sub> &nbsp;&nbsp;|&nbsp;&nbsp; α<sub>eff</sub>(X) = α<sub>vac</sub>/(1+X²)</div>
+<p>Solar-system safety is automatic: at Saturn's orbit X ≈ 8.9×10⁶, suppressing modifications by 15 orders of magnitude.</p>
+<h3>The Engine Interpolation</h3>
+<div class="eq">ν(y) = 1/2 + √(1/4 + 1/y) &nbsp;&nbsp;|&nbsp;&nbsp; g<sub>eff</sub> = g<sub>bar</sub> [1 + (ν(y)−1)/(1+X²)]</div>
+<p>y ≫ 1 (Newtonian): g<sub>eff</sub> ≈ g<sub>bar</sub>. y ≪ 1 AND X ≪ 1 (deep-response): g<sub>eff</sub> ≈ √(g<sub>bar</sub>·a<sub>0</sub>) — BTFR flat rotation. Implementation: <code>grut/foundation/closure_protocol.py</code>.</p>`,
+
+three_routes: `<h2>Three Routes to 1.1547</h2>
+<span class="status computed">COMPUTED (×3)</span>
+<p>Three independent mathematical constructions agree on ~1.1547 to better than 0.1%. Zero shared inputs. See the companion preprint <em>Three Routes to 1.1547 — Structural Continuity from Metric Memory to the CTP Anomaly Ratio</em> (April 2026).</p>
+<h3>The Convergence Table</h3>
+<table>
+<tr><th>Route</th><th>Value</th><th>Inputs</th><th>Framework</th></tr>
+<tr><td>n<sub>g</sub>(0) = √(4/3)</td><td><strong>1.15470</strong></td><td>α = 1/d (topology)</td><td>Nonlocal EFT (v1-v11)</td></tr>
+<tr><td>R = |C<sub>Cosmo</sub>/C<sub>FINAL</sub>|</td><td><strong>1.15428</strong></td><td>π, ln 2, ζ(3), SM integers</td><td>3-loop CTP on S⁴ (V7 §26)</td></tr>
+<tr><td>ε<sub>combined</sub>(SM, M<sub>Z</sub>)</td><td><strong>1.15370</strong></td><td>SM couplings + group theory</td><td>Osborn 2003 eq. (36)</td></tr>
+</table>
+<h3>Pairwise Agreement</h3>
+<table>
+<tr><td>n<sub>g</sub> vs R</td><td><strong>0.036%</strong></td></tr>
+<tr><td>R vs ε</td><td>0.050%</td></tr>
+<tr><td>n<sub>g</sub> vs ε</td><td>0.087%</td></tr>
+</table>
+<h3>Physical Interpretation</h3>
+<div class="eq">R = √(4/3) × (1 + δ<sub>3-loop</sub>),&nbsp;&nbsp; δ<sub>3-loop</sub> ≈ −3.6×10<sup>−4</sup></div>
+<p>The tree-level geometric √(4/3) is the gravitational refractive index n<sub>g</sub>(0) of a vacuum with impedance α = 1/3. V7's 3-loop CTP is the radiative refinement of that geometric quantity — structurally analogous to α<sub>QED</sub> ≈ 1/137 → 1/137.036. The Osborn check cross-confirms via a completely different route (1-loop SM coupling expansion).</p>
+<p><strong>The number never moved.</strong> The framework around it changed five times across v1 → V7. At every stage, the anomaly ratio came out between 1.153 and 1.155.</p>`,
+
+dielectric_dm: `<h2>Dielectric Dark Matter <small>(Track VII reframing, April 2026)</small></h2>
+<span class="status">REFRAMED &mdash; V8 primary direction</span>
+<p>Track VII's particulate route closed negative in April 2026 (see <a class="wiki-link" onclick="showArticle('track_vii_retraction')">Track VII retraction</a>). The primary V8 direction is the <strong>dielectric interpretation</strong>, preserved from the v1-v11 Closure Framework.</p>
+<h3>Core Claim</h3>
+<div class="eq">ε<sub>g</sub> = n<sub>g</sub>² = 1 + α = 4/3</div>
+<p>Dark matter IS the frequency-dependent refractive enhancement of the viscoelastic gravitational medium, not a particle species. The "missing mass" inferred from rotation curves is the accumulated response lag of a vacuum with finite bandwidth τ<sub>0</sub><sup>−1</sup>.</p>
+<h3>The Refractive Index</h3>
+<div class="eq">n<sub>g</sub>²(ω) = 1 + α/(1 + (ωτ<sub>0</sub>)²)</div>
+<table>
+<tr><th>Scale</th><th>ωτ<sub>0</sub></th><th>n<sub>g</sub>²−1</th></tr>
+<tr><td>Cosmic (ω = H<sub>0</sub>)</td><td>3×10<sup>−3</sup></td><td>0.333 (full α)</td></tr>
+<tr><td>CMB acoustic peak</td><td>0.05</td><td>0.333 (peaks preserved)</td></tr>
+<tr><td>Galaxy rotation</td><td>~0.9</td><td>0.19</td></tr>
+<tr><td>Dwarf galaxy</td><td>~1.3</td><td>0.13</td></tr>
+<tr><td>Solar system</td><td>3×10<sup>8</sup></td><td>~0 (GR exact)</td></tr>
+</table>
+<h3>Three Diagnostic Tests <small>(V8 Track VII.a/b/c)</small></h3>
+<p><strong>1. Bandwidth integral</strong> (done): Ω<sub>dm,eff</sub> = 0.333 = α exactly, +27% overshoot over observed 0.263. See <a class="wiki-link" onclick="showArticle('bandwidth_integral')">Bandwidth Integral</a>.</p>
+<p><strong>2. Bullet Cluster memory-kernel lensing</strong>: naive v×τ<sub>0</sub> = 128 kpc vs observed 720 kpc — full memory-kernel convolution is the falsification test.</p>
+<p><strong>3. CMB Boltzmann with n<sub>g</sub>(ω)</strong> replacing ColdDM source: acoustic-peak modes at ωτ<sub>0</sub> ≈ 0.05 preserve the enhancement at face value; full Boltzmann run needed.</p>
+<p>Implementation: <code>grut/derived/cosmology/dielectric_dm.py</code>.</p>`,
+
+bandwidth_integral: `<h2>Bandwidth Integral &amp; Ω<sub>dm,eff</sub> = 0.333</h2>
+<span class="status computed">COMPUTED (zero free parameters)</span>
+<p>The headline V8 Track VII result. Six-step protocol: load P(k) via BBKS transfer function (Planck cosmology), compute ω(k) = k·c<sub>s</sub>, apply Lorentzian enhancement E(k), integrate over linear regime [10<sup>−4</sup>, 0.3] h/Mpc weighted by dimensionless power Δ²(k).</p>
+<h3>The Formula</h3>
+<div class="eq">Ω<sub>dm,eff</sub> = ∫ E(k) Δ²(k) dk / ∫ Δ²(k) dk<br>
+E(k) = α / (1 + (k·c<sub>s</sub>·τ<sub>0</sub>)²)</div>
+<h3>The Result</h3>
+<div class="eq">Ω<sub>dm,eff</sub> = <strong>0.3333</strong> = α = 1/3 <em>exactly</em></div>
+<p>Observed Ω<sub>dm</sub> = 0.263 (Planck). Ratio = <strong>1.267</strong> — GRUT overshoots ΛCDM by <strong>+26.7%</strong>.</p>
+<h3>Sensitivity <small>(insensitive to c<sub>s</sub> in linear regime)</small></h3>
+<table>
+<tr><th>c<sub>s</sub></th><th>Ω<sub>dm,eff</sub></th></tr>
+<tr><td>50 km/s</td><td>0.3333</td></tr>
+<tr><td>200 km/s</td><td>0.3333</td></tr>
+<tr><td>500 km/s</td><td>0.3333</td></tr>
+</table>
+<p>Every linear-regime mode is deep in the DC limit (ωτ<sub>0</sub> ≪ 1) where the Lorentzian saturates at α. The saturation is <em>geometric</em>, not kinematic — the +27% excess is a structural prediction, not a fit.</p>
+<h3>Two Interpretations</h3>
+<p><strong>(a) Dielectric overshoots:</strong> a subtractive correction (soliton annihilation, ~7% residual particle component, higher-order n<sub>g</sub>² corrections) brings 0.333 down to 0.263.</p>
+<p><strong>(b) ΛCDM underestimates Ω<sub>dm</sub>:</strong> the Planck analysis assumes a slightly wrong expansion history; GRUT's constitutive evolution differs at the percent level during matter domination. The "true" dark component is closer to 0.333.</p>
+<p>Either way, the interpretation lands in the right ballpark with <strong>zero free parameters</strong>. Implementation: <code>grut/derived/cosmology/bandwidth_integral.py</code>, 18 NIS-certified tests.</p>`,
+
+track_vii_retraction: `<h2>Track VII — Correction #15 (Ω<sub>dm</sub> = 0.38 RETRACTED)</h2>
+<span class="status">RETRACTED &mdash; honest correction</span>
+<p>The hardest kind of correction: one that takes back a result that looked like a breakthrough. Caught in April 2026 during the brother's topology audit.</p>
+<h3>What Was Claimed</h3>
+<p><strong>Track VII Step 1 (April 18, 2026):</strong> Ω<sub>dm</sub> = 0.38 from Kibble-Zurek production of topological defects at the U(1)<sub>dark</sub> phase transition (T = v<sub>dark</sub> = 422 MeV), with XY critical exponents and M<sub>soliton</sub> = 2.11×10⁹ GeV as the defect mass. Appeared to be a "factor of 2" near-miss to observed 0.263 (+44%).</p>
+<h3>What Was Wrong</h3>
+<p>Two errors that partially canceled:</p>
+<ul>
+<li><strong>Wrong topology:</strong> used monopole density scaling n ~ 1/ξ³. But U(1)<sub>dark</sub> has π₂ = 0 — <em>no monopoles</em>. Only cosmic strings (π₁(U(1)) = ℤ) exist.</li>
+<li><strong>Wrong mass:</strong> used M<sub>soliton</sub> as the defect mass. The natural Kibble-Zurek vorton mass is μ×2π·ξ<sub>KZ</sub> ≈ 4.7×10⁶ GeV, 450× smaller than M<sub>soliton</sub>.</li>
+</ul>
+<h3>The Corrected Result <small>(Track VII Step 3)</small></h3>
+<p>With correct string topology and XY universality:</p>
+<div class="eq">Ω<sub>dm</sub> = 0.008 &nbsp;&nbsp; (factor 33 LOW)</div>
+<p>The "near-miss" was two errors canceling, not real physics. Track VII CLOSED NEGATIVE for V7's U(1)<sub>dark</sub> particulate route.</p>
+<h3>The Response</h3>
+<p>The correction was accepted, documented, and folded into the honesty ledger (15 corrections, 0 hallucinations). M<sub>soliton</sub>'s structural derivation from C<sub>FINAL</sub> stands; its <em>physical identification</em> as the DM particle is open. The primary V8 direction pivoted to the <a class="wiki-link" onclick="showArticle('dielectric_dm')">dielectric interpretation</a>, and the <a class="wiki-link" onclick="showArticle('bandwidth_integral')">bandwidth integral</a> now gives Ω<sub>dm,eff</sub> = 0.333 (+27% overshoot, zero free parameters) as the honest replacement.</p>
+<h3>The Lesson</h3>
+<p>The protocol worked. It caught a two-errors-canceling near-miss before it made it into a headline claim. <em>Documented retractions are not failures of the framework — they are its integrity.</em></p>
+<p>Full audit: <code>theory/derivation/TRACK_VII_STEP_03_VORTEX.md</code>.</p>`,
 };
 
 function showArticle(key) {

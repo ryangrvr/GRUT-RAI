@@ -153,6 +153,13 @@
             <a class="wiki-link" onclick="showArticle('spectralrunning')">Spectral Running</a>
             <a class="wiki-link" onclick="showArticle('isotopetest')">Isotope Test</a>
             <a class="wiki-link" onclick="showArticle('baryocrosscheck')">Baryogenesis Cross-Check</a>
+
+            <div style="border-top: 1px solid #444; margin: 12px 0 8px; padding-top: 8px; font-size: 11px; color: #888; letter-spacing: 0.5px;">APRIL 2026 SYNTHESIS</div>
+            <a class="wiki-link" onclick="showArticle('closure_protocol')">Phase I Closure Protocol</a>
+            <a class="wiki-link" onclick="showArticle('three_routes')">Three Routes to 1.1547</a>
+            <a class="wiki-link" onclick="showArticle('dielectric_dm')">Dielectric Dark Matter</a>
+            <a class="wiki-link" onclick="showArticle('bandwidth_integral')">Bandwidth Integral (&Omega;<sub>dm</sub>=0.333)</a>
+            <a class="wiki-link" onclick="showArticle('track_vii_retraction')">Track VII Retraction (#15)</a>
         </nav>
         <article class="wiki-article" id="wiki-article">
             <!-- Filled by JS -->
@@ -382,6 +389,89 @@
                     <tr><td>Advantage</td><td class="exp-impact-high">ZERO surface-chemistry systematics</td></tr>
                 </table>
                 <button class="viz-btn" onclick="window.open('/api/decoherence/isotope/full','_blank')">Run Live</button>
+            </div>
+
+            <!-- ═════════════════════════════════════════════════════════════ -->
+            <!-- APRIL 2026 SYNTHESIS: Phase I + Dielectric DM integration      -->
+            <!-- ═════════════════════════════════════════════════════════════ -->
+
+            <div class="exp-card primary">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Bandwidth Integral (&Omega;<sub>dm</sub> = 0.333)</h3>
+                <p class="exp-q">Does the dielectric interpretation reproduce observed &Omega;<sub>dm</sub>?</p>
+                <table>
+                    <tr><td>Result</td><td><strong>&Omega;<sub>dm,eff</sub> = 0.3333 = &alpha; = 1/3 exactly</strong></td></tr>
+                    <tr><td>Observed (Planck)</td><td>&Omega;<sub>dm</sub> = 0.263</td></tr>
+                    <tr><td>Ratio</td><td><strong>1.267 &mdash; GRUT overshoots by +26.7%</strong></td></tr>
+                    <tr><td>Free parameters</td><td class="exp-impact-high">ZERO (brother's 6-step protocol)</td></tr>
+                    <tr><td>c<sub>s</sub> sensitivity</td><td>FLAT across [50, 500] km/s (all DC)</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/bandwidth_integral','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Rotation Curve (&nu;(y) engine)</h3>
+                <p class="exp-q">Does GRUT reproduce SPARC rotation curves without particle DM?</p>
+                <table>
+                    <tr><td>Fiducial</td><td>5×10<sup>10</sup> M<sub>☉</sub> galaxy, v<sub>flat</sub> &asymp; 165 km/s</td></tr>
+                    <tr><td>Inner (1 kpc)</td><td>v<sub>GRUT</sub> = v<sub>N</sub> (Newtonian recovered)</td></tr>
+                    <tr><td>Outer (100 kpc)</td><td>v<sub>GRUT</sub> &asymp; √(GM·a<sub>0</sub>)<sup>1/4</sup> (BTFR)</td></tr>
+                    <tr><td>a<sub>0</sub></td><td><strong>1.08×10<sup>-10</sup> m/s² (derived, not fit)</strong></td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/rotation_curve?M_Msun=5e10&r_kpc=10','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Thermal Transition (T<sub>c</sub> = 54.7 MK)</h3>
+                <p class="exp-q">Why no dark matter signatures at BBN?</p>
+                <table>
+                    <tr><td>Critical T</td><td><strong>T<sub>c</sub> = 1/(τ<sub>0</sub>k<sub>B</sub>) &asymp; 54.7 MK</strong></td></tr>
+                    <tr><td>BBN (T ~ 10<sup>9</sup> K)</td><td>ABOVE T<sub>c</sub> &rarr; no memory, no DM effects</td></tr>
+                    <tr><td>Recombination</td><td>BELOW T<sub>c</sub> &rarr; deep refractive regime</td></tr>
+                    <tr><td>Today (2.7 K)</td><td>Full enhancement n<sub>g</sub> &asymp; 1.1547</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/thermal_transition','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">CANONICAL</div>
+                <h3>Phase I Closure Protocol</h3>
+                <p class="exp-q">What are GRUT's zero-tuning canonical constants?</p>
+                <table>
+                    <tr><td>&alpha; = 1/d</td><td>1/3 exactly (v11 App H, d=3)</td></tr>
+                    <tr><td>S = 12&pi;/&alpha;²</td><td>108&pi; &asymp; 339.29</td></tr>
+                    <tr><td>&tau;<sub>0</sub></td><td>41.9 Myr (= &tau;<sub>&Lambda;</sub>/S = 1/√(&Lambda;c))</td></tr>
+                    <tr><td>a<sub>0</sub> (MOND scale)</td><td>DERIVED from H<sub>0</sub>, not fit</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/closure_protocol','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card retracted">
+                <div class="exp-badge">RETRACTED</div>
+                <h3>Track VII Status (Correction #15)</h3>
+                <p class="exp-q">What happened to &Omega;<sub>dm</sub> = 0.38?</p>
+                <table>
+                    <tr><td>Step 1 (Apr 18)</td><td>Claimed &Omega; = 0.38 (monopole topology)</td></tr>
+                    <tr><td>Audit found</td><td>U(1) has &pi;<sub>2</sub>=0 &mdash; NO monopoles</td></tr>
+                    <tr><td>Step 3 (correct)</td><td>String topology: &Omega; = 0.008 (factor 33 LOW)</td></tr>
+                    <tr><td>Status</td><td class="exp-impact-high">RETRACTED &mdash; 15 corrections, 0 hallucinations</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/track_vii_status','_blank')">Run Live</button>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-badge">COMPUTED</div>
+                <h3>Three Routes to 1.1547</h3>
+                <p class="exp-q">Do three independent constructions agree on R?</p>
+                <table>
+                    <tr><td>n<sub>g</sub>(0) = √(4/3)</td><td>1.15470 (v1-v11 geometric)</td></tr>
+                    <tr><td>R (3-loop CTP)</td><td>1.15428 (V7 §26)</td></tr>
+                    <tr><td>&epsilon;<sub>combined</sub>(SM)</td><td>1.15370 (Osborn 2003)</td></tr>
+                    <tr><td>Agreement</td><td class="exp-impact-high">&lt;0.087% across all pairs</td></tr>
+                </table>
+                <button class="viz-btn" onclick="window.open('/api/three_routes','_blank')">Run Live</button>
             </div>
         </div>
 

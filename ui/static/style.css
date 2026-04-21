@@ -96,6 +96,8 @@ th { color: var(--dim); font-weight: normal; text-transform: uppercase; font-siz
 .exp-badge { position: absolute; top: -1px; right: 12px; font-size: 9px; font-weight: bold; padding: 2px 8px; border-radius: 0 0 4px 4px; background: var(--border); color: var(--dim); }
 .exp-card.primary .exp-badge { background: var(--accent); color: var(--bg); }
 .exp-card.now .exp-badge { background: var(--green); color: var(--bg); }
+.exp-card.retracted { border-color: #c93030; }
+.exp-card.retracted .exp-badge { background: #c93030; color: #fff; }
 .exp-card h3 { color: var(--text); font-size: 14px; margin-bottom: 4px; }
 .exp-q { color: var(--dim); font-style: italic; margin-bottom: 8px; font-size: 12px; }
 .exp-card table { margin-top: 4px; }
