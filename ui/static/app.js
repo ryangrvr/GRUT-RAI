@@ -1106,18 +1106,28 @@ function updateThermal() {
 
 // Wire up all sliders to update functions
 function initPlayground() {
-    ['bw-alpha', 'bw-tau', 'bw-cs'].forEach(id => {
+    const wireSlider = (id, fn) => {
         const el = document.getElementById(id);
-        if (el) el.addEventListener('input', updateBandwidth);
-    });
-    ['rc-logM', 'rc-rmax'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.addEventListener('input', updateRotation);
-    });
-    const ttEl = document.getElementById('tt-logT');
-    if (ttEl) ttEl.addEventListener('input', updateThermal);
-    // Initial render
-    try { updateBandwidth(); updateRotation(); updateThermal(); } catch(e) { console.error('Playground init error:', e); }
+        if (el) {
+            el.addEventListener('input', () => {
+                try { fn(); } catch (e) { console.error(`Slider ${id} update error:`, e); }
+            });
+            return true;
+        }
+        console.warn(`Playground: slider #${id} not found in DOM`);
+        return false;
+    };
+    ['bw-alpha', 'bw-tau', 'bw-cs'].forEach(id => wireSlider(id, updateBandwidth));
+    ['rc-logM', 'rc-rmax'].forEach(id => wireSlider(id, updateRotation));
+    wireSlider('tt-logT', updateThermal);
+    // Initial render (each in its own try so one failure doesn't block the others)
+    try { updateBandwidth(); } catch(e) { console.error('updateBandwidth init error:', e); }
+    try { updateRotation();  } catch(e) { console.error('updateRotation init error:',  e); }
+    try { updateThermal();   } catch(e) { console.error('updateThermal init error:',   e); }
+    console.log('Playground initialized. Widgets:',
+        !!document.getElementById('plot-bandwidth'),
+        !!document.getElementById('plot-rotation'),
+        !!document.getElementById('plot-thermal'));
 }
 
 async function init() {
