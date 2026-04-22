@@ -230,24 +230,31 @@ def h_inf_drive_over_friction(tau_0_s: float) -> dict:
         "H_inf_Hz":                      H_inf,
         "interpretation":                "H_inf = drive / friction",
         "drive_meaning": (
-            "2 − R = 0.846; distance of the 3-loop anomaly ratio from "
-            "its CTP destructive-interference fixed point at R = 2. "
-            "Physically: the Gibbons-Hawking conformal-mode instability "
-            "expressed as a dimensionless outward pressure. Its "
-            "magnitude reflects the negative sign of C_Cosmo "
-            "(R_ANOMALY_SIGNED = −1.15428)."
+            "2 − R = 0.846; the dimensionless distance of the 3-loop "
+            "anomaly ratio from its CTP destructive-interference fixed "
+            "point at R = 2. In the interpretation presented in "
+            "theory/derivation/MINUS_100_RESOLUTION.md, this magnitude "
+            "reflects the negative sign of C_Cosmo (R_ANOMALY_SIGNED = "
+            "−1.15428), which is structurally consistent with the "
+            "conformal-mode coefficient that appears in Euclidean "
+            "gravity on S⁴ (Gibbons-Hawking-Perry 1978)."
         ),
         "friction_meaning": (
             "S × τ_0 = 108π × 41.9 Myr; the CTP path-counting "
             "normalization times the noise-kernel relaxation time. "
-            "The viscoelastic medium's scale-dependent damping of "
-            "fast expansion modes."
+            "The dissipative timescale of the viscoelastic constitutive "
+            "response at the gold decoherence benchmark."
         ),
-        "without_friction": (
-            "Standard Euclidean quantum gravity on S^4: no friction, "
-            "Ω → iΩ Wick rotation required to regulate the conformal "
-            "instability. Vacuum would otherwise 'blow up' to infinite "
-            "volume in zero time."
+        "standard_comparison": (
+            "Standard Euclidean quantum gravity on S⁴ has a negative "
+            "conformal-mode kinetic term; GHP 1978 resolves this with "
+            "a Ω → iΩ Wick rotation. GRUT's constitutive framework "
+            "provides a dissipative response (the K(t) memory kernel) "
+            "that also regulates the conformal mode without a contour "
+            "rotation. The equivalence of the two resolutions at the "
+            "level of observables (Ω_Λ, H_inf) is a structural claim "
+            "that remains to be verified at the level of the explicit "
+            "S⁴ conformal-mode coefficient."
         ),
     }
 
