@@ -352,7 +352,7 @@ The 0.48% gap between `ε_SU3(M_Z) = 1.1598` alone and `R_hand = 1.15428` is con
 - GRUT's cosmological sector remains structurally complete (`f(R) = 2 − R` is still derived) but numerically conditional on the specific value of R.
 - The decoherence sector of GRUT is independent of this question and is unaffected.
 
-**In either outcome**, the decoherence sector of GRUT — derived from the CTP noise kernel with 250+ passing tests — is intact. The cosmological formula's structure (`f(R) = 2 − R`) is derived independently of the specific R identification. Only the value of R, and hence the precise prediction of `H_inf`, depends on this calculation.
+**In either outcome**, the decoherence sector of GRUT — derived from the CTP noise kernel with 349 passing tests — is intact. The cosmological formula's structure (`f(R) = 2 − R`) is derived independently of the specific R identification. Only the value of R, and hence the precise prediction of `H_inf`, depends on this calculation.
 
 ---
 

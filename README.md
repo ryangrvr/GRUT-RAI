@@ -71,7 +71,7 @@ pip install -r requirements.txt
 pip install anthropic
 echo "ANTHROPIC_API_KEY=sk-ant-..." > .env
 
-# Run the test suite — 150 tests, should complete in under 1s
+# Run the test suite — 349 tests, completes in ~2 s
 pytest tests/
 
 # Start the dashboard — auto-detects compatible Python 3.10-3.13
@@ -97,7 +97,7 @@ The dashboard, computations, GRUTipedia, and experiments tabs all work without a
 ### Running tests
 
 ```bash
-pytest tests/                    # all 150 tests
+pytest tests/                    # all 349 tests
 pytest tests/derived/ -v         # sector tests with verbose output
 pytest tests/foundation/ -v      # foundation tests only
 ```
@@ -232,7 +232,7 @@ python -m pytest tests/foundation/ -v
 python -m pytest tests/ -v
 ```
 
-The 22 automated tests verify foundation-level consistency (constants, axioms, constitutive equation, noise kernel, anomaly structure). The v7 theory document describes 250+ sector-level validation checks across 13 physics sectors; these are documented in the theory papers but not yet automated as pytest tests.
+The **349 automated tests** verify every load-bearing numerical claim in the framework: foundation-level consistency (constants, axioms, constitutive equation, noise kernel, anomaly structure), every sector from decoherence through cosmology through the April 2026 synthesis additions (Phase I canonical constants, bandwidth integral, thermal transition, rotation-curve engine, Track VII dielectric reframing). Each corresponds to a specific claim in the V7 theory document; if any value silently changes, the suite flags it.
 
 ---
 

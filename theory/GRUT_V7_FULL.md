@@ -33,7 +33,7 @@ Every result carries a status label. Readers should weight results accordingly:
 | FAILED | Route tested and documented as nonviable |
 | NONCLAIM | Explicitly not claimed |
 
-**Test count:** 250+ passing tests across 13 sectors (this number grows as new modules are added; the minimum verified baseline is 225).
+**Test count:** 349 passing tests across 13 sectors plus the April 2026 synthesis additions (Phase I canonical constants, bandwidth integral, thermal transition, rotation-curve engine, Track VII dielectric reframing). Baseline grows as new modules land; every numerical claim in this document corresponds to at least one regression test.
 
 ---
 
@@ -1043,7 +1043,7 @@ A null result removes the quantitative grounding for the decoherence sector and 
 
 ## 20. The Kill Framework
 
-250+ passing tests across 13 sectors. The framework attacks its own predictions by comparing GRUT against every alternative decoherence model:
+349 passing tests across 13 sectors plus the April 2026 synthesis. The framework attacks its own predictions by comparing GRUT against every alternative decoherence model:
 
 **Adversarial comparison table:**
 

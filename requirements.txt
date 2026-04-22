@@ -9,9 +9,13 @@ scipy>=1.10,<2.0
 flask>=2.3,<4.0
 python-dotenv>=1.0
 
-# Optional: AI chat tab (Claude integration)
-# Uncomment if you have an ANTHROPIC_API_KEY
-# anthropic>=0.30
+# RAI Chat (Claude) — the AI narrative layer of GRUT-RAI.
+# The chat.py module imports `anthropic` unconditionally; without this
+# dependency installed, the RAI Chat tab silently falls back to keyword
+# matching instead of calling Claude. Install it.
+# If you don't set ANTHROPIC_API_KEY the chat still falls back, but the
+# package needs to be present for the import to succeed.
+anthropic>=0.30
 
 # Testing
 pytest>=7.0
