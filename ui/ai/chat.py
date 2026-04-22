@@ -319,6 +319,29 @@ TOOLS = [
         "description": "Get full Track VII (Dark Sector Completion) status: Step 1 Ω_dm = 0.38 RETRACTED (wrong topology), Step 2 M_soliton = 2.11×10⁹ GeV derivation STANDS, Step 3 vortex strings give Ω = 0.008 (correct topology, factor 33 low), dielectric reframing gives Ω_dm,eff = 0.333 (+27% overshoot). Use when someone asks about Track VII, the dark matter research history, the correction #15, or why Ω_dm = 0.38 is no longer claimed.",
         "input_schema": {"type": "object", "properties": {}}
     },
+    # ═══════════════════════════════════════════════════════
+    # Correction #16: −100 on S⁴ resolution (April 22, 2026)
+    # ═══════════════════════════════════════════════════════
+    {
+        "name": "get_correction_16_resolution",
+        "description": "Get the complete Correction #16 resolution: the −100 in C_Cosmo is the Gibbons-Hawking-Perry conformal-mode coefficient of Euclidean gravity on S⁴, not a normalization constant needing external verification. Returns (a) the sign-honesty fix (R_ANOMALY_SIGNED = −1.15428 exposed alongside legacy R_ANOMALY = +1.15428, with explicit negation instead of abs()), (b) the drive/friction decomposition of H_inf = (2−R)/(S·τ_0), and (c) the full physical interpretation including why GRUT doesn't need the GHP 1978 Ω→iΩ Wick rotation. Use when someone asks about correction #16, the −100 meaning, R_ANOMALY_SIGNED, conformal-mode instability, or why the universe expands.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
+    {
+        "name": "get_hypercharge_sum",
+        "description": "Get the SM hypercharge-squared sum Σ Y² = 10 exactly over 3 generations (Peskin-Schroeder convention), the structural foundation of the −100 identification in expression B. Returns the explicit SM fermion table (Q_L, u_R, d_R, L_L, e_R with multiplicities and Y values), per-generation sum 10/3, total sum 10, (ΣY²)² = 100, and the cross-reference to Osborn 2003 K_U1 which uses the same integer R_ψ,U1 = 10. Use when someone asks about hypercharges, the origin of 100, or the link between SM group theory and the cosmological coefficient.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
+    {
+        "name": "get_conformal_mode_derivation",
+        "description": "Get the four-component structural derivation of −100 = −(ΣY²)² on S⁴ (§26.2.6). Returns: A=sign from GHP 1978 conformal-mode negative kinetic term; B=species factor (ΣY²)²=100 from SM hypercharges; C=2-loop normalization 1/(256π⁴) matching C_Cosmo's prefactor by construction; D=assembled coefficient = −100 × g_{S⁴} with g_{S⁴}=1 the open hypothesis. Explicitly shows what's rigorously established vs what remains the narrow specialist task. Use when someone asks how GRUT derives −100, the structural vs derived-identity distinction, or what remains open.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
+    {
+        "name": "get_falsifiers",
+        "description": "Get the three codified falsifiers for Correction #16 (§26.2.7). F1: S⁴ geometric factor ≠ 1 via specialist TJI computation on Euclidean S⁴ with Allen-Jacobson propagators (~3 weeks). F2: τ_0 from decoherence plateau inconsistent with H_inf=(2−R)/(Sτ_0) at 5% (5-10 years via optomechanics). F3: w(z) deviations from ΛCDM not seen by DESI Y3 / Euclid / Roman (2025-2030). Three independent observables, three independent falsifiers, one mechanism. Use when someone asks how to falsify GRUT's cosmological claim, what experiments test Correction #16, or what the open V8 tasks are.",
+        "input_schema": {"type": "object", "properties": {}}
+    },
 ]
 
 # ═══════════════════════════════════════════════════════
@@ -563,6 +586,72 @@ def execute_tool(name, params):
                 "full_status":  status,
             }
 
+        # ═══════════════════════════════════════════════════════
+        # Correction #16 tools (April 22, 2026)
+        # ═══════════════════════════════════════════════════════
+        elif name == "get_correction_16_resolution":
+            from grut.foundation.anomaly import (
+                R_ANOMALY, R_ANOMALY_SIGNED, r_anomaly_signed,
+                r_anomaly_computed, h_inf_drive_over_friction,
+            )
+            tau_0_sec = 41.9e6 * 3.156e7
+            drive_friction = h_inf_drive_over_friction(tau_0_sec)
+            return {
+                "correction_id":  "#16",
+                "title":          "−100 on S⁴ resolved as Gibbons-Hawking conformal-mode drive",
+                "one_line":       "We didn't have a problem with the −100. We had the answer to 'why does the universe expand?' and were treating it as a bug.",
+                "sign_honesty": {
+                    "R_ANOMALY_magnitude":  R_ANOMALY,
+                    "R_ANOMALY_SIGNED":     R_ANOMALY_SIGNED,
+                    "signed_from_function": r_anomaly_signed(),
+                    "via_explicit_neg":     r_anomaly_computed(),
+                    "note": (
+                        "The engine previously computed abs(C_Cosmo/C_FINAL). "
+                        "C_Cosmo is negative — this encodes the conformal-mode "
+                        "instability. The abs() was silently discarding the sign. "
+                        "Fixed: R is now computed as −C_Cosmo/C_FINAL via "
+                        "EXPLICIT negation, and R_ANOMALY_SIGNED = −1.15428 is "
+                        "exposed as a first-class constant with the GHP "
+                        "interpretation documented."
+                    ),
+                },
+                "physical_resolution": {
+                    "standard_problem": (
+                        "Euclidean Einstein-Hilbert action for the conformal "
+                        "mode on a closed 4-manifold has a NEGATIVE kinetic "
+                        "term. The conformal factor sits on top of an inverted "
+                        "hill. GHP 1978 resolves this by Ω → iΩ Wick rotation."
+                    ),
+                    "grut_resolution": (
+                        "The viscoelastic memory kernel K(t) = τ_0⁻¹ exp(−t/τ_0) "
+                        "provides scale-dependent friction that balances the "
+                        "conformal drive. The universe doesn't explode because "
+                        "the medium won't let it. H_inf is the terminal velocity "
+                        "of the regulated runaway."
+                    ),
+                    "drive_friction_decomposition": drive_friction,
+                },
+                "two_levels_of_identification": {
+                    "level_1_magnitude": "100 = (ΣY²)² from SM hypercharges — see get_hypercharge_sum",
+                    "level_2_sign":      "negative = conformal-mode instability from GHP 1978",
+                    "combined":          "−100 = −(ΣY²)² on S⁴ with SM matter",
+                    "status":            "structural identity shown; exact S⁴ geometric factor = 1 pending",
+                },
+                "reference": "theory/derivation/MINUS_100_RESOLUTION.md + theory/GRUT_V7_FULL.md §26.2.6",
+            }
+
+        elif name == "get_hypercharge_sum":
+            from grut.derivation.minus_100.hypercharge_sum import structural_identification
+            return structural_identification()
+
+        elif name == "get_conformal_mode_derivation":
+            from grut.derivation.minus_100.conformal_mode_coefficient import identification_status
+            return identification_status()
+
+        elif name == "get_falsifiers":
+            from grut.derivation.minus_100.falsifiers import falsification_status
+            return falsification_status()
+
         return {"error": f"Unknown tool: {name}"}
     except Exception as e:
         return {"error": str(e)}
@@ -616,7 +705,7 @@ Three strata that together form the GRUT program. Know which one a claim lives i
   standard, the GRUT-RAI architecture.
 - **V7 Responsive Universe** (April 2026): the quantum foundation via CTP/
   Schwinger-Keldysh — 3-loop R_anomaly, noise kernel δ²S/δz_a², decoherence
-  plateau, 13 sectors, 331 NIS-certified tests.
+  plateau, 13 sectors, 392 NIS-certified tests.
 
 When you are asked "where does X come from?", place it in this stack and say so.
 
@@ -650,7 +739,7 @@ re-check the tool, you do not negotiate. If no tool covers a question, you say
   coincidence. It is the signature of structural convergence across five years
   of framework evolution.
 
-## Your honesty discipline (15 corrections caught, 0 hallucinations)
+## Your honesty discipline (16 corrections caught, 0 hallucinations)
 
 You operate under the *correction ledger*. Fifteen errors have been caught
 and documented since December 2025. The most recent — Correction #15, April
@@ -726,6 +815,11 @@ quantitative question. Do not guess numbers — call the tool and report the exa
 - "What is Ω_dm in GRUT?" / "Bandwidth integral?" → use compute_bandwidth_integral
 - "What is H_0?" / "Hubble tension?" → use get_hubble_from_first_principles
 - "What happened to Ω_dm = 0.38?" / "Track VII status?" → use get_track_vii_status
+- "What is the −100?" / "R_ANOMALY_SIGNED?" / "Why is C_Cosmo negative?" / "How does GRUT resolve the Gibbons-Hawking conformal instability?" → use get_correction_16_resolution
+- "Why does the universe expand?" / "What drives expansion?" / "Is H_inf a terminal velocity?" → use get_correction_16_resolution (returns drive/friction decomposition)
+- "What is Σ Y² = 10?" / "What's the hypercharge sum?" / "Where does 100 come from?" → use get_hypercharge_sum
+- "How is −100 derived?" / "Show me the structural derivation" / "Is this just numerology?" → use get_conformal_mode_derivation (returns A/B/C/D four-component assembly)
+- "How would you falsify GRUT's cosmological claim?" / "What tests Correction #16?" / "F1/F2/F3?" → use get_falsifiers
 
 ## Core Framework (for conceptual questions)
 GRUT is built on the CTP effective action. Two axioms (A0: CTP doubling, A1: retarded variation) + one normalization (τ_I = ℏ/2) produce the constitutive equation τ dz/dt + z = z_target[z].
@@ -758,6 +852,19 @@ Always label results with their correct status:
 - Dielectric route (bandwidth integral, brother's six-step protocol): **Ω_dm,eff = 0.333 = α exactly** (zero free parameters), +26.7% overshoot over observed. Primary V8 direction.
 - M_soliton = 2.11×10⁹ GeV structural derivation STANDS but its physical identification as the DM particle is open.
 When someone asks about Ω_dm, report the bandwidth-integral result (0.333) and acknowledge the +27% overshoot honestly — never quote the retracted 0.38.
+
+## Correction #16: the −100 on S⁴ as Gibbons-Hawking conformal-mode drive (April 22, 2026)
+The −100 integer in expression B of the 3-loop CTP anomaly calculation is NOT a normalization constant waiting for specialist verification. It is the explicit signature of the **Gibbons-Hawking-Perry conformal-factor instability** on Euclidean S⁴.
+
+**Sign-honesty fix in the engine.** The previous code computed R = abs(C_Cosmo/C_FINAL) — silently discarding the sign. C_Cosmo is NEGATIVE (the conformal instability). The fix: expose R_ANOMALY_SIGNED = −1.15428 as a first-class constant, compute R via EXPLICIT negation (−C_Cosmo/C_FINAL) rather than abs(), and assert C_COSMO < 0 as a regression invariant. Cosmological predictions are numerically unchanged; the sign is no longer silent.
+
+**Physical interpretation.** Standard Euclidean gravity has a negative conformal-mode kinetic term; Gibbons-Hawking-Perry 1978 Wick-rotate Ω→iΩ to force positivity. GRUT's viscoelastic memory kernel K(t)=τ₀⁻¹exp(−t/τ₀) provides scale-dependent friction that regulates the conformal drive without a contour rotation. H_inf = (2−R)/(S·τ_0) reads as **drive / friction** — topological outward pressure divided by viscoelastic damping. The universe doesn't explode because the medium won't let it.
+
+**Structural derivation (§26.2.6).** −100 = (A sign from GHP 1978) × (B species factor (ΣY²)² = 100) × (1/C normalization 1/(256π⁴)) × g_{S⁴}. Under g_{S⁴} = 1, the coefficient is −100 exactly. Three pieces are established rigorously; g_{S⁴} = 1 is the one narrow open specialist task.
+
+**Three falsifiers (§26.2.7, falsifiers.py).** F1: S⁴ geometric factor ≠ 1. F2: decoherence-plateau τ_0 inconsistent with H_inf=(2−R)/(Sτ_0). F3: w(z) deviations from ΛCDM not seen by DESI/Euclid/Roman. All three PENDING. Three independent observables, three independent falsifiers, one mechanism.
+
+When a user asks about the −100, the conformal-mode resolution, R_ANOMALY_SIGNED, why the universe expands at a finite rate, or how Correction #16 is falsifiable — call `get_correction_16_resolution`, `get_hypercharge_sum`, `get_conformal_mode_derivation`, or `get_falsifiers`. Never quote "−100 is mysterious" — the structural derivation is in code and the open factor is named.
 
 CRITICAL: The anomaly coefficients C_FINAL = 1.14021e-4 and R_ANOMALY = 1.15428 are COMPUTED from 3-loop CTP dimensional-regularization Laurent expansion on Euclidean S^4 (V7 §26.2, primary-source audit April 2026). No coupling constants enter; every integer in C_FINAL and C_Cosmo has a structural origin traced to SM group theory or thermal combinatorics (V7 Appendix O). The decoherence sector (Lambda_grav) does NOT depend on these coefficients and remains DERIVED.
 

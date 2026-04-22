@@ -814,3 +814,73 @@ def three_routes():
             "and the companion preprint 'Three Routes to 1.1547' (April 2026)."
         ),
     })
+
+# ════════════════════════════════════════════════════════════════════
+# Correction #16 — The −100 on S⁴ (April 22, 2026)
+# ════════════════════════════════════════════════════════════════════
+
+@api.route('/correction_16')
+def correction_16_full():
+    """Complete Correction #16 resolution: sign honesty + physical
+    interpretation + structural derivation + three falsifiers."""
+    from grut.foundation.anomaly import (
+        R_ANOMALY, R_ANOMALY_SIGNED, r_anomaly_signed,
+        r_anomaly_computed, h_inf_drive_over_friction,
+    )
+    from grut.derivation.minus_100.hypercharge_sum import structural_identification
+    from grut.derivation.minus_100.conformal_mode_coefficient import identification_status
+    from grut.derivation.minus_100.falsifiers import falsification_status
+    tau_0_sec = 41.9e6 * 3.156e7
+    return jsonify({
+        "correction_id":  "#16",
+        "title":          "−100 on S⁴ resolved as Gibbons-Hawking conformal-mode drive",
+        "sign_honesty": {
+            "R_ANOMALY":              R_ANOMALY,           # +1.15428 legacy
+            "R_ANOMALY_SIGNED":       R_ANOMALY_SIGNED,    # −1.15428 physical
+            "signed_from_function":   r_anomaly_signed(),
+            "explicit_negation_form": r_anomaly_computed(),
+        },
+        "drive_over_friction":   h_inf_drive_over_friction(tau_0_sec),
+        "hypercharge_sum":       structural_identification(),
+        "structural_derivation": identification_status(),
+        "falsifiers":            falsification_status(),
+        "references": [
+            "theory/derivation/MINUS_100_RESOLUTION.md",
+            "theory/GRUT_V7_FULL.md §26.2.6 + §26.2.7",
+            "theory/GRUT_V7_FULL.md Appendix N.11",
+        ],
+    })
+
+@api.route('/correction_16/hypercharge_sum')
+def correction_16_hypercharge():
+    """Σ Y² = 10 exact over SM Weyl fermions, 3 generations."""
+    from grut.derivation.minus_100.hypercharge_sum import structural_identification
+    return jsonify(structural_identification())
+
+@api.route('/correction_16/conformal_mode')
+def correction_16_conformal():
+    """The A/B/C/D structural derivation of −100 on S⁴."""
+    from grut.derivation.minus_100.conformal_mode_coefficient import identification_status
+    return jsonify(identification_status())
+
+@api.route('/correction_16/falsifiers')
+def correction_16_falsifiers():
+    """F1 / F2 / F3 status dicts. PENDING by default, PASSED/FALSIFIED when
+    measured values provided as query parameters."""
+    from grut.derivation.minus_100.falsifiers import (
+        falsification_status, falsifier_1_s4_geometric_factor,
+        falsifier_2_tau_0_consistency, falsifier_3_w_of_z_deviations,
+    )
+    # Optional live inputs: allow a user to POST a measurement via query
+    # params to see PASSED/FALSIFIED (instead of PENDING) in situ.
+    f1_measured = request.args.get('f1_measured')
+    f2_tau_0_myr = request.args.get('f2_tau_0_myr')
+    if f1_measured or f2_tau_0_myr:
+        from fractions import Fraction
+        f1 = falsifier_1_s4_geometric_factor(
+            measured_factor=Fraction(f1_measured) if f1_measured else None)
+        f2 = falsifier_2_tau_0_consistency(
+            measured_tau_0_myr=float(f2_tau_0_myr) if f2_tau_0_myr else None)
+        f3 = falsifier_3_w_of_z_deviations()
+        return jsonify({"F1": f1, "F2": f2, "F3": f3})
+    return jsonify(falsification_status())
