@@ -683,7 +683,61 @@ async function keywordFallback(msg) {
 
 // ══════════════════════════════════════════════════════
 // INTERACTIVE PLAYGROUND WIDGETS (April 2026 synthesis)
+// Pure SVG — renders instantly, no Chart.js hidden-canvas issues
 // ══════════════════════════════════════════════════════
+
+const SVGNS = 'http://www.w3.org/2000/svg';
+function svgEl(tag, attrs) {
+    const e = document.createElementNS(SVGNS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+}
+function clearSvg(svg) {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+}
+function drawAxes(svg, W, H, xlabel, ylabel, xticks, yticks) {
+    const pad = { l: 48, r: 12, t: 10, b: 28 };
+    const plotW = W - pad.l - pad.r, plotH = H - pad.t - pad.b;
+    svg.appendChild(svgEl('rect', {x: pad.l, y: pad.t, width: plotW, height: plotH, fill: '#0a0e17', stroke: '#1e2a3a'}));
+    (xticks || []).forEach(t => {
+        const x = pad.l + t.pos * plotW;
+        svg.appendChild(svgEl('line', {x1: x, y1: pad.t, x2: x, y2: pad.t + plotH, stroke: '#1e2a3a', 'stroke-width': 0.5}));
+        const tx = svgEl('text', {x: x, y: H - 10, fill: '#6b7a90', 'font-size': 9, 'text-anchor': 'middle'});
+        tx.textContent = t.label; svg.appendChild(tx);
+    });
+    (yticks || []).forEach(t => {
+        const y = pad.t + plotH - t.pos * plotH;
+        svg.appendChild(svgEl('line', {x1: pad.l, y1: y, x2: pad.l + plotW, y2: y, stroke: '#1e2a3a', 'stroke-width': 0.5}));
+        const ty = svgEl('text', {x: pad.l - 4, y: y + 3, fill: '#6b7a90', 'font-size': 9, 'text-anchor': 'end'});
+        ty.textContent = t.label; svg.appendChild(ty);
+    });
+    const xl = svgEl('text', {x: pad.l + plotW/2, y: H - 1, fill: '#6b7a90', 'font-size': 9, 'text-anchor': 'middle'});
+    xl.textContent = xlabel; svg.appendChild(xl);
+    const yl = svgEl('text', {x: 10, y: pad.t + plotH/2, fill: '#6b7a90', 'font-size': 9, 'text-anchor': 'middle', transform: `rotate(-90 10 ${pad.t + plotH/2})`});
+    yl.textContent = ylabel; svg.appendChild(yl);
+    return { pad, plotW, plotH };
+}
+function plotPath(svg, points, layout, xRange, yRange, color, opts={}) {
+    const { pad, plotW, plotH } = layout;
+    const xmap = x => pad.l + ((x - xRange[0]) / (xRange[1] - xRange[0])) * plotW;
+    const ymap = y => pad.t + plotH - ((y - yRange[0]) / (yRange[1] - yRange[0])) * plotH;
+    const d = points.map((p, i) => (i === 0 ? 'M' : 'L') + xmap(p[0]).toFixed(1) + ',' + ymap(p[1]).toFixed(1)).join(' ');
+    svg.appendChild(svgEl('path', {
+        d, fill: opts.fill || 'none', stroke: color,
+        'stroke-width': opts.width || 2,
+        'stroke-dasharray': opts.dash || '',
+        opacity: opts.opacity != null ? opts.opacity : 1
+    }));
+    return { xmap, ymap };
+}
+function plotLegend(svg, items, x0, y0) {
+    items.forEach((it, i) => {
+        const y = y0 + i * 13;
+        svg.appendChild(svgEl('line', {x1: x0, y1: y, x2: x0+14, y2: y, stroke: it[0], 'stroke-width': 2, 'stroke-dasharray': it[2] || ''}));
+        const tx = svgEl('text', {x: x0+18, y: y+3, fill: '#b0bccf', 'font-size': 9});
+        tx.textContent = it[1]; svg.appendChild(tx);
+    });
+}
 
 // Fixed constants (Phase I canonical)
 const ALPHA_CANONICAL = 1/3;
@@ -785,32 +839,41 @@ function updateBandwidth() {
         badge.className = 'widget-badge badge-suppressed';
     }
 
-    // Chart: E(k) and Δ²(k) normalized
+    // SVG Plot: E(k) curve + Δ²(k) weight + α DC line
+    const svg = document.getElementById('plot-bandwidth');
+    if (!svg) return;
+    clearSvg(svg);
+    const W = 600, H = 180;
     const maxD2 = Math.max(...D2s);
-    const ctx = document.getElementById('chart-bandwidth');
-    if (!ctx) return;
-    if (charts.bandwidth) charts.bandwidth.destroy();
-    charts.bandwidth = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ks.map(k => k.toExponential(1)),
-            datasets: [
-                { label: 'E(k) = α/(1+(ωτ₀)²)', data: Es, borderColor: '#4fc3f7', backgroundColor: 'rgba(79,195,247,0.15)', borderWidth: 2, pointRadius: 0, fill: true, yAxisID: 'y' },
-                { label: 'Δ²(k) · P(k) weight (normalized)', data: D2s.map(d => d/maxD2 * alpha), borderColor: '#ce93d8', borderDash: [5,3], borderWidth: 1.5, pointRadius: 0, yAxisID: 'y' },
-                { label: `α = ${alpha.toFixed(3)} (DC limit)`, data: ks.map(() => alpha), borderColor: '#ffd54f', borderDash: [2,2], borderWidth: 1, pointRadius: 0, yAxisID: 'y' },
-            ]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { labels: { color: '#6b7a90', font: { size: 10 } } } },
-            scales: {
-                x: { title: { display: true, text: 'k (h/Mpc)', color: '#6b7a90' }, ticks: { color: '#6b7a90', maxTicksLimit: 8 }, grid: { color: '#1e2a3a' } },
-                y: { title: { display: true, text: 'Enhancement E(k)', color: '#6b7a90' }, ticks: { color: '#6b7a90' }, grid: { color: '#1e2a3a' }, min: 0 },
-            }
-        }
-    });
+    const xTicks = [
+        { pos: 0,    label: '10⁻⁴' }, { pos: 0.25, label: '10⁻³' },
+        { pos: 0.5,  label: '10⁻²' }, { pos: 0.75, label: '10⁻¹' },
+        { pos: 1,    label: '0.3'  },
+    ];
+    const yTicks = [
+        { pos: 0,    label: '0'   }, { pos: 0.25, label: '0.1' },
+        { pos: 0.5,  label: '0.2' }, { pos: 0.75, label: '0.3' },
+        { pos: 1,    label: '0.4' },
+    ];
+    const layout = drawAxes(svg, W, H, 'k (h/Mpc) — observable matter power spectrum', 'E(k)', xTicks, yTicks);
+    const xRange = [Math.log(k_min), Math.log(k_max)];
+    const yRange = [0, 0.4];
+    // Δ² weight (normalized)
+    const D2pts = D2s.map((d, i) => [Math.log(ks[i]), (d/maxD2) * alpha]);
+    plotPath(svg, D2pts, layout, xRange, yRange, '#ce93d8', { dash: '4,3', width: 1.5, opacity: 0.7 });
+    // α DC reference line
+    plotPath(svg, [[xRange[0], alpha], [xRange[1], alpha]], layout, xRange, yRange, '#ffd54f', { dash: '2,2', width: 1 });
+    // E(k) filled area
+    const Epts = Es.map((e, i) => [Math.log(ks[i]), e]);
+    const filled = [[xRange[0], 0], ...Epts, [xRange[1], 0]];
+    plotPath(svg, filled, layout, xRange, yRange, 'transparent', { fill: 'rgba(79,195,247,0.2)' });
+    plotPath(svg, Epts, layout, xRange, yRange, '#4fc3f7', { width: 2.5 });
+    plotLegend(svg, [
+        ['#4fc3f7', 'E(k) = α/(1+(ωτ₀)²)'],
+        ['#ce93d8', 'Δ²(k) weight (scaled)', '4,3'],
+        ['#ffd54f', 'α DC limit', '2,2'],
+    ], 56, 20);
 }
-function E_trap(e1, e2, d1, d2, dk) { return ((e1*d1 + e2*d2) / 2) * dk; }
 
 // ─────────────────────────────────────────────────────
 // Widget 2: Rotation Curve
@@ -894,29 +957,37 @@ function updateRotation() {
         badge.className = 'widget-badge badge-intermediate';
     }
 
-    // Chart
-    const ctx = document.getElementById('chart-rotation');
-    if (!ctx) return;
-    if (charts.rotation) charts.rotation.destroy();
-    charts.rotation = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: r_arr_kpc.map(r => r.toFixed(0)),
-            datasets: [
-                { label: 'v_Newton (baryons only)', data: v_N, borderColor: '#ff7961', borderWidth: 2, pointRadius: 0, borderDash: [5,3] },
-                { label: 'v_GRUT (ν(y) engine)', data: v_G, borderColor: '#4fc3f7', backgroundColor: 'rgba(79,195,247,0.15)', borderWidth: 2.5, pointRadius: 0, fill: '+1' },
-                { label: `v_flat = ${(v_flat/1000).toFixed(0)} km/s (BTFR)`, data: r_arr_kpc.map(() => v_flat/1000), borderColor: '#66bb6a', borderWidth: 1, pointRadius: 0, borderDash: [2,2] },
-            ]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { labels: { color: '#6b7a90', font: { size: 10 } } } },
-            scales: {
-                x: { title: { display: true, text: 'radius (kpc)', color: '#6b7a90' }, ticks: { color: '#6b7a90', maxTicksLimit: 8 }, grid: { color: '#1e2a3a' } },
-                y: { title: { display: true, text: 'v_circ (km/s)', color: '#6b7a90' }, ticks: { color: '#6b7a90' }, grid: { color: '#1e2a3a' }, min: 0 },
-            }
-        }
-    });
+    // SVG Plot: v_Newton (baryons only) vs v_GRUT vs v_flat (BTFR)
+    const svg = document.getElementById('plot-rotation');
+    if (!svg) return;
+    clearSvg(svg);
+    const W = 600, H = 180;
+    const y_max = Math.max(v_flat/1000 * 1.3, Math.max(...v_G) * 1.1, Math.max(...v_N) * 1.1);
+    const xTicks = [
+        { pos: 0,    label: '0' },
+        { pos: 0.25, label: (r_max_kpc*0.25).toFixed(0) },
+        { pos: 0.5,  label: (r_max_kpc*0.5).toFixed(0)  },
+        { pos: 0.75, label: (r_max_kpc*0.75).toFixed(0) },
+        { pos: 1,    label: r_max_kpc.toFixed(0) },
+    ];
+    const yTicks = [];
+    for (let j = 0; j <= 4; j++) yTicks.push({ pos: j/4, label: (y_max * j/4).toFixed(0) });
+    const layout = drawAxes(svg, W, H, 'radius (kpc)', 'v_circ (km/s)', xTicks, yTicks);
+    const xRange = [0, r_max_kpc], yRange = [0, y_max];
+    // v_flat horizontal reference
+    plotPath(svg, [[0, v_flat/1000], [r_max_kpc, v_flat/1000]], layout, xRange, yRange, '#66bb6a', { dash: '3,3', width: 1 });
+    // v_GRUT filled area under curve
+    const vG_pts = r_arr_kpc.map((r, i) => [r, v_G[i]]);
+    const vG_fill = [[0, 0], ...vG_pts, [r_max_kpc, 0]];
+    plotPath(svg, vG_fill, layout, xRange, yRange, 'transparent', { fill: 'rgba(79,195,247,0.18)' });
+    plotPath(svg, vG_pts, layout, xRange, yRange, '#4fc3f7', { width: 2.5 });
+    // v_Newton dashed red
+    plotPath(svg, r_arr_kpc.map((r, i) => [r, v_N[i]]), layout, xRange, yRange, '#ff7961', { dash: '5,3', width: 2 });
+    plotLegend(svg, [
+        ['#4fc3f7', 'v_GRUT (ν(y) engine)'],
+        ['#ff7961', 'v_Newton (baryons only)', '5,3'],
+        ['#66bb6a', `v_flat = ${(v_flat/1000).toFixed(0)} km/s (BTFR)`, '3,3'],
+    ], 56, 20);
 }
 
 // ─────────────────────────────────────────────────────
@@ -991,29 +1062,46 @@ function updateThermal() {
         ng_arr.push(Math.sqrt(1 + fi * ALPHA_CANONICAL));
     }
 
-    const ctx = document.getElementById('chart-thermal');
-    if (!ctx) return;
-    if (charts.thermal) charts.thermal.destroy();
-    charts.thermal = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: logTs.map(x => x.toFixed(1)),
-            datasets: [
-                { label: 'Memory activation f(T)', data: fs, borderColor: '#4fc3f7', backgroundColor: 'rgba(79,195,247,0.15)', borderWidth: 2, pointRadius: 0, fill: true, yAxisID: 'y' },
-                { label: 'n_g(T) enhancement', data: ng_arr.map(x => (x - 1) / 0.1547), borderColor: '#ce93d8', borderWidth: 1.5, pointRadius: 0, yAxisID: 'y' },
-                { label: `T_c = 54.7 MK (log₁₀=${Math.log10(T_C_K).toFixed(2)})`, data: [{x: Math.log10(T_C_K), y: 0}, {x: Math.log10(T_C_K), y: 1}], borderColor: '#ffd54f', borderWidth: 1, pointRadius: 0, borderDash: [3,3], type: 'line' },
-                { label: `Current T (log₁₀=${logT.toFixed(2)})`, data: [{x: logT, y: 0}, {x: logT, y: 1}], borderColor: '#66bb6a', borderWidth: 2, pointRadius: 0, type: 'line' },
-            ]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { labels: { color: '#6b7a90', font: { size: 10 } } } },
-            scales: {
-                x: { title: { display: true, text: 'log₁₀(T / K)', color: '#6b7a90' }, ticks: { color: '#6b7a90', maxTicksLimit: 8 }, grid: { color: '#1e2a3a' } },
-                y: { title: { display: true, text: 'f(T) / n_g enhancement', color: '#6b7a90' }, ticks: { color: '#6b7a90' }, grid: { color: '#1e2a3a' }, min: 0, max: 1.05 },
-            }
-        }
+    // SVG Plot: f(T) sigmoid + n_g enhancement + T_c marker + current-T marker
+    const svg = document.getElementById('plot-thermal');
+    if (!svg) return;
+    clearSvg(svg);
+    const W = 600, H = 180;
+    const xTicks = [];
+    for (let j = 0; j <= 6; j++) xTicks.push({ pos: j/6, label: (j*2).toFixed(0) });
+    const yTicks = [
+        { pos: 0, label: '0' }, { pos: 0.25, label: '0.25' },
+        { pos: 0.5, label: '0.5' }, { pos: 0.75, label: '0.75' },
+        { pos: 1, label: '1.0' },
+    ];
+    const layout = drawAxes(svg, W, H, 'log₁₀(T / K)', 'activation f(T)', xTicks, yTicks);
+    const xRange = [0, 12], yRange = [0, 1.05];
+    // T_c vertical marker
+    const logTc = Math.log10(T_C_K);
+    plotPath(svg, [[logTc, 0], [logTc, 1.05]], layout, xRange, yRange, '#ffd54f', { dash: '3,3', width: 1 });
+    // n_g enhancement (rescaled so max fits)
+    const ng_pts = logTs.map((lt, i) => [lt, (ng_arr[i] - 1) / 0.1547]);
+    plotPath(svg, ng_pts, layout, xRange, yRange, '#ce93d8', { width: 1.5 });
+    // f(T) filled
+    const f_pts = logTs.map((lt, i) => [lt, fs[i]]);
+    const f_fill = [[0, 0], ...f_pts, [12, 0]];
+    plotPath(svg, f_fill, layout, xRange, yRange, 'transparent', { fill: 'rgba(79,195,247,0.2)' });
+    plotPath(svg, f_pts, layout, xRange, yRange, '#4fc3f7', { width: 2.5 });
+    // Current T marker (bold green)
+    plotPath(svg, [[logT, 0], [logT, 1.05]], layout, xRange, yRange, '#66bb6a', { width: 2.5 });
+    // Current-T circle on the curve
+    const cur = svgEl('circle', {
+        cx: layout.pad.l + (logT/12) * layout.plotW,
+        cy: layout.pad.t + layout.plotH - (f / 1.05) * layout.plotH,
+        r: 5, fill: '#66bb6a', stroke: '#ffffff', 'stroke-width': 1.5
     });
+    svg.appendChild(cur);
+    plotLegend(svg, [
+        ['#4fc3f7', 'memory activation f(T)'],
+        ['#ce93d8', 'n_g(T) enhancement'],
+        ['#ffd54f', 'T_c = 54.7 MK', '3,3'],
+        ['#66bb6a', 'current T'],
+    ], 380, 20);
 }
 
 // Wire up all sliders to update functions

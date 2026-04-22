@@ -4,7 +4,7 @@
     {
       "name": "grut-rai-api",
       "runtimeExecutable": "bash",
-      "runtimeArgs": ["run_server.sh"],
+      "runtimeArgs": [".claude/run_preview.sh"],
       "port": 5000
     }
   ]
