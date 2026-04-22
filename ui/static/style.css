@@ -353,3 +353,122 @@ canvas { background:var(--bg); border-radius:6px; }
     font-weight: 600;
     fill: var(--text);
 }
+
+/* ═══════════════════════════════════════════════════════════════════ */
+/* EXPERIMENT RESULT PANEL — inline render of /api/* endpoint response */
+/* ═══════════════════════════════════════════════════════════════════ */
+.exp-result-panel {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: #0a0e17;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    font-size: 11px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.exp-res-loading {
+    color: var(--dim);
+    font-style: italic;
+    padding: 8px 0;
+}
+.exp-res-error {
+    color: var(--red);
+    padding: 8px 0;
+}
+.exp-res-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--dim);
+}
+.exp-res-endpoint { margin-left: auto; font-size: 10px; color: var(--dim); }
+.exp-res-endpoint code { background: transparent; color: var(--accent); }
+.exp-res-close {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--dim);
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+    margin-left: 4px;
+}
+.exp-res-close:hover { color: var(--text); border-color: var(--text); }
+.exp-res-body { margin-bottom: 8px; }
+.exp-res-headline {
+    background: rgba(79,195,247,0.06);
+    border-left: 2px solid var(--accent);
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: var(--text);
+    border-radius: 2px;
+}
+.exp-res-headline strong {
+    color: var(--accent);
+    text-transform: lowercase;
+    font-variant: small-caps;
+    letter-spacing: 0.5px;
+    margin-right: 4px;
+}
+.exp-res-table {
+    width: 100%;
+    font-size: 11px;
+    border-collapse: collapse;
+}
+.exp-res-table td {
+    padding: 4px 8px;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(30,42,58,0.4);
+}
+.exp-res-table td:first-child {
+    white-space: nowrap;
+    color: var(--dim);
+    width: 1%;
+}
+.exp-res-table td:last-child { color: var(--text); word-break: break-word; }
+.exp-res-table code {
+    background: rgba(79,195,247,0.08);
+    padding: 1px 4px;
+    border-radius: 2px;
+    color: var(--accent);
+    font-size: 10px;
+}
+.exp-res-table details summary {
+    cursor: pointer;
+    color: var(--accent);
+    font-size: 10px;
+}
+.exp-res-table details[open] summary { margin-bottom: 4px; }
+.exp-res-raw {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+}
+.exp-res-raw summary {
+    cursor: pointer;
+    color: var(--dim);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+.exp-res-raw pre {
+    margin-top: 6px;
+    padding: 8px;
+    background: #050810;
+    border-radius: 3px;
+    font-size: 10px;
+    overflow-x: auto;
+    color: var(--dim);
+    max-height: 280px;
+    overflow-y: auto;
+}

@@ -465,7 +465,7 @@
                     <tr><td>Dominant noise</td><td>300K: blackbody. 4K: EM. 100mK: EM</td></tr>
                     <tr><td>Verdict</td><td class="exp-impact-high">MARGINALLY TESTABLE &mdash; cooling essential</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/decoherence/full_analysis','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/decoherence/full_analysis')">Run Live</button>
             </div>
 
             <div class="exp-card primary">
@@ -477,7 +477,7 @@
                     <tr><td>Unique to</td><td>GRUT only (DP point: no kink. CSL: no kink)</td></tr>
                     <tr><td>Kink agreement</td><td>Predicted vs measured: 2.7%</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/decoherence/kink_scan?m_amu=1e9','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/decoherence/kink_scan?m_amu=1e9')">Run Live</button>
             </div>
 
             <div class="exp-card">
@@ -489,7 +489,7 @@
                     <tr><td>Condition</td><td>Requires near-kink regime (l ~ R)</td></tr>
                     <tr><td>Far field</td><td>Ratio = 1.000 (no discrimination)</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/decoherence/optimal_pair?m_amu=1e8&l=5e-8','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/decoherence/optimal_pair?m_amu=1e8&l=5e-8')">Run Live</button>
             </div>
 
             <div class="exp-card">
@@ -501,7 +501,7 @@
                     <tr><td>CSL</td><td>Ratio = 1.000 (0% protection)</td></tr>
                     <tr><td>Test</td><td>YES/NO discriminator: state-dependent vs independent</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/decoherence/entanglement?m_amu=1e8','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/decoherence/entanglement?m_amu=1e8')">Run Live</button>
             </div>
 
             <div class="exp-card">
@@ -514,7 +514,7 @@
                     <tr><td>Early universe</td><td>Planck 10&sigma;, DESI 6&sigma; &mdash; ✗</td></tr>
                     <tr><td>Verdict</td><td>Does NOT resolve tension (smoothing = 5%)</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/cosmology/hubble_tension','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/cosmology/hubble_tension')">Run Live</button>
             </div>
 
             <div class="exp-card now">
@@ -527,7 +527,7 @@
                     <tr><td>Detection needs</td><td>Portal matter for kinetic mixing &epsilon;</td></tr>
                     <tr><td>Definitive test</td><td>SHiP (2030, reaches &epsilon;&sup2; ~ 10<sup>-10</sup>)</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/dark_matter/exclusion','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/dark_matter/exclusion')">Run Live</button>
             </div>
 
             <div class="exp-card">
@@ -540,7 +540,7 @@
                     <tr><td>CMB-S4 precision</td><td>&plusmn;0.002 &mdash; CAN distinguish</td></tr>
                     <tr><td>Key</td><td class="exp-impact-high">OPPOSITE SIGNS &mdash; unambiguous</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/cosmology/spectral','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/cosmology/spectral')">Run Live</button>
             </div>
 
             <div class="exp-card">
@@ -553,7 +553,7 @@
                     <tr><td>SM EW</td><td>~10<sup>-18</sup> (fails by 10<sup>8</sup>)</td></tr>
                     <tr><td>CMB-S4</td><td>22&sigma; &mdash; DECISIVE test</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/baryogenesis/crosscheck','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/baryogenesis/crosscheck')">Run Live</button>
             </div>
 
             <div class="exp-card primary">
@@ -566,7 +566,7 @@
                     <tr><td>Env. prediction</td><td>Ratio = 1.000 (identical surfaces)</td></tr>
                     <tr><td>Advantage</td><td class="exp-impact-high">ZERO surface-chemistry systematics</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/decoherence/isotope/full','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/decoherence/isotope/full')">Run Live</button>
             </div>
 
             <!-- ═════════════════════════════════════════════════════════════ -->
@@ -584,7 +584,7 @@
                     <tr><td>Free parameters</td><td class="exp-impact-high">ZERO (brother's 6-step protocol)</td></tr>
                     <tr><td>c<sub>s</sub> sensitivity</td><td>FLAT across [50, 500] km/s (all DC)</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/bandwidth_integral','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/bandwidth_integral')">Run Live</button>
             </div>
 
             <div class="exp-card">
@@ -597,7 +597,7 @@
                     <tr><td>Outer (100 kpc)</td><td>v<sub>GRUT</sub> &asymp; √(GM·a<sub>0</sub>)<sup>1/4</sup> (BTFR)</td></tr>
                     <tr><td>a<sub>0</sub></td><td><strong>1.08×10<sup>-10</sup> m/s² (derived, not fit)</strong></td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/rotation_curve?M_Msun=5e10&r_kpc=10','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/rotation_curve?M_Msun=5e10&r_kpc=10')">Run Live</button>
             </div>
 
             <div class="exp-card">
@@ -610,7 +610,7 @@
                     <tr><td>Recombination</td><td>BELOW T<sub>c</sub> &rarr; deep refractive regime</td></tr>
                     <tr><td>Today (2.7 K)</td><td>Full enhancement n<sub>g</sub> &asymp; 1.1547</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/thermal_transition','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/thermal_transition')">Run Live</button>
             </div>
 
             <div class="exp-card">
@@ -623,7 +623,7 @@
                     <tr><td>&tau;<sub>0</sub></td><td>41.9 Myr (= &tau;<sub>&Lambda;</sub>/S = 1/√(&Lambda;c))</td></tr>
                     <tr><td>a<sub>0</sub> (MOND scale)</td><td>DERIVED from H<sub>0</sub>, not fit</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/closure_protocol','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/closure_protocol')">Run Live</button>
             </div>
 
             <div class="exp-card retracted">
@@ -636,7 +636,7 @@
                     <tr><td>Step 3 (correct)</td><td>String topology: &Omega; = 0.008 (factor 33 LOW)</td></tr>
                     <tr><td>Status</td><td class="exp-impact-high">RETRACTED &mdash; 15 corrections, 0 hallucinations</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/track_vii_status','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/track_vii_status')">Run Live</button>
             </div>
 
             <div class="exp-card">
@@ -649,7 +649,7 @@
                     <tr><td>&epsilon;<sub>combined</sub>(SM)</td><td>1.15370 (Osborn 2003)</td></tr>
                     <tr><td>Agreement</td><td class="exp-impact-high">&lt;0.087% across all pairs</td></tr>
                 </table>
-                <button class="viz-btn" onclick="window.open('/api/three_routes','_blank')">Run Live</button>
+                <button class="viz-btn" onclick="runExperiment(this, '/api/three_routes')">Run Live</button>
             </div>
         </div>
 

@@ -1160,6 +1160,102 @@ function initPlayground() {
         !!document.getElementById('plot-thermal'));
 }
 
+// ══════════════════════════════════════════════════════
+// runExperiment — fetch an /api/* endpoint and render
+// the result INLINE in the card's own result panel.
+// Replaces the old window.open() which opened raw JSON
+// in a new tab (popup-blocked / unreadable).
+// ══════════════════════════════════════════════════════
+
+function fmtNum(v) {
+    if (typeof v !== 'number') return v;
+    if (!isFinite(v)) return v.toString();
+    const abs = Math.abs(v);
+    if (abs === 0) return '0';
+    if (abs < 1e-3 || abs >= 1e5) return v.toExponential(3);
+    return v.toPrecision(4);
+}
+
+function renderExpResult(container, data, depth = 0) {
+    // Build a flat-ish HTML rendering of the JSON. Headlines first,
+    // then key numerical stats, then dictionaries/lists below.
+    if (data === null || data === undefined) return '<em>no data</em>';
+    if (typeof data !== 'object') {
+        return `<code>${String(data)}</code>`;
+    }
+    if (Array.isArray(data)) {
+        return '<ul>' + data.map(x => `<li>${renderExpResult(null, x, depth+1)}</li>`).join('') + '</ul>';
+    }
+    // Priority keys rendered as headlines
+    const priority = ['headline', 'verdict', 'one_line', 'status', 'interpretation', 'summary', 'title', 'name'];
+    let out = '';
+    for (const k of priority) {
+        if (data[k] && typeof data[k] === 'string') {
+            out += `<div class="exp-res-headline"><strong>${k}:</strong> ${data[k]}</div>`;
+        }
+    }
+    // Everything else in a compact table
+    out += '<table class="exp-res-table">';
+    for (const [k, v] of Object.entries(data)) {
+        if (priority.includes(k)) continue;
+        if (k.startsWith('_')) continue;
+        let valHtml;
+        if (typeof v === 'object' && v !== null) {
+            if (depth > 1) {
+                valHtml = `<em>(nested, ${Array.isArray(v) ? v.length : Object.keys(v).length} items)</em>`;
+            } else {
+                valHtml = `<details><summary>expand</summary>${renderExpResult(null, v, depth+1)}</details>`;
+            }
+        } else if (typeof v === 'number') {
+            valHtml = `<code>${fmtNum(v)}</code>`;
+        } else if (typeof v === 'boolean') {
+            valHtml = v ? '<span style="color:var(--green)">✓ true</span>' : '<span style="color:var(--red)">✗ false</span>';
+        } else if (typeof v === 'string') {
+            valHtml = v.length > 300 ? `<details><summary>${v.slice(0, 150)}…</summary><p>${v}</p></details>` : v;
+        } else {
+            valHtml = String(v);
+        }
+        out += `<tr><td><code>${k}</code></td><td>${valHtml}</td></tr>`;
+    }
+    out += '</table>';
+    return out;
+}
+
+async function runExperiment(btn, endpoint) {
+    // Find or create the result panel directly after the button
+    let panel = btn.nextElementSibling;
+    if (!panel || !panel.classList.contains('exp-result-panel')) {
+        panel = document.createElement('div');
+        panel.className = 'exp-result-panel';
+        btn.parentNode.insertBefore(panel, btn.nextSibling);
+    }
+    const originalLabel = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Running…';
+    panel.innerHTML = '<div class="exp-res-loading">Calling <code>' + endpoint + '</code> …</div>';
+    panel.style.display = 'block';
+    try {
+        const r = await fetch((endpoint.startsWith('/api') ? '' : '/api') + endpoint);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const data = await r.json();
+        panel.innerHTML =
+            '<div class="exp-res-header">' +
+                '<span>Live result</span>' +
+                '<span class="exp-res-endpoint"><code>' + endpoint + '</code></span>' +
+                '<button class="exp-res-close" onclick="this.closest(\'.exp-result-panel\').style.display=\'none\'">×</button>' +
+            '</div>' +
+            '<div class="exp-res-body">' + renderExpResult(null, data, 0) + '</div>' +
+            '<details class="exp-res-raw"><summary>Raw JSON</summary><pre>' +
+                JSON.stringify(data, null, 2) +
+            '</pre></details>';
+    } catch (e) {
+        panel.innerHTML = '<div class="exp-res-error">Error: ' + (e.message || e) + '</div>';
+    } finally {
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+    }
+}
+
 async function init() {
     await loadHealth();
     await checkAI();
