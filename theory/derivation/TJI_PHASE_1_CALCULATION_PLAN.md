@@ -40,11 +40,17 @@ The 2-loop T_2 reduction prefactor × master-integral gamma-ratio is implemented
 
 Pinned by regression tests `tests/derivation/tji/test_flat_space.py`.
 
-### The FeynCalc reference value
+### The FeynCalc reference value — Phase-0.5 HONEST NEGATIVE
 
-V7 §26.2.3's FeynCalc run reported the ε⁰ rational as **7/4** in a specific MS-bar convention. The raw-scheme value −541/2304 differs from 7/4 by scheme-dependent finite renormalization terms (Γ(1+ε) per-loop absorption, (4π)^ε absorption, the 1/ε̄ definition).
+V7 §26.2.3's FeynCalc run reported the ε⁰ rational as **7/4** in a specific MS-bar convention.
 
-**Reconciliation to the FeynCalc 7/4 is Phase-0.5**: identify the exact MS-bar / Γ-absorption convention FeynCalc used in the V7 session, implement it in the SymPy pipeline, and verify the pipeline reproduces 7/4 exactly. This is a bounded symbolic algebra task (~1–2 sessions) that should land before Phase-1 begins, so the curved-space calculation is measured against a scheme-matched flat-space baseline.
+**Phase-0.5 outcome (April 23, 2026): HONEST NEGATIVE on 7/4 reconciliation under standard MS-bar.** See `theory/derivation/CORRECTION_21_TJI_PHASE_0P5_SCHEME_RECONCILIATION.md`. The standard MS-bar absorption `[(4π)^ε · Γ(1+ε)⁻¹]²` applied to the raw Laurent produces `−541/2304 + π²/192` at ε⁰ (with γ_E cleanly absorbed, logs grouped as pure log(4π)). Setting log(4π) → 0 leaves `−541/2304 + π²/192`, NOT `7/4`. Systematic enumeration of 24 MS-bar-family variants (6 factors × 4 sign/π^D configs) produced zero matches to 7/4.
+
+Audit of the user's original V7 Mathematica notebooks (Notebooks/1.15428.nb, Notebooks/A-ICM_*.nb) confirmed conventions C1 (d = 4−2ε) are consistent with the Phase-0 pipeline, but **the FeynCalc session that produced 7/4 is not archived** among the available notebooks. Its exact internal TarcerRecurse/ApartFF convention is not documented in `theory/derivation/FEYNCALC_VERIFICATION_LOG.md`, and reverse-engineering from the reported 7/4 failed under all standard MS-bar variants.
+
+**Phase-1 measurement baseline is now the canonical MS-bar result** `−541/2304 + π²/192` (standard F2: (4π)^ε · Γ(1+ε)⁻¹ per loop), NOT 7/4. If the 7/4 session is ever recovered and its convention pinned, the baseline updates accordingly.
+
+**Phase-0.5-redux (deferred):** recover or re-run the FeynCalc TJI session with the exact same convention as V7 §26.2.3, producing 7/4 reproducibly. Requires FeynCalc notebook access not currently in hand.
 
 ### Allen-Jacobson interface stub (`grut/derivation/tji/allen_jacobson.py`)
 
@@ -186,12 +192,13 @@ Phase-1 hits a specific technical obstacle that the pipeline cannot resolve (e.g
 
 | Phase | Task | Status |
 |:---|:---|:---|
-| 0 | Flat-space SymPy pipeline, Laurent expansion, regression tests | **COMPLETE** (this session) |
-| 0.5 | Reconcile raw-scheme −541/2304 to FeynCalc MS-bar 7/4 | PENDING (~1–2 sessions) |
+| 0 | Flat-space SymPy pipeline, Laurent expansion, regression tests | **COMPLETE** (commit `736ddbd`) |
+| 0.5 | Canonical MS-bar reconciliation + explicit convention declaration | **COMPLETE; HONEST NEGATIVE on 7/4 match** (see CORRECTION_21) |
+| 0.5-redux | Recover V7 FeynCalc session to resolve 7/4 origin | DEFERRED (requires notebook access not currently in hand) |
 | 1 | Allen-Jacobson S⁴ propagator implementation | NOT STARTED |
 | 2 | 2-loop sunset composition on S⁴ | NOT STARTED |
 | 3 | Laurent expansion and ε⁰ extraction | NOT STARTED |
 | 4 | Verification: c₀ == Fraction(−100, 1) exactly | NOT STARTED |
 | 5 | Write-up and specialist review | NOT STARTED |
 
-Phase-0 closes here. Phase-0.5 may be attempted in-pipeline or handed to a specialist. Phases 1–5 require curved-space QFT specialist expertise.
+Phase-0 and Phase-0.5 close. Phase-0.5-redux (recovering the 7/4 convention) is deferred to session recovery or specialist. Phases 1–5 require curved-space QFT specialist expertise; their baseline is now the canonical MS-bar result `−541/2304 + π²/192`, **not** the unreconciled 7/4 historical value.
