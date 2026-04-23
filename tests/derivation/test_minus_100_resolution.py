@@ -137,6 +137,32 @@ class TestDriveFrictionDecomposition:
         r = h_inf_drive_over_friction(1.322e15)
         assert "conformal" in r["drive_meaning"].lower() or "Gibbons" in r["drive_meaning"]
 
+    def test_formula_uses_magnitude_not_signed_R(self):
+        """Enforce the (2 − |R|) convention at the formula evaluation point.
+
+        If a future refactor accidentally feeds R_ANOMALY_SIGNED = −1.15428
+        into the cosmological formula, the drive flips from 0.846 (correct)
+        to 3.154 (wrong by factor ~3.73) and H_inf becomes ~7.03 × 10⁻¹⁸ Hz
+        instead of the headline 1.885 × 10⁻¹⁸ Hz. This test pins the
+        convention by checking the drive is strictly less than 1 and by
+        cross-checking against the explicit magnitude evaluation.
+        """
+        from grut.foundation.anomaly import (
+            h_inf_drive_over_friction, R_ANOMALY, R_ANOMALY_SIGNED, S_CTP,
+        )
+        tau_0 = 41.9e6 * 3.156e7
+        r = h_inf_drive_over_friction(tau_0)
+        drive = r["topological_drive_2_minus_R"]
+        # Correct: drive = 2 − |R| = 0.846 < 1
+        assert 0.84 < drive < 0.86
+        # Explicit wrong-branch check: if signed R had been used, drive = 3.154
+        wrong_drive = 2.0 - R_ANOMALY_SIGNED
+        assert abs(wrong_drive - 3.15428) < 1e-4  # wrong branch value
+        assert drive != wrong_drive
+        # And H_inf must match the magnitude-convention evaluation
+        H_inf_mag = (2.0 - R_ANOMALY) / (S_CTP * tau_0)
+        assert abs(r["H_inf_Hz"] - H_inf_mag) / H_inf_mag < 1e-6
+
 
 class TestVerifyBlock:
     def test_anomaly_verify_all_pass(self):
