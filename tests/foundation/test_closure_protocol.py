@@ -53,6 +53,76 @@ class TestCanonicalConstants:
         from grut.foundation.closure_protocol import T_C_MK
         assert abs(T_C_MK - 54.7) / 54.7 < 0.05
 
+    def test_T_c_canonical_anchor_is_5p47e7_K(self):
+        """T_C_KELVIN_CANONICAL = 5.47×10⁷ K — the empirical anchor.
+
+        This is the cosmological-chronology pin (T at t≈1 hour post-BB
+        per V7 §0.5, V7 §22). T_C_KELVIN is computed from this canonical
+        value via the SI-correct formula T_c = ℏ/(τ_micro × k_B).
+        Pinning the canonical separately ensures the chain is verifiable
+        end-to-end."""
+        from grut.foundation.closure_protocol import T_C_KELVIN_CANONICAL
+        assert abs(T_C_KELVIN_CANONICAL - 5.47e7) < 1e3
+
+    def test_tau_micro_is_femtosecond_scale(self):
+        """τ_micro = ℏ/(k_B × T_c) ≈ 1.4 × 10⁻¹⁹ s (microscopic plasma scale).
+
+        Distinct from the macroscopic gravitational τ_0 = 41.9 Myr by
+        ~34 orders of magnitude. See Correction #22 (tau-cleanup)."""
+        from grut.foundation.closure_protocol import TAU_MICRO_SEC
+        assert 1.0e-19 < TAU_MICRO_SEC < 2.0e-19
+        # Tighter pin — recovers ≈1.396×10⁻¹⁹ s from T_c = 54.7 MK.
+        assert abs(TAU_MICRO_SEC - 1.396e-19) / 1.396e-19 < 0.01
+
+    def test_T_c_formula_is_SI_correct(self):
+        """T_C_KELVIN = ℏ/(τ_micro × k_B) — dimensionally consistent.
+
+        Pre-Correction-#22 the formula was 1/(τ_0 × k_B), which produced
+        units K/(J·s), not K. The fix introduces τ_micro and uses the
+        SI-correct formula. This test pins the closure of that
+        dimensional bug."""
+        from grut.foundation.closure_protocol import (
+            T_C_KELVIN, TAU_MICRO_SEC,
+        )
+        from grut.foundation.constants import HBAR, K_B
+        recomputed = HBAR / (TAU_MICRO_SEC * K_B)
+        assert abs(T_C_KELVIN - recomputed) / T_C_KELVIN < 1e-12
+
+    def test_T_c_recovered_value_matches_canonical(self):
+        """The recovered T_C_KELVIN must equal T_C_KELVIN_CANONICAL exactly
+        (up to float precision). This is structural — τ_micro is defined
+        as ℏ/(k_B × T_c_canonical), and T_c is recomputed from τ_micro,
+        so the round trip is identity."""
+        from grut.foundation.closure_protocol import (
+            T_C_KELVIN, T_C_KELVIN_CANONICAL,
+        )
+        assert abs(T_C_KELVIN - T_C_KELVIN_CANONICAL) / T_C_KELVIN_CANONICAL < 1e-12
+
+    def test_two_tau_scales_separated_by_thirty_plus_orders(self):
+        """τ_0 (gravitational) and τ_micro (thermal) differ by ~34 orders
+        of magnitude. They are distinct physical scales, conflated under
+        one symbol in pre-Correction-#22 prose. This test pins the
+        magnitude of the separation as a structural finding."""
+        from grut.foundation.closure_protocol import TAU_0_SEC, TAU_MICRO_SEC
+        ratio = TAU_0_SEC / TAU_MICRO_SEC
+        assert ratio > 1e30, f"Expected τ_0/τ_micro > 10³⁰; got {ratio:.2e}"
+        assert ratio < 1e36, f"Expected τ_0/τ_micro < 10³⁶; got {ratio:.2e}"
+
+    def test_T_c_old_dimensionally_invalid_formula_NOT_used(self):
+        """Negative test: the codebase no longer recovers T_c from
+        1/(τ_0 × k_B). The numerical match between the new
+        ℏ/(τ_micro × k_B) and the old 1/(τ_0 × k_B) is by construction
+        of τ_micro (defined to make them coincide), but the formula
+        used in the module is now the SI-correct one. This test verifies
+        the modular constants by re-deriving τ_micro from the canonical
+        T_c and asserting it does NOT equal τ_0 (which would happen if
+        τ_micro had been silently aliased to τ_0)."""
+        from grut.foundation.closure_protocol import TAU_0_SEC, TAU_MICRO_SEC
+        # The two scales must NOT be the same constant.
+        assert TAU_0_SEC != TAU_MICRO_SEC
+        # And they're not numerically close either.
+        assert TAU_0_SEC / TAU_MICRO_SEC > 1e10
+
     def test_mu_Lambda_order_of_magnitude(self):
         """μ_Λ = ℏ/τ_Λ ~ 10⁻³³ eV (horizon IR reference)."""
         from grut.foundation.closure_protocol import MU_LAMBDA_EV

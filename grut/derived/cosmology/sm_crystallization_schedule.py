@@ -1,9 +1,11 @@
 """GRUT — SM cosmic-crystallization schedule [QUARANTINED DRAFT].
 
-⚠️  QUARANTINE NOTICE (2026-04-28) ⚠️
+⚠️  QUARANTINE NOTICE (2026-04-28; updated 2026-04-30) ⚠️
 
-This module is a DRAFT and is HELD pending closure of
-`t_c_provenance_inconsistency_open_negative` (registry, Ch 12).
+This module is a DRAFT held pending closure of
+`tau_zero_to_tau_micro_relation_open_question` (registry, Ch 12;
+formerly tracked under `t_c_provenance_inconsistency_open_negative`,
+which Correction #22 closed at the dimensional level on 2026-04-30).
 
 Status:
   - NOT covered by any test

@@ -306,52 +306,54 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
     ),
 
     LedgerEntry(
-        claim_id="t_c_provenance_inconsistency_open_negative",
+        claim_id="tau_zero_to_tau_micro_relation_open_question",
         closure_condition=(
-            "The framework must explicitly define a microscopic "
-            "relaxation timescale τ_micro for the primordial plasma, "
-            "decoupled from the macroscopic geometric relaxation "
-            "τ_0 = 41.9 Myr. Specifically: identify the physical "
-            "origin of τ_micro (e.g., atomic-transition timescale, "
-            "weak-interaction rate at the relevant energy, or a "
-            "specific CTP plasma-dynamics derivation), motivate the "
-            "value τ_micro ≈ 1.4×10⁻¹⁹ s from framework physics or "
-            "from a documented external anchor, AND derive (or "
-            "explicitly postulate) the relationship between τ_micro "
-            "and τ_0 — they may be independent inputs, related by a "
-            "specific scale-bridge formula, or otherwise. Once τ_micro "
-            "is formalized, T_c = ℏ/(τ_micro × k_B) produces 54.7 MK "
-            "consistently with the cosmological narrative (T_c at "
-            "~1 hour post-Big Bang). At that point: update "
-            "T_C_KELVIN formula in closure_protocol.py to use "
-            "τ_micro explicitly with ℏ, update the corresponding "
-            "test to pin the SI-correct value, and revise V7 §0.5, "
-            "V7 §22, thermal_transition.py docstrings, and the "
-            "GRUT_TOE.md chapters that reference T_c (Ch 1 predictions "
-            "table, Ch 2, Ch 4, Ch 9, Ch 13.3-13.4, Appendix C) in "
-            "a coordinated correction."
+            "DIMENSIONAL CLOSURE COMPLETE (Correction #22, 2026-04-30). "
+            "The framework now defines τ_micro ≡ ℏ/(k_B × T_c) ≈ "
+            "1.4×10⁻¹⁹ s explicitly in closure_protocol.py:TAU_MICRO_SEC, "
+            "uses the SI-correct formula T_c = ℏ/(τ_micro × k_B), and "
+            "names the 34-orders-of-magnitude separation from τ_0 in "
+            "the registry (claim tau_micro_thermal_scale, anchored "
+            "tier). The previous open-negative "
+            "(t_c_provenance_inconsistency_open_negative) is "
+            "RESOLVED at the dimensional level — see "
+            "t_c_provenance_inconsistency_resolved (meta-tier). "
+            "REMAINING OPEN QUESTION: derive (or formally accept the "
+            "absence of) a closure path between τ_0 and τ_micro. "
+            "Path (a) — derivation from CTP plasma dynamics: open. "
+            "Path (b) — identification with a known atomic/nuclear "
+            "timescale: open. Path (c) — acknowledge two independent "
+            "inputs: open as the honest-negative outcome that "
+            "downgrades the framework's 'zero free parameters in the "
+            "predictive core' framing to 'one free parameter (τ_0) "
+            "in the gravitational predictive core; one anchored "
+            "parameter (τ_micro) in the thermal sector'. Path (d) — "
+            "BBN-mediated bridge: FALSIFIED by bbn_thermal_buffer_"
+            "negligible (the 10-orders-of-magnitude shortfall rules "
+            "out BBN as the τ_0↔τ_micro bridge). Closure of this "
+            "open question proceeds either via paths (a)/(b) — "
+            "research-tier work — or via formal acceptance of path "
+            "(c) — registry-tier framing change."
         ),
         closure_effort=(
-            "Multi-session research. The closure work has three "
-            "tractable paths: (a) derive τ_micro from CTP plasma "
-            "dynamics (potentially connecting to "
-            "n_g_omega_cosmological_covariance_open_question #9 — "
-            "both involve cosmological-plasma physics the framework "
-            "has at scoping level but not formalized), (b) identify "
-            "τ_micro with a known atomic/nuclear timescale and "
-            "motivate the identification from first principles, or "
-            "(c) acknowledge two independent inputs (one cosmological "
-            "τ_0, one plasma τ_micro) without a derived relationship "
-            "between them. Path (a) is most ambitious and most "
-            "informative; path (c) is most conservative and could "
-            "close the open negative quickly with a registry-tier "
-            "framing change."
+            "Multi-session research for paths (a)/(b). Path (c) is "
+            "a registry-tier framing change closeable in one "
+            "coordinated session: update Ch 1 predictions table "
+            "footer, Ch 2 Medium framing, Appendix C glossary, and "
+            "the v8/v2 deposit posture statement to make the two-"
+            "scale structure explicit and lower the 'zero free "
+            "parameters' claim to 'zero in gravitational sector + "
+            "one anchored in thermal sector'. The dimensional bug "
+            "(tracked under the original claim id) is closed; this "
+            "ledger entry tracks only the relation-derivation "
+            "question."
         ),
         affects=(
-            "t_c_thermal_transition",  # the registry claim for T_c
+            "t_c_thermal_transition",   # registry claim for T_c
+            "tau_micro_thermal_scale",  # registry claim for τ_micro
         ),
-        blocked_by=(),  # foundational issue, not blocked by other open negatives
-        last_review="2026-04-28",
+        blocked_by=(),  # research question, not blocked by other open negatives
+        last_review="2026-04-30",
     ),
 
     LedgerEntry(

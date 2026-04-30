@@ -13,7 +13,10 @@ This module computes the framework's existing infrastructure
 applied to ONE specific question (the noise-kernel spectrum at
 z = 0). It does NOT:
   - claim the framework "produces CMB temperature"
-  - resolve t_c_provenance_inconsistency_open_negative (#15)
+  - resolve tau_zero_to_tau_micro_relation_open_question
+    (the τ_0↔τ_micro relation; the dimensional bug previously
+    tracked as t_c_provenance_inconsistency_open_negative #15
+    was closed by Correction #22, 2026-04-30)
   - resolve n_g_omega_cosmological_covariance_open_question (#9)
   - propose Chapter 13 revisions
   - adopt any narrative-level reading
@@ -114,14 +117,16 @@ def temperature_from_spectral_peak() -> float:
 
     For τ_0 = 41.9 Myr: T_peak ≈ 5.78×10⁻²⁷ K.
 
-    NOTE: This is the SI-correct value of the "T_c"-like scale that
-    appears in the t_c_provenance_inconsistency_open_negative audit.
-    The audit identified that the framework's codebase computes T_c
-    as 1/(τ_0 k_B) ≈ 54.7 MK (missing factor of ℏ), while the
-    SI-correct value ℏ/(τ_0 k_B) is 5.78×10⁻²⁷ K. The same scale
-    appears here as the Genesis spectral peak. The genesis
-    investigation does NOT resolve the audit — both values are
-    incompatible with CMB at order-of-magnitude levels."""
+    NOTE: This is the SI-correct value of ℏ/(τ_0 × k_B) computed with
+    the GRAVITATIONAL τ_0 = 41.9 Myr. After Correction #22 (2026-04-30,
+    the τ-cleanup), the framework distinguishes τ_0 (gravitational,
+    macroscopic) from τ_micro (thermal, microscopic, ≈ 1.4×10⁻¹⁹ s).
+    T_c = 54.7 MK is now correctly computed as ℏ/(τ_micro × k_B), NOT
+    ℏ/(τ_0 × k_B). What this function returns — ℏ/(τ_0 × k_B) ≈
+    5.78×10⁻²⁷ K — is the NOISE-KERNEL spectral-peak temperature for
+    the gravitational sector, a different physical scale from T_c.
+    Neither value matches the CMB temperature at order-of-magnitude
+    levels; the genesis investigation does not resolve either."""
     return HBAR / (TAU_0_SEC * K_B)
 
 

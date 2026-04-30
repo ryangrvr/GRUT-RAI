@@ -1,9 +1,18 @@
 """
 Thermal Transition — T_c = 54.7 MK, the "Boiling Point of Gravity".
 
-From v9.0 Thermodynamics of Metric Memory:
+From v9.0 Thermodynamics of Metric Memory, with the τ-cleanup of
+Correction #22 (2026-04-30) applied:
 
-    T_c = 1 / (τ_0 k_B) ≈ 54.7 × 10⁶ K
+    T_c = ℏ / (τ_micro × k_B) ≈ 54.7 × 10⁶ K
+
+where τ_micro ≈ 1.4×10⁻¹⁹ s is the microscopic plasma relaxation
+time of the responsive vacuum's microstates — distinct from the
+macroscopic gravitational τ_0 = 41.9 Myr by ~34 orders of magnitude.
+The pre-Correction-#22 form T_c = 1/(τ_0 × k_B) was dimensionally
+invalid; the value 54.7 MK is preserved exactly under the SI-correct
+formula because τ_micro is defined as ℏ/(k_B × T_c) with T_c anchored
+to the cosmological-chronology pin (T at t≈1 hour post-BB).
 
 Above T_c, the vacuum is too "hot" to remember — gravitational response
 is local (standard GR). Below T_c, the memory kernel activates and the
@@ -117,8 +126,10 @@ def verify():
 
 if __name__ == "__main__":
     import json
-    print(f"T_c = {T_C_MK:.2f} × 10⁶ K = ℏ/(τ_0 k_B) using v9 convention (natural units)")
-    print(f"τ_0 = {TAU_0_SEC / (3.156e7 * 1e6):.2f} Myr")
+    from grut.foundation.closure_protocol import TAU_MICRO_SEC
+    print(f"T_c = {T_C_MK:.2f} × 10⁶ K = ℏ/(τ_micro × k_B), SI-correct (Correction #22)")
+    print(f"τ_0     = {TAU_0_SEC / (3.156e7 * 1e6):.2f} Myr        (gravitational sector)")
+    print(f"τ_micro = {TAU_MICRO_SEC:.3e} s    (thermal sector — sets T_c)")
     print()
     print("Cosmological chronology:")
     print(json.dumps(cosmological_chronology(), indent=2, default=str))

@@ -10,10 +10,16 @@ Hypothesis being tested (one piece of a larger narrative):
      temperature."
 
 Connection to framework: this is the most tractable load-bearing piece
-of an external research narrative connecting BBN dynamics to
-t_c_provenance_inconsistency_open_negative (#15 in the ledger). The
-broader narrative remains uninvestigated and uncommitted; this
-calculation tests one specific physical claim in isolation.
+of an external research narrative connecting BBN dynamics to the
+τ_0↔τ_micro relation question (now tracked as
+tau_zero_to_tau_micro_relation_open_question after Correction #22
+closed the dimensional inconsistency on 2026-04-30; previously
+t_c_provenance_inconsistency_open_negative #15). The broader
+narrative remains uninvestigated and uncommitted; this calculation
+tests one specific physical claim in isolation. The negative result
+documented here (BBN-mediated bridge falsified by 10 orders of
+magnitude) rules out path (d) — BBN dynamics — as a closure path
+for the τ_0↔τ_micro relation question.
 
 Methodology: standard cosmology only. No GRUT-specific machinery
 (no τ_0, no Λ_grav, no T_c, no R, no α_vac). All inputs are

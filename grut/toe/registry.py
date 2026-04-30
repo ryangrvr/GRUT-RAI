@@ -1314,20 +1314,92 @@ REGISTRY: tuple[Claim, ...] = (
         id="t_c_thermal_transition",
         chapter=8,
         statement=(
-            "The 'boiling point of gravity' T_c = ℏ/(τ_0 k_B) ≈ 54.7 MK. "
-            "Above T_c gravity is local (no metric memory) — explains "
-            "absence of DM signatures in BBN at T > 10⁹ K."
+            "The 'boiling point of gravity' T_c = ℏ/(τ_micro × k_B) ≈ "
+            "54.7 MK, where τ_micro ≈ 1.4×10⁻¹⁹ s is the microscopic "
+            "plasma relaxation time of the responsive vacuum (distinct "
+            "from the macroscopic gravitational τ_0 = 41.9 Myr — see "
+            "tau_micro_thermal_scale and Correction #22). Above T_c, "
+            "gravity is local (no metric memory) — explains absence "
+            "of DM signatures in BBN at T > 10⁹ K. Below T_c (today, "
+            "T = 2.725 K), the vacuum is deep in the refractive regime "
+            "with full enhancement n_g ≈ 1.1547. Cosmological-"
+            "chronology anchor: T_c crossing at t ≈ 1 hour post-Big "
+            "Bang per standard cosmic-temperature-vs-time relations."
         ),
         tier="computed",
         refs=(
             "v9.0 (Thermodynamics)",
             "grut/foundation/closure_protocol.py:T_C_KELVIN",
+            "theory/derivation/CORRECTION_22_TAU_CLEANUP.md",
         ),
         tests=(
             "tests/foundation/test_closure_protocol.py::TestCanonicalConstants::test_T_c_is_54p7_MK",
+            "tests/foundation/test_closure_protocol.py::TestCanonicalConstants::test_T_c_canonical_anchor_is_5p47e7_K",
+            "tests/foundation/test_closure_protocol.py::TestCanonicalConstants::test_T_c_formula_is_SI_correct",
+            "tests/foundation/test_closure_protocol.py::TestCanonicalConstants::test_T_c_recovered_value_matches_canonical",
             "tests/derived/test_thermal_transition.py",
         ),
-        deps=("tau_0_derivation",),
+        deps=(),
+        notes=(
+            "T_c = 54.7 MK is empirically anchored to the standard "
+            "cosmological-chronology pin (T at t ≈ 1 hour post-Big "
+            "Bang per radiation-era Friedmann thermodynamics) — no "
+            "GRUT-internal dependency for the value itself. τ_micro "
+            "is derived from T_c via the SI-correct formula (see "
+            "tau_micro_thermal_scale). Pre-Correction-#22 (2026-04-30) "
+            "this claim listed the formula as 1/(τ_0 × k_B), which "
+            "was dimensionally invalid (see "
+            "t_c_provenance_inconsistency_resolved). Resolution: "
+            "introduce τ_micro explicitly, recompute T_c via the "
+            "SI-correct formula. Numerical value (54.7 MK) preserved "
+            "exactly; test_T_c_is_54p7_MK pin unchanged."
+        ),
+    ),
+    Claim(
+        id="tau_micro_thermal_scale",
+        chapter=8,
+        statement=(
+            "τ_micro ≡ ℏ / (k_B × T_c) ≈ 1.396 × 10⁻¹⁹ s — the "
+            "microscopic plasma/thermal relaxation time of the "
+            "responsive vacuum's microstates. DERIVED from the "
+            "empirical T_c anchor via the SI-correct formula. "
+            "Distinct from the macroscopic gravitational τ_0 = 41.9 "
+            "Myr by ~34 orders of magnitude. Required to make T_c "
+            "dimensionally consistent: prior to Correction #22 the "
+            "formula T_c = 1/(τ_0 × k_B) lacked ℏ and produced units "
+            "K/(J·s); the SI-correct expression T_c = ℏ/(τ × k_B) "
+            "requires τ at femtosecond scale, not Myr scale. The "
+            "34-orders-of-magnitude separation between τ_micro and "
+            "τ_0 is now named explicitly; their relation is a sharp "
+            "open question (tau_zero_to_tau_micro_relation_open"
+            "_question)."
+        ),
+        tier="computed",
+        refs=(
+            "grut/foundation/closure_protocol.py:TAU_MICRO_SEC",
+            "theory/foundations_audit/T_C_PROVENANCE.md",
+            "theory/derivation/CORRECTION_22_TAU_CLEANUP.md",
+        ),
+        tests=(
+            "tests/foundation/test_closure_protocol.py::TestCanonicalConstants::test_tau_micro_is_femtosecond_scale",
+            "tests/foundation/test_closure_protocol.py::TestCanonicalConstants::test_two_tau_scales_separated_by_thirty_plus_orders",
+            "tests/foundation/test_closure_protocol.py::TestCanonicalConstants::test_T_c_old_dimensionally_invalid_formula_NOT_used",
+        ),
+        deps=("t_c_thermal_transition",),
+        falsifier=(
+            "If a cosmological observable distinguishes the τ-scale "
+            "of T_c (e.g. a BBN-era observable that requires τ_0 to "
+            "set its threshold rather than τ_micro), the two-scale "
+            "framework is falsified."
+        ),
+        notes=(
+            "Derived from T_c's cosmological-chronology anchor via "
+            "the dimensionally consistent dual ℏ ↔ k_B × time. "
+            "τ_micro itself has no closure path to τ_0 within the "
+            "current framework — that derivation is an open question "
+            "(tau_zero_to_tau_micro_relation_open_question). See the "
+            "open question for closure paths under investigation."
+        ),
     ),
 
     # ─── Chapter 9: The Dark Sector ─────────────────────────────────
@@ -3206,88 +3278,132 @@ REGISTRY: tuple[Claim, ...] = (
     ),
 
     Claim(
-        id="t_c_provenance_inconsistency_open_negative",
+        id="t_c_provenance_inconsistency_resolved",
         chapter=12,
         statement=(
-            "The framework's T_c = 54.7 MK value is propagated through "
-            "both V7 documentation (V7 §0.5, V7 §22) and the codebase "
-            "(grut/foundation/closure_protocol.py:T_C_KELVIN, "
-            "grut/derived/cosmology/thermal_transition.py) via the "
-            "formula T_c = 1/(τ_0 × k_B). With τ_0 = 41.9 Myr in SI "
-            "seconds and k_B in J/K, this formula is dimensionally "
-            "inconsistent — it produces units K/(J·s), not K. The "
-            "SI-correct expression of the same physics, "
-            "T_c = ℏ/(τ_0 × k_B), gives 5.78×10⁻²⁷ K, NOT 54.7 MK. "
-            "The 'v9 natural-units convention (ℏ=1)' defense in the "
-            "codebase docstring does not recover the 54.7 MK value: "
-            "converting τ_0 = 41.9 Myr to natural units (eV⁻¹) and "
-            "computing 1/τ_0_nat gives 5.78×10⁻²⁷ K identically. "
-            "The 54.7 MK value emerges only by treating the SI "
-            "numerical operation 1/(1.32×10¹⁵ × 1.38×10⁻²³) as a "
-            "temperature in K, which is dimensionally invalid. "
-            "Cross-check: μ_0 = ℏ/τ_0 (computed correctly with ℏ in "
-            "the same closure_protocol.py) gives 5.78×10⁻²⁷ K when "
-            "expressed as a temperature, contradicting the 54.7 MK "
-            "narrative. The framework's cosmological narrative ('T ≈ "
-            "T_c at ~1 hour post-Big Bang') REQUIRES T_c at MK scale "
-            "(standard cosmology gives T ~ 10⁸ K at t = 1 h post-BB), "
-            "anchoring 54.7 MK as the intended physical value despite "
-            "the formula's dimensional issue. STRUCTURAL DIAGNOSIS: "
-            "the framework has been using one symbol (τ_0) and one "
-            "formula for two distinct physical scales — the macroscopic "
-            "gravitational relaxation time τ_0 = 41.9 Myr (load-bearing "
-            "for cosmological-scale phenomena: dark-sector refractive "
-            "enhancement, Hubble terminal velocity, cluster gas-to-"
-            "lensing offset scaling — these stand intact), and an "
-            "implicit microscopic plasma relaxation time τ_micro ≈ "
-            "1.4×10⁻¹⁹ s (required to make T_c = ℏ/(τ_micro × k_B) "
-            "= 54.7 MK dimensionally consistent). The 34-orders-of-"
-            "magnitude separation between τ_0 (1.32×10¹⁵ s) and "
-            "τ_micro (~10⁻¹⁹ s, atomic-transition timescale) means "
-            "these are different physical scales, conflated in the "
-            "current T_c formula."
+            "RESOLVED (Correction #22, 2026-04-30). The pre-resolution "
+            "T_c formula T_c = 1/(τ_0 × k_B) was dimensionally invalid "
+            "— with τ_0 in SI seconds and k_B in J/K it produced units "
+            "K/(J·s), not K — and the 'v9 natural-units convention "
+            "(ℏ=1)' defense did not survive a proper natural-units "
+            "check (converting τ_0 to eV⁻¹ and computing 1/τ_0_nat "
+            "gives 5.78×10⁻²⁷ K identically, not 54.7 MK). Resolution: "
+            "the framework was conflating TWO physically distinct "
+            "relaxation timescales under one symbol. Two-τ-scale "
+            "convention now makes the separation explicit: "
+            "(A) τ_0 = 41.9 Myr is the macroscopic GRAVITATIONAL "
+            "relaxation time (cosmic-baseline + Bullet Cluster "
+            "anchored), used by every load-bearing cosmological "
+            "prediction (Λ_grav, n_g(ω), bridge, cluster-merger "
+            "scaling, Hubble terminal — all unaffected); "
+            "(B) τ_micro ≈ 1.4×10⁻¹⁹ s is the microscopic THERMAL "
+            "relaxation time, defined as ℏ/(k_B × T_c) and anchored "
+            "by the cosmological-chronology pin T_c = 54.7 MK at "
+            "t ≈ 1 hour post-Big Bang. The 34-orders-of-magnitude "
+            "separation between τ_0 and τ_micro is named explicitly. "
+            "The relation between the two scales is a SHARP OPEN "
+            "QUESTION (claim tau_zero_to_tau_micro_relation_open"
+            "_question) — Correction #22 closes the dimensional "
+            "inconsistency without claiming to derive τ_micro from "
+            "τ_0. T_c numerical value (54.7 MK) preserved exactly; "
+            "test_T_c_is_54p7_MK pin unchanged. SI-correct formula "
+            "T_c = ℏ/(τ_micro × k_B) now in closure_protocol.py."
+        ),
+        tier="meta",
+        refs=(
+            "grut/foundation/closure_protocol.py:T_C_KELVIN",
+            "grut/foundation/closure_protocol.py:TAU_MICRO_SEC",
+            "theory/foundations_audit/T_C_PROVENANCE.md",
+            "theory/derivation/CORRECTION_22_TAU_CLEANUP.md",
+        ),
+        tests=(
+            "tests/foundation/test_closure_protocol.py::TestCanonicalConstants::test_T_c_formula_is_SI_correct",
+            "tests/foundation/test_closure_protocol.py::TestCanonicalConstants::test_two_tau_scales_separated_by_thirty_plus_orders",
+            "tests/foundation/test_closure_protocol.py::TestCanonicalConstants::test_T_c_old_dimensionally_invalid_formula_NOT_used",
+        ),
+        deps=(
+            "tau_0_derivation",
+            "tau_micro_thermal_scale",
+            "t_c_thermal_transition",
+        ),
+        notes=(
+            "Original entry (id 't_c_provenance_inconsistency_open"
+            "_negative') flagged the issue without prescribing a "
+            "resolution. Correction #22 (Priority 1 of the v8→v2 "
+            "deposit roadmap) implements the two-τ-scale resolution. "
+            "The crystallization-schedule investigation (held under "
+            "the open-negative) is now unblocked at the dimensional "
+            "level — Stage 2-4 work can proceed, using τ_micro for "
+            "thermal-transition calculations and τ_0 for "
+            "gravitational-sector calculations. The previous claim "
+            "id was a pre-resolution placeholder; this claim "
+            "supersedes it and tracks the closed status."
+        ),
+    ),
+    Claim(
+        id="tau_zero_to_tau_micro_relation_open_question",
+        chapter=12,
+        statement=(
+            "The relation between the framework's two τ-scales is "
+            "currently underived. τ_0 = 41.9 Myr (gravitational "
+            "sector, anchored by 1/(H_0 × 108π) and Bullet Cluster "
+            "δ ≈ v×τ_0) and τ_micro ≈ 1.4×10⁻¹⁹ s (thermal sector, "
+            "anchored by T_c at t ≈ 1 hour post-Big Bang) differ by "
+            "~34 orders of magnitude with no closure path between "
+            "them. STATUS: the framework currently presents itself "
+            "as one-parameter (τ_0 fixes everything via the screening "
+            "factor S = 108π and the bridge to Λ); under the "
+            "two-τ-scale convention this is INCOMPLETE — τ_micro is "
+            "an independent empirically-anchored input until a "
+            "derivation is found. CLOSURE PATHS under investigation: "
+            "(1) τ_micro might be derivable from the v9 noise kernel "
+            "evaluated at the BBN-era thermal scale (Genesis hypothesis "
+            "track); (2) τ_micro might equal the inverse of the "
+            "vacuum's microscopic plasma frequency, set by responsive-"
+            "medium ground-state physics not yet characterized; "
+            "(3) τ_micro might satisfy a multiplicative relation "
+            "ℏ × τ_0 = (some natural unit) × τ_micro — note that "
+            "numerically τ_micro × τ_0 ≈ ℏ/k_B² × constants, hinting "
+            "at a possible fluctuation-dissipation-style relation; "
+            "(4) HONEST NEGATIVE outcome: the two scales are "
+            "fundamentally independent, the framework has TWO free "
+            "parameters in its predictive core, and the v8 'zero "
+            "free parameters in the predictive core' framing is "
+            "downgraded to 'one free parameter (τ_0) in the "
+            "GRAVITATIONAL predictive core; one anchored parameter "
+            "(τ_micro) in the THERMAL sector'. This last outcome is "
+            "a meaningful credibility loss but a survivable one — "
+            "thermal-sector anchoring is comparable to MOND's a_0 "
+            "anchoring, and the gravitational-sector zero-parameter "
+            "core would still hold."
         ),
         tier="open_negative",
         refs=(
-            "grut/foundation/closure_protocol.py:T_C_KELVIN",
-            "grut/derived/cosmology/thermal_transition.py",
-            "theory/foundations_audit/T_C_PROVENANCE.md",
-            "theory/derivation/CRYSTALLIZATION_SCHEDULE_INVESTIGATION.md",
-            "theory/GRUT_V7_FULL.md (V7 §0.5, V7 §22)",
+            "grut/foundation/closure_protocol.py:TAU_MICRO_SEC",
+            "theory/derivation/CORRECTION_22_TAU_CLEANUP.md",
         ),
         tests=(),
         deps=(
             "tau_0_derivation",
-            "t_c_thermal_transition",
+            "tau_micro_thermal_scale",
+            "t_c_provenance_inconsistency_resolved",
         ),
         notes=(
-            "Surfaced during the crystallization-schedule "
-            "investigation (Stage 1.5 numerical comparison). Not a "
-            "codebase typo — the inconsistency propagates through V7 "
-            "documentation AND the codebase identically. Per honesty "
-            "protocol: codebase value T_C_KELVIN = 54.7 MK is NOT "
-            "changed, test test_T_c_is_54p7_MK is NOT updated, V7 "
-            "and GRUT_TOE.md prose are NOT corrected. The framework "
-            "absorbs the audit finding into its open-question ledger "
-            "and holds downstream work that depends on resolution. "
-            "The crystallization-schedule investigation is held "
-            "(theory/derivation/CRYSTALLIZATION_SCHEDULE_INVESTIGATION.md "
-            "Stage 2-4 pending), and the draft module "
-            "grut/derived/cosmology/sm_crystallization_schedule.py "
-            "stays quarantined (no tests, no registry-claim "
-            "registration, no chapter revision proposal) until T_c "
-            "resolves. AFFECTED PROSE/CALCULATIONS pending review at "
-            "closure: Ch 1 predictions table T_c row, Ch 2 Medium "
-            "section T_c derivation, Ch 4 regime classification "
-            "(X = max(ω, Λ_grav) × τ — which τ?), Ch 9 BBN "
-            "consistency framing, Ch 13.3-13.4 cosmic chronology "
-            "(T_c crossing at ~1 hour post-BB), Appendix C glossary "
-            "T_c entry, η_B baryogenesis (audit needed during "
-            "closure for whether τ_micro enters quantitatively). "
-            "Conservative reading is that most of the framework's "
-            "load-bearing predictions (dark sector, Hubble, cluster "
-            "scaling) use τ_0 = 41.9 Myr unambiguously and are NOT "
-            "affected by T_c resolution."
+            "Promoted from the structural diagnosis embedded in the "
+            "previous open_negative entry. Per the audit pattern: "
+            "the dimensional bug is closed (Correction #22), the "
+            "downstream open question (relation derivation) is "
+            "named and tracked here. Closure paths (1)-(3) are "
+            "research-tier work; closure path (4) is the honest-"
+            "negative outcome that downgrades the framework's "
+            "free-parameter count from zero to one (gravitational) "
+            "+ one anchored (thermal). The question of whether the "
+            "framework's stated 'zero free parameters' framing "
+            "survives this resolution is itself a register-able "
+            "claim for the v2 deposit's posture statement; the "
+            "current registry treats it as open until a closure "
+            "path produces a derivation or until the honest-"
+            "negative outcome is formally accepted."
         ),
     ),
 
@@ -3457,12 +3573,17 @@ REGISTRY: tuple[Claim, ...] = (
             "pattern (pre-commit, compute, slow down on surprise, "
             "verify) operated correctly: three independent comparisons "
             "all give the same answer. Connection to "
-            "t_c_provenance_inconsistency_open_negative (#15): the "
-            "broader narrative posited BBN dynamics as the bridge "
-            "between τ_0 and τ_micro scales. With BBN buffering "
-            "falsified, this specific bridge does not work; other "
-            "mechanisms (or two truly independent τ scales) remain "
-            "open paths for the τ_micro question."
+            "tau_zero_to_tau_micro_relation_open_question (post-"
+            "Correction-#22 successor of the original "
+            "t_c_provenance_inconsistency_open_negative): the broader "
+            "narrative posited BBN dynamics as the bridge between τ_0 "
+            "and τ_micro scales. With BBN buffering falsified, this "
+            "specific bridge does NOT work; closure paths (1)-(3) of "
+            "the relation open-question remain in play, but BBN "
+            "dynamics is ruled out as the mechanism. The honest-"
+            "negative outcome (closure path 4: two truly independent "
+            "scales) is correspondingly more credible after this "
+            "falsification."
         ),
     ),
 

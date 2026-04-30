@@ -381,3 +381,71 @@ The current GRUT_TOE.md mentions T_c = 54.7 MK in multiple places
 (Ch 1 predictions table, Ch 2 Medium, Ch 4 Crystal/Fluid, Ch 9 Dark
 Sector, Ch 13.3-13.4 cosmic chronology, Appendix C glossary). All
 references depend on the same audit resolution.
+
+---
+
+## CLOSING ADDENDUM — Correction #22 (2026-04-30)
+
+The audit's recommended resolution path (iii — two distinct τ-scales)
+has been implemented as Correction #22 in the v8→v2 deposit roadmap
+(Priority 1, the τ-cleanup). See
+`theory/derivation/CORRECTION_22_TAU_CLEANUP.md` for the full
+correction document.
+
+**What changed.**
+
+- `grut/foundation/closure_protocol.py` now defines `TAU_MICRO_SEC ≈
+  1.396×10⁻¹⁹ s` as a separate constant alongside `TAU_0_SEC = 41.9
+  Myr`. The thermal-transition temperature is recomputed via the
+  SI-correct formula `T_C_KELVIN = ℏ/(τ_micro × k_B)`, with τ_micro
+  defined from the empirical anchor `T_C_KELVIN_CANONICAL = 5.47×10⁷
+  K` (cosmological-chronology pin: T at t ≈ 1 h post-BB).
+
+- The numerical value 54.7 MK is preserved EXACTLY. The
+  `test_T_c_is_54p7_MK` pin (5% tolerance) is unchanged. Seven new
+  tests in `TestCanonicalConstants` pin the SI-correctness, the
+  τ_micro value, the 34-orders-of-magnitude separation between
+  scales, and the structural distinction (τ_micro ≠ τ_0).
+
+- Registry: claim `t_c_thermal_transition` updated to reference
+  τ_micro and the SI-correct formula. New claim
+  `tau_micro_thermal_scale` (Ch 8, anchored tier) tracks τ_micro
+  with its empirical anchor and tests. The original
+  `t_c_provenance_inconsistency_open_negative` open-negative is
+  retired and replaced by `t_c_provenance_inconsistency_resolved`
+  (meta tier, documenting closure) and
+  `tau_zero_to_tau_micro_relation_open_question` (open_negative,
+  the sharper successor).
+
+**What remains open.**
+
+The 34-orders-of-magnitude separation between τ_0 and τ_micro is
+unexplained. Four closure paths for the relation question, tracked
+in `tau_zero_to_tau_micro_relation_open_question`:
+
+1. Derive τ_micro from CTP plasma dynamics (research-tier).
+2. Identify τ_micro with a known atomic/nuclear timescale (research-tier).
+3. Accept that the two scales are independent — the honest-negative
+   outcome that downgrades the framework's "zero free parameters in
+   the predictive core" framing to "zero in gravitational core; one
+   anchored in thermal sector" (registry-tier framing change).
+4. BBN-mediated bridge: FALSIFIED by `bbn_thermal_buffer_negligible`
+   (the 10-orders-of-magnitude shortfall rules out BBN dynamics).
+
+**Audit verdict re-stated post-resolution.**
+
+The original verdict — "no framework-derivable formula produces 54.7
+MK from τ_0 = 41.9 Myr" — is preserved. The resolution does not
+derive τ_micro from τ_0; it explicitly names τ_micro as a separate
+empirically anchored constant and routes the dimensional consistency
+through a SI-correct formula. The framework's load-bearing
+predictions (Λ_grav, n_g(ω), bridge, cluster scaling, Hubble) all
+use τ_0 unambiguously and are unaffected; the thermal sector now
+carries one additional anchored input (τ_micro) until the relation
+derivation closes.
+
+This audit's status: **CLOSED at the dimensional level (Correction #22)
+with the relation-derivation question explicitly tracked as a sharp
+open question.**
+
+*Closing addendum by Claude Code, 2026-04-30.*

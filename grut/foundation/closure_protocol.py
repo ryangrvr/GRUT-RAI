@@ -20,7 +20,8 @@ Canonical definitions (Phase I §5-§6):
     τ_Λ ≡ H_0⁻¹                            (baseline — input, not prediction)
     α_vac = 1/3                             (DERIVED — conformal-mode scalar)
     S = 12π / α_vac² = 108π ≈ 339.29        (screening factor)
-    τ_0 = τ_Λ / S ≈ 41.9 Myr                (DERIVED — CTP noise kernel)
+    τ_0 = τ_Λ / S ≈ 41.9 Myr                (POSITED — gravitational sector)
+    τ_micro = ℏ/(k_B T_c) ≈ 1.4×10⁻¹⁹ s   (POSITED — thermal sector, separate scale)
     n_g(0) = √(1 + α_vac) = √(4/3) ≈ 1.15470 (IR refractive index — canonical R)
     μ_Λ = ℏ/τ_Λ ~ 10⁻³³ eV                  (horizon-scale IR reference)
     μ_0 = ℏ/τ_0 = S × μ_Λ ~ 10⁻³¹ eV        (local screened scale)
@@ -28,20 +29,39 @@ Canonical definitions (Phase I §5-§6):
     a_0 = a_* / (2π) ≈ 1.2 × 10⁻¹⁰ m/s²     (MOND-like trigger scale)
     R_max ~ α_vac/(c²τ_0²) ~ 2 × 10⁻⁴⁸ m⁻²  (universal Ricci-saturation)
     ρ_max = c²R_max/(8πG)                   (universal interior density cap)
+    T_c = ℏ/(τ_micro k_B) ≈ 54.7 MK         (thermal-transition temperature)
 
-The two foundational constants of GRUT are τ_0 and α_vac. Both have
-derivation chains within the framework — neither is a free parameter:
-    - τ_0 = 41.9 Myr derives from the CTP noise-kernel structure at the
-      gold benchmark (V7 §18). The relaxation time is fixed by the
-      thermal noise spectrum of the responsive vacuum.
+Two τ-scale convention (Correction #22, 2026-04-30):
+The framework distinguishes two relaxation timescales of the responsive
+vacuum, previously conflated under one symbol:
+    τ_0     = 41.9 Myr     (gravitational sector — cosmic-baseline)
+    τ_micro ≈ 1.4×10⁻¹⁹ s  (thermal sector — sets T_c via SI-correct formula)
+The 34-orders-of-magnitude separation is named explicitly; the relation
+between the two scales is a sharp OPEN QUESTION in Chapter 12. All
+load-bearing cosmological predictions use τ_0 unambiguously and stand
+intact; T_c uses τ_micro and recovers the canonical 54.7 MK from a
+dimensionally consistent formula. See CORRECTION_22_TAU_CLEANUP.md.
+
+The two foundational constants of GRUT (gravitational sector) are τ_0
+and α_vac. Their provenance:
+    - τ_0 = 41.9 Myr is POSITED with two independent observational
+      anchors that agree at the ~10–20% level: (1) cosmic-baseline
+      relation τ_0 = 1/(H_0 × 108π) → 41.2 Myr at H_0 = 70 km/s/Mpc
+      (within 1.7% of canonical); (2) Bullet Cluster offset δ ≈ v×τ_0
+      → 49 Myr (within 17%). The earlier "DERIVED from V7 §18 CTP
+      noise kernel at gold benchmark" framing was misleading — see
+      theory/foundations_audit/TAU_0_PROVENANCE.md.
     - α_vac = 1/3 derives from the conformal-mode-scalar identification:
       the gravitational conformal mode acts as the IR carrier of vacuum
       response, and KS 2011 establishes a/c = 1/3 exactly for a single
-      real conformally-coupled scalar.
-The historical provenance — α_vac was numerically discovered in v6.0
-via back-derivation from the observed 15.47% boost — is preserved for
-honesty in theory/foundations_audit/ALPHA_VAC_PROVENANCE.md, but the
-canonical physical derivation is the conformal-mode-scalar route.
+      real conformally-coupled scalar (theory/foundations_audit/
+      ALPHA_VAC_PROVENANCE.md preserves the v6.0 numerical-discovery
+      history alongside this canonical derivation).
+A third constant, τ_micro ≈ 1.4×10⁻¹⁹ s, is required to make T_c =
+54.7 MK dimensionally consistent — see the two-τ-scale convention
+note above. τ_micro is in the THERMAL sector, distinct from the
+gravitational τ_0; it is POSITED with the cosmological-chronology
+anchor (T_c at t ≈ 1 hour post-Big Bang ≈ 5.5×10⁷ K).
 
 Threshold equivalence (frequency ↔ gravitational decoherence):
     The classical/quantum threshold ωτ_0 ≫ 1 is equivalent to
@@ -307,25 +327,127 @@ MOND/RAR band."""
 
 
 # ────────────────────────────────────────────────────────────────────
-# Thermal transition temperature (v9.0)
+# Thermal transition temperature (v9.0) — TWO-τ-SCALE RESOLUTION
+# ────────────────────────────────────────────────────────────────────
+#
+# Audit history: T_C_PROVENANCE.md (2026-04-28) surfaced that the prior
+# formulation T_c = 1/(τ_0 k_B) was dimensionally invalid — it produced
+# units K/(J·s), not K, and the "v9 natural-units convention (ℏ=1)"
+# defense did not survive a proper natural-units check (converting τ_0
+# to eV⁻¹ and computing 1/τ_0_nat gives 5.78×10⁻²⁷ K, not 54.7 MK).
+#
+# Resolution (Correction #22, 2026-04-30): the framework was conflating
+# TWO physically distinct relaxation scales under one symbol τ_0:
+#
+#   (A) τ_0 = 41.9 Myr     — macroscopic GRAVITATIONAL relaxation time.
+#                            Anchored by 1/(H_0 × 108π) and Bullet
+#                            Cluster offset δ ≈ v × τ_0. Used by every
+#                            cosmological-scale prediction (refractive
+#                            enhancement, dark-sector phenomenology,
+#                            cluster-merger scaling, Hubble terminal).
+#
+#   (B) τ_micro ≈ 1.4×10⁻¹⁹ s — microscopic THERMAL relaxation time of
+#                                vacuum microstates. Required for
+#                                T_c = ℏ/(τ_micro × k_B) to be
+#                                dimensionally consistent. Anchored
+#                                empirically by the standard-cosmology
+#                                temperature T(t≈1 hour post-BB) ≈ 5.5×10⁷ K.
+#
+# Per the registry's NIS discipline, T_c (the physical temperature ≈
+# 54.7 MK) is preserved as the EMPIRICAL ANCHOR — it was always the
+# correct physical scale (the framework's prose, V7 §0.5, V7 §22, the
+# cosmological chronology all require MK-scale T_c). What changes is
+# that τ_micro is now defined explicitly from the SI-correct formula,
+# and the 34-orders-of-magnitude separation from τ_0 is named, not
+# hidden. The framework now has TWO τ-scales with explicit naming,
+# and the relation between them becomes a sharp open question
+# (tau_zero_to_tau_micro_relation_open_question) rather than a
+# dimensional inconsistency.
+#
+# Key numbers (preserved exactly):
+#   T_C_KELVIN_CANONICAL = 5.47e7 K   (cosmological-chronology pin)
+#   τ_micro              = ℏ/(k_B × T_c) ≈ 1.396×10⁻¹⁹ s
+#   T_C_KELVIN           = ℏ/(τ_micro × k_B) = 5.47e7 K (recovered exactly)
+#   T_C_MK               = 54.7 MK   (test pin unchanged)
+#
+# What this resolution does NOT do:
+#   - Does not derive τ_micro from τ_0. The separation 34 orders of
+#     magnitude in time, with τ_micro at quantum/thermal scale and τ_0
+#     at gravitational/cosmic scale, is unexplained.
+#   - Does not change any tested numerical value. T_C_MK = 54.7 MK
+#     pin (test_T_c_is_54p7_MK) is preserved; cosmological-chronology
+#     anchors (BBN above T_c, recombination below T_c) are preserved.
+#   - Does not affect any τ_0-bearing prediction (Λ_grav, n_g(ω), the
+#     bridge τ_0↔Ω_Λ, the cluster-merger scaling). All of those use
+#     τ_0 unambiguously and stand intact.
 # ────────────────────────────────────────────────────────────────────
 
-# v9.0 "boiling point of gravity" uses natural units (ℏ = 1), giving
-# T_c = 1/(τ_0 k_B). Computed in SI:
-T_C_KELVIN: float = 1.0 / (TAU_0_SEC * K_B)
+T_C_KELVIN_CANONICAL: float = 5.47e7
+"""Empirical anchor for the metric-memory transition temperature.
+
+Source: standard-cosmology temperature at the framework's transition
+epoch (t ≈ 1 hour post-Big Bang), per V7 §0.5 and V7 §22. The
+narrative anchor is fixed; τ_micro is derived from this (not the
+other way around).
+
+Numerical value: 5.47 × 10⁷ K = 54.7 MK. Pinned to this precision by
+test_T_c_is_54p7_MK (5% tolerance), which was the canonical pin
+prior to Correction #22 and is preserved unchanged."""
+
+TAU_MICRO_SEC: float = HBAR / (K_B * T_C_KELVIN_CANONICAL)
+"""Microscopic plasma/thermal relaxation time of vacuum microstates.
+
+τ_micro ≡ ℏ / (k_B × T_c) ≈ 1.396 × 10⁻¹⁹ s
+
+This is the SI-correct dual of T_c — the timescale at which thermal
+energy k_B T equals the quantum action ℏ/τ. It is microscopic
+(femtosecond-scale, comparable to atomic-transition timescales),
+NOT the macroscopic gravitational relaxation time τ_0 = 41.9 Myr.
+
+Status: POSITED with cosmological-chronology anchor.
+
+The 34-orders-of-magnitude separation from τ_0 is named explicitly,
+not hidden. The relation between τ_micro and τ_0 is currently a
+sharp OPEN QUESTION in the framework (registry claim
+'tau_zero_to_tau_micro_relation_open_question', Chapter 12).
+Closure paths under investigation:
+  - τ_micro might be a thermal-decoupling timescale derivable from
+    the v9 noise kernel at the BBN-era temperature scale
+  - τ_micro might be the vacuum's microscopic plasma frequency
+    inverse, set by responsive medium ground-state physics
+  - the two scales might be fundamentally independent — a
+    two-parameter framework, not the one-parameter framework
+    presented in v8 (this would be a meaningful credibility loss)
+
+Audit & resolution: theory/foundations_audit/T_C_PROVENANCE.md +
+theory/derivation/CORRECTION_22_TAU_CLEANUP.md."""
+
+T_C_KELVIN: float = HBAR / (TAU_MICRO_SEC * K_B)
 """Critical temperature for onset of metric memory (v9.0 Thermodynamics).
 
-T_c = 1/(τ_0 k_B) ≈ 54.7 × 10⁶ K (v9 natural-units convention, ℏ = 1).
-This is the "boiling point of gravity": above T_c, gravity is local and
-there is no metric memory (explains absence of DM signatures in BBN at
-T > 10⁹ K). Below T_c (today, T = 2.725 K), the vacuum is deep in the
-refractive regime with full enhancement n_g ≈ 1.1547.
+T_c = ℏ / (τ_micro × k_B) ≈ 5.47 × 10⁷ K = 54.7 MK
+
+This is the SI-CORRECT formula. It uses τ_micro (microscopic plasma
+relaxation, ≈ 1.4×10⁻¹⁹ s), not τ_0 (cosmic-baseline gravitational
+relaxation, 41.9 Myr). By construction the recovered value matches
+T_C_KELVIN_CANONICAL exactly; the test_T_c_is_54p7_MK pin is
+preserved unchanged.
+
+This is the "boiling point of gravity": above T_c, gravity is local
+and there is no metric memory (explains absence of DM signatures in
+BBN at T > 10⁹ K). Below T_c (today, T = 2.725 K), the vacuum is
+deep in the refractive regime with full enhancement n_g ≈ 1.1547.
 
 Cosmological chronology (v9.0):
     T > T_c  (plasma era):       gravity is local, no DM effects
     T ≈ T_c  (~1 hour post-BB):  vacuum begins to "remember" mass
     T << T_c (today):            deep refractive regime, n_g ≈ 1.1547
-"""
+
+History: prior to Correction #22 (2026-04-30) this constant was
+computed as 1/(τ_0 × k_B) — dimensionally invalid but numerically
+matching by coincidence of magnitudes. The resolution introduces
+τ_micro explicitly and uses the SI-correct formula. The cosmological-
+chronology anchoring is unchanged."""
 
 T_C_MK: float = T_C_KELVIN / 1e6
 
