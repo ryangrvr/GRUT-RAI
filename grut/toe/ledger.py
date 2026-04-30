@@ -189,27 +189,40 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
     ),
 
     LedgerEntry(
-        claim_id="constitutive_projection_gravity_heuristic_open_question",
+        claim_id="phi_munu_curved_background_extension_open_question",
         closure_condition=(
-            "Either: (a) derive Φ_μν explicitly from δS_CTP/δh_μν in "
-            "the gravitational sector, with gauge-fixing prescription "
-            "and Bianchi preservation shown rigorously across "
-            "general (ω, k) — not just a single-mode plane wave; OR "
-            "(b) formally retier gr_recovery from 'computed' to "
-            "'anchored — constitutive projection heuristic in "
-            "gravity' so the document and registry agree on the "
-            "tiering. Path (a) closes the framework; path (b) "
-            "preserves honesty about what's been shown."
+            "LINEARIZED CLOSURE COMPLETE (Correction #23, 2026-04-30). "
+            "Path (a) of the original closure condition has been "
+            "implemented at the linearized level: Φ_μν is derived "
+            "explicitly from δS_CTP/δh_a |_{h_a=0} in "
+            "grut.derivation.phi_munu.linearized_ctp_action, with "
+            "Bianchi preservation shown structurally (∂^μ Φ_μν = 0 "
+            "follows from ∂^μ P^TT = 0, for ALL h_r and ALL kernel "
+            "time structures — not just single-mode plane waves). "
+            "REMAINING WORK: extend the derivation to curved "
+            "backgrounds (S⁴, FRW) with: (i) covariant projector "
+            "P_μνρσ on the curved background's Killing structure; "
+            "(ii) retarded memory kernel defined via properly time-"
+            "ordered curved-space Green function; (iii) matter-coupling "
+            "normalization with √-g factors. The flat limit must "
+            "reproduce the linearized derivation. Tightly coupled to "
+            "the cosmological-perturbation sister gap "
+            "(n_g_omega_cosmological_covariance_open_question); "
+            "closing both is one larger task."
         ),
         closure_effort=(
-            "Theoretical work, ~3-6 weeks for someone fluent in "
-            "curved-space CTP. Tightly coupled to the cosmological-"
-            "perturbation sister gap (n_g_omega_cosmological_"
-            "covariance); closing both is one larger task."
+            "Theoretical work, ~2-4 weeks for someone fluent in "
+            "curved-space CTP, post-Correction-#23. The linearized "
+            "derivation provides the structural template; the curved-"
+            "background work specializes the projector and kernel to "
+            "the curved geometry. Sister problem to "
+            "n_g_omega_cosmological_covariance — both involve "
+            "covariant generalization of an already-pinned linearized "
+            "form."
         ),
-        affects=("gr_recovery",),
+        affects=("gr_recovery", "phi_munu_linearized_derivation"),
         blocked_by=(),
-        last_review="2026-04-26",
+        last_review="2026-04-30",
     ),
 
     LedgerEntry(

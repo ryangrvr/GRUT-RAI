@@ -1030,12 +1030,13 @@ REGISTRY: tuple[Claim, ...] = (
             "freq limit, low-freq enhancement, Bianchi preservation, "
             "UV falloff) are verified at code level. Full nonlinear "
             "GR recovery is the scope of the nonlinear ladder — see "
-            "nonlinear_ladder_4_of_8. SCOPE NOTE: the verification "
-            "covers behavior of Φ_μν in limits and on a single-mode "
-            "plane wave; it does NOT derive the form of Φ_μν from "
-            "δS_CTP/δh_μν. The constitutive projection in gravity "
-            "is heuristic — see "
-            "constitutive_projection_gravity_heuristic_open_question."
+            "nonlinear_ladder_4_of_8. SCOPE NOTE: gr_recovery's seven "
+            "legs verify Φ_μν's behavior; the FORM of Φ_μν is now "
+            "derived structurally from δS_CTP/δh_μν at the linearized "
+            "level — see phi_munu_linearized_derivation (Correction "
+            "#23, 2026-04-30). Curved-background extension remains "
+            "open — see phi_munu_curved_background_extension"
+            "_open_question."
         ),
     ),
     Claim(
@@ -2823,45 +2824,165 @@ REGISTRY: tuple[Claim, ...] = (
     ),
 
     Claim(
-        id="constitutive_projection_gravity_heuristic_open_question",
+        id="constitutive_projection_gravity_heuristic_resolved",
         chapter=12,
         statement=(
-            "The constitutive Einstein equation G_μν + Φ_μν[φ] = "
-            "8πG T_μν, central to the framework's gravity sector, "
-            "carries Φ_μν as a constitutive correction — but Φ_μν "
-            "itself is not derived rigorously from the CTP action's "
-            "variation. The seven legs of gr_recovery verify limits "
-            "(high-frequency vanishing, low-frequency enhancement), "
-            "Bianchi consistency on a single-mode plane wave, and "
-            "graviton-propagator UV falloff. They verify behavior, "
-            "not the form of Φ_μν. Chapter 12's 'What GRUT does NOT "
-            "claim' section already acknowledges 'the constitutive "
-            "projection is exact in gravity/cosmology (it is heuristic "
-            "there)'. This entry formalizes that disclaimer at "
-            "registry/ledger level so the gravity-sector tiering is "
-            "structurally honest. The cosmological-perturbation "
-            "sister gap is n_g_omega_cosmological_covariance — both "
-            "have the same shape: a heuristic projection that needs "
-            "covariant derivation."
+            "RESOLVED at the linearized level (Correction #23, "
+            "2026-04-30). The previously-heuristic constitutive "
+            "Einstein equation G_μν + Φ_μν[φ] = 8πG T_μν is now "
+            "derived structurally from δS_CTP/δh_a |_{h_a=0} for the "
+            "linearized gravitational CTP action, with the constitutive "
+            "cross term S_const = -(1/2)∫∫ h_a^μν K^R_μνρσ(x-x') "
+            "h_r^ρσ(x') d^4x d^4x'. The variation produces Φ_μν as a "
+            "kernel-h_r convolution: Φ_μν(ω) = α_vac × χ(ω) × P^TT_μνρσ "
+            "× h_r^ρσ(ω), where χ(ω) = 1/(1-iωτ_0) is the constitutive "
+            "susceptibility and P^TT is the transverse-tracefree "
+            "projector. Six structural properties verified: (i) kernel "
+            "form derived, NOT postulated; (ii) high-ω limit Φ → 0 "
+            "(GR recovery); (iii) low-ω limit Φ → α_vac (full "
+            "constitutive); (iv) Bianchi ∂^μ Φ_μν = 0 follows STRUCTURALLY "
+            "from ∂^μ P^TT = 0 (upgrade from gr_recovery's existing "
+            "single-mode plane-wave check); (v) α_vac = 1/3 from "
+            "Komargodski-Schwimmer 2011 a/c trace-anomaly ratio for "
+            "the conformal-mode scalar (consistent with existing "
+            "alpha_vac_derivation, NOT modified by Correction #23); "
+            "(vi) DC amplitude gives n_g²(0) = 1+α_vac = 4/3 "
+            "(consistent with closure_protocol.N_G_DC). "
+            "REMAINING OPEN: extension to curved background (S⁴, "
+            "FRW) — see phi_munu_curved_background_extension"
+            "_open_question, the sharper successor."
         ),
-        tier="open_negative",
+        tier="meta",
         refs=(
             "V7 §22-§25 (gravity sector)",
             "Calzetta-Hu (2008) Nonequilibrium Quantum Field Theory — "
             "for CTP variation in gauge theories",
+            "Komargodski-Schwimmer 2011 (conformal-mode trace anomaly)",
+            "grut/derivation/phi_munu/linearized_ctp_action.py",
             "grut/foundation/gr_recovery.py",
+            "theory/derivation/CORRECTION_23_PHI_MUNU_DERIVATION.md",
         ),
-        deps=("ctp_action_structure", "gr_recovery"),
+        tests=(
+            "tests/derivation/phi_munu/test_linearized_ctp_action.py",
+        ),
+        deps=("ctp_action_structure", "gr_recovery", "alpha_vac_derivation"),
         notes=(
-            "Honest gap. Closure paths: (a) derive Φ_μν explicitly "
-            "from δS_CTP/δh_μν in the gravitational sector, with "
-            "gauge-fixing and Bianchi preservation shown rigorously; "
-            "OR (b) formally retier gr_recovery to 'anchored — "
-            "constitutive projection heuristic in gravity' instead of "
-            "'computed', so the document and registry agree. The "
-            "n_g(ω) cosmological-perturbation gap is the same problem "
-            "in the perturbation sector; closing both is one larger "
-            "theoretical task."
+            "Original entry (id 'constitutive_projection_gravity_"
+            "heuristic_open_question') flagged the issue without "
+            "prescribing a resolution. Correction #23 (Priority 2 of "
+            "the v8→v2 deposit roadmap) implements closure path (a) "
+            "from the original notes: derive Φ_μν explicitly from "
+            "δS_CTP/δh_μν in the gravitational sector, with Bianchi "
+            "preservation shown structurally. The previous claim id "
+            "was a pre-resolution placeholder; this claim supersedes "
+            "it and tracks the closed status. Closure path (b) "
+            "(retier gr_recovery to anchored) is no longer needed — "
+            "gr_recovery's susceptibility postulate is now structurally "
+            "derived rather than heuristic. The n_g(ω) cosmological-"
+            "perturbation sister gap (n_g_omega_cosmological_covariance"
+            "_open_question) remains separately open — that's the same "
+            "problem in the perturbation sector and still needs "
+            "covariant treatment; this resolution does not address it."
+        ),
+    ),
+    Claim(
+        id="phi_munu_linearized_derivation",
+        chapter=6,
+        statement=(
+            "The gravitational constitutive correction Φ_μν is "
+            "structurally derived in the linearized limit from the "
+            "Schwinger-Keldysh action variation δS_CTP/δh_a |_{h_a=0}. "
+            "The constitutive cross term S_const = -(1/2)∫∫ h_a "
+            "K^R(x-x') h_r d^4x d^4x' yields Φ_μν(ω) = α_vac × χ(ω) "
+            "× P^TT_μνρσ × h_r^ρσ(ω) on variation. Limits: GR "
+            "recovery at high ω (χ → 0), full constitutive at low ω "
+            "(χ → 1, n_g(0) = √(4/3)). Bianchi ∂^μ Φ_μν = 0 follows "
+            "from ∂^μ P^TT_μνρσ = 0 (transverse-tracefree projector). "
+            "α_vac = 1/3 inherits from the conformal-mode-scalar "
+            "identification (KS 2011), NOT modified by this derivation."
+        ),
+        tier="computed",
+        refs=(
+            "grut/derivation/phi_munu/linearized_ctp_action.py",
+            "theory/derivation/CORRECTION_23_PHI_MUNU_DERIVATION.md",
+            "Komargodski-Schwimmer 2011 (a-theorem)",
+            "Calzetta-Hu 2008 §5-§7",
+        ),
+        tests=(
+            "tests/derivation/phi_munu/test_linearized_ctp_action.py",
+        ),
+        deps=(
+            "ctp_action_structure",
+            "alpha_vac_derivation",
+            "memory_kernel_form",
+            "gr_recovery",
+        ),
+        falsifier=(
+            "If a non-Φ_μν term appears in the linearized variation "
+            "(e.g., a Lorentz-violating coupling, or a non-causal "
+            "advanced kernel inconsistent with the A1 axiom), the "
+            "derivation fails. Verified at code level: the only non-"
+            "vanishing terms in δS_CTP/δh_a |_{h_a=0} are the "
+            "Einstein, matter, and constitutive (Φ_μν) contributions; "
+            "noise vanishes (it is quadratic in h_a)."
+        ),
+        notes=(
+            "Linearized limit only. Curved-background extension "
+            "(S⁴, FRW) is research-tier work tracked under "
+            "phi_munu_curved_background_extension_open_question. "
+            "Closes the original 'heuristic projection' tier-honesty "
+            "concern at the linearized level — Φ_μν is now a derived "
+            "structural object, not a postulated multiplier."
+        ),
+    ),
+    Claim(
+        id="phi_munu_curved_background_extension_open_question",
+        chapter=12,
+        statement=(
+            "The Φ_μν derivation lands at the LINEARIZED level only "
+            "(metric perturbations h_μν on flat η_μν background). "
+            "Extension to curved backgrounds — S⁴ (Euclidean de Sitter, "
+            "needed for Phase-1 TJI), FRW (cosmological perturbation "
+            "theory) — is research-tier work that this correction "
+            "does NOT close. The structural derivation form "
+            "Φ_μν = ∫ K^R(x-x') × P_μνρσ × h_r^ρσ(x') d^4x' "
+            "should generalize covariantly, but: (i) the projector "
+            "P_μνρσ on a curved background depends on the background "
+            "geometry's Killing structure; (ii) the memory kernel's "
+            "retarded form must be defined on the curved spacetime "
+            "with a properly time-ordered Green function; (iii) the "
+            "matter-coupling normalization picks up √-g factors. "
+            "REMAINING WORK: implement the curved-background variation "
+            "in SymPy with explicit Riemann/Ricci tensor handling, "
+            "compute Φ_μν on S⁴ (sister to the TJI Phase-0.5 "
+            "calculation), verify it reduces to the linearized form "
+            "in the flat limit. Closing this would also unblock "
+            "n_g_omega_cosmological_covariance_open_question (the "
+            "same problem in the perturbation sector)."
+        ),
+        tier="open_negative",
+        refs=(
+            "grut/derivation/phi_munu/linearized_ctp_action.py",
+            "grut/derivation/tji/flat_space.py (sister calculation)",
+            "theory/derivation/CORRECTION_23_PHI_MUNU_DERIVATION.md",
+        ),
+        tests=(),
+        deps=(
+            "phi_munu_linearized_derivation",
+            "constitutive_projection_gravity_heuristic_resolved",
+        ),
+        notes=(
+            "Promoted from the structural diagnosis embedded in "
+            "Correction #23. The linearized derivation closes the "
+            "honest-gap concern at one level and surfaces the "
+            "remaining curved-background extension as the sharper "
+            "successor open question. Sister problem to "
+            "n_g_omega_cosmological_covariance_open_question — both "
+            "involve covariant generalization of a structural form "
+            "that's already pinned at the linearized / flat level. "
+            "Closing both is one larger theoretical task; this "
+            "correction tackles the gravitational half at linearized "
+            "level only."
         ),
     ),
 
