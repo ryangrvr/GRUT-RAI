@@ -1,6 +1,6 @@
 [project]
 name = "grut"
-version = "2.0.0"
+version = "2.1.0"
 description = "Grand Responsive Universe Theory — A unified framework from the CTP effective action"
 authors = [{name = "D. Ryan Grover", email = "dryangrover@gmail.com"}]
 readme = "README.md"

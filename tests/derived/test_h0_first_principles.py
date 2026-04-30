@@ -65,10 +65,26 @@ class TestGrutH0Prediction:
         assert abs(lhs - rhs) / rhs < 1e-6
 
     def test_status_labels_prototype(self):
-        """Status string must flag this as a prototype (age is input)."""
+        """Status string must flag this as one-parameter (age is input).
+
+        The status was previously tagged 'PROTOTYPE'; updated to
+        'ONE-PARAMETER' with an explicit reference to the registered
+        open negative (n_total_zero_parameter_derivation_open_question)
+        when N_total was formally registered as observation-anchored
+        rather than structurally derived. The test pins the discipline
+        marker, not the literal word.
+        """
         from grut.derived.cosmology.hubble_from_first_principles import grut_H_0_prediction
         r = grut_H_0_prediction()
-        assert "PROTOTYPE" in r["status"] or "prototype" in r["status"].lower()
+        status = r["status"]
+        # Must flag that age (N_total) enters as input — the precise
+        # epistemic state, not just a generic 'prototype' tag.
+        assert "ONE-PARAMETER" in status or "one-parameter" in status.lower()
+        assert (
+            "observed" in status.lower()
+            or "anchor" in status.lower()
+            or "open negative" in status.lower()
+        )
 
     def test_epsilon_route_consistent(self):
         """Using R = ε value should give a similar H_0 (within 0.1%)."""

@@ -1,37 +1,63 @@
 """
-H_0 from GRUT first principles — ONE-PARAMETER prediction.
+H_0 from GRUT first principles — one-parameter prediction.
 
-STATUS (April 2026, after Track VII closure-negative):
-    This module produces a ONE-parameter H_0 prediction:
-        Input 1 (observational): Ω_dm (Planck value)
-        Derived: H_inf = 58.16 km/s/Mpc from 3-loop CTP
-        Derived: Ω_Λ = 0.6904 at H_0 = 70 from the vacuum formula
-        Output: H_0 = 69.03 km/s/Mpc
+STATUS (April 2026, audit-corrected):
+    This module produces a one-parameter H_0 prediction:
+        Inputs (computed by GRUT):
+            R_anomaly  — 3-loop CTP scalar (Path G + Osborn ε)
+            S_CTP      — path counting (= 108π)
+            τ_0        — 41.9 Myr (cosmic-baseline + Bullet anchor)
+        Input (observational anchor):
+            N_total    — 329 eras (= observed t_0 / τ_0,
+                         where t_0 ≈ 13.78 Gyr)
+        Derived: H_inf = 58.16 km/s/Mpc from (2−R)/(S·τ_0)
+        Derived: Ω_m, Ω_Λ from flat-ΛCDM Friedmann integration with
+                 input (H_inf, t_0)
+        Output:  H_0 = 69.03 km/s/Mpc
 
-    The zero-parameter H_0 chain would require Ω_dm as a GRUT output
-    (not an input). Track VII's V7 closure attempt to derive Ω_dm
-    natively via Kibble-Zurek on the U(1)_dark cosmic-string network
-    CLOSED NEGATIVE: XY-universality vortons give Ω_dm = 0.008, factor
-    33 LOW of observed 0.263. See:
-        - theory/derivation/TRACK_VII_STEP_03_VORTEX.md
-        - theory/derivation/V8_TRACK_VII_ROADMAP.md
+    The single observational parameter is N_total = 329 (equivalently:
+    cosmic age). A zero-parameter H_0 chain via this route would
+    require deriving N_total from framework foundations alone —
+    registered as an open negative:
+        registry: n_total_zero_parameter_derivation_open_question
+                  (Chapter 12)
+        ledger:   grut/toe/ledger.py (closure conditions,
+                  4 attempts already closed negative)
+        log:      theory/derivation/N_TOTAL_DERIVATION_ATTEMPT.md
 
-    V7 publishes H_0 = 69.03 km/s/Mpc as a one-parameter prediction.
-    V8 Track VII continues the zero-parameter research program with
-    the re-identification of M_soliton.
+    Closure likely depends on the Genesis Hypothesis (V7/V8
+    Appendix A) being formalized to the point where the start time
+    of cosmic evolution emerges from the null fixed point's
+    destabilization timescale. Genesis Hypothesis is currently
+    [SPECULATIVE]; closure does NOT require adopting it — it
+    requires its machinery becoming computable.
+
+    Note on prior framing: an earlier docstring named "Input 1
+    (observational): Ω_dm (Planck value)" as the one parameter.
+    That framing was inaccurate — the actual `grut_H_0_prediction`
+    function does not consume Ω_dm. The one parameter is N_total,
+    not Ω_dm. The Track VII vorton Ω_dm-derivation work (closed
+    negative; theory/derivation/TRACK_VII_STEP_03_VORTEX.md) is
+    related but doesn't change which input enters this module.
+
+    The framework's simpler cosmic-baseline H_0 = 1/(S × τ_0) ≈
+    68.8 km/s/Mpc (closure_protocol.py:H_0_IMPLIED_KM_S_MPC,
+    registry claim h_0_prediction) is zero-parameter and does not
+    use N_total. The two H_0 routes agree at 0.3%, supporting the
+    cosmic-baseline approximation.
 
 Framework details:
-    GRUT computes H_inf = 58.16 km/s/Mpc (asymptotic vacuum rate from the
-    3-loop CTP formula) and τ_0 = 41.9 Myr (noise kernel at gold benchmark).
-    The era map gives N_total = 329 eras to present → age t_0 = 13.78 Gyr.
+    GRUT computes H_inf = 58.16 km/s/Mpc (asymptotic vacuum rate
+    from the 3-loop CTP formula) and τ_0 = 41.9 Myr (cosmic-baseline
+    + Bullet Cluster anchors). The era map gives N_total = 329
+    eras to present → age t_0 = 13.78 Gyr.
 
-    Given H_inf and t_0, flat ΛCDM Friedmann integration uniquely determines
-    (Ω_m, Ω_Λ, H_0). Age is treated as input in this module; future work
-    (V8) could derive age from N_total structurally (failed in 10
-    approaches; see `N_TOTAL_DERIVATION_ATTEMPT.md`).
+    Given H_inf and t_0, flat-ΛCDM Friedmann integration uniquely
+    determines (Ω_m, Ω_Λ, H_0). Age is treated as input in this
+    module; the open negative documents what would close that gap.
 
-Cross-check: H_0 = 69.03 km/s/Mpc sits between Planck (67.4) and SH0ES
-(73.0), consistent with flat ΛCDM at the ~2% level.
+Cross-check: H_0 = 69.03 km/s/Mpc sits between Planck (67.4) and
+SH0ES (73.0), consistent with flat ΛCDM at the ~2% level.
 """
 
 import numpy as np
@@ -136,10 +162,13 @@ def grut_H_0_prediction(n_eras=329, tau_0_s=TAU_0_DEFAULT,
     result["tau_0_Myr"] = tau_0_s / YEAR_S / 1e6
     result["age_Gyr"] = t_0_Gyr
     result["status"] = (
-        "PROTOTYPE — H_0 from GRUT first principles using H_inf (COMPUTED, V7 §26.2) "
-        "+ age = N_eras × τ_0 as input. If N_eras = 329 is itself derived "
-        "(structural from era-map threshold + relaxation, not fit to observed age), "
-        "this becomes a zero-parameter prediction."
+        "ONE-PARAMETER — H_0 from H_inf (COMPUTED, V7 §26.2) plus "
+        "age = N_eras × τ_0 with N_eras = 329 as observed-cosmic-age "
+        "anchor. Open negative: deriving N_eras zero-parameter from "
+        "framework foundations (registry: n_total_zero_parameter_"
+        "derivation_open_question; log: N_TOTAL_DERIVATION_ATTEMPT.md, "
+        "4 attempts closed negative). Closure likely requires the "
+        "Genesis Hypothesis (Appendix A) becoming formal."
     )
     return result
 

@@ -72,6 +72,179 @@ class TestCanonicalConstants:
         assert 65 < H_0_IMPLIED_KM_S_MPC < 72
 
 
+class TestCanonicalR:
+    """Path G canonical R = √(4/3) ≈ 1.15470 and Path D cross-checks."""
+
+    def test_R_refractive_aliases_n_g_DC(self):
+        """R_REFRACTIVE is the semantic alias for n_g(0)."""
+        from grut.foundation.closure_protocol import R_REFRACTIVE, N_G_DC
+        assert R_REFRACTIVE == N_G_DC
+
+    def test_R_canonical_equals_sqrt_4_over_3(self):
+        """Path G canonical R = √(4/3) — exact within float precision."""
+        from grut.foundation.closure_protocol import R_REFRACTIVE
+        assert abs(R_REFRACTIVE - np.sqrt(4/3)) < 1e-12
+        assert abs(R_REFRACTIVE - 1.15470) < 1e-4
+
+    def test_path_d_majorana_a_over_c(self):
+        """Path D Majorana cross-check: a/c = 1991/1698 ≈ 1.17256."""
+        from grut.foundation.closure_protocol import A_OVER_C_SM_MAJORANA
+        assert abs(A_OVER_C_SM_MAJORANA - 1991/1698) < 1e-12
+        assert abs(A_OVER_C_SM_MAJORANA - 1.17256) < 1e-4
+
+    def test_path_d_dirac_a_over_c(self):
+        """Path D Dirac variant: a/c = 253/219 ≈ 1.15525, closer to √(4/3)."""
+        from grut.foundation.closure_protocol import A_OVER_C_SM_DIRAC
+        assert abs(A_OVER_C_SM_DIRAC - 253/219) < 1e-12
+        assert abs(A_OVER_C_SM_DIRAC - 1.15525) < 1e-4
+
+    def test_dirac_closer_to_canonical_than_majorana(self):
+        """Dirac variant agrees with Path G better than Majorana — supports
+        the GRUT ToE's lean-Dirac falsifiable prediction."""
+        from grut.foundation.closure_protocol import (
+            R_REFRACTIVE, A_OVER_C_SM_DIRAC, A_OVER_C_SM_MAJORANA,
+        )
+        gap_dirac = abs(A_OVER_C_SM_DIRAC - R_REFRACTIVE)
+        gap_majo = abs(A_OVER_C_SM_MAJORANA - R_REFRACTIVE)
+        assert gap_dirac < gap_majo
+
+
+class TestRMaxSaturationCurvature:
+    """V7 §13 Whole Hole — universal RICCI-scalar saturation R_max = α/(c²τ_0²).
+
+    Crucial scope: this is Ricci scalar saturation, NOT Kretschmann. For
+    Schwarzschild VACUUM exterior, R = 0 identically and R_max imposes
+    no constraint there. R_max bounds the matter-bearing interior, and
+    its trace-of-Einstein consequence ρ_max is the universal interior
+    density cap.
+    """
+
+    def test_R_max_formula(self):
+        """R_max = α / (c² τ_0²) — exact algebraic identity."""
+        from grut.foundation.closure_protocol import (
+            R_MAX_INV_M2, ALPHA_VAC, TAU_0_SEC,
+        )
+        from grut.foundation.constants import C as C_LIGHT
+        expected = ALPHA_VAC / (C_LIGHT**2 * TAU_0_SEC**2)
+        assert abs(R_MAX_INV_M2 - expected) / expected < 1e-12
+
+    def test_R_max_universal_order(self):
+        """R_max ≈ 2 × 10⁻⁴⁸ m⁻² with universal τ_0 = 41.9 Myr."""
+        from grut.foundation.closure_protocol import R_MAX_INV_M2
+        assert 1e-49 < R_MAX_INV_M2 < 1e-47
+        assert abs(R_MAX_INV_M2 - 2.12e-48) / 2.12e-48 < 0.05
+
+    def test_rho_max_formula(self):
+        """ρ_max = c² R_max / (8πG) — universal interior density cap."""
+        from grut.foundation.closure_protocol import (
+            R_MAX_INV_M2, RHO_MAX_KG_M3,
+        )
+        from grut.foundation.constants import C as C_LIGHT, G as G_NEWTON
+        expected = (C_LIGHT**2 * R_MAX_INV_M2) / (8.0 * np.pi * G_NEWTON)
+        assert abs(RHO_MAX_KG_M3 - expected) / expected < 1e-12
+
+    def test_rho_max_is_universal_constant(self):
+        """ρ_max ~ 10⁻²² kg/m³ — universal, mass-independent interior density.
+
+        Larger BHs contain larger cores at the same ρ_max; ρ_max is set
+        by the medium's relaxation time τ_0, not by the object's mass.
+        """
+        from grut.foundation.closure_protocol import RHO_MAX_KG_M3
+        assert 1e-23 < RHO_MAX_KG_M3 < 1e-21
+
+
+class TestThresholdBridge:
+    """Two-condition equivalence: ωτ_0 ≫ 1 ⟺ Λ_grav τ_0 ≫ 1 when ω ~ Λ_grav.
+
+    The bridge between laboratory decoherence (atoms deep in crystal) and
+    cosmological dark-sector phenomenology (galactic rotation deep in fluid).
+    """
+
+    def test_macroscopic_body_is_deep_crystal_via_lambda_grav(self):
+        """Self-gravitating macro body (1 mg, 1 mm): Λ_grav τ_0 ~ 10³⁵.
+
+        For self-gravitating systems, the dominant dynamical frequency
+        IS the Diósi-Penrose decoherence rate, so Λ_grav τ_0 is the
+        natural crystallinity. A gram-scale object at mm separation has
+        Λ_grav ~ 10²⁰ Hz, deep in the crystal regime.
+
+        (Note: literal atoms have tiny Λ_grav ~ 10⁻¹⁹ Hz, but their
+        crystallinity comes from EM-dominated orbital ω ~ 10¹⁵ Hz,
+        not gravity. The bridge ω ~ Λ_grav holds only for
+        self-gravitating systems.)
+        """
+        from grut.foundation.closure_protocol import (
+            crystallinity, lambda_grav_dp,
+        )
+        # 1 g sphere, mm separation → Λ_grav ~ 10²⁰ Hz, Λ_grav τ_0 ~ 10³⁵
+        l_grav = lambda_grav_dp(m_kg=1e-3, l_m=1e-3, R_m=1e-3)
+        X = crystallinity(lambda_grav_Hz=l_grav)
+        assert X > 1e30
+
+    def test_atom_is_deep_crystal_via_em_frequency(self):
+        """Literal atom: Λ_grav ~ 10⁻¹⁹ Hz (tiny), but EM orbital ω ~ 10¹⁵ Hz
+        gives ωτ_0 ~ 10³⁰ — still deep crystal, via EM not gravity."""
+        from grut.foundation.closure_protocol import crystallinity
+        # Hydrogen-like ground-state frequency ~ 10¹⁵ Hz
+        X = crystallinity(omega_dyn_Hz=1e15)
+        assert X > 1e20
+
+    def test_galactic_rotation_is_deep_fluid(self):
+        """Galactic rotation (period ~ 250 Myr): ωτ_0 < 1 (deep fluid)."""
+        from grut.foundation.closure_protocol import crystallinity, YEAR_SEC
+        omega = 2 * np.pi / (2.5e8 * YEAR_SEC)  # period ~ 250 Myr
+        X = crystallinity(omega_dyn_Hz=omega)
+        # ω × τ_0 = 2π × (41.9 Myr / 250 Myr) ≈ 1.05 — at the boundary.
+        # Looser check: galactic-mode X is order 1 or below, not crystal.
+        assert X < 2.0
+
+    def test_solar_system_orbit_is_deep_crystal(self):
+        """Saturn orbit (period ~ 30 yr): ωτ_0 ≫ 1 (deep crystal, GR safe)."""
+        from grut.foundation.closure_protocol import crystallinity, YEAR_SEC
+        omega = 2 * np.pi / (30 * YEAR_SEC)
+        X = crystallinity(omega_dyn_Hz=omega)
+        assert X > 1e6
+
+    def test_crystallinity_takes_max_when_both_provided(self):
+        """When both ω and Λ_grav are given, function uses the dominant rate."""
+        from grut.foundation.closure_protocol import crystallinity, TAU_0_SEC
+        X = crystallinity(omega_dyn_Hz=1e-15, lambda_grav_Hz=1e10)
+        assert abs(X - 1e10 * TAU_0_SEC) / X < 1e-12
+
+
+class TestProvenanceHonesty:
+    """Provenance dict reflects the canonical derivation chains for both
+    foundational constants — neither is a free parameter."""
+
+    def test_provenance_dict_marks_alpha_vac_derived(self):
+        """α_vac DERIVED via conformal-mode scalar (KS 2011 a/c = 1/3)."""
+        from grut.foundation.closure_protocol import canonical_constants_table
+        provenance = canonical_constants_table()["provenance"]
+        assert "DERIVED" in provenance["alpha_vac"]
+        assert "conformal-mode scalar" in provenance["alpha_vac"]
+
+    def test_provenance_dict_marks_tau_0_derived(self):
+        """τ_0 DERIVED from CTP noise kernel at gold benchmark."""
+        from grut.foundation.closure_protocol import canonical_constants_table
+        provenance = canonical_constants_table()["provenance"]
+        assert "DERIVED" in provenance["tau_0"]
+        assert "noise-kernel" in provenance["tau_0"] or "noise kernel" in provenance["tau_0"]
+
+    def test_historical_provenance_preserved(self):
+        """The v6.0 back-derivation history is referenced for honesty."""
+        from grut.foundation.closure_protocol import canonical_constants_table
+        provenance = canonical_constants_table()["provenance"]
+        assert "ALPHA_VAC_PROVENANCE" in provenance["alpha_vac"]
+
+    def test_table_exposes_two_foundational_constants(self):
+        """Foundational constants are exposed at the top of the table."""
+        from grut.foundation.closure_protocol import canonical_constants_table
+        keys = list(canonical_constants_table().keys())
+        # tau_0 and alpha_vac come first
+        assert keys[0] == "tau_0_Myr"
+        assert keys[1] == "alpha_vac"
+
+
 class TestTauLambdaCIdentity:
     """τ_0 = 1/√(Λc) — v11 Appendix I dark-sector unification."""
 

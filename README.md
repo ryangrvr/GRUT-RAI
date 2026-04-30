@@ -71,7 +71,7 @@ pip install -r requirements.txt
 pip install anthropic
 echo "ANTHROPIC_API_KEY=sk-ant-..." > .env
 
-# Run the test suite — 349 tests, completes in ~2 s
+# Run the test suite — 1397 tests, completes in ~2.5 minutes
 pytest tests/
 
 # Start the dashboard — auto-detects compatible Python 3.10-3.13
@@ -97,9 +97,9 @@ The dashboard, computations, GRUTipedia, and experiments tabs all work without a
 ### Running tests
 
 ```bash
-pytest tests/                    # all 349 tests
+pytest tests/                    # all 1397 tests
 pytest tests/derived/ -v         # sector tests with verbose output
-pytest tests/foundation/ -v      # foundation tests only
+pytest tests/foundation/ -v      # foundation tests only (268)
 ```
 
 Tests cover every V7 numerical claim as a regression check. If any core
@@ -145,7 +145,7 @@ Click "Visualize" buttons (appear in chat responses and at the bottom of the pag
 - **Era Map** — play through 329 eras of cosmic evolution
 - **The Bridge** — adjust H₀ and watch Ω_Λ respond
 
-### API (93 endpoints)
+### API (115 endpoints)
 
 All computations are available as REST endpoints:
 
@@ -167,7 +167,7 @@ GET /api/multiscale
 GET /api/data/planck
 ```
 
-93 endpoints across foundation, derived physics, bridge, decoherence experiments (competition, kink, material swap, isotope, entanglement), cosmology (vacuum, Hubble tension, spectral running), dark matter (exclusion, roadmap), baryogenesis (cross-check, models), noise models, covariance, robustness, multiscale, comparison, what-if, experiment design, pedagogy, discovery, and AI chat.
+115 endpoints across foundation, derived physics, bridge, decoherence experiments (competition, kink, material swap, isotope, entanglement), cosmology (vacuum, Hubble tension, spectral running), dark matter (exclusion, roadmap), baryogenesis (cross-check, models), noise models, covariance, robustness, multiscale, comparison, what-if, experiment design, pedagogy, discovery, and AI chat.
 
 ---
 
@@ -196,7 +196,7 @@ GRUT-RAI-v2/
 │                                  #   experiment, multiscale, noise_models, pedagogy, robustness, sweep, whatif
 ├── ui/                            # Web dashboard
 │   ├── app.py                     # Flask server
-│   ├── api/routes.py              # 93 API endpoints
+│   ├── api/routes.py              # 115 API endpoints
 │   ├── ai/chat.py                 # Claude-powered chat with 22 tools
 │   └── static/                    # HTML, CSS, JS, visualizations
 ├── theory/                        # V8 theory document
@@ -225,14 +225,14 @@ For the full research history, v6 formalism paper, and v7 program document, see 
 ## Testing
 
 ```bash
-# Foundation tests (22 automated checks)
+# Foundation tests (268 automated checks)
 python -m pytest tests/foundation/ -v
 
 # All automated tests
 python -m pytest tests/ -v
 ```
 
-The **349 automated tests** verify every load-bearing numerical claim in the framework: foundation-level consistency (constants, axioms, constitutive equation, noise kernel, anomaly structure), every sector from decoherence through cosmology through the April 2026 synthesis additions (Phase I canonical constants, bandwidth integral, thermal transition, rotation-curve engine, Track VII dielectric reframing). Each corresponds to a specific claim in the V7 theory document; if any value silently changes, the suite flags it.
+The **1397 automated tests** verify every load-bearing numerical claim in the framework: foundation-level consistency (constants, axioms, constitutive equation, noise kernel, anomaly structure), every sector from decoherence through cosmology through the April 2026 synthesis additions (Phase I canonical constants, bandwidth integral, thermal transition, rotation-curve engine, Track VII dielectric reframing, TJI Phase-0 closure, Schrödinger-in-the-Box observer module with Λ_contact CTP derivation, foundations audits). Each corresponds to a specific claim in the GRUT-RAI registry (`grut/toe/registry.py`, 91 claims); if any value silently changes, the suite flags it.
 
 ---
 

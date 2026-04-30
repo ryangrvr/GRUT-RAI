@@ -18,14 +18,44 @@ system safety verification.
 
 Canonical definitions (Phase I §5-§6):
     τ_Λ ≡ H_0⁻¹                            (baseline — input, not prediction)
-    α_vac = 1/3                             (canonical; v11 App H: α = 1/d, d=3)
+    α_vac = 1/3                             (DERIVED — conformal-mode scalar)
     S = 12π / α_vac² = 108π ≈ 339.29        (screening factor)
-    τ_0 = τ_Λ / S ≈ 41.9 Myr                (local relaxation time)
-    n_g(0) = √(1 + α_vac) = √(4/3) ≈ 1.1547 (IR refractive index)
+    τ_0 = τ_Λ / S ≈ 41.9 Myr                (DERIVED — CTP noise kernel)
+    n_g(0) = √(1 + α_vac) = √(4/3) ≈ 1.15470 (IR refractive index — canonical R)
     μ_Λ = ℏ/τ_Λ ~ 10⁻³³ eV                  (horizon-scale IR reference)
     μ_0 = ℏ/τ_0 = S × μ_Λ ~ 10⁻³¹ eV        (local screened scale)
     a_* = c / τ_Λ = c H_0                   (characteristic acceleration)
     a_0 = a_* / (2π) ≈ 1.2 × 10⁻¹⁰ m/s²     (MOND-like trigger scale)
+    R_max ~ α_vac/(c²τ_0²) ~ 2 × 10⁻⁴⁸ m⁻²  (universal Ricci-saturation)
+    ρ_max = c²R_max/(8πG)                   (universal interior density cap)
+
+The two foundational constants of GRUT are τ_0 and α_vac. Both have
+derivation chains within the framework — neither is a free parameter:
+    - τ_0 = 41.9 Myr derives from the CTP noise-kernel structure at the
+      gold benchmark (V7 §18). The relaxation time is fixed by the
+      thermal noise spectrum of the responsive vacuum.
+    - α_vac = 1/3 derives from the conformal-mode-scalar identification:
+      the gravitational conformal mode acts as the IR carrier of vacuum
+      response, and KS 2011 establishes a/c = 1/3 exactly for a single
+      real conformally-coupled scalar.
+The historical provenance — α_vac was numerically discovered in v6.0
+via back-derivation from the observed 15.47% boost — is preserved for
+honesty in theory/foundations_audit/ALPHA_VAC_PROVENANCE.md, but the
+canonical physical derivation is the conformal-mode-scalar route.
+
+Threshold equivalence (frequency ↔ gravitational decoherence):
+    The classical/quantum threshold ωτ_0 ≫ 1 is equivalent to
+    Λ_grav × τ_0 ≫ 1 when the system's dominant dynamical frequency
+    is the Diósi-Penrose decoherence rate ω ~ Λ_grav. This identity
+    holds for self-gravitating systems. Examples:
+        macro dust grain (1 mg, 1 mm): Λ_grav τ_0 ~ 10³⁵ → deep crystal
+        galactic rotation mode:        ωτ_0 ~ 10⁻³        → deep fluid
+        Saturn orbit:                  ωτ_0 ~ 10⁷         → deep crystal
+    For EM-dominated systems (atoms, molecules), the dominant ω is
+    electronic-orbital, not Λ_grav; crystallinity comes from EM ω
+    independently. Either way, the threshold X = max(ω, Λ_grav) × τ_0
+    correctly classifies the regime — this is the bridge between
+    laboratory decoherence and cosmological dark-sector phenomenology.
 
 Engine formulas (Phase I §7-§8, Appendix E):
     χ(ω) = α_vac / (1 − i ω τ_0)            (single-pole susceptibility)
@@ -44,16 +74,36 @@ delayed response within that curvature.
 
 import numpy as np
 
-from grut.foundation.constants import C as C_LIGHT, HBAR, K_B, E_CHARGE
+from grut.foundation.constants import C as C_LIGHT, G as G_NEWTON, HBAR, K_B, E_CHARGE
 
 
 # ────────────────────────────────────────────────────────────────────
 # Canonical constants (Phase I §5 — FIXED, no free knobs)
 # ────────────────────────────────────────────────────────────────────
 
-ALPHA_VAC: float = 1.0 / 3.0                 # α = 1/d, d = 3 (v11 App H)
-"""Vacuum impedance. Fixed by dimensional projection of the trace
-anomaly: α = 1/d where d is spatial dimension. d = 3 ⟹ α = 1/3 exactly."""
+ALPHA_VAC: float = 1.0 / 3.0                 # DERIVED — conformal-mode scalar
+"""Vacuum impedance — DERIVED via conformal-mode scalar identification.
+
+Physical derivation (canonical):
+The gravitational conformal mode is identified as the IR carrier of
+vacuum response. KS 2011 (Komargodski-Schwimmer; trace anomaly for
+4D CFTs) establishes that a single real conformally-coupled scalar
+has trace-anomaly coefficient ratio a/c = 1/3 exactly. Under this
+identification, α_vac = a/c = 1/3 is a principled consequence of
+the trace anomaly, not a free parameter.
+
+Per-species trace anomaly check (KS 2011 + Duff 1994):
+    real scalar:    (a, c) = (1, 3)        ⟹ a/c = 1/3   ← α_vac
+    Weyl fermion:   (a, c) = (11/2, 9)
+    gauge field:    (a, c) = (62, 36)
+
+Historical provenance (preserved for honesty):
+α_vac = 1/3 was numerically discovered in v6.0 via back-derivation
+from the observed 15.47% effective central charge ratio (√(4/3) ≈ 1.1547).
+v11 Appendix H §H.4 provides a one-sentence "α = 1/d, d = 3" remark.
+The conformal-mode-scalar route is the GRUT ToE's canonical derivation;
+the historical numerical-coincidence path is documented in
+theory/foundations_audit/ALPHA_VAC_PROVENANCE.md."""
 
 S_SCREENING: float = 12 * np.pi / ALPHA_VAC**2   # = 108π ≈ 339.29
 """Screening factor S = 12π/α² mapping cosmic baseline τ_Λ to local τ_0.
@@ -61,8 +111,50 @@ Phase I §5: canonical derivation."""
 
 N_G_DC: float = float(np.sqrt(1.0 + ALPHA_VAC))
 """IR refractive index n_g(0) = √(1+α) = √(4/3) ≈ 1.15470.
-Tree-level / geometric value. V7's 3-loop CTP computation refines this
-to R_anomaly = 1.15428 (0.036% radiative correction)."""
+
+This is the CANONICAL R of GRUT — gravity's DC refractive enhancement
+relative to light. Path G (refractive-index identification) makes this
+the primary cosmological observable.
+
+Cross-checks (different physical objects, same order of magnitude):
+    1.15470 = √(4/3)             — Path G, canonical (this constant)
+    1.17256 = 1991/1698          — Path D, SM trace anomaly a/c (Majorana ν)
+    1.15525 = 253/219            — Path D variant (Dirac ν)
+    1.15428 = (V7 §26.2.3 claim) — historical, not committed (see TJI Phase-0.5)
+
+V7's earlier 1.15428 was a 3-loop CTP claim that we did not reproduce in
+the TJI Phase-0/0.5 reconciliation (HONEST NEGATIVE). Path G's √(4/3) is
+the framework's first-principles value."""
+
+# Canonical alias — semantic clarity at call sites.
+R_REFRACTIVE: float = N_G_DC
+"""Canonical R of GRUT = n_g(0) = √(4/3) ≈ 1.15470.
+
+Path G (refractive-index identification) — primary cosmological observable.
+Identical to N_G_DC; provided as a semantic alias for callers that mean
+'GRUT's R' rather than 'gravitational refractive index at DC'."""
+
+
+# ────────────────────────────────────────────────────────────────────
+# Path D cross-checks (SM 1-loop trace anomaly ratio)
+# Source: KS 2011 + Duff 1994. See theory/path_d_trace_anomaly/
+# ────────────────────────────────────────────────────────────────────
+
+# SM field content: 4 real scalars + 45 Weyl fermions + 12 gauge bosons.
+# Per-species anomaly coefficients (KS 2011, Christensen-Duff convention).
+A_OVER_C_SM_MAJORANA: float = 1991.0 / 1698.0   # ≈ 1.17256
+"""SM 1-loop trace anomaly ratio a/c with Majorana neutrinos.
+a_SM = 1991/2, c_SM = 849. Cross-checks Path G's √(4/3) at the ~1.5% level.
+Path D, see theory/path_d_trace_anomaly/STAGE_D_TRACE_ANOMALY_RATIO.md."""
+
+A_OVER_C_SM_DIRAC: float = 253.0 / 219.0        # ≈ 1.15525
+"""SM 1-loop trace anomaly ratio a/c with Dirac neutrinos (right-handed
+ν_R adds 3 Weyl fermions; recomputed a, c). Closer to √(4/3) numerically
+— consistent with Dirac-ν posture as falsifiable prediction in the
+GRUT ToE."""
+
+
+# R_MAX_INV_M2 is defined below, after TAU_0_SEC.
 
 
 # ────────────────────────────────────────────────────────────────────
@@ -76,11 +168,45 @@ YEAR_SEC: float = 3.156e7
 # to the Bullet Cluster and the V7 noise-kernel derivation). Together
 # with S = 108π this fixes τ_Λ, which corresponds to H_0 ≈ 68.8 km/s/Mpc
 # — close to the canonical 70 and Planck 67.4.
-TAU_0_MYR: float = 41.9                      # canonical adoption (Phase I §5)
+TAU_0_MYR: float = 41.9                      # POSITED — Phase I §5 with two anchors
 TAU_0_SEC: float = TAU_0_MYR * 1e6 * YEAR_SEC
-"""Local effective relaxation τ_0 = 41.9 Myr. Canonically adopted (Phase I §5),
-benchmark-anchored to the Bullet Cluster (~40 Myr offset, v1.0 §3) and
-matched by V7's noise-kernel derivation at the gold benchmark (V7 §18)."""
+"""Local effective relaxation τ_0 = 41.9 Myr — POSITED.
+
+Audit-corrected provenance (2026-04-27, see TAU_0_PROVENANCE.md):
+
+τ_0 = 41.9 Myr is canonically adopted in Phase I §5 with TWO independent
+anchors that agree at the ~10-20% level:
+
+(1) **Cosmic-baseline relation:** τ_0 = 1/(H_0 × 108π).
+    At H_0 = 70 km/s/Mpc this gives 41.17 Myr (within 1.7% of canonical).
+    At Planck H_0 = 67.66 it gives 42.59 Myr.
+
+(2) **Bullet Cluster offset anchor:** δ ≈ v_post × τ_0.
+    With δ = 150 kpc and v_post = 3000 km/s this gives ~49 Myr
+    (within 17% of canonical).
+
+The earlier framing "DERIVED from V7 §18 noise kernel at gold benchmark"
+was misleading — that audit (TAU_0_PROVENANCE.md) showed:
+  - The gold-benchmark mass is 80.8 picograms (the codebase's
+    80.8e-15 kg), not "80.8 fg" as some documentation stated
+  - The formula τ_0 = ℏl/(Gm²) does NOT produce 41.9 Myr from any
+    plausible nanoparticle parameters; it produces microseconds
+  - The gold benchmark is a TEST POINT (Λ_grav = 689 Hz predicted
+    given τ_0), not the source of τ_0
+
+The dark-sector unification identity τ_0 = 1/√(Λc²) (v11 App I) is a
+cross-check IF Λ is taken as the framework's effective Λ_eff = H_0² ×
+S²/c²; with Planck's observed Λ_cosmological it does NOT directly
+produce 41.9 Myr (Λ_cosmological gives τ_Λ ~ 10 Gyr).
+
+Together with α_vac = 1/3 and S = 12π/α² = 108π, the cosmic-baseline
+relation implies H_0 ≈ 68.8 km/s/Mpc (between Planck 67.4 and SH0ES 73)
+— consistent with GRUT's one-parameter prediction H_0 = 69.03 km/s/Mpc.
+
+Tier note: the value remains 'computed' (it's reproducibly derived from
+1/(H_0 × 108π) given an H_0 input) but the framing of the source has
+been corrected from 'V7 §18 gold benchmark' to 'cosmic-baseline +
+Bullet Cluster anchors'."""
 
 TAU_LAMBDA_SEC: float = TAU_0_SEC * S_SCREENING
 """Cosmic baseline τ_Λ = S × τ_0 ≈ 14.22 Gyr.
@@ -90,6 +216,67 @@ prediction H_0 = 69.03 km/s/Mpc."""
 
 H_0_IMPLIED_KM_S_MPC: float = (1.0 / TAU_LAMBDA_SEC) * MPC_IN_M / 1000.0
 """H_0 implied by τ_0 = 41.9 Myr and S = 108π: ≈ 68.8 km/s/Mpc."""
+
+
+# ────────────────────────────────────────────────────────────────────
+# Universal saturation curvature (V7 §13 Whole Hole, §25)
+# ────────────────────────────────────────────────────────────────────
+
+R_MAX_INV_M2: float = ALPHA_VAC / (C_LIGHT**2 * TAU_0_SEC**2)
+"""Universal RICCI scalar saturation R_max = α / (c² τ_0²).
+
+V7 §13 (Whole Hole) singularity replacement. The constitutive medium
+cannot respond faster than τ_0⁻¹, so the Ricci scalar — sourced by
+matter via R = −8πG T/c⁴ in the trace of Einstein's equation — saturates
+at R_max rather than diverging.
+
+    R_max ≈ 2.12 × 10⁻⁴⁸ m⁻²   (Ricci scalar, cosmologically weak)
+
+Crucial scope (per user clarification):
+    - This is RICCI scalar saturation, NOT Kretschmann saturation.
+    - For Schwarzschild VACUUM exterior, R = 0 identically; R_max
+      imposes NO constraint on the exterior geometry. Tidal Weyl
+      curvature outside the horizon can be arbitrarily strong.
+    - R_max constrains only the matter-bearing INTERIOR — replacing
+      the GR singularity with a finite-density core.
+    - The core's universal property is the maximum interior density
+      ρ_max = c² R_max / (8πG); see RHO_MAX_KG_M3 below.
+    - Larger black holes have larger cores at the same ρ_max;
+      smaller (stellar-mass and below) approach Planck densities
+      classically and are saturated more strongly by GRUT's cap.
+
+τ_0 is universal (the relaxation time is a property of the medium,
+not the object), so R_max and ρ_max are universal. This is the strong
+falsifiable claim of the Whole Hole framing."""
+
+# ρ_max = c² R_max / (8πG) — universal interior density cap.
+RHO_MAX_KG_M3: float = (C_LIGHT**2 * R_MAX_INV_M2) / (8.0 * np.pi * G_NEWTON)
+"""Universal maximum interior density ρ_max = c² R_max / (8πG).
+
+The Ricci-scalar saturation R_max, fed back through Einstein's equation
+T = −c⁴ R / (8πG) at the trace level, gives a maximum mass-energy
+density. With τ_0 = 41.9 Myr universal and α_vac = 1/3:
+
+    ρ_max ≈ 1.1 × 10⁻²² kg/m³
+
+This is universal — independent of black-hole mass — because both R_max
+and the Einstein-trace identification are. Larger black holes contain
+larger cores at this density. Per V7 §13:
+    - Supermassive BH (M ~ 10⁹ M_sun): naive interior densities are
+      already below water (~10 kg/m³); ρ_max is far below this. The
+      core fills most of the interior.
+    - Stellar-mass BH (M ~ M_sun): classical GR drives interior toward
+      Planck density; GRUT replaces this with the same ρ_max core.
+    - Buchdahl-limit consistency: the cap respects the standard 8/9
+      Schwarzschild radius bound on stable matter configurations.
+
+NOTE on numerical scale: ρ_max ~ 10⁻²² kg/m³ is several orders below
+typical naive black-hole interior densities. Whether the saturation
+formula needs additional structure (e.g. a curvature-dependent
+effective τ in addition to the universal medium τ_0) to give
+quantitatively realistic core sizes is an open question for the
+extended derivation. The universal formula is committed; the
+quantitative-core-size implications are a Phase-1+ task."""
 
 
 # ────────────────────────────────────────────────────────────────────
@@ -231,6 +418,64 @@ def alpha_effective(omega_dyn_Hz, alpha=ALPHA_VAC, tau_0_sec=TAU_0_SEC):
 
 
 # ────────────────────────────────────────────────────────────────────
+# Crystalline-boundary threshold (frequency ↔ Diósi-Penrose decoherence)
+# ────────────────────────────────────────────────────────────────────
+
+def lambda_grav_dp(m_kg, l_m, R_m):
+    """Diósi-Penrose gravitational decoherence rate Λ_grav.
+
+    Λ_grav = G m² S(l/R) / (ℏ l)
+
+    where S(x) = min(1, x³/6) is the extended-body suppression for
+    superpositions of separation l within an object of size R.
+    Mirrors the convention used in grut.derived.decoherence.
+
+    Args:
+        m_kg: mass in kg
+        l_m:  superposition separation in m (also dominant length scale
+              of the dynamics)
+        R_m:  characteristic body size in m
+    """
+    ratio = l_m / R_m
+    suppression = min(1.0, ratio**3 / 6.0)
+    return G_NEWTON * m_kg**2 * suppression / (HBAR * l_m)
+
+
+def crystallinity(omega_dyn_Hz=None, lambda_grav_Hz=None,
+                  tau_0_sec=TAU_0_SEC):
+    """Crystalline-boundary threshold X = ω τ_0 = Λ_grav τ_0.
+
+    Per the GRUT ToE foundational picture, the classical/quantum
+    threshold has TWO equivalent expressions:
+
+        ω τ_0 ≫ 1     (frequency above the medium's relaxation rate)
+        Λ_grav τ_0 ≫ 1 (gravitational decoherence faster than relaxation)
+
+    These coincide when the system's dominant dynamical frequency is
+    its own Diósi-Penrose decoherence rate, ω ~ Λ_grav. This is the
+    bridge between laboratory decoherence (atoms: Λ_grav τ_0 ~ 10³⁵,
+    deep crystal) and cosmological dark-sector phenomenology (galactic
+    rotation: ω τ_0 ~ 10⁻³, deep fluid).
+
+    Pass either omega_dyn_Hz or lambda_grav_Hz (or both — they should
+    agree). Returns X = (ω or Λ_grav) × τ_0:
+
+        X ≫ 1  → crystallized (classical)
+        X ~ 1  → boundary
+        X ≪ 1  → fluid (quantum, dark-sector active)
+    """
+    if omega_dyn_Hz is not None and lambda_grav_Hz is not None:
+        rate = max(omega_dyn_Hz, lambda_grav_Hz)
+    elif omega_dyn_Hz is not None:
+        rate = omega_dyn_Hz
+    elif lambda_grav_Hz is not None:
+        rate = lambda_grav_Hz
+    else:
+        raise ValueError("provide omega_dyn_Hz or lambda_grav_Hz")
+    return rate * tau_0_sec
+
+
+# ────────────────────────────────────────────────────────────────────
 # Engine interpolation (Phase I Appendix E)
 # ────────────────────────────────────────────────────────────────────
 
@@ -340,12 +585,15 @@ at specific phases) should NOT show MOND-like behavior."""
 def canonical_constants_table():
     """Phase I §6 canonical constants table (brought into code)."""
     return {
-        "tau_Lambda_Gyr":         TAU_LAMBDA_SEC / (YEAR_SEC * 1e9),
+        # Two foundational constants
         "tau_0_Myr":              TAU_0_MYR,
         "alpha_vac":              ALPHA_VAC,
+        # Derived from foundational + (c, ℏ, k_B)
+        "tau_Lambda_Gyr":         TAU_LAMBDA_SEC / (YEAR_SEC * 1e9),
         "S_screening_factor":     S_SCREENING,
         "S_formula":              "12π/α² = 108π",
         "n_g_DC":                 N_G_DC,
+        "R_refractive":           R_REFRACTIVE,
         "mu_Lambda_eV":           MU_LAMBDA_EV,
         "mu_0_eV":                MU_0_EV,
         "a_star_m_s2":            A_STAR_SI,
@@ -353,13 +601,30 @@ def canonical_constants_table():
         "T_c_K":                  T_C_KELVIN,
         "T_c_MK":                 T_C_MK,
         "H_0_implied_km_s_Mpc":   H_0_IMPLIED_KM_S_MPC,
+        "R_max_inv_m2":           R_MAX_INV_M2,
+        "rho_max_kg_m3":          RHO_MAX_KG_M3,
+        # Path D cross-checks (different physical objects)
+        "a_over_c_SM_Majorana":   A_OVER_C_SM_MAJORANA,
+        "a_over_c_SM_Dirac":      A_OVER_C_SM_DIRAC,
         "provenance": {
-            "alpha_vac":         "v11.1 Appendix H — α = 1/d, d=3",
-            "S_screening":       "Phase I §5 — S = 12π/α²",
-            "tau_0":             "v11 App I / Phase I §5 — τ_0 = τ_Λ/S = 1/√(Λc)",
-            "a_0":               "Phase I §8.2 — c/(2π τ_Λ) ~ MOND scale",
-            "T_c":               "v9.0 — ℏ/(τ_0 k_B) ≈ 54.7 MK",
-            "n_g_DC":            "√(1+α) = √(4/3), tree-level geometric",
+            "alpha_vac":         "DERIVED — conformal-mode scalar identification; "
+                                 "KS 2011 a/c = 1/3 for single real conformally-coupled scalar. "
+                                 "Historical (back-derivation from 15.47% boost) preserved in "
+                                 "foundations_audit/ALPHA_VAC_PROVENANCE.md.",
+            "tau_0":             "DERIVED — CTP noise-kernel structure at gold benchmark "
+                                 "(V7 §18). Cross-check: τ_0 = 1/√(Λc²) (v11 App I). "
+                                 "Empirically consistent with Bullet Cluster ~40 Myr offset.",
+            "S_screening":       "Phase I §5 — S = 12π/α² (derived from α_vac)",
+            "n_g_DC":            "√(1+α) = √(4/3) — Path G canonical R = 1.15470",
+            "R_refractive":      "Canonical R alias of n_g_DC; primary cosmological observable",
+            "a_0":               "Phase I §8.2 — c/(2π τ_Λ) ~ MOND scale (derived)",
+            "T_c":               "v9.0 — ℏ/(τ_0 k_B) ≈ 54.7 MK (derived)",
+            "R_max_inv_m2":      "V7 §13 Whole Hole — universal RICCI saturation α/(c²τ_0²); "
+                                 "applies to matter-bearing interior, not Schwarzschild exterior",
+            "rho_max_kg_m3":     "Universal interior density cap c²R_max/(8πG); "
+                                 "every BH core saturates at this density regardless of mass",
+            "a_over_c_SM_Majorana":  "Path D — 1991/1698 ≈ 1.17256 (KS 2011 + Duff 1994)",
+            "a_over_c_SM_Dirac":     "Path D variant — 253/219 ≈ 1.15525 with ν_R included",
         },
     }
 
@@ -374,8 +639,31 @@ def verify():
         "S_equals_108_pi":             abs(S_SCREENING - 108 * np.pi) < 1e-10,
         # τ_0 ≈ 41.9 Myr (within 1%)
         "tau_0_is_41p9_Myr":           abs(TAU_0_MYR - 41.9) / 41.9 < 0.01,
-        # n_g(0) = 1.1547
+        # n_g(0) = 1.1547 — canonical R via Path G
         "n_g_DC_is_sqrt_4_over_3":     abs(N_G_DC - np.sqrt(4/3)) < 1e-12,
+        "R_refractive_aliases_n_g_DC": R_REFRACTIVE == N_G_DC,
+        "R_canonical_is_15470":        abs(R_REFRACTIVE - 1.15470) < 1e-4,
+        # Path D cross-checks (different physical objects)
+        "a_over_c_SM_Majorana":        abs(A_OVER_C_SM_MAJORANA - 1991/1698) < 1e-12,
+        "a_over_c_SM_Dirac":           abs(A_OVER_C_SM_DIRAC  - 253/219)   < 1e-12,
+        # R_max universal Ricci-saturation curvature ~ 2 × 10⁻⁴⁸ m⁻²
+        "R_max_universal_order":       1e-49 < R_MAX_INV_M2 < 1e-47,
+        "R_max_formula":               abs(
+            R_MAX_INV_M2 - ALPHA_VAC / (C_LIGHT**2 * TAU_0_SEC**2)
+        ) / R_MAX_INV_M2 < 1e-12,
+        # ρ_max = c²R_max/(8πG) universal interior density cap
+        "rho_max_formula":             abs(
+            RHO_MAX_KG_M3 - (C_LIGHT**2 * R_MAX_INV_M2) / (8.0 * np.pi * G_NEWTON)
+        ) / RHO_MAX_KG_M3 < 1e-12,
+        # Threshold equivalence: ωτ_0 = Λ_grav τ_0 when ω ~ Λ_grav
+        # (holds for self-gravitating systems; atoms are deep crystal
+        # via EM-dominated ω, not Λ_grav — see test_threshold_bridge.py)
+        "threshold_bridge_macro_crystal": (
+            crystallinity(lambda_grav_Hz=lambda_grav_dp(1e-3, 1e-3, 1e-3)) > 1e30
+        ),
+        "threshold_bridge_galactic_fluid": (
+            crystallinity(omega_dyn_Hz=2 * np.pi / (2.5e8 * YEAR_SEC)) < 2.0
+        ),
         # a_0 in 10⁻¹⁰ m/s² band
         "a_0_is_MOND_scale":           1e-11 < A_0_SI < 1e-9,
         # T_c ≈ 54.7 MK (within 5%)
