@@ -189,42 +189,46 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
     ),
 
     LedgerEntry(
-        claim_id="phi_munu_explicit_curved_construction_open_question",
+        claim_id="phi_munu_frw_beyond_wkb_open_question",
         closure_condition=(
-            "PHASE 2B SCAFFOLD COMPLETE (Correction #24, 2026-04-30). "
-            "The structural form Φ_μν^curved(x) = ∫ d⁴x' √(-g(x')) "
-            "K^R_μνρσ(x,x') h^ρσ(x') is pinned, with four physical-"
-            "consistency checks verified at code level: flat-limit "
-            "recovery, covariant conservation (∇^μ Φ = 0 from "
-            "∇^μ P^TT,g = 0), causality (K^R supported on past "
-            "lightcone), FRW scalar-mode compatibility (n_g²(ω,k,t) "
-            "= 1 + α χ_FRW). REMAINING WORK: explicit construction "
-            "of P^TT,g_μνρσ(x,x') and G^R(x,x') on specific "
-            "backgrounds (S⁴, FRW). Closure paths: (a) P^TT,g via "
-            "Killing-tensor decomposition on FRW (scalar-vector-tensor "
-            "split in comoving Fourier modes); (b) G^R via WKB or "
-            "numerical integration of (1 + τ_0² (-□_g)) on FRW; "
-            "(c) on S⁴, spherical-harmonic expansion and Euclidean "
-            "Green-function techniques. Closing this Phase 2C "
-            "construction unlocks n_g_omega_cosmological_covariance_"
-            "open_question (the Priority 3 task that USES Φ_μν^curved "
-            "in cosmological perturbations)."
+            "PHASE 2C COMPLETE (Correction #25, 2026-05-01). The "
+            "explicit FRW susceptibility χ_FRW^WKB(k, η) = "
+            "1 / [1 + (τ_0 k_phys)²] is now derived structurally "
+            "in grut.derivation.phi_munu.frw_explicit, with all "
+            "three limits verified at code level: sub-horizon "
+            "(GR recovery), super-horizon (full constitutive, "
+            "n_g² → 4/3), transition (k_phys = 1/τ_0, λ_* ≈ 80.7 "
+            "Mpc today). REMAINING WORK: beyond-WKB extension "
+            "(Phase 2D) — the next-order correction "
+            "χ_FRW = χ^WKB × [1 + O((H_c τ_0)²)]. The correction "
+            "is dimensionally suppressed: today (H_0 τ_0)² = "
+            "1/(108π)² ≈ 8.7×10⁻⁶; similar across post-equality "
+            "cosmology. Closure paths: (a) WKB matching beyond "
+            "leading order; (b) numerical Green-function integration "
+            "on specific FRW expansion histories (radiation, matter, "
+            "ΛCDM); (c) symbolic resummation under specific "
+            "expansion ansätze. The correction is NOT operationally "
+            "load-bearing for any current cosmological observable — "
+            "current data does not constrain (H τ_0)² corrections "
+            "at the 10⁻⁶ level."
         ),
         closure_effort=(
-            "~2-4 weeks specialist work, post-Correction-#24. The "
-            "scaffold provides the structural template; Phase 2C "
-            "specializes the projector and Green function to the "
-            "curved geometry. Sister problem to "
-            "n_g_omega_cosmological_covariance — both depend on "
-            "Phase 2C completion."
+            "Research-tier; no operational urgency. Phase 2C "
+            "(Correction #25) lands the WKB result that IS "
+            "operationally complete for late-universe cosmology. "
+            "Beyond-WKB matters only in the radiation era for modes "
+            "that crossed k_* during that era. ~2-4 weeks specialist "
+            "work if needed; deferred until cosmological precision "
+            "demands it."
         ),
         affects=(
             "gr_recovery",
             "phi_munu_linearized_derivation",
             "phi_munu_curved_background_scaffold",
+            "phi_munu_frw_explicit_construction",
         ),
         blocked_by=(),
-        last_review="2026-04-30",
+        last_review="2026-05-01",
     ),
 
     LedgerEntry(

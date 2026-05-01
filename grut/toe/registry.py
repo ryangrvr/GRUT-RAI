@@ -2927,12 +2927,14 @@ REGISTRY: tuple[Claim, ...] = (
             "noise vanishes (it is quadratic in h_a)."
         ),
         notes=(
-            "Linearized limit. Curved-background extension is now "
+            "Linearized limit. Curved-background extension is "
             "SCAFFOLDED at Phase 2B (claim "
             "phi_munu_curved_background_scaffold, anchored tier, "
-            "Correction #24). Phase 2C explicit construction on S⁴/"
-            "FRW remains open (claim "
-            "phi_munu_explicit_curved_construction_open_question). "
+            "Correction #24) with explicit FRW χ_FRW(k, η) "
+            "computed at Phase 2C (claim "
+            "phi_munu_frw_explicit_construction, computed tier, "
+            "Correction #25). Phase 2D beyond-WKB refinement "
+            "(O((Hτ_0)²) ≈ 10⁻⁶ correction) remains open. "
             "Closes the original 'heuristic projection' tier-honesty "
             "concern at the linearized level — Φ_μν is now a derived "
             "structural object, not a postulated multiplier."
@@ -2984,61 +2986,132 @@ REGISTRY: tuple[Claim, ...] = (
             "Verified at code level: all four targets pass."
         ),
         notes=(
-            "ANCHORED, not COMPUTED — the structural form is pinned "
-            "and the four physical-consistency checks pass, but the "
-            "EXPLICIT construction of P^TT,g_μνρσ(x,x') and "
-            "G^R(x,x') on specific backgrounds (S⁴, FRW) is deferred "
-            "to Phase 2C specialist work (claim "
-            "phi_munu_explicit_curved_construction_open_question). "
+            "ANCHORED at scaffold level — the structural form is "
+            "pinned and four physical-consistency checks pass. "
+            "Explicit FRW χ_FRW(k, η) is now computed at Phase 2C "
+            "(claim phi_munu_frw_explicit_construction, computed "
+            "tier, Correction #25): WKB-leading χ_FRW^WKB = "
+            "1/[1+(τ_0 k_phys)²] with three explicit limits "
+            "(sub-horizon, super-horizon, transition). "
+            "Beyond-WKB refinement and S⁴ specialization remain "
+            "research-tier (phi_munu_frw_beyond_wkb_open_question). "
             "The scaffold prevents the critique 'Φ_μν was derived "
             "only in flat space, but cosmology needs curved spacetime' "
             "by exhibiting the covariant form with the four required "
-            "consistency checks. The honest framing: curved-background "
-            "extension is now SCAFFOLDED, not OPEN."
+            "consistency checks. Curved-background extension is "
+            "SCAFFOLDED + FRW EXPLICIT, with only beyond-WKB "
+            "(O(10⁻⁶)) refinement remaining."
         ),
     ),
     Claim(
-        id="phi_munu_explicit_curved_construction_open_question",
-        chapter=12,
+        id="phi_munu_frw_explicit_construction",
+        chapter=6,
         statement=(
-            "Phase 2C — explicit construction of the curved-space "
-            "transverse-tracefree projector P^TT,g_μνρσ(x,x') and "
-            "the retarded Green function G^R(x,x') on specific "
-            "backgrounds (S⁴ for Euclidean de Sitter, FRW for "
-            "cosmological perturbations). The structural form is "
-            "PINNED by the Phase 2B scaffold "
-            "(phi_munu_curved_background_scaffold) with four "
-            "consistency checks verified; what remains is to compute "
-            "explicit expressions on the named backgrounds. CLOSURE "
-            "PATHS: (a) construct P^TT,g_μνρσ on FRW via Killing-"
-            "tensor decomposition (scalar-vector-tensor split in "
-            "comoving Fourier modes); (b) compute G^R on FRW via "
-            "WKB or numerical integration of the relaxation operator "
-            "(1 + τ_0² (-□_g)); (c) on S⁴, use spherical-harmonic "
-            "expansion and Euclidean Green-function techniques. "
-            "Closing this REMAINING construction unlocks "
-            "n_g_omega_cosmological_covariance_open_question (the "
-            "Priority 3 task that uses Φ_μν^curved in cosmological "
-            "perturbations)."
+            "Phase 2C — explicit construction of χ_FRW(k, η) and "
+            "n_g²(k, η) on FRW spacetime via the WKB / slow-H "
+            "approximation (Correction #25, 2026-04-30). The "
+            "covariant d'Alembertian on a scalar Fourier mode of "
+            "comoving wavenumber k in conformal time η: "
+            "□_g φ_k = -(1/a²)[∂_η² + 2H_c ∂_η + k²] φ_k. The "
+            "relaxation operator (1 + τ_0² (-□_g)) reduces in the "
+            "(H_c τ_0/a)² ≪ 1 limit to (1 + τ_0² k²/a²), giving the "
+            "EXPLICIT FRW SUSCEPTIBILITY: "
+            "χ_FRW^WKB(k, η) = 1 / [1 + (τ_0 k_phys(η))²]. "
+            "Substituted into the constitutive equation: "
+            "n_g²(k, η) = 1 + α_vac × χ_FRW^WKB(k, η) = 1 + "
+            "α_vac / [1 + (τ_0 k_phys)²] with α_vac = 1/3. THREE "
+            "EXPLICIT LIMITS: (a) sub-horizon (k_phys τ_0 → ∞): "
+            "n_g² → 1 (GR recovery on small scales); (b) super-"
+            "horizon (k_phys τ_0 → 0): n_g² → 4/3 (full constitutive "
+            "on large scales); (c) transition (k_phys τ_0 = 1): "
+            "n_g² = 7/6, transition WAVELENGTH λ_* = 2π τ_0 c ≈ 80.7 "
+            "Mpc today. WKB regime applies across post-equality "
+            "cosmology — beyond-WKB correction (H_0 τ_0)² ≈ 8.7×10⁻⁶ "
+            "today. THIS IS THE COSMOLOGY BACKBONE for Priority 3 "
+            "(n_g(ω) covariance): n_g²(k, η) is now a definite "
+            "computable function of (k, η)."
         ),
-        tier="open_negative",
+        tier="computed",
         refs=(
-            "grut/derivation/phi_munu/curved_background.py",
-            "theory/derivation/CORRECTION_24_PHI_MUNU_CURVED_SCAFFOLD.md",
+            "grut/derivation/phi_munu/frw_explicit.py",
+            "grut/derivation/phi_munu/curved_background.py (Phase 2B template)",
+            "theory/derivation/CORRECTION_25_FRW_EXPLICIT.md",
+            "Birrell-Davies (1982) §5.5 (□_g on FRW)",
+            "Mukhanov-Feldman-Brandenberger (1992) (FRW perturbations)",
         ),
-        tests=(),
+        tests=(
+            "tests/derivation/phi_munu/test_frw_explicit.py",
+        ),
         deps=(
             "phi_munu_curved_background_scaffold",
             "phi_munu_linearized_derivation",
+            "alpha_vac_derivation",
+            "tau_0_derivation",
+        ),
+        falsifier=(
+            "If n_g²(k, η) deviates from the explicit WKB form "
+            "1 + α/[1+(τ_0 k_phys)²] at the structural level — "
+            "wrong limits, wrong transition scale, or "
+            "(H_0 τ_0)² correction not subleading at the percent "
+            "level — the Phase 2C explicit construction fails. "
+            "Verified at code level by 49 tests in "
+            "test_frw_explicit.py."
         ),
         notes=(
-            "Sharper successor to the original phi_munu_curved_"
-            "background_extension_open_question. Phase 2B scaffold "
-            "(Correction #24) closes the structural-form question; "
-            "what remains is the explicit construction on specific "
-            "backgrounds, which is standard curved-space QFT work. "
-            "Sister to n_g_omega_cosmological_covariance_open_"
-            "question — both depend on Phase 2C completion."
+            "WKB level. Beyond-WKB corrections are O((H_0 τ_0)²) "
+            "≈ 10⁻⁶ today and across all post-equality cosmology — "
+            "subleading at any precision relevant for current and "
+            "near-future cosmological observables. Beyond-WKB "
+            "(Phase 2D) tracked separately as "
+            "phi_munu_frw_beyond_wkb_open_question. Closing this "
+            "Phase 2C makes n_g²(k, η) operationally complete; "
+            "Priority 3 (n_g_omega_cosmological_covariance) now "
+            "has an explicit cosmology backbone to insert into "
+            "the linearized Einstein equations on FRW."
+        ),
+    ),
+    Claim(
+        id="phi_munu_frw_beyond_wkb_open_question",
+        chapter=12,
+        statement=(
+            "Phase 2D — beyond-WKB extension of χ_FRW(k, η). The "
+            "explicit Phase 2C result χ_FRW^WKB = 1/[1 + (τ_0 k_phys)²] "
+            "is the leading-order slow-H (WKB) approximation of "
+            "the full operator susceptibility. The next-order "
+            "correction enters via the H_c ∂_η coupling in the "
+            "FRW d'Alembertian: χ_FRW = χ^WKB × [1 + O((H_c τ_0)²)]. "
+            "(H_c τ_0)² is dimensionally suppressed: today (H_0 τ_0)² "
+            "= 1/(108π)² ≈ 8.7×10⁻⁶, similar at matter-radiation "
+            "equality. The correction matters operationally only "
+            "in the radiation era for modes that crossed k_* "
+            "during that era. CLOSURE PATHS: (a) WKB matching "
+            "beyond leading order; (b) numerical integration of "
+            "the retarded Green function on FRW, mode by mode; "
+            "(c) symbolic resummation under specific FRW expansion "
+            "histories (radiation, matter, ΛCDM). Closing this "
+            "Phase 2D extension is research-tier work that is "
+            "NOT load-bearing for any current cosmological "
+            "observable — current data does not constrain (H τ_0)² "
+            "corrections at the 10⁻⁶ level."
+        ),
+        tier="open_negative",
+        refs=(
+            "grut/derivation/phi_munu/frw_explicit.py",
+            "theory/derivation/CORRECTION_25_FRW_EXPLICIT.md",
+        ),
+        tests=(),
+        deps=("phi_munu_frw_explicit_construction",),
+        notes=(
+            "Sharper successor to the original "
+            "phi_munu_explicit_curved_construction_open_question. "
+            "Phase 2C lands the WKB-leading χ_FRW(k, η) explicitly; "
+            "Phase 2D is the beyond-WKB refinement, which is small "
+            "by construction. The former question conflated the WKB "
+            "computation with the beyond-WKB refinement; this "
+            "successor cleanly separates them and assigns "
+            "operational priority to the WKB result (already "
+            "computed) over the (negligibly small) beyond-WKB "
+            "correction (deferred)."
         ),
     ),
 

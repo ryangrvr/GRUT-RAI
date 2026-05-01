@@ -92,13 +92,14 @@ What this derivation does NOT do
 ─────────────────────────────────────────────────────────────────────
 
 - Does not extend to non-linear / curved background. The curved-
-  background EXTENSION is scaffolded by the sister module
+  background EXTENSION is scaffolded by sister module
   `grut.derivation.phi_munu.curved_background` (Phase 2B, Correction
   #24): structural form pinned and four consistency checks verified
   (flat limit, covariant conservation, causality, FRW scalar-mode
-  compatibility). Phase 2C — explicit construction of P^TT,g and G^R
-  on S⁴/FRW — remains research-tier (claim
-  `phi_munu_explicit_curved_construction_open_question`).
+  compatibility). The explicit FRW result χ_FRW(k, η) and n_g²(k, η)
+  are computed at Phase 2C in `grut.derivation.phi_munu.frw_explicit`
+  (Correction #25). Phase 2D beyond-WKB refinement remains
+  research-tier (claim `phi_munu_frw_beyond_wkb_open_question`).
 - Does not derive α_vac from first principles. α_vac = 1/3 enters
   via the conformal-mode-scalar postulate (KS 2011 trace anomaly
   ratio); that identification is tracked under
@@ -206,8 +207,10 @@ def convention_declaration() -> Dict[str, str]:
         "phase_2_status":
             "Linearized derivation COMPLETE (Phase 2A). Curved-background "
             "extension SCAFFOLDED (Phase 2B, sister module curved_background.py); "
-            "explicit construction on S⁴/FRW remains open as Phase 2C, tracked "
-            "by phi_munu_explicit_curved_construction_open_question.",
+            "explicit FRW χ_FRW(k, η) and n_g²(k, η) COMPUTED at Phase 2C "
+            "(sister module frw_explicit.py, Correction #25). Beyond-WKB "
+            "refinement (Phase 2D) tracked by "
+            "phi_munu_frw_beyond_wkb_open_question.",
     }
 
 
