@@ -36,6 +36,16 @@ Submodules:
         linear FRW perturbation regime from bound-system / nonlinear
         halo regimes (rotation curves, cluster-merger dynamics).
 
+    modified_growth — Priority 3.1. Modified linear growth equation
+        δ'' + [2 - (3/2)Ω_m] δ' - (3/2) Ω_m μ_GRUT(k, N) δ = 0.
+        Numerical integration for canonical k modes, growth-factor
+        enhancement f_GRUT(k) = D_GRUT(z=0, k) / D_ΛCDM(z=0).
+        Key results: σ_8 scale (k = 0.5 Mpc⁻¹) gets 0.09% enhancement
+        — does NOT break σ_8 measurements. BAO scale gets ~8.5%, CMB
+        horizon ~135% — testable with DESI Y3+ / Euclid. Honest
+        verdict: "GRUT survives the σ_8-scale sanity check; predicts
+        a definite testable signal at large scales."
+
 Scope:
     Priority 2A — flat-space derivation: COMPUTED.
     Priority 2B — curved-background scaffold: ANCHORED with four
@@ -48,12 +58,18 @@ Scope:
         parameterization. cmb_boltzmann_scoping now has a well-
         defined ω; Boltzmann-code implementation is downstream
         (not a theoretical gap).
+    Priority 3.1 — modified linear growth equation: COMPUTED.
+        Numerical D(z, k) integration with μ_GRUT(k, a). σ_8 scale
+        unchanged at 0.1% level (does not break S_8 tension); large
+        scales enhanced (~135% at CMB horizon, testable but not yet
+        ruled out).
 
 Honest framing: the cosmology backbone produces n_g²(k, η)
-explicitly and maps to the standard MG-EFT framework. Modified
-growth equations and observational tests (CMB, P(k), σ_8) are
-downstream computational tasks using the structural ingredients
-this package provides.
+explicitly, maps to the standard MG-EFT framework, and the linear
+growth-factor analysis lands the first-look verdict that GRUT
+survives the σ_8 sanity check while predicting a definite signal
+at large scales. Full Boltzmann pipeline (CAMB/CLASS modification)
+remains the downstream observational-comparison task.
 """
 
 from grut.derivation.phi_munu.linearized_ctp_action import (
@@ -110,6 +126,18 @@ from grut.derivation.phi_munu.mg_eft_mapping import (
     omega_tau_0_dimensionless_argument,
     verify as mg_eft_verify,
 )
+from grut.derivation.phi_munu.modified_growth import (
+    convention_declaration as modified_growth_convention_declaration,
+    growing_mode_enhancement_per_efold,
+    growing_mode_exponent,
+    growing_mode_exponent_numeric,
+    growth_enhancement_survey,
+    growth_factor_enhancement,
+    honest_assessment_summary,
+    integrate_growth_factor,
+    modified_growth_equation_symbolic,
+    verify as modified_growth_verify,
+)
 
 __all__ = [
     # Linearized (Priority 2A)
@@ -162,4 +190,15 @@ __all__ = [
     "omega_effective_for_cosmological_mode",
     "omega_tau_0_dimensionless_argument",
     "mg_eft_verify",
+    # Priority 3.1 — modified linear growth
+    "modified_growth_convention_declaration",
+    "growing_mode_enhancement_per_efold",
+    "growing_mode_exponent",
+    "growing_mode_exponent_numeric",
+    "growth_enhancement_survey",
+    "growth_factor_enhancement",
+    "honest_assessment_summary",
+    "integrate_growth_factor",
+    "modified_growth_equation_symbolic",
+    "modified_growth_verify",
 ]

@@ -3232,6 +3232,74 @@ REGISTRY: tuple[Claim, ...] = (
         ),
     ),
     Claim(
+        id="modified_linear_growth_first_look",
+        chapter=9,
+        statement=(
+            "Modified linear growth equation on FRW with μ_GRUT(k, a) "
+            "from Priority 3, integrated numerically: δ'' + [2 - "
+            "(3/2)Ω_m] δ' - (3/2) Ω_m μ_GRUT(k, N) δ = 0. Growth-"
+            "factor enhancement f_GRUT(k) = D_GRUT(z=0, k)/D_ΛCDM"
+            "(z=0) at canonical scales with ΛCDM background "
+            "(Ω_m = 0.315, Ω_Λ = 0.685): "
+            "(1) σ_8 scale (k = 0.5 Mpc⁻¹): f_GRUT = 1.0009 — only "
+            "0.09% enhancement, BELOW current observational "
+            "precision (~1-2%). DOES NOT BREAK the existing S_8 "
+            "tension between Planck CMB and weak lensing. "
+            "(2) BAO scale (k = 0.04 Mpc⁻¹): f_GRUT = 1.085 — modest "
+            "8.5% enhancement; testable with DESI Y3+. "
+            "(3) Sloan large scale (k = 0.01 Mpc⁻¹): f_GRUT = 1.328. "
+            "(4) CMB low-ℓ (k = 0.001 Mpc⁻¹): f_GRUT = 2.024. "
+            "(5) CMB horizon (k = 4.5×10⁻⁴ Mpc⁻¹): f_GRUT = 2.348 — "
+            "significant enhancement on largest scales, predicts "
+            "modified ISW signal and large-angle CMB anisotropy. "
+            "The growth-factor enhancement is monotonic in 1/k: "
+            "small scales (sub-horizon) recover ΛCDM, large scales "
+            "show enhancement up to ~2.3× by today. Power-law "
+            "exponent in matter-dom: p_+ = -1/4 + √(1/16 + 3μ/2), "
+            "giving p = 1 (LCDM) → 1.0962 (transition) → 1.1862 "
+            "(super-horizon). HONEST VERDICT: GRUT survives the "
+            "σ_8-scale sanity check; predicts a definite testable "
+            "signal at large scales."
+        ),
+        tier="computed",
+        refs=(
+            "grut/derivation/phi_munu/modified_growth.py",
+            "grut/derivation/phi_munu/mg_eft_mapping.py",
+            "theory/derivation/CORRECTION_27_MODIFIED_GROWTH.md",
+            "Bertschinger-Zukin 2008 (PRD 78 024015)",
+            "Pogosian-Silvestri 2008 (PRD 77 023503)",
+        ),
+        tests=(
+            "tests/derivation/phi_munu/test_modified_growth.py",
+        ),
+        deps=(
+            "mg_eft_mu_gamma_mapping",
+            "phi_munu_frw_explicit_construction",
+            "tau_0_derivation",
+            "alpha_vac_derivation",
+        ),
+        falsifier=(
+            "If a precision growth-rate measurement at k ~ 0.5 Mpc⁻¹ "
+            "(σ_8 scale) deviates from ΛCDM at >2σ (σ_8 systematics "
+            "are O(few %)), the framework's prediction of <0.1% "
+            "modification at this scale is falsified. Independently, "
+            "if the matter power spectrum at low k (~ 0.01 Mpc⁻¹) "
+            "is measured precisely and matches ΛCDM (no ~32% boost), "
+            "the framework's super-horizon enhancement is falsified. "
+            "DESI Y3+ + Euclid 2027 will resolve these tests."
+        ),
+        notes=(
+            "FIRST-LOOK ANALYSIS at the linear-growth ODE level. "
+            "Full Boltzmann-pipeline (modified CAMB/CLASS, MCMC "
+            "against Planck + DESI + LSS) remains downstream "
+            "computational task — not blocked at the theoretical "
+            "level. SCOPE: applies to LINEAR FRW perturbations; "
+            "bound-system / nonlinear halo phenomenology operates "
+            "via different ω-identifications (regime gate, cluster "
+            "merger kernel, gr_recovery)."
+        ),
+    ),
+    Claim(
         id="mg_eft_mu_gamma_mapping",
         chapter=9,
         statement=(
