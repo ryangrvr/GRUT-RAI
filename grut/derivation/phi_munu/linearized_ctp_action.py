@@ -91,10 +91,14 @@ What is verified (structural properties)
 What this derivation does NOT do
 ─────────────────────────────────────────────────────────────────────
 
-- Does not extend to non-linear / curved background. The S⁴ and
-  FRW projection of Φ_μν is research-tier work, tracked under
-  `phi_munu_curved_background_extension_open_question` (a sharper
-  successor to the original heuristic open question, post-Correction-#23).
+- Does not extend to non-linear / curved background. The curved-
+  background EXTENSION is scaffolded by the sister module
+  `grut.derivation.phi_munu.curved_background` (Phase 2B, Correction
+  #24): structural form pinned and four consistency checks verified
+  (flat limit, covariant conservation, causality, FRW scalar-mode
+  compatibility). Phase 2C — explicit construction of P^TT,g and G^R
+  on S⁴/FRW — remains research-tier (claim
+  `phi_munu_explicit_curved_construction_open_question`).
 - Does not derive α_vac from first principles. α_vac = 1/3 enters
   via the conformal-mode-scalar postulate (KS 2011 trace anomaly
   ratio); that identification is tracked under
@@ -200,8 +204,10 @@ def convention_declaration() -> Dict[str, str]:
             "construction, ∂^μ P^TT_μνρσ = 0, so Bianchi ∇^μ Φ_μν = 0 is "
             "preserved structurally.",
         "phase_2_status":
-            "Linearized derivation COMPLETE. Curved-background extension "
-            "(S⁴, FRW) tracked as phi_munu_curved_background_extension_open_question.",
+            "Linearized derivation COMPLETE (Phase 2A). Curved-background "
+            "extension SCAFFOLDED (Phase 2B, sister module curved_background.py); "
+            "explicit construction on S⁴/FRW remains open as Phase 2C, tracked "
+            "by phi_munu_explicit_curved_construction_open_question.",
     }
 
 

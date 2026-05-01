@@ -189,38 +189,40 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
     ),
 
     LedgerEntry(
-        claim_id="phi_munu_curved_background_extension_open_question",
+        claim_id="phi_munu_explicit_curved_construction_open_question",
         closure_condition=(
-            "LINEARIZED CLOSURE COMPLETE (Correction #23, 2026-04-30). "
-            "Path (a) of the original closure condition has been "
-            "implemented at the linearized level: Φ_μν is derived "
-            "explicitly from δS_CTP/δh_a |_{h_a=0} in "
-            "grut.derivation.phi_munu.linearized_ctp_action, with "
-            "Bianchi preservation shown structurally (∂^μ Φ_μν = 0 "
-            "follows from ∂^μ P^TT = 0, for ALL h_r and ALL kernel "
-            "time structures — not just single-mode plane waves). "
-            "REMAINING WORK: extend the derivation to curved "
-            "backgrounds (S⁴, FRW) with: (i) covariant projector "
-            "P_μνρσ on the curved background's Killing structure; "
-            "(ii) retarded memory kernel defined via properly time-"
-            "ordered curved-space Green function; (iii) matter-coupling "
-            "normalization with √-g factors. The flat limit must "
-            "reproduce the linearized derivation. Tightly coupled to "
-            "the cosmological-perturbation sister gap "
-            "(n_g_omega_cosmological_covariance_open_question); "
-            "closing both is one larger task."
+            "PHASE 2B SCAFFOLD COMPLETE (Correction #24, 2026-04-30). "
+            "The structural form Φ_μν^curved(x) = ∫ d⁴x' √(-g(x')) "
+            "K^R_μνρσ(x,x') h^ρσ(x') is pinned, with four physical-"
+            "consistency checks verified at code level: flat-limit "
+            "recovery, covariant conservation (∇^μ Φ = 0 from "
+            "∇^μ P^TT,g = 0), causality (K^R supported on past "
+            "lightcone), FRW scalar-mode compatibility (n_g²(ω,k,t) "
+            "= 1 + α χ_FRW). REMAINING WORK: explicit construction "
+            "of P^TT,g_μνρσ(x,x') and G^R(x,x') on specific "
+            "backgrounds (S⁴, FRW). Closure paths: (a) P^TT,g via "
+            "Killing-tensor decomposition on FRW (scalar-vector-tensor "
+            "split in comoving Fourier modes); (b) G^R via WKB or "
+            "numerical integration of (1 + τ_0² (-□_g)) on FRW; "
+            "(c) on S⁴, spherical-harmonic expansion and Euclidean "
+            "Green-function techniques. Closing this Phase 2C "
+            "construction unlocks n_g_omega_cosmological_covariance_"
+            "open_question (the Priority 3 task that USES Φ_μν^curved "
+            "in cosmological perturbations)."
         ),
         closure_effort=(
-            "Theoretical work, ~2-4 weeks for someone fluent in "
-            "curved-space CTP, post-Correction-#23. The linearized "
-            "derivation provides the structural template; the curved-"
-            "background work specializes the projector and kernel to "
-            "the curved geometry. Sister problem to "
-            "n_g_omega_cosmological_covariance — both involve "
-            "covariant generalization of an already-pinned linearized "
-            "form."
+            "~2-4 weeks specialist work, post-Correction-#24. The "
+            "scaffold provides the structural template; Phase 2C "
+            "specializes the projector and Green function to the "
+            "curved geometry. Sister problem to "
+            "n_g_omega_cosmological_covariance — both depend on "
+            "Phase 2C completion."
         ),
-        affects=("gr_recovery", "phi_munu_linearized_derivation"),
+        affects=(
+            "gr_recovery",
+            "phi_munu_linearized_derivation",
+            "phi_munu_curved_background_scaffold",
+        ),
         blocked_by=(),
         last_review="2026-04-30",
     ),

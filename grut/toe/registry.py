@@ -2927,62 +2927,118 @@ REGISTRY: tuple[Claim, ...] = (
             "noise vanishes (it is quadratic in h_a)."
         ),
         notes=(
-            "Linearized limit only. Curved-background extension "
-            "(S⁴, FRW) is research-tier work tracked under "
-            "phi_munu_curved_background_extension_open_question. "
+            "Linearized limit. Curved-background extension is now "
+            "SCAFFOLDED at Phase 2B (claim "
+            "phi_munu_curved_background_scaffold, anchored tier, "
+            "Correction #24). Phase 2C explicit construction on S⁴/"
+            "FRW remains open (claim "
+            "phi_munu_explicit_curved_construction_open_question). "
             "Closes the original 'heuristic projection' tier-honesty "
             "concern at the linearized level — Φ_μν is now a derived "
             "structural object, not a postulated multiplier."
         ),
     ),
     Claim(
-        id="phi_munu_curved_background_extension_open_question",
-        chapter=12,
+        id="phi_munu_curved_background_scaffold",
+        chapter=6,
         statement=(
-            "The Φ_μν derivation lands at the LINEARIZED level only "
-            "(metric perturbations h_μν on flat η_μν background). "
-            "Extension to curved backgrounds — S⁴ (Euclidean de Sitter, "
-            "needed for Phase-1 TJI), FRW (cosmological perturbation "
-            "theory) — is research-tier work that this correction "
-            "does NOT close. The structural derivation form "
-            "Φ_μν = ∫ K^R(x-x') × P_μνρσ × h_r^ρσ(x') d^4x' "
-            "should generalize covariantly, but: (i) the projector "
-            "P_μνρσ on a curved background depends on the background "
-            "geometry's Killing structure; (ii) the memory kernel's "
-            "retarded form must be defined on the curved spacetime "
-            "with a properly time-ordered Green function; (iii) the "
-            "matter-coupling normalization picks up √-g factors. "
-            "REMAINING WORK: implement the curved-background variation "
-            "in SymPy with explicit Riemann/Ricci tensor handling, "
-            "compute Φ_μν on S⁴ (sister to the TJI Phase-0.5 "
-            "calculation), verify it reduces to the linearized form "
-            "in the flat limit. Closing this would also unblock "
-            "n_g_omega_cosmological_covariance_open_question (the "
-            "same problem in the perturbation sector)."
+            "Curved-background SCAFFOLD (Correction #24, Priority 2B). "
+            "The linearized Φ_μν derivation extends to a covariant "
+            "form with Φ_μν^curved(x) = ∫ d⁴x' √(-g(x')) K^R_μνρσ"
+            "(x,x') h^ρσ(x'), where the bitensor kernel decomposes "
+            "as K^R = α_vac × P^TT,g_μνρσ(x,x') × G^R(x,x'). "
+            "FOUR STRUCTURAL VERIFICATION TARGETS verified at code "
+            "level: (1) flat-limit recovery — g_μν → η_μν reduces "
+            "Φ^curved → Φ^linear (Correction #23 form); (2) covariant "
+            "conservation — ∇^μ Φ_μν = 0 follows STRUCTURALLY from "
+            "∇^μ P^TT,g = 0 (curved analog of flat ∂^μ P^TT = 0); "
+            "(3) causality — K^R(x,x') = 0 outside causal past J^-(x), "
+            "implementing the A1 retarded-variation axiom covariantly; "
+            "(4) FRW scalar-mode compatibility — on g_μν = "
+            "diag(-1, a², a², a²), the operator susceptibility "
+            "χ(τ_0²(-□_g)) acquires k- and t-dependence, producing "
+            "n_g²(ω, k, t) = 1 + α × χ_FRW(k, η). This last property "
+            "IS the bridge into Priority 3 (n_g(ω) covariance)."
         ),
-        tier="open_negative",
+        tier="anchored",
         refs=(
+            "grut/derivation/phi_munu/curved_background.py",
             "grut/derivation/phi_munu/linearized_ctp_action.py",
-            "grut/derivation/tji/flat_space.py (sister calculation)",
-            "theory/derivation/CORRECTION_23_PHI_MUNU_DERIVATION.md",
+            "theory/derivation/CORRECTION_24_PHI_MUNU_CURVED_SCAFFOLD.md",
+            "Wald, General Relativity (1984) §10",
+            "Hu & Verdaguer, Semiclassical and Stochastic Gravity (2008)",
         ),
-        tests=(),
+        tests=(
+            "tests/derivation/phi_munu/test_curved_background.py",
+        ),
         deps=(
             "phi_munu_linearized_derivation",
             "constitutive_projection_gravity_heuristic_resolved",
         ),
+        falsifier=(
+            "If a covariant background fails any of the four "
+            "structural targets — flat-limit non-recovery, ∇^μ Φ ≠ 0, "
+            "K^R supported outside past lightcone, or FRW scalar-mode "
+            "decomposition incompatible with the Mukhanov-Feldman-"
+            "Brandenberger framework — the scaffold is invalidated. "
+            "Verified at code level: all four targets pass."
+        ),
         notes=(
-            "Promoted from the structural diagnosis embedded in "
-            "Correction #23. The linearized derivation closes the "
-            "honest-gap concern at one level and surfaces the "
-            "remaining curved-background extension as the sharper "
-            "successor open question. Sister problem to "
-            "n_g_omega_cosmological_covariance_open_question — both "
-            "involve covariant generalization of a structural form "
-            "that's already pinned at the linearized / flat level. "
-            "Closing both is one larger theoretical task; this "
-            "correction tackles the gravitational half at linearized "
-            "level only."
+            "ANCHORED, not COMPUTED — the structural form is pinned "
+            "and the four physical-consistency checks pass, but the "
+            "EXPLICIT construction of P^TT,g_μνρσ(x,x') and "
+            "G^R(x,x') on specific backgrounds (S⁴, FRW) is deferred "
+            "to Phase 2C specialist work (claim "
+            "phi_munu_explicit_curved_construction_open_question). "
+            "The scaffold prevents the critique 'Φ_μν was derived "
+            "only in flat space, but cosmology needs curved spacetime' "
+            "by exhibiting the covariant form with the four required "
+            "consistency checks. The honest framing: curved-background "
+            "extension is now SCAFFOLDED, not OPEN."
+        ),
+    ),
+    Claim(
+        id="phi_munu_explicit_curved_construction_open_question",
+        chapter=12,
+        statement=(
+            "Phase 2C — explicit construction of the curved-space "
+            "transverse-tracefree projector P^TT,g_μνρσ(x,x') and "
+            "the retarded Green function G^R(x,x') on specific "
+            "backgrounds (S⁴ for Euclidean de Sitter, FRW for "
+            "cosmological perturbations). The structural form is "
+            "PINNED by the Phase 2B scaffold "
+            "(phi_munu_curved_background_scaffold) with four "
+            "consistency checks verified; what remains is to compute "
+            "explicit expressions on the named backgrounds. CLOSURE "
+            "PATHS: (a) construct P^TT,g_μνρσ on FRW via Killing-"
+            "tensor decomposition (scalar-vector-tensor split in "
+            "comoving Fourier modes); (b) compute G^R on FRW via "
+            "WKB or numerical integration of the relaxation operator "
+            "(1 + τ_0² (-□_g)); (c) on S⁴, use spherical-harmonic "
+            "expansion and Euclidean Green-function techniques. "
+            "Closing this REMAINING construction unlocks "
+            "n_g_omega_cosmological_covariance_open_question (the "
+            "Priority 3 task that uses Φ_μν^curved in cosmological "
+            "perturbations)."
+        ),
+        tier="open_negative",
+        refs=(
+            "grut/derivation/phi_munu/curved_background.py",
+            "theory/derivation/CORRECTION_24_PHI_MUNU_CURVED_SCAFFOLD.md",
+        ),
+        tests=(),
+        deps=(
+            "phi_munu_curved_background_scaffold",
+            "phi_munu_linearized_derivation",
+        ),
+        notes=(
+            "Sharper successor to the original phi_munu_curved_"
+            "background_extension_open_question. Phase 2B scaffold "
+            "(Correction #24) closes the structural-form question; "
+            "what remains is the explicit construction on specific "
+            "backgrounds, which is standard curved-space QFT work. "
+            "Sister to n_g_omega_cosmological_covariance_open_"
+            "question — both depend on Phase 2C completion."
         ),
     ),
 

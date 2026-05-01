@@ -229,12 +229,13 @@ class TestPerChapterOpenNegatives:
     def test_chapter_6_includes_constitutive_projection_via_affects(self):
         """The constitutive-projection open question lives in Ch 12 but
         affects gr_recovery in Ch 6 — should surface in Ch 6's render.
-        Post-Correction-#23: the original heuristic open question is
-        resolved at the linearized level; the curved-background extension
-        is the remaining open question and is what should now surface."""
+        Post-Correction-#23/#24: the original heuristic open question
+        is resolved at the linearized level (Correction #23) and
+        scaffolded at the curved-background level (Correction #24); the
+        Phase 2C explicit construction is the remaining open question."""
         from grut.toe.render import render_chapter_open_negatives
         out = render_chapter_open_negatives(6)
-        assert "phi_munu_curved_background_extension_open_question" in out
+        assert "phi_munu_explicit_curved_construction_open_question" in out
 
     def test_chapter_9_includes_cmb_blocker(self):
         """cmb_boltzmann_scoping is in Ch 9 (anchored). The n_g(ω)
