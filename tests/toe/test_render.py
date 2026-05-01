@@ -239,12 +239,19 @@ class TestPerChapterOpenNegatives:
         assert "phi_munu_frw_beyond_wkb_open_question" in out
 
     def test_chapter_9_includes_cmb_blocker(self):
-        """cmb_boltzmann_scoping is in Ch 9 (anchored). The n_g(ω)
-        covariance question is in Ch 12 (open_negative) and affects
-        cmb_boltzmann_scoping. Should surface in Ch 9's render."""
+        """cmb_boltzmann_scoping is in Ch 9 (anchored). Post-
+        Correction-#26 (Priority 3 closure), the previous
+        n_g_omega_cosmological_covariance_open_question that blocked
+        it is now RESOLVED. The remaining theoretical gap surfaced
+        for Ch 9 should no longer be that specific question — it has
+        been retired. We assert the open-question is GONE from the
+        Ch 9 render (positive verification of Priority 3 closure)."""
         from grut.toe.render import render_chapter_open_negatives
         out = render_chapter_open_negatives(9)
-        assert "n_g_omega_cosmological_covariance_open_question" in out
+        assert "n_g_omega_cosmological_covariance_open_question" not in out, (
+            "n_g(ω) covariance open question should be retired post-"
+            "Correction-#26; if it surfaces, the resolution is incomplete."
+        )
 
     def test_chapter_7_includes_three_routes_blocker(self):
         """The two-route physical-equivalence open question affects

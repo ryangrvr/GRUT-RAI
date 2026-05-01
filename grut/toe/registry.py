@@ -589,8 +589,12 @@ REGISTRY: tuple[Claim, ...] = (
             "(ωτ_0 ≈ 140), giving X values that differ by factor ~20 "
             "from this calculation at the same epoch. Both ω choices "
             "are physically defensible for their respective contexts; "
-            "reconciling them is part of open negative #9 "
-            "(n_g_omega_cosmological_covariance_open_question). "
+            "the cosmological-perturbation ω = k_phys × c is now "
+            "explicit (Correction #26 closed "
+            "n_g_omega_cosmological_covariance). The acoustic-mode ω "
+            "for recombination-era diagnostics is a different, "
+            "complementary identification — both apply within their "
+            "respective scopes. "
             "EXPLICIT SCOPE BOUNDARIES: this claim does NOT address "
             "T_c provenance (open negative #15 stays active and "
             "unaffected); does NOT propose Chapter 13 revisions; "
@@ -2811,13 +2815,17 @@ REGISTRY: tuple[Claim, ...] = (
         ),
         notes=(
             "Anchored, scoping-tier: the quantitative predictions are "
-            "computed and tested at leading order. Two upstream gaps "
-            "must close before this is a falsifier-tier claim: "
-            "(1) n_g_omega_cosmological_covariance_open_question — "
-            "covariant, gauge-invariant formulation of n_g(ω) in "
-            "cosmological perturbations; (2) full Boltzmann-hierarchy "
-            "propagation through P(k), lensing, fσ_8 (CLASS/CAMB "
-            "specialist task). The current scoping predicts θ_* shift "
+            "computed and tested at leading order. Promotion to "
+            "falsifier-tier conditions: "
+            "(1) n_g_omega_cosmological_covariance — RESOLVED by "
+            "Correction #26 (Priority 3, 2026-05-01). The covariant "
+            "ω → k_phys × c identification, gauge-invariance at WKB, "
+            "and μ(k,a)/γ(k,a) MG-EFT mapping are now in place "
+            "(grut/derivation/phi_munu/mg_eft_mapping.py). "
+            "(2) full Boltzmann-hierarchy propagation through P(k), "
+            "lensing, fσ_8 (CLASS/CAMB specialist task) remains the "
+            "outstanding implementation step. The current scoping "
+            "predicts θ_* shift "
             "only; self-consistency across the full hierarchy is the "
             "implementation phase's job."
         ),
@@ -3159,45 +3167,118 @@ REGISTRY: tuple[Claim, ...] = (
     ),
 
     Claim(
-        id="n_g_omega_cosmological_covariance_open_question",
+        id="n_g_omega_cosmological_covariance_resolved",
         chapter=12,
         statement=(
-            "The framework writes n_g²(ω) as a Lorentzian susceptibility "
-            "factor that modifies the gravitational Poisson equation in "
-            "the cosmological-perturbation sector. In a laboratory frame "
-            "ω is a well-defined oscillation frequency in the local "
-            "Lorentz frame. In cosmological perturbations, modes are "
-            "characterized by comoving wavenumber k with time-evolving "
-            "amplitudes — 'frequency' could mean (a) mode oscillation "
-            "rate ~ k·c_s for adiabatic modes near recombination, "
-            "(b) conformal-time Fourier frequency, (c) ∂_t Φ / Φ in "
-            "Newtonian gauge, or (d) a covariantly-defined object yet "
-            "to be specified. The framework has not articulated which "
-            "ω the n_g(ω) modification uses or how it transforms under "
-            "gauge changes (synchronous ↔ Newtonian ↔ comoving). This "
-            "is a real theoretical gap that must close before the CMB "
-            "scoping prediction can be promoted from scoping-tier to "
-            "falsifier-tier."
+            "RESOLVED (Correction #26, 2026-05-01). Three closure "
+            "gates of the original open question are all met: "
+            "(1) ω → k_phys × c identification — in linear FRW "
+            "perturbations, the dimensionless argument (ωτ_0)² that "
+            "appeared in the flat-space susceptibility maps to "
+            "(τ_0 k_phys)² where k_phys = k/a is the physical "
+            "wavenumber. (2) Gauge-invariance — χ_FRW(k, η) depends "
+            "only on (τ_0, α_vac, k, a), all gauge-invariant background "
+            "quantities; manifestly invariant under conformal-Newtonian "
+            "/ synchronous / comoving gauges at WKB. (3) MG-EFT "
+            "dictionary — maps onto Pogosian-Silvestri μ(k, a) / "
+            "γ(k, a) parameterization with μ_GRUT(k, a) = n_g²(k, a) "
+            "and γ_GRUT(k, a) = 1 (no gravitational slip — sharp "
+            "prediction distinguishing GRUT from Brans-Dicke, f(R), "
+            "DGP). The framework's largest-scale prediction μ - 1 = "
+            "α_vac = 1/3 is ~2σ above Planck 2018 central; DESI Y1+ "
+            "(~5%) and Euclid 2027 (~1%) will resolve at >3σ. "
+            "cmb_boltzmann_scoping now has a well-defined ω to use; "
+            "Boltzmann-code implementation is downstream computation, "
+            "not a theoretical gap. SCOPE: applies to LINEAR FRW "
+            "perturbations only — bound systems (galactic rotation, "
+            "cluster mergers, BH interiors, decoherence experiments) "
+            "operate in different regimes with different ω-"
+            "identifications."
         ),
-        tier="open_negative",
+        tier="meta",
         refs=(
+            "grut/derivation/phi_munu/mg_eft_mapping.py",
+            "grut/derivation/phi_munu/frw_explicit.py",
+            "theory/derivation/CORRECTION_26_PRIORITY_3_CLOSURE.md",
+            "Pogosian-Silvestri 2008 (PRD 77 023503)",
+            "Bertschinger-Zukin 2008 (PRD 78 024015)",
+            "Gubitosi-Piazza-Vernizzi 2013 (arXiv:1210.0201)",
+            "Planck 2018 paper VI (Aghanim et al, A&A 641 A6, 2020)",
             "theory/CMB_BOLTZMANN_SCOPING.md",
-            "Gubitosi-Piazza-Vernizzi 2013 (EFT of dark energy, "
-            "arXiv:1210.0201) — for μ(k,a)/γ(k,a) parameterization",
-            "Pogosian-Silvestri 2008 (μ-γ MG parameterization)",
-            "grut/derived/cmb/scoping.py",
         ),
-        deps=("memory_kernel_form",),
+        tests=(
+            "tests/derivation/phi_munu/test_mg_eft_mapping.py",
+        ),
+        deps=(
+            "phi_munu_frw_explicit_construction",
+            "phi_munu_curved_background_scaffold",
+            "memory_kernel_form",
+        ),
         notes=(
-            "Honest gap. The cosmological-perturbation formulation of "
-            "n_g(ω) is a real theoretical task, not a documentation "
-            "issue. The closure path likely runs through the standard "
-            "modified-gravity EFT machinery: identify whether the "
-            "framework's Lorentzian factor maps cleanly onto the "
-            "μ(k,a) and/or γ(k,a) functions of the EFT of dark energy, "
-            "or whether it requires a frequency-dependent extension "
-            "(time-non-local). Either outcome closes the gap; the "
-            "framework is responsible for producing one of them."
+            "Original entry (id 'n_g_omega_cosmological_covariance_"
+            "open_question') flagged the issue without prescribing a "
+            "resolution. Correction #26 (Priority 3 of the v8→v2 "
+            "deposit roadmap) implements all three of the original "
+            "closure conditions: ω-identification (via Phase 2C "
+            "k_phys formulation), gauge-invariance (manifest at WKB), "
+            "and μ/γ mapping (load-bearing — gives GRUT a definite "
+            "place in the modified-gravity EFT-of-dark-energy "
+            "literature with sharp γ = 1 prediction). The previous "
+            "claim id was a pre-resolution placeholder; this claim "
+            "supersedes it and tracks the closed status. SCOPE "
+            "CLARIFICATION baked into the module: linear FRW "
+            "perturbations ≠ bound-system / nonlinear halo "
+            "phenomenology."
+        ),
+    ),
+    Claim(
+        id="mg_eft_mu_gamma_mapping",
+        chapter=9,
+        statement=(
+            "GRUT lives in the 'μ ≠ 1, γ = 1' subclass of "
+            "modified-gravity models. μ_GRUT(k, a) = n_g²(k, a) = "
+            "1 + α_vac / [1 + (τ_0 k_phys(a))²]; γ_GRUT(k, a) = 1 "
+            "(no gravitational slip — TT-projector P^TT,g acts "
+            "symmetrically on Φ and Ψ in absence of matter "
+            "anisotropic stress). Sharp prediction distinguishing "
+            "GRUT from Brans-Dicke (γ < 1), f(R) (γ ≠ 1, k-dependent), "
+            "DGP (γ ≠ 1). Limits: super-horizon μ → 4/3, sub-horizon "
+            "μ → 1, transition at λ_* ≈ 80.7 Mpc today. Falsifier-"
+            "tier: μ - 1 = 1/3 prediction tested by DESI Y1+ at "
+            "~5% precision (~5σ test relative to Planck central) and "
+            "Euclid 2027 at ~1% precision (definitive ≥3σ test)."
+        ),
+        tier="computed",
+        refs=(
+            "grut/derivation/phi_munu/mg_eft_mapping.py",
+            "grut/derivation/phi_munu/frw_explicit.py",
+            "theory/derivation/CORRECTION_26_PRIORITY_3_CLOSURE.md",
+        ),
+        tests=(
+            "tests/derivation/phi_munu/test_mg_eft_mapping.py",
+        ),
+        deps=(
+            "phi_munu_frw_explicit_construction",
+            "alpha_vac_derivation",
+            "tau_0_derivation",
+        ),
+        falsifier=(
+            "If a near-future cosmological survey (DESI, Euclid, "
+            "Roman) measures μ₀ - 1 deviating from 1/3 by more than "
+            "the survey's quoted precision, GRUT's MG-EFT prediction "
+            "is falsified. Specifically: Euclid 2027 forecast of ~1% "
+            "precision means a measurement of μ₀ - 1 < 0.30 or > 0.36 "
+            "at >3σ would falsify the framework's α_vac = 1/3 + "
+            "γ = 1 sharp prediction. Independently, any direct "
+            "measurement of γ ≠ 1 at the >2σ level would falsify the "
+            "TT-projector argument that underwrites γ_GRUT = 1."
+        ),
+        notes=(
+            "SCOPE: applies to LINEAR FRW perturbations. Bound-"
+            "system phenomenology (rotation curves, mergers, BH "
+            "interiors) uses different operating variables and is "
+            "tracked under separate claims (cluster_merger_scaling_"
+            "law, gr_recovery, etc.)."
         ),
     ),
 
@@ -3509,20 +3590,22 @@ REGISTRY: tuple[Claim, ...] = (
             "4.92×10⁻⁹, also S³ family, factor 2.3 from A_s. The "
             "α/S³ family IS recovered under (B) and (C), NOT under "
             "(A). The framework does not natively pin the rescaling. "
-            "STRUCTURAL FINDING: this is precisely the "
-            "n_g_omega_cosmological_covariance_open_question (#9). "
-            "Closing #9 — gauge-invariant cosmological perturbation "
-            "theory in the framework — would either close this gap "
-            "with A_s ~ 1/(πS³) (cosmic-baseline rescaling, factor "
-            "4 from observed) or sharpen the negative with A_s ~ "
-            "(t_Pl/τ_0)³ (Planck rescaling, fails by 167 orders). "
-            "The α/S³ coincidence is therefore CONDITIONALLY "
-            "DERIVED, blocked on closing #9. Closure paths: "
-            "(1) close #9 — n_g(ω) covariance — which determines "
-            "the natural rescaling; (2) Genesis Hypothesis becoming "
-            "formal with an inflationary-like epoch (independent "
-            "path); (3) explicit acknowledgment that A_s is "
-            "observation-anchored, parallel to "
+            "STRUCTURAL FINDING: this connected to the original "
+            "n_g_omega_cosmological_covariance_open_question (#9), "
+            "which has now been RESOLVED by Correction #26 (Priority 3, "
+            "2026-05-01) — n_g_omega_cosmological_covariance_resolved. "
+            "Post-resolution status: with μ_GRUT(k, a) explicit, the "
+            "natural-rescaling question becomes a Boltzmann-code-level "
+            "evaluation of A_s at the pivot mode under modified-gravity "
+            "growth dynamics. The α/S³ coincidence under cosmic-baseline "
+            "rescaling (factor 4 from A_s) corresponds to the k → 0 "
+            "limit, not the pivot-mode k = 0.05 Mpc⁻¹ relevant for "
+            "Planck. Closure paths: (1) Boltzmann-code implementation "
+            "with μ_GRUT, integrate to pivot mode, predict A_s; "
+            "(2) Genesis Hypothesis becoming formal with an "
+            "inflationary-like epoch (independent path); "
+            "(3) explicit acknowledgment that A_s is observation-"
+            "anchored, parallel to "
             "n_total_zero_parameter_derivation_open_question."
         ),
     ),

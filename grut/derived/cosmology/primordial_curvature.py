@@ -256,7 +256,7 @@ def lens_B_F_forward_derivation() -> dict:
     The α/S³ family is recovered under (B) cosmic-baseline and (C)
     H_inf rescaling, but NOT under (A) Planck rescaling. The
     framework's choice between them is precisely the gap that
-    `n_g_omega_cosmological_covariance_open_question` names.
+    `n_g_omega_cosmological_covariance_resolved (RESOLVED via Correction #26)` names.
     """
     # Temperature points
     T_C_kelvin = HBAR / (TAU_0_SEC * K_B)
@@ -368,7 +368,7 @@ def lens_B_F_forward_derivation() -> dict:
             "The choice of rescaling (A vs B vs C) corresponds to "
             "the choice of natural unit for cosmological-"
             "perturbation power spectra in the framework. This IS "
-            "the n_g_omega_cosmological_covariance_open_question. "
+            "the n_g_omega_cosmological_covariance_resolved (RESOLVED via Correction #26). "
             "Closing #9 — specifically, deciding whether ω is "
             "Fourier frequency, conformal-time frequency, or some "
             "covariantly-defined object, AND mapping the result to "
@@ -653,7 +653,7 @@ def primordial_curvature_lens_BF_attempt() -> dict:
         "structural_finding": (
             "primordial_amplitude_zero_parameter_open_negative is "
             "structurally linked to "
-            "n_g_omega_cosmological_covariance_open_question. "
+            "n_g_omega_cosmological_covariance_resolved (RESOLVED via Correction #26). "
             "Closing the latter would either close the former with "
             "A_s ~ 1/(πS³) (cosmic-baseline rescaling — match within "
             "factor 4 of observed) or sharpen its honest negative "

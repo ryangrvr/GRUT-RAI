@@ -23,6 +23,19 @@ Submodules:
         WKB result is operationally complete. This is the cosmology
         backbone for Priority 3 (n_g(ω) covariance).
 
+    mg_eft_mapping — Priority 3 closure. Maps χ_FRW(k, η) onto the
+        modified-gravity EFT-of-dark-energy parameterization
+        μ(k, a) / γ(k, a) for direct comparison to Planck 2018 MG /
+        DESI / Euclid observational constraints. Three closure gates:
+            (1) ω → k_phys × c identification, gauge-invariant at WKB
+            (2) gauge-invariance verification (CN/sync/comoving)
+            (3) μ_GRUT = n_g², γ_GRUT = 1 (no slip)
+        Sharp prediction: GRUT lives in the "μ ≠ 1, γ = 1" subclass
+        of MG models with μ - 1 = 1/3 on the largest scales.
+        Includes explicit SCOPE CLARIFICATION distinguishing the
+        linear FRW perturbation regime from bound-system / nonlinear
+        halo regimes (rotation curves, cluster-merger dynamics).
+
 Scope:
     Priority 2A — flat-space derivation: COMPUTED.
     Priority 2B — curved-background scaffold: ANCHORED with four
@@ -30,11 +43,17 @@ Scope:
     Priority 2C — explicit FRW χ_FRW(k, η) and n_g²(k, η): COMPUTED
         at WKB level. Beyond-WKB (Phase 2D) deferred — corrections
         are negligibly small for post-equality cosmology.
+    Priority 3 — n_g(ω) covariance: CLOSED. ω → k_phys × c, gauge-
+        invariant at WKB, mapped to μ(k, a) / γ(k, a) MG-EFT
+        parameterization. cmb_boltzmann_scoping now has a well-
+        defined ω; Boltzmann-code implementation is downstream
+        (not a theoretical gap).
 
-Honest framing: the cosmology backbone now produces n_g²(k, η)
-explicitly. Priority 3 inserts this into the linearized Einstein
-equations on FRW to derive observable consequences (CMB, structure
-formation, primordial spectrum amplitudes).
+Honest framing: the cosmology backbone produces n_g²(k, η)
+explicitly and maps to the standard MG-EFT framework. Modified
+growth equations and observational tests (CMB, P(k), σ_8) are
+downstream computational tasks using the structural ingredients
+this package provides.
 """
 
 from grut.derivation.phi_munu.linearized_ctp_action import (
@@ -77,6 +96,20 @@ from grut.derivation.phi_munu.frw_explicit import (
     transition_wavenumber_today_inverse_meters,
     verify as frw_verify,
 )
+from grut.derivation.phi_munu.mg_eft_mapping import (
+    convention_declaration as mg_eft_convention_declaration,
+    gamma_GRUT,
+    gauge_invariance_check_three_gauges,
+    mu_GRUT,
+    mu_GRUT_numeric,
+    mu_minus_one_GRUT_at_DC,
+    mu_minus_one_at_super_horizon_today,
+    mu_minus_one_at_transition_today,
+    observational_constraints_today,
+    omega_effective_for_cosmological_mode,
+    omega_tau_0_dimensionless_argument,
+    verify as mg_eft_verify,
+)
 
 __all__ = [
     # Linearized (Priority 2A)
@@ -116,4 +149,17 @@ __all__ = [
     "transition_wavenumber",
     "transition_wavenumber_today_inverse_meters",
     "frw_verify",
+    # Priority 3 closure — MG-EFT mapping
+    "mg_eft_convention_declaration",
+    "gamma_GRUT",
+    "gauge_invariance_check_three_gauges",
+    "mu_GRUT",
+    "mu_GRUT_numeric",
+    "mu_minus_one_GRUT_at_DC",
+    "mu_minus_one_at_super_horizon_today",
+    "mu_minus_one_at_transition_today",
+    "observational_constraints_today",
+    "omega_effective_for_cosmological_mode",
+    "omega_tau_0_dimensionless_argument",
+    "mg_eft_verify",
 ]

@@ -257,32 +257,14 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
         last_review="2026-04-26",
     ),
 
-    LedgerEntry(
-        claim_id="n_g_omega_cosmological_covariance_open_question",
-        closure_condition=(
-            "Articulate a covariant, gauge-invariant formulation of "
-            "n_g(ω) in cosmological perturbations. Specifically: "
-            "(1) specify whether ω corresponds to mode oscillation "
-            "frequency (k c_s), conformal-time Fourier frequency, "
-            "∂_t Φ / Φ, or a covariantly-defined object; (2) verify "
-            "the formulation transforms correctly under standard "
-            "gauge choices (synchronous, Newtonian, comoving); "
-            "(3) map to the μ(k,a) / γ(k,a) parameterization in "
-            "modified-gravity EFT-of-dark-energy literature so the "
-            "framework's prediction is comparable to existing "
-            "observational constraints (Planck MG analyses, DESI, "
-            "Euclid forecasts)."
-        ),
-        closure_effort=(
-            "Theoretical work, ~2-4 weeks for someone fluent in EFT "
-            "of dark energy / modified-gravity perturbation theory. "
-            "Must close BEFORE the CMB Boltzmann implementation "
-            "(otherwise the implementation has no well-defined ω to "
-            "use). Phase-2 prerequisite."
-        ),
-        affects=("cmb_boltzmann_scoping",),
-        last_review="2026-04-26",
-    ),
+    # n_g_omega_cosmological_covariance_open_question RESOLVED by
+    # Correction #26 (Priority 3, 2026-05-01). All three closure
+    # conditions met: ω → k_phys c identification, gauge-invariance
+    # at WKB, μ(k,a)/γ(k,a) MG-EFT mapping. Ledger entry retired —
+    # the resolved claim is tracked under id
+    # n_g_omega_cosmological_covariance_resolved (meta tier, Ch 12)
+    # plus the new computed claim mg_eft_mu_gamma_mapping (Ch 9).
+    # See theory/derivation/CORRECTION_26_PRIORITY_3_CLOSURE.md.
 
     LedgerEntry(
         claim_id="el_gordo_outlier_open_question",
@@ -378,41 +360,43 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
     LedgerEntry(
         claim_id="primordial_amplitude_zero_parameter_open_negative",
         closure_condition=(
-            "Either (a) close "
-            "n_g_omega_cosmological_covariance_open_question (#9) — "
-            "gauge-invariant cosmological perturbation theory in "
-            "the framework, with a defined natural rescaling for "
-            "P_ζ. Stage-2 forward derivation showed: under "
-            "cosmic-baseline rescaling P_ζ → 1/(πS³) ≈ 8.15×10⁻⁹ "
-            "(factor 4 from observed A_s, in α/S³ family); under "
-            "Planck rescaling P_ζ → (1/π)(t_Pl/τ_0)³ ≈ 10⁻¹⁷⁶ "
-            "(fails by 167 orders). Closing #9 selects between "
-            "these. OR (b) the Genesis Hypothesis (Appendix A) "
-            "is formalized providing an inflationary-like epoch "
-            "with H ~ 10⁻⁵ M_Pl during horizon crossing of the "
-            "CMB pivot mode (independent of #9 closure). OR (c) a "
-            "physically-motivated derivation that yields A_s ~ α/S³ "
-            "from the noise kernel structure (promoting the "
-            "Stage-1 coincidence to evidence). OR (d) explicit "
-            "acknowledgment that A_s is observation-anchored input."
+            "Closure paths re-stated post-Correction-#26 (which "
+            "RESOLVED n_g_omega_cosmological_covariance, the upstream "
+            "blocker): (a) DOWNGRADED — with the MG-EFT mapping now "
+            "explicit (μ_GRUT = n_g²(k, a), γ_GRUT = 1), the natural "
+            "rescaling is the FRW-mode-dependent k_phys/τ_0 argument; "
+            "Stage-2's α/S³ family becomes the cosmic-baseline (DC) "
+            "limit at k → 0. The 'natural rescaling' question is now "
+            "structurally answered by the Phase 2C result. The "
+            "remaining gap is whether A_s = α_vac/(π S³) ≈ 8.15×10⁻⁹ "
+            "(close to observed but factor 4 off) is the framework's "
+            "actual prediction or a coincidence. OR (b) the Genesis "
+            "Hypothesis (Appendix A) is formalized providing an "
+            "inflationary-like epoch with H ~ 10⁻⁵ M_Pl during "
+            "horizon crossing of the CMB pivot mode (independent "
+            "path). OR (c) physically-motivated derivation linking "
+            "α/S³ family to the noise-kernel structure. OR (d) "
+            "explicit acknowledgment that A_s is observation-anchored "
+            "input."
         ),
         closure_effort=(
-            "Multi-phase research. Closure path (a) is blocked by "
-            "n_g_omega_cosmological_covariance_open_question — "
-            "gauge-invariant cosmological perturbation theory is "
-            "tractable specialist work (~2-4 weeks per the existing "
-            "ledger entry for #9). Path (b) blocked by Genesis "
-            "Hypothesis becoming formal/computable. Path (c) "
-            "requires identifying what physical observable in GRUT "
-            "plays the role of primordial curvature ζ. The "
-            "Stage-2 forward investigation has narrowed the gap: "
-            "the α/S³ family IS conditionally derivable (under "
-            "rescaling choices B or C), but the rescaling itself "
-            "is the upstream gap."
+            "Multi-phase research. Closure path (a) is no longer "
+            "blocked — Correction #26 closed n_g_omega_cosmological_"
+            "covariance. Path (a) is now reframed: with "
+            "μ_GRUT(k, a) explicit, the 'rescaling' question is "
+            "specialized to whether the framework predicts the "
+            "PIVOT-mode A_s ≈ 2.1×10⁻⁹ at k = 0.05 Mpc⁻¹. This is "
+            "a Boltzmann-code-level computation (modify CAMB/CLASS "
+            "to use μ_GRUT, integrate primordial fluctuation "
+            "evolution, compare to observed A_s). Path (b) blocked "
+            "by Genesis Hypothesis becoming formal/computable. "
+            "Path (c) requires identifying the GRUT analog of "
+            "primordial curvature ζ. Path (d) is operational and "
+            "always available."
         ),
         affects=("h_0_prediction",),
-        blocked_by=("n_g_omega_cosmological_covariance_open_question",),
-        last_review="2026-04-28",
+        blocked_by=(),  # n_g_omega resolved; this entry no longer blocked
+        last_review="2026-05-01",
     ),
 
     LedgerEntry(
