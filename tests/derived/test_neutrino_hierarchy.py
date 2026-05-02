@@ -62,11 +62,20 @@ class TestModuleImports:
 
 
 class TestVerifyHarness:
-    def test_verify_all_eight_legs_pass(self):
+    def test_verify_all_legs_pass(self):
+        """Priority 4 + 4B verify() now has 11 legs (8 original + 3 uniqueness)."""
         from grut.derived.koide.neutrino_hierarchy import verify
         v = verify()
         for k, val in v.items():
-            assert val is True, f"Priority 4 verify() leg failed: {k} = {val}"
+            assert val is True, f"Priority 4/4B verify() leg failed: {k} = {val}"
+
+    def test_verify_includes_uniqueness_theorem_legs(self):
+        """The Priority 4B uniqueness theorem must be exercised in verify()."""
+        from grut.derived.koide.neutrino_hierarchy import verify
+        v = verify()
+        assert "boundary_gap_vanishes_at_a_1" in v
+        assert "boundary_gap_positive_for_a_above_1" in v
+        assert "boundary_inaccessible_for_a_below_1" in v
 
 
 # ─────────────────────────────────────────────────────────────────────
@@ -112,14 +121,17 @@ class TestConventionDeclaration:
         assert "K_ν = 1/2" in c4 or "K = 1/2" in c4
         assert "NH" in c4 or "Normal" in c4
 
-    def test_C5n_derivation_status_open(self):
+    def test_C5n_derivation_status_derived(self):
+        """Post Priority 4B (Correction #29), a_ν = 1 is DERIVED via
+        boundary-degenerate uniqueness theorem, not postulated."""
         from grut.derived.koide.neutrino_hierarchy import (
             convention_declaration,
         )
         d = convention_declaration()
         c5 = d["C5n_derivation_status"]
-        assert "POSTULATED" in c5 or "postulated" in c5.lower()
-        assert "OPEN" in c5 or "open" in c5.lower()
+        assert "DERIVED" in c5 or "derived" in c5.lower()
+        # boundary-degenerate / uniqueness theorem must be named
+        assert "uniqueness" in c5.lower() or "boundary-degenerate" in c5.lower()
 
     def test_priority_4_status_marked(self):
         from grut.derived.koide.neutrino_hierarchy import (
@@ -391,6 +403,141 @@ class TestCosmologicalConsistency:
 # ─────────────────────────────────────────────────────────────────────
 # Cross-consistency with charged-lepton Koide
 # ─────────────────────────────────────────────────────────────────────
+
+
+# ─────────────────────────────────────────────────────────────────────
+# Priority 4B — uniqueness theorem for a_ν = 1
+# ─────────────────────────────────────────────────────────────────────
+
+
+class TestUniquenessTheoremPriority4B:
+    """The boundary-degenerate uniqueness theorem: a_ν = 1 is the
+    UNIQUE Z_3 coupling at which (i) boundary access is admissible
+    AND (ii) the two non-zero s values are exactly degenerate.
+
+    Closes the open question `neutrino_z3_coupling_derivation_open
+    _question` by deriving a_ν = 1 from structural primitives.
+    """
+
+    def test_boundary_gap_at_a_1_is_exactly_zero(self):
+        """Gap = √3 × √(a² - 1) = 0 at a = 1."""
+        from grut.derived.koide.neutrino_hierarchy import boundary_gap
+        gap = boundary_gap(1.0)
+        assert gap is not None
+        assert abs(gap) < 1e-12
+
+    def test_boundary_gap_strictly_positive_for_a_above_1(self):
+        """Gap > 0 for a > 1 — boundary configuration has 3 distinct s values."""
+        from grut.derived.koide.neutrino_hierarchy import boundary_gap
+        for a in [1.001, 1.1, 1.2, np.sqrt(2), 1.5, 2.0]:
+            gap = boundary_gap(a)
+            assert gap is not None
+            assert gap > 0, f"Expected gap > 0 at a={a}, got {gap}"
+
+    def test_boundary_inaccessible_for_a_below_1(self):
+        """Gap returns None for a < 1 (no boundary access)."""
+        from grut.derived.koide.neutrino_hierarchy import boundary_gap
+        for a in [0.5, 0.9, 0.95, 0.999]:
+            gap = boundary_gap(a)
+            assert gap is None, f"Expected None at a={a}, got {gap}"
+
+    def test_boundary_gap_analytic_formula(self):
+        """Gap matches √3 × √(a² - 1) analytically."""
+        from grut.derived.koide.neutrino_hierarchy import boundary_gap
+        for a in [1.001, 1.1, 1.4142, 1.5, 2.0]:
+            gap = boundary_gap(a)
+            expected = np.sqrt(3) * np.sqrt(a**2 - 1)
+            assert abs(gap - expected) < 1e-12
+
+    def test_boundary_s_values_at_a_1_is_0_1p5_1p5(self):
+        """At a = 1, boundary s values are exactly (0, 3/2, 3/2)."""
+        from grut.derived.koide.neutrino_hierarchy import boundary_s_values
+        s = boundary_s_values(1.0)
+        assert s is not None
+        s_min, s_minus, s_plus = s
+        assert abs(s_min - 0.0) < 1e-12
+        assert abs(s_minus - 1.5) < 1e-12
+        assert abs(s_plus - 1.5) < 1e-12
+
+    def test_boundary_s_values_at_a_above_1_split(self):
+        """For a > 1, boundary s values split symmetrically around 3/2."""
+        from grut.derived.koide.neutrino_hierarchy import boundary_s_values
+        for a in [1.001, 1.1, 1.4142]:
+            s_min, s_minus, s_plus = boundary_s_values(a)
+            assert s_min == 0.0
+            # s_- and s_+ symmetric around 3/2
+            assert abs((s_minus + s_plus) / 2 - 1.5) < 1e-10
+            assert s_minus < 1.5 < s_plus
+
+    def test_uniqueness_theorem_returns_unique_value_one(self):
+        from grut.derived.koide.neutrino_hierarchy import (
+            uniqueness_theorem_a_equals_1,
+        )
+        t = uniqueness_theorem_a_equals_1()
+        assert t["unique_value"] == 1.0
+        assert t["boundary_admissibility_threshold"] == 1.0
+        assert t["boundary_degenerate_at"] == 1.0
+        assert t["boundary_gap_at_a_1"] == 0.0
+
+    def test_channel_counting_a_squared_values(self):
+        """Route 4 interpretation: a²_e = 2 (EM+weak), a²_ν = 1 (weak only)."""
+        from grut.derived.koide.neutrino_hierarchy import (
+            uniqueness_theorem_a_equals_1,
+        )
+        t = uniqueness_theorem_a_equals_1()
+        assert t["channel_counting_a_e_squared"] == 2
+        assert t["channel_counting_a_nu_squared"] == 1
+        # K values
+        assert abs(t["channel_counting_K_e"] - 2 / 3) < 1e-12
+        assert abs(t["channel_counting_K_nu"] - 1 / 2) < 1e-12
+        # Σs²
+        assert t["channel_counting_sigma_s_sq_e"] == 6
+        assert abs(t["channel_counting_sigma_s_sq_nu"] - 4.5) < 1e-12
+
+    def test_uniqueness_theorem_status_marked_derived(self):
+        """The status string must indicate that a_ν = 1 is no longer
+        a postulate but a structural derivation."""
+        from grut.derived.koide.neutrino_hierarchy import (
+            uniqueness_theorem_a_equals_1,
+        )
+        t = uniqueness_theorem_a_equals_1()
+        s = t["status"]
+        assert "DERIVED" in s
+        assert "Priority 4B" in s or "uniqueness" in s.lower()
+
+    def test_verify_uniqueness_at_grid(self):
+        """Multi-point verification across a grid of a values."""
+        from grut.derived.koide.neutrino_hierarchy import (
+            verify_uniqueness_theorem,
+        )
+        results = verify_uniqueness_theorem()
+        # a = 1.0 should be the unique degenerate point
+        assert "a=1.0" in results
+        r1 = results["a=1.0"]
+        assert r1["boundary_access"] is True
+        assert r1["degenerate"] is True
+        # a = 0.5 (below 1) — no access
+        r_low = results["a=0.5"]
+        assert r_low["boundary_access"] is False
+        # a = 1.1 — access but not degenerate
+        r_high = results["a=1.1"]
+        assert r_high["boundary_access"] is True
+        assert r_high["degenerate"] is False
+
+    def test_canonical_lepton_a_sqrt2_at_boundary_is_distinct_split(self):
+        """At a = √2 (charged-lepton coupling), the boundary s values
+        are (0, 0.634, 2.366) — distinct, NOT degenerate. Confirms
+        charged leptons are NOT at the degenerate-boundary point."""
+        from grut.derived.koide.neutrino_hierarchy import (
+            boundary_s_values, A_CHARGED_LEPTON,
+        )
+        s = boundary_s_values(A_CHARGED_LEPTON)
+        s_min, s_minus, s_plus = s
+        assert abs(s_min - 0.0) < 1e-12
+        # The two non-zero values are distinct (gap = √3)
+        assert abs(s_plus - s_minus - np.sqrt(3)) < 1e-10
+        # And s_- < 3/2 < s_+
+        assert s_minus < 1.5 < s_plus
 
 
 class TestCrossConsistencyWithChargedLeptonKoide:

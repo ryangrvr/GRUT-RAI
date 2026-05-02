@@ -2258,6 +2258,52 @@ REGISTRY: tuple[Claim, ...] = (
         ),
     ),
     Claim(
+        id="falsifier_paper_six_near_term_tests",
+        chapter=12,
+        statement=(
+            "The framework's six near-term falsifiers — decoherence "
+            "plateau (~689 Hz, lab gravity), ³⁰Si/²⁸Si isotope "
+            "discriminator vs CSL (lab gravity), BMV/sub-micron-"
+            "separation gravitational entanglement test (lab gravity), "
+            "cluster-merger v×τ_0 scaling (cluster astrophysics), "
+            "modified-gravity μ-1=1/3 on horizon scales (cosmology, "
+            "MG-EFT), and Σm_ν ≈ 60 meV with normal hierarchy "
+            "(Standard Model + cosmology) — are collected into a "
+            "concise adversarial-roster paper at "
+            "theory/GRUT_FALSIFIER_PAPER.md. Each falsifier has "
+            "a sharp prediction, derivation reference, observational "
+            "test, current-status assessment, and refutation condition. "
+            "The paper inverts the standard ToE-program critique by "
+            "claiming GRUT's near-term falsifiability AS its primary "
+            "structural advantage — the framework can be wrong in "
+            "specific, identifiable ways within 1-10 years."
+        ),
+        tier="meta",
+        refs=(
+            "theory/GRUT_FALSIFIER_PAPER.md",
+            "theory/GRUT_DECOHERENCE_PAPER.md (F1 standalone derivation)",
+            "theory/derivation/CORRECTION_22_TAU_CLEANUP.md through "
+            "CORRECTION_28_NEUTRINO_HIERARCHY.md (derivation chain)",
+        ),
+        deps=(
+            # Six falsifiers' upstream claims
+            "decoherence_plateau",                     # F1
+            "grut_csl_isotope_discriminator",          # F2
+            "gravitational_entanglement_formation_rate",  # F3
+            "cluster_merger_scaling_law",              # F4
+            "mg_eft_mu_gamma_mapping",                 # F5
+            "neutrino_hierarchy_z3_nh_prediction",     # F6
+        ),
+        notes=(
+            "Priority 5 deliverable of the v8→v2 deposit roadmap. "
+            "The paper is intentionally short (~750 lines) and "
+            "concentrates on the operational claim 'GRUT can be "
+            "wrong in near-term ways' rather than the framework's "
+            "full theoretical content. For the latter, see "
+            "GRUT_TOE.md and the v6/v7 program documents."
+        ),
+    ),
+    Claim(
         id="koide_phase_4_open_negative",
         chapter=12,
         statement=(
@@ -2736,9 +2782,11 @@ REGISTRY: tuple[Claim, ...] = (
             "underwrites this prediction) is falsified."
         ),
         notes=(
-            "ANCHORED tier — conditional on the a_ν = 1 postulate "
-            "(see neutrino_z3_coupling_derivation_open_question for "
-            "the open derivation). The K = 2/3 → K = 1/2 transition "
+            "ANCHORED tier — built on the a_ν = 1 derivation "
+            "(see neutrino_z3_coupling_a_equals_1_uniqueness_theorem "
+            "[Correction #29, Priority 4B] which derives a_ν = 1 "
+            "structurally as the unique boundary-degenerate Z₃ "
+            "coupling). The K = 2/3 → K = 1/2 transition "
             "from charged leptons to neutrinos is a clean ratio "
             "(coupling reduced by √2) suggestive of an SU(2) doublet "
             "structure or different KS anomaly coefficient, but "
@@ -2747,48 +2795,67 @@ REGISTRY: tuple[Claim, ...] = (
     ),
 
     Claim(
-        id="neutrino_z3_coupling_derivation_open_question",
-        chapter=12,
+        id="neutrino_z3_coupling_a_equals_1_uniqueness_theorem",
+        chapter=9,
         statement=(
-            "GRUT's neutrino prediction (Correction #28) is anchored "
-            "on the postulate that the Z₃ coupling for neutrinos is "
-            "a_ν = 1 (giving K_ν = 1/2), distinct from the charged-"
-            "lepton coupling a_e = √2 (K_e = 2/3). The DERIVATION of "
-            "a_ν = 1 from GRUT primitives — CTP action, flavor "
-            "operator, Komargodski-Schwimmer anomaly coefficients, "
-            "or Dirac-ν Yukawa structure — is OPEN. Closure paths: "
-            "(a) Identify a Dirac-ν KS coefficient that produces "
-            "a = 1 in the same way charged-lepton (a, c) coefficients "
-            "produce a = √2 (note: Komargodski-Schwimmer's per-species "
-            "ratios give a/c = 1/3 for real scalar, 11/18 for Weyl "
-            "fermion, 62/36 for gauge field — none directly maps to "
-            "a = 1). (b) Derive a from the SU(2)_L × U(1)_Y × "
-            "Dirac-ν structure as a coupling-constant relation. "
-            "(c) Sterile-neutrino sector contribution that effectively "
-            "modifies a_ν. (d) Show that a_ν is fixed by demanding "
-            "interior (non-boundary) hierarchy solution + cosmological "
-            "consistency, then the choice a = 1 is uniquely selected "
-            "by the requirement that ONE hierarchy admits an interior "
-            "solution and the other lives at boundary."
+            "DERIVED (Correction #29, Priority 4B, 2026-05-02). The "
+            "value a_ν = 1 is uniquely characterized as the ONLY "
+            "Z₃ coupling at which: (i) boundary access (one s_k = 0) "
+            "is admissible AND (ii) the OTHER two s values are exactly "
+            "degenerate. The boundary-gap formula at the s_min = 0 "
+            "configuration is √3 × √(a²-1) — vanishes at a = 1 "
+            "(degenerate to (0, 3/2, 3/2)), strictly positive for "
+            "a > 1 (configurations split symmetrically around 3/2), "
+            "undefined for a < 1 (no boundary access). Combined with "
+            "(iii) NH-interior generic solution at a = 1 with "
+            "cosmologically-acceptable Σm_ν, and (iv) IH solution "
+            "sitting at the boundary configuration, the four properties "
+            "uniquely select a_ν = 1. INTERPRETATION (route 4): "
+            "a²_ν = 1 vs a²_e = 2 corresponds to channel-counting "
+            "(weak only for neutrinos vs EM + weak for charged "
+            "leptons); Σs² = 4.5 (ν, K = 1/2) vs Σs² = 6 (e, K = 2/3). "
+            "The previous open question "
+            "(`neutrino_z3_coupling_derivation_open_question`) is "
+            "RESOLVED at the structural level: a_ν = 1 is no longer "
+            "a postulate but a derived value. Channel-counting "
+            "interpretation is suggestive; full KS-anomaly derivation "
+            "of the EM-channel-absence remains a deeper research "
+            "question."
         ),
-        tier="open_negative",
+        tier="computed",
         refs=(
             "grut/derived/koide/neutrino_hierarchy.py",
+            "theory/derivation/CORRECTION_29_PRIORITY_4B_UNIQUENESS.md",
             "theory/derivation/CORRECTION_28_NEUTRINO_HIERARCHY.md",
             "Komargodski-Schwimmer 2011",
         ),
-        tests=(),
+        tests=(
+            "tests/derived/test_neutrino_hierarchy.py::TestUniquenessTheoremPriority4B",
+        ),
         deps=(
             "neutrino_hierarchy_z3_nh_prediction",
             "charged_lepton_z3_does_not_extend_to_neutrinos",
+            "koide_z3_circulant_structure",
+        ),
+        falsifier=(
+            "If a precision measurement determines neutrino mass "
+            "spectrum incompatible with the K_ν = 1/2 ansatz (e.g., "
+            "Σm_ν > 90 meV or hierarchy = IH at >5σ), the underlying "
+            "a_ν = 1 derivation is falsified at the experimental "
+            "level. The structural theorem (boundary-gap vanishing "
+            "at a = 1) is mathematically rigorous and not "
+            "experimentally falsifiable; what's experimentally "
+            "falsifiable is the framework's identification of "
+            "a_ν = 1 as the operating coupling."
         ),
         notes=(
-            "The numerical observation a = 1 (rather than a = √2) "
-            "is suggestive but not derived. Closure path (d) is the "
-            "easiest to pin down — show that the boundary-vs-"
-            "interior asymmetry uniquely selects a = 1. Path (a)/(b) "
-            "are deeper but require KS-style anomaly machinery in "
-            "the neutrino sector."
+            "Route 1 (uniqueness theorem) of the Priority 4B closure "
+            "paths is fully implemented. Route 4 (channel counting) "
+            "is suggestive interpretation, not full derivation — the "
+            "underlying KS-anomaly identification of EM-channel-"
+            "absence in neutrinos remains a deeper question. The "
+            "structural derivation closes the open question at the "
+            "tier appropriate for the current state of the framework."
         ),
     ),
 
