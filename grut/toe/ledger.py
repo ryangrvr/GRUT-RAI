@@ -96,6 +96,36 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
     ),
 
     LedgerEntry(
+        claim_id="neutrino_z3_coupling_derivation_open_question",
+        closure_condition=(
+            "Derive the neutrino Z₃ coupling a_ν = 1 (giving "
+            "K_ν = 1/2) from GRUT primitives, parallel to the "
+            "charged-lepton derivation a_e = √2 (giving K_e = 2/3) "
+            "from the Komargodski-Schwimmer real-scalar trace anomaly. "
+            "Closure paths: (a) Identify a Dirac-ν KS coefficient "
+            "yielding a = 1; (b) derive a from SU(2)_L × U(1)_Y × "
+            "Dirac-ν Yukawa structure; (c) sterile-neutrino-sector "
+            "contribution; (d) show a = 1 is the unique value for "
+            "which exactly ONE hierarchy admits an interior "
+            "(non-boundary) generic solution. Path (d) is the "
+            "tractable closure — a uniqueness theorem about "
+            "interior-solution existence as a function of a."
+        ),
+        closure_effort=(
+            "Path (d) is ~1-2 weeks of analytic + numerical work to "
+            "establish the uniqueness theorem. Paths (a)/(b)/(c) are "
+            "research-tier (months) and connect to the broader Koide "
+            "Phase 4 mechanism question."
+        ),
+        affects=(
+            "neutrino_hierarchy_z3_nh_prediction",
+            "charged_lepton_z3_does_not_extend_to_neutrinos",
+        ),
+        blocked_by=(),
+        last_review="2026-05-01",
+    ),
+
+    LedgerEntry(
         claim_id="path_f_translation_gap",
         closure_condition=(
             "A mapping from published Im(W) on de Sitter (which "

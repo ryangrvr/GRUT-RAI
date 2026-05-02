@@ -2648,6 +2648,151 @@ REGISTRY: tuple[Claim, ...] = (
     ),
 
     Claim(
+        id="charged_lepton_z3_does_not_extend_to_neutrinos",
+        chapter=9,
+        statement=(
+            "The charged-lepton Z₃ ansatz √m_i = M_0(1 + √2 cos(θ + "
+            "2πk/3)) — which gives K = 2/3 algebraically — DOES NOT "
+            "admit any neutrino solution under either hierarchy. "
+            "Numerical scan over the all-positive θ range gives "
+            "minimum Δm²_atm/Δm²_sol = 194.7, vs observed 33.9 — a "
+            "factor of ~6 too large. This is a SHARP STRUCTURAL "
+            "FINDING (computed, unconditional): GRUT's charged-lepton "
+            "Z₃ structure does not trivially extend to neutrinos. "
+            "Consistent with the framework's existing Dirac-vs-"
+            "Majorana posture (A_OVER_C_SM_DIRAC closer to canonical "
+            "√(4/3) than Majorana) — neutrinos require a different "
+            "mass-generation mechanism than charged leptons."
+        ),
+        tier="computed",
+        refs=(
+            "grut/derived/koide/neutrino_hierarchy.py",
+            "theory/derivation/CORRECTION_28_NEUTRINO_HIERARCHY.md",
+            "NuFIT 2024 (Δm² values)",
+        ),
+        tests=(
+            "tests/derived/test_neutrino_hierarchy.py",
+        ),
+        deps=("koide_z3_circulant_structure",),
+        falsifier=(
+            "If a future Koide-style relation with the SAME a = √2 "
+            "coupling emerges for neutrinos under refined Δm² values "
+            "or extended mass-mechanism (e.g., effective light-"
+            "neutrino masses including see-saw corrections), this "
+            "claim is falsified. The computed minimum 194.7 is "
+            "stable under choice of NH/IH and Δm² precision."
+        ),
+        notes=(
+            "Priority 4 finding (Correction #28). The negative "
+            "result IS the Standard Model statement: the charged-"
+            "lepton Z₃ structure does not extend trivially to "
+            "neutrinos. This is informative about neutrino mass-"
+            "mechanism."
+        ),
+    ),
+
+    Claim(
+        id="neutrino_hierarchy_z3_nh_prediction",
+        chapter=9,
+        statement=(
+            "Conditional on the postulate a_ν = 1 (giving K_ν = 1/2), "
+            "the GRUT generalized Z₃ ansatz √m_i = M_0(1 + a_ν "
+            "cos(θ + 2πk/3)) admits a UNIQUE INTERIOR solution in "
+            "Normal Hierarchy with: m_1 = 0.802 meV, m_2 = 8.65 meV, "
+            "m_3 = 50.16 meV, Σm_ν = 59.6 meV, θ = 18.94°. The IH "
+            "solution at a_ν = 1 sits exactly at the m_3 → 0 boundary "
+            "(degenerate, fine-tuned, NOT a generic interior solution) "
+            "— GRUT therefore PREFERS NORMAL HIERARCHY. The predicted "
+            "Σm_ν ≈ 60 meV is well below the Planck 2018 + BAO "
+            "cosmological bound 0.12 eV (95% CL), with ~60 meV "
+            "headroom. Predicted m_β (kinematic effective ν mass) "
+            "≈ 9 meV, below current KATRIN limit 0.45 eV but within "
+            "reach of future Project 8 precision."
+        ),
+        tier="anchored",
+        refs=(
+            "grut/derived/koide/neutrino_hierarchy.py",
+            "theory/derivation/CORRECTION_28_NEUTRINO_HIERARCHY.md",
+            "NuFIT 2024 (Δm² values)",
+            "Planck 2018 paper VI (Σm_ν bound)",
+            "KATRIN Collaboration 2024 (m_β bound)",
+        ),
+        tests=(
+            "tests/derived/test_neutrino_hierarchy.py",
+        ),
+        deps=(
+            "charged_lepton_z3_does_not_extend_to_neutrinos",
+            "koide_z3_circulant_structure",
+        ),
+        falsifier=(
+            "Multiple sharp falsifiers: (1) Hierarchy: if "
+            "JUNO/DUNE/Hyper-K conclusively determine INVERTED "
+            "hierarchy at >5σ, the prediction is falsified. "
+            "(2) Σm_ν: if DESI Y3+ or Euclid measure Σm_ν < 30 meV "
+            "or > 90 meV at >2σ, the prediction is falsified. "
+            "(3) m_β: if Project 8 measures m_β > 30 meV, the "
+            "prediction is falsified. (4) 0νββ: if a positive 0νββ "
+            "signal is found, the framework's Dirac-ν posture (which "
+            "underwrites this prediction) is falsified."
+        ),
+        notes=(
+            "ANCHORED tier — conditional on the a_ν = 1 postulate "
+            "(see neutrino_z3_coupling_derivation_open_question for "
+            "the open derivation). The K = 2/3 → K = 1/2 transition "
+            "from charged leptons to neutrinos is a clean ratio "
+            "(coupling reduced by √2) suggestive of an SU(2) doublet "
+            "structure or different KS anomaly coefficient, but "
+            "the structural derivation is not in hand."
+        ),
+    ),
+
+    Claim(
+        id="neutrino_z3_coupling_derivation_open_question",
+        chapter=12,
+        statement=(
+            "GRUT's neutrino prediction (Correction #28) is anchored "
+            "on the postulate that the Z₃ coupling for neutrinos is "
+            "a_ν = 1 (giving K_ν = 1/2), distinct from the charged-"
+            "lepton coupling a_e = √2 (K_e = 2/3). The DERIVATION of "
+            "a_ν = 1 from GRUT primitives — CTP action, flavor "
+            "operator, Komargodski-Schwimmer anomaly coefficients, "
+            "or Dirac-ν Yukawa structure — is OPEN. Closure paths: "
+            "(a) Identify a Dirac-ν KS coefficient that produces "
+            "a = 1 in the same way charged-lepton (a, c) coefficients "
+            "produce a = √2 (note: Komargodski-Schwimmer's per-species "
+            "ratios give a/c = 1/3 for real scalar, 11/18 for Weyl "
+            "fermion, 62/36 for gauge field — none directly maps to "
+            "a = 1). (b) Derive a from the SU(2)_L × U(1)_Y × "
+            "Dirac-ν structure as a coupling-constant relation. "
+            "(c) Sterile-neutrino sector contribution that effectively "
+            "modifies a_ν. (d) Show that a_ν is fixed by demanding "
+            "interior (non-boundary) hierarchy solution + cosmological "
+            "consistency, then the choice a = 1 is uniquely selected "
+            "by the requirement that ONE hierarchy admits an interior "
+            "solution and the other lives at boundary."
+        ),
+        tier="open_negative",
+        refs=(
+            "grut/derived/koide/neutrino_hierarchy.py",
+            "theory/derivation/CORRECTION_28_NEUTRINO_HIERARCHY.md",
+            "Komargodski-Schwimmer 2011",
+        ),
+        tests=(),
+        deps=(
+            "neutrino_hierarchy_z3_nh_prediction",
+            "charged_lepton_z3_does_not_extend_to_neutrinos",
+        ),
+        notes=(
+            "The numerical observation a = 1 (rather than a = √2) "
+            "is suggestive but not derived. Closure path (d) is the "
+            "easiest to pin down — show that the boundary-vs-"
+            "interior asymmetry uniquely selects a = 1. Path (a)/(b) "
+            "are deeper but require KS-style anomaly machinery in "
+            "the neutrino sector."
+        ),
+    ),
+
+    Claim(
         id="allen_jacobson_phase1_stub_open_negative",
         chapter=12,
         statement=(
