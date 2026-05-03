@@ -1537,7 +1537,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 *Auto-generated from `grut/toe/registry.py` via `python3 -m grut.toe.render_appendices`. The complete registry — every framework claim across every tier — in one reference table. Sorted by chapter then claim ID.*
 
-**Total: 91 claims** (13 anchored, 51 computed, 3 conjectural, 2 foundational, 6 meta, 16 open_negative).
+**Total: 103 claims** (15 anchored, 58 computed, 3 conjectural, 2 foundational, 10 meta, 15 open_negative). [Snapshot post v8→v2 synthesis, May 2026 — re-render via `python3 -m grut.toe.render_appendices` for the live values.]
 
 | Ch | Claim ID | Tier | Statement | Deps | Tests |
 |---:|:---|:---|:---|---:|---:|
@@ -1840,7 +1840,7 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
 
 **AI collaboration.** This document was composed with sustained assistance from Anthropic's Claude across several distinct modes: a strategy and review channel that helped shape the discipline pattern, scope-setting language, and overall framing; a code-and-derivation channel (Claude Code) that executed the codebase work — claim registration, test scaffolding, foundations audits, and the investigation logs that back the corrections ledger; and a document-composition channel that drafted, structured, and tightened prose against pre-committed criteria. Where AI produced derivations, computations, or text that landed in the deposit, the discipline pattern required pre-commit expectations, post-hoc verification against tests, and explicit registration in the claim registry — the AI was used as a collaborator under the framework's own audit infrastructure, not as an unchecked author. The framework's organizing ideas, foundational postulates, scope decisions, and final-form claims are the author's responsibility; the AI helped surface, formalize, compute, and stress-test them.
 
-**Computational platform.** The GRUT-RAI codebase (DOI 10.5281/zenodo.18993689) is the load-bearing artifact behind every claim in this document. The 1397-test suite, the claim registry, the foundations-audit infrastructure, and the auto-rendered appendices (D, E, F) are what make the discipline pattern operational. Builds, tests, and audit cycles ran on standard Python tooling (SymPy for exact-arithmetic derivations, pytest for verification, NumPy/SciPy for numerical routes).
+**Computational platform.** The GRUT-RAI codebase (DOI 10.5281/zenodo.18993689) is the load-bearing artifact behind every claim in this document. The 1655-test suite (post v8→v2), the 103-claim registry, the foundations-audit infrastructure, and the auto-rendered appendices (D, E, F) are what make the discipline pattern operational. Builds, tests, and audit cycles ran on standard Python tooling (SymPy for exact-arithmetic derivations, pytest for verification, NumPy/SciPy for numerical routes).
 
 **Prior work.** The framework rests on the published foundations referenced in this document — Schwinger-Keldysh CTP, Khasanov-Segal trace anomalies, the Diósi-Penrose / Anastopoulos-Hu gravitational decoherence program, the Bose-Marletto-Vedral and Kafri-Taylor-Milburn entanglement framework, and the cluster-merger lensing literature. Where GRUT diverges from these traditions (constitutive equation, finite-bandwidth medium, scale-universal constants) the divergence is a posited extension, not a critique of the source work.
 
@@ -1856,6 +1856,6 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
 
 *GRUT — Grand Responsive Universe Theory: Candidate Framework.*
 
-*1397 tests. 91 registered claims (51 computed, 13 anchored, 3 conjectural, 16 open negative, 2 foundational, 6 meta). 16 corrections caught. Full audit transparency.*
+*1655 tests. 103 registered claims (58 computed, 15 anchored, 3 conjectural, 15 open_negative, 2 foundational, 10 meta). 23 documented corrections (V7 era #1-#16; v8→v2 #22-#30). Full audit transparency.*
 
 *The universe is √(4/3) ≈ 1.15470 trying to become 1.*
