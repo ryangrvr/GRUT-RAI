@@ -1,33 +1,39 @@
 """The Bridge Parameter — connecting decoherence to cosmology.
 
-STATUS (per V7 §26.2):
-    f(R) = 2-R structure: COMPUTED (3-loop CTP on S^4, 70x RMS preference
-        over quadratic alternative).
-    R value: COMPUTED — R_ANOMALY = 1.15428 from 3-loop CTP Laurent expansion
-        on Euclidean S^4 (V7 §26.2 primary-source audit, no coupling inputs).
-        Independent confirmation: R_EPSILON_CANDIDATE = 1.1537 from Osborn
-        2003 eq (36) matches at 0.05% — two independent constructions agreeing.
-        Both give Omega_Lambda consistent with Planck (Ω_Λ = 0.6886 at 0.04%).
+STATUS (current):
+    f(R) = 2-R structure: COMPUTED.
+    R value: PRIMARY = R_REFRACTIVE = sqrt(4/3) via closure protocol.
+    3-loop R_ANOMALY = 1.15428 is verification-pending (expert audit needed).
+    Independent confirmation candidate: R_EPSILON_CANDIDATE = 1.1537
+    (Osborn 2003 eq 36) matches within 0.05%.
 """
 import numpy as np
 from grut.foundation.constants import G, HBAR
 from grut.foundation.noise_kernel import lambda_grav, extended_body_suppression
 from grut.foundation.anomaly import R_ANOMALY, R_EPSILON_CANDIDATE, S_CTP
+from grut.foundation.closure_protocol import R_REFRACTIVE
 
 TAU_0_CANONICAL = 41.9e6 * 3.156e7
+R_PRIMARY = R_REFRACTIVE
 
-def bridge_prediction(H_0_kms=70.0, tau_0_s=None, R_choice="hand"):
+def bridge_prediction(H_0_kms=70.0, tau_0_s=None, R_choice="closure"):
     """Given tau_0, predict Omega_Lambda.
 
     Args:
         H_0_kms: Hubble constant in km/s/Mpc.
         tau_0_s: decoherence timescale in seconds (default: canonical 41.9 Myr).
-        R_choice: "hand" (R_ANOMALY = 1.15428, v7 default) or "epsilon"
-            (R_EPSILON_CANDIDATE = 1.1537, v8 SM-derivable candidate).
+        R_choice: "closure" (R_REFRACTIVE = sqrt(4/3), primary),
+            "anomaly" (R_ANOMALY = 1.15428, 3-loop verification-pending),
+            or "epsilon" (R_EPSILON_CANDIDATE = 1.1537).
     """
     tau = tau_0_s or TAU_0_CANONICAL
     H_0 = H_0_kms * 1e3 / 3.0857e22
-    R = R_EPSILON_CANDIDATE if R_choice == "epsilon" else R_ANOMALY
+    if R_choice == "epsilon":
+        R = R_EPSILON_CANDIDATE
+    elif R_choice == "anomaly":
+        R = R_ANOMALY
+    else:
+        R = R_PRIMARY
     H_inf = (2 - R) / (S_CTP * tau)
     OL = (H_inf / H_0)**2
     return {"tau_0_s": tau, "tau_0_Myr": tau/(1e6*3.156e7),
@@ -50,5 +56,5 @@ def tau_0_from_observation():
     """The canonical tau_0 derived from cosmological observation."""
     return {"tau_0_s": TAU_0_CANONICAL, "tau_0_Myr": 41.9,
             "formula": "tau_0 = (2-R) / (S × H_0 × sqrt(Omega_Lambda))",
-            "inputs": {"2-R": 2-R_ANOMALY, "S": S_CTP, "H_0": "70 km/s/Mpc", "OL": 0.6889},
+            "inputs": {"2-R": 2-R_PRIMARY, "S": S_CTP, "H_0": "70 km/s/Mpc", "OL": 0.6889},
             "note": "Two computed (2-R, S) + two measured (H_0, OL). Experiment determines tau_0 independently."}

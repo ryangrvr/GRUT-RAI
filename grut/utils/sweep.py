@@ -2,6 +2,7 @@
 import numpy as np
 from grut.foundation.noise_kernel import lambda_grav, extended_body_suppression
 from grut.foundation.anomaly import R_ANOMALY, S_CTP
+from grut.foundation.closure_protocol import R_REFRACTIVE
 
 TAU_0 = 41.9e6 * 3.156e7
 
@@ -17,13 +18,15 @@ def sweep_1d(func, param_name, values, fixed_params=None):
 def sensitivity_omega_lambda(delta_pct=10):
     """How much does Omega_Lambda shift when each input changes by delta_pct%."""
     H_0 = 70e3 / 3.0857e22
-    base_OL = ((2-R_ANOMALY)/(S_CTP*TAU_0*H_0))**2
+    R_primary = R_REFRACTIVE
+    base_OL = ((2-R_primary)/(S_CTP*TAU_0*H_0))**2
     results = {}
     for name, base_val, getter in [
+        ("R_primary", R_primary, lambda v: ((2-v)/(S_CTP*TAU_0*H_0))**2),
         ("R_anomaly", R_ANOMALY, lambda v: ((2-v)/(S_CTP*TAU_0*H_0))**2),
-        ("S_CTP", S_CTP, lambda v: ((2-R_ANOMALY)/(v*TAU_0*H_0))**2),
-        ("tau_0", TAU_0, lambda v: ((2-R_ANOMALY)/(S_CTP*v*H_0))**2),
-        ("H_0", H_0, lambda v: ((2-R_ANOMALY)/(S_CTP*TAU_0*v))**2),
+        ("S_CTP", S_CTP, lambda v: ((2-R_primary)/(v*TAU_0*H_0))**2),
+        ("tau_0", TAU_0, lambda v: ((2-R_primary)/(S_CTP*v*H_0))**2),
+        ("H_0", H_0, lambda v: ((2-R_primary)/(S_CTP*TAU_0*v))**2),
     ]:
         shifted = base_val * (1 + delta_pct/100)
         OL_shifted = getter(shifted)

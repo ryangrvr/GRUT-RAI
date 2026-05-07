@@ -14,6 +14,7 @@ Includes:
 import numpy as np
 from grut.foundation.constants import G, HBAR, AMU
 from grut.foundation.anomaly import C_FINAL, R_ANOMALY, S_CTP
+from grut.foundation.closure_protocol import R_REFRACTIVE
 
 
 # ═══════════════════════════════════════════════════════
@@ -24,8 +25,10 @@ PARAMS = {
     "G": {"value": 6.67430e-11, "abs_err": 0.00015e-11, "rel_err_pct": 0.0022, "source": "CODATA 2018"},
     "HBAR": {"value": 1.054571817e-34, "abs_err": 0, "rel_err_pct": 0, "source": "exact (SI 2019)"},
     "C_FINAL": {"value": C_FINAL, "abs_err": 0, "rel_err_pct": 0, "source": "computed (scheme-protected)"},
+    "R_PRIMARY": {"value": R_REFRACTIVE, "abs_err": 0.0, "rel_err_pct": 0.0,
+                   "source": "closure protocol (R = sqrt(4/3))"},
     "R_ANOMALY": {"value": R_ANOMALY, "abs_err": 0.001, "rel_err_pct": 0.087,
-                   "source": "computed (C_Cosmo fragility ~1% per new DOF)"},
+                   "source": "verification-pending 3-loop value (scheme fragility ~1% per new DOF)"},
     "S_CTP": {"value": S_CTP, "abs_err": 0, "rel_err_pct": 0, "source": "108 pi (exact integer × pi)"},
     "H_0": {"value": 70.0, "abs_err": 1.5, "rel_err_pct": 2.14, "unit": "km/s/Mpc",
              "source": "tension between Planck (67.4±0.5) and SH0ES (73.0±1.0)"},
@@ -98,8 +101,8 @@ def propagate_omega_lambda():
     dOL/OL = 2 × sqrt((dR/(2-R))^2 + (dH_0/H_0)^2)
     (S and tau_0 have zero formal uncertainty)
     """
-    R = PARAMS["R_ANOMALY"]["value"]
-    dR = PARAMS["R_ANOMALY"]["abs_err"]
+    R = PARAMS["R_PRIMARY"]["value"]
+    dR = PARAMS["R_PRIMARY"]["abs_err"]
     H_0 = PARAMS["H_0"]["value"]
     dH_0 = PARAMS["H_0"]["abs_err"]
     
@@ -123,7 +126,7 @@ def propagate_omega_lambda():
             "R_anomaly": rel_R_contrib / (rel_R_contrib + rel_H0_contrib) * 100,
             "H_0": rel_H0_contrib / (rel_R_contrib + rel_H0_contrib) * 100,
         },
-        "dominant_source": "H_0 (Hubble tension)" if rel_H0_contrib > rel_R_contrib else "R_anomaly (scheme fragility)",
+        "dominant_source": "H_0 (Hubble tension)" if rel_H0_contrib > rel_R_contrib else "R_primary (closure protocol)",
     }
 
 
@@ -164,7 +167,7 @@ def monte_carlo_omega_lambda(n_samples=10000):
     """Monte Carlo propagation through the full OL chain."""
     np.random.seed(42)
     
-    R_samples = np.random.normal(R_ANOMALY, 0.001, n_samples)
+    R_samples = np.random.normal(R_REFRACTIVE, 0.0, n_samples)
     H0_samples = np.random.normal(70.0, 1.5, n_samples)  # km/s/Mpc
     
     tau_0 = 41.9e6 * 3.156e7

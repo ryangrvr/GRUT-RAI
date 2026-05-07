@@ -1,46 +1,47 @@
-"""Cosmological Constant — f(R)=2-R from 3-loop CTP on de Sitter.
+"""Cosmological Constant — f(R)=2-R from CTP structure.
 
-STATUS (per V7 §26.2):
-    f(R) = 2-R structure: COMPUTED (3-loop CTP on S^4, boundary conditions
-        f(1)=1, f(2)=0 verified numerically).
-    R value: COMPUTED. R_ANOMALY = 1.15428 from 3-loop CTP Laurent expansion
-        on Euclidean S^4 (V7 §26.2, primary-source audit). No coupling
-        constants enter; every integer traces to SM group theory. Independent
-        confirmation via R_EPSILON_CANDIDATE = 1.1537 (Osborn 2003 eq 36) at
-        0.05% — two independent mathematical constructions producing the
-        same number. Both yield Omega_Lambda = 0.6886 at 0.04% from Planck.
+STATUS (current):
+    f(R) = 2-R structure: COMPUTED (boundary conditions f(1)=1, f(2)=0).
+    R value: PRIMARY = R_REFRACTIVE = sqrt(4/3) via closure protocol.
+    3-loop R_ANOMALY = 1.15428 is verification-pending (expert audit needed).
+    Independent confirmation candidate: R_EPSILON_CANDIDATE = 1.1537
+    (Osborn 2003 eq 36), agreement at 0.05%.
 
-vacuum_prediction() accepts an optional R_choice parameter to use the
-primary computed R or the ε independent-confirmation value. Default
-remains R_ANOMALY for backward compatibility with existing tests.
+vacuum_prediction() accepts an optional R_choice parameter to select
+the closure-protocol R (default), or the 3-loop / epsilon routes.
 """
 import numpy as np
 from grut.foundation.anomaly import (
     C_FINAL, R_ANOMALY, R_EPSILON_CANDIDATE, S_CTP,
 )
+from grut.foundation.closure_protocol import R_REFRACTIVE
 from grut.foundation.constants import HBAR, G, C as C_LIGHT, K_B, T_PLANCK
 
 TAU_0 = 41.9e6 * 3.156e7
-H_INF = (2 - R_ANOMALY) / (S_CTP * TAU_0)
+R_PRIMARY = R_REFRACTIVE
+H_INF = (2 - R_PRIMARY) / (S_CTP * TAU_0)
 H_INF_EPSILON = (2 - R_EPSILON_CANDIDATE) / (S_CTP * TAU_0)
 
-def vacuum_prediction(H_0_kms=70.0, R_choice="hand"):
+def vacuum_prediction(H_0_kms=70.0, R_choice="closure"):
     """Cosmological prediction.
 
     Args:
         H_0_kms: Hubble constant in km/s/Mpc.
-        R_choice: "hand" for R_ANOMALY = 1.15428 (primary computation,
-            3-loop CTP on S^4, V7 §26.2; this is the default) or "epsilon"
-            for R_EPSILON_CANDIDATE = 1.1537 (independent SM-derivable
-            confirmation via Osborn 2003 eq 36).
+        R_choice: "closure" for R_REFRACTIVE = sqrt(4/3) (primary
+            closure-protocol value), "anomaly" for R_ANOMALY = 1.15428
+            (3-loop CTP, verification-pending), or "epsilon" for
+            R_EPSILON_CANDIDATE = 1.1537 (Osborn 2003 eq 36).
     """
     H_0 = H_0_kms * 1e3 / 3.0857e22
     if R_choice == "epsilon":
         R, H_inf = R_EPSILON_CANDIDATE, H_INF_EPSILON
-        status = "COMPUTED — R = epsilon_combined(SM, M_Z) = 1.1537, independent confirmation of R_anomaly via Osborn 2003 eq (36); matches primary derivation at 0.05% (V7 §26.1)"
-    else:
+        status = "COMPUTED — R = epsilon_combined(SM, M_Z) = 1.1537, independent confirmation candidate via Osborn 2003 eq (36)"
+    elif R_choice == "anomaly":
         R, H_inf = R_ANOMALY, H_INF
-        status = "COMPUTED — R_anomaly = 1.15428 from 3-loop CTP on S^4 (V7 §26.2, primary-source audit); independent confirmation via Osborn eps at 0.05%"
+        status = "VERIFICATION-PENDING — R_anomaly = 1.15428 from 3-loop CTP on S^4 (expert verification required); independent confirmation candidate via Osborn eps at 0.05%"
+    else:
+        R, H_inf = R_PRIMARY, H_INF
+        status = "COMPUTED — R = sqrt(4/3) via closure protocol (primary)"
     OL = (H_inf / H_0)**2
     return {"H_inf_Hz": H_inf, "H_0_Hz": H_0, "Omega_Lambda": OL,
             "Planck_OL": 0.6889, "deviation_pct": (OL/0.6889-1)*100,
@@ -63,7 +64,7 @@ def era_map(n_eras=329):
 
     See `theory/derivation/CORRECTION_14_RVOL_TYPO.md` for the full audit.
     """
-    alpha = 1-np.exp(-1); gamma = 0.000982; k = 2*np.pi/(R_ANOMALY-1); N_th = 215
+    alpha = 1-np.exp(-1); gamma = 0.000982; k = 2*np.pi/(R_PRIMARY-1); N_th = 215
     x, mem = 0.0, 0.0; history = []
     for n in range(n_eras):
         arg = min(500, max(-500, k*(n-N_th)))

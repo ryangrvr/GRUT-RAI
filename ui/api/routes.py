@@ -67,7 +67,7 @@ def material():
 def get_anomaly():
     return jsonify({"C_FINAL":anomaly.C_FINAL,"C_COSMO":float(anomaly.c_cosmo()),"R_ANOMALY":anomaly.R_ANOMALY,"S_CTP":anomaly.S_CTP,"f_R":2-anomaly.R_ANOMALY,
                      "R_EPSILON_CANDIDATE": anomaly.R_EPSILON_CANDIDATE,
-                     "status": "COMPUTED — R_ANOMALY = 1.15428 from 3-loop CTP on S^4 (V7 §26.2); primary-source audit confirms pure transcendental structure with no coupling inputs. Independent confirmation via ε_combined(SM, M_Z) = 1.1537 (Osborn 2003 eq 36) matches at 0.05%. Ω_Λ = 0.6886 at 0.04% from Planck. One specialist normalization check remains for the -100 integer; see /anomaly/derived for the Birrell-Davies 1-loop baseline."})
+                     "status": "VERIFICATION-PENDING — R_ANOMALY = 1.15428 from 3-loop CTP on S^4 (V7 §26.2); independent confirmation candidate via ε_combined(SM, M_Z) = 1.1537 (Osborn 2003 eq 36) matches at 0.05%. Primary R in the closure protocol is R_REFRACTIVE = sqrt(4/3). One specialist normalization check remains for the -100 integer; see /anomaly/derived for the Birrell-Davies 1-loop baseline."})
 
 @api.route('/anomaly/derived')
 def get_anomaly_derived():

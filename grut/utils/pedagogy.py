@@ -8,6 +8,7 @@ import numpy as np
 from grut.foundation.constants import G, HBAR, ZETA_3
 from grut.foundation.axioms import TAU_I
 from grut.foundation.anomaly import C_FINAL, R_ANOMALY, S_CTP
+from grut.foundation.closure_protocol import R_REFRACTIVE
 
 
 def walkthrough_constitutive_equation():
@@ -82,7 +83,8 @@ def walkthrough_decoherence():
 def walkthrough_bridge():
     """The connection from lab measurement to cosmological constant."""
     H_0 = 70e3 / 3.0857e22
-    H_inf = (2 - R_ANOMALY) / (S_CTP * 41.9e6 * 3.156e7)
+    R_primary = R_REFRACTIVE
+    H_inf = (2 - R_primary) / (S_CTP * 41.9e6 * 3.156e7)
     OL = (H_inf / H_0)**2
     return {
         "title": "The Bridge: Lab → Universe",
@@ -98,8 +100,8 @@ def walkthrough_bridge():
              "computed": {"C_FINAL": C_FINAL}},
             {"step": 3, "title": "The Structural Formula",
              "equation": "f(R) = 2 - R  →  H_∞ = (2 - R) / (S × τ₀)",
-             "explanation": f"Structure f(R) = 2-R is COMPUTED from 3-loop CTP on S⁴ (boundary conditions f(1)=1, f(2)=0, linear at 3-loop). Competing quadratic excluded by factor 70 in RMS. R value is COMPUTED: R = {R_ANOMALY} from 3-loop CTP Laurent expansion on S⁴ (V7 §26.2, primary-source audit — no coupling inputs). Independent confirmation via Osborn 2003 eq (36): ε_combined(SM, M_Z) = 1.1537 matches at 0.05% (§26.1). Here: R = {R_ANOMALY}, S = 108π = {S_CTP:.3f}.",
-             "computed": {"R": R_ANOMALY, "R_epsilon_candidate": 1.1537, "S": S_CTP, "f_R": 2-R_ANOMALY}},
+             "explanation": f"Structure f(R) = 2-R is COMPUTED from boundary conditions f(1)=1, f(2)=0. Primary R comes from the closure protocol: R = √(4/3) = {R_primary:.5f}. The 3-loop CTP value R = {R_ANOMALY} is verification-pending; Osborn 2003 eq (36) gives ε_combined(SM, M_Z) = 1.1537 as an independent confirmation candidate. Here: R = {R_primary:.5f}, S = 108π = {S_CTP:.3f}.",
+             "computed": {"R_primary": R_primary, "R_anomaly_verification_pending": R_ANOMALY, "R_epsilon_candidate": 1.1537, "S": S_CTP, "f_R": 2-R_primary}},
             {"step": 4, "title": "The Prediction",
              "equation": f"Ω_Λ = (H_∞ / H₀)² = {OL:.4f}  (Planck: 0.6889, +{(OL/0.6889-1)*100:.1f}%)",
              "explanation": "Four inputs: (2-R) derived, S derived, H₀ measured, τ₀ = the bridge parameter. Two computed + one measured + one bridge = one prediction.",

@@ -23,8 +23,9 @@ class TestVacuumPrediction:
     def test_default_R_is_hand_choice(self):
         from grut.derived.cosmology.vacuum import vacuum_prediction
         result = vacuum_prediction()
-        assert result["R_choice"] == "hand"
-        assert abs(result["R"] - 1.15428) < 1e-4
+        assert result["R_choice"] == "closure"
+        from grut.foundation.closure_protocol import R_REFRACTIVE
+        assert abs(result["R"] - R_REFRACTIVE) < 1e-6
 
     def test_epsilon_choice_uses_epsilon_value(self):
         from grut.derived.cosmology.vacuum import vacuum_prediction
@@ -40,13 +41,13 @@ class TestVacuumPrediction:
     def test_planck_match_at_H0_70(self):
         """V7 §26.2 central claim: Ω_Λ ≈ 0.69 at H_0 = 70 km/s/Mpc."""
         from grut.derived.cosmology.vacuum import vacuum_prediction
-        result = vacuum_prediction(H_0_kms=70.0, R_choice="hand")
+        result = vacuum_prediction(H_0_kms=70.0, R_choice="closure")
         # Planck is 0.6889; v7 claims deviation of ~0.3%
         assert abs(result["Omega_Lambda"] - 0.69) < 0.01
 
     def test_deviation_within_1pct_at_H0_70(self):
         from grut.derived.cosmology.vacuum import vacuum_prediction
-        result = vacuum_prediction(H_0_kms=70.0, R_choice="hand")
+        result = vacuum_prediction(H_0_kms=70.0, R_choice="closure")
         assert abs(result["deviation_pct"]) < 1.5
 
     def test_H_inf_is_1p885e_minus_18_Hz(self):
@@ -71,7 +72,7 @@ class TestVacuumPrediction:
     def test_epsilon_and_hand_agree_within_0p5pct(self):
         """V7 §26.1: ε matches R_anomaly at 0.05% → Ω_Λ within 0.5%."""
         from grut.derived.cosmology.vacuum import vacuum_prediction
-        hand = vacuum_prediction(R_choice="hand")
+        hand = vacuum_prediction(R_choice="closure")
         eps = vacuum_prediction(R_choice="epsilon")
         diff = abs(hand["Omega_Lambda"] - eps["Omega_Lambda"]) / hand["Omega_Lambda"]
         assert diff < 0.005

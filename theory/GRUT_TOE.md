@@ -57,7 +57,7 @@ Every honest negative is documented. Nothing is fitted away.
 
 The Grand Responsive Universe Theory (GRUT) is a candidate Theory of Everything built on a single premise: the gravitational vacuum is not empty space but a viscoelastic medium with finite relaxation time and finite impedance. One closed-time-path (CTP, Schwinger-Keldysh) effective action, evaluated on Euclidean S⁴ with Standard Model field content, produces a constitutive response equation whose sectoral limits yield quantum mechanics (exact), gravitational decoherence with zero free parameters (exact, six scaling laws), a cosmological constant Ω_Λ ≈ 0.69 within 0.2% of Planck from two independent routes (computed, zero free parameters), a Hubble rate H₀ ≈ 68.8 km/s/Mpc (zero parameters, cosmic-baseline) or 69.03 km/s/Mpc (one parameter, Friedmann integration) — both in the tension gap, baryon asymmetry within 8% (computed), a dark matter density of Ω_dm = 1/3 from geometry alone (zero parameters), and structural contacts with QCD, flavor, neutrinos, coupling unification, quantum gravity, and neural resonance — all from the same parent action.
 
-Two constants characterize the medium: a relaxation time τ₀ = 41.9 Myr anchored by the cosmic-baseline relation 1/(H₀ × 108π), and a vacuum impedance α = 1/3 from conformal-mode scalar identification (computed under named postulate). One computable constant — R = √(4/3) = 1.15470, the gravitational refractive index of the vacuum — follows directly from the derived impedance α = 1/3. A loop-corrected value R = 1.15428 from the 3-loop CTP on S⁴ (pending TJI verification), and an independently computed check at ε = 1.15367 from Osborn's local RG coefficients with measured SM couplings, converge with the canonical value to within 0.089% — two computed routes sharing no inputs.
+Two constants characterize the medium: a relaxation time τ₀ = 41.9 Myr anchored by the cosmic-baseline relation 1/(H₀ × 108π), and a vacuum impedance α = 1/3 from conformal-mode scalar identification (computed under named postulate). One computable constant — R = √(4/3) = 1.15470, the gravitational refractive index of the vacuum — follows directly from the derived impedance α = 1/3. A loop-corrected value R = 1.15428 from the 3-loop CTP on S⁴ is verification-pending (TJI Phase‑1), and an independently computed check at ε = 1.15367 from Osborn's local RG coefficients with measured SM couplings converges with the canonical value to within 0.089% — two computed routes sharing no inputs, with the 3‑loop route pending expert verification.
 
 The framework rests on two organizing principles. The first is the *viscoelastic medium* itself — the constitutive equation τ₀ dz/dt + z = z_target[z] applied to the gravitational vacuum. The second is *scale universality*: the same four constants (τ₀, α, S = 108π, R) govern phenomena across roughly sixty orders of magnitude in frequency, from Planck UV physics to Hubble expansion, through the same constitutive equation. Quantum mechanics, gravitational decoherence, dark matter, dark energy, baryogenesis, and the observer's classical definiteness are not separate effective theories at different scales — they are the same medium responding to different matter configurations, with constants that scale (don't run with energy), interact (actively produce the phenomenology), and remember (through the memory kernel τ₀⁻¹ exp(−t/τ₀)).
 
@@ -531,7 +531,7 @@ $$R = n_g = \sqrt{1 + \alpha} = \sqrt{\frac{4}{3}} = 1.15470$$
 
 This is the DC refractive index of the vacuum. The derivation chain is fully computed: conformal-mode scalar (KS 2011) → a/c = 1/3 → n_g = √(4/3). Every link is a passing test. No pending verifications. No honest negatives in the path.
 
-**Loop correction (3-loop CTP on S⁴).** The 3-loop CTP effective action evaluated on Euclidean S⁴ with SM field content produces a loop-corrected value:
+**Loop correction (3-loop CTP on S⁴).** The 3-loop CTP effective action evaluated on Euclidean S⁴ with SM field content produces a loop-corrected value (verification-pending):
 
 $$R_{\text{loop}} = \left|\frac{C_{\text{Cosmo}}}{C_{\text{FINAL}}}\right| = 1.15428$$
 
@@ -543,7 +543,7 @@ Every integer in the expression traces to a structural origin:
 - 576 = 16 × 36 (SU(2) Casimir × gauge-boson trace normalization)
 - −100 = −(Σ Y²)² (SM hypercharge sum squared — the conformal instability, Chapter 8)
 
-The FeynCalc verification confirms the 2-loop U(1)² sub-insertion topology. The primary-source audit (V7 §26.2) traces every factor to SM group theory. No coupling constants, no measured parameters, no scheme choice enters the computation.
+The FeynCalc verification confirms the 2-loop U(1)² sub-insertion topology. The primary-source audit (V7 §26.2) traces every factor to SM group theory. No coupling constants, no measured parameters, no scheme choice enters the computation. Full 3-loop verification remains specialist work (TJI Phase‑1).
 
 **Route 3 — Independent check (Osborn local RG, now computed).** Osborn (2003) equation (36) gives a per-gauge-group ε from the local RG flow coefficients. Applied to SM gauge groups at M_Z with coupling-squared weighting (the natural QCD-dominant hierarchy):
 
@@ -1109,6 +1109,32 @@ This section is mechanically generated from the open-question ledger in the code
 **Reading the ladder.** Tier 1 is housekeeping — necessary to make the framework reviewable but adds no new physics. Tier 2 is what the framework *invites the experimental community to do* — these are GRUT's near-term falsifiers, and active experimental programs (MAQRO, matter-wave interferometry, BMV-class entanglement) are positioned to test them. Tier 3 is the next theoretical step that the framework can pursue under its current machinery, and it gates two open negatives plus the perturbation-growth failure simultaneously. Tier 4 closes the gravity-side seams, including the loop-corrected R that V7 relied on. Tier 5 is the SM-derivation program. Tier 6 is the nonlinear quantum-gravity completion required for the framework to claim ToE status in the strong sense — it is the longest-horizon work, and its incompleteness is the framework's most explicit honest negative.
 
 The framework's deposit position: tiers 1-2 are achievable now and are the legitimate basis for external review; tiers 3-6 are the research roadmap that distinguishes candidate framework from completed theory. Specialists evaluating GRUT should evaluate it on its position in this ladder, not on the implicit standard of "complete and published Theory of Everything."
+
+**GRUT-RAI v3 Hard-Theory Benchmark — S4 CTP solver milestone ladder.**
+
+Stage 1 — Reproduce flat-space known results
+Confirm the engine handles ordinary 1-loop / 2-loop / 3-loop diagram bookkeeping.
+
+Stage 2 — Reproduce known curved-space trace anomaly coefficients
+a, c, b for scalar, Weyl fermion, gauge boson.
+
+Stage 3 — Build the S4 heat-kernel / Seeley-DeWitt basis
+This is the curved-background backbone.
+
+Stage 4 — Implement CTP doubling on curved background
+Forward/backward metrics g_plus, g_minus, Keldysh basis, retarded/Hadamard structure.
+
+Stage 5 — Compute 1-loop S4 effective action
+This is the first real curved-space benchmark.
+
+Stage 6 — Extend to 2-loop checks
+Compare against any known literature limits.
+
+Stage 7 — Attempt full 3-loop CTP S4
+Only after the earlier rungs pass.
+
+Stage 8 — Recover R without proxy
+This is the GRUT benchmark.
 
 **Toolkit-branch observation (research direction, not current framework content).** GRUT's foundational structure inherits explicitly from one branch of the nonperturbative-QFT toolkit: regularization-and-anomaly-coefficient calculus, with π (in S = 108π and noise-kernel normalization), digamma-like regularization integrals (in Khasanov-Segal trace-anomaly coefficients), imaginary numbers (in the iε prescription, the influence-functional noise term, the Schwinger-Keldysh contour), and −1/12 / zeta-regularization (in trace anomalies and conformal-mode contributions). It does *not* inherit from the adjacent branch: integrable systems, continued fractions, KAM-resonance hierarchies, quasiperiodic structures, and the φ / Fibonacci mathematics those produce. An examination of whether φ already appears somewhere in GRUT's existing self-referential structure (`theory/derivation/PHI_IN_FRAMEWORK_EXAMINATION.md`) finds it does not — at sub-1% precision, no framework constant matches a φ-related target value, and no fixed-point equation takes the φ-producing form `x² = x + 1`. The closest numerical coincidence (Weyl-fermion anomaly ratio a/c = 11/18 ≈ 1/φ at 1.12%) is consistent with random chance. The most substantive structural finding from the deeper hunt: φ appears *exactly* in 5-fold cyclic structure (2 cos(2π/5) = 1/φ); the framework has Z_3 generation structure, which uniquely selects N = 3 by anomaly cancellation. **If reality has hidden 5-fold structure — discrete flavor symmetry like A_5, quasicrystal-like vacuum structure, hidden gauge groups with 5-fold rotation, or icosahedral structure in a sector beyond the visible SM — that would be the natural place for φ to enter the framework.** Whether this branch is permanently absent from physical reality or whether the framework is missing structure from it is an open question for v2+ research, registered here for honesty rather than as a claim. The current deposit's predictions are unchanged by this observation; the framework's R = √(4/3) → 1 endpoint stands as derived from current structure. The φ research direction is documented for any future researcher who wants to pursue it.
 

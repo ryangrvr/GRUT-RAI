@@ -8,6 +8,7 @@ which predictions survive, which break, and where the theory is fragile.
 import numpy as np
 from grut.foundation.constants import G, HBAR, AMU
 from grut.foundation.anomaly import C_FINAL, R_ANOMALY, S_CTP
+from grut.foundation.closure_protocol import R_REFRACTIVE
 
 
 TAU_0 = 41.9e6 * 3.156e7
@@ -17,6 +18,7 @@ H_0_HZ = 70e3 / 3.0857e22
 def single_parameter_robustness():
     """Vary each parameter by ±1%, ±5%, ±10%, ±50% and check all predictions."""
     base = {
+        "R_primary": R_REFRACTIVE,
         "R_anomaly": R_ANOMALY,
         "S_CTP": S_CTP,
         "tau_0_s": TAU_0,
@@ -35,7 +37,9 @@ def single_parameter_robustness():
                 label = f"{'+' if sign > 0 else '-'}{pct}%"
                 
                 # Compute affected predictions
-                R = shift if param_name == "R_anomaly" else base["R_anomaly"]
+                R = shift if param_name == "R_primary" else base["R_primary"]
+                if param_name == "R_anomaly":
+                    R = shift
                 S = shift if param_name == "S_CTP" else base["S_CTP"]
                 tau = shift if param_name == "tau_0_s" else base["tau_0_s"]
                 H0 = (shift * 1e3 / 3.0857e22) if param_name == "H_0_kms" else H_0_HZ

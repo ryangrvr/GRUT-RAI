@@ -7,6 +7,7 @@ No hand-waving. Numbers vs numbers.
 import numpy as np
 from grut.foundation.noise_kernel import lambda_grav
 from grut.foundation.anomaly import R_ANOMALY, S_CTP
+from grut.foundation.closure_protocol import R_REFRACTIVE
 
 TAU_0 = 41.9e6 * 3.156e7
 
@@ -59,7 +60,8 @@ def decoherence_comparison(m=80.8e-15, l=1e-6, R=1e-6):
 def cosmology_comparison():
     """Compare cosmological constant predictions across frameworks."""
     H_0 = 70e3 / 3.0857e22
-    H_inf_grut = (2 - R_ANOMALY) / (S_CTP * TAU_0)
+    R_primary = R_REFRACTIVE
+    H_inf_grut = (2 - R_primary) / (S_CTP * TAU_0)
     OL_grut = (H_inf_grut / H_0)**2
 
     return {
@@ -68,7 +70,9 @@ def cosmology_comparison():
         "predictions": {
             "GRUT": {"value": OL_grut, "deviation_pct": (OL_grut/0.6889-1)*100,
                      "params": "1 (tau_0)", "derived": True,
-                     "formula": "((2-R)/(S tau_0 H_0))^2"},
+                     "formula": "((2-R)/(S tau_0 H_0))^2",
+                     "R_primary": R_primary,
+                     "R_anomaly_verification_pending": R_ANOMALY},
             "String_Theory": {"value": "10^-120 to 10^0 (landscape)", "deviation_pct": "undetermined",
                               "params": "~500 (moduli)", "derived": False,
                               "note": "Anthropic landscape: 10^500 vacua, no unique prediction"},

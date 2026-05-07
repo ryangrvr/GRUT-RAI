@@ -44,8 +44,9 @@ class TestBridgePrediction:
     def test_R_choice_hand_default(self):
         from grut.bridge.parameter import bridge_prediction
         result = bridge_prediction()
-        assert result["R_choice"] == "hand"
-        assert abs(result["R"] - 1.15428) < 1e-4
+        assert result["R_choice"] == "closure"
+        from grut.foundation.closure_protocol import R_REFRACTIVE
+        assert abs(result["R"] - R_REFRACTIVE) < 1e-6
 
     def test_R_choice_epsilon(self):
         from grut.bridge.parameter import bridge_prediction

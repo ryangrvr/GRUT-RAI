@@ -18,11 +18,9 @@ STATUS (per main document §26.2 and Appendix O):
              outward topological drive (conformal-mode instability).
     R_ANOMALY = |C_Cosmo / C_Final| = +1.15428: magnitude-only convenience
              retained for backward compatibility with every prior
-             derivation and test. All historic uses of R_ANOMALY in
-             Ω_Λ = ((2 − R)/(S τ₀))² take the magnitude — R enters
-             through the combination 2 − R where the cosmological
-             prediction is invariant to the sign convention inside R
-             provided it's used consistently.
+             derivation and test. This value is verification-pending
+             until specialist 3-loop audits are complete and is not
+             the primary R used by the closure protocol.
     S_CTP = 108 pi: COMPUTED from CTP path counting.
 
 ────────────────────────────────────────────────────────────────────
@@ -106,7 +104,9 @@ Independent confirmation via R_EPSILON_CANDIDATE = 1.1537 from
 Osborn 2003 eq (36), computed in
 grut/foundation/way2_epsilon_substitution.py. The two values agree
 at 0.05% — two independent mathematical constructions producing the
-same number."""
+same number. This 3-loop value remains verification-pending until
+specialist audits are complete; the closure protocol uses R_REFRACTIVE
+as the primary R."""
 
 R_ANOMALY_SIGNED: float = -1.15428
 """Physical signed ratio C_Cosmo / C_Final = −1.15428.
