@@ -1,0 +1,28 @@
+
+=== Phase-0.5 MS-bar Reconciliation — Honest Diagnostic ===
+
+IMPLEMENTATION STATUS: Module created, basic infrastructure works.
+RECONCILIATION TEST: FAILED — transcendentals not canceling.
+
+DATA:
+  Raw scheme ε⁰: -541/2304 (per V7 §26.2.3)
+  FeynCalc MS-bar ε⁰: 7/4 (target)
+  Expected arithmetic shift: 4573/2304
+
+COMPUTED:
+  T₁ = (-1/64) × [absorption ε² transcendental poly]  → ~80 chars of γ_E, log, π²
+  T₂ = (-25/384) × [2γ_E + 2log(π) + 4log(2)]         → transcendental
+  T₃ = -541/2304
+  
+  Sum: still has all transcendentals (γ_E, log(2), log(π), π²)
+  Cannot convert to Rational.
+
+FAILURE MODE: (a) from specification
+  Description: Transcendentals don't cancel despite simplification passes
+  Next action: Investigate whether Collins MS-bar absorption is correct variant,
+               or whether FeynCalc uses a modified scheme (e.g., MS-dagger, MS-prime)
+
+RECOMMENDATION:
+  1. Check if V7 §26.2.3 documents USE of a specific variant (not standard MS-bar)
+  2. If standard MS-bar is correct, likely interpretation issue not code bug
+  3. Phase-0.5 remains PENDING until scheme variant is identified

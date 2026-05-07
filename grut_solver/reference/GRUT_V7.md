@@ -141,7 +141,7 @@ No tested alternative model (constant floor, power-law, CSL, Diosi-Penrose point
 2. Geometry dependence at fixed mass (density-dependent)
 3. Entanglement-dependent rate (Bell states decohere slower)
 4. l-scaling with slope -1 (far-field)
-5. Geometric kink at l = 1.8R
+5. Geometric kink at l = 6^(1/3)R ≈ 1.817R
 6. Mass-squared scaling
 
 14/14 tests pass.

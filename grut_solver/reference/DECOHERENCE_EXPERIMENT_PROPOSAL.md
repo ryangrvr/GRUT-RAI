@@ -129,7 +129,7 @@ In the near field (l < 2R): Lambda ~ l^2 (slope = +2 on log-log).
 
 ### 3.5 Signature F6: Geometric kink
 
-At l = 1.8R, the rate has a kink where the near-field scaling transitions to the far-field scaling. No smooth power law can reproduce this feature.
+At l = 6^(1/3)R ≈ 1.817R, the rate has a kink where the near-field scaling transitions to the far-field scaling. No smooth power law can reproduce this feature.
 
 **Test:** Fine-scan Lambda vs l near l ~ 2R. Look for a slope change.
 

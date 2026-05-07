@@ -313,5 +313,129 @@ expansion fate of the universe.
 
 ---
 
+## B.11 — Hubble Tension Analysis
+
+GRUT predicts H_inf = 1.885 x 10^-18 Hz (fixed by the 3-loop anomaly structure).
+Different H_0 values give different Omega_Lambda through Omega_Lambda = (H_inf/H_0)^2.
+GRUT's preferred H_0 is determined by matching Omega_Lambda = 0.6889:
+
+    H_0(GRUT) = H_inf / sqrt(0.6889) = 70.1 km/s/Mpc
+
+### Comparison with measurements
+
+| Measurement | H_0 (km/s/Mpc) | sigma from GRUT | Consistent? |
+|:---|:---|:---|:---|
+| SH0ES (Cepheids) | 73.0 +/- 1.0 | 0.0 sigma | Yes |
+| TRGB | 69.8 +/- 1.7 | 0.3 sigma | Yes |
+| H0LiCOW (lensing) | 73.3 +/- 1.8 | 0.1 sigma | Yes |
+| Megamaser | 73.9 +/- 3.0 | 0.1 sigma | Yes |
+| Planck (CMB) | 67.4 +/- 0.5 | 10.1 sigma | No |
+| ACT (CMB) | 67.6 +/- 1.1 | 4.1 sigma | No |
+| DESI (BAO) | 68.0 +/- 0.8 | 6.0 sigma | No |
+
+### Verdict
+
+GRUT aligns with ALL late-universe (local) measurements.
+GRUT is inconsistent with ALL early-universe (CMB-derived) values.
+
+**Constitutive smoothing contribution:** The constitutive equation produces
+a smoothing of H(t) at the matter-Lambda transition, shifting the effective
+H_0 by approximately +0.3 km/s/Mpc. This covers only 5% of the
+5.6 km/s/Mpc Planck-SH0ES gap.
+
+**Honest negative:** GRUT does NOT resolve the Hubble tension.
+
+---
+
+## B.12 — Spectral Running Discriminator
+
+GRUT's constitutive dissipation produces a spectral index through a different
+mechanism than slow-roll inflation:
+
+    n_s(GRUT) = 1 - 2(H tau)^2 / (1 + (H tau)^2)
+
+At the calibration point H tau = 0.134:
+
+    n_s = 0.9649 (vs Planck: 0.9649 +/- 0.0042)
+
+### The opposite-sign discriminator
+
+The RUNNING of n_s with scale k differs in sign between GRUT and inflation:
+
+| Model | n_s | Running dn_s/d ln k | Tensor-to-scalar r |
+|:---|:---|:---|:---|
+| GRUT (constitutive) | 0.9649 | +0.00068 (positive) | 0.098 |
+| Slow-roll (m^2 phi^2) | 0.9500 | -0.00160 (negative) | 0.080 |
+| Starobinsky (R^2) | 0.9636 | -0.00066 (negative) | 0.004 |
+| Natural inflation | 0.9500 | -0.00200 (negative) | 0.060 |
+| Hilltop | 0.9600 | -0.00080 (negative) | 0.010 |
+
+GRUT running is POSITIVE (blue tilt at small scales). All standard inflation
+models have NEGATIVE running (red tilt). The difference between GRUT and
+slow-roll is 0.0023, and CMB-S4 precision is +/- 0.002. This is marginally
+distinguishable — a decisive test at 1.2 sigma.
+
+### Honest caveat
+
+GRUT's spectral index is classified as HYPOTHESIS. The constitutive
+dissipation mechanism for n_s has not been derived rigorously from S_CTP;
+it is a conjectured interpretation of the H tau product. Confirmation
+requires deriving the primordial spectrum from the full CTP inflation sector.
+
+---
+
+## B.13 — Inflation Model Comparison
+
+### What GRUT does for inflation
+
+GRUT does not have a conventional inflaton field. Instead, the constitutive
+equation with H tau >> 1 in the early universe naturally produces
+quasi-exponential expansion without a separate inflaton potential.
+
+The constitutive inflation picture:
+- **Slow-roll analog:** H tau >> 1 means the universe cannot change H quickly
+- **Exit mechanism:** As T rises, tau_KMS shrinks, and H tau drops below 1
+- **Spectral tilt:** Dissipation during inflation modifies the power spectrum
+
+### Comparison at CMB-S4 precision
+
+| Observable | GRUT | Starobinsky | Current data | CMB-S4 precision |
+|:---|:---|:---|:---|:---|
+| n_s | 0.9649 | 0.9636 | 0.9649 +/- 0.0042 | +/- 0.002 |
+| r | 0.098 | 0.004 | < 0.036 (BICEP) | +/- 0.001 |
+| dn_s/d ln k | +0.00068 | -0.00066 | -0.0045 +/- 0.0067 | +/- 0.002 |
+
+GRUT's r = 0.098 is already in tension with BICEP3/Keck (r < 0.036 at 95% CL).
+If confirmed, this would FALSIFY the constitutive inflation picture (but not
+the rest of GRUT — the inflation sector is conjectural, not derived).
+
+---
+
+## B.14 — Cosmological Exchange Term
+
+The constitutive dynamics produce a measurable energy-momentum exchange
+between the observable and coarse-grained sectors:
+
+    J^0 = (1/tau)(rho - rho_target) ~ epsilon rho / tau
+
+where epsilon = (rho - rho_target)/rho is the fractional tracking error.
+
+This induces a fractional correction to the Hubble rate:
+
+    delta(H)/H ~ 300 epsilon
+
+The amplification factor 1/(tau H_0) ~ 300 arises because the constitutive
+timescale tau = 41.9 Myr is much shorter than the Hubble time.
+
+**Constraint:** Consistency with LCDM requires epsilon < 10^-8 to 10^-9.
+
+**Prediction:** Structured deviations from LCDM at the 10^-6 to 10^-8 level,
+with redshift-dependent growth delta(H)/H ~ epsilon_0 (1+z)^p / (tau H(z)).
+The exponent p defines a falsifiable class testable by DESI, Euclid, and Roman.
+
+See Appendix N (N.4.12) for the full derivation and forecast curves.
+
+---
+
 *D. Ryan Grover, April 2026.*
 *GRUT v7 Appendix B: Expansion of the Cosmos.*

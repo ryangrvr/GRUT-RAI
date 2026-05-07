@@ -1,103 +1,144 @@
-# GRUT v7 — Appendix H: Consciousness
+# GRUT v7 — Appendix H: Neural Resonance and Constraints on Consciousness
 
-## Physical Constraints on the Substrate of Awareness
-
----
-
-## H.0 — Purpose
-
-This appendix does NOT claim to explain consciousness. It presents the
-computed results from Sector 13 (neural resonance) and the speculative
-interpretations that follow from the fixed-point framework.
-
-**Classification:** DEMONSTRATED (mathematics) + [SPECULATIVE] (interpretation).
+*D. Ryan Grover, April 2026*
 
 ---
 
-## H.1 — What Is Computed (Sector 13)
+## H.1 — Scope and Positioning
 
-**The 40 Hz result:**
+This appendix does not claim a derivation of consciousness from first
+principles. Instead, it investigates whether the GRUT framework imposes
+nontrivial physical constraints on systems capable of sustaining coherent,
+information-bearing neural dynamics commonly associated with conscious states.
 
-Two independent routes produce the gamma frequency at N ~ 38,064 neurons:
-
-    Route 1 (gravitational): N × Lambda_grav/dimer × N_dimers/neuron = 39.9 Hz
-    Route 2 (network topology): 1/(6 hops × 4 ms/hop) = 41.7 Hz
-
-No common parameters between routes. Not fitted.
-
-**Self-referential noise immunity:**
-
-At the fixed point z = z_target[z], the driving term is exactly zero.
-Pure self-reference (alpha = 1.0) gives distance-to-target = 0 at
-ANY noise level. At alpha = 0.99: 45-60× noise robustness.
-
-**The bridge:** The same CTP action that gives Omega_Lambda = 0.691
-(through the anomaly structure) gives 40 Hz (through the decoherence
-kernel). Scale ratio: H_inf / f_gamma = 4.7 × 10^-20.
-
-20/20 tests pass. These results are STRUCTURAL — they follow from the
-mathematics of the constitutive equation and the gravitational noise kernel.
+The goal is to determine whether the same CTP-based noise-dissipation
+structure that governs decoherence and cosmological relaxation yields
+quantitative conditions relevant to biological neural systems.
 
 ---
 
-## H.2 — What Is Speculative
+## H.2 — Framework
 
-**The self-referential interpretation:** At the fixed point z = z_target[z],
-the neural collective mode IS its own target. The system doesn't evolve
-toward a goal — it IS the goal. This is a structural property, not a
-subjective experience. Whether this structural self-reference has any
-connection to phenomenal consciousness is unknown.
+Within GRUT, dynamical systems are subject to:
 
-**The 1 Space hypothesis:** The totality of the target functional F[z] —
-the information content of the CTP action — is the undifferentiated
-substrate from which all physical states emerge. The brain at 40 Hz
-gamma resonance "couples to" this substrate through the self-referential
-fixed point. The coupling fraction is 10^-108 (38,000 neurons accessing
-10^15 bits out of 10^124 holographic bits).
+- Noise kernel (fluctuations from the CTP influence functional)
+- Dissipation kernel (relaxation governed by the constitutive equation)
+- Constitutive response dynamics (tau dz/dt + z = z_target[z])
 
-**This is the most speculative element of GRUT.** No mechanism for
-subjective experience is proposed. No theory of qualia is offered.
-The computed results (40 Hz, two routes, noise immunity) are testable.
-The interpretation (1 Space, consciousness as edge state) is not.
+A necessary condition for stable, information-bearing dynamics is the
+existence of a regime where:
+
+- Coherence is not immediately destroyed by noise
+- Dissipation does not overdamp signal propagation
+- The system can sustain collective modes over finite timescales
 
 ---
 
-## H.3 — What GRUT Constrains (Without Explaining)
+## H.3 — Resonance Scale
 
-Even without explaining consciousness, the framework constrains its
-physical substrate:
+Two independent routes within the framework produce a characteristic
+frequency scale:
 
-1. **Timescale:** The collective mode must operate at a frequency
-   matching the decoherence rate — this gives ~40 Hz for neural tissue
+**Route 1 (gravitational/noise-based):** The collective decoherence rate
+of N tubulin dimers in a neural network:
 
-2. **Threshold:** A minimum number of neurons (~38,000) is required
-   for the collective decoherence rate to match the processing rate
+    f_1 = N x Lambda_grav(m_dimer, l_dimer) x N_dimers/neuron
 
-3. **Noise immunity:** The self-referential fixed point provides
-   robustness against thermal, electromagnetic, and quantum noise —
-   this is necessary for any stable conscious state
+At N ~ 38,064 neurons: f_1 = 39.9 Hz.
 
-4. **The constitutive driving term is zero:** At the fixed point,
-   there is no "effort" to maintain the state. The brain at gamma
-   resonance is not actively sustaining coherence — it IS the coherent
-   state. This may relate to the effortless quality of conscious awareness.
+**Route 2 (topological/network-based):** The signal propagation time
+across a small-world neural network:
 
-5. **The bridge to cosmology:** The 40 Hz resonance and the cosmological
-   constant share the same anomaly constants (C_FINAL, S, R). Whether
-   this numerical connection has physical meaning or is a coincidence
-   of the framework's structure is an open question.
+    f_2 = 1 / (n_hops x t_hop) = 1 / (6 x 4 ms) = 41.7 Hz
+
+Both yield a frequency in the range omega* ~ 40 Hz.
+
+This scale is consistent with observed gamma-band neural activity in
+biological brains. The agreement is noted as a numerical correspondence,
+not a derivation of neural dynamics. The two routes share no common
+parameters and are not fitted to match.
 
 ---
 
-## H.4 — The Seven Kill Conditions
+## H.4 — Complexity Threshold
 
-The Sector 13 results can be falsified by:
+The framework imposes a lower bound on system size required to sustain
+coherent collective dynamics:
+
+**Estimated threshold:** ~10^4 interacting units (neurons).
+
+Below this scale:
+- Fluctuations dominate over collective signal
+- Coherent modes cannot be maintained against thermal noise
+
+This is consistent with the absence of complex cognition in systems
+below this scale, but is not claimed as a sufficient condition for
+consciousness.
+
+---
+
+## H.5 — Noise Robustness
+
+The analysis identifies a parameter (alpha) governing self-referential
+stability at the constitutive fixed point z = z_target[z]:
+
+- alpha = 1.0: idealized noise immunity (the driving term vanishes
+  identically, so no perturbation can displace the system). This is
+  the mathematical limit, not a physical claim.
+- alpha ~ 0.95-0.99: finite but significant robustness (45-60x noise
+  suppression relative to non-self-referential dynamics)
+
+In this regime, systems can maintain structured dynamics despite
+environmental noise. This is interpreted as a necessary condition
+for stable information processing, not as a mechanism for awareness.
+
+---
+
+## H.6 — Coupling Scale
+
+The coupling between gravitational noise and neural dynamics is
+extremely small:
+
+    epsilon ~ 10^-108
+
+This indicates that:
+- Gravitational effects are not dynamically dominant in neural systems
+- Any relevance is indirect (via structural constraints on the noise-
+  dissipation regime, not via direct gravitational forcing)
+
+This strongly limits causal claims linking gravity to neural activity.
+The computed resonance frequency arises from the decoherence RATE of
+tubulin-scale objects, not from gravitational forces on neurons.
+
+---
+
+## H.7 — Information-Theoretic Constraints
+
+Using standard bounds:
+- Bekenstein bound: neural systems operate well below the maximum
+  information content for their energy and size
+- Holographic bound: the brain's information processing capacity
+  (~10^15 bits/s estimated) is negligible compared to its holographic
+  limit (~10^69 bits)
+
+These results are consistency checks rather than predictions. They
+verify that the framework does not produce constraints incompatible
+with known neural information processing.
+
+---
+
+## H.8 — Kill Conditions
+
+The framework defines conditions under which the Sector 13 results
+would be falsified:
 
 1. No gamma-tubulin mass correlation across species
 2. No 40 Hz resonance in systems with ~38,000 tubulin-bearing neurons
-3. Alternative mechanism for 40 Hz that doesn't involve gravitational decoherence
-4. Decoherence rate at tubulin scale doesn't match computed Lambda_grav
-5. Gamma resonance occurs WITHOUT self-referential dynamics
+3. Alternative mechanism for 40 Hz demonstrated without gravitational
+   decoherence (this would remove the gravitational connection, though
+   the topological route would remain)
+4. Decoherence rate at tubulin scale does not match computed Lambda_grav
+5. Gamma resonance occurs without self-referential dynamics
 6. Consciousness persists at arbitrarily low neuron counts
 7. The gravitational and topological routes give inconsistent frequencies
 
@@ -105,21 +146,44 @@ Any one of these would remove the computed basis for Sector 13.
 
 ---
 
-## H.5 — Limitations
+## H.9 — Interpretation
 
-- No mechanism for subjective experience (the "hard problem")
-- No theory of qualia, intentionality, or phenomenal unity
-- The 1 Space hypothesis is philosophical, not physical
-- The consciousness interpretation is OPTIONAL — the computed results
-  (40 Hz, noise immunity) stand without it
-- Alternative explanations for 40 Hz gamma exist (e.g., purely neural
-  oscillatory dynamics without gravitational decoherence)
+The results support the following limited claim:
 
-**The honest framing:** GRUT computes a specific neural resonance frequency
-from gravitational decoherence. Whether this has anything to do with
-consciousness is an empirical and philosophical question that the
-framework cannot answer.
+**GRUT provides a set of necessary (but not sufficient) physical
+conditions under which complex, coherent neural dynamics can exist.**
+
+It does not:
+- Derive neural architectures from the CTP action
+- Explain subjective experience (the "hard problem")
+- Uniquely predict biological structure
+- Propose a mechanism for qualia, intentionality, or phenomenal unity
+
+The computed results (40 Hz from two routes, noise immunity at the
+fixed point, complexity threshold) are testable independent of any
+interpretation regarding consciousness.
+
+---
+
+## H.10 — Status
+
+This sector is classified as:
+
+**Speculative / Exploratory**
+
+with the following contributions:
+- Identification of a characteristic dynamical scale (~40 Hz) from
+  two independent routes with no common parameters
+- Quantitative constraints on system size (~10^4 neurons) and
+  robustness (45-60x noise suppression)
+- Explicit falsification conditions (7 kill tests)
+- Clear demarcation between computed results and interpretation
+
+Further validation would require direct comparison with
+neurophysiological data and controlled experimental tests across
+species with varying neural complexity.
 
 ---
 
 *D. Ryan Grover, April 2026.*
+*GRUT v7 Appendix H: Neural Resonance and Constraints on Consciousness.*

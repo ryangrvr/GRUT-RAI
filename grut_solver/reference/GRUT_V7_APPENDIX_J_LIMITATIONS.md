@@ -105,7 +105,84 @@ cosmological constant a zero-parameter prediction.
 
 ---
 
-## J.7 — What GRUT IS
+## J.7 — Full TOE Gap Assessment
+
+A complete theory of everything requires addressing 13 major physics problems.
+GRUT's status on each:
+
+### Derived (2 results independent of anomaly constants)
+
+| Problem | GRUT Result | Status | Params |
+|:---|:---|:---|:---|
+| Gravitational decoherence | Lambda_grav = G m^2 S / (hbar l), 6 scaling laws | DERIVED (Diósi-AH kernel) | 0 |
+| Koide identity | K = 2/3 exact, N = 3 unique (algebraic proof) | DERIVED (observed relation) | 0 |
+
+### Conditional (5 results that depend on the 3-loop anomaly coefficients)
+
+NOTE: These results depend on C_FINAL, R_ANOMALY, and S_CTP, which have been
+assembled from SM field content but have NOT been independently computed from
+Feynman diagrams. If a complete 3-loop calculation confirms R ≈ 1.15, these
+results become COMPUTED. Until then, they are CONDITIONAL.
+
+| Problem | GRUT Result | Status | Dependency |
+|:---|:---|:---|:---|
+| Cosmological constant | Omega_Lambda = 0.6904 if R ≈ 1.15 | CONDITIONAL | C_FINAL, R_ANOMALY, S_CTP, tau_0 |
+| Baryon asymmetry | eta_B = 6.57 x 10^-10 if anomaly confirmed | CONDITIONAL | C_FINAL, R_B decomposition |
+| Dark matter sector | Route 1 structure; specific couplings anomaly-dependent | CONDITIONAL | C_FINAL |
+| SM emergence | 5 CTP constraints select SU(3) x SU(2) x U(1) | STRUCTURAL | Constraint analysis, not derivation |
+| Quantum gravity (linearized) | 5/5 closure gates passed | STRUCTURAL | tau_0 branch |
+
+### Structural (3 results constrained but not fully derived)
+
+| Problem | GRUT Status | Gap |
+|:---|:---|:---|
+| Strong CP | theta = 0 from QCD fixed point (no axion) | Instanton sector not fully resolved |
+| Inflation | Constitutive dissipation gives n_s = 0.965 | No inflaton, no A_s, conjectural |
+| Gauge group | Selected by CTP constraints, not derived | Group is selected, not produced |
+
+### Honest Negatives (3 known failures)
+
+| Problem | GRUT Result | Severity |
+|:---|:---|:---|
+| Hierarchy | UV softened (1/omega^3) but m_Higgs << M_Planck NOT explained | Fundamental |
+| Perturbation growth | Growth factor = 1.0 vs required 3375 | Fundamental |
+| Fermion masses | Koide structure proven but M_0, theta free (2 per sector) | Open |
+
+### The Hierarchy-vs-CC Distinction
+
+This is a common confusion that must be addressed explicitly:
+
+- **Cosmological constant problem:** Why is the vacuum energy so small? GRUT
+  computes Omega_Lambda = 0.6904 from the 3-loop anomaly. The CC problem
+  is ADDRESSED (the vacuum energy is not M_Planck^4 because the CTP action
+  automatically includes all loop orders, and C_FINAL captures the finite,
+  scheme-protected contribution).
+
+- **Hierarchy problem:** Why is the Higgs mass 125 GeV instead of 10^19 GeV?
+  GRUT does NOT solve this. UV softening (1/omega^3 spectral fall-off) tames
+  some divergences but does not explain the electroweak scale. This is a
+  DIFFERENT problem from the CC, and GRUT's cosmological success does not
+  transfer to it.
+
+### Perturbation Growth: A Computed Failure
+
+The first-order constitutive equation tau d(delta)/dt + delta = delta_target
+was tested for structure formation (Appendix F):
+
+- Required: density perturbations grow from delta ~ 10^-5 to delta ~ 0.1
+  (growth factor D ~ 3375)
+- GRUT result: D = 1.0 (perturbations do not grow)
+- Reason: The first-order constitutive equation relaxes perturbations TOWARD
+  the target, not away from it. The Jeans instability requires d^2(delta)/dt^2,
+  which is absent from the first-order formulation.
+
+This is NOT "open" or "in progress" — it is a tested, computed failure of the
+first-order constitutive projection for structure formation. Resolution requires
+extending to the full second-order Jeans equation.
+
+---
+
+## J.8 — What GRUT IS
 
 A unified CTP-based framework with:
 - A sharp predictive core (decoherence scaling laws, zero parameters)

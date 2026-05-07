@@ -1,107 +1,152 @@
-# GRUT v7 — Appendix G: Prebiotic Complexity and Life
+# GRUT v7 — Appendix G: Prebiotic Complexity and Dissipative Fixed Points
 
-## Life as a Dissipative Fixed Point Far from Equilibrium
-
----
-
-## G.0 — Purpose
-
-This appendix explores the constitutive framework's implications for the
-emergence of life. It does NOT claim to explain life. It identifies the
-conditions under which life-like systems (self-replicating, dissipative,
-noise-resistant) emerge naturally from the constitutive dynamics.
-
-**Classification:** [SPECULATIVE]. This appendix contains no computed results.
-It is a conceptual extension of the framework, clearly labeled.
+*D. Ryan Grover, April 2026*
 
 ---
 
-## G.1 — What the Framework Provides
+## G.1 — Scope and Positioning
 
-The constitutive equation describes systems that:
+This appendix does not claim to explain the origin of life or derive
+biological structure from the CTP action. Instead, it examines whether
+the constitutive framework's generic features — relaxation, noise,
+entropy production, and structural stability — impose constraints on
+systems capable of sustaining self-replicating, dissipative dynamics.
 
-1. **Relax toward fixed points** (tau dz/dt + z = z_target[z])
-2. **Are driven by intrinsic noise** (from the CTP noise kernel)
-3. **Produce entropy irreversibly** (from Appendix D)
-4. **Form stable structures under noise** (from Appendix F)
-
-Life requires ALL FOUR:
-- Metabolism = relaxation toward a thermodynamic target (energy processing)
-- Mutation = noise-driven exploration of configuration space
-- Irreversibility = time-directed dynamics (growth, not reversal)
-- Structure = stable molecular architecture under thermal fluctuations
-
-The constitutive framework provides these as GENERIC features, not special
-additions. Any system governed by the constitutive equation in the right
-parameter regime exhibits all four.
+The goal is to determine whether the same noise-dissipation structure
+that governs decoherence provides necessary conditions for complex
+prebiotic chemistry, without claiming sufficiency.
 
 ---
 
-## G.2 — The Living Fixed Point
+## G.2 — Framework
 
-A living system, in constitutive language, is:
+The constitutive equation tau dz/dt + z = z_target[z] describes systems
+that exhibit four generic features:
 
-    z_life = z_target[z_life]     (self-maintaining)
+| Feature | Constitutive origin | Biological analog |
+|:---|:---|:---|
+| Relaxation toward fixed points | tau dz/dt + z = z_target | Metabolism (energy processing toward homeostasis) |
+| Intrinsic noise | CTP noise kernel N | Mutation (stochastic variation in molecular configurations) |
+| Irreversible entropy production | Axiom A1 (retarded variation) | Growth and aging (time-directed processes) |
+| Structural stability under noise | Fixed-point basin width > noise | Molecular architecture (protein folding, DNA base pairing) |
 
-with the additional property that z_target INCLUDES z_life itself:
+These are GENERIC properties of constitutive dynamics. They are not
+specific to biology and arise in any system governed by the CTP action
+in the appropriate parameter regime.
+
+---
+
+## G.3 — The Fixed-Point Condition
+
+A self-maintaining system satisfies:
+
+    z* = z_target[z*]
+
+with the stability condition that all eigenvalues |lambda_i| < 1 at z*.
+
+A self-REPLICATING system additionally requires that z_target includes
+copies of the system itself:
 
     z_target[z] = f(z, environment, z_copies)
 
-where z_copies are replicated versions of the system. This is
-SELF-REFERENTIAL SELF-REPLICATION: the target state includes
-copies of the system that pursues the target.
-
-**The constitutive stability condition for life:**
-- All eigenvalues |lambda_i| < 1 (metabolic stability)
-- Noise amplitude < basin width (survival under thermal fluctuations)
-- The replication operator has a fixed point (the population is self-sustaining)
-
-**What GRUT adds:** The noise is not environmental — it is INTRINSIC
-(from S_CTP). This means that the fluctuations driving mutation are
-the same fluctuations that drive decoherence and cosmic expansion.
-Life does not operate "despite" quantum noise — it operates WITH it,
-using the CTP noise as the engine of variation.
+This is a self-referential fixed point: the target state depends on the
+existence of the system pursuing the target. The constitutive framework
+accommodates this structure but does not require it — self-referential
+fixed points are a subset of all possible fixed points.
 
 ---
 
-## G.3 — The Relevant Regime
+## G.4 — Scale Coincidence
 
-From Appendix F, the decoherence boundary Xi ~ 1 lies at the scale of
-large biomolecules (~500-20,000 amu). This is precisely the scale of
-proteins, RNA, and the molecular machinery of life.
+The decoherence boundary (Xi ~ 1, where gravitational decoherence rate
+matches thermal relaxation rate) lies at the mass scale of large
+biomolecules:
 
-**This is not a coincidence in GRUT's framing:** The decoherence boundary
-is where the constitutive dynamics transitions from quantum (purely
-Hamiltonian) to classical (noise-dominated). Life operates at this
-boundary — exploiting quantum effects (enzyme tunneling, photosynthesis
-coherence) while maintaining classical stability (protein folding,
-DNA base pairing).
+    m_boundary ~ 500-20,000 amu
 
-**But this is also not a GRUT prediction:** The coincidence of biological
-scales with the decoherence boundary is observed, not derived. The
-framework provides a context for understanding it, not an explanation.
+This overlaps with the mass range of:
+- Proteins (~5,000-500,000 amu)
+- RNA (~25,000-10^6 amu)
+- Molecular machinery of the cell
+
+The coincidence is noted. It is not derived from the framework and may
+be accidental. However, it is consistent with the observation that
+biological systems operate at the quantum-classical boundary, exploiting
+quantum effects (enzyme tunneling, photosynthetic coherence) while
+maintaining classical structural stability.
 
 ---
 
-## G.4 — What GRUT Does NOT Explain About Life
+## G.5 — Noise as Variational Engine
 
-- The specific chemistry of life (why carbon, why water)
+In the constitutive framework, noise is intrinsic (from the CTP influence
+functional), not environmental. This means the fluctuations that drive:
+
+- Molecular rearrangement
+- Chemical bond formation and breaking
+- Conformational changes in polymers
+
+originate from the same physical structure as:
+
+- Gravitational decoherence
+- Cosmic expansion
+
+This is a structural observation about the framework's unity, not a
+claim about biological mechanism. The practical dynamics of prebiotic
+chemistry are governed by thermal fluctuations at scales far above
+where gravitational noise is relevant.
+
+---
+
+## G.6 — What the Framework Does Not Explain
+
+- The specific chemistry of life (carbon, water, phospholipids)
 - The origin of the genetic code
 - Abiogenesis (the first self-replicating molecule)
-- The specific pathway from prebiotic chemistry to cells
-- Why life exists at all (the framework provides conditions, not necessity)
+- The pathway from prebiotic chemistry to cells
+- Why life exists at all
 
-**Life is compatible with the constitutive framework. It is not derived from it.**
+The framework provides conditions (relaxation, noise, stability,
+irreversibility) that are necessary for life-like dynamics. It does
+not provide sufficient conditions. Many systems satisfy these conditions
+without being alive.
 
 ---
 
-## G.5 — Limitations
+## G.7 — Kill Conditions
 
-This appendix is entirely [SPECULATIVE]. No equations are solved.
-No predictions are made. The framework provides an organizing principle
-(dissipative fixed points under CTP noise) that is CONSISTENT with life
-but does not REQUIRE it. Any claim beyond consistency is overclaiming.
+The following observations would contradict the framework's constraints:
+
+1. Life-like self-replication in a system with no dissipation (no
+   entropy production)
+2. Stable biological structure maintained without noise immunity
+   (eigenvalues |lambda_i| > 1 at the fixed point)
+3. Complex prebiotic chemistry at mass scales far from the decoherence
+   boundary (either purely quantum or purely classical)
+
+These are consistency checks, not predictions.
+
+---
+
+## G.8 — Status
+
+This appendix is classified as:
+
+**Speculative / Exploratory**
+
+with the following contributions:
+- Identification of four generic constitutive features relevant to
+  prebiotic complexity
+- Observation of a scale coincidence between the decoherence boundary
+  and biomolecular mass scales
+- Explicit enumeration of what the framework does not explain
+- Clear demarcation between structural observation and biological claim
+
+No computed results. No predictions. The framework provides an
+organizing principle (dissipative fixed points under CTP noise) that
+is consistent with life but does not require it.
 
 ---
 
 *D. Ryan Grover, April 2026.*
+*GRUT v7 Appendix G: Prebiotic Complexity and Dissipative Fixed Points.*

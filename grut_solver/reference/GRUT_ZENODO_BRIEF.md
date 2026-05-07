@@ -237,14 +237,14 @@ Before testing discriminants, we verify that GRUT is not already excluded by pub
 | Sig2 | Geometry scaling (193× span across densities) | Extended-body self-energy S(l/R) | DP point-mass |
 | Sig3 | Entanglement dependence (Bell −17%) | Correlated mass distribution in Diósi functional | CSL, nuisance floors |
 | Sig4 | Separation scaling (slope = −1.00) | USL functional form Λ ~ 1/l | CSL (slope = +1.2) |
-| Sig5 | Geometric kink at l ≈ 1.8R | Near-field → far-field crossover | Single smooth power-law models |
+| Sig5 | Geometric kink at l ≈ 6^(1/3)R ≈ 1.817R | Near-field → far-field crossover | Single smooth power-law models |
 | Sig6 | Mass-squared ratio consistency | Internal closure (Λ₁/Λ₂ = (m₁/m₂)² in far field) | Self-consistency check |
 
 Six signatures within the GRUT framework. Zero free parameters in the gravitational decoherence sector.
 
 ### 7.4 The Kink Signature (Sig5)
 
-The extended-body correction produces a qualitative feature in the Λ(l) curve: in the near field (l < 2R), the decoherence rate increases as l² (from the (l/R)³ suppression divided by l). In the far field (l > 2R), the rate decreases as 1/l. The result is a peak at l ≈ 1.8R, where the rate is maximized.
+The extended-body correction produces a qualitative feature in the Λ(l) curve: in the near field (l < 2R), the decoherence rate increases as l² (from the (l/R)³ suppression divided by l). In the far field (l > 2R), the rate decreases as 1/l. The result is a peak at l ≈ 6^(1/3)R ≈ 1.817R, where the rate is maximized.
 
 For the reference platform (R = 50 nm): peak at l = 91 nm, Λ_peak = 694 Hz.
 
