@@ -22,10 +22,14 @@ Print["Gate 3 Phase A: Laurent Extraction in h_- (hminus_derivative_regularized)
 Print["Specification: gate3-hminus-dr-spec-v1.0"];
 Print["Start time: " <> DateString[]];
 
-(* Load HypExp *)
-If[!MemberQ[$ContextPath, "HypExp`"], AppendTo[$ContextPath, "HypExp`"]];
-Needs["HypExp`"];
-Print["HypExp package loaded successfully"];
+(* Load HypExp from user Applications directory *)
+hypexp_path = FileNameJoin[{$HomeDirectory, "Library", "Wolfram", "Applications", "HypExp-2.0"}];
+If[DirectoryQ[hypexp_path],
+  AppendTo[$Path, hypexp_path];
+  Needs["HypExp`"],
+  Print["WARNING: HypExp directory not found at " <> hypexp_path]
+];
+Print["HypExp package load attempt complete"];
 
 (* ===== Constants & Configuration ===== *)
 
@@ -124,26 +128,26 @@ Do[
   data_this_eps = Select[successful_samples, #[[2]] == eps &];
   
   If[Length[data_this_eps] >= 5,
-    (* Use polynomial fit up to order 3 in h_- *)
-    fit = LinearModelFit[
-      {#[[1]], #[[3]]} & /@ data_this_eps,
-      {1, h, h^2, h^3},
-      h
-    ];
+    (* Prepare data as {{h1, I1}, {h2, I2}, ...} *)
+    data_pairs = Map[{#[[1]], #[[3]]} &, data_this_eps];
     
-    (* Extract coefficients *)
-    coeff_0 = Normal[fit] /. h -> 0;
-    coeff_1 = D[Normal[fit], h] /. h -> 0;
-    coeff_2 = D[Normal[fit], {h, 2}]/2! /. h -> 0;
-    coeff_3 = D[Normal[fit], {h, 3}]/3! /. h -> 0;
+    (* Fit polynomial up to degree 3 in h *)
+    fit = LinearModelFit[data_pairs, {1, h, h^2, h^3}, h];
     
-    laurent_coefficients[eps] = {
-      "A_0" -> coeff_0,
-      "A_1" -> coeff_1,
-      "A_2" -> coeff_2,
-      "A_3" -> coeff_3,
+    (* Extract coefficients: derivative approach *)
+    fit_normal = Normal[fit];
+    coeff_0 = fit_normal /. h -> 0;
+    coeff_1 = (D[fit_normal, h] /. h -> 0);
+    coeff_2 = (D[fit_normal, {h, 2}] /. h -> 0) / 2;
+    coeff_3 = (D[fit_normal, {h, 3}] /. h -> 0) / 6;
+    
+    laurent_coefficients[eps] = <|
+      "A_0" -> N[coeff_0, 15],
+      "A_1" -> N[coeff_1, 15],
+      "A_2" -> N[coeff_2, 15],
+      "A_3" -> N[coeff_3, 15],
       "fit_r2" -> fit["RSquared"]
-    };
+    |>;
   ],
   {eps, epsilon_values}
 ];
@@ -166,6 +170,21 @@ Print["Empirically determined pole order: " <> ToString[pole_order]];
 
 Print["Formatting output JSON..."];
 
+(* Build I_samples dictionary more carefully *)
+i_samples_dict = <||>;
+Do[
+  key = StringJoin[ToString[N[sample[[1]], 5]], "_", ToString[N[sample[[2]], 5]]];
+  i_samples_dict[key] = N[sample[[3]], 20],
+  {sample, successful_samples}
+];
+
+(* Build coefficients dictionary *)
+coeff_dict = <||>;
+Do[
+  coeff_dict[ToString[eps]] = laurent_coefficients[eps],
+  {eps, epsilon_values}
+];
+
 output_json = <|
   "spec_version" -> "1.0",
   "date" -> DateString[],
@@ -173,26 +192,19 @@ output_json = <|
   "epsilon_values" -> epsilon_values,
   "total_samples" -> Length[samples],
   "successful_samples" -> Length[successful_samples],
-  "I_samples" -> <|
-    StringJoin[ToString[N[#[[1]], 5]], ", ", ToString[N[#[[2]], 5]]] -> N[#[[3]], 20]
-    & /@ successful_samples
-  |>,
+  "I_samples" -> i_samples_dict,
   "laurent_fit" -> <|
     "pole_order" -> pole_order,
-    "coefficients" -> <|
-      ToString[eps] -> laurent_coefficients[eps]
-      & /@ epsilon_values
-    |>,
+    "coefficients" -> coeff_dict,
     "fit_quality" -> <|
       "method" -> "LinearModelFit polynomial degree 3",
-      "avg_r2" -> Mean[Map[#"fit_r2" &, Values[laurent_coefficients]]]
+      "avg_r2" -> N[Mean[Map[#["fit_r2"] &, Values[laurent_coefficients]]], 10]
     |>
   |>
 |>;
 
-(* Write JSON *)
-json_string = ExportString[output_json, "JSON"];
-Put[json_string, output_file];
+(* Write JSON using Export *)
+Export[output_file, output_json, "JSON"];
 
 Print["Output written to: " <> output_file];
 Print["File size: " <> ToString[FileByteCount[output_file]] <> " bytes"];

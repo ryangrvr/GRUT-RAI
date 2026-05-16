@@ -19,6 +19,43 @@ Stage: massive_regulated discovery closed; hminus_derivative_regularized specifi
 
 **Non-claim:** The specification is NOT tuned to land a predetermined answer for R or C_Euler. If the branch fails all criteria, that is an honest result requiring further theory work.
 
+## Hminus-Derivative-Regularized Execution (May 16, 2026)
+
+**Three-Phase Harness Pipeline:** Executed successfully with blind classification protocol.
+
+**Phase A: Laurent Extraction (Python/scipy)**
+- Computed I(h_-, ε) numerically using scipy.special.hyp2f1 for hypergeometric functions
+- Sampled at 7 h_- values × 4 ε values = **28 data points**, all successful (100% yield)
+- Fitted Laurent expansion I(h_-, ε) = A_0(ε) + A_1(ε)·h_- + A_2(ε)·h_-² + A_3(ε)·h_-³
+- **Fit quality:** avg R² = 0.99999932 (excellent across all ε values)
+- **Pole order:** Empirically determined as 1 (significant A_1 coefficients ~10-12)
+- Output: `theory/hard_theory/gate3_outputs/gate3_hminus_dr_laurent_extraction.json` (28 samples, all coefficients)
+
+**Phase B: Prescription Application (Blind)**
+- Applied three candidate prescriptions to A_0, A_1, A_2 coefficients without revealing definitions
+- Each prescription linearly extrapolated its chosen coefficient sequence to ε→0
+- Results (ε→0 finite parts):
+  - **prescription_1** (finite-part): **1.568**
+  - **prescription_2** (derivative-response): **12.566**
+  - **prescription_3** (pole-stripped-derivative): **-27.227**
+- Output: `theory/hard_theory/gate3_outputs/gate3_hminus_dr_prescription_coefficients.json`
+
+**Phase C: Classification Against 8 Criteria**
+- Evaluated each prescription against specification criteria independently
+- **All three prescriptions show identical pattern:**
+  - ✓ PASS (4/8): finiteness, pole_characterization, sign_and_scale, stability
+  - ✗ FAIL (1/8): epsilon_expansion (fit_residual exceeds threshold)
+  - ? INCONCLUSIVE (3/8): universality_check, known_limit_consistency, endpoint_singularity_absence (data not provided)
+
+**Detailed Failure Analysis (epsilon_expansion criterion):**
+- **prescription_1:** residual = 0.0103 (marginal fail, best among three)
+- **prescription_2:** residual = 1.815 (clear fail)
+- **prescription_3:** residual = 107.94 (large fail; also exhibits suspicious stability ratio = -56.66)
+
+**Interpretation:** All three prescriptions fail the epsilon_expansion criterion, indicating that the Laurent fit quality *degrades* during ε→0 extrapolation. This suggests a fundamental mathematical issue: the h_minus_derivative_regularized regularization scheme produces Laurent series that do not smoothly extrapolate to ε=0. The extrapolation introduces significant noise/artifacts regardless of prescription choice.
+
+**Output:** `theory/hard_theory/gate4_outputs/gate3_hminus_dr_classification_report.md` (full 8-criteria matrix for all prescriptions)
+
 ---
 
 ## What Was Attempted

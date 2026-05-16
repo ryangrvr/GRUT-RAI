@@ -1,0 +1,22 @@
+{
+	"coefficient_name":"C_Euler_cosmo",
+	"value":"2.0037046808650585*^160",
+	"epsilon_pole":"1.2459475614259716*^158",
+	"finite_part":"2.0037046808650585*^160",
+	"scheme":"OR4-approved",
+	"regulator":"D=4-2epsilon",
+	"projection":"round_s4_euler",
+	"channel":"Euler",
+	"protected":true,
+	"source_tool":"Mathematica+HypExp",
+	"source_file":"GATE3_AJ_MASSIVE_REDUCED_HYPEXP.wl",
+	"branch_id":"massive_regulated",
+	"manual_target_matching":false,
+	"status":"computed",
+	"blocker":"endpoint_subtraction_numerical_fit_informational",
+	"m2_over_h2":"0.5",
+	"regulator_role":"massive_scalar_ir_regulator",
+	"regulator_approach":"reduced_integral",
+	"route":"D",
+	"elapsed_seconds":5.26606106e2
+}

@@ -1,0 +1,16 @@
+{
+  "coefficient_name": "C_Euler_cosmo",
+  "value": "2*(1 - Z^2)^((-3 + D)/2)*Integrate[Hypergeometric2F1[hminus, hplus, D/2, (1 + Z)/2]^3, {(1 + Z)/2, 0, 1}]",
+  "epsilon_pole": "0",
+  "finite_part": "2*(1 - Z^2)^((-3 + D)/2)*Integrate[Hypergeometric2F1[hminus, hplus, D/2, (1 + Z)/2]^3, {(1 + Z)/2, 0, 1}]",
+  "scheme": "OR4-approved",
+  "regulator": "D=4-2epsilon",
+  "channel": "Euler",
+  "projection": "round_s4_euler",
+  "protected": true,
+  "source_tool": "Mathematica+HypExp",
+  "source_file": "GATE3_AJ_CUBE_INTEGRAL_HYPEXP.wl",
+  "manual_target_matching": false,
+  "status": "computed",
+  "blocker": null
+}

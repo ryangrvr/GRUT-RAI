@@ -54,17 +54,25 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
     LedgerEntry(
         claim_id="tji_7_4_open_negative",
         closure_condition=(
-            "Curved-space TJI on Euclidean S⁴ produces the FeynCalc-"
-            "claimed +7/4 from a fully verified Laurent expansion in "
-            "MS-bar (or any consistent scheme). Specifically, the "
-            "Allen-Jacobson S⁴ propagator must be activated and a "
-            "scheme-coherent reconciliation produced — not a Phase-0/0.5 "
-            "flat-space calculation."
+            "The 3-loop R route is legally constructed symbolically but "
+            "numerically uncomputed. The surviving route is the protected "
+            "round-S⁴ Euler anomaly quotient. Numeric promotion awaits "
+            "explicit Euler-channel coefficient extraction via the "
+            "Mathematica/HypExp target integral "
+            "(see theory/hard_theory/HYPEXP_TARGET_NOTEBOOK.ipynb). "
+            "Closure requires: C_Euler_cosmo and C_Euler_final computed "
+            "from ∫dZ [₂F₁(h₊,h₋;D/2;(1+Z)/2)]³(1-Z²)^{(D-3)/2} "
+            "with D=4-2ε, massless limit, Laurent extraction to ε⁰, "
+            "then injected via euler_coefficient_landing.land_euler_coefficients."
         ),
         closure_effort=(
-            "~3 weeks specialist work (Phase-1; requires curved-space "
-            "TJI machinery + scheme-handling). The Allen-Jacobson stub "
-            "module sits ready as the entry point."
+            "~3 weeks specialist work (Phase-1; requires Mathematica + "
+            "HypExp for the ₂F₁³ radial integral). Allen-Jacobson S⁴ "
+            "propagator is now Phase-1 IMPLEMENTED in Python. The "
+            "remaining step is the ε-expansion of the triple hypergeometric "
+            "product, which requires HypExp. Flat-space Phase-0.5 baseline: "
+            "ε⁰ = -541/2304 (raw MS-bar, unresolved FeynCalc variant). "
+            "Target: ε⁰ = -100 if Ω_Λ is to become parameter-free."
         ),
         affects=(
             "three_routes_convergence",  # would become 3-way computed
@@ -72,7 +80,7 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
             "h_inf_decomposition",       # H_∞ formula gains a 3rd route
         ),
         blocked_by=("allen_jacobson_phase1_stub_open_negative",),
-        last_review="2026-04-26",
+        last_review="2026-05-07",
     ),
 
     LedgerEntry(
@@ -187,18 +195,26 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
     LedgerEntry(
         claim_id="allen_jacobson_phase1_stub_open_negative",
         closure_condition=(
-            "Phase-1 implementation of the Allen-Jacobson S⁴ propagator "
-            "module — i.e. all evaluation functions return numerical "
-            "values rather than raising Phase1Pending. This unlocks "
-            "curved-space TJI calculations that in turn unlock "
-            "tji_7_4_open_negative."
+            "PHASE-1 PROPAGATOR IMPLEMENTED (2026-05-07). "
+            "grut/derivation/tji/allen_jacobson.py now provides a working "
+            "SymPy implementation of the Allen-Jacobson S⁴ ₂F₁ propagator, "
+            "conformal closed form, UV series, spectral helpers, and a "
+            "sanity radial integral (37 tests pass). "
+            "tji_on_s4() raises S4CurvatureObstacle rather than Phase1Pending — "
+            "the remaining obstacle is the ε-expansion of "
+            "[₂F₁(h₊,h₋;D/2;(1+Z)/2)]³ × (1-Z²)^{(D-3)/2}, which requires "
+            "Mathematica + HypExp (see HYPEXP_TARGET_NOTEBOOK.ipynb). "
+            "This entry will close when C_Euler_cosmo and C_Euler_final are "
+            "injected via euler_coefficient_landing.land_euler_coefficients "
+            "with a valid OR4-approved source."
         ),
         closure_effort=(
-            "~3 weeks specialist work — same envelope as TJI Phase-1 "
-            "since they're tightly coupled."
+            "Propagator: DONE. Remaining: Mathematica/HypExp evaluation of "
+            "the triple-₂F₁ radial integral and injection via the landing "
+            "interface. Estimated ~2-3 weeks Mathematica specialist time."
         ),
         affects=("tji_7_4_open_negative",),
-        last_review="2026-04-26",
+        last_review="2026-05-07",
     ),
 
     LedgerEntry(

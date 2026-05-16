@@ -2863,23 +2863,33 @@ REGISTRY: tuple[Claim, ...] = (
         id="allen_jacobson_phase1_stub_open_negative",
         chapter=12,
         statement=(
-            "The Allen-Jacobson S⁴ propagator module is a STUB — every "
-            "evaluation function raises Phase1Pending (a "
-            "NotImplementedError subclass). The interface is pinned by "
-            "regression tests so silent activation cannot occur. Phase-1 "
-            "(curved-space TJI) replaces the stub with forward "
-            "evaluation; until then this is an explicit open negative."
+            "The Allen-Jacobson S⁴ propagator Phase-1 is IMPLEMENTED "
+            "(Correction #31, 2026-05-07): s4_propagator(), "
+            "s4_propagator_conformal(), s4_propagator_uv_series(), "
+            "volume_sphere(), spectral_degeneracy(), "
+            "spectral_eigenvalue(), tji_conformal_radial_integral() "
+            "all operational. tji_on_s4() raises S4CurvatureObstacle "
+            "(not Phase1Pending): the remaining gate is the ε-expansion "
+            "of [₂F₁(h₊,h₋;D/2;(1+Z)/2)]³ × (1-Z²)^{(D-3)/2} dZ "
+            "requiring Mathematica + HypExp. Coefficient intake in "
+            "euler_coefficient_landing.py; target: "
+            "HYPEXP_TARGET_NOTEBOOK.ipynb. Claim remains open_negative "
+            "until C_Euler_cosmo / C_Euler_final are numerically "
+            "extracted and pass the landing-interface decision gate."
         ),
         tier="open_negative",
         refs=(
             "grut/derivation/tji/allen_jacobson.py",
+            "grut/hard_theory/s4_ctp_solver/euler_coefficient_landing.py",
+            "theory/hard_theory/HYPEXP_TARGET_NOTEBOOK.ipynb",
         ),
         tests=("tests/derivation/tji/test_allen_jacobson.py",),
         deps=("tji_7_4_open_negative",),
         notes=(
-            "Curved-space S⁴ TJI is the natural sequel to Phase-0/0.5 "
-            "flat-space work; it remains explicitly stubbed pending the "
-            "scheme reconciliation upstream."
+            "Phase-1 propagator is done. The only remaining blocker is "
+            "the Mathematica/HypExp ε-expansion of the ₂F₁³ product "
+            "integral. Two-loop independent result (≈1.1498) must NOT "
+            "be merged into the 3-loop route."
         ),
     ),
 

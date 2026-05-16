@@ -1,0 +1,16 @@
+{
+  "coefficient_name": "C_Euler_cosmo",
+  "value": "1",
+  "epsilon_pole": null,
+  "finite_part": "1",
+  "scheme": "",
+  "regulator": "D=4-2epsilon",
+  "channel": "Euler",
+  "projection": "round_s4_euler",
+  "protected": true,
+  "source_tool": "Mathematica/HypExp",
+  "source_file": "gate3_dummy.nb",
+  "manual_target_matching": false,
+  "status": "computed",
+  "blocker": null
+}

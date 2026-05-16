@@ -1,0 +1,101 @@
+{
+  "spec_version": "1.0",
+  "extraction_date": "2026-05-16T00:40:56.272913",
+  "application_date": "2026-05-16T00:41:19.284607",
+  "prescriptions": {
+    "prescription_1": {
+      "prescription_label": "prescription_1",
+      "definition": "finite-part: extract A_0(epsilon=0)",
+      "epsilon_to_0_finite": 1.5677887023370083,
+      "epsilon_to_0_pole": 0.0,
+      "a0_samples": [
+        [
+          0.001,
+          1.5698964384328467
+        ],
+        [
+          0.002,
+          1.5724366146719877
+        ],
+        [
+          0.005,
+          1.5729178857173087
+        ],
+        [
+          0.01,
+          1.5780470690976092
+        ]
+      ],
+      "extrapolation_method": "linear",
+      "fit_residual": 0.010258366760600879,
+      "expansion_terms": [
+        1.5677887023370083,
+        0.0,
+        0.0
+      ]
+    },
+    "prescription_2": {
+      "prescription_label": "prescription_2",
+      "definition": "derivative-response: extract A_1(epsilon=0)",
+      "epsilon_to_0_finite": 12.56636147527704,
+      "epsilon_to_0_pole": 0.0,
+      "a1_samples": [
+        [
+          0.001,
+          11.967165902857113
+        ],
+        [
+          0.002,
+          11.070969025814625
+        ],
+        [
+          0.005,
+          11.658727694605814
+        ],
+        [
+          0.01,
+          10.751093913934588
+        ]
+      ],
+      "extrapolation_method": "linear",
+      "fit_residual": 1.815267561342452,
+      "expansion_terms": [
+        12.56636147527704,
+        0.0,
+        0.0
+      ]
+    },
+    "prescription_3": {
+      "prescription_label": "prescription_3",
+      "definition": "pole-stripped-derivative (pole_order=1)",
+      "epsilon_to_0_finite": -27.22676536419216,
+      "epsilon_to_0_pole": 0.0,
+      "a2_samples": [
+        [
+          0.001,
+          -1.4246462778851432
+        ],
+        [
+          0.002,
+          60.4774520095029
+        ],
+        [
+          0.005,
+          26.745321225279007
+        ],
+        [
+          0.01,
+          80.71740781475017
+        ]
+      ],
+      "extrapolation_method": "linear",
+      "fit_residual": 107.94417317894234,
+      "expansion_terms": [
+        -27.22676536419216,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "note": "Prescriptions labeled 1/2/3 (blind). Do not identify by name before classification."
+}
