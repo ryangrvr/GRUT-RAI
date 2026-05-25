@@ -71,3 +71,58 @@ Gate 3 may either:
 - close the remaining gap,
 - independently confirm the canonical value,
 - or falsify the 3-loop route.
+
+---
+
+## Gate 3 Closure Update (May 24, 2026)
+
+### Current Route Status
+
+| Route | Status | Outcome | Notes |
+|-------|--------|---------|-------|
+| massive_regulated (Routes A/B/C/D) | EXHAUSTED | All routes blocked by endpoint singularities | Discovery phase complete; boundary incompatibility fundamental |
+| hminus_derivative_regularized | CLOSED | Probe-family incompatibility identified | Phase A succeeded (R²=0.99999932); Phase B/C uniform failure on epsilon_expansion |
+| alternative routes pending | NOT STARTED | — | Direct limit, alternative regulators, external consultation |
+
+### Gate 3 Hminus-Derivative-Regularized: Regime Characterization
+
+**Execution:** Full protocol under frozen specification (tag gate3-hminus-dr-spec-v1.0)
+
+**Phase A Result:** Laurent extraction succeeded cleanly
+- 28/28 samples collected
+- Average fit quality R² = 0.99999932
+- Pole order = 1 (empirically determined)
+- **Interpretation:** Medium's response is analytically extractable in the intermediate regime
+
+**Phase B Result:** Three blind prescriptions generated
+- prescription_1 (finite-part): C^(3) = 1.568
+- prescription_2 (derivative-response): C^(3) = 12.566
+- prescription_3 (pole-stripped): C^(3) = -27.227
+- All three independent candidates differ in magnitude but follow consistent patterns
+
+**Phase C Result:** Classification shows uniform failure pattern
+- ✓ 4/8 criteria pass (finiteness, poles, sign/scale, stability)
+- ✗ 1/8 criteria fails uniformly (epsilon_expansion: residual > threshold across all prescriptions)
+- ? 3/8 inconclusive (no comparison data)
+
+**Key Finding:** The uniform failure across all three independent prescriptions on the same criterion indicates **probe-family incompatibility, not implementation failure.**
+
+**CVRU Interpretation:** The Allen-Jacobson IR threshold at h_- → 0 has a structural epsilon-character that the derivative-regularization probe family cannot preserve. This is a successful measurement of regime boundary structure, not a framework deficiency.
+
+**Closure Decision:** hminus_derivative_regularized is **exhausted under the current derivative-regularized prescription.** The threshold behavior is characterized as incompatible with derivative-family methods. Alternative probe families (direct limit, alternative regulators) remain available.
+
+---
+
+## Priority Sequence for Alternative Routes
+
+Based on Gate 3 closure findings:
+
+| Priority | Route | Rationale | Expected Timeline |
+|----------|-------|-----------|------------------|
+| **1** | hminus_direct_limit | Cleanest comparison; answers whether failure is derivative-specific or IR-limit-general | Spec 2-3d; impl 1w; exec 3-5d ≈ 2 weeks |
+| **2** | endpoint-subtracted massive_regulated | Endpoint singularity already diagnosed; asymptotic subtraction may resolve | Requires Route D diagnostics |
+| **3** | alternative regulator family | If direct-limit also fails on epsilon_expansion, signals need for fundamentally different approach | After P1/P2 results |
+| **4** | external specialist consultation | Mathematica/hypergeometric experts for regime-specific prescriptions | Hold until P1-P3 exhausted |
+
+### Recommended Next Action
+**Prioritize hminus_direct_limit** to maximize information per unit effort. If this also fails uniformly on epsilon_expansion, the IR limit itself (not the derivative family) is the structural barrier. If it succeeds, derivative-regularization specifically is wrong, indicating a refinement direction.

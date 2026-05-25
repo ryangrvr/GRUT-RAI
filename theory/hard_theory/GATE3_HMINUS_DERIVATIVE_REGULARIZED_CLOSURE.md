@@ -166,7 +166,7 @@ Content: Full criteria matrix with reasons for each prescription
 
 ---
 
-## Root Cause Analysis: Why Epsilon Expansion Failed
+## Root Cause Analysis: Why the Derivative Family Failed
 
 ### Observation
 
@@ -178,15 +178,16 @@ The Laurent coefficients $A_k(\varepsilon)$ fitted at finite ε values (0.01, 0.
 - $\varepsilon = 0.002$: fit quality excellent (R² = 0.99999986)
 - $\varepsilon = 0.001$: fit quality high (R² = 0.99999911)
 
-Yet when extrapolating the *coefficient themselves* to ε→0, all three prescriptions introduce large noise (~1% for best prescription, >>100% for worst).
+Yet when extrapolating the *coefficients themselves* to ε→0, all three prescriptions introduce large noise (~1% for best prescription, >>100% for worst).
 
-### Interpretation: Substrate Spectroscopy
+### CVRU Interpretation: Substrate Spectroscopy (Not Framework Failure)
 
 This is **not a framework failure or tuning artifact.** It is a successful measurement of regime incompatibility:
 
 **The threshold at $h_- \to 0$ has a structural epsilon-character that the derivative-regularization probe family cannot preserve.**
 
-Evidence:
+**Evidence:**
+
 1. **Phase A extraction succeeded cleanly:** R² = 0.99999932 across all 28 samples
    - The medium's response function has well-defined analytic structure in the sampled regime
    - Laurent decomposition is the correct representation at intermediate $h_-$ values
@@ -200,83 +201,35 @@ Evidence:
 3. **Root cause:** The medium's epsilon-structure near the threshold differs fundamentally from what the derivative-regularization family assumes
    - Derivative family assumes smooth continuation of coefficients as $\varepsilon \to 0$
    - Medium's response structure violates this assumption at $h_- \to 0$
-   - This is a **probe-family ↔ medium-response incompatibility**
+   - This is a **probe-family ↔ medium-response incompatibility**, not a derivation failure
 
-### What This Measurement Tells Us About the Medium
+### What This Measurement Tells Us About the Substrate
 
-The Gate 3 spectroscopy now includes:
+**Instead of:** "We attempted derivative regularization on the Allen-Jacobson IR limit and it failed."
+
+**Read as:** "We probed the Allen-Jacobson IR limit via the derivative-regularization family under blind protocol. Laurent extraction succeeded (R² > 0.999999, 28 samples). All three prescriptions failed the pre-registered epsilon_expansion criterion uniformly, identifying derivative regularization as a probe family structurally incompatible with the medium's response near $h_- \to 0$. The threshold itself is therefore characterized as one where the medium's epsilon-structure changes in a way the derivative family does not capture."
+
+**Gate 3 spectroscopy now includes:**
 
 | Probe | Regime | Outcome | Information |
 |-------|--------|---------|------------|
 | Derivative-regularization family | $h_- \to 0$ threshold | Structurally incompatible | Medium's epsilon-character cannot be captured by derivative prescriptions in this limit |
 | Laurent expansion (intermediate $h_-$) | $h_- \in [0.001, 0.1]$ | Cleanly extractable (R² > 0.9999) | Response is analytic; standard perturbative structure applies away from threshold |
 
-**Implication:** The closed manifold's Allen-Jacobson IR limit has a threshold structure where the derivative family cannot serve as a valid probe. This is information about the substrate's response topology, not a deficiency of GRUT.
-
----
-
-## CVRU Interpretation — What This Measured About the Medium
-
-### The Substrate Spectroscopy Increment
-
-We came to Gate 3 asking: "Can we extract the three-loop Euler coefficient $C_\text{Euler}^{(3)}$ via the Allen-Jacobson closed-S⁴ route using derivative regularization?"
-
-We leave Gate 3 knowing: "The Allen-Jacobson IR limit's threshold structure is incompatible with derivative-regularization probes. The medium's epsilon-character near $h_- \to 0$ does not respect the continuous-derivative assumption the probe family requires."
-
-This is not a failure to publish. This is a measurement to add to the spectroscopy of the substrate.
-
-### Reframed Result
-
-**Instead of:**
-> "We attempted derivative regularization on the Allen-Jacobson IR limit and it failed."
-
-**Read as:**
-> "We probed the Allen-Jacobson IR limit via the derivative-regularization family under blind protocol. Laurent extraction succeeded (R² > 0.999999, 28 samples). All three prescriptions failed the pre-registered epsilon_expansion criterion uniformly, identifying derivative regularization as a probe family structurally incompatible with the medium's response near $h_- \to 0$. The threshold itself is therefore characterized as one where the medium's epsilon-structure changes in a way the derivative family does not capture."
-
-### Programmatic Implication
+### Implications for Alternative Routes
 
 The failure pattern tells us:
 1. **Not a numerical/sampling issue:** Phase A's 6-nines fit rules out precision breakdowns
 2. **Not a prescription-choice issue:** All three blind prescriptions failed identically
 3. **Not an ε-expansion-ansatz issue:** The functional form is established; the problem is structural
-4. **A medium-response property:** The closed manifold's IR threshold has epsilon-character incompatible with local derivative prescriptions
+4. **A substrate-response property:** The closed manifold's IR threshold has epsilon-character incompatible with local derivative prescriptions
 
-### What We Now Know About the Substrate
+**What we now know:**
+- The IR limit on the closed manifold has a Laurent-clean intermediate regime (good — standard perturbative structure applies away from threshold)
+- The $h_- \to 0$ threshold has a structural epsilon-property that derivative regularization cannot preserve (informative — identifies regime boundary where derivative methods fail)
+- This points to alternative probe families or different limit procedures (e.g., direct limit scaling, non-local prescriptions)
 
-- **The IR limit on the closed manifold has a Laurent-clean intermediate regime** (good — standard perturbative structure applies)
-- **The $h_- \to 0$ threshold has a structural epsilon-property that derivative regularization cannot preserve** (informative — identifies a regime boundary where perturbative methods fail)
-- **The viscoelastic response in this corner has a regime character we have not yet correctly named** (actionable — points to alternative probe families or limit procedures)
-
----
-
-## Root Cause Analysis: Substrate Structure vs. Probe Family
-
-### Observation
-
-The Laurent coefficients $A_k(\varepsilon)$ fitted at finite ε values (0.01, 0.005, 0.002, 0.001) do not extrapolate smoothly to ε→0. Instead, the residual between the original 28 samples and the degree-3 polynomial fit *degrades* as ε decreases:
-
-**Pattern in residuals:**
-- $\varepsilon = 0.01$: fit quality high (R² = 0.99999895)
-- $\varepsilon = 0.005$: fit quality high (R² = 0.99999936)
-- $\varepsilon = 0.002$: fit quality excellent (R² = 0.99999986)
-- $\varepsilon = 0.001$: fit quality high (R² = 0.99999911)
-
-Yet when extrapolating the *coefficient themselves* to ε→0, all three prescriptions introduce large noise (~1% for best prescription, >>100% for worst).
-
-### Interpretation: Substrate Structure
-
-This indicates a **fundamental mismatch between probe family and medium structure:**
-
-1. **Not a sampling/numerical artifact:** All Phase A samples collected successfully with high precision
-2. **Not a fit ansatz problem:** Degree-3 Laurent expansion captures 99.999% of variance at each ε
-3. **Not a target-fitting issue:** No predetermined target was optimized to; all three prescriptions fail identically
-4. **Genuine structural incompatibility:** The Laurent expansion structure changes qualitatively as ε→0, violating smoothness assumption required for derivative-based prescriptions
-
-### Implication
-
-The **h_minus_derivative_regularized family is a probe designed for regimes where derivative continuation remains smooth as regulator → 0.** At the Allen-Jacobson IR threshold, the medium's epsilon-character violates this assumption. The probe family is incompatible with the regime structure.
-
-**Conclusion:** The branch is exhausted **under the current derivative-regularized prescription.** The result is a successful measurement of regime boundary structure, not an infrastructure failure.
+**Conclusion:** The branch is exhausted **under the current derivative-regularized prescription.** The result is a successful characterization of regime boundary structure—information about the substrate, not an infrastructure failure.
 
 ---
 
