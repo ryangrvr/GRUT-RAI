@@ -1,0 +1,108 @@
+{
+  "spec": "gate3-hminus-direct-limit-spec-v1.0",
+  "spec_date": "2026-05-24",
+  "phase_a_dates": {
+    "D1": "2026-05-25T23:04:08.513448",
+    "D2": "2026-05-25T23:04:26.644716",
+    "D3": "2026-05-25T23:04:34.382887"
+  },
+  "application_date": "2026-05-25T23:07:57.485379",
+  "prescriptions": {
+    "prescription_1": {
+      "prescription_label": "prescription_1",
+      "source": "D1_sequential_hminus_first",
+      "epsilon_to_0_finite": 1.5707294464844672,
+      "epsilon_to_0_pole": 0.0,
+      "stage1_min_r2": 0.9999999818026034,
+      "stage1_r2_values": [
+        0.9999999818026034,
+        0.999999990994184,
+        0.9999999999741344,
+        0.9999999999846995
+      ],
+      "stage1_max_residual": 6.256821215555597e-05,
+      "stage2_r2": 0.9999512221619405,
+      "fit_residual": 2.3225795146686323e-05,
+      "expansion_terms": [
+        1.5707294464844672,
+        0.0,
+        0.0
+      ],
+      "extrapolation_method": "sequential_h_minus_first_then_eps"
+    },
+    "prescription_2": {
+      "prescription_label": "prescription_2",
+      "source": "D2_sequential_epsilon_first",
+      "epsilon_to_0_finite": 1.569477814639061,
+      "epsilon_to_0_pole": 0.0,
+      "stage1_min_r2": 0.9999205937446367,
+      "stage1_r2_values": [
+        1.0,
+        0.9999205937446367,
+        0.9999658863710273,
+        0.999999990360294,
+        0.9999999985283208,
+        0.9999999999912526
+      ],
+      "stage1_max_residual": 4.443688946520474e-05,
+      "stage1_eps_residuals": [
+        1.3322676295501878e-15,
+        4.443688946520474e-05,
+        3.669702958242205e-05,
+        7.891766196088668e-07,
+        2.7081481324131573e-07,
+        2.382032127101752e-08
+      ],
+      "stage2_r2": 0.9999835349214501,
+      "stage2_fit_residual": 0.0015899395400640337,
+      "fit_residual": 4.443688946520474e-05,
+      "expansion_terms": [
+        1.569477814639061,
+        0.0,
+        0.0
+      ],
+      "extrapolation_method": "sequential_eps_first_then_h_minus"
+    },
+    "prescription_3": {
+      "prescription_label": "prescription_3",
+      "source": "D3_diagonal_limit",
+      "epsilon_to_0_finite": 1.5707322699962223,
+      "epsilon_to_0_pole": 0.0,
+      "diagonal_min_r2": 0.9999997719749292,
+      "diagonal_r2_values": [
+        0.9999997719749292,
+        0.9999999998804994,
+        0.999999987340964,
+        1.0,
+        1.0
+      ],
+      "diagonal_max_residual": 1.7601265020372736e-05,
+      "stage1_min_r2": 0.9999997719749292,
+      "stage1_r2_values": [
+        0.9999997719749292,
+        0.9999999998804994,
+        0.999999987340964,
+        1.0,
+        1.0
+      ],
+      "fit_residual": 1.7601265020372736e-05,
+      "universality_residual": 0.00030912764994739383,
+      "c_independent": true,
+      "relative_spread": 0.00019680479980724997,
+      "I_D3_values": [
+        1.5707787072786894,
+        1.5708003529539918,
+        1.5708629836465822,
+        1.5707961637555736,
+        1.570423142346275
+      ],
+      "expansion_terms": [
+        1.5707322699962223,
+        0.0,
+        0.0
+      ],
+      "extrapolation_method": "diagonal_h_minus_eq_c_eps"
+    }
+  },
+  "note": "Prescriptions labeled 1/2/3 (blind). Phase C classifier must not use source field before acceptance gating."
+}

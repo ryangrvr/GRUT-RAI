@@ -1,0 +1,134 @@
+{
+  "spec": "gate3-hminus-direct-limit-spec-v1.0",
+  "date": "2026-05-25T23:07:57.564150",
+  "classification": {
+    "prescription_1": {
+      "prescription_label": "prescription_1",
+      "epsilon_to_0_finite": 1.5707294464844672,
+      "overall": "FAIL",
+      "pass_count": 7,
+      "fail_count": 1,
+      "inconclusive_count": 0,
+      "criteria": {
+        "1_laurent_fit_quality": {
+          "result": "PASS",
+          "reason": "all 4 fits pass; worst R\u00b2=0.99999998"
+        },
+        "2_epsilon_expansion_smoothness": {
+          "result": "PASS",
+          "reason": "residual=2.322580e-05 < 0.0001"
+        },
+        "3_prescription_universality": {
+          "result": "PASS",
+          "reason": "relative spread=5.3197e-04 <= 0.01: values=['1.570729', '1.569478', '1.570732']"
+        },
+        "4_numerical_stability": {
+          "result": "FAIL",
+          "reason": "28 samples exceed error threshold 1e-06: worst=1.90e-01"
+        },
+        "5_analytic_continuation": {
+          "result": "PASS",
+          "reason": "finite part=1.570729; no singularity indicators"
+        },
+        "6_blind_protocol_integrity": {
+          "result": "PASS",
+          "reason": "Phase C receives prescription_1/2/3 labels only; source field not used in decisions"
+        },
+        "7_specification_compliance": {
+          "result": "PASS",
+          "reason": "Phase A/B/C harnesses cite spec gate3-hminus-direct-limit-spec-v1.0; output files in gate3_dl_outputs/"
+        },
+        "8_reproducibility": {
+          "result": "PASS",
+          "reason": "Phase A scripts in theory/hard_theory/, Phase B/C in grut/hard_theory/s4_ctp_solver/; outputs committed to gate3_dl_outputs/"
+        }
+      }
+    },
+    "prescription_2": {
+      "prescription_label": "prescription_2",
+      "epsilon_to_0_finite": 1.569477814639061,
+      "overall": "FAIL",
+      "pass_count": 6,
+      "fail_count": 2,
+      "inconclusive_count": 0,
+      "criteria": {
+        "1_laurent_fit_quality": {
+          "result": "FAIL",
+          "reason": "2 fits below R\u00b2=0.99999: worst=0.99992059"
+        },
+        "2_epsilon_expansion_smoothness": {
+          "result": "PASS",
+          "reason": "residual=4.443689e-05 < 0.0001"
+        },
+        "3_prescription_universality": {
+          "result": "PASS",
+          "reason": "relative spread=5.3197e-04 <= 0.01: values=['1.570729', '1.569478', '1.570732']"
+        },
+        "4_numerical_stability": {
+          "result": "FAIL",
+          "reason": "42 samples exceed error threshold 1e-06: worst=2.05e-01"
+        },
+        "5_analytic_continuation": {
+          "result": "PASS",
+          "reason": "finite part=1.569478; no singularity indicators"
+        },
+        "6_blind_protocol_integrity": {
+          "result": "PASS",
+          "reason": "Phase C receives prescription_1/2/3 labels only; source field not used in decisions"
+        },
+        "7_specification_compliance": {
+          "result": "PASS",
+          "reason": "Phase A/B/C harnesses cite spec gate3-hminus-direct-limit-spec-v1.0; output files in gate3_dl_outputs/"
+        },
+        "8_reproducibility": {
+          "result": "PASS",
+          "reason": "Phase A scripts in theory/hard_theory/, Phase B/C in grut/hard_theory/s4_ctp_solver/; outputs committed to gate3_dl_outputs/"
+        }
+      }
+    },
+    "prescription_3": {
+      "prescription_label": "prescription_3",
+      "epsilon_to_0_finite": 1.5707322699962223,
+      "overall": "FAIL",
+      "pass_count": 7,
+      "fail_count": 1,
+      "inconclusive_count": 0,
+      "criteria": {
+        "1_laurent_fit_quality": {
+          "result": "PASS",
+          "reason": "all 5 fits pass; worst R\u00b2=0.99999977"
+        },
+        "2_epsilon_expansion_smoothness": {
+          "result": "PASS",
+          "reason": "residual=1.760127e-05 < 0.0001"
+        },
+        "3_prescription_universality": {
+          "result": "PASS",
+          "reason": "relative spread=5.3197e-04 <= 0.01: values=['1.570729', '1.569478', '1.570732']"
+        },
+        "4_numerical_stability": {
+          "result": "FAIL",
+          "reason": "25 samples exceed error threshold 1e-06: worst=1.04e-01"
+        },
+        "5_analytic_continuation": {
+          "result": "PASS",
+          "reason": "finite part=1.570732; no singularity indicators"
+        },
+        "6_blind_protocol_integrity": {
+          "result": "PASS",
+          "reason": "Phase C receives prescription_1/2/3 labels only; source field not used in decisions"
+        },
+        "7_specification_compliance": {
+          "result": "PASS",
+          "reason": "Phase A/B/C harnesses cite spec gate3-hminus-direct-limit-spec-v1.0; output files in gate3_dl_outputs/"
+        },
+        "8_reproducibility": {
+          "result": "PASS",
+          "reason": "Phase A scripts in theory/hard_theory/, Phase B/C in grut/hard_theory/s4_ctp_solver/; outputs committed to gate3_dl_outputs/"
+        }
+      }
+    }
+  },
+  "promoted": [],
+  "all_fail_criterion_2": false
+}
