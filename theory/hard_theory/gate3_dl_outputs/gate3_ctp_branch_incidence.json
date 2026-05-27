@@ -1,0 +1,205 @@
+{
+  "spec": "gate3-ctp-branch-incidence-spec-v1.0",
+  "spec_date": "2026-05-26",
+  "date": "2026-05-26T22:26:35.086732",
+  "seed_value": 1.5707963267948966,
+  "seed_exact": "pi/2",
+  "R_target": 1.1547005383792515,
+  "R_exact": "sqrt(4/3)",
+  "proj_factor": 1.3603495231756635,
+  "keldysh_basis": {
+    "R": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        1.0,
+        -1.0
+      ]
+    ],
+    "det": -1.0,
+    "R_r_plus": 0.5,
+    "R_r_minus": 0.5,
+    "R_a_plus": 1.0,
+    "R_a_minus": -1.0
+  },
+  "topology_results": {
+    "SYM": {
+      "id": "SYM",
+      "name": "Symmetric (Euclidean S4)",
+      "description": "All eight +/- index combinations are equal.  Arises on Euclidean S4: real discrete spectrum \u2192 G^{++}=G^{--}=G^{+-}=G^{-+}.",
+      "physical_scenario": "Compact Euclidean S4 background, no Lorentzian time ordering",
+      "role_implication": "shared_normalization \u2014 loop cancels in R=N/D",
+      "ra_components": {
+        "V_rrr": 1.0,
+        "V_rra": 0.0,
+        "V_rar": 0.0,
+        "V_raa": 0.0,
+        "V_arr": 0.0,
+        "V_ara": 0.0,
+        "V_aar": 0.0,
+        "V_aaa": 0.0
+      },
+      "V_aaa": 0.0,
+      "ctp_passes": true
+    },
+    "ANTISYM": {
+      "id": "ANTISYM",
+      "name": "Antisymmetric (branch sign flip)",
+      "description": "I[+,+,+] = +1, I[-,-,-] = -1.  Would arise if the CTP action assigns opposite signs to forward/backward.",
+      "physical_scenario": "CTP branch sign asymmetry, no mixing",
+      "role_implication": "final_coefficient_candidate or cosmo_coefficient_candidate \u2014 but CTP causality violated",
+      "ra_components": {
+        "V_rrr": 0.0,
+        "V_rra": 0.5,
+        "V_rar": 0.5,
+        "V_raa": 0.0,
+        "V_arr": 0.5,
+        "V_ara": 0.0,
+        "V_aar": 0.0,
+        "V_aaa": 2.0
+      },
+      "V_aaa": 2.0,
+      "ctp_passes": false
+    },
+    "RESP1": {
+      "id": "RESP1",
+      "name": "One-response (one backward vertex)",
+      "description": "One of the three triangle vertices is on the - branch.  Represents a cross-branch mixing with one response insertion.",
+      "physical_scenario": "CTP cross-propagator G^{-+} inserting one backward vertex",
+      "role_implication": "final_coefficient_candidate or cosmo_coefficient_candidate \u2014 but CTP causality violated",
+      "ra_components": {
+        "V_rrr": 0.375,
+        "V_rra": 0.25,
+        "V_rar": 0.25,
+        "V_raa": -0.5,
+        "V_arr": 0.25,
+        "V_ara": -0.5,
+        "V_aar": -0.5,
+        "V_aaa": -3.0
+      },
+      "V_aaa": -3.0,
+      "ctp_passes": false
+    },
+    "SECTOR_ASYM": {
+      "id": "SECTOR_ASYM",
+      "name": "Sector-asymmetric (N != D sector prefactors)",
+      "description": "I[+,+,+]=pi/2, I[-,-,-]=pi*sqrt(3)/4. Models the scenario where N and D sectors have different Euler-density prefactors (C_Euler,cosmo vs C_Euler,final), with the S4 loop appearing in both but with sector-specific weights.",
+      "physical_scenario": "Two-sector GRUT action: C_cosmo=pi/2 in N, C_final=pi*sqrt(3)/4 in D",
+      "role_implication": "pi/2 is NOT a branch-topology coefficient; sectors carry the asymmetry",
+      "ra_components": {
+        "V_rrr": 0.36639323124632,
+        "V_rra": 0.05261170090480827,
+        "V_rar": 0.05261170090480827,
+        "V_raa": 1.46557292498528,
+        "V_arr": 0.05261170090480827,
+        "V_ara": 1.46557292498528,
+        "V_aar": 1.46557292498528,
+        "V_aaa": 0.21044680361923307
+      },
+      "V_aaa": 0.21044680361923307,
+      "ctp_passes": false
+    }
+  },
+  "euclidean_s4_analysis": {
+    "claim": "On compact Euclidean S4, G^{++}=G^{--}=G^{+-}=G^{-+}=G_E (all CTP propagator components are equal).",
+    "reason": "Real discrete spectrum, no Lorentzian time ordering on S4",
+    "implication": "I(h_-,eps) = I^{+++} = I^{---} = I^{++-} = ... for all (i,j,k). This is the SYM topology.  The loop appears IDENTICALLY on both branches.",
+    "s4_laplacian_eigenvalues": [
+      0,
+      4,
+      10,
+      18,
+      28,
+      40
+    ],
+    "s4_degeneracies": [
+      1,
+      5,
+      14,
+      30,
+      55,
+      91
+    ],
+    "zero_mode_note": "The l=0 mode (lambda_0=0) is the zero mode.  It requires careful treatment in the h_->0 limit.  The endpoint-split validation (Gate 3 criterion 4) confirmed that this limit is numerically controlled.",
+    "role_implication": "shared_normalization (pi/2 cancels in R=N/D on pure Euclidean S4)",
+    "ctp_causality": "SYM topology automatically satisfies V_aaa=0 (see CTP causality check)",
+    "caveat": "This conclusion applies to PURE Euclidean S4.  If the GRUT action involves: (a) Lorentzian continuation (de Sitter, not S4), (b) sector-specific couplings (C_cosmo != C_final), or (c) a spontaneous breaking of CTP branch symmetry, then the loop may contribute asymmetrically."
+  },
+  "r_target_analysis": {
+    "scenario_A": {
+      "name": "pi/2 is shared_normalization (cancels in R)",
+      "mechanism": "CTP branch symmetry \u2192 pi/2 in both N and D \u2192 cancels",
+      "R_formula": "R = C_cosmo / C_final (sector-specific Euler couplings)",
+      "R_check": 1.1547005383792515,
+      "example_C_cosmo": 4.0,
+      "example_C_final": 3.464101615137755,
+      "pi_over_2_role": "shared_normalization",
+      "requires": "Identification of C_cosmo and C_final as separate theory quantities"
+    },
+    "scenario_B": {
+      "name": "pi/2 is quotient-bearing (enters R on one side)",
+      "mechanism": "Sector asymmetry: N uses S4 scalar loop, D uses different loop",
+      "R_formula": "R = (pi/2) / (pi*sqrt(3)/4) = sqrt(4/3)",
+      "R_computed": 1.1547005383792515,
+      "R_check_matches": true,
+      "projection_factor": 1.3603495231756635,
+      "pi_over_2_role": "final_coefficient_candidate or cosmo_coefficient_candidate",
+      "requires": "Identification of which GRUT sector uses the S4 loop and which sector uses a different loop with coefficient pi*sqrt(3)/4"
+    },
+    "current_conclusion": "The Euclidean S4 CTP analysis supports Scenario A (shared_normalization). Scenario B is not excluded but requires a specific asymmetry mechanism that must be identified in the GRUT CTP action.",
+    "guardrail": "Do NOT assign V4 (final_coefficient_candidate) because it produces R=sqrt(4/3). Assign V4 only if the CTP branch structure DEMANDS it."
+  },
+  "decision_table": [
+    {
+      "finding": "Loop appears identically on both CTP branches (SYM topology)",
+      "ctp_causality": "PASSES",
+      "euclidean_s4_consistent": true,
+      "role": "shared_normalization",
+      "pi_over_2_in_R": false,
+      "note": "pi/2 cancels; R comes from sector prefactor ratio C_cosmo/C_final"
+    },
+    {
+      "finding": "Loop appears only in response/retarded branch (RESP topology)",
+      "ctp_causality": "FAILS (V_aaa != 0 for simple RESP topologies)",
+      "euclidean_s4_consistent": false,
+      "role": "final_coefficient_candidate or cosmo_coefficient_candidate",
+      "pi_over_2_in_R": true,
+      "note": "Only possible if Lorentzian CTP structure or sector asymmetry overrides"
+    },
+    {
+      "finding": "Loop in both branches with unequal sector weights",
+      "ctp_causality": "NOT CHECKED \u2014 requires sector decomposition",
+      "euclidean_s4_consistent": "Conditional (only with sector-specific couplings)",
+      "role": "branch_normalization_candidate",
+      "pi_over_2_in_R": "Partial",
+      "note": "R = (C_cosmo * pi/2) / (C_final * pi/2 * weight_ratio) \u2014 pi/2 partially cancels"
+    },
+    {
+      "finding": "Loop not a vertex in the GRUT CTP action",
+      "ctp_causality": "N/A",
+      "euclidean_s4_consistent": "N/A",
+      "role": "benchmark_seed",
+      "pi_over_2_in_R": false,
+      "note": "pi/2 validates numerical extraction route only"
+    },
+    {
+      "finding": "Branch placement cannot be determined from available evidence",
+      "ctp_causality": "UNKNOWN",
+      "euclidean_s4_consistent": "UNKNOWN",
+      "role": "role_unassigned",
+      "pi_over_2_in_R": "UNKNOWN",
+      "note": "Default; R1 is NEEDS_THEORY"
+    }
+  ],
+  "summary": {
+    "euclidean_s4_topology": "SYM (all propagators equal)",
+    "ctp_causality_result": "Only SYM passes V_aaa=0",
+    "supported_role": "shared_normalization (Scenario A)",
+    "not_excluded_role": "final_coefficient_candidate (Scenario B, requires sector asymmetry)",
+    "r1_status": "NEEDS_THEORY",
+    "current_role": "role_unassigned",
+    "blocking_question": "Does the GRUT CTP action assign equal S4 scalar loop coefficients to both N and D sectors (Scenario A: pi/2 cancels), or different coefficients (Scenario B: pi/2 is quotient-bearing)?"
+  }
+}
