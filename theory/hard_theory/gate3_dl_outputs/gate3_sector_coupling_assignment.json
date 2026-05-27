@@ -1,0 +1,257 @@
+{
+  "spec": "gate3-sector-coupling-assignment-spec-v1.0",
+  "spec_date": "2026-05-26",
+  "date": "2026-05-26T22:36:47.384257",
+  "seed_value": 1.5707963267948966,
+  "seed_exact": "pi/2",
+  "R_target": 1.1547005383792515,
+  "R_exact": "sqrt(4/3) = 2/sqrt(3)",
+  "dimensional_ladder": {
+    "theorem": "I(0,0)|_D = sqrt(pi)*Gamma((D-1)/2)/Gamma(D/2) = Vol(S^{D-1})/Vol(S^{D-2}) for all D",
+    "rows": [
+      {
+        "D": 3,
+        "I_00": 2.0,
+        "Vol_ratio": 2.0000000000000004,
+        "exact_match": true
+      },
+      {
+        "D": 4,
+        "I_00": 1.5707963267948963,
+        "Vol_ratio": 1.5707963267948963,
+        "exact_match": true
+      },
+      {
+        "D": 5,
+        "I_00": 1.3333333333333333,
+        "Vol_ratio": 1.3333333333333335,
+        "exact_match": true
+      },
+      {
+        "D": 6,
+        "I_00": 1.1780972450961724,
+        "Vol_ratio": 1.1780972450961724,
+        "exact_match": true
+      },
+      {
+        "D": 7,
+        "I_00": 1.0666666666666664,
+        "Vol_ratio": 1.0666666666666667,
+        "exact_match": true
+      },
+      {
+        "D": 8,
+        "I_00": 0.9817477042468105,
+        "Vol_ratio": 0.9817477042468105,
+        "exact_match": true
+      }
+    ],
+    "D4_seed": {
+      "D": 4,
+      "I_00": 1.5707963267948963,
+      "exact_form": "pi/2",
+      "equals_pi_over_2": true
+    },
+    "D5_rung": {
+      "D": 5,
+      "I_00": 1.3333333333333333,
+      "exact_form": "4/3",
+      "equals_R_squared": true,
+      "sqrt_I_D5": 1.1547005383792515,
+      "sqrt_equals_R_target": true
+    },
+    "r_target_connection": {
+      "statement": "R_target = sqrt(I(0,0)|_{D=5})",
+      "exact": true,
+      "interpretation": "The GRUT quotient target R is the square root of the AJ integral evaluated ONE DIMENSION HIGHER than the Gate 3 computation."
+    }
+  },
+  "d4_coincidence": {
+    "theorem": "At n=4 ONLY: Vol(S4)/Vol(S3) = lambda_1(S4)/lambda_1(S3) = 4/3 = R_target^2",
+    "per_n": [
+      {
+        "n": 2,
+        "Vol_Sn_over_S{n-1}": 2.0000000000000004,
+        "lambda1_ratio": 2.0,
+        "coincide": true
+      },
+      {
+        "n": 3,
+        "Vol_Sn_over_S{n-1}": 1.5707963267948963,
+        "lambda1_ratio": 1.5,
+        "coincide": false
+      },
+      {
+        "n": 4,
+        "Vol_Sn_over_S{n-1}": 1.3333333333333335,
+        "lambda1_ratio": 1.3333333333333333,
+        "coincide": true
+      },
+      {
+        "n": 5,
+        "Vol_Sn_over_S{n-1}": 1.1780972450961724,
+        "lambda1_ratio": 1.25,
+        "coincide": false
+      },
+      {
+        "n": 6,
+        "Vol_Sn_over_S{n-1}": 1.0666666666666667,
+        "lambda1_ratio": 1.2,
+        "coincide": false
+      }
+    ],
+    "n4_coincidence": {
+      "vol_ratio": 1.3333333333333335,
+      "spectral_ratio": 1.3333333333333333,
+      "I_D5": 1.3333333333333333,
+      "all_equal_4_3": true
+    },
+    "uniqueness": "The coincidence Vol(S^n)/Vol(S^{n-1}) = n/(n-1) (spectral gap ratio) holds at n=4 because Gamma(2)/Gamma(5/2) = 1/(3sqrt(pi)/4) = 4/(3sqrt(pi)), and Vol(S4)/Vol(S3) = sqrt(pi)*Gamma(2)/Gamma(5/2) = 4/3 = spectral ratio. This simplification is dimension-specific.",
+    "physical_interpretation": "Four is the unique dimension where the volume-projection and spectral-gap sector coupling mechanisms give IDENTICAL ratios.  Both independently constrain g_cosmo/g_final = sqrt(4/3) = R_target."
+  },
+  "candidates_scored": [
+    {
+      "id": "C1",
+      "name": "volume_projection",
+      "label": "Volume-projection coupling",
+      "description": "Cosmological sector couples with weight sqrt(Vol(S4)), final sector with weight sqrt(Vol(S3)).  Ratio: sqrt(Vol(S4)/Vol(S3)) = sqrt(4/3). Physical: sector projectors have different sphere-volume footprints.  This is purely geometric (no free parameters).",
+      "R_predicted": 1.1547005383792517,
+      "R_matches": true,
+      "free_params": 0,
+      "natural": true,
+      "role": "sector_projection_candidate",
+      "requires": "Identify which sector projects onto S4 footprint and which onto S3",
+      "scores": {
+        "geometric_score": 1.0,
+        "naturalness_score": 1.0,
+        "R_match_score": 1.0,
+        "composite": 1.0
+      }
+    },
+    {
+      "id": "C2",
+      "name": "spectral_gap",
+      "label": "Spectral-gap coupling",
+      "description": "Sector couplings are set by the first nonzero eigenvalue of the Laplacian on the corresponding sphere: g_cosmo ~ sqrt(lambda_1(S4))=2, g_final ~ sqrt(lambda_1(S3))=sqrt(3).  Ratio: sqrt(4/3) = R_target. Unique to D=4: only at n=4 does Vol(S^n)/Vol(S^{n-1}) = lambda_1(S^n)/lambda_1(S^{n-1}).",
+      "R_predicted": 1.1547005383792515,
+      "R_matches": true,
+      "free_params": 0,
+      "natural": true,
+      "role": "sector_projection_candidate",
+      "requires": "Verify that sector couplings in GRUT action are set by S4 and S3 spectral gaps",
+      "scores": {
+        "geometric_score": 1.0,
+        "naturalness_score": 1.0,
+        "R_match_score": 1.0,
+        "composite": 1.0
+      }
+    },
+    {
+      "id": "C3",
+      "name": "dimensional_ladder",
+      "label": "Dimensional-ladder coupling (D=4 vs D=5 AJ integrals)",
+      "description": "The AJ dimensional ladder gives I(0,0)|_D = Vol(S^{D-1})/Vol(S^{D-2}). At D=5: I(0,0) = 4/3 = R^2.  Therefore R = sqrt(I(0,0)|_{D=5}). If the cosmological sector uses the D=4 loop (pi/2) and the final sector uses the D=5 loop (4/3) with a half-power weighting, this gives R = sqrt(4/3). The D=4 and D=5 integrals are adjacent rungs of the same ladder \u2014 no free parameters.",
+      "R_predicted": 1.1547005383792515,
+      "R_matches": true,
+      "free_params": 0,
+      "natural": true,
+      "role": "sector_projection_candidate",
+      "requires": "Identify whether the GRUT final sector involves a D=5 dimensional extension",
+      "scores": {
+        "geometric_score": 1.0,
+        "naturalness_score": 1.0,
+        "R_match_score": 1.0,
+        "composite": 1.0
+      }
+    },
+    {
+      "id": "C0",
+      "name": "equal_coupling",
+      "label": "Equal sector coupling (g_cosmo = g_final)",
+      "description": "Both sectors receive the same scalar-loop coupling.  The shared pi/2 normalization cancels and R = 1.  This CONTRADICTS R = sqrt(4/3) and is included as a consistency check.",
+      "R_predicted": 1.0,
+      "R_matches": false,
+      "free_params": 0,
+      "natural": true,
+      "role": "shared_normalization_confirmed (but R=1, WRONG)",
+      "requires": "Nothing \u2014 trivial default; fails because R != 1",
+      "scores": {
+        "geometric_score": 1.0,
+        "naturalness_score": 1.0,
+        "R_match_score": 0.0,
+        "composite": 0.6
+      }
+    },
+    {
+      "id": "C4",
+      "name": "euler_density_normalization",
+      "label": "Euler-density projection normalization",
+      "description": "The Gauss-Bonnet integrand E4 on the unit S4 equals 24 (constant). The Gauss-Bonnet integral: int_{S4} E4 d^4x = 64*pi^2 = 32*pi^2 * chi(S4). The sector coupling ratio from the Euler-density projection: g_Euler/g_vol = sqrt(int E4 / Vol(S4)) = sqrt(64*pi^2 / (8*pi^2/3)) = sqrt(24). This gives sqrt(24) != sqrt(4/3), so Euler-density normalization alone does not reproduce R_target without additional structure.",
+      "R_predicted": 4.898979485566356,
+      "R_matches": false,
+      "free_params": 0,
+      "natural": true,
+      "role": "role_unassigned",
+      "requires": "Identify additional projection structure that maps sqrt(24) to sqrt(4/3)",
+      "scores": {
+        "geometric_score": 1.0,
+        "naturalness_score": 1.0,
+        "R_match_score": 0.0,
+        "composite": 0.6
+      }
+    },
+    {
+      "id": "C6",
+      "name": "hand_tuned",
+      "label": "Hand-tuned sector ratio",
+      "description": "g_cosmo/g_final = sqrt(4/3) is inserted as a free parameter to match R. This is circular (it assumes the answer) and lacks geometric basis.",
+      "R_predicted": 1.1547005383792515,
+      "R_matches": true,
+      "free_params": 1,
+      "natural": false,
+      "role": "rejected_tuning",
+      "requires": "Nothing \u2014 but REJECTED as non-explanatory",
+      "scores": {
+        "geometric_score": 0.0,
+        "naturalness_score": 0.5,
+        "R_match_score": 1.0,
+        "composite": 0.525
+      }
+    },
+    {
+      "id": "C5",
+      "name": "ctp_response_weighting",
+      "label": "CTP response-sector weighting",
+      "description": "If the GRUT action has a non-Euclidean (Lorentzian or de Sitter) ingredient that breaks the S4 CTP symmetry, one sector might acquire a response-type (retarded/advanced) weight relative to the other.  This would require identifying a specific CTP mechanism not present in pure Euclidean S4.",
+      "R_predicted": null,
+      "R_matches": null,
+      "free_params": 1,
+      "natural": null,
+      "role": "role_unassigned",
+      "requires": "Identify non-Euclidean ingredient in the GRUT CTP action",
+      "scores": {
+        "geometric_score": 0.0,
+        "naturalness_score": 0.5,
+        "R_match_score": 0.5,
+        "composite": 0.325
+      }
+    }
+  ],
+  "summary": {
+    "dimensional_ladder_result": "I(0,0)|_D=5 = 4/3 = R^2  [exact]",
+    "d4_coincidence": "Vol(S4)/Vol(S3) = lambda_1(S4)/lambda_1(S3) = 4/3  [exact, unique to D=4]",
+    "top_natural_candidates": [
+      "C1 (volume_projection)",
+      "C2 (spectral_gap)",
+      "C3 (dimensional_ladder)"
+    ],
+    "all_give_R_sqrt_4_3": true,
+    "free_parameters": 0,
+    "pi_over_2_role": "shared_normalization (cancels in R=N/D)",
+    "R_source": "sector-specific coupling ratio g_cosmo/g_final = sqrt(4/3)",
+    "provisional_status": "sector_projection_candidate",
+    "current_role": "role_unassigned",
+    "r1_status": "NEEDS_THEORY",
+    "blocking_question": "Does the GRUT CTP action assign sector couplings via the sphere-volume ladder (C1), spectral gaps (C2), or the D=5 AJ integral (C3)?  All three are equivalent geometrically; the distinction is which sector couples to S4 and which to S3 (or D=5)."
+  }
+}
