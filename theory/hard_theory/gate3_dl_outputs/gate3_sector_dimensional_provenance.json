@@ -1,0 +1,189 @@
+{
+  "spec": "gate3-sector-dimensional-provenance-spec-v1.0",
+  "spec_date": "2026-05-26",
+  "date": "2026-05-26T22:58:53.870228",
+  "established_facts": [
+    {
+      "id": "F1",
+      "statement": "I(0,0)|_D = Vol(S^{D-1})/Vol(S^{D-2}) for all D",
+      "status": "PROVED",
+      "proof": "Sector coupling assignment harness (gate3_sector_coupling_assignment.py)"
+    },
+    {
+      "id": "F2",
+      "statement": "I(0,0)|_D=4 = pi/2  [Gate 3 seed]",
+      "status": "PROVED",
+      "proof": "Gate 3 direct-limit D1/D3 numerical + analytic derivation 4*B(3/2,3/2)"
+    },
+    {
+      "id": "F3",
+      "statement": "I(0,0)|_D=5 = 4/3 = R_target^2  [exact]",
+      "status": "PROVED",
+      "proof": "Dimensional ladder theorem, verified numerically"
+    },
+    {
+      "id": "F4",
+      "statement": "R_target = sqrt(I(0,0)|_D=5) = sqrt(4/3)  [exact]",
+      "status": "PROVED",
+      "proof": "F3 + definition R_target = sqrt(4/3)"
+    },
+    {
+      "id": "F5",
+      "statement": "Vol(S4)/Vol(S3) = lambda_1(S4)/lambda_1(S3) = 4/3  [D=4 coincidence, unique]",
+      "status": "PROVED",
+      "proof": "Sector coupling assignment harness, verified that n=3 and n=5 do NOT coincide"
+    },
+    {
+      "id": "F6",
+      "statement": "pi/2 is shared_normalization (cancels in R) on Euclidean S4",
+      "status": "PROVED",
+      "proof": "CTP branch-incidence audit: SYM topology only, V_aaa=0 satisfied"
+    },
+    {
+      "id": "F7",
+      "statement": "R = g_cosmo / g_final  where C = g * (pi/2) for each sector",
+      "status": "FRAMEWORK",
+      "proof": "Follows from F6; g is the sector-specific coupling"
+    }
+  ],
+  "sector_assignments": {
+    "assignment_A": {
+      "label": "Naive (WRONG): final=S4, cosmo=S3",
+      "g_cosmo": 1.7320508075688772,
+      "g_cosmo_form": "sqrt(lambda_1(S3)) = sqrt(3)",
+      "g_final": 2.0,
+      "g_final_form": "sqrt(lambda_1(S4)) = 2",
+      "R_predicted": 0.8660254037844386,
+      "R_matches": false,
+      "R_predicted_exact": "sqrt(3)/2 = sqrt(3/4)",
+      "verdict": "WRONG: gives R = sqrt(3/4) != sqrt(4/3)"
+    },
+    "assignment_B": {
+      "label": "Correct: cosmo=S4 (bulk), final=S3 (boundary)",
+      "g_cosmo": 2.0,
+      "g_cosmo_form": "sqrt(lambda_1(S4)) = 2",
+      "g_final": 1.7320508075688772,
+      "g_final_form": "sqrt(lambda_1(S3)) = sqrt(3)",
+      "R_predicted": 1.1547005383792517,
+      "R_matches": true,
+      "R_predicted_exact": "2/sqrt(3) = sqrt(4/3)",
+      "verdict": "CORRECT: gives R = sqrt(4/3) = R_target  [exact]"
+    },
+    "key_finding": "The correct sector assignment has the COSMOLOGICAL sector on the LARGER sphere (S4 bulk, coupling g=2) and the FINAL/EULER sector on the SMALLER sphere (S3 boundary, coupling g=sqrt(3)).",
+    "physical_picture": "Bulk-boundary split: the cosmological constant couples to the full S4 bulk (4-form: Lambda*sqrt(g)*d^4x ~ Vol(S4)), while the Euler/final sector couples to the S3 boundary (3-form: GHY or equatorial)."
+  },
+  "amplitude_vs_power": {
+    "g_cosmo": 2.0,
+    "g_final": 1.7320508075688772,
+    "R_power1": {
+      "definition": "R = g_cosmo / g_final  (amplitude ratio, 1st power)",
+      "value": 1.1547005383792517,
+      "matches_R_target": true
+    },
+    "R_power2": {
+      "definition": "R = sqrt(g_cosmo^2 / g_final^2)  (sqrt of squared ratio)",
+      "value": 1.1547005383792517,
+      "matches_R_target": true
+    },
+    "underlying_ratio": {
+      "g_cosmo_squared": 4.0,
+      "g_final_squared": 2.9999999999999996,
+      "ratio_squared": 1.3333333333333335,
+      "equals_R_squared": true
+    },
+    "theory_question": "Is R defined as (1) a ratio of coupling constants [1st power], or (2) a square root of a ratio of partition functions / energies [2nd power]? Both give R = sqrt(4/3), but the GRUT action structure determines which."
+  },
+  "bulk_boundary_split": {
+    "vol_S4": 26.318945069571622,
+    "vol_S3": 19.739208802178716,
+    "vol_ratio": 1.3333333333333335,
+    "R_from_volume": 1.1547005383792517,
+    "R_from_spectral_gap": 1.1547005383792515,
+    "both_match_R_target": true,
+    "split_description": {
+      "bulk": "S4 (full 4-manifold), hosts cosmological sector",
+      "boundary": "S3 (equatorial hypersurface or sub-manifold), hosts Euler/final sector"
+    },
+    "caveat": "S4 is a CLOSED manifold with no boundary.  The 'S3 boundary' here refers to the equatorial S3 inside S4 (the fixed-point set of the reflection symmetry), or to a specific sub-manifold defined by the GRUT sector decomposition.  This must be derived from the GRUT CTP action structure."
+  },
+  "gate_conditions": [
+    {
+      "id": "G1",
+      "question": "Which GRUT CTP action term generates C_cosmo?",
+      "status": "NEEDS_THEORY",
+      "what_to_find": "The specific Lagrangian term (or path-integral weight) in the CTP action whose coefficient is C_cosmo",
+      "expected_structure": "Should couple to S4 volume / lambda_1(S4) geometry"
+    },
+    {
+      "id": "G2",
+      "question": "Does the C_cosmo term project onto the S4 bulk (lambda_1(S4) or Vol(S4))?",
+      "status": "NEEDS_THEORY",
+      "what_to_find": "Projection operator or coupling strength for the cosmological sector",
+      "expected_structure": "g_cosmo = sqrt(lambda_1(S4)) = 2 or g_cosmo ~ sqrt(Vol(S4))"
+    },
+    {
+      "id": "G3",
+      "question": "Which GRUT CTP action term generates C_final?",
+      "status": "NEEDS_THEORY",
+      "what_to_find": "The specific Lagrangian term whose coefficient is C_final (Euler/gravitational sector)",
+      "expected_structure": "Should couple to S3 boundary / lambda_1(S3) geometry"
+    },
+    {
+      "id": "G4",
+      "question": "Does the C_final term project onto the S3 boundary (lambda_1(S3) or Vol(S3))?",
+      "status": "NEEDS_THEORY",
+      "what_to_find": "Projection operator or coupling strength for the final/Euler sector",
+      "expected_structure": "g_final = sqrt(lambda_1(S3)) = sqrt(3) or g_final ~ sqrt(Vol(S3))"
+    },
+    {
+      "id": "G5",
+      "question": "Does the shared pi/2 loop appear in both C_cosmo and C_final terms?",
+      "status": "NEEDS_THEORY",
+      "what_to_find": "Whether the S4 scalar three-point loop (I(h_-,eps)) appears in both sectors",
+      "expected_structure": "Yes \u2014 pi/2 is the common loop normalization that cancels in R"
+    },
+    {
+      "id": "G6",
+      "question": "Is R defined as a first-power amplitude ratio N/D (not sqrt(N/D))?",
+      "status": "NEEDS_THEORY",
+      "what_to_find": "The definition of the GRUT quotient R in the CTP action/observables",
+      "expected_structure": "R = C_cosmo/C_final (amplitude), not R = sqrt(N_action/D_action) (energy)"
+    },
+    {
+      "id": "G7",
+      "question": "Does explicit computation give R = g_cosmo/g_final = 2/sqrt(3) = sqrt(4/3)?",
+      "status": "NEEDS_THEORY",
+      "what_to_find": "Direct computation of R from the identified GRUT action terms",
+      "expected_structure": "R = sqrt(4/3) = 1.1547005384..."
+    }
+  ],
+  "geometric_chain": {
+    "chain": [
+      "S4 Euler geometry",
+      "\u2192 Allen-Jacobson three-point loop: I(h_-,eps) with seed I(0,0)|_D=4 = pi/2",
+      "\u2192 Dimensional ladder: I(0,0)|_D = Vol(S^{D-1})/Vol(S^{D-2})",
+      "\u2192 I(0,0)|_D=5 = 4/3 = R^2  [one rung up]",
+      "\u2192 CTP branch audit: pi/2 is shared normalization on Euclidean S4",
+      "\u2192 Sector coupling framework: R = g_cosmo/g_final",
+      "\u2192 D=4 coincidence: Vol(S4)/Vol(S3) = lambda_1(S4)/lambda_1(S3) = 4/3",
+      "\u2192 Assignment B: g_cosmo/g_final = sqrt(lambda_1(S4)/lambda_1(S3)) = sqrt(4/3)",
+      "\u2192  [NEEDS THEORY: confirm cosmo sector on S4 bulk, final sector on S3]",
+      "\u2192 R = sqrt(4/3)"
+    ],
+    "all_proved_except_last": true,
+    "last_step_needs": "Identification of which GRUT CTP action term carries each sector"
+  },
+  "summary": {
+    "geometry_complete": true,
+    "correct_assignment": "B (cosmo=S4 bulk, final=S3 boundary)",
+    "R_from_assignment_B": 1.1547005383792515,
+    "R_exact": "2/sqrt(3) = sqrt(4/3)",
+    "pi_over_2_role": "shared_normalization",
+    "R_source": "g_cosmo/g_final = sqrt(lambda_1(S4)/lambda_1(S3))",
+    "conditions_needing_theory": 7,
+    "total_gate_conditions": 7,
+    "current_role": "role_unassigned",
+    "r1_status": "NEEDS_THEORY",
+    "final_blocking_question": "Which GRUT CTP action term carries the cosmological sector (should couple to S4 bulk / lambda_1(S4)), and which carries the Euler/final sector (should couple to S3 boundary / lambda_1(S3))?"
+  }
+}
