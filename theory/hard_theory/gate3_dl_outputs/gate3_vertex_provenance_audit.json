@@ -1,0 +1,260 @@
+{
+  "spec": "gate3-vertex-provenance-audit-spec-v1.0",
+  "spec_date": "2026-05-26",
+  "date": "2026-05-26T22:10:14.919018",
+  "seed_value": 1.5707963267948966,
+  "seed_exact": "pi/2 = 4*B(3/2,3/2)",
+  "R_target": 1.1547005383792515,
+  "R_exact": "sqrt(4/3) = 2/sqrt(3)",
+  "projection_factor": 1.3603495231756635,
+  "projection_factor_exact": "pi*sqrt(3)/4",
+  "geometric_ladder": {
+    "sphere_volumes": {
+      "S2": 12.566370614359174,
+      "S3": 19.739208802178716,
+      "S4": 26.318945069571622,
+      "S5": 31.006276680299816,
+      "S6": 33.0733617923198
+    },
+    "volume_ratios": {
+      "Vol_S3_over_S2": 1.5707963267948963,
+      "Vol_S4_over_S3": 1.3333333333333335,
+      "Vol_S5_over_S4": 1.1780972450961724,
+      "Vol_S6_over_S5": 1.0666666666666667
+    },
+    "identity_1_seed": {
+      "claim": "I(0,0) = pi/2 = Vol(S3)/Vol(S2)",
+      "I_00": 1.5707963267948966,
+      "ratio": 1.5707963267948963,
+      "difference": 2.220446049250313e-16,
+      "exact": true
+    },
+    "identity_2_R": {
+      "claim": "R_target = sqrt(4/3) = sqrt(Vol(S4)/Vol(S3))",
+      "R_target": 1.1547005383792515,
+      "ratio_sqrt": 1.1547005383792517,
+      "difference": 2.220446049250313e-16,
+      "exact": true
+    },
+    "projection_factor": {
+      "N_computed": 1.3603495231756635,
+      "N_exact_form": "pi*sqrt(3)/4",
+      "N_exact_value": 1.3603495231756633,
+      "difference": 2.220446049250313e-16,
+      "verification": 1.1547005383792515,
+      "verif_equals_R": true,
+      "interpretation": "If C_seed^(3)=pi/2 is quotient-bearing on exactly one side of R, then the other side must supply a factor of pi*sqrt(3)/4 for R = sqrt(4/3) to emerge.  If pi/2 cancels (shared normalization), the projection factor is irrelevant and R comes from other structure."
+    }
+  },
+  "green_function_observation": {
+    "claim": "2F1(D-1, h_-; D/2; u) = G_h(u) = massive scalar propagator on S^D",
+    "parameters_at_D4": {
+      "a": "D-1=3",
+      "b": "h_-",
+      "c": "D/2=2"
+    },
+    "massless_limit": {
+      "h_minus_to_0": "2F1(a,0;c;u) = 1  (series terminates at n=0)",
+      "verification_u_points": [
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        0.9
+      ],
+      "deviations_from_1": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "all_pass": true
+    },
+    "triple_product_interpretation": "2F1^3 = three-point function of scalar propagators on S4. Consistent with V3 (shared Green kernel) and V4 (CTP branch-response). Not consistent with V1 (R log\u25a1R, which is a 2-point kernel).",
+    "ctp_h_minus_interpretation": "In the CTP formalism, h_- parameterizes the branch separation (h_- = h_+ - h_-).  The AJ parameter h_- in the integrand is therefore a direct CTP observable, making V4 (branch-response) a structurally natural candidate."
+  },
+  "candidate_vertices_ranked": [
+    {
+      "id": "V5",
+      "name": "benchmark_aj_scalar_seed",
+      "label": "Pure benchmark Allen-Jacobson scalar seed",
+      "loop_order": 3,
+      "propagator_count_expected": 3,
+      "s4_compatible": true,
+      "triple_2F1_match": 1.0,
+      "green_fn_consistency": 1.0,
+      "s4_topology_fit": 1.0,
+      "prefactor_match": 1.0,
+      "projection_factor_plausibility": 0.0,
+      "role_if_confirmed": "benchmark_seed",
+      "theory_input_needed": "Verify that the Allen-Jacobson S4 integral is NOT a vertex in the GRUT CTP action \u2014 i.e., that it appears only as a test computation for numerical validation.  If NO CTP vertex matches I(h_-,eps): pi/2 is a benchmark_seed only.",
+      "scores": {
+        "triple_2F1_match": 1.0,
+        "green_fn_consistency": 1.0,
+        "s4_topology_fit": 1.0,
+        "prefactor_match": 1.0,
+        "propagator_count_consistency": 1.0,
+        "projection_factor_plausibility": 0.0,
+        "composite": 1.0
+      }
+    },
+    {
+      "id": "V3",
+      "name": "shared_s4_green_kernel",
+      "label": "Shared S4 Green kernel normalization",
+      "loop_order": 3,
+      "propagator_count_expected": 3,
+      "s4_compatible": true,
+      "triple_2F1_match": 0.95,
+      "green_fn_consistency": 1.0,
+      "s4_topology_fit": 1.0,
+      "prefactor_match": 0.9,
+      "projection_factor_plausibility": 0.0,
+      "role_if_confirmed": "shared_normalization",
+      "theory_input_needed": "Verify that the GRUT CTP action uses the S4 scalar Green function as the propagator on BOTH branches (N and D sides).  If the Green function appears symmetrically, I(h_-,eps) cancels in R and is a shared normalization. If asymmetric appearance: could be V4 (branch-response) instead.",
+      "scores": {
+        "triple_2F1_match": 0.95,
+        "green_fn_consistency": 1.0,
+        "s4_topology_fit": 1.0,
+        "prefactor_match": 0.9,
+        "propagator_count_consistency": 1.0,
+        "projection_factor_plausibility": 0.0,
+        "composite": 0.9675
+      }
+    },
+    {
+      "id": "V4",
+      "name": "ctp_branch_response_vertex",
+      "label": "CTP branch-response vertex",
+      "loop_order": 3,
+      "propagator_count_expected": 3,
+      "s4_compatible": true,
+      "triple_2F1_match": 0.8,
+      "green_fn_consistency": 0.85,
+      "s4_topology_fit": 0.7,
+      "prefactor_match": 0.7,
+      "projection_factor_plausibility": 0.5,
+      "role_if_confirmed": "final_coefficient_candidate",
+      "theory_input_needed": "Identify the specific three-point CTP vertex in the GRUT action that depends on h_- as a branch-split parameter.  Compute the CTP spectral function of this vertex on S4 and verify 2F1(D-1,h_-;D/2;u) form.  Determine whether the vertex appears only in N, only in D, or in both.",
+      "scores": {
+        "triple_2F1_match": 0.8,
+        "green_fn_consistency": 0.85,
+        "s4_topology_fit": 0.7,
+        "prefactor_match": 0.7,
+        "propagator_count_consistency": 1.0,
+        "projection_factor_plausibility": 0.5,
+        "composite": 0.7799999999999999
+      }
+    },
+    {
+      "id": "V2",
+      "name": "cosmo_euler_projection",
+      "label": "Cosmological/Euler projection term",
+      "loop_order": 3,
+      "propagator_count_expected": 3,
+      "s4_compatible": true,
+      "triple_2F1_match": 0.55,
+      "green_fn_consistency": 0.55,
+      "s4_topology_fit": 0.8,
+      "prefactor_match": 0.7,
+      "projection_factor_plausibility": 0.6,
+      "role_if_confirmed": "cosmo_coefficient_candidate",
+      "theory_input_needed": "Identify the matter sector generating the three-loop vacuum bubble in the cosmological branch of the GRUT CTP action.  Verify that the matter propagator on S4 has the 2F1(D-1, h_-; D/2; u) form.  Check whether the three-loop prefactor reproduces the factor 4.",
+      "scores": {
+        "triple_2F1_match": 0.55,
+        "green_fn_consistency": 0.55,
+        "s4_topology_fit": 0.8,
+        "prefactor_match": 0.7,
+        "propagator_count_consistency": 1.0,
+        "projection_factor_plausibility": 0.6,
+        "composite": 0.6225
+      }
+    },
+    {
+      "id": "V1",
+      "name": "R_log_box_R_nonlocal_euler",
+      "label": "R log\u25a1R nonlocal Euler kernel",
+      "loop_order": 1,
+      "propagator_count_expected": 1,
+      "s4_compatible": true,
+      "triple_2F1_match": 0.15,
+      "green_fn_consistency": 0.3,
+      "s4_topology_fit": 0.9,
+      "prefactor_match": 0.5,
+      "projection_factor_plausibility": 0.2,
+      "role_if_confirmed": "final_coefficient_candidate",
+      "theory_input_needed": "Compute the one-loop R log\u25a1R coefficient on S4 and verify whether the spectral function has a 2F1 form with a=D-1, b=h_-, c=D/2. If YES: check if three such factors appear in the loop diagram.",
+      "scores": {
+        "triple_2F1_match": 0.15,
+        "green_fn_consistency": 0.3,
+        "s4_topology_fit": 0.9,
+        "prefactor_match": 0.5,
+        "propagator_count_consistency": 0.33333333333333337,
+        "projection_factor_plausibility": 0.2,
+        "composite": 0.3975
+      }
+    }
+  ],
+  "candidate_descriptions": {
+    "V1": "A non-local quantum gravity term of the form R log(\u25a1/mu^2) R appearing in the one-loop effective action on curved backgrounds. On S4 with constant curvature, the box operator has a known eigenspectrum and the kernel reduces to a Euler-density coefficient.",
+    "V2": "A three-loop matter correction to the cosmological constant, projected onto the Euler density via the Gauss-Bonnet identity on S4. chi(S4)=2 means the Euler density integrates to 16*pi^2. A three-loop vacuum bubble with matter propagators of the S4 Green-function form would produce the triple 2F1 structure.",
+    "V3": "The S4 scalar Green function G_h(u) ~ 2F1(D-1, h_-; D/2; u) in chordal distance u.  A three-point loop built from three such Green functions on S4 naturally produces I(h_-, eps) = 2*4^((D-3)/2) * int G^3 * measure du.  As a shared normalization appearing in both N and D of R=N/D, this vertex cancels in the quotient.",
+    "V4": "In the Schwinger-Keldysh CTP formalism, the branch-response vertex couples three fields across the two CTP branches: (++) forward, (+-) cross, (--) backward.  The parameter h_- in I(h_-, eps) directly parameterizes the CTP branch split (h_- = h_+ - h_-). A three-point CTP vertex on S4 with massive propagators G_h would reproduce the triple 2F1 structure and h_-\u21920 limit.",
+    "V5": "The integral I(h_-, eps) is used as a benchmark scalar seed for the regularized three-loop S4 computation, without a specific role in the GRUT CTP action quotient structure.  In this interpretation, pi/2 validates the extraction route and numerical methodology but enters neither N nor D in R=N/D."
+  },
+  "provisional_r1_assessment": {
+    "r1_status": "NEEDS_THEORY",
+    "provisional_role": "role_unassigned",
+    "top_by_structural_score": {
+      "id": "V5",
+      "label": "Pure benchmark Allen-Jacobson scalar seed",
+      "composite": 1.0,
+      "margin": 0.03249999999999997,
+      "role_if_confirmed": "benchmark_seed"
+    },
+    "quotient_bearing_candidates": [
+      {
+        "id": "V4",
+        "label": "CTP branch-response vertex",
+        "composite": 0.7799999999999999,
+        "role": "final_coefficient_candidate"
+      },
+      {
+        "id": "V2",
+        "label": "Cosmological/Euler projection term",
+        "composite": 0.6225,
+        "role": "cosmo_coefficient_candidate"
+      },
+      {
+        "id": "V1",
+        "label": "R log\u25a1R nonlocal Euler kernel",
+        "composite": 0.3975,
+        "role": "final_coefficient_candidate"
+      }
+    ],
+    "cancelling_candidates": [
+      {
+        "id": "V5",
+        "label": "Pure benchmark Allen-Jacobson scalar seed",
+        "composite": 1.0,
+        "role": "benchmark_seed"
+      },
+      {
+        "id": "V3",
+        "label": "Shared S4 Green kernel normalization",
+        "composite": 0.9675,
+        "role": "shared_normalization"
+      }
+    ],
+    "key_fork": "V3 (shared_normalization) vs V4 (final_coefficient_candidate): both have high structural scores.  If V3: pi/2 cancels in R and R comes from other structure.  If V4: pi/2 enters one side of R and requires the projection factor N=pi*sqrt(3)/4 on the other side.",
+    "blocking_question": "Which vertex in the GRUT CTP action produces the three-loop S4 diagram with triple 2F1(D-1,h_-;D/2;u) propagators?  Does it appear on both CTP branches (shared_normalization) or on one branch only (quotient-bearing)?",
+    "what_would_resolve_r1": [
+      "Identify the GRUT CTP action term whose Feynman rules on S4 produce I(h_-, eps) as a loop integral",
+      "Determine whether the vertex is common to both CTP branches or asymmetric between them",
+      "If asymmetric: determine which branch (N or D) carries the vertex to assign final_coefficient_candidate or cosmo_coefficient_candidate"
+    ]
+  },
+  "current_role": "role_unassigned",
+  "r1_status": "NEEDS_THEORY"
+}
