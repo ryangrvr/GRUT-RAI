@@ -1,0 +1,235 @@
+{
+  "spec": "gate3-alpha-vac-provenance-spec-v1.0",
+  "spec_date": "2026-05-26",
+  "date": "2026-05-27T10:54:57.100679",
+  "trace_anomaly_table": {
+    "real_scalar": {
+      "species": "Real scalar (conformally coupled)",
+      "a": "1",
+      "c": "3",
+      "source": "KS 2011 eq (A.5); Duff 1994 eq (30)-(31)",
+      "description": "Single real scalar with xi = 1/6 conformal coupling"
+    },
+    "weyl_fermion": {
+      "species": "Weyl fermion",
+      "a": "11/2",
+      "c": "9",
+      "source": "KS 2011 eq (A.5); Duff 1994 eq (30)-(31) [1 Dirac = 2 Weyl]",
+      "description": "Single Weyl (chiral) fermion"
+    },
+    "gauge_field": {
+      "species": "Gauge field (vector + ghosts)",
+      "a": "62",
+      "c": "36",
+      "source": "KS 2011 eq (A.5); Duff 1994 eq (30)-(31)",
+      "description": "Non-abelian gauge boson including FP ghost contribution"
+    }
+  },
+  "action_entry_point": {
+    "term": "S_const = -(1/2) \u222b\u222b h_a K^R h_r d^4x d^4x'",
+    "kernel": "K^R = alpha_vac * chi(omega) * P^TT",
+    "DC_limit": "K^R(0) = alpha_vac * P^TT = (1/3) P^TT",
+    "mechanism": "Constitutive cross-term in linearized gravitational CTP action",
+    "file": "grut/derivation/phi_munu/linearized_ctp_action.py",
+    "result": "n_g(0)^2 = 1 + alpha_vac = 4/3  =>  R = sqrt(4/3)",
+    "answer": "alpha_vac enters as the coefficient of the TT-projected constitutive kernel"
+  },
+  "route_comparison": {
+    "Route_1_v11_AppH": {
+      "formula": "alpha = 1/d = 1/3  (d = 3 spatial dimensions)",
+      "source": "v11.1 Genesis Codex Appendix H \u00a7H.4",
+      "argument": "Bulk->brane dimensional reduction of trace anomaly",
+      "status": "ASSERTION \u2014 narrative, not a published physics result",
+      "problems": [
+        "No intermediate calculation in \u00a7H.4",
+        "The '\u03b1 = 1/d' formula does not appear in KK theory, trace anomaly literature, or viscoelastic theory",
+        "'Conformal projection of trace anomaly' is not a recognized technical term",
+        "Standard KK results depend on compactification details, not simply on d"
+      ],
+      "verdict": "Not suitable for a published paper; must be replaced"
+    },
+    "Route_2_KS2011_Duff1994": {
+      "formula": "a/c = 1/3 for a real conformally-coupled scalar",
+      "source": "KS 2011 arXiv:1107.3987 eq (A.5); Duff 1994 arXiv:hep-th/9308075 eq (30)-(31)",
+      "argument": "Standard 4D trace anomaly: T^mu_mu = a E_4 - c W^2; (a,c) = (1,3) for real scalar",
+      "a_over_c": 0.3333333333333333,
+      "a_over_c_exact": "1/3",
+      "matches_alpha_vac": true,
+      "status": "PUBLISHED \u2014 textbook result, two independent source confirmations",
+      "properties": [
+        "Exact rational (not approximation)",
+        "Convention-independent: both KS 2011 and Duff 1994 agree",
+        "Reproducible from heat kernel theory",
+        "Does NOT require knowledge of R to compute"
+      ],
+      "verdict": "Correct provenance route for the book"
+    },
+    "identification_step": {
+      "claim": "The gravitational conformal mode acts as a real conformally-coupled scalar",
+      "status": "GRUT-SPECIFIC IDENTIFICATION (load-bearing)",
+      "if_holds": "alpha_vac = a/c = 1/3 is derived, not assumed",
+      "if_not": "alpha_vac = 1/3 remains an axiom (as per April 2026 audit)",
+      "what_is_needed": "A chapter showing that the conformal mode of the metric in 4D gravitational CTP theory IS a real conformally-coupled scalar (\u03be = 1/6 coupling), and that this identification is NOT reverse-engineered from R = sqrt(4/3)."
+    }
+  },
+  "independence_check": {
+    "computation_order": [
+      "Step 1: Duff 1994 per-species (a,c) for real scalar: (1, 3)",
+      "Step 2: a/c = 1/3  [no R used]",
+      "Step 3: Identify conformal mode as real scalar",
+      "Step 4: alpha_vac = a/c = 1/3  [still no R used]",
+      "Step 5: n_g(0) = sqrt(1 + 1/3) = sqrt(4/3) = R  [R computed last]"
+    ],
+    "alpha_from_trace_anomaly": 0.3333333333333333,
+    "R_computed_after_alpha": 1.1547005383792515,
+    "R_computed_equals_R_target": true,
+    "R_used_in_alpha_computation": false,
+    "route_2_independent": true,
+    "historical_caveat": "The HISTORICAL route was reverse-engineered: v6 had a/c = 4/3 from holography, v11 provided 'alpha = 1/d' as narrative. But Route 2 (Duff 1994 a/c for scalar) is a published calculation that does NOT require knowing R beforehand. The fact that it gives the same answer as the historical claim does not make it circular \u2014 it makes it an independent confirmation.",
+    "independence_verdict": "INDEPENDENT via Route 2. Historical route was circular; Route 2 is not."
+  },
+  "convention_check": {
+    "convention_A_KS2011": {
+      "a": "1",
+      "c": "3",
+      "a_over_c": "1/3",
+      "equals_1_3": true
+    },
+    "convention_B_Duff1994": {
+      "b_prime_abs": "1/360",
+      "b": "1/120",
+      "ratio": "1/3",
+      "equals_1_3": true
+    },
+    "convention_C_rescaled": {
+      "scale_N": "7/3",
+      "a": "7/3",
+      "c": "7",
+      "a_over_c": "1/3",
+      "equals_1_3": true
+    },
+    "invariant": true,
+    "verdict": "a/c = 1/3 is CONVENTION-INDEPENDENT: an exact rational ratio that survives all normalization changes"
+  },
+  "ks2011_path_check": {
+    "claim_a_v11_AppH": {
+      "statement": "alpha = 1/d from conformal projection of trace anomaly under dimensional reduction",
+      "in_KS2011": false,
+      "in_Duff1994": false,
+      "status": "NOT SUPPORTED by cited papers; v11 App H narrative only"
+    },
+    "claim_b_KS2011_Duff1994": {
+      "statement": "a/c = 1/3 for a real conformally-coupled scalar",
+      "reference": "KS 2011 arXiv:1107.3987 eq (A.5); Duff 1994 arXiv:hep-th/9308075 eq (30)-(31)",
+      "a": "1",
+      "c": "3",
+      "a_over_c": "1/3",
+      "in_KS2011": true,
+      "in_Duff1994": true,
+      "status": "SUPPORTED \u2014 textbook result in two independent published sources"
+    },
+    "what_ALPHA_VAC_PROVENANCE_found": "April 2026 audit found 'alpha = 1/d' not in KS 2011 \u2014 CORRECT, but it was checking Claim (a), not Claim (b). Claim (b) IS in KS 2011 and is the correct provenance. The resolution: closure_protocol.py's updated docstring citing 'KS 2011 a/c = 1/3 for real scalar' is correct. The April audit's finding (about Claim a) and the current code (about Claim b) are BOTH correct and not in conflict.",
+    "book_citation": "Cite KS 2011 arXiv:1107.3987 eq (A.5) and Duff 1994 arXiv:hep-th/9308075 eq (30)-(31) for 'a/c = 1/3 for a real conformally-coupled scalar'. Do NOT cite KS 2011 for 'alpha = 1/d from dimensional reduction'."
+  },
+  "sensitivity_analysis": {
+    "rows": [
+      {
+        "alpha_vac": 0.25,
+        "alpha_exact": "0.25",
+        "S": 603.1857894892403,
+        "R": 1.118033988749895,
+        "H_inf_Hz": 1.1058157147052741e-18,
+        "Omega_Lambda": 0.237616631950453,
+        "planck_deviation_pct": -65.50781942945956,
+        "physical": true
+      },
+      {
+        "alpha_vac": 0.27,
+        "alpha_exact": "0.27",
+        "S": 517.134593183505,
+        "R": 1.1269427669584644,
+        "H_inf_Hz": 1.2767948851587568e-18,
+        "Omega_Lambda": 0.31677696198905614,
+        "planck_deviation_pct": -54.01698911466741,
+        "physical": true
+      },
+      {
+        "alpha_vac": 0.3333333333333333,
+        "alpha_exact": "1/3",
+        "S": 339.2920065876977,
+        "R": 1.1547005383792515,
+        "H_inf_Hz": 1.8841651822179833e-18,
+        "Omega_Lambda": 0.6898414234939182,
+        "planck_deviation_pct": 0.1366560449874055,
+        "physical": true
+      },
+      {
+        "alpha_vac": 0.4,
+        "alpha_exact": "0.4",
+        "S": 235.61944901923445,
+        "R": 1.1832159566199232,
+        "H_inf_Hz": 2.621670569016097e-18,
+        "Omega_Lambda": 1.335572777372913,
+        "planck_deviation_pct": 93.87034074218508,
+        "physical": false
+      },
+      {
+        "alpha_vac": 0.5,
+        "alpha_exact": "0.5",
+        "S": 150.79644737231007,
+        "R": 1.224744871391589,
+        "H_inf_Hz": 3.8880831831871216e-18,
+        "Omega_Lambda": 2.937530717163283,
+        "planck_deviation_pct": 326.4088717031911,
+        "physical": false
+      }
+    ],
+    "canonical": {
+      "alpha_vac": 0.3333333333333333,
+      "alpha_exact": "1/3",
+      "S": 339.2920065876977,
+      "R": 1.1547005383792515,
+      "H_inf_Hz": 1.8841651822179833e-18,
+      "Omega_Lambda": 0.6898414234939182,
+      "planck_deviation_pct": 0.1366560449874055,
+      "physical": true
+    },
+    "sensitivity_verdict": "Only alpha_vac near 1/3 gives physically sensible Omega_Lambda in the Planck range. alpha = 1/4 gives 0.24; alpha = 1/2 gives >1. The framework genuinely requires alpha near 1/3; this is load-bearing.",
+    "planck_val": 0.6889
+  },
+  "five_questions": {
+    "Q1_where_enters_action": {
+      "answer": "Constitutive cross-term S_const: K^R = alpha_vac * chi(omega) * P^TT",
+      "status": "IDENTIFIED"
+    },
+    "Q2_derivation_route": {
+      "answer": "Route 2 (KS 2011 / Duff 1994): a/c = 1/3 for real conformally-coupled scalar. NOT Route 1 (v11 App H 'alpha = 1/d' narrative, which is an assertion). The load-bearing step is the identification: conformal mode = real scalar.",
+      "status": "ROUTE 2 IS EXPLICIT AND PUBLISHED; identification step needs its own chapter"
+    },
+    "Q3_independent_of_R": {
+      "answer": "YES via Route 2: a/c = 1/3 is computed from Duff 1994 coefficients before R is defined. Historical route was circular (v6 had 4/3 first). Route 2 is not circular.",
+      "status": "INDEPENDENT (Route 2)"
+    },
+    "Q4_convention_invariance": {
+      "answer": "YES: a/c = 1/3 is dimensionless and normalization-independent. KS 2011 and Duff 1994 agree exactly.",
+      "status": "CONFIRMED"
+    },
+    "Q5_KS2011_match": {
+      "answer": "YES for Claim (b): 'a/c = 1/3 for real scalar' IS in KS 2011 eq (A.5). NO for Claim (a): 'alpha = 1/d from dimensional reduction' is NOT in KS 2011. The closure_protocol.py docstring cites Claim (b) \u2014 correct. v11 App H cites Claim (a) \u2014 not supported.",
+      "status": "RESOLVED: Route 2 matches KS 2011; Route 1 does not"
+    }
+  },
+  "summary": {
+    "alpha_vac": 0.3333333333333333,
+    "alpha_vac_exact": "1/3",
+    "a_over_c_real_scalar": "1/3",
+    "route_for_book": "Route 2 (KS 2011 / Duff 1994): a/c = 1/3 for real scalar",
+    "route_to_drop": "Route 1 (v11 App H 'alpha = 1/d'): assertion, not physics",
+    "independent_of_R": true,
+    "convention_invariant": true,
+    "matches_KS2011_claim_b": true,
+    "load_bearing_identification": "conformal mode of gravity = real conformally-coupled scalar",
+    "needs_chapter": "Identification chapter: why conformal mode = scalar (not circular)",
+    "sensitivity": "HIGH \u2014 only alpha near 1/3 gives physical Omega_Lambda"
+  }
+}
