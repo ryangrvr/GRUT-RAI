@@ -1,0 +1,141 @@
+{
+  "spec": "gate3-coefficient-role-assignment-spec-v1.0",
+  "spec_date": "2026-05-26",
+  "date": "2026-05-26T21:59:41.889035",
+  "seed_value": 1.5707963267948966,
+  "seed_exact": "pi/2 = 4*B(3/2,3/2)",
+  "seed_source": "Allen-Jacobson S4 integral, direct-limit D1/D3",
+  "C_Euler_D1": 1.5707294464844672,
+  "C_Euler_D2": 1.569477814639061,
+  "C_Euler_D3": 1.5707322699962223,
+  "current_role": "role_unassigned",
+  "role_description": "Default: evidence incomplete for any role",
+  "promotion_review_eligible": true,
+  "criteria": {
+    "R1": {
+      "criterion": "R1_operator_source",
+      "question": "Which term in the CTP effective action produces the S4 AJ integral?",
+      "status": "NEEDS_THEORY",
+      "evidence": {
+        "known": "The integral I(h_-, eps) = 2*4^((D-3)/2) * int_0^1 2F1(D-1, h_-; D/2; u)^3 * [u(1-u)]^((D-3)/2) du is a three-loop diagram on S4. The three 2F1 factors suggest three propagator insertions.",
+        "unknown": [
+          "Which field content carries the three propagators",
+          "Whether the diagram is a vertex correction, vacuum bubble, or topological term",
+          "The coupling constant attached to this vertex in the CTP action"
+        ]
+      },
+      "disqualifying_finding": "If vertex absent from CTP action \u2192 benchmark_seed only",
+      "blocking_for": [
+        "R2",
+        "R3"
+      ]
+    },
+    "R2": {
+      "criterion": "R2_projection_target",
+      "question": "What geometric/topological object does the seed project onto?",
+      "status": "PARTIAL",
+      "evidence": {
+        "s4_euler_characteristic": 2,
+        "euler_density_integral_on_s4": 157.91367041742973,
+        "seed_pi_over_2": 1.5707963267948966,
+        "ratio_seed_to_pi2": 0.15915494309189535,
+        "ratio_seed_to_16pi2": 0.009947183943243459,
+        "topological_argument": "S4 = round 4-sphere is the natural test manifold for Euler-class invariants. chi(S4)=2. The Euler density integrates to 16pi^2 on S4. The prefactor 4=2*4^(1/2) in I(0,0) is distinct from 16pi^2, suggesting the seed is NOT a direct topological index but rather a specific coupling-dependent normalization coefficient.",
+        "unknown": [
+          "Whether the projection operator onto Euler density has been applied",
+          "Whether S4 test geometry is sufficient or full backreaction needed",
+          "Whether the 2F1 triple product structure identifies a specific vertex"
+        ]
+      },
+      "candidate_targets": [
+        "euler_density",
+        "cosmo_const",
+        "normalization",
+        "unknown"
+      ],
+      "current_best_candidate": "euler_density (by topology argument, unconfirmed)",
+      "blocking_for": [
+        "R3"
+      ]
+    },
+    "R3": {
+      "criterion": "R3_quotient_position",
+      "question": "Does C_seed appear in N, D, both, or neither of R = N/D?",
+      "status": "BLOCKED",
+      "blocked_by": "R2 (projection target unresolved)",
+      "evidence": {
+        "known": "R = N/D is the GRUT quotient structure. C_Euler roles TBD.",
+        "unknown": [
+          "Which side of R the Euler density belongs to",
+          "Whether N and D both receive Euler density contributions",
+          "The relative normalization of N and D"
+        ]
+      },
+      "role_implications": {
+        "numerator_only": "cosmo_coefficient_candidate",
+        "denominator_only": "final_coefficient_candidate",
+        "both": "shared_normalization (pending R5 cancellation check)",
+        "neither": "branch_normalization"
+      }
+    },
+    "R4": {
+      "criterion": "R4_scheme_behavior",
+      "question": "Is the seed protected under regularization-scheme changes?",
+      "status": "PARTIAL",
+      "evidence": {
+        "C_Euler_D1": 1.5707294464844672,
+        "C_Euler_D2": 1.569477814639061,
+        "C_Euler_D3": 1.5707322699962223,
+        "pi_over_2": 1.5707963267948966,
+        "D1_D3_delta": 2.823511755067898e-06,
+        "D1_D2_delta": 0.0012516318454061093,
+        "D1_relative_to_pi_over_2": 4.257732800139979e-05,
+        "D3_relative_to_pi_over_2": 4.077982459061128e-05,
+        "D3_universality_spread": 0.00019680479980724997,
+        "universality_passes_1pct": true
+      },
+      "interpretation": "D1/D3 agreement and D3 c-independence support protection. D2's order-of-limits sensitivity is a structural feature (noncommuting limits), not a scheme fragility.",
+      "supports_protected_status": true
+    },
+    "R5": {
+      "criterion": "R5_cancellation_check",
+      "question": "If C_seed appears in both N and D, does it cancel in R?",
+      "status": "BLOCKED",
+      "blocked_by": "R3 (quotient position unresolved)",
+      "evidence": {
+        "known": "If seed cancels: role = shared_normalization (quotient R is independent of \u03c0/2)",
+        "unknown": "Whether seed appears on both sides and in equal powers"
+      },
+      "method_when_unblocked": "Compute R = N/D with C_Euler = pi/2 and with C_Euler perturbed. If R changes: seed is quotient-bearing. If R is invariant: seed is shared_normalization."
+    },
+    "R6": {
+      "criterion": "R6_landing_eligibility",
+      "question": "Does the seed satisfy Gate 3 coefficient landing interface conditions?",
+      "status": "PARTIAL",
+      "sub_conditions": {
+        "blinded_protocol_followed": true,
+        "two_prescriptions_agree": true,
+        "endpoint_objection_resolved": true,
+        "r_not_promoted_prematurely": true,
+        "role_assigned_before_landing": false
+      },
+      "active_blocker": "role_assigned_before_landing = False (role_unassigned)",
+      "eligible_when": "Role assigned via criteria R1\u2013R5"
+    }
+  },
+  "blocking_questions": [
+    "R1: Which term in the CTP effective action produces the S4 AJ integral?",
+    "R3: Does C_seed appear in N, D, both, or neither of R = N/D?",
+    "R5: If C_seed appears in both N and D, does it cancel in R?"
+  ],
+  "next_action": "Resolve R1 (operator source) to unlock R2 and R3",
+  "roles_taxonomy": {
+    "role_unassigned": "Default: evidence incomplete for any role",
+    "final_coefficient_candidate": "Can enter C_Euler,final (denominator side)",
+    "cosmo_coefficient_candidate": "Can enter C_Euler,cosmo (numerator side)",
+    "shared_normalization": "Appears in N and D; cancels in quotient R",
+    "branch_normalization": "Validates direct-limit branch only; not quotient-bearing",
+    "benchmark_seed": "Useful numerical check; no direct R implication",
+    "rejected": "Disqualified from entering quotient"
+  }
+}
