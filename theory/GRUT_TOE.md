@@ -581,6 +581,20 @@ The canonical GRUT refractive coefficient is derived from the constitutive respo
 7. DC limit: $n_g(0)^2 = 1 + \alpha_{\rm vac} = 4/3$
 8. $R = n_g(0) = \sqrt{4/3}$
 
+**The conformal response mode: why one real scalar controls $\alpha_{\rm vac}$.**
+
+Step 5 of the chain — the identification of the gravitational conformal mode with a real conformally-coupled scalar — is the load-bearing physical input. Steps 1–4 are standard differential geometry and published CFT results. Here is why the identification is forced, not chosen:
+
+*Why a scalar.* The Weyl decomposition $g_{\mu\nu} = e^{2\sigma}\hat{g}_{\mu\nu}$ is the unique decomposition of the metric into a conformal factor $\sigma$ (real scalar) and a conformal equivalence class representative $\hat{g}$. The conformal factor is a real scalar by construction — it has spin 0 and no gauge index. It cannot be a fermion (spinor under $\mathrm{Spin}(4)$) or a gauge field (Lie-algebra-valued 1-form). The identification is determined by representation theory, not by the desire to produce $R = \sqrt{4/3}$.
+
+*Why conformally coupled.* The Einstein–Hilbert action decomposed in the conformal gauge on $S^4$ gives $\sigma$ a kinetic term whose curvature coupling is $m^2 = R/6$. This is the conformal coupling $\xi_c = (D-2)/[4(D-1)] = 1/6$ in 4D, the coupling that makes $(\Box - R/6)\sigma = 0$ on-shell. No tuning: the coupling comes out of the gravitational action with no free parameter.
+
+*Why one species.* The conformal factor $\sigma$ is a single real-valued function — one real degree of freedom. The functional integral over metrics decomposes into one integration over $\sigma$ and one over the conformal equivalence class. There is no doubling, no multiplet, and no superposition of species in the conformal sector.
+
+*Why $P^{TT}$ does not contradict the scalar anomaly.* The constitutive kernel $K^R = \alpha_{\rm vac}\,\chi(\omega)\,P^{TT}$ contains two structurally independent factors. $\alpha_{\rm vac}\,\chi(\omega)$ is the vacuum's response amplitude — a property of the medium (the background $S^4$ vacuum with its conformal structure). $P^{TT}$ is a filter on which external perturbations $h_{\mu\nu}$ are admissible sources. The scalar anomaly sets the medium's susceptibility; the TT projector selects admissible inputs. A scalar dielectric constant does not contradict a transverse electromagnetic wave: the scalar $\varepsilon$ characterizes the medium, while transversality constrains the field. Same structure here.
+
+*The published value.* With $\sigma$ established as one real conformally-coupled scalar, the Weyl anomaly coefficients are read directly from Duff (1994) and Kounnas–Scrucca (2011 eq A.5): $(a,c) = (1,3)$, giving $\alpha_{\rm vac} = a/c = 1/3$. This is an exact rational number, convention-independent (the ratio $a/c$ is invariant under all normalization changes), and published in two independent sources. The old v11 "vacuum impedance = 1/d" narrative is superseded — it was a post-hoc assertion. The correct route is the trace anomaly route, and it gives the same number.
+
 **Canonical value (constitutive/refractive route — Path G).** From the vacuum impedance:
 
 $$R = n_g(0) = \sqrt{1 + \alpha_{\rm vac}} = \sqrt{\frac{4}{3}} = 1.15470\ldots$$
@@ -630,7 +644,7 @@ Max-min spread between the two non-negative routes: 0.089%. The two supporting r
 
 "The universe is √(4/3) ≈ 1.15470 trying to become 1."
 
-**Open seam.** The loop-corrected R = 1.15428 remains open_negative (Chapter 14, open question #2): the Allen-Jacobson Phase-1 S⁴ propagator IS now implemented (Correction #31, May 2026); the remaining gate is the Mathematica/HypExp ε-expansion of the [₂F₁(h₊,h₋;D/2;(1+Z)/2)]³ radial integral (`S4CurvatureObstacle`). The two computed routes carry the convergence independently. [OPEN]
+**Open seam.** The 3-loop anomaly-quotient value $R_{\rm anomaly} = 1.15428$ remains honest_negative (Chapter 14, open question #2). The Allen-Jacobson Phase-1 S⁴ propagator is implemented (Correction #31, May 2026); the remaining gate is the Mathematica/HypExp ε-expansion of the $[{}_2F_1(h_+,h_-;D/2;(1+Z)/2)]^3$ radial integral (`S4CurvatureObstacle`). Closing this gate would either reproduce 1.15428 (confirming the anomaly-quotient route as a consistency check on the canonical value) or rule it out further. Either outcome leaves the canonical $R = \sqrt{4/3}$ unchanged. [HONEST NEGATIVE]
 
 *Registry claims: r_canonical_path_g (computed — Gate R closed, constitutive/refractive route canonical), r_path_osborn_epsilon (computed — supporting), r_loop_corrected (open_negative/honest_negative — 3-loop anomaly-quotient route not reproduced in TJI Phase-0/0.5; retained as diagnostic), three_routes_convergence (computed — Path G + Osborn are load-bearing; anomaly-quotient is diagnostic), integer_provenance_traced (computed), tji_7_4_open_negative (open_negative)*
 
