@@ -238,12 +238,17 @@ REGISTRY: tuple[Claim, ...] = (
         id="alpha_vac_derivation",
         chapter=2,
         statement=(
-            "α_vac = 1/3 is derived via conformal-mode scalar "
-            "identification: under the postulate that the gravitational "
-            "conformal mode is the IR carrier of vacuum response, "
-            "KS 2011 gives a/c = 1/3 exactly for a single real "
-            "conformally-coupled scalar. The algebra under the postulate "
-            "is verified at code level (Fraction-exact: a/c = 1/3)."
+            "α_vac = 1/3 is formalized via the Gate R identification "
+            "(May 2026, C1-C6 all SUPPORTED/FORMALIZED): the Weyl "
+            "decomposition g_μν = e^{2σ}ĝ_μν identifies σ as one real "
+            "conformally-coupled scalar; the published trace anomaly "
+            "a/c = 1/3 (Duff 1994 / Komargodski-Schwimmer 2011 eq A.5) "
+            "for this species gives α_vac = 1/3 exactly. The "
+            "conformal coupling ξ_c = 1/6 follows from the "
+            "Einstein–Hilbert decomposition on S⁴ without tuning; "
+            "fermion and gauge alternatives are excluded by "
+            "representation theory. Algebra verified at code level "
+            "(Fraction-exact: a/c = 1/3)."
         ),
         tier="computed",
         refs=(
@@ -2246,10 +2251,12 @@ REGISTRY: tuple[Claim, ...] = (
         chapter=12,
         statement=(
             "The repository maintains a public ledger of every correction "
-            "to the framework: 16+ CORRECTION_*.md files in "
-            "theory/derivation/ documenting every revision, with zero "
-            "unflagged errors. Honest-negative discipline is enforced "
-            "by repository convention."
+            "to the framework: 28 documented corrections across the V7 "
+            "development era, the v8→v2 synthesis, hard-theory audits, "
+            "and Gate R closure (May 2026). Each correction has a "
+            "CORRECTION_*.md file or registry claim; zero unflagged "
+            "errors. Honest-negative discipline is enforced by "
+            "repository convention."
         ),
         tier="meta",
         refs=(

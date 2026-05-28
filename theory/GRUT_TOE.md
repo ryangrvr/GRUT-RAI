@@ -33,7 +33,7 @@ If S_CTP is wrong, everything fails. If τ₀ is wrong, decoherence and cosmolog
 | Source | `ctp_action_structure` (S_CTP on S⁴) | computed | — (root) | The entire framework collapses | Nothing — this is the parent |
 | Kernel | `noise_kernel_form` (N_grav = G/(ℏ\|x−x'\|)) | computed | S_CTP | All decoherence and cosmological predictions fail | Nothing in the spine |
 | Bridge | `tau_0_derivation` (τ₀ = 41.9 Myr) | computed | cosmic-baseline + cluster anchors | Decoherence-cosmology bridge severs; 689 Hz, H_inf, Bullet offset all detach | Foundational provenance audit (Ch 2) |
-| Bridge | `alpha_vac_derivation` (α = 1/3, Gate R) | computed | Weyl decomp $g=e^{2\sigma}\hat{g}$; conformal scalar identification; Duff 1994 / KS 2011 a/c = 1/3; K^R = α χ P^TT | Six scaling laws break simultaneously; R = √(4/3) loses its source | Sectoral phenomenology survives only as fits, not derivations |
+| Bridge | `alpha_vac_derivation` (α = 1/3, Gate R) | computed | Weyl decomp $g=e^{2\sigma}\hat{g}$; conformal scalar identification; Duff 1994 a/c = 1/3; K^R = α χ P^TT | Six scaling laws break simultaneously; R = √(4/3) loses its source | Sectoral phenomenology survives only as fits, not derivations |
 | Output | `refractive_index` (n_g²(ω) = 1 + α/(1+(ωτ₀)²)) | computed | τ₀, α | No frequency-dependent regimes; no DM enhancement, no GR recovery as limit | Standalone use as effective field |
 | Output | `threshold_bridge` (X = max(ω, Λ_grav) × τ₀) | computed | τ₀, n_g(ω), Λ_grav | Regime classification breaks; crystal/fluid distinction is ad-hoc | Nothing in the spine |
 | Branch — QM | `qm_recovery` (Schrödinger from τ → 0 limit) | computed | constitutive equation, τ₀ | QM emergence is a postulate, not a limit | QM as imported |
@@ -52,7 +52,7 @@ If S_CTP is wrong, everything fails. If τ₀ is wrong, decoherence and cosmolog
 | Area | Status |
 |:---|:---|
 | Canonical R = √(4/3) | **Closed / derived** (Gate R, May 2026) |
-| α_vac = 1/3 provenance | **Closed / formalized** (Duff 1994 / KS 2011, Gate R) |
+| α_vac = 1/3 provenance | **Closed / formalized** (Duff 1994 eq 30–31, Gate R) |
 | Linearized gravity on FRW | **Strong** — derived and scaffolded |
 | Nonlinear gravity | **Open** — 4/8 rungs; perturbation-growth failure at first order |
 | Standard Model closure | **Partial** — SM hosted; neutrino hierarchy derived; Yukawas/CKM/PMNS/Higgs open |
@@ -74,7 +74,7 @@ Every honest negative is documented. Nothing is fitted away.
 
 The Grand Responsive Universe Theory (GRUT) is a candidate Theory of Everything built on a single premise: the gravitational vacuum is not empty space but a viscoelastic medium with finite relaxation time and finite impedance. One closed-time-path (CTP, Schwinger-Keldysh) effective action, evaluated on Euclidean S⁴ with Standard Model field content, produces a constitutive response equation whose sectoral limits yield quantum mechanics (exact), gravitational decoherence with zero free parameters (exact, six scaling laws), a cosmological constant Ω_Λ ≈ 0.69 within 0.2% of Planck from two independent routes (computed, zero free parameters), a Hubble rate H₀ ≈ 68.8 km/s/Mpc (zero parameters, cosmic-baseline) or 69.03 km/s/Mpc (one parameter, Friedmann integration) — both in the tension gap, baryon asymmetry within 8% (computed), a dark matter density of Ω_dm = 1/3 from geometry alone (zero parameters), and structural contacts with QCD, flavor, neutrinos, coupling unification, quantum gravity, and neural resonance — all from the same parent action.
 
-Two constants characterize the medium: a relaxation time τ₀ = 41.9 Myr anchored by the cosmic-baseline relation 1/(H₀ × 108π), and a vacuum impedance α = 1/3 derived from the Weyl-decomposition identification of the gravitational conformal mode as one real conformally-coupled scalar — Duff 1994 / KS 2011 a/c = 1/3 exactly (Gate R closed, May 2026). One computable constant — R = √(4/3) = 1.15470, the gravitational refractive index of the vacuum — follows directly from α = 1/3 via the constitutive cross-kernel (Path G, canonical derivation). The canonical R = √(4/3) is the constitutive/refractive route; the previous R = 1.15428 from the 3-loop CTP anomaly-quotient route is an honest-negative diagnostic (TJI Phase-0/0.5 did not reproduce it; Allen-Jacobson Phase-1 S⁴ propagator is IMPLEMENTED but the ₂F₁³ ε-expansion remains open — `S4CurvatureObstacle`). An independently computed check at ε = 1.15367 from Osborn's local RG coefficients with measured SM couplings converges with the canonical value to within 0.089% — the two non-negative routes share no inputs.
+Two constants characterize the medium: a relaxation time τ₀ = 41.9 Myr anchored by the cosmic-baseline relation 1/(H₀ × 108π), and a vacuum impedance α = 1/3 derived from the Weyl-decomposition identification of the gravitational conformal mode as one real conformally-coupled scalar — Duff 1994 a/c = 1/3 exactly (Gate R closed, May 2026). One computable constant — R = √(4/3) = 1.15470, the gravitational refractive index of the vacuum — follows directly from α = 1/3 via the constitutive cross-kernel (Path G, canonical derivation). The canonical R = √(4/3) is the constitutive/refractive route; the previous R = 1.15428 from the 3-loop CTP anomaly-quotient route is an honest-negative diagnostic (TJI Phase-0/0.5 did not reproduce it; Allen-Jacobson Phase-1 S⁴ propagator is IMPLEMENTED but the ₂F₁³ ε-expansion remains open — `S4CurvatureObstacle`). An independently computed check at ε = 1.15367 from Osborn's local RG coefficients with measured SM couplings converges with the canonical value to within 0.089% — the two non-negative routes share no inputs.
 
 The framework rests on two organizing principles. The first is the *viscoelastic medium* itself — the constitutive equation τ₀ dz/dt + z = z_target[z] applied to the gravitational vacuum. The second is *scale universality*: the same four constants (τ₀, α, S = 108π, R) govern phenomena across roughly sixty orders of magnitude in frequency, from Planck UV physics to Hubble expansion, through the same constitutive equation. Quantum mechanics, gravitational decoherence, dark matter, dark energy, baryogenesis, and the observer's classical definiteness are not separate effective theories at different scales — they are the same medium responding to different matter configurations, with constants that scale (don't run with energy), interact (actively produce the phenomenology), and remember (through the memory kernel τ₀⁻¹ exp(−t/τ₀)).
 
@@ -124,7 +124,7 @@ For the full chain of corrections including #1-#21 (V7 development era) plus the
 | Item | Previous | Now |
 |:---|:---|:---|
 | Canonical R source | "Path G refractive + pending loop correction" | "Constitutive/refractive route — derived. 3-loop route is honest negative" |
-| $\alpha_{\rm vac} = 1/3$ provenance | GRUT assertion ("vacuum impedance = 1/d") | Published trace anomaly: $a/c = 1/3$ for real conformally-coupled scalar (Duff 1994 / KS 2011 eq A.5) |
+| $\alpha_{\rm vac} = 1/3$ provenance | GRUT assertion ("vacuum impedance = 1/d") | Published trace anomaly: $a/c = 1/3$ for real conformally-coupled scalar (Duff 1994 (eq 30–31)) |
 | $R_{\rm anomaly} = 1.15428$ | Presented as "loop correction to tree-level" | Honest negative — TJI Phase-0/0.5 did not reproduce; retained as diagnostic |
 | $P^{TT}$ / scalar-anomaly compatibility | Not addressed | Resolved: scalar $\alpha_{\rm vac}$ sets vacuum response amplitude; $P^{TT}$ filters admissible perturbation sources — independent roles |
 | Conformal mode identification | Stated without derivation | Formalized: Weyl decomposition + EH action on $S^4$ gives $\sigma$ as spin-0, $\xi_c = 1/6$ exactly |
@@ -138,15 +138,35 @@ For the full chain of corrections including #1-#21 (V7 development era) plus the
 | Gate 3 sector-coupling assignment | Dimensional ladder: $I(0,0)|_{D=5} = 4/3 = R^2$ |
 | Gate 3 sector-dimensional provenance | Assignment B (cosmo = $S^4$, final = $S^3$) is unique |
 | Gate 3 CTP action term audit | $S_{\rm const}$ with $\alpha_{\rm vac} = 1/3$ → $n_g(0) = \sqrt{4/3}$ exactly |
-| Gate 3 $\alpha_{\rm vac}$ provenance | Route 2 (Duff 1994/KS 2011): published, convention-independent |
+| Gate 3 $\alpha_{\rm vac}$ provenance | Route 2 (Duff 1994 eq 30–31): published, convention-independent |
 | Gate R identification | C1–C6 all SUPPORTED or FORMALIZED |
+
+**Complete gate-status table (G1–G7 action layer; C1–C6 identification layer):**
+
+The audit proceeds in two layers. G1–G7 are action-layer gates: they verify that the CTP action structure, sector assignments, and constitutive kernel form are correct. C1–C6 are identification-layer gates: they verify that the gravitational conformal mode is correctly identified as one real conformally-coupled scalar.
+
+| Gate | Description | Status |
+|:---|:---|:---|
+| G1 | $\pi/2$ vertex-factor provenance — shared $S^4$ normalization | **Identified** |
+| G2 | CTP branch-incidence — SYM topology survives; $V_{aaa} = 0$ | **Supported** |
+| G3 | Sector-coupling assignment — dimensional ladder: $I(0,0)\vert_{D=5} = 4/3 = R^2$ | **Identified** |
+| G4 | Sector-dimensional assignment — cosmo = $S^4$, final = $S^3$; $D=4$ coincidence | **Indirect / algebraic** |
+| G5 | CTP action term — $S_{\rm const}$ with $K^R = \alpha_{\rm vac}\chi P^{TT}$ → $n_g(0)^2 = 4/3$ | **Proved** |
+| G6 | $\alpha_{\rm vac}$ provenance — Route 2: Duff 1994 $a/c = 1/3$, published, convention-independent | **Confirmed** |
+| G7 | End-to-end: $\alpha_{\rm vac} = 1/3 \to R = \sqrt{4/3}$ via Path G constitutive route | **Confirmed via Path G** |
+| C1 | Scalar mode isolated — $\sigma$ is scalar sector of Weyl decomposition; IR-dominant on $S^4$ | **Formalized** |
+| C2 | Conformal coupling — EH decomposition gives $\xi_c = 1/6$ exactly; no free parameter | **Formalized** |
+| C3 | One real species / GHP — functional measure: one real DOF; GHP instability is Euclidean artifact, does not affect retarded CTP kernel | **Supported** |
+| C4 | Fermion / gauge excluded — $\sigma$ is spin-0 by Weyl decomposition; excluded by representation, not by R-matching | **Supported** |
+| C5 | $P^{TT}$ compatibility — scalar $\alpha_{\rm vac}$ sets vacuum response amplitude; $P^{TT}$ filters admissible perturbation sources; independent roles | **Resolved** |
+| C6 | R-independence — $a/c = 1/3$ computed from Duff 1994 before $R$ is defined; not circular | **Supported** |
 
 **The R-chain claim-status ledger:**
 
 | Claim | Status | Basis |
 |:---|:---|:---|
 | $R = \sqrt{4/3}$ (canonical) | **Derived** | Gate R closed: Weyl decomp → $a/c = 1/3$ → $K^R$ → $n_g(0) = \sqrt{4/3}$ |
-| $\alpha_{\rm vac} = 1/3$ | **Derived** | Duff 1994 / KS 2011: real conformally-coupled scalar, exact rational |
+| $\alpha_{\rm vac} = 1/3$ | **Derived** | Duff 1994 (eq 30–31): real conformally-coupled scalar, exact rational |
 | $R = 1.15367$ (Osborn route) | **Supported** | Computed from SM gauge couplings at $M_Z$ |
 | $\pi/2$ as shared normalization | **Proved** | SYM topology, CTP branch-incidence audit |
 | $R = \sqrt{4/3}$ from geometric chain | **Proved** | Dimensional ladder; $D=4$ coincidence |
@@ -235,7 +255,7 @@ The first sentence is the physical picture. The second is the dynamical picture.
 
 *What the vacuum is made of. Two constants, one observationally anchored and one formalized through Gate R.*
 
-The vacuum has two constitutive properties. Both are computed from the CTP action with Standard Model field content. τ₀ is anchored observationally — the Bullet Cluster offset and the cosmic-baseline relation converge to 41.9 Myr from independent directions. α_vac = 1/3 is formalized through Gate R: the Weyl decomposition of the metric identifies the conformal factor σ as one real conformally-coupled scalar, and the published trace anomaly a/c = 1/3 (Duff 1994 / KS 2011 eq A.5) then follows without free parameters or additional tuning.
+The vacuum has two constitutive properties. Both are computed from the CTP action with Standard Model field content. τ₀ is anchored observationally — the Bullet Cluster offset and the cosmic-baseline relation converge to 41.9 Myr from independent directions. α_vac = 1/3 is formalized through Gate R: the Weyl decomposition of the metric identifies the conformal factor σ as one real conformally-coupled scalar, and the published trace anomaly a/c = 1/3 (Duff 1994 (eq 30–31)) then follows without free parameters or additional tuning.
 
 **The relaxation time: τ₀ = 41.9 Myr.** This is the e-folding time of the gravitational memory kernel K(t) = τ₀⁻¹ exp(−t/τ₀). It sets the bandwidth of the vacuum's gravitational response. At frequencies ω ≫ τ₀⁻¹, the vacuum responds instantaneously — this is the GR regime (solar system, LIGO, GPS). At frequencies ω ≪ τ₀⁻¹, the vacuum's response lags — this is where dark matter and dark energy phenomenology emerge.
 
@@ -253,7 +273,7 @@ The cross-identity τ₀ = 1/√(Λc²) — where Λ is the cosmological constan
 
 Two readings of the inter-group offset: (1) within the ~30% observational uncertainty on cluster collision parameters; (2) a specific diagnostic signal that, if persistent across more cluster data, would constrain τ₀, the kernel structure, or extended-mass corrections. The framework documents both readings without papering over the systematic.
 
-**The vacuum impedance: α = 1/3.** This value is derived via the Gate R identification (formalized May 2026): the Weyl decomposition $g_{\mu\nu} = e^{2\sigma}\hat{g}_{\mu\nu}$ isolates $\sigma$ as a single real scalar degree of freedom; the Einstein–Hilbert action gives $\sigma$ conformal coupling $\xi_c = 1/6$ on $S^4$ without tuning; spin-statistics excludes fermion and gauge-field alternatives; the published trace anomaly (Duff 1994 / KS 2011 eq A.5) gives $(a,c) = (1,3)$ for a real conformally-coupled scalar, hence $\alpha_{\rm vac} = a/c = 1/3$ exactly. The identification is formalized, not merely posited — see Chapter 7 and `theory/hard_theory/GATE_R_WEYL_DECOMPOSITION_FORMALIZATION.md`.
+**The vacuum impedance: α = 1/3.** This value is derived via the Gate R identification (formalized May 2026): the Weyl decomposition $g_{\mu\nu} = e^{2\sigma}\hat{g}_{\mu\nu}$ isolates $\sigma$ as a single real scalar degree of freedom; the Einstein–Hilbert action gives $\sigma$ conformal coupling $\xi_c = 1/6$ on $S^4$ without tuning; spin-statistics excludes fermion and gauge-field alternatives; the published trace anomaly (Duff 1994 (eq 30–31)) gives $(a,c) = (1,3)$ for a real conformally-coupled scalar, hence $\alpha_{\rm vac} = a/c = 1/3$ exactly. The identification is formalized, not merely posited — see Chapter 7 and `theory/hard_theory/GATE_R_WEYL_DECOMPOSITION_FORMALIZATION.md`.
 
 α equals the trace anomaly ratio a/c for a single real conformally-coupled scalar (Duff 1994 / Khasanov-Segal 2011). The per-species coefficients (a, c) = (1, 3) for a real scalar, (11/2, 9) for a Weyl fermion, (62, 36) for a gauge boson are locked as exact fractions in the codebase, reproducing a/c = 1/3 as a Fraction equality — not a floating-point approximation. SM cross-checks: a/c = 1991/1698 (Majorana ν) and 253/219 (Dirac ν) both reproduced exactly.
 
@@ -283,7 +303,7 @@ The critical temperature — the "boiling point of gravity." Above T_c, the vacu
 
 The closure principle from Chapter 1 — *no privileged outside positions, no concealed inputs* — applies to the framework's own foundational constants. If τ₀, α, and T_c are derived under named postulates, those postulates need to be auditable. The framework maintains a `theory/foundations_audit/` directory in the GRUT-RAI repository (DOI 10.5281/zenodo.18993689) with formal provenance documents for each foundational constant. Each audit traces the constant's derivation chain, performs dimensional and cross-route consistency checks, and records the framing corrections that emerged. As of v8→v2 (May 2026), all three primary audits are closed; the residual open question is the τ₀↔τ_micro relation derivation (sharper successor of the resolved T_c provenance). Each audit was a substantive correction to the framework's self-description, not a cosmetic edit.
 
-**ALPHA_VAC audit (closed; upgraded by Gate R, May 2026).** The April 2026 foundations audit established that α = 1/3 via the "vacuum impedance = 1/d" narrative (v11 Appendix H) was an assertion, not a published derivation, and corrected the framing to *"computed under named postulate."* Gate R (May 2026) upgrades this further: the conformal-mode identification is now *formalized* through the Weyl decomposition, the Einstein–Hilbert conformal coupling, and the published Duff 1994 / KS 2011 trace-anomaly coefficients (Route 2). The exact-Fraction value 1/3 is unchanged. The framing is now: *"α_vac = 1/3 derived via Gate R — formalized Weyl-decomposition identification of the gravitational conformal mode as a real conformally-coupled scalar."* The old "vacuum impedance = 1/d" narrative is superseded. Documented in `theory/foundations_audit/ALPHA_VAC_PROVENANCE.md` and `theory/hard_theory/GATE3_ALPHA_VAC_PROVENANCE.md`. See Correction #1 and Gate R closure in the Ch 14 ledger.
+**ALPHA_VAC audit (closed; upgraded by Gate R, May 2026).** The April 2026 foundations audit established that α = 1/3 via the "vacuum impedance = 1/d" narrative (v11 Appendix H) was an assertion, not a published derivation, and corrected the framing to *"computed under named postulate."* Gate R (May 2026) upgrades this further: the conformal-mode identification is now *formalized* through the Weyl decomposition, the Einstein–Hilbert conformal coupling, and the published Duff 1994 (eq 30–31) trace-anomaly coefficients (Route 2). The exact-Fraction value 1/3 is unchanged. The framing is now: *"α_vac = 1/3 derived via Gate R — formalized Weyl-decomposition identification of the gravitational conformal mode as a real conformally-coupled scalar."* The old "vacuum impedance = 1/d" narrative is superseded. Documented in `theory/foundations_audit/ALPHA_VAC_PROVENANCE.md` and `theory/hard_theory/GATE3_ALPHA_VAC_PROVENANCE.md`. See Correction #1 and Gate R closure in the Ch 14 ledger.
 
 **TAU_0 audit (closed).** Established that τ₀ = 41.9 Myr is anchored by two independent cosmic-scale routes: the cosmic-baseline relation 1/(H₀ × 108π), agreeing to 1.7%, and the Bullet Cluster gas-to-lensing offset, agreeing to 17%. Three additional cluster anchors (MACS J0025, Abell 520, El Gordo) provide cross-checks. The original framing was *"derived from CTP noise-kernel structure at the gold benchmark"*; the audit found that the gold-benchmark formula does not produce 41.9 Myr (it gives a microscopic timescale, ~0.24 ms), and the gold benchmark is a *downstream consistency check* of the decoherence rate, not the source of τ₀. The audit also caught the gold-benchmark unit error (m = 80.8 fg → 80.8 pg, factor 10³) as a side-product. Framing corrected to *"anchored by named cosmic-baseline + cluster routes; gold-benchmark consistency verified at the 689 Hz plateau."* Documented in `theory/foundations_audit/TAU_0_PROVENANCE.md`. See Corrections #2 and #3 in the Ch 14 ledger.
 
@@ -534,7 +554,7 @@ The decoherence plateau tests the absolute coupling magnitude. The isotope discr
 
 $$G_{\mu\nu} + \Phi_{\mu\nu}(\phi) = 8\pi G \, T_{\mu\nu}$$
 
-**Scope status (post-Corrections #23–#25, v8→v2 synthesis, May 2026).** The constitutive correction Φ_μν is now DERIVED from the variation δS_CTP/δh_a |_{h_a=0} of the linearized Schwinger-Keldysh action (Correction #23): the kernel form Φ_μν(ω) = α_vac × χ(ω) × P^TT_μνρσ × h_r^ρσ emerges structurally from the constitutive cross-term, with six structural properties verified — kernel form, high-ω GR limit, low-ω full-constitutive limit, Bianchi preservation via ∂^μ P^TT = 0, α_vac = 1/3 inheritance from KS 2011, and consistency with the existing susceptibility postulate. The covariant curved-background extension is SCAFFOLDED (Correction #24): bitensor kernel K^R_μνρσ(x, x') = α_vac × P^TT,g_μνρσ(x, x') × G^R(x, x') with explicit √-g measure and four physical-consistency checks (flat-limit recovery, covariant conservation ∇^μ Φ = 0, causality K^R supported on past lightcone, FRW scalar-mode compatibility). The explicit FRW result is COMPUTED (Correction #25): χ_FRW^WKB(k, η) = 1/[1 + (τ₀ k_phys)²], n_g²(k, η) = 1 + α_vac/[1 + (τ₀ k_phys)²]. The previous open question #10 (`constitutive_projection_gravity_heuristic_open_question`) is RESOLVED at linearized + scaffold + explicit-FRW levels. The remaining open work — Phase 2C explicit construction of P^TT,g and G^R on specific backgrounds (FRW/S⁴) and beyond-WKB (Hτ₀)² ≈ 10⁻⁶ refinement — is now sharper-successor work, not the original heuristic-projection gap.
+**Scope status (post-Corrections #23–#25, v8→v2 synthesis, May 2026).** The constitutive correction Φ_μν is now DERIVED from the variation δS_CTP/δh_a |_{h_a=0} of the linearized Schwinger-Keldysh action (Correction #23): the kernel form Φ_μν(ω) = α_vac × χ(ω) × P^TT_μνρσ × h_r^ρσ emerges structurally from the constitutive cross-term, with six structural properties verified — kernel form, high-ω GR limit, low-ω full-constitutive limit, Bianchi preservation via ∂^μ P^TT = 0, α_vac = 1/3 inheritance from Duff 1994, and consistency with the existing susceptibility postulate. The covariant curved-background extension is SCAFFOLDED (Correction #24): bitensor kernel K^R_μνρσ(x, x') = α_vac × P^TT,g_μνρσ(x, x') × G^R(x, x') with explicit √-g measure and four physical-consistency checks (flat-limit recovery, covariant conservation ∇^μ Φ = 0, causality K^R supported on past lightcone, FRW scalar-mode compatibility). The explicit FRW result is COMPUTED (Correction #25): χ_FRW^WKB(k, η) = 1/[1 + (τ₀ k_phys)²], n_g²(k, η) = 1 + α_vac/[1 + (τ₀ k_phys)²]. The previous open question #10 (`constitutive_projection_gravity_heuristic_open_question`) is RESOLVED at linearized + scaffold + explicit-FRW levels. The remaining open work — Phase 2C explicit construction of P^TT,g and G^R on specific backgrounds (FRW/S⁴) and beyond-WKB (Hτ₀)² ≈ 10⁻⁶ refinement — is now sharper-successor work, not the original heuristic-projection gap.
 
 Seven computational legs verify the recovery: (1) Φ_μν vanishes in the high-frequency limit ωτ₀ ≫ 1; (2) Φ_μν provides the expected enhancement in the low-frequency limit ωτ₀ ≪ 1; (3) the Bianchi identity is preserved across a full (ω, k) grid under the constitutive projection (now upgraded: Bianchi follows STRUCTURALLY from ∂^μ P^TT = 0, for ALL h_r and ALL kernel time structures, not just single-mode plane waves); (4) the graviton propagator has 1/ω³ UV falloff (exponent verified at −1.00 exactly); (5-7) boundary conditions, normalization, and stability checks all pass. GR is exact in the solar system because the solar system operates at frequencies where Φ_μν → 0.
 
@@ -592,7 +612,7 @@ The canonical GRUT refractive coefficient is derived from the constitutive respo
 1. Metric Weyl decomposition: $g_{\mu\nu} = e^{2\sigma}\hat{g}_{\mu\nu}$ — isolates $\sigma$ as the real scalar sector of the metric
 2. $\sigma$ is spin-0, one real DOF, no gauge index — fermion and gauge alternatives excluded by representation
 3. Einstein–Hilbert decomposition on $S^4$ gives conformal mass $m^2 = R/6$ — conformal coupling $\xi_c = 1/6$ exact, no tuning
-4. Published trace anomaly (Duff 1994 / KS 2011 eq A.5): real conformally-coupled scalar → $(a,c) = (1,3)$ → $a/c = 1/3$
+4. Published trace anomaly (Duff 1994 (eq 30–31)): real conformally-coupled scalar → $(a,c) = (1,3)$ → $a/c = 1/3$
 5. Identification: $\sigma \equiv$ real conformally-coupled scalar → $\alpha_{\rm vac} = a/c = 1/3$ (convention-independent, exact)
 6. $\alpha_{\rm vac}$ enters the constitutive cross-kernel: $K^R = \alpha_{\rm vac}\,\chi(\omega)\,P^{TT}$ — scalar susceptibility amplitude, independent of TT projector
 7. DC limit: $n_g(0)^2 = 1 + \alpha_{\rm vac} = 4/3$
@@ -610,13 +630,13 @@ Step 5 of the chain — the identification of the gravitational conformal mode w
 
 *Why $P^{TT}$ does not contradict the scalar anomaly.* The constitutive kernel $K^R = \alpha_{\rm vac}\,\chi(\omega)\,P^{TT}$ contains two structurally independent factors. $\alpha_{\rm vac}\,\chi(\omega)$ is the vacuum's response amplitude — a property of the medium (the background $S^4$ vacuum with its conformal structure). $P^{TT}$ is a filter on which external perturbations $h_{\mu\nu}$ are admissible sources. The scalar anomaly sets the medium's susceptibility; the TT projector selects admissible inputs. A scalar dielectric constant does not contradict a transverse electromagnetic wave: the scalar $\varepsilon$ characterizes the medium, while transversality constrains the field. Same structure here.
 
-*The published value.* With $\sigma$ established as one real conformally-coupled scalar, the Weyl anomaly coefficients are read directly from Duff (1994) and Kounnas–Scrucca (2011 eq A.5): $(a,c) = (1,3)$, giving $\alpha_{\rm vac} = a/c = 1/3$. This is an exact rational number, convention-independent (the ratio $a/c$ is invariant under all normalization changes), and published in two independent sources. The old v11 "vacuum impedance = 1/d" narrative is superseded — it was a post-hoc assertion. The correct route is the trace anomaly route, and it gives the same number.
+*The published value.* With $\sigma$ established as one real conformally-coupled scalar, the Weyl anomaly coefficients are read directly from Duff (1994, eq 30–31): $(a,c) = (1,3)$, giving $\alpha_{\rm vac} = a/c = 1/3$. This is an exact rational number, convention-independent (the ratio $a/c$ is invariant under all normalization changes), and is a textbook result confirmed by two independent sources (Duff 1994; Christensen-Duff 1980). The old v11 "vacuum impedance = 1/d" narrative is superseded — it was a post-hoc assertion. The correct route is the trace anomaly route, and it gives the same number.
 
 **Canonical value (constitutive/refractive route — Path G).** From the vacuum impedance:
 
 $$R = n_g(0) = \sqrt{1 + \alpha_{\rm vac}} = \sqrt{\frac{4}{3}} = 1.15470\ldots$$
 
-This is the DC refractive index of the vacuum. The derivation chain is fully computed: Weyl decomposition → conformal-mode scalar ($\xi_c = 1/6$) → Duff 1994/KS 2011 $a/c = 1/3$ → $n_g(0) = \sqrt{4/3}$. Every link is a passing test. No honest negatives in the path.
+This is the DC refractive index of the vacuum. The derivation chain is fully computed: Weyl decomposition → conformal-mode scalar ($\xi_c = 1/6$) → Duff 1994 $a/c = 1/3$ → $n_g(0) = \sqrt{4/3}$. Every link is a passing test. No honest negatives in the path.
 
 **The two R-tracks.**
 
@@ -1153,7 +1173,7 @@ None of these prove GRUT. All of them validate the foundational picture: the vac
 
 The remaining two corrections in the V7 era are minor — surfacing of test-marker conventions and a renumbering of Path-F stage logs — and are documented in the codebase audit logs without document-level surface area.
 
-| 28 | α_vac = 1/3 was framed as "computed under named postulate" (conformal-mode-as-IR-carrier); the "vacuum impedance = 1/d" narrative in v11 App H was an assertion, not a published derivation; the two R-tracks (constitutive/refractive vs 3-loop anomaly quotient) were conflated as "tree-level + loop correction" | Gate R audit sequence (7 gates, May 2026): Gate 3 vertex provenance, CTP branch-incidence, sector-coupling, sector-dimensional, CTP action term, α_vac provenance, and Gate R identification (C1-C6 all SUPPORTED/FORMALIZED). Key findings: α_vac = 1/3 is Route 2 (Duff 1994 / KS 2011 a/c = 1/3, published, exact, convention-independent); the Weyl decomposition formalizes the conformal-mode identification; R_anomaly = 1.15428 is an honest negative, not a loop correction to R = √(4/3); P^TT / scalar-anomaly compatibility resolved (R5b: scalar amplitude vs TT filter are independent roles) | Gate R closed: R = √(4/3) **derived** within constitutive-action framework via Path G. α_vac = 1/3 upgraded from "named postulate" to "formalized identification." R_anomaly = 1.15428 correctly classified as honest-negative diagnostic. Chapter 7 rewritten; all stale "loop-corrected" and "postulate" language updated throughout book. | Gate R closure (Corrections #32-34 era, May 2026); `theory/hard_theory/GATE_R_*` documents; `grut/hard_theory/s4_ctp_solver/gate3_*.py` |
+| 28 | α_vac = 1/3 was framed as "computed under named postulate" (conformal-mode-as-IR-carrier); the "vacuum impedance = 1/d" narrative in v11 App H was an assertion, not a published derivation; the two R-tracks (constitutive/refractive vs 3-loop anomaly quotient) were conflated as "tree-level + loop correction" | Gate R audit sequence (7 gates, May 2026): Gate 3 vertex provenance, CTP branch-incidence, sector-coupling, sector-dimensional, CTP action term, α_vac provenance, and Gate R identification (C1-C6 all SUPPORTED/FORMALIZED). Key findings: α_vac = 1/3 is Route 2 (Duff 1994 a/c = 1/3, published, exact, convention-independent); the Weyl decomposition formalizes the conformal-mode identification; R_anomaly = 1.15428 is an honest negative, not a loop correction to R = √(4/3); P^TT / scalar-anomaly compatibility resolved (R5b: scalar amplitude vs TT filter are independent roles) | Gate R closed: R = √(4/3) **derived** within constitutive-action framework via Path G. α_vac = 1/3 upgraded from "named postulate" to "formalized identification." R_anomaly = 1.15428 correctly classified as honest-negative diagnostic. Chapter 7 rewritten; all stale "loop-corrected" and "postulate" language updated throughout book. | Gate R closure (Corrections #32-34 era, May 2026); `theory/hard_theory/GATE_R_*` documents; `grut/hard_theory/s4_ctp_solver/gate3_*.py` |
 
 **Cumulative correction tally (May 2026): 28 documented corrections across V7 development (rows 1-14), v8→v2 synthesis (rows 15-23), hard-theory audits (rows 24-27), and Gate R closure (row 28).** Each correction is a focused, tested, documented unit. The discipline pattern is unchanged across the development cycle: every correction is an addition to audit infrastructure, not a deletion of history.
 
@@ -1464,18 +1484,18 @@ The following symbols appear in specific chapters and are documented here for re
 
 This index lists every framework claim at tier `computed` or `anchored` — claims whose physical content has been derived, computed, or empirically anchored, and which are pinned by passing tests. Claims at tier `open_negative` are documented separately in Chapter 12; `conjectural`, `foundational`, and `meta` claims are framing-tier and are not derivations. Entries are grouped by chapter and sorted by claim ID within each chapter.
 
-**Coverage:** 64 derivations across 11 chapters.
+**Coverage:** 73 derivations across 11 chapters.
 
 ## Chapter 2 — The Medium
 
 *4 derivations.*
 
-- **`alpha_vac_derivation`** [computed] — α_vac = 1/3 is derived via conformal-mode scalar identification: under the postulate that the gravitational conformal mode is the IR carrier of vacuum response, KS 2011 gives a/c = 1/3 exactly for...
-  · *deps: 0 · tests: 4 · fan-out: 49*
+- **`alpha_vac_derivation`** [computed] — α_vac = 1/3 is formalized via the Gate R identification (May 2026, C1-C6 all SUPPORTED/FORMALIZED): the Weyl decomposition g_μν = e^{2σ}ĝ_μν identifies σ as one real conformally-coupled scalar; the...
+  · *deps: 0 · tests: 4 · fan-out: 58*
 - **`tau_0_cross_consistency`** [computed] — τ_0 = 41.9 Myr is independently derived from multiple routes that converge to within observational uncertainty.
   · *deps: 4 · tests: 6 · fan-out: 2 · upstream: `tau_0_derivation`, `screening_108pi`, `bullet_cluster_offset`, +1 more*
 - **`tau_0_derivation`** [computed] — τ_0 = 41.9 Myr is POSITED in Phase I §5 with two independent anchors: (1) cosmic-baseline relation τ_0 = 1/(H_0 × 108π) — exact to 1.7% at H_0 = 70 km/s/Mpc, giving 41.17 Myr; (2) Bullet Cluster of...
-  · *deps: 0 · tests: 3 · fan-out: 29*
+  · *deps: 0 · tests: 3 · fan-out: 35*
 - **`zero_free_parameters`** [computed] — GRUT has zero free parameters.
   · *deps: 2 · tests: 1 · fan-out: 0 · upstream: `tau_0_derivation`, `alpha_vac_derivation`*
 
@@ -1484,13 +1504,13 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 *4 derivations.*
 
 - **`constitutive_equation`** [computed] — The constitutive equation τ_0 dz/dt + z = z_target governs the medium's retarded relaxation toward its source.
-  · *deps: 1 · tests: 2 · fan-out: 57 · upstream: `ctp_action_structure`*
+  · *deps: 1 · tests: 2 · fan-out: 64 · upstream: `ctp_action_structure`*
 - **`ctp_action_structure`** [computed] — The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP.
-  · *deps: 0 · tests: 5 · fan-out: 66*
+  · *deps: 0 · tests: 5 · fan-out: 76*
 - **`framework_axioms_locked`** [computed] — Framework foundational invariants: Planck mass and fine-structure constant verified against CODATA; CTP Keldysh action invertibility (A0); intrinsic time scale τ_I = ℏ/2 (N0); noise kernel and cons...
   · *deps: 1 · tests: 1 · fan-out: 0 · upstream: `ctp_action_structure`*
 - **`memory_kernel_form`** [computed] — The retarded memory kernel is a single-pole exponential: K(t) = (1/τ_0) exp(−t/τ_0) Θ(t).
-  · *deps: 1 · tests: 2 · fan-out: 40 · upstream: `constitutive_equation`*
+  · *deps: 1 · tests: 2 · fan-out: 47 · upstream: `constitutive_equation`*
 
 ## Chapter 4 — The Crystal and the Fluid
 
@@ -1499,39 +1519,45 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 - **`cosmic_x_crossover_prediction`** [computed] — The framework's regime classification X = max(ω, Λ_grav) × τ_0, applied to ATOMIC-SCALE TEST-PARTICLE PERTURBATIONS of the cosmic background where ω = H dominates, gives X_cosmic(z) = H(z) × τ_0.
   · *deps: 2 · tests: 1 · fan-out: 0 · upstream: `regime_map`, `tau_0_derivation`*
 - **`regime_map`** [computed] — The framework correctly classifies regimes across 23 orders of magnitude: Saturn orbit (ωτ_0 ~ 10⁷, deep crystal); galactic rotation (ωτ_0 ~ 1, boundary/fluid); cosmic expansion (ωτ_0 ~ 10⁻³, deep...
-  · *deps: 1 · tests: 1 · fan-out: 7 · upstream: `threshold_bridge`*
+  · *deps: 1 · tests: 1 · fan-out: 15 · upstream: `threshold_bridge`*
 - **`screening_108pi`** [computed] — The screening factor S = 12π/α_vac² = 108π ≈ 339.29 maps the cosmic baseline τ_Λ to the local relaxation time τ_0 = τ_Λ / S.
   · *deps: 1 · tests: 2 · fan-out: 14 · upstream: `alpha_vac_derivation`*
 - **`solar_system_safety`** [computed] — Solar-system safety verified across EIGHT independent precision tests of GR spanning >10 orders of magnitude in frequency: Saturn ranging (30 yr), Mercury perihelion (88 d), lunar laser ranging (27...
   · *deps: 2 · tests: 8 · fan-out: 0 · upstream: `regime_map`, `threshold_bridge`*
 - **`threshold_bridge`** [computed] — The crystallinity threshold X = ω·τ_0 is equivalent to Λ_grav·τ_0 for self-gravitating systems where the dominant dynamical frequency is the Diósi-Penrose decoherence rate.
-  · *deps: 1 · tests: 1 · fan-out: 22 · upstream: `constitutive_equation`*
+  · *deps: 1 · tests: 1 · fan-out: 30 · upstream: `constitutive_equation`*
 
 ## Chapter 5 — Recovered Physics
 
 *7 derivations.*
 
 - **`decoherence_alternative_models_comparison`** [computed] — Among four COMPETITOR collapse / decoherence models — Diósi-Penrose, CSL, Adler mass-proportional CSL, and Ghirardi-Rimini-Weber — none reproduces all six GRUT scaling laws (F1 mass², F2 cubic-onse...
-  · *deps: 1 · tests: 6 · fan-out: 1 · upstream: `decoherence_plateau`*
+  · *deps: 1 · tests: 6 · fan-out: 2 · upstream: `decoherence_plateau`*
 - **`decoherence_plateau`** [computed] — Gravitational decoherence with zero free parameters and six scaling laws (mass, separation, body size, temperature, internal-mode coupling, environmental gas pressure).
-  · *deps: 2 · tests: 1 · fan-out: 13 · upstream: `threshold_bridge`, `alpha_vac_derivation`*
+  · *deps: 2 · tests: 1 · fan-out: 14 · upstream: `threshold_bridge`, `alpha_vac_derivation`*
 - **`gravitational_entanglement_formation_rate`** [anchored] — The framework's Λ_grav formation rate Gm²S(l/R)/(ℏl) for two gravitationally coupled masses gives identical numerical predictions to Bose-Marletto-Vedral (2017) at experimentally accessible separat...
-  · *deps: 1 · tests: 1 · fan-out: 0 · upstream: `decoherence_plateau`*
+  · *deps: 1 · tests: 1 · fan-out: 1 · upstream: `decoherence_plateau`*
 - **`grut_csl_isotope_discriminator`** [computed] — GRUT's m² scaling is testable against CSL's linear-in-mass scaling via isotope-pair decoherence ratios.
-  · *deps: 2 · tests: 9 · fan-out: 0 · upstream: `decoherence_plateau`, `decoherence_alternative_models_comparison`*
+  · *deps: 2 · tests: 9 · fan-out: 1 · upstream: `decoherence_plateau`, `decoherence_alternative_models_comparison`*
 - **`qm_recovery`** [computed] — Standard quantum mechanics is recovered from the constitutive equation in the τ → 0 limit, with the Newton-Raphson z_target constructed from the Schrödinger residual F[ψ] = iℏ ∂_t ψ − Hψ.
   · *deps: 1 · tests: 4 · fan-out: 0 · upstream: `constitutive_equation`*
 - **`sm_emergence`** [computed] — The Standard Model emerges as the unique minimal theory satisfying five CTP-derived constraints (V7 §15-§16): (C1) gauge structure SU(3)×SU(2)×U(1) → 12 gauge bosons; (C2) anomaly cancellation ΣY²...
-  · *deps: 1 · tests: 6 · fan-out: 7 · upstream: `ctp_action_structure`*
+  · *deps: 1 · tests: 6 · fan-out: 11 · upstream: `ctp_action_structure`*
 - **`sm_field_content_locked`** [computed] — Standard Model field counts are locked in code: 4 real scalars, 45 Weyl fermions (15 per generation × 3), 12 gauge bosons.
   · *deps: 2 · tests: 1 · fan-out: 3 · upstream: `sm_emergence`, `minus_100_drive`*
 
 ## Chapter 6 — Gravity
 
-*3 derivations.*
+*6 derivations.*
 
 - **`gr_recovery`** [computed] — General relativity is recovered in the high-frequency limit (ωτ_0 ≫ 1): n_g(ω) → 1, α_eff(X) → 0, the constitutive Newtonian potential reduces to −GM/r exactly.
-  · *deps: 2 · tests: 7 · fan-out: 2 · upstream: `memory_kernel_form`, `regime_map`*
+  · *deps: 2 · tests: 7 · fan-out: 10 · upstream: `memory_kernel_form`, `regime_map`*
+- **`phi_munu_curved_background_scaffold`** [anchored] — Curved-background SCAFFOLD (Correction #24, Priority 2B).
+  · *deps: 2 · tests: 1 · fan-out: 6 · upstream: `phi_munu_linearized_derivation`, `constitutive_projection_gravity_heuristic_resolved`*
+- **`phi_munu_frw_explicit_construction`** [computed] — Phase 2C — explicit construction of χ_FRW(k, η) and n_g²(k, η) on FRW spacetime via the WKB / slow-H approximation (Correction #25, 2026-04-30).
+  · *deps: 4 · tests: 1 · fan-out: 5 · upstream: `phi_munu_curved_background_scaffold`, `phi_munu_linearized_derivation`, `alpha_vac_derivation`, +1 more*
+- **`phi_munu_linearized_derivation`** [computed] — The gravitational constitutive correction Φ_μν is structurally derived in the linearized limit from the Schwinger-Keldysh action variation δS_CTP/δh_a |_{h_a=0}.
+  · *deps: 4 · tests: 1 · fan-out: 7 · upstream: `ctp_action_structure`, `alpha_vac_derivation`, `memory_kernel_form`, +1 more*
 - **`r_max_ricci_saturation`** [computed] — The Ricci scalar of the matter-bearing interior saturates at R_max = α_vac/(c²τ_0²) ≈ 2.12 × 10⁻⁴⁸ m⁻².
   · *deps: 2 · tests: 2 · fan-out: 4 · upstream: `alpha_vac_derivation`, `tau_0_derivation`*
 - **`rho_max_universal`** [computed] — Every black-hole core saturates at the same maximum interior density ρ_max = c²R_max/(8πG) ≈ 1.14 × 10⁻²² kg/m³, independent of mass.
@@ -1554,7 +1580,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 ## Chapter 8 — The Terminal Velocity
 
-*6 derivations.*
+*7 derivations.*
 
 - **`bridge_parameter_cross_sector`** [computed] — The bridge parameter τ_0 connects laboratory decoherence (noise kernel at the gold benchmark m=20818 amu, l=1 μm) to cosmology (H_inf = (2−R)/(S·τ_0), Ω_Λ).
   · *deps: 3 · tests: 1 · fan-out: 0 · upstream: `tau_0_derivation`, `h_inf_decomposition`, `decoherence_plateau`*
@@ -1566,23 +1592,27 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
   · *deps: 1 · tests: 2 · fan-out: 4 · upstream: `ctp_action_structure`*
 - **`omega_lambda_prediction`** [computed] — Ω_Λ = 0.6886 predicted, 0.04% from Planck 2018 best-fit.
   · *deps: 1 · tests: 1 · fan-out: 0 · upstream: `h_inf_decomposition`*
-- **`t_c_thermal_transition`** [computed] — The 'boiling point of gravity' T_c = ℏ/(τ_0 k_B) ≈ 54.7 MK.
-  · *deps: 1 · tests: 2 · fan-out: 1 · upstream: `tau_0_derivation`*
+- **`t_c_thermal_transition`** [computed] — The 'boiling point of gravity' T_c = ℏ/(τ_micro × k_B) ≈ 54.7 MK, where τ_micro ≈ 1.4×10⁻¹⁹ s is the microscopic plasma relaxation time of the responsive vacuum (distinct from the macroscopic gravi...
+  · *deps: 0 · tests: 5 · fan-out: 3*
+- **`tau_micro_thermal_scale`** [computed] — τ_micro ≡ ℏ / (k_B × T_c) ≈ 1.396 × 10⁻¹⁹ s — the microscopic plasma/thermal relaxation time of the responsive vacuum's microstates.
+  · *deps: 1 · tests: 3 · fan-out: 2 · upstream: `t_c_thermal_transition`*
 
 ## Chapter 9 — The Dark Sector
 
-*18 derivations.*
+*23 derivations.*
 
 - **`bandwidth_integral`** [computed] — The cosmological bandwidth integral evaluates the linear-regime contribution of the responsive vacuum to the matter budget; produces Ω_dm = α_vac = 1/3 with zero free parameters.
   · *deps: 2 · tests: 1 · fan-out: 1 · upstream: `alpha_vac_derivation`, `memory_kernel_form`*
 - **`baryogenesis_eta_b`** [computed] — Baryogenesis from CTP path asymmetry (R ≠ 1) gives the baryon-to-photon ratio η_B = J_CP × K_neq × (2−R_B)/S_B ≈ 6.57 × 10⁻¹⁰ (route 1), +7.7% from Planck observed 6.10 × 10⁻¹⁰.
   · *deps: 2 · tests: 2 · fan-out: 0 · upstream: `r_canonical_path_g`, `ctp_action_structure`*
 - **`bullet_cluster_offset`** [computed] — The Bullet Cluster gas-to-LENSING offset (per cluster) is GRUT's specific cluster-scale prediction.
-  · *deps: 2 · tests: 5 · fan-out: 7 · upstream: `tau_0_derivation`, `memory_kernel_form`*
+  · *deps: 2 · tests: 5 · fan-out: 8 · upstream: `tau_0_derivation`, `memory_kernel_form`*
+- **`charged_lepton_z3_does_not_extend_to_neutrinos`** [computed] — The charged-lepton Z₃ ansatz √m_i = M_0(1 + √2 cos(θ + 2πk/3)) — which gives K = 2/3 algebraically — DOES NOT admit any neutrino solution under either hierarchy.
+  · *deps: 1 · tests: 1 · fan-out: 3 · upstream: `koide_z3_circulant_structure`*
 - **`cluster_merger_internal_scaling_residual`** [computed] — Across the four-cluster sample (Bullet Cluster, MACS J0025, Abell 520, El Gordo), the framework's predicted gas-to-lensing offsets scale linearly with v_final with internal residual 1.72%.
   · *deps: 3 · tests: 1 · fan-out: 0 · upstream: `cluster_merger_scaling_law`, `tau_0_derivation`, `memory_kernel_form`*
 - **`cluster_merger_scaling_law`** [anchored] — The v × τ_0 memory-kernel scaling law applied to four independent merging cluster systems.
-  · *deps: 2 · tests: 5 · fan-out: 6 · upstream: `bullet_cluster_offset`, `tau_0_derivation`*
+  · *deps: 2 · tests: 5 · fan-out: 7 · upstream: `bullet_cluster_offset`, `tau_0_derivation`*
 - **`cluster_tau_0_dec_ratio_degeneracy`** [computed] — The +20% cluster-vs-cosmic systematic is degenerate between τ_0 and the deceleration ratio dec_ratio = v_post/v_initial.
   · *deps: 2 · tests: 6 · fan-out: 0 · upstream: `cluster_merger_scaling_law`, `cluster_tau_0_sensitivity_diagnostic`*
 - **`cluster_tau_0_sensitivity_diagnostic`** [computed] — Single-τ_0 sensitivity analysis across the three normal-regime mergers (Bullet, MACS J0025, Abell 520, El Gordo excluded) finds best-fit τ_0 = 49 Myr with chi² = 0.007, an 11× improvement over cano...
@@ -1598,11 +1628,19 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 - **`kibble_zurek_dm_route`** [anchored] — Track VII Step 1: Kibble-Zurek formation of dark relic from a dark-sector phase transition with XY universality gives Ω_dm within factor ~2 of observation.
   · *deps: 2 · tests: 1 · fan-out: 1 · upstream: `dark_sector_u1_extension`, `tau_0_derivation`*
 - **`koide_k_2_over_3`** [computed] — Charged-lepton masses satisfy the Koide identity K = (Σ m_i) / (Σ √m_i)² = 2/3 to 0.005%, validated against PDG values for e, μ, τ.
-  · *deps: 1 · tests: 1 · fan-out: 2 · upstream: `sm_emergence`*
+  · *deps: 1 · tests: 1 · fan-out: 6 · upstream: `sm_emergence`*
 - **`koide_z3_circulant_structure`** [computed] — The Z₃-circulant Koide mass operator parameterizes the charged-lepton spectrum via (M_0, θ): K = 2/3 holds algebraically (machine precision for any nonzero M_0 and any θ).
-  · *deps: 2 · tests: 1 · fan-out: 1 · upstream: `koide_k_2_over_3`, `sm_emergence`*
+  · *deps: 2 · tests: 1 · fan-out: 5 · upstream: `koide_k_2_over_3`, `sm_emergence`*
+- **`mg_eft_mu_gamma_mapping`** [computed] — GRUT lives in the 'μ ≠ 1, γ = 1' subclass of modified-gravity models.
+  · *deps: 3 · tests: 1 · fan-out: 2 · upstream: `phi_munu_frw_explicit_construction`, `alpha_vac_derivation`, `tau_0_derivation`*
+- **`modified_linear_growth_first_look`** [computed] — Modified linear growth equation on FRW with μ_GRUT(k, a) from Priority 3, integrated numerically: δ'' + [2 - (3/2)Ω_m] δ' - (3/2) Ω_m μ_GRUT(k, N) δ = 0.
+  · *deps: 4 · tests: 1 · fan-out: 0 · upstream: `mg_eft_mu_gamma_mapping`, `phi_munu_frw_explicit_construction`, `tau_0_derivation`, +1 more*
 - **`mond_a_0_emergence`** [computed] — MOND-like trigger acceleration a_0 = c/(2π τ_Λ) ≈ 1.2 × 10⁻¹⁰ m/s² emerges from the response time, not from modified dynamics.
   · *deps: 1 · tests: 2 · fan-out: 1 · upstream: `tau_0_derivation`*
+- **`neutrino_hierarchy_z3_nh_prediction`** [anchored] — Conditional on the postulate a_ν = 1 (giving K_ν = 1/2), the GRUT generalized Z₃ ansatz √m_i = M_0(1 + a_ν cos(θ + 2πk/3)) admits a UNIQUE INTERIOR solution in Normal Hierarchy with: m_1 = 0.802 me...
+  · *deps: 2 · tests: 1 · fan-out: 2 · upstream: `charged_lepton_z3_does_not_extend_to_neutrinos`, `koide_z3_circulant_structure`*
+- **`neutrino_z3_coupling_a_equals_1_uniqueness_theorem`** [computed] — DERIVED (Correction #29, Priority 4B, 2026-05-02).
+  · *deps: 3 · tests: 1 · fan-out: 0 · upstream: `neutrino_hierarchy_z3_nh_prediction`, `charged_lepton_z3_does_not_extend_to_neutrinos`, `koide_z3_circulant_structure`*
 - **`omega_dm_equals_alpha`** [computed] — Ω_dm = α_vac = 1/3 (~33%, +27% from Planck's 26.6%).
   · *deps: 2 · tests: 3 · fan-out: 0 · upstream: `bandwidth_integral`, `alpha_vac_derivation`*
 - **`rotation_curves_match`** [computed] — Galactic rotation curves are produced by g_eff = g_bar [1 + (ν(y) − 1)/(1 + X²)] where y = g_bar/a_0 and X = ω·τ_0.
@@ -1656,14 +1694,14 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 *Auto-generated from `grut/toe/registry.py` via `python3 -m grut.toe.render_appendices`. The complete registry — every framework claim across every tier — in one reference table. Sorted by chapter then claim ID.*
 
-**Total: 103 claims** (15 anchored, 58 computed, 3 conjectural, 2 foundational, 10 meta, 15 open_negative). [Snapshot post v8→v2 synthesis, May 2026 — re-render via `python3 -m grut.toe.render_appendices` for the live values.]
+**Total: 103 claims** (15 anchored, 58 computed, 3 conjectural, 2 foundational, 10 meta, 15 open_negative).
 
 | Ch | Claim ID | Tier | Statement | Deps | Tests |
 |---:|:---|:---|:---|---:|---:|
 | 1 | `closed_universe` | foundational | The universe is closed, finite, and self-referential. | 0 | 0 |
 | 1 | `fixed_point_principle` | foundational | The universe sits at a fixed point of the constitutive equation: z* = z_target[z*]. | 1 | 1 |
 | 1 | `one_space_endpoint` | conjectural | The saturated end-state of the responsive vacuum — where every action has been absorbed and the medium is fully crystallized — is '1 Space'. | 2 | 0 |
-| 2 | `alpha_vac_derivation` | computed | α_vac = 1/3 is derived via conformal-mode scalar identification: under the postulate that the gravitational conformal mode is the IR carr... | 0 | 4 |
+| 2 | `alpha_vac_derivation` | computed | α_vac = 1/3 is formalized via the Gate R identification (May 2026, C1-C6 all SUPPORTED/FORMALIZED): the Weyl decomposition g_μν = e^{2σ}ĝ... | 0 | 4 |
 | 2 | `tau_0_cross_consistency` | computed | τ_0 = 41.9 Myr is independently derived from multiple routes that converge to within observational uncertainty. | 4 | 6 |
 | 2 | `tau_0_derivation` | computed | τ_0 = 41.9 Myr is POSITED in Phase I §5 with two independent anchors: (1) cosmic-baseline relation τ_0 = 1/(H_0 × 108π) — exact to 1.7% a... | 0 | 3 |
 | 2 | `zero_free_parameters` | computed | GRUT has zero free parameters. | 2 | 1 |
@@ -1685,6 +1723,9 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 | 5 | `sm_field_content_locked` | computed | Standard Model field counts are locked in code: 4 real scalars, 45 Weyl fermions (15 per generation × 3), 12 gauge bosons. | 2 | 1 |
 | 6 | `gr_recovery` | computed | General relativity is recovered in the high-frequency limit (ωτ_0 ≫ 1): n_g(ω) → 1, α_eff(X) → 0, the constitutive Newtonian potential re... | 2 | 7 |
 | 6 | `nonlinear_ladder_4_of_8` | open_negative | The nonlinear-gravity ladder has 4 of 8 rungs explicitly computed (V7 §22-§25): linearized recovery, second-order consistency, third-orde... | 1 | 0 |
+| 6 | `phi_munu_curved_background_scaffold` | anchored | Curved-background SCAFFOLD (Correction #24, Priority 2B). | 2 | 1 |
+| 6 | `phi_munu_frw_explicit_construction` | computed | Phase 2C — explicit construction of χ_FRW(k, η) and n_g²(k, η) on FRW spacetime via the WKB / slow-H approximation (Correction #25, 2026-... | 4 | 1 |
+| 6 | `phi_munu_linearized_derivation` | computed | The gravitational constitutive correction Φ_μν is structurally derived in the linearized limit from the Schwinger-Keldysh action variatio... | 4 | 1 |
 | 6 | `r_max_ricci_saturation` | computed | The Ricci scalar of the matter-bearing interior saturates at R_max = α_vac/(c²τ_0²) ≈ 2.12 × 10⁻⁴⁸ m⁻². | 2 | 2 |
 | 6 | `rho_max_universal` | computed | Every black-hole core saturates at the same maximum interior density ρ_max = c²R_max/(8πG) ≈ 1.14 × 10⁻²² kg/m³, independent of mass. | 1 | 2 |
 | 7 | `r_canonical_path_g` | computed | Path G — refractive-index identification — gives the canonical R = n_g(0) = √(1 + α_vac) = √(4/3) ≈ 1.15470. | 2 | 2 |
@@ -1698,10 +1739,12 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 | 8 | `h_inf_decomposition` | computed | The asymptotic Hubble rate decomposes as H_inf = drive / friction = (2 − R) / (S · τ_0). | 3 | 2 |
 | 8 | `minus_100_drive` | computed | The −100 coefficient in the conformal-instability sector of Euclidean gravity on S⁴ is the Gibbons-Hawking drive of cosmic expansion, not... | 1 | 2 |
 | 8 | `omega_lambda_prediction` | computed | Ω_Λ = 0.6886 predicted, 0.04% from Planck 2018 best-fit. | 1 | 1 |
-| 8 | `t_c_thermal_transition` | computed | The 'boiling point of gravity' T_c = ℏ/(τ_0 k_B) ≈ 54.7 MK. | 1 | 2 |
+| 8 | `t_c_thermal_transition` | computed | The 'boiling point of gravity' T_c = ℏ/(τ_micro × k_B) ≈ 54.7 MK, where τ_micro ≈ 1.4×10⁻¹⁹ s is the microscopic plasma relaxation time o... | 0 | 5 |
+| 8 | `tau_micro_thermal_scale` | computed | τ_micro ≡ ℏ / (k_B × T_c) ≈ 1.396 × 10⁻¹⁹ s — the microscopic plasma/thermal relaxation time of the responsive vacuum's microstates. | 1 | 3 |
 | 9 | `bandwidth_integral` | computed | The cosmological bandwidth integral evaluates the linear-regime contribution of the responsive vacuum to the matter budget; produces Ω_dm... | 2 | 1 |
 | 9 | `baryogenesis_eta_b` | computed | Baryogenesis from CTP path asymmetry (R ≠ 1) gives the baryon-to-photon ratio η_B = J_CP × K_neq × (2−R_B)/S_B ≈ 6.57 × 10⁻¹⁰ (route 1),... | 2 | 2 |
 | 9 | `bullet_cluster_offset` | computed | The Bullet Cluster gas-to-LENSING offset (per cluster) is GRUT's specific cluster-scale prediction. | 2 | 5 |
+| 9 | `charged_lepton_z3_does_not_extend_to_neutrinos` | computed | The charged-lepton Z₃ ansatz √m_i = M_0(1 + √2 cos(θ + 2πk/3)) — which gives K = 2/3 algebraically — DOES NOT admit any neutrino solution... | 1 | 1 |
 | 9 | `cluster_merger_internal_scaling_residual` | computed | Across the four-cluster sample (Bullet Cluster, MACS J0025, Abell 520, El Gordo), the framework's predicted gas-to-lensing offsets scale... | 3 | 1 |
 | 9 | `cluster_merger_scaling_law` | anchored | The v × τ_0 memory-kernel scaling law applied to four independent merging cluster systems. | 2 | 5 |
 | 9 | `cluster_tau_0_dec_ratio_degeneracy` | computed | The +20% cluster-vs-cosmic systematic is degenerate between τ_0 and the deceleration ratio dec_ratio = v_post/v_initial. | 2 | 6 |
@@ -1713,7 +1756,11 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 | 9 | `kibble_zurek_dm_route` | anchored | Track VII Step 1: Kibble-Zurek formation of dark relic from a dark-sector phase transition with XY universality gives Ω_dm within factor... | 2 | 1 |
 | 9 | `koide_k_2_over_3` | computed | Charged-lepton masses satisfy the Koide identity K = (Σ m_i) / (Σ √m_i)² = 2/3 to 0.005%, validated against PDG values for e, μ, τ. | 1 | 1 |
 | 9 | `koide_z3_circulant_structure` | computed | The Z₃-circulant Koide mass operator parameterizes the charged-lepton spectrum via (M_0, θ): K = 2/3 holds algebraically (machine precisi... | 2 | 1 |
+| 9 | `mg_eft_mu_gamma_mapping` | computed | GRUT lives in the 'μ ≠ 1, γ = 1' subclass of modified-gravity models. | 3 | 1 |
+| 9 | `modified_linear_growth_first_look` | computed | Modified linear growth equation on FRW with μ_GRUT(k, a) from Priority 3, integrated numerically: δ'' + [2 - (3/2)Ω_m] δ' - (3/2) Ω_m μ_G... | 4 | 1 |
 | 9 | `mond_a_0_emergence` | computed | MOND-like trigger acceleration a_0 = c/(2π τ_Λ) ≈ 1.2 × 10⁻¹⁰ m/s² emerges from the response time, not from modified dynamics. | 1 | 2 |
+| 9 | `neutrino_hierarchy_z3_nh_prediction` | anchored | Conditional on the postulate a_ν = 1 (giving K_ν = 1/2), the GRUT generalized Z₃ ansatz √m_i = M_0(1 + a_ν cos(θ + 2πk/3)) admits a UNIQU... | 2 | 1 |
+| 9 | `neutrino_z3_coupling_a_equals_1_uniqueness_theorem` | computed | DERIVED (Correction #29, Priority 4B, 2026-05-02). | 3 | 1 |
 | 9 | `omega_dm_equals_alpha` | computed | Ω_dm = α_vac = 1/3 (~33%, +27% from Planck's 26.6%). | 2 | 3 |
 | 9 | `rotation_curves_match` | computed | Galactic rotation curves are produced by g_eff = g_bar [1 + (ν(y) − 1)/(1 + X²)] where y = g_bar/a_0 and X = ω·τ_0. | 2 | 7 |
 | 9 | `track_vii_relic_scoping` | anchored | Track VII relic-abundance infrastructure: thermal-freezeout baseline returns WRONG MECHANISM verdict for the V7 heavy (2 × 10⁹ GeV) solit... | 1 | 1 |
@@ -1729,25 +1776,28 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 | 11 | `pointer_observable_position_basis` | anchored | The pointer observable in the framework is the center-of-mass position operator x̂_P of macroscopic record-bearing degrees of freedom in... | 2 | 0 |
 | 11 | `schrodinger_in_box_inversion` | anchored | Philosophical reformulation of the Schrödinger's-cat thought experiment consistent with the framework's closed-self-referential-universe... | 2 | 1 |
 | 11 | `wigner_friend_dissolution` | computed | The Wigner's-friend paradox dissolves under explicit conditional-state mathematics. | 4 | 1 |
-| 12 | `allen_jacobson_phase1_stub_open_negative` | open_negative | The Allen-Jacobson S⁴ propagator module is a STUB — every evaluation function raises Phase1Pending (a NotImplementedError subclass). | 1 | 1 |
+| 12 | `allen_jacobson_phase1_stub_open_negative` | open_negative | The Allen-Jacobson S⁴ propagator Phase-1 is IMPLEMENTED (Correction #31, 2026-05-07): s4_propagator(), s4_propagator_conformal(), s4_prop... | 1 | 1 |
 | 12 | `bbn_thermal_buffer_negligible` | anchored | Standard-cosmology calculation testing one piece of an external research hypothesis: 'BBN binding-energy release provides a thermal buffe... | 0 | 1 |
 | 12 | `claim_registry_appendix` | meta | Appendix E (Full Claim Registry) is auto-rendered as a Markdown reference table over every registry entry. | 0 | 1 |
-| 12 | `constitutive_projection_gravity_heuristic_open_question` | open_negative | The constitutive Einstein equation G_μν + Φ_μν[φ] = 8πG T_μν, central to the framework's gravity sector, carries Φ_μν as a constitutive c... | 2 | 0 |
-| 12 | `correction_ledger` | meta | The repository maintains a public ledger of every correction to the framework: 16+ CORRECTION_*.md files in theory/derivation/ documentin... | 0 | 0 |
+| 12 | `constitutive_projection_gravity_heuristic_resolved` | meta | RESOLVED at the linearized level (Correction #23, 2026-04-30). | 3 | 1 |
+| 12 | `correction_ledger` | meta | The repository maintains a public ledger of every correction to the framework: 28 documented corrections across the V7 development era, t... | 0 | 0 |
 | 12 | `dependency_graph_appendix` | meta | Appendix F (Dependency Graph) is auto-rendered from grut/toe/dependencies.py. | 0 | 1 |
 | 12 | `derivation_index_appendix` | meta | Appendix D (Derivation Index) is auto-rendered from the registry: every claim at tier 'computed' or 'anchored' is emitted as a per-chapte... | 0 | 1 |
 | 12 | `el_gordo_outlier_open_question` | open_negative | ACT-CL J0102-4915 (El Gordo) was originally tagged as a factor-3.5 outlier (canonical 70 kpc prediction vs ~250 kpc observed). | 1 | 2 |
+| 12 | `falsifier_paper_six_near_term_tests` | meta | The framework's six near-term falsifiers — decoherence plateau (~689 Hz, lab gravity), ³⁰Si/²⁸Si isotope discriminator vs CSL (lab gravit... | 6 | 0 |
 | 12 | `genesis_noise_kernel_spectral_attempt` | anchored | Standard-physics calculation testing one piece of the Genesis-BBN-DM external research hypothesis: 'CTP noise kernel acting on z = 0 prod... | 3 | 1 |
 | 12 | `koide_phase_4_open_negative` | open_negative | Track II Phase 4 (Koide flavor mechanism) was attempted and produced HONEST NEGATIVE: the Yukawa-hierarchy mechanism cannot be derived fr... | 1 | 1 |
 | 12 | `marker_validator_discipline` | meta | Tier-marker discipline checker: every [OPEN], [SCOPING], [CONJECTURAL], [SPECULATIVE], or 'Outstanding verification' marker in the docume... | 0 | 2 |
-| 12 | `n_g_omega_cosmological_covariance_open_question` | open_negative | The framework writes n_g²(ω) as a Lorentzian susceptibility factor that modifies the gravitational Poisson equation in the cosmological-p... | 1 | 0 |
+| 12 | `n_g_omega_cosmological_covariance_resolved` | meta | RESOLVED (Correction #26, 2026-05-01). | 3 | 1 |
 | 12 | `n_total_zero_parameter_derivation_open_question` | open_negative | GRUT's detailed Hubble-from-first-principles route (grut/derived/cosmology/hubble_from_first_principles.py: grut_H_0_prediction) computes... | 3 | 1 |
 | 12 | `neutrino_dirac_prediction` | anchored | GRUT predicts Dirac neutrinos as the empirically preferred variant: Path D Dirac (a/c = 1.15525) is closer to the canonical Path G value... | 2 | 1 |
 | 12 | `path_f_translation_gap` | open_negative | Path F (Im Γ on de Sitter) was investigated as an alternate route to V7's R = 1.15428. | 1 | 0 |
+| 12 | `phi_munu_frw_beyond_wkb_open_question` | open_negative | Phase 2D — beyond-WKB extension of χ_FRW(k, η). | 1 | 0 |
 | 12 | `predictions_dashboard` | meta | The framework's complete predictive surface is codified in 27 quantitative predictions across 7 categories (foundational constants, R, co... | 0 | 9 |
 | 12 | `primordial_amplitude_zero_parameter_open_negative` | open_negative | The primordial scalar amplitude A_s ≈ 2.1 × 10⁻⁹ (Planck 2018) is observation-anchored, not derived zero-parameter from GRUT's CTP infras... | 5 | 2 |
 | 12 | `rho_max_scale_open_question` | open_negative | The universal-τ_0 form ρ_max ~ 10⁻²² kg/m³ is cosmologically weak and below typical naive BH interior densities. | 1 | 0 |
-| 12 | `t_c_provenance_inconsistency_open_negative` | open_negative | The framework's T_c = 54.7 MK value is propagated through both V7 documentation (V7 §0.5, V7 §22) and the codebase (grut/foundation/closu... | 2 | 0 |
+| 12 | `t_c_provenance_inconsistency_resolved` | meta | RESOLVED (Correction #22, 2026-04-30). | 3 | 3 |
+| 12 | `tau_zero_to_tau_micro_relation_open_question` | open_negative | The relation between the framework's two τ-scales is currently underived. | 3 | 0 |
 | 12 | `track_v_coupling_unification_open_question` | open_negative | GRUT's Track V proposes that the Standard Model gauge couplings unify at high scale via a constitutive β-function correction from the res... | 2 | 0 |
 | 12 | `two_route_convergence_physical_equivalence_open_question` | open_negative | The two computed routes for R (Path G: pure α=1/3 algebra giving 1.15470; Osborn ε at M_Z: weighted gauge-coupling correction giving 1.15... | 3 | 0 |
 | 12 | `vorton_track_vii_open_negative` | open_negative | Track VII Step 3 (vortex-string topology): π_n(U(1)) correctly identifies cosmic strings (not monopoles); BPS tension μ = πv² = 0.56 GeV²... | 1 | 1 |
@@ -1763,12 +1813,12 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 | Metric | Value |
 |:---|---:|
-| Total claims (nodes) | 91 |
-| Dependency edges | 151 |
-| Roots (zero deps) | 11 |
-| Leaves (no dependents) | 48 |
-| Max downstream fan-out | 66 |
-| Max upstream fan-in | 12 |
+| Total claims (nodes) | 103 |
+| Dependency edges | 188 |
+| Roots (zero deps) | 12 |
+| Leaves (no dependents) | 49 |
+| Max downstream fan-out | 76 |
+| Max upstream fan-in | 24 |
 
 ## F.2 Roots — framework entry points
 
@@ -1776,13 +1826,14 @@ Claims with zero registry dependencies. These are the seams the framework rests 
 
 | Claim ID | Tier | Chapter | Fan-out | First sentence |
 |:---|:---|---:|---:|:---|
-| `ctp_action_structure` | computed | 3 | 66 | The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP. |
-| `alpha_vac_derivation` | computed | 2 | 49 | α_vac = 1/3 is derived via conformal-mode scalar identification: under the postulate that the gra... |
-| `tau_0_derivation` | computed | 2 | 29 | τ_0 = 41.9 Myr is POSITED in Phase I §5 with two independent anchors: (1) cosmic-baseline relatio... |
+| `ctp_action_structure` | computed | 3 | 76 | The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP. |
+| `alpha_vac_derivation` | computed | 2 | 58 | α_vac = 1/3 is formalized via the Gate R identification (May 2026, C1-C6 all SUPPORTED/FORMALIZED... |
+| `tau_0_derivation` | computed | 2 | 35 | τ_0 = 41.9 Myr is POSITED in Phase I §5 with two independent anchors: (1) cosmic-baseline relatio... |
+| `t_c_thermal_transition` | computed | 8 | 3 | The 'boiling point of gravity' T_c = ℏ/(τ_micro × k_B) ≈ 54.7 MK, where τ_micro ≈ 1.4×10⁻¹⁹ s is... |
 | `closed_universe` | foundational | 1 | 2 | The universe is closed, finite, and self-referential. |
 | `bbn_thermal_buffer_negligible` | anchored | 12 | 0 | Standard-cosmology calculation testing one piece of an external research hypothesis: 'BBN binding... |
 | `claim_registry_appendix` | meta | 12 | 0 | Appendix E (Full Claim Registry) is auto-rendered as a Markdown reference table over every regist... |
-| `correction_ledger` | meta | 12 | 0 | The repository maintains a public ledger of every correction to the framework: 16+ CORRECTION_*.m... |
+| `correction_ledger` | meta | 12 | 0 | The repository maintains a public ledger of every correction to the framework: 28 documented corr... |
 | `dependency_graph_appendix` | meta | 12 | 0 | Appendix F (Dependency Graph) is auto-rendered from grut/toe/dependencies.py. |
 | `derivation_index_appendix` | meta | 12 | 0 | Appendix D (Derivation Index) is auto-rendered from the registry: every claim at tier 'computed'... |
 | `marker_validator_discipline` | meta | 12 | 0 | Tier-marker discipline checker: every [OPEN], [SCOPING], [CONJECTURAL], [SPECULATIVE], or 'Outsta... |
@@ -1794,16 +1845,16 @@ The most load-bearing claims in the framework, ranked by the number of downstrea
 
 | Rank | Fan-out | Claim ID | Tier | Chapter |
 |---:|---:|:---|:---|---:|
-| 1 | 66 | `ctp_action_structure` | computed | 3 |
-| 2 | 57 | `constitutive_equation` | computed | 3 |
-| 3 | 49 | `alpha_vac_derivation` | computed | 2 |
-| 4 | 40 | `memory_kernel_form` | computed | 3 |
-| 5 | 29 | `tau_0_derivation` | computed | 2 |
-| 6 | 22 | `threshold_bridge` | computed | 4 |
+| 1 | 76 | `ctp_action_structure` | computed | 3 |
+| 2 | 64 | `constitutive_equation` | computed | 3 |
+| 3 | 58 | `alpha_vac_derivation` | computed | 2 |
+| 4 | 47 | `memory_kernel_form` | computed | 3 |
+| 5 | 35 | `tau_0_derivation` | computed | 2 |
+| 6 | 30 | `threshold_bridge` | computed | 4 |
 | 7 | 16 | `r_canonical_path_g` | computed | 7 |
-| 8 | 14 | `screening_108pi` | computed | 4 |
-| 9 | 13 | `decoherence_plateau` | computed | 5 |
-| 10 | 7 | `bullet_cluster_offset` | computed | 9 |
+| 8 | 15 | `regime_map` | computed | 4 |
+| 9 | 14 | `decoherence_plateau` | computed | 5 |
+| 10 | 14 | `screening_108pi` | computed | 4 |
 
 ## F.4 Closure-priority — open-negative dependency chains
 
@@ -1815,33 +1866,27 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
 | 2 | 1 | `el_gordo_outlier_open_question` | — |
 | 3 | 0 | `allen_jacobson_phase1_stub_open_negative` | — |
 | 4 | 0 | `born_rule_postulate_open_negative` | — |
-| 5 | 0 | `constitutive_projection_gravity_heuristic_open_question` | — |
-| 6 | 0 | `koide_phase_4_open_negative` | — |
-| 7 | 0 | `n_g_omega_cosmological_covariance_open_question` | — |
-| 8 | 0 | `n_total_zero_parameter_derivation_open_question` | — |
-| 9 | 0 | `nonlinear_ladder_4_of_8` | — |
-| 10 | 0 | `path_f_translation_gap` | — |
-| 11 | 0 | `primordial_amplitude_zero_parameter_open_negative` | `n_g_omega_cosmological_covariance_open_question` |
-| 12 | 0 | `rho_max_scale_open_question` | — |
-| 13 | 0 | `t_c_provenance_inconsistency_open_negative` | — |
-| 14 | 0 | `track_v_coupling_unification_open_question` | — |
-| 15 | 0 | `two_route_convergence_physical_equivalence_open_question` | — |
-| 16 | 0 | `vorton_track_vii_open_negative` | — |
+| 5 | 0 | `koide_phase_4_open_negative` | — |
+| 6 | 0 | `n_total_zero_parameter_derivation_open_question` | — |
+| 7 | 0 | `nonlinear_ladder_4_of_8` | — |
+| 8 | 0 | `path_f_translation_gap` | — |
+| 9 | 0 | `phi_munu_frw_beyond_wkb_open_question` | — |
+| 10 | 0 | `primordial_amplitude_zero_parameter_open_negative` | — |
+| 11 | 0 | `rho_max_scale_open_question` | — |
+| 12 | 0 | `tau_zero_to_tau_micro_relation_open_question` | — |
+| 13 | 0 | `track_v_coupling_unification_open_question` | — |
+| 14 | 0 | `two_route_convergence_physical_equivalence_open_question` | — |
+| 15 | 0 | `vorton_track_vii_open_negative` | — |
 
 ## F.5 Inter-gap blocking chains
 
 ```
   tji_7_4_open_negative
     └── blocked by → allen_jacobson_phase1_stub_open_negative
-  primordial_amplitude_zero_parameter_open_negative
-    └── blocked by → n_g_omega_cosmological_covariance_open_question
 ```
 
 
 
----
-
-*Registry claims: dependency_graph_appendix (meta)*
 
 ---
 
@@ -1935,9 +1980,15 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
 
 - Y. Koide, "New Formula for the Cabibbo Angle and Composite Quarks and Leptons," *Phys. Rev. Lett.* **47**, 1241 (1981).
 
-**Conformal anomaly**
+**Conformal anomaly — load-bearing citations for α_vac = 1/3**
 
-- I. T. Khasanov and D. J. Segal, "Conformal anomaly coefficients for scalar, fermion and vector fields," unpublished lecture notes (2011). The per-species (a,c) values summarized therein are independently found in: S. M. Christensen and M. J. Duff, *Nucl. Phys. B* **154**, 301 (1979); N. D. Birrell and P. C. W. Davies, *Quantum Fields in Curved Space* (Cambridge UP, 1982); M. J. Duff, "Twenty Years of the Weyl Anomaly," *Class. Quant. Grav.* **11**, 1387 (1994).
+The per-species trace anomaly coefficients $(a,c)$ for a real conformally-coupled scalar, Weyl fermion, and gauge field are the direct source of $\alpha_{\rm vac} = a/c = 1/3$ via Gate R. Primary published citations:
+
+- M. J. Duff, "Twenty Years of the Weyl Anomaly," *Class. Quant. Grav.* **11**, 1387 (1994). **[Lead citation. Eq (30)–(31): $(a,c) = (1,3)$ for real scalar, $(11/2,9)$ for Weyl fermion, $(62,36)$ for gauge field. Convention-independent ratio $a/c = 1/3$.]**
+- S. M. Christensen and M. J. Duff, "New gravitational index theorems and supertheorems," *Nucl. Phys. B* **154**, 301 (1979); and "Quantizing Gravity with a Cosmological Constant," *Nucl. Phys. B* **170**, 480 (1980). **[Independent source for the same per-species anomaly coefficients.]**
+- N. D. Birrell and P. C. W. Davies, *Quantum Fields in Curved Space* (Cambridge UP, 1982). [Textbook reference for conformal coupling $\xi_c = 1/6$ in 4D.]
+
+*Note on "KS 2011" shorthand:* Earlier drafts cited "KS 2011" as a shorthand that was ambiguous between (a) Khasanov-Segal 2011 — unpublished lecture notes summarizing Christensen-Duff and Duff 1994 results, not independently citable as a primary source; and (b) Kounnas-Scrucca 2011 — a paper cited in internal gate documents with eq A.5 but not otherwise verified for the bibliography. This shorthand has been removed from the book body; all load-bearing citations for $\alpha_{\rm vac} = 1/3$ now point to Duff 1994 (eq 30–31) and Christensen-Duff 1980 as the unambiguous published sources.
 
 **GRUT program documents**
 
