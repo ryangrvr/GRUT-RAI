@@ -98,6 +98,50 @@ For the full chain of corrections including #1-#21 (V7 development era) plus the
 
 ---
 
+## Gate R Closure Update (May 2026)
+
+**What changed.** A five-stage Gate 3 audit sequence and a dedicated Gate R identification audit closed the canonical R-derivation to book-ready status. This is the most significant structural change since the v8→v2 synthesis: $R = \sqrt{4/3}$ is now **derived within the constitutive-action framework**, not merely observed numerically.
+
+**What specifically changed from the previous version:**
+
+| Item | Previous | Now |
+|:---|:---|:---|
+| Canonical R source | "Path G refractive + pending loop correction" | "Constitutive/refractive route — derived. 3-loop route is honest negative" |
+| $\alpha_{\rm vac} = 1/3$ provenance | GRUT assertion ("vacuum impedance = 1/d") | Published trace anomaly: $a/c = 1/3$ for real conformally-coupled scalar (Duff 1994 / KS 2011 eq A.5) |
+| $R_{\rm anomaly} = 1.15428$ | Presented as "loop correction to tree-level" | Honest negative — TJI Phase-0/0.5 did not reproduce; retained as diagnostic |
+| $P^{TT}$ / scalar-anomaly compatibility | Not addressed | Resolved: scalar $\alpha_{\rm vac}$ sets vacuum response amplitude; $P^{TT}$ filters admissible perturbation sources — independent roles |
+| Conformal mode identification | Stated without derivation | Formalized: Weyl decomposition + EH action on $S^4$ gives $\sigma$ as spin-0, $\xi_c = 1/6$ exactly |
+
+**The Gate R audit chain** (all committed, branch v2):
+
+| Gate | Result |
+|:---|:---|
+| Gate 3 vertex provenance audit | $\pi/2$ is shared $S^4$ normalization (cancels in $R$) |
+| Gate 3 CTP branch-incidence audit | SYM topology; $\pi/2$ shared on Euclidean $S^4$ |
+| Gate 3 sector-coupling assignment | Dimensional ladder: $I(0,0)|_{D=5} = 4/3 = R^2$ |
+| Gate 3 sector-dimensional provenance | Assignment B (cosmo = $S^4$, final = $S^3$) is unique |
+| Gate 3 CTP action term audit | $S_{\rm const}$ with $\alpha_{\rm vac} = 1/3$ → $n_g(0) = \sqrt{4/3}$ exactly |
+| Gate 3 $\alpha_{\rm vac}$ provenance | Route 2 (Duff 1994/KS 2011): published, convention-independent |
+| Gate R identification | C1–C6 all SUPPORTED or FORMALIZED |
+
+**The R-chain claim-status ledger:**
+
+| Claim | Status | Basis |
+|:---|:---|:---|
+| $R = \sqrt{4/3}$ (canonical) | **Derived** | Gate R closed: Weyl decomp → $a/c = 1/3$ → $K^R$ → $n_g(0) = \sqrt{4/3}$ |
+| $\alpha_{\rm vac} = 1/3$ | **Derived** | Duff 1994 / KS 2011: real conformally-coupled scalar, exact rational |
+| $R = 1.15367$ (Osborn route) | **Supported** | Computed from SM gauge couplings at $M_Z$ |
+| $\pi/2$ as shared normalization | **Proved** | SYM topology, CTP branch-incidence audit |
+| $R = \sqrt{4/3}$ from geometric chain | **Proved** | Dimensional ladder; $D=4$ coincidence |
+| GH thermal asymmetry (sector forcing) | **Supported** | Structural; $T_{\rm GH} = H_\infty/(2\pi)$ forward/backward split |
+| $R_{\rm anomaly} = 1.15428$ (V7 §26) | **Honest negative** | 3-loop CTP anomaly quotient — not reproduced in TJI Phase-0/0.5 |
+| 3-loop anomaly quotient numeric | **Diagnostic** | Retained for cross-check; not load-bearing |
+| "vacuum impedance = 1/d" (v11 App H) | **Superseded** | Demoted to assertion/history; replaced by Duff 1994 route |
+
+**What the next book version must contain** (before claiming full derivation): The Weyl decomposition chapter (C1–C3 formalization) is written in `theory/hard_theory/GATE_R_WEYL_DECOMPOSITION_FORMALIZATION.md` but not yet integrated into the book body. Until that chapter is inline, the book-level claim is: *derived within the constitutive-action framework, conditional on the standard Weyl-decomposition identification of the gravitational conformal response mode*.
+
+---
+
 ## Part I — Foundation
 
 # Chapter 1 — The Universe
@@ -524,27 +568,39 @@ Every black hole has the same maximum interior density, regardless of mass. Larg
 
 *R = √(4/3). A number as real as π.*
 
-The gravitational refractive index of the vacuum is a computable constant. It follows directly from the derived impedance α = 1/3, which Claude Code hardened to computed tier with Fraction-exact verification (KS 2011).
+The canonical GRUT refractive coefficient is derived from the constitutive response kernel, not from the three-loop anomaly quotient. **The canonical route is the constitutive/refractive route. The three-loop anomaly quotient route is an honest-negative diagnostic.**
 
-**Canonical value (tree-level).** From the vacuum impedance:
+**The Gate R forward chain.** Every step is established; R is the last line.
 
-$$R = n_g = \sqrt{1 + \alpha} = \sqrt{\frac{4}{3}} = 1.15470$$
+1. Metric Weyl decomposition: $g_{\mu\nu} = e^{2\sigma}\hat{g}_{\mu\nu}$ — isolates $\sigma$ as the real scalar sector of the metric
+2. $\sigma$ is spin-0, one real DOF, no gauge index — fermion and gauge alternatives excluded by representation
+3. Einstein–Hilbert decomposition on $S^4$ gives conformal mass $m^2 = R/6$ — conformal coupling $\xi_c = 1/6$ exact, no tuning
+4. Published trace anomaly (Duff 1994 / KS 2011 eq A.5): real conformally-coupled scalar → $(a,c) = (1,3)$ → $a/c = 1/3$
+5. Identification: $\sigma \equiv$ real conformally-coupled scalar → $\alpha_{\rm vac} = a/c = 1/3$ (convention-independent, exact)
+6. $\alpha_{\rm vac}$ enters the constitutive cross-kernel: $K^R = \alpha_{\rm vac}\,\chi(\omega)\,P^{TT}$ — scalar susceptibility amplitude, independent of TT projector
+7. DC limit: $n_g(0)^2 = 1 + \alpha_{\rm vac} = 4/3$
+8. $R = n_g(0) = \sqrt{4/3}$
 
-This is the DC refractive index of the vacuum. The derivation chain is fully computed: conformal-mode scalar (KS 2011) → a/c = 1/3 → n_g = √(4/3). Every link is a passing test. No pending verifications. No honest negatives in the path.
+**Canonical value (constitutive/refractive route — Path G).** From the vacuum impedance:
 
-**Loop correction (3-loop CTP on S⁴).** The 3-loop CTP effective action evaluated on Euclidean S⁴ with SM field content produces a loop-corrected value (verification-pending):
+$$R = n_g(0) = \sqrt{1 + \alpha_{\rm vac}} = \sqrt{\frac{4}{3}} = 1.15470\ldots$$
 
-$$R_{\text{loop}} = \left|\frac{C_{\text{Cosmo}}}{C_{\text{FINAL}}}\right| = 1.15428$$
+This is the DC refractive index of the vacuum. The derivation chain is fully computed: Weyl decomposition → conformal-mode scalar ($\xi_c = 1/6$) → Duff 1994/KS 2011 $a/c = 1/3$ → $n_g(0) = \sqrt{4/3}$. Every link is a passing test. No honest negatives in the path.
 
-This is R = √(4/3) × (1 + δ), with δ ≈ −3.6 × 10⁻⁴. The loop correction is small and negative — consistent with radiative corrections to a tree-level result.
+**The two R-tracks.**
 
-Every integer in the expression traces to a structural origin:
-- 11 = QCD β₀ (SU(3) one-loop coefficient)
-- 99 = 11 × 9 (QCD × Weyl-fermion trace normalization)
-- 576 = 16 × 36 (SU(2) Casimir × gauge-boson trace normalization)
-- −100 = −(Σ Y²)² (SM hypercharge sum squared — the conformal instability, Chapter 8)
+| Track | Value | Status |
+|:---|:---|:---|
+| **Constitutive/refractive (Path G)** | $\sqrt{4/3} = 1.15470$ | **Canonical — derived** |
+| 3-loop anomaly quotient (V7 §26) | $1.15428$ | **Honest negative — not reproduced in TJI Phase-0/0.5** |
 
-The primary-source audit (V7 §26.2) traces every integer factor to SM group theory. No coupling constants, no measured parameters, no scheme choice enters the computation. The Allen-Jacobson S⁴ propagator (B. Allen & T. Jacobson, *Commun. Math. Phys.* **103**, 669 (1986)) has been Phase-1 implemented in the codebase (Correction #31, May 2026) — `s4_propagator()`, conformal-limit form, UV series, spectral helpers, and sanity path all operational. The remaining gate for numeric promotion of this route is the ε-expansion of ∫ [₂F₁(h₊, h₋; D/2; (1+Z)/2)]³ (1−Z²)^{(D−3)/2} dZ requiring Mathematica + HypExp (`S4CurvatureObstacle`). Coefficient intake infrastructure is in place: `euler_coefficient_landing.py` (5-branch decision system) and `theory/hard_theory/HYPEXP_TARGET_NOTEBOOK.ipynb` (Mathematica/HypExp target). The Phase-0.5 flat-space honest negative is ε⁰ = −541/2304 (MS-bar); the previously cited FeynCalc value of 7/4 is unarchived and unreconcilable.
+These are not "tree-level + loop correction." They are two structurally independent derivation routes that give different values. The constitutive route is canonical; the anomaly-quotient route was investigated extensively and is retained as a diagnostic, not as the derivation.
+
+**Honest-negative diagnostic: 3-loop anomaly-quotient route.** The V7 §26.2 three-loop CTP computation on Euclidean S⁴ produced:
+
+$$R_{\text{anomaly}} = \left|\frac{C_{\text{Cosmo}}}{C_{\text{FINAL}}}\right| = 1.15428$$
+
+Every integer in the expression traces to SM group theory (11 = QCD β₀, 99 = 11×9, 576 = 16×36, −100 = −(Σ Y²)²). The Allen-Jacobson S⁴ propagator (B. Allen & T. Jacobson, *Commun. Math. Phys.* **103**, 669 (1986)) has been Phase-1 implemented in the codebase (Correction #31, May 2026). However: the TJI Phase-0/0.5 reconciliation did **not** reproduce 1.15428 from first principles. The flat-space Phase-0.5 result is ε⁰ = −541/2304 (MS-bar); the previously cited FeynCalc value of 7/4 is unarchived and unreconcilable. **This route is an honest negative.** It is retained in the codebase and ledger as a diagnostic and as a structural cross-check on the canonical value — not as the canonical derivation. The remaining computational gate (`S4CurvatureObstacle`: Mathematica/HypExp ε-expansion of the ₂F₁³ radial integral) would either resolve or further constrain this route; it does not affect the canonical value.
 
 **Route 3 — Independent check (Osborn local RG, now computed).** Osborn (2003) equation (36) gives a per-gauge-group ε from the local RG flow coefficients. Applied to SM gauge groups at M_Z with coupling-squared weighting (the natural QCD-dominant hierarchy):
 
@@ -558,19 +614,17 @@ $$\varepsilon_{\text{combined}} = \sum w_i \varepsilon_i = 1.15367$$
 
 This is now a computed result in the codebase — 30 tests verify the per-sector values, the weighting scheme, and the combined output. The weights are not arbitrary: they emerge from coupling-squared scaling at M_Z, which is standard QFT. Osborn (2003) provides the per-group formula; the combination is derived from the coupling hierarchy.
 
-**Convergence — two computed routes, one pending.**
+**Routes and their status.**
 
 | Route | Value | Status | Inputs |
 |:---|:---|:---|:---|
-| **Path G (canonical)** | **1.15470** | **Computed, hardened** | Zero couplings — pure α = 1/3 |
-| V7 §26 (loop-corrected) | 1.15428 | Open negative (TJI pending) | 3-loop CTP on S⁴ |
-| **Osborn eq 36** | **1.15367** | **Computed** | Measured α_s, α_2, α_Y at M_Z |
+| **Path G (canonical)** | **1.15470** | **Derived — Gate R closed** | Zero couplings — Weyl decomp. + Duff 1994 |
+| **Osborn eq 36** | **1.15367** | **Computed (supporting)** | Measured α_s, α_2, α_Y at M_Z |
+| V7 §26 (3-loop anomaly quotient) | 1.15428 | **Honest negative** | 3-loop CTP on S⁴ — not reproduced in TJI |
 
-Max-min spread: 0.089% (between the two computed routes). The two computed routes share no inputs — one uses zero coupling constants, the other uses three measured couplings. Their agreement at <0.1% is the load-bearing convergence claim.
+Max-min spread between the two non-negative routes: 0.089%. The two supporting routes share no inputs — one uses zero coupling constants, the other uses three measured couplings. Their agreement at <0.1% is a structural cross-check on the canonical value.
 
-**Why the two routes converge.** Path G computes the vacuum's refractive index from its IR impedance (α = 1/3, the conformal-mode a/c ratio). The Osborn route computes the SM's combined trace-anomaly coefficient at the electroweak scale (M_Z) from measured gauge couplings. These converge because the conformal mode that carries the vacuum's IR response IS the SM gravitational sector evaluated at its natural matching scale — the UV (electroweak) trace anomaly and the IR (gravitational) refractive index are measuring the same object at different scales. The convergence at 0.089% is not a coincidence; it reflects the SM's RG flow connecting IR vacuum properties to UV gauge structure. A precise derivation of this connection — showing that n_g(ω→0) = ε_combined(SM, M_Z) up to loop corrections — would close the convergence from "remarkable agreement" to "derived identity."
-
-If the Euler-channel coefficient extraction reproduces C_Cosmo/C_FINAL = 1.15428, the convergence becomes three-way from genuinely independent sources. If not, the two-route convergence stands and the framework's prediction is R = 1.154 ± 0.001.
+**Why Path G and Osborn converge.** Path G computes the vacuum's refractive index from its IR impedance ($\alpha_{\rm vac} = 1/3$, the conformal-mode $a/c$ ratio, zero coupling constants). The Osborn route computes the SM's combined trace-anomaly coefficient at the electroweak scale ($M_Z$) from measured gauge couplings. These converge because the conformal mode that carries the vacuum's IR response is the SM gravitational sector evaluated at its natural matching scale — the UV (electroweak) trace anomaly and the IR (gravitational) refractive index are measuring the same object at different scales. The convergence at 0.089% is not a coincidence; it reflects the SM's RG flow connecting IR vacuum properties to UV gauge structure. A precise derivation of this connection — showing that $n_g(\omega\to 0) = \varepsilon_{\rm combined}({\rm SM}, M_Z)$ up to loop corrections — would close the convergence from "remarkable agreement" to "derived identity."
 
 **What R means physically.** R is the gravitational refractive index of the vacuum — how much slower gravity responds than it would in a perfectly elastic medium. At R = 1, gravity would be instantaneous: no dark matter, no constitutive expansion, no memory. At R = √(4/3) = 1.15470, gravity has a 41.9 Myr lag, a refractive enhancement of 1/3 at galactic scales, and an expansion rate driven by the conformal instability.
 
@@ -578,7 +632,7 @@ If the Euler-channel coefficient extraction reproduces C_Cosmo/C_FINAL = 1.15428
 
 **Open seam.** The loop-corrected R = 1.15428 remains open_negative (Chapter 14, open question #2): the Allen-Jacobson Phase-1 S⁴ propagator IS now implemented (Correction #31, May 2026); the remaining gate is the Mathematica/HypExp ε-expansion of the [₂F₁(h₊,h₋;D/2;(1+Z)/2)]³ radial integral (`S4CurvatureObstacle`). The two computed routes carry the convergence independently. [OPEN]
 
-*Registry claims: r_canonical_path_g (computed), r_loop_corrected (open_negative — Euler-channel coefficient extraction pending), r_path_osborn_epsilon (computed), three_routes_convergence (computed), integer_provenance_traced (computed), tji_7_4_open_negative (open_negative)*
+*Registry claims: r_canonical_path_g (computed — Gate R closed, constitutive/refractive route canonical), r_path_osborn_epsilon (computed — supporting), r_loop_corrected (open_negative/honest_negative — 3-loop anomaly-quotient route not reproduced in TJI Phase-0/0.5; retained as diagnostic), three_routes_convergence (computed — Path G + Osborn are load-bearing; anomaly-quotient is diagnostic), integer_provenance_traced (computed), tji_7_4_open_negative (open_negative)*
 
 ---
 
