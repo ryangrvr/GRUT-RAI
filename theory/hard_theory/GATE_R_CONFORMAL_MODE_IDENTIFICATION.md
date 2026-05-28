@@ -2,7 +2,7 @@
 
 Date: 2026-05-27
 Spec: gate-r-conformal-mode-identification-spec-v1.0
-Status: C1 = PARTIAL; C2 = PARTIAL; C3 = PARTIAL; C4 = NEEDS_THEORY; C5 = TENSION; C6 = SUPPORTED
+Status: C1 = PARTIAL; C2 = PARTIAL; C3 = PARTIAL; C4 = SUPPORTED; C5 = RESOLVED; C6 = SUPPORTED
 
 ---
 
@@ -263,12 +263,13 @@ argument (C1–C4) must be written in the forward direction to fully close C6
 | C1 Scalar mode isolated | $\sigma$ (conformal factor) is the IR response mode | PARTIAL |
 | C2 Conformal coupling justified | $\xi_c = 1/6$; matches Duff 1994 species | PARTIAL |
 | C3 One real species | One real DOF; GHP instability handled | PARTIAL |
-| C4 Fermion/gauge alternatives excluded | Spin-0 / uncharged; non-circular exclusion | NEEDS_THEORY |
-| C5 $P^{TT}$ compatibility | Cross-coupling mechanism scalar → TT response | **TENSION** |
+| C4 Fermion/gauge alternatives excluded | Spin-0 / uncharged; non-circular exclusion | **SUPPORTED** |
+| C5 $P^{TT}$ compatibility | Cross-coupling mechanism scalar → TT response | **RESOLVED** |
 | C6 R-independence | Forward-direction argument (physics → $a/c$ → $R$) | SUPPORTED |
 
-**Gate status: NOT PASSED.** C4 requires explicit formalization; C5 requires
-resolution of the TT-projector / scalar-anomaly tension.
+**Gate status: C4 and C5 closed. C1–C3 remain PARTIAL — deferred to full Weyl
+decomposition chapter (no new physical assumptions required).** See
+`GATE_R_CONFORMAL_MODE_IDENTIFICATION_RESOLUTION.md` for C4/C5 arguments.
 
 ---
 
@@ -350,6 +351,7 @@ and the R-chain is complete.
 | File | Contents |
 |---|---|
 | `theory/hard_theory/GATE_R_CONFORMAL_MODE_IDENTIFICATION.md` | This spec |
+| `theory/hard_theory/GATE_R_CONFORMAL_MODE_IDENTIFICATION_RESOLUTION.md` | C4/C5 resolution (2026-05-27) |
 | `theory/hard_theory/GATE3_ALPHA_VAC_PROVENANCE.md` | Upstream: five Q&A for $\alpha_{\rm vac}$ |
 | `theory/hard_theory/GATE3_CTP_ACTION_TERM_AUDIT.md` | Upstream: constitutive kernel structure |
 | `grut/foundation/closure_protocol.py` | `ALPHA_VAC`, `N_G_DC`, `R_REFRACTIVE` |
