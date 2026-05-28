@@ -311,7 +311,7 @@ The closure principle from Chapter 1 — *no privileged outside positions, no co
 
 **Pointers for specialists.** Each audit document in `theory/foundations_audit/` includes the full derivation chain, the dimensional checks, the cross-route verifications, and the framing corrections that emerged. Specialists who want to verify any of these audits can navigate to the audit documents directly. The discipline pattern across all three: *what the constant is, where it comes from, and what postulate or anchor is doing the load-bearing work* — surfaced explicitly rather than absorbed into derivations.
 
-*Registry claims: tau_0_derivation (computed), alpha_vac_derivation (computed), refractive_index (computed), screening_108pi (computed), mond_a0 (computed), critical_temperature (computed), tau_0_cross_consistency (computed), t_c_provenance_inconsistency_open_negative (open_negative), correction_ledger (meta)*
+*Registry claims: tau_0_derivation (computed), alpha_vac_derivation (computed), refractive_index (computed), screening_108pi (computed), mond_a0 (computed), critical_temperature (computed), tau_0_cross_consistency (computed), t_c_provenance_inconsistency_resolved (resolved — Correction #22 two-τ-scale convention), correction_ledger (meta)*
 
 ---
 
@@ -813,7 +813,7 @@ El Gordo: **apparent outlier resolved by sensitivity analysis.** The canonical-p
 
 Detectability: below Planck precision (3 × 10⁻⁴) by factor 10. At CMB-S4 threshold (~5 × 10⁻⁵, expected ~2030) by factor 1.4. At Planck precision, the CMB is a consistency check — GRUT predicts peaks indistinguishable from ΛCDM. At CMB-S4 precision, the shift enters the detectable range.
 
-Promotion from scoping-tier to falsifier requires: (1) full Boltzmann implementation propagating the constitutive modification through CMB anisotropy, lensing, and matter power spectrum sectors (CLASS modification at `perturbations.c::perturb_einstein()`, estimated 4-8 weeks specialist effort); and (2) theoretical closure of the n_g(ω) covariance question for cosmological perturbations — specifically, which ω the modification uses and how it transforms under gauge changes. Both are tractable but multi-phase work. Closing the n_g(ω) covariance question is now also the prerequisite for the primordial A_s derivation (Chapter 13.2, Stage 2 finding) — one closure unlocks both gaps. [SCOPING]
+Promotion from scoping-tier to falsifier requires full Boltzmann implementation propagating the constitutive modification through CMB anisotropy, lensing, and matter power spectrum sectors (CLASS modification at `perturbations.c::perturb_einstein()`, estimated 4-8 weeks specialist effort). The n_g(ω) covariance question — which ω the modification uses and how it transforms under gauge changes — is **closed by Correction #26** (ω → k_phys × c, gauge-invariant at WKB; sharp prediction: μ − 1 = 1/3 on horizon scales). Promotion now requires full Boltzmann implementation only; the theoretical prerequisite is satisfied. [SCOPING]
 
 **The particulate route.** V7 also explored a U(1)_dark gauge extension with dark photon mass 387 MeV. Track VII Step 3 showed the correct topology (cosmic strings, π₁(U(1)) = ℤ) gives Ω_dm ≈ 0.008 — factor 33 below observed. The particulate route remains structurally closed but numerically unsuccessful. Both routes — dielectric and particulate — are published honestly.
 
@@ -953,7 +953,7 @@ The investigation log at `theory/derivation/LAMBDA_CONTACT_CTP_DERIVATION.md` do
 
 - **SM hosted as S_classical** with verified compatibility: anomaly cancellation (Σ Y² = 10 per generation), gauge invariance (8+3+1 = 12 generators), renormalizability, unitarity, CPT — all verified computationally. Status: computed.
 - **N = 3 generations** partially derived via Z₃ Koide circulant structure. The Koide identity K = 2/3 is an algebraic identity proven to hold for three generations uniquely. Status: computed.
-- **Trace anomaly structure** central to the vacuum response: α = a/c = 1/3 for the conformal-mode scalar, used in R, in the cosmological constant, in dark matter. The SM's anomaly coefficients are load-bearing inputs to the framework. Status: computed under named postulate.
+- **Trace anomaly structure** central to the vacuum response: α = a/c = 1/3 for the conformal-mode scalar, used in R, in the cosmological constant, in dark matter. The SM's anomaly coefficients are load-bearing inputs to the framework. Status: computed / formalized via Gate R (Weyl decomposition identifies σ as one real conformally-coupled scalar; Duff 1994 eq 30–31 gives a/c = 1/3).
 - **The 8.9% coupling-unification miss** at the GUT scale. The constitutive β-function correction (the medium's frequency-dependent response modifying the running of couplings) is defined as Track V but not computed. Status: open negative, 6-12 months.
 - **Baryogenesis from CTP path asymmetry** (R ≠ 1). The SM's CP violation enters through the CTP structure. Status: computed.
 
@@ -1059,7 +1059,7 @@ The cosmic web — filaments, nodes, voids — is crystallized gravitational mem
 
 *Registry claims: cosmic_history_arc (anchored — composition), null_instability_hypothesis (conjectural), crystallization_sequence (deferred — T_c provenance resolved; Stage 2 specialist review pending).*
 
-*Cross-chapter claims surfaced in this narrative: `bbn_thermal_buffer_negligible` (Ch 12, anchored — BBN cooling-buffer falsification); `genesis_noise_kernel_spectral_attempt` (Ch 12, anchored — Genesis Claim 1 spectrum-shape falsification); `cosmic_x_crossover_prediction` (Ch 4, computed — X = H τ₀ = 1 at z ≈ 71 for atomic-scale perturbations); `primordial_amplitude_zero_parameter_open_negative` (Ch 12, open negative — rescaling-conditional finding documented in 13.2); `t_c_provenance_inconsistency_open_negative` (Ch 12, open negative — referenced in 13.4-13.5).*
+*Cross-chapter claims surfaced in this narrative: `bbn_thermal_buffer_negligible` (Ch 12, anchored — BBN cooling-buffer falsification); `genesis_noise_kernel_spectral_attempt` (Ch 12, anchored — Genesis Claim 1 spectrum-shape falsification); `cosmic_x_crossover_prediction` (Ch 4, computed — X = H τ₀ = 1 at z ≈ 71 for atomic-scale perturbations); `primordial_amplitude_zero_parameter_open_negative` (Ch 12, open negative — rescaling-conditional finding documented in 13.2); `t_c_provenance_inconsistency_resolved` (Ch 12, resolved — Correction #22 two-τ-scale convention; referenced in 13.4-13.5).*
 
 ---
 
