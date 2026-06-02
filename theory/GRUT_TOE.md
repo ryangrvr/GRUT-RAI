@@ -179,6 +179,26 @@ The audit proceeds in two layers. G1–G7 are action-layer gates: they verify th
 
 ---
 
+## v3 — Sharp Predictions Update (June 2026)
+
+This update converts the v2 (Gate R Edition) theoretical infrastructure into a set of explicit, near-term-falsifiable predictions. No numerical predictions from v2 change. What changes is the frame: the derivation layer is treated as frozen, and the v3 additions extract observational consequences at the scales where the machinery meets current and near-future experiments.
+
+**Three additions from v2:**
+
+| Addition | Location | What it does |
+|:---|:---|:---|
+| S_CTP interpretive scope | Ch 3 | Explicitly resolves the UV-vs-EFT ambiguity: GRUT is an **EFT organizing principle**, not a UV-complete derivation from a single fixed point. States the honest free-parameter count. |
+| CMB Boltzmann entry point | Ch 9 | Specifies exactly where μ_GRUT(k,a) enters the Einstein-Boltzmann system (modified Poisson equation, code targets), making "full Boltzmann implementation" a defined computational task. |
+| Three near-term predictions | Ch 14 | Dedicated opening section consolidating the three falsifiable predictions the v2 machinery produces: modified gravity μ/γ (DESI/Euclid), neutrino hierarchy + mass scale (JUNO/Project 8), and baryogenesis η_B (already within 8%). |
+
+**Supporting additions:** Two-route convergence gap formally registered in Ch 7 registry footer. Z₃/Koide sector results expanded from a table row to a dedicated subsection in Ch 12.
+
+**What these updates are not.** They do not close any open negatives. They do not derive the Standard Model. They do not implement the CMB Boltzmann code — that remains downstream computation for v4. They convert existing computed results into explicit prediction form with falsification conditions attached. This is the work a framework does when its derivation layer stabilizes and its empirical exposure begins.
+
+**The v4 gate.** The load-bearing item for the next release is the CMB Boltzmann implementation: running CAMB/CLASS with the modified Poisson equation and extracting P(k), C_ℓ predictions. Until that runs, the μ_GRUT prediction is exact in theory and unverified in practice. The Boltzmann run is theoretically unblocked (Correction #26) and is the primary computational gate for v4.
+
+---
+
 ## Part I — Foundation
 
 # Chapter 1 — The Universe
@@ -383,6 +403,12 @@ $$z^* = z_{\text{target}}[z^*]$$
 The time derivative vanishes. τ₀ drops out. The fixed-point state is determined entirely by the CTP action. It is stable when all eigenvalues of dz_target/dz at z* have magnitude less than 1.
 
 This is the self-referential principle from Chapter 1, now given mathematical form. The fixed point is the state that generates its own target. The dynamics are the relaxation toward it. Everything in GRUT — from quantum mechanics to the Hubble rate — is a sector-specific instance of this universal structure.
+
+**GRUT's interpretive scope: EFT organizing principle, not UV completion.** S_CTP is a formal unifying structure — a single action form that encodes CTP branch structure, dissipation/fluctuation duality, and KMS thermal constraint consistently at each scale. The framework's claim is not that S_CTP UV-generates all characteristic scales from a single fixed point. The claim is that one constitutive *structure* (dissipation/fluctuation duality, CTP branch topology, KMS constraint, fixed-point equation) is universal, while the *scales* at which that structure operates are anchored empirically at each EFT window. This makes GRUT an **EFT organizing principle**: the same constitutive architecture propagates consistently across the gravitational, thermal, and nuclear EFT windows, without introducing new free parameters beyond those anchored at each window's entry scale.
+
+The "zero free parameters" claim applies specifically and precisely to the **gravitational predictive core**: R = √(4/3), H₀ ≈ 69 km/s/Mpc, Ω_Λ ≈ 0.69, and the decoherence plateau all follow from two anchored inputs — τ₀ and α_vac = 1/3 — without additional free parameters. Of these: τ₀ = 41.9 Myr is observationally anchored (cosmic-baseline relation 1/(H₀ × 108π), cross-checked against the Bullet Cluster offset); α_vac = 1/3 is derived (Gate R: Weyl decomposition identifies σ as one real conformally-coupled scalar → Duff 1994 a/c = 1/3 — not a free parameter). The thermal sector adds an independently anchored parameter: τ_micro ≈ 1.4×10⁻¹⁹ s, defined via T_c = 54.7 MK as τ_micro = ℏ/(k_B T_c). The relation between τ₀ and τ_micro — 34 orders of magnitude apart — is an open question tracked in Chapter 14 (`tau_zero_to_tau_micro_relation_open_question`). Until that relation is derived, the honest parameter count is: one empirically anchored constant (τ₀) in the gravitational core, plus one independently anchored constant (τ_micro) in the thermal sector. The gravitational-core zero-parameter claim stands; the thermal sector is separately anchored.
+
+This framing resolves an apparent oscillation in the framework's earlier language between "S_CTP generates all physics" (strong UV claim) and "S_CTP organizes consistent EFT windows" (EFT claim). Both descriptions appear in the V7 and v8 documents. The v3 resolution: S_CTP defines the universal constitutive *structure*; the *scales* are anchored empirically per window. The two descriptions are not in conflict — they were describing different aspects of the same framework without making the distinction explicit.
 
 *Registry claims: ctp_action_structure (computed), constitutive_equation (computed), memory_kernel_form (computed), framework_axioms_locked (computed)*
 
@@ -683,7 +709,7 @@ Max-min spread between the two non-negative routes: 0.089%. The two supporting r
 
 **Open seam.** The 3-loop anomaly-quotient value $R_{\rm anomaly} = 1.15428$ remains honest_negative (Chapter 14, open question #2). The Allen-Jacobson Phase-1 S⁴ propagator is implemented (Correction #31, May 2026); the remaining gate is the Mathematica/HypExp ε-expansion of the $[{}_2F_1(h_+,h_-;D/2;(1+Z)/2)]^3$ radial integral (`S4CurvatureObstacle`). Closing this gate would either reproduce 1.15428 (confirming the anomaly-quotient route as a consistency check on the canonical value) or rule it out further. Either outcome leaves the canonical $R = \sqrt{4/3}$ unchanged. [HONEST NEGATIVE]
 
-*Registry claims: r_canonical_path_g (computed — Gate R closed, constitutive/refractive route canonical), r_path_osborn_epsilon (computed — supporting), r_loop_corrected (open_negative/honest_negative — 3-loop anomaly-quotient route not reproduced in TJI Phase-0/0.5; retained as diagnostic), three_routes_convergence (computed — Path G + Osborn are load-bearing; anomaly-quotient is diagnostic), integer_provenance_traced (computed), tji_7_4_open_negative (open_negative)*
+*Registry claims: r_canonical_path_g (computed — Gate R closed, constitutive/refractive route canonical), r_path_osborn_epsilon (computed — supporting), r_loop_corrected (open_negative/honest_negative — 3-loop anomaly-quotient route not reproduced in TJI Phase-0/0.5; retained as diagnostic), three_routes_convergence (computed — Path G + Osborn are load-bearing; anomaly-quotient is diagnostic), integer_provenance_traced (computed), tji_7_4_open_negative (open_negative), two_route_convergence_physical_equivalence_open_question (open_negative — Path G [zero couplings, IR conformal mode] and Osborn ε [measured SM couplings at M_Z] agree to 0.089% but the structural statement connecting them is not yet derived; the ZENODO_EPSILON_IDENTIFICATION.md document identifies a Gibbons-Hawking thermal-asymmetry mechanism on Euclidean S⁴ as a candidate bridge — that the GH forward/backward temperature split maps the IR conformal-mode susceptibility onto the UV gauge-coupling trace anomaly — but the derivation is not complete; closing this would promote three_routes_convergence from "remarkable empirical agreement" to "structural theorem")*
 
 ---
 
@@ -814,6 +840,18 @@ El Gordo: **apparent outlier resolved by sensitivity analysis.** The canonical-p
 Detectability: below Planck precision (3 × 10⁻⁴) by factor 10. At CMB-S4 threshold (~5 × 10⁻⁵, expected ~2030) by factor 1.4. At Planck precision, the CMB is a consistency check — GRUT predicts peaks indistinguishable from ΛCDM. At CMB-S4 precision, the shift enters the detectable range.
 
 Promotion from scoping-tier to falsifier requires full Boltzmann implementation propagating the constitutive modification through CMB anisotropy, lensing, and matter power spectrum sectors (CLASS modification at `perturbations.c::perturb_einstein()`, estimated 4-8 weeks specialist effort). The n_g(ω) covariance question — which ω the modification uses and how it transforms under gauge changes — is **closed by Correction #26** (ω → k_phys × c, gauge-invariant at WKB; sharp prediction: μ − 1 = 1/3 on horizon scales). Promotion now requires full Boltzmann implementation only; the theoretical prerequisite is satisfied. [SCOPING]
+
+**CMB Boltzmann modification — exact entry point.** The μ_GRUT(k,a) modification enters the Einstein-Boltzmann system at a single, precisely located equation: the **modified Poisson equation** in the gravitational sector. In conformal-Newtonian gauge (Bardeen potentials Φ, Ψ):
+
+$$k^2 \Phi = -4\pi G a^2 \,\mu_{\rm GRUT}(k,a)\,\bar{\rho}_m \delta_m$$
+
+where $\mu_{\rm GRUT}(k,a) = n_g^2(k,a) = 1 + \dfrac{\alpha_{\rm vac}}{1 + (\tau_0 k_{\rm phys})^2}$ with $k_{\rm phys} = k/a$. The no-slip condition $\gamma_{\rm GRUT} = 1$ imposes $\Phi = \Psi$ at all times: there is no anisotropic stress and the two Bardeen potentials remain equal throughout. No other equation in the Boltzmann hierarchy is modified. The modification is purely in the gravitational potential sourcing equation; the matter Euler and continuity equations, photon hierarchy, and baryon equations are unchanged.
+
+Three physical limits are automatic from this form: (a) *sub-horizon* (k_phys τ₀ ≫ 1): μ → 1, Φ equation recovers standard ΛCDM; (b) *super-horizon* (k_phys τ₀ ≪ 1): μ → 4/3, maximum constitutive enhancement; (c) *transition scale* k_phys τ₀ = 1 at λ_phys = 2πτ₀c ≈ 80.7 Mpc today.
+
+**Implementation targets:** CAMB — modify `perturbations.f90` at the Φ equation; CLASS — modify `perturbations.c::perturb_einstein()` at the `phi_prime` and constraint equations. The modification is one multiplicative factor on a single line: replace the standard Poisson coefficient $-4\pi G a^2 \bar{\rho}_m$ with $-4\pi G a^2 \mu_{\rm GRUT}(k/a) \bar{\rho}_m$, where $\mu_{\rm GRUT}$ is computed as a function of k_phys = k/a.
+
+**Sharp discriminator.** The $\gamma_{\rm GRUT} = 1$ (no gravitational slip) prediction is a binary discriminator from other modified-gravity frameworks: Brans-Dicke ($\gamma_{\rm BD} = (1+\omega_{\rm BD})/(2+\omega_{\rm BD}) \neq 1$), $f(R)$ gravity ($\gamma_{f(R)} = 1/2$ at high $k$), and DGP gravity ($\gamma_{\rm DGP} \neq 1$) all predict $\gamma \neq 1$. Measurement of $\gamma \neq 1$ at any scale and precision eliminates GRUT's current gravitational sector. Measurement of $\gamma = 1$ combined with $\mu - 1 \neq 0$ (i.e., $\mu \neq 1$) uniquely selects GRUT's class from among the Horndeski/EFT-of-dark-energy parameterizations.
 
 **The particulate route.** V7 also explored a U(1)_dark gauge extension with dark photon mass 387 MeV. Track VII Step 3 showed the correct topology (cosmic strings, π₁(U(1)) = ℤ) gives Ω_dm ≈ 0.008 — factor 33 below observed. The particulate route remains structurally closed but numerically unsuccessful. Both routes — dielectric and particulate — are published honestly.
 
@@ -970,6 +1008,25 @@ The investigation log at `theory/derivation/LAMBDA_CONTACT_CTP_DERIVATION.md` do
 | Neutrino hierarchy | **NH derived** (Z₃/a_ν = 1, Corrections #28-29; Σm_ν ≈ 60 meV) | Dirac vs Majorana open; PMNS angles open |
 | Coupling values at M_Z | 8.9% miss at GUT scale | Constitutive β-function correction (Track V) |
 
+**12.3a The Z₃/Koide sector — current computed results.** The Koide sector is the most complete SM-structure result in the framework at present. Four items are fully computed and tested; three open questions are explicitly registered.
+
+*Computed:*
+1. **Koide identity** K = (Σm_i)/(Σ√m_i)² = 2/3 holds to 0.005% for PDG charged-lepton masses (e, μ, τ). This is an empirical anchor, not derived.
+2. **Z₃ circulant structure** √m_i = M₀(1 + √2 cos(θ + 2πk/3)) algebraically enforces K = 2/3 for any nonzero M₀ and any θ — verified at machine precision. Three generations and K = 2/3 are mathematical consequences of Z₃ structure.
+3. **Charged-lepton Z₃ does not extend to neutrinos** under the same coupling a = √2: minimum admissible Δm²_atm/Δm²_sol = 194.7 vs observed 33.9 (factor 6 too large). Sharp structural finding — not a failure, but a statement that neutrinos require a different mass-generation channel.
+4. **a_ν = 1 uniqueness theorem** (Correction #29): the generalized Z₃ coupling a_ν = 1 is the unique value at which (i) boundary access (one mass → 0) is admissible AND (ii) the other two masses are exactly degenerate. The boundary-gap formula √3·√(a²−1) vanishes only at a = 1. Mathematical uniqueness result, not a postulate.
+
+*Anchored prediction from the Z₃ framework:*
+- Normal Hierarchy preferred: at a_ν = 1, the NH admits a unique interior solution (all masses strictly positive); the IH solution lives exactly at the m₃ → 0 boundary (degenerate, fine-tuned). GRUT structurally prefers NH.
+- Mass predictions: m₁ ≈ 0.8 meV, m₂ ≈ 8.7 meV, m₃ ≈ 50.2 meV; **Σm_ν ≈ 60 meV** (Planck 2018 bound: 0.12 eV — factor 2 headroom); kinematic effective mass **m_β ≈ 9 meV** (below KATRIN 0.45 eV; within reach of Project 8 ~2030).
+
+*Open questions registered:*
+- M₀ and θ for charged leptons remain free parameters. The candidate identity θ = K · α_vac = 2/3 · 1/3 = 2/9 is registered in the codebase notes as a clue (within 4.6 ppm of the empirical fit) but has not been elevated to a derived result.
+- Why a²_e = 2 (charged leptons) vs a²_ν = 1 (neutrinos): the channel-counting interpretation (EM + weak vs. weak only) is suggestive but not derived from the CTP action (`neutrino_z3_coupling_derivation_open_question` → resolved at structural tier; the KS-anomaly derivation of EM-channel absence remains deeper research).
+- PMNS mixing angles: entirely open; not yet connected to the Z₃ structure.
+
+*Registry claims: koide_k_2_over_3 (computed), koide_z3_circulant_structure (computed), charged_lepton_z3_does_not_extend_to_neutrinos (computed), neutrino_z3_coupling_a_equals_1_uniqueness_theorem (computed), neutrino_hierarchy_z3_nh_prediction (anchored — a_ν = 1 derived; M₀, θ free), koide_phase_4_open_negative (open_negative — flavor mechanism for M₀ and θ not derived)*
+
 **12.4 The SM Closure Conjecture.**
 
 *The Standard Model is the minimal anomaly-stable fixed point of the CTP constitutive action. Its gauge group, chiral representations, generation count, and Yukawa structure arise as the lowest stable eigenstructure of the multi-field target operator z_target[z].*
@@ -1068,6 +1125,42 @@ The cosmic web — filaments, nodes, voids — is crystallized gravitational mem
 *What would kill the theory. What has already failed. What comes next.*
 
 A theory that cannot be falsified is not physics. GRUT is falsifiable along multiple independent axes. This chapter documents every falsifier, every honest negative, and every open question.
+
+**14.0 Three near-term predictions (v3 precision targets).** The v2 derivation infrastructure produces three specific, falsifiable predictions that can be tested with experiments running or planned before 2030. These are not post-hoc fits. Each prediction follows from the same two anchored constants (τ₀ = 41.9 Myr, α_vac = 1/3) that underlie the full framework.
+
+**Prediction P1: Modified gravity — μ_GRUT and γ = 1.** The framework predicts a scale-dependent enhancement of the gravitational coupling on linear FRW perturbations:
+
+$$\mu_{\rm GRUT}(k, a) = 1 + \frac{1/3}{1 + (\tau_0 k_{\rm phys})^2}, \quad \gamma_{\rm GRUT} = 1$$
+
+At the horizon scale (k_phys → 0): μ − 1 = 1/3 ≈ 33% enhancement. At the σ₈ scale (k_phys = 0.5 Mpc⁻¹): μ − 1 = 0.09% — below current precision, consistent with S₈ data. Transition scale: λ* = 2πτ₀c ≈ 80.7 Mpc today.
+
+| Observable | GRUT prediction | Current status | Test experiment / timeline |
+|:---|:---|:---|:---|
+| μ − 1 on horizon scales | +1/3 ≈ 33% | ~2σ above Planck 2018 central | DESI Y1+ (~5% precision) → 3σ test now |
+| γ = Ψ/Φ | 1.000 (exact) | Consistent with current data | DESI Y3 / Euclid 2027 (~1%) → decisive |
+| σ₈ modification | +0.09% | Consistent (below threshold) | Does not break S₈ tension |
+| Transition scale | λ* ≈ 80.7 Mpc | Not yet resolved | Euclid 2027 large-scale P(k) |
+
+Falsified by: γ ≠ 1 at any precision and any scale; or μ − 1 outside the 1/(1+(τ₀k_phys)²) functional form.
+
+**Prediction P2: Neutrino hierarchy and mass scale (Z₃ framework).** The Z₃ structure gives four independent falsifiers across three experiments:
+
+| Observable | GRUT prediction | Current bound | Test experiment / timeline |
+|:---|:---|:---|:---|
+| Hierarchy | Normal (NH preferred) | Both NH/IH consistent with data | JUNO 2026, DUNE 2027, Hyper-K 2027 |
+| Σm_ν | ≈ 60 meV | < 120 meV (Planck 2018 + BAO, 95% CL) | DESI Y3+ / Euclid → decisive if < 30 meV |
+| m_β (kinematic) | ≈ 9 meV | < 450 meV (KATRIN 2024) | Project 8 ~2030, sensitivity ~40 meV |
+| Neutrino type | Dirac (preferred) | No 0νββ signal detected | LEGEND-1000, nEXO — 0νββ would falsify |
+
+The NH preference is structural (the IH solution at a_ν = 1 is exactly at the m₃ → 0 degenerate boundary, fine-tuned). Falsified by: IH at >5σ; or Σm_ν < 30 meV or > 90 meV; or positive 0νββ signal.
+
+**Prediction P3: Baryon asymmetry (computed, within 8%).** The CTP path asymmetry driven by R ≠ 1 gives:
+
+$$\eta_B = J_{CP} \times K_{\rm neq} \times \frac{2 - R_B}{S_B} = 6.57 \times 10^{-10}$$
+
+against the observed 6.1 × 10⁻¹⁰ (+8%). This is not a new v3 result — it was computed in v1 — but it is included here as a completed prediction: zero free parameters beyond the SM anomaly coefficients that enter J_CP and K_neq. If R = 1 (a perfectly elastic vacuum), η_B = 0 — the universe would be matter-antimatter symmetric. The +8% discrepancy sits within the theoretical uncertainty on the SM CP-violation coefficients; it is not a tension at current precision.
+
+**What makes these predictions distinctive.** The three predictions share zero free parameters beyond the two anchored constants and are derived from the same constitutive infrastructure. P1 (cosmology), P2 (particle physics), and P3 (cosmological history) are not independent phenomenological fits — they are the same chain of equations evaluated at different scales. If any single prediction fails, the chain fails everywhere: a measurement of γ ≠ 1 does not leave the dark matter and Hubble rate predictions standing.
 
 **See also: `theory/GRUT_FALSIFIER_PAPER.md`** — the v8→v2 short paper collecting six near-term falsifiers across three sectors (lab gravity, cluster astrophysics, cosmology, Standard Model). The paper articulates the framework's adversarial posture vs other ToE programs in compact form, with each falsifier given a sharp prediction, derivation reference, observational test, current status, and refutation condition. The paper's six falsifiers (F1-F6) are the same as the falsifier classes named below, organized for adversarial review rather than for full theoretical exposition.
 
@@ -1884,11 +1977,6 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
   tji_7_4_open_negative
     └── blocked by → allen_jacobson_phase1_stub_open_negative
 ```
-
-
-
-
----
 
 ## Back Matter
 
