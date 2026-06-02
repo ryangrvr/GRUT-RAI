@@ -853,6 +853,14 @@ Three physical limits are automatic from this form: (a) *sub-horizon* (k_phys τ
 
 **Sharp discriminator.** The $\gamma_{\rm GRUT} = 1$ (no gravitational slip) prediction is a binary discriminator from other modified-gravity frameworks: Brans-Dicke ($\gamma_{\rm BD} = (1+\omega_{\rm BD})/(2+\omega_{\rm BD}) \neq 1$), $f(R)$ gravity ($\gamma_{f(R)} = 1/2$ at high $k$), and DGP gravity ($\gamma_{\rm DGP} \neq 1$) all predict $\gamma \neq 1$. Measurement of $\gamma \neq 1$ at any scale and precision eliminates GRUT's current gravitational sector. Measurement of $\gamma = 1$ combined with $\mu - 1 \neq 0$ (i.e., $\mu \neq 1$) uniquely selects GRUT's class from among the Horndeski/EFT-of-dark-energy parameterizations.
 
+**Case A formal proposition.** The Case A result — that μ_GRUT(k,a) modifies only the Poisson constraint without forcing operator completion — follows from a single underlying proposition:
+
+> *The GRUT-modified Einstein–Boltzmann system is closed under linear perturbation theory whenever the modification μ(k,a) satisfies: (C1) algebraic in k-space (no differential operators in k), (C2) time-local (no time-derivative kernels in conformal time η), and (C3) diagonal in Fourier mode space (no cross-mode coupling).*
+
+μ_GRUT(k,a) = 1 + α/(1+(τ₀k_phys)²) satisfies C1–C3 by inspection. The proposition identifies the class to which GRUT belongs: Fourier-diagonal, time-local metric-only modifications — a class known to be constraint-stable and Boltzmann-compatible at linear order in the EFT-of-dark-energy literature (γ=1 guarantees that anisotropic stress is not independently modified, which is the one additional condition). The physical interpretation is a scale-dependent renormalization of the Poisson constraint kernel: integrating out IR gravitational dressing effects and encoding them as a momentum-space susceptibility. This is not new-physics in the sense of new fields; it is a modification to the response function of the constraint sector.
+
+**Scope limit — nonlinear regime.** The Case A proposition is valid at linear perturbation order (δ ≪ 1, modes independent). Whether μ_GRUT remains self-consistent under nonlinear structure formation (halo formation, δ ~ 10²–10⁶, mode coupling) is a distinct and open question. Mode coupling at second order can generate effective renormalization of μ_eff; if this drives μ_eff → 1 at halo scales, the quantitative predictions for P(k) and the halo mass function require a separate nonlinear treatment. This is not a failure of Case A — it is outside its scope. Note that galactic rotation curves and cluster offsets are unaffected: they operate in the bound-system regime (orbital ω, not linear-FRW k_phys) and are not subject to this renormalization question. The nonlinear consistency check is a v5-tier question gated on N-body simulation with μ_GRUT. See registry: `nonlinear_structure_formation_grut_consistency` (open_negative).
+
 **The particulate route.** V7 also explored a U(1)_dark gauge extension with dark photon mass 387 MeV. Track VII Step 3 showed the correct topology (cosmic strings, π₁(U(1)) = ℤ) gives Ω_dm ≈ 0.008 — factor 33 below observed. The particulate route remains structurally closed but numerically unsuccessful. Both routes — dielectric and particulate — are published honestly.
 
 **The dark sector is a live frontier.** The dielectric DM interpretation has structural support from the cluster-scale memory-kernel scaling and the bandwidth integral, but it remains an active research program, not a closed question. The 27% Ω_dm overshoot, the El Gordo tension (resolved at lower observation range but requiring better constraints), the systematic 15-20% under-prediction of cluster offsets (two-parameter degenerate with dec_ratio), and the particulate route's numerical failure are open elements documented in Chapter 14's ledger with closure conditions. The framework's dark-sector predictions are its most distinctive claims and its most exposed flank.
@@ -867,7 +875,7 @@ All four factors determined from SM anomaly coefficients. Route 1: η_B = 6.56 �
 
 **MOND-like phenomenology.** The MOND acceleration scale a₀ = cH₀/(2π) ≈ 1.2 × 10⁻¹⁰ m/s² emerges naturally as the acceleration where the constitutive response becomes significant. GRUT reproduces MOND phenomenology at galactic scales but differs from MOND in three testable ways: (1) GRUT predicts GW propagation at c (MOND/TeVeS doesn't necessarily); (2) GRUT has a frequency-dependent transition (MOND has an acceleration-dependent one); (3) at high frequency and low acceleration, GRUT predicts GR behavior where MOND predicts modification.
 
-*Registry claims: omega_dm_equals_alpha (computed), dielectric_dm_reframing (computed), dark_sector_u1_extension (computed), kibble_zurek_dm_route (computed), baryogenesis_eta_b (computed), mond_a0 (computed), cluster_merger_scaling_law (anchored), cluster_merger_internal_scaling_residual (computed), cmb_boltzmann_scoping (anchored), cluster_tau_0_sensitivity_diagnostic (computed), cluster_tau_0_dec_ratio_degeneracy (computed), el_gordo_sensitivity_analysis (computed)*
+*Registry claims: omega_dm_equals_alpha (computed), dielectric_dm_reframing (computed), dark_sector_u1_extension (computed), kibble_zurek_dm_route (computed), baryogenesis_eta_b (computed), mond_a0 (computed), cluster_merger_scaling_law (anchored), cluster_merger_internal_scaling_residual (computed), cmb_boltzmann_scoping (anchored), cmb_boltzmann_case_a_structural (computed), cluster_tau_0_sensitivity_diagnostic (computed), cluster_tau_0_dec_ratio_degeneracy (computed), el_gordo_sensitivity_analysis (computed), nonlinear_structure_formation_grut_consistency (open_negative)*
 
 ---
 
@@ -1584,11 +1592,11 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 *4 derivations.*
 
 - **`alpha_vac_derivation`** [computed] — α_vac = 1/3 is formalized via the Gate R identification (May 2026, C1-C6 all SUPPORTED/FORMALIZED): the Weyl decomposition g_μν = e^{2σ}ĝ_μν identifies σ as one real conformally-coupled scalar; the...
-  · *deps: 0 · tests: 4 · fan-out: 59*
+  · *deps: 0 · tests: 4 · fan-out: 60*
 - **`tau_0_cross_consistency`** [computed] — τ_0 = 41.9 Myr is independently derived from multiple routes that converge to within observational uncertainty.
   · *deps: 4 · tests: 6 · fan-out: 2 · upstream: `tau_0_derivation`, `screening_108pi`, `bullet_cluster_offset`, +1 more*
 - **`tau_0_derivation`** [computed] — τ_0 = 41.9 Myr is POSITED in Phase I §5 with two independent anchors: (1) cosmic-baseline relation τ_0 = 1/(H_0 × 108π) — exact to 1.7% at H_0 = 70 km/s/Mpc, giving 41.17 Myr; (2) Bullet Cluster of...
-  · *deps: 0 · tests: 3 · fan-out: 36*
+  · *deps: 0 · tests: 3 · fan-out: 37*
 - **`zero_free_parameters`** [computed] — GRUT has zero free parameters.
   · *deps: 2 · tests: 1 · fan-out: 0 · upstream: `tau_0_derivation`, `alpha_vac_derivation`*
 
@@ -1597,13 +1605,13 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 *4 derivations.*
 
 - **`constitutive_equation`** [computed] — The constitutive equation τ_0 dz/dt + z = z_target governs the medium's retarded relaxation toward its source.
-  · *deps: 1 · tests: 2 · fan-out: 65 · upstream: `ctp_action_structure`*
+  · *deps: 1 · tests: 2 · fan-out: 66 · upstream: `ctp_action_structure`*
 - **`ctp_action_structure`** [computed] — The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP.
-  · *deps: 0 · tests: 5 · fan-out: 77*
+  · *deps: 0 · tests: 5 · fan-out: 78*
 - **`framework_axioms_locked`** [computed] — Framework foundational invariants: Planck mass and fine-structure constant verified against CODATA; CTP Keldysh action invertibility (A0); intrinsic time scale τ_I = ℏ/2 (N0); noise kernel and cons...
   · *deps: 1 · tests: 1 · fan-out: 0 · upstream: `ctp_action_structure`*
 - **`memory_kernel_form`** [computed] — The retarded memory kernel is a single-pole exponential: K(t) = (1/τ_0) exp(−t/τ_0) Θ(t).
-  · *deps: 1 · tests: 2 · fan-out: 48 · upstream: `constitutive_equation`*
+  · *deps: 1 · tests: 2 · fan-out: 49 · upstream: `constitutive_equation`*
 
 ## Chapter 4 — The Crystal and the Fluid
 
@@ -1612,13 +1620,13 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 - **`cosmic_x_crossover_prediction`** [computed] — The framework's regime classification X = max(ω, Λ_grav) × τ_0, applied to ATOMIC-SCALE TEST-PARTICLE PERTURBATIONS of the cosmic background where ω = H dominates, gives X_cosmic(z) = H(z) × τ_0.
   · *deps: 2 · tests: 1 · fan-out: 0 · upstream: `regime_map`, `tau_0_derivation`*
 - **`regime_map`** [computed] — The framework correctly classifies regimes across 23 orders of magnitude: Saturn orbit (ωτ_0 ~ 10⁷, deep crystal); galactic rotation (ωτ_0 ~ 1, boundary/fluid); cosmic expansion (ωτ_0 ~ 10⁻³, deep...
-  · *deps: 1 · tests: 1 · fan-out: 16 · upstream: `threshold_bridge`*
+  · *deps: 1 · tests: 1 · fan-out: 17 · upstream: `threshold_bridge`*
 - **`screening_108pi`** [computed] — The screening factor S = 12π/α_vac² = 108π ≈ 339.29 maps the cosmic baseline τ_Λ to the local relaxation time τ_0 = τ_Λ / S.
   · *deps: 1 · tests: 2 · fan-out: 14 · upstream: `alpha_vac_derivation`*
 - **`solar_system_safety`** [computed] — Solar-system safety verified across EIGHT independent precision tests of GR spanning >10 orders of magnitude in frequency: Saturn ranging (30 yr), Mercury perihelion (88 d), lunar laser ranging (27...
   · *deps: 2 · tests: 8 · fan-out: 0 · upstream: `regime_map`, `threshold_bridge`*
 - **`threshold_bridge`** [computed] — The crystallinity threshold X = ω·τ_0 is equivalent to Λ_grav·τ_0 for self-gravitating systems where the dominant dynamical frequency is the Diósi-Penrose decoherence rate.
-  · *deps: 1 · tests: 1 · fan-out: 31 · upstream: `constitutive_equation`*
+  · *deps: 1 · tests: 1 · fan-out: 32 · upstream: `constitutive_equation`*
 
 ## Chapter 5 — Recovered Physics
 
@@ -1644,7 +1652,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 *6 derivations.*
 
 - **`gr_recovery`** [computed] — General relativity is recovered in the high-frequency limit (ωτ_0 ≫ 1): n_g(ω) → 1, α_eff(X) → 0, the constitutive Newtonian potential reduces to −GM/r exactly.
-  · *deps: 2 · tests: 7 · fan-out: 11 · upstream: `memory_kernel_form`, `regime_map`*
+  · *deps: 2 · tests: 7 · fan-out: 12 · upstream: `memory_kernel_form`, `regime_map`*
 - **`phi_munu_curved_background_scaffold`** [anchored] — Curved-background SCAFFOLD (Correction #24, Priority 2B).
   · *deps: 2 · tests: 1 · fan-out: 6 · upstream: `phi_munu_linearized_derivation`, `constitutive_projection_gravity_heuristic_resolved`*
 - **`phi_munu_frw_explicit_construction`** [computed] — Phase 2C — explicit construction of χ_FRW(k, η) and n_g²(k, η) on FRW spacetime via the WKB / slow-H approximation (Correction #25, 2026-04-30).
@@ -1711,9 +1719,9 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 - **`cluster_tau_0_sensitivity_diagnostic`** [computed] — Single-τ_0 sensitivity analysis across the three normal-regime mergers (Bullet, MACS J0025, Abell 520, El Gordo excluded) finds best-fit τ_0 = 49 Myr with chi² = 0.007, an 11× improvement over cano...
   · *deps: 3 · tests: 6 · fan-out: 1 · upstream: `cluster_merger_scaling_law`, `tau_0_cross_consistency`, `tau_0_derivation`*
 - **`cmb_boltzmann_case_a_structural`** [computed] — Case A structural proof (June 2026): μ_GRUT(k,a) survives full Einstein-Boltzmann evolution without operator completion.
-  · *deps: 4 · tests: 5 · fan-out: 0 · upstream: `cmb_boltzmann_scoping`, `tau_0_derivation`, `alpha_vac_derivation`, +1 more*
+  · *deps: 4 · tests: 5 · fan-out: 1 · upstream: `cmb_boltzmann_scoping`, `tau_0_derivation`, `alpha_vac_derivation`, +1 more*
 - **`cmb_boltzmann_scoping`** [anchored] — CMB Boltzmann scoping completed: at recombination, H_rec × τ_0 ≈ 68 (expansion-rate ωτ_0) and ω_acoustic × τ_0 ≈ 140 (first acoustic peak); both deep in the crystal regime.
-  · *deps: 3 · tests: 6 · fan-out: 1 · upstream: `tau_0_derivation`, `alpha_vac_derivation`, `memory_kernel_form`*
+  · *deps: 3 · tests: 6 · fan-out: 2 · upstream: `tau_0_derivation`, `alpha_vac_derivation`, `memory_kernel_form`*
 - **`dark_sector_u1_extension`** [anchored] — The dark sector is a gauged U(1)_dark extension (V7 §28) with two viable parameter routes: Route 1 (RG running from Planck) gives g_dark = 0.917, λ = 0.42, M ≈ 2.1 × 10⁹ GeV; Route 2 (anomaly extra...
   · *deps: 1 · tests: 1 · fan-out: 3 · upstream: `alpha_vac_derivation`*
 - **`dielectric_dm_reframing`** [computed] — Track VII REFRAMED: dark-matter abundance is the dielectric response of the vacuum — the frequency-gated refractive enhancement n_g(ω) maps to Ω_dm at galactic-frequency modes.
@@ -1789,7 +1797,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 *Auto-generated from `grut/toe/registry.py` via `python3 -m grut.toe.render_appendices`. The complete registry — every framework claim across every tier — in one reference table. Sorted by chapter then claim ID.*
 
-**Total: 104 claims** (15 anchored, 59 computed, 3 conjectural, 2 foundational, 10 meta, 15 open_negative).
+**Total: 105 claims** (15 anchored, 59 computed, 3 conjectural, 2 foundational, 10 meta, 16 open_negative).
 
 | Ch | Claim ID | Tier | Statement | Deps | Tests |
 |---:|:---|:---|:---|---:|---:|
@@ -1857,6 +1865,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 | 9 | `mond_a_0_emergence` | computed | MOND-like trigger acceleration a_0 = c/(2π τ_Λ) ≈ 1.2 × 10⁻¹⁰ m/s² emerges from the response time, not from modified dynamics. | 1 | 2 |
 | 9 | `neutrino_hierarchy_z3_nh_prediction` | anchored | Conditional on the postulate a_ν = 1 (giving K_ν = 1/2), the GRUT generalized Z₃ ansatz √m_i = M_0(1 + a_ν cos(θ + 2πk/3)) admits a UNIQU... | 2 | 1 |
 | 9 | `neutrino_z3_coupling_a_equals_1_uniqueness_theorem` | computed | DERIVED (Correction #29, Priority 4B, 2026-05-02). | 3 | 1 |
+| 9 | `nonlinear_structure_formation_grut_consistency` | open_negative | OPEN QUESTION (June 2026): Does μ_GRUT(k,a) remain self-consistent under nonlinear structure formation? The Case A structural proof is va... | 1 | 0 |
 | 9 | `omega_dm_equals_alpha` | computed | Ω_dm = α_vac = 1/3 (~33%, +27% from Planck's 26.6%). | 2 | 3 |
 | 9 | `rotation_curves_match` | computed | Galactic rotation curves are produced by g_eff = g_bar [1 + (ν(y) − 1)/(1 + X²)] where y = g_bar/a_0 and X = ω·τ_0. | 2 | 7 |
 | 9 | `track_vii_relic_scoping` | anchored | Track VII relic-abundance infrastructure: thermal-freezeout baseline returns WRONG MECHANISM verdict for the V7 heavy (2 × 10⁹ GeV) solit... | 1 | 1 |
@@ -1909,11 +1918,11 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 | Metric | Value |
 |:---|---:|
-| Total claims (nodes) | 104 |
-| Dependency edges | 192 |
+| Total claims (nodes) | 105 |
+| Dependency edges | 193 |
 | Roots (zero deps) | 12 |
 | Leaves (no dependents) | 49 |
-| Max downstream fan-out | 77 |
+| Max downstream fan-out | 78 |
 | Max upstream fan-in | 24 |
 
 ## F.2 Roots — framework entry points
@@ -1922,9 +1931,9 @@ Claims with zero registry dependencies. These are the seams the framework rests 
 
 | Claim ID | Tier | Chapter | Fan-out | First sentence |
 |:---|:---|---:|---:|:---|
-| `ctp_action_structure` | computed | 3 | 77 | The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP. |
-| `alpha_vac_derivation` | computed | 2 | 59 | α_vac = 1/3 is formalized via the Gate R identification (May 2026, C1-C6 all SUPPORTED/FORMALIZED... |
-| `tau_0_derivation` | computed | 2 | 36 | τ_0 = 41.9 Myr is POSITED in Phase I §5 with two independent anchors: (1) cosmic-baseline relatio... |
+| `ctp_action_structure` | computed | 3 | 78 | The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP. |
+| `alpha_vac_derivation` | computed | 2 | 60 | α_vac = 1/3 is formalized via the Gate R identification (May 2026, C1-C6 all SUPPORTED/FORMALIZED... |
+| `tau_0_derivation` | computed | 2 | 37 | τ_0 = 41.9 Myr is POSITED in Phase I §5 with two independent anchors: (1) cosmic-baseline relatio... |
 | `t_c_thermal_transition` | computed | 8 | 3 | The 'boiling point of gravity' T_c = ℏ/(τ_micro × k_B) ≈ 54.7 MK, where τ_micro ≈ 1.4×10⁻¹⁹ s is... |
 | `closed_universe` | foundational | 1 | 2 | The universe is closed, finite, and self-referential. |
 | `bbn_thermal_buffer_negligible` | anchored | 12 | 0 | Standard-cosmology calculation testing one piece of an external research hypothesis: 'BBN binding... |
@@ -1941,14 +1950,14 @@ The most load-bearing claims in the framework, ranked by the number of downstrea
 
 | Rank | Fan-out | Claim ID | Tier | Chapter |
 |---:|---:|:---|:---|---:|
-| 1 | 77 | `ctp_action_structure` | computed | 3 |
-| 2 | 65 | `constitutive_equation` | computed | 3 |
-| 3 | 59 | `alpha_vac_derivation` | computed | 2 |
-| 4 | 48 | `memory_kernel_form` | computed | 3 |
-| 5 | 36 | `tau_0_derivation` | computed | 2 |
-| 6 | 31 | `threshold_bridge` | computed | 4 |
-| 7 | 16 | `r_canonical_path_g` | computed | 7 |
-| 8 | 16 | `regime_map` | computed | 4 |
+| 1 | 78 | `ctp_action_structure` | computed | 3 |
+| 2 | 66 | `constitutive_equation` | computed | 3 |
+| 3 | 60 | `alpha_vac_derivation` | computed | 2 |
+| 4 | 49 | `memory_kernel_form` | computed | 3 |
+| 5 | 37 | `tau_0_derivation` | computed | 2 |
+| 6 | 32 | `threshold_bridge` | computed | 4 |
+| 7 | 17 | `regime_map` | computed | 4 |
+| 8 | 16 | `r_canonical_path_g` | computed | 7 |
 | 9 | 14 | `decoherence_plateau` | computed | 5 |
 | 10 | 14 | `screening_108pi` | computed | 4 |
 
@@ -1965,14 +1974,15 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
 | 5 | 0 | `koide_phase_4_open_negative` | — |
 | 6 | 0 | `n_total_zero_parameter_derivation_open_question` | — |
 | 7 | 0 | `nonlinear_ladder_4_of_8` | — |
-| 8 | 0 | `path_f_translation_gap` | — |
-| 9 | 0 | `phi_munu_frw_beyond_wkb_open_question` | — |
-| 10 | 0 | `primordial_amplitude_zero_parameter_open_negative` | — |
-| 11 | 0 | `rho_max_scale_open_question` | — |
-| 12 | 0 | `tau_zero_to_tau_micro_relation_open_question` | — |
-| 13 | 0 | `track_v_coupling_unification_open_question` | — |
-| 14 | 0 | `two_route_convergence_physical_equivalence_open_question` | — |
-| 15 | 0 | `vorton_track_vii_open_negative` | — |
+| 8 | 0 | `nonlinear_structure_formation_grut_consistency` | — |
+| 9 | 0 | `path_f_translation_gap` | — |
+| 10 | 0 | `phi_munu_frw_beyond_wkb_open_question` | — |
+| 11 | 0 | `primordial_amplitude_zero_parameter_open_negative` | — |
+| 12 | 0 | `rho_max_scale_open_question` | — |
+| 13 | 0 | `tau_zero_to_tau_micro_relation_open_question` | — |
+| 14 | 0 | `track_v_coupling_unification_open_question` | — |
+| 15 | 0 | `two_route_convergence_physical_equivalence_open_question` | — |
+| 16 | 0 | `vorton_track_vii_open_negative` | — |
 
 ## F.5 Inter-gap blocking chains
 
@@ -2006,6 +2016,6 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
 
 *GRUT — Grand Responsive Universe Theory: Candidate Framework.*
 
-*2539 tests. 104 registered claims (59 computed, 15 anchored, 3 conjectural, 15 open_negative, 2 foundational, 10 meta). 27 documented corrections (V7 era #1-#16; v8→v2 #22-#30; hard-theory #31-#34). Full audit transparency.*
+*2539 tests. 105 registered claims (59 computed, 15 anchored, 3 conjectural, 16 open_negative, 2 foundational, 10 meta). 27 documented corrections (V7 era #1-#16; v8→v2 #22-#30; hard-theory #31-#34). Full audit transparency.*
 
 *The universe is √(4/3) ≈ 1.15470 trying to become 1.*

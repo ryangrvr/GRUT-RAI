@@ -3136,6 +3136,67 @@ REGISTRY: tuple[Claim, ...] = (
     ),
 
     Claim(
+        id="nonlinear_structure_formation_grut_consistency",
+        chapter=9,
+        statement=(
+            "OPEN QUESTION (June 2026): Does μ_GRUT(k,a) remain "
+            "self-consistent under nonlinear structure formation? The "
+            "Case A structural proof is valid at linear perturbation "
+            "order (δ ≪ 1, Fourier modes independent, Fourier-diagonal "
+            "μ is sufficient). In the nonlinear regime (δ ~ 10²–10⁶, "
+            "halo formation, mode coupling), the Fourier-diagonal "
+            "property does not prevent generation of new effective "
+            "operators through mode coupling. Specifically: (1) at "
+            "second order in perturbation theory, the product "
+            "μ(k,a)·δ can generate effective mode-coupling terms that "
+            "renormalize the effective μ; (2) N-body gravity involves "
+            "scale factors of ~10⁶ over linear growth, so small "
+            "systematic effects compound; (3) if effective μ_eff is "
+            "renormalized toward GR at halo scales, this does not affect "
+            "the bound-system regime (galactic rotation curves use "
+            "orbital ω, not linear-FRW k_phys) but does affect the "
+            "quantitative P(k) and halo mass function predictions. "
+            "Answering this requires N-body cosmological simulation with "
+            "μ_GRUT implemented in a modified-gravity N-body code. "
+            "This is the NEXT genuine theoretical stress test after the "
+            "CAMB/CLASS linear Boltzmann run."
+        ),
+        tier="open_negative",
+        refs=(
+            "grut/derived/cmb/boltzmann_consistency.py",
+            "theory/GRUT_TOE.md §9",
+        ),
+        tests=(),
+        deps=(
+            "cmb_boltzmann_case_a_structural",
+        ),
+        falsifier=(
+            "N-body simulation with μ_GRUT showing effective μ_eff → 1 "
+            "(GR renormalization) at halo scales would require a "
+            "nonlinear screening mechanism not present in the linear "
+            "theory — a structural addition or qualification. "
+            "Conversely, showing μ_eff remains μ_GRUT at halo scales "
+            "would confirm that the linear-FRW modification persists "
+            "into the nonlinear regime and predicts a specific halo mass "
+            "function enhancement."
+        ),
+        notes=(
+            "Open-negative, untested. The linear Case A proof is "
+            "complete. The nonlinear question is genuinely distinct: "
+            "it cannot be resolved by the CAMB/CLASS run (linear codes) "
+            "or by the modified Bardeen equation integration. It requires "
+            "a specialist N-body modified-gravity simulation. The "
+            "two-regime distinction (linear-FRW vs bound-system) already "
+            "established in Ch 9 means galactic rotation curves are NOT "
+            "affected by this question — they operate in the bound-system "
+            "regime (X = ω·τ₀). This question affects: halo mass "
+            "function, P(k) at quasi-linear scales, cluster number "
+            "counts. Fan-out: 0 (no downstream claims blocked by this "
+            "question at present; it would affect v5-tier predictions)."
+        ),
+    ),
+
+    Claim(
         id="constitutive_projection_gravity_heuristic_resolved",
         chapter=12,
         statement=(

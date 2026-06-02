@@ -44,6 +44,35 @@ REASON 3 — Lorentzian form generates no higher-derivative operators.
     UV RG flow cannot generate operators at this IR scale from UV
     physics without a new UV threshold.
 
+FORMAL PROPOSITION (unifying the three reasons above):
+    The GRUT-modified Einstein–Boltzmann system is closed under linear
+    perturbation theory. Specifically: let μ(k,a) be a modification to
+    the Poisson constraint equation satisfying:
+        (C1) Algebraic in k-space — no differential operators in k
+        (C2) Time-local — no time-derivative kernels in conformal time η
+        (C3) Diagonal in Fourier mode space — no cross-mode coupling
+    Then the modified system
+        {k²Φ = -4πGa²μ(k,a)ρ̄δ; all other hierarchy equations unchanged}
+    is closed, introduces no new dynamical degrees of freedom, and
+    requires no operator completion.
+
+    GRUT's μ_GRUT(k,a) = 1 + α/(1+(τ₀k_phys)²) satisfies C1–C3 by
+    inspection. The three structural reasons above are proofs that
+    C1–C3 hold for this specific kernel. This places GRUT's linear
+    modification in the known class of Fourier-diagonal, time-local
+    metric-only modified gravity EFTs — a class known to be
+    constraint-stable and Boltzmann-compatible at linear order (as long
+    as anisotropic stress is not independently modified, which γ=1
+    guarantees).
+
+    SCOPE LIMIT: The proposition is valid at LINEAR order (δ ≪ 1,
+    modes independent). Whether μ_GRUT remains self-consistent under
+    NONLINEAR structure formation (halo regime, δ ~ 10² – 10⁶) is a
+    distinct open question. Mode coupling at second order can generate
+    effective renormalization of μ. This is not a structural failure —
+    it is the next genuine stress test after the CAMB/CLASS run.
+    Registered as: nonlinear_structure_formation_grut_consistency.
+
 IMPLICATION: the full Boltzmann evolution produces ONE modification
 to the ΛCDM predictions — the modified growth factor D(k, a) — and
 its consequences: modified P(k) and enhanced ISW at large scales.
