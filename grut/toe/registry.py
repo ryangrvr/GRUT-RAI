@@ -3061,6 +3061,81 @@ REGISTRY: tuple[Claim, ...] = (
     ),
 
     Claim(
+        id="cmb_boltzmann_case_a_structural",
+        chapter=9,
+        statement=(
+            "Case A structural proof (June 2026): μ_GRUT(k,a) survives "
+            "full Einstein-Boltzmann evolution without operator completion. "
+            "Three independent structural arguments: (1) single-equation "
+            "isolation — μ modifies only the Poisson equation "
+            "k²Φ = -4πGa²μ_GRUT ρ̄_m δ_m; all Boltzmann hierarchy equations "
+            "(photon moments, baryon Euler/continuity, neutrino streaming, "
+            "CDM) are UNCHANGED; (2) γ_GRUT = 1 (no gravitational slip) "
+            "prevents anisotropic stress sourcing from off-diagonal metric "
+            "perturbations — binary discriminator from BD/f(R)/DGP; "
+            "(3) Lorentzian form μ(k,a) = 1 + α/(1+(τ₀k_phys)²) is a "
+            "multiplicative function of k, not a differential operator — "
+            "FT is a retarded (causal) exponential kernel, generating no "
+            "higher-derivative operators. Modified P(k) computed at 11 "
+            "canonical scales: σ₈-scale change < 0.1% (consistent with "
+            "S₈ constraint); BAO scale +8.5%; CMB horizon +134.8%. "
+            "Genuine observational risk identified: ISW power enhancement "
+            "at low ℓ (~×5 at CMB horizon) vs Planck's observed low-ℓ "
+            "deficit — quantitative resolution gated on CAMB/CLASS run. "
+            "Transition scale: λ_* ≈ 80.7 Mpc, k_* ≈ 0.078 Mpc⁻¹."
+        ),
+        tier="computed",
+        refs=(
+            "grut/derived/cmb/boltzmann_consistency.py",
+            "grut/derivation/phi_munu/modified_growth.py",
+            "grut/derivation/phi_munu/mg_eft_mapping.py",
+            "theory/GRUT_TOE.md §9",
+            "Aghanim et al. 2020 (Planck 2018, A&A 641 A6)",
+            "Lesgourgues 2011 (CLASS, arXiv:1104.2932)",
+            "Lewis-Challinor-Lasenby 2000 (CAMB, ApJ 538 473)",
+        ),
+        tests=(
+            "tests/derived/test_cmb_boltzmann_consistency.py"
+            "::TestCaseAStructuralProperties::test_all_conditions_hold",
+            "tests/derived/test_cmb_boltzmann_consistency.py"
+            "::TestPowerSpectrumRatio::test_all_ratios_at_least_one",
+            "tests/derived/test_cmb_boltzmann_consistency.py"
+            "::TestSigma8Modification::test_sigma8_change_less_than_half_percent",
+            "tests/derived/test_cmb_boltzmann_consistency.py"
+            "::TestISWEnhancementEstimate::test_isw_power_enhancement_is_positive",
+            "tests/derived/test_cmb_boltzmann_consistency.py"
+            "::TestBoltzmannConsistencySummary::test_case_a_holds_is_true",
+        ),
+        deps=(
+            "cmb_boltzmann_scoping",
+            "tau_0_derivation",
+            "alpha_vac_derivation",
+            "constitutive_projection_gravity_heuristic_resolved",
+        ),
+        falsifier=(
+            "CAMB/CLASS Boltzmann run with μ_GRUT showing C_ℓ at low ℓ "
+            "(ℓ < 30) materially EXCEEDING Planck 2018 data by more than "
+            "the Planck cosmic-variance error bars would falsify the "
+            "simple Lorentzian μ(k,a) form at z=0. A γ ≠ 1 measurement "
+            "(gravitational slip) by Euclid/DESI would directly falsify "
+            "the γ_GRUT = 1 prediction. Both are v4-tier tests."
+        ),
+        notes=(
+            "Computed-tier: structural Case A argument is analytic and "
+            "complete; modified P(k) is numerically computed from the "
+            "modified Bardeen equation (well-defined approximation to "
+            "full Boltzmann treatment, exact for sub-horizon modes). "
+            "Promotion to falsifier-tier requires: (1) CAMB/CLASS "
+            "implementation of μ_GRUT in perturb_einstein() [single "
+            "code change, see boltzmann_consistency.py docstring], "
+            "(2) comparison of predicted C_ℓ^TT and C_ℓ^φφ to "
+            "Planck 2018 / ACT / SPT data at low ℓ. "
+            "The σ₈ result is robust: GRUT does not worsen S₈ tension. "
+            "The ISW is the primary quantitative risk."
+        ),
+    ),
+
+    Claim(
         id="constitutive_projection_gravity_heuristic_resolved",
         chapter=12,
         statement=(

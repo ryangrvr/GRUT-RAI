@@ -1577,18 +1577,18 @@ The following symbols appear in specific chapters and are documented here for re
 
 This index lists every framework claim at tier `computed` or `anchored` — claims whose physical content has been derived, computed, or empirically anchored, and which are pinned by passing tests. Claims at tier `open_negative` are documented separately in Chapter 12; `conjectural`, `foundational`, and `meta` claims are framing-tier and are not derivations. Entries are grouped by chapter and sorted by claim ID within each chapter.
 
-**Coverage:** 73 derivations across 11 chapters.
+**Coverage:** 74 derivations across 11 chapters.
 
 ## Chapter 2 — The Medium
 
 *4 derivations.*
 
 - **`alpha_vac_derivation`** [computed] — α_vac = 1/3 is formalized via the Gate R identification (May 2026, C1-C6 all SUPPORTED/FORMALIZED): the Weyl decomposition g_μν = e^{2σ}ĝ_μν identifies σ as one real conformally-coupled scalar; the...
-  · *deps: 0 · tests: 4 · fan-out: 58*
+  · *deps: 0 · tests: 4 · fan-out: 59*
 - **`tau_0_cross_consistency`** [computed] — τ_0 = 41.9 Myr is independently derived from multiple routes that converge to within observational uncertainty.
   · *deps: 4 · tests: 6 · fan-out: 2 · upstream: `tau_0_derivation`, `screening_108pi`, `bullet_cluster_offset`, +1 more*
 - **`tau_0_derivation`** [computed] — τ_0 = 41.9 Myr is POSITED in Phase I §5 with two independent anchors: (1) cosmic-baseline relation τ_0 = 1/(H_0 × 108π) — exact to 1.7% at H_0 = 70 km/s/Mpc, giving 41.17 Myr; (2) Bullet Cluster of...
-  · *deps: 0 · tests: 3 · fan-out: 35*
+  · *deps: 0 · tests: 3 · fan-out: 36*
 - **`zero_free_parameters`** [computed] — GRUT has zero free parameters.
   · *deps: 2 · tests: 1 · fan-out: 0 · upstream: `tau_0_derivation`, `alpha_vac_derivation`*
 
@@ -1597,13 +1597,13 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 *4 derivations.*
 
 - **`constitutive_equation`** [computed] — The constitutive equation τ_0 dz/dt + z = z_target governs the medium's retarded relaxation toward its source.
-  · *deps: 1 · tests: 2 · fan-out: 64 · upstream: `ctp_action_structure`*
+  · *deps: 1 · tests: 2 · fan-out: 65 · upstream: `ctp_action_structure`*
 - **`ctp_action_structure`** [computed] — The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP.
-  · *deps: 0 · tests: 5 · fan-out: 76*
+  · *deps: 0 · tests: 5 · fan-out: 77*
 - **`framework_axioms_locked`** [computed] — Framework foundational invariants: Planck mass and fine-structure constant verified against CODATA; CTP Keldysh action invertibility (A0); intrinsic time scale τ_I = ℏ/2 (N0); noise kernel and cons...
   · *deps: 1 · tests: 1 · fan-out: 0 · upstream: `ctp_action_structure`*
 - **`memory_kernel_form`** [computed] — The retarded memory kernel is a single-pole exponential: K(t) = (1/τ_0) exp(−t/τ_0) Θ(t).
-  · *deps: 1 · tests: 2 · fan-out: 47 · upstream: `constitutive_equation`*
+  · *deps: 1 · tests: 2 · fan-out: 48 · upstream: `constitutive_equation`*
 
 ## Chapter 4 — The Crystal and the Fluid
 
@@ -1612,13 +1612,13 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 - **`cosmic_x_crossover_prediction`** [computed] — The framework's regime classification X = max(ω, Λ_grav) × τ_0, applied to ATOMIC-SCALE TEST-PARTICLE PERTURBATIONS of the cosmic background where ω = H dominates, gives X_cosmic(z) = H(z) × τ_0.
   · *deps: 2 · tests: 1 · fan-out: 0 · upstream: `regime_map`, `tau_0_derivation`*
 - **`regime_map`** [computed] — The framework correctly classifies regimes across 23 orders of magnitude: Saturn orbit (ωτ_0 ~ 10⁷, deep crystal); galactic rotation (ωτ_0 ~ 1, boundary/fluid); cosmic expansion (ωτ_0 ~ 10⁻³, deep...
-  · *deps: 1 · tests: 1 · fan-out: 15 · upstream: `threshold_bridge`*
+  · *deps: 1 · tests: 1 · fan-out: 16 · upstream: `threshold_bridge`*
 - **`screening_108pi`** [computed] — The screening factor S = 12π/α_vac² = 108π ≈ 339.29 maps the cosmic baseline τ_Λ to the local relaxation time τ_0 = τ_Λ / S.
   · *deps: 1 · tests: 2 · fan-out: 14 · upstream: `alpha_vac_derivation`*
 - **`solar_system_safety`** [computed] — Solar-system safety verified across EIGHT independent precision tests of GR spanning >10 orders of magnitude in frequency: Saturn ranging (30 yr), Mercury perihelion (88 d), lunar laser ranging (27...
   · *deps: 2 · tests: 8 · fan-out: 0 · upstream: `regime_map`, `threshold_bridge`*
 - **`threshold_bridge`** [computed] — The crystallinity threshold X = ω·τ_0 is equivalent to Λ_grav·τ_0 for self-gravitating systems where the dominant dynamical frequency is the Diósi-Penrose decoherence rate.
-  · *deps: 1 · tests: 1 · fan-out: 30 · upstream: `constitutive_equation`*
+  · *deps: 1 · tests: 1 · fan-out: 31 · upstream: `constitutive_equation`*
 
 ## Chapter 5 — Recovered Physics
 
@@ -1644,7 +1644,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 *6 derivations.*
 
 - **`gr_recovery`** [computed] — General relativity is recovered in the high-frequency limit (ωτ_0 ≫ 1): n_g(ω) → 1, α_eff(X) → 0, the constitutive Newtonian potential reduces to −GM/r exactly.
-  · *deps: 2 · tests: 7 · fan-out: 10 · upstream: `memory_kernel_form`, `regime_map`*
+  · *deps: 2 · tests: 7 · fan-out: 11 · upstream: `memory_kernel_form`, `regime_map`*
 - **`phi_munu_curved_background_scaffold`** [anchored] — Curved-background SCAFFOLD (Correction #24, Priority 2B).
   · *deps: 2 · tests: 1 · fan-out: 6 · upstream: `phi_munu_linearized_derivation`, `constitutive_projection_gravity_heuristic_resolved`*
 - **`phi_munu_frw_explicit_construction`** [computed] — Phase 2C — explicit construction of χ_FRW(k, η) and n_g²(k, η) on FRW spacetime via the WKB / slow-H approximation (Correction #25, 2026-04-30).
@@ -1692,7 +1692,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 ## Chapter 9 — The Dark Sector
 
-*23 derivations.*
+*24 derivations.*
 
 - **`bandwidth_integral`** [computed] — The cosmological bandwidth integral evaluates the linear-regime contribution of the responsive vacuum to the matter budget; produces Ω_dm = α_vac = 1/3 with zero free parameters.
   · *deps: 2 · tests: 1 · fan-out: 1 · upstream: `alpha_vac_derivation`, `memory_kernel_form`*
@@ -1710,8 +1710,10 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
   · *deps: 2 · tests: 6 · fan-out: 0 · upstream: `cluster_merger_scaling_law`, `cluster_tau_0_sensitivity_diagnostic`*
 - **`cluster_tau_0_sensitivity_diagnostic`** [computed] — Single-τ_0 sensitivity analysis across the three normal-regime mergers (Bullet, MACS J0025, Abell 520, El Gordo excluded) finds best-fit τ_0 = 49 Myr with chi² = 0.007, an 11× improvement over cano...
   · *deps: 3 · tests: 6 · fan-out: 1 · upstream: `cluster_merger_scaling_law`, `tau_0_cross_consistency`, `tau_0_derivation`*
+- **`cmb_boltzmann_case_a_structural`** [computed] — Case A structural proof (June 2026): μ_GRUT(k,a) survives full Einstein-Boltzmann evolution without operator completion.
+  · *deps: 4 · tests: 5 · fan-out: 0 · upstream: `cmb_boltzmann_scoping`, `tau_0_derivation`, `alpha_vac_derivation`, +1 more*
 - **`cmb_boltzmann_scoping`** [anchored] — CMB Boltzmann scoping completed: at recombination, H_rec × τ_0 ≈ 68 (expansion-rate ωτ_0) and ω_acoustic × τ_0 ≈ 140 (first acoustic peak); both deep in the crystal regime.
-  · *deps: 3 · tests: 6 · fan-out: 0 · upstream: `tau_0_derivation`, `alpha_vac_derivation`, `memory_kernel_form`*
+  · *deps: 3 · tests: 6 · fan-out: 1 · upstream: `tau_0_derivation`, `alpha_vac_derivation`, `memory_kernel_form`*
 - **`dark_sector_u1_extension`** [anchored] — The dark sector is a gauged U(1)_dark extension (V7 §28) with two viable parameter routes: Route 1 (RG running from Planck) gives g_dark = 0.917, λ = 0.42, M ≈ 2.1 × 10⁹ GeV; Route 2 (anomaly extra...
   · *deps: 1 · tests: 1 · fan-out: 3 · upstream: `alpha_vac_derivation`*
 - **`dielectric_dm_reframing`** [computed] — Track VII REFRAMED: dark-matter abundance is the dielectric response of the vacuum — the frequency-gated refractive enhancement n_g(ω) maps to Ω_dm at galactic-frequency modes.
@@ -1787,7 +1789,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 *Auto-generated from `grut/toe/registry.py` via `python3 -m grut.toe.render_appendices`. The complete registry — every framework claim across every tier — in one reference table. Sorted by chapter then claim ID.*
 
-**Total: 103 claims** (15 anchored, 58 computed, 3 conjectural, 2 foundational, 10 meta, 15 open_negative).
+**Total: 104 claims** (15 anchored, 59 computed, 3 conjectural, 2 foundational, 10 meta, 15 open_negative).
 
 | Ch | Claim ID | Tier | Statement | Deps | Tests |
 |---:|:---|:---|:---|---:|---:|
@@ -1842,6 +1844,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 | 9 | `cluster_merger_scaling_law` | anchored | The v × τ_0 memory-kernel scaling law applied to four independent merging cluster systems. | 2 | 5 |
 | 9 | `cluster_tau_0_dec_ratio_degeneracy` | computed | The +20% cluster-vs-cosmic systematic is degenerate between τ_0 and the deceleration ratio dec_ratio = v_post/v_initial. | 2 | 6 |
 | 9 | `cluster_tau_0_sensitivity_diagnostic` | computed | Single-τ_0 sensitivity analysis across the three normal-regime mergers (Bullet, MACS J0025, Abell 520, El Gordo excluded) finds best-fit... | 3 | 6 |
+| 9 | `cmb_boltzmann_case_a_structural` | computed | Case A structural proof (June 2026): μ_GRUT(k,a) survives full Einstein-Boltzmann evolution without operator completion. | 4 | 5 |
 | 9 | `cmb_boltzmann_scoping` | anchored | CMB Boltzmann scoping completed: at recombination, H_rec × τ_0 ≈ 68 (expansion-rate ωτ_0) and ω_acoustic × τ_0 ≈ 140 (first acoustic peak... | 3 | 6 |
 | 9 | `dark_sector_u1_extension` | anchored | The dark sector is a gauged U(1)_dark extension (V7 §28) with two viable parameter routes: Route 1 (RG running from Planck) gives g_dark... | 1 | 1 |
 | 9 | `dielectric_dm_reframing` | computed | Track VII REFRAMED: dark-matter abundance is the dielectric response of the vacuum — the frequency-gated refractive enhancement n_g(ω) ma... | 4 | 1 |
@@ -1906,11 +1909,11 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 | Metric | Value |
 |:---|---:|
-| Total claims (nodes) | 103 |
-| Dependency edges | 188 |
+| Total claims (nodes) | 104 |
+| Dependency edges | 192 |
 | Roots (zero deps) | 12 |
 | Leaves (no dependents) | 49 |
-| Max downstream fan-out | 76 |
+| Max downstream fan-out | 77 |
 | Max upstream fan-in | 24 |
 
 ## F.2 Roots — framework entry points
@@ -1919,9 +1922,9 @@ Claims with zero registry dependencies. These are the seams the framework rests 
 
 | Claim ID | Tier | Chapter | Fan-out | First sentence |
 |:---|:---|---:|---:|:---|
-| `ctp_action_structure` | computed | 3 | 76 | The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP. |
-| `alpha_vac_derivation` | computed | 2 | 58 | α_vac = 1/3 is formalized via the Gate R identification (May 2026, C1-C6 all SUPPORTED/FORMALIZED... |
-| `tau_0_derivation` | computed | 2 | 35 | τ_0 = 41.9 Myr is POSITED in Phase I §5 with two independent anchors: (1) cosmic-baseline relatio... |
+| `ctp_action_structure` | computed | 3 | 77 | The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP. |
+| `alpha_vac_derivation` | computed | 2 | 59 | α_vac = 1/3 is formalized via the Gate R identification (May 2026, C1-C6 all SUPPORTED/FORMALIZED... |
+| `tau_0_derivation` | computed | 2 | 36 | τ_0 = 41.9 Myr is POSITED in Phase I §5 with two independent anchors: (1) cosmic-baseline relatio... |
 | `t_c_thermal_transition` | computed | 8 | 3 | The 'boiling point of gravity' T_c = ℏ/(τ_micro × k_B) ≈ 54.7 MK, where τ_micro ≈ 1.4×10⁻¹⁹ s is... |
 | `closed_universe` | foundational | 1 | 2 | The universe is closed, finite, and self-referential. |
 | `bbn_thermal_buffer_negligible` | anchored | 12 | 0 | Standard-cosmology calculation testing one piece of an external research hypothesis: 'BBN binding... |
@@ -1938,14 +1941,14 @@ The most load-bearing claims in the framework, ranked by the number of downstrea
 
 | Rank | Fan-out | Claim ID | Tier | Chapter |
 |---:|---:|:---|:---|---:|
-| 1 | 76 | `ctp_action_structure` | computed | 3 |
-| 2 | 64 | `constitutive_equation` | computed | 3 |
-| 3 | 58 | `alpha_vac_derivation` | computed | 2 |
-| 4 | 47 | `memory_kernel_form` | computed | 3 |
-| 5 | 35 | `tau_0_derivation` | computed | 2 |
-| 6 | 30 | `threshold_bridge` | computed | 4 |
+| 1 | 77 | `ctp_action_structure` | computed | 3 |
+| 2 | 65 | `constitutive_equation` | computed | 3 |
+| 3 | 59 | `alpha_vac_derivation` | computed | 2 |
+| 4 | 48 | `memory_kernel_form` | computed | 3 |
+| 5 | 36 | `tau_0_derivation` | computed | 2 |
+| 6 | 31 | `threshold_bridge` | computed | 4 |
 | 7 | 16 | `r_canonical_path_g` | computed | 7 |
-| 8 | 15 | `regime_map` | computed | 4 |
+| 8 | 16 | `regime_map` | computed | 4 |
 | 9 | 14 | `decoherence_plateau` | computed | 5 |
 | 10 | 14 | `screening_108pi` | computed | 4 |
 
@@ -1978,117 +1981,6 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
     └── blocked by → allen_jacobson_phase1_stub_open_negative
 ```
 
-## Back Matter
-
-## References
-
-**CTP / Schwinger-Keldysh foundations**
-
-- J. Schwinger, "Brownian Motion of a Quantum Oscillator," *J. Math. Phys.* **2**, 407 (1961).
-- L. V. Keldysh, "Diagram Technique for Nonequilibrium Processes," *Sov. Phys. JETP* **20**, 1018 (1965).
-- R. P. Feynman and F. L. Vernon, Jr., "The Theory of a General Quantum System Interacting with a Linear Dissipative System," *Ann. Phys.* **24**, 118 (1963).
-- G. Lindblad, "On the Generators of Quantum Dynamical Semigroups," *Commun. Math. Phys.* **48**, 119 (1976).
-- H. Mori, "Transport, Collective Motion, and Brownian Motion," *Prog. Theor. Phys.* **33**, 423 (1965).
-- R. Zwanzig, "Memory Effects in Irreversible Thermodynamics," *Phys. Rev.* **124**, 983 (1961).
-
-**Gravitational decoherence**
-
-- L. Diósi, "A Universal Master Equation for the Gravitational Violation of Quantum Mechanics," *Phys. Lett. A* **120**, 377 (1987).
-- R. Penrose, "On Gravity's Role in Quantum State Reduction," *Gen. Rel. Grav.* **28**, 581 (1996).
-- C. Anastopoulos and B. L. Hu, "A Master Equation for Gravitational Decoherence," *Class. Quant. Grav.* **30**, 165007 (2013).
-- D. Kafri, J. M. Taylor, and G. J. Milburn, "A classical channel model for gravitational decoherence," *New J. Phys.* **16**, 065020 (2014).
-
-**Gravitational entanglement experiments (BMV / KTM class)**
-
-- S. Bose, A. Mazumdar, G. W. Morley, H. Ulbricht, M. Toroš, M. Paternostro, A. A. Geraci, P. F. Barker, M. S. Kim, and G. Milburn, "Spin Entanglement Witness for Quantum Gravity," *Phys. Rev. Lett.* **119**, 240401 (2017).
-- C. Marletto and V. Vedral, "Gravitationally Induced Entanglement Between Two Massive Particles is Sufficient Evidence of Quantum Effects in Gravity," *Phys. Rev. Lett.* **119**, 240402 (2017).
-- T. Krisnanda, M. Zuppardo, M. Paternostro, and T. Paterek, "Revealing Nonclassicality of Inaccessible Objects," *Phys. Rev. Lett.* **119**, 120402 (2017).
-
-**Objective collapse models (CSL / GRW)**
-
-- G. C. Ghirardi, A. Rimini, and T. Weber, "Unified dynamics for microscopic and macroscopic systems," *Phys. Rev. D* **34**, 470 (1986).
-- P. Pearle, "Combining stochastic dynamical state-vector reduction with spontaneous localization," *Phys. Rev. A* **39**, 2277 (1989).
-- G. C. Ghirardi, P. Pearle, and A. Rimini, "Markov processes in Hilbert space and continuous spontaneous localization of systems of identical particles," *Phys. Rev. A* **42**, 78 (1990).
-- S. L. Adler, "Lower and upper bounds on CSL parameters from latent image formation and IGM heating," *J. Phys. A* **40**, 2935 (2007).
-
-**Decoherence theory and the measurement problem**
-
-- E. Joos and H. D. Zeh, "The emergence of classical properties through interaction with the environment," *Z. Phys. B* **59**, 223 (1985).
-- W. H. Zurek, "Decoherence, einselection, and the quantum origins of the classical," *Rev. Mod. Phys.* **75**, 715 (2003).
-- E. P. Wigner, "Remarks on the Mind-Body Question," in *The Scientist Speculates*, ed. I. J. Good (Heinemann, London, 1961), p. 284.
-- H. Everett III, "'Relative State' Formulation of Quantum Mechanics," *Rev. Mod. Phys.* **29**, 454 (1957).
-
-**Euclidean quantum gravity and conformal instability**
-
-- G. W. Gibbons, S. W. Hawking, and M. J. Perry, "Path Integrals and the Indefiniteness of the Gravitational Action," *Nucl. Phys. B* **138**, 141 (1978).
-- B. Allen and T. Jacobson, "Vector two-point functions in maximally symmetric spaces," *Commun. Math. Phys.* **103**, 669 (1986).
-
-**Anomaly coefficients and local RG**
-
-- H. Osborn, "Local Couplings and Sl(2,R) Invariance for Gauge Theories at One Loop," *Phys. Lett. B* **561**, 174 (2003).
-- I. Jack and H. Osborn, "Analogs of the c-Theorem for Four-Dimensional Renormalisable Field Theories," *Nucl. Phys. B* **343**, 647 (1990).
-- I. Jack and H. Osborn, "Constraints on RG Flow for Four Dimensional Quantum Field Theories," *Nucl. Phys. B* **883**, 425 (2014).
-
-**Multi-loop techniques**
-
-- K. G. Chetyrkin, A. L. Kataev, and F. V. Tkachov, "New Approach to Evaluation of Multiloop Feynman Integrals," *Nucl. Phys. B* **174**, 345 (1980).
-- K. G. Chetyrkin and M. F. Zoller, "Three-loop β-functions for top-Yukawa and the Higgs self-interaction in the Standard Model," *JHEP* **06**, 033 (2012).
-
-**Cosmological data**
-
-- Planck Collaboration, "Planck 2018 Results. VI. Cosmological Parameters," *Astron. Astrophys.* **641**, A6 (2020).
-- S. Casertano et al., "The Local Distance Network," *Astron. Astrophys.* **708**, A166 (2026).
-
-**Modern observational programs**
-
-- DESI Collaboration, "DESI 2024 VI: Cosmological Constraints from BAO," arXiv:2404.03002 (2024).
-- Euclid Collaboration, "Euclid preparation: Forecasts for complementarity of cosmological probes," *Astron. Astrophys.* **642**, A191 (2020).
-- CMB-S4 Collaboration, K. N. Abazajian et al., "CMB-S4 Science Case, Reference Design, and Project Plan," arXiv:1907.04473 (2019).
-- LISA Pathfinder Collaboration, "Sub-Femto-g Free Fall for Space-Based Gravitational Wave Observatories," *Phys. Rev. Lett.* **116**, 231101 (2016).
-- R. Kaltenbaek et al., "MAQRO — Testing Quantum Physics in Space," *EPJ Quantum Technology* **3**, 5 (2016).
-
-**Cluster mergers — primary sources**
-
-- M. Markevitch, A. H. Gonzalez, D. Clowe, A. Vikhlinin, W. Forman, C. Jones, S. Murray, and W. Tucker, "Direct Constraints on the Dark Matter Self-Interaction Cross Section from the Merging Galaxy Cluster 1E 0657-56," *Astrophys. J.* **606**, 819 (2004).
-- D. Clowe, M. Bradač, A. H. Gonzalez, M. Markevitch, S. W. Randall, C. Jones, and D. Zaritsky, "A Direct Empirical Proof of the Existence of Dark Matter," *Astrophys. J.* **648**, L109 (2006).
-- V. Springel and G. R. Farrar, "The speed of the 'bullet' in the merging galaxy cluster 1E 0657-56," *Mon. Not. Roy. Astron. Soc.* **380**, 911 (2007).
-- M. Bradač, S. W. Allen, T. Treu, H. Ebeling, R. Massey, R. G. Morris, A. von der Linden, and D. Applegate, "Revealing the Properties of Dark Matter in the Merging Cluster MACS J0025.4-1222," *Astrophys. J.* **687**, 959 (2008).
-- A. Mahdavi, H. Hoekstra, A. Babul, D. D. Balam, and P. L. Capak, "A Dark Core in Abell 520," *Astrophys. J.* **668**, 806 (2007).
-- F. Menanteau et al., "The Atacama Cosmology Telescope: ACT-CL J0102-4915 'El Gordo,' a Massive Merging Cluster at Redshift 0.87," *Astrophys. J.* **748**, 7 (2012).
-- J. M. Diego et al., "Free-Form Lens Model and Mass Distribution of the Galaxy Cluster El Gordo," *Mon. Not. Roy. Astron. Soc.* **531**, 2505 (2024).
-
-**Precision gravity tests**
-
-- R. A. Hulse and J. H. Taylor, "Discovery of a pulsar in a binary system," *Astrophys. J. Lett.* **195**, L51 (1975).
-- B. Bertotti, L. Iess, and P. Tortora, "A test of general relativity using radio links with the Cassini spacecraft," *Nature* **425**, 374 (2003).
-- B. P. Abbott et al. (LIGO Scientific Collaboration and Virgo Collaboration), "GW170817: Observation of Gravitational Waves from a Binary Neutron Star Inspiral," *Phys. Rev. Lett.* **119**, 161101 (2017).
-- J. G. Williams, S. G. Turyshev, and D. H. Boggs, "Lunar Laser Ranging Tests of the Equivalence Principle with the Earth and Moon," *Int. J. Mod. Phys. D* **18**, 1129 (2009).
-
-**Mass relations**
-
-- Y. Koide, "New Formula for the Cabibbo Angle and Composite Quarks and Leptons," *Phys. Rev. Lett.* **47**, 1241 (1981).
-
-**Conformal anomaly — load-bearing citations for α_vac = 1/3**
-
-The per-species trace anomaly coefficients $(a,c)$ for a real conformally-coupled scalar, Weyl fermion, and gauge field are the direct source of $\alpha_{\rm vac} = a/c = 1/3$ via Gate R. Primary published citations:
-
-- M. J. Duff, "Twenty Years of the Weyl Anomaly," *Class. Quant. Grav.* **11**, 1387 (1994). **[Lead citation. Eq (30)–(31): $(a,c) = (1,3)$ for real scalar, $(11/2,9)$ for Weyl fermion, $(62,36)$ for gauge field. Convention-independent ratio $a/c = 1/3$.]**
-- S. M. Christensen and M. J. Duff, "New gravitational index theorems and supertheorems," *Nucl. Phys. B* **154**, 301 (1979); and "Quantizing Gravity with a Cosmological Constant," *Nucl. Phys. B* **170**, 480 (1980). **[Independent source for the same per-species anomaly coefficients.]**
-- N. D. Birrell and P. C. W. Davies, *Quantum Fields in Curved Space* (Cambridge UP, 1982). [Textbook reference for conformal coupling $\xi_c = 1/6$ in 4D.]
-
-*Note on "KS 2011" shorthand:* Earlier drafts cited "KS 2011" as a shorthand that was ambiguous between (a) Khasanov-Segal 2011 — unpublished lecture notes summarizing Christensen-Duff and Duff 1994 results, not independently citable as a primary source; and (b) Kounnas-Scrucca 2011 — a paper cited in internal gate documents with eq A.5 but not otherwise verified for the bibliography. This shorthand has been removed from the book body; all load-bearing citations for $\alpha_{\rm vac} = 1/3$ now point to Duff 1994 (eq 30–31) and Christensen-Duff 1980 as the unambiguous published sources.
-
-**GRUT program documents**
-
-- D. R. Grover, "GRUT v7 — The Responsive Universe Program," Zenodo DOI: 10.5281/zenodo.18993689 (April 2026).
-- D. R. Grover, "GRUT Phase I Closure Protocol," Zenodo DOI: 10.5281/zenodo.18008060 (February 2026).
-- D. R. Grover, "GRUT-RAI: Responsive AI Computational Platform," GitHub: github.com/ryangrvr/GRUT-RAI (2025-2026).
-
-**Modern observational programs and comparisons**
-
-- K. Y. Kim, "Relativistic quantum corrections to classical dynamics as an alternative to dark matter and dark energy," *Int. J. Mod. Phys. D* (2026), DOI: 10.1142/S0218271826500100.
-- S. Alexander, A. Hui, and H. Bernardo, "Cosmological Constant from Quantum Gravitational θ Vacua and the Gravitational Hall Effect," *Phys. Rev. Lett.* (2026).
-- K. Itahashi et al., "Search for η′-mesic nuclei in ¹²C(p, dp) reaction with the WASA detector at GSI-FRS," *Phys. Rev. Lett.* (2026); GSI-FRS / FAIR Phase 0 program.
 
 ---
 
@@ -2114,6 +2006,6 @@ The per-species trace anomaly coefficients $(a,c)$ for a real conformally-couple
 
 *GRUT — Grand Responsive Universe Theory: Candidate Framework.*
 
-*2539 tests. 103 registered claims (58 computed, 15 anchored, 3 conjectural, 15 open_negative, 2 foundational, 10 meta). 27 documented corrections (V7 era #1-#16; v8→v2 #22-#30; hard-theory #31-#34). Full audit transparency.*
+*2539 tests. 104 registered claims (59 computed, 15 anchored, 3 conjectural, 15 open_negative, 2 foundational, 10 meta). 27 documented corrections (V7 era #1-#16; v8→v2 #22-#30; hard-theory #31-#34). Full audit transparency.*
 
 *The universe is √(4/3) ≈ 1.15470 trying to become 1.*
