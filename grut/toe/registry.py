@@ -360,22 +360,45 @@ REGISTRY: tuple[Claim, ...] = (
         id="zero_free_parameters",
         chapter=2,
         statement=(
-            "GRUT has zero free parameters. Both foundational constants "
-            "(τ_0, α_vac) have derivation chains. Every other quantity in "
-            "the framework derives from these two plus (c, ℏ, k_B, G)."
+            "GRUT has zero free parameters in its GRAVITATIONAL PREDICTIVE "
+            "CORE. The two foundational constants of the gravitational sector "
+            "(τ_0 = 41.9 Myr, anchored; α_vac = 1/3, derived via Gate R) "
+            "determine R = √(4/3), H₀ ≈ 69 km/s/Mpc, Ω_Λ ≈ 0.69, dark "
+            "matter density, cluster-merger offsets, decoherence plateau, "
+            "and CMB Boltzmann modification — all with zero additional free "
+            "parameters. The thermal sector carries a second independently "
+            "anchored parameter τ_micro ≈ 1.4×10⁻¹⁹ s (equivalently T_c = "
+            "54.7 MK), which is NOT derivable from τ_0 — formally confirmed "
+            "by the Option B architectural decision (June 2026; see "
+            "tau_zero_to_tau_micro_relation_open_question and "
+            "grut/foundation/tau_hierarchy_decision.py). The framework is a "
+            "multi-scale EFT: gravitational core = zero free parameters; "
+            "thermal sector = one independently anchored parameter."
         ),
         tier="computed",
         refs=(
             "grut/foundation/closure_protocol.py:MOND_COMPARISON",
+            "grut/foundation/tau_hierarchy_decision.py",
             "Phase I §5-§6 canonical constants",
         ),
         tests=(
             "tests/foundation/test_closure_protocol.py::TestMONDComparison::test_GRUT_has_zero_free_parameters",
+            "tests/foundation/test_tau_hierarchy_decision.py::TestDecisionSummary::test_gravitational_core_is_zero_parameter",
         ),
         deps=("tau_0_derivation", "alpha_vac_derivation"),
         falsifier=(
-            "Demonstration that any GRUT prediction requires tuning a free "
-            "parameter beyond τ_0 and α_vac would falsify zero-parameter."
+            "Demonstration that any gravitational-sector prediction requires "
+            "tuning a free parameter beyond τ_0 and α_vac would falsify "
+            "the gravitational-core zero-parameter claim. The thermal sector "
+            "is separately anchored via τ_micro and is not subject to this "
+            "falsifier."
+        ),
+        notes=(
+            "Scoped June 2026: 'zero free parameters' is the gravitational "
+            "predictive core claim. The framework is not globally "
+            "one-parameter — τ_micro is a second independently anchored "
+            "scale. Option B architectural decision: GRUT is a multi-scale "
+            "EFT. Formal decision documented in tau_hierarchy_decision.py."
         ),
     ),
 
@@ -4110,66 +4133,70 @@ REGISTRY: tuple[Claim, ...] = (
         id="tau_zero_to_tau_micro_relation_open_question",
         chapter=12,
         statement=(
-            "The relation between the framework's two τ-scales is "
-            "currently underived. τ_0 = 41.9 Myr (gravitational "
-            "sector, anchored by 1/(H_0 × 108π) and Bullet Cluster "
-            "δ ≈ v×τ_0) and τ_micro ≈ 1.4×10⁻¹⁹ s (thermal sector, "
-            "anchored by T_c at t ≈ 1 hour post-Big Bang) differ by "
-            "~34 orders of magnitude with no closure path between "
-            "them. STATUS: the framework currently presents itself "
-            "as one-parameter (τ_0 fixes everything via the screening "
-            "factor S = 108π and the bridge to Λ); under the "
-            "two-τ-scale convention this is INCOMPLETE — τ_micro is "
-            "an independent empirically-anchored input until a "
-            "derivation is found. CLOSURE PATHS under investigation: "
-            "(1) τ_micro might be derivable from the v9 noise kernel "
-            "evaluated at the BBN-era thermal scale (Genesis hypothesis "
-            "track); (2) τ_micro might equal the inverse of the "
-            "vacuum's microscopic plasma frequency, set by responsive-"
-            "medium ground-state physics not yet characterized; "
-            "(3) τ_micro might satisfy a multiplicative relation "
-            "ℏ × τ_0 = (some natural unit) × τ_micro — note that "
-            "numerically τ_micro × τ_0 ≈ ℏ/k_B² × constants, hinting "
-            "at a possible fluctuation-dissipation-style relation; "
-            "(4) HONEST NEGATIVE outcome: the two scales are "
-            "fundamentally independent, the framework has TWO free "
-            "parameters in its predictive core, and the v8 'zero "
-            "free parameters in the predictive core' framing is "
-            "downgraded to 'one free parameter (τ_0) in the "
-            "GRAVITATIONAL predictive core; one anchored parameter "
-            "(τ_micro) in the THERMAL sector'. This last outcome is "
-            "a meaningful credibility loss but a survivable one — "
-            "thermal-sector anchoring is comparable to MOND's a_0 "
-            "anchoring, and the gravitational-sector zero-parameter "
-            "core would still hold."
+            "ARCHITECTURALLY RESOLVED as Option B (June 2026). "
+            "τ_0 = 41.9 Myr (gravitational sector) and τ_micro ≈ "
+            "1.4×10⁻¹⁹ s (thermal sector) differ by 34 orders of "
+            "magnitude with NO derivation between them. Four closure "
+            "paths evaluated computationally (grut/foundation/"
+            "tau_hierarchy_decision.py): "
+            "(1) Genesis/noise kernel — NOT VIABLE: noise kernel "
+            "characteristic temperature T_peak = ℏ/(τ_0 k_B) ≈ "
+            "5.8×10⁻²⁷ K, which is 34 orders below T_c = 54.7 MK; "
+            "the gap IS the τ-scale gap, no bridging possible; "
+            "(2) Microscopic plasma frequency — UNDEFINED: responsive-"
+            "medium ground-state physics not characterized in current "
+            "framework; "
+            "(3) Multiplicative FDT relation — NOT A GENUINE RELATION: "
+            "(a) no combination of {ℏ, k_B, c, G} alone has units s² "
+            "— an independent temperature scale is required; "
+            "(b) the cross-check ratio τ_micro×τ_0 / [ℏ/(k_B T_c H_0 "
+            "108π)] ≈ 0.984 ≠ 1.000 — the two scales are calibrated "
+            "to different independent anchors; "
+            "(c) T_* = ℏ/(k_B τ_micro τ_0) ≈ 40 nK — unphysical; "
+            "(4) Option B — ADOPTED: GRUT is a multi-scale EFT. "
+            "τ_0 is anchored in the GRAVITATIONAL sector by cosmic "
+            "baseline + Bullet Cluster. τ_micro is anchored in the "
+            "THERMAL sector by T_c = 54.7 MK (BBN chronology). The "
+            "same constitutive form reuses at each window; the scales "
+            "are empirically anchored per window. "
+            "CONSEQUENCE: 'zero free parameters' scoped to the "
+            "GRAVITATIONAL PREDICTIVE CORE (τ_0, α_vac = 1/3). "
+            "Thermal sector: one independently anchored parameter "
+            "(τ_micro). Neither is arbitrary — both anchored. "
+            "No derivation between them exists or is required."
         ),
         tier="open_negative",
         refs=(
+            "grut/foundation/tau_hierarchy_decision.py",
             "grut/foundation/closure_protocol.py:TAU_MICRO_SEC",
             "theory/derivation/CORRECTION_22_TAU_CLEANUP.md",
         ),
-        tests=(),
+        tests=(
+            "tests/foundation/test_tau_hierarchy_decision.py"
+            "::TestDecisionSummary::test_decision_is_option_b",
+            "tests/foundation/test_tau_hierarchy_decision.py"
+            "::TestDecisionSummary::test_relation_not_derivable",
+            "tests/foundation/test_tau_hierarchy_decision.py"
+            "::TestPath1Genesis::test_not_viable",
+            "tests/foundation/test_tau_hierarchy_decision.py"
+            "::TestPath3Multiplicative::test_cross_check_ratio_not_unity",
+        ),
         deps=(
             "tau_0_derivation",
             "tau_micro_thermal_scale",
             "t_c_provenance_inconsistency_resolved",
         ),
         notes=(
-            "Promoted from the structural diagnosis embedded in the "
-            "previous open_negative entry. Per the audit pattern: "
-            "the dimensional bug is closed (Correction #22), the "
-            "downstream open question (relation derivation) is "
-            "named and tracked here. Closure paths (1)-(3) are "
-            "research-tier work; closure path (4) is the honest-"
-            "negative outcome that downgrades the framework's "
-            "free-parameter count from zero to one (gravitational) "
-            "+ one anchored (thermal). The question of whether the "
-            "framework's stated 'zero free parameters' framing "
-            "survives this resolution is itself a register-able "
-            "claim for the v2 deposit's posture statement; the "
-            "current registry treats it as open until a closure "
-            "path produces a derivation or until the honest-"
-            "negative outcome is formally accepted."
+            "Open-negative tier retained because the question 'is there "
+            "a derivation between τ_0 and τ_micro?' remains open in "
+            "principle — future theory could find one. The architectural "
+            "decision is that we are NOT claiming such a derivation, and "
+            "that Option B is the correct current posture. This is a "
+            "stronger statement than the previous 'under investigation' "
+            "framing: the four paths have been explicitly evaluated and "
+            "rejected. The open-negative is now a CLOSED INVESTIGATION "
+            "with a binding verdict, not an open question. If future work "
+            "finds a derivation, it would promote this claim to computed."
         ),
     ),
 
