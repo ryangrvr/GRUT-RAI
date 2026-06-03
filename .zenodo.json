@@ -1,0 +1,40 @@
+{
+  "title": "GRUT RAI v2.2: Grand Responsive Universe Theory — Computational Framework",
+  "description": "GRUT RAI v2.2 is the computational engine for the Grand Responsive Universe Theory (GRUT), a candidate Theory of Everything built on the closed-time-path (CTP) Schwinger-Keldysh effective action. One CTP action. One constitutive equation. Thirteen sectors of physics. Zero free parameters in the gravitational predictive core.\n\nThis release (v2.2.0, June 2026) advances the framework in four areas:\n\n1. **τ-hierarchy architectural decision (Option B)**: GRUT is formally decided as a multi-scale EFT. The gravitational and thermal relaxation times (τ₀ = 41.9 Myr and τ_micro ≈ 1.40×10⁻¹⁹ s, 34 orders of magnitude apart) are independently anchored. Four candidate closure paths are evaluated and rejected. Implemented in grut/foundation/tau_hierarchy_decision.py with 29 tests.\n\n2. **θ = 2/9 uniqueness (CANDIDATE IDENTITY)**: A systematic rational-approximant scan confirms that 2/9 = K·α_vac = (2/3)·(1/3) is the unique best approximant to the Koide-sector phase θ_fit mod(2π/3) for all denominators ≤ 193. No irreducible competitor exists within ±1000 ppm; the nearest (43/194) is 557× worse. The structural formula θ = K·α_vac ties together the two Z₃-sector-native constants — both proven/derived — with a 4.62 ppm match to the PDG fit. Status: CANDIDATE IDENTITY (not numerology, not yet derived). Implemented in grut/derived/flavor/koide_theta_uniqueness.py with 59 tests.\n\n3. **Nuclear operator emergence (open question #21)**: Formally registered as an open question in the GRUT ToE program. The question is whether the CTP fixed-point structure z* = z_target[z*] can generatively produce the leading nuclear EFT operators (OPE, Walecka σ+ω, spin-orbit, tensor) at the nuclear binding scale. The confinement-scale crossing is the principal obstruction. η′-mesic nucleus result (Itahashi et al. PRL 2026) provides independent experimental support for the vacuum-responsiveness concept.\n\n4. **Nonlinear structure formation (v5 gate)**: Formally distinguished from the v4 CAMB/CLASS linear Boltzmann gate. N-body simulation with μ_GRUT(k,a) is the next theoretical stress test after the linear Boltzmann run.\n\n**Framework statistics (v2.2.0):**\n- 2782 automated tests (all passing)\n- 107 registered claims: 60 computed, 15 anchored, 3 conjectural, 17 open_negative, 2 foundational, 10 meta\n- 21 documented open questions\n- Priority roadmap: (1) CMB Boltzmann CAMB/CLASS [v4 gate], (2) N-body nonlinear structure [v5 gate], (3) Yukawa/flavor derivation [Track II], (4) Nuclear operator emergence, (5) UV completion\n\nThe accompanying theory document (theory/GRUT_TOE.md) presents the complete framework in 14 chapters with auto-generated appendices from the claim registry.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "other-open",
+  "creators": [
+    {
+      "name": "Grover, D. Ryan",
+      "affiliation": "Independent researcher",
+      "orcid": ""
+    }
+  ],
+  "keywords": [
+    "Theory of Everything",
+    "closed-time-path formalism",
+    "Schwinger-Keldysh",
+    "constitutive equation",
+    "effective field theory",
+    "quantum gravity",
+    "cosmological constant",
+    "Koide formula",
+    "modified gravity",
+    "dark matter",
+    "CTP action",
+    "viscoelastic vacuum",
+    "gravitational decoherence",
+    "GRUT"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isPreviousVersionOf",
+      "identifier": "10.5281/zenodo.18993689",
+      "resource_type": "software"
+    }
+  ],
+  "version": "2.2.0",
+  "language": "eng",
+  "notes": "Version 2.2.0 — June 2026. Adds τ-hierarchy architectural decision (Option B multi-scale EFT), θ=2/9 uniqueness test (CANDIDATE IDENTITY), nuclear operator emergence open question #21, and nonlinear structure formation v5 gate. Full test suite: 2782 tests passing. Registry: 107 claims. Theory document: theory/GRUT_TOE.md (2029 lines, auto-generated appendices). Previous version: 10.5281/zenodo.18993689 (v2.1.0, May 2026)."
+}

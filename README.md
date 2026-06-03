@@ -71,7 +71,7 @@ pip install -r requirements.txt
 pip install anthropic
 echo "ANTHROPIC_API_KEY=sk-ant-..." > .env
 
-# Run the test suite — 2539 tests, completes in ~3 minutes
+# Run the test suite — 2782 tests, completes in ~4 minutes
 pytest tests/
 
 # Start the dashboard — auto-detects compatible Python 3.10-3.13
@@ -97,7 +97,7 @@ The dashboard, computations, GRUTipedia, and experiments tabs all work without a
 ### Running tests
 
 ```bash
-pytest tests/                    # all 2539 tests
+pytest tests/                    # all 2782 tests
 pytest tests/derived/ -v         # sector tests with verbose output
 pytest tests/foundation/ -v      # foundation tests only (268)
 ```
@@ -232,7 +232,7 @@ python -m pytest tests/foundation/ -v
 python -m pytest tests/ -v
 ```
 
-The **2539 automated tests** verify every load-bearing numerical claim in the framework: foundation-level consistency (constants, axioms, constitutive equation, noise kernel, anomaly structure), every sector from decoherence through cosmology through the v8→v2 synthesis additions and the Phase-1 hard-theory benchmarks (Phase I canonical constants, bandwidth integral, thermal transition, rotation-curve engine, Track VII dielectric reframing, TJI Phase-0 closure, Allen-Jacobson S⁴ propagator Phase-1 implementation, Euler-channel coefficient landing interface, Schrödinger-in-the-Box observer module with Λ_contact CTP derivation, foundations audits, and the v8→v2 corrections #22-#31: τ-cleanup, Φ_μν derivation/scaffold/FRW, n_g(ω) MG-EFT closure, modified linear growth, neutrino hierarchy via Z₃, a_ν = 1 uniqueness theorem, falsifier paper, Allen-Jacobson Phase-1). Each test corresponds to a specific claim in the GRUT-RAI registry (`grut/toe/registry.py`, 103 claims); if any value silently changes, the suite flags it.
+The **2782 automated tests** verify every load-bearing numerical claim in the framework: foundation-level consistency (constants, axioms, constitutive equation, noise kernel, anomaly structure), every sector from decoherence through cosmology through the v8→v2 synthesis additions and the Phase-1 hard-theory benchmarks (Phase I canonical constants, bandwidth integral, thermal transition, rotation-curve engine, Track VII dielectric reframing, TJI Phase-0 closure, Allen-Jacobson S⁴ propagator Phase-1 implementation, Euler-channel coefficient landing interface, Schrödinger-in-the-Box observer module with Λ_contact CTP derivation, foundations audits, and the v8→v2 corrections #22-#31: τ-cleanup, Φ_μν derivation/scaffold/FRW, n_g(ω) MG-EFT closure, modified linear growth, neutrino hierarchy via Z₃, a_ν = 1 uniqueness theorem, falsifier paper, Allen-Jacobson Phase-1). Each test corresponds to a specific claim in the GRUT-RAI registry (`grut/toe/registry.py`, 107 claims); if any value silently changes, the suite flags it.
 
 ---
 

@@ -82,7 +82,7 @@ The Hubble rate is the terminal velocity of the vacuum. The S⁴ conformal-mode 
 
 The framework describes the observer as much as the observed. The scaling law Λ_grav = Gm²S(l/R)/(ℏl) applies equally to the measurer and the measured. Classical definiteness is not a postulate — it is the condition Λ_grav τ₀ ≫ 1, satisfied by every atom in the observer's body. The measurement problem dissolves because the apparatus is on one side of the crystalline boundary only because its Gm² puts it there.
 
-This document presents the complete framework in fourteen chapters: what the universe is, what the medium is, what the equation is, how reality divides into crystal and fluid, what physics is recovered, how gravity works, what the constant R means, why the universe expands, what the dark sector is, why time flows forward, what the observer is, what the SM closure program requires, the history of the universe in GRUT, and what would kill the theory. Every claim traces to a tested function in the GRUT-RAI codebase (2539 tests, 95+ registered claims, DOI: 10.5281/zenodo.18993689). Every failure, retraction, and honest negative is documented; nothing is fitted away. The companion V7 document (175 pages, 17 appendices) provides the full technical derivations.
+This document presents the complete framework in fourteen chapters: what the universe is, what the medium is, what the equation is, how reality divides into crystal and fluid, what physics is recovered, how gravity works, what the constant R means, why the universe expands, what the dark sector is, why time flows forward, what the observer is, what the SM closure program requires, the history of the universe in GRUT, and what would kill the theory. Every claim traces to a tested function in the GRUT-RAI codebase (2782 tests, 107 registered claims, DOI: 10.5281/zenodo.18993689). Every failure, retraction, and honest negative is documented; nothing is fitted away. The companion V7 document (175 pages, 17 appendices) provides the full technical derivations.
 
 ---
 
@@ -2024,6 +2024,6 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
 
 *GRUT — Grand Responsive Universe Theory: Candidate Framework.*
 
-*2539 tests. 107 registered claims (60 computed, 15 anchored, 3 conjectural, 17 open_negative, 2 foundational, 10 meta). 27 documented corrections (V7 era #1-#16; v8→v2 #22-#30; hard-theory #31-#34). Full audit transparency.*
+*2782 tests. 107 registered claims (60 computed, 15 anchored, 3 conjectural, 17 open_negative, 2 foundational, 10 meta). 27 documented corrections (V7 era #1-#16; v8→v2 #22-#30; hard-theory #31-#34). Full audit transparency.*
 
 *The universe is √(4/3) ≈ 1.15470 trying to become 1.*
