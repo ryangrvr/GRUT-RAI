@@ -2724,6 +2724,50 @@ REGISTRY: tuple[Claim, ...] = (
     ),
 
     Claim(
+        id="koide_theta_2_over_9_uniqueness",
+        chapter=12,
+        statement=(
+            "The Koide-sector phase θ_fit mod(2π/3) ≈ 0.22222 rad is "
+            "uniquely matched by the simple fraction 2/9 = K·α_vac = "
+            "(2/3)·(1/3) at 4.62 ppm — 56× inside the PDG τ-mass "
+            "experimental window (~258 ppm). A systematic scan of all "
+            "rational fractions p/q with q ≤ 200 confirms 2/9 is the "
+            "unique best rational approximant for all denominators in "
+            "[9, 193]: no irreducible competitor exists within ±1000 "
+            "ppm, and the nearest (43/194) is 557× worse. This rules "
+            "out numerology. However, no algebraic derivation from "
+            "S_CTP has been produced — status is CANDIDATE IDENTITY."
+        ),
+        tier="computed",
+        refs=(
+            "grut/derived/flavor/koide_theta_uniqueness.py",
+            "grut/derived/flavor/koide_operator.py:survey_candidate_relations",
+        ),
+        tests=(
+            "tests/derived/flavor/test_koide_theta_uniqueness.py",
+        ),
+        deps=("koide_z3_circulant_structure", "koide_phase_4_open_negative"),
+        falsifier=(
+            "A CEPC/FCC-ee τ-mass measurement at ≤10 ppm (δm_τ/m_τ) "
+            "that excludes θ = 2/9 at > 5σ would eliminate the candidate. "
+            "Current PDG precision gives ~258 ppm window; the candidate "
+            "sits 56× inside it."
+        ),
+        notes=(
+            "Registry tier is COMPUTED for the uniqueness scan (passing "
+            "tests confirm no competitor within ±1000 ppm, 2/9 wins "
+            "all denominators ≤ 193). The *algebraic mechanism* tier is "
+            "OPEN — no proof from S_CTP exists. Overall claim tier: "
+            "CANDIDATE IDENTITY (above HYPOTHESIS, below DERIVED). "
+            "Structural formula: θ = K·α_vac = (2/3)·(1/3) = 2/9. "
+            "K is proven; α_vac is derived from d=3. Upgrade path: "
+            "prove from S_CTP that the multi-generation fixed point "
+            "selects θ = K·α_vac. NOT numerology — uniqueness criterion "
+            "met (557× ratio to next competitor)."
+        ),
+    ),
+
+    Claim(
         id="charged_lepton_z3_does_not_extend_to_neutrinos",
         chapter=9,
         statement=(

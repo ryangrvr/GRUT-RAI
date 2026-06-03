@@ -511,6 +511,36 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
         blocked_by=(),  # foundational quantum-mechanics issue, not blocked by a registered open negative
         last_review="2026-04-29",
     ),
+
+    LedgerEntry(
+        claim_id="nonlinear_structure_formation_grut_consistency",
+        closure_condition=(
+            "N-body cosmological simulation with μ_GRUT(k,a) implemented "
+            "in a modified-gravity N-body code (e.g., GADGET-4 or PKDGRAV3 "
+            "with GRUT's MG module). Closure requires quantitative P(k) "
+            "and halo mass function predictions consistent with observed "
+            "cluster counts and clustering statistics. The specific test: "
+            "does effective μ_eff remain ≈ μ_GRUT at halo scales (δ ~ 10²), "
+            "or does nonlinear mode coupling renormalize it toward GR? "
+            "The Case A structural proof is valid at linear order (δ ≪ 1) "
+            "and does not extend to the nonlinear regime without this "
+            "simulation."
+        ),
+        closure_effort=(
+            "Multi-session to multi-year. Requires implementing GRUT's "
+            "μ_GRUT(k,a) as a modified-gravity kernel in an N-body code, "
+            "running large-volume simulations (≥(512 Mpc/h)³) with GRUT "
+            "modifications enabled, computing P(k) and halo mass function "
+            "outputs, and comparing to current surveys (DES, KiDS, DESI). "
+            "This is the NEXT genuine theoretical stress test after the "
+            "CAMB/CLASS linear Boltzmann run (v4 gate). Pre-requisite: "
+            "the linear CAMB/CLASS run must confirm Case A predictions "
+            "before investing N-body resources."
+        ),
+        affects=(),
+        blocked_by=(),
+        last_review="2026-06-02",
+    ),
 )
 
 

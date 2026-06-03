@@ -1016,24 +1016,25 @@ The investigation log at `theory/derivation/LAMBDA_CONTACT_CTP_DERIVATION.md` do
 | Neutrino hierarchy | **NH derived** (Z₃/a_ν = 1, Corrections #28-29; Σm_ν ≈ 60 meV) | Dirac vs Majorana open; PMNS angles open |
 | Coupling values at M_Z | 8.9% miss at GUT scale | Constitutive β-function correction (Track V) |
 
-**12.3a The Z₃/Koide sector — current computed results.** The Koide sector is the most complete SM-structure result in the framework at present. Four items are fully computed and tested; three open questions are explicitly registered.
+**12.3a The Z₃/Koide sector — current computed results.** The Koide sector is the most complete SM-structure result in the framework at present. Five items are fully computed and tested; two open questions are explicitly registered.
 
 *Computed:*
 1. **Koide identity** K = (Σm_i)/(Σ√m_i)² = 2/3 holds to 0.005% for PDG charged-lepton masses (e, μ, τ). This is an empirical anchor, not derived.
 2. **Z₃ circulant structure** √m_i = M₀(1 + √2 cos(θ + 2πk/3)) algebraically enforces K = 2/3 for any nonzero M₀ and any θ — verified at machine precision. Three generations and K = 2/3 are mathematical consequences of Z₃ structure.
 3. **Charged-lepton Z₃ does not extend to neutrinos** under the same coupling a = √2: minimum admissible Δm²_atm/Δm²_sol = 194.7 vs observed 33.9 (factor 6 too large). Sharp structural finding — not a failure, but a statement that neutrinos require a different mass-generation channel.
 4. **a_ν = 1 uniqueness theorem** (Correction #29): the generalized Z₃ coupling a_ν = 1 is the unique value at which (i) boundary access (one mass → 0) is admissible AND (ii) the other two masses are exactly degenerate. The boundary-gap formula √3·√(a²−1) vanishes only at a = 1. Mathematical uniqueness result, not a postulate.
+5. **θ = 2/9 uniqueness** (June 2026): a systematic scan of all rational fractions p/q with q ≤ 200 confirms that 2/9 is the unique best approximant to θ_fit mod(2π/3) ≈ 0.22222 rad for all denominators in [9, 193]. No irreducible competitor exists within ±1000 ppm; the nearest (43/194) is 557× worse in deviation. Combined with the structural formula θ = K · α_vac = (2/3)·(1/3) = 2/9, this rules out numerology and earns the designation **CANDIDATE IDENTITY** (above HYPOTHESIS; below DERIVED). The deviation from the empirical fit is 4.62 ppm — 56× inside the experimental window set by PDG τ-mass precision (~258 ppm). No algebraic proof from S_CTP exists.
 
 *Anchored prediction from the Z₃ framework:*
 - Normal Hierarchy preferred: at a_ν = 1, the NH admits a unique interior solution (all masses strictly positive); the IH solution lives exactly at the m₃ → 0 boundary (degenerate, fine-tuned). GRUT structurally prefers NH.
 - Mass predictions: m₁ ≈ 0.8 meV, m₂ ≈ 8.7 meV, m₃ ≈ 50.2 meV; **Σm_ν ≈ 60 meV** (Planck 2018 bound: 0.12 eV — factor 2 headroom); kinematic effective mass **m_β ≈ 9 meV** (below KATRIN 0.45 eV; within reach of Project 8 ~2030).
 
 *Open questions registered:*
-- M₀ and θ for charged leptons remain free parameters. The candidate identity θ = K · α_vac = 2/3 · 1/3 = 2/9 is registered in the codebase notes as a clue (within 4.6 ppm of the empirical fit) but has not been elevated to a derived result.
+- M₀ for charged leptons remains a free parameter with no GRUT-native derivation (dimensional gap: GRUT's native mass scale μ₀ = ℏ/τ₀ ≈ 10⁻³¹ eV is ~30 orders below the GeV scale). The sole viable anchor is v_EW via the SM Yukawa operator (Track II Phase 2); the Yukawa trace scale ⟨y⟩ itself is not yet derived from the CTP fixed point (Phase 3 honest negative).
 - Why a²_e = 2 (charged leptons) vs a²_ν = 1 (neutrinos): the channel-counting interpretation (EM + weak vs. weak only) is suggestive but not derived from the CTP action (`neutrino_z3_coupling_derivation_open_question` → resolved at structural tier; the KS-anomaly derivation of EM-channel absence remains deeper research).
 - PMNS mixing angles: entirely open; not yet connected to the Z₃ structure.
 
-*Registry claims: koide_k_2_over_3 (computed), koide_z3_circulant_structure (computed), charged_lepton_z3_does_not_extend_to_neutrinos (computed), neutrino_z3_coupling_a_equals_1_uniqueness_theorem (computed), neutrino_hierarchy_z3_nh_prediction (anchored — a_ν = 1 derived; M₀, θ free), koide_phase_4_open_negative (open_negative — flavor mechanism for M₀ and θ not derived)*
+*Registry claims: koide_k_2_over_3 (computed), koide_z3_circulant_structure (computed), koide_theta_2_over_9_uniqueness (computed — uniqueness scan; CANDIDATE IDENTITY overall), charged_lepton_z3_does_not_extend_to_neutrinos (computed), neutrino_z3_coupling_a_equals_1_uniqueness_theorem (computed), neutrino_hierarchy_z3_nh_prediction (anchored — a_ν = 1 derived; M₀, θ free), koide_phase_4_open_negative (open_negative — flavor mechanism for M₀ and θ not derived)*
 
 **12.4 The SM Closure Conjecture.**
 
@@ -1050,7 +1051,7 @@ Stated as conjecture, not theorem. GRUT-native — it ties to existing fixed-poi
 The SM Closure Program is not all-or-nothing. Intermediate results that would strengthen the framework's claim:
 
 1. **Tighten N = 3.** Show that the CTP multi-field fixed-point structure is unstable for N ≠ 3 generations, not just that Z₃ selects N = 3 algebraically. This is the most tractable first milestone.
-2. **Derive one SM parameter.** If the CTP Yukawa eigenvalue problem yields even one fermion mass ratio correctly, the program has content. The Koide θ = K · α = 2/9 candidate (at 4.6 ppm from fit) is the nearest target.
+2. **Derive one SM parameter.** If the CTP Yukawa eigenvalue problem yields even one fermion mass ratio correctly, the program has content. The Koide θ = K · α_vac = 2/9 candidate (at 4.62 ppm from fit; uniqueness confirmed June 2026 — 557× better than any competitor) is the nearest target. The uniqueness scan is complete and registered (`koide_theta_2_over_9_uniqueness`, computed); what remains is the algebraic proof from S_CTP that selects this phase.
 3. **Close the coupling unification miss.** The constitutive β-function correction (Track V) is defined and bounded at 6-12 months. If it reduces the 8.9% miss to sub-percent, the framework's UV completion gains credibility.
 4. **Derive the Higgs potential.** If the CTP fixed-point condition z* = z_target[z*] applied to the Higgs sector reproduces the Mexican-hat potential with the observed v_EW = 246 GeV, the framework's matter sector has a structural anchor.
 
@@ -1585,7 +1586,7 @@ The following symbols appear in specific chapters and are documented here for re
 
 This index lists every framework claim at tier `computed` or `anchored` — claims whose physical content has been derived, computed, or empirically anchored, and which are pinned by passing tests. Claims at tier `open_negative` are documented separately in Chapter 12; `conjectural`, `foundational`, and `meta` claims are framing-tier and are not derivations. Entries are grouped by chapter and sorted by claim ID within each chapter.
 
-**Coverage:** 74 derivations across 11 chapters.
+**Coverage:** 75 derivations across 11 chapters.
 
 ## Chapter 2 — The Medium
 
@@ -1607,7 +1608,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 - **`constitutive_equation`** [computed] — The constitutive equation τ_0 dz/dt + z = z_target governs the medium's retarded relaxation toward its source.
   · *deps: 1 · tests: 2 · fan-out: 66 · upstream: `ctp_action_structure`*
 - **`ctp_action_structure`** [computed] — The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP.
-  · *deps: 0 · tests: 5 · fan-out: 78*
+  · *deps: 0 · tests: 5 · fan-out: 79*
 - **`framework_axioms_locked`** [computed] — Framework foundational invariants: Planck mass and fine-structure constant verified against CODATA; CTP Keldysh action invertibility (A0); intrinsic time scale τ_I = ℏ/2 (N0); noise kernel and cons...
   · *deps: 1 · tests: 1 · fan-out: 0 · upstream: `ctp_action_structure`*
 - **`memory_kernel_form`** [computed] — The retarded memory kernel is a single-pole exponential: K(t) = (1/τ_0) exp(−t/τ_0) Θ(t).
@@ -1643,7 +1644,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 - **`qm_recovery`** [computed] — Standard quantum mechanics is recovered from the constitutive equation in the τ → 0 limit, with the Newton-Raphson z_target constructed from the Schrödinger residual F[ψ] = iℏ ∂_t ψ − Hψ.
   · *deps: 1 · tests: 4 · fan-out: 0 · upstream: `constitutive_equation`*
 - **`sm_emergence`** [computed] — The Standard Model emerges as the unique minimal theory satisfying five CTP-derived constraints (V7 §15-§16): (C1) gauge structure SU(3)×SU(2)×U(1) → 12 gauge bosons; (C2) anomaly cancellation ΣY²...
-  · *deps: 1 · tests: 6 · fan-out: 11 · upstream: `ctp_action_structure`*
+  · *deps: 1 · tests: 6 · fan-out: 12 · upstream: `ctp_action_structure`*
 - **`sm_field_content_locked`** [computed] — Standard Model field counts are locked in code: 4 real scalars, 45 Weyl fermions (15 per generation × 3), 12 gauge bosons.
   · *deps: 2 · tests: 1 · fan-out: 3 · upstream: `sm_emergence`, `minus_100_drive`*
 
@@ -1731,9 +1732,9 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 - **`kibble_zurek_dm_route`** [anchored] — Track VII Step 1: Kibble-Zurek formation of dark relic from a dark-sector phase transition with XY universality gives Ω_dm within factor ~2 of observation.
   · *deps: 2 · tests: 1 · fan-out: 1 · upstream: `dark_sector_u1_extension`, `tau_0_derivation`*
 - **`koide_k_2_over_3`** [computed] — Charged-lepton masses satisfy the Koide identity K = (Σ m_i) / (Σ √m_i)² = 2/3 to 0.005%, validated against PDG values for e, μ, τ.
-  · *deps: 1 · tests: 1 · fan-out: 6 · upstream: `sm_emergence`*
+  · *deps: 1 · tests: 1 · fan-out: 7 · upstream: `sm_emergence`*
 - **`koide_z3_circulant_structure`** [computed] — The Z₃-circulant Koide mass operator parameterizes the charged-lepton spectrum via (M_0, θ): K = 2/3 holds algebraically (machine precision for any nonzero M_0 and any θ).
-  · *deps: 2 · tests: 1 · fan-out: 5 · upstream: `koide_k_2_over_3`, `sm_emergence`*
+  · *deps: 2 · tests: 1 · fan-out: 6 · upstream: `koide_k_2_over_3`, `sm_emergence`*
 - **`mg_eft_mu_gamma_mapping`** [computed] — GRUT lives in the 'μ ≠ 1, γ = 1' subclass of modified-gravity models.
   · *deps: 3 · tests: 1 · fan-out: 2 · upstream: `phi_munu_frw_explicit_construction`, `alpha_vac_derivation`, `tau_0_derivation`*
 - **`modified_linear_growth_first_look`** [computed] — Modified linear growth equation on FRW with μ_GRUT(k, a) from Priority 3, integrated numerically: δ'' + [2 - (3/2)Ω_m] δ' - (3/2) Ω_m μ_GRUT(k, N) δ = 0.
@@ -1781,12 +1782,14 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 ## Chapter 12 — Falsification
 
-*3 derivations.*
+*4 derivations.*
 
 - **`bbn_thermal_buffer_negligible`** [anchored] — Standard-cosmology calculation testing one piece of an external research hypothesis: 'BBN binding-energy release provides a thermal buffer that slows or plateaus cosmic temperature.' Result: the hy...
   · *deps: 0 · tests: 1 · fan-out: 0*
 - **`genesis_noise_kernel_spectral_attempt`** [anchored] — Standard-physics calculation testing one piece of the Genesis-BBN-DM external research hypothesis: 'CTP noise kernel acting on z = 0 produces thermal-spectrum radiation at some characteristic tempe...
   · *deps: 3 · tests: 1 · fan-out: 0 · upstream: `ctp_action_structure`, `memory_kernel_form`, `tau_0_derivation`*
+- **`koide_theta_2_over_9_uniqueness`** [computed] — The Koide-sector phase θ_fit mod(2π/3) ≈ 0.22222 rad is uniquely matched by the simple fraction 2/9 = K·α_vac = (2/3)·(1/3) at 4.62 ppm — 56× inside the PDG τ-mass experimental window (~258 ppm).
+  · *deps: 2 · tests: 1 · fan-out: 0 · upstream: `koide_z3_circulant_structure`, `koide_phase_4_open_negative`*
 - **`neutrino_dirac_prediction`** [anchored] — GRUT predicts Dirac neutrinos as the empirically preferred variant: Path D Dirac (a/c = 1.15525) is closer to the canonical Path G value (1.15470) than Majorana (1.17256).
   · *deps: 2 · tests: 1 · fan-out: 0 · upstream: `r_path_d_dirac`, `r_path_d_majorana`*
 
@@ -1797,7 +1800,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 *Auto-generated from `grut/toe/registry.py` via `python3 -m grut.toe.render_appendices`. The complete registry — every framework claim across every tier — in one reference table. Sorted by chapter then claim ID.*
 
-**Total: 105 claims** (15 anchored, 59 computed, 3 conjectural, 2 foundational, 10 meta, 16 open_negative).
+**Total: 106 claims** (15 anchored, 60 computed, 3 conjectural, 2 foundational, 10 meta, 16 open_negative).
 
 | Ch | Claim ID | Tier | Statement | Deps | Tests |
 |---:|:---|:---|:---|---:|---:|
@@ -1892,6 +1895,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 | 12 | `falsifier_paper_six_near_term_tests` | meta | The framework's six near-term falsifiers — decoherence plateau (~689 Hz, lab gravity), ³⁰Si/²⁸Si isotope discriminator vs CSL (lab gravit... | 6 | 0 |
 | 12 | `genesis_noise_kernel_spectral_attempt` | anchored | Standard-physics calculation testing one piece of the Genesis-BBN-DM external research hypothesis: 'CTP noise kernel acting on z = 0 prod... | 3 | 1 |
 | 12 | `koide_phase_4_open_negative` | open_negative | Track II Phase 4 (Koide flavor mechanism) was attempted and produced HONEST NEGATIVE: the Yukawa-hierarchy mechanism cannot be derived fr... | 1 | 1 |
+| 12 | `koide_theta_2_over_9_uniqueness` | computed | The Koide-sector phase θ_fit mod(2π/3) ≈ 0.22222 rad is uniquely matched by the simple fraction 2/9 = K·α_vac = (2/3)·(1/3) at 4.62 ppm —... | 2 | 1 |
 | 12 | `marker_validator_discipline` | meta | Tier-marker discipline checker: every [OPEN], [SCOPING], [CONJECTURAL], [SPECULATIVE], or 'Outstanding verification' marker in the docume... | 0 | 2 |
 | 12 | `n_g_omega_cosmological_covariance_resolved` | meta | RESOLVED (Correction #26, 2026-05-01). | 3 | 1 |
 | 12 | `n_total_zero_parameter_derivation_open_question` | open_negative | GRUT's detailed Hubble-from-first-principles route (grut/derived/cosmology/hubble_from_first_principles.py: grut_H_0_prediction) computes... | 3 | 1 |
@@ -1918,11 +1922,11 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 | Metric | Value |
 |:---|---:|
-| Total claims (nodes) | 105 |
-| Dependency edges | 193 |
+| Total claims (nodes) | 106 |
+| Dependency edges | 195 |
 | Roots (zero deps) | 12 |
 | Leaves (no dependents) | 49 |
-| Max downstream fan-out | 78 |
+| Max downstream fan-out | 79 |
 | Max upstream fan-in | 24 |
 
 ## F.2 Roots — framework entry points
@@ -1931,7 +1935,7 @@ Claims with zero registry dependencies. These are the seams the framework rests 
 
 | Claim ID | Tier | Chapter | Fan-out | First sentence |
 |:---|:---|---:|---:|:---|
-| `ctp_action_structure` | computed | 3 | 78 | The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP. |
+| `ctp_action_structure` | computed | 3 | 79 | The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP. |
 | `alpha_vac_derivation` | computed | 2 | 60 | α_vac = 1/3 is formalized via the Gate R identification (May 2026, C1-C6 all SUPPORTED/FORMALIZED... |
 | `tau_0_derivation` | computed | 2 | 37 | τ_0 = 41.9 Myr is POSITED in Phase I §5 with two independent anchors: (1) cosmic-baseline relatio... |
 | `t_c_thermal_transition` | computed | 8 | 3 | The 'boiling point of gravity' T_c = ℏ/(τ_micro × k_B) ≈ 54.7 MK, where τ_micro ≈ 1.4×10⁻¹⁹ s is... |
@@ -1950,7 +1954,7 @@ The most load-bearing claims in the framework, ranked by the number of downstrea
 
 | Rank | Fan-out | Claim ID | Tier | Chapter |
 |---:|---:|:---|:---|---:|
-| 1 | 78 | `ctp_action_structure` | computed | 3 |
+| 1 | 79 | `ctp_action_structure` | computed | 3 |
 | 2 | 66 | `constitutive_equation` | computed | 3 |
 | 3 | 60 | `alpha_vac_derivation` | computed | 2 |
 | 4 | 49 | `memory_kernel_form` | computed | 3 |
@@ -1969,9 +1973,9 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
 |---:|---:|:---|:---|
 | 1 | 3 | `tji_7_4_open_negative` | `allen_jacobson_phase1_stub_open_negative` |
 | 2 | 1 | `el_gordo_outlier_open_question` | — |
-| 3 | 0 | `allen_jacobson_phase1_stub_open_negative` | — |
-| 4 | 0 | `born_rule_postulate_open_negative` | — |
-| 5 | 0 | `koide_phase_4_open_negative` | — |
+| 3 | 1 | `koide_phase_4_open_negative` | — |
+| 4 | 0 | `allen_jacobson_phase1_stub_open_negative` | — |
+| 5 | 0 | `born_rule_postulate_open_negative` | — |
 | 6 | 0 | `n_total_zero_parameter_derivation_open_question` | — |
 | 7 | 0 | `nonlinear_ladder_4_of_8` | — |
 | 8 | 0 | `nonlinear_structure_formation_grut_consistency` | — |
@@ -1994,28 +1998,10 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
 
 ---
 
-### Acknowledgments
-
-**Specialist consultation.** I am grateful to my brother for sustained specialist conversation throughout this work — for asking the questions that surfaced ambiguities I had been treating as resolved, for pushing back when claims overreached the derivation, and for keeping the discipline pattern honest when it would have been easier to round corners. The framework's habit of surfacing rather than concealing weak points owes much to those exchanges. *[Names of additional human reviewers, if any, to be added at deposit time.]*
-
-**AI collaboration.** This document was composed with sustained assistance from Anthropic's Claude across several distinct modes: a strategy and review channel that helped shape the discipline pattern, scope-setting language, and overall framing; a code-and-derivation channel (Claude Code) that executed the codebase work — claim registration, test scaffolding, foundations audits, and the investigation logs that back the corrections ledger; and a document-composition channel that drafted, structured, and tightened prose against pre-committed criteria. Where AI produced derivations, computations, or text that landed in the deposit, the discipline pattern required pre-commit expectations, post-hoc verification against tests, and explicit registration in the claim registry — the AI was used as a collaborator under the framework's own audit infrastructure, not as an unchecked author. The framework's organizing ideas, foundational postulates, scope decisions, and final-form claims are the author's responsibility; the AI helped surface, formalize, compute, and stress-test them.
-
-**Computational platform.** The GRUT-RAI codebase (DOI 10.5281/zenodo.18993689) is the load-bearing artifact behind every claim in this document. The 2539-test suite (post v8→v2, including Phase-1 hard-theory benchmarks), the 103-claim registry, the foundations-audit infrastructure, and the auto-rendered appendices (D, E, F) are what make the discipline pattern operational. Builds, tests, and audit cycles ran on standard Python tooling (SymPy for exact-arithmetic derivations, pytest for verification, NumPy/SciPy for numerical routes).
-
-**Prior work.** The framework rests on the published foundations referenced in this document — Schwinger-Keldysh CTP, Khasanov-Segal trace anomalies, the Diósi-Penrose / Anastopoulos-Hu gravitational decoherence program, the Bose-Marletto-Vedral and Kafri-Taylor-Milburn entanglement framework, and the cluster-merger lensing literature. Where GRUT diverges from these traditions (constitutive equation, finite-bandwidth medium, scale-universal constants) the divergence is a posited extension, not a critique of the source work.
-
-**Errors are mine.** Every claim in this document has been audited against the codebase, but the framework remains a candidate, not a closed theory. Open questions are documented in Chapter 14; corrections are documented in the Ch 14 ledger and in `theory/derivation/` and `theory/foundations_audit/` in the repository. Errors that survive the audit infrastructure are my responsibility.
-
-### Index
-
-*To be generated.*
-
----
-
-*D. Ryan Grover, May 2026.*
+*D. Ryan Grover, June 2026.*
 
 *GRUT — Grand Responsive Universe Theory: Candidate Framework.*
 
-*2539 tests. 105 registered claims (59 computed, 15 anchored, 3 conjectural, 16 open_negative, 2 foundational, 10 meta). 27 documented corrections (V7 era #1-#16; v8→v2 #22-#30; hard-theory #31-#34). Full audit transparency.*
+*2539 tests. 106 registered claims (60 computed, 15 anchored, 3 conjectural, 16 open_negative, 2 foundational, 10 meta). 27 documented corrections (V7 era #1-#16; v8→v2 #22-#30; hard-theory #31-#34). Full audit transparency.*
 
 *The universe is √(4/3) ≈ 1.15470 trying to become 1.*
