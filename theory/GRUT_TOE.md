@@ -1359,9 +1359,10 @@ This is the GRUT benchmark.
 |:---|:---|:---|:---|
 | 1 | Decoherence plateau experiment | Primary falsifier — validates or kills the framework | Active programs |
 | 2 | TJI on S⁴ (~3 weeks) | Stress test — Route 2 confirmation or honest negative | Near-term |
-| 3 | CTP Yukawa eigenvalue problem (Track II) | Fermion masses — the biggest open gap | Multi-session |
+| 3 | CTP Yukawa eigenvalue problem (Track II) | Fermion masses — the biggest open gap; θ = 2/9 uniqueness confirmed (June 2026), algebraic proof from S_CTP remains open | Multi-session |
 | 4 | Constitutive β-function correction (Track V) | Coupling unification — the 8.9% miss | 6-12 months |
-| 5 | CMB Boltzmann implementation (CLASS) | CMB-S4 falsifier — requires covariance closure first | 4-8 weeks specialist |
+| v4 gate | CMB Boltzmann implementation (CAMB/CLASS) | CMB-S4 falsifier — theoretical prerequisite satisfied (Correction #26); single `perturbations.c` change needed | 4-8 weeks specialist |
+| v5 gate | N-body simulation with μ_GRUT | Nonlinear structure formation consistency (`nonlinear_structure_formation_grut_consistency`); gated on v4 CAMB run | Multi-session to multi-year; N-body specialist |
 | 6 | Additional cluster merger observations | v × τ₀ scaling confirmation; El Gordo resolution | Ongoing observational |
 
 **V8 research tracks mapped to the ToE.** The V8 companion document organizes ongoing work by track. For specialists looking for the development organization behind this synthesis:
@@ -1380,7 +1381,7 @@ The ToE synthesizes results across tracks. The V8 document preserves the track-b
 
 **Predictions dashboard.** The companion document `GRUT_TOE_PREDICTIONS.md` (auto-generated from `grut/toe/dashboard.py`) lists all quantitative predictions in one artifact with values, observations, status glyphs, and falsification conditions. Status distribution: 17 consistent, 3 in tension (Ω_dm +27%, τ₀ cluster-cosmic +20%, El Gordo parameter-dependent), 0 definitively inconsistent, 4 untested, 2 scoping-tier, 1 rescaling-conditional (A_s). Every prediction has a registry back-link verified by passing tests. A specialist asking "what does GRUT predict?" starts there.
 
-*Registry claims: correction_ledger (meta), predictions_dashboard (meta), marker_validator_discipline (meta), derivation_index_appendix (meta), claim_registry_appendix (meta), dependency_graph_appendix (meta), koide_phase_4_open_negative (open_negative), path_f_translation_gap (open_negative), vorton_track_vii_open_negative (open_negative), allen_jacobson_phase1_stub_open_negative (open_negative), rho_max_scale_open_question (open_negative), el_gordo_outlier_open_question (open_negative), constitutive_projection_gravity_heuristic_open_question (open_negative), two_route_convergence_physical_equivalence_open_question (open_negative), track_v_coupling_unification_open_question (open_negative), n_g_omega_cosmological_covariance_open_question (open_negative), n_total_zero_parameter_derivation_open_question (open_negative), primordial_amplitude_zero_parameter_open_negative (open_negative), t_c_provenance_open_question (open_negative), neutrino_dirac_prediction (anchored)*
+*Registry claims: correction_ledger (meta), predictions_dashboard (meta), marker_validator_discipline (meta), derivation_index_appendix (meta), claim_registry_appendix (meta), dependency_graph_appendix (meta), koide_phase_4_open_negative (open_negative), path_f_translation_gap (open_negative), vorton_track_vii_open_negative (open_negative), allen_jacobson_phase1_stub_open_negative (open_negative), rho_max_scale_open_question (open_negative), el_gordo_outlier_open_question (open_negative), constitutive_projection_gravity_heuristic_open_question (open_negative), two_route_convergence_physical_equivalence_open_question (open_negative), track_v_coupling_unification_open_question (open_negative), n_g_omega_cosmological_covariance_open_question (open_negative), n_total_zero_parameter_derivation_open_question (open_negative), primordial_amplitude_zero_parameter_open_negative (open_negative), t_c_provenance_open_question (open_negative), nonlinear_structure_formation_grut_consistency (open_negative — v5 gate; gated on CMB Boltzmann v4 run), neutrino_dirac_prediction (anchored)*
 
 ---
 
