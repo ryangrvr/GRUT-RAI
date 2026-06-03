@@ -406,7 +406,7 @@ This is the self-referential principle from Chapter 1, now given mathematical fo
 
 **GRUT's interpretive scope: EFT organizing principle, not UV completion.** S_CTP is a formal unifying structure — a single action form that encodes CTP branch structure, dissipation/fluctuation duality, and KMS thermal constraint consistently at each scale. The framework's claim is not that S_CTP UV-generates all characteristic scales from a single fixed point. The claim is that one constitutive *structure* (dissipation/fluctuation duality, CTP branch topology, KMS constraint, fixed-point equation) is universal, while the *scales* at which that structure operates are anchored empirically at each EFT window. This makes GRUT an **EFT organizing principle**: the same constitutive architecture propagates consistently across the gravitational, thermal, and nuclear EFT windows, without introducing new free parameters beyond those anchored at each window's entry scale. The gravitational and thermal windows are the most developed (τ₀ and τ_micro as the respective anchors). The nuclear window is the open frontier: the QCD constitutive picture has independent experimental support (η′-mesic nucleus, Itahashi et al. PRL 2026), but the operator derivation — crossing the confinement scale from quark-gluon to nucleon-level EFT — is not yet complete. This is registered as open question #21 (`nuclear_operator_emergence_open_question`, Ch 12).
 
-The "zero free parameters" claim applies specifically and precisely to the **gravitational predictive core**: R = √(4/3), H₀ ≈ 69 km/s/Mpc, Ω_Λ ≈ 0.69, and the decoherence plateau all follow from two anchored inputs — τ₀ and α_vac = 1/3 — without additional free parameters. Of these: τ₀ = 41.9 Myr is observationally anchored (cosmic-baseline relation 1/(H₀ × 108π), cross-checked against the Bullet Cluster offset); α_vac = 1/3 is derived (Gate R: Weyl decomposition identifies σ as one real conformally-coupled scalar → Duff 1994 a/c = 1/3 — not a free parameter). The thermal sector adds an independently anchored parameter: τ_micro ≈ 1.4×10⁻¹⁹ s, defined via T_c = 54.7 MK as τ_micro = ℏ/(k_B T_c). The relation between τ₀ and τ_micro — 34 orders of magnitude apart — has been formally investigated and decided (June 2026, `grut/foundation/tau_hierarchy_decision.py`): all four candidate closure paths are non-viable. **Option B is the architectural decision**: the two scales are independently anchored, and GRUT is a multi-scale EFT. The honest parameter count is: one empirically anchored constant (τ₀) in the gravitational core, plus one independently anchored constant (τ_micro) in the thermal sector. Neither is arbitrary or freely tunable — both are anchored to observational data. The gravitational-core zero-parameter claim stands; the thermal sector is separately anchored and not derivable from the gravitational sector with current framework machinery.
+**Zero adjustable parameters — scope and meaning.** The "zero free parameters" claim applies specifically and precisely to the **gravitational predictive core**: R = √(4/3), H₀ ≈ 69 km/s/Mpc, Ω_Λ ≈ 0.69, and the decoherence plateau all follow from two anchored inputs — τ₀ and α_vac = 1/3 — without additional free parameters. Of these: τ₀ = 41.9 Myr is observationally anchored (cosmic-baseline relation 1/(H₀ × 108π), cross-checked against the Bullet Cluster offset); α_vac = 1/3 is derived (Gate R: Weyl decomposition identifies σ as one real conformally-coupled scalar → Duff 1994 a/c = 1/3 — not a free parameter). The thermal sector adds an independently anchored parameter: τ_micro ≈ 1.4×10⁻¹⁹ s, defined via T_c = 54.7 MK as τ_micro = ℏ/(k_B T_c). The relation between τ₀ and τ_micro — 34 orders of magnitude apart — has been formally investigated and decided (June 2026, `grut/foundation/tau_hierarchy_decision.py`): all four candidate closure paths are non-viable. **Option B is the architectural decision**: the two scales are independently anchored, and GRUT is a multi-scale EFT. The honest parameter count is: one empirically anchored constant (τ₀) in the gravitational core, plus one independently anchored constant (τ_micro) in the thermal sector. Neither is arbitrary or freely tunable — both are anchored to observational data. The gravitational-core zero-parameter claim stands; the thermal sector is separately anchored and not derivable from the gravitational sector with current framework machinery.
 
 This framing resolves an apparent oscillation in the framework's earlier language between "S_CTP generates all physics" (strong UV claim) and "S_CTP organizes consistent EFT windows" (EFT claim). Both descriptions appear in the V7 and v8 documents. The v3 resolution: S_CTP defines the universal constitutive *structure*; the *scales* are anchored empirically per window. The two descriptions are not in conflict — they were describing different aspects of the same framework without making the distinction explicit.
 
@@ -709,7 +709,28 @@ Max-min spread between the two non-negative routes: 0.089%. The two supporting r
 
 **Open seam.** The 3-loop anomaly-quotient value $R_{\rm anomaly} = 1.15428$ remains honest_negative (Chapter 14, open question #2). The Allen-Jacobson Phase-1 S⁴ propagator is implemented (Correction #31, May 2026); the remaining gate is the Mathematica/HypExp ε-expansion of the $[{}_2F_1(h_+,h_-;D/2;(1+Z)/2)]^3$ radial integral (`S4CurvatureObstacle`). Closing this gate would either reproduce 1.15428 (confirming the anomaly-quotient route as a consistency check on the canonical value) or rule it out further. Either outcome leaves the canonical $R = \sqrt{4/3}$ unchanged. [HONEST NEGATIVE]
 
-*Registry claims: r_canonical_path_g (computed — Gate R closed, constitutive/refractive route canonical), r_path_osborn_epsilon (computed — supporting), r_loop_corrected (open_negative/honest_negative — 3-loop anomaly-quotient route not reproduced in TJI Phase-0/0.5; retained as diagnostic), three_routes_convergence (computed — Path G + Osborn are load-bearing; anomaly-quotient is diagnostic), integer_provenance_traced (computed), tji_7_4_open_negative (open_negative), two_route_convergence_physical_equivalence_open_question (open_negative — Path G [zero couplings, IR conformal mode] and Osborn ε [measured SM couplings at M_Z] agree to 0.089% but the structural statement connecting them is not yet derived; the ZENODO_EPSILON_IDENTIFICATION.md document identifies a Gibbons-Hawking thermal-asymmetry mechanism on Euclidean S⁴ as a candidate bridge — that the GH forward/backward temperature split maps the IR conformal-mode susceptibility onto the UV gauge-coupling trace anomaly — but the derivation is not complete; closing this would promote three_routes_convergence from "remarkable empirical agreement" to "structural theorem")*
+**7.4 The V5 loop-suppressed EFT matrix and Christensen-Duff anchor** (Corrections #32–34, May 2026).
+
+The V4 RG cascade (9×9 mixing matrix) was diagnosed in Correction #32 as calibrated: the reported β_eff = 0.1215 had been back-solved from R_obs = 1.154 rather than independently derived. The matrix trace 1.32 ≠ the V4.3-stated eigenvalue sum 1.831; the dominant +2.28 eigenmode — which drove the original result — depended on off-diagonal elements that were structural estimates (0.45–0.92) with no first-principles justification.
+
+Correction #33 replaced the structural estimates with a first-principles anchor. Off-diagonal operator mixing is loop-mediated and must carry the one-loop suppression factor κ = 1/(16π²) ≈ 0.00633. Applying κ to all off-diagonal elements:
+- Dominant eigenvalue collapses: +2.2805 → +0.2203
+- Euler-channel projection on dominant mode drops: 0.322 → 0.0070
+- Euler channel becomes near-pure mode (projection 0.9688)
+- β_eff refines to 0.12293 — still 1.2% above target 0.1215
+
+The Christensen-Duff (1979) round-S⁴ Euler-anomaly sum for SM field content provides an independent first-principles anchor for the Euler diagonal: $\hat{a}_{\rm SM} = 1991/720$, giving $\hat{a}_{\rm SM}/(8\pi) = 0.11003$ — matching the structural estimate of 0.11 and confirming the diagonal's geometric origin.
+
+**The RHN falsification.** A concrete diagnostic emerged from this work. If the residual β_eff discrepancy were due to missing field content — specifically, right-handed neutrinos (RHN, N_F: 45 → 48 Weyl fermions) — then adding them should improve the R-fit. The test is clean: adding 3 RHN raises M_11 by +1.657% to 0.11185 and *worsens* the R-fit. RHN does not fix the gap. This clean falsification of the "RHN closes the discrepancy" hypothesis is implemented and pinned in `test_christensen_duff_anchor.py`. It rules out one entire class of candidate extensions to the field content.
+
+Correction #34 implemented three independent diagnostic gates to localize the residual discrepancy:
+- **Gate 1**: Normalization origin — the 8π vs 16π² ambiguity in the Christensen-Duff anchor. Two candidate geometric sources tested; neither closes the gap alone. The normalization origin is the load-bearing open sub-problem.
+- **Gate 2**: Sensitivity audit — $\partial\beta/\partial M_{ij}$ for all matrix elements. The off-diagonal Euler↔Gauge mixing term M[1,5] has sensitivity 10.8 (24× larger than the Euler diagonal). The problem is not in M_11 but in the loop-suppressed off-diagonals.
+- **Gate 2b**: Target inversion — a minimal R-target fix requires M_11 −3% OR κ −7% tightening. The residual discrepancy is a ~7% higher-order refinement in the loop-suppression factor and/or Seeley-DeWitt diagonal coefficients — not an architectural failure.
+
+The current scientific status of this work: the V5 matrix framework is a concrete first-principles QFT anchor for the anomaly-quotient route's matrix element M_11, with an identified residual normalization question. This is a significant improvement over the V4 calibrated result. It is not a proof of R — that derivation remains open question #20 — but it demonstrates that the anomaly-quotient route is connected to genuine S⁴ geometry rather than to post-hoc calibration.
+
+*Registry claims: r_canonical_path_g (computed — Gate R closed, constitutive/refractive route canonical), r_path_osborn_epsilon (computed — supporting), r_loop_corrected (open_negative/honest_negative — 3-loop anomaly-quotient route not reproduced in TJI Phase-0/0.5; retained as diagnostic), three_routes_convergence (computed — Path G + Osborn are load-bearing; anomaly-quotient is diagnostic), integer_provenance_traced (computed), tji_7_4_open_negative (open_negative), two_route_convergence_physical_equivalence_open_question (open_negative — Path G [zero couplings, IR conformal mode] and Osborn ε [measured SM couplings at M_Z] agree to 0.089% but the structural statement connecting them is not yet derived; the ZENODO_EPSILON_IDENTIFICATION.md document identifies a Gibbons-Hawking thermal-asymmetry mechanism on Euclidean S⁴ as a candidate bridge — that the GH forward/backward temperature split maps the IR conformal-mode susceptibility onto the UV gauge-coupling trace anomaly — but the derivation is not complete; closing this would promote three_routes_convergence from "remarkable empirical agreement" to "structural theorem"), v4_rg_cascade_calibration_honest_negative (computed — V4 calibration diagnosed), christensen_duff_anchor (computed — CD anchor for M_11), rhn_falsification (computed — RHN does not close gap)*
 
 ---
 
@@ -1209,6 +1230,8 @@ against the observed 6.1 × 10⁻¹⁰ (+8%). This is not a new v3 result — it
 - Fourth generation found → N = 3 uniqueness from Z₃ fails
 - Koide violated by precision lepton mass measurements → Z₃ identity fails
 - Graviton mass detected → massless graviton assumption fails
+
+**RHN falsification — a computed honest negative for field-content extensions.** The Christensen-Duff anomaly-quotient diagnostic (Ch 7, §7.4) produced one clean falsification of a candidate explanation. The residual 1.2% β_eff discrepancy (open question #20) was hypothesized to arise from missing field content — specifically right-handed neutrinos (RHN, N_F: 45 → 48 Weyl fermions). The test: does adding 3 RHN to the SM field content improve the R-fit? Result: adding RHN raises the Euler diagonal M_11 by +1.657% to 0.11185 and *worsens* the R-fit. RHN does not fix the gap. This rules out the specific hypothesis that the β_eff discrepancy is resolved by adding right-handed neutrinos. The test is pinned in `test_christensen_duff_anchor.py` and locked against regression. It is a clean falsification of that class of field-content extension, independent of whether RHN exist for other physical reasons (neutrino mass, seesaw mechanism).
 
 **What has been withdrawn or failed:**
 
@@ -2017,6 +2040,91 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
     └── blocked by → koide_phase_4_open_negative
 ```
 
+
+---
+
+# Back Matter
+
+## Acknowledgments
+
+This work was developed independently over multiple years. The framework draws on a broad intellectual tradition in theoretical physics: Schwinger and Keldysh for the closed-time-path formalism; Mori and Zwanzig for projection-operator techniques; Gibbons, Hawking, and Perry for Euclidean gravity on S⁴; Christensen and Duff for trace-anomaly coefficients; Allen and Jacobson for propagators on curved space; Osborn for local renormalization-group methods; Koide for the charged-lepton mass relation; Walecka for nuclear mean-field theory; and the Planck, PDG, and observational cosmology communities whose precision measurements provide the anchors. None of these authors is responsible for the present framework's claims or conclusions.
+
+The computational infrastructure was developed in Python with NumPy, SciPy, and Flask. The claim registry and automated appendices are original infrastructure. The GRUT-RAI codebase is available at the DOI given on the title page.
+
+## Key References
+
+The following publications are cited in the text or provide the experimental/theoretical foundations drawn upon. Full citations trace to the inline references in each chapter.
+
+**CTP / Schwinger-Keldysh formalism**
+- Schwinger, J. (1961). *Brownian motion of a quantum oscillator.* J. Math. Phys. 2, 407.
+- Keldysh, L. V. (1965). *Diagram technique for nonequilibrium processes.* JETP 20, 1018.
+- Calzetta, E. & Hu, B.-L. (2008). *Nonequilibrium Quantum Field Theory.* Cambridge University Press.
+
+**Euclidean gravity, trace anomalies, conformal modes**
+- Gibbons, G. W., Hawking, S. W., & Perry, M. J. (1978). *Path integrals and the indefiniteness of the gravitational action.* Nucl. Phys. B 138, 141.
+- Duff, M. J. (1994). *Twenty years of the Weyl anomaly.* Class. Quant. Grav. 11, 1387.
+- Christensen, S. M. & Duff, M. J. (1979). *Axial and conformal anomalies for arbitrary spin in gravity and supergravity.* Phys. Lett. B 76, 571.
+- Osborn, H. (2003). *Weyl consistency conditions and a local renormalization group equation for general renormalizable theories.* Nucl. Phys. B 363, 486. (hep-th/0302119)
+
+**Propagators on S⁴**
+- Allen, B. & Jacobson, T. (1986). *Vector two-point functions in maximally symmetric spaces.* Commun. Math. Phys. 103, 669.
+
+**Koide formula and flavor physics**
+- Koide, Y. (1983). *A fermion-boson composite model of quarks and leptons.* Phys. Lett. B 120, 161.
+- Particle Data Group (2022). *Review of Particle Physics.* Prog. Theor. Exp. Phys. 2022, 083C01.
+
+**Neutrino oscillations (NuFIT)**
+- Esteban, I., et al. (2020). *The fate of hints: updated global analysis of three-flavor neutrino oscillations.* JHEP 09, 178. (NuFIT 5.0)
+
+**Cosmological data**
+- Planck Collaboration (2020). *Planck 2018 results VI: Cosmological parameters.* A&A 641, A6.
+- DESI Collaboration (2024). *DESI 2024 VI: Cosmological constraints from the measurements of baryon acoustic oscillations.* arXiv:2404.03002.
+
+**Modified gravity EFT**
+- Bellini, E. & Sawicki, I. (2015). *Maximal freedom at minimum cost: linear large-scale structure in general modifications of gravity.* JCAP 07, 050.
+
+**Nuclear EFT**
+- Walecka, J. D. (1974). *A theory of highly condensed matter.* Ann. Phys. 83, 491.
+- Epelbaum, E., Hammer, H.-W., & Meissner, U.-G. (2009). *Modern theory of nuclear forces.* Rev. Mod. Phys. 81, 1773.
+
+**QCD vacuum responsiveness**
+- Itahashi, K., et al. (2026). *Evidence for η′-mesic nuclear bound states.* Phys. Rev. Lett. [GSI/Osaka collaboration, April 2026].
+
+**Cluster mergers**
+- Clowe, D., et al. (2006). *A direct empirical proof of the existence of dark matter.* ApJL 648, L109. [Bullet Cluster]
+
+**Decoherence and gravitational collapse models**
+- Bassi, A., et al. (2013). *Models of wave-function collapse, underlying theories, and experimental tests.* Rev. Mod. Phys. 85, 471.
+- Carlesso, M., et al. (2022). *Present status and future challenges of non-interferometric tests of collapse models.* Nat. Phys. 18, 243.
+
+## Index
+
+*Index entries are organized by concept. Page/section numbers reflect the chapter structure of this document.*
+
+**Key concepts:**
+- Case A structural proof: §9 (CMB, Boltzmann consistency)
+- Christensen-Duff anchor: §7.4
+- Constitutive equation: §3
+- CTP action (Schwinger-Keldysh): §3
+- Dark matter (dielectric interpretation): §9
+- EFT organizing principle: §3
+- Gate R (canonical R derivation): §7
+- Honest negatives: §12, §14
+- Hubble tension: §8
+- Koide identity (K = 2/3): §12.3a
+- Modified gravity (μ(k,a)): §9
+- Nuclear operator emergence: §12.3b
+- Open question ledger: §14
+- Option B (multi-scale EFT): §3
+- R = √(4/3): §7
+- Registry (claim tiers): Appendix D–F
+- RHN falsification: §12
+- τ₀ (gravitational relaxation time): §8
+- τ_micro (thermal relaxation time): §3
+- θ = 2/9 (Koide phase candidate): §12.3a
+- Two-route convergence: §7
+- V5 loop-suppressed EFT: §7.4
+- Zero free parameters (gravitational core): §3, §8
 
 ---
 
