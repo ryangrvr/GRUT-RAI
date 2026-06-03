@@ -4643,6 +4643,76 @@ REGISTRY: tuple[Claim, ...] = (
     ),
 
     Claim(
+        id="nuclear_operator_emergence_open_question",
+        chapter=12,
+        statement=(
+            "OPEN QUESTION (June 2026): Can GRUT's CTP constitutive "
+            "fixed-point structure generate the operator content of "
+            "nuclear EFT from first principles? The nuclear sector "
+            "uses well-defined operator classes: (1) one-pion exchange "
+            "(OPE) — the leading long-range nuclear force; (2) contact "
+            "operators organized by chiral order (χEFT); (3) Walecka "
+            "scalar (σ) + vector (ω) channels dominating nuclear "
+            "saturation; (4) spin-orbit coupling (responsible for "
+            "nuclear shell structure / magic numbers); (5) tensor "
+            "force (deuteron quadrupole moment). GRUT's constitutive "
+            "equation z* = z_target[z*] with SM field content imports "
+            "QCD (quark-gluon), and hence nuclear forces implicitly — "
+            "but the gap from quark-level CTP structure to nucleon-"
+            "level EFT operators is a non-perturbative QCD problem "
+            "that the framework does not currently bridge. The "
+            "specific question is whether CTP fixed-point analysis at "
+            "the nuclear binding scale (E_B ~ few MeV/nucleon, "
+            "characteristic scale Λ_QCD ~ 250 MeV) produces the "
+            "leading chiral-EFT operator classes generatively — as "
+            "eigenstates of dz_target/dz in the nucleon sector — or "
+            "whether these must remain imported. Experimental context: "
+            "the April 2026 η′-mesic nucleus result (Osaka/GSI, "
+            "Itahashi et al., PRL 2026) independently supports the "
+            "vacuum-as-responsive-medium picture in the QCD sector "
+            "(η′ mass decreases inside dense nuclear matter). This is "
+            "experimental support for the constitutive concept, but "
+            "does not close the nuclear-operator derivation."
+        ),
+        tier="open_negative",
+        refs=(
+            "grut/foundation/closure_protocol.py:ALPHA_VAC",
+            "grut/derived/flavor/koide_operator.py",
+            "theory/GRUT_TOE.md §12.3b",
+            "Walecka 1974 (σ-ω nuclear model)",
+            "Epelbaum et al. 2009 (Rev. Mod. Phys.) — chiral EFT nuclear forces",
+            "Itahashi et al. 2026 (PRL) — η′-mesic nucleus / QCD responsive medium",
+        ),
+        tests=(),
+        deps=("sm_emergence",),
+        falsifier=(
+            "Produce the leading nuclear EFT operators (OPE + leading "
+            "contact operators, or Walecka σ+ω channels) as eigenstates "
+            "of the CTP fixed-point Jacobian dz_target/dz at the nuclear "
+            "binding scale, with Λ_QCD as input but no additional free "
+            "parameters. A derivation of nuclear saturation density "
+            "ρ_0 ≈ 0.16 fm⁻³ and binding energy E_B/A ≈ −16 MeV from "
+            "CTP machinery alone would be the definitive closure."
+        ),
+        notes=(
+            "This is the GRUT ToE program's nuclear-sector gate. It is "
+            "distinct from the Yukawa-eigenvalue problem (koide_phase_4_"
+            "open_negative): that question is about deriving lepton masses "
+            "from a Z₃ fixed point; this question is about whether the "
+            "nuclear binding sector — a non-perturbative QCD regime — has "
+            "a constitutive description at the nucleon level. Both are "
+            "part of the SM Closure Program. The nuclear question is "
+            "potentially harder (requires crossing the confinement scale), "
+            "but progress in one does not preclude progress in the other. "
+            "The existing η′-mesic nucleus result (Itahashi et al. 2026) "
+            "confirms the vacuum-responsiveness concept experimentally in "
+            "the QCD sector — providing independent experimental motivation "
+            "for the GRUT-nuclear research direction without yet closing the "
+            "operator-derivation gate."
+        ),
+    ),
+
+    Claim(
         id="framework_axioms_locked",
         chapter=3,
         statement=(

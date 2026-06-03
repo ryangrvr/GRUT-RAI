@@ -404,7 +404,7 @@ The time derivative vanishes. τ₀ drops out. The fixed-point state is determin
 
 This is the self-referential principle from Chapter 1, now given mathematical form. The fixed point is the state that generates its own target. The dynamics are the relaxation toward it. Everything in GRUT — from quantum mechanics to the Hubble rate — is a sector-specific instance of this universal structure.
 
-**GRUT's interpretive scope: EFT organizing principle, not UV completion.** S_CTP is a formal unifying structure — a single action form that encodes CTP branch structure, dissipation/fluctuation duality, and KMS thermal constraint consistently at each scale. The framework's claim is not that S_CTP UV-generates all characteristic scales from a single fixed point. The claim is that one constitutive *structure* (dissipation/fluctuation duality, CTP branch topology, KMS constraint, fixed-point equation) is universal, while the *scales* at which that structure operates are anchored empirically at each EFT window. This makes GRUT an **EFT organizing principle**: the same constitutive architecture propagates consistently across the gravitational, thermal, and nuclear EFT windows, without introducing new free parameters beyond those anchored at each window's entry scale.
+**GRUT's interpretive scope: EFT organizing principle, not UV completion.** S_CTP is a formal unifying structure — a single action form that encodes CTP branch structure, dissipation/fluctuation duality, and KMS thermal constraint consistently at each scale. The framework's claim is not that S_CTP UV-generates all characteristic scales from a single fixed point. The claim is that one constitutive *structure* (dissipation/fluctuation duality, CTP branch topology, KMS constraint, fixed-point equation) is universal, while the *scales* at which that structure operates are anchored empirically at each EFT window. This makes GRUT an **EFT organizing principle**: the same constitutive architecture propagates consistently across the gravitational, thermal, and nuclear EFT windows, without introducing new free parameters beyond those anchored at each window's entry scale. The gravitational and thermal windows are the most developed (τ₀ and τ_micro as the respective anchors). The nuclear window is the open frontier: the QCD constitutive picture has independent experimental support (η′-mesic nucleus, Itahashi et al. PRL 2026), but the operator derivation — crossing the confinement scale from quark-gluon to nucleon-level EFT — is not yet complete. This is registered as open question #21 (`nuclear_operator_emergence_open_question`, Ch 12).
 
 The "zero free parameters" claim applies specifically and precisely to the **gravitational predictive core**: R = √(4/3), H₀ ≈ 69 km/s/Mpc, Ω_Λ ≈ 0.69, and the decoherence plateau all follow from two anchored inputs — τ₀ and α_vac = 1/3 — without additional free parameters. Of these: τ₀ = 41.9 Myr is observationally anchored (cosmic-baseline relation 1/(H₀ × 108π), cross-checked against the Bullet Cluster offset); α_vac = 1/3 is derived (Gate R: Weyl decomposition identifies σ as one real conformally-coupled scalar → Duff 1994 a/c = 1/3 — not a free parameter). The thermal sector adds an independently anchored parameter: τ_micro ≈ 1.4×10⁻¹⁹ s, defined via T_c = 54.7 MK as τ_micro = ℏ/(k_B T_c). The relation between τ₀ and τ_micro — 34 orders of magnitude apart — has been formally investigated and decided (June 2026, `grut/foundation/tau_hierarchy_decision.py`): all four candidate closure paths are non-viable. **Option B is the architectural decision**: the two scales are independently anchored, and GRUT is a multi-scale EFT. The honest parameter count is: one empirically anchored constant (τ₀) in the gravitational core, plus one independently anchored constant (τ_micro) in the thermal sector. Neither is arbitrary or freely tunable — both are anchored to observational data. The gravitational-core zero-parameter claim stands; the thermal sector is separately anchored and not derivable from the gravitational sector with current framework machinery.
 
@@ -1036,6 +1036,22 @@ The investigation log at `theory/derivation/LAMBDA_CONTACT_CTP_DERIVATION.md` do
 
 *Registry claims: koide_k_2_over_3 (computed), koide_z3_circulant_structure (computed), koide_theta_2_over_9_uniqueness (computed — uniqueness scan; CANDIDATE IDENTITY overall), charged_lepton_z3_does_not_extend_to_neutrinos (computed), neutrino_z3_coupling_a_equals_1_uniqueness_theorem (computed), neutrino_hierarchy_z3_nh_prediction (anchored — a_ν = 1 derived; M₀, θ free), koide_phase_4_open_negative (open_negative — flavor mechanism for M₀ and θ not derived)*
 
+**12.3b The nuclear sector — operator emergence gate.** GRUT's CTP backbone is stated at the field-theory level and imports the Standard Model as S_classical. The SM contains QCD, and QCD contains nuclear forces — so nuclear binding is implicit in the framework. The question is whether the CTP fixed-point structure can be made *generative* in the nuclear sector: can the operator content of nuclear EFT (the leading forces that hold nuclei together) be derived from first principles via the fixed-point equation z* = z_target[z*] at the nuclear binding scale?
+
+The nuclear sector is distinct from the Yukawa (lepton mass) gap in one important way: it requires crossing the confinement scale. The lepton mass problem starts above Λ_QCD with known SM operators and asks which eigenvalues the fixed point selects. The nuclear problem requires bridging from quark-gluon CTP structure to nucleon-level EFT operators — a non-perturbative transition that is among the hardest in theoretical physics. The gap is not conceptual (GRUT's constitutive picture of the vacuum as a responsive medium is *exactly* what nuclear EFT exploits), but technical.
+
+The specific operators that need to emerge generatively:
+- **One-pion exchange (OPE)**: the leading long-range nuclear force; emerges from the chiral symmetry of QCD in χEFT
+- **Walecka σ+ω channels**: scalar attraction + vector repulsion responsible for nuclear saturation (ρ₀ ≈ 0.16 fm⁻³, E_B/A ≈ −16 MeV)
+- **Spin-orbit coupling**: responsible for nuclear shell structure and magic numbers
+- **Tensor force**: responsible for the deuteron quadrupole moment and 3-nucleon forces
+
+*Experimental support for the direction*: the April 2026 η′-mesic nucleus result (Itahashi et al., PRL 2026) independently confirms that the QCD vacuum has constitutive properties — the η′ meson mass decreases inside dense nuclear matter, exactly as expected if the QCD vacuum responds to stress-energy density. This is experimental evidence for the vacuum-as-responsive-medium picture in the sector where it is best established. GRUT extends the same constitutive architecture from QCD to the gravitational vacuum.
+
+The nearest tractable entry point is the Walecka mean-field level: can the CTP fixed-point equation with a nucleon current and scalar/vector meson fields reproduce nuclear saturation without additional free parameters? That sub-problem is scoped as multi-session specialist work. Full chiral EFT derivation is multi-year / faculty-level. Until the operator derivation is complete, the nuclear sector remains *hosted* (implicit in QCD) rather than *generated* (derived from CTP fixed-point structure).
+
+*Registry claim: nuclear_operator_emergence_open_question (open_negative — Ch 12, gated on SM closure progress)*
+
 **12.4 The SM Closure Conjecture.**
 
 *The Standard Model is the minimal anomaly-stable fixed point of the CTP constitutive action. Its gauge group, chiral representations, generation count, and Yukawa structure arise as the lowest stable eigenstructure of the multi-field target operator z_target[z].*
@@ -1305,6 +1321,7 @@ The pattern across these entries: the framework treats every correction as an ad
 | 18 | (new) `phi_munu_frw_beyond_wkb_open_question` — beyond-WKB FRW correction | open (subleading) | Ch 12 | (H τ_0)² ≈ 10⁻⁶ correction; not load-bearing for current observables | Research-tier, deferred |
 | 19 | (new) `neutrino_z3_coupling_a_equals_1_uniqueness_theorem` — full KS-anomaly derivation of channel counting | open (interpretive) | Ch 12 | Show a²_ν = 1 vs a²_e = 2 follows from KS coefficients in Dirac-ν + EM-channel-absent sector | Research |
 | 20 | (new) `v4_rg_cascade_independent_matrix_derivation` — does the 9×9 RG beta-function matrix, derived from first-principles 2-loop curved-space anomaly calculations on S⁴, give Euler-channel eigenvalue ≈ 0.1215 without observational input? (Correction #32 diagnosed V4.3 as calibrated: β_eff back-solved from R_obs = 1.154; matrix trace 1.32 ≠ V4.3 eigenvalue sum 1.831) | open | Ch 7 | Three-step proof: (A) replace structural estimates with M_ij from S⁴ 2-loop Seeley-DeWitt/heat-kernel anomaly coefficients (Christensen & Duff 1979, Jack & Osborn 1990); (B) verify that Weyl² = 0 on S⁴ zeroes the non-topological off-diagonals M[Weyl-type, Euler], collapsing the Euler channel's projection onto the dominant +2.28 mode from |coeff|=0.322 to <0.01; (C) check that the topological sub-block eigenvalue refines from 0.1247 toward 0.1215 (≤1%). If all three hold, exp(M·t) acting on the Euler channel naturally produces R ≈ 1.154 with no observational input — formally deriving the macroscopic vacuum from the S⁴ geometry. Test harness already in place: `grut/derivation/euler/v4_matrix_resolution.py` (success criterion: `provenance == "independent"` and `error_percent < 1.0`). S⁴ geometric machinery available in `grut/derivation/tji/allen_jacobson.py` | Multi-month (curved-space QFT 2-loop beta functions) |
+| 21 | (new) `nuclear_operator_emergence_open_question` — can the CTP fixed-point structure z* = z_target[z*] generate the leading nuclear EFT operator content (OPE, Walecka σ+ω, spin-orbit, tensor) from first principles at the nuclear binding scale? The nuclear sector is currently *hosted* (implicit in QCD within S_classical) rather than *generated* (derived from the constitutive fixed-point equation). The confinement-scale crossing (quark-gluon → nucleon-level EFT) is the principal obstruction | open | Ch 12 | Nearest tractable entry: CTP fixed-point equation at Walecka mean-field level with nucleon current + σ/ω meson fields — can it reproduce nuclear saturation (ρ₀ ≈ 0.16 fm⁻³, E_B/A ≈ −16 MeV) without free parameters? Full chiral EFT derivation is deeper research. Experimental support exists: η′-mesic nucleus result (Itahashi et al. PRL 2026) confirms QCD-vacuum constitutive responsiveness | Multi-session (Walecka sub-problem) to multi-year (full χEFT) |
 
 Closure priority (by downstream fan-out): **Gate R is now CLOSED** (May 2026) — R = √(4/3) is canonical via Path G / constitutive-refractive route; this unlocks `r_canonical_path_g` and `h_inf_decomposition` independently of TJI. TJI (#2) is now a **diagnostic cross-check** on the anomaly-quotient route, not a gate for the canonical R. Its downstream claims are: `three_routes_convergence` (would become 3-way if TJI reproduces 1.15428) and diagnostic confirmation of the integer provenance. **Publication-facing priority ranking (post-Gate R):** (1) nonlinear gravity rungs 5-8, (2) full Boltzmann/CAMB/CLASS pipeline, (3) SM Yukawa/CKM/PMNS closure, (4) dark-sector normalization tensions, (5) TJI as diagnostic cross-check. The former Allen-Jacobson propagator blocker (#3) is **RESOLVED** (Correction #31, May 2026): Phase-1 propagator implemented, `tji_on_s4()` now raises `S4CurvatureObstacle`; the remaining gate for #2 is the Mathematica/HypExp ε-expansion of the [₂F₁]³ radial integral. The n_g(ω) covariance question (#9) blocks two downstream gaps: CMB falsifier promotion AND primordial A_s derivation (#14). Open question #20 (V4 matrix derivation, Corrections #32-#33) has fan-out 1: closing it upgrades the R = 1.1498 calibrated result to a computed prediction; the dominant sub-gate is now Euler-channel normalization origin on round S⁴. All other open negatives have fan-out 0–1.
 
@@ -1318,7 +1335,7 @@ This section is mechanically generated from the open-question ledger in the code
 | **2** | **Near-term experimental falsifiers** | (no open negatives — these are *active* falsifier targets, not gaps) | Decoherence plateau measured at gold benchmark; isotope-pair discriminator (³⁰Si/²⁸Si at 3.8% precision); BMV-class entanglement formation rate at sub-micron separation | Active experimental programs (5-15 yr) |
 | **3** | **Cosmological covariance closure** | #9 (n_g(ω) covariance), #14 (primordial A_s rescaling), perturbation-growth FAILS | Pick gauge-covariant n_g(ω) prescription; map to MG-EFT (μ(k,a), γ(k,a)); CLASS/CAMB implementation; resolve first-order growth-factor failure via second-order constitutive extension | Months — specialist cosmologist + Boltzmann-code work |
 | **4** | **Gravity completion (curved-space)** | #2 (TJI Euler-channel extraction), #3 (~~Allen-Jacobson propagator~~ **DONE** — Correction #31), #10 (constitutive projection Φ_μν heuristic), #11 (two-route convergence physical equivalence) | ~~Allen-Jacobson propagator built on S⁴~~ **DONE**; TJI: HypExp ε-expansion of [₂F₁]³ radial integral (Mathematica specialist); Φ_μν derived from δS_CTP/δh_μν rather than asserted | AJ propagator: **DONE** (May 2026); TJI ε-expansion: ~1-2 weeks Mathematica; Φ_μν: multi-month |
-| **5** | **Standard Model closure** | #5 (Koide Phase 4, no flavor mechanism), #6 (Path F translation gap), #12 (Track V coupling unification 8.9% miss) | At least one nontrivial Yukawa or mixing angle derived from CTP fixed-point machinery; β-function correction closes gauge-coupling unification | Multi-session to multi-year — particle-physics theorist work |
+| **5** | **Standard Model and nuclear closure** | #5 (Koide Phase 4, no flavor mechanism), #6 (Path F translation gap), #12 (Track V coupling unification 8.9% miss), #21 (nuclear operator emergence) | At least one nontrivial Yukawa or mixing angle derived from CTP fixed-point machinery; β-function correction closes gauge-coupling unification; Walecka σ+ω channels generatively derived at nuclear binding scale | Multi-session to multi-year — particle-physics / nuclear-physics theorist work |
 | **6** | **Nonlinear quantum-gravity** | #1 (nonlinear gravity ladder, 4/8 rungs), #7 (ρ_max scale), #8 (Vorton Track VII), perturbation growth (nonlinear closure) | Complete rungs 5-8 of the nonlinear constitutive ladder; tensor-mode stability; diffeomorphism closure at the constitutive level; non-perturbative fixed point | Multi-year program — quantum-gravity collaboration |
 
 **Reading the ladder.** Tier 1 is housekeeping — necessary to make the framework reviewable but adds no new physics. Tier 2 is what the framework *invites the experimental community to do* — these are GRUT's near-term falsifiers, and active experimental programs (MAQRO, matter-wave interferometry, BMV-class entanglement) are positioned to test them. Tier 3 is the next theoretical step that the framework can pursue under its current machinery, and it gates two open negatives plus the perturbation-growth failure simultaneously. Tier 4 closes the gravity-side seams. Note: TJI / Euler-channel coefficient extraction is now a **diagnostic cross-check** on the anomaly-quotient route, not a gate for the canonical R = √(4/3) — that value is closed via Gate R (Path G, constitutive/refractive). TJI resolving or not does not affect the canonical derivation. Tier 5 is the SM-derivation program. Tier 6 is the nonlinear quantum-gravity completion required for the framework to claim ToE status in the strong sense — it is the longest-horizon work, and its incompleteness is the framework's most explicit honest negative.
@@ -1381,7 +1398,7 @@ The ToE synthesizes results across tracks. The V8 document preserves the track-b
 
 **Predictions dashboard.** The companion document `GRUT_TOE_PREDICTIONS.md` (auto-generated from `grut/toe/dashboard.py`) lists all quantitative predictions in one artifact with values, observations, status glyphs, and falsification conditions. Status distribution: 17 consistent, 3 in tension (Ω_dm +27%, τ₀ cluster-cosmic +20%, El Gordo parameter-dependent), 0 definitively inconsistent, 4 untested, 2 scoping-tier, 1 rescaling-conditional (A_s). Every prediction has a registry back-link verified by passing tests. A specialist asking "what does GRUT predict?" starts there.
 
-*Registry claims: correction_ledger (meta), predictions_dashboard (meta), marker_validator_discipline (meta), derivation_index_appendix (meta), claim_registry_appendix (meta), dependency_graph_appendix (meta), koide_phase_4_open_negative (open_negative), path_f_translation_gap (open_negative), vorton_track_vii_open_negative (open_negative), allen_jacobson_phase1_stub_open_negative (open_negative), rho_max_scale_open_question (open_negative), el_gordo_outlier_open_question (open_negative), constitutive_projection_gravity_heuristic_open_question (open_negative), two_route_convergence_physical_equivalence_open_question (open_negative), track_v_coupling_unification_open_question (open_negative), n_g_omega_cosmological_covariance_open_question (open_negative), n_total_zero_parameter_derivation_open_question (open_negative), primordial_amplitude_zero_parameter_open_negative (open_negative), t_c_provenance_open_question (open_negative), nonlinear_structure_formation_grut_consistency (open_negative — v5 gate; gated on CMB Boltzmann v4 run), neutrino_dirac_prediction (anchored)*
+*Registry claims: correction_ledger (meta), predictions_dashboard (meta), marker_validator_discipline (meta), derivation_index_appendix (meta), claim_registry_appendix (meta), dependency_graph_appendix (meta), koide_phase_4_open_negative (open_negative), path_f_translation_gap (open_negative), vorton_track_vii_open_negative (open_negative), allen_jacobson_phase1_stub_open_negative (open_negative), rho_max_scale_open_question (open_negative), el_gordo_outlier_open_question (open_negative), constitutive_projection_gravity_heuristic_open_question (open_negative), two_route_convergence_physical_equivalence_open_question (open_negative), track_v_coupling_unification_open_question (open_negative), n_g_omega_cosmological_covariance_open_question (open_negative), n_total_zero_parameter_derivation_open_question (open_negative), primordial_amplitude_zero_parameter_open_negative (open_negative), t_c_provenance_open_question (open_negative), nonlinear_structure_formation_grut_consistency (open_negative — v5 gate; gated on CMB Boltzmann v4 run), nuclear_operator_emergence_open_question (open_negative — nuclear EFT operator derivation; crosses confinement scale), neutrino_dirac_prediction (anchored)*
 
 ---
 
@@ -1609,7 +1626,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 - **`constitutive_equation`** [computed] — The constitutive equation τ_0 dz/dt + z = z_target governs the medium's retarded relaxation toward its source.
   · *deps: 1 · tests: 2 · fan-out: 66 · upstream: `ctp_action_structure`*
 - **`ctp_action_structure`** [computed] — The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP.
-  · *deps: 0 · tests: 5 · fan-out: 79*
+  · *deps: 0 · tests: 5 · fan-out: 80*
 - **`framework_axioms_locked`** [computed] — Framework foundational invariants: Planck mass and fine-structure constant verified against CODATA; CTP Keldysh action invertibility (A0); intrinsic time scale τ_I = ℏ/2 (N0); noise kernel and cons...
   · *deps: 1 · tests: 1 · fan-out: 0 · upstream: `ctp_action_structure`*
 - **`memory_kernel_form`** [computed] — The retarded memory kernel is a single-pole exponential: K(t) = (1/τ_0) exp(−t/τ_0) Θ(t).
@@ -1645,7 +1662,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 - **`qm_recovery`** [computed] — Standard quantum mechanics is recovered from the constitutive equation in the τ → 0 limit, with the Newton-Raphson z_target constructed from the Schrödinger residual F[ψ] = iℏ ∂_t ψ − Hψ.
   · *deps: 1 · tests: 4 · fan-out: 0 · upstream: `constitutive_equation`*
 - **`sm_emergence`** [computed] — The Standard Model emerges as the unique minimal theory satisfying five CTP-derived constraints (V7 §15-§16): (C1) gauge structure SU(3)×SU(2)×U(1) → 12 gauge bosons; (C2) anomaly cancellation ΣY²...
-  · *deps: 1 · tests: 6 · fan-out: 12 · upstream: `ctp_action_structure`*
+  · *deps: 1 · tests: 6 · fan-out: 13 · upstream: `ctp_action_structure`*
 - **`sm_field_content_locked`** [computed] — Standard Model field counts are locked in code: 4 real scalars, 45 Weyl fermions (15 per generation × 3), 12 gauge bosons.
   · *deps: 2 · tests: 1 · fan-out: 3 · upstream: `sm_emergence`, `minus_100_drive`*
 
@@ -1801,7 +1818,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 *Auto-generated from `grut/toe/registry.py` via `python3 -m grut.toe.render_appendices`. The complete registry — every framework claim across every tier — in one reference table. Sorted by chapter then claim ID.*
 
-**Total: 106 claims** (15 anchored, 60 computed, 3 conjectural, 2 foundational, 10 meta, 16 open_negative).
+**Total: 107 claims** (15 anchored, 60 computed, 3 conjectural, 2 foundational, 10 meta, 17 open_negative).
 
 | Ch | Claim ID | Tier | Statement | Deps | Tests |
 |---:|:---|:---|:---|---:|---:|
@@ -1901,6 +1918,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 | 12 | `n_g_omega_cosmological_covariance_resolved` | meta | RESOLVED (Correction #26, 2026-05-01). | 3 | 1 |
 | 12 | `n_total_zero_parameter_derivation_open_question` | open_negative | GRUT's detailed Hubble-from-first-principles route (grut/derived/cosmology/hubble_from_first_principles.py: grut_H_0_prediction) computes... | 3 | 1 |
 | 12 | `neutrino_dirac_prediction` | anchored | GRUT predicts Dirac neutrinos as the empirically preferred variant: Path D Dirac (a/c = 1.15525) is closer to the canonical Path G value... | 2 | 1 |
+| 12 | `nuclear_operator_emergence_open_question` | open_negative | OPEN QUESTION (June 2026): Can GRUT's CTP constitutive fixed-point structure generate the operator content of nuclear EFT from first prin... | 1 | 0 |
 | 12 | `path_f_translation_gap` | open_negative | Path F (Im Γ on de Sitter) was investigated as an alternate route to V7's R = 1.15428. | 1 | 0 |
 | 12 | `phi_munu_frw_beyond_wkb_open_question` | open_negative | Phase 2D — beyond-WKB extension of χ_FRW(k, η). | 1 | 0 |
 | 12 | `predictions_dashboard` | meta | The framework's complete predictive surface is codified in 27 quantitative predictions across 7 categories (foundational constants, R, co... | 0 | 9 |
@@ -1923,11 +1941,11 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 | Metric | Value |
 |:---|---:|
-| Total claims (nodes) | 106 |
-| Dependency edges | 195 |
+| Total claims (nodes) | 107 |
+| Dependency edges | 196 |
 | Roots (zero deps) | 12 |
-| Leaves (no dependents) | 49 |
-| Max downstream fan-out | 79 |
+| Leaves (no dependents) | 50 |
+| Max downstream fan-out | 80 |
 | Max upstream fan-in | 24 |
 
 ## F.2 Roots — framework entry points
@@ -1936,7 +1954,7 @@ Claims with zero registry dependencies. These are the seams the framework rests 
 
 | Claim ID | Tier | Chapter | Fan-out | First sentence |
 |:---|:---|---:|---:|:---|
-| `ctp_action_structure` | computed | 3 | 79 | The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP. |
+| `ctp_action_structure` | computed | 3 | 80 | The framework is built on a single Closed Time Path (Schwinger-Keldysh) action S_CTP. |
 | `alpha_vac_derivation` | computed | 2 | 60 | α_vac = 1/3 is formalized via the Gate R identification (May 2026, C1-C6 all SUPPORTED/FORMALIZED... |
 | `tau_0_derivation` | computed | 2 | 37 | τ_0 = 41.9 Myr is POSITED in Phase I §5 with two independent anchors: (1) cosmic-baseline relatio... |
 | `t_c_thermal_transition` | computed | 8 | 3 | The 'boiling point of gravity' T_c = ℏ/(τ_micro × k_B) ≈ 54.7 MK, where τ_micro ≈ 1.4×10⁻¹⁹ s is... |
@@ -1955,7 +1973,7 @@ The most load-bearing claims in the framework, ranked by the number of downstrea
 
 | Rank | Fan-out | Claim ID | Tier | Chapter |
 |---:|---:|:---|:---|---:|
-| 1 | 79 | `ctp_action_structure` | computed | 3 |
+| 1 | 80 | `ctp_action_structure` | computed | 3 |
 | 2 | 66 | `constitutive_equation` | computed | 3 |
 | 3 | 60 | `alpha_vac_derivation` | computed | 2 |
 | 4 | 49 | `memory_kernel_form` | computed | 3 |
@@ -1980,20 +1998,23 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
 | 6 | 0 | `n_total_zero_parameter_derivation_open_question` | — |
 | 7 | 0 | `nonlinear_ladder_4_of_8` | — |
 | 8 | 0 | `nonlinear_structure_formation_grut_consistency` | — |
-| 9 | 0 | `path_f_translation_gap` | — |
-| 10 | 0 | `phi_munu_frw_beyond_wkb_open_question` | — |
-| 11 | 0 | `primordial_amplitude_zero_parameter_open_negative` | — |
-| 12 | 0 | `rho_max_scale_open_question` | — |
-| 13 | 0 | `tau_zero_to_tau_micro_relation_open_question` | — |
-| 14 | 0 | `track_v_coupling_unification_open_question` | — |
-| 15 | 0 | `two_route_convergence_physical_equivalence_open_question` | — |
-| 16 | 0 | `vorton_track_vii_open_negative` | — |
+| 9 | 0 | `nuclear_operator_emergence_open_question` | `koide_phase_4_open_negative` |
+| 10 | 0 | `path_f_translation_gap` | — |
+| 11 | 0 | `phi_munu_frw_beyond_wkb_open_question` | — |
+| 12 | 0 | `primordial_amplitude_zero_parameter_open_negative` | — |
+| 13 | 0 | `rho_max_scale_open_question` | — |
+| 14 | 0 | `tau_zero_to_tau_micro_relation_open_question` | — |
+| 15 | 0 | `track_v_coupling_unification_open_question` | — |
+| 16 | 0 | `two_route_convergence_physical_equivalence_open_question` | — |
+| 17 | 0 | `vorton_track_vii_open_negative` | — |
 
 ## F.5 Inter-gap blocking chains
 
 ```
   tji_7_4_open_negative
     └── blocked by → allen_jacobson_phase1_stub_open_negative
+  nuclear_operator_emergence_open_question
+    └── blocked by → koide_phase_4_open_negative
 ```
 
 
@@ -2003,6 +2024,6 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
 
 *GRUT — Grand Responsive Universe Theory: Candidate Framework.*
 
-*2539 tests. 106 registered claims (60 computed, 15 anchored, 3 conjectural, 16 open_negative, 2 foundational, 10 meta). 27 documented corrections (V7 era #1-#16; v8→v2 #22-#30; hard-theory #31-#34). Full audit transparency.*
+*2539 tests. 107 registered claims (60 computed, 15 anchored, 3 conjectural, 17 open_negative, 2 foundational, 10 meta). 27 documented corrections (V7 era #1-#16; v8→v2 #22-#30; hard-theory #31-#34). Full audit transparency.*
 
 *The universe is √(4/3) ≈ 1.15470 trying to become 1.*

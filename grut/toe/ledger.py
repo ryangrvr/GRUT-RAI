@@ -541,6 +541,41 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
         blocked_by=(),
         last_review="2026-06-02",
     ),
+
+    LedgerEntry(
+        claim_id="nuclear_operator_emergence_open_question",
+        closure_condition=(
+            "Produce the leading nuclear EFT operators — specifically "
+            "one-pion exchange (OPE) and the leading Walecka σ+ω "
+            "channels — as eigenstates of the CTP fixed-point Jacobian "
+            "dz_target/dz at the nuclear binding scale, with Λ_QCD as "
+            "input and no additional free parameters. The definitive "
+            "closure test is deriving nuclear saturation density "
+            "ρ_0 ≈ 0.16 fm⁻³ and binding energy E_B/A ≈ −16 MeV "
+            "from CTP constitutive machinery. The pre-requisite step "
+            "is specifying F_spatial and F_temporal for the nucleon "
+            "sector (analogous to the Koide sector gap) — a CTP "
+            "fixed-point equation at the nuclear scale with nucleon "
+            "degrees of freedom has not yet been written down."
+        ),
+        closure_effort=(
+            "Multi-year research program. Requires non-perturbative "
+            "QCD machinery (or nuclear EFT matching) to bridge from "
+            "quark-gluon CTP structure to nucleon-level EFT operators. "
+            "This crosses the confinement scale, which is among the "
+            "hardest transitions in all of theoretical physics. The "
+            "nearest tractable entry point is likely the Walecka σ+ω "
+            "model at mean-field level: can the CTP fixed-point "
+            "condition with a nucleon current j_N and scalar/vector "
+            "meson fields reproduce nuclear saturation at the "
+            "Hartree-Fock level? That sub-problem is multi-session "
+            "specialist work. Full chiral EFT derivation is "
+            "multi-year / faculty-level."
+        ),
+        affects=(),
+        blocked_by=("koide_phase_4_open_negative",),
+        last_review="2026-06-03",
+    ),
 )
 
 
