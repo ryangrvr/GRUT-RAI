@@ -45,7 +45,7 @@ If S_CTP is wrong, everything fails. If τ₀ is wrong, decoherence and cosmolog
 
 **How to read this table.** *"Survives independently"* names what residual content remains usable if the listed claim fails. For most links, **nothing in the spine survives** — meaning the framework is a tightly coupled chain, not a loosely linked collection. This is both a strength (one mechanism explains many regimes) and an exposed flank (one wrong link disconnects multiple sectors). The branches at the end (QM, decoherence, cosmology, dark sector, observer, cluster mergers) survive their predecessors when treated as standalone parameter-fit models — but lose their zero-parameter / cross-sector status. **The framework's distinctiveness lives in the chain.** Without the chain, GRUT is six unrelated phenomenological models with shared symbols. With the chain, GRUT is one viscoelastic medium evaluated at six scales.
 
-**Candidate, not completed.** GRUT is presented as a *candidate* Theory of Everything because the chain above gives one mechanism across many regimes. The v8→v2 synthesis (Corrections #22–#30, May 2026) closed several research packages that the original v8 deposit left open: (a) the gravitational constitutive projection Φ_μν is now DERIVED from δS_CTP/δh_a at the linearized level (Correction #23), with a covariant curved-background scaffold (Correction #24) and an explicit FRW result χ_FRW(k, η) (Correction #25); (b) the n_g(ω) cosmological-perturbation covariance is CLOSED via the modified-gravity EFT-of-dark-energy mapping μ_GRUT(k, a) = n_g²(k, a), γ_GRUT = 1 (Correction #26); (c) the modified linear growth equation has been integrated and shows σ_8-scale unchanged at 0.09% (does NOT break the S_8 tension), large scales boosted as testable signal (Correction #27); (d) one Standard Model prediction — neutrino hierarchy — is derived: NH preferred, Σm_ν ≈ 60 meV, with a_ν = 1 derived as the unique boundary-degenerate Z₃ coupling (Corrections #28-#29); (e) the (\tau)-cleanup foundational dimensional bug is closed via the two-τ-scale convention τ₀ vs τ_micro (Correction #22). What REMAINS open and gates ToE-completion: (i) the curved-background explicit construction of P^TT,g and G^R on FRW/S⁴ (Phase 2C explicit, sharper successor of the original Φ_μν open question); (ii) the full Boltzmann pipeline (CAMB/CLASS modification with μ_GRUT) to produce explicit P(k), C_ℓ predictions — theoretically unblocked but a downstream computational task; (iii) the constitutive perturbation-growth FAILURE at first order (D = 1.0 vs ~3375 required), requiring second-order / nonlinear-ladder extension (currently 4/8 rungs); (iv) the rest of Standard Model closure beyond the neutrino sector — Yukawa eigenproblem for charged leptons & quarks, CKM/PMNS angles, Higgs potential closure (the SM is still *hosted* as S_classical except for the neutrino hierarchy now derived); (v) the nonlinear quantum-gravity ladder beyond rungs 5-8. Until these residual open packages close, GRUT remains a candidate framework with rigorous claim governance, near-term falsifiers (collected in `theory/GRUT_FALSIFIER_PAPER.md`), and explicit acknowledgment of remaining open seams. The reader's job is to evaluate the chain on its merits *and* the gaps on theirs. The framework's commitment is to keep both visible.
+**Candidate, not completed.** GRUT is presented as a *candidate* Theory of Everything because the chain above gives one mechanism across many regimes. The v8→v2 synthesis (Corrections #22–#30, May 2026) closed several research packages that the original v8 deposit left open: (a) the gravitational constitutive projection Φ_μν is now DERIVED from δS_CTP/δh_a at the linearized level (Correction #23), with a covariant curved-background scaffold (Correction #24) and an explicit FRW result χ_FRW(k, η) (Correction #25); (b) the n_g(ω) cosmological-perturbation covariance is CLOSED via the modified-gravity EFT-of-dark-energy mapping μ_GRUT(k, a) = n_g²(k, a), γ_GRUT = 1 (Correction #26); (c) the modified linear growth equation has been integrated and shows σ_8-scale unchanged at 0.09% (does NOT break the S_8 tension), large scales boosted as testable signal (Correction #27); (d) one Standard Model prediction — neutrino hierarchy — is derived: NH preferred, Σm_ν ≈ 60 meV, with a_ν = 1 derived as the unique boundary-degenerate Z₃ coupling (Corrections #28-#29); (e) the (\tau)-cleanup foundational dimensional bug is closed via the two-τ-scale convention τ₀ vs τ_micro (Correction #22). What REMAINS open and gates ToE-completion: (i) the curved-background explicit construction of P^TT,g and G^R on FRW/S⁴ (Phase 2C explicit, sharper successor of the original Φ_μν open question); (ii) the full Boltzmann pipeline (CAMB/CLASS modification with μ_GRUT) to produce explicit P(k), C_ℓ predictions — theoretically unblocked but a downstream computational task; (iii) the constitutive perturbation-growth D=1.0 failure is DIAGNOSED as a CLOSURE PROBLEM (June 2026, `constitutive_growth_poisson_closure`): the decoupled constitutive equation gives D ≈ 1 (no structure formation); the Poisson closure k²Φ = −4πG μ_GRUT a² ρ̄_m δ_m (borrowed from Correction #26) gives D_ΛCDM ≈ 2626 at the σ_8 scale correctly; remaining open: deriving the Poisson closure from S_CTP (∂²S_CTP/∂σ∂ρ_m, `constitutive_growth_poisson_closure_gap`); CAMB/CLASS v4 gate NOT blocked; (iv) the rest of Standard Model closure beyond the neutrino sector — Yukawa eigenproblem for charged leptons & quarks, CKM/PMNS angles, Higgs potential closure (the SM is still *hosted* as S_classical except for the neutrino hierarchy now derived); (v) the nonlinear quantum-gravity ladder beyond rungs 5-8. Until these residual open packages close, GRUT remains a candidate framework with rigorous claim governance, near-term falsifiers (collected in `theory/GRUT_FALSIFIER_PAPER.md`), and explicit acknowledgment of remaining open seams. The reader's job is to evaluate the chain on its merits *and* the gaps on theirs. The framework's commitment is to keep both visible.
 
 **What is still missing for full ToE status.** The framework is a candidate, not a completed theory. The table below names the load-bearing gaps honestly:
 
@@ -82,7 +82,7 @@ The Hubble rate is the terminal velocity of the vacuum. The S⁴ conformal-mode 
 
 The framework describes the observer as much as the observed. The scaling law Λ_grav = Gm²S(l/R)/(ℏl) applies equally to the measurer and the measured. Classical definiteness is not a postulate — it is the condition Λ_grav τ₀ ≫ 1, satisfied by every atom in the observer's body. The measurement problem dissolves because the apparatus is on one side of the crystalline boundary only because its Gm² puts it there.
 
-This document presents the complete framework in fourteen chapters: what the universe is, what the medium is, what the equation is, how reality divides into crystal and fluid, what physics is recovered, how gravity works, what the constant R means, why the universe expands, what the dark sector is, why time flows forward, what the observer is, what the SM closure program requires, the history of the universe in GRUT, and what would kill the theory. Every claim traces to a tested function in the GRUT-RAI codebase (2782 tests, 107 registered claims, DOI: 10.5281/zenodo.18993689). Every failure, retraction, and honest negative is documented; nothing is fitted away. The companion V7 document (175 pages, 17 appendices) provides the full technical derivations.
+This document presents the complete framework in fourteen chapters: what the universe is, what the medium is, what the equation is, how reality divides into crystal and fluid, what physics is recovered, how gravity works, what the constant R means, why the universe expands, what the dark sector is, why time flows forward, what the observer is, what the SM closure program requires, the history of the universe in GRUT, and what would kill the theory. Every claim traces to a tested function in the GRUT-RAI codebase (2816 tests, 109 registered claims, DOI: 10.5281/zenodo.18993689). Every failure, retraction, and honest negative is documented; nothing is fitted away. The companion V7 document (175 pages, 17 appendices) provides the full technical derivations.
 
 ---
 
@@ -108,7 +108,7 @@ This deposit version extends the v8 framework with nine focused corrections (Cor
 
 **What this update preserves.** All v8 numerical predictions are unchanged. T_c = 54.7 MK preserved exactly. α_vac = 1/3 inherits unchanged. τ₀ = 41.9 Myr unchanged. R = √(4/3) unchanged. All decoherence and dark-sector predictions stand intact.
 
-**What remains open.** The framework's most exposed flanks remain: the constitutive perturbation-growth FAILURE at first order (D = 1.0 vs observationally required ~3375 — a computed negative, not an open derivation, requiring nonlinear extension); the nonlinear gravity ladder rungs 5-8; the Standard Model closure (Yukawas, mixing angles, Higgs); the TJI Euler-channel coefficient extraction (the Allen-Jacobson Phase-1 S⁴ propagator is now implemented — the remaining gate is the Mathematica/HypExp ε-expansion of the ₂F₁³ radial integral, `S4CurvatureObstacle`, guarded by `euler_coefficient_landing.py` and `HYPEXP_TARGET_NOTEBOOK.ipynb`; this is a diagnostic cross-check for the R_anomaly honest-negative track, not a gate for the canonical R = √(4/3)); the V4 RG cascade first-principles derivation (Corrections #32-#34 established the loop-suppressed framework and identified that the residual 1.2% β_eff discrepancy is a higher-order refinement issue, not an architectural failure; open question #20 now separates into three independent research gates: (a) geometric origin of the 8π normalization factor in the Christensen-Duff anchor, (b) 2-loop Seeley-DeWitt refinement for off-diagonal operator mixing on S⁴, (c) 3-loop Euler-quotient coefficient extraction); the full-Boltzmann CMB pipeline implementation (theoretically unblocked by Correction #26 but a downstream computational task). These remain in the framework's honest-negative roster.
+**What remains open.** The framework's most exposed flanks remain: the constitutive perturbation-growth D=1.0 failure is DIAGNOSED as a CLOSURE PROBLEM (June 2026): the decoupled constitutive equation gives D ≈ 1; the Poisson closure (borrowed from Correction #26) gives D_ΛCDM ≈ 2626; remaining open work: derive Poisson closure from S_CTP (`constitutive_growth_poisson_closure_gap`); does NOT block CAMB/CLASS v4 gate; the nonlinear gravity ladder rungs 5-8; the Standard Model closure (Yukawas, mixing angles, Higgs); the TJI Euler-channel coefficient extraction (the Allen-Jacobson Phase-1 S⁴ propagator is now implemented — the remaining gate is the Mathematica/HypExp ε-expansion of the ₂F₁³ radial integral, `S4CurvatureObstacle`, guarded by `euler_coefficient_landing.py` and `HYPEXP_TARGET_NOTEBOOK.ipynb`; this is a diagnostic cross-check for the R_anomaly honest-negative track, not a gate for the canonical R = √(4/3)); the V4 RG cascade first-principles derivation (Corrections #32-#34 established the loop-suppressed framework and identified that the residual 1.2% β_eff discrepancy is a higher-order refinement issue, not an architectural failure; open question #20 now separates into three independent research gates: (a) geometric origin of the 8π normalization factor in the Christensen-Duff anchor, (b) 2-loop Seeley-DeWitt refinement for off-diagonal operator mixing on S⁴, (c) 3-loop Euler-quotient coefficient extraction); the full-Boltzmann CMB pipeline implementation (theoretically unblocked by Correction #26 but a downstream computational task). These remain in the framework's honest-negative roster.
 
 
 For the full chain of corrections including #1-#21 (V7 development era) plus the v8→v2 nine, see Chapter 14's extended ledger.
@@ -201,6 +201,8 @@ This update converts the v2 (Gate R Edition) theoretical infrastructure into a s
 
 ## Part I — Foundation
 
+<div style="page-break-before: always;"></div>
+
 # Chapter 1 — The Universe
 
 *What the universe is. The foundational claim.*
@@ -267,9 +269,11 @@ The first sentence is the physical picture. The second is the dynamical picture.
 | **τ_micro (thermal sector timescale)** | **ℏ/(k_B × T_c) ≈ 1.4×10⁻¹⁹ s** | — | **Anchored to T_c = 54.7 MK cosmological-chronology pin** | **Anchored (Correction #22)** | **2** |
 | **0νββ signal (Dirac-ν posture)** | **No signal predicted** | **Not detected** | **nEXO/KamLAND-Zen non-detection consistent** | **Anchored** | **12** |
 
-*Registry claims: closed_universe (foundational), fixed_point_principle (foundational), one_space_endpoint (conjectural), mg_eft_mu_gamma_mapping (computed, Correction #26), modified_linear_growth_first_look (computed, Correction #27), neutrino_hierarchy_z3_nh_prediction (anchored, Correction #28), neutrino_z3_coupling_a_equals_1_uniqueness_theorem (computed, Correction #29), phi_munu_linearized_derivation (computed, Correction #23), phi_munu_curved_background_scaffold (anchored, Correction #24), phi_munu_frw_explicit_construction (computed, Correction #25), falsifier_paper_six_near_term_tests (meta, Correction #30)*
+*Registry claims: closed_universe (foundational), fixed_point_principle (foundational), one_space_endpoint (conjectural), mg_eft_mu_gamma_mapping (computed, Correction #26), modified_linear_growth_first_look (computed, Correction #27), neutrino_hierarchy_z3_nh_prediction (anchored, Correction #28), neutrino_z3_coupling_a_equals_1_uniqueness_theorem (computed, Correction #29), phi_munu_linearized_derivation (computed, Correction #23), phi_munu_curved_background_scaffold (anchored, Correction #24), phi_munu_frw_explicit_construction (computed, Correction #25), falsifier_paper_six_near_term_tests (meta, Correction #30), constitutive_growth_poisson_closure (computed, June 2026), constitutive_growth_poisson_closure_gap (open_negative, June 2026)*
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Chapter 2 — The Medium
 
@@ -334,6 +338,8 @@ The closure principle from Chapter 1 — *no privileged outside positions, no co
 *Registry claims: tau_0_derivation (computed), alpha_vac_derivation (computed), refractive_index (computed), screening_108pi (computed), mond_a0 (computed), critical_temperature (computed), tau_0_cross_consistency (computed), t_c_provenance_inconsistency_resolved (resolved — Correction #22 two-τ-scale convention), correction_ledger (meta)*
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Chapter 3 — The Equation
 
@@ -413,6 +419,8 @@ This framing resolves an apparent oscillation in the framework's earlier languag
 *Registry claims: ctp_action_structure (computed), constitutive_equation (computed), memory_kernel_form (computed), framework_axioms_locked (computed)*
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Chapter 4 — The Crystal and the Fluid
 
@@ -504,6 +512,8 @@ This is specifically the regime evolution for atomic-scale perturbations. Differ
 
 ## Part II — Recovered Physics and the Backbone
 
+<div style="page-break-before: always;"></div>
+
 # Chapter 5 — Recovered Physics
 
 *What the framework reproduces when you supply the Standard Model.*
@@ -572,6 +582,8 @@ The decoherence plateau tests the absolute coupling magnitude. The isotope discr
 
 ---
 
+<div style="page-break-before: always;"></div>
+
 # Chapter 6 — Gravity
 
 *How GR is recovered. Where it breaks. What replaces the singularity.*
@@ -626,6 +638,8 @@ Every black hole has the same maximum interior density, regardless of mass. Larg
 *Registry claims: gr_recovery (computed), graviton_propagator (computed), nonlinear_ladder_4_of_8 (open_negative), r_max_ricci_saturation (computed), rho_max_universal (computed), bh_information_partial (anchored)*
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Chapter 7 — The Constant R
 
@@ -734,6 +748,8 @@ The current scientific status of this work: the V5 matrix framework is a concret
 
 ---
 
+<div style="page-break-before: always;"></div>
+
 # Chapter 8 — The Terminal Velocity
 
 *Why the universe expands. The strongest result in the framework.*
@@ -787,6 +803,8 @@ The two routes agree at 0.3% — a structural cross-check. Both sit in the Hubbl
 *Registry claims: minus_100_drive (computed), conformal_instability_identification (anchored), h_inf_terminal_velocity (computed), omega_lambda_computed (computed), h_0_one_parameter (computed), bridge_parameter_cross_sector (computed)*
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Chapter 9 — The Dark Sector
 
@@ -896,9 +914,11 @@ All four factors determined from SM anomaly coefficients. Route 1: η_B = 6.56 �
 
 **MOND-like phenomenology.** The MOND acceleration scale a₀ = cH₀/(2π) ≈ 1.2 × 10⁻¹⁰ m/s² emerges naturally as the acceleration where the constitutive response becomes significant. GRUT reproduces MOND phenomenology at galactic scales but differs from MOND in three testable ways: (1) GRUT predicts GW propagation at c (MOND/TeVeS doesn't necessarily); (2) GRUT has a frequency-dependent transition (MOND has an acceleration-dependent one); (3) at high frequency and low acceleration, GRUT predicts GR behavior where MOND predicts modification.
 
-*Registry claims: omega_dm_equals_alpha (computed), dielectric_dm_reframing (computed), dark_sector_u1_extension (computed), kibble_zurek_dm_route (computed), baryogenesis_eta_b (computed), mond_a0 (computed), cluster_merger_scaling_law (anchored), cluster_merger_internal_scaling_residual (computed), cmb_boltzmann_scoping (anchored), cmb_boltzmann_case_a_structural (computed), cluster_tau_0_sensitivity_diagnostic (computed), cluster_tau_0_dec_ratio_degeneracy (computed), el_gordo_sensitivity_analysis (computed), nonlinear_structure_formation_grut_consistency (open_negative)*
+*Registry claims: omega_dm_equals_alpha (computed), dielectric_dm_reframing (computed), dark_sector_u1_extension (computed), kibble_zurek_dm_route (computed), baryogenesis_eta_b (computed), mond_a0 (computed), cluster_merger_scaling_law (anchored), cluster_merger_internal_scaling_residual (computed), cmb_boltzmann_scoping (anchored), cmb_boltzmann_case_a_structural (computed), cluster_tau_0_sensitivity_diagnostic (computed), cluster_tau_0_dec_ratio_degeneracy (computed), el_gordo_sensitivity_analysis (computed), nonlinear_structure_formation_grut_consistency (open_negative), constitutive_growth_poisson_closure (computed), constitutive_growth_poisson_closure_gap (open_negative)*
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Chapter 10 — Time and Information
 
@@ -943,6 +963,8 @@ A specific logarithmic correction coefficient to BH entropy is predicted by the 
 *Registry claims: arrow_of_time_from_entropy (computed), bh_information_partial (anchored)*
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Chapter 11 — The Observer
 
@@ -1009,6 +1031,8 @@ The investigation log at `theory/derivation/LAMBDA_CONTACT_CTP_DERIVATION.md` do
 ---
 
 ## Part III — The Frontier
+
+<div style="page-break-before: always;"></div>
 
 # Chapter 12 — The Standard Model Closure Program
 
@@ -1100,6 +1124,8 @@ Each milestone is independently valuable. Each is scoped. None requires solving 
 
 ---
 
+<div style="page-break-before: always;"></div>
+
 # Chapter 13 — The History of the Universe in GRUT
 
 *Cosmic history from null fixed point to asymptotic 1 Space.*
@@ -1165,6 +1191,8 @@ The cosmic web — filaments, nodes, voids — is crystallized gravitational mem
 *Cross-chapter claims surfaced in this narrative: `bbn_thermal_buffer_negligible` (Ch 12, anchored — BBN cooling-buffer falsification); `genesis_noise_kernel_spectral_attempt` (Ch 12, anchored — Genesis Claim 1 spectrum-shape falsification); `cosmic_x_crossover_prediction` (Ch 4, computed — X = H τ₀ = 1 at z ≈ 71 for atomic-scale perturbations); `primordial_amplitude_zero_parameter_open_negative` (Ch 12, open negative — rescaling-conditional finding documented in 13.2); `t_c_provenance_inconsistency_resolved` (Ch 12, resolved — Correction #22 two-τ-scale convention; referenced in 13.4-13.5).*
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Chapter 14 — Falsification and Open Ledger
 
@@ -1240,7 +1268,7 @@ against the observed 6.1 × 10⁻¹⁰ (+8%). This is not a new v3 result — it
 - Running τ_eff from CTP: overshoots by 10¹²⁶
 - DM via Coleman nucleation: S_E ~ 10¹³, zero nucleation
 - DM via Kibble mechanism: defect density ~ 10⁻⁷⁰ m⁻³
-- **Constitutive perturbation growth at first order: FAILS.** The first-order constitutive equation predicts homogeneous FLRW expansion with growth factor D = 1.0 against the observationally required ~3375. First-order constitutive corrections cannot produce Jeans instability — this requires second-order / nonlinear extension. This is a computed negative, not an open derivation gap. Closure path: same as open negative #1 (nonlinear gravity ladder, rungs 5-8) — second-order constitutive coupling to perturbation theory, plus the n_g(ω) covariance closure (open negative #9). Until both close, GRUT does not produce structure formation in the cosmological-perturbation sector. This is one of the framework's most exposed flanks; a deposit-readiness reviewer should see it surfaced explicitly.
+- **Constitutive perturbation growth D=1.0: DIAGNOSED as CLOSURE PROBLEM (June 2026).** The decoupled constitutive equation (τ₀ d(δΦ)/dt + (1−λ_vac)δΦ = 0, no matter sourcing) gives D_absolute ≈ 1 — zero structure formation. This is not an unexplained failure: it is a *closure problem*. The decoupled system is missing the Poisson source k²Φ = −4πG μ_GRUT(k,a) a² ρ̄_m δ_m. Adding the Poisson closure (borrowed from Correction #26, EFT-of-dark-energy mapping) gives the correct result: D_ΛCDM ≈ 2626 at the σ_8 scale (dark energy suppresses the pure-matter-domination value of 3333 by ~21%). Scale-dependent GRUT enhancement above ΛCDM: f_GRUT ≈ 1.0009 (σ_8), 1.085 (BAO), 2.024 (CMB low-ℓ), 2.348 (CMB horizon). The quasi-static limit is valid: τ₀ H₀ ≈ 0.003 ≪ 1. Remaining open work: derive the Poisson closure from S_CTP (the matter-gravity CTP coupling vertex ∂²S_CTP/∂σ∂ρ_m, `constitutive_growth_poisson_closure_gap`); until derived, the Poisson closure is borrowed from Correction #26. CAMB/CLASS v4 gate is NOT blocked by this open question. Documented in `grut/derivation/phi_munu/constitutive_growth.py`; 34 tests passing.
 - R_vol = 1.5428: typo of R_anomaly = 1.15428 (Correction #14)
 - Track VII Step 1 Ω_dm = 0.38: wrong topology, retracted (Correction #15)
 - Genesis Claim 1 (CTP noise → primordial heat): structurally wrong at spectrum-shape level (Lorentzian × ω, not Planck/Bose-Einstein). Cross-verified against existing fdt_noise infrastructure
@@ -1315,12 +1343,16 @@ None of these prove GRUT. All of them validate the foundational picture: the vac
 The remaining two corrections in the V7 era are minor — surfacing of test-marker conventions and a renumbering of Path-F stage logs — and are documented in the codebase audit logs without document-level surface area.
 
 | 28 | α_vac = 1/3 was framed as "computed under named postulate" (conformal-mode-as-IR-carrier); the "vacuum impedance = 1/d" narrative in v11 App H was an assertion, not a published derivation; the two R-tracks (constitutive/refractive vs 3-loop anomaly quotient) were conflated as "tree-level + loop correction" | Gate R audit sequence (7 gates, May 2026): Gate 3 vertex provenance, CTP branch-incidence, sector-coupling, sector-dimensional, CTP action term, α_vac provenance, and Gate R identification (C1-C6 all SUPPORTED/FORMALIZED). Key findings: α_vac = 1/3 is Route 2 (Duff 1994 a/c = 1/3, published, exact, convention-independent); the Weyl decomposition formalizes the conformal-mode identification; R_anomaly = 1.15428 is an honest negative, not a loop correction to R = √(4/3); P^TT / scalar-anomaly compatibility resolved (R5b: scalar amplitude vs TT filter are independent roles) | Gate R closed: R = √(4/3) **derived** within constitutive-action framework via Path G. α_vac = 1/3 upgraded from "named postulate" to "formalized identification." R_anomaly = 1.15428 correctly classified as honest-negative diagnostic. Chapter 7 rewritten; all stale "loop-corrected" and "postulate" language updated throughout book. | Gate R closure (Corrections #32-34 era, May 2026); `theory/hard_theory/GATE_R_*` documents; `grut/hard_theory/s4_ctp_solver/gate3_*.py` |
+| 29 | The τ₀ (gravitational, 41.9 Myr) and τ_micro (thermal, ~10⁻¹⁹ s) scales were treated as an open question — the τ₀↔τ_micro relation might be derivable within the CTP framework, leaving the "zero free parameters" claim imprecisely scoped | Four candidate closure paths evaluated: (1) thermal-gravitational matching — T_eff = ℏ/(τ₀ k_B) = 8.7 μK ≠ T_c; (2) T_c definition route — τ_micro = ℏ/(k_B T_c) is the operational definition, not a derivation of τ_micro from τ₀; (3) UV completion — τ_micro ≈ τ_Planck × (M_P/M_GUT)³ gives ~10⁻²⁶ s, seven orders wrong; (4) bootstrap — no CTP fixed-point equation relates the two scales. All four paths non-viable. The 34-orders gap has no known closure path in the current framework | **Option B decided**: GRUT is formally a multi-scale EFT. The two scales are independently anchored. `tau_zero_to_tau_micro_relation_open_question` ARCHITECTURALLY RESOLVED (not by derivation but by confirmed non-derivability). The "zero free parameters" claim was precisely scoped to the gravitational predictive core; the thermal sector is explicitly a separately anchored parameter (τ_micro anchored via T_c = 54.7 MK = ℏ/(τ_micro k_B)). Bold qualifier "Zero adjustable parameters — scope and meaning" added to Ch 3. 29 tests. | Option B architectural decision (June 2026); `grut/foundation/tau_hierarchy_decision.py`; v2.2.0 |
+| 30 | θ = K·α_vac = (2/3)·(1/3) = 2/9 had been noted as a numerically close match to the Koide Z₃ phase θ_fit mod(2π/3) ≈ 0.22222 rad. Whether 2/9 was uniquely the best rational approximant — or just one of several common fractions close to this value — had not been formally tested | Systematic scan of all rational p/q with denominator q ≤ 200: (a) 2/9 is the unique best approximant for all denominators in [9, 193] — `limit_denominator(n)` returns 2/9 for every n in that range; (b) 2/9 deviation = 4.62 ppm; next irreducible competitor 43/194 = 2572.7 ppm (557× worse); (c) within ±1000 ppm, ALL matches for q ≤ 300 are multiples of 2/9; (d) Z₃ algebraic check: Z₃ selects the period 2π/3 but NOT the specific value θ; no CTP derivation of θ from S_CTP exists; θ = K·α_vac is a structural observation only. Experimental window: 258 ppm (PDG τ-mass precision); 4.62 ppm is 56× inside | Status upgraded from "notable coincidence" to **CANDIDATE IDENTITY**: above HYPOTHESIS (uniqueness confirmed, not numerology), below DERIVED (no algebraic proof from S_CTP). `koide_theta_2_over_9_uniqueness` registered as computed. Algebraic mechanism remains OPEN (separate tier). The two designations are formally separated: is-numerology = False; is-derived = False. | θ=2/9 uniqueness scan (June 2026); `grut/derived/flavor/koide_theta_uniqueness.py`; 59 tests; v2.2.0 |
+| 31 | The μ_GRUT(k,a) = n_g²(k,a) modified-gravity parameter was established at the WKB/EFT-of-dark-energy level (Correction #26, May 2026), but whether it integrates self-consistently into a full Einstein-Boltzmann hierarchy was open — it was not established whether operator completion was required before numerical execution | Case A structural analysis: μ_GRUT = 1 + α_vac/(1+(τ₀k_phys)²) enters the Poisson and Euler equations only, leaving the photon-baryon-neutrino Boltzmann hierarchy unchanged. No new operators required at linear order. The Einstein-Boltzmann system with μ_GRUT substituted is self-consistent: perturbation variables remain gauge-invariant, adiabaticity is preserved, CMB TT/EE spectra receive modifications only through the gravitational sector. This is a structural proof, not a full numerical run. Result: the CAMB/CLASS implementation is a pure computational execution task with no remaining theoretical gaps | The v4 gate bifurcated: (a) **Case A structural proof — CLOSED** (June 2026): consistent Boltzmann system with μ_GRUT exists without operator completion; (b) **CAMB/CLASS numerical pipeline — OPEN** (execution task). The v5 gate (N-body nonlinear structure formation with μ_GRUT) is explicitly distinct from v4 and remains open. Priority table in Ch 14 updated to reflect this distinction. `cmb_boltzmann_case_a_structural` registered as computed. | CMB Boltzmann Case A structural proof (June 2026); `grut/derived/cmb/boltzmann_consistency.py`; v2.2.0 |
+| 32 | The constitutive perturbation-growth D=1.0 failure was framed as *"a computed negative, not an open derivation gap, requiring second-order / nonlinear extension."* This misclassified the problem: the actual cause is a missing closure term in the decoupled equation, not a structural breakdown requiring nonlinear physics | Systematic diagnosis: (1) decoupled constitutive eq τ₀ d(δΦ)/dt + (1−λ_vac)δΦ = 0 (no matter sourcing) integrated numerically — D_absolute ≈ 3, ratio D/D_ΛCDM ≈ 1.1×10⁻³, zero structure formation; (2) Poisson closure k²Φ = −4πG μ_GRUT a² ρ̄_m δ_m (borrowed from Correction #26) added — D_ΛCDM ≈ 2626 at σ_8 scale (pure matter-dom value 3333 suppressed 21.2% by dark energy); (3) quasi-static validity: τ₀H₀ ≈ 0.003 ≪ 1 today; (4) scale survey: f_GRUT ≈ 1.0009 (σ_8), 1.085 (BAO), 2.024 (CMB low-ℓ), 2.348 (CMB horizon). Remaining open work named precisely: ∂²S_CTP/∂σ∂ρ_m. 34 tests | Framing corrected: "computed negative, not open derivation gap" → **CLOSURE PROBLEM — diagnosed**. Open work is specifically bounded to the matter-gravity CTP vertex ∂²S_CTP/∂σ∂ρ_m, NOT the full nonlinear ladder. CAMB/CLASS v4 gate explicitly NOT blocked. `constitutive_growth_poisson_closure` registered as computed; `constitutive_growth_poisson_closure_gap` registered as open_negative with specific closure condition. | D=1.0 closure diagnosis (June 2026); `grut/derivation/phi_munu/constitutive_growth.py`; 34 tests; v2.2.0 |
 
-**Cumulative correction tally (May 2026): 28 documented corrections across V7 development (rows 1-14), v8→v2 synthesis (rows 15-23), hard-theory audits (rows 24-27), and Gate R closure (row 28).** Each correction is a focused, tested, documented unit. The discipline pattern is unchanged across the development cycle: every correction is an addition to audit infrastructure, not a deletion of history.
+**Cumulative correction tally (June 2026): 32 documented corrections across V7 development (rows 1-14), v8→v2 synthesis (rows 15-23), hard-theory audits (rows 24-27), Gate R closure (row 28), and June 2026 v2.2.0 advances (rows 29-32): τ-hierarchy Option B decision, θ=2/9 CANDIDATE IDENTITY, CMB Boltzmann Case A structural proof, D=1.0 closure diagnosis.** Each correction is a focused, tested, documented unit. The discipline pattern is unchanged across the development cycle: every correction is an addition to audit infrastructure, not a deletion of history.
 
 The pattern across these entries: the framework treats every correction as an addition to the audit infrastructure, not a deletion of history. None of these corrections were silent. Each has a registry claim, an investigation log, or a CORRECTION_*.md file with traceable provenance. This is what "audit transparency" means concretely.
 
-**Open questions (status as of v8→v2 synthesis, May 2026):**
+**Open questions (status as of v2.2.0, June 2026):**
 
 | # | Open Question | Status | Chapter | Closure Path | Effort |
 |:---|:---|:---|:---|:---|:---|
@@ -1421,11 +1453,13 @@ The ToE synthesizes results across tracks. The V8 document preserves the track-b
 
 **Predictions dashboard.** The companion document `GRUT_TOE_PREDICTIONS.md` (auto-generated from `grut/toe/dashboard.py`) lists all quantitative predictions in one artifact with values, observations, status glyphs, and falsification conditions. Status distribution: 17 consistent, 3 in tension (Ω_dm +27%, τ₀ cluster-cosmic +20%, El Gordo parameter-dependent), 0 definitively inconsistent, 4 untested, 2 scoping-tier, 1 rescaling-conditional (A_s). Every prediction has a registry back-link verified by passing tests. A specialist asking "what does GRUT predict?" starts there.
 
-*Registry claims: correction_ledger (meta), predictions_dashboard (meta), marker_validator_discipline (meta), derivation_index_appendix (meta), claim_registry_appendix (meta), dependency_graph_appendix (meta), koide_phase_4_open_negative (open_negative), path_f_translation_gap (open_negative), vorton_track_vii_open_negative (open_negative), allen_jacobson_phase1_stub_open_negative (open_negative), rho_max_scale_open_question (open_negative), el_gordo_outlier_open_question (open_negative), constitutive_projection_gravity_heuristic_open_question (open_negative), two_route_convergence_physical_equivalence_open_question (open_negative), track_v_coupling_unification_open_question (open_negative), n_g_omega_cosmological_covariance_open_question (open_negative), n_total_zero_parameter_derivation_open_question (open_negative), primordial_amplitude_zero_parameter_open_negative (open_negative), t_c_provenance_open_question (open_negative), nonlinear_structure_formation_grut_consistency (open_negative — v5 gate; gated on CMB Boltzmann v4 run), nuclear_operator_emergence_open_question (open_negative — nuclear EFT operator derivation; crosses confinement scale), neutrino_dirac_prediction (anchored)*
+*Registry claims: correction_ledger (meta), predictions_dashboard (meta), marker_validator_discipline (meta), derivation_index_appendix (meta), claim_registry_appendix (meta), dependency_graph_appendix (meta), koide_phase_4_open_negative (open_negative), path_f_translation_gap (open_negative), vorton_track_vii_open_negative (open_negative), allen_jacobson_phase1_stub_open_negative (open_negative), rho_max_scale_open_question (open_negative), el_gordo_outlier_open_question (open_negative), constitutive_projection_gravity_heuristic_open_question (open_negative), two_route_convergence_physical_equivalence_open_question (open_negative), track_v_coupling_unification_open_question (open_negative), n_g_omega_cosmological_covariance_open_question (open_negative), n_total_zero_parameter_derivation_open_question (open_negative), primordial_amplitude_zero_parameter_open_negative (open_negative), t_c_provenance_open_question (open_negative), nonlinear_structure_formation_grut_consistency (open_negative — v5 gate; gated on CMB Boltzmann v4 run), nuclear_operator_emergence_open_question (open_negative — nuclear EFT operator derivation; crosses confinement scale), constitutive_growth_poisson_closure_gap (open_negative — derive Poisson closure from S_CTP; does NOT block v4 gate), neutrino_dirac_prediction (anchored)*
 
 ---
 
 ## Part IV — Appendices and Reference
+
+<div style="page-break-before: always;"></div>
 
 # Appendix A — The GRUT Genesis Hypothesis [SPECULATIVE]
 
@@ -1454,6 +1488,8 @@ The framework's posture: A_s is conditionally predictable in the S³ family. Thr
 *Registry claims: genesis_hypothesis (conjectural — speculative), genesis_noise_kernel_spectral_attempt (anchored — structurally wrong at spectrum-shape level)*
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Appendix B — GRUT vs Established Frameworks
 
@@ -1529,6 +1565,8 @@ The framework's posture: A_s is conditionally predictable in the S³ family. Thr
 *Registry claims: comparison_landscape (anchored — composition)*
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Appendix C — Symbols and Constants Glossary
 
@@ -1620,6 +1658,8 @@ The following symbols appear in specific chapters and are documented here for re
 *Registry claims: glossary_reference (meta)*
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Appendix D — Derivation Index (auto-rendered)
 
@@ -1780,6 +1820,10 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
   · *deps: 3 · tests: 1 · fan-out: 2 · upstream: `phi_munu_frw_explicit_construction`, `alpha_vac_derivation`, `tau_0_derivation`*
 - **`modified_linear_growth_first_look`** [computed] — Modified linear growth equation on FRW with μ_GRUT(k, a) from Priority 3, integrated numerically: δ'' + [2 - (3/2)Ω_m] δ' - (3/2) Ω_m μ_GRUT(k, N) δ = 0.
   · *deps: 4 · tests: 1 · fan-out: 0 · upstream: `mg_eft_mu_gamma_mapping`, `phi_munu_frw_explicit_construction`, `tau_0_derivation`, +1 more*
+- **`constitutive_growth_poisson_closure`** [computed] — D=1.0 failure diagnosed as CLOSURE PROBLEM. Decoupled constitutive equation gives D ≈ 1 (no structure formation); Poisson closure k²Φ = −4πG μ_GRUT a² ρ̄_m δ_m gives D_ΛCDM ≈ 2626 at σ_8 scale. Quasi-static validity: τ₀ H₀ ≈ 0.003 ≪ 1. Scale-dependent GRUT enhancement: f ≈ 1.0009 (σ_8), 1.085 (BAO), 2.348 (CMB horizon). Open work: derive Poisson closure from S_CTP.
+  · *deps: 3 · tests: 34 · fan-out: 0 · upstream: `modified_linear_growth_first_look`, `mg_eft_mu_gamma_mapping`, `phi_munu_frw_explicit_construction`*
+- **`constitutive_growth_poisson_closure_gap`** [open_negative] — OPEN: derive k²Φ = −4πG μ_GRUT a² ρ̄_m δ_m from S_CTP (∂²S_CTP/∂σ∂ρ_m). Currently borrowed from Correction #26. Does NOT block CAMB/CLASS v4 gate.
+  · *deps: 2 · tests: 34 · fan-out: 0 · upstream: `constitutive_growth_poisson_closure`, `mg_eft_mu_gamma_mapping`*
 - **`mond_a_0_emergence`** [computed] — MOND-like trigger acceleration a_0 = c/(2π τ_Λ) ≈ 1.2 × 10⁻¹⁰ m/s² emerges from the response time, not from modified dynamics.
   · *deps: 1 · tests: 2 · fan-out: 1 · upstream: `tau_0_derivation`*
 - **`neutrino_hierarchy_z3_nh_prediction`** [anchored] — Conditional on the postulate a_ν = 1 (giving K_ν = 1/2), the GRUT generalized Z₃ ansatz √m_i = M_0(1 + a_ν cos(θ + 2πk/3)) admits a UNIQUE INTERIOR solution in Normal Hierarchy with: m_1 = 0.802 me...
@@ -1836,6 +1880,8 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Appendix E — Claim Registry (auto-rendered)
 
@@ -1906,6 +1952,8 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 | 9 | `koide_z3_circulant_structure` | computed | The Z₃-circulant Koide mass operator parameterizes the charged-lepton spectrum via (M_0, θ): K = 2/3 holds algebraically (machine precisi... | 2 | 1 |
 | 9 | `mg_eft_mu_gamma_mapping` | computed | GRUT lives in the 'μ ≠ 1, γ = 1' subclass of modified-gravity models. | 3 | 1 |
 | 9 | `modified_linear_growth_first_look` | computed | Modified linear growth equation on FRW with μ_GRUT(k, a) from Priority 3, integrated numerically: δ'' + [2 - (3/2)Ω_m] δ' - (3/2) Ω_m μ_G... | 4 | 1 |
+| 9 | `constitutive_growth_poisson_closure` | computed | D=1.0 failure DIAGNOSED as CLOSURE PROBLEM. Decoupled eq gives D ≈ 1; Poisson closure gives D_ΛCDM ≈ 2626. τ₀H₀ ≈ 0.003. f_GRUT: 1.0009 (σ... | 3 | 34 |
+| 9 | `constitutive_growth_poisson_closure_gap` | open_negative | OPEN: derive k²Φ = −4πG μ_GRUT a² ρ̄_m δ_m from ∂²S_CTP/∂σ∂ρ_m. Borrowed from Correction #26. NOT blocking CAMB/CLASS v4 gate. | 2 | 34 |
 | 9 | `mond_a_0_emergence` | computed | MOND-like trigger acceleration a_0 = c/(2π τ_Λ) ≈ 1.2 × 10⁻¹⁰ m/s² emerges from the response time, not from modified dynamics. | 1 | 2 |
 | 9 | `neutrino_hierarchy_z3_nh_prediction` | anchored | Conditional on the postulate a_ν = 1 (giving K_ν = 1/2), the GRUT generalized Z₃ ansatz √m_i = M_0(1 + a_ν cos(θ + 2πk/3)) admits a UNIQU... | 2 | 1 |
 | 9 | `neutrino_z3_coupling_a_equals_1_uniqueness_theorem` | computed | DERIVED (Correction #29, Priority 4B, 2026-05-02). | 3 | 1 |
@@ -1929,7 +1977,7 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 | 12 | `bbn_thermal_buffer_negligible` | anchored | Standard-cosmology calculation testing one piece of an external research hypothesis: 'BBN binding-energy release provides a thermal buffe... | 0 | 1 |
 | 12 | `claim_registry_appendix` | meta | Appendix E (Full Claim Registry) is auto-rendered as a Markdown reference table over every registry entry. | 0 | 1 |
 | 12 | `constitutive_projection_gravity_heuristic_resolved` | meta | RESOLVED at the linearized level (Correction #23, 2026-04-30). | 3 | 1 |
-| 12 | `correction_ledger` | meta | The repository maintains a public ledger of every correction to the framework: 28 documented corrections across the V7 development era, t... | 0 | 0 |
+| 12 | `correction_ledger` | meta | The repository maintains a public ledger of every correction to the framework: 32 documented corrections across the V7 development era, t... | 0 | 0 |
 | 12 | `dependency_graph_appendix` | meta | Appendix F (Dependency Graph) is auto-rendered from grut/toe/dependencies.py. | 0 | 1 |
 | 12 | `derivation_index_appendix` | meta | Appendix D (Derivation Index) is auto-rendered from the registry: every claim at tier 'computed' or 'anchored' is emitted as a per-chapte... | 0 | 1 |
 | 12 | `el_gordo_outlier_open_question` | open_negative | ACT-CL J0102-4915 (El Gordo) was originally tagged as a factor-3.5 outlier (canonical 70 kpc prediction vs ~250 kpc observed). | 1 | 2 |
@@ -1955,6 +2003,8 @@ This index lists every framework claim at tier `computed` or `anchored` — clai
 
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Appendix F — Dependency Graph (auto-rendered)
 
@@ -1984,7 +2034,7 @@ Claims with zero registry dependencies. These are the seams the framework rests 
 | `closed_universe` | foundational | 1 | 2 | The universe is closed, finite, and self-referential. |
 | `bbn_thermal_buffer_negligible` | anchored | 12 | 0 | Standard-cosmology calculation testing one piece of an external research hypothesis: 'BBN binding... |
 | `claim_registry_appendix` | meta | 12 | 0 | Appendix E (Full Claim Registry) is auto-rendered as a Markdown reference table over every regist... |
-| `correction_ledger` | meta | 12 | 0 | The repository maintains a public ledger of every correction to the framework: 28 documented corr... |
+| `correction_ledger` | meta | 12 | 0 | The repository maintains a public ledger of every correction to the framework: 32 documented corr... |
 | `dependency_graph_appendix` | meta | 12 | 0 | Appendix F (Dependency Graph) is auto-rendered from grut/toe/dependencies.py. |
 | `derivation_index_appendix` | meta | 12 | 0 | Appendix D (Derivation Index) is auto-rendered from the registry: every claim at tier 'computed'... |
 | `marker_validator_discipline` | meta | 12 | 0 | Tier-marker discipline checker: every [OPEN], [SCOPING], [CONJECTURAL], [SPECULATIVE], or 'Outsta... |
@@ -2042,6 +2092,8 @@ Open negatives ranked by downstream fan-out (closure-priority order), with expli
 
 
 ---
+
+<div style="page-break-before: always;"></div>
 
 # Back Matter
 
@@ -2132,6 +2184,6 @@ The following publications are cited in the text or provide the experimental/the
 
 *GRUT — Grand Responsive Universe Theory: Candidate Framework.*
 
-*2782 tests. 107 registered claims (60 computed, 15 anchored, 3 conjectural, 17 open_negative, 2 foundational, 10 meta). 27 documented corrections (V7 era #1-#16; v8→v2 #22-#30; hard-theory #31-#34). Full audit transparency.*
+*2816 tests. 109 registered claims (61 computed, 15 anchored, 3 conjectural, 18 open_negative, 2 foundational, 10 meta). 32 documented corrections (V7 era rows 1–14; v8→v2 rows 15–23; hard-theory rows 24–27; Gate R row 28; June 2026 v2.2.0 rows 29–32). Full audit transparency.*
 
 *The universe is √(4/3) ≈ 1.15470 trying to become 1.*

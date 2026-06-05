@@ -576,6 +576,32 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
         blocked_by=("koide_phase_4_open_negative",),
         last_review="2026-06-03",
     ),
+
+    LedgerEntry(
+        claim_id="constitutive_growth_poisson_closure_gap",
+        closure_condition=(
+            "Compute the matter-gravity CTP coupling vertex "
+            "∂²S_CTP/∂σ∂ρ_m in the FRW background (second-order "
+            "constitutive extension) and show that the resulting "
+            "constitutive matter-gravity coupling reproduces the "
+            "Modified Poisson equation k²Φ = −4πG μ_GRUT(k,a) a² ρ̄_m δ_m "
+            "with μ_GRUT(k,a) = 1 + α_vac/(1+(τ₀ k_phys c)²). This "
+            "closes the gap between the borrowed Correction #26 "
+            "EFT mapping and a first-principles CTP derivation."
+        ),
+        closure_effort=(
+            "One to multi-session specialist work. The CTP action "
+            "S_CTP is already defined; the required vertex is a "
+            "second variation at the matter-gravity crossing. The "
+            "main challenge is FRW gauge-invariant bookkeeping at "
+            "second order. Pre-requisite: constitutive_growth.py "
+            "diagnosis is complete — the gap is named and bounded. "
+            "Does NOT block CAMB/CLASS v4 gate or any current tests."
+        ),
+        affects=("constitutive_growth_poisson_closure",),
+        blocked_by=(),
+        last_review="2026-06-04",
+    ),
 )
 
 

@@ -2274,12 +2274,14 @@ REGISTRY: tuple[Claim, ...] = (
         chapter=12,
         statement=(
             "The repository maintains a public ledger of every correction "
-            "to the framework: 28 documented corrections across the V7 "
+            "to the framework: 32 documented corrections across the V7 "
             "development era, the v8→v2 synthesis, hard-theory audits, "
-            "and Gate R closure (May 2026). Each correction has a "
-            "CORRECTION_*.md file or registry claim; zero unflagged "
-            "errors. Honest-negative discipline is enforced by "
-            "repository convention."
+            "Gate R closure (May 2026), and June 2026 v2.2.0 advances "
+            "(τ-hierarchy Option B, θ=2/9 CANDIDATE IDENTITY, CMB "
+            "Boltzmann Case A, D=1.0 closure diagnosis). Each correction "
+            "has a CORRECTION_*.md file or registry claim; zero unflagged "
+            "errors. Honest-negative discipline is enforced by repository "
+            "convention."
         ),
         tier="meta",
         refs=(
@@ -3264,6 +3266,62 @@ REGISTRY: tuple[Claim, ...] = (
     ),
 
     Claim(
+        id="constitutive_growth_poisson_closure_gap",
+        chapter=9,
+        statement=(
+            "OPEN QUESTION: derive the Poisson closure "
+            "k²Φ = −4πG μ_GRUT(k,a) a² ρ̄_m δ_m from the CTP "
+            "action S_CTP, specifically from the matter-gravity "
+            "coupling vertex ∂²S_CTP/∂σ∂ρ_m (second-order "
+            "constitutive extension). Currently the Poisson "
+            "closure is borrowed from Correction #26 (EFT-of-dark-"
+            "energy mapping of μ_GRUT and η_GRUT). Until this "
+            "vertex is computed, the constitutive growth framework "
+            "uses Correction #26 as input rather than deriving "
+            "structure formation from S_CTP directly. The "
+            "decoupled constitutive equation alone "
+            "(τ₀ d(δΦ)/dt + (1−λ_vac)δΦ = 0, no matter sourcing) "
+            "gives D_absolute ≈ 1 — zero structure formation — "
+            "confirming that the Poisson term is the essential "
+            "missing ingredient. This gap does NOT block "
+            "CAMB/CLASS runs (v4 gate); the EFT-mapped μ_GRUT is "
+            "sufficient for those computations."
+        ),
+        tier="open_negative",
+        refs=(
+            "grut/derivation/phi_munu/constitutive_growth.py",
+            "grut/derivation/phi_munu/modified_growth.py",
+            "theory/GRUT_TOE.md §9",
+        ),
+        tests=(
+            "tests/derivation/phi_munu/test_constitutive_growth.py",
+        ),
+        deps=(
+            "constitutive_growth_poisson_closure",
+            "mg_eft_mu_gamma_mapping",
+        ),
+        falsifier=(
+            "Explicit computation of ∂²S_CTP/∂σ∂ρ_m in the "
+            "FRW background, showing that the resulting "
+            "constitutive matter-gravity coupling reproduces the "
+            "Poisson equation with μ_GRUT(k,a) = 1 + α_vac/"
+            "(1+(τ₀ k_phys c)²), would close this gap and "
+            "replace the Correction #26 input with a first-"
+            "principles derivation."
+        ),
+        notes=(
+            "Open-negative, diagnosed. The D=1.0 failure is "
+            "a CLOSURE PROBLEM, not an unexplained failure: "
+            "the diagnosis is complete (constitutive_growth.py), "
+            "the resolution pathway is named (∂²S_CTP/∂σ∂ρ_m), "
+            "and the borrowed Poisson closure already gives "
+            "D_ΛCDM ≈ 2626. Fan-out: 0 (no downstream claims "
+            "blocked at present). CAMB/CLASS v4 gate is NOT "
+            "blocked by this open question."
+        ),
+    ),
+
+    Claim(
         id="constitutive_projection_gravity_heuristic_resolved",
         chapter=12,
         statement=(
@@ -3729,6 +3787,48 @@ REGISTRY: tuple[Claim, ...] = (
             "bound-system / nonlinear halo phenomenology operates "
             "via different ω-identifications (regime gate, cluster "
             "merger kernel, gr_recovery)."
+        ),
+    ),
+    Claim(
+        id="constitutive_growth_poisson_closure",
+        chapter=9,
+        statement=(
+            "The D=1.0 failure of the constitutive equation is a "
+            "CLOSURE PROBLEM. The decoupled constitutive equation "
+            "(τ₀ d(δΦ)/dt + δΦ = λ_vac δΦ, no matter sourcing) "
+            "gives D_absolute ≈ 1 and D/D_ΛCDM ≈ 3.8×10⁻⁴ — "
+            "no structure formation. Adding the Poisson closure "
+            "(k²Φ = −4πG μ_GRUT a² ρ̄_m δ_m, borrowed from "
+            "Correction #26) gives D_ΛCDM ≈ 2626 at the σ_8 scale "
+            "(dark energy suppresses the pure-matter-dom value of "
+            "3333 by ~21%). The quasi-static limit is valid: "
+            "τ₀ H₀ ≈ 0.003 ≪ 1 today. Scale-dependent GRUT "
+            "enhancement: f_GRUT ≈ 1.0009 (σ_8), 1.085 (BAO), "
+            "1.328 (Sloan), 2.024 (CMB low-ℓ), 2.348 (CMB horizon). "
+            "Remaining open work: derive the Poisson closure from "
+            "S_CTP (the matter-gravity CTP coupling vertex "
+            "∂²S_CTP/∂σ∂ρ_m). Until derived, the Poisson closure "
+            "is borrowed from the EFT-of-dark-energy mapping. "
+            "CAMB/CLASS v4 gate is NOT blocked by this gap."
+        ),
+        tier="computed",
+        refs=(
+            "grut/derivation/phi_munu/constitutive_growth.py",
+            "grut/derivation/phi_munu/modified_growth.py",
+        ),
+        tests=(
+            "tests/derivation/phi_munu/test_constitutive_growth.py",
+        ),
+        deps=(
+            "modified_linear_growth_first_look",
+            "mg_eft_mu_gamma_mapping",
+            "phi_munu_frw_explicit_construction",
+        ),
+        notes=(
+            "This claim formally closes the D=1.0 failure as a "
+            "DIAGNOSED closure gap, not an unexplained failure. "
+            "The Poisson closure from S_CTP is the named open work "
+            "(constitutive_growth_poisson_closure_gap)."
         ),
     ),
     Claim(
