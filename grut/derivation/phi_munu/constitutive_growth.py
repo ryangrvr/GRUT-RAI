@@ -341,6 +341,7 @@ def poisson_closure_demonstration(
 # Section 4 — Full growth survey (with Poisson closure, all scales)
 # ─────────────────────────────────────────────────────────────────────
 
+
 def growth_survey_with_closure() -> Dict[str, Dict]:
     """Growth factor D at all canonical scales WITH Poisson closure.
 
@@ -378,7 +379,172 @@ def growth_survey_with_closure() -> Dict[str, Dict]:
 
 
 # ─────────────────────────────────────────────────────────────────────
-# Section 5 — What still needs to be derived from S_CTP
+# Section 5 — Gravitational potential evolution and ISW assessment
+# ─────────────────────────────────────────────────────────────────────
+
+def phi_evolution_and_isw(
+    k_per_Mpc: float,
+    n_steps: int = 2000,
+    a_de_start: float = 0.5,
+) -> Dict[str, object]:
+    """Track Φ(k, a) ∝ μ_GRUT(k,a) × δ(k,a) / a for ΛCDM and GRUT.
+
+    In the quasi-static limit the gravitational potential is:
+
+        Φ(k, a) = −(3H₀²Ω_m)/(2k²) × μ_GRUT(k,a) × δ_m(k,a) / a
+
+    We define the normalised "potential amplitude":
+
+        G(k, a) = μ_GRUT(k,a) × δ(k,a) / a
+
+    G is proportional to k²|Φ| up to a k-independent constant.
+
+    ΛCDM check: G_ΛCDM = δ_ΛCDM/a ≈ const in matter domination (Φ = const ✓).
+    Dark energy: G_ΛCDM decreases (Φ decays, positive ISW contribution).
+
+    GRUT at low k: μ_GRUT → 1 + α_vac as a increases.  Enhanced growth
+    (f_GRUT > 1) may more than compensate for the 1/a suppression →
+    G_GRUT could INCREASE (Φ deepens) → ISW sign flip (negative ISW).
+
+    ISW sign convention
+    -------------------
+    ΔT/T|_ISW = 2 ∫ Φ̇ dη   (conformal Newtonian gauge, Ψ=Φ)
+
+    Φ < 0 (potential well). Dark energy causes |Φ| to shrink → Φ̇ > 0
+    → ISW > 0 (photons gain energy → more low-ℓ power in ΛCDM).
+
+    If Φ_GRUT deepens (G_GRUT increases) → Φ̇_GRUT < 0
+    → ISW_GRUT < 0 (photons LOSE energy → LESS low-ℓ power vs ΛCDM).
+
+    Parameters
+    ----------
+    k_per_Mpc : float
+        Comoving wavenumber [Mpc⁻¹].
+    n_steps : int
+        Integration steps (default 2000 for accurate derivative).
+    a_de_start : float
+        Scale factor marking start of DE-dominated era for ISW proxy
+        (default 0.5, z=1).
+
+    Returns
+    -------
+    dict with:
+        a_array            — scale-factor array (a_init → 1)
+        G_LCDM             — μ=1 potential amplitude (unnormalised)
+        G_GRUT             — μ_GRUT potential amplitude (unnormalised)
+        G_LCDM_ratio       — G_LCDM(z=0) / G_LCDM(a_de_start) < 1 = decay
+        G_GRUT_ratio       — G_GRUT(z=0) / G_GRUT(a_de_start), sign pivot
+        delta_G_LCDM       — ΔG_ΛCDM (negative = potential decay)
+        delta_G_GRUT       — ΔG_GRUT (sign depends on enhancement)
+        isw_sign_flip      — True if Φ_GRUT deepens while Φ_ΛCDM decays
+        isw_ratio_proxy    — ΔG_GRUT / ΔG_ΛCDM; <0 = opposite-sign ISW
+        isw_verdict        — human-readable conclusion
+    """
+    a_arr, delta_LCDM = integrate_growth_factor(
+        k_per_Mpc, use_mu_GRUT=False, n_steps=n_steps,
+    )
+    a_arr2, delta_GRUT = integrate_growth_factor(
+        k_per_Mpc, use_mu_GRUT=True, n_steps=n_steps,
+    )
+
+    mu_arr = np.array(
+        [mu_GRUT_numeric(k_per_Mpc, float(a)) for a in a_arr],
+        dtype=float,
+    )
+
+    # Potential amplitudes  G(k, a) = μ(k,a) × δ(a) / a
+    G_LCDM = delta_LCDM / a_arr            # μ=1 for ΛCDM
+    G_GRUT = mu_arr * delta_GRUT / a_arr
+
+    # Find the index closest to a_de_start
+    de_idx = int(np.searchsorted(a_arr, a_de_start))
+    de_idx = max(1, min(de_idx, len(a_arr) - 2))
+
+    G_LCDM_de = float(G_LCDM[de_idx])
+    G_GRUT_de = float(G_GRUT[de_idx])
+    G_LCDM_0 = float(G_LCDM[-1])
+    G_GRUT_0 = float(G_GRUT[-1])
+
+    G_LCDM_ratio = G_LCDM_0 / G_LCDM_de
+    G_GRUT_ratio = G_GRUT_0 / G_GRUT_de
+
+    delta_G_LCDM = G_LCDM_0 - G_LCDM_de   # < 0 → Φ decays
+    delta_G_GRUT = G_GRUT_0 - G_GRUT_de   # sign TBD
+
+    isw_sign_flip = bool(G_GRUT_ratio > 1.0 and G_LCDM_ratio < 1.0)
+
+    if delta_G_LCDM != 0.0:
+        isw_ratio_proxy = float(delta_G_GRUT / delta_G_LCDM)
+    else:
+        isw_ratio_proxy = float("nan")
+
+    if isw_sign_flip:
+        verdict = (
+            f"ISW SIGN FLIP at k={k_per_Mpc:.4f} Mpc⁻¹: "
+            f"Φ_GRUT deepens (G ratio {G_GRUT_ratio:.3f} > 1) while "
+            f"Φ_ΛCDM decays (G ratio {G_LCDM_ratio:.3f} < 1). "
+            f"GRUT ISW is opposite-sign to ΛCDM ISW → "
+            f"GRUT reduces low-ℓ C_ℓ^TT (moves toward Planck observation)."
+        )
+    elif isw_ratio_proxy < 1.0 and not isw_sign_flip:
+        verdict = (
+            f"ISW SUPPRESSED at k={k_per_Mpc:.4f} Mpc⁻¹: "
+            f"Both Φ_GRUT and Φ_ΛCDM decay, but GRUT decays less "
+            f"(ratio {isw_ratio_proxy:.3f}). "
+            f"GRUT ISW < ΛCDM ISW → less low-ℓ C_ℓ^TT than ΛCDM."
+        )
+    else:
+        verdict = (
+            f"ISW ENHANCED at k={k_per_Mpc:.4f} Mpc⁻¹: "
+            f"Φ_GRUT decays more than Φ_ΛCDM or has same-sign larger ISW "
+            f"(ratio {isw_ratio_proxy:.3f}). "
+            f"GRUT ISW > ΛCDM ISW → MORE low-ℓ C_ℓ^TT than ΛCDM."
+        )
+
+    return {
+        "k_per_Mpc":      k_per_Mpc,
+        "a_array":        a_arr,
+        "G_LCDM":         G_LCDM,
+        "G_GRUT":         G_GRUT,
+        "G_LCDM_ratio":   G_LCDM_ratio,
+        "G_GRUT_ratio":   G_GRUT_ratio,
+        "delta_G_LCDM":   float(delta_G_LCDM),
+        "delta_G_GRUT":   float(delta_G_GRUT),
+        "isw_sign_flip":  isw_sign_flip,
+        "isw_ratio_proxy": isw_ratio_proxy,
+        "isw_verdict":    verdict,
+    }
+
+
+def isw_scale_survey() -> Dict[str, Dict]:
+    """ISW potential-evolution assessment at canonical cosmological scales.
+
+    Runs phi_evolution_and_isw at the same 7 scales used in the growth
+    survey.  The key output is isw_sign_flip and isw_ratio_proxy: a
+    negative ratio means GRUT reduces low-ℓ C_ℓ^TT (helps the Planck
+    low-ℓ anomaly); a positive ratio > 1 means it worsens it.
+
+    Returns
+    -------
+    Dict keyed by scale label, each containing the full
+    phi_evolution_and_isw result plus the scale k.
+    """
+    canonical = [
+        ("sigma8_k0p5",       0.5),
+        ("quasi_k0p1",        0.1),
+        ("BAO_k0p04",         0.04),
+        ("sloan_k0p01",       0.01),
+        ("CMB_low_k0p001",    0.001),
+        ("CMB_horiz_k4p5e4",  4.5e-4),
+    ]
+    results = {}
+    for label, k in canonical:
+        results[label] = phi_evolution_and_isw(k)
+    return results
+
+
+# ─────────────────────────────────────────────────────────────────────
+# Section 7 — What still needs to be derived from S_CTP
 # ─────────────────────────────────────────────────────────────────────
 
 def open_derivation_gap() -> Dict[str, str]:

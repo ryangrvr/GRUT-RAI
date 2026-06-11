@@ -602,6 +602,47 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
         blocked_by=(),
         last_review="2026-06-04",
     ),
+
+    LedgerEntry(
+        claim_id="isw_nonlinear_screening_constitutive_escape",
+        closure_condition=(
+            "Derive δΦ_target[δ_m, δΦ] at second order in metric "
+            "fluctuations from the CTP action S_CTP "
+            "(∂²S_CTP/∂σ∂ρ_m beyond linear order). Determine the "
+            "sign and magnitude of the nonlinear correction to the "
+            "constitutive Φ-equation in the virialized (δ_m ≫ 1) "
+            "limit. Outcome A (freeze): if the nonlinear Φ_target "
+            "drives Φ̇ → 0 in virialized regions, ISW screening is "
+            "confirmed, the Planck low-ℓ ISW deficit is healed, and "
+            "the claim closes as computed. Outcome B (accelerate): "
+            "if the nonlinear vertex increases Φ decay, the ISW "
+            "tension becomes a hard kill shot for the constitutive "
+            "dark-sector/ISW connection. A perturbative expansion of "
+            "S_CTP to second order in metric fluctuations — augmented "
+            "by the known first-order result from Corrections #23-#26 "
+            "— may be sufficient to determine the sign without a full "
+            "N-body simulation."
+        ),
+        closure_effort=(
+            "One to several sessions of CTP action expansion at "
+            "second order. The key computation is the nonlinear "
+            "correction to ∂²S_CTP/∂σ∂ρ_m (already the target of "
+            "constitutive_growth_poisson_closure_gap at first order). "
+            "The ISW question requires the δ³ and δ_m δΦ cross terms "
+            "in the CTP effective potential. The nonlinear "
+            "structure-formation N-body simulation (v5 gate, "
+            "nonlinear_structure_formation_grut_consistency) would "
+            "give a definitive answer but is a much larger effort; "
+            "the sign-determination from CTP expansion alone is the "
+            "minimum work needed to assess the escape hatch."
+        ),
+        affects=(
+            "camb_grut_power_spectrum_prediction",
+            "nonlinear_structure_formation_grut_consistency",
+        ),
+        blocked_by=("constitutive_growth_poisson_closure_gap",),
+        last_review="2026-06-05",
+    ),
 )
 
 

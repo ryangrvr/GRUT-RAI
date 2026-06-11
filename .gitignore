@@ -8,3 +8,19 @@ build/
 .DS_Store
 theory/Archive.zip
 .venv/
+
+# uploads/ build environment and clutter
+uploads/pdf_venv/
+uploads/*.log
+uploads/pandoc.zip
+uploads/arch.txt
+uploads/font_paths.txt
+uploads/fonts.txt
+uploads/grep_tbl.txt
+uploads/table_debug.txt
+uploads/tools*.txt
+uploads/venv_log.txt
+# external reference PDFs in uploads/ (not part of GRUT)
+uploads/BraneBulk_Omnibus_0_CCLXXXIV.pdf
+uploads/0051_Paper_LI_Newtons_Constant_as_Brane_Viscosity_Spacetime_as_a (1).pdf
+uploads/paper_2_GRC_COMPLETE_EN.pdf

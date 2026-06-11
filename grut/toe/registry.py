@@ -3057,6 +3057,70 @@ REGISTRY: tuple[Claim, ...] = (
     ),
 
     Claim(
+        id="christensen_duff_euler_diagonal_exact",
+        chapter=7,
+        statement=(
+            "COMPUTED (June 2026): exact first-principles Euler-anomaly "
+            "diagonal M11 for the GRUT RG matrix, derived from Christensen "
+            "& Duff 1979 on round S⁴. On S⁴ (W²=0), the relevant 'a' "
+            "coefficient per species is: real scalar +1/360, massless vector "
+            "+31/180, FP complex ghost −2/360, Weyl fermion +11/720. "
+            "OPERATOR BASIS RESULT: the Higgs scalars feed into M88 (Mixed_EW "
+            "operator, indices 8), not M11 (pure Euler topological, index 1). "
+            "On S⁴, the Higgs couples to the Euler density only through the "
+            "conformal □R channel (index 2) and EW-gravity mixing (index 8), "
+            "reaching M11 only via loop-suppressed off-diagonals M[2,1] and "
+            "M[8,1]. Therefore M11 contains only the gauge sector with "
+            "mandatory Faddeev-Popov ghost subtraction, plus fermions: "
+            "a_hat = 12 × (1/6) + 45 × (11/720) = 1935/720 = 43/16. "
+            "M11_exact = 43/(128π) = 0.106932. "
+            "COMPARISON: structural estimate M11=0.11 overestimates by 2.79% "
+            "because it included Higgs scalars. Required M11* = 0.106684 "
+            "(inversion for R = √(4/3)). Gap between 43/(128π) and M11*: "
+            "0.23% in M11 (traces to normalization of the 1/(8π) factor, "
+            "open). "
+            "FULL MATRIX EVOLUTION (V5 loop-suppressed matrix): "
+            "structural M11=0.11 → R=1.321 (14.44% error vs √(4/3)); "
+            "M11=43/(128π) → R=1.166 (0.96% error) — 15× improvement. "
+            "RHN VERDICT: adding 3 sterile Weyl neutrinos (N_F 45→48) "
+            "increases a_hat, M11, β_eff, and R — the gap WORSENS to 8.6%. "
+            "The universe does NOT require right-handed neutrinos to approach "
+            "R = √(4/3) in this sector."
+        ),
+        tier="computed",
+        refs=(
+            "grut/derivation/euler/v6_christensen_duff_diagonal.py",
+            "grut/derivation/euler/v5_loop_suppressed_matrix.py",
+            "grut/derivation/euler/r_target_inversion.py",
+        ),
+        tests=(
+            "tests/derivation/test_v6_christensen_duff_diagonal.py",
+        ),
+        deps=(
+            "r_canonical_path_g",
+            "three_routes_convergence",
+        ),
+        falsifier=(
+            "An independent derivation of M11 from the CTP effective action "
+            "on S⁴ that gives a value outside [43/(128π) ± 5%] would "
+            "require revising the operator-basis assignment. The 0.96% "
+            "residual error (R=1.166 vs √(4/3)=1.155) closes to zero "
+            "only if the 1/(8π) normalization factor acquires a 0.23% "
+            "correction from the S⁴ geometry or 2-loop effects."
+        ),
+        notes=(
+            "The key physical insight: the Higgs doublet is not a topological "
+            "field; on S⁴ its contribution to the Gauss-Bonnet operator "
+            "appears through the conformal and EW channels, not the pure "
+            "Euler channel. Excluding the Higgs from M11 is not an ad hoc "
+            "subtraction — it is demanded by the operator basis of the "
+            "9×9 RG matrix. a_hat=43/16 is an exact rational result from "
+            "SM group theory. The 0.23% residual defines the precision "
+            "target for the Rung 4.6 S⁴ normalization derivation."
+        ),
+    ),
+
+    Claim(
         id="cmb_boltzmann_scoping",
         chapter=9,
         statement=(
@@ -3262,6 +3326,148 @@ REGISTRY: tuple[Claim, ...] = (
             "function, P(k) at quasi-linear scales, cluster number "
             "counts. Fan-out: 0 (no downstream claims blocked by this "
             "question at present; it would affect v5-tier predictions)."
+        ),
+    ),
+
+    Claim(
+        id="camb_grut_power_spectrum_prediction",
+        chapter=9,
+        statement=(
+            "First CAMB-backed GRUT matter power spectrum and CMB "
+            "prediction (June 2026). Key results: "
+            "(1) P_GRUT(k) = P_ΛCDM(k) × f_GRUT²(k) — exact given "
+            "growth factor; enhancement is +0.1% at σ_8 scale, "
+            "+8.5% at BAO, +135% at CMB horizon. "
+            "(2) σ_8^GRUT = 0.841 vs σ_8^ΛCDM = 0.811 (3.7% "
+            "enhancement driven by k~0.05–0.15 Mpc⁻¹ intermediate "
+            "scales where f_GRUT = 1.02–1.085); GRUT neutral on S_8 "
+            "tension at nonlinear weak-lensing scales (k>0.5). "
+            "(3) C_ℓ^TT (v2 ISW correction, June 2026): ISW ratio "
+            "ΔΦ_GRUT/ΔΦ_ΛCDM computed from full Φ(k,a) trajectory — "
+            "D_ℓ=2 ratio 1.093 (9% excess, not the v1 factor of "
+            "1.776 which used f_GRUT²(z=0)≈5.5 instead of the actual "
+            "ΔΦ ratio≈1.54). Mean ratio ℓ=2–29: 1.017. Acoustic peaks "
+            "(ℓ>100) unchanged to <0.3%. Novel secondary prediction: "
+            "at intermediate scales k=0.01–0.1 Mpc⁻¹ (ℓ≈140–1400), "
+            "GRUT predicts LESS ISW than ΛCDM (ratio 0.44–0.84) — "
+            "testable with ISW-galaxy cross-correlations (DES×Planck, "
+            "DESI×CMB-S4). "
+            "(4) HONEST NEGATIVE: GRUT mildly worsens the Planck "
+            "low-ℓ power deficit at ℓ=2 (~9% excess above ΛCDM; "
+            "Planck 2018 observes ~2σ below ΛCDM). The nonlinear "
+            "constitutive escape hatch (isw_nonlinear_screening_"
+            "constitutive_escape) remains open. Full C_ℓ accuracy "
+            "requires modifying CAMB Fortran perturb_einstein() — "
+            "approximately 5 lines of Fortran in equations.f90 "
+            "(Poisson constraint, single multiply). The P(k) result "
+            "is exact given the growth factor."
+        ),
+        tier="computed",
+        refs=(
+            "grut/derived/cmb/camb_power_spectra.py",
+            "grut/derivation/phi_munu/modified_growth.py",
+        ),
+        tests=(
+            "tests/derived/test_camb_power_spectra.py",
+        ),
+        deps=(
+            "constitutive_growth_poisson_closure",
+            "modified_linear_growth_first_look",
+            "cmb_boltzmann_case_a_structural",
+        ),
+        notes=(
+            "First genuine CAMB-backed GRUT prediction. "
+            "The ISW worsening at ℓ<30 is an honest negative "
+            "registered here explicitly. The next step is a full "
+            "Fortran CAMB injection (5-line modification to "
+            "equations.f90) to replace the ISW approximation with "
+            "exact C_ℓ^TT. The matter P(k) result stands as-is."
+        ),
+    ),
+
+    Claim(
+        id="isw_nonlinear_screening_constitutive_escape",
+        chapter=9,
+        statement=(
+            "THEORETICAL ASSESSMENT (June 2026): Linear GRUT "
+            "mildly worsens the Planck low-ℓ ISW power deficit "
+            "(camb_grut_power_spectrum_prediction v2: D_ℓ=2 ratio "
+            "1.093, corrected from v1 1.776 which overestimated by "
+            "3.5× by using f_GRUT²(z=0) instead of ΔΦ_GRUT/ΔΦ_ΛCDM). "
+            "The constitutive picture contains a "
+            "built-in nonlinear screening escape hatch. The ISW "
+            "integral ΔT/T|_ISW = -2∫Φ̇ dη vanishes if and only if "
+            "the metric potentials freeze (Φ̇ → 0) at late times. "
+            "The full nonlinear constitutive equation for metric "
+            "perturbations is: "
+            "τ₀ δΦ̇ + (1-λ_vac) δΦ = δΦ_target[δ_m, δΦ]. "
+            "In ΛCDM, dark energy drives Φ decay (Φ̇ < 0, ISW "
+            "positive). In the linear GRUT regime, μ_GRUT > 1 "
+            "accelerates this decay. BUT: in the nonlinear regime "
+            "(δ_m ≫ 1, virialized halos), the constitutive attractor "
+            "δΦ_target locks to the virialized configuration. If this "
+            "attractor corresponds to the matter-era fixed point "
+            "(Φ = const), the constitutive relaxation RESISTS "
+            "dark-energy-induced decay, forcing Φ̇ → 0 and "
+            "suppressing ISW. This is the same τ₀ medium at three "
+            "frequency windows: terminal velocity (cosmological, "
+            "dark energy), refractive enhancement (galactic, dark "
+            "matter), potential freeze-out (structure formation, ISW "
+            "suppression). Whether this screening actually occurs "
+            "depends on the sign and magnitude of the nonlinear "
+            "correction to δΦ_target — specifically, whether the "
+            "matter-gravity CTP vertex ∂²S_CTP/∂σ∂ρ_m evaluated "
+            "beyond linear order drives Φ toward constant or toward "
+            "faster decay. This is the binary falsifier for the ISW "
+            "nonlinear sector: freeze → ISW suppressed (heals Planck "
+            "low-ℓ deficit); accelerate → ISW worsened (hard kill "
+            "shot for the dark-sector/ISW connection). "
+            "Observational cross-checks if screening occurs: "
+            "(a) ISW-galaxy cross-correlation weakened at z < 0.5 "
+            "(testable with DES, DESI); (b) CMB lensing amplitude "
+            "A_L behavior distinct from linear-theory GRUT; "
+            "(c) low-ℓ TT power below ΛCDM prediction. "
+            "Closure condition: derive δΦ_target beyond linear order "
+            "from S_CTP (connected to constitutive_growth_poisson_"
+            "closure_gap); run N-body GRUT simulation to check "
+            "whether halo formation drives Φ̇ → 0 or Φ̇ → negative."
+        ),
+        tier="open_negative",
+        refs=(
+            "grut/derived/cmb/camb_power_spectra.py",
+            "grut/derivation/phi_munu/constitutive_growth.py",
+            "theory/GRUT_TOE.md §9",
+        ),
+        tests=(
+            "tests/derived/test_camb_power_spectra.py",
+        ),
+        deps=(
+            "camb_grut_power_spectrum_prediction",
+            "constitutive_growth_poisson_closure",
+            "nonlinear_structure_formation_grut_consistency",
+        ),
+        falsifier=(
+            "Derive δΦ_target[δ_m, δΦ] at nonlinear order from "
+            "S_CTP (∂²S_CTP/∂σ∂ρ_m beyond linear). If the "
+            "nonlinear vertex drives Φ̇ → 0 in virialized regions "
+            "(matter-era attractor dominates over dark-energy decay): "
+            "ISW screening confirmed, Planck low-ℓ deficit healed, "
+            "claim closes as computed. If the nonlinear vertex "
+            "accelerates Φ decay (same sign as linear): ISW tension "
+            "becomes a hard kill shot for the constitutive dark-sector "
+            "connection. Either outcome is publishable."
+        ),
+        notes=(
+            "This is the most important remaining question in the "
+            "Ch 9 dark-sector program. The linear GRUT has been fully "
+            "characterized (CAMB injection complete, honest negative "
+            "documented). The survival of the ISW sector rests on "
+            "Rungs 5-8 of the nonlinear gravity ladder. Connected to "
+            "nonlinear_structure_formation_grut_consistency (v5 gate) "
+            "but more specific: the ISW question only requires knowing "
+            "the SIGN of the nonlinear Φ_target correction, not a full "
+            "N-body simulation. A perturbative expansion of S_CTP to "
+            "second order in metric fluctuations may be sufficient."
         ),
     ),
 

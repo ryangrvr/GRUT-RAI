@@ -36,6 +36,14 @@ Submodules:
         linear FRW perturbation regime from bound-system / nonlinear
         halo regimes (rotation curves, cluster-merger dynamics).
 
+    frw_gaussian_path_integral — Phase 2D. FRW Gaussian path integral
+        deriving G^R(k, η) from first principles. Closes
+        `constitutive_growth_poisson_closure_gap`. Key result:
+            G^R(k, η) = 1 / [1 + (τ_0 k_phys(η))²]
+        Exact in QSA on FRW — a⁴ volume factors cancel in the Gaussian
+        integration; no a(η)-dependent corrections. Confirms Phase 2C
+        WKB result via independent route. 26 tests passing.
+
     modified_growth — Priority 3.1. Modified linear growth equation
         δ'' + [2 - (3/2)Ω_m] δ' - (3/2) Ω_m μ_GRUT(k, N) δ = 0.
         Numerical integration for canonical k modes, growth-factor
@@ -51,8 +59,10 @@ Scope:
     Priority 2B — curved-background scaffold: ANCHORED with four
         structural checks.
     Priority 2C — explicit FRW χ_FRW(k, η) and n_g²(k, η): COMPUTED
-        at WKB level. Beyond-WKB (Phase 2D) deferred — corrections
-        are negligibly small for post-equality cosmology.
+        at WKB level.
+    Phase 2D — FRW Gaussian path integral: DERIVED. G^R = 1/(1+(τ₀k_phys)²)
+        exact in QSA on FRW. a⁴ factors cancel in Gaussian integration.
+        Closes `constitutive_growth_poisson_closure_gap`. 26 tests passing.
     Priority 3 — n_g(ω) covariance: CLOSED. ω → k_phys × c, gauge-
         invariant at WKB, mapped to μ(k, a) / γ(k, a) MG-EFT
         parameterization. cmb_boltzmann_scoping now has a well-
@@ -126,6 +136,23 @@ from grut.derivation.phi_munu.mg_eft_mapping import (
     omega_tau_0_dimensionless_argument,
     verify as mg_eft_verify,
 )
+from grut.derivation.phi_munu.frw_gaussian_path_integral import (
+    G_R_agrees_with_wkb,
+    G_R_qsa,
+    a_cancellation_check,
+    beyond_qsa_correction_estimate,
+    convention_declaration as phase2d_convention_declaration,
+    coupling_source_per_mode,
+    coupling_vertex,
+    gaussian_completion_on_shell_sigma,
+    modified_poisson_from_path_integral,
+    mu_GRUT_from_path_integral,
+    quadratic_kernel,
+    quadratic_kernel_factored,
+    s_gradient_kinetic_per_mode,
+    s_relaxation_mass_per_mode,
+    verify as phase2d_verify,
+)
 from grut.derivation.phi_munu.modified_growth import (
     convention_declaration as modified_growth_convention_declaration,
     growing_mode_enhancement_per_efold,
@@ -177,6 +204,22 @@ __all__ = [
     "transition_wavenumber",
     "transition_wavenumber_today_inverse_meters",
     "frw_verify",
+    # Phase 2D — FRW Gaussian path integral (G^R derived, June 2026)
+    "G_R_agrees_with_wkb",
+    "G_R_qsa",
+    "a_cancellation_check",
+    "beyond_qsa_correction_estimate",
+    "phase2d_convention_declaration",
+    "coupling_source_per_mode",
+    "coupling_vertex",
+    "gaussian_completion_on_shell_sigma",
+    "modified_poisson_from_path_integral",
+    "mu_GRUT_from_path_integral",
+    "quadratic_kernel",
+    "quadratic_kernel_factored",
+    "s_gradient_kinetic_per_mode",
+    "s_relaxation_mass_per_mode",
+    "phase2d_verify",
     # Priority 3 closure — MG-EFT mapping
     "mg_eft_convention_declaration",
     "gamma_GRUT",
