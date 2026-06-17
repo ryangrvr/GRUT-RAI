@@ -5,5 +5,5 @@ A unified framework from the closed-time-path effective action.
 Two axioms. One normalization. One equation.
 """
 
-__version__ = "2.0.0"
+__version__ = "2.8.0"
 __author__ = "D. Ryan Grover"

@@ -6,6 +6,11 @@ STATUS (current):
     3-loop R_ANOMALY = 1.15428 is verification-pending (expert audit needed).
     Independent confirmation candidate: R_EPSILON_CANDIDATE = 1.1537
     (Osborn 2003 eq 36) matches within 0.05%.
+
+    v3 INHERITANCE: R_REFRACTIVE = sqrt(4/3) is the CANONICAL value
+    (conformal-mode-scalar / alpha = 1/3 trace-anomaly result). R_ANOMALY
+    (3-loop, verification-pending) and R_EPSILON_CANDIDATE are ARCHIVED
+    v2 cross-check candidates, not operative inputs for v3.
 """
 import numpy as np
 from grut.foundation.constants import G, HBAR

@@ -33,24 +33,31 @@ _MATH_FONT = "Times-Italic"   # safe fallback; overridden to DejaVuSerif-Italic
 
 # Figure stub → PNG filename mapping
 _FIGURE_PNGS = {
-    1: "fig_01_two_scales.png",
-    2: "fig_02_three_regimes.png",
-    3: "fig_03_gate_r.png",
-    4: "fig_04_cluster_schematic.png",
-    5: "fig_05_cluster_scaling.png",
-    6: "fig_06_modified_gravity.png",
-    7: "fig_07_cmb_pk.png",
-    8: "fig_08_mgcamb_prototype.png",
-    9: "fig_09_open_ledger.png",
-   10: "fig_10_grut_chain.png",
-   11: "fig_11_schrodinger_inversion.png",
+    0: "fig_00_tau0_bridge.png",   # front-matter one-parameter bridge diagram
+    1: "fig_01_grut_chain.png",
+    2: "fig_02_timescales.png",
+    3: "fig_03_three_regimes.png",
+    4: "fig_04_gate_r.png",
+    5: "fig_05_hz_residuals.png",
+    6: "fig_06_fsigma8.png",
+    7: "fig_07_s8_tension.png",
+    8: "fig_08_cmb_isw.png",
+    9: "fig_09_cluster_schematic.png",
+   10: "fig_10_cluster_scaling.png",
+   11: "fig_11_modified_gravity.png",
+   # 12 = FRW Gaussian ASCII (no PNG)
+   # 13 = Triple-convergence ASCII (no PNG)
+   14: "fig_14_cmb_pk.png",
+   15: "fig_15_mgcamb_prototype.png",
+   16: "fig_16_schrodinger.png",
+   17: "fig_17_open_ledger.png",
 }
 
 PAGE_W, PAGE_H = letter          # 8.5 × 11 inches
-ML = 1.25 * inch                 # left margin (wider for book feel)
-MR = 1.0  * inch
-MT = 1.1  * inch
-MB = 0.62 * inch
+ML = 0.6  * inch                 # left margin (tightened to widen the text column)
+MR = 0.6  * inch                 # right margin (matched to left)
+MT = 0.9  * inch                 # top margin: body starts ~0.18" below the 0.72" header rule
+MB = 0.40 * inch                 # bottom margin: lowered to fit ~1 more line; footer sits at 0.20"
 CONTENT_W = PAGE_W - ML - MR    # usable text width
 
 # ── Colours ───────────────────────────────────────────────────────────────────
@@ -154,7 +161,7 @@ def make_styles(FR):
     T = FR["title"]
 
     S["body"]   = ParagraphStyle("Body", fontName=B,  fontSize=10.5, leading=15.5,
-                                  spaceAfter=5, alignment=TA_JUSTIFY)
+                                  spaceAfter=5, alignment=TA_LEFT)
     S["h1"]     = ParagraphStyle("H1",   fontName=BB, fontSize=21, leading=26,
                                   spaceBefore=30, spaceAfter=12, textColor=C_NAVY,
                                   keepWithNext=1, alignment=TA_LEFT)
@@ -230,6 +237,26 @@ class GRUTDocTemplate(BaseDocTemplate):
         super().__init__(*args, **kwargs)
 
     def afterFlowable(self, flowable):
+        # ── Chapter-opening header correction ────────────────────────────────
+        # onPage fires BEFORE any flowables are drawn on the page, so the
+        # running header is painted with the previous chapter's name.  When
+        # ChapterMarker is placed, overdraw the left header slot with the
+        # correct new chapter name so chapter-opening pages show the right title.
+        if isinstance(flowable, ChapterMarker) and self.page > 3:
+            c = self.canv
+            c.saveState()
+            # White-out the old chapter name (left ~58 % of header strip)
+            c.setFillColor(white)
+            c.rect(ML - 2, PAGE_H - 0.685 * inch,
+                   (PAGE_W - MR - ML) * 0.58, 0.145 * inch,
+                   fill=1, stroke=0)
+            # Repaint with the new chapter name
+            c.setFont("Georgia-Italic", 8)
+            c.setFillColor(C_GRAY6)
+            c.drawString(ML, PAGE_H - 0.60 * inch, flowable.name[:72])
+            c.restoreState()
+
+        # ── TOC bookkeeping ───────────────────────────────────────────────────
         if self._grut_toc is None:
             return
         if not isinstance(flowable, Paragraph):
@@ -287,14 +314,14 @@ def header_footer(canvas, doc):
     # Footer: page number only (no rule)
     canvas.setFont("Georgia", 9)
     canvas.setFillColor(C_GRAY4)
-    canvas.drawCentredString(PAGE_W/2, 0.28*inch, str(pn))
+    canvas.drawCentredString(PAGE_W/2, 0.20*inch, str(pn))
     canvas.restoreState()
 
 def title_footer(canvas, doc):
     canvas.saveState()
     canvas.setFont("Georgia", 9)
     canvas.setFillColor(C_GRAY6)
-    canvas.drawCentredString(PAGE_W/2, 0.28*inch, str(doc.page))
+    canvas.drawCentredString(PAGE_W/2, 0.20*inch, str(doc.page))
     canvas.restoreState()
 
 # ── XML helpers ───────────────────────────────────────────────────────────────
@@ -1015,13 +1042,14 @@ def cover_page(S):
     els.append(Spacer(1, 0.6*inch))
     els.append(Paragraph("Ryan Grover", S["cvauth"]))
     els.append(Spacer(1, 0.15*inch))
-    els.append(Paragraph("June 2026  ·  Version 2.5", S["cvauth"]))
+    els.append(Paragraph(_font_fallback("June 2026  ·  GRUT Version 2 Final Edition (V2→V3 Synthesis)"), S["cvauth"]))
     els.append(Spacer(1, 0.8*inch))
     els.append(HRFlowable(width="40%", thickness=0.5, color=C_BORDER,
                           hAlign='CENTER', spaceBefore=4, spaceAfter=16))
     els.append(Paragraph(
+        "GRUT Research: www.zenodo.org/communities/GRUT<br/>"
         "GRUT-RAI Codebase: DOI 10.5281/zenodo.18993689<br/>"
-        "2,951 tests · 113 registered claims · 37 corrections documented",
+        "3,211 tests · 114 registered claims · 39 corrections documented",
         S["cvsmall"]))
     els.append(Spacer(1, 0.2*inch))
     els.append(Paragraph(
@@ -1080,7 +1108,7 @@ def build(md_path, out_path):
         topMargin=MT, bottomMargin=MB,
         title="Grand Responsive Universe Theory",
         author="Ryan Grover",
-        subject="Candidate Theory of Everything — GRUT v2.5",
+        subject="Candidate Theory of Everything — GRUT Version 2 Final Edition (with V2→V3 Synthesis)",
         creator="GRUT PDF Generator (reportlab)",
     )
 

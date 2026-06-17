@@ -1495,9 +1495,14 @@ REGISTRY: tuple[Claim, ...] = (
         chapter=9,
         statement=(
             "MOND-like trigger acceleration a_0 = c/(2π τ_Λ) ≈ "
-            "1.2 × 10⁻¹⁰ m/s² emerges from the response time, not from "
-            "modified dynamics. The MOND interpolation ν(y) is recovered "
-            "from frequency-gated screening, not postulated."
+            "1.2 × 10⁻¹⁰ m/s² emerges from the cosmological response time "
+            "τ_Λ = 1/H_0 — a GRUT-derived scale. The frequency gate 1/(1+X²), "
+            "X = ω_dyn τ_0, is derived from χ(ω) (solar-system safety + a "
+            "falsifiable high-ω deviation from MOND). The interpolation SHAPE "
+            "ν(y) is ADOPTED from MOND, NOT derived (v2 audit, June 2026): "
+            "the bounded refractive enhancement n_g² ≤ 4/3 cannot produce flat "
+            "curves; see theory/PROJECTOR_CONSISTENCY_NOGO.md. GRUT is thus "
+            "MOND-compatible with a derived a_0 and a derived high-ω deviation."
         ),
         tier="computed",
         refs=(
@@ -1566,11 +1571,17 @@ REGISTRY: tuple[Claim, ...] = (
         statement=(
             "Galactic rotation curves are produced by g_eff = g_bar [1 + "
             "(ν(y) − 1)/(1 + X²)] where y = g_bar/a_0 and X = ω·τ_0. "
-            "Specific verified behaviors at code level: Newtonian inner "
-            "regions; flat outer regions; baryonic Tully-Fisher relation "
-            "with coefficient G·a_0; v_flat ∝ M^(1/4) power law; "
-            "intermediate transition regime; deep-response saturation. "
-            "Seven distinct predictions pinned by passing tests."
+            "PROVENANCE (v2 audit, June 2026): the interpolation SHAPE "
+            "ν(y) = ½+√(¼+1/y) is ADOPTED from MOND, not derived — GRUT's "
+            "bounded refractive enhancement (n_g² ≤ 4/3) cannot produce flat "
+            "curves (theory/PROJECTOR_CONSISTENCY_NOGO.md). The GRUT-derived, "
+            "falsifiable content is (i) a_0 = cH_0/(2π) and (ii) the gate "
+            "1/(1+X²) → a high-ω deviation from MOND (low-acceleration but "
+            "high-frequency systems, e.g. some wide binaries). Verified at "
+            "code level: Newtonian inner regions; flat outer regions (MOND "
+            "shape); baryonic Tully-Fisher v_flat⁴ = G·M·a_0; v_flat ∝ "
+            "M^(1/4); the dual-gate transition. GRUT is MOND-compatible with "
+            "a derived a_0 and a derived high-ω deviation."
         ),
         tier="computed",
         refs=(
@@ -2274,14 +2285,15 @@ REGISTRY: tuple[Claim, ...] = (
         chapter=12,
         statement=(
             "The repository maintains a public ledger of every correction "
-            "to the framework: 32 documented corrections across the V7 "
-            "development era, the v8→v2 synthesis, hard-theory audits, "
-            "Gate R closure (May 2026), and June 2026 v2.2.0 advances "
-            "(τ-hierarchy Option B, θ=2/9 CANDIDATE IDENTITY, CMB "
-            "Boltzmann Case A, D=1.0 closure diagnosis). Each correction "
-            "has a CORRECTION_*.md file or registry claim; zero unflagged "
-            "errors. Honest-negative discipline is enforced by repository "
-            "convention."
+            "to the framework: corrections numbered through #39 (June 2026) "
+            "across the V7 development era, the v8→v2 synthesis, hard-theory "
+            "audits, Gate R (May 2026), and the v2 Final / V2→V3 advances — "
+            "including #38 (linear cosmology ruled out → ΛCDM) and #39 (the "
+            "high-pass / selection-principle retraction), plus the V2→V3 "
+            "organizing-structure foundation. Each correction is documented "
+            "in a CORRECTION_*.md file, the Ch 14 ledger, and/or a registry "
+            "claim; zero unflagged errors. Honest-negative discipline is "
+            "enforced by repository convention."
         ),
         tier="meta",
         refs=(
@@ -3197,6 +3209,15 @@ REGISTRY: tuple[Claim, ...] = (
         id="cmb_boltzmann_case_a_structural",
         chapter=9,
         statement=(
+            "RULED OUT (Correction #38, June 2026). The linear refractive "
+            "enhancement described below is FALSIFIED by the low-ℓ CMB ISW "
+            "(2.79×/32σ excess; theory/CMB_ISW_EQUALITY_FILTER.md §0.1) and "
+            "FORBIDDEN by consistency (μ_linear = 1 forced; "
+            "theory/PROJECTOR_CONSISTENCY_NOGO.md §5). The 'genuine "
+            "observational risk' this very claim flagged is exactly the test "
+            "that fired. Linear cosmology = ΛCDM; the operative dark sector is "
+            "nonlinear/tensor (C5a W², C5b orbital-ω, C5c TT). Retained as "
+            "derivation-phase audit trail only. ORIGINAL CLAIM FOLLOWS — "
             "Case A structural proof (June 2026): μ_GRUT(k,a) survives "
             "full Einstein-Boltzmann evolution without operator completion. "
             "Three independent structural arguments: (1) single-equation "
@@ -3217,7 +3238,7 @@ REGISTRY: tuple[Claim, ...] = (
             "deficit — quantitative resolution gated on CAMB/CLASS run. "
             "Transition scale: λ_* ≈ 80.7 Mpc, k_* ≈ 0.078 Mpc⁻¹."
         ),
-        tier="computed",
+        tier="open_negative",
         refs=(
             "grut/derived/cmb/boltzmann_consistency.py",
             "grut/derivation/phi_munu/modified_growth.py",
@@ -3333,6 +3354,12 @@ REGISTRY: tuple[Claim, ...] = (
         id="camb_grut_power_spectrum_prediction",
         chapter=9,
         statement=(
+            "RULED OUT at linear order (Correction #38, June 2026): the "
+            "P(k)/σ₈/ISW enhancement below is the falsified linear refractive "
+            "branch (μ_linear = 1 is forced; the low-ℓ ISW excess is 32σ). "
+            "σ₈ = ΛCDM at linear scalar order; any surviving S₈ offset is from "
+            "background Ω_m, not modified gravity. Retained as audit trail. "
+            "ORIGINAL CLAIM FOLLOWS — "
             "First CAMB-backed GRUT matter power spectrum and CMB "
             "prediction (June 2026). Key results: "
             "(1) P_GRUT(k) = P_ΛCDM(k) × f_GRUT²(k) — exact given "
@@ -3362,7 +3389,7 @@ REGISTRY: tuple[Claim, ...] = (
             "(Poisson constraint, single multiply). The P(k) result "
             "is exact given the growth factor."
         ),
-        tier="computed",
+        tier="open_negative",
         refs=(
             "grut/derived/cmb/camb_power_spectra.py",
             "grut/derivation/phi_munu/modified_growth.py",
@@ -5038,6 +5065,110 @@ REGISTRY: tuple[Claim, ...] = (
         ),
         tests=("tests/foundation/test_foundation.py",),
         deps=("ctp_action_structure",),
+    ),
+
+    # ─── V2→V3 organizing structure (June 2026 foundation phase) ─────
+    Claim(
+        id="organizing_structure_v3",
+        chapter=3,
+        statement=(
+            "Stripped of the mechanisms that failed every adversarial "
+            "attack, GRUT is a theory of PERMISSIBLE VACUUM RESPONSE with "
+            "one organizing principle: it is the adiabatic-dilatation-"
+            "redundant (GR) limit, plus the CONTROLLED BREAKING of that "
+            "redundancy by exactly one scale L0 = c*tau_0 (~12.85 Mpc) — "
+            "the shape by which a mass breaks scale invariance. Two "
+            "pillars: Q = CTP/in-in unitarity (PROVEN, ctp_action_"
+            "structure) and F = finite single-pole memory (POSTULATED, "
+            "memory_kernel_form). The adiabatic spatial-dilatation "
+            "redundancy D is a CONJECTURED bridge whose BREAKING term is "
+            "established: F is the controlled breaking of D. "
+            "'Distinguishability' is a NAME for the conjunction Q∩F∩D, "
+            "not a fourth axiom."
+        ),
+        tier="foundational",
+        refs=(
+            "theory/GRUT_V3_ORGANIZING_STRUCTURE.md",
+            "theory/GRUT_SELECTION_PRINCIPLE.md §3.6-3.7",
+            "theory/V2_TO_V3_SYNTHESIS.md",
+            "grut/foundation/organizing_structure.py",
+            "workflows: ww3jtq2t9, wqr4a0cuq, w1up736t0, w3g2yu2wc",
+        ),
+        deps=(
+            "ctp_action_structure",
+            "memory_kernel_form",
+            "constitutive_equation",
+            "alpha_vac_derivation",
+        ),
+        falsifier=(
+            "A first-principles derivation of a SURVIVING linear-scalar "
+            "refractive enhancement (mu_linear != 1) would break the "
+            "robust theorem and the framing; equivalently, a proof that a "
+            "finite-L0 medium IS separate-universe invariant for k != 0 "
+            "would collapse the 'controlled breaking' picture."
+        ),
+        notes=(
+            "The V2->V3 catalyst (recorded, not yet built on). A "
+            "foundation in the thermodynamics/GR sense: the organizing "
+            "principle is stable and the open questions are precisely "
+            "located, NOT closed. Named frontiers carried honestly: "
+            "alpha's VALUE (4th-order Riegert a/c, open), the nonlinear/"
+            "tensor dark sector (C5a-c, open), and the L0->0 underlying-"
+            "redundancy proof (presupposed Weinberg adiabatic mode, not "
+            "re-derived from the CTP action). Flavor/Koide sits OUTSIDE "
+            "the vacuum-response scheme (hosted)."
+        ),
+    ),
+    Claim(
+        id="adiabatic_dilatation_redundancy_nogo",
+        chapter=3,
+        statement=(
+            "The load-bearing theorem: the rigid spatial dilatation "
+            "T_lambda (a -> a*e^lambda, comoving k fixed) is a genuine "
+            "gauge redundancy of the FULL CTP action S_IF ONLY at strict "
+            "k=0 / in the memoryless L0->0 limit. For physical k != 0 the "
+            "finite proper length L0 breaks it at O((L0*k_phys)^2): under "
+            "T_lambda, k_phys = k/a -> e^(-lambda) k_phys, so the squared "
+            "memory argument scales e^(-2 lambda) and chi_eq = 1/(1+(L0*"
+            "k_phys)^2) is not invariant. The breaking is NON-ANOMALOUS "
+            "(T_lambda is a diffeomorphism, not a Weyl rescaling; measure "
+            "Jacobian == 1; alpha does NOT enter — outcome C ruled out) "
+            "and confined to the TENSOR sector: in the linear scalar "
+            "sector the tracefree P^TT kernel annihilates the response, so "
+            "mu_linear = 1 (linear cosmology = LCDM). Outcome (B) "
+            "broken_by_kernel — NOT (A) genuine redundancy, NOT (C) "
+            "anomalous."
+        ),
+        tier="computed",
+        refs=(
+            "grut/foundation/organizing_structure.py",
+            "grut/derivation/phi_munu/retarded_kernel_frw.py",
+            "theory/GRUT_V3_ORGANIZING_STRUCTURE.md §1",
+            "theory/PROJECTOR_CONSISTENCY_NOGO.md §5",
+            "workflows: w1up736t0 (piecewise), w3g2yu2wc (3-skeptic verify)",
+        ),
+        tests=(
+            "tests/foundation/test_organizing_structure.py",
+        ),
+        deps=(
+            "ctp_action_structure",
+            "memory_kernel_form",
+            "organizing_structure_v3",
+        ),
+        falsifier=(
+            "A compensating transformation that restores chi_eq invariance "
+            "for k != 0 at fixed proper L0 would flip the outcome to (A) "
+            "genuine redundancy; a measure/Fujikawa anomaly with "
+            "coefficient proportional to alpha would flip it to (C)."
+        ),
+        notes=(
+            "Independently adjudicated by a 3-skeptic verification "
+            "(w3g2yu2wc): all returned outcome (B) at high confidence. "
+            "Corrected an exponent bookkeeping error in the first draft "
+            "(e^(-lambda) on k_phys, e^(-2 lambda) on its square). The "
+            "theorem establishes the BREAKING; it presupposes (does not "
+            "re-derive) the underlying L0->0 redundancy."
+        ),
     ),
 )
 

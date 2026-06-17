@@ -18,7 +18,25 @@ asks whether they can be DERIVED from the canonical GRUT constants
     α_vac     = 1/3             (vacuum impedance, α = 1/d, d=3)
     τ_0       = 41.9 Myr        (canonical relaxation time)
 via the multi-generation CTP fixed-point condition z* = z_target[z*]
-with z_target[z] = z − F_spatial[z] / F_temporal per V7 §29.
+with z_target[z] = z − F_spatial[z] / F_temporal.
+
+FIXED-POINT NO-GO (June 2026; theory/KOIDE_AMPLITUDE_UNIFICATION.md): the
+attempt FAILED. GRUT's self-consistent impedance balance gives K = 4/9, NOT
+the observed 2/3 (the Koide amplitude A = √2 is ~4.24× the impedance
+α_vac = 1/3). K = 2/3 and θ = 2/9 are CANDIDATE IDENTITIES — unified as the
+single posit A² = N−1 — NOT theorems; the amplitude is HOSTED Yukawa input.
+K = 2/3 as a Z₃ circulant identity is PROVEN; (M₀, θ) are FITTED; θ = 2/9 is
+a falsifiable hypothesis, not a partial closure. Flavor sits OUTSIDE the
+vacuum-response scheme.
+
+PROVENANCE (v2 self-containment audit, June 2026): the GENERAL form
+z_target = z − F_spatial/F_temporal is NATIVE GRUT — the bedrock constitutive
+equation, derived from three independent routes (CTP variation, Mori–Zwanzig
+memory kernel, gradient flow; cf. V7 §4 and constitutive.py), not a V7 import.
+What is OPEN — in v2 AND in V7 §29 — is only the three-flavor SPECIALIZATION:
+V7 §29 explicitly marks the flavor structure of z_target as "the missing object"
+(it requires the CTP variation of S_CTP with the full SM Yukawa Lagrangian). The
+flavor mechanism is therefore a genuine open frontier, NOT importable from V7.
 
 ────────────────────────────────────────────────────────────────────
 HONEST-NEGATIVE RESULT, WITH ONE CANDIDATE IDENTITY (April 22, 2026)

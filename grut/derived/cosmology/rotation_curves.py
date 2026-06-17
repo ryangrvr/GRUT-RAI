@@ -1,11 +1,24 @@
 """
-Galactic Rotation Curves via the Phase I Engine (SPARC-ready).
+Galactic Rotation Curves via the GRUT engine (SPARC-ready).
 
-From Phase I Appendix E (frozen engine mapping):
+PROVENANCE (v2 self-containment audit, June 2026)
+─────────────────────────────────────────────────
+This engine is **MOND-compatible**, not MOND-derived. Of the three pieces:
+
+  • a_0 = cH_0/(2π)              — GRUT-DERIVED scale (from τ_Λ = 1/H_0); A_0_SI
+  • gate 1/(1+X²), X = ω_dyn τ_0 — GRUT-DERIVED from χ(ω); solar-system safety
+                                    + a falsifiable high-ω deviation from MOND
+  • ν(y) = ½ + √(¼ + 1/y)        — ADOPTED from MOND (the "simple" function),
+                                    NOT derived. GRUT's bounded refractive
+                                    enhancement (n_g² ≤ 4/3) provably cannot
+                                    bend a flat curve; neither v2 nor V7 derives
+                                    ν(y). See theory/PROJECTOR_CONSISTENCY_NOGO.md.
+
+The engine mapping (ν(y) adopted; a_0 and the gate GRUT-derived):
 
     y = g_bar / a_0                           (dimensionless acceleration)
-    ν(y) = 1/2 + √(1/4 + 1/y)                 (MOND-like interpolation)
-    X = ω_dyn τ_0                             (regime gate)
+    ν(y) = 1/2 + √(1/4 + 1/y)                 (MOND simple function — ADOPTED)
+    X = ω_dyn τ_0                             (regime gate — GRUT-derived)
     g_eff = g_bar × [1 + (ν(y) − 1) / (1 + X²)]
 
 Limits:

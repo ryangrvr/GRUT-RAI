@@ -71,9 +71,115 @@ def save(fig, name):
     print(f"  ✓ {name}")
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Figure 1 — Two-Timescale Logarithmic Map
+# Figure 0 — τ₀ One-Parameter Bridge (front-matter overview)
 # ─────────────────────────────────────────────────────────────────────────────
-def fig01_timescales():
+def fig00_tau0_bridge():
+    """Front-matter schematic: one τ₀ measurement constrains three cosmological sectors."""
+    FW, FH = 11, 6.2
+    fig = plt.figure(figsize=(FW, FH), facecolor='white')
+    ax  = fig.add_axes([0, 0, 1, 1])
+    ax.set_xlim(0, FW); ax.set_ylim(0, FH); ax.axis('off')
+
+    DKRED  = '#5C0A0A'; DKBLUE = '#0A2050'; DKGRN  = '#0A3520'
+    LRED   = '#FADBD8'; LBLUE  = '#D6EAF8'; LGRN   = '#D5F0E3'
+    LGRAY_ = '#CCCCCC'
+
+    def rbox(cx, cy, w, h, fc, ec, txt, fs=9.5, tc='white', lw=1.8, bold=False, pad=0.12, zo=4):
+        p = FancyBboxPatch((cx-w/2, cy-h/2), w, h,
+                           boxstyle=f'round,pad={pad}',
+                           fc=fc, ec=ec, lw=lw, zorder=zo)
+        ax.add_patch(p)
+        ax.text(cx, cy, txt, ha='center', va='center', fontsize=fs, color=tc,
+                fontweight='bold' if bold else 'normal',
+                zorder=zo+1, linespacing=1.6)
+
+    def hline(x1, x2, y, c=LGRAY_, lw=1.4):
+        ax.plot([x1, x2], [y, y], color=c, lw=lw, zorder=2)
+
+    def vline(x, y1, y2, c=LGRAY_, lw=1.4):
+        ax.plot([x, x], [y1, y2], color=c, lw=lw, zorder=2)
+
+    def arrow_down(x, y_start, y_end, c=SLATE):
+        ax.annotate('', xy=(x, y_end), xytext=(x, y_start),
+                    arrowprops=dict(arrowstyle='->', color=c, lw=1.6,
+                                    mutation_scale=14), zorder=5)
+
+    # ── Title ──────────────────────────────────────────────────────────────────
+    ax.text(FW/2, FH-0.28, "The One-Parameter Bridge",
+            ha='center', va='top', fontsize=16, color=NAVY, fontweight='bold',
+            fontfamily='serif')
+    ax.text(FW/2, FH-0.68, r"A single lab measurement of $\tau_0$ simultaneously constrains"
+            r" three cosmological sectors — zero free parameters",
+            ha='center', va='top', fontsize=11.5, color=SLATE,
+            fontfamily='serif', style='italic')
+
+    # ── τ₀ source box ──────────────────────────────────────────────────────────
+    rbox(FW/2, FH-1.50, 4.0, 0.65, NAVY, NAVY,
+         r'$\tau_0 = 41.9$ Myr  —  measured in lab',
+         fs=13, bold=True, pad=0.16, zo=5)
+
+    # ── Branching tree ─────────────────────────────────────────────────────────
+    XL, XC, XR = 1.9, FW/2, FW-1.9
+    Y_src_bot = FH - 1.83
+    Y_junc    = FH - 2.40
+    Y_arm_bot = FH - 2.80
+
+    vline(XC, Y_src_bot, Y_junc)
+    hline(XL, XR, Y_junc)
+    for x in [XL, XC, XR]:
+        arrow_down(x, Y_junc, Y_arm_bot)
+
+    # ── Left branch: Λ_grav / Falsifier F1 ────────────────────────────────────
+    rbox(XL, FH-3.58, 3.3, 1.35, DKRED, '#922b21',
+         'Λ$_{\\rm grav}$ = 689 Hz\n'
+         'Decoherence plateau\n'
+         'Falsifier F1',
+         fs=11.5, tc=LRED, pad=0.13, zo=4)
+    ax.text(XL, FH-4.72,
+            'Confirmed: validates core mechanism\n'
+            'Refuted: kills entire framework',
+            ha='center', va='top', fontsize=10.5, color=DKRED,
+            fontfamily='serif', style='italic', linespacing=1.55)
+
+    # ── Centre branch: H_inf / H₀ / Ω_Λ ──────────────────────────────────────
+    rbox(XC, FH-3.58, 3.5, 1.35, DKBLUE, '#1a3a6b',
+         '$H_{\\rm inf} = (2{-}R)/(S\\tau_0)$\n'
+         r'$\Rightarrow H_0 = 69.03$ km/s/Mpc' + '\n'
+         r'$\Rightarrow \Omega_\Lambda = 0.689$',
+         fs=11.5, tc=LBLUE, pad=0.13, zo=4)
+    ax.text(XC, FH-4.72,
+            'Terminal velocity — CTP drive / friction\n'
+            'Both within the Planck tension gap',
+            ha='center', va='top', fontsize=10.5, color=DKBLUE,
+            fontfamily='serif', style='italic', linespacing=1.55)
+
+    # ── Right branch: Ω_dm ─────────────────────────────────────────────────────
+    rbox(XR, FH-3.58, 3.3, 1.35, DKGRN, '#1d8348',
+         r'$\Omega_{\rm dm} = \alpha_{\rm vac} = 1/3$' + '\n'
+         r'$n_g$ refractive (bound-system)' + '\n'
+         '(zero parameters)',
+         fs=11.5, tc=LGRN, pad=0.13, zo=4)
+    ax.text(XR, FH-4.72,
+            'Geometric — from CTP action alone\n'
+            '(+27% overshoot: open tension)',
+            ha='center', va='top', fontsize=10.5, color=DKGRN,
+            fontfamily='serif', style='italic', linespacing=1.55)
+
+    # ── Footer ─────────────────────────────────────────────────────────────────
+    ax.text(FW/2, 0.22,
+            r'Three predictions. Zero free parameters. '
+            r'If the 689 Hz plateau is confirmed, all three sectors validate simultaneously.',
+            ha='center', va='bottom', fontsize=11, color=SLATE,
+            fontfamily='serif', style='italic',
+            bbox=dict(boxstyle='round,pad=0.3', fc='#F2F3F4', ec=LGRAY_, alpha=0.85))
+
+    save(fig, "fig_00_tau0_bridge.png")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Figure 2 — Two-Timescale Logarithmic Map
+# ─────────────────────────────────────────────────────────────────────────────
+def fig02_timescales():
     fig, ax = plt.subplots(figsize=(11, 4.2))
     fig.patch.set_facecolor('white')
     ax.set_facecolor(BG)
@@ -169,13 +275,13 @@ def fig01_timescales():
     ax.set_title("GRUT Two-Timescale Hierarchy  —  $\\tau_{\\rm micro}$ to $\\tau_0$, 34 decades",
                  fontsize=12, fontweight='bold', color=NAVY, fontfamily='serif', pad=8)
     plt.tight_layout(pad=0.5)
-    save(fig, "fig_01_two_scales.png")
+    save(fig, "fig_02_timescales.png")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Figure 2 — n_g²(ωτ₀): Three Regimes of the Responsive Vacuum
+# Figure 3 — n_g²(ωτ₀): Three Regimes of the Responsive Vacuum
 # ─────────────────────────────────────────────────────────────────────────────
-def fig02_three_regimes():
+def fig03_three_regimes():
     alpha = 1/3
     log_x = np.linspace(-3, 3, 1200)
     x     = 10**log_x                   # ωτ₀
@@ -231,13 +337,13 @@ def fig02_three_regimes():
     ax.legend(fontsize=7.5, loc='center right', framealpha=0.9)
     ax.grid(True, alpha=0.3, lw=0.6)
     plt.tight_layout()
-    save(fig, "fig_02_three_regimes.png")
+    save(fig, "fig_03_three_regimes.png")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Figure 3 — Gate R: Two-Route Convergence to R = √(4/3)
+# Figure 4 — Gate R: Two-Route Convergence to R = √(4/3)
 # ─────────────────────────────────────────────────────────────────────────────
-def fig03_gate_r():
+def fig04_gate_r():
     fig, axes = plt.subplots(1, 2, figsize=(11, 6.5),
                              gridspec_kw={'width_ratios': [1.5, 1]})
     fig.patch.set_facecolor('white')
@@ -335,13 +441,13 @@ def fig03_gate_r():
              transform=ax2.transAxes, fontsize=12, color=GREEN,
              fontweight='bold', fontfamily='serif')
     fig.tight_layout(pad=1.8)
-    save(fig, "fig_03_gate_r.png")
+    save(fig, "fig_04_gate_r.png")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Figure 4 — Cluster Merger Schematic (Bullet Cluster mechanism)
+# Figure 9 — Cluster Merger Schematic (Bullet Cluster mechanism)
 # ─────────────────────────────────────────────────────────────────────────────
-def fig04_cluster_schematic():
+def fig09_cluster_schematic():
     fig, axes = plt.subplots(1, 2, figsize=(9, 4.2))
     fig.patch.set_facecolor('white')
 
@@ -350,7 +456,7 @@ def fig04_cluster_schematic():
         ax.set_facecolor(BG)
         ax.set_xlim(-4.5, 4.5); ax.set_ylim(-2.5, 3.0)
         ax.axis('off')
-        ax.set_title(title, fontsize=10, fontweight='bold',
+        ax.set_title(title, fontsize=14, fontweight='bold',
                      color=NAVY, pad=4, fontfamily='serif')
 
         if not after:
@@ -373,10 +479,10 @@ def fig04_cluster_schematic():
                             arrowprops=dict(arrowstyle="-|>", color=NAVY,
                                             lw=2, mutation_scale=16))
             ax.text(0, -1.8, "v ≈ 4700 km/s →    ← v", ha='center',
-                    fontsize=8, color=NAVY, fontfamily='serif')
-            ax.text(-2.5,  1.35, "DM halo",  ha='center', fontsize=8,
+                    fontsize=12, color=NAVY, fontfamily='serif')
+            ax.text(-2.5,  1.45, "DM halo",  ha='center', fontsize=12,
                     color=BLUE, fontfamily='serif')
-            ax.text(-2.5, -0.15, "gas",      ha='center', fontsize=7.5,
+            ax.text(-2.5, -0.15, "gas",      ha='center', fontsize=12,
                     color=ORANGE, fontfamily='serif', fontweight='bold')
         else:
             # Gas stopped at centre
@@ -385,7 +491,7 @@ def fig04_cluster_schematic():
                                    edgecolor='#a04000', lw=1.2)
             ax.add_patch(gas)
             ax.text(gas_offset, 0, "gas\n(collisional,\nstopped)",
-                    ha='center', va='center', fontsize=7.5,
+                    ha='center', va='center', fontsize=11,
                     color='#7d3c00', fontweight='bold', fontfamily='serif')
 
             # DM lensing mass (two offset blobs)
@@ -394,8 +500,8 @@ def fig04_cluster_schematic():
                                       fill=False, edgecolor=BLUE,
                                       lw=2.2, ls='--', alpha=0.85)
                 ax.add_patch(dm)
-                ax.annotate("lensing\nmass", xy=(xoff, 0.9),
-                            fontsize=8, ha='center', color=BLUE,
+                ax.annotate("lensing\nmass", xy=(xoff, 1.05),
+                            fontsize=12, ha='center', color=BLUE,
                             fontfamily='serif')
 
             # Offset dimension arrow
@@ -404,11 +510,11 @@ def fig04_cluster_schematic():
                         arrowprops=dict(arrowstyle="<->", color=RED, lw=1.5))
             ax.text(0, -1.95,
                     r"$\delta \approx v \times \tau_0 \approx 150$ kpc",
-                    ha='center', fontsize=9, color=RED, fontweight='bold',
+                    ha='center', fontsize=13, color=RED, fontweight='bold',
                     fontfamily='serif')
             ax.text(0, 2.5,
                     r"Mechanism: retarded kernel $K^R \propto e^{-t/\tau_0}$",
-                    ha='center', fontsize=7.5, color=SLATE, style='italic',
+                    ha='center', fontsize=11, color=SLATE, style='italic',
                     fontfamily='serif')
 
     cluster_panel(axes[0], "Before Merger", "before",
@@ -417,16 +523,16 @@ def fig04_cluster_schematic():
                   gas_offset=0, dm_offset=2.0, after=True)
 
     fig.suptitle("GRUT Cluster Merger Lag Mechanism — Viscoelastic Memory Kernel",
-                 fontsize=10.5, fontweight='bold', color=NAVY,
-                 fontfamily='serif', y=1.01)
+                 fontsize=14, fontweight='bold', color=NAVY,
+                 fontfamily='serif', y=1.02)
     plt.tight_layout(pad=1.2)
-    save(fig, "fig_04_cluster_schematic.png")
+    save(fig, "fig_09_cluster_schematic.png")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Figure 5 — Cluster Merger Population Scaling
+# Figure 10 — Cluster Merger Population Scaling
 # ─────────────────────────────────────────────────────────────────────────────
-def fig05_cluster_scaling():
+def fig10_cluster_scaling():
     # Data from document + derived GRUT predictions (δ = v × τ₀ × dec_ratio)
     # Using canonical dec_ratio ≈ 0.638, τ₀ = 41.9 Myr
     tau0_Myr = 41.9
@@ -543,13 +649,13 @@ def fig05_cluster_scaling():
             bbox=dict(boxstyle='round,pad=0.3', facecolor='white',
                       edgecolor=LGRAY, alpha=0.8))
     plt.tight_layout()
-    save(fig, "fig_05_cluster_scaling.png")
+    save(fig, "fig_10_cluster_scaling.png")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Figure 6 — μ_GRUT profile + P(k)/P_ΛCDM
+# Figure 11 — μ_GRUT profile + P(k)/P_ΛCDM
 # ─────────────────────────────────────────────────────────────────────────────
-def fig06_modified_gravity():
+def fig11_modified_gravity():
     alpha_vac = 1/3
     tau0_s    = 1.322e15      # seconds
     c_kms     = 2.998e5       # km/s
@@ -628,13 +734,13 @@ def fig06_modified_gravity():
     ax2.tick_params(labelsize=9)
 
     plt.tight_layout(pad=1.5)
-    save(fig, "fig_06_modified_gravity.png")
+    save(fig, "fig_11_modified_gravity.png")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Figure 7 — CMB + P(k): Correction #36 Native Boltzmann
+# Figure 14 — CMB + P(k): Correction #36 Native Boltzmann
 # ─────────────────────────────────────────────────────────────────────────────
-def fig07_cmb_pk():
+def fig14_cmb_pk():
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4.8))
     fig.patch.set_facecolor('white')
 
@@ -709,13 +815,13 @@ def fig07_cmb_pk():
     ax2.tick_params(labelsize=9)
 
     plt.tight_layout(pad=1.5)
-    save(fig, "fig_07_cmb_pk.png")
+    save(fig, "fig_14_cmb_pk.png")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Figure 8 — MGCAMB Prototype Diagnostic (artifact record)
+# Figure 15 — MGCAMB Prototype Diagnostic (artifact record)
 # ─────────────────────────────────────────────────────────────────────────────
-def fig08_mgcamb_prototype():
+def fig15_mgcamb_prototype():
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4.8))
     fig.patch.set_facecolor('white')
 
@@ -748,13 +854,21 @@ def fig08_mgcamb_prototype():
     ax1.fill_between(ell_fine[mask], dl[mask], dl_proto[mask],
                      alpha=0.3, color=RED, label="etak/z artifact")
     ax1.axvline(30, color=ORANGE, lw=1.2, ls=':', alpha=0.8)
-    ax1.text(22, 5000, "ARTIFACT\n(etak/z mismatch)\n×1.7–2.0 excess",
-             ha='center', va='top', fontsize=8, color=RED, fontweight='bold',
-             fontfamily='serif',
-             bbox=dict(boxstyle='round,pad=0.25', facecolor='#fff0f0',
-                       edgecolor=RED, alpha=0.9))
+    ax1.annotate("ARTIFACT\n(etak/z mismatch)\n×1.7–2.0 excess",
+                 xy=(18, 4800), xytext=(200, 6700),
+                 ha='left', va='top', fontsize=8, color=RED, fontweight='bold',
+                 fontfamily='serif',
+                 arrowprops=dict(arrowstyle='->', color=RED, lw=1.2),
+                 bbox=dict(boxstyle='round,pad=0.25', facecolor='#fff0f0',
+                           edgecolor=RED, alpha=0.9))
     ax1.text(700, 3500, r"$\ell>100$: < 0.2%" + "\n(not artifact)", ha='center',
              fontsize=8, color=TEAL, fontfamily='serif', style='italic')
+    ax1.text(0.97, 0.55,
+             "Real signal (validated MGCAMB, Corr #38):\n~2.6$\\times$ low-$\\ell$ EXCESS $\\to$ linear branch RULED OUT",
+             transform=ax1.transAxes, ha='right', va='top', fontsize=7.6,
+             color='firebrick', fontweight='bold',
+             bbox=dict(boxstyle='round,pad=0.25', facecolor='mistyrose',
+                       edgecolor='firebrick', alpha=0.9))
     ax1.set_xlabel(r"Multipole $\ell$", fontsize=11, fontfamily='serif')
     ax1.set_ylabel(r"$D_\ell^{TT}$ $[\mu\rm K^2]$", fontsize=11, fontfamily='serif')
     ax1.set_title("Prototype CMB — Artifact Diagnosis", fontsize=10,
@@ -786,7 +900,7 @@ def fig08_mgcamb_prototype():
     ax2.axhline(3.22, color=BLUE, lw=1.2, ls=':', alpha=0.7)
     ax2.text(0.1, 3.8, r"$\sigma_8$ +3.22%", fontsize=8, color=BLUE,
              fontfamily='serif')
-    ax2.text(0.97, 0.04, "NOT physical GRUT predictions\n(prototype diagnostic only)",
+    ax2.text(0.93, 0.04, "NOT physical GRUT predictions\n(prototype diagnostic only)",
              transform=ax2.transAxes, ha='right', va='bottom',
              fontsize=7.5, color=RED, style='italic', fontfamily='serif',
              bbox=dict(boxstyle='round,pad=0.25', facecolor='#fff0f0',
@@ -802,13 +916,13 @@ def fig08_mgcamb_prototype():
     ax2.tick_params(labelsize=9)
 
     plt.tight_layout(pad=1.5)
-    save(fig, "fig_08_mgcamb_prototype.png")
+    save(fig, "fig_15_mgcamb_prototype.png")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Figure 9 — Open Question Dependency Ledger
+# Figure 17 — Open Question Dependency Ledger
 # ─────────────────────────────────────────────────────────────────────────────
-def fig09_open_ledger():
+def fig17_open_ledger():
     # Single-line labels only (no \n in descriptions)
     items = [
         # (label,                                       status,    effort,       chapter)
@@ -906,15 +1020,15 @@ def fig09_open_ledger():
     ]
     ax.legend(handles=legend_patches, fontsize=9.5, loc='lower right', framealpha=0.92)
     plt.tight_layout(pad=1.0)
-    save(fig, "fig_09_open_ledger.png")
+    save(fig, "fig_17_open_ledger.png")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Figure 11 — Schrödinger-in-the-Box: Standard vs GRUT Inversion
+# Figure 16 — Schrödinger-in-the-Box: Standard vs GRUT Inversion
 # ─────────────────────────────────────────────────────────────────────────────
-def fig11_schrodinger_inversion():
+def fig16_schrodinger():
     """Two-panel comparison: Standard formulation vs GRUT inversion of the cat paradox."""
-    FW, FH = 13, 7
+    FW, FH = 14, 8.5
     fig = plt.figure(figsize=(FW, FH), facecolor='white')
     ax  = fig.add_axes([0, 0, 1, 1])
     ax.set_xlim(0, FW); ax.set_ylim(0, FH); ax.axis('off')
@@ -950,7 +1064,7 @@ def fig11_schrodinger_inversion():
     # ── Column headers ─────────────────────────────────────────────────────────
     for cx, lbl, fc in [(XD/2, 'STANDARD FORMULATION', RED),
                          (XD + XD/2, 'GRUT INVERSION', GRN)]:
-        ax.text(cx, FH-0.45, lbl, ha='center', va='center', fontsize=11,
+        ax.text(cx, FH-0.45, lbl, ha='center', va='center', fontsize=15,
                 color=fc, fontweight='bold', fontfamily='monospace')
         seg(cx - 2.4, FH-0.65, cx + 2.4, FH-0.65, c=fc, lw=1.5)
 
@@ -960,27 +1074,27 @@ def fig11_schrodinger_inversion():
     XL = XD / 2    # left panel centre
 
     # Observer (outside)
-    rbox(XL, FH-1.45, 2.4, 0.60, RED, RED, 'OBSERVER', fs=10, bold=True)
+    rbox(XL, FH-1.45, 2.6, 0.66, RED, RED, 'OBSERVER', fs=14, bold=True)
 
     # Arrow down with label
     seg(XL, FH-1.75, XL, FH-2.30, c=GRAY)
     arw(XL, FH-2.30)
     ax.text(XL+0.12, FH-2.05, '"is the cat alive?"', ha='left', va='center',
-            fontsize=8.5, color=GRAY, style='italic')
+            fontsize=12, color=GRAY, style='italic')
 
     # Box (containing superposed cat)
     rbox(XL, 3.35, 3.6, 2.50, LRED, RED, '', lw=1.8, zo=2)
-    ax.text(XL, 4.55, 'BOX', ha='center', va='center', fontsize=9,
+    ax.text(XL, 4.55, 'BOX', ha='center', va='center', fontsize=12.5,
             color=RED, fontweight='bold', zorder=3)
-    rbox(XL, 3.20, 2.8, 1.30, '#FEF9F9', RED,
+    rbox(XL, 3.20, 3.0, 1.40, '#FEF9F9', RED,
          'CAT:\nalive or dead?\n(superposed?)',
-         fs=9, tc=SLATE, lw=1.0, zo=4, pad=0.12)
+         fs=12, tc=SLATE, lw=1.0, zo=4, pad=0.12)
 
     # Caption below
     ax.text(XL, 1.45,
             'The observer collapses\nthe wavefunction.\n'
             'Where is the line?\n(Copenhagen: unknown)',
-            ha='center', va='center', fontsize=8.5, color=GRAY,
+            ha='center', va='center', fontsize=11.5, color=GRAY,
             linespacing=1.6)
 
     # ══════════════════════════════════════════════════════════════════════════
@@ -990,23 +1104,23 @@ def fig11_schrodinger_inversion():
 
     # Outer box (the universe / the medium)
     rbox(XR, 4.10, 5.2, 3.30, LBLUE, GRN, '', lw=2.0, zo=2, ls='-')
-    ax.text(XR - 2.2, 5.60, 'BOX', ha='left', va='center', fontsize=9,
+    ax.text(XR - 2.2, 5.60, 'BOX', ha='left', va='center', fontsize=12.5,
             color=GRN, fontweight='bold', zorder=3)
 
     # CAT node
-    rbox(XR - 1.1, 4.35, 1.55, 0.90, LGN, GRN,
+    rbox(XR - 1.15, 4.35, 1.85, 1.00, LGN, GRN,
          r'CAT' + '\n' + r'$X \sim 10^{7}$',
-         fs=9.5, tc=SLATE, lw=1.2, zo=4)
+         fs=12.5, tc=SLATE, lw=1.2, zo=4)
 
     # OBSERVER node
-    rbox(XR + 1.1, 4.35, 1.55, 0.90, LGN, GRN,
+    rbox(XR + 1.15, 4.35, 1.85, 1.00, LGN, GRN,
          r'OBSERVER' + '\n' + r'$X \sim 10^{35}$',
-         fs=9.5, tc=SLATE, lw=1.2, zo=4)
+         fs=12.5, tc=SLATE, lw=1.2, zo=4)
 
     # "Both already crystallized" label
-    ax.text(XR, 3.15,
+    ax.text(XR, 3.05,
             'Both already crystallized.\nNo outside observer needed.',
-            ha='center', va='center', fontsize=9, color=SLATE,
+            ha='center', va='center', fontsize=12.5, color=SLATE,
             fontweight='bold', linespacing=1.5, zorder=5)
 
     # Caption below
@@ -1015,36 +1129,47 @@ def fig11_schrodinger_inversion():
             r'There is no such point.' + '\n'
             r'The line is $\Lambda_{\rm grav} \times t = 1$.' + '\n'
             '(GRUT: computed)',
-            ha='center', va='center', fontsize=8.5, color=GRAY,
+            ha='center', va='center', fontsize=11.5, color=GRAY,
             linespacing=1.6)
 
-    # ── Bottom note ────────────────────────────────────────────────────────────
+    # ── Bottom note (expanded explanation) ────────────────────────────────────
+    ax.text(FW/2, 0.55,
+            r'$X = \Lambda_{\rm grav}\,\tau_0$: crystallisation parameter (gravitational memory cycles).  '
+            r'Crystal ($X \gg 1$): classical definite state.  '
+            r'Boundary ($X \approx 1$): decoherence plateau $\sim$689 Hz (Falsifier F1).',
+            ha='center', va='center', fontsize=10.5, color=GRAY, style='italic',
+            linespacing=1.5)
     ax.text(FW/2, 0.18,
-            r'$X = \Lambda_{\rm grav} \times \tau_0$: crystal regime ($X \gg 1$) = classical definite state; '
-            r'boundary ($X \approx 1$) = decoherence plateau.  '
-            r'Cat: $X \sim 10^{7}$.  Observer: $X \sim 10^{35}$.  Both crystallized.',
-            ha='center', va='bottom', fontsize=7.5, color=LGRAY, style='italic')
+            r'Cat: $X \sim 10^{7}$.  Observer: $X \sim 10^{35}$.  Both are definite classical states — '
+            'Copenhagen’s “line” is not a mystery: '
+            r'it is $\Lambda_{\rm grav} \times t = 1$, computable from $\tau_0$.',
+            ha='center', va='bottom', fontsize=10.5, color=GRAY, style='italic',
+            linespacing=1.5)
 
-    save(fig, "fig_11_schrodinger_inversion.png")
+    save(fig, "fig_16_schrodinger.png")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Figure 10 — GRUT Derivation Chain
+# Figure 1 — GRUT Derivation Chain
 # ─────────────────────────────────────────────────────────────────────────────
-def fig10_grut_chain():
+def fig01_grut_chain():
     """Professional derivation-chain diagram: S_CTP → kernels → n_g(ω) → 4 regimes."""
-    FW, FH = 15, 10
-    fig = plt.figure(figsize=(FW, FH), facecolor='white')
+    FW, FH = 16, 11.5            # data-coordinate extent (layout is hardcoded to this)
+    # Render the canvas physically smaller than the data extent so that the
+    # fixed point-size fonts occupy more of the page when the PNG is scaled to
+    # the PDF content column — enlarges apparent text without touching layout.
+    SCALE = 0.82
+    fig = plt.figure(figsize=(FW * SCALE, FH * SCALE), facecolor='white')
     ax  = fig.add_axes([0, 0, 1, 1])
     ax.set_xlim(0, FW); ax.set_ylim(0, FH); ax.axis('off')
 
-    # Palette (local — different style from other figs)
+    # Palette
     _NAVY  = '#1B3A6B'; _BLUE  = '#2471A3'; _TEAL  = '#1A5276'
     _GRN   = '#1E6B45'; _ORG   = '#883800'; _PUR   = '#5B2C8D'; _STE  = '#2C3E50'
     _LG    = '#D5F0E3'; _LO    = '#FDE8C8'; _LP    = '#EAD5F5'; _LS   = '#D0E8F0'
     _LBLUE = '#D4E9F7'; _GRAY  = '#444444'; _LGRAY = '#999999'; _W    = 'white'
 
-    def rbox(cx, cy, w, h, fc, ec, txt, fs=9.5, tc=_W, lw=1.5,
+    def rbox(cx, cy, w, h, fc, ec, txt, fs=11, tc=_W, lw=1.5,
              bold=False, pad=0.1, ls='-', zo=3):
         p = FancyBboxPatch((cx-w/2, cy-h/2), w, h,
                             boxstyle=f'round,pad={pad}',
@@ -1052,92 +1177,103 @@ def fig10_grut_chain():
         ax.add_patch(p)
         ax.text(cx, cy, txt, ha='center', va='center', fontsize=fs,
                 color=tc, fontweight='bold' if bold else 'normal',
-                zorder=zo+1, linespacing=1.55)
+                zorder=zo+1, linespacing=1.6)
 
-    def seg(x1, y1, x2, y2, c=_GRAY, lw=1.4, ls='-'):
+    def seg(x1, y1, x2, y2, c=_GRAY, lw=1.6, ls='-'):
         ax.plot([x1,x2],[y1,y2], c=c, lw=lw, ls=ls, zorder=2,
                 solid_capstyle='round', solid_joinstyle='round')
 
-    def arw(x, y_tip, c=_GRAY, lw=1.4):
-        ax.annotate('', xy=(x, y_tip), xytext=(x, y_tip+0.22),
+    def arw(x, y_tip, c=_GRAY, lw=1.6):
+        ax.annotate('', xy=(x, y_tip), xytext=(x, y_tip+0.28),
                     arrowprops=dict(arrowstyle='->', color=c, lw=lw,
-                                    mutation_scale=11), zorder=5)
+                                    mutation_scale=14), zorder=5)
 
-    # Geometry
-    YT=9.25; YK=7.55; YKC=6.55; YMER=6.08; YN=5.05; YR=3.65; YB=1.80
-    XC=7.5; XNG=3.15; XKR=11.85
-    XL=[1.45, 4.55, 10.45, 13.55]
+    # ── Geometry — 4 equal columns ──────────────────────────────────────────
+    # Columns equally spaced: centers at XL, each COL_W wide, gap ~0.53 between
+    COL_W = 2.9
+    XL    = [3.0, 6.33, 9.67, 13.0]   # left to right: Crystal, Boundary, Fluid, Fourier
+    XC    = 8.0                         # diagram centre
+    XNG   = 4.0                         # noise-kernel box centre
+    XKR   = 12.0                        # retarded-kernel box centre
 
-    # S_CTP
-    rbox(XC, YT, 14.0, 0.82, _NAVY, _NAVY,
+    # Vertical landmarks (top → bottom)
+    YT   = 10.75   # S_CTP centre
+    YK   =  8.85   # kernel-box centres
+    YKC  =  7.72   # constants text centre
+    YMER =  7.12   # horizontal merge line
+    YN   =  6.00   # n_g(ω) box centre
+    YR   =  4.45   # regime-header centres
+    YB   =  2.35   # regime-body centres
+    BOX_H = 2.85   # regime-body height
+
+    # ── S_CTP header ────────────────────────────────────────────────────────
+    rbox(XC, YT, 15.6, 0.90, _NAVY, _NAVY,
          r'$S_{\mathrm{CTP}}$'
          r'   ·   §3 — density-matrix path integral over gravitational environment',
-         fs=11, bold=True)
+         fs=14.5, bold=True)
 
-    # Trunk → T-junction
-    seg(XC, YT-0.41, XC, YT-0.68)
+    # ── Trunk → T-junction to kernels ───────────────────────────────────────
+    seg(XC, YT-0.45, XC, YT-0.68)
     seg(XNG, YT-0.68, XKR, YT-0.68)
-    seg(XNG, YT-0.68, XNG, YK+0.57)
-    seg(XKR, YT-0.68, XKR, YK+0.57)
+    seg(XNG, YT-0.68, XNG, YK+0.58)
+    seg(XKR, YT-0.68, XKR, YK+0.58)
 
-    # Kernel section background (dashed)
-    kbg = FancyBboxPatch((0.42, YMER-0.08), 14.16, 2.28,
+    # ── Kernel section background ────────────────────────────────────────────
+    kbg = FancyBboxPatch((0.55, YMER-0.08), 14.90, 2.50,
                           boxstyle='round,pad=0.08',
-                          fc=_LBLUE, ec=_BLUE, lw=1.1, ls=(0,(6,3)), zorder=1, alpha=0.38)
+                          fc=_LBLUE, ec=_BLUE, lw=1.1, ls=(0,(6,3)), zorder=1, alpha=0.35)
     ax.add_patch(kbg)
 
-    # Kernel boxes
-    rbox(XNG, YK, 5.2, 1.05, _BLUE, _BLUE,
+    # ── Kernel boxes ─────────────────────────────────────────────────────────
+    rbox(XNG, YK, 5.8, 1.10, _BLUE, _BLUE,
          r'$N_{\mathrm{grav}}(x,\,x^{\prime})$'
-         '\n' r'$G\,/\,(\hbar\,|\,x - x^{\prime}\,|)$'
-         '\n(noise kernel)', fs=10.5)
-    rbox(XKR, YK, 5.2, 1.05, _BLUE, _BLUE,
+         '\n' r'$G\,/\,(\hbar\,|\,x - x^{\prime}|)$'
+         '\n(noise kernel)', fs=13.5)
+    rbox(XKR, YK, 5.8, 1.10, _BLUE, _BLUE,
          r'$K^{R}(t)$'
          '\n' r'$\tau_0^{-1}\,\exp(-t/\tau_0)$'
-         '\n(retarded kernel)', fs=10.5)
+         '\n(retarded kernel)', fs=13.5)
 
-    # Constants
-    seg(XKR, YK-0.53, XKR, YKC+0.20, c=_LGRAY, lw=0.9, ls='--')
-    ax.text(XKR, YKC+0.12,
+    # ── Anchored constants (centred, between kernels and n_g) ────────────────
+    ax.text(XC, YKC+0.16,
             r'$\tau_0 = 41.9\,\mathrm{Myr}$'
-            r'   $\leftarrow$ cosmic-baseline anchor',
-            ha='center', va='center', fontsize=9.5, color=_GRAY, style='italic')
-    ax.text(XKR, YKC-0.24,
+            r'   $\leftarrow$   cosmic-baseline anchor',
+            ha='center', va='center', fontsize=13, color=_GRAY, style='italic')
+    ax.text(XC, YKC-0.20,
             r'$\alpha_\mathrm{vac} = 1/3$'
-            r'   $\leftarrow$ Gate R  (Duff 1994, $a/c = 1/3$)',
-            ha='center', va='center', fontsize=9.5, color=_GRAY, style='italic')
+            r'   $\leftarrow$   Gate R  (Duff 1994, $a/c = 1/3$)',
+            ha='center', va='center', fontsize=13, color=_GRAY, style='italic')
 
-    # Convergence → n_g
-    seg(XNG, YK-0.53, XNG, YMER)
-    seg(XKR, YKC-0.44, XKR, YMER)
+    # ── Convergence lines → n_g ──────────────────────────────────────────────
+    seg(XNG, YK-0.55, XNG, YMER)
+    seg(XKR, YK-0.55, XKR, YMER)
     seg(XNG, YMER, XKR, YMER)
-    seg(XC, YMER, XC, YN+0.43)
-    arw(XC, YN+0.43)
+    seg(XC, YMER, XC, YN+0.48)
+    arw(XC, YN+0.48)
 
-    # n_g(ω)
-    rbox(XC, YN, 6.6, 0.78, _TEAL, _TEAL,
+    # ── n_g(ω) box ───────────────────────────────────────────────────────────
+    rbox(XC, YN, 7.2, 0.88, _TEAL, _TEAL,
          r'$n_g(\omega)\;=\;\sqrt{\;1 + '
          r'\dfrac{\alpha_\mathrm{vac}}{1+(\omega\tau_0)^{2}}\;}$',
-         fs=12.5)
+         fs=16.5)
 
-    # Fan to 4 regimes
-    seg(XC, YN-0.39, XC, YN-0.68)
-    seg(XL[0], YN-0.68, XL[3], YN-0.68)
+    # ── Fan to 4 regime columns ──────────────────────────────────────────────
+    seg(XC, YN-0.44, XC, YN-0.72)
+    seg(XL[0], YN-0.72, XL[3], YN-0.72)
     for xl in XL:
-        seg(xl, YN-0.68, xl, YR+0.42)
-        arw(xl, YR+0.41)
+        seg(xl, YN-0.72, xl, YR+0.48)
+        arw(xl, YR+0.47)
 
-    # Regime headers
+    # ── Regime headers ────────────────────────────────────────────────────────
     for xl, fc, lbl in [
         (XL[0], _GRN, r'$X \gg 1$'     + '\nCrystal'),
         (XL[1], _ORG, r'$X \approx 1$' + '\nBoundary'),
         (XL[2], _PUR, r'$X \ll 1$'     + '\nFluid'),
         (XL[3], _STE, r'$\mu(k,\,a)$'  + '\nFourier'),
     ]:
-        rbox(xl, YR, 2.6, 0.76, fc, fc, lbl, fs=11, bold=True, pad=0.08)
+        rbox(xl, YR, COL_W, 0.84, fc, fc, lbl, fs=15, bold=True, pad=0.09)
 
-    # Regime bodies
-    BOX_H = 2.55
+    # ── Regime bodies ─────────────────────────────────────────────────────────
     for xl, fc, ec, body in [
         (XL[0], _LG, '#1a5c3a',
          'GR (exact)\n\nGPS · LIGO\nsolar system'),
@@ -1155,32 +1291,646 @@ def fig10_grut_chain():
          r'$\mu - 1 = 1/3$' + '\n\n'
          'DESI · Euclid'),
     ]:
-        rbox(xl, YB, 2.6, BOX_H, fc, ec, body,
-             fs=9.5, tc='#111111', lw=1.0, pad=0.14, zo=3)
-        seg(xl, YR-0.38, xl, YB+BOX_H/2, c=_LGRAY, lw=0.9)
+        rbox(xl, YB, COL_W, BOX_H, fc, ec, body,
+             fs=13, tc='#111111', lw=1.0, pad=0.15, zo=3)
+        seg(xl, YR-0.42, xl, YB+BOX_H/2, c=_LGRAY, lw=0.9)
 
-    # Footer
-    ax.text(XC, 0.26,
+    # ── Footer ────────────────────────────────────────────────────────────────
+    ax.text(XC, 0.30,
             r'All sectoral predictions share zero adjustable parameters beyond '
             r'$\tau_0$ (cosmic-baseline anchor) '
             r'and $\alpha_\mathrm{vac} = 1/3$ (Gate R — derived, not fitted)',
-            ha='center', va='bottom', fontsize=8.5, color=_GRAY, style='italic')
+            ha='center', va='bottom', fontsize=12, color=_GRAY, style='italic')
 
-    save(fig, "fig_10_grut_chain.png")
+    save(fig, "fig_01_grut_chain.png")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Figure 5 — H(z) Observational Comparison
+# ─────────────────────────────────────────────────────────────────────────────
+def fig05_hz_residuals():
+    """Two-panel H(z) comparison: GRUT zero-parameter curve vs CC + BAO data.
+
+    Top panel: H(z) vs z — GRUT curve, Planck ΛCDM reference, error-bar data.
+    Bottom panel: signed residuals (H_model − H_obs) / σ for each point.
+    """
+
+    # ── Cosmological parameters ───────────────────────────────────────────────
+    H0_GRUT   = 69.029;  Om_GRUT = 0.2900;  OL_GRUT = 0.7100
+    H0_PLANCK = 67.360;  Om_PL   = 0.3153;  OL_PL   = 0.6847
+    H_INF     = 58.164   # km/s/Mpc  (structural identity H₀√Ω_Λ)
+
+    def Ez(z, Om, OL):
+        return np.sqrt(Om * (1.0 + z)**3 + OL)
+
+    # ── Observational data — Moresco+2022 gold-sample + Borghi+2022 ──────────
+    # (z, H_obs, sigma_H, tracer)  — 32 CC + 1 BAO = 33 points
+    DATA = [
+        (0.07,   69.0,  19.6, "CC"),   # Zhang+2014
+        (0.09,   69.0,  12.0, "CC"),   # Jimenez+2003
+        (0.12,   68.6,  26.2, "CC"),   # Zhang+2014
+        (0.17,   83.0,   8.0, "CC"),   # Simon+2005
+        (0.1791, 75.0,   4.0, "CC"),   # Moresco+2012
+        (0.1993, 75.0,   5.0, "CC"),   # Moresco+2012
+        (0.20,   72.9,  29.6, "CC"),   # Zhang+2014
+        (0.27,   77.0,  14.0, "CC"),   # Simon+2005
+        (0.28,   88.8,  36.6, "CC"),   # Zhang+2014
+        (0.3519, 83.0,  14.0, "CC"),   # Moresco+2012
+        (0.3802, 83.0,  13.5, "CC"),   # Moresco+2016
+        (0.40,   95.0,  17.0, "CC"),   # Simon+2005
+        (0.4004, 77.0,  10.2, "CC"),   # Moresco+2016
+        (0.4247, 87.1,  11.2, "CC"),   # Moresco+2016
+        (0.4497, 92.8,  12.9, "CC"),   # Moresco+2016
+        (0.47,   89.0,  49.6, "CC"),   # Ratsimbazafy+2017
+        (0.4783, 80.9,   9.0, "CC"),   # Moresco+2016
+        (0.48,   97.0,  62.0, "CC"),   # Stern+2010
+        (0.5929,104.0,  13.0, "CC"),   # Moresco+2012
+        (0.6797, 92.0,   8.0, "CC"),   # Moresco+2012
+        (0.75,   98.8,  33.6, "CC"),   # Borghi+2022
+        (0.7812,105.0,  12.0, "CC"),   # Moresco+2012
+        (0.8754,125.0,  17.0, "CC"),   # Moresco+2012
+        (0.88,   90.0,  40.0, "CC"),   # Stern+2010
+        (0.90,  117.0,  23.0, "CC"),   # Simon+2005
+        (1.037, 154.0,  20.0, "CC"),   # Moresco+2012
+        (1.30,  168.0,  17.0, "CC"),   # Simon+2005
+        (1.363, 160.0,  33.6, "CC"),   # Moresco+2015
+        (1.43,  177.0,  18.0, "CC"),   # Simon+2005
+        (1.53,  140.0,  14.0, "CC"),   # Simon+2005
+        (1.75,  202.0,  40.0, "CC"),   # Stern+2010
+        (1.965, 186.5,  50.4, "CC"),   # Moresco+2015
+        (2.34,  222.0,   7.0, "BAO"),  # Delubac+2015 Ly-α BOSS
+    ]
+
+    z_cc  = np.array([d[0] for d in DATA if d[3] == "CC"])
+    H_cc  = np.array([d[1] for d in DATA if d[3] == "CC"])
+    e_cc  = np.array([d[2] for d in DATA if d[3] == "CC"])
+    z_bao = np.array([d[0] for d in DATA if d[3] == "BAO"])
+    H_bao = np.array([d[1] for d in DATA if d[3] == "BAO"])
+    e_bao = np.array([d[2] for d in DATA if d[3] == "BAO"])
+
+    # Residuals in σ:  (H_model − H_obs) / sigma
+    res_cc  = (H0_GRUT * Ez(z_cc,  Om_GRUT, OL_GRUT) - H_cc)  / e_cc
+    res_bao = (H0_GRUT * Ez(z_bao, Om_GRUT, OL_GRUT) - H_bao) / e_bao
+
+    # ── Smooth curves ─────────────────────────────────────────────────────────
+    zz = np.linspace(0.0, 2.55, 400)
+    Hz_grut  = H0_GRUT  * Ez(zz, Om_GRUT, OL_GRUT)
+    Hz_planck = H0_PLANCK * Ez(zz, Om_PL,   OL_PL)
+
+    # ── Layout ────────────────────────────────────────────────────────────────
+    fig = plt.figure(figsize=(9, 7.5), facecolor='white')
+    gs  = fig.add_gridspec(2, 1, height_ratios=[2.6, 1.0],
+                           hspace=0.06, left=0.10, right=0.95,
+                           top=0.92, bottom=0.09)
+    ax_top = fig.add_subplot(gs[0])
+    ax_bot = fig.add_subplot(gs[1], sharex=ax_top)
+
+    for ax in (ax_top, ax_bot):
+        ax.set_facecolor(BG)
+        ax.grid(True, alpha=0.25, lw=0.6)
+        ax.tick_params(labelsize=9)
+
+    plt.setp(ax_top.get_xticklabels(), visible=False)
+
+    # ── Top panel — H(z) ─────────────────────────────────────────────────────
+    ax_top.plot(zz, Hz_grut,  color=NAVY,  lw=2.4, zorder=4,
+                label=r"GRUT  ($H_0\!=\!69.0,\;\Omega_m\!=\!0.290$) — zero free parameters")
+    ax_top.plot(zz, Hz_planck, color=GRAY, lw=1.6, ls='--', zorder=3,
+                label=r"Planck $\Lambda$CDM  ($H_0\!=\!67.36,\;\Omega_m\!=\!0.315$) — fitted")
+
+    # H_inf asymptote annotation
+    ax_top.axhline(H_INF, color=TEAL, lw=0.9, ls=(0, (4, 4)), zorder=2, alpha=0.7)
+    ax_top.text(2.42, H_INF + 3.5,
+                r"$H_\infty = H_0\sqrt{\Omega_\Lambda} = 58.16$",
+                fontsize=7.5, color=TEAL, ha='right', va='bottom',
+                fontfamily='serif', style='italic')
+
+    # CC points — smaller markers for the denser 32-point cloud
+    ax_top.errorbar(z_cc, H_cc, yerr=e_cc,
+                    fmt='o', color=BLUE, ms=5, lw=1.4,
+                    capsize=3, ecolor=BLUE, elinewidth=1.2, zorder=5,
+                    label="Cosmic Chronometers (CC, N=32) — calibration-independent")
+
+    # BAO points
+    ax_top.errorbar(z_bao, H_bao, yerr=e_bao,
+                    fmt='^', color=ORANGE, ms=8, lw=1.8,
+                    capsize=4, ecolor=ORANGE, elinewidth=1.5, zorder=5,
+                    label="BAO (Delubac+2015 Ly-α) — sound-horizon calibrated")
+
+    ax_top.set_ylabel(r"$H(z)$  [km s$^{-1}$ Mpc$^{-1}$]",
+                      fontsize=11, fontfamily='serif')
+    ax_top.set_ylim(40, 310)
+    ax_top.set_xlim(-0.05, 2.55)
+    ax_top.legend(fontsize=7.8, loc='upper left', framealpha=0.93,
+                  handlelength=2.2)
+
+    # Stats annotation box
+    stats_txt = (
+        "CC only (N = 32, calibration-independent)\n"
+        r"GRUT:   $\chi^2/N = 0.465$,  RMS $= 0.68\sigma$  (zero free parameters)" + "\n"
+        r"Planck: $\chi^2/N = 0.466$,  RMS $= 0.68\sigma$  (MCMC-fitted)"
+    )
+    ax_top.text(0.985, 0.04, stats_txt,
+                transform=ax_top.transAxes, ha='right', va='bottom',
+                fontsize=8, color=SLATE, fontfamily='serif',
+                bbox=dict(boxstyle='round,pad=0.4', facecolor='white',
+                          edgecolor=LGRAY, alpha=0.92))
+
+    ax_top.set_title(
+        r"GRUT first-principles $H(z)$ vs Moresco+2022 cosmic chronometers",
+        fontsize=11, fontweight='bold', color=NAVY, fontfamily='serif', pad=8)
+
+    # ── Bottom panel — residuals ──────────────────────────────────────────────
+    ax_bot.axhline(0.0, color=NAVY, lw=1.2, zorder=4)
+
+    # ±1σ and ±2σ bands
+    ax_bot.fill_between([-0.05, 2.55], -1, 1, alpha=0.10, color=BLUE, zorder=1)
+    ax_bot.fill_between([-0.05, 2.55], -2, 2, alpha=0.06, color=BLUE, zorder=1)
+    ax_bot.axhline( 1.0, color=BLUE, lw=0.6, ls=':', alpha=0.5)
+    ax_bot.axhline(-1.0, color=BLUE, lw=0.6, ls=':', alpha=0.5)
+    ax_bot.axhline( 2.0, color=BLUE, lw=0.5, ls=':', alpha=0.35)
+    ax_bot.axhline(-2.0, color=BLUE, lw=0.5, ls=':', alpha=0.35)
+
+    # ±1σ / ±2σ labels
+    for y, lbl in [(1.0, r"$+1\sigma$"), (-1.0, r"$-1\sigma$"),
+                   (2.0, r"$+2\sigma$"), (-2.0, r"$-2\sigma$")]:
+        ax_bot.text(2.52, y, lbl, fontsize=7, color=BLUE, va='center',
+                    ha='right', fontfamily='serif', alpha=0.7)
+
+    # CC residuals — smaller markers to avoid overlap at z < 0.5
+    ax_bot.errorbar(z_cc, res_cc, yerr=np.ones_like(res_cc),
+                    fmt='o', color=BLUE, ms=5, lw=1.4,
+                    capsize=3, ecolor=BLUE, elinewidth=1.0, zorder=5,
+                    label="CC (32 points)")
+
+    # BAO residual (slightly faded — calibration caveat)
+    ax_bot.errorbar(z_bao, res_bao, yerr=np.ones_like(res_bao),
+                    fmt='^', color=ORANGE, ms=8, lw=1.6,
+                    capsize=3, ecolor=ORANGE, elinewidth=1.2,
+                    alpha=0.75, zorder=5, label="BAO (Ly-α)")
+
+    # BAO caveat
+    ax_bot.text(0.015, 0.08,
+                "BAO residual includes ~2.4% systematic\n"
+                "from Planck-calibrated sound horizon",
+                transform=ax_bot.transAxes, fontsize=7.2,
+                color=ORANGE, ha='left', va='bottom', fontfamily='serif',
+                style='italic',
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='white',
+                          edgecolor=ORANGE, alpha=0.7, lw=0.7))
+
+    ax_bot.set_ylabel(r"$(H_{\rm model} - H_{\rm obs})\,/\,\sigma$",
+                      fontsize=9.5, fontfamily='serif')
+    ax_bot.set_xlabel(r"Redshift  $z$",
+                      fontsize=11, fontfamily='serif')
+    ax_bot.set_ylim(-3.2, 3.2)
+    ax_bot.legend(fontsize=8, loc='upper right', framealpha=0.9)
+
+    # Minor x ticks
+    ax_bot.set_xticks(np.arange(0, 2.6, 0.5))
+
+    save(fig, "fig_05_hz_residuals.png")
+
+
+def fig06_fsigma8():
+    """Two-panel fσ₈(z) comparison: GRUT modified-gravity vs RSD observations.
+
+    Top panel: fσ₈(z) vs z — GRUT (k=0.05 Mpc⁻¹), Planck ΛCDM, survey data.
+    Bottom panel: signed residuals (fσ₈_GRUT − obs) / σ for each measurement.
+    """
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent.parent))
+
+    from grut.derived.cosmology.fsigma8_growth import (
+        RSD_DATA, grut_fsigma8, lcdm_fsigma8,
+        grut_fsigma8_large_scale,
+        GRUT_SIGMA8, PLANCK_SIGMA8, GRUT_K_RSD, fsigma8_comparison,
+    )
+
+    # ── Data arrays ───────────────────────────────────────────────────────────
+    z_obs   = np.array([p.z_eff   for p in RSD_DATA])
+    fs8_obs = np.array([p.fsigma8 for p in RSD_DATA])
+    sig_obs = np.array([p.sigma   for p in RSD_DATA])
+
+    # Survey tags for marker styles
+    surveys = {p.reference for p in RSD_DATA}
+    # group by survey family
+    def survey_key(ref):
+        if "Alam"        in ref: return "BOSS DR12"
+        if "Blake+2012"  in ref: return "WiggleZ 2012"
+        if "Blake+2011"  in ref: return "WiggleZ 2011"
+        if "Beutler"     in ref: return "6dFGRS"
+        if "Howlett"     in ref: return "SDSS MGS"
+        if "de la Torre" in ref: return "VIPERS"
+        if "Okumura"     in ref: return "FastSound"
+        return "Other"
+
+    survey_data = {}
+    for p in RSD_DATA:
+        k = survey_key(p.reference)
+        survey_data.setdefault(k, []).append(p)
+
+    # ── Smooth prediction curves ──────────────────────────────────────────────
+    zz = np.linspace(0.0, 1.55, 400)
+    fs8_grut   = grut_fsigma8(zz)
+    fs8_lcdm   = lcdm_fsigma8(zz)
+
+    # Residuals for GRUT (k=0.05)
+    fs8_grut_obs = grut_fsigma8(z_obs)
+    res_grut = (fs8_grut_obs - fs8_obs) / sig_obs
+
+    # Comparison stats
+    cmp = fsigma8_comparison()
+    chi2_grut = cmp["chi2_N_grut"]
+    chi2_lcdm = cmp["chi2_N_lcdm"]
+
+    # ── Layout ────────────────────────────────────────────────────────────────
+    fig = plt.figure(figsize=(9, 7.5), facecolor='white')
+    gs  = fig.add_gridspec(2, 1, height_ratios=[2.6, 1.0],
+                           hspace=0.06, left=0.10, right=0.95,
+                           top=0.92, bottom=0.09)
+    ax_top = fig.add_subplot(gs[0])
+    ax_bot = fig.add_subplot(gs[1], sharex=ax_top)
+
+    for ax in (ax_top, ax_bot):
+        ax.set_facecolor(BG)
+        ax.grid(True, alpha=0.25, lw=0.6)
+        ax.tick_params(labelsize=9)
+
+    plt.setp(ax_top.get_xticklabels(), visible=False)
+
+    # ── Top panel — fσ₈(z) ───────────────────────────────────────────────────
+    ax_top.plot(zz, fs8_grut, color=NAVY, lw=2.4, zorder=4,
+                label=fr"GRUT  ($\sigma_8\!=\!{GRUT_SIGMA8}$, $k\!=\!{GRUT_K_RSD}\,\mathrm{{Mpc}}^{{-1}}$, zero free parameters)")
+    ax_top.plot(zz, fs8_lcdm, color=GRAY, lw=1.6, ls='--', zorder=3,
+                label=fr"Planck $\Lambda$CDM  ($\sigma_8\!=\!{PLANCK_SIGMA8}$) — fitted")
+
+    # Survey scatter markers
+    marker_styles = {
+        "BOSS DR12":    dict(marker='D', color=ORANGE,  ms=7,  zorder=6),
+        "WiggleZ 2012": dict(marker='o', color=GREEN,   ms=6,  zorder=5),
+        "WiggleZ 2011": dict(marker='s', color='#8E44AD', ms=6, zorder=5),
+        "6dFGRS":       dict(marker='^', color='#E74C3C', ms=7,  zorder=6),
+        "SDSS MGS":     dict(marker='v', color='#2980B9', ms=6,  zorder=5),
+        "VIPERS":       dict(marker='p', color='#C0392B', ms=7,  zorder=5),
+        "FastSound":    dict(marker='*', color='#117A65', ms=9,  zorder=6),
+        "Other":        dict(marker='o', color=GRAY,    ms=5,  zorder=4),
+    }
+
+    for survey, pts in sorted(survey_data.items()):
+        zp = np.array([p.z_eff   for p in pts])
+        yp = np.array([p.fsigma8 for p in pts])
+        ep = np.array([p.sigma   for p in pts])
+        st = marker_styles.get(survey, marker_styles["Other"])
+        ax_top.errorbar(zp, yp, yerr=ep,
+                        fmt=st['marker'], color=st['color'],
+                        ms=st['ms'], capsize=3, lw=0.9, elinewidth=0.8,
+                        zorder=st['zorder'], label=survey)
+
+    ax_top.set_ylabel(r"$f\sigma_8(z)$", fontsize=12, fontfamily='serif')
+    ax_top.set_title(r"GRUT growth rate $f\sigma_8(z)$ vs RSD observations",
+                     fontsize=12, fontfamily='serif', pad=6)
+    ax_top.set_ylim(0.15, 0.70)
+    ax_top.legend(fontsize=7.5, loc='lower right', framealpha=0.92, ncol=1)
+
+    # Stats annotation (top panel)
+    ax_top.text(0.02, 0.97,
+                fr"$N_{{obs}}\!=\!13$   "
+                fr"$\chi^2/N_{{GRUT}}\!=\!{chi2_grut:.3f}$   "
+                fr"$\chi^2/N_{{\Lambda CDM}}\!=\!{chi2_lcdm:.3f}$",
+                transform=ax_top.transAxes, fontsize=8.5,
+                color=NAVY, ha='left', va='top', fontfamily='serif',
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='white',
+                          edgecolor=NAVY, alpha=0.7, lw=0.7))
+
+    # ── Bottom panel — GRUT residuals ─────────────────────────────────────────
+    ax_bot.axhline(0.0,  color=NAVY, lw=1.5, zorder=3)
+    ax_bot.axhspan(-1.0, 1.0, color=NAVY, alpha=0.07, zorder=1)
+    ax_bot.axhspan(-2.0, 2.0, color=NAVY, alpha=0.04, zorder=1)
+
+    ax_bot.scatter(z_obs, res_grut, color=NAVY, s=24, zorder=5)
+    ax_bot.errorbar(z_obs, res_grut, yerr=np.ones_like(res_grut),
+                    fmt='none', color=NAVY, elinewidth=0.7, capsize=2, alpha=0.5)
+
+    # Annotate worst residuals (|r| > 1σ) — alternate offsets to avoid overlap
+    _offsets = [(14, 9), (-14, 9), (18, -12), (-18, -12), (22, 6), (-22, -9)]
+    _oc = 0
+    for i, (z, r) in enumerate(zip(z_obs, res_grut)):
+        if abs(r) > 1.0:
+            ref = RSD_DATA[i].reference.split("+")[0].split(" ")[0]
+            dx, dy_abs = _offsets[_oc % len(_offsets)]
+            dy = dy_abs if r > 0 else -dy_abs
+            _oc += 1
+            ax_bot.annotate(f"{ref}", (z, r),
+                            textcoords="offset points",
+                            xytext=(dx, dy),
+                            fontsize=7, color=NAVY, fontfamily='serif',
+                            style='italic',
+                            arrowprops=dict(arrowstyle='->', color=NAVY,
+                                            lw=0.6, alpha=0.55))
+
+    ax_bot.set_ylabel(r"$(f\sigma_8^{\rm GRUT} - f\sigma_{8,\rm obs})\,/\,\sigma$",
+                      fontsize=9, fontfamily='serif')
+    ax_bot.set_xlabel(r"Redshift  $z$", fontsize=11, fontfamily='serif')
+    ax_bot.set_ylim(-3.0, 3.0)
+    ax_bot.set_xlim(-0.05, 1.55)
+
+    # Scale note
+    ax_bot.text(0.98, 0.06,
+                fr"$k_{{RSD}} = {GRUT_K_RSD}\,\mathrm{{Mpc}}^{{-1}}$  "
+                r"($\mu_{\rm eff} \approx 1.24$ at $z=0$)",
+                transform=ax_bot.transAxes, fontsize=7.5,
+                color=NAVY, ha='right', va='bottom', fontfamily='serif',
+                style='italic',
+                bbox=dict(boxstyle='round,pad=0.3', facecolor='white',
+                          edgecolor=NAVY, alpha=0.7, lw=0.7))
+
+    save(fig, "fig_06_fsigma8.png")
+
+
+def fig07_s8_tension():
+    """S₈ tension plot: GRUT and Planck predictions vs weak lensing surveys.
+
+    Single-panel horizontal tension diagram.  Each WL survey shown as an
+    error bar; GRUT (navy) and Planck (orange dashed) as vertical bands.
+    Tension values annotated on the right.
+    """
+    import sys
+    sys.path.insert(0, str(Path(__file__).parent.parent))
+
+    from grut.derived.cosmology.s8_tension import (
+        WL_DATA, s8_tension_comparison,
+        GRUT_SIGMA8, GRUT_OMEGA_M,
+        PLANCK_S8_CMB, PLANCK_S8_CMB_SIGMA,
+    )
+
+    cmp    = s8_tension_comparison()
+    s8_g   = cmp["grut_s8"]
+    s8_p   = cmp["planck_s8_lss"]
+    rms_g  = cmp["rms_grut"]
+    rms_p  = cmp["rms_planck"]
+    t_grut = cmp["tensions_grut"]
+    t_plan = cmp["tensions_planck"]
+
+    # Survey display names and colours
+    survey_colors = {
+        "KiDS-450":   "#C0392B",
+        "KiDS-1000":  "#E74C3C",
+        "HSC-SSP Y3": "#2980B9",
+        "DES Y3":     "#117A65",
+    }
+
+    n  = len(WL_DATA)
+    ys = list(range(n))   # y-positions
+
+    fig, ax = plt.subplots(figsize=(10, 5.2), facecolor='white')
+    ax.set_facecolor(BG)
+    ax.grid(True, axis='x', alpha=0.25, lw=0.6)
+    ax.tick_params(labelsize=9)
+
+    # ── WL data points ────────────────────────────────────────────────────
+    for i, pt in enumerate(WL_DATA):
+        col = survey_colors.get(pt.survey, GRAY)
+        ax.errorbar(pt.s8, i, xerr=pt.sigma,
+                    fmt='o', color=col, ms=8, capsize=4,
+                    lw=1.2, elinewidth=1.4, zorder=5,
+                    label=f"{pt.survey}  ({pt.reference})")
+        # Tension annotations — positioned well right of the Planck band
+        ax.text(0.877, i + 0.07,
+                fr"GRUT: ${t_grut[i]:+.2f}\sigma$ | Planck: ${t_plan[i]:+.2f}\sigma$",
+                va='bottom', ha='left', fontsize=7.5, fontfamily='serif',
+                color=GRAY, style='italic')
+
+    # ── GRUT prediction band ──────────────────────────────────────────────
+    ax.axvline(s8_g, color=NAVY, lw=2.2, zorder=4,
+               label=fr"GRUT  $S_8\!=\!{s8_g:.3f}$  ($\sigma_8\!=\!{GRUT_SIGMA8}$,"
+                     fr"  $\Omega_m\!=\!{GRUT_OMEGA_M}$)")
+
+    # ── Planck prediction band ────────────────────────────────────────────
+    ax.axvspan(PLANCK_S8_CMB - PLANCK_S8_CMB_SIGMA,
+               PLANCK_S8_CMB + PLANCK_S8_CMB_SIGMA,
+               color=ORANGE, alpha=0.25, zorder=2)
+    ax.axvline(PLANCK_S8_CMB, color=ORANGE, lw=1.8, ls='--', zorder=3,
+               label=fr"Planck 2018  $S_8\!=\!{PLANCK_S8_CMB:.3f}\pm{PLANCK_S8_CMB_SIGMA:.3f}$  (CMB)")
+
+    # ── Axes ─────────────────────────────────────────────────────────────
+    ax.set_yticks(ys)
+    ax.set_yticklabels(
+        [f"{pt.survey}  $z_{{\\rm eff}}\\sim 0.3\\!-\\!0.9$" for pt in WL_DATA],
+        fontsize=9, fontfamily='serif')
+    ax.set_xlabel(r"$S_8 = \sigma_8\,(\Omega_m/0.3)^{0.5}$",
+                  fontsize=12, fontfamily='serif')
+    ax.set_title(r"GRUT $S_8$ prediction vs weak lensing surveys",
+                 fontsize=12, fontfamily='serif', pad=6)
+    ax.set_xlim(0.675, 0.945)   # wider: accommodates right-side tension annotations
+    ax.set_ylim(-0.7, n - 0.2)
+
+    # Stats box
+    ax.text(0.02, 0.97,
+            fr"GRUT:  RMS tension $= {rms_g:.2f}\sigma$   ($\chi^2/N = {cmp['chi2_N_grut']:.2f}$)"
+            "\n"
+            fr"Planck: RMS tension $= {rms_p:.2f}\sigma$   ($\chi^2/N = {cmp['chi2_N_planck']:.2f}$)"
+            "\n"
+            fr"Tension reduction: ${cmp['tension_reduction']:.2f}\times$ (GRUT vs Planck)",
+            transform=ax.transAxes, fontsize=8.5,
+            color=NAVY, ha='left', va='top', fontfamily='serif',
+            bbox=dict(boxstyle='round,pad=0.35', facecolor='white',
+                      edgecolor=NAVY, alpha=0.8, lw=0.8))
+
+    # Legend below the axes — avoids any overlap with data or tension annotations
+    ax.legend(fontsize=8.5, framealpha=0.92, ncol=3,
+              loc='upper center', bbox_to_anchor=(0.5, -0.16),
+              borderaxespad=0, handlelength=1.8)
+    fig.tight_layout(pad=0.8)
+    fig.subplots_adjust(bottom=0.24)   # reserve room for the 2-row legend
+
+    save(fig, "fig_07_s8_tension.png")
+
+
+def fig08_cmb_isw():
+    """Figure 8 — CMB low-ℓ ISW: linear branch RULED OUT (Correction #38).
+
+    Two-panel figure:
+      Top:    Φ̃(a) = μ(k,a)×δ(a)/a for GRUT and ΛCDM at two CMB scales.
+              Shows GRUT potential deepening (real) vs ΛCDM decay — a ~5× ISW
+              amplitude difference.
+      Bottom: ISW source ΔΦ̃/Δz (rate of potential change) vs redshift.
+
+    The deepening is real, but D_ℓ ∝ |ΔΦ̃|², so the large amplitude ADDS power:
+    the validated MGCAMB run gives a ~2.6× low-ℓ EXCESS (~29σ) — the opposite of
+    the Planck deficit — which rules out the linear branch. The old "cooling →
+    matches Planck deficit" reading was a sign error.
+    """
+    import sys, os
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+    from grut.derived.cosmology.cmb_isw import (
+        reduced_potential_history,
+        CMB_K_LOW_ELL, CMB_K_HORIZON,
+        PLANCK_LOW_ELL_RATIO, PLANCK_LOW_ELL_SIGMA,
+    )
+
+    import numpy as np
+
+    h_le  = reduced_potential_history(CMB_K_LOW_ELL)
+    h_hor = reduced_potential_history(CMB_K_HORIZON)
+
+    a_le   = h_le["a_arr"];  phi_g_le  = h_le["phi_grut"];  phi_l_le  = h_le["phi_lcdm"]
+    a_hor  = h_hor["a_arr"]; phi_g_hor = h_hor["phi_grut"]; phi_l_hor = h_hor["phi_lcdm"]
+
+    # Compute derivative dΦ̃/dz (for GRUT, k=10⁻³)
+    z_le   = 1.0 / a_le - 1.0
+    dz     = np.diff(z_le)
+    dphi_g = np.diff(phi_g_le)
+    dphi_l = np.diff(phi_l_le)
+    # dΦ̃/dz at midpoints (only late-time: z < 10)
+    z_mid  = 0.5 * (z_le[:-1] + z_le[1:])
+
+    # ── Layout ────────────────────────────────────────────────────────────────
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(9, 10),
+                                   gridspec_kw={"height_ratios": [1.2, 1]})
+    fig.suptitle("GRUT CMB Low-ℓ ISW — Linear Branch RULED OUT (Correction #38)",
+                 fontsize=12.5, fontweight="bold", color=NAVY)
+    fig.text(0.5, 0.955,
+             "Potential deepening is real (ISW amplitude ~5×), but D$_\\ell\\propto|\\Delta\\tilde{\\Phi}|^2$ → "
+             "validated MGCAMB gives ~2.6× low-$\\ell$ EXCESS (~29$\\sigma$), not the Planck deficit",
+             ha="center", va="top", fontsize=8.5, color="firebrick", style="italic")
+
+    # ── Top panel: Φ̃(a) ─────────────────────────────────────────────────────
+    z_le_plot  = 1.0 / a_le - 1.0
+    z_hor_plot = 1.0 / a_hor - 1.0
+
+    # Mask to z < 1200 — show full history from recombination
+    m_le  = z_le_plot  <= 1200
+    m_hor = z_hor_plot <= 1200
+
+    ax1.semilogy()   # z axis (manual — we plot phi vs z on linear y for better contrast)
+
+    # GRUT curves
+    ax1.plot(z_le_plot[m_le],  phi_g_le[m_le],  color=NAVY, lw=2.2,
+             label=r"GRUT,  $k=10^{-3}$ Mpc$^{-1}$ ($\ell\approx15$)")
+    ax1.plot(z_hor_plot[m_hor], phi_g_hor[m_hor], color=NAVY, lw=2.2,
+             ls="--", label=r"GRUT,  $k=4.5\times10^{-4}$ Mpc$^{-1}$ ($\ell\approx2$)")
+
+    # ΛCDM curve (same for both k since μ=1; use k=10⁻³ as representative)
+    ax1.plot(z_le_plot[m_le],  phi_l_le[m_le],  color=ORANGE, lw=2.0,
+             ls="-.", label=r"$\Lambda$CDM (both scales)")
+
+    # Reference line Φ̃=1 (matter-domination plateau)
+    ax1.axhline(1.0, color="gray", lw=0.8, ls=":", alpha=0.7, zorder=0)
+    ax1.text(0.5, 1.03, r"$\tilde{\Phi}=1$ (matter-dom plateau)", color="gray",
+             fontsize=8.5, ha="center", transform=ax1.get_yaxis_transform())
+
+    # Mark GRUT transition z★
+    z_star = h_le["z_star"]
+    ax1.axvline(z_star, color=NAVY, lw=0.8, ls=":", alpha=0.5)
+    ax1.text(z_star * 1.10, 1.65, rf"$z_*={z_star:.0f}$", color=NAVY,
+             fontsize=8.5, ha="left", va="center")
+
+    # Mark recombination (now visible with extended xlim to 1300)
+    ax1.axvline(1100, color="firebrick", lw=0.7, ls=":", alpha=0.4)
+    ax1.text(1100 * 1.04, 0.73, r"$z_{\rm rec}=1100$", color="firebrick",
+             fontsize=8, ha="left", va="bottom")
+
+    # Today values stored for stats box (arrows removed — they clashed with the legend)
+    phi_grut_now = h_le["phi_grut_today"]
+    phi_lcdm_now = h_le["phi_lcdm_today"]
+
+    ax1.set_xscale("log")
+    ax1.set_xlim(0.05, 1300)   # extends to recombination z≈1100
+    ax1.set_ylim(0.38, 2.85)
+    ax1.set_xlabel("Redshift  $z$", fontsize=11)
+    ax1.set_ylabel(r"Reduced potential $\tilde{\Phi}(a)$", fontsize=11)
+    # Legend at lower-left: below the ΛCDM curve, well clear of the stats box (upper-right)
+    ax1.legend(fontsize=9, loc="lower left", framealpha=0.9)
+
+    # Stats box upper-right — includes today values (replaces the removed arrow annotations)
+    ratio = h_le["phi_ratio"]
+    amp   = h_le["isw_amplitude_ratio"]
+    mu_r  = h_le["mu_at_rec"]
+    stats_txt = (
+        rf"$\tilde{{\Phi}}_{{GRUT}}(z{{\approx}}0)={phi_grut_now:.3f}$  "
+        rf"$\tilde{{\Phi}}_{{\Lambda CDM}}(z{{\approx}}0)={phi_lcdm_now:.3f}$"
+        "\n"
+        f"$\\tilde{{\\Phi}}_{{GRUT}}/\\tilde{{\\Phi}}_{{\\Lambda CDM}} = {ratio:.2f}\\times$   "
+        f"ISW amplitude = ${amp:.1f}\\times$\n"
+        f"$\\mu_{{GRUT}}(z=1100) = {mu_r:.4f}$ (SW unchanged)   "
+        f"$z_* \\approx {z_star:.0f}$"
+    )
+    ax1.text(0.98, 0.97, stats_txt, transform=ax1.transAxes, fontsize=8.5,
+             va="top", ha="right",
+             bbox=dict(boxstyle="round,pad=0.4", fc="white", ec=LGRAY, alpha=0.9))
+
+    # Cooling/heating labels
+    ax1.text(0.55, 0.62, "GRUT potential deepens\n(ISW amplitude ~5×)",
+             transform=ax1.transAxes, fontsize=9, color=NAVY,
+             ha="center", style="italic")
+    ax1.text(0.55, 0.25, "ΛCDM potential decays\n(standard late ISW)",
+             transform=ax1.transAxes, fontsize=9, color=ORANGE,
+             ha="center", style="italic")
+
+    # ── Bottom panel: dΦ̃/dz (ISW source) ───────────────────────────────────
+    # Focus on z = 0–10 (late-time ISW window)
+    m_late = z_mid <= 10
+    z_m    = z_mid[m_late]
+    dphi_g_dz = dphi_g[m_late] / np.abs(dz[m_late])
+    dphi_l_dz = dphi_l[m_late] / np.abs(dz[m_late])
+
+    ax2.plot(z_m, dphi_g_dz, color=NAVY, lw=2.0,
+             label=r"GRUT $d\tilde{\Phi}/dz$  (k=$10^{-3}$ Mpc$^{-1}$)")
+    ax2.plot(z_m, dphi_l_dz, color=ORANGE, lw=2.0, ls="-.",
+             label=r"$\Lambda$CDM $d\tilde{\Phi}/dz$")
+    ax2.axhline(0, color="gray", lw=0.7, ls=":", alpha=0.6)
+
+    # Shade cooling (GRUT > 0 → cooling) and heating (LCDM < 0 → heating) regions
+    ax2.fill_between(z_m, 0, dphi_g_dz, where=dphi_g_dz > 0,
+                     color=NAVY, alpha=0.15, label="GRUT cooling region")
+    ax2.fill_between(z_m, 0, dphi_l_dz, where=dphi_l_dz < 0,
+                     color=ORANGE, alpha=0.15, label="ΛCDM heating region")
+
+    # Annotate ISW sign in each region — axes-fraction coords to stay clear of curves
+    ax2.text(0.18, 0.82, "cooling\n(GRUT deepens)", color=NAVY,
+             fontsize=8.5, ha="center", style="italic",
+             transform=ax2.transAxes)
+    ax2.text(0.60, 0.12, "heating\n(ΛCDM decays)", color=ORANGE,
+             fontsize=8.5, ha="center", style="italic",
+             transform=ax2.transAxes)
+
+    ax2.set_xlim(0, 10)
+    ax2.set_xlabel("Redshift  $z$", fontsize=11)
+    ax2.set_ylabel(r"$d\tilde{\Phi}/dz$", fontsize=11)
+    ax2.set_title(r"ISW source term at $\ell\approx10$–30 scales", fontsize=10)
+    # Legend upper-right: curves converge to ≈0 at z>6 — clear space there
+    ax2.legend(fontsize=8.5, loc="upper right", framealpha=0.9)
+
+    # Planck low-ell note — lower-left, separate from the legend (upper-right)
+    ax2.text(0.02, 0.05,
+             f"Planck low-ℓ: $D_\\ell^{{obs}}/D_\\ell^{{\\Lambda CDM}}\\approx{PLANCK_LOW_ELL_RATIO}$ (deficit)\n"
+             "GRUT (full MGCAMB): ~2.6× EXCESS → RULED OUT (Corr #38)",
+             transform=ax2.transAxes, fontsize=8.0, va="bottom", ha="left",
+             color="firebrick",
+             bbox=dict(boxstyle="round,pad=0.3", fc="mistyrose", ec="firebrick", alpha=0.9))
+
+    fig.tight_layout(pad=0.8)
+    save(fig, "fig_08_cmb_isw.png")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     print("Generating GRUT figures …")
-    fig01_timescales()
-    fig02_three_regimes()
-    fig03_gate_r()
-    fig04_cluster_schematic()
-    fig05_cluster_scaling()
-    fig06_modified_gravity()
-    fig07_cmb_pk()
-    fig08_mgcamb_prototype()
-    fig09_open_ledger()
-    fig10_grut_chain()
-    fig11_schrodinger_inversion()
-    print(f"Done — 11 figures written to {OUT}")
+    fig00_tau0_bridge()
+    fig01_grut_chain()
+    fig02_timescales()
+    fig03_three_regimes()
+    fig04_gate_r()
+    fig05_hz_residuals()
+    fig06_fsigma8()
+    fig07_s8_tension()
+    fig08_cmb_isw()
+    fig09_cluster_schematic()
+    fig10_cluster_scaling()
+    fig11_modified_gravity()
+    fig14_cmb_pk()
+    fig15_mgcamb_prototype()
+    fig16_schrodinger()
+    fig17_open_ledger()
+    print(f"Done — 16 figures written to {OUT}")

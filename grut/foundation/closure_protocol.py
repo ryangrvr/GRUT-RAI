@@ -101,7 +101,7 @@ from grut.foundation.constants import C as C_LIGHT, G as G_NEWTON, HBAR, K_B, E_
 # Canonical constants (Phase I §5 — FIXED, no free knobs)
 # ────────────────────────────────────────────────────────────────────
 
-ALPHA_VAC: float = 1.0 / 3.0                 # DERIVED — conformal-mode scalar
+ALPHA_VAC: float = 1.0 / 3.0                 # DERIVED under postulate; else AXIOM (see docstring)
 """Vacuum impedance — DERIVED via conformal-mode scalar identification.
 
 Physical derivation (canonical):
@@ -123,7 +123,17 @@ from the observed 15.47% effective central charge ratio (√(4/3) ≈ 1.1547).
 v11 Appendix H §H.4 provides a one-sentence "α = 1/d, d = 3" remark.
 The conformal-mode-scalar route is the GRUT ToE's canonical derivation;
 the historical numerical-coincidence path is documented in
-theory/foundations_audit/ALPHA_VAC_PROVENANCE.md."""
+theory/foundations_audit/ALPHA_VAC_PROVENANCE.md.
+
+DUAL-OUTCOME CAVEAT (v2 Final / V2→V3): α_vac = 1/3 is DERIVED only
+UNDER the conformal-mode-scalar identification postulate (gravitational
+conformal mode = IR carrier; its impedance = the 2nd-order trace-anomaly
+ratio a/c). That postulate is NOT self-derived from the CTP action — the
+gravitational conformal mode is 4th-order (Riegert/Paneitz) and that
+closure is OPEN. If the postulate holds → α = 1/3 derived; if it fails →
+α_vac is GRUT's single dimensionless AXIOM (a genuine, distinctive
+trace-anomaly result elevated by one named identification).
+ALPHA_VAC_PROVENANCE.md classifies it as a de-facto axiom accordingly."""
 
 S_SCREENING: float = 12 * np.pi / ALPHA_VAC**2   # = 108π ≈ 339.29
 """Screening factor S = 12π/α² mapping cosmic baseline τ_Λ to local τ_0.
@@ -604,13 +614,28 @@ def crystallinity(omega_dyn_Hz=None, lambda_grav_Hz=None,
 def nu_interpolation(y):
     """Acceleration interpolation ν(y) = 1/2 + √(1/4 + 1/y).
 
-    Phase I Appendix E.1: "frozen engine mapping function."
+    PROVENANCE (v2 self-containment audit, June 2026). This is the MOND
+    "simple" interpolating function, **ADOPTED** to match galactic
+    rotation-curve phenomenology — it is NOT derived from the GRUT
+    constitutive action, and no such derivation exists in V7 either
+    (GRUT_V7_FULL.md only states it "matches MOND phenomenology"). GRUT's
+    refractive enhancement is BOUNDED: n_g² = 1 + α_vac·Re[χ] ≤ 4/3, a
+    ≤15% velocity boost, while flat curves require factors of several —
+    so the unbounded ν(y) → √(1/y) shape provably cannot come from the
+    enhancement (see theory/PROJECTOR_CONSISTENCY_NOGO.md, §dark sector).
+
+    What GRUT genuinely DERIVES in this engine:
+      • the acceleration scale a_0 = c/(2π τ_Λ) = cH_0/(2π)  (A_0_SI), and
+      • the frequency gate 1/(1+X²), X = ω_dyn τ_0  (alpha_effective),
+        which gives solar-system safety AND the falsifiable high-ω
+        deviation from MOND.
+    The interpolation SHAPE ν(y) is MOND, adopted. (Earlier docstrings
+    claimed it was "derived from screening" — incorrect; corrected here.)
+
     Asymptotic limits:
         y ≫ 1 (Newtonian):   ν → 1,         g_eff ≈ g_bar
-        y ≪ 1 (deep-response): ν → √(1/y),   g_eff ≈ √(g_bar × a_0)
-
-    This is the MOND interpolation form, but derived here from the
-    screening mechanism (not from modified dynamics). y ≡ g_bar/a_0.
+        y ≪ 1 (deep-response): ν → √(1/y),   g_eff ≈ √(g_bar × a_0)  [MOND]
+    y ≡ g_bar/a_0.
     """
     y_arr = np.asarray(y, dtype=float)
     if np.any(y_arr <= 0):

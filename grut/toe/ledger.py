@@ -643,6 +643,49 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
         blocked_by=("constitutive_growth_poisson_closure_gap",),
         last_review="2026-06-05",
     ),
+    LedgerEntry(
+        claim_id="cmb_boltzmann_case_a_structural",
+        closure_condition=(
+            "RULED OUT, not pending closure (Correction #38, June 2026). "
+            "The linear refractive enhancement μ_GRUT(k,a) ≠ 1 asserted by "
+            "this claim is FALSIFIED by the low-ℓ CMB ISW (2.79×/32σ excess; "
+            "theory/CMB_ISW_EQUALITY_FILTER.md §0.1) and FORBIDDEN by "
+            "consistency (μ_linear = 1 forced; "
+            "theory/PROJECTOR_CONSISTENCY_NOGO.md §5). Retained as the "
+            "falsification record. The genuine open frontier it redirects to "
+            "is the nonlinear/tensor dark sector — C5a (W² second-order), "
+            "C5b (orbital-ω bound systems), C5c (TT/GW). No closure of the "
+            "LINEAR claim is possible or desired."
+        ),
+        closure_effort=(
+            "N/A — falsified, not pending. The successor work is the "
+            "nonlinear/tensor dark sector (the only surviving home for GRUT "
+            "deviations after the linear scalar channel was closed). See the "
+            "V2→V3 synthesis."
+        ),
+        affects=("camb_grut_power_spectrum_prediction",),
+        blocked_by=(),
+        last_review="2026-06-17",
+    ),
+    LedgerEntry(
+        claim_id="camb_grut_power_spectrum_prediction",
+        closure_condition=(
+            "RULED OUT at linear order (Correction #38, June 2026). The "
+            "P(k)/σ₈/ISW enhancement reported by this claim is the falsified "
+            "linear refractive branch (μ_linear = 1 forced). σ₈ = ΛCDM at "
+            "linear scalar order; any surviving S₈ offset is from background "
+            "Ω_m, not modified gravity. Retained as audit trail. No linear "
+            "closure is possible; the dark sector is nonlinear/tensor (open)."
+        ),
+        closure_effort=(
+            "N/A — falsified linear branch. v3 baselines ΛCDM against stock "
+            "CAMB (the GRUT fork's always-on μ embeds the ruled-out "
+            "enhancement)."
+        ),
+        affects=(),
+        blocked_by=("cmb_boltzmann_case_a_structural",),
+        last_review="2026-06-17",
+    ),
 )
 
 

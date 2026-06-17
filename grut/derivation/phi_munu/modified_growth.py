@@ -1,5 +1,14 @@
 """Phase 3.1 — modified linear growth equation on FRW.
 
+STATUS (Correction #38, June 2026) — RULED OUT / REFERENCE ONLY.
+The linear-scalar modification μ_GRUT computed here is FALSIFIED:
+μ_linear = 1 (ΛCDM) is forced by theory/PROJECTOR_CONSISTENCY_NOGO.md §5
+and by the ~32σ low-ℓ CMB-ISW excess (theory/CMB_ISW_EQUALITY_FILTER.md
+§0.1). This module is retained as a derivation-phase archive, NOT an
+operative prediction. GRUT's dark sector lives only in nonlinear/tensor
+channels (C5a W², C5b orbital-ω, C5c TT). The σ₈/growth enhancement
+below is the ruled-out linear artifact, kept for the audit trail.
+
 Uses the Priority 3 MG-EFT mapping μ_GRUT(k, a) = 1 + α_vac/[1+(τ_0
 k_phys)²] to derive the modified linear growth factor D(z, k) for
 matter density perturbations on FRW. Integrates the linear ODE from

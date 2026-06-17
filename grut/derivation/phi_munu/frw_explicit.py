@@ -89,16 +89,46 @@ Beyond WKB (Phase 2D — not done here)
 The slow-H correction:
     χ_FRW(k, η) = χ_FRW^WKB(k, η) × [1 + O((H_c τ_0)²)]
 
-Today: (H_0 τ_0)² = 1/(108π)² ≈ 8.7 × 10⁻⁶ — negligible. Matter-
-radiation equality (z ≈ 3400, H_eq ≈ H_0 (1+z)^(3/2) × √(2)):
-(H_eq τ_0)² ≈ 10⁻⁶ — still negligible, even at the horizon-crossing
-moment for relevant modes. Recombination: similarly small.
+Today: (H_0 τ_0)² = 1/(108π)² ≈ 8.7 × 10⁻⁶ — negligible.
 
-Conclusion: the WKB result (★) is the operationally complete formula
-for late-universe (post-equality) cosmology. Beyond-WKB corrections
-matter only in the radiation era for modes that crossed the
-relaxation scale during that era — research-tier numerics deferred
-to Phase 2D.
+⚠ CORRECTION (June 2026): an earlier version of this note claimed
+"(H_eq τ_0)² ≈ 10⁻⁶ — negligible across all post-equality cosmology."
+THAT IS AN ARITHMETIC ERROR. With H_eq = H_0 (1+z_eq)^(3/2)√2 and
+z_eq ≈ 3400, (H_eq τ_0)² = (H_0τ_0)² × (3400^1.5·√2)² ≈ 8.7e-6 × 7e10
+≈ 2 × 10⁵ — eleven orders of magnitude larger, NOT ≪ 1. The QS/WKB
+boundary (H τ_0)² = 1 falls at z ≈ 77.
+
+Correct validity domain of the WKB/QS reduction (★):
+  • VALID for z ≲ 30 AND for modes whose constitutive enhancement
+    turns on deep sub-horizon — i.e. k ≳ 10⁻² Mpc⁻¹ (a★ = k·cτ₀ gives
+    z★ ≲ 7). This covers structure growth: σ₈, BAO, fσ₈. The WKB μ is
+    reliable there (verified against the full memory operator: the
+    response equals the QS value to < 1%).
+  • INVALID for the low-ℓ CMB ISW modes (k ≲ 3×10⁻³ Mpc⁻¹), whose
+    enhancement turns on at z★ ≳ 30–77, i.e. in the (H τ_0)² ≳ 1 regime
+    where the dropped time-derivative terms ∂_η² + 2H_c∂_η are NOT
+    subleading. For these modes the QS μ = 1 + α/(1+(τ₀k_phys)²) is not
+    justified; the full retarded kernel G^R(k,η,η') must be used. The
+    apparent low-ℓ ISW excess obtained by applying the QS μ to these
+    modes is therefore an artifact of using the reduction outside its
+    domain — see theory/CMB_ISW_EQUALITY_FILTER.md §0.
+
+Beyond-WKB / full-kernel treatment for the horizon-scale (ISW) modes
+WAS the open Phase-2D task (kernel temporal structure: the bedrock
+constitutive equation τ dz/dt + z = z_target is first-order, while the
+operator 1+τ₀²(−□_g) used here is second-order — these differ exactly
+in the regime that matters for the ISW).
+
+  UPDATE (June 2026 — NO LONGER OPEN): the first-order full memory kernel
+  was derived (retarded_kernel_frw.py) and run in MGCAMB. It does NOT
+  rescue the low-ℓ ISW: D_ℓ^GRUT/D_ℓ^ΛCDM = 2.79× at ℓ=15 (~32σ), larger
+  than this QS artifact — the memory only delays μ→4/3 (reached by z≲15).
+  Combined with the Projector No-Go (μ_linear=1 forced by separate-universe
+  invariance), the linear-scalar refractive enhancement is RULED OUT and
+  linear cosmology = ΛCDM is a derived requirement. See
+  theory/CMB_ISW_EQUALITY_FILTER.md §0.1 and
+  theory/PROJECTOR_CONSISTENCY_NOGO.md §5-§6. The QS μ below remains valid
+  and useful for the sub-horizon (z≲30, k≳10⁻²) growth regime only.
 
 ─────────────────────────────────────────────────────────────────────
 Convention declaration (Phase 2C)
@@ -181,9 +211,12 @@ def convention_declaration() -> Dict[str, str]:
         "C3f_comoving_fourier_ansatz":
             "φ(x) = ∫ d³k/(2π)³ φ_k(η) e^{ik·x}; k is comoving.",
         "C4f_WKB_slow_H_regime":
-            "(H_c τ_0 / a)² << 1. Verified: today (H_0 τ_0)² = "
-            "1/(108π)² ≈ 8.7e-6; matter-rad equality similar; "
-            "negligible across all post-equality cosmology.",
+            "(H τ_0)² << 1. Today (H_0 τ_0)² = 1/(108π)² ≈ 8.7e-6. "
+            "CORRECTION: (H τ_0)² = 1 at z ≈ 77, and ≈ 2e5 at equality "
+            "(NOT 1e-6 as previously stated). WKB/QS valid for z ≲ 30 / "
+            "growth modes k ≳ 1e-2; INVALID for low-ℓ ISW modes "
+            "(k ≲ 3e-3, z★ ≳ 30). See module docstring + "
+            "theory/CMB_ISW_EQUALITY_FILTER.md §0.",
         "C5f_physical_wavenumber_and_transition":
             "k_phys(η) = k/a(η). Transition: k_phys = 1/τ_0; "
             "comoving k_*(η) = a(η)/τ_0.",
@@ -463,14 +496,25 @@ def beyond_wkb_correction_magnitude_today() -> Dict[str, float]:
     from grut.foundation.closure_protocol import S_SCREENING
     H_tau_0_today = 1.0 / S_SCREENING  # ≈ 2.95e-3
     correction = H_tau_0_today**2
+    # CORRECTION (June 2026): (H τ_0)² is small ONLY at low z. It scales
+    # as (1+z)³ in matter dom: (H τ_0)² = 1 at z ≈ 77 and ≈ 2e5 at
+    # equality. So "today" is subleading but the early universe is NOT.
+    import numpy as _np
+    z_qs_boundary = (1.0 / H_tau_0_today) ** (2.0 / 3.0) - 1.0  # (Hτ0)²=1
     return {
         "H_0_times_tau_0":              float(H_tau_0_today),
         "(H_0_tau_0)_squared":          float(correction),
-        "is_subleading_in_late_universe": correction < 1e-4,
+        "is_subleading_today":          correction < 1e-4,
+        "is_subleading_in_late_universe": correction < 1e-4,  # today only
+        "qs_breaks_down_above_redshift": float(z_qs_boundary),  # ≈ 77
         "interpretation":
-            "WKB is excellent (8.7e-6 correction) for late-universe "
-            "cosmology. Beyond-WKB matters only in the radiation era "
-            "for modes that crossed k_* during that era.",
+            "WKB/QS correction is 8.7e-6 TODAY but grows as (1+z)³: "
+            f"(Hτ0)²=1 at z≈{z_qs_boundary:.0f}, ≈2e5 at equality. "
+            "WKB/QS is valid for z≲30 and for sub-horizon growth modes "
+            "(k≳1e-2, σ8/BAO), but FAILS for the low-ℓ ISW modes "
+            "(k≲3e-3) whose enhancement turns on at z≳30. The earlier "
+            "claim of validity 'across all post-equality cosmology' was "
+            "an arithmetic error. See theory/CMB_ISW_EQUALITY_FILTER.md §0.",
     }
 
 
