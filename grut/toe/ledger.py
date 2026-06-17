@@ -686,6 +686,28 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
         blocked_by=("cmb_boltzmann_case_a_structural",),
         last_review="2026-06-17",
     ),
+    LedgerEntry(
+        claim_id="omega_dm_equals_alpha",
+        closure_condition=(
+            "RULED OUT (first v3 test, June 2026), not pending closure. The "
+            "linear-dielectric Ω_dm = α = 1/3 (bandwidth integral over linear "
+            "P(k) at ωτ0≪1) is the DC saturation of the conformal μ→4/3 "
+            "enhancement forbidden by PROJECTOR_CONSISTENCY_NOGO §5 (μ_linear=1) "
+            "and falsified by CMB_ISW_EQUALITY_FILTER §0.1 (MGCAMB 2.79×/~32σ). "
+            "Its registry falsifier has fired. No cosmological Ω_dm is produced "
+            "by the dielectric mechanism. The surviving dark-sector physics is "
+            "bound-system C5b (a0; see mond_a_0_emergence) and nonlinear C5a "
+            "(W², open)."
+        ),
+        closure_effort=(
+            "N/A — ruled out, not pending. The successor work is C5a (W² "
+            "second-order Ω_dm, uncomputed) and the CTP derivation of the C5b "
+            "orbital gate (the next v3 test)."
+        ),
+        affects=(),
+        blocked_by=(),
+        last_review="2026-06-17",
+    ),
 )
 
 

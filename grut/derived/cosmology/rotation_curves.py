@@ -6,8 +6,12 @@ PROVENANCE (v2 self-containment audit, June 2026)
 This engine is **MOND-compatible**, not MOND-derived. Of the three pieces:
 
   • a_0 = cH_0/(2π)              — GRUT-DERIVED scale (from τ_Λ = 1/H_0); A_0_SI
-  • gate 1/(1+X²), X = ω_dyn τ_0 — GRUT-DERIVED from χ(ω); solar-system safety
-                                    + a falsifiable high-ω deviation from MOND
+  • gate 1/(1+X²), X = ω_dyn τ_0 — FORM GRUT-DERIVED from χ(ω) (single-pole
+                                    relaxation kernel); controlling frequency
+                                    ω_dyn = v/r ASSUMED — extrapolated from the
+                                    cosmological DC χ, not yet CTP-derived for
+                                    bound systems (see open discharge in
+                                    theory/GRUT_V3_TEST_01_DARK_SECTOR.md)
   • ν(y) = ½ + √(¼ + 1/y)        — ADOPTED from MOND (the "simple" function),
                                     NOT derived. GRUT's bounded refractive
                                     enhancement (n_g² ≤ 4/3) provably cannot

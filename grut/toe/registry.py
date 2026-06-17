@@ -1457,6 +1457,16 @@ REGISTRY: tuple[Claim, ...] = (
         id="omega_dm_equals_alpha",
         chapter=9,
         statement=(
+            "RULED OUT (first v3 test, June 2026 — the falsifier below has "
+            "FIRED). The linear-dielectric Ω_dm = α = 1/3 is the DC saturation "
+            "of the conformal μ→4/3 enhancement that PROJECTOR_CONSISTENCY_NOGO "
+            "§5 forbids (μ_linear=1 forced) and CMB_ISW_EQUALITY_FILTER §0.1 "
+            "falsifies (MGCAMB 2.79×/~32σ at ℓ=15). The bandwidth integral is "
+            "correct code but its surviving-mechanism interpretation is dead: "
+            "at the linear P(k) peak ωτ0~1e-4 ⇒ E≈α everywhere. The dark sector "
+            "is NOT a cosmological Ω_dm; it lives in bound-system C5b (a0, see "
+            "mond_a_0_emergence) and nonlinear C5a (W², open). ORIGINAL CLAIM "
+            "FOLLOWS — "
             "Ω_dm = α_vac = 1/3 (~33%, +27% from Planck's 26.6%). "
             "The bandwidth integral over linear-regime modes (BBKS-"
             "weighted) saturates at α — verified at code level: "
@@ -1465,7 +1475,7 @@ REGISTRY: tuple[Claim, ...] = (
             "frequency content of the same medium that produces dark "
             "energy at terminal velocity."
         ),
-        tier="computed",
+        tier="open_negative",
         refs=(
             "V7 §28 (dark sector)",
             "Phase I §9",
@@ -1496,13 +1506,27 @@ REGISTRY: tuple[Claim, ...] = (
         statement=(
             "MOND-like trigger acceleration a_0 = c/(2π τ_Λ) ≈ "
             "1.2 × 10⁻¹⁰ m/s² emerges from the cosmological response time "
-            "τ_Λ = 1/H_0 — a GRUT-derived scale. The frequency gate 1/(1+X²), "
-            "X = ω_dyn τ_0, is derived from χ(ω) (solar-system safety + a "
-            "falsifiable high-ω deviation from MOND). The interpolation SHAPE "
+            "τ_Λ = 1/H_0 — a GRUT-derived scale. The frequency-gate FORM "
+            "1/(1+X²) is derived from χ(ω) (single-pole kernel), but the "
+            "controlling frequency ω_dyn = v/r is ASSUMED (Test 02, June 2026, "
+            "verdict B): extrapolated from the cosmological DC χ, not yet CTP-"
+            "derived for bound systems; solar-system safety and the falsifiable "
+            "high-ω MOND deviation both follow FROM that assumed frequency "
+            "(open discharge: theory/GRUT_V3_TEST_02_C5B_GATE.md). The "
+            "interpolation SHAPE "
             "ν(y) is ADOPTED from MOND, NOT derived (v2 audit, June 2026): "
             "the bounded refractive enhancement n_g² ≤ 4/3 cannot produce flat "
             "curves; see theory/PROJECTOR_CONSISTENCY_NOGO.md. GRUT is thus "
-            "MOND-compatible with a derived a_0 and a derived high-ω deviation."
+            "MOND-compatible with a derived a_0. UPDATE (Test 03, June 2026): "
+            "the C5b gate is REFUTED as a dark-sector MECHANISM — after the "
+            "No-Go removes the (linear-scalar) mean field, the realized "
+            "structure varying at ω_dyn is only granular ~1/√N (~1e-6 for a "
+            "galaxy), not the O(1) needed for ~20% enhancement, so the gate "
+            "form gates a negligible source. The a_0 SCALE survives (derived); "
+            "the rotation-curve fit is adopted-MOND ν(y) × a phenomenological "
+            "gate, NOT a GRUT-derived dark-sector mechanism. The O(1) dark "
+            "sector requires the nonlinear W² response (C5a, uncomputed). See "
+            "theory/GRUT_V3_TEST_03_C5B_DISCHARGE.md."
         ),
         tier="computed",
         refs=(
@@ -2537,7 +2561,7 @@ REGISTRY: tuple[Claim, ...] = (
             "galaxy rotation enhancement ~ 0.19; Bullet Cluster offset "
             "matches at order-of-magnitude."
         ),
-        tier="computed",
+        tier="conjectural",
         refs=(
             "v11.1 Appendix H",
             "grut/derived/cosmology/dielectric_dm.py",
@@ -2546,6 +2570,21 @@ REGISTRY: tuple[Claim, ...] = (
         deps=(
             "alpha_vac_derivation", "memory_kernel_form",
             "regime_map", "r_canonical_path_g",
+        ),
+        notes=(
+            "DEMOTED computed→conjectural (first v3 test, June 2026). The "
+            "claim blends three pieces of different status: (a) the linear "
+            "bandwidth → Ω_dm map — RULED OUT (see omega_dm_equals_alpha; it "
+            "is the μ→4/3 linear enhancement v3 forbids); (b) the orbital-ω "
+            "enhancement + a0 + high-ω MOND deviation — SURVIVES as bound-"
+            "system C5b, but bounded (n_g²≤4/3, ~19% at galactic) and partial "
+            "(the orbital Lorentzian is extrapolated from the DC χ_eq, not yet "
+            "CTP-derived); its primary record is mond_a_0_emergence. (c) the "
+            "Bullet Cluster offset is a separate prediction. The 'dielectric = "
+            "dark-matter abundance' framing conflates the dead linear mechanism "
+            "with the surviving bound-system one. Conjectural pending the CTP "
+            "derivation of the orbital gate (C5b) and the nonlinear W² Ω_dm "
+            "(C5a)."
         ),
     ),
 
@@ -5168,6 +5207,55 @@ REGISTRY: tuple[Claim, ...] = (
             "(e^(-lambda) on k_phys, e^(-2 lambda) on its square). The "
             "theorem establishes the BREAKING; it presupposes (does not "
             "re-derive) the underlying L0->0 redundancy."
+        ),
+    ),
+    Claim(
+        id="c5a_weyl_squared_dark_sector",
+        chapter=9,
+        statement=(
+            "C5a — the second-order Weyl-squared (W²) constitutive response — "
+            "is GRUT's SOLE surviving dark-sector channel after Tests 01-03 "
+            "ruled out the linear / dielectric / orbital channels. First v3 "
+            "existence test (Test 04, June 2026): SIGN passes (ρ_eff ∝ c·W² > "
+            "0, attractive / DM-like; c=3); SCALING is dimensionally sound "
+            "(ρ_eff ~ α·L²·W², n=2; W²=0 on FRW so no cosmological signal, "
+            "consistent with μ_linear=1; grows only in bound systems; no "
+            "frequency suppression). MAGNITUDE is UNDETERMINED — it swings "
+            "~10²⁷× on the coupling length scale: L=L₀ (≈12.85 Mpc) gives "
+            "negligible (~1e-27, C5a dies); local L=r gives a galaxy-marginal "
+            "signal (within ~2-3× of Ω_dm — the best of any GRUT mechanism) "
+            "but overshoots clusters ~100× (a galaxy-cluster tension). NOT "
+            "refuted, NOT confirmed."
+        ),
+        tier="conjectural",
+        refs=(
+            "theory/GRUT_V3_TEST_04_C5A_WEYL.md",
+            "theory/PROJECTOR_CONSISTENCY_NOGO.md §8 (C5a)",
+            "grut/foundation/conformal_mode_scalar.py (a, c; W² c-channel)",
+            "workflow w3zgsvvwi (read-only)",
+        ),
+        deps=(
+            "organizing_structure_v3",
+            "alpha_vac_derivation",
+            "ctp_action_structure",
+        ),
+        falsifier=(
+            "The decisive computation: the explicit 2nd-order CTP kernel "
+            "K^(2) = δ²S_CTP/δh_a δh_r|_{O(2)} — its dimensionless prefactor σ "
+            "and coupling length scale. L₀-scale or small prefactor ⇒ ρ_eff "
+            "negligible ⇒ C5a dies and GRUT has NO derived dark-matter "
+            "mechanism (dark matter hosted). Local-r scale with O(1) prefactor "
+            "⇒ galaxy-marginal viability ⇒ 04D phenomenology (incl. the "
+            "cluster overshoot) warranted."
+        ),
+        notes=(
+            "The first v3 dark-sector candidate to CLEAR its structural gates "
+            "(sign + scaling) rather than being deleted by them. CONJECTURAL: "
+            "magnitude undetermined by dimensional analysis alone; the length "
+            "scale + prefactor require the explicit 2nd-order CTP computation "
+            "(the single quantity that closes GRUT's dark sector). Do not "
+            "over-read the marginal galaxy signal — it is contingent on an "
+            "undetermined scale and already in tension with clusters."
         ),
     ),
 )

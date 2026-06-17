@@ -102,3 +102,29 @@ The v3 ToE is built forward from this spine. The immediate, load-bearing target 
 /tensor dark sector (C5a–c)** — the only surviving home for GRUT deviations after the linear channel
 closed. Everything needed to start is inherited and verified; `grut/v3/picture.py` is the operative
 entry point, and `theory/V2_TO_V3_SYNTHESIS.md` records how the foundation was reached.
+
+---
+
+## Standing V3 methodology rules
+
+These are the working rules of the v3 audit, alongside the v2 selected/permitted/hosted/anchored
+terrain taxonomy.
+
+1. **Every surviving sector must identify its controlling frequency.** A GRUT prediction is a
+   response of a finite-memory medium, so it is meaningless until the dimensionless `ωτ₀` of the
+   relevant physical regime is named. Test 01 succeeded *because* it compared `ωτ₀` across regimes —
+   cosmological linear modes (`k·c_s·τ₀ ≪ 1`), bound-system orbital modes (`ω_dyn·τ₀ ~ 1`), and the
+   DC/terminal limit — which exposed that the "dielectric Ω_dm" was secretly the ruled-out linear
+   (`ωτ₀≪1`) branch. The frequency-domain classification is as load-bearing to v3 as the terrain
+   taxonomy: *no sector is audited until its controlling frequency is on the table.*
+
+2. **The mathematics often survives; the ontology changes.** The recurring v3 signature: a v2
+   *calculation* is usually correct, but the *thing it was claimed to be* is not. Koide survived as a
+   compatibility identity but lost its status as a prediction; the linear enhancement survived as a
+   possibility but lost selection; `Ω_dm = 1/3` survived as a (correct) integral but lost its
+   interpretation as a dark-sector mechanism. **A v3 audit asks not "is the number right?" but "which
+   surviving structure is this number actually a consequence of?"**
+
+3. **No major v2 claim is assumed safe until it survives a v3 audit** under rules (1)–(2). After
+   Test 01, the standing re-audit queue is: flavor sector, α=1/3 provenance, the constitutive-law
+   hierarchy, and the decoherence sectors.
