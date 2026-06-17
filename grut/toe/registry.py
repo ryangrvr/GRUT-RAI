@@ -5255,7 +5255,13 @@ REGISTRY: tuple[Claim, ...] = (
             "scale + prefactor require the explicit 2nd-order CTP computation "
             "(the single quantity that closes GRUT's dark sector). Do not "
             "over-read the marginal galaxy signal — it is contingent on an "
-            "undetermined scale and already in tension with clusters."
+            "undetermined scale and already in tension with clusters. Test 05 "
+            "(K^(2), June 2026): undetermined_needs_symbolic. Structural lean "
+            "toward a LOCAL scale (⇒ galaxy-marginal) from K^R's spatial "
+            "locality, but SOFT — W²~(∂²h)² carries derivative structure the "
+            "inheritance argument ignores. Closing computation named: the "
+            "explicit symbolic δ²S_IF/δh_a δh_r²|_{O(2)} on FRW+halo "
+            "(theory/GRUT_V3_TEST_05_K2_KERNEL.md)."
         ),
     ),
 )

@@ -128,3 +128,10 @@ terrain taxonomy.
 3. **No major v2 claim is assumed safe until it survives a v3 audit** under rules (1)–(2). After
    Test 01, the standing re-audit queue is: flavor sector, α=1/3 provenance, the constitutive-law
    hierarchy, and the decoherence sectors.
+
+4. **Dark-sector moratorium (constructive phase).** The audit (Tests 01–05) compressed the dark
+   sector to one surviving channel (C5a) and one decisive computation (`K⁽²⁾`). **No new dark-sector
+   mechanism is to be proposed until `K⁽²⁾` is computed** — inventing one now would re-spread the
+   question and reproduce the v2 mechanism-accumulation failure the audit cured. The constructive
+   phase is defined by solving *one* problem, not proposing more. See
+   `GRUT_V3_CONSTRUCTIVE_PHASE.md`.

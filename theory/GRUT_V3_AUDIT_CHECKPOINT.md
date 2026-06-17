@@ -88,8 +88,14 @@ length scale (`L₀` → C5a dies; local `r` → galaxy-marginal), and its dimen
 > **Test 05 is no longer "another test." It is the single computation that determines whether GRUT
 > possesses a derived dark-sector mechanism at all.**
 
-This checkpoint freezes the audit phase. The constructive phase begins at Test 05.
+This checkpoint freezes the audit phase.
+
+**UPDATE (Test 05 run, 2026-06-17):** the audit phase now **ENDS at Test 05** (its endpoint), which
+reduced the dark sector to the single `K⁽²⁾` symbolic computation (`undetermined_needs_symbolic`).
+The audit phase (Tests 01–05) is frozen at tag `v3-audit-complete`. The **constructive phase** is the
+`K⁽²⁾` derivation itself — its flagship problem and the dark-sector moratorium are defined in
+`GRUT_V3_CONSTRUCTIVE_PHASE.md`.
 
 **Test records:** `GRUT_V3_TEST_01_DARK_SECTOR.md`, `..._02_C5B_GATE.md`, `..._03_C5B_DISCHARGE.md`,
-`..._04_C5A_WEYL.md`. **Foundation:** `GRUT_V3.md`, `GRUT_V3_ORGANIZING_STRUCTURE.md`,
-`V2_TO_V3_SYNTHESIS.md`.
+`..._04_C5A_WEYL.md`, `..._05_K2_KERNEL.md`. **Foundation:** `GRUT_V3.md`,
+`GRUT_V3_ORGANIZING_STRUCTURE.md`, `V2_TO_V3_SYNTHESIS.md`.
