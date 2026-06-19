@@ -5267,6 +5267,67 @@ REGISTRY: tuple[Claim, ...] = (
         ),
     ),
     Claim(
+        id="vacuum_spectrum_pole_classification",
+        chapter=9,
+        statement=(
+            "POLE CLASSIFICATION THEOREM (Spectrum Program, Phase I; June 2026). "
+            "After the v3 dark-sector closure (C5a + locality_no_halo_theorem), "
+            "the dark-matter question reduces to a SPECTRAL one. The current GRUT "
+            "kernel χ(ω)=1/(1−iωτ₀) possesses a SINGLE RELAXATIONAL pole "
+            "(ω=−i/τ₀: on the imaginary axis ⇒ massless/overdamped/dissipative; "
+            "lower half-plane ⇒ causal & stable). A DERIVED DARK SECTOR REQUIRES "
+            "ADDITIONAL STABLE POLES in the vacuum response spectrum — a stable, "
+            "gapped, OFF-AXIS pole (Re ω≠0 ⇒ a mass; Im ω<0, |Im|≪|Re| ⇒ "
+            "long-lived) is a particle-like, dark-matter-capable mode, which the "
+            "single relaxational pole is not. GRUT's constraints (causality, CTP "
+            "unitarity, finite memory, locality) do NOT forbid additional poles; "
+            "their existence is DETERMINED BY THE EFFECTIVE ACTION and is the "
+            "central question of the Spectrum Program: IS THE RESPONSIVE VACUUM "
+            "SINGLE-MODE OR MULTI-MODE? Stated in terms of POLES "
+            "(model-independent), not inertia: raising the constitutive law's "
+            "dynamical order (e.g. a z̈ inertia term — 1st→2nd order, one→two "
+            "poles, off-axis when 4τ₁²>τ₀²) is the most obvious realization but "
+            "not the only one. PHASE II: derive the most general quadratic CTP "
+            "action compatible with Q,F,D and read off the poles (is a 2nd-order "
+            "term allowed / generated / required?). Honest prior: the v3 audit "
+            "trend (degrees of freedom repeatedly removed) leans toward the "
+            "SINGLE-MODE outcome — which, if confirmed by the effective action, "
+            "makes the single-pole result a THEOREM and dark matter permanently a "
+            "hosted input."
+        ),
+        tier="computed",
+        refs=(
+            "theory/GRUT_V4_SPECTRUM_PROGRAM.md (program kickoff; Phase I + II framing)",
+            "grut/derivation/phi_munu/pole_spectrum.py",
+            "theory/GRUT_V3_TEST_07_LOCALITY_NO_HALO.md (the closure that motivates the program)",
+        ),
+        tests=(
+            "tests/derivation/phi_munu/test_pole_spectrum.py",
+        ),
+        deps=(
+            "locality_no_halo_theorem",
+            "memory_kernel_form",
+            "organizing_structure_v3",
+        ),
+        falsifier=(
+            "The classification itself fails only if the first-order kernel were "
+            "shown to have more than one pole or an off-axis pole (it does not). "
+            "The downstream verdict (no derived dark sector) is overturned if "
+            "Phase II — the effective-action derivation — yields an additional "
+            "STABLE, gapped pole; that opens the multi-mode branch and a derived "
+            "dark sector. So the dark-sector question is now decidable by "
+            "computation (the effective action), not by argument."
+        ),
+        notes=(
+            "Opens the post-v3 'Spectrum of the Responsive Vacuum' program (the "
+            "natural V4 chapter). Reduces the entire GRUT dark-matter problem to "
+            "ONE sharply-defined question — single-mode vs multi-mode — that "
+            "everything else is now downstream of. Banked in model-independent "
+            "(pole) form deliberately, so it survives whatever specific mechanism "
+            "(inertia, auxiliary field, structured memory) Phase II turns up."
+        ),
+    ),
+    Claim(
         id="locality_no_halo_theorem",
         chapter=9,
         statement=(

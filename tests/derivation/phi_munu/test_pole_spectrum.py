@@ -1,0 +1,32 @@
+"""Tests for the Spectrum Program Phase I — Pole Classification Theorem."""
+
+from grut.derivation.phi_munu.pole_spectrum import (
+    first_order,
+    second_order,
+    admits_dark_capable_mode,
+    verify,
+)
+
+
+def test_all_legs_pass():
+    assert all(verify().values())
+
+
+def test_current_grut_is_single_relaxational_pole():
+    fo = first_order()
+    assert len(fo) == 1
+    assert fo[0]["kind"] == "relaxational"
+    assert fo[0]["stable"]
+    assert not admits_dark_capable_mode(fo)   # no derived dark sector in current GRUT
+
+
+def test_additional_pole_required_for_dark_mode():
+    # overdamped inertial kernel: still no massive (dark-capable) pole
+    assert not admits_dark_capable_mode(second_order(tau0=1.0, tau1=0.2))
+    # underdamped inertial kernel: a stable massive (off-axis) pole appears
+    assert admits_dark_capable_mode(second_order(tau0=1.0, tau1=1.0))
+
+
+def test_all_poles_are_causal():
+    for poles in (first_order(), second_order(1.0, 1.0), second_order(1.0, 0.2)):
+        assert all(p["stable"] for p in poles)
