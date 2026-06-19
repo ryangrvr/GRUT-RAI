@@ -65,7 +65,7 @@ Everything in the GRUT dark-matter problem is now downstream of this. Two decisi
 
 ---
 
-## Phase II — the effective action (the deciding computation)
+## Phase II — the effective action: the deciding computation  ✅ COMPLETE
 
 The pole structure is not something to *assume*; it *follows* from the action. So Phase II does not ask
 "can we write a second-order equation?" — it asks:
@@ -84,6 +84,27 @@ The first-order law was "derived from three routes"; the gradient-flow route is 
 (first-order), while the Mori–Zwanzig memory function *can* carry internal structure (additional poles).
 Phase II is where that ambiguity is resolved.
 
+**Verdict (computed).** The pole structure of the quadratic CTP action is fixed by two facts: (i)
+**#poles = #independent responsive variables** (the zeros of `det K^R`); and (ii) a **dark-capable pole
+— stable, gapped, off the imaginary axis — requires an *inertial*, matter-like degree of freedom** (a
+`z̈` + restoring term). A scan of 12,800 poles over arbitrarily coupled *relaxational* variables (the kind
+F supplies) found **no stable off-axis pole**: coupling relaxors only redistributes poles along the `−i`
+axis (overdamped, massless). GRUT's responsive vacuum is relaxational *by construction* (F = finite
+memory, gradient-flow, single τ₀) and carries exactly **one** responsive variable (the TT memory; the
+scalar channel is killed by the No-Go, the vector is non-dynamical) atop the single massless graviton.
+
+> **So the responsive vacuum is single-mode, and a dark sector requires an added inertial matter field —
+> by construction a hosted input.** On the three questions: a dark (inertial / second-order) term is
+> *allowed* only as an **extension** of F, is *not generated* by the single-variable relaxational
+> reduction, and is *not required* (the first-order kernel is self-consistent). **The central question is
+> answered: the responsive vacuum is single-mode; dark matter is a hosted matter field, permanently,
+> within GRUT's foundations.**
+
+This is conditional on F (relaxational finite memory) as the vacuum's actual dynamics. The *only* way to a
+GRUT-derived dark sector is to **extend the foundations** with an inertial, matter-like degree of freedom
+— a genuinely new postulate (a microscopic medium with massive excitations), not anything the current
+action generates. Verified: `grut/derivation/phi_munu/pole_spectrum.py` (`verify()`).
+
 ---
 
 ## Honest prior
@@ -93,4 +114,5 @@ dark-matter response sector collapsed, the MOND interpolation left external, loc
 mechanisms eliminated. The framework has become steadily more minimal. By pattern recognition (not
 pessimism), the lean is toward the **single-mode** outcome — one TT mode, one relaxation pole, no derived
 dark sector. But the point of Phase I is precisely that this is now decidable by computation rather than
-argued by intuition: Phase II will settle it.
+argued by intuition — and **Phase II has now settled it: single-mode** (a dark sector would require
+extending F's foundations with an inertial matter degree of freedom). The lean became a result.

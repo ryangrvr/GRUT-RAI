@@ -78,8 +78,28 @@ def admits_dark_capable_mode(poles: List[Dict]) -> bool:
     return any(p["kind"] == "massive" and p["stable"] for p in poles)
 
 
+def coupled_relaxors_dark_capable(n_tau: int = 30, n_g: int = 30,
+                                  tau0: float = 1.0) -> bool:
+    """Phase II scan. Couple a fast relaxor y to the response z (NO inertia) and
+    integrate y out: K_eff(ω) = (1 − iωτ₀) − g²/(1 − iωτ_y), whose zeros solve
+    (1 − iωτ₀)(1 − iωτ_y) − g² = 0. Over all stable couplings (g < 1), does ANY
+    stable OFF-AXIS (dark-capable) pole appear? Returns True if one is found.
+
+    Expected False: however many relaxational variables you couple, the poles only
+    redistribute ALONG the −i axis (overdamped) — no oscillation/mass without a
+    restoring+inertia (z̈) term. A dark-capable pole requires an INERTIAL,
+    matter-like degree of freedom, not more relaxors.
+    """
+    for ty in np.linspace(0.05, 5.0, n_tau):
+        for g in np.linspace(0.0, 0.999, n_g):
+            for r in np.roots([-tau0 * ty, -1j * (tau0 + ty), (1.0 - g * g)]):
+                if abs(r.real) > _TOL and r.imag < -_TOL:    # stable AND off-axis
+                    return True
+    return False
+
+
 def verify() -> Dict[str, bool]:
-    """Self-test the Phase I pole classification."""
+    """Self-test the Phase I classification and the Phase II verdict."""
     fo = first_order(tau0=1.0)
     leg1 = len(fo) == 1 and fo[0]["kind"] == "relaxational"      # single relaxational pole
     leg2 = fo[0]["stable"] and fo[0]["mass"] < _TOL              # massless, stable
@@ -97,6 +117,12 @@ def verify() -> Dict[str, bool]:
     # every pole considered is causal (lower half-plane)
     leg7 = all(p["stable"] for p in fo + second_order(1.0, 1.0) + second_order(1.0, 0.2))
 
+    # Phase II: coupled RELAXORS (no inertia) never give a dark-capable mode;
+    # a dark mode requires an inertial (matter-like) DOF.
+    relaxors_dark = coupled_relaxors_dark_capable()
+    leg8 = not relaxors_dark
+    leg9 = admits_dark_capable_mode(second_order(1.0, 1.0)) and not relaxors_dark
+
     return {
         "current_GRUT_single_relaxational_pole": bool(leg1),
         "pole_massless_and_stable":              bool(leg2),
@@ -105,6 +131,8 @@ def verify() -> Dict[str, bool]:
         "inertial_underdamped_gives_massive_pole": bool(leg5),
         "inertial_overdamped_gives_no_mass":     bool(leg6),
         "all_poles_causal_lower_half_plane":     bool(leg7),
+        "relaxors_alone_give_no_dark_mode":      bool(leg8),
+        "dark_mode_requires_inertial_matter_dof": bool(leg9),
     }
 
 

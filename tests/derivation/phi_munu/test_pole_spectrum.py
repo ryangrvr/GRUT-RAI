@@ -4,6 +4,7 @@ from grut.derivation.phi_munu.pole_spectrum import (
     first_order,
     second_order,
     admits_dark_capable_mode,
+    coupled_relaxors_dark_capable,
     verify,
 )
 
@@ -30,3 +31,10 @@ def test_additional_pole_required_for_dark_mode():
 def test_all_poles_are_causal():
     for poles in (first_order(), second_order(1.0, 1.0), second_order(1.0, 0.2)):
         assert all(p["stable"] for p in poles)
+
+
+def test_phase2_relaxors_never_host_a_dark_mode():
+    # Phase II verdict: coupling relaxational variables (no inertia) never yields a
+    # stable off-axis (dark-capable) pole — a dark mode requires inertial matter DOF.
+    assert not coupled_relaxors_dark_capable()
+    assert admits_dark_capable_mode(second_order(1.0, 1.0))   # inertia does
