@@ -84,13 +84,22 @@ FORWARD_CHAIN: List[Dict[str, str]] = [
         "inherits": "grut.bridge.parameter, grut.foundation.noise_kernel, grut.foundation.anomaly",
     },
     {
-        "step": "6. open frontiers (the ToE path continues here)",
-        "what": "The dark sector lives ONLY in nonlinear/tensor channels — C5a (W² "
-                "second-order), C5b (orbital-ω bound systems), C5c (TT/GW). Also open: the "
-                "first-principles value of α (4th-order Riegert), the L0→0 underlying-"
-                "redundancy proof. Flavor/Koide is HOSTED (Standard-Model Yukawa input).",
-        "status": "open (the live v3 research targets)",
-        "inherits": "theory/GRUT_V3_ORGANIZING_STRUCTURE.md, theory/V2_TO_V3_SYNTHESIS.md",
+        "step": "6. the dark-matter mechanism search is CLOSED; open frontiers lie elsewhere",
+        "what": "The dark-MATTER-density mechanism search is exhausted: the linear/dielectric "
+                "channel is ruled out (μ_linear=1), C5b (orbital-ω) is refuted (~1/√N), and C5a "
+                "(W² second-order) is resolved — right magnitude but wrong radial profile, a "
+                "THEOREM tied to locality (Test 06): every local tensor realization gives "
+                "ρ_eff∝(Weyl)²∝(ρ−⟨ρ⟩)² — 1/r⁴ in the halo interior, steepening to 1/r⁶ in the "
+                "outskirts (exterior tidal), always steeper than the 1/r² a flat-curve halo needs; "
+                "shallowing to 1/r² needs the 1/∇² the locality result (no genuine 1/k² pole) "
+                "forbids. So GRUT has NO derived dark-matter "
+                "mechanism; dark matter is a HOSTED input (with the derived a₀ scale). The "
+                "TT/GW (C5c) channel remains as a distinct NON-DM signature (the ~689 Hz "
+                "decoherence falsifier), not a clustering mechanism. The GENUINELY open ToE "
+                "frontiers are now: the first-principles value of α (4th-order Riegert) and the "
+                "L0→0 underlying-redundancy proof. Flavor/Koide is HOSTED.",
+        "status": "dark-matter mechanism CLOSED (pending covariant review); live frontiers = α-selection, L0→0",
+        "inherits": "theory/GRUT_V3_K2_DERIVATION.md, theory/GRUT_V3_TEST_06_PROFILE_THEOREM.md",
     },
 ]
 
@@ -132,16 +141,28 @@ BOUNDARY: List[Dict[str, str]] = [
 
 # ─────────────────────────────────────────────────────────────────────
 # Open frontiers — the live v3 ToE targets (named, not closed)
+# NOTE: the dark-MATTER mechanism is no longer here — it is CLOSED (see DARK_SECTOR_STATUS).
 # ─────────────────────────────────────────────────────────────────────
 OPEN_FRONTIERS: List[str] = [
-    "Dark sector — nonlinear/tensor only: C5a (W² second-order → Ω_dm?), "
-    "C5b (orbital-ω bound systems → rotation curves/clusters), C5c (TT/GW). "
-    "The ONLY surviving home for GRUT deviations after the linear channel closed.",
     "First-principles value of α=1/3 — the 4th-order Riegert/Paneitz conformal-anomaly computation.",
     "The L0→0 underlying-redundancy proof (that the adiabatic dilatation is a true symmetry of "
     "the full CTP action before memory is switched on).",
     "Standard-Model closure beyond the neutrino hierarchy (Yukawas/CKM/PMNS/Higgs); flavor is hosted.",
+    "The TT/GW (C5c) channel as a distinct NON-DM signature (e.g. the ~689 Hz decoherence plateau).",
 ]
+
+# The dark-MATTER mechanism search — CLOSED (the audit + constructive phase exhausted it).
+DARK_SECTOR_STATUS: str = (
+    "CLOSED (pending covariant review). The local second-order kernel class is exhausted: linear/"
+    "dielectric ruled out (μ_linear=1), C5b refuted (~1/√N), C5a resolved — right magnitude, wrong "
+    "profile, a locality THEOREM (Test 06: every local tensor realization gives ρ_eff∝(Weyl)² — 1/r⁴ "
+    "interior, 1/r⁶ outskirts, always steeper than a 1/r² halo; shallowing needs the 1/∇² the no-pole "
+    "locality result forbids). GRUT has no derived dark-matter "
+    "mechanism; dark matter is a HOSTED input (with derived a₀, μ_linear=1=ΛCDM). The only way back is "
+    "to overturn a foundational result (locality, the No-Go, the CTP structure, or the profile theorem) "
+    "— not to invent a new channel. Records: theory/GRUT_V3_K2_DERIVATION.md, "
+    "theory/GRUT_V3_TEST_06_PROFILE_THEOREM.md; registry c5a_weyl_squared_dark_sector (open_negative)."
+)
 
 
 def forward_chain() -> List[Dict[str, str]]:
@@ -156,8 +177,10 @@ def summary() -> str:
         "controlled way by exactly one scale L0 = c·τ0 ≈ 12.85 Mpc. Two pillars — Q (CTP "
         "unitarity, proven) and F (finite memory, postulated); finite memory F is the controlled "
         "breaking of the dilatation redundancy D. Linear cosmology = ΛCDM (μ_linear=1, derived); "
-        "the dark sector is nonlinear/tensor (open). α=1/3 is the single dimensionless axiom; "
-        "flavor is hosted."
+        "the dark-matter mechanism is CLOSED (the local second-order kernel class is exhausted — "
+        "C5a's profile failure is a locality theorem; pending covariant review), so dark matter is a "
+        "hosted input. α=1/3 is the single dimensionless axiom; flavor is hosted; the live frontiers "
+        "are α-selection (4th-order Riegert) and the L0→0 redundancy proof."
     )
 
 
@@ -188,6 +211,10 @@ def verify() -> dict:
         "linear_enhancement_marked_ruled_out": any(
             "RULED OUT" in b["consequence"] for b in BOUNDARY
         ),
-        # the dark sector is positioned as open/nonlinear, not linear
-        "dark_sector_open_nonlinear": any("nonlinear/tensor" in f for f in OPEN_FRONTIERS),
+        # the dark-matter mechanism is positioned as CLOSED (local-kernel class exhausted), not
+        # an open search and not resurrected as linear; live frontiers no longer include a DM channel
+        "dark_matter_mechanism_closed": DARK_SECTOR_STATUS.startswith("CLOSED"),
+        "no_dark_matter_channel_in_open_frontiers": not any(
+            ("C5a" in f or "C5b" in f or "Ω_dm" in f or "dark-matter" in f.lower()) for f in OPEN_FRONTIERS
+        ),
     }

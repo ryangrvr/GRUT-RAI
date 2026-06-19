@@ -708,6 +708,117 @@ OPEN_NEGATIVES: tuple[LedgerEntry, ...] = (
         blocked_by=(),
         last_review="2026-06-17",
     ),
+
+    LedgerEntry(
+        claim_id="c5a_weyl_squared_dark_sector",
+        closure_condition=(
+            "RESOLVED by the constructive-phase K⁽²⁾ derivation (Stages A-D, "
+            "June 2026; theory/GRUT_V3_K2_DERIVATION.md), not pending closure. "
+            "Scale L=L₀ is forced (kernel K⁽²⁾(ω,k)=σ·α·χ(ω) has no 1/k² pole). "
+            "Magnitude is VIABLE — ρ_eff/ρ_baryon ~ O(1-100) at galaxy scales "
+            "(an intermediate workflow's '1e-27 ⇒ dies' was a unit-mixing + "
+            "wrong-Weyl-formula bug, corrected). But the SHAPE is wrong: "
+            "ρ_eff ∝ W² ∝ ρ_baryon² ∝ 1/r⁴ (slope ≈ -3.9), far steeper than "
+            "the 1/r² a flat rotation curve needs — centrally-concentrated, "
+            "baryon²-tracing, NOT the extended halo. So C5a is NOT GRUT's "
+            "dark-matter mechanism; dark matter is a HOSTED input (with the "
+            "derived a₀ scale, μ_linear=1). What could revive it: a full "
+            "covariant CAS (xAct) K⁽²⁾ revealing an extra operator with a "
+            "1/r² profile or a missed spatial nonlocality — neither expected "
+            "from the locality theorem."
+        ),
+        closure_effort=(
+            "N/A — resolved (shape-refuted as a DM mechanism), not pending. "
+            "Optional rigor: full covariant xAct computation of K⁽²⁾ + exact σ "
+            "(~specialist weeks); cannot change the σ-independent shape verdict."
+        ),
+        affects=(),
+        blocked_by=(),
+        last_review="2026-06-17",
+    ),
+
+    # ── v3 re-audit sweep (June 2026, wf wutugktl0) — five demotions ──
+    LedgerEntry(
+        claim_id="alpha_vac_derivation",
+        closure_condition=(
+            "A first-principles derivation of α_vac = 1/3, which currently "
+            "does NOT exist: (1) prove the antecedent that the gravitational "
+            "conformal mode is the IR carrier (the conditional a/c = 1/3 by "
+            "KS-2011 is already verified Fraction-exact); and (2) close the "
+            "4th-order Riegert/Paneitz conformal-anomaly computation. The "
+            "'vacuum impedance = 1/d' origin is ungrounded (reverse-engineered "
+            "from v6). Until then α=1/3 is GRUT's single ADOPTED dimensionless "
+            "postulate, not a derived result."
+        ),
+        closure_effort=(
+            "Open-ended, research-tier. The 4th-order Riegert route is the "
+            "named α-selection frontier; the IR-carrier antecedent has no "
+            "current derivation path from the CTP machinery."
+        ),
+        affects=("omega_lambda_prediction", "h_0_prediction", "r_canonical_path_g"),
+        blocked_by=(),
+        last_review="2026-06-17",
+    ),
+    LedgerEntry(
+        claim_id="bandwidth_integral",
+        closure_condition=(
+            "RULED OUT, not pending closure: the bandwidth integral is "
+            "mathematically correct code but computes the ruled-out "
+            "linear-scalar dark sector (Ω_dm = α at ωτ₀≪1 — the DC saturation "
+            "of the μ→4/3 enhancement forbidden by PROJECTOR_CONSISTENCY_NOGO, "
+            "μ_linear=1; CMB-ISW 32σ). Same fate as omega_dm_equals_alpha. The "
+            "integral survives as correct math; its Ω_dm interpretation is dead."
+        ),
+        closure_effort="N/A — ruled out. Retained as a pedagogical/audit artifact.",
+        affects=(),
+        blocked_by=(),
+        last_review="2026-06-17",
+    ),
+    LedgerEntry(
+        claim_id="modified_linear_growth_first_look",
+        closure_condition=(
+            "RULED OUT, not pending closure (Correction #38): the linear scalar "
+            "refractive enhancement (μ≠1) is forbidden by separate-universe "
+            "invariance (PROJECTOR_CONSISTENCY_NOGO §5, μ_linear=1) and falsified "
+            "by the full derived kernel's ~32σ CMB-ISW excess. Linear cosmology = "
+            "ΛCDM. The growth-integration math is correct; the enhanced-growth "
+            "prediction does not survive to v3. Retained as audit trail."
+        ),
+        closure_effort="N/A — ruled out (archive/reference only).",
+        affects=(),
+        blocked_by=(),
+        last_review="2026-06-17",
+    ),
+    LedgerEntry(
+        claim_id="kibble_zurek_dm_route",
+        closure_condition=(
+            "RETRACTED as a GRUT dark-sector mechanism, not pending closure. "
+            "Test 06 proved locality forbids the nonlinear-W² profile and the "
+            "dielectric route was ruled out in Test 01; the dark-matter "
+            "mechanism is CLOSED (hosted input). The Kibble-Zurek phase-"
+            "transition exploration (Ω_dm within ~2× with τ₀ input) is documented "
+            "as a mechanism-exploration endpoint, not a derivation."
+        ),
+        closure_effort="N/A — retracted (the dark-matter mechanism is closed).",
+        affects=(),
+        blocked_by=(),
+        last_review="2026-06-17",
+    ),
+    LedgerEntry(
+        claim_id="r_path_d_majorana",
+        closure_condition=(
+            "Documents a rejected SM alternative, not a pending GRUT result: the "
+            "SM 1-loop trace anomaly with MAJORANA neutrinos gives a/c ≈ 1.1726 "
+            "(~1.5% from Path G's √(4/3)), worse than the Dirac variant (~0.05%). "
+            "GRUT adopts Dirac neutrinos as the falsifiable baseline; this entry "
+            "records why Majorana is disfavored. The calculation is autonomous SM "
+            "(not a GRUT derivation)."
+        ),
+        closure_effort="N/A — documents the Dirac-over-Majorana cross-check; resolved by neutrino observation (0νββ).",
+        affects=(),
+        blocked_by=(),
+        last_review="2026-06-17",
+    ),
 )
 
 

@@ -37,8 +37,12 @@ def test_pillars_inherited_correctly():
     assert P.PILLARS["D_adiabatic_dilatation"].startswith("conjectured")
 
 
-def test_dark_sector_is_open_nonlinear():
-    assert any("nonlinear/tensor" in f for f in P.OPEN_FRONTIERS)
+def test_dark_matter_mechanism_is_closed():
+    # The dark-MATTER mechanism search is exhausted (C5a profile theorem, Test 06); it is no
+    # longer an open frontier, and it is not resurrected as a linear channel.
+    assert P.DARK_SECTOR_STATUS.startswith("CLOSED")
+    assert not any(("C5a" in f or "Ω_dm" in f or "dark-matter" in f.lower())
+                   for f in P.OPEN_FRONTIERS)
 
 
 def test_summary_states_the_picture():

@@ -59,6 +59,29 @@ unphysical algebra ⇒ ruled out internally. All three are decisive.
 
 ---
 
+## RESOLVED (June 2026) — the flagship is closed
+
+The K⁽²⁾ derivation ran as four stages (full record: `GRUT_V3_K2_DERIVATION.md`; module
+`grut/derivation/phi_munu/second_order_kernel.py`):
+
+- **Stage A** — operator basis closed: **W² is the unique dynamically-active O(2) operator**
+  (E₄ topologically dormant; Ricci-built terms forbidden).
+- **Stage B** — **scale `L=L₀` is forced**: `K⁽²⁾(ω,k)=σ·α·χ(ω)` has no `1/k²` pole (a spatially-local
+  causal memory kernel is polynomial in `k²`; the local-`r` branch would need a `1/∇²` it cannot make).
+- **Stage C** — **magnitude is viable, not negligible**: `ρ_eff/ρ_baryon ~ O(1–100)` at galaxy scales.
+  (The intermediate "`1e-27` ⇒ dies" was a unit-mixing + wrong-Weyl-formula error, corrected — `L₀`
+  is comparable to the *curvature radius* `r/√Φ` of a weak-field galaxy, not its size.)
+- **Stage D** — **shape is wrong (decisive)**: `ρ_eff ∝ W² ∝ ρ_baryon² ∝ 1/r⁴` (slope ≈ −3.9), far
+  steeper than the `1/r²` flat rotation curves require; `σ` scales magnitude only, never the shape.
+
+> **VERDICT:** C5a has roughly the right magnitude but the **wrong radial profile** to be the
+> dark-matter halo. **GRUT has no derived dark-matter mechanism reproducing halo phenomenology;
+> dark matter remains a hosted input** (with the derived `a₀` scale and `μ_linear=1`). Registry:
+> `c5a_weyl_squared_dark_sector` → `open_negative` (+ ledger entry). Math survives, ontology changes.
+
+The moratorium **succeeded**: the dark sector was held to one computation, that computation is done,
+and its honest negative is *not* a cue to invent a fifth mechanism.
+
 ## The moratorium (standing discipline of the constructive phase)
 
 > **No new dark-sector mechanisms are to be proposed until `K⁽²⁾` is computed.**

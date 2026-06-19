@@ -275,14 +275,16 @@ class TestTierMarkerValidator:
         """An [OPEN] marker near a 'computed' claim flags as mismatch."""
         from grut.toe.coherence import scan_markers
         p = tmp_path / "doc.md"
-        # alpha_vac_derivation is tier=computed; pairing with [OPEN] should mismatch
+        # gr_recovery is tier=computed; pairing with [OPEN] should mismatch.
+        # (Was alpha_vac_derivation, which the v3 re-audit demoted to
+        # open_negative — so it no longer mismatches an [OPEN] marker.)
         p.write_text(
-            "The conformal mode `alpha_vac_derivation` is supposedly [OPEN].\n"
+            "The GR limit `gr_recovery` is supposedly [OPEN].\n"
         )
         hits = scan_markers(p)
         assert len(hits) == 1
         assert hits[0].tier_mismatch
-        assert "alpha_vac_derivation" in hits[0].matched_registry_claims
+        assert "gr_recovery" in hits[0].matched_registry_claims
 
     def test_no_tier_mismatch_when_marker_agrees(self, tmp_path):
         """A [SPECULATIVE] marker near a 'conjectural' claim is consistent."""

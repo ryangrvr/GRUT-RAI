@@ -235,22 +235,59 @@ REGISTRY: tuple[Claim, ...] = (
         ),
     ),
     Claim(
+        id="alpha_vac_axiom",
+        chapter=2,
+        statement=(
+            "α_vac = 1/3 is GRUT's SINGLE dimensionless AXIOM — the one "
+            "dimensionless input the theory is built on (posited, as c and ℏ "
+            "are posited, not derived). It sets the deep-IR refractive index "
+            "R = √(4/3) and normalizes the constitutive response. The "
+            "CONDITIONAL theorem is verified Fraction-exact: IF the "
+            "gravitational conformal mode (g_μν = e^{2σ}ĝ_μν, σ one real "
+            "conformally-coupled scalar, ξ_c = 1/6) is the IR carrier, THEN "
+            "the trace anomaly a/c = 1/3 (Duff 1994 / Komargodski-Schwimmer "
+            "2011). The framework ADOPTS this value; its first-principles "
+            "DERIVATION is a separate OPEN problem (companion claim "
+            "alpha_vac_derivation, with ledger entry)."
+        ),
+        tier="foundational",
+        refs=(
+            "grut/foundation/conformal_mode_scalar.py",
+            "Komargodski-Schwimmer 2011 (arXiv:1107.3987, JHEP 12 (2011) 099)",
+            "theory/foundations_audit/ALPHA_VAC_PROVENANCE.md",
+        ),
+        tests=(
+            "tests/foundation/test_conformal_mode_scalar.py::TestKSTheorem",
+        ),
+        deps=(),
+        notes=(
+            "v3 RE-AUDIT (June 2026, wf wutugktl0): α=1/3 is the framework's "
+            "ONE adopted dimensionless axiom. This claim holds the AXIOM role "
+            "(foundational, by adoption); the companion alpha_vac_derivation "
+            "(open_negative + ledger) tracks the OPEN first-principles "
+            "derivation. Standing: axiom-by-adoption, conditional-theorem-"
+            "verified, derivation-open. The historical 'vacuum impedance = "
+            "1/d' origin is ungrounded (ALPHA_VAC_PROVENANCE.md)."
+        ),
+    ),
+    Claim(
         id="alpha_vac_derivation",
         chapter=2,
         statement=(
-            "α_vac = 1/3 is formalized via the Gate R identification "
-            "(May 2026, C1-C6 all SUPPORTED/FORMALIZED): the Weyl "
-            "decomposition g_μν = e^{2σ}ĝ_μν identifies σ as one real "
-            "conformally-coupled scalar; the published trace anomaly "
-            "a/c = 1/3 (Duff 1994 / Komargodski-Schwimmer 2011 eq A.5) "
-            "for this species gives α_vac = 1/3 exactly. The "
-            "conformal coupling ξ_c = 1/6 follows from the "
-            "Einstein–Hilbert decomposition on S⁴ without tuning; "
-            "fermion and gauge alternatives are excluded by "
-            "representation theory. Algebra verified at code level "
-            "(Fraction-exact: a/c = 1/3)."
+            "The FIRST-PRINCIPLES DERIVATION of α_vac = 1/3 is OPEN — this is "
+            "the open-negative companion to the foundational axiom claim "
+            "alpha_vac_axiom (which holds the adopted value). The CONDITIONAL "
+            "theorem is verified Fraction-exact (IF gravitational conformal "
+            "mode = IR carrier THEN a/c = 1/3, KS 2011), but the ANTECEDENT "
+            "(conformal mode = IR carrier) is UNPROVEN and the historical "
+            "'vacuum impedance = 1/d' origin is UNGROUNDED (reverse-engineered "
+            "from v6's holographic a/c; see ALPHA_VAC_PROVENANCE.md). Closure "
+            "requires the 4th-order Riegert/Paneitz computation + proving the "
+            "IR-carrier antecedent. Cosmological observables are sensitive to "
+            "α (±0.07 shifts Ω_Λ by ~1 order), so this is v3's most "
+            "load-bearing open gap."
         ),
-        tier="computed",
+        tier="open_negative",
         refs=(
             "Komargodski-Schwimmer 2011 (a-theorem, "
             "arXiv:1107.3987 — published in JHEP 12 (2011) 099)",
@@ -282,21 +319,28 @@ REGISTRY: tuple[Claim, ...] = (
             "the conformal-mode-scalar identification."
         ),
         notes=(
-            "PROMOTED to computed: the conditional theorem (postulate "
-            "→ a/c = 1/3) is now verified at Fraction-exact code level "
-            "via tests/foundation/test_conformal_mode_scalar.py. The "
-            "postulate (gravitational conformal mode = IR carrier) "
-            "remains a physical assumption — see "
-            "alpha_vac_postulate_statement(). Historical provenance "
-            "(v6.0 back-derivation) preserved in ALPHA_VAC_PROVENANCE.md."
+            "v3 RE-AUDIT (June 2026, wf wutugktl0): DEMOTED computed → "
+            "open_negative. The conditional theorem (postulate → a/c = 1/3) "
+            "is verified Fraction-exact (test_conformal_mode_scalar.py), but "
+            "the ANTECEDENT (conformal mode = IR carrier) is unproven and the "
+            "'vacuum impedance = 1/d' origin is ungrounded (reverse-engineered "
+            "from v6; ALPHA_VAC_PROVENANCE.md). α=1/3 is the framework's single "
+            "ADOPTED dimensionless postulate, not a derived result; this is the "
+            "most load-bearing open gap in v3 (the cosmological sector is "
+            "sensitive to α). Ledger entry tracks the first-principles closure "
+            "(4th-order Riegert/Paneitz). The math survives as a conditional; "
+            "the 'derived' ontology does not."
         ),
     ),
     Claim(
         id="tau_0_cross_consistency",
         chapter=2,
         statement=(
-            "τ_0 = 41.9 Myr is independently derived from multiple "
-            "routes that converge to within observational uncertainty. "
+            "τ_0 = 41.9 Myr is independently ANCHORED by multiple "
+            "observational routes that converge to within observational "
+            "uncertainty (it is NOT derived from the CTP formalism — v3 "
+            "re-audit, June 2026 — it is an empirical input against which "
+            "the ωτ₀ regimes are measured). "
             "Cosmic-baseline routes (V7 §18 canonical, Planck H_0 → "
             "(1/H_0)/S, GRUT-predicted H_0, SH0ES H_0) cluster tightly "
             "at 41.4 ± 1.5 Myr (7.5% spread). Cluster-merger routes "
@@ -310,7 +354,7 @@ REGISTRY: tuple[Claim, ...] = (
             "H_0 → τ_0) reproduces canonical to 0.4%. El Gordo "
             "excluded as documented outlier."
         ),
-        tier="computed",
+        tier="anchored",
         refs=(
             "V7 §18 (gold-benchmark noise kernel)",
             "Aghanim et al. 2020 (Planck 2018, A&A 641 A6)",
@@ -745,8 +789,11 @@ REGISTRY: tuple[Claim, ...] = (
         id="sm_emergence",
         chapter=5,
         statement=(
-            "The Standard Model emerges as the unique minimal theory "
-            "satisfying five CTP-derived constraints (V7 §15-§16): "
+            "The Standard Model SATISFIES five CTP-derived structural "
+            "constraints, verified computationally to be CONSISTENT (v3 "
+            "re-audit, June 2026: consistency is necessary but NOT sufficient "
+            "for uniqueness — the 'unique minimal theory' claim is not "
+            "established, only that the SM passes C1-C5) (V7 §15-§16): "
             "(C1) gauge structure SU(3)×SU(2)×U(1) → 12 gauge bosons; "
             "(C2) anomaly cancellation ΣY² = 10, β_U(1) = 20/3; "
             "(C3) three generations × 15 Weyl = 45; "
@@ -1080,7 +1127,7 @@ REGISTRY: tuple[Claim, ...] = (
             "interior trace curvature only; Schwarzschild vacuum exterior "
             "has R = 0 identically and is unconstrained."
         ),
-        tier="computed",
+        tier="conjectural",
         refs=(
             "V7 §13 (Whole Hole)",
             "grut/foundation/closure_protocol.py:R_MAX_INV_M2",
@@ -1105,7 +1152,7 @@ REGISTRY: tuple[Claim, ...] = (
             "independent of mass. Larger holes contain larger cores at "
             "this universal density."
         ),
-        tier="computed",
+        tier="conjectural",
         refs=(
             "V7 §13",
             "grut/foundation/closure_protocol.py:RHO_MAX_KG_M3",
@@ -1181,7 +1228,7 @@ REGISTRY: tuple[Claim, ...] = (
             "gives a/c = 253/219 ≈ 1.15525, within 0.05% of Path G's "
             "canonical √(4/3). Dirac is closer to canonical than Majorana."
         ),
-        tier="computed",
+        tier="conjectural",
         refs=(
             "Komargodski-Schwimmer 2011",
             "Duff 1994 (40 years review)",
@@ -1206,7 +1253,7 @@ REGISTRY: tuple[Claim, ...] = (
             "neutrinos — gives a/c = 1991/1698 ≈ 1.17256, secondary "
             "cross-check at the ~1.5% level vs Path G."
         ),
-        tier="computed",
+        tier="open_negative",
         refs=(
             "theory/path_d_trace_anomaly/STAGE_D_TRACE_ANOMALY_RATIO.md",
             "grut/foundation/closure_protocol.py:A_OVER_C_SM_MAJORANA",
@@ -1300,10 +1347,13 @@ REGISTRY: tuple[Claim, ...] = (
         chapter=8,
         statement=(
             "Ω_Λ = 0.6886 predicted, 0.04% from Planck 2018 best-fit. "
-            "Zero free parameters; comes from the same H_inf machinery "
+            "Zero free parameters in the H_inf→Ω_Λ conversion itself, but "
+            "the framework input τ_0 is empirically ANCHORED (v3 re-audit, "
+            "June 2026), so this is an anchored prediction, not a "
+            "first-principles derivation; comes from the same H_inf machinery "
             "as the Hubble rate."
         ),
-        tier="computed",
+        tier="anchored",
         refs=("V7 §27", "tests/derived/test_cosmology.py"),
         tests=("tests/derived/test_cosmology.py",),
         deps=("h_inf_decomposition",),
@@ -1319,7 +1369,7 @@ REGISTRY: tuple[Claim, ...] = (
             "Lies in the Hubble-tension gap between Planck (67.4) and "
             "SH0ES (73.0); GRUT's natural value is between them."
         ),
-        tier="computed",
+        tier="anchored",
         refs=(
             "grut/foundation/closure_protocol.py:H_0_IMPLIED_KM_S_MPC",
         ),
@@ -1407,7 +1457,7 @@ REGISTRY: tuple[Claim, ...] = (
             "open question (tau_zero_to_tau_micro_relation_open"
             "_question)."
         ),
-        tier="computed",
+        tier="conjectural",
         refs=(
             "grut/foundation/closure_protocol.py:TAU_MICRO_SEC",
             "theory/foundations_audit/T_C_PROVENANCE.md",
@@ -1440,15 +1490,19 @@ REGISTRY: tuple[Claim, ...] = (
         id="bandwidth_integral",
         chapter=9,
         statement=(
-            "The cosmological bandwidth integral evaluates the linear-"
-            "regime contribution of the responsive vacuum to the matter "
-            "budget; produces Ω_dm = α_vac = 1/3 with zero free "
-            "parameters."
+            "The cosmological bandwidth integral is mathematically correct "
+            "code that yields Ω = α_vac = 1/3 — but it computes the RULED-OUT "
+            "linear-scalar dark sector (the ωτ₀≪1 DC saturation of the μ→4/3 "
+            "enhancement forbidden by PROJECTOR_CONSISTENCY_NOGO, μ_linear=1; "
+            "CMB-ISW 32σ). v3 re-audit (June 2026): the math survives, the "
+            "Ω_dm interpretation is DEAD — same fate as omega_dm_equals_alpha. "
+            "Retained as a pedagogical/audit artifact of the linear branch."
         ),
-        tier="computed",
+        tier="open_negative",
         refs=(
             "grut/derived/cosmology/bandwidth_integral.py",
             "tests/derived/test_bandwidth_integral.py",
+            "theory/GRUT_V3_TEST_01_DARK_SECTOR.md",
         ),
         tests=("tests/derived/test_bandwidth_integral.py",),
         deps=("alpha_vac_derivation", "memory_kernel_form"),
@@ -2598,27 +2652,23 @@ REGISTRY: tuple[Claim, ...] = (
             "(z = 4, conserved order parameter) over-produces, ruling "
             "it out. Correlation length ξ_KZ ∝ (τ_Q/τ_0)^(ν/(1+zν))."
         ),
-        tier="anchored",
+        tier="open_negative",
         refs=(
             "grut/derived/dark_matter/kibble_zurek.py",
         ),
         tests=("tests/derived/test_kibble_zurek.py",),
         deps=("dark_sector_u1_extension", "tau_0_derivation"),
         notes=(
-            "STAYS anchored (case-by-case judgment). The 21 tests in "
-            "test_kibble_zurek.py verify the KZ scaling laws (ξ_KZ ∝ "
-            "(τ_Q/τ_0)^(ν/(1+zν)), mean-field exponent = 1/4, XY "
-            "universality factor 2, model B over-production). These "
-            "are STANDARD KZ-mechanism predictions, not GRUT-derived "
-            "results — the only GRUT input is τ_0. Test "
-            "test_step_1_result_retracted explicitly flags Track VII "
-            "Step 1 as RETRACTED. Promoting this to computed would "
-            "frame as 'GRUT-predicted KZ mechanism gives Ω_dm within "
-            "factor 2', but the framework's POSITION is that this "
-            "mechanism is not the answer (dielectric route is "
-            "preferred). The status of this claim is 'documented "
-            "exploration of a route that did not close', appropriately "
-            "anchored not computed."
+            "v3 RE-AUDIT (June 2026, wf wutugktl0): DEMOTED anchored → "
+            "open_negative. The frame MOVED: Test 06 proved the dark-matter "
+            "mechanism is CLOSED (locality forbids the nonlinear-W² profile; "
+            "the dielectric route died in Test 01), so the KZ route is a "
+            "RETRACTED mechanism-exploration, not a live anchored candidate. "
+            "The 21 tests verify the STANDARD KZ scaling laws (ξ_KZ ∝ "
+            "(τ_Q/τ_0)^(ν/(1+zν)), mean-field exponent 1/4, XY factor 2, "
+            "model-B over-production) — not GRUT-derived results; the only "
+            "GRUT input is τ_0, and test_step_1_result_retracted already "
+            "flags Step 1 RETRACTED. Documented as an exploration endpoint."
         ),
     ),
 
@@ -2733,7 +2783,7 @@ REGISTRY: tuple[Claim, ...] = (
             "PDG values for e, μ, τ. This is GRUT's empirical anchor "
             "for the Z₃ flavor structure (V7 §29)."
         ),
-        tier="computed",
+        tier="anchored",
         refs=(
             "V7 §29 (Koide identity)",
             "grut/derived/koide/identity.py",
@@ -2882,7 +2932,7 @@ REGISTRY: tuple[Claim, ...] = (
             "≈ 9 meV, below current KATRIN limit 0.45 eV but within "
             "reach of future Project 8 precision."
         ),
-        tier="anchored",
+        tier="computed",
         refs=(
             "grut/derived/koide/neutrino_hierarchy.py",
             "theory/derivation/CORRECTION_28_NEUTRINO_HIERARCHY.md",
@@ -3073,12 +3123,14 @@ REGISTRY: tuple[Claim, ...] = (
         id="three_routes_convergence",
         chapter=7,
         statement=(
-            "Three independent routes converge on R ≈ 1.154 within "
-            "0.1%: Path G (tree-level √(4/3) ≈ 1.15470, zero coupling "
-            "constants), V7 §26 (3-loop CTP claimed 1.15428, currently "
-            "open_negative), and Osborn (1-loop coupling-corrected at "
-            "M_Z, 1.15367). Routes 1 and 3 are both COMPUTED and share "
-            "no inputs; their agreement is independent confirmation."
+            "TWO independent routes converge on R ≈ 1.154 within 0.1% "
+            "(v3 re-audit, June 2026: the load-bearing agreement is "
+            "two-route, not three): Path G (tree-level √(4/3) ≈ 1.15470, "
+            "zero coupling constants) and Osborn (1-loop coupling-corrected "
+            "at M_Z, 1.15367) — both COMPUTED, sharing no inputs, so their "
+            "agreement is independent confirmation. A third route, V7 §26 "
+            "(3-loop CTP, claimed 1.15428), is currently open_negative "
+            "(tji_7_4_open_negative) and is NOT counted in the convergence."
         ),
         tier="computed",
         refs=(
@@ -3801,7 +3853,7 @@ REGISTRY: tuple[Claim, ...] = (
             "(n_g(ω) covariance): n_g²(k, η) is now a definite "
             "computable function of (k, η)."
         ),
-        tier="computed",
+        tier="conjectural",
         refs=(
             "grut/derivation/phi_munu/frw_explicit.py",
             "grut/derivation/phi_munu/curved_background.py (Phase 2B template)",
@@ -4019,11 +4071,16 @@ REGISTRY: tuple[Claim, ...] = (
             "show enhancement up to ~2.3× by today. Power-law "
             "exponent in matter-dom: p_+ = -1/4 + √(1/16 + 3μ/2), "
             "giving p = 1 (LCDM) → 1.0962 (transition) → 1.1862 "
-            "(super-horizon). HONEST VERDICT: GRUT survives the "
-            "σ_8-scale sanity check; predicts a definite testable "
-            "signal at large scales."
+            "(super-horizon). v3 RE-AUDIT VERDICT (June 2026): ARCHIVE / "
+            "RULED OUT. The large-scale growth enhancement IS the linear "
+            "scalar refractive modification (μ≠1), forbidden by separate-"
+            "universe invariance (PROJECTOR_CONSISTENCY_NOGO §5: μ_linear=1) "
+            "and falsified by the full derived kernel's ~32σ CMB-ISW excess "
+            "(Correction #38). Linear cosmology = ΛCDM. The growth-integration "
+            "math is correct; the enhanced-growth prediction does NOT survive "
+            "to v3. Retained as audit trail only."
         ),
-        tier="computed",
+        tier="open_negative",
         refs=(
             "grut/derivation/phi_munu/modified_growth.py",
             "grut/derivation/phi_munu/mg_eft_mapping.py",
@@ -4083,7 +4140,7 @@ REGISTRY: tuple[Claim, ...] = (
             "is borrowed from the EFT-of-dark-energy mapping. "
             "CAMB/CLASS v4 gate is NOT blocked by this gap."
         ),
-        tier="computed",
+        tier="conjectural",
         refs=(
             "grut/derivation/phi_munu/constitutive_growth.py",
             "grut/derivation/phi_munu/modified_growth.py",
@@ -5095,7 +5152,7 @@ REGISTRY: tuple[Claim, ...] = (
             "structural integrity. All locked at the foundation level "
             "by regression tests."
         ),
-        tier="computed",
+        tier="anchored",
         refs=(
             "grut/foundation/constants.py",
             "grut/foundation/axioms.py",
@@ -5213,26 +5270,36 @@ REGISTRY: tuple[Claim, ...] = (
         id="c5a_weyl_squared_dark_sector",
         chapter=9,
         statement=(
-            "C5a — the second-order Weyl-squared (W²) constitutive response — "
-            "is GRUT's SOLE surviving dark-sector channel after Tests 01-03 "
-            "ruled out the linear / dielectric / orbital channels. First v3 "
-            "existence test (Test 04, June 2026): SIGN passes (ρ_eff ∝ c·W² > "
-            "0, attractive / DM-like; c=3); SCALING is dimensionally sound "
-            "(ρ_eff ~ α·L²·W², n=2; W²=0 on FRW so no cosmological signal, "
-            "consistent with μ_linear=1; grows only in bound systems; no "
-            "frequency suppression). MAGNITUDE is UNDETERMINED — it swings "
-            "~10²⁷× on the coupling length scale: L=L₀ (≈12.85 Mpc) gives "
-            "negligible (~1e-27, C5a dies); local L=r gives a galaxy-marginal "
-            "signal (within ~2-3× of Ω_dm — the best of any GRUT mechanism) "
-            "but overshoots clusters ~100× (a galaxy-cluster tension). NOT "
-            "refuted, NOT confirmed."
+            "C5a — the second-order Weyl-squared (W²) constitutive response, "
+            "the dark sector's SOLE surviving channel after Tests 01-03 — is "
+            "now RESOLVED by the constructive-phase K⁽²⁾ derivation (Stages "
+            "A-D, June 2026). SCALE: L=L₀≈12.85 Mpc is FORCED — the explicit "
+            "2nd-order kernel K⁽²⁾(ω,k)=σ·α·χ(ω) carries no 1/k² pole (a "
+            "spatially-local causal memory kernel is polynomial in k², cannot "
+            "make the 1/∇² a local-r scale would need). MAGNITUDE: ρ_eff/"
+            "ρ_baryon ~ O(1-100) at galaxy scales (NOT the '1e-27' an "
+            "intermediate workflow claimed — that was a unit-mixing + wrong-"
+            "Weyl-formula error), because L₀ ≈ the curvature radius r/√Φ of a "
+            "WEAK-FIELD galaxy. SHAPE (decisive): ρ_eff ∝ W² ∝ (ρ-⟨ρ⟩)² — "
+            "1/r⁴ in the halo interior (log-slope ≈ -3.9), steepening to 1/r⁶ "
+            "in the outskirts (exterior tidal), always far steeper than the "
+            "1/r² (slope -2) a FLAT rotation curve needs. So C5a has roughly "
+            "the right MAGNITUDE but the WRONG RADIAL PROFILE (centrally peaked "
+            "with a too-steep tidal tail) — it does NOT reproduce the "
+            "dark-matter halo. GRUT has NO derived dark-matter mechanism that "
+            "reproduces halo phenomenology; dark matter remains a HOSTED input "
+            "(with the derived a₀ scale and μ_linear=1). Math survives, "
+            "ontology changes."
         ),
-        tier="conjectural",
+        tier="open_negative",
         refs=(
+            "theory/GRUT_V3_K2_DERIVATION.md (Stages A-D + verdict + Test 06)",
+            "theory/GRUT_V3_TEST_06_PROFILE_THEOREM.md (profile failure = theorem)",
+            "grut/derivation/phi_munu/second_order_kernel.py",
             "theory/GRUT_V3_TEST_04_C5A_WEYL.md",
             "theory/PROJECTOR_CONSISTENCY_NOGO.md §8 (C5a)",
             "grut/foundation/conformal_mode_scalar.py (a, c; W² c-channel)",
-            "workflow w3zgsvvwi (read-only)",
+            "workflows whbpphrbb, wgzzxunwo, wq1lz8509, wo7mvnscu (read-only)",
         ),
         deps=(
             "organizing_structure_v3",
@@ -5240,13 +5307,16 @@ REGISTRY: tuple[Claim, ...] = (
             "ctp_action_structure",
         ),
         falsifier=(
-            "The decisive computation: the explicit 2nd-order CTP kernel "
-            "K^(2) = δ²S_CTP/δh_a δh_r|_{O(2)} — its dimensionless prefactor σ "
-            "and coupling length scale. L₀-scale or small prefactor ⇒ ρ_eff "
-            "negligible ⇒ C5a dies and GRUT has NO derived dark-matter "
-            "mechanism (dark matter hosted). Local-r scale with O(1) prefactor "
-            "⇒ galaxy-marginal viability ⇒ 04D phenomenology (incl. the "
-            "cluster overshoot) warranted."
+            "The shape verdict is decisive, σ-independent, AND now a THEOREM "
+            "(Test 06): all permitted tensor routes (scalar W², Bach ∇∇C, "
+            "TT-projected) give ρ_eff ∝ 1/r⁴; shallowing to 1/r² needs a 1/∇² "
+            "the locality result forbids; the P^TT k_ik_j/k² loophole is closed "
+            "(degree-0 in |k|, not an inverse-Laplacian; K⁽²⁾ is k-independent). "
+            "So a revival would require the full covariant CAS (xAct) K⁽²⁾ to "
+            "break the locality theorem itself — not expected. Conversely, the "
+            "corrected magnitude (~O(1-100), curvature-squared-sourced) being a "
+            "real sub-dominant effect is itself falsifiable against curvature-"
+            "correlated lensing/dynamics residuals."
         ),
         notes=(
             "The first v3 dark-sector candidate to CLEAR its structural gates "
@@ -5261,7 +5331,48 @@ REGISTRY: tuple[Claim, ...] = (
             "locality, but SOFT — W²~(∂²h)² carries derivative structure the "
             "inheritance argument ignores. Closing computation named: the "
             "explicit symbolic δ²S_IF/δh_a δh_r²|_{O(2)} on FRW+halo "
-            "(theory/GRUT_V3_TEST_05_K2_KERNEL.md)."
+            "(theory/GRUT_V3_TEST_05_K2_KERNEL.md). "
+            "CONSTRUCTIVE PHASE — Stage A COMPLETE (June 2026, workflow "
+            "wakeieuaw, read-only; theory/GRUT_V3_K2_DERIVATION.md): the "
+            "permitted O(2) operator basis is CLOSED — W² is the UNIQUE "
+            "dynamically-active second-order operator (the c-anomaly channel; "
+            "W̄=0 on FRW ⇒ genuinely O(2), escapes the No-Go); E₄ is in the "
+            "basis but TOPOLOGICALLY DORMANT (the a-anomaly / Euler density — "
+            "Lovelock-null in 4D, no local dynamics on fixed topology — NOT "
+            "excluded by the No-Go); R²/R_μν²/□R are FORBIDDEN (couple to the "
+            "T-trace ⇒ first-order scalar response ⇒ violate μ_linear=1). "
+            "Stage A also SHARPENED the scale read: the SURVIVING TT kernel "
+            "α·χ(ω)·P^TT is spatially scale-free (χ purely temporal; P^TT "
+            "dimensionless/directional — the (L₀k)² spatial structure belongs "
+            "to the ruled-out scalar μ-channel, not this one). Stage B (wf "
+            "whbpphrbb + closure wgzzxunwo): the explicit flat-space 2nd-order "
+            "kernel K⁽²⁾(ω,k)=σ·α·χ(ω) carries NO 1/k² pole ⇒ L=L₀ is FORCED "
+            "(dimensional necessity [𝒦]=L² + the distribution theorem: a local "
+            "causal memory kernel is polynomial in k², cannot manufacture the "
+            "1/∇² the local-r branch needs). SCALE SETTLED: L=L₀. "
+            "MAGNITUDE (Stage C, wf wq1lz8509 + direct recompute): the prior "
+            "workflow's '1e-27 ⇒ dies' was a MAGNITUDE ERROR — two bugs: (1) "
+            "comparing geometric ρ_eff [1/L²] to SI ρ_baryon [kg/m³] without "
+            "the c²/G≈1.35e27 conversion (THAT factor is the spurious 1e-27); "
+            "(2) W²=48(r_s/r)⁶ (dimensionless) not 48(GM/c²)²/r⁶. Corrected, in "
+            "consistent geometric units, ρ_eff/ρ_baryon ~ O(1-100) at galaxy "
+            "scales (because L₀ ≈ the weak-field curvature radius r/√Φ ~ tens "
+            "of Mpc). VIABLE magnitude, not death. SHAPE (Stage D, decisive): "
+            "ρ_eff ∝ W² ∝ (ρ-⟨ρ⟩)² — 1/r⁴ interior (log-slope ≈ -3.9), 1/r⁶ "
+            "outskirts (exterior tidal), always far steeper than the 1/r² "
+            "(slope -2) a flat rotation curve needs ⇒ centrally peaked with a "
+            "too-steep tidal tail, NOT an extended halo; σ "
+            "scales magnitude only, never the shape. RESOLVED → open_negative: "
+            "GRUT has NO derived DM mechanism reproducing halos; DM hosted. "
+            "Module grut/derivation/phi_munu/second_order_kernel.py (verify() "
+            "locks 8 legs incl. the unit-bug forensics + the Test-06 routes). "
+            "TEST 06 (wf wo7mvnscu): the shape failure is a THEOREM, not an "
+            "artifact of ρ_eff∝W² — all permitted tensor routes (scalar W², "
+            "Bach ∇∇C⇒∇²ρ, TT-projected) give ρ_eff∝1/r⁴; the P^TT k_ik_j/k² "
+            "loophole is CLOSED (degree-0 in |k|, not 1/∇²; K⁽²⁾ k-independent); "
+            "shallowing to 1/r² needs the 1/∇² locality forbids. 3/3 incl. a "
+            "revive-skeptic classified it theorem_from_locality. Residual: exact "
+            "σ + full covariant K⁽²⁾ (xAct) — cannot change the shape verdict."
         ),
     ),
 )
