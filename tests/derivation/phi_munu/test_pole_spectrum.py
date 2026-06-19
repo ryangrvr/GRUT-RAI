@@ -5,8 +5,17 @@ from grut.derivation.phi_munu.pole_spectrum import (
     second_order,
     admits_dark_capable_mode,
     coupled_relaxors_dark_capable,
+    single_pole_passive_causal,
+    positive_superposition_is_passive,
     verify,
 )
+
+
+def test_deriving_F_form_is_Q_admissible():
+    # Q (FDT) forces causal+passive (Herglotz): the single-pole form is admissible,
+    # and a positive Debye superposition is the general Q-admissible kernel.
+    assert single_pole_passive_causal()
+    assert positive_superposition_is_passive()
 
 
 def test_all_legs_pass():

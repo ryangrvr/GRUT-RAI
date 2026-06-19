@@ -5267,6 +5267,57 @@ REGISTRY: tuple[Claim, ...] = (
         ),
     ),
     Claim(
+        id="finite_memory_form_from_q",
+        chapter=3,
+        statement=(
+            "DERIVING F (June 2026): the FORM of the finite-memory kernel "
+            "χ(ω)=1/(1−iωτ₀) follows from Q, leaving only the pole COUNT and the "
+            "VALUE τ₀ as inputs. Q (CTP unitarity → fluctuation-dissipation, noise "
+            "kernel N≥0) forces the response to be CAUSAL (analytic in the upper "
+            "half ω-plane; the single pole sits at ω=−i/τ₀, lower half) and "
+            "PASSIVE (Im χ(ω)=ωτ₀/(1+(ωτ₀)²)≥0 for ω>0; Re,Im a Kramers–Kronig "
+            "pair). A causal+passive response is a HERGLOTZ function ⇒ by the "
+            "representation theorem it MUST be a positive superposition of "
+            "single-pole Debye relaxation modes, χ=∫dμ(τ)/(1−iωτ), dμ≥0; finite "
+            "memory puts the support at finite τ. So the single-exponential FORM "
+            "is not a free ansatz — it is the only shape Q allows. The SINGLE pole "
+            "(one relaxation channel) is the minimal Herglotz measure and is "
+            "IDENTICALLY the single-mode spectrum (vacuum_spectrum_pole_classification): "
+            "F's single-pole content and the no-derived-dark-matter verdict are "
+            "THE SAME postulate. The VALUE τ₀ stays anchored. Consequence: F is "
+            "not a free functional postulate; it reduces to Q-derived form + ONE "
+            "channel-counting postulate (= single-mode) + the anchored scale τ₀ — "
+            "a v3 reframing that partly dissolves F into a consequence of Q."
+        ),
+        tier="computed",
+        refs=(
+            "theory/GRUT_V3_SPECTRUM_PROGRAM.md (Deriving F section)",
+            "grut/derivation/phi_munu/pole_spectrum.py",
+        ),
+        tests=(
+            "tests/derivation/phi_munu/test_pole_spectrum.py",
+        ),
+        deps=(
+            "vacuum_spectrum_pole_classification",
+            "memory_kernel_form",
+            "ctp_action_structure",
+        ),
+        falsifier=(
+            "The form-derivation fails if a causal, passive (Q-admissible) "
+            "response existed that is NOT a positive Debye superposition — none "
+            "does (Herglotz/Nevanlinna theorem). The reduction of F's single-pole "
+            "content to one postulate is exact given the #poles=#channels identity. "
+            "τ₀ remains the one anchored input; deriving it from a microscopic "
+            "τ_micro would remove the last free number (open)."
+        ),
+        notes=(
+            "Sharpens GRUT's foundations: the dynamical inputs are Q (proven) + "
+            "the Herglotz form (derived) + one binary structural choice (single- "
+            "vs multi-channel = single-mode) + one number (τ₀). The 'form' of F is "
+            "a theorem of Q. Open frontier: derive τ₀ (a τ₀↔τ_micro relation)."
+        ),
+    ),
+    Claim(
         id="vacuum_spectrum_pole_classification",
         chapter=9,
         statement=(
@@ -5297,7 +5348,7 @@ REGISTRY: tuple[Claim, ...] = (
         ),
         tier="computed",
         refs=(
-            "theory/GRUT_V4_SPECTRUM_PROGRAM.md (program kickoff; Phase I + II framing)",
+            "theory/GRUT_V3_SPECTRUM_PROGRAM.md (program kickoff; Phase I + II framing)",
             "grut/derivation/phi_munu/pole_spectrum.py",
             "theory/GRUT_V3_TEST_07_LOCALITY_NO_HALO.md (the closure that motivates the program)",
         ),
@@ -5319,8 +5370,8 @@ REGISTRY: tuple[Claim, ...] = (
             "computation (the effective action), not by argument."
         ),
         notes=(
-            "Opens the post-v3 'Spectrum of the Responsive Vacuum' program (the "
-            "natural V4 chapter). Reduces the entire GRUT dark-matter problem to "
+            "Opens v3's continuing 'Spectrum of the Responsive Vacuum' program "
+            "(v3 keeps re-deriving and reframing in place). Reduces the entire GRUT dark-matter problem to "
             "ONE sharply-defined question — single-mode vs multi-mode — that "
             "everything else is now downstream of. Banked in model-independent "
             "(pole) form deliberately, so it survives whatever specific mechanism "

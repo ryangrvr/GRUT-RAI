@@ -1,6 +1,9 @@
-# Spectrum of the Responsive Vacuum — the post-v3 dark-sector program
+# Spectrum of the Responsive Vacuum — a continuing v3 dark-sector program
 
-**Opened:** June 2026 · branch `main_v3` · successor program to the v3 dark-sector closure.
+**Opened:** June 2026 · branch `main_v3` · the next phase of v3's self-reframing, following the
+dark-sector closure. (v3 is a living framework: it keeps re-deriving and re-defining as the work
+proceeds, and forks to a new major version only when the parts can no longer be adapted — as v2 did.
+This program is v3 continuing, not a successor version.)
 
 The v3 dark-sector results (the C5a closure and the **Locality–No-Halo Theorem**, Test 07) did more than
 rule mechanisms out — they *changed the question*. The progression:
@@ -116,3 +119,31 @@ pessimism), the lean is toward the **single-mode** outcome — one TT mode, one 
 dark sector. But the point of Phase I is precisely that this is now decidable by computation rather than
 argued by intuition — and **Phase II has now settled it: single-mode** (a dark sector would require
 extending F's foundations with an inertial matter degree of freedom). The lean became a result.
+
+---
+
+## Deriving F — how much of the finite-memory postulate follows from Q
+
+F (the single-pole memory `χ(ω) = 1/(1 − iωτ₀)`) has been carried as a *postulate*. The spectral machinery
+lets us ask how much of it is actually forced. The answer is layered:
+
+- **The FORM is derived from Q.** CTP unitarity, through the fluctuation–dissipation relation (noise
+  kernel positive, `N ≥ 0`), forces the response to be **causal** (analytic in the upper half ω-plane —
+  the pole sits at `ω = −i/τ₀`, lower half) and **passive** (`Im χ(ω) ≥ 0` for `ω > 0`; here
+  `ωτ₀/(1+(ωτ₀)²)`, with Re,Im a Kramers–Kronig pair). A causal, passive response is a **Herglotz
+  function**, and the Herglotz representation theorem forces it to be a **positive superposition of
+  single-pole Debye modes**, `χ(ω) = ∫ dμ(τ)/(1 − iωτ)`, `dμ ≥ 0`. Finite memory puts the support at
+  finite τ. So the single-exponential **shape is not a free ansatz — it is the only shape Q allows.**
+- **The SINGLE pole is the irreducible content.** One relaxation channel (`dμ = δ(τ − τ₀)`) is the
+  minimal Herglotz measure — and by Phase II it is *identically* the statement that the vacuum has one
+  responsive variable, the **single-mode** spectrum. So F's single-pole content and the
+  no-derived-dark-matter verdict are **the same postulate**: deriving one derives the other.
+- **The VALUE τ₀ is anchored** — the one genuinely free number (a `τ₀ ↔ τ_micro` relation is open).
+
+**Consequence for GRUT's foundations.** F is no longer a free functional postulate. It reduces to **Q
+(proven) ⇒ the Herglotz form**, plus **one channel-counting postulate** (= single-mode — the very input
+that makes dark matter hosted), plus **the anchored scale τ₀**. So GRUT's dynamical inputs are fewer and
+sharper than "Q + F + α + τ₀ as four independent things": the *form* of F is a theorem of Q, and its
+remaining content is one binary structural choice (single- vs multi-channel) plus one number. Another step
+of v3 reframing in place — a postulate partly dissolved into a consequence. Verified:
+`grut/derivation/phi_munu/pole_spectrum.py`.

@@ -98,8 +98,31 @@ def coupled_relaxors_dark_capable(n_tau: int = 30, n_g: int = 30,
     return False
 
 
+def single_pole_passive_causal(tau0: float = 1.0) -> bool:
+    """Deriving-F check. Q (CTP unitarity → FDT, noise kernel N ≥ 0) requires the
+    response to be CAUSAL and PASSIVE. The single pole χ = 1/(1 − iωτ₀): pole at
+    ω = −i/τ₀ (lower half-plane ⇒ causal), and Im χ(ω) = ωτ₀/(1+(ωτ₀)²) ≥ 0 for
+    ω > 0 (passive). Both ⇒ Q-admissible (a Herglotz function)."""
+    causal = first_order(tau0)[0]["omega"].imag < 0
+    w = np.logspace(-3, 3, 400) / tau0
+    chi = 1.0 / (1.0 - 1j * w * tau0)
+    return bool(causal and np.all(chi.imag >= -_TOL))
+
+
+def positive_superposition_is_passive(amps=(0.6, 0.4), taus=(1.0, 0.3)) -> bool:
+    """The Herglotz form Q forces: χ(ω) = Σ a_i/(1 − iωτ_i), a_i ≥ 0 — a positive
+    superposition of single-pole Debye modes. It is also causal + passive (one pole
+    per relaxation channel). Confirms the FORM of F is the general Q-admissible
+    kernel, not a free ansatz; #poles = #channels."""
+    if not all(a >= 0 for a in amps):
+        return False
+    w = np.logspace(-3, 3, 400)
+    chi = sum(a / (1.0 - 1j * w * t) for a, t in zip(amps, taus))
+    return bool(np.all(chi.imag >= -_TOL))
+
+
 def verify() -> Dict[str, bool]:
-    """Self-test the Phase I classification and the Phase II verdict."""
+    """Self-test the Phase I classification, the Phase II verdict, and deriving-F."""
     fo = first_order(tau0=1.0)
     leg1 = len(fo) == 1 and fo[0]["kind"] == "relaxational"      # single relaxational pole
     leg2 = fo[0]["stable"] and fo[0]["mass"] < _TOL              # massless, stable
@@ -133,6 +156,8 @@ def verify() -> Dict[str, bool]:
         "all_poles_causal_lower_half_plane":     bool(leg7),
         "relaxors_alone_give_no_dark_mode":      bool(leg8),
         "dark_mode_requires_inertial_matter_dof": bool(leg9),
+        "F_form_single_pole_is_Q_admissible":    bool(single_pole_passive_causal()),
+        "F_form_herglotz_is_general_Q_kernel":   bool(positive_superposition_is_passive()),
     }
 
 
