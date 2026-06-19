@@ -138,7 +138,12 @@ lets us ask how much of it is actually forced. The answer is layered:
   minimal Herglotz measure — and by Phase II it is *identically* the statement that the vacuum has one
   responsive variable, the **single-mode** spectrum. So F's single-pole content and the
   no-derived-dark-matter verdict are **the same postulate**: deriving one derives the other.
-- **The VALUE τ₀ is anchored** — the one genuinely free number (a `τ₀ ↔ τ_micro` relation is open).
+- **The VALUE τ₀ is anchored — and its irreducibility is itself established.** The `τ₀ ↔ τ_micro` bridge
+  was investigated to closure (Option B, June 2026; `grut/foundation/tau_hierarchy_decision.py`): the
+  gravitational τ₀ (41.9 Myr) and the thermal τ_micro (≈ 1.4×10⁻¹⁹ s) differ by 34 orders with **no
+  derivation between them** — no combination of {ℏ, k_B, c, G} has units of time², and the numerology
+  cross-check fails (ratio ≈ 0.984 ≠ 1; implied T\* ≈ 40 nK, unphysical). So τ₀ is **GRUT's one
+  irreducible fundamental scale**, not a pending derivation.
 
 **Consequence for GRUT's foundations.** F is no longer a free functional postulate. It reduces to **Q
 (proven) ⇒ the Herglotz form**, plus **one channel-counting postulate** (= single-mode — the very input
@@ -147,3 +152,11 @@ sharper than "Q + F + α + τ₀ as four independent things": the *form* of F is
 remaining content is one binary structural choice (single- vs multi-channel) plus one number. Another step
 of v3 reframing in place — a postulate partly dissolved into a consequence. Verified:
 `grut/derivation/phi_munu/pole_spectrum.py`.
+
+**The floor.** With the form derived from Q and τ₀'s irreducibility established (Option B), GRUT's
+irreducible inputs are now fully mapped: **Q** (proven), the **single-channel / single-mode** structural
+postulate (one input, identical to the dark-matter verdict), the dimensionless axiom **α = 1/3**, and the
+single anchored scale **τ₀**. The "zero free parameters" claim is honestly scoped to that gravitational
+predictive core (τ₀, α). This is bedrock for the current foundations: going below it — deriving τ₀, or
+deriving the single-channel choice — requires a deeper microscopic theory of the responsive medium, i.e.
+a *foundational extension* of v3, not a further derivation within it.

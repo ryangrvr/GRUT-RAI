@@ -5284,7 +5284,10 @@ REGISTRY: tuple[Claim, ...] = (
             "(one relaxation channel) is the minimal Herglotz measure and is "
             "IDENTICALLY the single-mode spectrum (vacuum_spectrum_pole_classification): "
             "F's single-pole content and the no-derived-dark-matter verdict are "
-            "THE SAME postulate. The VALUE τ₀ stays anchored. Consequence: F is "
+            "THE SAME postulate. The VALUE τ₀ stays anchored — and its "
+            "irreducibility is established (tau_zero_to_tau_micro_relation_open_question, "
+            "Option B): the τ₀↔τ_micro bridge is non-viable, so τ₀ is GRUT's one "
+            "fundamental scale, not a pending derivation. Consequence: F is "
             "not a free functional postulate; it reduces to Q-derived form + ONE "
             "channel-counting postulate (= single-mode) + the anchored scale τ₀ — "
             "a v3 reframing that partly dissolves F into a consequence of Q."
@@ -5307,14 +5310,17 @@ REGISTRY: tuple[Claim, ...] = (
             "response existed that is NOT a positive Debye superposition — none "
             "does (Herglotz/Nevanlinna theorem). The reduction of F's single-pole "
             "content to one postulate is exact given the #poles=#channels identity. "
-            "τ₀ remains the one anchored input; deriving it from a microscopic "
-            "τ_micro would remove the last free number (open)."
+            "τ₀ remains the one anchored input; the τ₀↔τ_micro bridge is closed "
+            "as non-viable (Option B), so deriving τ₀ would require deeper "
+            "microscopic physics beyond GRUT, not a derivation within it."
         ),
         notes=(
             "Sharpens GRUT's foundations: the dynamical inputs are Q (proven) + "
             "the Herglotz form (derived) + one binary structural choice (single- "
             "vs multi-channel = single-mode) + one number (τ₀). The 'form' of F is "
-            "a theorem of Q. Open frontier: derive τ₀ (a τ₀↔τ_micro relation)."
+            "a theorem of Q. τ₀'s irreducibility is established (Option B); a "
+            "within-GRUT derivation of τ₀ does not exist — it would require a "
+            "deeper microscopic theory of the medium (a foundational extension)."
         ),
     ),
     Claim(
