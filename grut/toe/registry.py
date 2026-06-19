@@ -5267,6 +5267,80 @@ REGISTRY: tuple[Claim, ...] = (
         ),
     ),
     Claim(
+        id="locality_no_halo_theorem",
+        chapter=9,
+        statement=(
+            "LOCALITY–NO-HALO THEOREM (spectral form; Test 07, June 2026). The "
+            "C5a profile failure generalizes to a structural classification "
+            "theorem about analytic structure at k=0. Any GRUT dark-sector "
+            "response that is (a) covariant, (b) local in the matter fields (a "
+            "kernel analytic — entire, pole-free — in k² near k=0, as spatial "
+            "locality of a causal memory kernel requires), and (c) nonlinear "
+            "(No-Go, μ_linear=1) yields an effective source NO MORE spatially "
+            "extended than its baryons. An extended halo (ρ_eff∝1/r², important "
+            "where baryons have vanished) has a k=0 SINGULARITY (ρ(k)∝1/k); "
+            "producing it requires the response to be singular at k=0 — a pole / "
+            "inverse-Laplacian 1/∇² — which locality forbids. Three independent "
+            "walls: covariance (lowest covariant field is curvature ∂²Φ~1/r³, "
+            "NOT the non-tensor acceleration ∂Φ; curvature invariants are "
+            "≥1/r⁶); locality (g=∇Φ=∇(1/∇²)ρ is the enclosed mass — local in the "
+            "field, NONLOCAL in matter; a local kernel is polynomial in k², no "
+            "1/k² pole); the No-Go (a response linear in ρ_b is forbidden). MOND "
+            "is the illuminating case: it gives the right 1/r² phantom precisely "
+            "by responding to g=∇Φ_N (the forbidden nonlocal 1/∇²), so GRUT may "
+            "carry the SCALE a₀=cH₀/(2π) but CANNOT locally derive an "
+            "interpolation FUNCTION. Consequence: a GRUT-derived dark sector "
+            "requires a NEW POLE in the vacuum spectrum (a stable massive "
+            "matter-like mode whose relic energy density is the hosted dark "
+            "matter), NOT a new operator. Unifies the linear-enhancement, "
+            "linear-dielectric, orbital-gate, Weyl² and Bach no-gos under one "
+            "principle — locality (analyticity at k=0). Verified by radial-FT "
+            "(grut/derivation/phi_munu/locality_no_halo.py): localized-source "
+            "ρ(k)-slope≈0, 1/r² halo slope≈−1, analytic kernel keeps it local, "
+            "only a 1/k² pole delocalizes (r·ρ_eff≈const ⇒ 1/r tail); GRUT's "
+            "K⁽²⁾ is k-independent and P^TT degree-0 ⇒ analytic at k=0."
+        ),
+        tier="computed",
+        refs=(
+            "theory/GRUT_V3_TEST_07_LOCALITY_NO_HALO.md (full record, spectral form)",
+            "theory/GRUT_V3_TEST_06_PROFILE_THEOREM.md (route-by-route precursor)",
+            "grut/derivation/phi_munu/locality_no_halo.py",
+            "grut/derivation/phi_munu/second_order_kernel.py (Stage B: k-independent kernel)",
+        ),
+        tests=(
+            "tests/derivation/phi_munu/test_locality_no_halo.py",
+        ),
+        deps=(
+            "c5a_weyl_squared_dark_sector",
+            "adiabatic_dilatation_redundancy_nogo",
+            "ctp_action_structure",
+            "organizing_structure_v3",
+        ),
+        falsifier=(
+            "A covariant, matter-local (analytic-in-k², pole-free) GRUT response "
+            "that nonetheless produces an extended 1/r² halo — i.e. delocalizes "
+            "a compact source with NO k=0 singularity. None exists in the "
+            "analytic class (the statement is exhaustive, not a finite search "
+            "over invariants). A full covariant CAS K⁽²⁾ secretly carrying a "
+            "1/k² pole would break it — but Stage B established the surviving TT "
+            "kernel has none."
+        ),
+        notes=(
+            "Elevated ABOVE the C5a-specific negative it generalizes: Test 06 "
+            "checked permitted routes one at a time; Test 07 classifies the "
+            "entire analytic class at once. Defines the post-v3 SPECTRUM "
+            "PROGRAM — dark matter, if GRUT-derived, is an additional stable "
+            "massive pole in the effective action, reachable only via the "
+            "effective-action / mode-spectrum computation, not a new curvature "
+            "invariant. A provably single-pole spectrum ⇒ dark matter is a "
+            "hosted input permanently (a respectable endpoint; GR never "
+            "predicted the electron). Honest residual: established at the level "
+            "of analytic structure + the weak-field monopole sector; the full "
+            "covariant K⁽²⁾ would harden, not overturn (the analyticity block is "
+            "background-independent)."
+        ),
+    ),
+    Claim(
         id="c5a_weyl_squared_dark_sector",
         chapter=9,
         statement=(
@@ -5295,6 +5369,7 @@ REGISTRY: tuple[Claim, ...] = (
         refs=(
             "theory/GRUT_V3_K2_DERIVATION.md (Stages A-D + verdict + Test 06)",
             "theory/GRUT_V3_TEST_06_PROFILE_THEOREM.md (profile failure = theorem)",
+            "theory/GRUT_V3_TEST_07_LOCALITY_NO_HALO.md (spectral classification theorem; locality_no_halo_theorem)",
             "grut/derivation/phi_munu/second_order_kernel.py",
             "theory/GRUT_V3_TEST_04_C5A_WEYL.md",
             "theory/PROJECTOR_CONSISTENCY_NOGO.md §8 (C5a)",

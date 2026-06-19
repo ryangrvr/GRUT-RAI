@@ -234,7 +234,8 @@ dark sector from a sprawl of mechanisms to a single computation, then closed it.
 
 **What survives**
 - **The MOND scale `a₀ = cH₀/2π` is *derived*** (`mond_a_0_emergence`, *computed*) — the *scale* is real; the
-  interpolation function `ν(y)` is adopted, not derived. Rotation-curve and bullet-cluster *fits* via this
+  interpolation function `ν(y)` is adopted, not derived — and Test 07 shows it *cannot* be derived locally
+  (it is a response to the acceleration `g = ∇Φ`, the forbidden nonlocal `1/∇²`). Rotation-curve and bullet-cluster *fits* via this
   scale are *computed* (`rotation_curves_match`, `bullet_cluster_offset`).
 
 **The flagship — C5a, the W² second-order channel — and its closure.**
@@ -256,6 +257,23 @@ After everything else died, exactly one channel remained: the second-order Weyl-
    too-steep profile, and shallowing to `1/r²` requires the very `1/∇²` the locality result forbids. The
    `P^TT` projector's `k̂k̂/k²` is degree-0 angular structure, not an inverse Laplacian.
 
+**Test 07 — the locality–no-halo theorem (spectral form; `locality_no_halo_theorem`, *computed*).** The
+failure is not really about `W²` — it is about **analyticity at `k = 0`**, and in that form it classifies
+the *entire category* of local mechanisms at once. A flat-curve halo (`ρ ∝ 1/r²`) has a `k = 0`
+*singularity* (`ρ(k) ∝ 1/k`); a localized baryon source is analytic there; so an extended halo can appear
+only if the **response itself is singular at `k = 0`** — a pole / inverse-Laplacian `1/∇²`. Every
+covariant, matter-local GRUT response is *analytic* at `k = 0`, walled off three independent ways:
+curvature invariants give `≥ 1/r⁶`; the acceleration `g = ∇Φ` would give `1/r²` but is non-covariant
+**and** is the nonlocal `1/∇²` of the matter (`g = ∇(1/∇²)ρ` — the enclosed mass); a response linear in
+`ρ_b` is forbidden by the No-Go. **MOND is the illuminating case** — it produces the right `1/r²` phantom
+precisely *because* it responds to `g`, the forbidden nonlocal object, which is exactly why GRUT carries
+the *scale* `a₀` but cannot locally derive an interpolation *function*. **Therefore no local GRUT response
+can be a halo, and a derived dark sector requires a NEW POLE in the vacuum spectrum (a stable massive
+matter-like mode whose relic density is the hosted dark matter), not a new operator.** This one principle
+— locality = analyticity at `k = 0` — subsumes the linear-enhancement, dielectric, orbital-gate, Weyl²
+and Bach no-gos, and reframes the dark-matter question as the **Spectrum Program**
+(`theory/GRUT_V3_TEST_07_LOCALITY_NO_HALO.md`).
+
 > **Verdict.** C5a has roughly the right magnitude but the wrong radial profile to be the dark-matter halo.
 > **GRUT has no derived dark-matter mechanism reproducing halo phenomenology; dark matter is a HOSTED input**
 > (with the derived `a₀` scale and `μ_linear = 1`). The last survivor did not die because it was too weak — it
@@ -264,7 +282,9 @@ After everything else died, exactly one channel remained: the second-order Weyl-
 
 The dark-matter mechanism search is **closed pending covariant review** — the only way back is to overturn a
 foundational result (locality, the No-Go, the CTP structure, or the profile theorem), not to invent a new
-channel.
+channel. The constructive path forward is therefore the **Spectrum Program**: determine whether the
+responsive vacuum's effective action contains an additional stable, massive pole — the one structure that
+could host a *derived* dark sector. Absent such a pole, dark matter is a hosted input permanently.
 
 ---
 

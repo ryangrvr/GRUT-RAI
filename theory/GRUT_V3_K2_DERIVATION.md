@@ -191,3 +191,25 @@ operation the locality result that fixes `L=L₀` forbids. 3/3 skeptics (incl. o
 *reviving* C5a) classified the failure `theorem_from_locality`; none found a shallowing mechanism. The
 dark-sector frontier — "can the `W²` response be dressed to change its radial scaling?" — is therefore
 not just open-and-disfavored but **provably closed within the local, causal, No-Go-respecting kernel.**
+
+---
+
+## Test 07 — the Locality–No-Halo Theorem (spectral form)  ✅ COMPLETE
+
+Test 06 closed the C5a route operator-by-operator. **Test 07 (`locality_no_halo_theorem`, *computed*;
+full record `GRUT_V3_TEST_07_LOCALITY_NO_HALO.md`, module `locality_no_halo.py`) recognizes the result is
+not geometric but *spectral*** — a statement about analyticity at `k=0` — and so classifies the entire
+category of local mechanisms at once:
+
+> Any covariant, matter-local (kernel analytic in `k²` at `k=0`), nonlinear (No-Go) response is no more
+> spatially extended than its baryons. A halo (`ρ∝1/r²`) is `k=0`-singular (`ρ(k)∝1/k`); producing it
+> needs a response singular at `k=0` (a `1/∇²` pole), which locality forbids. **A derived dark sector
+> therefore requires a NEW POLE in the vacuum spectrum (a stable massive matter mode), not a new operator.**
+
+Three walls: covariance (curvature `∂²Φ~1/r³` → invariants `≥1/r⁶`); locality (`g=∇Φ=∇(1/∇²)ρ` is the
+nonlocal enclosed mass); the No-Go (linear-in-`ρ_b` forbidden). **MOND** gives `1/r²` only by responding
+to `g` (the forbidden nonlocal object) — which is *why* GRUT has the scale `a₀` but cannot locally derive
+an interpolation function. Verified by radial-FT (localized source analytic; `1/r²` halo `∝1/k`; analytic
+kernel stays local; only a `1/k²` pole delocalizes; GRUT's `K⁽²⁾` is k-independent + `P^TT` degree-0).
+This defines the post-v3 **Spectrum Program** — the dark-matter question is now "does the effective action
+have a second stable massive pole?", reachable only via the effective-action computation.
