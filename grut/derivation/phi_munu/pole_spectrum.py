@@ -72,10 +72,24 @@ def second_order(tau0: float = 1.0, tau1: float = 1.0) -> List[Dict]:
     return classify_poles([-(tau1**2), -1j * tau0, 1.0])
 
 
-def admits_dark_capable_mode(poles: List[Dict]) -> bool:
-    """A dark-capable spectrum has at least one stable, massive (off-axis) pole
-    beyond the single relaxational mode."""
-    return any(p["kind"] == "massive" and p["stable"] for p in poles)
+def admits_dark_capable_mode(poles: List[Dict], longevity: float = 0.1) -> bool:
+    """A dark-capable (relic) mode is a stable, massive (off-axis) pole that is
+    also LONG-LIVED: width ≪ mass (|Im ω| ≪ |Re ω|) — a narrow resonance
+    approaching a real (undamped) pole. An off-axis pole alone is NOT enough: a
+    heavily damped resonance (width ≈ mass, e.g. ω = ±0.87 − 0.5i) decays and is
+    not a relic. `longevity` is the width/mass cutoff (default 0.1 ⇒ Q ≳ 5).
+
+    Caveat (GRUT_V3_SPECTRUM_PROGRAM.md, Phase III + the Ostrogradsky+Q/FDT
+    pincer): for a DISSIPATIVE vacuum the only way to reach width ≪ mass is the
+    τ₀→0 (frictionless) limit, where FDT sends the noise N→0 and the mode
+    DECOUPLES from the bath (an external field). Generating a genuine long-lived
+    pole from the vacuum's OWN higher-derivative action is an Ostrogradsky ghost
+    (wrong-sign residue ⇒ Im χ<0 ⇒ N<0 ⇒ violates Q). So a positive return here
+    flags an IMPORTED/hosted DOF, not a vacuum-derived one."""
+    return any(
+        p["kind"] == "massive" and p["stable"] and p["width"] < longevity * p["mass"]
+        for p in poles
+    )
 
 
 def coupled_relaxors_dark_capable(n_tau: int = 30, n_g: int = 30,
@@ -133,10 +147,13 @@ def verify() -> Dict[str, bool]:
     finite = [p for p in so_small if p["width"] < 1e3]
     leg4 = len(finite) == 1 and abs(finite[0]["omega"] + 1j) < 1e-3
 
-    # underdamped (4τ₁² > τ₀²) → a stable massive (off-axis) pole appears
-    leg5 = admits_dark_capable_mode(second_order(tau0=1.0, tau1=1.0))
-    # overdamped (4τ₁² < τ₀²) → still no massive pole
-    leg6 = not admits_dark_capable_mode(second_order(tau0=1.0, tau1=0.2))
+    # a LONG-LIVED inertial kernel (τ₁ ≫ τ₀, weak damping) → a dark-capable
+    # (narrow, off-axis, long-lived) pole appears
+    leg5 = admits_dark_capable_mode(second_order(tau0=1.0, tau1=100.0))
+    # a heavily damped resonance (τ₁ ≈ τ₀) is off-axis but NOT a relic, and the
+    # overdamped kernel (τ₁ ≪ τ₀) has no off-axis pole at all → neither is dark
+    leg6 = (not admits_dark_capable_mode(second_order(tau0=1.0, tau1=1.0))
+            and not admits_dark_capable_mode(second_order(tau0=1.0, tau1=0.2)))
     # every pole considered is causal (lower half-plane)
     leg7 = all(p["stable"] for p in fo + second_order(1.0, 1.0) + second_order(1.0, 0.2))
 
@@ -144,15 +161,15 @@ def verify() -> Dict[str, bool]:
     # a dark mode requires an inertial (matter-like) DOF.
     relaxors_dark = coupled_relaxors_dark_capable()
     leg8 = not relaxors_dark
-    leg9 = admits_dark_capable_mode(second_order(1.0, 1.0)) and not relaxors_dark
+    leg9 = admits_dark_capable_mode(second_order(1.0, 100.0)) and not relaxors_dark
 
     return {
         "current_GRUT_single_relaxational_pole": bool(leg1),
         "pole_massless_and_stable":              bool(leg2),
         "current_GRUT_has_no_dark_mode":         bool(leg3),
         "recovers_first_order_as_inertia_to_0":  bool(leg4),
-        "inertial_underdamped_gives_massive_pole": bool(leg5),
-        "inertial_overdamped_gives_no_mass":     bool(leg6),
+        "long_lived_inertia_gives_dark_pole":    bool(leg5),
+        "damped_resonance_is_not_a_relic":       bool(leg6),
         "all_poles_causal_lower_half_plane":     bool(leg7),
         "relaxors_alone_give_no_dark_mode":      bool(leg8),
         "dark_mode_requires_inertial_matter_dof": bool(leg9),

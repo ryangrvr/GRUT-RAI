@@ -160,3 +160,96 @@ single anchored scale **τ₀**. The "zero free parameters" claim is honestly sc
 predictive core (τ₀, α). This is bedrock for the current foundations: going below it — deriving τ₀, or
 deriving the single-channel choice — requires a deeper microscopic theory of the responsive medium, i.e.
 a *foundational extension* of v3, not a further derivation within it.
+
+> **Update (Phase III, below):** the "single-channel choice" is no longer a *free* postulate. Phase III
+> derives it as the **Markovian limit of the Mori–Zwanzig memory function**, controlled by the irreducible
+> `τ_micro ≪ τ₀` hierarchy. The floor's open items reduce from two (τ₀ *and* the channel choice) to
+> essentially one: the irreducible scale τ₀ (with its micro partner τ_micro).
+
+---
+
+## Phase III — Why Is The Responsive Vacuum First-Order?  ✅ COMPLETE
+
+Phase II answered *whether* the vacuum is single-mode (yes) but chose the first-order constitutive law by
+**covariantization fiat** (`retarded_kernel_frw.py` FORK 1) rather than by computing the one object that
+can carry extra poles — the **Mori–Zwanzig (MZ) memory function**. The frontier question is the sharper
+one: not *"can we add inertia?"* but ***"what forbids it?"*** — is `τ₀ż + z = z_target` a **theorem** or a
+**postulate**? Verdict: **theorem-modulo-gap**, with one honest correction to the earlier record.
+
+### Two objects, never to be conflated
+
+The whole answer turns on splitting two things the earlier work ran together:
+
+| | **(i) temporal damped resonance** | **(ii) propagating relic** |
+|---|---|---|
+| Kernel | `1/(1−iωτ₀−ω²τ₁²)`, ω only | `ω²−c²k² = M²`, a mode atop the graviton |
+| Is it dark matter? | **No** — dissipative, decays | **Yes** — long-lived, particle-like |
+| Q / FDT verdict | **allowed** (passive Herglotz) | — |
+| Ostrogradsky + Q verdict | — | **forbidden** (ghost ⇒ N<0) |
+
+### What Q actually forces (the correction)
+
+`Q ⇒ FDT ⇒ N ≥ 0 ⇒` the response is **Herglotz** (causal + passive). The earlier "Deriving F" wording
+over-reached: it claimed passive `⇒` a **positive** Debye superposition `χ=∫dμ(τ)/(1−iωτ), dμ≥0`. That
+converse is **false** — it is *complete monotonicity* (Bernstein/Hausdorff–Widder), **strictly stronger**
+than passivity. Verified numerically: `1/(1−iωτ₀−ω²τ₁²)` is fully passive yet decomposes with a **negative**
+Debye weight, and the damped oscillator is passive with **off-axis** poles. **So single-pole-ness is not a
+theorem of Q alone.** (Registry `finite_memory_form_from_q` corrected accordingly.)
+
+### The Mori–Zwanzig derivation (the gap, closed)
+
+For the single slow variable z (the TT memory), the generalized Langevin equation is
+`ż = −∫₀ᵗ K(t−s) z(s) ds + F(t)`, giving `χ(ω) ∝ 1/(K̃(ω) − iω)`.
+
+- **Markovian limit** (`K̃ ≈ 1/τ₀`): `χ ∝ 1/(1 − iωτ₀)` — the single GRUT pole. **First-order *is* the
+  Markovian limit.**
+- **First non-Markovian rung** (`K̃(ω)=(1/τ₀)/(1−iωτ_K)`): `χ ∝ (1−iωτ_K)/(1 − iωτ₀ − ω²·τ₀τ_K)` — exactly
+  the second-order kernel with **τ₁² = τ₀τ_K**. Its poles go **off-axis (dark-capable) iff τ_K > τ₀/4**.
+- **The 2nd FDT** fixes what τ_K is: `K(t) = ⟨F(0)F(t)⟩/⟨|z|²⟩` is the autocorrelation of the *orthogonal
+  (fast) force*, so τ_K is the **micro** scale. A genuine slow variable has `τ_K ≪ τ₀` — GRUT's hierarchy
+  `τ_micro/τ₀ ~ 1e-34`.
+
+**Theorem.** For a slow *dissipative* variable (`τ_K ≪ τ₀`) the MZ memory function produces **no
+dark-capable pole**: both poles sit on the −i axis (relaxational, massless); the non-Markovian pole is at
+the fast scale `ω ≈ −i/τ_K` and is further suppressed in χ by a numerator zero. An off-axis (long-lived,
+relic) pole needs `τ_K > τ₀/4` — a memory kernel **slower** than the variable, i.e. a *resonant,
+non-dissipative* medium, which contradicts the slow/fast separation that *defines* the projection. **So
+first-order-ness is derived, controlled by the irreducible `τ_micro ≪ τ₀` hierarchy** — the Phase II fiat
+becomes a computation. Verified: `grut/derivation/phi_munu/mori_zwanzig_kernel.py` (`verify()`), claim
+`first_order_from_mori_zwanzig`.
+
+### The Ostrogradsky + Q pincer (the propagating relic)
+
+The genuinely dark object (ii) — a propagating relativistic pole on the vacuum's *own* action — needs a
+higher-*spacetime*-derivative TT operator (Stelle/Weyl², `□` twice on h). By **Ostrogradsky**
+(non-degenerate) its Hamiltonian is unbounded below = a **ghost**; in propagator form
+`1/(p²(p²+M²)) = (1/M²)[1/p² − 1/(p²+M²)]` the massive residue is `−1/M²` (**wrong sign**) ⇒ `Im χ < 0` at
+that pole ⇒ by FDT `N = 2ℏ coth(ℏω/2kT)·Im χ < 0` ⇒ **violates Q**. The two jaws are the *same wall* (the
+residue sign) seen in the time and frequency domains.
+
+**Escapes all import structure.** A degenerate (Horndeski/f(R)) completion leaves a healthy *scalar* —
+killed independently by the projector No-Go (`μ_linear=1`, dark confined to the tensor channel). **dRGT**
+massive gravity gives a ghost-free massive tensor but needs a non-dynamical **fiducial reference metric**
+(+ Fierz–Pauli tuning) that GRUT's one-dynamical-metric CTP action lacks. An adversarial search *did* build
+a healthy passive off-axis pole — but every version imported a new DOF (a Klein–Gordon field or a fiducial
+metric). So **"no healthy second pole" is too strong; "no *vacuum-derived* relic pole" survives.** Claim
+`propagating_relic_forbidden_pincer` (tier `conjectural`, deliberately — see the gap below).
+
+### Verdict, honest residual gap, and what it costs
+
+- **First-order *simpliciter*** — now a **theorem** (the MZ Markovian limit), not a postulate.
+- **No vacuum-derived dark relic** — **theorem-modulo-gap**: the ghost *mechanism* is computed/verified,
+  but the fully general covariant Boulware–Deser/Hamiltonian analysis of an arbitrary higher-derivative TT
+  completion is **not** done in-repo, and "is a dRGT fiducial metric *natural* to GRUT?" is a judgment
+  call. That is the one remaining computation that would harden this to `computed`.
+- **Consequence:** dark matter is a **hosted input, by structure** — and now we know *why* the vacuum is
+  first-order (the timescale hierarchy), and *why* a dark pole cannot come from it (Ostrogradsky + Q). A
+  derived dark sector requires a **foundational extension** (a microscopic medium with massive excitations
+  / a second metric) — the v3→v4 line, not a v3 closure.
+
+### Corrections banked with Phase III
+
+- `finite_memory_form_from_q`: the "passive ⇒ positive-Debye" converse was **false**; restated as
+  "Q ⇒ Herglotz *form*; single-pole *derived* via the MZ Markovian limit."
+- `pole_spectrum.admits_dark_capable_mode`: now requires a pole to be **long-lived** (`width ≪ mass`), not
+  off-axis *location* alone — a heavily damped resonance (object i) is no longer mislabeled a relic.

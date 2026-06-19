@@ -31,10 +31,12 @@ def test_current_grut_is_single_relaxational_pole():
 
 
 def test_additional_pole_required_for_dark_mode():
-    # overdamped inertial kernel: still no massive (dark-capable) pole
+    # overdamped inertial kernel: no off-axis pole at all
     assert not admits_dark_capable_mode(second_order(tau0=1.0, tau1=0.2))
-    # underdamped inertial kernel: a stable massive (off-axis) pole appears
-    assert admits_dark_capable_mode(second_order(tau0=1.0, tau1=1.0))
+    # heavily damped resonance (τ₁ ≈ τ₀): off-axis but NOT a relic (width ≈ mass)
+    assert not admits_dark_capable_mode(second_order(tau0=1.0, tau1=1.0))
+    # long-lived inertial kernel (τ₁ ≫ τ₀): a narrow dark-capable pole appears
+    assert admits_dark_capable_mode(second_order(tau0=1.0, tau1=100.0))
 
 
 def test_all_poles_are_causal():
@@ -46,4 +48,4 @@ def test_phase2_relaxors_never_host_a_dark_mode():
     # Phase II verdict: coupling relaxational variables (no inertia) never yields a
     # stable off-axis (dark-capable) pole — a dark mode requires inertial matter DOF.
     assert not coupled_relaxors_dark_capable()
-    assert admits_dark_capable_mode(second_order(1.0, 1.0))   # inertia does
+    assert admits_dark_capable_mode(second_order(1.0, 100.0))   # long-lived inertia does

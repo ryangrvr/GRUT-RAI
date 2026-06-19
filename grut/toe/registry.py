@@ -5270,57 +5270,70 @@ REGISTRY: tuple[Claim, ...] = (
         id="finite_memory_form_from_q",
         chapter=3,
         statement=(
-            "DERIVING F (June 2026): the FORM of the finite-memory kernel "
-            "χ(ω)=1/(1−iωτ₀) follows from Q, leaving only the pole COUNT and the "
-            "VALUE τ₀ as inputs. Q (CTP unitarity → fluctuation-dissipation, noise "
-            "kernel N≥0) forces the response to be CAUSAL (analytic in the upper "
-            "half ω-plane; the single pole sits at ω=−i/τ₀, lower half) and "
-            "PASSIVE (Im χ(ω)=ωτ₀/(1+(ωτ₀)²)≥0 for ω>0; Re,Im a Kramers–Kronig "
-            "pair). A causal+passive response is a HERGLOTZ function ⇒ by the "
-            "representation theorem it MUST be a positive superposition of "
-            "single-pole Debye relaxation modes, χ=∫dμ(τ)/(1−iωτ), dμ≥0; finite "
-            "memory puts the support at finite τ. So the single-exponential FORM "
-            "is not a free ansatz — it is the only shape Q allows. The SINGLE pole "
-            "(one relaxation channel) is the minimal Herglotz measure and is "
-            "IDENTICALLY the single-mode spectrum (vacuum_spectrum_pole_classification): "
-            "F's single-pole content and the no-derived-dark-matter verdict are "
-            "THE SAME postulate. The VALUE τ₀ stays anchored — and its "
-            "irreducibility is established (tau_zero_to_tau_micro_relation_open_question, "
-            "Option B): the τ₀↔τ_micro bridge is non-viable, so τ₀ is GRUT's one "
-            "fundamental scale, not a pending derivation. Consequence: F is "
-            "not a free functional postulate; it reduces to Q-derived form + ONE "
-            "channel-counting postulate (= single-mode) + the anchored scale τ₀ — "
-            "a v3 reframing that partly dissolves F into a consequence of Q."
+            "DERIVING F (June 2026; corrected + extended in Phase III). The FORM "
+            "of the finite-memory kernel χ(ω)=1/(1−iωτ₀) follows from Q + a "
+            "timescale-separation argument, leaving only the VALUE τ₀ as an input. "
+            "Q (CTP unitarity → fluctuation-dissipation, noise kernel N≥0) forces "
+            "the response to be CAUSAL (analytic in the upper half ω-plane; pole "
+            "at ω=−i/τ₀, lower half) and PASSIVE (Im χ(ω)≥0 for ω>0) — i.e. a "
+            "HERGLOTZ function. CORRECTION (the earlier wording over-reached): "
+            "Herglotz/Nevanlinna gives only the integral FORM; it does NOT force a "
+            "POSITIVE Debye superposition (χ=∫dμ(τ)/(1−iωτ), dμ≥0). That "
+            "positivity is COMPLETE MONOTONICITY (Bernstein/Hausdorff–Widder), "
+            "STRICTLY STRONGER than passivity — a passive kernel can have a "
+            "NEGATIVE Debye weight or off-axis poles (verified numerically: "
+            "1/(1−iωτ₀−ω²τ₁²) is passive yet decomposes with a negative weight, "
+            "and the damped oscillator is passive with off-axis poles). So "
+            "single-pole-ness is NOT a theorem of Q alone. PHASE III closes the "
+            "gap: the Mori–Zwanzig reduction of the slow responsive variable (TT "
+            "memory) DERIVES the first-order law as the MARKOVIAN limit — "
+            "χ∝1/(K̃(ω)−iω) with K̃≈1/τ₀ — exact to O(τ_K/τ₀), where τ_K (the "
+            "orthogonal-force/memory correlation time) is the micro scale; an "
+            "off-axis (dark-capable) pole requires τ_K>τ₀/4 (a resonant, "
+            "non-dissipative memory = a foundational extension), which the "
+            "τ_micro≪τ₀ hierarchy (~1e-34) forbids. So F's single-pole content is "
+            "DERIVED from Q + the slow/fast dissipative separation, not merely "
+            "postulated (see first_order_from_mori_zwanzig). The VALUE τ₀ stays "
+            "anchored — irreducibility established (Option B). Consequence: F "
+            "reduces to Q-derived form + the MZ Markovian derivation (controlled "
+            "by the irreducible τ_micro≪τ₀ hierarchy) + the anchored scale τ₀."
         ),
         tier="computed",
         refs=(
-            "theory/GRUT_V3_SPECTRUM_PROGRAM.md (Deriving F section)",
+            "theory/GRUT_V3_SPECTRUM_PROGRAM.md (Deriving F + Phase III sections)",
             "grut/derivation/phi_munu/pole_spectrum.py",
+            "grut/derivation/phi_munu/mori_zwanzig_kernel.py",
         ),
         tests=(
             "tests/derivation/phi_munu/test_pole_spectrum.py",
+            "tests/derivation/phi_munu/test_mori_zwanzig_kernel.py",
         ),
         deps=(
             "vacuum_spectrum_pole_classification",
+            "first_order_from_mori_zwanzig",
             "memory_kernel_form",
             "ctp_action_structure",
         ),
         falsifier=(
-            "The form-derivation fails if a causal, passive (Q-admissible) "
-            "response existed that is NOT a positive Debye superposition — none "
-            "does (Herglotz/Nevanlinna theorem). The reduction of F's single-pole "
-            "content to one postulate is exact given the #poles=#channels identity. "
-            "τ₀ remains the one anchored input; the τ₀↔τ_micro bridge is closed "
-            "as non-viable (Option B), so deriving τ₀ would require deeper "
-            "microscopic physics beyond GRUT, not a derivation within it."
+            "The form-derivation no longer claims passive ⇒ positive-Debye (that "
+            "converse is FALSE — disproved numerically). The MZ Markovian "
+            "derivation of single-pole fails if the responsive variable were NOT "
+            "slow (τ_K≳τ₀/4), i.e. if the vacuum's memory kernel were itself "
+            "resonant/slow — a non-dissipative microscopic medium = a foundational "
+            "extension, not the dissipative responsive vacuum. τ₀ remains the one "
+            "anchored input; deriving it needs deeper microscopic physics "
+            "(Option B, non-viable within GRUT)."
         ),
         notes=(
-            "Sharpens GRUT's foundations: the dynamical inputs are Q (proven) + "
-            "the Herglotz form (derived) + one binary structural choice (single- "
-            "vs multi-channel = single-mode) + one number (τ₀). The 'form' of F is "
-            "a theorem of Q. τ₀'s irreducibility is established (Option B); a "
-            "within-GRUT derivation of τ₀ does not exist — it would require a "
-            "deeper microscopic theory of the medium (a foundational extension)."
+            "Sharpens AND corrects GRUT's foundations. The earlier 'passive ⇒ "
+            "positive Debye superposition' was a false converse (now fixed); the "
+            "single-pole content is instead DERIVED via the Mori–Zwanzig Markovian "
+            "limit (grut/derivation/phi_munu/mori_zwanzig_kernel.py, Phase III), "
+            "controlled by the irreducible τ_micro≪τ₀ hierarchy. Dynamical "
+            "inputs: Q (proven) + Herglotz form (derived) + MZ Markovian "
+            "reduction (derived, given the slow/fast separation) + one number τ₀ "
+            "(anchored). See propagating_relic_forbidden_pincer for why the dark "
+            "(propagating) pole is forbidden from the vacuum's own action."
         ),
     ),
     Claim(
@@ -5395,6 +5408,124 @@ REGISTRY: tuple[Claim, ...] = (
             "allowed only as an extension; NOT generated by the single-variable "
             "reduction; NOT required. Central single-vs-multi-mode question: "
             "ANSWERED — single-mode."
+        ),
+    ),
+    Claim(
+        id="first_order_from_mori_zwanzig",
+        chapter=9,
+        statement=(
+            "FIRST-ORDER FROM MORI–ZWANZIG (Spectrum Program, Phase III; June "
+            "2026). The frontier question 'WHY is the responsive vacuum "
+            "first-order?' is answered: first-order-ness is the MARKOVIAN limit of "
+            "the Mori–Zwanzig (MZ) memory function for the slow responsive variable "
+            "(TT memory), NOT a covariantization fiat. The generalized Langevin "
+            "equation ż=−∫K(t−s)z(s)ds+F(t) gives χ(ω)∝1/(K̃(ω)−iω); with a fast "
+            "memory kernel (K̃≈K̃(0)=1/τ₀) this is exactly the single GRUT pole "
+            "χ=1/(1−iωτ₀). The first non-Markovian rung K̃(ω)=(1/τ₀)/(1−iωτ_K) "
+            "gives χ∝(1−iωτ_K)/(1−iωτ₀−ω²τ₀τ_K) — the second-order kernel with "
+            "τ₁²=τ₀τ_K — whose poles go OFF-AXIS (oscillatory/dark-capable) iff "
+            "τ_K>τ₀/4, i.e. iff the memory kernel is SLOWER than ¼ the relaxation "
+            "time. By the 2nd FDT, K(t)=⟨F(0)F(t)⟩/⟨|z|²⟩ is the autocorrelation "
+            "of the orthogonal (fast) force, so for a genuine slow variable "
+            "τ_K≪τ₀ — GRUT's hierarchy τ_micro/τ₀~1e-34 — the two poles are BOTH "
+            "on the −i axis (relaxational, massless); the non-Markovian pole sits "
+            "at the fast scale ω≈−i/τ_K and is further suppressed in χ by a "
+            "numerator zero (near pole–zero cancellation). THEOREM: the MZ memory "
+            "function of a slow DISSIPATIVE variable cannot produce a dark-capable "
+            "(long-lived, off-axis) pole; the only escape (τ_K>τ₀/4, a resonant "
+            "non-dissipative memory) is a foundational extension, not the "
+            "responsive vacuum. So single-pole is DERIVED — controlled by the "
+            "irreducible τ_micro≪τ₀ hierarchy — converting the Phase II fiat into "
+            "a computation."
+        ),
+        tier="computed",
+        refs=(
+            "theory/GRUT_V3_SPECTRUM_PROGRAM.md (Phase III — Mori–Zwanzig)",
+            "grut/derivation/phi_munu/mori_zwanzig_kernel.py",
+        ),
+        tests=(
+            "tests/derivation/phi_munu/test_mori_zwanzig_kernel.py",
+        ),
+        deps=(
+            "vacuum_spectrum_pole_classification",
+            "memory_kernel_form",
+            "tau_zero_to_tau_micro_relation_open_question",
+        ),
+        falsifier=(
+            "Fails if the responsive vacuum's memory kernel were resonant/slow "
+            "(τ_K>τ₀/4) rather than fast-dissipative — but that contradicts the "
+            "slow/fast separation that DEFINES the MZ projection (and is a "
+            "non-dissipative medium = a foundational extension). Numerically the "
+            "off-axis threshold is exactly τ₀/4 and GRUT's τ_micro/τ₀~1e-34 puts "
+            "both poles deeply on-axis (verified, mori_zwanzig_kernel.verify())."
+        ),
+        notes=(
+            "Dynamical face of the Ostrogradsky+Q/FDT pincer "
+            "(propagating_relic_forbidden_pincer): the timescale hierarchy that "
+            "makes z slow is exactly what forces overdamping (single pole) and "
+            "forbids a vacuum-generated dark pole. Does NOT derive τ_micro (the "
+            "irreducible floor, Option B); uses it as the anchored small parameter."
+        ),
+    ),
+    Claim(
+        id="propagating_relic_forbidden_pincer",
+        chapter=9,
+        statement=(
+            "OSTROGRADSKY+Q PINCER (Spectrum Program, Phase III; June 2026). Two "
+            "physically distinct 'second poles' must be separated: (i) a TEMPORAL "
+            "damped resonance (ω only) — Q-ADMISSIBLE/passive but dissipative "
+            "(decays), NOT a relic; and (ii) a PROPAGATING relativistic pole "
+            "(ω²−c²k²=M², a stable long-lived mode atop the massless graviton) — "
+            "what dark matter requires. A vacuum-generated (ii) needs a "
+            "higher-spacetime-derivative TT operator (Stelle/Weyl², □ twice on h). "
+            "By OSTROGRADSKY (non-degenerate) its Hamiltonian is unbounded below = "
+            "a ghost; in propagator form 1/(p²(p²+M²))=(1/M²)[1/p²−1/(p²+M²)] the "
+            "massive residue is −1/M² (WRONG SIGN) ⇒ Im χ<0 at that pole ⇒ by FDT "
+            "N=2ℏcoth(ℏω/2kT)·Im χ<0 ⇒ violates Q (proven). So a propagating relic "
+            "from the vacuum's OWN action is FORBIDDEN. Every escape requires "
+            "IMPORTED structure: a degenerate (Horndeski/f(R)) completion leaves a "
+            "healthy SCALAR — killed independently by the projector No-Go "
+            "(μ_linear=1, dark sector confined to the tensor channel); dRGT "
+            "massive gravity gives a ghost-free massive tensor but needs a "
+            "non-dynamical fiducial reference metric (+Fierz–Pauli tuning) that "
+            "GRUT's one-dynamical-metric CTP action lacks. Hence a derived dark "
+            "sector requires a FOUNDATIONAL EXTENSION (a microscopic medium with "
+            "massive excitations / a second metric), never the responsive vacuum "
+            "deriving inertia."
+        ),
+        tier="conjectural",
+        refs=(
+            "theory/GRUT_V3_SPECTRUM_PROGRAM.md (Phase III — the pincer)",
+            "grut/derivation/phi_munu/pole_spectrum.py",
+            "grut/derivation/phi_munu/mori_zwanzig_kernel.py",
+        ),
+        tests=(
+            "tests/derivation/phi_munu/test_pole_spectrum.py",
+        ),
+        deps=(
+            "vacuum_spectrum_pole_classification",
+            "first_order_from_mori_zwanzig",
+            "locality_no_halo_theorem",
+        ),
+        falsifier=(
+            "THEOREM-MODULO-GAP (deliberately NOT tier=computed). The ghost "
+            "MECHANISM is computed/verified (Stelle residue −1/M² ⇒ Im χ<0 ⇒ "
+            "N<0). The OPEN gap: no in-repo Boulware–Deser/Hamiltonian constraint "
+            "analysis of a fully general covariant higher-derivative TT completion "
+            "of GRUT's action exists, and 'is a dRGT fiducial metric natural to "
+            "GRUT?' is a judgment call, not a theorem. Overturned if a ghost-free, "
+            "causal, passive, FINITE-MEMORY completion with a genuine new "
+            "long-lived propagating pole is built from GRUT's own structure (no "
+            "imported field/metric) — the adversarial search found none."
+        ),
+        notes=(
+            "Tier=conjectural (not computed) honors the 'theorem-modulo-gap' "
+            "verdict. The dynamical companion first_order_from_mori_zwanzig "
+            "(computed) reaches the same conclusion from the timescale hierarchy. "
+            "This work also CORRECTED the pole classifier: "
+            "pole_spectrum.admits_dark_capable_mode now requires LONG-LIVED "
+            "(width≪mass), not off-axis location alone — a damped resonance is "
+            "not a relic."
         ),
     ),
     Claim(
