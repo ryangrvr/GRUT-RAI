@@ -2,6 +2,15 @@
 
 **Opened:** June 2026 · branch `main_v3` · the first *foundational extension* beyond v3.
 
+> **⚠️ DEMOTED by the v4 founding derivation (see `GRUT_V4_FOUNDING_CHARTER.md`, June 2026).** The
+> inverse-problem analysis found the elastic-**SOLID** thesis below is **not forced** and is in *tension*
+> with v3: v3's memory F is a Maxwell **FLUID** (static TT shear modulus G_TT(ω→0)→0), so a solid with the
+> "forced" G₀ ≈ 10¹⁶ Pa would propagate shear waves at all frequencies and contradict v3's diffusive
+> memory. The solid is therefore ONE of ≥4 degenerate medium classes and G₀ > 0 is an **unpaid postulate**,
+> not a v3 output. Read this document as a *candidate* within the founding charter's program, not the
+> settled v4 thesis. The charter's paid-for content is the unification (v3's 7 targets → 4 inputs) and the
+> coarse-graining language; the elastic-solid/dark-sector direction is still owed a justification.
+
 v3 closed its dark-sector question by theorem: the responsive vacuum is single-mode (Phase III,
 Mori–Zwanzig), so dark matter is a **hosted input**, not vacuum-derived. v4 asks the only question that
 can change that: **does a microscopic medium beneath the vacuum host a genuine new mode?** This document
