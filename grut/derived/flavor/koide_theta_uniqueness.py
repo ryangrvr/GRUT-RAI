@@ -9,8 +9,13 @@ charged-lepton masses via
     √m_k = M₀ (1 + √2 cos(θ + 2π k/3)),   k = 0, 1, 2
 
 The Koide trace ratio K = 2/3 is an algebraic identity of this
-parameterization for any θ (and N = 3 is the unique integer for which K
-is phase-independent — both PROVEN).  The fitted phase
+parameterization for any θ (PROVEN).  Phase-independence of K is NOT
+unique to N = 3: K_N = (1 + r²/2)/N is θ-independent for every N ≥ 3
+(only N = 2 is phase-dependent), verified numerically.  What IS unique to
+N = 3 is the *value* K = 2/3 (with the √2 amplitude, K_N = 2/N).  So
+phase-independence is necessary, not sufficient — it does not by itself
+select N = 3; the generation count N_gen remains a HOSTED input
+(see theory/GRUT_V4_SPINE.md §3).  The fitted phase
 
     θ_fit  = 2.316616297914854 rad            (THETA_FIT_RAD, canonical ordering)
 

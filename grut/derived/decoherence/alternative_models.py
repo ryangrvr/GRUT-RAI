@@ -17,7 +17,7 @@ grut/derived/decoherence/):
     F1 — Mass-squared:       Λ_grav ∝ m²
     F2 — Geometry:           S(l/R) = min(1, (l/R)³/6) (cubic onset)
     F3 — Plateau:            Λ_grav saturates at large R, value ≈ 689 Hz
-                              at the gold-benchmark parameters (m = 80.8 fg,
+                              at the gold-benchmark parameters (m = 80.8 pg,
                               l = 1 μm). The 689 Hz is GRUT's prediction
                               with τ_0 = 41.9 Myr; competing models reach
                               A plateau but the value is a free parameter.
@@ -116,7 +116,7 @@ SIX_LAWS: tuple[ScalingLaw, ...] = (
         name="Plateau value",
         description=(
             "Λ_grav saturates at ~689 Hz at the gold-benchmark "
-            "parameters (m = 80.8 fg, l = 1 μm). Strict criterion: "
+            "parameters (m = 80.8 pg, l = 1 μm). Strict criterion: "
             "the specific 689 Hz value is predicted with zero free "
             "parameters (i.e. τ_0 is fixed by the framework, not "
             "tuned to data)."

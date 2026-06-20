@@ -332,7 +332,7 @@ PREDICTIONS: tuple[Prediction, ...] = (
         name="Decoherence plateau (PRIMARY FALSIFIER)",
         chapter=5,
         category="Decoherence (laboratory)",
-        grut_value="Λ_grav ≈ 689 Hz at gold-benchmark (m=80.8 fg, l=1 μm)",
+        grut_value="Λ_grav ≈ 689 Hz at gold-benchmark (m=80.8 pg, l=1 μm)",
         observed_value="not yet measured (MAQRO, MAGIS-100 in progress)",
         fractional_diff="—",
         status="untested",

@@ -127,7 +127,7 @@ def falsifier_2_tau_0_consistency(measured_tau_0_myr=None, tolerance_pct=5.0):
         "status":           status,
         "experimental_program": (
             "Decoherence plateau at 689 Hz for gold microsphere "
-            "(m=80.8 fg, l=R=1 μm). Six scaling laws verify GRUT vs "
+            "(m=80.8 pg, l=R=1 μm). Six scaling laws verify GRUT vs "
             "competitors. Feasibility: 5–10 years (next-gen optomechanics)."
         ),
     }
