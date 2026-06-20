@@ -314,7 +314,7 @@ GATE_CONDITIONS_WITH_EVIDENCE = [
     {
         "id":         "G2",
         "question":   "Does the C_cosmo term project onto the S^4 bulk?",
-        "answer":     "YES — the constitutive kernel K^R = alpha_vac * P^TT projects onto S^4 conformal mode",
+        "answer":     "YES — n_g(0)^2 = 1 + alpha_vac = 4/3 = Vol(S^4)/Vol(S^3) ties alpha_vac to the S^4 bulk; NB K^R = alpha_vac*chi*P^TT and P^TT is tracefree, so the conformal-mode-as-IR-carrier reading is a POSTULATE (antecedent OPEN)",
         "mechanism":  "n_g(0)^2 = 1 + alpha_vac = 4/3 = Vol(S^4)/Vol(S^3) [D=4 coincidence]",
         "evidence":   "grut/foundation/closure_protocol.py: R_REFRACTIVE = sqrt(4/3) via constitutive kernel",
         "status":     "SUPPORTED_BY_CONSTITUTIVE_KERNEL",

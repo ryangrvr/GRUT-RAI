@@ -82,10 +82,12 @@ What is verified (structural properties)
    PRESERVED structurally — not just verified on a single mode
    plane wave (gr_recovery.py's existing weaker check).
 
-5. **α_vac = 1/3 reproduced**: the trace of the projector P^TT_μνρσ
-   contracted with η^μν η^ρσ — the conformal-mode amplitude — gives
-   the framework's n_g(0)² = 1 + α_vac = 4/3 enhancement at DC,
-   consistent with the conformal-mode-scalar identification.
+5. **α_vac = 1/3 enters as the DC normalization**: at DC the susceptibility
+   gives n_g(0)² = 1 + α_vac = 4/3 (χ(0) = α_vac, the adopted multiplicative
+   normalization). NB P^TT is tracefree, so it does NOT carry the trace/
+   conformal mode; the conformal-mode-scalar identification that would FIX
+   α_vac = 1/3 is a POSTULATE (candidate-selected; antecedent OPEN — see
+   theory/GRUT_ALPHA_ANTECEDENT_FEASIBILITY.md), not established here.
 
 ─────────────────────────────────────────────────────────────────────
 What this derivation does NOT do

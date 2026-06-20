@@ -51,9 +51,11 @@ and α_vac. Their provenance:
       → 49 Myr (within 17%). The earlier "DERIVED from V7 §18 CTP
       noise kernel at gold benchmark" framing was misleading — see
       theory/foundations_audit/TAU_0_PROVENANCE.md.
-    - α_vac = 1/3 derives from the conformal-mode-scalar identification:
-      the gravitational conformal mode acts as the IR carrier of vacuum
-      response, and KS 2011 establishes a/c = 1/3 exactly for a single
+    - α_vac = 1/3 follows CONDITIONALLY from the conformal-mode-scalar
+      postulate (the gravitational conformal mode acts as the IR carrier of
+      vacuum response — candidate-selected, antecedent OPEN; see
+      theory/GRUT_ALPHA_ANTECEDENT_FEASIBILITY.md). GIVEN that postulate,
+      KS 2011 establishes a/c = 1/3 exactly for a single
       real conformally-coupled scalar (theory/foundations_audit/
       ALPHA_VAC_PROVENANCE.md preserves the v6.0 numerical-discovery
       history alongside this canonical derivation).
@@ -102,11 +104,13 @@ from grut.foundation.constants import C as C_LIGHT, G as G_NEWTON, HBAR, K_B, E_
 # ────────────────────────────────────────────────────────────────────
 
 ALPHA_VAC: float = 1.0 / 3.0                 # DERIVED under postulate; else AXIOM (see docstring)
-"""Vacuum impedance — DERIVED via conformal-mode scalar identification.
+"""Vacuum impedance — ADOPTED axiom; conditional theorem via conformal-mode scalar.
 
-Physical derivation (canonical):
-The gravitational conformal mode is identified as the IR carrier of
-vacuum response. KS 2011 (Komargodski-Schwimmer; trace anomaly for
+Physical provenance (conditional):
+The gravitational conformal mode is POSITED as the IR carrier of
+vacuum response (candidate-selected; antecedent OPEN — see
+theory/GRUT_ALPHA_ANTECEDENT_FEASIBILITY.md). GIVEN that postulate,
+KS 2011 (Komargodski-Schwimmer; trace anomaly for
 4D CFTs) establishes that a single real conformally-coupled scalar
 has trace-anomaly coefficient ratio a/c = 1/3 exactly. Under this
 identification, α_vac = a/c = 1/3 is a principled consequence of
