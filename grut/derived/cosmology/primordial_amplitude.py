@@ -19,8 +19,10 @@ Path A — OU-process variance (linearized constitutive equation):
     The constitutive equation around z = 0 with KMS noise reduces to
     an Ornstein-Uhlenbeck process:
             τ₀ ḣ + h = ξ(t),  ⟨ξ(t)ξ(t')⟩ = N_T(t-t')
-    The static variance ⟨h²⟩ is computable. We evaluate at T = T_c
-    (the natural framework temperature where ℏ/τ₀ = k_B T_c) and at
+    The static variance ⟨h²⟩ is computable. We evaluate at T = T_peak
+    (the τ₀-dual temperature where ℏ/τ₀ = k_B T_peak ≈ 5.78e-27 K — the
+    NATURAL noise temperature for an OU process of relaxation time τ₀,
+    NOT the 54.7 MK thermal-transition T_c) and at
     T = T_CMB (today's relevant background temperature for surviving
     modes). To make the variance dimensionless (matching A_s), we
     rescale by the Planck energy density (ρ_Pl × τ₀³ — the only
@@ -79,6 +81,7 @@ from grut.foundation.closure_protocol import (
     TAU_0_SEC,
     TAU_LAMBDA_SEC,
 )
+from grut.foundation.tau_hierarchy_decision import T_PEAK_NOISE_KERNEL_K
 
 
 # ─────────────────────────────────────────────────────────────────────
@@ -101,8 +104,12 @@ E_PLANCK_REDUCED: float = M_PLANCK_REDUCED * C_LIGHT**2
 # H_inf_today = (2 - R)/(S × τ₀) — the framework's terminal velocity.
 H_INF_HZ: float = (2.0 - R_REFRACTIVE) / (S_SCREENING * TAU_0_SEC)
 
-# T_c — the "boiling point of gravity": k_B T_c = ℏ / τ₀.
-T_C_KELVIN: float = HBAR / (TAU_0_SEC * K_B)
+# T_peak — the τ₀-dual temperature where k_B T = ℏ/τ₀ ("boiling point
+# of gravity"), ≈5.78e-27 K. This is the natural KMS-noise temperature
+# for the OU process below (whose relaxation time IS τ₀). It is NOT the
+# 54.7 MK thermal-transition T_c (closure_protocol.T_C_KELVIN_CANONICAL,
+# the τ_micro-dual). Single source of truth: tau_hierarchy_decision.
+T_PEAK_KELVIN: float = T_PEAK_NOISE_KERNEL_K  # == HBAR / (TAU_0_SEC * K_B)
 
 
 # ─────────────────────────────────────────────────────────────────────
@@ -194,15 +201,17 @@ def ou_variance_h_dimensional(
 def path_a_ou_variance() -> dict:
     """Path A: stationary variance of OU process driven by KMS noise.
 
-    Evaluated at T = T_c (framework-natural) and T = T_CMB (today)."""
-    at_Tc = ou_variance_h_dimensional(T_kelvin=T_C_KELVIN)
+    Evaluated at T = T_peak (the τ₀-dual framework temperature, not the
+    54.7 MK T_c) and at T = T_CMB (today). The 'at_T_c' result key is
+    retained for API stability but holds the T_peak evaluation."""
+    at_Tpeak = ou_variance_h_dimensional(T_kelvin=T_PEAK_KELVIN)
     at_TCMB = ou_variance_h_dimensional(T_kelvin=T_CMB_K)
 
     return {
         "name": "OU-process variance from KMS noise kernel",
-        "at_T_c": at_Tc,
+        "at_T_c": at_Tpeak,
         "at_T_CMB": at_TCMB,
-        "vs_A_s_at_Tc": at_Tc["dimensionless_planck_normed"] / A_S_PLANCK_2018,
+        "vs_A_s_at_Tc": at_Tpeak["dimensionless_planck_normed"] / A_S_PLANCK_2018,
         "vs_A_s_at_TCMB": at_TCMB["dimensionless_planck_normed"] / A_S_PLANCK_2018,
     }
 
@@ -296,8 +305,10 @@ def path_c_dimensional_ratios() -> dict:
     # parameter; equals (2-R)/S = 0.845/108π ≈ 2.49e-3.
     H_inf_tau = H_INF_HZ * TAU_0_SEC
 
-    # T_c-related ratios
-    kT_c_over_E_Pl = K_B * T_C_KELVIN / E_PLANCK
+    # T_peak-related ratios (τ₀-dual temperature; candidate name kept as
+    # "kT_c_over_E_Pl" for API stability — the formula ℏ/(τ₀ E_Pl) is
+    # explicit, so no ambiguity with the 54.7 MK thermal-transition T_c).
+    kT_c_over_E_Pl = K_B * T_PEAK_KELVIN / E_PLANCK
     tau_0_over_t_Pl = TAU_0_SEC / T_PLANCK
 
     candidates = [

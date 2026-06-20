@@ -261,6 +261,12 @@ do, and nothing less is claimed.
   which in the foundation means 54.7 MK, for a different physical quantity.
   Recommended fix: rename to `T_PEAK_KELVIN`. (It feeds `ou_variance_h_dimensional`
   and the A_s evaluation "at T=T_c," so the collision is worth resolving.)
+  **RESOLVED:** the local constant is now `T_PEAK_KELVIN`, imported from
+  `tau_hierarchy_decision.T_PEAK_NOISE_KERNEL_K` (single source of truth) with a
+  comment marking it the τ₀-dual temperature, NOT the 54.7 MK T_c. Diagnosis
+  re-verified before the change (intent is T_peak — the OU process's relaxation
+  time is τ₀, and the docstring defines the eval point as "where ℏ/τ₀ = k_B T_c").
+  A_s outputs unchanged (value was bit-identical); 66 tests pass. No numerical bug.
 - **`grut/derivation/phi_munu/mori_zwanzig_kernel.py:68-69`** hardcodes τ₀ and
   τ_micro rather than importing `closure_protocol` constants (values consistent;
   duplication).

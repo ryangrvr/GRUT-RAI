@@ -22,7 +22,7 @@ from grut.derived.cosmology.primordial_amplitude import (
     H_INF_HZ,
     H_TAU_FROM_NS,
     M_PLANCK_REDUCED,
-    T_C_KELVIN,
+    T_PEAK_KELVIN,
     T_CMB_K,
     kms_noise_amplitude,
     ou_variance_h_dimensional,
@@ -45,13 +45,13 @@ class TestReferenceConstants:
     def test_T_CMB_today(self):
         assert abs(T_CMB_K - 2.7255) < 1e-3
 
-    def test_T_c_matches_framework(self):
-        # T_c = ℏ/(τ₀ k_B). With τ₀ = 41.9 Myr, T_c ≈ 5.78e-27 K.
-        # NOTE: this is the THEORETICAL T_c at the framework's
-        # cosmic-baseline τ₀ — extremely cold, well below CMB.
-        # The 54.7 MK "boiling point of gravity" elsewhere uses a
-        # different τ₀ scale.
-        assert 1e-30 < T_C_KELVIN < 1e-23
+    def test_T_peak_matches_framework(self):
+        # T_peak = ℏ/(τ₀ k_B). With τ₀ = 41.9 Myr, T_peak ≈ 5.78e-27 K —
+        # the τ₀-dual temperature ("boiling point of gravity"), extremely
+        # cold, well below CMB. This is NOT the 54.7 MK thermal-transition
+        # T_c (the τ_micro-dual); the two differ by ~34 orders of magnitude.
+        # Single source of truth: tau_hierarchy_decision.T_PEAK_NOISE_KERNEL_K.
+        assert 1e-30 < T_PEAK_KELVIN < 1e-23
 
     def test_H_inf_terminal_velocity_in_correct_range(self):
         # H_inf = (2-R)/(S × τ₀) ≈ 1.88e-18 Hz
