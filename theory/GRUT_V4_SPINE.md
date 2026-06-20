@@ -17,17 +17,36 @@ the finished theories are built. The falsifiable rungs built on that stance are 
 *GRUT ToE vN*. This document is the v4 spine of that program. Where the prose says "GRUT
 derives," read it as "the deliverable, built on the umbrella principle, derives."
 
-**What makes it a Theory of Everything.** A ToE, in the sense meant here, is **not** a
-theory that *derives* everything. It is a theory that has a coherent, tiered **place** for
-everything, with a **sharp boundary**. The claim to ToE status lives in the completeness
-of the *map* and the sharpness of the *boundary* — not in omniscience. The places where
-GRUT must *receive* an input rather than make it, and the places where it *forbids*
-something from its own axioms, are not gaps in the story. They are the **seams** of a
-layered ontology showing through, and they are woven into the narrative as such: *here the
-universe makes X; here it must receive Y; here it forbids Z.* Anti-salesmanship is the
-point. A spine that quietly upgrades a HOSTED or OPEN result to DERIVED is the one failure
-mode that sinks the whole thing on contact with a referee, and this document is written to
-refuse that upgrade everywhere it is tempting.
+**What makes it a Theory of Everything — the destination, not the present state.**
+First, a tense correction this document holds to throughout: **GRUT ToE v4 is the current
+rung, not the arrival.** *GRUT* (the umbrella) is the program; the **GRUT ToE vN** are its
+falsifiable rungs; **a complete GRUT ToE is the *result* the program walks toward** as the
+open rungs close. Aiming at that destination is what any serious program is entitled to do;
+asserting one has arrived is not. So nothing below should be read as "v4 *is* the finished
+theory of everything" — it is the latest honest map.
+
+Second, what *kind* of completeness the destination has. A ToE, in the sense meant here, is
+**not** a theory that *derives* everything. It is a theory that has a coherent, tiered
+**place** for everything, with a **sharp boundary** — completeness of the *map*, not
+omniscience. And this is a **deliberate commitment, not a shortfall**: GRUT's defining
+minimalism (one dynamical metric, one memory channel, Q) *forbids* the moves a
+derive-everything ToE would require, so the completed GRUT ToE is a complete tiered **map**
+by construction. The places where GRUT must *receive* an input (HOSTED) or *forbids*
+something from its own axioms (FORBIDDEN) are not gaps in the story. They are the **seams**
+of a layered ontology showing through, woven into the narrative as such: *here the universe
+makes X; here it must receive Y; here it forbids Z.*
+
+Third, adaptability — stated precisely so it is not a loophole. Some walls are **postulates**
+(single-mode is a channel-counting choice) and genuinely move with more work; those OPEN
+cells are the rungs. Others are **theorems** (locality/no-halo; the propagating-relic
+pincer) and move only by breaking a premise — Q or locality — which does not "adapt" the
+theory but builds a **successor layer** (e.g. the microscopic bath F(t) *beneath* the
+vacuum, where those theorems have no jurisdiction). The GRUT umbrella encompasses that
+downward growth, so "complete" can *deepen* across versions; but each deliverable vN states
+honestly which cells it derives, hosts, and forbids *today*. Anti-salesmanship is the point:
+a spine that quietly upgrades a HOSTED or OPEN result to DERIVED is the one failure mode
+that sinks the whole thing on contact with a referee, and this document refuses that upgrade
+everywhere it is tempting.
 
 ### The boundary legend (five tiers)
 
@@ -812,8 +831,11 @@ reason this document can claim ToE status without claiming omniscience.
 The through-line, restated one last time: **responding → memory → time → vacuum → structure →
 observers** — with the no-gos carried not as embarrassments but as the load-bearing seams that
 make the map complete and the boundary sharp. That completeness and that sharpness, together,
-are what make GRUT ToE v4 a Theory of Everything in the only sense that survives contact with
-a referee.
+are the kind of Theory of Everything a *complete* GRUT ToE will be — in the only sense that
+survives contact with a referee. v4 is the rung that has walked the universe end-to-end and
+tiered every step; the destination is the same map with fewer OPEN cells. It arrives not when
+GRUT derives everything — its own minimalism forbids that — but when every cell is settled at
+the standing it has earned.
 
 ---
 
