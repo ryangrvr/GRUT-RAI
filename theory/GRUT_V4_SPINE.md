@@ -862,4 +862,4 @@ All checked against `.venv/bin/python` at authoring time:
 - G₀ = ℏ/(c³ τ_micro⁴) = 1.0294 × 10¹⁶ Pa, computed with the exact τ_micro = ℏ/(k_B·T_c) = 1.39639 × 10⁻¹⁹ s (NOT the rounded 1.4 × 10⁻¹⁹ s, which gives ≈ 1.02 × 10¹⁶); c_s/c = 1.0; warm gap = 4.71 keV
 - η_B route ≈ 6.57 × 10⁻¹⁰ vs Planck 6.10 × 10⁻¹⁰ (+7.7%)
 - a₀ = cH₀/(2π) ≈ 1.06 × 10⁻¹⁰ m/s²; H₀ ≈ 68.8 km/s/Mpc
-- Registry tier census (exact, `Counter(c.tier for c in REGISTRY)`): 50 computed, 28 open_negative, 18 anchored, 11 conjectural, 10 meta, 4 foundational = 121 claims
+- Registry tier census (exact, `Counter(c.tier for c in REGISTRY)`): 49 computed, 28 open_negative, 19 anchored, 11 conjectural, 10 meta, 4 foundational = 121 claims

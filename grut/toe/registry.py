@@ -2932,7 +2932,7 @@ REGISTRY: tuple[Claim, ...] = (
             "≈ 9 meV, below current KATRIN limit 0.45 eV but within "
             "reach of future Project 8 precision."
         ),
-        tier="computed",
+        tier="anchored",
         refs=(
             "grut/derived/koide/neutrino_hierarchy.py",
             "theory/derivation/CORRECTION_28_NEUTRINO_HIERARCHY.md",
