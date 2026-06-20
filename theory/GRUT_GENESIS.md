@@ -465,3 +465,52 @@ honest residue is unchanged from §§5/7 and carried faithfully: τ₀ anchored,
 measure problem, the finite-T MZ collapse still the decisive uncomputed dynamics, and no self-consistent
 thermalization of the onset. Next constructive target: the finite-T MZ memory-loss calculation that would
 promote f(T) from FDT-motivated proxy to derived turn-on dynamics.
+
+---
+
+# 9. The Keystone — Why a Long-Lived Relaxation Mode? (Phase 2)
+
+*The deepest question of the emergence program: how does a Q-only medium develop a long-lived relaxation
+mode — i.e. why does ONE channel fail to equilibrate, with τ₀ ≫ τ_micro (34 orders) — without inserting the
+hierarchy by hand? Four mechanism classes were tested (conserved-current/hydrodynamic, dimensional
+transmutation/RG, glassy/critical/weak-gravity), each judged forced-vs-relocated, under a ruthless
+numerology guard. Verdict: **PARTIAL**.*
+
+**What is FORCED (the genuine advance — no number tuned).**
+- **Existence of the slow channel.** The TT/shear metric memory is the response to the *conserved*
+  stress-energy T_μν, where ∂_μT^μν=0 is the diffeomorphism Ward identity — enforced by the *same* transverse
+  projector P^TT that defines Φ_μν (`linearized_ctp_action.py` ∂^μΦ_μν=0; `curved_background.py` ∇^μΦ_μν=0).
+  Conservation is part of Q; the slow channel's existence is not assumed but forced.
+- **Slow / gapless character.** Locked to a conserved current, the mode relaxes only by transport ⇒
+  hydrodynamically gapless, ω→0 as k→0 (Kadanoff–Martin; GRUT-specific via the `locality_no_halo` pole-free
+  -in-k² theorem).
+- **The hierarchy must be LARGE.** The Mori–Zwanzig existence condition (τ_K = τ₀/4 ≫ τ_micro) makes
+  **τ₀ ≫ τ_micro the validity condition of the slow/fast projection itself** — the one channel's
+  failure-to-equilibrate *is* the retained history. So GRUT forces ratio ≫ 4, and forces *why* one channel
+  fails to equilibrate — the qualitative half of the central question, without tuning.
+
+**What is NOT forced (the honest miss).**
+- **The SIZE** (the 34 orders; c = ln(τ₀/τ_micro) = 78.23) is not forced; it relocates verbatim into the IR
+  length L₀ = cτ₀ (the relaxation rate 1/τ₀ is k-independent; conservation says nothing about it).
+- **Not even the exponential (dimensional-transmutation) FORM** is instantiated: GRUT has **no β-function
+  carrying τ₀** — its only RG statement is that the τ₀ IR scale is *RG-protected* (`boltzmann_consistency.py`
+  L42–46), the *opposite* of an asymptotic-freedom flow. Transmutation is the right class in the abstract but
+  GRUT lacks the machinery to invoke it.
+- **τ₀ stays Option-B-anchored**: c = ln(τ₀/t_P) − ln(τ_micro/t_P) = 134.45 − 56.21 = 78.23, a difference of
+  two independently-anchored Planck-referenced empirical logs.
+
+**Numerology casualties (rejected, by the framework's own A_s standard, Ledger L295).** 🟥 The tempting
+**8π² = 78.96 (+0.92%)** is the *universal* one-instanton action 8π²/g²|_{g=1}, **not** a GRUT-distinctive
+constant (the structural π-constants are S=108π, C_FINAL, C_COSMO — 8π² is provably absent), and GRUT has no
+derived tunneling linking the τ_micro and τ₀ sectors — **rejected.** Likewise 25π, S/(2π)·ln S/4, and the
+"5 candidates within 2%" inflation (additive offsets = tuning). Decisive structural fact: c (transmutation
+exponent), E/k_BT (Arrhenius barrier), and the MZ bifurcation distance are **one empirical number,
+ln(τ₀/τ_micro), wearing three costumes.**
+
+**Status & next step.** Tier: **PARTIAL** — forced existence + character (Tier-1, nothing tuned); size and
+form OPEN; no derivation of τ₀ claimed; no v3/v4 result broken. This advances emergence-of-responsiveness
+from "smooth crossover *given* τ₀" (§8) to "a hierarchy that *must exist*, for a structural reason." The only
+route to a full forcing is to derive *one* of the two Planck-referenced logs — concretely, the thermal UV
+anchor ln(τ_micro/t_P)=56.2 (k_BT_c=4.71 keV) from a genuine Coleman–Weinberg condensation/running in GRUT's
+CTP sector with a *real* anomaly coefficient (GRUT's are O(3–7)), not one reverse-fit to 56 or 78. Until such
+a coefficient appears, the 34-order magnitude remains GRUT's deepest unexplained fact.
