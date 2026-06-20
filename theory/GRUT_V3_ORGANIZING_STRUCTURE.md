@@ -176,3 +176,68 @@ clause is locality + a residual spatial-dilatation redundancy, not new DNA, not 
 and *refuted* the high-pass-rescue corollary — but the **gauge status of the full CTP action**
 remains the open, load-bearing question. It is bigger than deriving α: α gives a number; this gives
 the organizing principle.
+
+### §6 UPDATE (June 2026) — ATTACKED (3 provers + 2 hostile referees). RESULT: THEOREM-MODULO-GAP.
+
+The genuinely new content the §6 question actually poses — *does the Keldysh/CTP doubling spoil the
+Weinberg adiabatic-mode redundancy?* — is answered **NO**, at high confidence and now **derived, not
+presupposed**:
+
+1. **Single branch (L₀→0):** `T_λ` (generator `ξ^μ=(0, λx^i)`) is the Weinberg (2003) adiabatic mode = a
+   **large/residual diffeomorphism** — preserves the cosmic-clock foliation, leaves `u^μ` fixed, carries no
+   time-shift (escapes Stewart–Walker), non-normalizable at `k=0` so it survives gauge-fixing. Bare GR+matter
+   branch action invariant. Acts **physically through its boundary charge** (`ℛ→ℛ+λ`; Maldacena soft factor
+   `1−n_s≠0`) ⇒ a **genuine gauge redundancy** (large subclass), **not** a global symmetry.
+2. **Doubling + measure (the new leg):** `T_λ` acts **diagonally** on `(φ₊,φ₋)↔(φ_c,φ_q)` — no c↔q mixing;
+   doubled measure Jacobian `|J|²=1` (diffeo, not Weyl, so the trace-anomaly/α object ≡1); **no 4D diffeo
+   anomaly** (`4∉{2,6,10,14}`). The influence functional **collapses to two decoupled diffeo-invariant
+   copies** at L₀→0 — driven by **Im χ→0 ⇒ noise N→0** (NB: χ→**1**, not 0; the cross-branch term is the
+   noise `−iN·h₊h₋`; the retarded term is branch-diagonal).
+3. **One-parameter theorem:** exact redundancy at L₀→0, broken at **O((L₀k_phys)²)** — one knob
+   `x=(L₀k_phys)²`. So D **does not collapse**; the refutation case is averted.
+
+**Residual GAP (the precise, undischarged residue — "presupposing Weinberg" RELOCATED, not eliminated):**
+the action+measure argument reaches the *dynamics* (`Z`'s evolution operators) but `Z=Tr[ρ U₊U₋]` is
+`T_λ`-invariant only if the **in-in initial state ρ** at the contour base is separate-universe invariant.
+That is inherited from the adiabatic/Bunch–Davies vacuum, **not yet derived from GRUT's structure**. This is
+the one load-bearing residue. *(Secondary, RESOLVED here: the apparent FDT contradiction is a notation
+collision — the influence-functional noise is `N∝coth·Im[K^R]→0`; `noise_kernel.py:fdt_noise=(2/τ)ℏω·coth`
+is the distinct **decoherence-sector force-noise**, consistent via `|χ|²`, not a contradiction.)*
+
+**Framing correction (bank it):** a pure redundancy cannot be "spontaneously broken"; L₀ **explicitly breaks
+the boundary charge** of the large-diffeo / adiabatic-mode invariance at O((L₀k_phys)²). So: *responsiveness
+= explicit breaking of the adiabatic-dilatation boundary charge by exactly one proper length L₀.*
+
+**Net:** D advances from "conjectured bridge whose breaking is established" to **"theorem-modulo-initial-
+state."** Genesis Epoch −3 stands; its upgrade from postulate to *full* derivation is now contingent on the
+single sharp question: **is the in-in initial state ρ separate-universe invariant, derivable from GRUT's CTP
+structure?** Verified symbolically (.venv): χ→1; Im χ∝ωτ₀→0; breaking=2λx/(1+x)²→O((L₀k_phys)²); 4∉{2,6,10,14};
+soft factor 1−n_s.
+
+### §6 GAP-1 UPDATE (ρ-invariance; June 2026) — RELOCATED to a standard condition (3 provers + 2 referees).
+
+The one residue above (the in-in initial state ρ) was attacked. RESULT: **theorem-modulo-standard-
+condition — GAP 1 does NOT close unconditionally; it relocates to the adiabatic/scale-free condition,
+which is field-wide, not a GRUT-specific arbitrary choice.**
+
+- **Adversarial correction (foreground):** T_λ is the SPATIAL dilatation (ξ^μ=(0,λx^i), no time-shift), so
+  it acts on the comoving profile P(k) / (L₀k_phys)² — **NOT** on the proper-time frequency ω. The natural
+  first argument (the genesis seed S₀(ω)=2ℏω is degree-1 homogeneous under ω→e^λω) is *correct but concerns
+  a transformation T_λ does not perform.* The right statement is spatial: a Gaussian state with comoving
+  power Δ²(k)∝k^{n_s−1} is T_λ-invariant **iff n_s=1** (verified, ratio e^{λ(1−n_s)}).
+- **Discharged:** a finite-temperature genesis ρ would break T_λ via amplitude redshift ((2/τ₀)ℏω→e^{−λ}),
+  but the proven §6 collapse Im χ→0 ⇒ N→0 removes T_phys (lim_{T→0} N_KMS=2ℏω/τ₀) — that branch is excluded.
+- **Undischarged residue (R1):** T_λρT_λ⁻¹=ρ holds **iff ρ is spatially homogeneous and scale-free in its
+  comoving profile (n_s=1, no intrinsic IR correlation length)** — the adiabatic/Hadamard/cosmological-
+  principle condition. This is NOT forced by Q (Q's invariance group is the q-axis, ⊥ the spatial T_λ) and
+  NOT forced by Hadamard alone (Bunch–Davies uniqueness does not transfer: Epoch −3 is the τ₀→0 scale-free
+  GR+KMS limit, not de Sitter; the de-Sitter/S⁴ structure is the α-sector, Bridge-D-orthogonal to T_λ). But
+  it IS internally identical to GRUT's own Epoch −3 definition (τ₀→0 = removal of the only scale).
+- **The floor (regress terminates here):** R1's residue is the **cosmological initial-conditions / measure
+  problem** (why a homogeneous scale-free state vs a scale-laden competitor) — partly open and **shared by
+  all of inflationary cosmology, not GRUT-specific.**
+
+**Net:** emergence of responsiveness/memory = derived in dynamics + measure, and in the initial state
+*modulo the adiabatic/scale-free-homogeneous-genesis condition.* One notch stronger than before (finite-T
+branch now discharged), one notch short of "forced from Q." Do NOT state GAP 1 as "closed." τ₀'s value
+remains independently irreducible.

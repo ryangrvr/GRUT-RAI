@@ -12,7 +12,7 @@ macroscopic gravitational τ_0 = 41.9 Myr by ~34 orders of magnitude.
 The pre-Correction-#22 form T_c = 1/(τ_0 × k_B) was dimensionally
 invalid; the value 54.7 MK is preserved exactly under the SI-correct
 formula because τ_micro is defined as ℏ/(k_B × T_c) with T_c anchored
-to the cosmological-chronology pin (T at t≈1 hour post-BB).
+to the cosmological-chronology pin (T at t≈16 hours post-BB).
 
 Above T_c, the vacuum is too "hot" to remember — gravitational response
 is local (standard GR). Below T_c, the memory kernel activates and the
@@ -20,7 +20,7 @@ metric develops bandwidth-limited response with n_g ≈ 1.1547 at DC.
 
 Cosmological chronology:
     t ≈ 1 s post-Big Bang:          T ~ 10⁹–10¹⁰ K, above T_c, no DM effects
-    t ≈ 1 h post-Big Bang:          T ~ T_c ≈ 5.5 × 10⁷ K, transition
+    t ≈ 16 h post-Big Bang:         T ~ T_c ≈ 5.5 × 10⁷ K, transition
     t ≈ 380 kyr (recombination):    T ~ 3000 K << T_c, deep refractive regime
     t = today (13.8 Gyr):           T = 2.725 K (CMB), n_g ≈ 1.1547 fully active
 
@@ -51,25 +51,47 @@ def in_memory_regime(T_Kelvin):
     """True if T < T_c, i.e., the vacuum is in the viscoelastic regime.
 
     This is a step-function approximation. The transition at T = T_c is
-    not sharp; see phase_transition_smoothness() for a more realistic
-    sigmoid.
+    not sharp; memory_activation_fraction() gives the derived finite-T
+    Mori–Zwanzig profile f(T) = tanh(T_c/2T).
     """
     return T_Kelvin < T_C_KELVIN
 
 
-def memory_activation_fraction(T_Kelvin, width=0.3):
-    """Smooth activation f(T) ∈ [0, 1] across T_c.
+def memory_activation_fraction(T_Kelvin):
+    """Finite-T memory-activation fraction f(T) ∈ (0, 1], from the
+    finite-temperature Mori–Zwanzig kernel — replaces the former ad-hoc sigmoid.
+    HONEST TIER (adversarially checked): the functional SHAPE follows from Q's
+    FDT/KMS structure GIVEN one physical identification — it is NOT a fully
+    parameter-free theorem; it trades the sigmoid's free width for a well-motivated
+    identification.
 
-    At T ≫ T_c: f → 0 (no memory, local GR).
-    At T ≪ T_c: f → 1 (full memory, refractive regime).
-    At T = T_c: f = 0.5.
+    Memory (the coherent single-pole response) survives to the extent that the
+    microscopic bath at ω_micro = 1/τ_micro is QUANTUM-coherent rather than
+    thermally re-randomized. The FDT/KMS factor splits the bath fluctuation into
+    a zero-point (coherent) and a thermal part:
+        coth(ℏω/2k_BT) = 1 + 2n(ω,T),   n = Bose occupation.
+    The activation = the coherent (zero-point) FRACTION at the micro scale:
+        f(T) = 1/coth(ℏω_micro/2k_BT) = tanh(T_c/2T),   k_B T_c ≡ ℏ/τ_micro.
+    STRONGEST SUPPORT: this is exactly GRUT's own T=0/finite-T noise ratio,
+    f(T) = N(ω_micro, 0) / N(ω_micro, T) with N = noise_kernel.fdt_noise — not an
+    imported formula. CAVEATS: (i) "activation = zero-point fraction" is a
+    well-motivated identification, not forced by FDT alone (the complement 1−tanh,
+    or a τ-ratio T_c/2πT, are a-priori alternatives); (ii) evaluated at the single
+    micro scale ω_micro (faithful to GRUT's single-pole/single-τ_micro structure;
+    a full bath spectral density would shift f(T_c) and the tail prefactor, not the
+    qualitative 1/T tail).
 
-    Uses sigmoid in ln(T_c/T) with characteristic width.
+    Limits: T ≪ T_c ⇒ f → 1 (full memory); T ≫ T_c ⇒ f → T_c/2T — a POWER-LAW
+    1/T tail from classical equipartition, NOT the sigmoid's exponential cutoff;
+    f(T_c) = tanh(½) = 0.4621 (a derived value, not the ad-hoc 0.5). The 1/T
+    tail leaves a small residual activation at T > T_c, but the physical memory
+    EFFECT f·α/(1+(ωτ_0)²) is bandwidth-protected: early-universe dynamics have
+    ωτ_0 ≫ 1, so the residual is suppressed by ~1/(ωτ_0)² and is negligible
+    (e.g. at BBN). See effective_n_g_with_thermal.
     """
     if T_Kelvin <= 0:
         return 1.0
-    x = np.log(T_C_KELVIN / T_Kelvin) / width
-    return 1.0 / (1.0 + np.exp(-x))
+    return float(np.tanh(T_C_KELVIN / (2.0 * T_Kelvin)))
 
 
 def effective_n_g_with_thermal(omega_Hz, T_Kelvin,
@@ -89,7 +111,7 @@ def cosmological_chronology():
     """Report the refractive enhancement at canonical cosmological epochs."""
     epochs = [
         ("plasma_era_BBN",           T_BBN_K,              "t ≈ 1 s"),
-        ("T_c_transition",           T_C_KELVIN,           "t ≈ 1 hour"),
+        ("T_c_transition",           T_C_KELVIN,           "t ≈ 16 hours"),
         ("matter_rad_equality",      T_MATTER_RAD_EQ_K,    "t ≈ 50 kyr"),
         ("recombination",            T_RECOMBINATION_K,    "t ≈ 380 kyr"),
         ("CMB_today",                T_CMB_TODAY_K,        "t ≈ 13.8 Gyr"),
@@ -111,15 +133,24 @@ def cosmological_chronology():
 
 
 def verify():
-    """Self-test thermal transition."""
+    """Self-test thermal transition (derived finite-T Mori–Zwanzig activation)."""
+    import math
+    # The physical memory EFFECT at BBN is bandwidth-protected: a BBN-dynamical
+    # frequency (ω ~ 1/t_BBN, here 1 Hz) has ωτ_0 ≫ 1, so n_g → 1 regardless of
+    # the f(T) power-law tail.
+    n_g_bbn = effective_n_g_with_thermal(1.0, T_BBN_K)
     checks = {
-        "T_c_is_54p7_MK":           abs(T_C_MK - 54.7) / 54.7 < 0.05,
-        "BBN_above_T_c":            T_BBN_K > T_C_KELVIN,
-        "recombination_below_T_c":  T_RECOMBINATION_K < T_C_KELVIN,
-        "CMB_today_below_T_c":      T_CMB_TODAY_K < T_C_KELVIN,
-        "activation_sigmoid_at_Tc": abs(memory_activation_fraction(T_C_KELVIN) - 0.5) < 0.01,
-        "activation_full_at_CMB":   memory_activation_fraction(T_CMB_TODAY_K) > 0.99,
-        "activation_zero_at_BBN":   memory_activation_fraction(T_BBN_K) < 0.01,
+        "T_c_is_54p7_MK":            abs(T_C_MK - 54.7) / 54.7 < 0.05,
+        "BBN_above_T_c":             T_BBN_K > T_C_KELVIN,
+        "recombination_below_T_c":   T_RECOMBINATION_K < T_C_KELVIN,
+        "CMB_today_below_T_c":       T_CMB_TODAY_K < T_C_KELVIN,
+        # DERIVED value at T_c is tanh(½), NOT the ad-hoc sigmoid's 0.5
+        "activation_at_Tc_is_tanh_half": abs(memory_activation_fraction(T_C_KELVIN) - math.tanh(0.5)) < 1e-9,
+        "activation_full_at_CMB":    memory_activation_fraction(T_CMB_TODAY_K) > 0.99,
+        # high-T behaviour is a POWER-LAW 1/T tail (tanh asymptote T_c/2T), not <0.01
+        "activation_power_law_tail": abs(memory_activation_fraction(T_BBN_K) - T_C_KELVIN / (2 * T_BBN_K)) < 1e-3,
+        # but the memory EFFECT at BBN is bandwidth-protected → n_g ≈ 1
+        "bbn_effect_bandwidth_protected": abs(n_g_bbn - 1.0) < 1e-9,
     }
     return checks
 

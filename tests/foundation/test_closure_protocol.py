@@ -56,7 +56,7 @@ class TestCanonicalConstants:
     def test_T_c_canonical_anchor_is_5p47e7_K(self):
         """T_C_KELVIN_CANONICAL = 5.47×10⁷ K — the empirical anchor.
 
-        This is the cosmological-chronology pin (T at t≈1 hour post-BB
+        This is the cosmological-chronology pin (T at t≈16 hours post-BB
         per V7 §0.5, V7 §22). T_C_KELVIN is computed from this canonical
         value via the SI-correct formula T_c = ℏ/(τ_micro × k_B).
         Pinning the canonical separately ensures the chain is verifiable
