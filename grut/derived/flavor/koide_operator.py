@@ -6,7 +6,10 @@ V7 §29 / V8 §9 establish that
 produces the Koide trace ratio
     K = (Σ m_k) / (Σ √m_k)² = 2/3                                         (2)
 as an algebraic identity of the Z₃ circulant structure, and that
-N = 3 is the unique integer for which K is phase-independent. The
+N = 3 is the unique integer for which K equals the empirical value 2/3.
+(Phase-independence of K is NOT what selects N = 3: K_N = (1+A²/2)/N is
+θ-independent for ALL N ≥ 3; with A = √2, K_N = 2/N, which matches the
+measured 2/3 only at N = 3.) The
 charged-lepton masses are reconstructed to 0.01% by the fit
     M₀_fit = 0.5602152503 GeV^(1/2)                                       (3a)
     θ_fit  = 2.31714…    rad   (≡ 0.2229… rad modulo 2π/3)                (3b)
@@ -1722,10 +1725,12 @@ def phase_4_scope_document() -> dict:
         ],
         "explicitly_ruled_out_framings": {
             "four_generation_extension": (
-                "V7 §9 PROVES N = 3 uniquely θ-independent for the "
-                "Z_3 circulant Koide identity. Adding a fourth fermion "
-                "generation breaks this identity, which is a PROVEN "
-                "algebraic result (verified to 2.3×10⁻¹⁶) and not a "
+                "V7 §9 PROVES N = 3 is the unique integer giving the "
+                "empirical Koide value K = 2/3 (θ-independence of K_N = 2/N "
+                "itself holds for all N ≥ 3; only the VALUE 2/3 selects "
+                "N = 3). Adding a fourth fermion generation gives K = 1/2, "
+                "breaking this empirical identity — a PROVEN algebraic "
+                "result (verified to 2.3×10⁻¹⁶) and not a "
                 "hypothesis. Any 'add a 4th generation' proposal "
                 "invalidates Phase 1's θ = K·α_vac = 2/9 candidate "
                 "AND the core Z_3 identity. Off-limits."
