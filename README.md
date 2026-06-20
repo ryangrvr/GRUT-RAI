@@ -33,7 +33,7 @@ derived from three independent routes (CTP variation, Mori-Zwanzig memory kernel
 | Baryon asymmetry | η_B = 6.57 × 10⁻¹⁰ (obs: 6.1 × 10⁻¹⁰) | COMPUTED (+8%) |
 | Dark matter | g_dark = 0.917, m_A = 387 MeV | CLOSED (Route 1, 5/5) |
 | Koide identity | K = 2/3 exactly | PROVEN (Z₃ algebraic) |
-| Three generations | N = 3 uniquely θ-independent | PROVEN |
+| Three generations | N = 3 uniquely gives Koide K = 2/3 | PROVEN |
 | SM emergence | Unique minimal EFT from 5 CTP constraints | COMPUTED |
 | Quantum gravity | 5/5 linearized closures (τ₀ branch) | STRUCTURAL |
 

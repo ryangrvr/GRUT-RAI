@@ -2560,7 +2560,7 @@ The following conjectures are GRUT-native — they arise from the framework's ow
 
 The 3-generation mass operator M_ij = d$z_{\text{target}}$_i/dz_j evaluated at the multi-flavor fixed point z* = $z_{\text{target}}$[z*] has eigenvalues that give the fermion masses. The Koide trace ratio K = 2/3 is the lowest trace invariant of this operator — PROVEN to be an identity of the Z_3 circulant structure (verified to 2.3 × $10^{-16}$ precision for all theta). The CKM and PMNS matrices arise from the mismatch between charged and neutral-sector eigenbases of M_ij.
 
-**What is proven:** K = 2/3 is a mathematical identity of the Z_3 parameterization. Lepton masses are reconstructed to 0.01% from M0 = 0.560 GeV^(1/2) and theta = 2.317 rad. N = 3 is the UNIQUE integer for which K is theta-independent.
+**What is proven:** K = 2/3 is a mathematical identity of the Z_3 parameterization. Lepton masses are reconstructed to 0.01% from M0 = 0.560 GeV^(1/2) and theta = 2.317 rad. N = 3 is the UNIQUE integer for which K equals the empirical value 2/3 (theta-independence of K_N = 2/N itself holds for all N ≥ 3; only the value 2/3 selects N = 3).
 
 **What remains:** Derive M0 and theta from the multi-generation CTP variation. No GRUT constant combination reproduces M0 to better than ~10%. Two free parameters per fermion sector remain.
 

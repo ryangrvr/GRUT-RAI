@@ -165,13 +165,13 @@ $N_{\rm gen} = 2$ fails CP violation. Removing SU(3) loses the confinement fixed
 
 ## 9. Three Generations and the Koide Identity
 
-**Proposition.** The Koide trace ratio $K = 2/3$ is an algebraic identity of the Z$_3$ circulant mass operator, and $N = 3$ is the unique integer for which $K$ is phase-independent.
+**Proposition.** The Koide trace ratio $K = 2/3$ is an algebraic identity of the Z$_3$ circulant mass operator, and $N = 3$ is the unique integer for which $K = 2/3$. (Phase-independence of $K$ is *not* what selects $N = 3$: $K_N = 2/N$ is $\theta$-independent for all $N \geq 3$; only the empirical value $2/3$ singles out $N = 3$.)
 
 **Derivation.** For the Koide parameterization $\sqrt{m_k} = M_0 \big(1 + \sqrt{2}\cos(\theta + 2\pi k/3)\big)$:
 
 $$\sum_k m_k = 6 M_0^2 \qquad \sum_k \sqrt{m_k} = 3 M_0 \qquad K \;=\; \frac{6 M_0^2}{(3 M_0)^2} \;=\; \frac{2}{3} \tag{14}$$
 
-(The sum $\sum_k \cos(\theta + 2\pi k/3) = 0$ for any $\theta$.) For $N \neq 3$: $K$ varies with $\theta$. For $N = 3$: $K = 2/3$ for ALL $\theta$.
+(The sums $\sum_k \cos(\theta + 2\pi k/N) = 0$ and $\sum_k \cos^2 = N/2$ hold for all $N \geq 3$, giving $K_N = (1 + A^2/2)/N = 2/N$, which is $\theta$-independent for every $N \geq 3$; only $N = 2$ is $\theta$-dependent.) The empirical value $K = 2/3$ singles out $N = 3$.
 
 **Status:** PROVEN (algebraic identity, verified to $2.3 \times 10^{-16}$). The Z$_3$ circulant reconstructs $(m_e, m_\mu, m_\tau)$ to 0.005% at $(M_0 = 0.560\,{\rm GeV}^{1/2}, \theta = 2.317\,{\rm rad})$. The two parameters $(M_0, \theta)$ remain open; Track II status in §9.1.
 
