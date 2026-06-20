@@ -80,7 +80,7 @@ def parse_md_with_images(body: str, S):
 
 HERE       = Path(__file__).resolve().parent
 INPUT_MD   = HERE / "GRUT_TOE_V3_upload.md"
-OUTPUT_PDF = HERE / "GRUT_TOE_V3.pdf"
+OUTPUT_PDF = HERE / "GRUT_TOE_V3.1.pdf"
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -268,7 +268,7 @@ def cover_page_v3(S):
         Spacer(1, 0.6 * inch),
         Paragraph("D. Ryan Grover", S["cvauth"]),
         Spacer(1, 0.15 * inch),
-        Paragraph(ff("June 2026  ·  GRUT ToE v3  ·  Candidate Framework"), S["cvauth"]),
+        Paragraph(ff("June 2026  ·  GRUT ToE v3.1  ·  Candidate Framework"), S["cvauth"]),
         Spacer(1, 0.8 * inch),
         HRFlowable(width="40%", thickness=0.5, color=g.C_BORDER,
                    hAlign='CENTER', spaceBefore=4, spaceAfter=16),
@@ -310,7 +310,7 @@ def build_v3(md_path: Path = INPUT_MD, out_path: Path = OUTPUT_PDF):
         toc=toc,
         pagesize=letter,
         leftMargin=g.ML, rightMargin=g.MR, topMargin=g.MT, bottomMargin=g.MB,
-        title="Grand Responsive Universe Theory — GRUT ToE v3",
+        title="Grand Responsive Universe Theory — GRUT ToE v3.1",
         author="D. Ryan Grover",
         subject="GRUT v3 — a constraint-defined candidate Theory of Everything",
         creator="GRUT PDF Generator v3 (reportlab)",

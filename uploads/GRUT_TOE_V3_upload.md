@@ -1,5 +1,5 @@
 # Grand Responsive Universe Theory
-## GRUT ToE v3 · Candidate Framework
+## GRUT ToE v3.1 · Candidate Framework
 
 *A Candidate Theory of Everything from a Viscoelastic Gravitational Medium with Finite Memory*
 
@@ -13,7 +13,7 @@
 > actually earned: **proven** (computed and tested), **postulated** (an adopted axiom), **anchored**
 > (fixed by observation, not derived), **conjectural** (plausible but unproven), or **open** (a stated,
 > unsolved problem). The companion technical edition (`theory/GRUT_TOE_V3.md`) and the machine-checked
-> claim registry (`grut/toe/registry.py`, 116 claims, 3,227 passing tests) are the backing for every
+> claim registry (`grut/toe/registry.py`, 121 claims, 3,200+ passing tests) are the backing for every
 > statement here. Nothing in this book is hoped-for; it is either done, assumed, or openly unfinished —
 > and it says which on every line.
 
@@ -22,11 +22,12 @@
 > **How GRUT is built, tested, and carried.** Everything in this book is carried by **GRUT-RAI** — the
 > *Responsive AI* research platform on which the theory is implemented as runnable code, not prose alone, so that
 > every quantitative statement can be computed, checked, and re-derived on demand. The platform rests on three
-> load-bearing parts. **The claim registry** (`grut/toe/registry.py`, 116 claims) is the spine: each record
+> load-bearing parts. **The claim registry** (`grut/toe/registry.py`, 121 claims) is the spine: each record
 > fixes the physical statement, the tier it has earned, the code that computes it, the tests that check it, the
 > claims it depends on, and the single observation that would falsify it — and every claim in this book is
-> backed, one-to-one, by such a record. **The test suite** (**3,227 passing tests**) is the conscience: every
-> *proven* result has at least one test that reproduces it from the code, and enforcement tests
+> backed, one-to-one, by such a record. **The test suite** (**3,200+ passing tests**) is the conscience: every
+> *proven* result has at least one test that reproduces it from the code (the suite has grown with the v3.1
+results), and enforcement tests
 > (`tests/toe/test_registry_completeness.py`, `tests/toe/test_ledger.py`) guarantee that no claim is ever left
 > unregistered, untested, or without a documented standing. **The open-question ledger** (`grut/toe/ledger.py`)
 > is the memory: each of the 28 open negatives is a live entry recording what would close it, the effort that
@@ -34,6 +35,20 @@
 > result that fails is demoted and logged, never quietly dropped. Registry, tests, and ledger are one source of
 > truth — the technical edition, this narrative, and the live research platform all draw from it, and nothing is
 > hand-curated or fitted away.
+
+---
+
+> **What's new in v3.1.** This edition folds in results that *matured* v3 without adding any new
+> postulate, and previews the foundational extension they opened. **Matured (same standing or stronger):**
+> the **Spectrum Program** — the dark-matter question reduced to one decidable spectral question (is the
+> responsive vacuum single-mode?) and answered *single-mode*, so dark matter is hosted **by theorem**, not
+> merely by exhausted search; the **first-order law derived** as the Markovian limit of the Mori–Zwanzig
+> reduction (controlled by the τ_micro ≪ τ₀ hierarchy); and two honestly-flagged corrections to v2-inherited
+> wording. **Advanced from open:** the **D-redundancy** (the L₀→0 gauge status) is now a *theorem-modulo-gap*
+> — the closed-time-path doubling provably does not spoil it; the lone residue is a standard initial-state
+> condition. **New (§11, preview only):** *how v3 enabled v4 and what v4 is built from* — the elastic vacuum
+> and the **emergence of responsiveness** (why the universe can remember at all), clearly labeled as a
+> postulated-tier research program, not a finished theory.
 
 ---
 
@@ -1073,6 +1088,8 @@ There is a precise path by which GRUT could recover a *derived* dark sector: it 
 
 The intellectual posture has therefore shifted from *search* to *statement*. The question "where does GRUT's dark matter come from?" now has a definitive answer within the theory: nowhere—not owing to weakness of mechanism, but owing to geometric constraint. The distinct and broader question of what dark matter *is* in physical reality remains open in physics at large, to be resolved by physics beyond a classical vacuum-response theory. GRUT's contribution is not an answer to that question but a sharp falsifiable constraint: whatever dark matter actually is, it is **not** the gravitational vacuum responding locally to curvature.
 
+**v3.1 sharpening — the Spectrum Program.** The locality verdict admits a sharper, spectral restatement that turns "no derived mechanism" into a theorem about the vacuum's mode content. A derived dark sector would require a *second stable pole* in the vacuum's response spectrum — a long-lived, massive, particle-like mode beyond the single relaxational pole the memory kernel provides. The question "does GRUT derive dark matter?" therefore reduces to one decidable question: **is the responsive vacuum single-mode or multi-mode?** The answer is single-mode — and not by assumption. The first-order constitutive law is the *Markovian limit* of the Mori–Zwanzig projection, forced by the 34-order separation between the microscopic and memory timescales (τ_micro ≪ τ₀): a slow variable relaxing against a fast bath yields exactly one relaxational pole, and coupling any number of such relaxational variables only redistributes poles along the dissipative axis — it never produces the off-axis (massive) pole a dark sector needs. A genuine second pole would require an *inertial* degree of freedom the vacuum does not contain — a matter-like field, which is precisely a hosted input. So dark matter is hosted not for want of a clever mechanism but **by theorem**: the responsive vacuum has one mode, and one mode cannot be both the cosmic memory and the dark matter. (Spectrum Program, Phases I–III; `theory/GRUT_V3_SPECTRUM_PROGRAM.md`, `grut/derivation/phi_munu/{pole_spectrum,mori_zwanzig_kernel}.py`. **Computed** tier.)
+
 ---
 
 ### 7.4 Technical Brief
@@ -1477,7 +1494,7 @@ GRUT follows this path. The most load-bearing open negatives are:
 
 - **Flavor and the Koide amplitude** — the Z₃ circulant structure in the lepton sector is derived; the amplitude of the Yukawa coupling is empirical input. Flavor physics is hosted from the Standard Model.
 
-- **The underlying adiabatic redundancy D** — presupposed from standard general-relativity machinery rather than re-derived from GRUT's CTP action from first principles. The proof that D is an exact gauge symmetry in the memoryless limit would convert D from a bridge to a proven pillar.
+- **The underlying adiabatic redundancy D** — *advanced in v3.1 to a theorem-modulo-gap.* It is no longer merely presupposed: the closed-time-path doubling provably does **not** spoil the long-wavelength dilatation redundancy in the memoryless limit — the transformation acts diagonally on both Keldysh branches, the path-integral measure is invariant (a diffeomorphism, not a Weyl rescaling; no four-dimensional anomaly), and the influence functional collapses to two diffeomorphism-invariant copies as the noise vanishes (Im χ → 0). The single remaining residue is that the in-in *initial state* be the standard adiabatic (scale-free) vacuum — a condition shared by all of cosmology, whose floor is the field-wide initial-conditions problem, not a GRUT-specific gap. Closing that last residue would convert D from a bridge to a proven pillar.
 
 The full ledger is recorded in `grut/toe/ledger.py`, with each entry carrying its closure condition and effort estimate. The framework does not pretend these gaps do not exist. They are the research frontier.
 
@@ -1489,7 +1506,7 @@ The path forward has three focal points, each carrying real difficulty and preci
 
 **First: the Riegert computation.** Deriving α = 1/3 from the conformal-mode functional determinant on the four-sphere S⁴. This requires mapping the fourth-order Paneitz operator to a loop integral, extracting the conformal-mode determinant carefully, and verifying that it yields a/c = 1/3 necessarily. If it does, the axiom graduates to a derived constant, and GRUT's foundational posture shifts from "postulated on one axiom" to "derived from the vacuum-response requirement and the CTP structure." If the true a/c is different — 2/5, 1/4, or another value — the framework requires revision. This is the load-bearing problem.
 
-**Second: the L₀ → 0 redundancy proof.** Independently re-deriving that the adiabatic spatial dilatation is a true gauge symmetry of GRUT's full closed-time-path action in the memoryless limit, not merely a presupposition inherited from general relativity. This would convert D from a conjectured bridge (whose breaking is proven) to a proven symmetry (whose breaking is separately established), unifying all three pillars under a single coherent structure. The theorem is structurally clear; the proof path is open.
+**Second: the L₀ → 0 redundancy proof — advanced in v3.1.** This edition establishes the load-bearing part: the adiabatic spatial dilatation survives GRUT's full closed-time-path doubling and its measure in the memoryless limit (a *theorem-modulo-gap*), not merely an inheritance from general relativity. What remains is a single, standard condition — that the in-in initial state be the adiabatic (scale-free) vacuum — rather than an open proof. Closing it converts D from a conjectured bridge (whose breaking is proven) to a proven symmetry, unifying all three pillars under one structure.
 
 **Third: R-routes completion.** Computing the third path (3-loop CTP via Allen–Jacobson propagators) numerically, to complete the two-route convergence at R = √(4/3). This would close a computational gap and test the framework's loop-level consistency at the full-theory level.
 
@@ -1549,13 +1566,79 @@ $$\text{OPEN: } S_{\text{CTP}}[g_{\mu\nu}(x)] = S_{\text{CTP}}[g_{\mu\nu}(e^{-\l
 
 This is presupposed from standard Weinberg machinery, but re-deriving it from GRUT's CTP formalism starting from the influence functional would close a structural gap and prove that D is a true symmetry of the theory, not merely an inheritance.
 
+**Update (v3.1) — largely established.** Re-derivation from the influence functional now shows the doubled action collapses to two diffeomorphism-invariant copies in the L₀→0 limit (the sole cross-branch term, the noise, vanishes via Im χ → 0), the dilatation acts diagonally with unit measure-Jacobian and no four-dimensional anomaly, so the Weinberg redundancy genuinely survives the closed-time-path doubling. The presupposition is thereby *relocated and sharpened*, not eliminated: the lone residue is that the initial-state density matrix ρ be separate-universe invariant — the standard adiabatic-vacuum condition, whose ultimate floor is the cosmological initial-conditions problem shared by all of inflationary cosmology.
+
+## 11. From v3 to v4 — A Preview of the Foundational Extension
+
+A candidate framework earns the right to a next version not by accumulating ambitions but by reaching a
+question it cannot answer without a new postulate. v3 has reached exactly one such question — and reached it
+honestly, by closing doors until a single door remained. This section is a preview, clearly labeled: it
+states what v3 *opened*, what v4 is being *built from*, and — in the same anti-salesmanship spirit as the
+rest of this book — what standing that work currently has. Nothing here is claimed as finished.
+
+### 11.1 How v3 enabled v4
+
+Two of v3's frontier results did more than close: they pointed, with precision, to where a next layer would
+have to live.
+
+**The dark sector located its own exit.** The Spectrum Program (§7) did not merely fail to find a
+dark-matter mechanism; it *computed where a derived one could exist* — a second stable pole in the vacuum's
+spectrum, which the single-mode theorem shows the responsive vacuum does not contain. A derived dark sector
+therefore requires an *inertial, matter-like degree of freedom* — something that lives **beneath** the
+responsive vacuum, in a microscopic medium the vacuum is the coarse-grained description of. v3 did not find
+dark matter; it derived the address at which v4 must look for it.
+
+**Responsiveness became a thing to be explained, not assumed.** The D-redundancy advance (§10) showed that
+the vacuum's *memory itself* — the property that makes it responsive — can be understood as the breaking of
+a symmetry (the adiabatic dilatation) by a single length L₀. Once memory is the *breaking* of something,
+the natural next question is the one upstream of dark energy, decoherence, the arrow of time, and the dark
+sector alike: **why does the universe possess a finite memory scale at all?** That is the genesis question,
+and it is deeper than dark matter.
+
+### 11.2 What v4 is built from
+
+**The elastic vacuum.** GRUT's vacuum is, by its own name, *viscoelastic* — yet v3 uses only the *viscous*
+(memory, dissipative) half. v4's minimal postulate is to activate the *elastic* half: a nonzero static
+shear rigidity, the medium behaving as a solid rather than a relaxing fluid. v3 is recovered exactly as the
+rigidity-vanishing corner, so nothing already established is disturbed. The honest status is a clean
+negative we record rather than hide: the rigidity scale comes out *forced* (from the existing micro scale),
+but its natural dark-matter prediction — a *warm*, ~keV relic that over-produces — is **refuted**. v4's
+elastic sector is a sharper *constraint*, not yet a success.
+
+**The Genesis — the emergence of responsiveness.** Walking the derived universe backward until
+responsiveness disappears yields a structurally-forced sequence of transitions and one clean invariant:
+**Q — closed-time-path unitarity — is the only thing that survives the loss of memory.** The arrow of time
+was always present; what switched on, as the cooling universe opened a slow/fast timescale gap, was
+*retention*. Responsiveness emerges as spontaneous scale-symmetry breaking, with the thermal turn-off now
+derived from the same fluctuation–dissipation structure (replacing the former ad-hoc profile). This — a
+near-derivation of *why the universe can remember at all* — is v4's real prize, and notably it is **not**
+dark matter. When the genesis was tested, blind, for a dark sector, none fell out: consistent with v3,
+dark matter remains a hosted input, now characterized one layer deeper.
+
+### 11.3 The honest standing of v4
+
+v4 is a **research program**, not a finished theory, and this preview commits to saying so. Its foundations
+are postulated-tier; its central structural result (the D-redundancy) is theorem-modulo-a-standard-condition;
+its headline elastic dark sector is refuted; and its deepest residue — why the genesis state is the adiabatic
+vacuum — bottoms out at the cosmological initial-conditions problem that the whole field shares. What v4
+already has is a coherent spine: the responsive vacuum understood as the coarse-graining of a deeper medium,
+its memory derived rather than assumed, and dark matter pinned to a specific layer below. The work is carried
+in the same registry-and-ledger discipline as v3 (`theory/GRUT_V4_ELASTIC_VACUUM.md`, `theory/GRUT_GENESIS.md`),
+and a v4 reader edition will be written when the program earns one — anchored on the emergence of
+responsiveness, not on a dark sector it does not derive.
+
+The wager of this preview is the same as v3's: a framework that names the door it is about to walk through —
+and admits it has not yet crossed it — is stronger than one that pretends to be already on the other side.
+
+---
+
 ## Acknowledgments
 
 This work was developed independently over multiple years. The framework draws on a broad intellectual tradition in theoretical physics: Schwinger and Keldysh for the closed-time-path formalism; Mori and Zwanzig for projection-operator techniques; Gibbons, Hawking, and Perry for Euclidean gravity on S⁴; Christensen and Duff for trace-anomaly coefficients; Allen and Jacobson for propagators on curved space; Osborn for local renormalization-group methods; Komargodski and Schwimmer for the four-dimensional a-theorem that fixes the central-charge ratio a/c; Koide for the charged-lepton mass relation; Riegert and Paneitz for the conformal-anomaly effective action; Walecka for nuclear mean-field theory; and the Planck, PDG, and observational-cosmology communities whose precision measurements provide the anchors. None of these authors is responsible for the present framework's claims or conclusions.
 
 The computational infrastructure was developed in Python with NumPy, SciPy, and Flask. The claim registry, the open-question ledger, the tier-discipline enforcement, and the automated appendices are original infrastructure. The GRUT-RAI codebase is available at the DOI given on the title page.
 
-**AI-assisted development.** Substantial portions of the GRUT-RAI codebase, test suite, and documentation were developed with the assistance of Claude Code (Anthropic). Claude Code contributed to: writing and debugging computational modules (constitutive growth, modified gravity, Boltzmann/ISW injection, the S⁴ CTP solver, and the second-order Weyl-squared kernel); building and maintaining the 3,227-test verification harness; constructing the claim registry, open-question ledger, tier-discipline infrastructure, and automated appendix rendering; drafting and iterating this document across multiple revision cycles, including the figure suite and this edition; and providing adversarial review that surfaced several corrections — including the v3 re-tiering of over-claimed v2 results, the locality theorem that records dark matter as a hosted input rather than a derived mechanism, the 32σ refutation of the linear μ = 4/3 enhancement, and arithmetic and consistency errors caught in the final publication pass. All physical ideas, theoretical derivations, and scientific claims are the author's. Claude Code served as a computational and editorial collaborator — an instrument, not a co-theorist. Its contributions are acknowledged transparently in the same spirit as acknowledging any other computational tool.
+**AI-assisted development.** Substantial portions of the GRUT-RAI codebase, test suite, and documentation were developed with the assistance of Claude Code (Anthropic). Claude Code contributed to: writing and debugging computational modules (constitutive growth, modified gravity, Boltzmann/ISW injection, the S⁴ CTP solver, and the second-order Weyl-squared kernel); building and maintaining the 3,200+-test verification harness; constructing the claim registry, open-question ledger, tier-discipline infrastructure, and automated appendix rendering; drafting and iterating this document across multiple revision cycles, including the figure suite and this edition; and providing adversarial review that surfaced several corrections — including the v3 re-tiering of over-claimed v2 results, the locality theorem that records dark matter as a hosted input rather than a derived mechanism, the 32σ refutation of the linear μ = 4/3 enhancement, and arithmetic and consistency errors caught in the final publication pass. All physical ideas, theoretical derivations, and scientific claims are the author's. Claude Code served as a computational and editorial collaborator — an instrument, not a co-theorist. Its contributions are acknowledged transparently in the same spirit as acknowledging any other computational tool.
 
 ## References
 

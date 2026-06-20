@@ -26,7 +26,15 @@ Step 2 — Mode structure (Fourier in space and time).
 Step 3 — Noise kernel structure.
     The CTP noise kernel has BOTH spatial structure (Diósi-Penrose
     gravitational, N_grav(x-x') = G/(ℏ|x-x'|)) AND temporal structure
-    (KMS thermal, N_T(ω) = (2/τ₀)ℏω·coth(ℏω/2k_BT)).
+    (KMS thermal, N_T(ω) = (2/τ₀)ℏω·coth(ℏω_micro/2k_BT)).
+
+    KMS occupation scale (Correction #22): the coth occupation factor
+    is set by the MICROSCOPIC bath frequency ω_micro = 1/τ_micro, which
+    fixes the thermal crossover T_c = ℏ/(τ_micro·k_B) = 54.7 MK (the
+    "boiling point of gravity", see thermal_transition.py). The
+    macroscopic τ₀ enters only through the amplitude prefactor (2/τ₀)ℏω,
+    the spatial scale k_* = 1/(cτ₀), and the Lorentzian 1/(1+ω²τ₀²) —
+    NOT the thermal occupation.
 
     Spatial Fourier: ∫ d³x e^(-ik·x) [G/(ℏ|x|)] = 4πG/(ℏk²)
 
@@ -38,11 +46,11 @@ Step 4 — Variance at the crossover scale.
 
     Variance at the crossover:
         ⟨|δz_{k*}(1/τ₀)|²⟩ = (4πG/ℏk_*²) × N_T(1/τ₀) / (1+1)
-                            = (4πG/ℏ) × (cτ₀)² × (ℏ/τ₀ × coth(ℏ/(2k_BT τ₀))) × τ₀ / (2 τ₀)
+                            = (4πG/ℏ) × (cτ₀)² × (ℏ/τ₀ × coth(ℏ/(2k_BT τ_micro))) × τ₀ / (2 τ₀)
 
     Substituting k_*² = 1/(c²τ₀²):
         = (4πG c² τ₀² / ℏ) × (ℏ/τ₀) × coth(...) × (1/(2τ₀))
-        = 2πG c² × coth(ℏ/(2k_BT τ₀))
+        = 2πG c² × coth(ℏ/(2k_BT τ_micro))
 
 Step 5 — Dimensionless power spectrum.
     P_ζ(k) = (k³/2π²) × ⟨|δz_k|²⟩
@@ -78,9 +86,13 @@ Step 6 — Make it dimensionless.
     With τ̃₀ = τ₀/t_Pl ≈ 2.45×10⁵⁸:
         P_ζ ≈ 1/(π × (2.45×10⁵⁸)³) ≈ 1/(π × 1.47×10¹⁷⁵) ≈ 2.16×10⁻¹⁷⁶
 
-    coth(...) factor: at T_c, the argument is ℏ/(2k_BT_c τ₀) =
-    (k_BT_c τ₀)/(2k_BT_c τ₀) ... wait that's just 1/2. So
-    coth(1/2) ≈ 2.16. So in Planck units at T = T_c:
+    coth(...) factor: the thermal occupation is set by the microscopic
+    bath frequency ω_micro = 1/τ_micro (Correction #22), so at the real
+    T_c = ℏ/(τ_micro·k_B) = 54.7 MK the argument is
+    ℏ/(2k_BT_c·τ_micro) = (k_BT_c·τ_micro)/(2k_BT_c·τ_micro) = 1/2.
+    So coth(1/2) ≈ 2.16 (equivalently thermal_transition's
+    f(T_c) = 1/coth(1/2) = tanh(1/2) ≈ 0.462). In Planck units at
+    T = T_c:
         P_ζ ≈ 2.16/(π × τ̃₀³) ≈ 4.7×10⁻¹⁷⁶
 
     This is 167 orders of magnitude below A_s ≈ 2.1×10⁻⁹.
@@ -126,6 +138,8 @@ from grut.foundation.closure_protocol import (
     ALPHA_VAC,
     S_SCREENING,
     TAU_0_SEC,
+    TAU_MICRO_SEC,
+    T_C_KELVIN,
 )
 
 
@@ -152,15 +166,32 @@ def crossover_scale_k_star() -> float:
 
 
 def kms_thermal_factor_at_crossover(T_kelvin: float) -> float:
-    """The KMS thermal factor coth(ℏω/(2k_BT)) at ω = 1/τ₀.
+    """The KMS thermal factor coth(ℏω_micro/(2k_BT)) at the thermal
+    crossover frequency ω_micro = 1/τ_micro.
 
-    At T = T_c, this is coth(1/2) ≈ 2.16.
+    POST-CORRECTION-#22 CONVENTION. The quantum→thermal crossover of the
+    responsive vacuum's bath is governed by the MICROSCOPIC relaxation
+    τ_micro ≈ 1.40×10⁻¹⁹ s — which sets the "boiling point of gravity"
+    T_c = ℏ/(τ_micro·k_B) = 54.7 MK — NOT the macroscopic gravitational
+    τ₀ = 41.9 Myr. The macroscopic τ₀ sets the spatial crossover scale
+    k_* = 1/(cτ₀) and the Lorentzian bandwidth 1/(1+ω²τ₀²); it does NOT
+    set the thermal occupation. This is the same convention as
+    grut.derived.cosmology.thermal_transition, whose memory-activation
+    fraction is the reciprocal of this factor:
+        f(T) = 1/coth(ℏω_micro/2k_BT) = tanh(T_c/2T).
+
+    At T = T_c, the argument is ℏ/(2k_BT_c·τ_micro) = 1/2, so this is
+    coth(1/2) ≈ 2.164  (and f(T_c) = tanh(1/2) ≈ 0.462).
     At T ≪ T_c (quantum regime), coth → 1.
-    At T ≫ T_c (classical regime), coth → 2k_BT τ₀/ℏ.
+    At T ≫ T_c (classical regime), coth → 2k_BT·τ_micro/ℏ.
+
+    (Prior to Correction #22 this used τ₀ in place of τ_micro; the
+    "coth(1/2) at T_c" claim then held only against the stale,
+    dimensionally-invalid T_c = ℏ/(τ₀·k_B) ≈ 5.8×10⁻²⁷ K.)
     """
     if T_kelvin <= 0:
         return 1.0  # quantum limit
-    x = HBAR / (2.0 * K_B * T_kelvin * TAU_0_SEC)
+    x = HBAR / (2.0 * K_B * T_kelvin * TAU_MICRO_SEC)
     if x > 50:
         return 1.0
     elif x < 1e-10:
@@ -176,8 +207,10 @@ def mode_variance_at_crossover(T_kelvin: float) -> float:
     Following the derivation in the module docstring (Step 4):
         ⟨|δz_k(ω)|²⟩ = (4πG/ℏk²) × N_T(ω) / (1+ω²τ₀²)
 
-    At k = k_* = 1/(cτ₀) and ω = 1/τ₀:
-        = (4πG c² τ₀²/ℏ) × (ℏ/τ₀) × coth(ℏ/2k_BT τ₀) × (1/(2τ₀))
+    At k = k_* = 1/(cτ₀) and ω = 1/τ₀ (with the KMS occupation evaluated
+    at the microscopic bath frequency ω_micro = 1/τ_micro, per
+    Correction #22):
+        = (4πG c² τ₀²/ℏ) × (ℏ/τ₀) × coth(ℏ/2k_BT·τ_micro) × (1/(2τ₀))
         = 2πG c² × coth(...)
 
     Returns variance in SI units (m³ — comes from the spatial
@@ -258,8 +291,10 @@ def lens_B_F_forward_derivation() -> dict:
     framework's choice between them is precisely the gap that
     `n_g_omega_cosmological_covariance_resolved (RESOLVED via Correction #26)` names.
     """
-    # Temperature points
-    T_C_kelvin = HBAR / (TAU_0_SEC * K_B)
+    # Temperature points. T_c is the post-Correction-#22 thermal
+    # crossover T_c = ℏ/(τ_micro·k_B) = 54.7 MK (imported), NOT the
+    # stale, dimensionally-invalid τ₀-based T_c = ℏ/(τ₀·k_B).
+    T_C_kelvin = T_C_KELVIN
     T_CMB_kelvin = 2.7255
 
     # Dimensional variance at the crossover (in SI units, T = 0)

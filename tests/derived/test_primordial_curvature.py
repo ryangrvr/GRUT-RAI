@@ -82,13 +82,28 @@ class TestCrossoverScale:
 
 class TestKMSThermalFactor:
     def test_at_T_c_gives_coth_one_half(self):
-        """At T = T_c (where k_BT τ₀ = ℏ), the argument is 1/2 and
-        coth(1/2) ≈ 2.16."""
-        from grut.foundation.constants import HBAR, K_B
-        T_c = HBAR / (TAU_0_SEC * K_B)
-        factor = kms_thermal_factor_at_crossover(T_c)
+        """At the real T_c = ℏ/(τ_micro·k_B) = 54.7 MK (post-Correction
+        #22), the argument ℏ/(2k_BT_c·τ_micro) = 1/2, so coth(1/2) ≈ 2.16.
+
+        This is the convention reconciliation: the KMS occupation is set
+        by the microscopic bath frequency 1/τ_micro, matching
+        thermal_transition's f(T) = tanh(T_c/2T) = 1/coth."""
+        from grut.foundation.closure_protocol import T_C_KELVIN
+        factor = kms_thermal_factor_at_crossover(T_C_KELVIN)
         expected = math.cosh(0.5) / math.sinh(0.5)
         assert abs(factor - expected) < 1e-6
+        # Reciprocity with thermal_transition's activation fraction
+        assert abs(1.0 / factor - math.tanh(0.5)) < 1e-9
+
+    def test_uses_tau_micro_not_tau_0(self):
+        """Guard against regression to the stale τ₀-based convention:
+        the stale T_c = ℏ/(τ₀·k_B) must NOT give coth(1/2)."""
+        from grut.foundation.constants import HBAR, K_B
+        stale_T_c = HBAR / (TAU_0_SEC * K_B)
+        factor = kms_thermal_factor_at_crossover(stale_T_c)
+        # At the stale T_c the τ_micro argument is astronomically large
+        # → quantum limit coth → 1, NOT coth(1/2) ≈ 2.16.
+        assert abs(factor - 1.0) < 1e-6
 
     def test_quantum_limit(self):
         """T → 0: coth(∞) → 1."""
@@ -96,11 +111,12 @@ class TestKMSThermalFactor:
         assert abs(factor - 1.0) < 1e-6
 
     def test_classical_limit(self):
-        """T ≫ T_c: coth(x) → 1/x."""
+        """T ≫ T_c: coth(x) → 1/x = 2k_BT·τ_micro/ℏ."""
         from grut.foundation.constants import HBAR, K_B
+        from grut.foundation.closure_protocol import TAU_MICRO_SEC
         T_high = 1e30  # extremely classical
         factor = kms_thermal_factor_at_crossover(T_high)
-        expected = 2 * K_B * T_high * TAU_0_SEC / HBAR
+        expected = 2 * K_B * T_high * TAU_MICRO_SEC / HBAR
         assert abs(factor - expected) / expected < 1e-3
 
 
@@ -111,17 +127,17 @@ class TestKMSThermalFactor:
 
 class TestModeVariance:
     def test_variance_at_TC_is_finite(self):
-        """⟨|δz_k*(1/τ₀)|²⟩ should be finite at T = T_c."""
-        from grut.foundation.constants import HBAR, K_B
-        T_c = HBAR / (TAU_0_SEC * K_B)
-        v = mode_variance_at_crossover(T_c)
+        """⟨|δz_k*(1/τ₀)|²⟩ should be finite at T = T_c = 54.7 MK."""
+        from grut.foundation.closure_protocol import T_C_KELVIN
+        v = mode_variance_at_crossover(T_C_KELVIN)
         assert 0 < v < math.inf
 
     def test_variance_scales_with_2pi_G_c2(self):
-        """The variance is 2π G c² × coth(...) at the crossover."""
-        from grut.foundation.constants import G, HBAR, K_B
-        T_c = HBAR / (TAU_0_SEC * K_B)
-        v = mode_variance_at_crossover(T_c)
+        """The variance is 2π G c² × coth(1/2) at T_c = 54.7 MK, with the
+        KMS occupation set by τ_micro (post-Correction #22)."""
+        from grut.foundation.constants import G
+        from grut.foundation.closure_protocol import T_C_KELVIN
+        v = mode_variance_at_crossover(T_C_KELVIN)
         coth_at_TC = math.cosh(0.5) / math.sinh(0.5)
         expected = 2 * math.pi * G * C_LIGHT**2 * coth_at_TC
         assert abs(v - expected) / expected < 1e-6
