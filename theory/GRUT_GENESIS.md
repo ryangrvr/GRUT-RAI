@@ -499,7 +499,7 @@ numerology guard. Verdict: **PARTIAL**.*
 - **τ₀ stays Option-B-anchored**: c = ln(τ₀/t_P) − ln(τ_micro/t_P) = 134.45 − 56.21 = 78.23, a difference of
   two independently-anchored Planck-referenced empirical logs.
 
-**Numerology casualties (rejected, by the framework's own A_s standard, Ledger L295).** 🟥 The tempting
+**Numerology casualties (rejected, by the framework's own A_s near-miss-rejection standard).** 🟥 The tempting
 **8π² = 78.96 (+0.92%)** is the *universal* one-instanton action 8π²/g²|_{g=1}, **not** a GRUT-distinctive
 constant (the structural π-constants are S=108π, C_FINAL, C_COSMO — 8π² is provably absent), and GRUT has no
 derived tunneling linking the τ_micro and τ₀ sectors — **rejected.** Likewise 25π, S/(2π)·ln S/4, and the
