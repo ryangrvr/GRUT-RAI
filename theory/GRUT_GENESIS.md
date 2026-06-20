@@ -239,3 +239,229 @@ except for that shared-with-all-cosmology initial-conditions floor. Most load-be
 `theory/GRUT_V3_ORGANIZING_STRUCTURE.md` (Bridge D; §6 UPDATE + GAP-1 UPDATE),
 `grut/derivation/phi_munu/mori_zwanzig_kernel.py`, `grut/derived/cosmology/thermal_transition.py` (derived
 activation), `grut/foundation/ctp_action.py` (Q), `theory/GRUT_V4_ELASTIC_VACUUM.md` (§3/§7).
+
+---
+---
+
+# 8. The Forward Genesis — How the Responsive Vacuum Switches On
+
+*v4's constructive spine. The backward walk (§§1–7) is a catalog: going UP in temperature it recorded what
+survives (Q) and what dies (F, L₀, the constitutive arrow), naming three necessary transitions PT-A/B/C.
+It never wrote one equation of motion for the switch-on. This section is the **construction**: starting from
+the hot, Q-only, memoryless medium at T ≫ T_c, it derives **how** the responsive vacuum condenses **forward
+in cosmic time** as the universe cools below T_c at t ≈ 16.5 hr.*
+
+**Frame.** The medium is built throughout as a viscoelastic **Maxwell fluid** (G_TT(ω→0)→0), per
+`theory/GRUT_V4_FOUNDING_CHARTER.md` — the elastic-solid / world-crystal direction is demoted and unused.
+🟥 Foundational tier: τ₀ and τ_micro remain anchored inputs (Option B); the pre-responsive adiabatic /
+scale-free state (GAP-1) is postulated, floored by the field-wide cosmological measure problem. Every
+load-bearing number below was recomputed in `.venv` (see §8.6).
+
+## 8.1 The forward order parameter and its time-law
+
+**Above T_c — what exists.** The prospective slow shear variable z is **not slow relative to its own bath**:
+k_BT ≳ ℏ/τ_micro means the Mori–Zwanzig (MZ) slow/fast projection has no slow sector. What is present is
+**only Q** — the CTP/in-in influence structure (closed–closed propagator ≡ 0; FDT/KMS tying noise N to
+Im χ; `grut/foundation/ctp_action.py`, `noise_kernel.py`) — and the white-noise KMS bath F(t). Q already
+carries response-to-past directionality **with no memory length**: the arrow predates responsiveness.
+
+**The single pole.** Projecting onto the slow TT-shear variable z, the MZ reduction
+(`mori_zwanzig_kernel.py`, verify 8/8) gives ż = −∫₀ᵗ K(t−s) z(s) ds + F(t) with χ(ω) ∝ 1/(K̃(ω)−iω) and
+the 2nd-FDT identity K(t)=⟨F(0)F(t)⟩/⟨|z|²⟩. The Markovian limit K̃(ω)≈K̃(0)=1/τ₀ collapses this to the
+**single GRUT relaxational pole** χ=1/(1−iωτ₀) at ω=−i/τ₀, valid whenever the bath correlation time
+τ_K < τ₀/4 (the off-axis bifurcation).
+
+**The forward order parameter.** From the FDT/KMS split coth(ℏω/2k_BT)=1+2n(ω,T), the coherent (zero-point)
+fraction of the micro-bath fluctuation is the forward order parameter:
+
+> z̄(T) = f(T) = 1 / coth(ℏω_micro/2k_BT) = **tanh(T_c/2T)**,   k_BT_c ≡ ℏ/τ_micro
+
+This is GRUT's own noise ratio N(ω_micro,0)/N(ω_micro,T) (`noise_kernel.fdt_noise`), match=True to rtol
+<1e-9 at T/T_c = 5, 1, 0.2 — **not** an imported sigmoid. Composing with the radiation-era cooling law
+T(t)=T_c(t_c/t)^{1/2} gives the **explicit forward time-law of the switch-on** — the headline new result:
+
+> **z̄(t) = tanh[ ½ (t/t_c)^{1/2} ],   t_c = 16.5 hr post-BB**
+
+Verified: at t/t_c = 0.01, 1, 100 → z̄ = 0.0500, 0.4621, 0.9999, tracking f(T(t)) exactly. The backward walk
+only states f→0 going *up* through T_c; it never wrote the switch-on profile in cosmic time.
+
+## 8.2 Crossover or phase transition? — two order parameters, two answers
+
+This is the decisive new physics. **Two distinct order parameters** move as the universe cools, and they
+answer the question differently:
+
+- **Pole AMPLITUDE** z̄(T)=f(T): **C^∞-analytic** through T_c. Verified: f(T_c)=tanh(½)=0.4621 (not 0.5);
+  df/d(T/T_c)|_{T_c}=−0.393 (finite); a **power-law** 1/T tail above T_c (f(100T_c)=0.005000 = T_c/2T
+  exactly, *not* exponential). By the Landau analyticity criterion this is a **smooth crossover**, not a
+  2nd-order transition — no critical onset, no non-analyticity, no order parameter identically zero above T_c.
+- **Pole EXISTENCE** (single-relaxational character), set by τ_K(T)=ℏ/(2πk_BT): a sharp bifurcation at
+  τ_K=τ₀/4. But verified: τ_K(T_c)=τ_micro/2π exactly, and τ_K(T_c)/(τ₀/4)=**6.7×10⁻³⁵** — *34 orders inside*
+  the Markovian regime. τ_K grows as T cools (direction confirmed) yet stays deeply Markovian the entire
+  cosmic history.
+
+**Verdict.** The emergence is a **smooth analytic crossover of the pole amplitude**, riding on a
+**pole-existence bifurcation that is structurally pre-satisfied and never crossed in cosmic history**. The
+sharp "PT-A" of §1 is reclassified from a critical point to a **structural boundary 34 orders away**. A
+forward observer sees a continuous one-decade turn-on centered on f(T_c)=0.46, never a critical point. Memory
+stabilizes by **amplitude saturation**, not by approaching the bifurcation.
+
+## 8.3 The cosmic timeline — derived, not asserted
+
+The radiation-era clock t[s]=2.42 g_*^{−1/2}(T/MeV)⁻² (Kolb & Turner) **independently reproduces the 16.5 hr
+anchor** rather than asserting it. Verified: with g_*=3.363 (γ + 3 decoupled ν, post e⁺e⁻ annihilation, since
+k_BT_c=4.71 keV ≪ m_e), t(T_c)=5.94×10⁴ s = **16.50 hr**; the *same law* gives 1 MeV → 0.74 s (weak
+freeze-out) and 0.1 MeV → 2.2 min (BBN), matching canonical cosmic history. Onset redshift z(T_c)=2.0×10⁷.
+
+| Epoch | T | T/T_c | z | t | f(T) | regime |
+|---|---|---|---|---|---|---|
+| Pre-responsive (1 MeV) | 1.16×10¹⁰ K | 213 | 4.3×10⁹ | 0.74 s | 0.0023 | memoryless, local-GR; only Q |
+| BBN (0.1 MeV) | 1.16×10⁹ K | 21.2 | 4.3×10⁸ | 2.2 min | 0.024 | memory off + bandwidth-protected |
+| **T_c ONSET** | **5.47×10⁷ K** | **1.00** | **2.0×10⁷** | **16.5 hr** | **0.4621** | **memory condenses, D breaks, arrow on** |
+| deep responsive (0.25 T_c) | 1.37×10⁷ K | 0.25 | 5.0×10⁶ | ~11 days | 0.964 | memory nearly full |
+| completion (0.1 T_c) | 5.47×10⁶ K | 0.10 | 2.0×10⁶ | ~69 days | 0.9999 | responsive vacuum fully on |
+| recombination | 3000 K | 5.5×10⁻⁵ | 1100 | 380 kyr | 1.0000 | full refractive vacuum |
+| today (CMB) | 2.7255 K | 5.0×10⁻⁸ | 0 | 13.8 Gyr | 1.0000 | deep responsive |
+
+**Ordering verified consistent:** the T_c onset (z≈2×10⁷) sits *after* BBN (z≈4×10⁸) and *before*
+recombination (z≈1100). BBN completes entirely in the pre-responsive local-GR era — which is exactly *why*
+GRUT predicts no DM-like refractive enhancement at BBN.
+
+**Two crossovers must not be conflated** (the cosmic-embedding insight): the **thermal T_c-crossing** (z≈2×10⁷;
+governs whether memory *exists*) is distinct from the **kinematic X=ωτ₀=1 crossing** (governs whether
+already-condensed memory is bandwidth-suppressed; `grut/derived/cosmology/cosmic_x_crossover.py`). Forward
+Genesis is governed by the T_c-crossing; X=1 is a separate, far-later effect on the existing vacuum.
+🟧 Caveat: `cosmic_x_crossover.py`'s own scope notice limits its z≈71 figure to atomic-scale test particles
+(no crossover for stellar+ masses) and does *not* claim X replaces T_c as the mechanism — only the
+existence/separation of the two crossings is load-bearing here, not a universal X=1 redshift.
+
+## 8.4 The forward arrow and the crystallization of L₀
+
+**Two arrows, temporally staggered.** The forward construction splits §1's single "Ṡ≥0 survives" row into
+two physically distinct arrows turning on at different epochs:
+
+- **Thermal arrow (Q):** present at all T. The retarded (response-to-past) structure of Q acts directly on
+  the fast KMS bath F(t) — no τ₀, no slow z required. The directionality that *predates responsiveness*.
+- **Constitutive arrow (F):** switches on *only below T_c*. Ṡ_const=(1/τ₀)⟨(z−z_target)²⟩
+  (`grut/foundation/entropy_production.py`, verify 3/3: non-negativity, fixed-point vanishing, cumulative
+  monotonicity). Above T_c there is no slow z (MZ gap not open) so Ṡ_const ≡ 0 — only the thermal arrow runs.
+
+**The strengthening law.** As cooling opens the gap, the displacement the condensing mode holds scales with
+the coherent fraction, z−z_target ∝ f, so the macroscopic constitutive arrow strengthens as **f(T)²**.
+Verified monotone gated values track f² across T/T_c = 3 → 1 → 0.5 → 0.01. At T_c the arrow is already at
+f(T_c)²≈21% of its zero-T strength; the 1/T tail means it never clicks on abruptly. Forward in time Ṡ decays
+as exp(−2t/τ₀) as z relaxes to target — **the forward direction is the direction of memory relaxation**.
+🟧 **Flagged assumed:** entropy_production.py implements Ṡ literally as (1/τ₀)(z−z_target)²; the f² power
+holds *only* under z−z_target ∝ f, a physically-motivated forward identification (consistent with
+thermal_transition's linear-f gating of n_g) but **not** separately in-repo verified beyond the linear gate.
+It is load-bearing for the staggered-arrow signature and should be read as an inference, not a theorem.
+
+**L₀ crystallizes — forward D-breaking.** The *same* condensation that gives z its amplitude gives it a
+finite memory time τ₀, hence **exactly one proper length L₀=cτ₀=12.85 Mpc**. Forward, L₀: 0 → finite. Above
+T_c, L₀=0 ⟹ χ_eq=1/(1+(L₀k)²)=1, n_g≡1, exact GR, and the adiabatic spatial dilatation T_λ is an *exact
+redundancy* (no 4D anomaly since 4∉{2,6,10,14}, Im χ→0; `GRUT_V3_ORGANIZING_STRUCTURE.md` Bridge D / §6).
+Below T_c, finite L₀ makes (L₀k)² non-invariant under T_λ: χ_eq is no longer dilatation-fixed, so the
+**boundary charge** (Maldacena soft factor, 1−n_s≠0) is explicitly broken at O((L₀k)²). Read forward: the
+scale-free vacuum acquires exactly one length — spontaneous scale-symmetry breaking in the response sector.
+(A pure redundancy cannot itself be spontaneously broken; it is its *boundary charge* that L₀ breaks — faithful
+to §2(ii) and Bridge D, no v3 result harmed.)
+
+**One order parameter, two faces.** A single condensing amplitude A(T)=f(T)·z_amp gates both the
+constitutive arrow (Ṡ ∝ A²) and the refractive/L₀ breaking (n_g−1 ∝ f·α/(1+(ωτ₀)²)) — two faces of one
+condensation, staggered *after* the always-present thermal-Q arrow.
+
+## 8.5 Signatures — the forward Genesis predicts its own invisibility
+
+This is a derived consequence, not an evasion.
+
+**(1) No macroscopic defect relic — defect-free onset.** The vacuum manifold of a Maxwell **fluid** is
+trivial: the order parameter is a spatially-uniform onset of a single timescale τ₀, not a broken continuous
+internal symmetry, so there is no topology to support a relic string/wall/monopole network. Combined with the
+smooth-crossover verdict (§8.2 — no critical point is crossed in cosmic history), there is no critical slowing
+and no symmetry-breaking quench: memory switches on essentially uniformly on every macroscopic scale.
+🟥 **Correction, struck (skeptic, decisive):** an earlier draft banked a Kibble–Zurek correlation length
+ξ_KZ≈4×10⁻⁵ m as the quantitative basis for "defect-free." **That number is withdrawn.** (i) It is
+conceptually incoherent with this section's own verdict — Kibble–Zurek is *defined* for a quench **through** a
+crossed critical point, and §8.2 establishes that **no critical point is crossed** (the bifurcation sits 34
+orders away). (ii) It is not reproducible from its stated inputs: ξ_KZ=ξ₀(τ_Q/τ₀)^{ν/(1+zν)} with ξ₀=cτ_micro,
+τ_Q=1/H(T_c)=1.19×10⁵ s, τ₀=1.32×10¹⁵ s and the standard mean-field exponent 1/4 gives ξ_KZ≈1.3×10⁻¹³ m, not
+4×10⁻⁵ m; the headline value requires an unphysical *negative* exponent. (iii) Its machinery
+(`grut/derived/dark_matter/kibble_zurek.py`) is explicitly **retracted** and concerns the demoted *solid*-sector
+G₀ phonon / U(1)_dark strings (a genuine symmetry-breaking PT with nontrivial topology), not the fluid
+crossover. Note also τ_Q/τ₀≈9×10⁻¹¹ < 1: the "quench" is *faster* than τ₀, so even the "slow quench" framing
+was backwards. **The conclusion (no macroscopic defect) survives on the independent grounds above — trivial
+fluid vacuum manifold + smooth crossover — but no ξ_KZ number is claimed.**
+
+**(2) Bandwidth protection — no causal imprint.** Verified at onset: a DC / super-horizon mode carries the
+full f(T_c)·α≈0.15 (n_g≈1.07), but any *causal* (sub-horizon) mode at ω~1/t_c has ωτ₀~10¹⁰, crushing n_g−1
+to **0**. The transition is screened at the very temperature where it happens; the only DC modes that carry
+it are causally frozen and unobservable at 16.5 hr.
+
+**Falsifiable structure (survives):**
+- **No critical phenomena at T_c** — no latent heat, no diverging susceptibility, no order-parameter cusp; a
+  smooth ~one-decade crossover centered on f(T_c)=0.4621 (not 0.5). Any *sharp/critical* onset of
+  gravitational memory at T_c falsifies the crossover picture.
+- **Staggered-arrow / joint-order-parameter** — Ṡ_const(T) ∝ tanh²(T_c/2T); the refractive enhancement (∝f)
+  and the arrow (∝f²) must track the same f(T). A memory/refractive turn-on at a different temperature than
+  the dissipative/arrow signature falsifies the single-condensation picture. (Conditional on the §8.4 f²
+  inference.)
+- **No pre-T_c constitutive arrow** — only thermal-Q entropy above T_c; detection of memory-type
+  irreversibility above T_c (beyond the bandwidth-protected DC residual) falsifies the staggering.
+- **No second memory scale** anywhere in the empty 34-order τ-gap (consistent with §6 prediction 1).
+- **Only downstream fingerprint** — the already-observed τ₀-locked dark-energy refraction (n_g→√(4/3) at DC,
+  Ω_Λ tied to τ₀), switching on adiabatically as ωτ₀ drops through 1 over the whole subsequent expansion, with
+  *no* localizable transition epoch. If Ω_Λ decouples from τ₀, the identification fails (= §6 prediction 5).
+
+## 8.6 What is NEW vs the backward walk — and the honest residue
+
+**NEW (genuine forward content, absent from §§1–7):**
+1. The explicit forward **time-law** z̄(t)=tanh[½(t/t_c)^{1/2}] (composing f(T) with T(t)∝t^{−1/2}). The
+   backward walk only noted f→0 going *up* through T_c.
+2. The **crossover-vs-PT resolution** via two order parameters: amplitude = smooth analytic crossover;
+   existence threshold = sharp bifurcation 34 orders away, never reached. PT-A reclassified from critical
+   point to structural boundary.
+3. The **cosmic embedding from first principles**: t_c=16.50 hr re-derived from Kolb–Turner with g_*=3.36,
+   reproducing the documented anchor and 0.74 s / 2.2 min; the two-crossover (T_c vs X=1) separation.
+4. The **two-arrow split** with the f² strengthening law and a **single joint order parameter** A(T) gating
+   arrow + length + refraction.
+5. The **derived invisibility**: defect-free onset (trivial fluid manifold + smooth crossover) and bandwidth
+   protection ~0 for causal modes.
+
+**DERIVED (verified in `.venv`):** the f(T)=FDT/KMS noise-ratio identity (match=True); the single-pole MZ
+Markovian origin and its 34-orders-Markovian stability; t_c=16.50 hr and the cosmic ordering; k_BT_c=4.714
+keV / L₀=12.85 Mpc (definitional under Option B); the three-leg entropy arrow (verify 3/3); the forward
+D-boundary-charge breaking at O((L₀k)²).
+
+🟧 **ASSUMED:** τ₀'s numerical value (hence t_c, L₀) is an anchored input (Option B — all four τ₀↔τ_micro
+bridge paths fail, log gap 33.98); the Ṡ∝f² power (§8.4); the adiabatic / scale-free pre-responsive initial
+state (GAP-1) feeding the coherent onset. f(T) trades the old sigmoid's free width for a physical
+identification — an *improvement*, not a parameter-free theorem.
+
+🟥 **OPEN:** (i) the finite-T MZ slow/fast collapse that would rigorously close memory-loss is asserted with
+the τ₀/4 threshold, **not** yet computed as a finite-T MZ calculation — the forward story uses f(T) as a proxy
+for that uncomputed dynamics; (ii) GAP-1's floor is the field-wide cosmological measure problem (bedrock
+shared by all of cosmology, not GRUT-specific); (iii) whether dissipated condensation energy thermalizes
+self-consistently is open — the genesis onset spectrum is Lorentzian×ω, **not** Planck/Bose–Einstein
+(`genesis_noise_kernel.py`; in-repo verdict: the onset produces no equilibrium temperature of its own).
+
+**`.venv` audit (this step).** All three module self-tests pass (mori_zwanzig 8/8, entropy_production 3/3,
+noise_kernel). Recomputed independently: f(T_c)=tanh(½)=0.46211715726; df/d(T/T_c)|_{T_c}=−0.3932;
+f(100T_c)=0.005000=T_c/2T (power-law tail, not exponential); z̄(t/t_c=0.01,1,100)=0.0500,0.4621,0.9999;
+t_c=16.498 hr (Kolb–Turner, g_*=3.363), same law → 0.74 s (1 MeV), 2.2 min (0.1 MeV);
+τ_K(T_c)/(τ₀/4)=6.71×10⁻³⁵; τ_K(T_c)=τ_micro/2π exactly; H(T_c)=8.4×10⁻⁶/s, τ_Q=1/H≈33 hr; L₀=12.85 Mpc.
+The withdrawn ξ_KZ is the one number that did **not** reproduce and is struck (§8.5).
+
+**The constructive spine in one line.** Responsiveness = (always-present Q) × (a single length L₀ unmasked as
+the MZ Markovian single pole the moment cooling makes one shear mode slow), its coherent memory amplitude
+condensing as the FDT-derived f(T)=tanh(T_c/2T) over a smooth one-decade crossover centered at t≈16.5 hr —
+coherently, invisibly, irreversibly, with the arrow strengthening as f² behind it.
+
+**v4 program status after this step.** The founding charter's bar (the forward derivation that separates
+genuine coarse-graining from backward relabeling) is met for the *kinematics and cosmic embedding*: there is
+now a forward equation of motion (MZ GLE), a forward order parameter with an explicit time-law, an
+analyticity-based crossover verdict, and a first-principles cosmic clock — none of which the backward catalog
+contained. The spine is **sound-with-caveats**: solid and verified, with one removed broken number (ξ_KZ now
+struck) and two inference-tier downstream framings (Ṡ∝f²; the two-crossover separation) flagged as such. The
+honest residue is unchanged from §§5/7 and carried faithfully: τ₀ anchored, GAP-1 floored by the cosmological
+measure problem, the finite-T MZ collapse still the decisive uncomputed dynamics, and no self-consistent
+thermalization of the onset. Next constructive target: the finite-T MZ memory-loss calculation that would
+promote f(T) from FDT-motivated proxy to derived turn-on dynamics.
