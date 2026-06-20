@@ -188,11 +188,20 @@ def r_anomaly_computed() -> float:
 def h_inf_drive_over_friction(tau_0_s: float) -> dict:
     """Expose H_inf as (topological drive) / (constitutive friction).
 
-    GRUT's headline cosmological formula
+    GRUT's cosmological formula
 
         H_inf = (2 − R) / (S · τ_0)
 
-    has a physical reading:
+    has a physical reading.
+
+    NOTE ON WHICH R: this ANOMALY-ROUTE reading uses R = R_ANOMALY =
+    1.15428 (the 3-loop CTP anomaly ratio |C_Cosmo/C_Final|, still
+    verification-pending), because the drive below is naturally framed as
+    the anomaly ratio's distance from R = 2. The CANONICAL headline H_inf
+    instead uses the PRIMARY refractive value R_REFRACTIVE = √(4/3) =
+    1.15470 (grut/derived/cosmology/vacuum.py); the two routes converge to
+    ~0.04%. This function is the anomaly-route interpretation, not a second
+    headline. Physical reading:
 
         numerator   = (2 − R_ANOMALY) = 0.846
             "topological drive": how far the 3-loop anomaly ratio is
