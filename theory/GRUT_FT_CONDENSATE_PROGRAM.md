@@ -1,22 +1,26 @@
 # THE F(t) CONDENSATE PROGRAM
-## A minimal successor-layer host for dark matter, with its honest cost
+## A minimal substrate-sector host for dark matter (a deeper layer of GRUT), with its honest cost
 
-**TIER: CONJECTURAL / foundational-extension / SUCCESSOR LAYER.**
+**TIER: CONJECTURAL / substrate-sector of GRUT / deeper layer (NOT a v4-core derivation: it adds 2 free parameters).**
 
-This document works out the layer GRUT would have to grow *downward, beneath the
-vacuum*, into the pre-responsive bath F(t), to host the dark-matter candidate that
+This document works out the layer of GRUT's own substrate — the pre-responsive bath F(t),
+which GRUT already posits *beneath the vacuum* — that would have to be given field content
+to host the dark-matter candidate that
 test `GRUT_DM_NONTHERMAL_COHERENT_TEST.md` (commit 836ffb4) left **specified-and-unmet
-to the dex** — outcome (b). A positive here is a *successor-theory hook the GRUT
-umbrella encompasses*; it is **never** a GRUT (v4-deliverable) derivation. The
-deliverable is the precise blueprint and its honest cost, not a sale.
+to the dex** — outcome (b). A positive here is *GRUT extending into its own deeper
+substrate layer*; it is **never** a GRUT (v4-core) derivation, because it costs 2 free
+dimensionful parameters. The deliverable is the precise blueprint and its honest cost,
+not a sale.
 
 **Headline verdict (all three construction angles concur, all numbers `.venv`-reproduced):**
-the bath sources **0 of 3** requirements. The successor layer is a **clean 2-dial
+the bath sources **0 of 3** requirements. The substrate-sector construction is a **clean 2-dial
 dimensionful insertion** (mass `m`, amplitude `φ_i`) plus the structural addition of a
 scale-breaking potential the scale-free bath does not carry. It stays no-go-clean and
-KMS/Q-clean. It is **umbrella-consistent as declared new substrate structure**, but the
+KMS/Q-clean. It is **GRUT — its substrate sector detailed — not a different theory**; the
 substrate it adds is exactly the "microscopic medium beneath the vacuum that current
-GRUT does not have" (`GRUT_V4_SPINE.md:311-312, :163`).
+GRUT has not yet detailed" (`GRUT_V4_SPINE.md:311-312, :163`). (Analogy: this is to GRUT
+what the Standard Model is to general relativity's `T_μν` — the content of a substrate slot
+the umbrella theory already has, not a successor to it.)
 
 ---
 
@@ -26,14 +30,16 @@ The predecessor DM test returned outcome (b): dark matter remains **HOSTED but
 SPECIFIED-AND-UNMET to the dex**. The missing host is a coherent zero-entropy scalar in
 the pre-responsive bath F(t), needing three things: (i) a field VEV `⟨φ⟩ ≠ 0`, (ii) a
 NEW mass scale `m ~ 10⁻²²` eV in the empty middle of the 34-order gap, (iii) an
-abundance dial `φ_i ~ 10¹⁶⁻¹⁷` GeV. This program works out that successor layer: the
+abundance dial `φ_i ~ 10¹⁶⁻¹⁷` GeV. This program works out that substrate-sector layer: the
 minimal construction, its honest cost, and whether the bath can source any of it.
 
-**This is GRUT growing a layer downward, beneath the vacuum.** F(t) is the substrate the
-framework has always flagged as its open frontier (`GRUT_GENESIS.md:94`: F(t) =
-"Microscopic medium (substrate beneath the vacuum)"; `GRUT_V4_SPINE.md:311`: "beneath
-the vacuum itself, lies the microscopic" medium). A positive is a successor-theory hook
-the umbrella encompasses — **never** a v4 derivation.
+**This is GRUT detailing its own deeper substrate layer, beneath the vacuum.** F(t) is the
+substrate the framework has always posited and flagged as its open frontier
+(`GRUT_GENESIS.md:94`: F(t) = "Microscopic medium (substrate beneath the vacuum)";
+`GRUT_V4_SPINE.md:311`: "beneath the vacuum itself, lies the microscopic" medium). Giving
+that already-posited bath field content breaks no GRUT premise (Q intact, locality intact,
+vacuum sector unchanged, no-gos untouched). A positive is GRUT extending into its own
+substrate sector — **never** a v4-core derivation (it adds 2 free parameters).
 
 **Fail-conditions held in force throughout:**
 
@@ -142,7 +148,7 @@ What F(t) actually provides (all verified):
 ### New-input count (the one number that matters)
 
 Starting from GRUT's current minimal set **{Q, α, τ₀, τ_micro}** + proven structure, the
-successor layer costs:
+substrate-sector layer costs:
 
 > **EXACTLY 2 new independent dimensionful inputs, both INSERTED, zero sourced:**
 > 1. **the mass `m ∈ [10⁻²², 10⁻¹⁹]` eV** — a third frequency absent from
@@ -245,30 +251,40 @@ spoil, the verified bath positivity. A bath-resident massive scalar has `Im χ �
 forbidden vacuum route. `.venv` confirms `N ≥ 0` and `S_h ≥ 0` across `ω = 10⁻²⁰…10⁵²` Hz.
 No `Im χ < 0`, no `N < 0`, unitarity intact.
 
-### Umbrella-consistent vs bolt-on
+### Substrate sector of GRUT, not a different theory
 
-**This is GRUT growing a coherent new bath layer — umbrella-consistent, not a broken
+**This is GRUT detailing its own substrate sector — still GRUT, not a broken
 premise.** Nothing in the construction requires `Im χ < 0`, `N < 0`, a second vacuum pole,
 a `1/k²` kernel, or any violation of locality, causality, CTP unitarity, or finite memory.
-Q's FDT/KMS structure is respected; the three no-gos retain their truth (the condensate
-lives outside their jurisdiction, in the substrate). The GRUT umbrella — "Grand Responsive
-Universe Theory" — **encompasses** this as a successor layer.
+Q's FDT/KMS structure is respected; the vacuum sector is unchanged; the three no-gos retain
+their truth (the condensate lives outside their jurisdiction — they are theorems about the
+*vacuum's* action, and this is the *substrate*). The GRUT umbrella — "Grand Responsive
+Universe Theory" — **already contains** this slot: F(t) is the bath GRUT posits beneath the
+vacuum, and giving it field content is GRUT extending into a deeper level of its own layered
+ontology (Q → F(t) → responsiveness → vacuum → physics → structure → observers).
 
-**But the honesty clause:** the substrate it adds is the **one thing current GRUT
-explicitly does not have** — "a microscopic theory of the medium beneath the vacuum that
-current GRUT lacks" (`GRUT_GENESIS.md:163`; `GRUT_V4_SPINE.md:311`). The distinction is
-sharp:
+**But the honesty clause:** the substrate content it adds is the **one thing current GRUT
+has not yet detailed** — "a microscopic theory of the medium beneath the vacuum that
+current GRUT lacks" (`GRUT_GENESIS.md:163`; `GRUT_V4_SPINE.md:311`). Two distinct moves
+must not be conflated:
 
-- As a **bolt-on to the v4 vacuum deliverable** (claiming GRUT *derives* cold DM):
-  **forbidden / a different theory.** The vacuum cannot source it (the pincer), and the
-  bath does not source it either (this document: 0-of-3). `GRUT_V4_SPINE.md:670`: a
-  foundational extension "constitutes a different theory, not GRUT."
-- As a **declared successor layer beneath the vacuum** (a new microscopic medium F(t)
-  given a condensing potential, with its 2 dials honestly counted): **umbrella-consistent
-  CONJECTURAL extension.** It breaks no GRUT premise; it adds substrate structure GRUT
-  always flagged as the open frontier. It is the *minimal* such extension, and it remains
-  minimal precisely because the bath sources none of the inputs — there is nothing cheaper
-  to be had.
+- **Changing the responsive vacuum itself** (adding a new propagating vacuum pole / breaking
+  single-mode minimalism — the route a *derived* cold DM from the vacuum would need):
+  **forbidden / a different theory.** This changes the core object all v3/v4 results were
+  derived from; the pincer forbids it. `GRUT_V4_SPINE.md:670`: a new vacuum mode / second
+  metric "constitutes a different theory, not GRUT." The condensate does **not** do this —
+  the vacuum cannot source it (the pincer), so the host had to move to the substrate.
+- **Detailing the substrate F(t)** (giving the already-posited bath a condensing potential,
+  with its 2 dials honestly counted): **GRUT — its substrate sector — not a different
+  theory, and not a successor layer.** It breaks no GRUT premise (Q intact, locality intact,
+  vacuum sector unchanged, no-gos untouched). It adds substrate structure GRUT always
+  flagged as the open frontier. But it is **not part of GRUT's zero-free-parameter v4 core
+  and not a v4-deliverable derivation**: it costs 2 free dimensionful parameters, so it is a
+  distinct, larger-parameter, deeper deliverable under the GRUT umbrella. It is the *minimal*
+  such detailing, and it remains minimal precisely because the bath sources none of the
+  inputs — there is nothing cheaper to be had. (Analogy: F(t)-DM is to GRUT what the
+  Standard Model is to GR's `T_μν` — matter/substrate content the umbrella theory already
+  has a slot for, not a successor to it.)
 
 ---
 
@@ -296,10 +312,13 @@ sharp:
   `m = 10⁻²²/⁻²¹/⁻²⁰/⁻¹⁹` eV is tabulated and flagged as the forbidden move), **never sold
   as a prediction**.
 
-**Tier discipline — held.** Stays CONJECTURAL / successor-layer throughout; never upgraded
-to DERIVED. The same construction is umbrella-consistent as a declared successor layer and
-a different-theory bolt-on the instant it is claimed as a v4-deliverable derivation
-(matching `GRUT_V4_SPINE.md:670` and the pincer's remedy clause).
+**Tier discipline — held.** Stays CONJECTURAL / substrate-sector-of-GRUT throughout; never
+upgraded to DERIVED, and never smuggled into the zero-parameter v4 core. The construction is
+GRUT detailing its own substrate sector (not a different theory, not a successor layer), but
+it is **not a v4-core derivation** the instant that is claimed — because it adds 2 free
+dimensionful parameters (the discipline of the pincer's remedy clause: the host is a deeper
+substrate layer, kept out of the zero-parameter claim). The genuinely-different-theory line
+(`GRUT_V4_SPINE.md:670`) applies to the *vacuum-pole* route, not to this substrate detailing.
 
 **Input-count reconciliation.** The "2 vs 3" discrepancy across angles is the same ledger
 stated two ways (2 dimensionful numbers `m`, `φ_i` + 1 inserted potential shape), reported
@@ -315,19 +334,21 @@ which *strengthens* the no-middle-feature conclusion. de Broglie `λ = ℏ/mv` u
 
 ## 8. VERDICT + FALSIFIER + NEXT STEP
 
-**Tiered verdict.** A **viable successor-layer blueprint at 2-dial dimensionful cost** —
+**Tiered verdict.** A **viable substrate-sector blueprint at 2-dial dimensionful cost** —
 *and simultaneously* a confirmation that no cheaper route exists. The minimal F(t)
 condensate that hosts the GRUT dark-matter candidate is a **textbook misalignment scalar**
 `V = ½m²φ²` placed in the substrate beneath the vacuum. Its honest cost is **2 inserted
 dimensionful dials (`m`, `φ_i`) + 1 inserted potential shape; 0 of 3 requirements sourced
 from existing bath structure.** It is **no-go-clean** (ordinary `T_μν`, ordinary collapse,
 no `1/k²`, no second vacuum pole, no new relaxational mode) and **Q/KMS-clean** (`N ≥ 0`,
-no `Im χ < 0`). It is **umbrella-consistent as a declared CONJECTURAL successor layer**,
-but a **bolt-on / different theory** the moment it is claimed as a v4-deliverable
-derivation — because the bath, like the vacuum, sources none of it. The predecessor test's
-outcome (b) — "hosted but specified-and-unmet to the dex" — is hereby **confirmed at the
-construction level:** the host exists, the bath cannot pay for it, and the exact price is
-two numbers and a potential.
+no `Im χ < 0`). It is **GRUT — its substrate sector detailed — a CONJECTURAL deeper layer,
+not a different theory and not a successor layer**, but it is **not a v4-core derivation**
+the moment that is claimed — because it adds 2 free parameters, and because the bath, like
+the vacuum, sources none of it. (The genuinely-different-theory verdict belongs to the
+*vacuum-pole* route, not to this substrate detailing.) The predecessor test's outcome (b) —
+"hosted but specified-and-unmet to the dex" — is hereby **confirmed at the construction
+level:** the host exists, the bath cannot pay for it, and the exact price is two numbers and
+a potential.
 
 **Falsifier.** Wave-DM in this mass window makes a sharp, near-term prediction: a `10⁻²²`
 eV scalar forms **kpc-scale soliton cores** (`λ_dB = 1.917 kpc` at `v = 10 km/s`) and
@@ -335,8 +356,8 @@ suppresses small-scale structure. **Lyman-α forest counts** already push the fl
 `~2×10⁻²¹` eV, and **dwarf-galaxy core/cusp and satellite counts** constrain the soliton
 profile. If observations force `m ≳ 10⁻¹⁹` eV (no detectable wave-DM signature), the
 fuzzy-DM end of the window closes and the misalignment construction loses its
-distinguishing phenomenology — the layer would then have to be re-specified at a different
-mass, or abandoned for a non-misalignment host.
+distinguishing phenomenology — the substrate sector would then have to be re-specified at a
+different mass, or abandoned for a non-misalignment host.
 
 **What would have to be true for the bath to source a condensate (the next step).** The
 bath would have to acquire, from its *existing* structure and without reverse-fit, all
@@ -350,7 +371,7 @@ partial result; the present analysis finds none. The most promising single targe
 mechanism (b): if the **MZ memory function** (the decisive uncomputed gap flagged in the
 first-order-vacuum frontier) were computed and turned out to carry a third intrinsic time
 scale in the empty middle, that would be the one place a bath-sourced mass could appear.
-Absent that, the layer is a clean 2-dial insertion.
+Absent that, the substrate sector is a clean 2-dial insertion.
 
 ---
 
@@ -405,7 +426,9 @@ The minimal F(t) condensate that hosts the GRUT dark-matter candidate is a **tex
 misalignment scalar** `V = ½m²φ²` placed in the substrate beneath the vacuum. Its honest
 cost is **2 inserted dimensionful dials (`m`, `φ_i`) + 1 inserted potential shape; 0 of 3
 requirements sourced from existing bath structure.** It is **no-go-clean** and
-**Q/KMS-clean**, **umbrella-consistent as a declared CONJECTURAL successor layer**, and a
-**bolt-on / different theory** the moment it is claimed as a v4-deliverable derivation —
-because the bath, like the vacuum, sources none of it. The host exists, the bath cannot
-pay for it, and the exact price is two numbers and a potential.
+**Q/KMS-clean**, **GRUT — its substrate sector detailed — a CONJECTURAL deeper layer, not a
+different theory and not a successor layer**, but **not a v4-core derivation** the moment
+that is claimed — because it adds 2 free parameters, and because the bath, like the vacuum,
+sources none of it. (The different-theory verdict belongs to the vacuum-pole route, not to
+this substrate detailing.) The host exists, the bath cannot pay for it, and the exact price
+is two numbers and a potential.

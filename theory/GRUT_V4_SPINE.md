@@ -40,8 +40,13 @@ Third, adaptability — stated precisely so it is not a loophole. Some walls are
 (single-mode is a channel-counting choice) and genuinely move with more work; those OPEN
 cells are the rungs. Others are **theorems** (locality/no-halo; the propagating-relic
 pincer) and move only by breaking a premise — Q or locality — which does not "adapt" the
-theory but builds a **successor layer** (e.g. the microscopic bath F(t) *beneath* the
-vacuum, where those theorems have no jurisdiction). The GRUT umbrella encompasses that
+theory but **constitutes a different theory, not GRUT**. A separate move stays inside GRUT:
+descending into **a deeper substrate layer of GRUT** (the bath F(t) it already posits
+*beneath* the vacuum, where those theorems have no jurisdiction). That descent breaks no
+premise — it is not a successor theory; F(t) is a level GRUT's own ontology already contains
+(Q → F(t) → responsiveness → vacuum → physics), so giving it field content leaves Q,
+locality, the vacuum sector, and the theorem-walls all intact; it is simply conjectural and
+below the zero-parameter v4 core. The GRUT umbrella encompasses that
 downward growth, so "complete" can *deepen* across versions; but each deliverable vN states
 honestly which cells it derives, hosts, and forbids *today*. Anti-salesmanship is the point:
 a spine that quietly upgrades a HOSTED or OPEN result to DERIVED is the one failure mode
@@ -310,9 +315,10 @@ local-GR era (which is *why* GRUT predicts no refractive enhancement at nucleosy
 the massless TT graviton is substrate, present across all crossings, not produced. —
 **HOSTED / OPEN.** And at the very bottom, beneath the vacuum itself, lies the microscopic
 KMS bath F(t): the only place a genuine cold relic — or any consciousness hook — could
-attach, and the one entry that would require a microscopic theory of the medium beneath the
-vacuum that current GRUT does not have. — **CONJECTURAL / OPEN.** This is the outer edge of
-the map: *beyond here, current GRUT does not reach.*
+attach, and the one entry that would require detailing GRUT's own **substrate sector** — the
+microscopic medium beneath the vacuum that current GRUT posits but does not yet specify. — **CONJECTURAL / OPEN.** This is the outer edge of
+the map: *beyond here, current GRUT posits a deeper layer but does not yet detail it* — the
+substrate sector, not a different theory.
 
 ---
 
@@ -666,9 +672,18 @@ a *derived* hierarchy magnitude would each require the same thing: a **new propa
 pole** — a new *mode*, not merely a new operator. The locality/no-halo theorem and the
 Ostrogradsky + Q pincer jointly forbid it from the vacuum's own action (the pincer modulo
 one stated Boulware–Deser/Ostrogradsky leg that a covariant Paneitz-BRST treatment would
-close; locality already forbids it independently); the only escape is a foundational
-extension (a microscopic medium beneath the vacuum, or a second metric) that "constitutes a
-different theory, not GRUT." — **FORBIDDEN-BY-THEOREM** (modulo that one gap). This is the deepest
+close; locality already forbids it independently). Two escapes must be kept apart. *Changing
+the vacuum itself* — adding a new propagating vacuum pole, or a second metric — genuinely
+**"constitutes a different theory, not GRUT"**: it alters the single-mode object every v3/v4
+result was derived from, and *that* is what the no-go forbids. *Specifying field content for
+the microscopic bath F(t)* is a different move entirely: F(t) is the pre-responsive substrate
+GRUT already posits (Q → F(t) → responsiveness → vacuum), it lives *outside* the no-gos'
+jurisdiction precisely because the theorems are about the vacuum's action and not the medium
+beneath it, and detailing it breaks no GRUT premise — it is **a deeper substrate layer of
+GRUT, not a successor theory**. It buys no *derived* dark sector or hierarchy magnitude here:
+it is conjectural, costs free parameters, and so cannot upgrade either HOSTED/FORBIDDEN result
+to DERIVED — which is exactly why the vacuum-level verdict stands. — **FORBIDDEN-BY-THEOREM**
+(modulo that one gap). This is the deepest
 unity in the framework: **dark matter is HOSTED and the hierarchy magnitude is FORBIDDEN for
 the same structural reason.**
 
