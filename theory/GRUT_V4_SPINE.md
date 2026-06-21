@@ -1,6 +1,6 @@
 # GRUT ToE v4 — The Emergence of Everything
 
-## The thesis
+## The Thesis
 
 The universe is a sequence of emergent layers.
 
@@ -26,7 +26,7 @@ discipline that keeps that history honest — what is derived, what is hosted, w
 what remains open — sits *beneath* the story, in the next section, where a referee needs it. It
 does not lead, because it is the scaffolding, not the building.
 
-## How to read this — the discipline beneath the story
+## How to Read This — The Discipline Beneath the Story
 
 *The thesis above is the affirmative claim. This section is the discipline that keeps it honest:
 the distinctions a referee needs, positioned under the narrative rather than in front of it.*
@@ -84,7 +84,7 @@ a spine that quietly upgrades a HOSTED or OPEN result to DERIVED is the one fail
 that sinks the whole thing on contact with a referee, and this document refuses that upgrade
 everywhere it is tempting.
 
-### The boundary legend (five tiers)
+### The Boundary Legend (Five Tiers)
 
 Every emergence event below carries exactly one of these five reader-facing tags. They are
 the *narrative* legend. Beneath them sit the **six machine-checked registry tiers** in
@@ -108,7 +108,7 @@ Several events are **split-tier seams**: the mechanism is DERIVED but its input 
 anchored, or a *form* is DERIVED while its *antecedent* is OPEN. These are tagged `[SPLIT]`,
 and the split is the honest content — it must not be collapsed to the higher tier.
 
-### The through-line, in mechanism
+### The Through-Line, in Mechanism
 
 The thesis states the ladder as one line; this is the mechanism it names. A closed,
 self-referential universe in which the always-present causal arrow (Q) condenses a
@@ -118,7 +118,7 @@ that are themselves crystallized medium — observers who turn back to study the
 they are made of. The no-gos are carried not as embarrassments but as the load-bearing seams
 that make the map complete and the boundary sharp.
 
-### Part map
+### Part Map
 
 The body is a five-part architecture, ordered chronologically/developmentally — the
 sequence in which the universe itself built each thing, not the order of a physics syllabus.
@@ -220,7 +220,7 @@ response function has structure — and the content of the theory comes from the
 not from the commitment. That structure rests on four inputs of very unequal standing,
 exactly one of which is a true zero-input theorem.
 
-### The four inputs
+### The Four Inputs
 
 **Q — the in-in causal arrow. — DERIVED.** The Schwinger–Keldysh closed-time-path (CTP)
 action describes the universe by two copies of its own history, a forward branch φ₊ and a
@@ -294,7 +294,7 @@ foundational, registry.py:238; `alpha_vac_derivation`, open_negative, registry.p
 > only the conditional a/c = 1/3 math is proven, and its antecedent (the IR-carrier
 > identification) is OPEN.
 
-### The constitutive hub
+### The Constitutive Hub
 
 The four inputs assemble into one equation, the load-bearing hub every later sector is a
 regime of:
@@ -313,7 +313,7 @@ the normalization, not the dynamics (the relaxation is α-independent). The hub 
 α's antecedent are taken in, and named. *(`constitutive_equation`, computed, registry.py:496;
 `memory_kernel_form`, computed, registry.py:516.)*
 
-### The hierarchy of layers
+### The Hierarchy of Layers
 
 Read top to bottom, GRUT's ontology is a layered stack, and the chapters of this document
 walk it: **Q → F(t) → responsiveness → vacuum → physics → complexity → observers.** Q is the
@@ -324,7 +324,7 @@ matters for honesty: descending into F(t) to give it field content is GRUT exten
 *own* deeper layer — it breaks no premise and is not a successor theory. Only breaking Q or
 locality would constitute "a different theory, not GRUT."
 
-### The tier legend, in action
+### The Tier Legend, in Action
 
 Every emergence event below carries exactly one of five tags, mapping onto the
 machine-checked registry tiers as set out in the boundary legend: **DERIVED** (made from
@@ -363,7 +363,7 @@ contains no τ₀, no τ_micro, no α; it is the floor everything else rides on.
 does not emerge *with* responsiveness — it predates it. — **DERIVED.** *(`GRUT_GENESIS.md`
 §3; `ctp_action_structure`, computed; the MZ and pole-spectrum verify harnesses pass.)*
 
-### The pre-responsive substrate
+### The Pre-Responsive Substrate
 
 What exists in this Q-only phase, besides Q itself, is the microscopic KMS bath **F(t)** — a
 white-noise bath with passive response and no slow collective variable to carry memory. Above
@@ -377,7 +377,7 @@ microscopic scale itself, τ_micro ≡ ℏ/k_B T_c, is registry-tiered **conject
 hosted-with-forbidden-relation-to-τ₀ — the load-bearing two-anchor seam, returned to in
 Part IV.)
 
-### The emergence of memory
+### The Emergence of Memory
 
 Now let the universe cool. As the temperature falls through T_c, the slow/fast separation
 opens, and one relaxation channel — the single transverse-traceless shear mode locked to the
@@ -423,7 +423,7 @@ cosmic history. Emergence is a phase transition *only* in the spontaneous-scale-
 breaking sense, L₀: 0 → finite — executed as an analytic amplitude crossover, decidedly not
 as a critical quench. — **DERIVED.** *(`GRUT_GENESIS.md` §8.2.)*
 
-### The emergence of the responsive vacuum
+### The Emergence of the Responsive Vacuum
 
 The same condensation that gives z its amplitude gives it a finite memory time τ₀, and
 therefore exactly one proper length, **L₀ = cτ₀ ≈ 12.85 Mpc.** "Capable of memory" and
@@ -441,7 +441,7 @@ condition), whose floor is the field-wide cosmological measure problem, shared b
 cosmology, not specific to GRUT. One notch short of "forced from Q." *(`GRUT_GENESIS.md`
 §§6–7; `GRUT_V3_ORGANIZING_STRUCTURE.md` Bridge D.)*
 
-### Why exactly one relaxation channel survives
+### Why Exactly One Relaxation Channel Survives
 
 The deepest question of the genesis program: how does a Q-only medium develop a long-lived
 relaxation mode — why does *one* channel fail to equilibrate, with τ₀ ≫ τ_micro — without
@@ -474,7 +474,7 @@ constant, and GRUT has no derived tunneling linking the τ_micro and τ₀ secto
 > the spine if it is ever inflated — existence is forced, *size* is not. And f(T) trades a
 > free width for a *motivated identification*, not a parameter-free theorem.
 
-### What is carried through, not made
+### What Is Carried Through, Not Made
 
 Two things ride *through* genesis rather than being made by it. The first is τ₀'s numerical
 value — the hierarchy just discussed, carried as an unexplained anchor. The second is the
@@ -494,7 +494,7 @@ gives (2 − R)² = 0.71453; the full-Friedmann anchored value is 0.6886 — two
 numbers, never conflated). — **DERIVED** (the emergence) / *anchored* (the value).
 *(`GRUT_GENESIS.md` §3; `omega_lambda_prediction`, anchored.)*
 
-### The blind census and the honest negative
+### The Blind Census and the Honest Negative
 
 Then the test that defines the boundary. Run the relic inventory forward *without* biasing it
 toward producing dark matter, and ask whether viable cold dark matter falls out. It does not.
@@ -509,7 +509,7 @@ but does not yet specify. That descent into F(t) breaks no premise; it is GRUT e
 its own deeper layer, not a successor theory. — **HOSTED.** *(`GRUT_GENESIS.md` §4;
 `locality_no_halo_theorem`, computed.)*
 
-### The qualitative keystone
+### The Qualitative Keystone
 
 The genesis closes on one sentence, the keystone of the whole layered ontology:
 
@@ -1133,7 +1133,7 @@ explaining nothing in particular. The categories give the spine *edges*: they ma
 responsiveness reaches, where it merely hosts, and where the framework is honest that it has not
 yet reached at all.
 
-## The scorecard
+## The Scorecard
 
 Each frontier, its decisive-test verdict (where run), its category, and one line of ladder
 placement. The Category-A cosmological results derived earlier — **Dark Energy**, the
@@ -1823,7 +1823,7 @@ able to describe its own emergence.
 
 ---
 
-## Appendix A — Overclaim-risk table
+## Appendix A — Overclaim-Risk Table
 
 The standing list of the claims most likely to be inflated by a careless reading, with the
 honest tier each must keep. These are the cells the spine refuses to upgrade.
@@ -1848,7 +1848,7 @@ honest tier each must keep. These are the cells the spine refuses to upgrade.
 | 20 | "F (single-pole memory) is derived from Q." | **Form DERIVED; pillar POSTULATED, τ₀ anchored.** Single-pole-ness is not a theorem of Q alone (registry.py:5287). |
 | 21 | "The α = 1/3 value is a GRUT theorem." | **OPEN.** Adopted axiom; only the conditional trace-anomaly ratio is proven. |
 
-## Appendix B — Verified numbers
+## Appendix B — Verified Numbers
 
 All re-confirmed in `.venv` for this restructure. Where a tree value and an anchored value
 differ, both are listed so they are never conflated.

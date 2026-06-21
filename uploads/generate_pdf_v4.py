@@ -161,14 +161,13 @@ def cover_page_v4(S):
         Spacer(1, 0.1 * inch),
         HRFlowable(width="60%", thickness=1.5, color=g.C_NAVY,
                    hAlign='CENTER', spaceBefore=4, spaceAfter=16),
-        Paragraph("The Emergence of Everything<br/>"
-                  "A Candidate Theory of Everything Organized Around "
-                  "the Emergence of Responsiveness",
+        Paragraph("The Emergence of Everything: A Candidate Theory of Everything "
+                  "Organized Around the Emergence of Responsiveness",
                   S["cvsub"]),
         Spacer(1, 0.55 * inch),
         Paragraph("D. Ryan Grover", S["cvauth"]),
         Spacer(1, 0.15 * inch),
-        Paragraph(ff("June 2026  ·  GRUT ToE v4  ·  Candidate Framework · Reader Edition"),
+        Paragraph(ff("June 2026  ·  GRUT ToE v4  ·  Candidate Framework"),
                   S["cvauth"]),
         Spacer(1, 0.7 * inch),
         HRFlowable(width="40%", thickness=0.5, color=g.C_BORDER,
