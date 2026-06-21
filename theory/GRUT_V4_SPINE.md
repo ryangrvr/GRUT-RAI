@@ -1,6 +1,35 @@
 # GRUT ToE v4 — The Emergence of Everything
 
-## How to read this
+## The thesis
+
+The universe is a sequence of emergent layers.
+
+**Responsiveness is the transition that turns a passive universe into a participating one** — a
+universe that can hold its own past. Before it, there is reaction without record: events happen
+and leave nothing behind. After it, the medium can *remember* — and with memory comes
+persistence, an arrow of time, the possibility of structure, and, far up the ladder, observation
+and self-reflection. Everything this book describes is downstream of that one transition.
+
+The purpose of the book is to **run that process forward** — from the earliest substrate, through
+the switching-on of responsiveness, to the physics it makes possible, the structure that physics
+builds, and the observers that structure eventually produces: observers who turn back to study
+the responsiveness they are themselves made of.
+
+In one line — the universe's own order of emergence, which is also the order of this book:
+
+> **Q → F(t) → Responsiveness → Vacuum → Physics → Complexity → Observation → the universe
+> discovers responsiveness.**
+
+What follows is not a cosmology book, a gravity book, or a consciousness book. It is **a
+developmental history of reality, organized around the emergence of responsiveness.** The
+discipline that keeps that history honest — what is derived, what is hosted, what is forbidden,
+what remains open — sits *beneath* the story, in the next section, where a referee needs it. It
+does not lead, because it is the scaffolding, not the building.
+
+## How to read this — the discipline beneath the story
+
+*The thesis above is the affirmative claim. This section is the discipline that keeps it honest:
+the distinctions a referee needs, positioned under the narrative rather than in front of it.*
 
 This document runs the universe forward — from before there was time, to the observers
 who would one day measure it — and places each thing that emerges at its *true tier*. It
@@ -79,14 +108,10 @@ Several events are **split-tier seams**: the mechanism is DERIVED but its input 
 anchored, or a *form* is DERIVED while its *antecedent* is OPEN. These are tagged `[SPLIT]`,
 and the split is the honest content — it must not be collapsed to the higher tier.
 
-### The through-line
+### The through-line, in mechanism
 
-One sentence the whole spine serves — the universe's own emergence order:
-
-> **Q → F(t) → Responsiveness → Vacuum → Physics → Complexity → Observation →
-> (the universe discovers responsiveness).**
-
-A closed, self-referential universe in which the always-present causal arrow (Q) condenses a
+The thesis states the ladder as one line; this is the mechanism it names. A closed,
+self-referential universe in which the always-present causal arrow (Q) condenses a
 pre-responsive substrate F(t) into a single memory channel (responsiveness), and with it a
 responsive vacuum, the known physical sectors, cosmic structure, and finally the observers
 that are themselves crystallized medium — observers who turn back to study the responsiveness
@@ -1585,6 +1610,33 @@ survives contact, is a complete tiered map with a sharp boundary — and it earn
 when it has explained everything, but when everything it touches keeps finding the same place to
 stand. **That is when "Grand Responsive Universe Theory" stops being an ambition and becomes a
 description.**
+
+---
+
+## Coda — The Universe's Current Model of Itself
+
+Run the ladder all the way up and read what it spells.
+
+> The universe became responsive.
+> Responsiveness produced stable structure.
+> Stable structure produced observers.
+> Observers produced models.
+> Models produced GRUT.
+>
+> **GRUT is the universe's *current* model of its own responsiveness.**
+
+That one adjective — *current* — is the discipline of the whole book compressed to a single word.
+GRUT is not the universe's *final* account of itself; it is the best one its observers have built
+so far — a rung, not the arrival — written by responsive systems studying the responsiveness they
+are made of. The map will deepen: cells will move from OPEN toward DERIVED, or be booked honestly
+as hosted and forbidden; a deeper substrate layer may yet be detailed beneath the vacuum. But the
+shape of the thing is now visible — a universe that began as bare response, learned to remember,
+and, by way of physics, structure, and mind, turned back to recognize the responsiveness it had
+been all along.
+
+That recognition is where the name is finally earned. Not because the theory explains everything —
+its own minimalism forbids that — but because it is the point at which a responsive universe became
+able to describe its own emergence.
 
 ---
 
