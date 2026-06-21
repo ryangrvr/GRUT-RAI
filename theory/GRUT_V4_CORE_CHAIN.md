@@ -70,7 +70,7 @@ N ≥ 0. Scale-free: Q contains no τ₀, no τ_micro, no α.
   causality, FDT/KMS) are verified on a concrete driven-oscillator example.
 - **Grounding:** `grut/foundation/ctp_action.py:42-225` (`verify()` returns 5/5 True);
   registry `ctp_action_structure` tier=computed, `registry.py:451`. It is the highest-fanout
-  claim in the registry (32 downstream dependencies).
+  claim in the registry (93 downstream dependencies).
 
 ### F — finite single-pole memory  **[SPLIT]**
 

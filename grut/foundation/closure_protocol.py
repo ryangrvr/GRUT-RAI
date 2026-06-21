@@ -63,7 +63,7 @@ A third constant, τ_micro ≈ 1.4×10⁻¹⁹ s, is required to make T_c =
 54.7 MK dimensionally consistent — see the two-τ-scale convention
 note above. τ_micro is in the THERMAL sector, distinct from the
 gravitational τ_0; it is POSITED with the cosmological-chronology
-anchor (T_c at t ≈ 16 hours post-Big Bang ≈ 5.5×10⁷ K).
+anchor (T_c at t ≈ 16.5 hours post-Big Bang ≈ 5.5×10⁷ K).
 
 Threshold equivalence (frequency ↔ gravitational decoherence):
     The classical/quantum threshold ωτ_0 ≫ 1 is equivalent to
@@ -365,7 +365,7 @@ MOND/RAR band."""
 #                                T_c = ℏ/(τ_micro × k_B) to be
 #                                dimensionally consistent. Anchored
 #                                empirically by the standard-cosmology
-#                                temperature T(t≈16 hours post-BB) ≈ 5.5×10⁷ K.
+#                                temperature T(t≈16.5 hours post-BB) ≈ 5.5×10⁷ K.
 #
 # Per the registry's NIS discipline, T_c (the physical temperature ≈
 # 54.7 MK) is preserved as the EMPIRICAL ANCHOR — it was always the
@@ -400,7 +400,7 @@ T_C_KELVIN_CANONICAL: float = 5.47e7
 """Empirical anchor for the metric-memory transition temperature.
 
 Source: standard-cosmology temperature at the framework's transition
-epoch (t ≈ 16 hours post-Big Bang), per V7 §0.5 and V7 §22. The
+epoch (t ≈ 16.5 hours post-Big Bang), per V7 §0.5 and V7 §22. The
 narrative anchor is fixed; τ_micro is derived from this (not the
 other way around).
 
@@ -454,7 +454,7 @@ deep in the refractive regime with full enhancement n_g ≈ 1.1547.
 
 Cosmological chronology (v9.0):
     T > T_c  (plasma era):       gravity is local, no DM effects
-    T ≈ T_c  (~16 hours post-BB): vacuum begins to "remember" mass
+    T ≈ T_c  (~16.5 hours post-BB): vacuum begins to "remember" mass
     T << T_c (today):            deep refractive regime, n_g ≈ 1.1547
 
 History: prior to Correction #22 (2026-04-30) this constant was

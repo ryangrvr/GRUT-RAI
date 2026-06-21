@@ -4,7 +4,7 @@ Pins the framework's Standard-Model-sector predictions for the
 neutrino mass spectrum:
 
   - Canonical Z_3 (a = √2 from charged leptons) DOES NOT extend to
-    neutrinos (minimum Δm²_atm/Δm²_sol = 194.7, vs observed 33.9)
+    neutrinos (minimum Δm²_atm/Δm²_sol = 194.1, vs observed 33.9)
   - Generalized Z_3 with a_ν = 1 admits NH interior solution
   - IH at a_ν = 1 sits at m_3 → 0 boundary (degenerate, fine-tuned)
   - GRUT predicts: NORMAL HIERARCHY, m_1 ≈ 0.8 meV, Σm_ν ≈ 60 meV
@@ -108,7 +108,7 @@ class TestConventionDeclaration:
         )
         d = convention_declaration()
         c3 = d["C3n_canonical_a_fails"]
-        assert "194.7" in c3
+        assert "194.1" in c3
         assert "NO solution" in c3 or "no solution" in c3.lower()
 
     def test_C4n_neutrino_postulate(self):
@@ -202,7 +202,7 @@ class TestCanonicalZ3FailsForNeutrinos:
     """The framework's charged-lepton Z_3 (a = √2, K = 2/3) does NOT
     admit any neutrino solution. This is a sharp structural finding."""
 
-    def test_minimum_ratio_at_a_sqrt2_is_194_7(self):
+    def test_minimum_ratio_at_a_sqrt2_is_194_1(self):
         from grut.derived.koide.neutrino_hierarchy import (
             minimum_ratio_canonical_z3,
         )
@@ -212,7 +212,7 @@ class TestCanonicalZ3FailsForNeutrinos:
 
     def test_observed_ratio_below_minimum(self):
         """Observed Δm²_atm/Δm²_sol ≈ 33.9 (NH) is well below the
-        Z_3 minimum 194.7 → canonical ansatz cannot fit."""
+        Z_3 minimum 194.1 → canonical ansatz cannot fit."""
         from grut.derived.koide.neutrino_hierarchy import (
             DELTA_M_SQ_ATM_NH_EV2,
             DELTA_M_SQ_SOL_EV2,

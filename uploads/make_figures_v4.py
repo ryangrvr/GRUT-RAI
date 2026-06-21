@@ -66,9 +66,9 @@ def _tint(hex_color, frac=0.86):
     return f"#{r:02x}{g:02x}{b:02x}"
 
 
-def _footer(ax, text):
+def _footer(ax, text, size=6.8):
     ax.text(0.5, 0.012, text, transform=ax.figure.transFigure,
-            ha="center", va="bottom", fontsize=6.6, color=SUBINK, style="italic")
+            ha="center", va="bottom", fontsize=size, color=SUBINK, style="italic")
 
 
 # ============================================================================= #
@@ -88,7 +88,7 @@ def fig1_emergence_ladder():
     n = len(rungs)
 
     fig, ax = plt.subplots(figsize=(6.8, 9.4))
-    ax.set_xlim(0, 10)
+    ax.set_xlim(-1.1, 10)
     ax.set_ylim(0, 12.6)
     ax.axis("off")
 
@@ -146,15 +146,15 @@ def fig1_emergence_ladder():
     reflex = FancyArrowPatch(
         (cx_top - box_w / 2 - 0.05, y_top_center),
         (cx_bot - box_w / 2 - 0.05, y_bot_center),
-        connectionstyle="arc3,rad=0.55",
+        connectionstyle="arc3,rad=0.42",
         arrowstyle="-|>", mutation_scale=18, linewidth=2.0,
         color=C_CONJECTURAL, linestyle=(0, (6, 4)), zorder=2,
         shrinkA=8, shrinkB=8)
     ax.add_patch(reflex)
-    ax.text(0.62, (y_top_center + y_bot_center) / 2,
-            "the universe turns back\nto study what it is made of",
-            ha="center", va="center", fontsize=8.2, color=C_CONJECTURAL,
-            style="italic", rotation=90, zorder=4)
+    ax.text(-0.55, (y_top_center + y_bot_center) / 2,
+            "The universe turns back\nto study what it is made of",
+            ha="center", va="center", fontsize=8.4, color=C_CONJECTURAL,
+            style="italic", rotation=90, linespacing=2.6, zorder=4)
 
     # Reflexive-close banner — sits in the clear band between subtitle and top rung
     top_y = y0 + (n - 1) * dy + box_h
@@ -287,43 +287,44 @@ def fig3_tier_legend():
     tiers = [
         ("DERIVED", C_DERIVED,
          "GRUT makes it from its own structure (zero / low free parameters).",
-         "μ_linear = 1  —  the Pᵀᵀ projector theorem (~32σ ISW)"),
+         "μ_linear = 1  —  the Pᵀᵀ projector\ntheorem (~32σ ISW)"),
         ("HOSTED", C_HOSTED,
          "GRUT receives it as a boundary condition it does not generate.",
-         "Dark matter  —  substrate-resident in F(t), not external"),
+         "Dark matter  —  substrate-resident\nin F(t), not external"),
         ("FORBIDDEN-BY-THEOREM", C_FORBIDDEN,
          "GRUT rules it out from its own axioms.",
-         "Hierarchy magnitude  —  a 2nd propagating vacuum pole forbidden"),
+         "Hierarchy magnitude  —  a 2nd\npropagating vacuum pole forbidden"),
         ("OPEN", C_OPEN,
          "No mechanism yet, but attackable.",
-         "The α = 1/3 antecedent  —  the IR-carrier identification"),
+         "The α = 1/3 antecedent  —  the\nIR-carrier identification"),
         ("CONJECTURAL", C_CONJECTURAL,
          "A structural hook only — far from derivation.",
-         "Consciousness  —  the in-in self-comparison hook, not a theory of mind"),
+         "Consciousness  —  the in-in self-comparison\nhook, not a theory of mind"),
     ]
 
-    fig, ax = plt.subplots(figsize=(9.6, 5.8))
+    fig, ax = plt.subplots(figsize=(9.6, 6.0))
     ax.set_xlim(0, 30)
-    ax.set_ylim(0, 16.5)
+    ax.set_ylim(-0.9, 16.5)
     ax.axis("off")
 
     ax.text(15.0, 15.8, "The Boundary Legend — Five Tiers",
             ha="center", va="center", fontsize=15.5, fontweight="bold", color=INK)
     ax.text(15.0, 15.05,
-            "every emergence event carries exactly one tier; the honesty is the boundary",
-            ha="center", va="center", fontsize=9.0, color=SUBINK, style="italic")
+            "Every emergence event carries exactly one tier; the honesty is the boundary",
+            ha="center", va="center", fontsize=9.5, color=SUBINK, style="italic")
 
     # column geometry
     x_panel_l, x_panel_r = 0.6, 29.4
     sw_x = 1.0                 # swatch left
     sw = 2.2                   # swatch width
     text_x = 4.3              # tier name / meaning left edge
-    div_x = 14.6              # vertical divider between legend and example
-    ex_x = 15.2               # example column left edge
+    div_x = 16.5              # vertical divider between legend and example
+    ex_x = 16.9               # example column left edge
+    ex_c = (ex_x + x_panel_r) / 2   # example column center (examples centered here)
 
     # header for the example column
-    ax.text(ex_x, 14.35, "canonical example", ha="left", va="bottom",
-            fontsize=8.0, color=SUBINK, style="italic")
+    ax.text(ex_c, 14.35, "canonical example", ha="center", va="bottom",
+            fontsize=8.4, color=SUBINK, style="italic")
 
     row_top, row_bot = 13.9, 0.9
     n = len(tiers)
@@ -356,18 +357,19 @@ def fig3_tier_legend():
         # meaning
         ax.text(text_x, yc - 0.38, meaning, ha="left", va="center",
                 fontsize=8.4, color=SUBINK, zorder=3)
-        # canonical example, left-aligned in its own column
-        ax.text(ex_x, yc, example, ha="left", va="center",
-                fontsize=8.8, color=INK, style="italic", zorder=3)
+        # canonical example, centered in its own column (wrapped to two lines)
+        ax.text(ex_c, yc, example, ha="center", va="center",
+                fontsize=8.8, color=INK, style="italic", linespacing=1.2, zorder=3)
 
     # divider note: split-tier seams
-    ax.text(15.0, 0.42,
-            "Several events are split-tier seams [SPLIT]: a mechanism DERIVED on an anchored "
-            "input — the split is the honest content, never collapsed upward.",
-            ha="center", va="center", fontsize=7.6, color=SUBINK, style="italic")
+    ax.text(15.0, 0.02,
+            "Several events are split-tier seams [SPLIT]: a mechanism DERIVED on an anchored input\n"
+            "— the split is the honest content, never collapsed upward.",
+            ha="center", va="center", fontsize=10.0, color=SUBINK, style="italic",
+            linespacing=1.3)
 
     _footer(ax, "GRUT ToE v4 reader legend (5 tiers) over the machine registry "
-                "(6 tiers, 121 claims) — GRUT_V4_SPINE.md")
+                "(6 tiers, 121 claims) — GRUT_V4_SPINE.md", size=9.2)
 
     out = os.path.join(OUTDIR, "fig3_tier_legend.png")
     fig.savefig(out, dpi=DPI, bbox_inches="tight", pad_inches=0.18)

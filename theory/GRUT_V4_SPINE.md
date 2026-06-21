@@ -20,6 +20,36 @@ In one line — the universe's own order of emergence, which is also the order o
 > **Q → F(t) → Responsiveness → Vacuum → Physics → Complexity → Observation → the universe
 > discovers responsiveness.**
 
+**Before the chapters open — the physics in one look.** GRUT has a single engine: one
+*closed-time-path* (CTP, or "in-in") action — the Schwinger–Keldysh formulation in which physics
+is the response not to a state but to *realized differences* between a history and itself. The
+forward branch of history is compared against the backward branch, and only what actually
+happened — the difference on the closed contour — sources a response. This is the pillar **Q**:
+causal, unitary, with the arrow of time built in *before any clock exists*. It is the
+framework's single strongest piece — a theorem of the formalism, not an assumption.
+
+Vary that action once and a single **constitutive equation** falls out — the load-bearing hub
+every later sector is a regime of, with its single-pole susceptibility:
+
+$$\tau_0\,\dot z + z = z_{\text{target}}\,,\qquad \chi(\omega) = \frac{\alpha}{1 - i\omega\tau_0}$$
+
+— a relaxation law in which the responsive vacuum chases its target with one finite memory time,
+its response a single pole in the frequency plane. Two constants fix it, and nothing else does: a
+macroscopic **relaxation time τ₀ ≈ 41.9 Myr** (the pillar **F** — finite memory, the one
+dimensionful input the theory must be told) and a dimensionless **impedance α = 1/3**. From these
+two numbers follow the framework's signature export — the deep-infrared gravitational refractive
+index **R = √(4/3) ≈ 1.1547** — and dark energy as a *terminal velocity* of the relaxing vacuum
+(Ω_Λ ≈ 0.6886). There are no adjustable knobs in the predictive core.
+
+Its two famous limits are not added by hand; they are the two faces of the one law. In the
+**fast limit** (memory negligible, τ → 0) the constitutive update *is* the Schrödinger equation —
+quantum mechanics recovered, not postulated. In the **slow, sub-horizon limit** it *is* general
+relativity. Read structurally, GRUT is general relativity's long-wavelength scale-rescaling
+redundancy (the pillar **D**), broken in a controlled way by exactly one proper length,
+**L₀ = c·τ₀ ≈ 12.85 Mpc** — the same shape by which a particle's mass breaks scale invariance. A
+theory is defined by which symmetry it breaks, and by how much; this is GRUT's. With the engine
+in view, the rest of the book runs it forward.
+
 What follows is not a cosmology book, a gravity book, or a consciousness book. It is **a
 developmental history of reality, organized around the emergence of responsiveness.** The
 discipline that keeps that history honest — what is derived, what is hosted, what is forbidden,
@@ -1145,7 +1175,7 @@ Parts I–II and are **not** re-derived here.
 | **Dark Energy** *(Parts I–II)* | ORGANIZED | A — On the Ladder | Ω_Λ from the responsive vacuum's own α-spine (number anchored 0.6886; tree (2−R)² = 0.71453, never conflated); covered earlier. |
 | **Hierarchy (existence)** *(Parts I–II)* | ORGANIZED | A — On the Ladder | τ₀ ≫ τ_micro FORCED by the Mori–Zwanzig slow/fast split; covered earlier. |
 | **α = 1/3** *(Parts I–II)* | ORGANIZED (value adopted) | A — On the Ladder | The vacuum response coefficient; value adopted, first-principles origin OPEN; covered earlier. |
-| **Dark Matter** | ORGANIZED | A — On the Ladder | Substrate-RESIDENT in F(t); the missing host is a specified-and-unmet 2-dial extension. |
+| **Dark Matter** | ORGANIZED (specified) | A — On the Ladder | DERIVED cell empty; the no-gos *specify* the missing object, hosted substrate-RESIDENT in F(t) as a specified-and-unmet 2-dial extension. |
 | **Quantum Gravity** | PARTIAL (leaning organized) | A — On the Ladder | Gravity-as-RESPONSE derived (Φ_μν, μ_linear=1, GR-as-limit) + UV no-go internal; gravity-as-GEOMETRY hosted. |
 | **Neutrinos / Flavor** | CONTAINER-SEAM | B — Hosted Matter-Content | Consequences real (K=2/3, NH, a_ν=1) but the Z₃/a=√2/M₀ ansatz is hosted; responsive route misses (K=4/9). |
 | **Baryogenesis** | CONTAINER-SEAM (weaker) | B — Hosted Matter-Content | η_B magnitude is hosted J_CP × imported K_neq; the (2−R_B)/S_B factor is off-spine and cosmetic. |
@@ -1160,6 +1190,23 @@ have **not** been run through the decisive lens and carry **no verdict they have
 they are labeled honestly as untested/conjectural, not assigned a category-defining result by
 analogy.
 
+### The Verdict Legend — What Each Word Requires
+
+The verdict words above (ORGANIZED, PARTIAL, CONTAINER-SEAM, UNTESTED) are not free-floating
+labels. Each is pinned to a **required cell pattern** — which of a frontier's five rows
+(1 known · 2 DERIVED · 3 FORBIDDEN · 4 HOSTED · 5 OPEN) must be filled — so a badge cannot drift
+from what the frontier actually shows. This is to the verdicts what the five-tier legend is to
+the tiers; the distinction it most enforces is **derived vs. specified** — the difference between
+making a mechanism and merely triangulating a missing one.
+
+| Verdict | Required cell pattern | Cat. | Anti-laundering guard |
+|---|---|---|---|
+| **ORGANIZED (derived)** | Row 2 (DERIVED) non-empty: the core *mechanism* is made from GRUT's own structure; any hosting is of a number/anchor, not the mechanism. | A | Badge means "mechanism derived." The cell still shows what is anchored or conditional (Ω_Λ: mechanism derived / value 0.6886 anchored; α: conditional a/c = 1/3 proven / value adopted / antecedent OPEN). |
+| **ORGANIZED (specified)** | Row 2 (DERIVED) **EMPTY**; Row 3 (FORBIDDEN) non-empty and *specifying* — the no-gos triangulate the missing object; Row 4 hosts it into an *internal* layer (vacuum or F(t)), never foreign content. | A | Must print "DERIVED cell: EMPTY." Reached by GRUT *forbidding / specifying*, not *making* — never readable as a derivation. Free-parameter cost stated (DM: 2 dials, 0-of-3 sourced). |
+| **PARTIAL** | Make-or-break legs split: ≥ 1 core leg in Row 2 (DERIVED), ≥ 1 core leg in Row 4 (HOSTED). | A | Must name which leg is derived and which hosted (QG: response derived, geometry hosted). The hosted leg keeps full HOSTED standing — no averaging. |
+| **CONTAINER-SEAM** | Row 2 empty of native content; Row 4 hosts *foreign* (SM) content; Row 3 empty of any specifying theorem; the responsive route was tried-and-missed (or never run → an OPEN seam). | B | "Consequences are real" must always carry "conditional on the hosted ansatz." No consequence promotes the sector off B. |
+| **UNTESTED** | Five cells filled; the organize-or-host question not yet run. | — | No verdict, and no category by analogy. |
+
 ---
 
 ## IV·A — On the Ladder
@@ -1173,8 +1220,8 @@ own content, or is forbidden by its own theorems. This is where the spine reache
 separate prohibitions but as a single specification: together they describe the missing object
 to the dex.*
 
-> **DECISIVE-TEST VERDICT: ORGANIZED — substrate-resident.** Dark matter is hosted-by-the-
-> vacuum but **RESIDENT in GRUT's own pre-responsive substrate F(t)** — on the ladder, a
+> **DECISIVE-TEST VERDICT: ORGANIZED (specified) — substrate-resident. DERIVED cell: EMPTY.**
+> Dark matter is hosted-by-the-vacuum but **RESIDENT in GRUT's own pre-responsive substrate F(t)** — on the ladder, a
 > *deeper layer* (Q → F(t) → vacuum → …). The vacuum's three no-gos hold; F(t) sits outside
 > their jurisdiction *because* they are theorems about the vacuum's action, not the substrate
 > beneath it. The missing host is a **precisely-specified 2-dial conjectural extension** —

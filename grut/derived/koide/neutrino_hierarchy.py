@@ -20,11 +20,11 @@ LOAD-BEARING FINDING
 Applying the canonical Z_3 ansatz (a = √2, K = 2/3) to neutrinos with
 experimental Δm²_sol = 7.42×10⁻⁵ eV² and Δm²_atm = 2.515×10⁻³ eV²:
 
-    Minimum achievable Δm²_atm/Δm²_sol = 194.7
+    Minimum achievable Δm²_atm/Δm²_sol = 194.1
     Observed                            =  33.9
 
 The CANONICAL Z_3 ANSATZ DOES NOT FIT NEUTRINOS — for any θ in the
-all-positive-s_k range, the Δm²_atm/Δm²_sol ratio is bounded ≥ 194.7,
+all-positive-s_k range, the Δm²_atm/Δm²_sol ratio is bounded ≥ 194.1,
 ~6× too large compared to observations. NEITHER hierarchy admits a
 solution under the charged-lepton coupling.
 
@@ -70,7 +70,7 @@ What is the postulate, and what is derived?
 
 DERIVED:
   - Canonical Z_3 (a = √2) DOES NOT admit any neutrino hierarchy
-    (minimum ratio 194.7 vs observed 33.9). This is unconditional.
+    (minimum ratio 194.1 vs observed 33.9). This is unconditional.
   - For generalized coupling a, K_ν = (1 + a²/2)/3.
   - At a = 1, NH admits an interior solution; IH admits only a
     boundary solution.
@@ -169,7 +169,7 @@ def convention_declaration() -> Dict[str, str]:
             "K = 2/3 (PROVEN). Neutrinos have a different a (this "
             "module's analysis).",
         "C3n_canonical_a_fails":
-            "a = √2 gives minimum Δm²_atm/Δm²_sol = 194.7 > observed "
+            "a = √2 gives minimum Δm²_atm/Δm²_sol = 194.1 > observed "
             "33.9 — NO solution for either hierarchy. Charged-lepton "
             "Z_3 does NOT extend to neutrinos.",
         "C4n_neutrino_postulate_a_equals_1":
@@ -238,7 +238,7 @@ def minimum_ratio_canonical_z3() -> float:
 
     Δm²_atm/Δm²_sol = (s_max⁴ - s_min⁴)/(s_mid⁴ - s_min⁴)
 
-    Returns: 194.7 ± numerical precision (independent of M_0).
+    Returns: 194.1 ± numerical precision (independent of M_0).
 
     Compare to observed 33.9 — the canonical ansatz CANNOT reproduce
     observations.
@@ -697,7 +697,7 @@ def verify() -> Dict[str, bool]:
       (1) Charged-lepton coupling a = √2 gives K = 2/3
       (2) Neutrino coupling a_ν = 1 gives K = 1/2
       (3) Canonical Z_3 (a = √2) cannot fit either neutrino hierarchy
-      (4) Minimum Δm²_atm/Δm²_sol at a = √2 is ≈ 194.7 (> observed)
+      (4) Minimum Δm²_atm/Δm²_sol at a = √2 is ≈ 194.1 (> observed)
       (5) NH solution at a = 1 exists with m_1 ≈ 0.8 meV
       (6) IH at a = 1 sits at m_3 → 0 boundary (degenerate)
       (7) GRUT prefers NH (interior generic solution)
@@ -717,7 +717,7 @@ def verify() -> Dict[str, bool]:
     # (3) Canonical Z_3 cannot fit
     leg3 = not canonical_z3_fits_neutrinos()
 
-    # (4) Minimum ratio is ~194.7 (greater than ~190, less than ~200)
+    # (4) Minimum ratio is ~194.1 (greater than ~190, less than ~200)
     min_r = minimum_ratio_canonical_z3()
     leg4 = bool(190 < min_r < 200)
 
@@ -757,7 +757,7 @@ def verify() -> Dict[str, bool]:
         "charged_lepton_a_sqrt2_gives_K_2_over_3":  leg1,
         "neutrino_a_one_gives_K_1_over_2":           leg2,
         "canonical_z3_does_not_fit_neutrinos":       leg3,
-        "minimum_ratio_at_a_sqrt2_is_194_7":          leg4,
+        "minimum_ratio_at_a_sqrt2_is_194_1":          leg4,
         "NH_solution_at_a_1_has_m1_sub_meV":          leg5,
         "IH_at_a_1_sits_at_m3_zero_boundary":         leg6,
         "GRUT_prefers_normal_hierarchy":              leg7,

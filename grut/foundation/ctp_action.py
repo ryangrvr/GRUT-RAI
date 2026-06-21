@@ -8,7 +8,7 @@ This module hardens the GRUT claim:
     at temperature T closes them.
 
 The dependency graph identified `ctp_action_structure` as the highest-
-fan-out claim (32 downstream dependencies). It was previously anchored
+fan-out claim (93 downstream dependencies). It was previously anchored
 in V7 prose only. This module supplies a code-level harness that, for
 a concrete example (driven harmonic oscillator with vacuum noise),
 verifies all four structural facts of the CTP action:

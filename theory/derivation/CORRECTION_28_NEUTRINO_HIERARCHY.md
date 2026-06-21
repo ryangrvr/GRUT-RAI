@@ -15,7 +15,7 @@ The user picked **neutrino hierarchy** as the Priority 4 target. The framework's
 **(1) The canonical Z₃ (a = √2, K = 2/3) does NOT extend to neutrinos** — a sharp, unconditional, computed structural finding.
 
 ```
-min over θ of (Δm²_atm/Δm²_sol)_Z₃ = 194.7
+min over θ of (Δm²_atm/Δm²_sol)_Z₃ = 194.1
                               observed = 33.9
 ```
 
@@ -95,12 +95,12 @@ For neutrinos, the question is: which a (if any) admits a solution matching the 
 Numerical scan over the all-positive θ range with a = √2 gives:
 
 ```
-min over θ of (s_max⁴ - s_min⁴)/(s_mid⁴ - s_min⁴) = 194.7
+min over θ of (s_max⁴ - s_min⁴)/(s_mid⁴ - s_min⁴) = 194.1
 ```
 
 (Δm²_atm/Δm²_sol = (m_3² - m_1²)/(m_2² - m_1²) for NH; analogous for IH.)
 
-The minimum 194.7 is achieved at the boundary where one s_k → 0 (one mass vanishing). Observed Δm²_atm/Δm²_sol ≈ 33.9 — **factor of ~6 below the structural minimum**.
+The minimum 194.1 is achieved at the boundary where one s_k → 0 (one mass vanishing). Observed Δm²_atm/Δm²_sol ≈ 33.9 — **factor of ~6 below the structural minimum**.
 
 **Conclusion: the charged-lepton Z₃ structure does not admit any neutrino solution under either NH or IH.** Computed, unconditional.
 
