@@ -1,5 +1,30 @@
 # GRUT ToE v4 — The Emergence of Everything
 
+### A Candidate Framework · Reader Edition
+
+**D. Ryan Grover**
+
+*June 2026*
+
+---
+
+**Abstract.** This is the public record of the v4 program of *GRUT* — Grand Responsive
+Universe Theory — whose single thesis is that the gravitational vacuum is a *responsive
+medium* rather than an inert stage, and that everything downstream follows from one
+transition: the universe becoming able to hold its own past. The book runs that emergence
+forward along a single ladder — **Q → F(t) → Responsiveness → Vacuum → Physics → Complexity
+→ Observation** — placing each rung at its honest tier: **DERIVED** from GRUT's own
+structure, **HOSTED** as a received input, **FORBIDDEN-BY-THEOREM** from its own axioms,
+**OPEN** but attackable, or **CONJECTURAL**. A decisive organize-or-host test draws the
+boundary: dark energy, the hierarchy's existence, α, and dark matter (substrate-resident in
+F(t)) organize around responsiveness; quantum gravity is partial; Standard-Model
+matter-content is hosted at a container-seam; the observer/meta frontiers remain conjectural.
+Every tier is machine-checked against a 121-claim registry. This is a **candidate framework
+— the current rung, not the arrival**: a complete tiered *map* with a sharp edge, not a
+derivation of everything.
+
+---
+
 ## The thesis
 
 The universe is a sequence of emergent layers.
@@ -19,6 +44,8 @@ In one line — the universe's own order of emergence, which is also the order o
 
 > **Q → F(t) → Responsiveness → Vacuum → Physics → Complexity → Observation → the universe
 > discovers responsiveness.**
+
+![The emergence ladder — the universe's own order of emergence.](figures_v4/fig1_emergence_ladder.png)
 
 What follows is not a cosmology book, a gravity book, or a consciousness book. It is **a
 developmental history of reality, organized around the emergence of responsiveness.** The
@@ -85,6 +112,8 @@ that sinks the whole thing on contact with a referee, and this document refuses 
 everywhere it is tempting.
 
 ### The boundary legend (five tiers)
+
+![The five-tier boundary legend — every emergence event carried at its earned tier.](figures_v4/fig3_tier_legend.png)
 
 Every emergence event below carries exactly one of these five reader-facing tags. They are
 the *narrative* legend. Beneath them sit the **six machine-checked registry tiers** in
@@ -251,8 +280,8 @@ single-pole-ness: passivity (Herglotz) is strictly weaker than complete monotoni
 passive kernel can carry negative Debye weight or off-axis poles — the registry says so in
 plain words, *"single-pole-ness is NOT a theorem of Q alone"* (registry.py:5287). So the
 *form* is DERIVED (the MZ Markovian limit), while F as a pillar and the value of τ₀ are taken
-in, not made. *(`finite_memory_form_from_q`, computed, registry.py:5270 — covers the
-single-pole form via MZ; `first_order_from_mori_zwanzig`, computed, registry.py:5414;
+in, not made. *(`finite_memory_form_from_q`, computed, registry.py:5278 — covers the
+single-pole form via MZ; `first_order_from_mori_zwanzig`, computed, registry.py:5422;
 `tau_0_derivation`, registry tier computed at registry.py:180 — its statement POSITS τ₀ with
 two independent anchors, i.e. the *value* is anchored even though the claim's tier field is
 "computed"; `mori_zwanzig_kernel.py`, verify 8/8.)*
@@ -273,7 +302,7 @@ and the Keldysh-doubling content proven; what is *presupposed* is the L₀ → 0
 itself, imported from Weinberg rather than re-derived, with one undischarged residue (the
 scale-free in-in initial-state condition, GAP-1). A pure redundancy cannot be spontaneously
 broken; what L₀ breaks is its *boundary charge*. *(`adiabatic_dilatation_redundancy_nogo`,
-computed, registry.py:5219; `GRUT_V3_ORGANIZING_STRUCTURE.md` Bridge D.)*
+computed, registry.py:5227; `GRUT_V3_ORGANIZING_STRUCTURE.md` Bridge D.)*
 
 **α = 1/3 — the adopted dimensionless axiom. — OPEN `[SPLIT]`.** The single dimensionless
 input, adopted as c and ℏ are adopted. It sets the DC response amplitude χ(0) = α, fixes the
@@ -289,6 +318,18 @@ fraction (2−R)² is screening-free and shifts only ~15% (0.770 → 0.714 → 0
 standing is decisive. *(`alpha_vac_axiom`,
 foundational, registry.py:238; `alpha_vac_derivation`, open_negative, registry.py:274;
 `conformal_mode_scalar.py`, a/c = Fraction(1,3), verify 9/9.)*
+
+> **Spec — α = 1/3, the single adopted axiom. Tier: OPEN `[SPLIT]`.** The one dimensionless
+> input, adopted as c and ℏ are. It sets the DC response χ(0) = α, fixes R = √(4/3) = 1.15470 and
+> the screening S = 12π/α² = 108π = 339.292. *How (the split):* a *conditional* theorem is proven
+> Fraction-exact — *if* the gravitational conformal mode is the IR carrier of the susceptibility,
+> *then* the trace-anomaly ratio a/c = 1/3 (Duff; Komargodski–Schwimmer) — but the antecedent is
+> unproven and the value is **adopted, not derived**. This is the most load-bearing open gap: a
+> ±0.07 shift in α moves the screened scale H₀ = 1/(Sτ₀) ∝ α² by ~2× through S = 12π/α², while
+> the tree (2−R)² is screening-free and shifts only ~15%.
+> (`alpha_vac_axiom`, foundational, registry.py:238; `alpha_vac_derivation`, open_negative, registry.py:274.)
+
+The adopted value is the framework's deepest open gap.
 
 > **OVERCLAIM FLAG (Appendix A #21).** Do not write "α is derived." The value is ADOPTED;
 > only the conditional a/c = 1/3 math is proven, and its antecedent (the IR-carrier
@@ -362,6 +403,14 @@ every backward crossing, Q is the one invariant that survives the loss of memory
 contains no τ₀, no τ_micro, no α; it is the floor everything else rides on. The arrow of time
 does not emerge *with* responsiveness — it predates it. — **DERIVED.** *(`GRUT_GENESIS.md`
 §3; `ctp_action_structure`, computed; the MZ and pole-spectrum verify harnesses pass.)*
+
+> **Spec — Q survives the loss of memory (the keystone). Tier: DERIVED.** On the closed-time-path
+> contour, the influence action vanishes on the diagonal, S_IF[φ₊ = φ₋] = 0, and physical response
+> is its variation in the *difference* of the two history branches. Q carries no τ₀, no τ_micro,
+> no α — it is scale-free. *How:* run the clock back across every memory-losing crossover and the
+> single invariant that survives is this in-in causal arrow (response-to-past, never-to-future).
+> The arrow predates memory; everything above is Q wearing more structure.
+> (`ctp_action_structure`, computed, registry.py:451; highest-fanout node, 93 dependencies.)
 
 ### The pre-responsive substrate
 
@@ -470,6 +519,16 @@ near-miss standard — it is the universal one-instanton action, not a GRUT-dist
 constant, and GRUT has no derived tunneling linking the τ_micro and τ₀ sectors. —
 **FORBIDDEN-BY-THEOREM** (magnitude) **+ OPEN** (antecedent).
 
+> **Spec — The two-anchor hierarchy. Tier: existence FORBIDDEN-to-vary / magnitude anchored.**
+> The 34-order gap c = ln(τ₀/τ_micro) = 78.233 is exactly the *difference* of two
+> independently-anchored Planck-referenced logs: ln(τ₀/t_P) − ln(τ_micro/t_P) = 134.447 −
+> 56.214 = 78.233 (differenced before rounding), **not** a third number. *How:* the MZ slow/fast
+> split *forces* τ₀ ≫ τ_micro (existence), but no β-function carries τ₀, so the size is taken in,
+> not made — everything else hierarchy-flavored is a disguise of these two anchors.
+> (`GRUT_HIERARCHY_LEDGER.md` §4.)
+
+The honest miss is the size, not the existence.
+
 > **OVERCLAIM FLAG (Appendix A #2, #15).** τ₀'s *magnitude* is the single fact that sinks
 > the spine if it is ever inflated — existence is forced, *size* is not. And f(T) trades a
 > free width for a *motivated identification*, not a parameter-free theorem.
@@ -494,6 +553,14 @@ gives (2 − R)² = 0.71453; the full-Friedmann anchored value is 0.6886 — two
 numbers, never conflated). — **DERIVED** (the emergence) / *anchored* (the value).
 *(`GRUT_GENESIS.md` §3; `omega_lambda_prediction`, anchored.)*
 
+> **Spec — Dark energy as terminal velocity. Tier: mechanism DERIVED, number anchored.**
+> The expansion drive (a negative-energy conformal mode) balances the vacuum's memory friction
+> at a constant rate — a terminal velocity H_inf = (2−R)/(S·τ₀). Anchored full-Friedmann value:
+> **Ω_Λ = 0.6886** (Planck 0.6889; 0.04% match). *How:* dark energy is the Herglotz spectral
+> weight of the single memory pole tied to τ₀. **Discipline:** the tree closed form (2−R)² =
+> 0.71453 (R = √(4/3) = 1.15470) is a cosmic-baseline approximation, **not** the anchored 0.6886
+> — never conflate them. (`omega_lambda_prediction`, anchored, registry.py:1346.)
+
 ### The blind census and the honest negative
 
 Then the test that defines the boundary. Run the relic inventory forward *without* biasing it
@@ -508,6 +575,14 @@ own substrate sector F(t), the microscopic medium beneath the vacuum that curren
 but does not yet specify. That descent into F(t) breaks no premise; it is GRUT extending into
 its own deeper layer, not a successor theory. — **HOSTED.** *(`GRUT_GENESIS.md` §4;
 `locality_no_halo_theorem`, computed.)*
+
+> **Spec — Dark matter is substrate-resident, not derived. Tier: HOSTED.** Run the relic
+> inventory forward without biasing it toward dark matter and *no viable cold DM falls out*: the
+> one forced relic is a warm 4.71 keV shear phonon (c_s = c) that overcloses by ~418×–5800×.
+> GRUT predicts the *wrong* DM and reports it as a genuine negative. The host is a coherent
+> ~10⁻²² eV scalar **resident in GRUT's own pre-responsive substrate F(t)** — internal to the
+> Q → F(t) → vacuum ontology, not external, not a successor. *Honest cost:* exactly 2 inserted
+> dials (mass m, amplitude φ_i); 0 of 3 requirements sourced from the bath.
 
 ### The qualitative keystone
 
@@ -570,7 +645,16 @@ E5 — flagged as a *definitional identity, not a derivation step*). The single 
 the lower half-plane, making the kernel causal, Kramers–Kronig compatible, and recovering GR
 as ω → ∞. — **DERIVED `[SPLIT]`**: the form is the Mori–Zwanzig Markovian limit (derived);
 the value τ₀ rides in as an anchor (`memory_kernel_form`, registry.py:516, computed;
-`first_order_from_mori_zwanzig`, registry.py:5414, computed).
+`first_order_from_mori_zwanzig`, registry.py:5422, computed).
+
+> **Spec — The constitutive law (the load-bearing hub). Tier: DERIVED-as-synthesis `[SPLIT]`.**
+> Every sector is a regime of one law: **τ₀ż + z = z_target[z]**, equivalently the
+> susceptibility **χ(ω) = α/(1 − iωτ₀)** (one pole at ω = −i/τ₀, lower half-plane) and the kernel
+> K(t) = (1/τ₀)e^{−t/τ₀}Θ(t) — three faces of one object. *How:* Q supplies the causal/passive
+> form-class; the Mori–Zwanzig Markovian limit collapses it to the *single* pole; the value τ₀
+> rides in as an anchor; α sets only the DC amplitude χ(0) = α. **Split:** the form is derived,
+> the law-as-pillar and τ₀ are inputs — single-pole-ness is *not* a theorem of Q alone
+> (registry.py:5287). (`constitutive_equation`, computed, registry.py:496.)
 
 **The constitutive law as the load-bearing hub.** This is the single most important
 structural claim of the whole framework: **every sector is a regime of the one law
@@ -628,6 +712,14 @@ below T_c, and a 1/T power-law tail above — its shape forced by Q's FDT/KMS st
 one physical identification (activation = the bath's zero-point fraction). — **DERIVED
 `[SPLIT]`**: motivated identification, not a parameter-free theorem.
 
+> **Spec — Memory switch-on profile. Tier: DERIVED `[SPLIT]`.** The memory-amplitude order
+> parameter is **f(T) = tanh(T_c/2T)**, with f(T_c) = tanh(½) = 0.46212 (notably *not* ½), f → 1
+> deep below T_c, and a 1/T power-law (not exponential) high-T tail. Composed with radiation-era
+> cooling it gives the forward switch-on z̄(t) = tanh[½(t/t_c)^½]. *How:* splitting Q's FDT/KMS
+> relation into zero-point and thermal parts makes the coherent bath fraction itself the order
+> parameter. **Split:** this trades the old sigmoid's free *width* for a motivated identification
+> — an improvement, not a parameter-free theorem.
+
 **Why responsiveness looks like a field theory.** The CTP variation does not merely permit a
 field-theoretic description — it *produces* one. The form-class that drops out is causal,
 retarded, and passive (Herglotz); the noise is fixed by FDT with N ≥ 0; the response is tied
@@ -663,12 +755,20 @@ carries an entropy production **Ṡ = (1/τ₀)⟨(z − z_target)²⟩**, non-n
 zero only at the fixed point, cumulatively monotone — verified numerically strictly positive
 over 10⁵ random states and exactly zero at z = z_target. The Second Law follows from Q's
 retarded kernel rather than being postulated alongside it (`arrow_of_time_from_entropy`,
-registry.py:1726, computed). And the directionality is even more primitive than memory: the
+registry.py:1734, computed). And the directionality is even more primitive than memory: the
 in-in arrow (response-to-past, S_IF[φ₊ = φ₋] = 0) is a theorem of the formalism containing no
 τ₀, so it *predates* responsiveness — the Part I keystone reappearing as the floor of this
 chapter. — **DERIVED.** This Ṡ ≥ 0 result is also the only hook Part III's "Emergence of
 Life" chapter is allowed to use; it is a *precondition* for dissipative organization, nothing
 more.
+
+> **Spec — The arrow of time from the kernel. Tier: DERIVED.** Constitutive evolution carries
+> entropy production **Ṡ = (1/τ₀)⟨(z − z_target)²⟩** — non-negative for any state, zero only at
+> the fixed point, cumulatively monotone (verified strictly positive over 10⁵ random states,
+> exactly zero at z = z_target). *How:* the Second Law follows from Q's retarded kernel rather
+> than being postulated. The directionality is even more primitive than memory — the in-in arrow
+> S_IF[φ₊ = φ₋] = 0 carries no τ₀ and predates responsiveness.
+> (`arrow_of_time_from_entropy`, computed, registry.py:1734.)
 
 **Measurement — dissolved into physics, almost entirely.** When a deep-crystal apparatus
 (Λ_grav·τ₀ ≫ 1) couples to a quantum object (Λ_grav·τ₀ ≲ 1), the joint dynamics is
@@ -677,7 +777,7 @@ refractive→classical threshold. Collapse is *physical contact* through the low
 memory channel — no observer postulate, the same scaling law applying to measurer and
 measured (verified on a 1 g / atom example, the apparatus crystallizing ~10³² times faster).
 Wigner's friend dissolves as conditional-state consistency (`measurement_resolution`,
-registry.py:1784, computed; `wigner_friend_dissolution`, registry.py:1939). — **DERIVED
+registry.py:1792, computed; `wigner_friend_dissolution`, registry.py:1947). — **DERIVED
 `[SPLIT]`**: this derives decoherence, diagonalization, and the pointer basis — but **not**
 the probability weights.
 
@@ -687,11 +787,20 @@ diagonal density matrix in the pointer basis, but it does **not** produce the sp
 |⟨ψ|pointer_i⟩|² on the diagonal — those inherit from the Hilbert-space inner product, not
 from the noise kernel. **The Born rule is OPEN — and, honestly, HOSTED:** the weights are
 received from the postulated inner product, and no GRUT mechanism yet generates them
-(`born_rule_postulate_open_negative`, registry.py:2112, open_negative; edge E10 scope flag).
+(`born_rule_postulate_open_negative`, registry.py:2120, open_negative; edge E10 scope flag).
 **FLAG (Appendix A #14):** "GRUT derives QM probabilities" is the refuted-on-contact
 overclaim — do not make it. Note in fairness that this is *not* a GRUT-specific weakness:
 Copenhagen, Many-Worlds, decoherent histories, and CSL all require extra structure at exactly
 this point.
+
+> **Spec — The Born-rule seam. Tier: OPEN (honestly HOSTED).** The CTP / noise-kernel machinery
+> produces off-diagonal decay and an asymptotically diagonal density matrix in the pointer basis,
+> but it does **not** produce the diagonal weights |⟨ψ|pointer_i⟩|². *How (the seam):* those
+> weights inherit from the postulated Hilbert-space inner product, not from the noise kernel —
+> no GRUT mechanism yet generates them. Decoherence, diagonalization, and the pointer basis are
+> DERIVED; the *probabilities* are received. (Not a GRUT-specific gap — Copenhagen, Many-Worlds,
+> decoherent histories, and CSL all need extra structure here.)
+> (`born_rule_postulate_open_negative`, open_negative, registry.py:2120.)
 
 **What this chapter recovers, what it does not.** Recovered as the zero-memory regime:
 unitary Schrödinger evolution (first order, one qubit), the arrow of time, decoherence, the
@@ -733,6 +842,13 @@ from {ℏ, c, τ_micro}; the viscoelastic-SOLID premise is one imported IOU. **F
 SOLID premise (G₀ > 0) is an unpaid postulate. The elastic/curvature framing of gravity is
 conjectural-candidate, not established.
 
+> **Spec — Vacuum rigidity G₀. Tier: DERIVED `[SPLIT]`.** If the vacuum is a viscoelastic *solid*
+> with static shear rigidity G₀ > 0, the Debye / Kleinert world-crystal identity *forces*
+> **G₀ = ℏ/(c³ τ_micro⁴) ≈ 1.03 × 10¹⁶ Pa** from {ℏ, c, τ_micro} with no dial. *How (the split):*
+> the *value* is mechanism-backed and dial-free, but v3's memory is a Maxwell *fluid* (static TT
+> shear → 0), so the SOLID is one of ≥4 degenerate medium classes and **G₀ > 0 is an unpaid
+> postulate**. Do not call "gravity-from-the-solid" derived.
+
 **The decoherence plateau — the sharpest near-term falsifier.** The same τ₀ that fixes the
 dark-energy fraction surfaces as a tabletop signature. For a gold microsphere of radius 1 μm
 (mass ≈ 80.8 pg), GRUT computes a decoherence frequency of **689 Hz** from {G, ℏ, c, τ₀} with
@@ -742,6 +858,13 @@ relation, a tabletop measurement of where decoherence saturates pins both the me
 and the dark-energy fraction at once. — **DERIVED.** The seam: 689 Hz is a *predicted test
 point*, not an anchor — it inherits τ₀'s anchoring, so measuring the plateau is a way of
 *measuring* τ₀.
+
+> **Spec — The decoherence-plateau falsifier. Tier: DERIVED.** For a gold microsphere of radius
+> 1 μm (mass m ≈ 80.8 pg), GRUT computes a decoherence frequency of **689 Hz** from {G, ℏ, c, τ₀}
+> with zero free parameters, coherence destroyed in ~1.5 ms. *How:* the same τ₀ that fixes the
+> dark-energy fraction surfaces as a tabletop signature, so a measurement of where decoherence
+> saturates pins the memory scale and Ω_Λ at once. **Seam:** 689 Hz is a *predicted test point*,
+> not an anchor — it inherits τ₀'s anchoring. (`decoherence_plateau`, computed, registry.py:1045.)
 
 **Solar-System safety — a derived win, not an assumption.** The same memory length must leave
 the Solar System untouched or the theory is dead on arrival. Because the refractive
@@ -796,13 +919,21 @@ this is one of the two spine-sinkers — never inflate it.
 **The Hubble rate.** From {α, τ₀} the core yields **H₀ ≈ 68.8 km/s/Mpc**, sitting in the
 tension gap. — **anchored** (`h_0_prediction`, registry.py:1365, anchored).
 
+> **Spec — μ_linear = 1, the cleanest theorem. Tier: DERIVED.** In the linear scalar sector the
+> tracefree transverse projector P^TT annihilates the constitutive response (∂^μ P^TT = 0), so
+> **μ_linear = 1 exactly: linear cosmology is ΛCDM** (γ = 1, no gravitational slip). *How:* the
+> result is α-free, τ₀-free, purely structural — forced two independent ways and over-determined
+> at **~32σ** by the low-ℓ CMB ISW data. Its mirror: any enhanced-growth branch (μ ≠ 1) is
+> **FORBIDDEN-by-theorem** and audit-trail-only. (`adiabatic_dilatation_redundancy_nogo`,
+> computed, registry.py:5227.)
+
 **μ_linear = 1 — the headline robust theorem.** This is the cleanest derivation in the entire
 framework. In the linear scalar sector the tracefree transverse projector P^TT annihilates
 the constitutive response (∂^μ P^TT = 0), so **μ_linear = 1 exactly: linear cosmology is
 ΛCDM**, with γ = 1 and no gravitational slip. The result is α-free, τ₀-free, and purely
 structural — drawing only on D's *derived* leg (tensor confinement), not its presupposed leg
 — and it is forced two independent ways and over-determined ~32σ by the low-ℓ CMB ISW data
-(`adiabatic_dilatation_redundancy_nogo`, registry.py:5219, computed). — **DERIVED.** Its
+(`adiabatic_dilatation_redundancy_nogo`, registry.py:5227, computed). — **DERIVED.** Its
 mirror image is a *forbidden* family: any enhanced-growth branch (μ ≠ 1, the old "refractive"
 modification) is forbidden by separate-universe / adiabatic-dilatation invariance *and*
 independently killed at ~32σ by ISW. The whole v2 family — enhanced growth, a linear
@@ -816,7 +947,7 @@ running on GRUT's recovered-ΛCDM background. GRUT's contribution is the *consis
 (μ_linear = 1, BBN-era null, no DM refractive signature), not a derivation of stellar or
 galactic physics. — **HOSTED / standard** for the linear background's astrophysics; **OPEN**
 for nonlinear structure detail (`nonlinear_structure_formation_grut_consistency`,
-registry.py:3384, open_negative). This rung is detailed in Part III, Ch 8; here it is named
+registry.py:3392, open_negative). This rung is detailed in Part III, Ch 8; here it is named
 only as cosmological history riding on the vacuum.
 
 **The two primordial handles — opposite verdicts.** Cosmology hands GRUT two quantitative
@@ -838,13 +969,21 @@ inputs and they fare oppositely:
   naive inflationary substitution by ~10¹⁰⁹; the closest dimensional candidate α/S³ ≈
   8.5 × 10⁻⁹ sits a factor of four away and is flagged a *clue*, not promoted). A_s is
   observation-anchored input. — **OPEN** (`primordial_amplitude_zero_parameter_open_negative`,
-  registry.py:4456, open_negative). **FLAG (Appendix A #17):** A_s is not a prediction.
+  registry.py:4464, open_negative). **FLAG (Appendix A #17):** A_s is not a prediction.
 - **The spectral tilt n_s (weaker still).** GRUT's constitutive-dissipation form
   n_s = 1 − 2(Hτ)²/(1 + (Hτ)²) can match Planck's 0.965 only by solving for Hτ from the
   *observed* n_s — a fit, not a prediction, source-tagged [HYPOTHESIS]. The genuine forward
   content is the *running* dn_s/dln k (CMB-S4-falsifiable), which still leans on a
   phenomenological input. — **CONJECTURAL.** **FLAG (Appendix A #18):** n_s is a fit, not a
   prediction.
+
+> **Spec — Baryogenesis, existence vs. magnitude. Tier: existence DERIVED, magnitude HOSTED.**
+> The CTP path is asymmetric (canonical ratio R ≠ 1), so a nonzero baryon asymmetry is *forced*
+> by the in-in asymmetry — the derived half. *The magnitude is hosted:* η_B ≈ 6.57 × 10⁻¹⁰ rides
+> on SM inputs (Jarlskog J_CP × imported electroweak K_neq), and the +7.7% match to Planck
+> (6.1 × 10⁻¹⁰) was **reverse-fit** via a documented S_B re-choice — using the canonical R = √(4/3)
+> *worsens* the fit to −7.3%. The native (2−R_B)/S_B factor is off-spine and cosmetic (its
+> numerator (2−R_B) = 0.982 is O(1); the full factor ≈ 1.7×10⁻³). Re-tiered **ANCHORED**; not zero-parameter. (`baryogenesis_eta_b`, registry.py:1696.)
 
 **The cosmic ledger.** What is *recovered*: linear cosmology = ΛCDM exactly (the headline
 robust theorem), GR at high frequency, dark energy's mechanism, H₀ in the tension gap,
@@ -897,7 +1036,7 @@ This is the first rung where the division of labor becomes explicit: **GRUT host
 physics fills.** The reason it can host cleanly is the cleanest theorem in the framework —
 **μ_linear = 1**: at linear perturbation order, GRUT's cosmology *is* exactly ΛCDM, forced
 two independent ways and over-determined by data (`adiabatic_dilatation_redundancy_nogo`,
-registry.py:5219, computed → μ_linear = 1). This recovery is itself a DERIVED win; what rides
+registry.py:5227, computed → μ_linear = 1). This recovery is itself a DERIVED win; what rides
 on it is hosted. Because the linear background is ΛCDM and nothing else, every downstream
 structure-formation result of standard cosmology and astrophysics — the growth of density
 perturbations into the first halos, gas collapse, the first stars, stellar nucleosynthesis
@@ -924,7 +1063,7 @@ derivations:
 The honest open edge here is the **nonlinear** regime. Whether μ_GRUT remains self-consistent
 once density contrasts reach δ ~ 10²–10⁶ — halo formation, mode coupling, the regime where
 small systematic effects compound over N-body growth factors of ~10⁶ — is an explicitly
-registered open question (`nonlinear_structure_formation_grut_consistency`, registry.py:3384,
+registered open question (`nonlinear_structure_formation_grut_consistency`, registry.py:3392,
 **open_negative**). The linear structural proof does not extend itself into the nonlinear
 regime; answering it requires a modified-gravity N-body simulation that has not been run. So
 the honest tier for the *detailed* nonlinear structure ladder is **OPEN**, sitting on top of a
@@ -933,7 +1072,7 @@ linear background that is HOSTED-on-derived-ΛCDM.
 **Overclaim guard — DERIVED μ_linear, otherwise HOSTED/STANDARD.** Do not present any
 astrophysical result — a stellar mass function, a galaxy luminosity relation, the existence of
 heavy elements — as GRUT-derived. The SM matter content that builds atoms is itself an input,
-not an output (`sm_field_content_locked`, registry.py:2544; notes at registry.py:2564: "The SM
+not an output (`sm_field_content_locked`, registry.py:2552; notes at registry.py:2572: "The SM
 field content is taken as input, not derived"). GRUT's role at the structure rung is exactly:
 it recovers the linear background as ΛCDM (a derived theorem), it protects the BBN-era
 chemistry with a derived null, and it adds no anomalous structure-scale signal. Standard
@@ -959,7 +1098,7 @@ more.
 entropy production Ṡ = (1/τ₀)⟨(z − z_target)²⟩ that is non-negative for any state, zero only
 at the fixed point, and cumulatively monotone — the Second Law follows from Q's retarded
 kernel rather than being postulated alongside it (`arrow_of_time_from_entropy`,
-registry.py:1726, **computed**, verified over 10⁵ random states and exactly zero at
+registry.py:1734, **computed**, verified over 10⁵ random states and exactly zero at
 z = z_target). Crucially, the arrow is even more primitive than memory: the in-in
 directionality (S_IF[φ₊ = φ₋] = 0) contains no τ₀ and *predates* the emergence of
 responsiveness itself — it is the keystone of Genesis reappearing here as the floor of the
@@ -1005,15 +1144,15 @@ structure is proven, the reading is flagged (**CONJECTURAL `[SPLIT]`**).
 The same closed/self-referential stance produces one further interpretive worked example — the
 "observer as the boxed system" inversion of Schrödinger's cat, where observation is
 synchronization through contact rather than creation through measurement
-(`schrodinger_in_box_inversion`, registry.py:1846, anchored as a *philosophical
+(`schrodinger_in_box_inversion`, registry.py:1854, anchored as a *philosophical
 reformulation, not new physics*). And there is one numerical coincidence sometimes attached at
 this rung: a 40 Hz neural resonance that arises from two independent framework routes (Λ_grav
 at tubulin-dimer parameters → 39.9 Hz; self-referential fixed-point network dynamics →
 41.7 Hz), sharing no fitted parameters. **The 40 Hz numbers are computed; the consciousness
 bridge is not.** The registry tiers the bridge **conjectural** and explicitly speculative
-(`neural_resonance_speculative`, registry.py:2162: "The 40 Hz number is computed from the
+(`neural_resonance_speculative`, registry.py:2170: "The 40 Hz number is computed from the
 framework; the consciousness mapping is interpretive only"; see also `observer_as_crystal`,
-registry.py:1829, **conjectural** — "Layer-2 interpretation").
+registry.py:1837, **conjectural** — "Layer-2 interpretation").
 
 **Overclaim guard — CONJECTURAL, a hook not a theory of mind.** "GRUT explains consciousness /
 the universe is conscious" is the cardinal overclaim of the entire framework (Appendix A #5).
@@ -1074,6 +1213,8 @@ precisely the program the rest of the document audits.
 # PART IV — THE OPEN ToE FRONTIER
 
 > Q → F(t) → Responsiveness → Vacuum → Physics → Complexity → Observation → *(the universe discovers responsiveness)*.
+
+![What responsiveness reaches, hosts, and cannot reach — the decisive-test scorecard.](figures_v4/fig2_abc_boundary.png)
 
 Parts I–III walked the ladder from the floor to the observer. Part IV turns to the rungs that
 are **not yet settled** — the live frontiers where a completed GRUT ToE will eventually have
@@ -1200,15 +1341,15 @@ matter is, honestly, empty.
 **3. What GRUT constrains — FORBIDDEN-by-theorem.** This is where the frontier is rich. Three
 theorems about the **vacuum's own action** jointly forbid the vacuum from generating dark
 matter, and — read together — they *specify* the missing object:
-- `vacuum_spectrum_pole_classification` (registry.py:5340, computed) — the responsive vacuum
+- `vacuum_spectrum_pole_classification` (registry.py:5348, computed) — the responsive vacuum
   is **single-mode** (a 12,800-pole scan finds no stable off-axis dark-capable pole); dark
   matter is therefore a hosted matter field, not a vacuum response. *(The single-mode result
   rests on one channel-counting postulate, honestly flagged — see row 5.)*
-- `propagating_relic_forbidden_pincer` (registry.py:5471, conjectural =
+- `propagating_relic_forbidden_pincer` (registry.py:5479, conjectural =
   theorem-modulo-Ostrogradsky-leg) — a propagating dark relic built from the vacuum's action
   needs a higher-derivative TT operator ⇒ Ostrogradsky ghost ⇒ Im χ < 0 ⇒ N < 0 by FDT ⇒
   violates Q.
-- `locality_no_halo_theorem` (registry.py:5532, computed) — a covariant, local, nonlinear
+- `locality_no_halo_theorem` (registry.py:5540, computed) — a covariant, local, nonlinear
   vacuum response is no more spatially extended than its baryon source; an extended 1/r² halo
   needs a 1/k² inverse-Laplacian pole that locality forbids.
 
@@ -1217,7 +1358,7 @@ Read as a shopping list, the three no-gos specify the 4-item bar the missing obj
 middle of the τ-gap), **sourced outside the vacuum action** (so it trips no theorem), and
 **gravitates via ordinary GR, clusters, stable ≳14 Gyr, delivers Ω_dm h² ≈ 0.12**. The
 registry itself names the remedy in advance: a "FOUNDATIONAL EXTENSION (a microscopic medium
-with massive excitations)" (registry.py:5491-5494).
+with massive excitations)" (registry.py:5500-5501).
 
 **4. What GRUT hosts — substrate-resident in F(t).** Dark matter is **HOSTED — and the host is
 internal to GRUT's layered ontology.** It is a no-go-clean coherent scalar resident in GRUT's
@@ -1234,6 +1375,15 @@ the amplitude φ_i) plus 1 inserted potential shape; 0 of 3 requirements sourced
 bath.** This is GRUT detailing its own deeper substrate layer — *the analogy is that F(t)-DM is
 to GRUT what the Standard Model is to GR's T_μν*: the content of a matter/substrate slot the
 umbrella theory already has, **not** a successor to it.
+
+> **Spec — The F(t) condensate host. Tier: CONJECTURAL (no-go-clean).** The minimal host is a
+> textbook misalignment scalar V(φ) = ½m²φ², redshifting as a⁻³ once H ~ m (automatically cold,
+> stable ≫ 14 Gyr), gravitating through the *permitted* Newtonian Green's function — no 1/k²
+> kernel, no second vacuum pole, no new relaxational mode, so it trips none of the three vacuum
+> no-gos. *Honest cost:* exactly **2 inserted dimensionful dials (mass m, amplitude φ_i) + 1
+> potential shape; 0 of 3 requirements sourced from the bath.** *Specified-and-unmet to the dex:*
+> the bath's geometric-mean bridge misses the fuzzy-DM window center (log₁₀ m/eV = −20.50) by
+> 7.19 dex. Outside the zero-parameter v4 core. (`GRUT_FT_CONDENSATE_PROGRAM.md`.)
 
 **5. What remains unknown — CONJECTURAL.** The host is **specified-and-unmet to the dex.** The
 fuzzy-DM window sits in the genuinely empty middle of GRUT's 34-order τ-gap: the two bath
@@ -1306,6 +1456,14 @@ descending from the CTP action, not a post-hoc alibi — the ladder setting its 
 **The decisive unity: the dark-matter no-go and the hierarchy-magnitude no-go are the SAME no-go**
 — both forbid a new propagating vacuum pole.
 
+> **Spec — The unified no-go. Tier: FORBIDDEN-by-theorem.** The dark-matter no-go and the
+> hierarchy-magnitude no-go are the **same** no-go: both forbid a new propagating vacuum pole,
+> from the vacuum's own action, by **locality + Q**. *How:* such a pole needs a higher-derivative
+> TT operator ⇒ Ostrogradsky ghost ⇒ Im χ < 0 ⇒ noise N < 0 by FDT ⇒ violates Q; equally, an
+> extended 1/r² halo needs a 1/k² inverse-Laplacian pole a local kernel cannot contain. The same
+> minimalism that *unifies* QM and GR as two exact limits makes both unknowns structural rather
+> than accidental. (`propagating_relic_forbidden_pincer`, registry.py:5479; `GRUT_HIERARCHY_LEDGER.md` §5.)
+
 **4. What GRUT hosts — HOSTED.** **The geometry is hosted — this is the seam the decisive test
 names.** In the derivation the linearized Einstein tensor is a literal placeholder symbol
 (`G_einstein_one = sp.Symbol("G_einstein_1")`), the EoM reads G_μν^(1) − Φ_μν = 8πG T_μν with
@@ -1323,6 +1481,15 @@ two (`GRUT_HIERARCHY_LEDGER.md` §4). (Note: τ_micro's *registry* tier is conje
 hosted-with-forbidden-relation-to-τ₀.) The two-anchor split is **structurally protected** by
 the directional RG firewall (the UV cannot reach down to regenerate the IR τ₀ operator), not a
 loose end.
+
+> **Spec — Quantum gravity: response derived, geometry hosted. Tier: PARTIAL.** The two
+> make-or-break legs split. **Gravity-as-RESPONSE is DERIVED:** Φ_μν = α·χ̂(ω)·P^TT (χ̂ the normalized
+> memory pole) from varying the constitutive cross term, μ_linear = 1, and GR as the high-ω limit (n_g: √(4/3) → 1). **But
+> gravity-as-GEOMETRY is HOSTED:** the Einstein tensor G_μν, the metric g_μν, and the
+> Einstein–Hilbert term are *inputs* — in code the linearized Einstein tensor is a literal
+> placeholder symbol. *How (the seam):* GRUT *modifies GR with a response*; it does not derive
+> *why* gravity is geometric. Closing that — currently with the elastic-medium candidate demoted —
+> would upgrade PARTIAL → ORGANIZED. (`GRUT_QG_RESPONSIVENESS_TEST.md`.)
 
 **5. What remains unknown — OPEN.** No UV-complete *dynamical* sector exists. Deriving
 ln(τ_micro/t_P) = 56.21 is "not even askable": GRUT has no condensing scale-invariant
@@ -1368,21 +1535,30 @@ cosmology, and the Dirac-vs-Majorana question is open pending neutrinoless doubl
 
 **2. What GRUT already explains — DERIVED `[SPLIT]`.** The charged-lepton **K = 2/3 holds at
 machine precision as an algebraic identity** of a Z₃-circulant mass operator, for any overall
-scale M₀ and any phase θ (`koide_z3_circulant_structure`, registry.py:2800, computed) — DERIVED
+scale M₀ and any phase θ (`koide_z3_circulant_structure`, registry.py:2808, computed) — DERIVED
 as an *identity*, not a mechanism. Conditional on the structural coupling **a_ν = 1**, the
 generalized ansatz admits a unique normal-hierarchy interior solution (Σm_ν ≈ 60 meV, m_β ≈
 9 meV), so GRUT **prefers normal ordering** — and a_ν = 1 is itself DERIVED as the unique
 boundary-degenerate Z₃ coupling (`neutrino_z3_coupling_a_equals_1_uniqueness_theorem`,
-registry.py:2975, computed; Correction #29 — no longer a postulate). The NH preference and
+registry.py:2983, computed; Correction #29 — no longer a postulate). The NH preference and
 Σm_ν ≈ 60 meV are anchored-on the a_ν = 1 derivation
-(`neutrino_hierarchy_z3_nh_prediction`, registry.py:2918, **anchored** — tier and notes
+(`neutrino_hierarchy_z3_nh_prediction`, registry.py:2926, **anchored** — tier and notes
 consistent). *Per the decisive test, every one of these is a consequence **conditional on the
 adopted Z₃ ansatz**, not a descent from the ladder.*
+
+> **Spec — Koide K = 2/3 and normal ordering. Tier: DERIVED `[SPLIT]`.** The charged-lepton
+> **K = 2/3** holds at machine precision as an algebraic **identity** of a Z₃-circulant mass
+> operator (any scale M₀, any phase θ). Conditional on the structural coupling **a_ν = 1** —
+> itself derived as the unique boundary-degenerate Z₃ coupling — the ansatz admits a unique
+> normal-hierarchy solution (Σm_ν ≈ 60 meV, m_β ≈ 9 meV), so GRUT **prefers normal ordering**.
+> **Split:** these are consequences of an *adopted* Z₃ ansatz GRUT hosts, not generates — and the
+> responsive (CTP fixed-point) route, where tested, returns K = 4/9, missing 2/3.
+> (`koide_z3_circulant_structure`, computed, registry.py:2808.)
 
 **3. What GRUT constrains — FORBIDDEN-by-computation.** The charged-lepton Z₃ structure
 provably does **not** extend to neutrinos: the same a = √2 ansatz that yields K = 2/3 forces
 Δm²_atm/Δm²_sol ≥ 194.1, against the observed 33.9 — a factor of ~6 too large, computed and
-unconditional (`charged_lepton_z3_does_not_extend_to_neutrinos`, registry.py:2874, computed).
+unconditional (`charged_lepton_z3_does_not_extend_to_neutrinos`, registry.py:2882, computed).
 This is a virtue, not a gap: **the wall is the physics** — the layered ontology showing as an
 internal computation that *forbids* the naive extension and forces a distinct neutrino coupling
 (K_ν = ½, a_ν = 1).
@@ -1400,7 +1576,7 @@ the deeper KS-anomaly account of *why* neutrinos lack the EM channel that gives 
 a = √2. The responsive candidate (the multi-flavor CTP fixed point, Conjecture F1) is a
 HYPOTHESIS that, where tested quantitatively, fails (K = 4/9). GRUT's Dirac preference is a
 closeness preference (a/c = 1.15525 vs Majorana 1.17256, against canonical √(4/3) = 1.15470),
-not a proof (`neutrino_dirac_prediction`, registry.py:2490, anchored — OPEN remainder).
+not a proof (`neutrino_dirac_prediction`, registry.py:2498, anchored — OPEN remainder).
 
 > **OVERCLAIM FLAGS (Appendix A #9, #11).** "GRUT forces Z₃" — no; the circulant is
 > *assumed*, and "K = 2/3 is a theorem of Z₃" is the honest claim. The normal-ordering
@@ -1501,7 +1677,7 @@ is flagged as likely, not asserted.)*
 **5. What remains unknown — OPEN.** The proposed constitutive β-correction Δβ(α_eff(ω)) that
 would close the 8.9% gap is **not derived from the CTP action** (δS_CTP/δg_i has not been
 computed to yield it). Track V is registered **open_negative**
-(`track_v_coupling_unification_open_question`, registry.py:2710, open_negative): the SM
+(`track_v_coupling_unification_open_question`, registry.py:2718, open_negative): the SM
 couplings miss exact unification by 8.9% at the GUT scale and the constitutive correction is
 unbuilt.
 
@@ -1541,6 +1717,15 @@ nothing has changed (`closed_universe`, registry.py:109, foundational). This obj
 tubulin-dimer parameters → 39.9 Hz; self-referential fixed-point dynamics → 41.7 Hz, sharing
 no fitted parameters).
 
+> **Spec — The consciousness hook (and only the hook). Tier: structure DERIVED, reading
+> CONJECTURAL `[SPLIT]`.** GRUT contributes one *proven* object: the CTP **in-in self-comparison**,
+> S_IF[φ₊ = φ₋] = 0 — a closed universe measures itself by maintaining two copies of its history
+> and responding to their *difference*. The 40 Hz numbers are computed from two independent routes
+> (39.9 Hz, 41.7 Hz; no shared fits). *How (the seam):* the structure is a theorem; reading it as
+> "the universe knowing itself," or the 40 Hz coincidence as consciousness, is a conjectural
+> interpretation layered on top — **no** account of experience, qualia, or awareness, and nothing
+> in the framework depends on it. (`neural_resonance_speculative`, conjectural, registry.py:2170.)
+
 **3. What GRUT constrains — FORBIDDEN-by-theorem.** Nothing. (Cell honestly empty.)
 
 **4. What GRUT hosts — HOSTED.** Nothing — no observer postulate is added to the framework.
@@ -1550,7 +1735,7 @@ no fitted parameters).
 from the fixed-point self-reference to a first-person observable — is unbuilt. Reading the
 in-in self-comparison as "the universe knowing itself," or the 40 Hz coincidence as
 consciousness, is a CONJECTURAL interpretation layered on a proven structure
-(`neural_resonance_speculative`, registry.py:2162, conjectural).
+(`neural_resonance_speculative`, registry.py:2170, conjectural).
 
 > **OVERCLAIM FLAG (Appendix A #5).** "GRUT explains consciousness / the universe is
 > conscious" is the cardinal overclaim. This is **a hook and only a hook** — self-reference
@@ -1574,7 +1759,7 @@ the Page curve.
 **2. What GRUT already explains — DERIVED.** The **arrow of time** follows from Q's retarded
 kernel: constitutive evolution carries entropy production Ṡ = (1/τ₀)⟨(z − z_target)²⟩ ≥ 0,
 zero only at the fixed point, verified strictly positive over 10⁵ random states
-(`arrow_of_time_from_entropy`, registry.py:1726, computed). **Information conservation** is the
+(`arrow_of_time_from_entropy`, registry.py:1734, computed). **Information conservation** is the
 in-in diagonal vanishing (S_IF[φ₊ = φ₋] = 0, part of Q), and the memory horizon is L₀ = cτ₀.
 
 **3. What GRUT constrains — FORBIDDEN-by-theorem.** The FDT positivity N ≥ 0 forbids wrong-sign
@@ -1583,7 +1768,7 @@ propagating dark relic and the Ostrogradsky ghost).
 
 **4. What GRUT hosts — HOSTED / anchored.** The partial black-hole-information / Page-curve
 result holds at linear order and is received at that standing (`bh_information_partial`,
-registry.py:1765, anchored).
+registry.py:1773, anchored).
 
 **5. What remains unknown — OPEN.** A fully nonlinear, covariant account of black-hole
 evaporation is not closed; GRUT softens the puzzle only at the linearized level.
@@ -1873,3 +2058,362 @@ differ, both are listed so they are never conflated.
 | DM geom-mean miss | 7.19 dex | √(E_micro·E_τ₀) = 4.84×10⁻¹⁴ eV (log₁₀ = −13.31) vs center −20.50. |
 | τ-gap span | 33.976 dex | log₁₀(τ₀/τ_micro); partition 22.673 + 3.000 + 8.303 = 33.976. |
 | Registry census | 121 = 48 computed / 28 open_negative / 20 anchored / 11 conjectural / 10 meta / 4 foundational | Machine-checked tiers. |
+
+---
+
+# Technical Appendix — The Load-Bearing Results
+
+*This appendix exists to put the evidence in the referee's hands inside the document. The
+body runs the story; this gives the technical digest behind the seven results the whole map
+rests on — each with its key equations, its exact numbers, and its grounding in a specific
+`file:line` and registry tier in `grut/toe/registry.py`. It draws on the v4 banked
+audits: the core-chain skeleton, the hierarchy ledger, the UV-sector construction, the
+α-antecedent feasibility pass, the two dark-matter substrate tests, the F(t) condensate
+program, and the four decisive-test docs. Every number below was re-confirmed in `.venv`
+(`numpy`/`sympy`). The discipline is the same one the body holds to: a result is reported at
+its true tier, the split-tier seams are kept split, and nothing HOSTED or OPEN is dressed as
+DERIVED. Where a tree value and an anchored value differ, both are given so they are never
+conflated.*
+
+---
+
+## A. The core derivation chain — {Q, F, D, α} → constitutive law → results
+
+GRUT's foundation is four inputs of unequal standing feeding one constitutive law, audited
+edge-by-edge as a skeleton with three tags: **SOLID** (genuine, zero hidden assumption),
+**COMPUTED** (real but parameter-dependent on α or τ₀, premise named not hidden), **DOTTED**
+(a gap closed only by a premise the inputs do not supply). The audited skeleton is **3 SOLID,
+3 COMPUTED, 5 DOTTED**, plus one Fourier step flagged as a definitional identity, not an edge.
+
+**The four inputs.** Exactly one is a true zero-input theorem. **Q — the in-in causal
+arrow — DERIVED:** the Schwinger–Keldysh CTP action with the influence functional vanishing
+on the Keldysh diagonal, S_IF[φ₊ = φ₋] = 0; the closed–closed propagator identically zero;
+the retarded kernel vanishing for t < 0; FDT/KMS tying the noise to the dissipation with
+N ≥ 0. Q is scale-free (no τ₀, no τ_micro, no α), verified on a driven-oscillator example in
+all four legs, and is the only true zero-input SOLID node and the highest-fanout claim
+(93 downstream dependencies). *(`ctp_action_structure`, computed, `registry.py:451`;
+`grut/foundation/ctp_action.py`, verify 5/5.)* **F — finite single-pole memory — HOSTED
+`[SPLIT]`:** χ(ω) = α/(1 − iωτ₀) ⇔ τ₀ż + z = z_target ⇔ K(t) = (1/τ₀)e^{−t/τ₀}Θ(t), one
+object in three forms. The single-pole *form* is the Mori–Zwanzig Markovian limit (derived,
+exact to O(τ_K/τ₀)); F-as-pillar and the *value* τ₀ are postulated/anchored — and the
+converse is false: single-pole-ness is *not* a theorem of Q alone, because passivity
+(Herglotz) is strictly weaker than complete monotonicity (a passive kernel can carry negative
+Debye weight or off-axis poles). *(`finite_memory_form_from_q`, `registry.py:5278`, false
+converse noted at `:5295`; `first_order_from_mori_zwanzig`, `registry.py:5422`.)* **D —
+broken adiabatic dilatation redundancy — OPEN `[SPLIT]`:** the one proper length L₀ = cτ₀
+breaks the boundary charge of the Weinberg L₀→0 redundancy at O((L₀k)²), non-anomalously
+(a diffeomorphism, measure Jacobian ≡ 1, so α does *not* enter); the breaking is derived, but
+the underlying redundancy is imported from Weinberg, with one residue (the scale-free in-in
+initial state, GAP-1, n_s = 1) open. *(`adiabatic_dilatation_redundancy_nogo`, computed,
+`registry.py:5227`.)* **α = 1/3 — adopted dimensionless axiom — OPEN `[SPLIT]`:** sets the DC
+amplitude χ(0) = α, the index R = √(1+α), the screening S = 12π/α²; the conditional theorem
+(IF the gravitational conformal mode is the IR carrier of χ THEN a/c = 1/3,
+Komargodski–Schwimmer / Duff) is proven Fraction-exact, but the antecedent is open and the
+value adopted. *(`alpha_vac_axiom`, foundational, `registry.py:238`; `alpha_vac_derivation`,
+open_negative, `registry.py:274`; `conformal_mode_scalar.py`, a/c = Fraction(1,3), 9/9.)*
+
+**The hub.** The four inputs assemble into one law, **τ₀ż + z = z_target[z]**, every sector a
+regime of it. Q supplies the *form-class* (the CTP variation δS_CTP/δz_a|_{z_a=0} = F[z_r]
+yields a causal, retarded, passive Herglotz relaxation toward a target, FDT fixing the
+noise — form-class only, no single pole); F upgrades it to the single-pole law via MZ, with
+τ₀ riding in as the anchor; D supplies the structural reading (it certifies L₀ = cτ₀ is the
+controlled non-anomalous breaking and confines the nontrivial action to the **tensor**
+sector); α supplies only the normalization (the τ₀ dynamics is α-independent). The hub is
+therefore **DERIVED-as-synthesis `[SPLIT]`**. *(`constitutive_equation`, computed,
+`registry.py:496`.)*
+
+**The SOLID core — what survives with zero hidden assumptions.** Four nodes are welded by
+derivation: **Q** itself; **E1** Q → hub form-class (causal + passive); **E8 μ_linear = 1**,
+the transverse-tracefree projector theorem — P^TT annihilates the linear-scalar response, so
+linear cosmology is *exactly* ΛCDM, α-free and τ₀-free, over-determined ~32σ by the low-ℓ
+CMB-ISW (the framework's cleanest theorem); and **E10** quantum mechanics recovered as the
+τ→0 limit (one constitutive step is the first-order Euler–Schrödinger update, norm preserved,
+⟨σ_x⟩ = cos ωt on a precessing qubit; decoherence and a pointer basis recovered, the **Born
+weights NOT** — they are OPEN) together with the arrow of time Ṡ = (1/τ₀)⟨(z − z_target)²⟩ ≥ 0
+(needs only τ₀ > 0). Everything quantitative — R, S, Ω_Λ — is COMPUTED on the adopted α, not
+solid. *(`adiabatic_dilatation_redundancy_nogo`, `registry.py:5227`; `qm_recovery`,
+`registry.py:753`; `arrow_of_time_from_entropy`, `registry.py:1734`.)*
+
+**The minimal genuine input set:** **{Q, α} + the two anchors {τ₀, τ_micro}.** Q is the
+proven backbone; α is the single load-bearing open axiom; τ₀ and τ_micro are the two anchored
+numbers, and their *difference* is the hierarchy (§B), not a third number. F's form and D's
+breaking are derived *from these* (F via MZ given τ_micro ≪ τ₀; D's breaking given L₀ = cτ₀).
+The core is not zero-input and does not pretend to be. *(`GRUT_V4_CORE_CHAIN.md` §§2–6;
+`zero_free_parameters` scopes the one-parameter claim to the gravitational core,
+`registry.py:404`.)*
+
+---
+
+## B. The two-anchor hierarchy ledger — the 34-order gap, audited
+
+GRUT's deepest unexplained fact is the ~34-order separation between the macroscopic
+relaxation time τ₀ ≈ 41.9 Myr and the microscopic correlation time τ_micro ≈ 1.40×10⁻¹⁹ s.
+The ledger's result: **the whole hierarchy reduces to exactly TWO genuinely independent
+anchored dimensional numbers,** with everything else a disguise.
+
+- **τ₀ ≈ 41.9 Myr = 1.322×10¹⁵ s** — dimensional anchor #1, anchored via H₀/Bullet (two
+  anchors agree ~10–20%); equivalently **ln(τ₀/t_P) = 134.45** (verified 134.4472).
+- **T_c = 54.7 MK = 4.71 keV**, with τ_micro ≡ ℏ/(k_B T_c) its SI-dual — dimensional anchor
+  #2, anchored via the cosmic-chronology pin (T at t ≈ 16.5 h post-BB); equivalently
+  **ln(τ_micro/t_P) = 56.21** (verified 56.2137).
+
+The famous gap is **c = ln(τ₀/τ_micro) = 78.233**, and it is **exactly the difference of the
+two independent Planck-logs:** 134.447 − 56.214 = 78.233 (differenced before rounding,
+verified to machine precision) — **not** an independent third number. Every other
+hierarchy-flavored quantity is one of these two in costume: L₀ = cτ₀ = 12.85 Mpc and
+ℓ_micro = cτ_micro are unit conversions; the ratio τ₀/τ_micro = 9.47×10³³ (log₁₀ = 33.976);
+G₀ = ℏ/(c³τ_micro⁴) ≈ 1.03×10¹⁶ Pa is the Debye relation written twice; T_peak = ℏ/(τ₀k_B) =
+5.78×10⁻²⁷ K is the τ₀-dual temperature; H₀ = 1/(Sτ₀) is *derived from* τ₀, so H₀ is **not**
+an independent anchor. **α = 1/3 is a separate dimensionless third number,** orthogonal to the
+τ-gap (it sets S, R, n_g(0), never the 34-order scale).
+
+**Existence forced, magnitude unknown.** The Mori–Zwanzig slow/fast split *forces* τ₀ ≫
+τ_micro (it is the validity condition of the projection itself): the slow channel's existence
+and slow, gapless character follow from conservation (∂_μT^μν = 0, the diffeomorphism Ward
+identity, part of Q), and the no-dark-mode result is verified magnitude-inert (ratios 10⁻¹
+through 10⁻³⁴ all give the identical conclusion; the off-axis dark-pole criterion flips only
+at the pure ratio τ_K/τ₀ = 1/4). But the *size* is not forced: GRUT has no β-function carrying
+τ₀ — its only RG statement is that the τ₀ IR scale is RG-*protected* (the opposite of an
+asymptotic-freedom flow), so `relation_derivable = False` (Option B: two independently
+anchored scales). The tempting 8π² = 78.957 (+0.92%) is rejected by GRUT's own near-miss
+standard — it is the universal one-instanton action, not a GRUT-distinctive constant, with no
+derived tunneling linking the two sectors. The honest charge to any future derivation: force
+ln(τ_micro/t_P) = 56.21 *absolutely* (against t_P) from a real condensation coefficient with
+τ₀ never entering; deriving c directly is circular (c already contains log #1). —
+**existence FORCED; magnitude FORBIDDEN-to-derive + anchored.** *(`GRUT_HIERARCHY_LEDGER.md`
+§§2–5; `tau_hierarchy_decision.py:358` `relation_derivable=False`;
+`mori_zwanzig_kernel.py:99-105`.)*
+
+---
+
+## C. The unified no-go — dark-matter no-go = hierarchy no-go
+
+The deepest structural fact the skeleton exposes (edge E9): **the no-go that hosts dark
+matter and the no-go that forbids the hierarchy magnitude are the SAME no-go.** A *derived*
+cold dark sector and a β-function carrying τ₀ would each require the *same* object — a new
+propagating vacuum pole — and that object is forbidden from the vacuum's own action by two
+gates that are really one.
+
+- **The locality / no-halo theorem.** A GRUT dark-sector response that is covariant, local in
+  the matter fields (kernel analytic — entire, pole-free — in k² near k = 0) and nonlinear is
+  no more spatially extended than its baryon source; an extended ρ ∝ 1/r² halo would require
+  the response to be singular at k = 0 (a 1/k² inverse-Laplacian, g = ∇(1/∇²)ρ), which
+  locality forbids. Hence a derived dark sector requires a *new pole in the vacuum spectrum —
+  a new propagating mode, not a new operator.* GRUT's actual kernel σ·α·χ̂(ω)·P^TT is on the
+  permitted (analytic) side. *(`locality_no_halo_theorem`, `registry.py:5540`;
+  `locality_no_halo.py:7-14`.)*
+- **The propagating-relic pincer (Ostrogradsky = Q).** A propagating vacuum pole needs a
+  higher-derivative TT operator ⇒ an Ostrogradsky ghost ⇒ opposite-sign residues
+  (+1/m², −1/m², verified `apart(1/(s(s+m²)))`) ⇒ Im χ < 0 ⇒ by FDT the noise
+  N = 2ℏ coth(ℏω/2kT)·Im χ < 0 ⇒ the off-diagonal influence weight ½ h_a N h_a is not
+  positive-semidefinite ⇒ the in-in path integral is non-unitary. **Ghost-freedom and Q are
+  the same gate.** *(`propagating_relic_forbidden_pincer`, conjectural, `registry.py:5479`.)*
+
+**The α-antecedent structural-NO and the locality–dynamics fork.** The same pincer closes the
+UV/QG frontier and the dynamical completion of the α-antecedent. A UV-dynamical sector that
+would force ln(τ_micro/t_P) needs a live running coupling; GRUT's only GRUT-origin coupling is
+the trace-anomaly coefficient, which is one-loop-exact (β = 0) and lives in the **E₄/a-anomaly
+channel that GRUT's own second-order analysis proves is Lovelock-null / dynamically dormant in
+4D**, while the live channel is c/W² (TT) — *not* where the Riegert/conformal-mode action is
+built. To do dynamical work the conformal mode σ must couple to the matter trace (it *is* the
+metric trace, tied to T by the Ward identity), producing σ(k) = T/(Q²k⁴): a **1/k⁴
+matter→metric pole, strictly worse than the forbidden 1/k²** (verified lim_{k→0}(1/k⁴)/(1/k²)
+= ∞), and a 4th-order Paneitz ghost = Q-violation. This is the **locality–dynamics fork:**
+*locality and Q are saved only by killing the dynamics; doing dynamical work trips locality
+and Q.* There is **no window** where σ is simultaneously locality-safe, ghost-free, and
+dynamically live. The α-value's antecedent therefore resolves to **kinematic identification =
+NOT-YET-FORMULATED** (candidate-selected by monopole dominance, self-demoted to
+necessary-not-sufficient; the one outstanding piece is the 4th-order S⁴ Riegert/Paneitz a/c
+ratio, never computed) **+ dynamical completion = STRUCTURALLY-BLOCKED** (it inherits the UV
+no-go). The conditional theorem stands; α remains the adopted axiom — the verdict forecloses
+moving α *up* to established, and does not move it *down*. The only escape from the unified
+no-go — a new propagating vacuum pole with its own un-GRUT-sourced running coupling —
+*fractures GRUT's minimalism: it constitutes a different theory, not GRUT.* —
+**FORBIDDEN-BY-THEOREM.** *(`GRUT_UV_SECTOR_CONSTRUCTION.md` §§4–5;
+`GRUT_ALPHA_ANTECEDENT_FEASIBILITY.md` §§2,6; `second_order_kernel.py:16-22`.)*
+
+---
+
+## D. Dark matter as substrate-resident — the F(t) condensate specification
+
+Run the relic inventory forward without biasing it toward producing dark matter and **no
+viable cold DM falls out.** The single-mode structure forbids a second stable *relaxational*
+pole (a channel-counting postulate, not a consequence of Q alone); the one condensation-tied
+relic GRUT can force — an elastic shear phonon at k_B T_c = 4.71 keV — is **warm**, travels
+at c_s = c, and overcloses the universe by ~418×–5800×. GRUT does not predict *no* dark
+matter; it predicts the *wrong* dark matter, and books that as a genuine negative. **DM is
+HOSTED.** *(`GRUT_GENESIS.md` §4; `locality_no_halo_theorem`, computed.)*
+
+The two DM substrate tests then sharpen "hosted" into **specified-and-unmet to the dex.** The
+three no-gos, read together, are a 4-item spec for the missing host: (1) non-thermal /
+coherent (zero entropy, ⟨φ⟩ ≠ 0); (2) an *intermediate* mass in the empty middle of the
+34-order τ-gap; (3) sourced *outside the vacuum action* — in the pre-responsive substrate
+**F(t)**, beneath the vacuum, where the no-gos have no jurisdiction (they are theorems about
+the *vacuum's* action); (4) gravitates by ordinary GR, clusters, stable ≳14 Gyr, delivers
+Ω_dm h² ≈ 0.12. The empty middle is mapped exactly: the window
+log₁₀(m/eV) ∈ [−22, −19] (center −20.50) sits **22.673 dex below** ℏ/τ_micro = 4713.68 eV and
+**8.303 dex above** ℏ/τ₀ = 4.978×10⁻³¹ eV; the partition closes to the dex
+(22.673 + 3.000 + 8.303 = 33.976). The natural dimensionless bridge — the geometric mean
+√(E_micro·E_τ₀) = 4.844×10⁻¹⁴ eV (log₁₀ = −13.31) — **misses the window center by 7.19 dex**,
+so a new scale is genuinely needed, not disguisable as a derived one.
+
+**The minimal construction** is a textbook misalignment scalar placed in F(t):
+**V(φ) = ½m²φ²**, EOM φ̈ + 3Hφ̇ + m²φ = 0, frozen at φ_i until H ~ m then oscillating and
+redshifting as a⁻³ (cold dust, automatically stable ≫ 14 Gyr; verified m/H₀ ≈ 6.9×10¹⁰ ≫ 1
+at m = 10⁻²² eV), gravitating via ordinary T_μν = ½φ̇² + ½m²φ² through the permitted Newtonian
+Green's function, with abundance Ω_dm h² ≈ 0.1·(φ_i/10¹⁷ GeV)²·(m/10⁻²² eV)^0.5. **Honest cost
+ledger: exactly 2 inserted dimensionful dials — the mass m ∈ [10⁻²², 10⁻¹⁹] eV (a genuine
+third frequency) and the amplitude φ_i ~ 10¹⁶⁻¹⁷ GeV — plus 1 inserted potential shape; 0 of
+3 requirements sourced from the bath.** The bath supplies only two frequencies (1/τ₀, 1/τ_micro),
+a dissipative noise spectrum S_h(ω,T=0) ∝ ω/(1+(ωτ₀)²) with ⟨h⟩ = 0 (it *fluctuates*, it does
+not *condense*), and the dimensionless order parameter f(T_c) = tanh(½) = 0.4621 — none of
+which carries the required mass, VEV, or GeV amplitude. It is **no-go-clean** (ordinary T_μν,
+ordinary collapse, no 1/k², no second vacuum pole, no new relaxational mode) and
+**Q/KMS-clean** (N ≥ 0, no Im χ < 0). It is **GRUT detailing its own substrate sector — a
+CONJECTURAL deeper layer, not a different theory and not a successor** (the
+"different-theory" verdict belongs to the *vacuum-pole* route, not to this substrate
+detailing) — but it is **not a v4-core derivation,** because it adds 2 free parameters. The
+analogy: F(t)-DM is to GRUT what the Standard Model is to GR's T_μν. **Falsifier:** a 10⁻²² eV
+scalar makes kpc-scale soliton cores (λ_dB = 1.917 kpc at v = 10 km/s) and suppresses
+small-scale structure; the Lyman-α forest already pushes the floor toward ~2×10⁻²¹ eV, and if
+observations force m ≳ 10⁻¹⁹ eV the kpc-core window closes and the misalignment host loses its
+phenomenology. *(`GRUT_DM_NONTHERMAL_COHERENT_TEST.md`; `GRUT_FT_CONDENSATE_PROGRAM.md`;
+`registry.py:5340/:5471/:5492/:5532`.)*
+
+---
+
+## E. The decisive-test scorecard — four verdicts and an untested seam
+
+For each Part IV frontier the decisive question is not "is it solved" but *does the sector
+organize around responsiveness — finding its slot on the ladder Q → F(t) → Responsiveness →
+Vacuum → Physics → Complexity → Observation — or does it require unrelated machinery bolted on
+from outside?* A *container* hosts a result (right numbers, structure adopted from elsewhere);
+an *explanation* generates the structure from the spine. Each verdict was allowed to come back
+negative.
+
+- **Dark matter — ORGANIZED (substrate-resident).** Pressed, dark matter resolves not into a
+  new theory but into a no-go-clean coherent scalar resident in GRUT's own substrate sector
+  F(t) — internal to the layered ontology, costing free parameters, specified-and-unmet but in
+  the right place (§D). The *make-or-break:* whether the bath can source the host. It cannot
+  (0 of 3) — but the host lives inside GRUT's existing substrate slot, not in a successor.
+
+- **Quantum gravity / gravitation — PARTIAL (leaning ORGANIZED).** The two legs split cleanly.
+  **Gravity-as-response is DERIVED:** Φ_μν = α·χ̂(ω)·P^TT from varying the constitutive cross
+  term S_const = −½ h_a(α·χ̂)h_r, with χ̂(ω) = 1/(1−iωτ₀) the normalized response pole (the full
+  susceptibility is χ = α·χ̂ = α/(1−iωτ₀)); μ_linear
+  = 1 as the P^TT projector theorem (over-determined ~32σ by ISW); GR recovered as the
+  high-ω / DC limits (n_g(0) = √(4/3) = 1.1547005, n_g(∞) = 1). **The UV frontier is a
+  framework-internal no-go** (§C). **But gravity-as-geometry is HOSTED:** the linearized
+  Einstein tensor enters as a literal placeholder symbol `G_einstein_one =
+  sp.Symbol("G_einstein_1")`, the EoM read off is G_μν^(1) − Φ_μν = 8πG T_μν with G_μν^(1) on
+  the *input* side, the Einstein–Hilbert term is one of four input pieces, and the metric
+  g_μν = η + h is a convention. GRUT derives the *response of* gravity, not the *geometry of*
+  gravity. The would-be deeper account (the elastic-medium/G₀ picture) is demoted as an unpaid
+  postulate that predicts a refuted warm dark sector. The *make-or-break:* a paid, registry-tier
+  derivation of the geometric structure from the constitutive law. *(`phi_munu_linearized_derivation`,
+  `registry.py:3719`; `gr_recovery`, `registry.py:1071`; `GRUT_QG_RESPONSIVENESS_TEST.md`.)*
+
+- **Neutrinos / flavor — CONTAINER-SEAM.** The *consequences* are real and machine-verified
+  (Koide K = 2/3 to machine precision at a = √2, N = 3, the normal-ordering preference with
+  Σm_ν = 59.6 meV conditional on a_ν = 1, the sharp non-extension of the charged-lepton Z₃ to
+  neutrinos at 194.1 vs observed 33.9), but the *structure that produces them* — the Z₃
+  circulant √mₖ = M₀(1 + a·cos(θ + 2πk/3)), the amplitude a = √2, the scale M₀ — is an adopted
+  Yukawa ansatz GRUT hosts and does not generate. The responsive route was *tested* and returns
+  the wrong number: GRUT's impedance balance 2ρ = α_vac = 1/3 gives K = 4/9, not 2/3 (a ~50%
+  miss; the Koide amplitude sits at 4.24× α_vac). M₀ is a free fit ~20 orders from the native
+  μ₀ = ℏ/τ₀. The one tie to the spine, θ = 2/9 = K·α_vac, is statistically real (4.62 ppm,
+  557× margin) but mechanistically decorative and collapses to a single α_vac via K ≡ 2·α_vac.
+  The seam points *away* from the ladder. **The make-or-break:** a derivation of the
+  Z₃-circulant Jacobian + a = √2 from the CTP fixed point, or a foundation-anchored M₀.
+  **Falsifier:** a measured inverted ordering at >5σ. *(`koide_z3_circulant_structure`,
+  `registry.py:2808`; `neutrino_hierarchy_z3_nh_prediction`, `registry.py:2926`;
+  `GRUT_NEUTRINO_RESPONSIVENESS_TEST.md`.)*
+
+- **Baryogenesis — CONTAINER-SEAM (weaker), with the overclaim corrected.** η_B = J_CP × K_neq
+  × (2−R_B)/S_B = 6.57×10⁻¹⁰ (+7.7% vs Planck 6.10×10⁻¹⁰) is real, but every decisive check
+  fails: (2−R_B)/S_B is **not** the canonical α-spine (R_B = 1.018 ≠ R = √(4/3) = 1.155;
+  S_B = 4π×45 = 565.5 ≠ S = 108π = 339.3); the GRUT factor is **not load-bearing** (its numerator
+  (2−R_B) = 0.982 is O(1) and the full factor ≈ 1.7×10⁻³ moves η_B by <2% — the doc itself says the smallness comes from J_CP × K_neq); the
+  magnitude is **hosted/imported** (J_CP is SM/CKM, K_neq is a hardcoded ±50% uncomputed
+  non-equilibrium number); the +7.7% was **produced by a documented S_B re-choice**; and using
+  the *canonical* spine R *worsens* the fit (+7.7% → −7.3%). This is the **baryogenesis
+  overclaim correction**: the earlier "GRUT predicts η_B" reading is corrected to existence
+  DERIVED / magnitude HOSTED-assisted, a reverse-fit booked honestly. The one genuinely
+  GRUT-flavored idea (the constitutive lag supplying non-equilibrium across the EW crossover)
+  is on-spine as a *narrative*; the *number* is not. **The make-or-break:** derive K_neq from
+  the lag in code *and* show the canonical R/S still land η_B (fails by construction today).
+  *(`baryogenesis_eta_b`, anchored, `registry.py:1696`; `GRUT_BARYOGENESIS_RESPONSIVENESS_TEST.md`.)*
+
+- **Coupling unification — UNTESTED through the lens (no verdict asserted; likely CONTAINER-SEAM, OPEN).** The three SM gauge couplings,
+  their β-functions, and the 8.9% unification miss are 100% hosted SM (reproduced in `.venv`
+  from PDG couplings + Machacek–Vaughn 1-loop β with zero GRUT input: closest-approach scale
+  10^14.37 GeV, miss 8.97%). The responsive correction Δβ(α_eff(ω)) is a prose conjecture —
+  a *named* hook (memory kernel K(t) → non-Markovian δβ_i) but no equation, no tie to χ(ω) in
+  the gauge sector, no derivation from δS_CTP/δg_i, no numerical closure (zero lines of code).
+  Distinct from the other two seams: this one was **never attempted** (OPEN/unbuilt), not
+  tried-and-missed; and it carries no overclaim — `open_negative` is already the honest tier.
+  *(`track_v_coupling_unification_open_question`, open_negative, `registry.py:2718`;
+  `GRUT_COUPLING_UNIFICATION_RESPONSIVENESS_TEST.md`.)*
+
+**Scorecard.** Category A (on-ladder): **Dark Energy ORGANIZED**, **Hierarchy ORGANIZED**
+(existence), **α ORGANIZED** (value-adopted), **Dark Matter ORGANIZED** (substrate-resident in
+F(t)), **Quantum Gravity PARTIAL** (response derived, geometry hosted). Category B (off-ladder,
+hosted SM matter-content): **Neutrinos, Baryogenesis — CONTAINER-SEAM** (Coupling Unification
+untested through the lens — likely CONTAINER-SEAM, no verdict asserted).
+Category C (observer-meta): **Consciousness / Information / Mathematics — conjectural/open.**
+The pattern holds: vacuum/gravitational sectors are on the ladder; gauge/matter-content sectors
+are off it.
+
+---
+
+## F. The falsifier table — the sharp edges
+
+Each row is a single, attackable prediction whose failure would demote the claim it carries.
+
+| Falsifier | Prediction | Demotes / kills | Tier |
+|---|---|---|---|
+| **μ_linear = 1** | Linear cosmology is exactly ΛCDM; a μ → 4/3 scalar enhancement gives a 2.79× ISW excess, refuted at ~**32σ** by the low-ℓ CMB-ISW. A detected linear μ ≠ 1 breaks the P^TT projector theorem. | the response-derivation / E8 | DERIVED |
+| **689 Hz decoherence plateau** | A gold microsphere (1 μm, m ≈ 80.8 pg) shows a decoherence plateau at 689 Hz, inheriting τ₀. A null at the predicted point falsifies the τ₀-tied decoherence prediction. | the gold-benchmark decoherence point | DERIVED (inherits τ₀) |
+| **Normal neutrino ordering** | Normal ordering preferred, Σm_ν ≈ 60 meV (m = 0.8, 8.7, 50.2 meV), conditional on a_ν = 1. A measured inverted ordering at **>5σ** falsifies it. | the NH export + the a_ν = 1 chain | DERIVED-from-anchored |
+| **Wave-DM soliton scale** | If DM is the F(t) misalignment host (~10⁻²² eV), it makes kpc-scale soliton cores (λ_dB = 1.917 kpc at v = 10 km/s). Lyman-α + dwarf-satellite counts forcing m ≳ 10⁻¹⁹ eV close the window. | the F(t) substrate host | CONJECTURAL |
+| **η_B band** | η_B ≈ 6.57×10⁻¹⁰; a refined PDG/Planck value outside the ~8% band falsifies the export. (CMB-S4 resolves +7.7% at >20σ — a deviation *falsifies*, it does not vindicate.) | the baryogenesis export | CONTAINER-SEAM |
+| **Coupling unification** | High-precision collider running showing the couplings do not unify at any scale falsifies the gauge-structural prediction. | the coupling-unification conjecture | OPEN |
+| **8π² rejected** | 8π² = 78.957 (+0.92% over c = 78.233) is rejected by GRUT's own near-miss standard — the universal one-instanton action, not a GRUT-distinctive constant. | guards against numerology | — |
+
+Anchored cosmology numbers carried alongside, never conflated: **Ω_Λ = 0.6886** (full-Friedmann
+anchored; Planck 0.6889, 0.04% match) versus the **tree (2−R)² = 0.71453** (cosmic-baseline
+approximation); R = √(4/3) = 1.15470; S = 12π/α² = 108π = 339.292; H₀ ≈ 68.8 km/s/Mpc.
+
+---
+
+## G. The machine-checked apparatus — 121 claims, six tiers, five-tier legend
+
+The honesty that lets the name stand is itself auditable. Every tier asserted in this document
+is checkable against `grut/toe/registry.py` and reproducible in `.venv`. A claim advances a
+tier only when a test certifies it; a failed result is demoted and logged, never quietly
+dropped (over 3,000 gating tests). The single failure mode that would sink the whole thing —
+a spine that quietly upgrades a HOSTED or OPEN result to DERIVED — is the one the apparatus is
+built to refuse, and the meta-layer that performs that audit is itself DERIVED.
+
+**The six machine-checked registry tiers and census (121 claims):**
+
+| Registry tier | Count | Meaning |
+|---|---|---|
+| **computed** | 48 | A real derivation (parameter-dependent where it rides α or τ₀). |
+| **open_negative** | 28 | No mechanism yet, attackable; honest negatives booked open. |
+| **anchored** | 20 | Fixed to observation (τ₀, T_c, the Ω_Λ value, …). |
+| **conjectural** | 11 | A structural hook only, far from derivation. |
+| **meta** | 10 | The audit layer — the registry checking itself. |
+| **foundational** | 4 | Adopted axioms (α = 1/3 by adoption, …). |
+
+**The five-tier reader legend → six machine tiers map.** The narrative carries five
+reader-facing tags; they relate to the six machine tiers by one map (not two competing
+systems): **DERIVED** ≈ computed or foundational; **HOSTED** ≈ anchored; **OPEN** ≈
+open_negative; **CONJECTURAL** ≈ conjectural; **FORBIDDEN-BY-THEOREM** is a narrative reading
+of computed/conjectural no-go claims; and **meta** is the audit layer, carrying no
+reader-facing tier of its own. Several events are **split-tier seams** (`[SPLIT]`): the
+mechanism is DERIVED but its input anchored, or a *form* is DERIVED while its *antecedent* is
+OPEN — and the split *is* the honest content; it must never be collapsed to the higher tier.
+This is the apparatus behind every tier in the body, and behind the appendix's refusal to
+upgrade a single dotted edge. *(`GRUT_V4_SPINE.md` "How to read this"; the registry census
+re-verified in `.venv`.)*

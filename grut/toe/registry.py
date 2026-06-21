@@ -1406,7 +1406,7 @@ REGISTRY: tuple[Claim, ...] = (
             "of DM signatures in BBN at T > 10⁹ K. Below T_c (today, "
             "T = 2.725 K), the vacuum is deep in the refractive regime "
             "with full enhancement n_g ≈ 1.1547. Cosmological-"
-            "chronology anchor: T_c crossing at t ≈ 16 hours post-Big "
+            "chronology anchor: T_c crossing at t ≈ 16.5 hours post-Big "
             "Bang per standard cosmic-temperature-vs-time relations."
         ),
         tier="computed",
@@ -1425,7 +1425,7 @@ REGISTRY: tuple[Claim, ...] = (
         deps=(),
         notes=(
             "T_c = 54.7 MK is empirically anchored to the standard "
-            "cosmological-chronology pin (T at t ≈ 16 hours post-Big "
+            "cosmological-chronology pin (T at t ≈ 16.5 hours post-Big "
             "Bang per radiation-era Friedmann thermodynamics) — no "
             "GRUT-internal dependency for the value itself. τ_micro "
             "is derived from T_c via the SI-correct formula (see "
@@ -2886,7 +2886,7 @@ REGISTRY: tuple[Claim, ...] = (
             "2πk/3)) — which gives K = 2/3 algebraically — DOES NOT "
             "admit any neutrino solution under either hierarchy. "
             "Numerical scan over the all-positive θ range gives "
-            "minimum Δm²_atm/Δm²_sol = 194.7, vs observed 33.9 — a "
+            "minimum Δm²_atm/Δm²_sol = 194.1, vs observed 33.9 — a "
             "factor of ~6 too large. This is a SHARP STRUCTURAL "
             "FINDING (computed, unconditional): GRUT's charged-lepton "
             "Z₃ structure does not trivially extend to neutrinos. "
@@ -2910,7 +2910,7 @@ REGISTRY: tuple[Claim, ...] = (
             "coupling emerges for neutrinos under refined Δm² values "
             "or extended mass-mechanism (e.g., effective light-"
             "neutrino masses including see-saw corrections), this "
-            "claim is falsified. The computed minimum 194.7 is "
+            "claim is falsified. The computed minimum 194.1 is "
             "stable under choice of NH/IH and Δm² precision."
         ),
         notes=(
@@ -4569,7 +4569,7 @@ REGISTRY: tuple[Claim, ...] = (
             "(B) τ_micro ≈ 1.4×10⁻¹⁹ s is the microscopic THERMAL "
             "relaxation time, defined as ℏ/(k_B × T_c) and anchored "
             "by the cosmological-chronology pin T_c = 54.7 MK at "
-            "t ≈ 16 hours post-Big Bang. The 34-orders-of-magnitude "
+            "t ≈ 16.5 hours post-Big Bang. The 34-orders-of-magnitude "
             "separation between τ_0 and τ_micro is named explicitly. "
             "The relation between the two scales is a SHARP OPEN "
             "QUESTION (claim tau_zero_to_tau_micro_relation_open"
