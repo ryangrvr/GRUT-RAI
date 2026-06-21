@@ -1093,6 +1093,24 @@ whose row-5 (OPEN) is full is not a failure of the framework; it is the framewor
 own boundary at the standing the registry certifies. The reader can audit any claim by reading
 down the column it sits in.
 
+**The decisive test gives Part IV its categories — and the spine its edges.** Beyond the
+five-point gate, four of these frontiers have now been run through a sharper question: *does the
+sector organize around responsiveness — finding its place on the ladder — or does it require
+unrelated machinery bolted on from outside?* The answers do not all land the same way, and that
+is the point. They sort into three kinds:
+
+- **IV·A — On the Ladder.** The sector organizes around responsiveness; its structure descends
+  from (or is forbidden by) the framework's own content. *Dark Matter* (ORGANIZED, substrate-
+  resident in F(t)) and *Quantum Gravity* (PARTIAL — the response is derived, the geometry is
+  hosted) live here.
+- **IV·B — Hosted Matter-Content.** Off the ladder: Standard-Model inputs the vacuum *hosts*,
+  not responsiveness questions. The structure is adopted from elsewhere; where the responsive
+  route was tested it pointed *away*. *Neutrinos* and *Baryogenesis* are container-seams;
+  *Coupling Unification* sits here untested through the decisive lens.
+- **IV·C — Observer & Meta Frontiers.** A different kind entirely — neither vacuum-response nor
+  matter-content. The deepest and most speculative: *Consciousness*, *Information*,
+  *Mathematics*. Honestly mostly conjectural or open.
+
 A standing rule governs the richest frontier and recurs throughout: **dark matter is a
 RESIDENT of GRUT's own pre-responsive substrate sector F(t)** — internal to the layered
 ontology (Q → F(t) → vacuum → …) at the substrate level, **not** external, **not** "hosted
@@ -1100,13 +1118,61 @@ from outside," and **not** a successor theory. The phrase *"a different theory, 
 reserved exclusively for the vacuum-pole case — a new *propagating vacuum mode* — and is
 invoked nowhere else.
 
+**The boundary is a feature, not a defect.** That the frontiers split A / B / C — that some
+sectors land on the ladder, some are hosted matter-content the vacuum carries but does not
+organize, and some are observer/meta questions of a wholly different type — is precisely what a
+discriminating test should produce. A theory that "explained everything" the same way would be
+explaining nothing in particular. The categories give the spine *edges*: they mark where
+responsiveness reaches, where it merely hosts, and where the framework is honest that it has not
+yet reached at all.
+
+## The scorecard
+
+Each frontier, its decisive-test verdict (where run), its category, and one line of ladder
+placement. The Category-A cosmological results derived earlier — **Dark Energy**, the
+**hierarchy's existence**, and **α = 1/3** — are listed for completeness; they are covered in
+Parts I–II and are **not** re-derived here.
+
+| Frontier | Decisive-test verdict | Category | Ladder placement (one line) |
+|---|---|---|---|
+| **Dark Energy** *(Parts I–II)* | ORGANIZED | A — On the Ladder | Ω_Λ = (2−R)² from the responsive vacuum's own α-spine; covered earlier. |
+| **Hierarchy (existence)** *(Parts I–II)* | ORGANIZED | A — On the Ladder | τ₀ ≫ τ_micro FORCED by the Mori–Zwanzig slow/fast split; covered earlier. |
+| **α = 1/3** *(Parts I–II)* | ORGANIZED (value adopted) | A — On the Ladder | The vacuum response coefficient; value adopted, first-principles origin OPEN; covered earlier. |
+| **Dark Matter** | ORGANIZED | A — On the Ladder | Substrate-RESIDENT in F(t); the missing host is a specified-and-unmet 2-dial extension. |
+| **Quantum Gravity** | PARTIAL (leaning organized) | A — On the Ladder | Gravity-as-RESPONSE derived (Φ_μν, μ_linear=1, GR-as-limit) + UV no-go internal; gravity-as-GEOMETRY hosted. |
+| **Neutrinos / Flavor** | CONTAINER-SEAM | B — Hosted Matter-Content | Consequences real (K=2/3, NH, a_ν=1) but the Z₃/a=√2/M₀ ansatz is hosted; responsive route misses (K=4/9). |
+| **Baryogenesis** | CONTAINER-SEAM (weaker) | B — Hosted Matter-Content | η_B magnitude is hosted J_CP × imported K_neq; the (2−R_B)/S_B factor is off-spine and cosmetic. |
+| **Coupling Unification** | *untested through the decisive lens* | B — likely (gauge-coupling running) | QM/GR meta-unification DERIVED; gauge-coupling closure OPEN/unbuilt (Track V). |
+| **Consciousness** | *untested; CONJECTURAL* | C — Observer & Meta | The in-in self-comparison hook; a proven structure, **no** theory of mind. *(Also Part III, Ch 10.)* |
+| **Information** | *untested through the decisive lens* | C — Observer & Meta | Arrow of time DERIVED; BH-information softened at linear order only; mostly OPEN. |
+| **Mathematics** | *untested; conjectural* | C — Observer & Meta | No GRUT theorem; a labeled philosophical slot, carrying no registry claim. |
+
+A standing rule applies to the verdicts column: **the four decisive-test results (Dark Matter,
+Quantum Gravity, Neutrinos, Baryogenesis) are authoritative**; the frontiers marked *untested*
+have **not** been run through the decisive lens and carry **no verdict they have not earned** —
+they are labeled honestly as untested/conjectural, not assigned a category-defining result by
+analogy.
+
 ---
 
-## Frontier 1 — How Does Dark Matter Emerge in a Responsive Universe?
+## IV·A — On the Ladder
+
+*The sectors that organize around responsiveness: their structure descends from the framework's
+own content, or is forbidden by its own theorems. This is where the spine reaches.*
+
+### Frontier 1 — How Does Dark Matter Emerge in a Responsive Universe?
 
 *The richest frontier, and the model for the format. Read the no-gos here not as three
 separate prohibitions but as a single specification: together they describe the missing object
 to the dex.*
+
+> **DECISIVE-TEST VERDICT: ORGANIZED — substrate-resident.** Dark matter is hosted-by-the-
+> vacuum but **RESIDENT in GRUT's own pre-responsive substrate F(t)** — on the ladder, a
+> *deeper layer* (Q → F(t) → vacuum → …). The vacuum's three no-gos hold; F(t) sits outside
+> their jurisdiction *because* they are theorems about the vacuum's action, not the substrate
+> beneath it. The missing host is a **precisely-specified 2-dial conjectural extension** —
+> *sharpened impossibility*, not a derivation (`GRUT_DM_NONTHERMAL_COHERENT_TEST.md`,
+> `GRUT_FT_CONDENSATE_PROGRAM.md`).
 
 **1. What is known.** Roughly 85% of the universe's matter is electromagnetically dark, with
 Ω_dm h² ≈ 0.12 (Planck). The leading particle-independent class compatible with small-scale
@@ -1184,7 +1250,108 @@ dimensionful parameters keep it outside the zero-free-parameter core).
 
 ---
 
-## Frontier 2 — How Do Neutrinos Emerge in a Responsive Universe?
+### Frontier 4 — How Does Quantum Gravity Emerge in a Responsive Universe?
+
+*The medium, the UV no-go, and the hierarchy — the boundary of GRUT's explanatory reach, drawn
+sharply.*
+
+> **DECISIVE-TEST VERDICT: PARTIAL (leaning organized).** The two make-or-break legs split.
+> **Gravity-as-RESPONSE is DERIVED** (Φ_μν = α·χ·P^TT; the μ_linear = 1 projector theorem;
+> GR as a limit) and **the UV-frontier is a framework-internal no-go** — both organized. But
+> **gravity-as-GEOMETRY is HOSTED**: the Einstein tensor G_μν, the metric g_μν, and the
+> Einstein–Hilbert term enter as *inputs*, not as outputs of responsiveness. GRUT *modifies GR
+> with a response*; it does not derive geometry. *"Derives how gravity responds, not why it is
+> geometric."* The strongest Category-A cell short of dark matter — but qualified, not clean
+> (`GRUT_QG_RESPONSIVENESS_TEST.md`).
+
+**1. What is known.** QM and GR must be reconciled; there is a Planck scale; and there is a
+hierarchy problem — why microscopic and macroscopic scales are so vastly separated.
+
+**2. What GRUT already explains — DERIVED.** Unification is DERIVED *as a single parameter
+space*: QM is the τ₀ → 0 limit and GR is the ωτ₀ → ∞ limit of **one** CTP constitutive action,
+both limits exact, with the crossover the crystalline boundary X = Λ_grav·τ₀ = 1. The
+unification *scale* is the ~689 Hz table-top decoherence plateau, **not** the Planck energy —
+which is why GRUT has near-term falsifiers at all. **The decisive-test "response" leg lives
+here:** Φ_μν = α·χ(ω)·P^TT is derived by varying the constitutive cross term (the susceptibility
+χ(ω) = 1/(1−iωτ₀) *is* the constitutive equation — responsiveness itself); **μ_linear = 1** is
+a theorem forced by the transverse-tracefree projector's own index structure (the ladder rules
+out its own would-be scalar modification, over-determined ~32σ by the CMB-ISW); and GR is
+recovered as the high-ω limit (n_g(0) = √(4/3), n_g(∞) = 1) — all `computed`-tier and verified.
+The **existence** of the hierarchy is FORCED: the Mori–Zwanzig slow/fast projection requires
+τ₀ ≫ τ_micro, and the no-dark-mode result is magnitude-inert across 34 orders, flipping only at
+the pure ratio τ_K/τ₀ = 1/4 (`GRUT_HIERARCHY_LEDGER.md` §§2C, 3).
+
+**3. What GRUT constrains — FORBIDDEN-by-theorem.** The hierarchy *magnitude* is FORBIDDEN:
+there is no β-function that carries τ₀, and forcing the gap would require a new propagating
+vacuum pole the framework's minimalism forbids (`GRUT_HIERARCHY_LEDGER.md` §5). The conformal
+mode σ — the natural UV carrier — is caught in the **locality–dynamics fork**
+(`GRUT_UV_SECTOR_CONSTRUCTION.md` §5): the anomaly number that would source a Riegert action
+lives in the E₄ / a-channel, which GRUT's own second-order analysis proves is Lovelock-null and
+dynamically dormant; the only *live* channel is c / Weyl². So σ is either locality-safe and
+ghost-free but **inert** (confined to E₄, no β-function), or dynamically live but then it *is*
+the metric trace tied to T_μν by the Ward identity — giving a 1/k⁴ matter→metric pole (strictly
+worse than the forbidden 1/k², verified as a divergent limit) **and** a fourth-order
+Ostrogradsky ghost (opposite-sign residues ⇒ Im χ < 0 ⇒ N < 0 ⇒ non-unitary). No window exists
+where σ is simultaneously locality-safe, Q-safe, and live — a **structural NO**. *This is the
+decisive-test's second organized leg: the UV obstruction is a registry `computed` theorem
+descending from the CTP action, not a post-hoc alibi — the ladder setting its own UV edge.*
+**The decisive unity: the dark-matter no-go and the hierarchy-magnitude no-go are the SAME no-go**
+— both forbid a new propagating vacuum pole.
+
+**4. What GRUT hosts — HOSTED.** **The geometry is hosted — this is the seam the decisive test
+names.** In the derivation the linearized Einstein tensor is a literal placeholder symbol
+(`G_einstein_one = sp.Symbol("G_einstein_1")`), the EoM reads G_μν^(1) − Φ_μν = 8πG T_μν with
+G_μν^(1) on the *input* side, the Einstein–Hilbert coefficient is a free abstract symbol, and
+the influence-functional core carries no metric/curvature content at all — g_μν is *set in*,
+the Einstein tensor is *given*. The would-be deeper account (the elastic-medium "why gravity is
+geometric") is explicitly **demoted** — an unpaid postulate that predicts a refuted warm dark
+sector, and is out of the registry. Separately, τ₀ and τ_micro (≡ ℏ/k_B T_c) enter as the
+**two independent anchored numbers** the entire 34-order gap reduces to: ln(τ₀/t_P) = 134.45 and
+ln(τ_micro/t_P) = 56.21. The famous gap c = ln(τ₀/τ_micro) = 78.23 is exactly their *difference*
+(134.447 − 56.214, to machine precision), **not** a third number; everything else hierarchy-
+flavored (G₀, ℓ_micro, L₀, T_peak, 4.71 keV, τ_Λ, H₀, Ω_Λ, μ₀, a₀, f(T)) is a disguise of these
+two (`GRUT_HIERARCHY_LEDGER.md` §4). (Note: τ_micro's *registry* tier is conjectural —
+`tau_micro_thermal_scale`, registry.py:1442 — and is reported in-narrative as
+hosted-with-forbidden-relation-to-τ₀.) The two-anchor split is **structurally protected** by
+the directional RG firewall (the UV cannot reach down to regenerate the IR τ₀ operator), not a
+loose end.
+
+**5. What remains unknown — OPEN.** No UV-complete *dynamical* sector exists. Deriving
+ln(τ_micro/t_P) = 56.21 is "not even askable": GRUT has no condensing scale-invariant
+potential, no GRUT-origin running coupling, and no Planck-scale boundary condition
+(`GRUT_UV_ANCHOR_FEASIBILITY.md`, verdict NOT-YET-FORMULATED). The reference class generically
+makes large Planck-logs from O(1) inputs (with the genuine 1/16π² normalization, b₀ ≈ 0.0063
+gives logs of tens-to-hundreds), but **GRUT's own structure cannot supply the live coupling to
+realize one** — the class makes the logs, the engine is missing (`GRUT_UV_SECTOR_CONSTRUCTION.md`
+§5.1). And the deepest open seam the decisive test isolates: **a derivation of the geometric/
+curvature structure itself from responsiveness** — currently hosted, with the elastic-medium
+candidate demoted; closing it would upgrade PARTIAL → ORGANIZED.
+
+> **OVERCLAIM FLAGS (Appendix A #2, #6, #16).** The hierarchy *magnitude* is the single fact
+> that sinks the spine if inflated — booked FORBIDDEN+anchored, never "derived." α = 1/3's
+> value is *adopted*; its first-principles (Riegert/IR-carrier) derivation is OPEN. G₀'s value
+> is derived from {ℏ, c, τ_micro} but the viscoelastic-SOLID premise is an UNPAID POSTULATE
+> (one of ≥4 degenerate medium classes). The two-anchor structure is **protected, not a gap**.
+> **Per the decisive test: derive the *response of* gravity, do not claim the *geometry of*
+> gravity** — the Einstein tensor is hosted.
+
+---
+
+## IV·B — Hosted Matter-Content
+
+*Off the ladder — Standard-Model inputs the vacuum hosts, not responsiveness questions. The
+structure is adopted from elsewhere; where the responsive route was tested it returned the
+wrong number and pointed away from the spine. The container carries the right numbers; it does
+not generate them.*
+
+### Frontier 2 — How Do Neutrinos Emerge in a Responsive Universe?
+
+> **DECISIVE-TEST VERDICT: CONTAINER-SEAM.** The *consequences* are real and machine-verified
+> (Koide K = 2/3, normal-ordering preference, a_ν = 1) — but the *structure* that produces them
+> (the Z₃ circulant, a = √2, M₀) is an **adopted Yukawa ansatz GRUT hosts, not generates.**
+> The responsive (CTP fixed-point) route *was tested* and **MISSES**: it returns K = 4/9, not
+> 2/3 — actively pointing toward external Yukawa input. Off-ladder
+> (`GRUT_NEUTRINO_RESPONSIVENESS_TEST.md`).
 
 **1. What is known.** Neutrinos oscillate, so they are massive; the mass-splitting ratio
 Δm²_atm/Δm²_sol ≈ 33.9; the charged-lepton masses satisfy the Koide relation K = 2/3 to high
@@ -1201,7 +1368,8 @@ boundary-degenerate Z₃ coupling (`neutrino_z3_coupling_a_equals_1_uniqueness_t
 registry.py:2975, computed; Correction #29 — no longer a postulate). The NH preference and
 Σm_ν ≈ 60 meV are anchored-on the a_ν = 1 derivation
 (`neutrino_hierarchy_z3_nh_prediction`, registry.py:2918, **anchored** — tier and notes
-consistent).
+consistent). *Per the decisive test, every one of these is a consequence **conditional on the
+adopted Z₃ ansatz**, not a descent from the ladder.*
 
 **3. What GRUT constrains — FORBIDDEN-by-computation.** The charged-lepton Z₃ structure
 provably does **not** extend to neutrinos: the same a = √2 ansatz that yields K = 2/3 forces
@@ -1213,115 +1381,89 @@ internal computation that *forbids* the naive extension and forces a distinct ne
 
 **4. What GRUT hosts — HOSTED.** The Standard-Model lepton field content and the existence of
 the neutrino sector are received, not generated. The circulant parameters M₀ and θ are *fitted*
-to the masses — the Z₃ circulant is a parameterization, hosted as structure.
+to the masses — the Z₃ circulant is a parameterization, hosted as structure. *The decisive test
+sharpens this: the one tie to responsiveness, θ = 2/9 = K·α_vac, is statistically real but
+mechanistically decorative, and collapses to a single α_vac via K ≡ 2·α_vac; and M₀ is a hard
+free fit, native μ₀ = ℏ/τ₀ ≈ 5×10⁻³¹ eV sitting ~20 orders below the fitted 0.560 GeV^½.*
 
 **5. What remains unknown — OPEN.** The flavor *mechanism* — what physically selects the Z₃
 structure, M₀, and θ from the CTP fixed point — is OPEN (`koide_phase_4_open_negative`); so is
 the deeper KS-anomaly account of *why* neutrinos lack the EM channel that gives charged leptons
-a = √2. GRUT's Dirac preference is a closeness preference (a/c = 1.15525 vs Majorana 1.17256,
-against canonical √(4/3) = 1.15470), not a proof (`neutrino_dirac_prediction`,
-registry.py:2490, anchored — OPEN remainder).
+a = √2. The responsive candidate (the multi-flavor CTP fixed point, Conjecture F1) is a
+HYPOTHESIS that, where tested quantitatively, fails (K = 4/9). GRUT's Dirac preference is a
+closeness preference (a/c = 1.15525 vs Majorana 1.17256, against canonical √(4/3) = 1.15470),
+not a proof (`neutrino_dirac_prediction`, registry.py:2490, anchored — OPEN remainder).
 
 > **OVERCLAIM FLAGS (Appendix A #9, #11).** "GRUT forces Z₃" — no; the circulant is
 > *assumed*, and "K = 2/3 is a theorem of Z₃" is the honest claim. The normal-ordering
 > preference is DERIVED-from-a_ν=1, not parameter-free omniscience. **Live falsifiers:** a
 > positive 0νββ signal kills Dirac; JUNO/DUNE confirming inverted ordering, or DESI/Euclid
-> pushing Σm_ν out of band, kills the NH preference.
+> pushing Σm_ν out of band, kills the NH preference. **Upgrade to ORGANIZED:** derive the Z₃
+> Jacobian + a = √2 from the CTP fixed point (yielding 2/3, not 4/9), or anchor M₀ — either
+> would move the sector onto the ladder.
 
 ---
 
-## Frontier 3 — How Does Baryogenesis Emerge in a Responsive Universe?
+### Frontier 3 — How Does Baryogenesis Emerge in a Responsive Universe?
+
+> **DECISIVE-TEST VERDICT: CONTAINER-SEAM (weaker than flavor) + corrected overclaim.** The
+> η_B *magnitude* is **hosted SM Jarlskog J_CP × imported/asserted K_neq**; the GRUT factor
+> (2−R_B)/S_B is **off-spine and cosmetic** — R_B = 1.018 ≠ the canonical R = √(4/3), S_B = 4π·45
+> ≠ S = 108π, the factor is O(1) (0.982) and moves η_B by <2%, and the +7.7% match was *produced*
+> by a documented S_B re-choice (a **reverse-fit**; using the canonical R *worsens* the fit to
+> −7.3%). Re-tiered **ANCHORED**. Off-ladder (`GRUT_BARYOGENESIS_RESPONSIVENESS_TEST.md`).
 
 **1. What is known.** The baryon-to-photon ratio is η_B ≈ 6.1×10⁻¹⁰ (Planck) — a small,
 nonzero matter–antimatter asymmetry requiring the three Sakharov conditions.
 
 **2. What GRUT already explains — DERIVED `[SPLIT]`.** The *existence* of a nonzero asymmetry
-is derived: the CTP path is intrinsically asymmetric (the canonical ratio R ≠ 1), and η_B
-would vanish identically at R = 1. The native structural factor is (2 − R_B)/S_B
-(`baryogenesis_eta_b`, registry.py:1696, computed). The Sakharov CP-content is forced by the
-in-in asymmetry — this is the derived half.
+is derived: the CTP path is intrinsically asymmetric (the canonical ratio R ≠ 1), and the
+Sakharov CP-content is forced by the in-in asymmetry — this is the derived half. *The decisive
+test corrects the prior framing here: the native structural factor (2 − R_B)/S_B is NOT the
+canonical α-spine and is NOT load-bearing — it is an O(1) dressing (=0.982), and the registry's
+"asymmetry vanishes at R = 1" reading is misleading (the algebraic zero of (2−R) is at R = 2;
+across the whole R_B range the factor moves η_B by <2%).* The genuinely on-spine remnant is the
+narrative — the constitutive lag supplying non-equilibrium across the EW crossover, a real
+responsiveness mechanism for Sakharov condition (3) — but it is only a narrative; the number is
+not derived. The `baryogenesis_eta_b` claim (registry.py:1696) is re-tiered **ANCHORED**, not a
+zero-parameter computed prediction.
 
 **3. What GRUT constrains — FORBIDDEN-by-theorem.** Nothing additional is forbidden at this
 frontier beyond the general in-in arrow that makes R ≠ 1 mandatory; the CP-violating direction
 is *forced* by Q's path asymmetry rather than ruled out. (Cell honestly thin.)
 
 **4. What GRUT hosts — HOSTED.** The Jarlskog invariant J_CP and the electroweak-nonequilibrium
-factor K_neq are Standard-Model inputs, received not generated. The magnitude rides on these
-hosted numbers multiplying the native (2 − R_B)/S_B factor.
+factor K_neq are Standard-Model inputs, received not generated. **The magnitude rides entirely
+on these hosted numbers** — J_CP (≈3.18×10⁻⁵, SM/CKM) × K_neq (≈1.19×10⁻², imported, hardcoded,
+±50% structural, *uncomputed in code* despite the doc's α_eff×δT/T×v/T claim) / S_B — the
+smallness 6.7×10⁻¹⁰ is set *before* the GRUT factor touches it. The (2−R_B)/S_B factor is
+off-spine and cosmetic, as the decisive test establishes.
 
-**5. What remains unknown — OPEN.** The *magnitude mechanism* is not zero-parameter. GRUT's
-route lands η_B ≈ 6.57×10⁻¹⁰, about +7.7% above Planck, with that agreement assisted by the
-hosted SM inputs.
+**5. What remains unknown — OPEN.** The *magnitude mechanism* is not zero-parameter and is, on
+the decisive test, **assembled-to-fit**: R_B is route-ambiguous to 18,000× (Route 1 = 1.018 vs
+Route 2 = 5.6×10⁻⁵, the matching route selected), K_neq is a ±50% uncomputed knob, and the
+canonical spine R is *not* used because it degrades the fit. GRUT's route lands η_B ≈ 6.57×10⁻¹⁰,
+about +7.7% above Planck — an agreement assisted by hosted inputs and produced by the S_B
+re-choice, not a clean prediction.
 
 > **OVERCLAIM FLAG (Appendix A #4).** "GRUT predicts η_B = 6.6×10⁻¹⁰" overclaims —
-> **existence** is DERIVED, **magnitude** is assisted by HOSTED inputs; the +7.7% agreement
-> must not be read as zero-parameter.
+> **existence** is DERIVED, **magnitude** is HOSTED (J_CP × imported K_neq) and the GRUT factor
+> is off-spine and cosmetic; the +7.7% match was reverse-fit via a documented S_B re-choice and
+> must not be read as zero-parameter. **Upgrade to PARTIAL/ORGANIZED:** derive K_neq from the
+> constitutive lag *in code* **and** show the load-bearing factor uses the canonical R = √(4/3),
+> S = 108π and still lands η_B (currently fails by construction: canonical R gives −7.3%).
 
 ---
 
-## Frontier 4 — How Does Quantum Gravity Emerge in a Responsive Universe?
-
-*The medium, the UV no-go, and the hierarchy — the boundary of GRUT's explanatory reach, drawn
-sharply.*
-
-**1. What is known.** QM and GR must be reconciled; there is a Planck scale; and there is a
-hierarchy problem — why microscopic and macroscopic scales are so vastly separated.
-
-**2. What GRUT already explains — DERIVED.** Unification is DERIVED *as a single parameter
-space*: QM is the τ₀ → 0 limit and GR is the ωτ₀ → ∞ limit of **one** CTP constitutive action,
-both limits exact, with the crossover the crystalline boundary X = Λ_grav·τ₀ = 1. The
-unification *scale* is the ~689 Hz table-top decoherence plateau, **not** the Planck energy —
-which is why GRUT has near-term falsifiers at all. The **existence** of the hierarchy is
-FORCED: the Mori–Zwanzig slow/fast projection requires τ₀ ≫ τ_micro, and the no-dark-mode
-result is magnitude-inert across 34 orders, flipping only at the pure ratio τ_K/τ₀ = 1/4
-(`GRUT_HIERARCHY_LEDGER.md` §§2C, 3).
-
-**3. What GRUT constrains — FORBIDDEN-by-theorem.** The hierarchy *magnitude* is FORBIDDEN:
-there is no β-function that carries τ₀, and forcing the gap would require a new propagating
-vacuum pole the framework's minimalism forbids (`GRUT_HIERARCHY_LEDGER.md` §5). The conformal
-mode σ — the natural UV carrier — is caught in the **locality–dynamics fork**
-(`GRUT_UV_SECTOR_CONSTRUCTION.md` §5): the anomaly number that would source a Riegert action
-lives in the E₄ / a-channel, which GRUT's own second-order analysis proves is Lovelock-null and
-dynamically dormant; the only *live* channel is c / Weyl². So σ is either locality-safe and
-ghost-free but **inert** (confined to E₄, no β-function), or dynamically live but then it *is*
-the metric trace tied to T_μν by the Ward identity — giving a 1/k⁴ matter→metric pole (strictly
-worse than the forbidden 1/k², verified as a divergent limit) **and** a fourth-order
-Ostrogradsky ghost (opposite-sign residues ⇒ Im χ < 0 ⇒ N < 0 ⇒ non-unitary). No window exists
-where σ is simultaneously locality-safe, Q-safe, and live — a **structural NO**. **The decisive
-unity: the dark-matter no-go and the hierarchy-magnitude no-go are the SAME no-go** — both
-forbid a new propagating vacuum pole.
-
-**4. What GRUT hosts — HOSTED.** τ₀ and τ_micro (≡ ℏ/k_B T_c) enter as the **two independent
-anchored numbers** the entire 34-order gap reduces to: ln(τ₀/t_P) = 134.45 and ln(τ_micro/t_P)
-= 56.21. The famous gap c = ln(τ₀/τ_micro) = 78.23 is exactly their *difference* (134.447 −
-56.214, to machine precision), **not** a third number; everything else hierarchy-flavored (G₀,
-ℓ_micro, L₀, T_peak, 4.71 keV, τ_Λ, H₀, Ω_Λ, μ₀, a₀, f(T)) is a disguise of these two
-(`GRUT_HIERARCHY_LEDGER.md` §4). (Note: τ_micro's *registry* tier is conjectural —
-`tau_micro_thermal_scale`, registry.py:1442 — and is reported in-narrative as
-hosted-with-forbidden-relation-to-τ₀.) The two-anchor split is **structurally protected** by
-the directional RG firewall (the UV cannot reach down to regenerate the IR τ₀ operator), not a
-loose end.
-
-**5. What remains unknown — OPEN.** No UV-complete *dynamical* sector exists. Deriving
-ln(τ_micro/t_P) = 56.21 is "not even askable": GRUT has no condensing scale-invariant
-potential, no GRUT-origin running coupling, and no Planck-scale boundary condition
-(`GRUT_UV_ANCHOR_FEASIBILITY.md`, verdict NOT-YET-FORMULATED). The reference class generically
-makes large Planck-logs from O(1) inputs (with the genuine 1/16π² normalization, b₀ ≈ 0.0063
-gives logs of tens-to-hundreds), but **GRUT's own structure cannot supply the live coupling to
-realize one** — the class makes the logs, the engine is missing (`GRUT_UV_SECTOR_CONSTRUCTION.md`
-§5.1).
-
-> **OVERCLAIM FLAGS (Appendix A #2, #6, #16).** The hierarchy *magnitude* is the single fact
-> that sinks the spine if inflated — booked FORBIDDEN+anchored, never "derived." α = 1/3's
-> value is *adopted*; its first-principles (Riegert/IR-carrier) derivation is OPEN. G₀'s value
-> is derived from {ℏ, c, τ_micro} but the viscoelastic-SOLID premise is an UNPAID POSTULATE
-> (one of ≥4 degenerate medium classes). The two-anchor structure is **protected, not a gap**.
-
----
-
-## Frontier 5 — How Does Coupling Unification Emerge in a Responsive Universe?
+### Frontier 5 — How Does Coupling Unification Emerge in a Responsive Universe?
 
 *The meta-claim, and its honest status.*
+
+> **DECISIVE-TEST STATUS: UNTESTED through the decisive lens — likely Category B.** This
+> frontier has **not** been run through the organize-or-host test; it is flagged as a
+> *gauge-coupling-running* question (an SM-input matter-content sector) and carries **no
+> verdict it has not earned.** What is settled independently: the QM/GR meta-unification is
+> DERIVED; the gauge-coupling closure is OPEN/unbuilt (Track V, open_negative).
 
 **1. What is known.** The three Standard-Model gauge couplings run toward near-coincidence at
 ~10¹⁶ GeV but miss exact unification by ~8.9% in the canonical (non-SUSY) framework.
@@ -1341,7 +1483,9 @@ gauge-coupling closure by adding the kind of new structure it has already forbid
 matter and the hierarchy.
 
 **4. What GRUT hosts — HOSTED.** The SM gauge group SU(3)×SU(2)×U(1) and the running couplings
-are inputs, received not generated.
+are inputs, received not generated. *(This hosting of the SM gauge content is why the frontier
+is likely Category B — but the decisive organize-or-host test has not been run, so the category
+is flagged as likely, not asserted.)*
 
 **5. What remains unknown — OPEN.** The proposed constitutive β-correction Δβ(α_eff(ω)) that
 would close the 8.9% gap is **not derived from the CTP action** (δS_CTP/δg_i has not been
@@ -1352,13 +1496,28 @@ unbuilt.
 
 > **OVERCLAIM FLAG.** "GRUT unifies the couplings" overclaims — the **meta-unification**
 > (QM/GR as exact limits) is the genuine content; the **gauge-coupling closure is OPEN/unbuilt**
-> (Track V, open_negative). Mostly OPEN.
+> (Track V, open_negative). Mostly OPEN. *No decisive-test verdict is asserted: the sector is
+> untested through that lens.*
 
 ---
 
-## Frontier 6 — How Does Consciousness Emerge in a Responsive Universe?
+## IV·C — Observer & Meta Frontiers
 
-*The in-in hook — the most speculative frontier, tagged loudly.*
+*A different kind of frontier entirely — neither vacuum-response (IV·A) nor matter-content
+(IV·B). These are the deepest and most speculative rungs: questions about the observer, about
+information, and about why the universe is describable at all. None has been run through the
+decisive organize-or-host test, and none should be assigned a verdict it has not earned. They
+are reported honestly as conjectural or open.*
+
+### Frontier 6 — How Does Consciousness Emerge in a Responsive Universe?
+
+*The in-in hook — the most speculative frontier, tagged loudly. (Also treated narratively in
+Part III, Chapter 10 — "Emergence of Mind"; cross-referenced here, not duplicated.)*
+
+> **DECISIVE-TEST STATUS: CONJECTURAL — not run through the lens.** The decisive test is a
+> spine-membership test for *physics* sectors; consciousness is an observer/meta frontier and
+> is **not** assigned an organize-or-host verdict. What GRUT offers is **the in-in
+> self-comparison hook — a proven structure, not a theory of mind.**
 
 **1. What is known.** The observer problem (who collapses the wavefunction); the hard problem
 of experience; an empirical ~40 Hz neural resonance associated with conscious binding.
@@ -1391,7 +1550,12 @@ consciousness, is a CONJECTURAL interpretation layered on a proven structure
 
 ---
 
-## Frontier 7 — How Does Information Emerge in a Responsive Universe?
+### Frontier 7 — How Does Information Emerge in a Responsive Universe?
+
+> **DECISIVE-TEST STATUS: UNTESTED through the decisive lens.** An observer/meta frontier, not
+> run through the organize-or-host test; carries no verdict it has not earned. Independently
+> settled: the arrow of time is DERIVED; the black-hole-information result holds at linear order
+> only; the frontier is mostly OPEN.
 
 **1. What is known.** Unitarity / information conservation; the black-hole information puzzle;
 the Page curve.
@@ -1418,9 +1582,12 @@ evaporation is not closed; GRUT softens the puzzle only at the linearized level.
 
 ---
 
-## Frontier 8 — How Does Mathematics Emerge in a Responsive Universe?
+### Frontier 8 — How Does Mathematics Emerge in a Responsive Universe?
 
 *Honestly mostly-OPEN — the slot, placed for map-completeness.*
+
+> **DECISIVE-TEST STATUS: UNTESTED / conjectural.** Not run through the lens, and carrying no
+> registry claim to test — a labeled philosophical slot, reported as such.
 
 **1. What is known.** The "unreasonable effectiveness" question — why the universe is
 describable by mathematics at all.
@@ -1443,14 +1610,19 @@ responsiveness; `closed_universe`, registry.py:109, foundational) — but no cla
 > frontier exists to demonstrate the discipline: a sector with four near-empty cells is
 > reported as such, not dressed up.
 
-**And whatever else survives audit.** The eight frontiers above are not a closed list. Any
-future sector — a strong-CP / axion entry (currently absent, not forbidden), the
-tensor-to-scalar ratio r (OPEN, no inflationary epoch), the primordial amplitude A_s (OPEN
-honest negative), or any puzzle not yet named — enters Part IV by the **same five-point gate**:
-state what is known, what GRUT derives, what it forbids, what it hosts, and what remains open.
-The format is the entry requirement, and the entry requirement is the overclaim guard. A
-frontier earns a place on the ladder not by being solved, but by accepting honest tiering
-across all five cells.
+---
+
+**And whatever else survives audit.** The frontiers above are not a closed list, and the three
+categories are not a closed taxonomy. Any future sector — a strong-CP / axion entry (currently
+absent, not forbidden), the tensor-to-scalar ratio r (OPEN, no inflationary epoch), the
+primordial amplitude A_s (OPEN honest negative), or any puzzle not yet named — enters Part IV
+by the **same five-point gate**: state what is known, what GRUT derives, what it forbids, what
+it hosts, and what remains open. And any frontier may be put to the **same decisive test** —
+does it organize around responsiveness (A), is it matter-content the vacuum hosts (B), or is it
+an observer/meta question of a different kind (C)? The format is the entry requirement, the
+decisive test is the category gate, and both are the overclaim guard. A frontier earns a place
+on the ladder not by being solved, but by accepting honest tiering across all five cells — and
+by being honest about which side of the spine's edge it falls on.
 
 ---
 
