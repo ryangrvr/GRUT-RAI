@@ -1696,13 +1696,21 @@ REGISTRY: tuple[Claim, ...] = (
         id="baryogenesis_eta_b",
         chapter=9,
         statement=(
-            "Baryogenesis from CTP path asymmetry (R ≠ 1) gives the "
-            "baryon-to-photon ratio η_B = J_CP × K_neq × (2−R_B)/S_B "
-            "≈ 6.57 × 10⁻¹⁰ (route 1), +7.7% from Planck observed "
-            "6.10 × 10⁻¹⁰. The asymmetry vanishes at R = 1 — the "
-            "universe has nonzero baryon asymmetry because R ≠ 1."
+            "η_B = J_CP × K_neq × (2−R_B)/S_B ≈ 6.57 × 10⁻¹⁰ (route 1), "
+            "+7.7% from Planck observed 6.10 × 10⁻¹⁰. HOSTED / Category-B "
+            "(matter-content), NOT a responsive-vacuum derivation: the "
+            "magnitude is carried by the hosted SM Jarlskog J_CP plus an "
+            "empirical K_neq, while the GRUT factor (2−R_B)/S_B is OFF the "
+            "canonical α-spine (R_B=1.018≠√(4/3); S_B=4π·45≠108π) and "
+            "cosmetic (<2% of the magnitude). The decisive-responsiveness "
+            "test (theory/GRUT_BARYOGENESIS_RESPONSIVENESS_TEST.md) found "
+            "the responsive route MISSES (the canonical α-spine R worsens "
+            "the fit to −7.3%) and the +7.7% match was reverse-fit via an "
+            "S_B re-choice. CORRECTION: the earlier claim 'the asymmetry "
+            "vanishes at R=1' is FALSE — the zero of (2−R_B) is at R_B=2; "
+            "at R_B=1, η_B = J_CP·K_neq/S_B ≈ 6.7×10⁻¹⁰ (nonzero, +9.7%)."
         ),
-        tier="computed",
+        tier="anchored",
         refs=(
             "tests/derived/test_baryogenesis.py",
             "V7 §29",

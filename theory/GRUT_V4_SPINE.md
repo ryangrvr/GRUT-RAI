@@ -332,8 +332,8 @@ axioms); **OPEN** (no mechanism yet, but attackable); **CONJECTURAL** (a structu
 only, far from derivation). Many events are **split-tier seams** tagged `[SPLIT]` —
 mechanism DERIVED but input anchored, or form DERIVED while antecedent OPEN — and the split
 *is* the honest content; it must never be collapsed to the higher tier. The whole apparatus
-is itself auditable: a 121-claim registry (verified composition: 49 computed, 28
-open_negative, 19 anchored, 11 conjectural, 10 meta, 4 foundational), each claim carrying a
+is itself auditable: a 121-claim registry (verified composition: 48 computed, 28
+open_negative, 20 anchored, 11 conjectural, 10 meta, 4 foundational), each claim carrying a
 tier, code references, tests, and a single falsifier, with over 3,000 gating tests; a claim
 advances a tier only when a test certifies it, and a failed result is demoted and logged,
 never quietly dropped. That meta-layer — the thing that makes the tiering auditable rather
@@ -1557,7 +1557,7 @@ receive Y, here it forbids Z.
 
 The honesty that lets the name stand is itself auditable. Every tier asserted across this
 document is checkable against `grut/toe/registry.py` — **121 claims across six machine-checked
-tiers (49 computed, 28 open_negative, 19 anchored, 11 conjectural, 10 meta, 4 foundational),
+tiers (48 computed, 28 open_negative, 20 anchored, 11 conjectural, 10 meta, 4 foundational),
 which map onto the five reader-facing legend tiers as set out in the front matter** — and
 reproducible in `.venv`. A claim advances a tier only when a test certifies it; a failure is
 demoted and logged, never quietly dropped. The single failure mode that would sink the whole
@@ -1689,4 +1689,4 @@ differ, both are listed so they are never conflated.
 | DM window center | log₁₀(m/eV) = −20.50 | Fuzzy-DM window [−22, −19] middle. |
 | DM geom-mean miss | 7.19 dex | √(E_micro·E_τ₀) = 4.84×10⁻¹⁴ eV (log₁₀ = −13.31) vs center −20.50. |
 | τ-gap span | 33.976 dex | log₁₀(τ₀/τ_micro); partition 22.673 + 3.000 + 8.303 = 33.976. |
-| Registry census | 121 = 49 computed / 28 open_negative / 19 anchored / 11 conjectural / 10 meta / 4 foundational | Machine-checked tiers. |
+| Registry census | 121 = 48 computed / 28 open_negative / 20 anchored / 11 conjectural / 10 meta / 4 foundational | Machine-checked tiers. |

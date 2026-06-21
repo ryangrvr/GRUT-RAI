@@ -1,13 +1,17 @@
-"""Hardening tests for baryogenesis_eta_b — promotes from anchored
-to computed by pinning the documented value:
+"""Tests for baryogenesis_eta_b (tier: ANCHORED — Category-B / hosted).
 
-    η_B = 6.57 × 10⁻¹⁰ (route 1, +7.7% from Planck observed 6.10 × 10⁻¹⁰)
+    η_B = J_CP × K_neq × (2−R_B)/S_B ≈ 6.57 × 10⁻¹⁰ (route 1, +7.7% vs Planck 6.10 × 10⁻¹⁰)
 
-The CTP path-asymmetry formula η_B = J_CP × K_neq × (2−R_B)/S_B
-combines four quantities all determined by SM anomaly coefficients.
-The asymmetry vanishes at R_B = 1 (forward = backward), is nonzero at
-R_B ≈ 1.154 — the framework's claim that the universe has nonzero
-baryon asymmetry because R ≠ 1.
+These tests pin the documented value and inputs; they do NOT establish a
+responsive-vacuum derivation. The decisive-responsiveness test
+(theory/GRUT_BARYOGENESIS_RESPONSIVENESS_TEST.md) found this sector HOSTED
+(CONTAINER-SEAM): the magnitude is the hosted SM Jarlskog J_CP × an empirical
+K_neq, the GRUT factor (2−R_B)/S_B is off the canonical α-spine and cosmetic,
+and the +7.7% match was reverse-fit via an S_B re-choice.
+
+CORRECTION: the asymmetry does NOT vanish at R_B = 1. The zero of (2−R_B) is at
+R_B = 2; at R_B = 1, η_B = J_CP·K_neq/S_B ≈ 6.7×10⁻¹⁰ (nonzero, +9.7%). The code's
+route-1 R_B = 1.018 (not 1.154).
 """
 
 import pytest
@@ -48,7 +52,8 @@ class TestEtaBMatchesPrediction:
 
 
 class TestCPViolationFromR:
-    """If R = 1, η_B = 0. The asymmetry exists because R ≠ 1."""
+    """The (2−R_B) factor enters η_B (same factor as in H_inf). NOTE: η_B does
+    NOT vanish at R_B=1 — the zero of (2−R_B) is at R_B=2; this only checks η_B>0."""
 
     def test_r_b_anomaly_imported(self):
         """The R coefficient enters via (2 - R) — the same factor as in H_inf."""
