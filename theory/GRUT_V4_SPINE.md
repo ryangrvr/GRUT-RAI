@@ -1105,8 +1105,9 @@ is the point. They sort into three kinds:
   hosted) live here.
 - **IV·B — Hosted Matter-Content.** Off the ladder: Standard-Model inputs the vacuum *hosts*,
   not responsiveness questions. The structure is adopted from elsewhere; where the responsive
-  route was tested it pointed *away*. *Neutrinos* and *Baryogenesis* are container-seams;
-  *Coupling Unification* sits here untested through the decisive lens.
+  route was tested it pointed *away*. *Neutrinos*, *Baryogenesis*, and *Coupling Unification*
+  are all container-seams — the third with an OPEN, never-attempted seam rather than a
+  tried-and-missed one.
 - **IV·C — Observer & Meta Frontiers.** A different kind entirely — neither vacuum-response nor
   matter-content. The deepest and most speculative: *Consciousness*, *Information*,
   *Mathematics*. Honestly mostly conjectural or open.
@@ -1142,7 +1143,7 @@ Parts I–II and are **not** re-derived here.
 | **Quantum Gravity** | PARTIAL (leaning organized) | A — On the Ladder | Gravity-as-RESPONSE derived (Φ_μν, μ_linear=1, GR-as-limit) + UV no-go internal; gravity-as-GEOMETRY hosted. |
 | **Neutrinos / Flavor** | CONTAINER-SEAM | B — Hosted Matter-Content | Consequences real (K=2/3, NH, a_ν=1) but the Z₃/a=√2/M₀ ansatz is hosted; responsive route misses (K=4/9). |
 | **Baryogenesis** | CONTAINER-SEAM (weaker) | B — Hosted Matter-Content | η_B magnitude is hosted J_CP × imported K_neq; the (2−R_B)/S_B factor is off-spine and cosmetic. |
-| **Coupling Unification** | *untested through the decisive lens* | B — likely (gauge-coupling running) | QM/GR meta-unification DERIVED; gauge-coupling closure OPEN/unbuilt (Track V). |
+| **Coupling Unification** | CONTAINER-SEAM (open) | B — Hosted Matter-Content | Gauge running + 8.9% miss are pure hosted SM (zero GRUT input); the responsive Δβ(α_eff(ω)) is prose-only/unbuilt. QM/GR meta-unification DERIVED (separate, A). |
 | **Consciousness** | *untested; CONJECTURAL* | C — Observer & Meta | The in-in self-comparison hook; a proven structure, **no** theory of mind. *(Also Part III, Ch 10.)* |
 | **Information** | *untested through the decisive lens* | C — Observer & Meta | Arrow of time DERIVED; BH-information softened at linear order only; mostly OPEN. |
 | **Mathematics** | *untested; conjectural* | C — Observer & Meta | No GRUT theorem; a labeled philosophical slot, carrying no registry claim. |
@@ -1459,11 +1460,14 @@ re-choice, not a clean prediction.
 
 *The meta-claim, and its honest status.*
 
-> **DECISIVE-TEST STATUS: UNTESTED through the decisive lens — likely Category B.** This
-> frontier has **not** been run through the organize-or-host test; it is flagged as a
-> *gauge-coupling-running* question (an SM-input matter-content sector) and carries **no
-> verdict it has not earned.** What is settled independently: the QM/GR meta-unification is
-> DERIVED; the gauge-coupling closure is OPEN/unbuilt (Track V, open_negative).
+> **DECISIVE-TEST VERDICT: CONTAINER-SEAM (OPEN), Category B.** The gauge couplings,
+> β-functions, and the 8.9% unification miss are 100% hosted SM — reproduced in .venv from
+> pure standard-SM inputs (Machacek–Vaughn β, PDG couplings) with **zero GRUT input**. The
+> proposed responsive correction Δβ(α_eff(ω)) is prose-only vaporware: a named hook
+> (K(t)→δβ_i) but no equation, no tie to χ(ω) in the gauge sector, no derivation, no closure
+> — a conjecture **never attempted** (OPEN, not tried-and-missed). The QM/GR meta-unification
+> is DERIVED (separate, Category A). Registry `track_v_coupling_unification_open_question` is
+> honestly `open_negative`. See theory/GRUT_COUPLING_UNIFICATION_RESPONSIVENESS_TEST.md.
 
 **1. What is known.** The three Standard-Model gauge couplings run toward near-coincidence at
 ~10¹⁶ GeV but miss exact unification by ~8.9% in the canonical (non-SUSY) framework.
