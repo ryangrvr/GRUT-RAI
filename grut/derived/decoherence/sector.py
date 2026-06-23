@@ -20,9 +20,14 @@ def six_scaling_laws(m=80.8e-15, R=1e-6):
     R_silica = ((3*m)/(4*np.pi*SILICA_RHO))**(1/3)
     L_gold = lambda_grav(m, 1e-6, R); L_silica = lambda_grav(m, 1e-6, R_silica)
     laws["F2_geometry"] = {"gold_Hz": L_gold, "silica_Hz": L_silica, "different": abs(L_gold-L_silica)/L_gold > 0.01}
-    # F4: l-scaling
-    L_a = lambda_grav(m, 1e-6, R); L_b = lambda_grav(m, 2e-6, R)
-    laws["F4_l_scaling"] = {"ratio": L_a/L_b, "expected": 2.0, "pass": abs(L_a/L_b - 2) < 0.1}
+    # F4: l-scaling — the FAR-FIELD (l > 2R) slope-1 law Lambda ~ 1/l, per
+    # GRUT_DECOHERENCE_PAPER.md F4. Test points must be far field (l >> R): at
+    # l ~ R the (l/R)^3 extended-body suppression dominates (near-field slope +2),
+    # so probing near the kink gives ~0.333, not the far-field 2.0. With R = 1e-6,
+    # evaluate at 10R and 20R where S(l/R) = 1 for both and the ratio is exactly 2.
+    L_a = lambda_grav(m, 10e-6, R); L_b = lambda_grav(m, 20e-6, R)
+    laws["F4_l_scaling"] = {"ratio": L_a/L_b, "expected": 2.0, "regime": "far field (l > 2R)",
+                            "pass": abs(L_a/L_b - 2) < 0.1}
     # F6: kink
     l_kink = 1.8 * R
     S_before = extended_body_suppression(0.9*l_kink, R)

@@ -112,10 +112,16 @@ on the rescaling choice:
                                    from A_s).
 
 The α/S³ coincidence IS recovered under choices (B) and (C), but
-NOT under (A). The framework does not natively pin the rescaling
-— this corresponds to the n_g_omega_cosmological_covariance_open_
-question (#9 in the ledger). The α/S³ coincidence is therefore
-CONDITIONALLY DERIVED, blocked on closing the covariance gap.
+NOT under (A). Even with the covariance gap (#9) resolved for the
+cosmological μ/γ map (Correction #26 pins the rescaling convention),
+the result lands a factor ~2.3–4 from observed A_s — in the right S³
+FAMILY but not on the value. So A_s is NOT a zero-parameter GRUT
+derivation: it is a FLAGGED CLUE only. GRUT has no inflationary epoch,
+the OU/KMS variance lands ~10^10 low, and re-running the rescaling to
+hit A_s would be reverse-fit. A_s therefore stays an honest
+open_negative (the registry tier is authoritative); the residue worth
+writing is the SCOPE statement for why A_s is structurally not a GRUT
+zero-parameter observable, parallel to the hierarchy no-go.
 """
 
 from __future__ import annotations

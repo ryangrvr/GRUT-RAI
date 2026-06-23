@@ -1741,7 +1741,11 @@ REGISTRY: tuple[Claim, ...] = (
             "monotonically non-decreasing cumulative entropy under "
             "constitutive evolution. The Second Law is a consequence "
             "of the CTP action's retarded-kernel structure, not an "
-            "independent postulate."
+            "independent postulate. SCOPE (June 2026): what is DERIVED is the "
+            "monotone FORM of the Second Law (Ṡ ≥ 0 and the retarded-kernel "
+            "time-asymmetry); the low-entropy INITIAL condition (the Past "
+            "Hypothesis) that gives the Second Law its empirical content is "
+            "INHERITED — shared with all of physics — not derived here."
         ),
         tier="computed",
         refs=(
@@ -4614,7 +4618,9 @@ REGISTRY: tuple[Claim, ...] = (
         id="tau_zero_to_tau_micro_relation_open_question",
         chapter=12,
         statement=(
-            "ARCHITECTURALLY RESOLVED as Option B (June 2026). "
+            "OPEN (forbidden-to-derive): no derivation between τ_0 and τ_micro "
+            "exists or is obtainable from GRUT's content; we ADOPT the two-anchor "
+            "posture (Option B, June 2026) — the magnitude is anchored, not derived. "
             "τ_0 = 41.9 Myr (gravitational sector) and τ_micro ≈ "
             "1.4×10⁻¹⁹ s (thermal sector) differ by 34 orders of "
             "magnitude with NO derivation between them. Four closure "
@@ -5300,8 +5306,14 @@ REGISTRY: tuple[Claim, ...] = (
             "off-axis (dark-capable) pole requires τ_K>τ₀/4 (a resonant, "
             "non-dissipative memory = a foundational extension), which the "
             "τ_micro≪τ₀ hierarchy (~1e-34) forbids. So F's single-pole content is "
-            "DERIVED from Q + the slow/fast dissipative separation, not merely "
-            "postulated (see first_order_from_mori_zwanzig). The VALUE τ₀ stays "
+            "a THEOREM MODULO ONE UNCOMPUTED INTEGRAL: that τ_K (the orthogonal-force "
+            "correlation time) sits at the micro scale is ASSERTED by the slow/fast "
+            "projection, NOT YET computed from the TT-mode/KMS bath autocorrelation "
+            "K(t)=⟨F(0)F(t)⟩/⟨|z|²⟩ (mori_zwanzig_kernel.py parametrizes K̃ and sets "
+            "τ_K=τ_micro by construction). [SPLIT: the Markovian-limit FORM is derived; "
+            "the fast-memory antecedent τ_K≪τ₀ is the open item — a fast tail makes "
+            "single-pole a genuine theorem of {Q + bath}, a slow tail reopens a "
+            "dark-capable pole inside F(t).] (see first_order_from_mori_zwanzig). The VALUE τ₀ stays "
             "anchored — irreducibility established (Option B). Consequence: F "
             "reduces to Q-derived form + the MZ Markovian derivation (controlled "
             "by the irreducible τ_micro≪τ₀ hierarchy) + the anchored scale τ₀."

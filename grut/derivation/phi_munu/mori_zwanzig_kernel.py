@@ -49,6 +49,18 @@ microscopic medium with its own internal dynamics. That is a NEW postulate
 (a microscopic medium with massive excitations) = a foundational extension, not
 anything the dissipative responsive vacuum generates.
 
+OPEN / SCOPE (the honest gap, flagged June 2026). This module PARAMETRIZES the
+memory kernel K̃(ω)=(1/τ₀)/(1−iωτ_K) and SETS τ_K = τ_micro "by the construction
+of the slow/fast projection" (TAU_MICRO_SECONDS below) — it does NOT compute the
+memory function K(t)=⟨F(0)F(t)⟩/⟨|z|²⟩ from the actual TT-shear / KMS bath
+autocorrelation. That τ_K is the fast scale is the standard Mori–Zwanzig
+heuristic (the orthogonal force is the fast force), not a system-specific
+result. So slow_fast_separation_forbids_dark() is a THEOREM MODULO ONE
+UNCOMPUTED INTEGRAL: it holds iff the bath autocorrelation actually puts τ_K
+below τ₀/4. Computing K(t) from the KMS noise kernel is the decisive open
+calculation — a fast tail makes single-pole a genuine theorem of {Q + bath
+spectrum}; a slow tail reopens a dark-capable pole inside the substrate F(t).
+
 Convention matches pole_spectrum.classify_poles: D(ω) coefficients in DESCENDING
 powers of ω; a pole is stable/causal iff it lies in the lower half ω-plane.
 """
