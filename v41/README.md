@@ -65,14 +65,15 @@ python -m v41.falsifiers.decoherence_689hz   # the standalone falsifier
 ## Current state (Steps 1–5 stood up)
 
 - **5 DERIVED** (Q, μ_linear, arrow-form, QM-recovery, the 689 Hz plateau) — each checked, novelty-tagged, DERIVE-scored. μ_linear and Q and QM read *clean*; the arrow and the plateau read *SPLIT* (anchored τ₀).
-- **2 ANCHORS of value** (τ₀, τ_micro) + the axiom action; **2 OPEN** (α, single-pole) — **these two OPENs are the research spine**: their targets (S⁴ a/c, K̃(ω)) are the only computations that unlock new derived breadth.
+- **3 ANCHORS** (τ₀, τ_micro, **single-pole** — re-tiered from OPEN by Target 1C) + the axiom action; **1 OPEN** (α). Single-pole-ness was the second research-spine gap; Targets 1/1B/1C showed it reduces to one number (the bath IR exponent s) that **neither** the flat-space **nor** the curved-space route fixes — so it is now a posited anchor, not a theorem. The one remaining spine target is **α → S⁴ a/c**.
 - **1 FORBIDDEN** no-go (honestly tagged `KNOWN-REUSED` — assembled from Ostrogradsky/Stelle/Horndeski/dRGT; *provisional* on single-pole).
 - **1 HOSTED** (Ω_Λ — the gate *forbids* it being DERIVED because it rests on α-OPEN: the anti-laundering rule biting in the open).
 - **1 CONJECTURAL** (F(t) dark matter).
 
 ## What not to do
 
-Do not expand sectors before **K̃(ω)** and the **S⁴ a/c** land. A sector built on
-single-pole-ness is provisional until K̃(ω). Breadth on an unproven footing is the
-v4 baggage in cleaner code. Success is the reader of the audit, not the count of
-sectors.
+Do not expand sectors before the **S⁴ a/c** (α) lands. The single-pole gap is closed —
+not by deriving it, but by proving it *can't* be derived from current content and
+anchoring it honestly (Targets 1B/1C). Any sector built on single-pole-ness now rests on
+that ANCHOR, and the audit must show the SPLIT. Breadth on an unproven footing is the v4
+baggage in cleaner code. Success is the reader of the audit, not the count of sectors.

@@ -26,27 +26,25 @@ _CLAIMS = [
           "τ_micro = ℏ/(k_B T_c) ≈ 1.4×10⁻¹⁹ s — the microscopic correlation scale.",
           Tier.ANCHOR),
 
-    # ── FOUNDATION: the two OPEN gaps, each naming its computable target ──────────
+    # ── FOUNDATION: α is the one OPEN gap left (single-pole was re-tiered ANCHOR by 1C) ──
     Claim("alpha",
           "α = 1/3 — the dimensionless vacuum impedance. ADOPTED: the conditional "
           "a/c = 1/3 is proven, but its antecedent is open.",
           Tier.OPEN, target="S⁴ Riegert/Paneitz a/c — targets/riegert_paneitz.py"),
     Claim("constitutive_law_single_pole",
-          "The single-pole constitutive law τ₀ż + z = z_target (χ = α/(1−iωτ₀)). Its FORM "
-          "is the Mori–Zwanzig Markovian limit; it rests on the fast-memory antecedent τ_K≪τ₀. "
-          "Target 1 reduced this to one object — the bath spectral density J(ω). Target 1B "
-          "(targets/bath_spectrum.py) collapsed it further to ONE BIT: the IR exponent s of "
-          "J(ω). s≥1 (Ohmic-or-stiffer, no IR weight) ⇒ FAST ⇒ single-pole theorem; s<1 "
-          "(sub-Ohmic/IR-divergent) ⇒ SLOW ⇒ a non-resonant power-law (branch-cut) memory in "
-          "F(t). The discrete dark-RELIC sub-case is doubly forbidden (FDT positivity τ_K>τ₀ + "
-          "Ostrogradsky). GRUT supplies FDT + 1/r kernel + TT projector but NOT s — so it stays "
-          "UNDECIDED. (v4 assumed s=1, cutoff 1/τ_micro — which IS the fast conclusion; FORBIDDEN. "
-          "An earlier v4.1 'scale-separation ⇒ fast' lean was RETRACTED: it is shape-dependent.)",
-          Tier.OPEN, inputs=("ctp_action", "tau0"),
-          target="compute the curved-space Mori–Zwanzig force autocorrelation K(t)=⟨F(0)F(t)⟩ for "
-                 "the TT-shear bath (KMS at T_c) and extract the IR exponent s of J(ω): s≥1 ⇒ "
-                 "single-pole theorem, s<1 ⇒ dark power-law continuum. OPEN-uncomputed (flat-space "
-                 "route done in targets/bath_spectrum.py; NOT ANCHOR — the curved route is unexhausted)"),
+          "The single-pole constitutive law τ₀ż + z = z_target (χ = α/(1−iωτ₀)) — POSITED, not "
+          "derived. Single-pole-ness reduces to ONE number: the IR exponent s of the TT-shear "
+          "bath J(ω) (s≥1 ⇒ single-pole theorem; s<1 ⇒ a dark sub-Ohmic continuum). BOTH "
+          "derivation routes failed to fix s: flat-space (1B, targets/bath_spectrum.py) and "
+          "curved-space de Sitter/FRW (1C, targets/curved_bath.py). s is the bath TRANSPORT "
+          "exponent — 1 if collisional (Kubo/finite shear viscosity), the free DOS-edge if "
+          "collisionless — and GRUT's Q + FDT + 1/r kernel + KMS(T_c) fix NEITHER the "
+          "collisionality NOR the DOS edge. (1C also broke 1B's 'Hubble-friction ⇒ fast' lean and "
+          "closed only the de Sitter-IR slow channel.) With both routes exhausted, single-pole-ness "
+          "is an ANCHOR (a posited input), not a theorem — it de-anchors only if GRUT later "
+          "specifies the bath microphysics. v4's τ_K=τ_micro (assume s=1) was the fast conclusion "
+          "smuggled in as an input; now entered HONESTLY as a visible anchor instead.",
+          Tier.ANCHOR, axiom=False),
 
     # ── FORWARD RUNGS: DERIVED (derivation_ref + passing check + novelty) ─────────
     Claim("Q_causal_arrow",
@@ -103,12 +101,15 @@ _CLAIMS = [
           novelty_cite="Diósi / Anastopoulos–Hu noise kernel, CQG 30 165007 (2013) "
                        "(KNOWN-REUSED); NEW: the extended-body F6 kink + the τ₀-tied plateau."),
 
-    # ── A NO-GO (FORBIDDEN) — provisional on single-pole (audit will flag it) ─────
+    # ── A NO-GO (FORBIDDEN) — CONDITIONAL on the single-pole ANCHOR (audit shows SPLIT) ──
     Claim("propagating_relic_no_go",
           "No new propagating vacuum pole may be built from the vacuum's action "
           "(higher-derivative TT operator ⇒ Ostrogradsky ghost ⇒ Im χ<0 ⇒ N<0 by FDT "
           "⇒ Q-violation). The dark-matter no-go and the hierarchy-magnitude no-go are "
-          "this same prohibition.",
+          "this same prohibition. SCOPE (re-stated after 1C): this forbids a new UNDAMPED "
+          "DISCRETE pole; it is CONDITIONAL on the single-pole ANCHOR. It does NOT exclude the "
+          "sub-Ohmic dark CONTINUUM that an s<1 bath would produce — that slow channel is closed "
+          "only as a discrete relic (FDT positivity, 1B/1C), not as a continuum.",
           Tier.FORBIDDEN, inputs=("ctp_action", "constitutive_law_single_pole"),
           derivation_ref="Ostrogradsky + Q/FDT pincer; single-mode pole classification",
           novelty=Novelty.REUSED,
