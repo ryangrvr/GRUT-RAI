@@ -8,9 +8,9 @@ from __future__ import annotations
 from fractions import Fraction as F
 import pytest
 
-from v41.targets import s4_anomaly as s4
-from v41 import gate
-from v41.registry import REGISTRY
+from v4.targets import s4_anomaly as s4
+from v4 import gate
+from v4.registry import REGISTRY
 
 
 def test_conformal_scalar_ac_from_gilkey_is_one_third():

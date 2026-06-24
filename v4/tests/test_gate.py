@@ -9,8 +9,8 @@ from __future__ import annotations
 
 import copy
 
-from v41.gate import Claim, Tier, Novelty, Step, validate
-from v41.registry import REGISTRY
+from v4.gate import Claim, Tier, Novelty, Step, validate
+from v4.registry import REGISTRY
 
 
 def _clone():

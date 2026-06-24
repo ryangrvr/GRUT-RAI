@@ -5,14 +5,14 @@ construction: no DERIVED claim lacks a passing check or a novelty tag, none
 launders an OPEN/CONJECTURAL input into DERIVED, and nothing is RESOLVED over an
 open blocker.
 
-Run:  python -m v41.ci_check    (exit 0 = clean; exit 1 = violations printed)
+Run:  python -m v4.ci_check    (exit 0 = clean; exit 1 = violations printed)
 """
 from __future__ import annotations
 
 import sys
 
-from v41.gate import validate
-from v41.registry import REGISTRY
+from v4.gate import validate
+from v4.registry import REGISTRY
 
 
 def main() -> int:

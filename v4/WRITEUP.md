@@ -45,8 +45,8 @@ The questions we most want adjudicated are listed at the end.
 
 ## 1. Method: the gate is the product
 
-GRUT-RAI v4.1 is a clean-room rebuild (`v41/`, importing none of the prior code). Its organizing
-principle is **Principle 0: the tier gate as code** (`v41/gate.py`). Every claim is a
+GRUT-RAI v4.1 is a clean-room rebuild (`v4/`, importing none of the prior code). Its organizing
+principle is **Principle 0: the tier gate as code** (`v4/gate.py`). Every claim is a
 `Claim{id, statement, tier, inputs, derivation_ref, check, novelty, …}`. Tiers:
 
 `ANCHOR · DERIVED · HOSTED · FORBIDDEN · OPEN · CONJECTURAL`
@@ -117,7 +117,7 @@ implementations). The fast/slow verdict therefore reduces to one property of `J(
 CTP action supplies the FDT relation and the `1/r` kernel, not `J(ω)` itself.** So the module
 that would return GRUT's bath spectrum *raises* and names the gap rather than inventing a number.
 *(Outcome: the gap is real and one level deeper than "compute the kernel.")*
-Code: `v41/targets/memory_function.py`.
+Code: `v4/targets/memory_function.py`.
 
 ### 2.2 Target 1B — the verdict collapses to one number, the IR exponent `s`
 
@@ -150,7 +150,7 @@ it.)
   *continuum*.
 
 Flat-space, the action does not fix `s`. *(Outcome (C), flat-space.)*
-Code: `v41/targets/bath_spectrum.py`.
+Code: `v4/targets/bath_spectrum.py`.
 
 ### 2.3 Target 1C — curved space does not fix `s` either; `single_pole → ANCHOR`
 
@@ -185,7 +185,7 @@ bath's collisionality** — and `single_pole` is re-tiered **OPEN → ANCHOR**: 
 proven non-derivable from current content, entered honestly. *(Outcome (C); de-anchors only if
 GRUT specifies the bath microphysics.)* The relic no-go that consumes `single_pole` is re-stated
 as conditional on the anchor (it forbids a discrete undamped pole, **not** the sub-Ohmic
-continuum). Code: `v41/targets/curved_bath.py`.
+continuum). Code: `v4/targets/curved_bath.py`.
 
 ---
 
@@ -212,7 +212,7 @@ scheme to land it. Avoided:
 - Honest caveat: S⁴ is conformally flat (`W² = 0`), so S⁴ isolates `a`; `c` requires a
   non-conformally-flat background. "`a/c` on S⁴" is really `a`-from-S⁴ over `c`-from-elsewhere.
 
-Code: `v41/targets/s4_anomaly.py`.
+Code: `v4/targets/s4_anomaly.py`.
 
 ### 3.2 Target 2B — the carrier antecedent on two routes; the anomaly permits but does not force
 
@@ -244,7 +244,7 @@ appears in 2B, as a reverse-fit tripwire.
 Both routes fail to force the carrier. The carrier identity is **free data**, and `α` is an
 ANCHOR on **two exhausted routes**, symmetric with single-pole. *(Outcome (C).)* De-anchor
 condition: establish a legitimate non-ghost conformal mode dominating the IR — itself tensioned
-by GRUT's Q-unitarity. Code: `v41/targets/carrier_identity.py`.
+by GRUT's Q-unitarity. Code: `v4/targets/carrier_identity.py`.
 
 A discipline note: we report **(C), not a refutation of α = 1/3.** The ghost argument is strong,
 but the AM camp genuinely contests whether the conformalon is a ghost. Claiming "the carrier
@@ -311,7 +311,7 @@ Independent of the above, GRUT predicts a **gravitational-decoherence plateau �
 
 It is distinguished from Diósi–Penrose (which shares the `m²` scaling) by the **extended-body F6
 kink** in `S(l/R)`. This is the framework's clean external contact point and does not depend on
-the anchor questions above. Code: `v41/falsifiers/decoherence_689hz.py`.
+the anchor questions above. Code: `v4/falsifiers/decoherence_689hz.py`.
 
 ---
 
@@ -380,13 +380,13 @@ the gate makes it cheap to find.
 ## Reproducibility
 
 ```
-python -m v41.ci_check                      # the gate: 0 = clean
-python -m pytest v41/tests                  # 39 tests, incl. the laundering-rejection proofs
-python -m v41.targets.memory_function       # Target 1   — K̃(ω) ← J(ω)
-python -m v41.targets.bath_spectrum         # Target 1B  — the IR exponent s
-python -m v41.targets.curved_bath           # Target 1C  — curved-space s; single_pole → ANCHOR
-python -m v41.targets.s4_anomaly            # Target 2   — a/c = 1/3 (validated)
-python -m v41.targets.carrier_identity      # Target 2B  — the carrier antecedent; two routes
-python -m v41.falsifiers.decoherence_689hz  # the standalone 689 Hz falsifier
-python -m v41.audit                         # the one-pass reader view
+python -m v4.ci_check                      # the gate: 0 = clean
+python -m pytest v4/tests                  # 39 tests, incl. the laundering-rejection proofs
+python -m v4.targets.memory_function       # Target 1   — K̃(ω) ← J(ω)
+python -m v4.targets.bath_spectrum         # Target 1B  — the IR exponent s
+python -m v4.targets.curved_bath           # Target 1C  — curved-space s; single_pole → ANCHOR
+python -m v4.targets.s4_anomaly            # Target 2   — a/c = 1/3 (validated)
+python -m v4.targets.carrier_identity      # Target 2B  — the carrier antecedent; two routes
+python -m v4.falsifiers.decoherence_689hz  # the standalone 689 Hz falsifier
+python -m v4.audit                         # the one-pass reader view
 ```

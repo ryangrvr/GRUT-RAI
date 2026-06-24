@@ -5,12 +5,12 @@ trusting us: what is DERIVED (and clean vs provisional vs anchored-SPLIT), what 
 ANCHORED, what is OPEN (with its computable target), what is BORROWED (novelty),
 and what would FALSIFY each forward claim.
 
-Run:  python -m v41.audit
+Run:  python -m v4.audit
 """
 from __future__ import annotations
 
-from v41.gate import Tier, validate, provisional_on, anchored_inputs, transitive_inputs
-from v41.registry import REGISTRY as R
+from v4.gate import Tier, validate, provisional_on, anchored_inputs, transitive_inputs
+from v4.registry import REGISTRY as R
 
 
 def _derived_status(cid: str) -> str:

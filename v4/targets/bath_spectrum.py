@@ -73,7 +73,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from v41.targets.memory_function import memory_kernel_from_J, tau_K_functional
+from v4.targets.memory_function import memory_kernel_from_J, tau_K_functional
 
 OFF_AXIS_THRESHOLD_FACTOR = 0.25   # τ_K = τ₀/4 (= critical damping of χ_mem)
 

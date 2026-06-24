@@ -7,9 +7,9 @@ from __future__ import annotations
 
 import pytest
 
-from v41.targets import curved_bath as cb
-from v41 import gate
-from v41.registry import REGISTRY
+from v4.targets import curved_bath as cb
+from v4 import gate
+from v4.registry import REGISTRY
 
 
 def test_free_bath_s_is_the_free_dos_edge():

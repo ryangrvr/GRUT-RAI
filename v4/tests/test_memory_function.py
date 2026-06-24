@@ -8,7 +8,7 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from v41.targets import memory_function as mf
+from v4.targets import memory_function as mf
 
 
 def test_ohmic_drude_matches_analytic_kernel():

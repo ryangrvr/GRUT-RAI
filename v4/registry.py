@@ -8,9 +8,9 @@ footing is the v4 baggage in cleaner code.
 """
 from __future__ import annotations
 
-from v41.gate import Claim, Tier, Novelty, Step
-from v41 import checks
-from v41.falsifiers import decoherence_689hz as decoh
+from v4.gate import Claim, Tier, Novelty, Step
+from v4 import checks
+from v4.falsifiers import decoherence_689hz as decoh
 
 _CLAIMS = [
     # ── FOUNDATION: anchors, entered visibly as load-bearing inputs ──────────────

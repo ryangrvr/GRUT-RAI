@@ -8,8 +8,8 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from v41.targets import bath_spectrum as bs
-from v41.targets import memory_function as mf
+from v4.targets import bath_spectrum as bs
+from v4.targets import memory_function as mf
 
 
 def test_ir_exponent_decides_not_scale_separation():

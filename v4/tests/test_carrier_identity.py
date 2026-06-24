@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import pytest
 
-from v41.targets import carrier_identity as ci
+from v4.targets import carrier_identity as ci
 
 
 def test_route1_conformal_mode_projected_out():

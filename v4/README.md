@@ -56,10 +56,10 @@ empty DERIVED set.
 ## Run
 
 ```
-python -m v41.ci_check      # the gate: exit 0 = clean, exit 1 = violations
-python -m v41.audit         # the one-pass reader view
-python -m pytest v41/tests  # proof the gate rejects laundering
-python -m v41.falsifiers.decoherence_689hz   # the standalone falsifier
+python -m v4.ci_check      # the gate: exit 0 = clean, exit 1 = violations
+python -m v4.audit         # the one-pass reader view
+python -m pytest v4/tests  # proof the gate rejects laundering
+python -m v4.falsifiers.decoherence_689hz   # the standalone falsifier
 ```
 
 ## Current state (Steps 1–5 stood up)
