@@ -32,18 +32,21 @@ _CLAIMS = [
           "a/c = 1/3 is proven, but its antecedent is open.",
           Tier.OPEN, target="S⁴ Riegert/Paneitz a/c — targets/riegert_paneitz.py"),
     Claim("constitutive_law_single_pole",
-          "The single-pole constitutive law τ₀ż + z = z_target (χ = α/(1−iωτ₀)). Its "
-          "FORM is the Mori–Zwanzig Markovian limit, but rests on the fast-memory "
-          "antecedent τ_K ≪ τ₀. v4.1 COMPUTED the reduction K̃(ω)←J(ω): τ_K is the "
-          "1/e decay of the friction kernel, and fast/slow reduces to ONE property of "
-          "the bath spectral density J(ω) — whether it carries weight below ~4/τ₀. "
-          "GRUT supplies the FDT relation + 1/r kernel but NOT J(ω); so single-pole-ness "
-          "is UNDECIDABLE until J(ω) is specified. (v4 assumed broadband Ohmic with cutoff "
-          "1/τ_micro — which IS the conclusion; FORBIDDEN here.)",
+          "The single-pole constitutive law τ₀ż + z = z_target (χ = α/(1−iωτ₀)). Its FORM "
+          "is the Mori–Zwanzig Markovian limit; it rests on the fast-memory antecedent τ_K≪τ₀. "
+          "Target 1 reduced this to one object — the bath spectral density J(ω). Target 1B "
+          "(targets/bath_spectrum.py) collapsed it further to ONE BIT: the IR exponent s of "
+          "J(ω). s≥1 (Ohmic-or-stiffer, no IR weight) ⇒ FAST ⇒ single-pole theorem; s<1 "
+          "(sub-Ohmic/IR-divergent) ⇒ SLOW ⇒ a non-resonant power-law (branch-cut) memory in "
+          "F(t). The discrete dark-RELIC sub-case is doubly forbidden (FDT positivity τ_K>τ₀ + "
+          "Ostrogradsky). GRUT supplies FDT + 1/r kernel + TT projector but NOT s — so it stays "
+          "UNDECIDED. (v4 assumed s=1, cutoff 1/τ_micro — which IS the fast conclusion; FORBIDDEN. "
+          "An earlier v4.1 'scale-separation ⇒ fast' lean was RETRACTED: it is shape-dependent.)",
           Tier.OPEN, inputs=("ctp_action", "tau0"),
-          target="specify J(ω) for the TT-shear bath — prove no spectral weight below ~4/τ₀ "
-                 "(⇒ fast ⇒ single-pole theorem) or exhibit it (⇒ slow ⇒ dark pole in F(t)); "
-                 "given J(ω) the verdict follows (targets/memory_function.py, reduction computed)"),
+          target="compute the curved-space Mori–Zwanzig force autocorrelation K(t)=⟨F(0)F(t)⟩ for "
+                 "the TT-shear bath (KMS at T_c) and extract the IR exponent s of J(ω): s≥1 ⇒ "
+                 "single-pole theorem, s<1 ⇒ dark power-law continuum. OPEN-uncomputed (flat-space "
+                 "route done in targets/bath_spectrum.py; NOT ANCHOR — the curved route is unexhausted)"),
 
     # ── FORWARD RUNGS: DERIVED (derivation_ref + passing check + novelty) ─────────
     Claim("Q_causal_arrow",

@@ -58,8 +58,15 @@ def memory_kernel_from_J(J: Callable[[np.ndarray], np.ndarray], t: np.ndarray,
 
 def tau_K_from_J(J: Callable[[np.ndarray], np.ndarray], omega_scale: float,
                  t_span: float = 12.0) -> float:
-    """COMPUTE τ_K = the 1/e decay time of γ(t), from a given spectral density J(ω).
-    omega_scale sets the integration/grid scale (the bath's characteristic frequency)."""
+    """τ_K = 1/e decay time of γ(t), measuring on a grid set by omega_scale.
+
+    FRAGILE — KEEP FOR WELL-CHARACTERIZED BATHS ONLY. omega_scale sets BOTH the grid
+    and the observation window (t_span/omega_scale), so if the caller asserts the wrong
+    scale the answer is wrong: the SAME bath returns FAST or SLOW depending on the
+    asserted omega_scale (adversarial panel C1, verified). For a verdict that depends on
+    J(ω) ALONE — the only honest kind — use `tau_K_functional(J, t0=...)`. This function
+    is retained because for a bath whose true scale you pass correctly (e.g. the
+    Ohmic–Drude demo, omega_scale=Ω_c) it is correct and cheap."""
     t = np.linspace(0.0, t_span / omega_scale, 600)
     g = memory_kernel_from_J(J, t, wmax=400.0 * omega_scale)
     g = g / g[0]
@@ -67,6 +74,26 @@ def tau_K_from_J(J: Callable[[np.ndarray], np.ndarray], omega_scale: float,
     if below.size == 0:
         return float(t[-1])          # did not decay within the window → very slow
     return float(t[below[0]])
+
+
+def tau_K_functional(J: Callable[[np.ndarray], np.ndarray], t0: float,
+                     wmax: float, tmax_over_t0: float = 80.0,
+                     nw: int = 120000, nt: int = 4000) -> float:
+    """τ_K as a functional of J(ω) ALONE (given the physical comparison scale t0=τ₀).
+
+    The honest estimator: integrate γ(t) on a FIXED physical window [0, tmax_over_t0·τ₀]
+    — referenced to τ₀, the scale the verdict compares against, NOT to any caller-asserted
+    bath scale — on a grid that resolves up to wmax. Returns the 1/e decay time of
+    |γ|/γ(0), or +inf if γ has not decayed by tmax_over_t0·τ₀ (a genuinely long memory →
+    SLOW). Because the window is τ₀-referenced and J is the only spectral input, the result
+    is a property of J, not of the call (fixes adversarial panel C1's scale-dependence)."""
+    tmax = tmax_over_t0 * t0
+    t = np.linspace(0.0, tmax, nt)
+    g = memory_kernel_from_J(J, t, wmax=wmax, n=nw)
+    g0 = g[0]
+    gg = np.abs(g) / abs(g0)
+    below = np.where(gg <= np.exp(-1))[0]
+    return float(t[below[0]]) if below.size else float("inf")
 
 
 def ohmic_drude_J(eta: float = 1.0, Omega_c: float = 1.0) -> Callable[[np.ndarray], np.ndarray]:
