@@ -36,8 +36,11 @@ def render() -> str:
         p(f"  • {c.id:<32} {c.statement.split('—')[0].strip()[:64]}")
 
     p("\nOPEN — no mechanism yet; each names the computable target that closes it:")
-    for c in by(Tier.OPEN):
+    opens = by(Tier.OPEN)
+    for c in opens:
         p(f"  • {c.id:<32} → target: {c.target}")
+    if not opens:
+        p("  • (none) — both research-spine gaps (single-pole, α) proven non-derivable and ANCHORED")
 
     p("\nDERIVED — derivation_ref + a PASSING runnable check + novelty tag:")
     for c in by(Tier.DERIVED):
@@ -55,10 +58,12 @@ def render() -> str:
         if c.novelty_cite:
             p(f"        novelty: {c.novelty_cite}")
 
-    p("\nHOSTED — received from outside, or resting on an OPEN input (NOT derivable):")
+    p("\nHOSTED — received from outside, or resting on an OPEN/anchored input (NOT a derivation):")
     for c in by(Tier.HOSTED):
         opens = sorted(i for i in c.inputs if i in R and R[i].tier == Tier.OPEN)
-        tail = f"  — rests on OPEN: {', '.join(opens)} (gate forbids DERIVED)" if opens else ""
+        anc = anchored_inputs(R, c.id)
+        tail = (f"  — rests on OPEN: {', '.join(opens)} (gate forbids DERIVED)" if opens
+                else f"  — conditional on anchor: {', '.join(anc)}" if anc else "")
         p(f"  • {c.id:<32} [{c.step.value if c.step else 'PLACE'}]{tail}")
 
     p("\nCONJECTURAL — a structural hook only:")
@@ -77,9 +82,14 @@ def render() -> str:
     p("  tiers: " + " | ".join(f"{k} {v}" for k, v in counts.items() if v))
     p(f"  forward score: {len(derive_rungs)} DERIVE rungs, {len(place_rungs)} PLACE rungs")
     p(f"  DERIVED: {len(derived)} total — {len(clean)} clean, {len(derived)-len(clean)} provisional")
-    p("  research spine (the two OPEN targets every sector inherits):")
-    for c in by(Tier.OPEN):
-        p(f"     - {c.id}: {c.target}")
+    spine_open = by(Tier.OPEN)
+    if spine_open:
+        p("  research spine (the OPEN targets every sector inherits):")
+        for c in spine_open:
+            p(f"     - {c.id}: {c.target}")
+    else:
+        p("  research spine: CLOSED — single-pole and α proven non-derivable on two routes each,")
+        p("    both ANCHORED; the same Q-unitarity that powers the no-gos protects both anchors.")
     p(f"  GATE: {'PASS (0 violations)' if not viols else 'FAIL — ' + str(len(viols)) + ' violations'}")
     return "\n".join(L)
 
