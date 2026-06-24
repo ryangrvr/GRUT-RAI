@@ -26,11 +26,20 @@ _CLAIMS = [
           "τ_micro = ℏ/(k_B T_c) ≈ 1.4×10⁻¹⁹ s — the microscopic correlation scale.",
           Tier.ANCHOR),
 
-    # ── FOUNDATION: α is the one OPEN gap left (single-pole was re-tiered ANCHOR by 1C) ──
+    # ── FOUNDATION: both research-spine gaps are now proven ANCHORS (Targets 1C, 2) ──────
     Claim("alpha",
-          "α = 1/3 — the dimensionless vacuum impedance. ADOPTED: the conditional "
-          "a/c = 1/3 is proven, but its antecedent is open.",
-          Tier.OPEN, target="S⁴ Riegert/Paneitz a/c — targets/riegert_paneitz.py"),
+          "α = 1/3 — the dimensionless vacuum impedance — POSITED, not derived. GRUT's "
+          "conditional theorem is a/c=1/3 ⟹ α=1/3 IF the conformal Riegert mode is the IR "
+          "carrier. Target 2 (targets/s4_anomaly.py) computed the CONSEQUENT: a/c=1/3 EXACTLY "
+          "for the conformal scalar (Gilkey a₄; scheme-independent central charges; validated vs "
+          "Dirac 11/18 and vector 31/18 — so NOT reverse-fit to 1/3). But the ANTECEDENT — "
+          "conformal mode = IR carrier — is FREE DATA: the carrier identity is dynamical "
+          "(CTP+Q+FDT+1/r fix the dissipative structure, not which mode carries the IR anomaly "
+          "— parallel to single-pole's collisionality), and μ_linear=1 (TT projector annihilates "
+          "the scalar mode) tensions it (the linear carrier is the TT spin-2 mode). So α is an "
+          "ANCHOR — a posited identification — de-anchoring only if GRUT establishes the conformal "
+          "mode as the IR carrier (e.g. anomaly-induced conformal dynamics, Antoniadis–Mottola).",
+          Tier.ANCHOR, axiom=False),
     Claim("constitutive_law_single_pole",
           "The single-pole constitutive law τ₀ż + z = z_target (χ = α/(1−iωτ₀)) — POSITED, not "
           "derived. Single-pole-ness reduces to ONE number: the IR exponent s of the TT-shear "
@@ -117,11 +126,12 @@ _CLAIMS = [
                        "(ASSEMBLED from textbook no-gos). GRUT's composition is the "
                        "Q/FDT-unitarity leg (Im χ<0 ⇒ non-unitary in-in)."),
 
-    # ── HOSTED: Ω_Λ rests on α (OPEN), so the gate FORBIDS it being DERIVED ───────
+    # ── HOSTED: Ω_Λ — mechanism PLACED, and CONDITIONAL on the α-ANCHOR (Target 2) ───────
     Claim("omega_lambda",
           "Ω_Λ = 0.6886 — dark energy as the relaxing vacuum's terminal velocity. "
-          "Mechanism PLACED; the value is anchored; it consumes α (OPEN), so it is "
-          "NOT a derivation. (Planck 0.6889; never conflate with the tree (2−R)²=0.71453.)",
+          "Mechanism PLACED (not a forward derivation); the value is anchored; and it is "
+          "CONDITIONAL on the α-ANCHOR — α=1/3 is itself a posited identification (Target 2), "
+          "so ω_Λ inherits that. (Planck 0.6889; never conflate with the tree (2−R)²=0.71453.)",
           Tier.HOSTED, inputs=("alpha", "tau0"), step=Step.PLACE),
 
     # ── CONJECTURAL: the F(t) dark-matter host ───────────────────────────────────

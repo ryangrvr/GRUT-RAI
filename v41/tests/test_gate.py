@@ -22,11 +22,15 @@ def test_honest_registry_passes():
 
 
 def test_laundering_open_input_rejected():
-    """A DERIVED claim that CONSUMES an OPEN input (α) must be rejected."""
+    """A DERIVED claim that CONSUMES an OPEN input must be rejected. Built on a SYNTHETIC OPEN
+    claim so the test is independent of which live claims happen to be OPEN (α/single-pole are
+    now anchors — the gate-logic test must still stand)."""
     reg = _clone()
+    reg["synthetic_open"] = Claim("synthetic_open", "an open gap", Tier.OPEN,
+                                  target="some computable target")
     reg["laundered"] = Claim(
-        "laundered", "Ω_Λ 'derived' from α.", Tier.DERIVED,
-        inputs=("alpha", "tau0"),
+        "laundered", "result 'derived' from an open gap.", Tier.DERIVED,
+        inputs=("synthetic_open", "tau0"),
         derivation_ref="x", check=lambda: True, step=Step.DERIVE,
         novelty=Novelty.ORIGINAL)
     v = validate(reg)
@@ -70,8 +74,10 @@ def test_open_requires_target():
 
 def test_resolved_over_open_blocker_rejected():
     reg = _clone()
+    reg["synthetic_open"] = Claim("synthetic_open", "an open gap", Tier.OPEN,
+                                  target="some computable target")
     reg["premature"] = Claim("premature", "claims resolved over an open blocker",
-                             Tier.HOSTED, blocker_id="alpha", resolved=True)
+                             Tier.HOSTED, blocker_id="synthetic_open", resolved=True)
     assert any("cannot be RESOLVED while blocker" in m for m in validate(reg))
 
 

@@ -65,7 +65,12 @@ python -m v41.falsifiers.decoherence_689hz   # the standalone falsifier
 ## Current state (Steps 1–5 stood up)
 
 - **5 DERIVED** (Q, μ_linear, arrow-form, QM-recovery, the 689 Hz plateau) — each checked, novelty-tagged, DERIVE-scored. μ_linear and Q and QM read *clean*; the arrow and the plateau read *SPLIT* (anchored τ₀).
-- **3 ANCHORS** (τ₀, τ_micro, **single-pole** — re-tiered from OPEN by Target 1C) + the axiom action; **1 OPEN** (α). Single-pole-ness was the second research-spine gap; Targets 1/1B/1C showed it reduces to one number (the bath IR exponent s) that **neither** the flat-space **nor** the curved-space route fixes — so it is now a posited anchor, not a theorem. The one remaining spine target is **α → S⁴ a/c**.
+- **4 ANCHORS** (τ₀, τ_micro, **single-pole**, **α**) + the axiom action; **0 OPEN**. Both
+  research-spine gaps are now *proven anchors*: each is a clean CONDITIONAL theorem whose
+  consequent is computable (single-pole: bath IR exponent s; α: a/c = 1/3) but whose antecedent
+  is **free data the action does not fix** (single-pole: bath collisionality, Targets 1/1B/1C;
+  α: which mode is the IR carrier, Target 2). Neither is a missing computation — de-anchoring
+  either requires *new physics* (bath microphysics; or anomaly-induced conformal dynamics).
 - **1 FORBIDDEN** no-go (honestly tagged `KNOWN-REUSED` — assembled from Ostrogradsky/Stelle/Horndeski/dRGT; *provisional* on single-pole).
 - **1 HOSTED** (Ω_Λ — the gate *forbids* it being DERIVED because it rests on α-OPEN: the anti-laundering rule biting in the open).
 - **1 CONJECTURAL** (F(t) dark matter).
