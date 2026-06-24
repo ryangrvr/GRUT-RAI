@@ -36,9 +36,16 @@ _CLAIMS = [
           "conformal mode = IR carrier — is FREE DATA: the carrier identity is dynamical "
           "(CTP+Q+FDT+1/r fix the dissipative structure, not which mode carries the IR anomaly "
           "— parallel to single-pole's collisionality), and μ_linear=1 (TT projector annihilates "
-          "the scalar mode) tensions it (the linear carrier is the TT spin-2 mode). So α is an "
-          "ANCHOR — a posited identification — de-anchoring only if GRUT establishes the conformal "
-          "mode as the IR carrier (e.g. anomaly-induced conformal dynamics, Antoniadis–Mottola).",
+          "the scalar mode) tensions it (the linear carrier is the TT spin-2 mode). Target 2B "
+          "(targets/carrier_identity.py) EXHAUSTED the antecedent on BOTH routes: LINEAR (the TT "
+          "projector genuinely annihilates the conformal/trace mode — verified — so the linear "
+          "carrier is spin-2) AND ANOMALY (a propagating conformal carrier needs the 4th-order "
+          "Riegert/Paneitz kinetic term ⇒ Ostrogradsky ghost ⇒ Im χ<0 ⇒ Q-forbidden, the same "
+          "leg as the relic no-go). The anomaly PERMITS at most (the contested Antoniadis–Mottola "
+          "conformalon) but does NOT FORCE the carrier. So α is an ANCHOR on TWO exhausted routes, "
+          "symmetric with single-pole. De-anchor condition: a legitimate non-ghost conformalon "
+          "dominating the IR — itself tensioned by GRUT's Q-unitarity (so not merely unestablished). "
+          "Q-unitarity (no new propagating vacuum pole) protects BOTH spine anchors.",
           Tier.ANCHOR, axiom=False),
     Claim("constitutive_law_single_pole",
           "The single-pole constitutive law τ₀ż + z = z_target (χ = α/(1−iωτ₀)) — POSITED, not "
