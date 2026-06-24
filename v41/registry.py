@@ -33,10 +33,17 @@ _CLAIMS = [
           Tier.OPEN, target="S⁴ Riegert/Paneitz a/c — targets/riegert_paneitz.py"),
     Claim("constitutive_law_single_pole",
           "The single-pole constitutive law τ₀ż + z = z_target (χ = α/(1−iωτ₀)). Its "
-          "FORM is the Mori–Zwanzig Markovian limit, but rests on the uncomputed "
-          "fast-memory antecedent τ_K ≪ τ₀ — asserted in v4, NOT derived.",
+          "FORM is the Mori–Zwanzig Markovian limit, but rests on the fast-memory "
+          "antecedent τ_K ≪ τ₀. v4.1 COMPUTED the reduction K̃(ω)←J(ω): τ_K is the "
+          "1/e decay of the friction kernel, and fast/slow reduces to ONE property of "
+          "the bath spectral density J(ω) — whether it carries weight below ~4/τ₀. "
+          "GRUT supplies the FDT relation + 1/r kernel but NOT J(ω); so single-pole-ness "
+          "is UNDECIDABLE until J(ω) is specified. (v4 assumed broadband Ohmic with cutoff "
+          "1/τ_micro — which IS the conclusion; FORBIDDEN here.)",
           Tier.OPEN, inputs=("ctp_action", "tau0"),
-          target="K̃(ω) from the bath — targets/memory_function.py"),
+          target="specify J(ω) for the TT-shear bath — prove no spectral weight below ~4/τ₀ "
+                 "(⇒ fast ⇒ single-pole theorem) or exhibit it (⇒ slow ⇒ dark pole in F(t)); "
+                 "given J(ω) the verdict follows (targets/memory_function.py, reduction computed)"),
 
     # ── FORWARD RUNGS: DERIVED (derivation_ref + passing check + novelty) ─────────
     Claim("Q_causal_arrow",
