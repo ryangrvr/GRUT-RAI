@@ -72,7 +72,10 @@ _CLAIMS = [
           "See targets/fast_mode_dos.py.",
           Tier.ANCHOR, axiom=False, notes="de-anchor: prove GRUT's vacuum at T_c is viscous "
           "(⇒ single-pole) or free-streaming (⇒ refuted) — map the z·T_TT vertex onto GW-in-medium "
-          "(Weinberg 2004, Hawking 1966 answer each branch)."),
+          "(Weinberg 2004, Hawking 1966 answer each branch). NB a 'commit to viscoelastic' shortcut "
+          "was tried and FAILED (targets/bath_collisionality.py): excluding free-streaming that way is "
+          "definitional, and GRUT's own underdamped χ_mem rings for τ_K>τ₀/4, so memory-character does "
+          "not decide it — the fork stands, only the vertex computation resolves it."),
 
     # ── THE CLOSED-VISCOELASTIC SPINE: four constitutive inputs (the reviewer's forward plan) ──
     #    The medium is a closed viscoelastic solid; these four inputs define it. Pin them as
