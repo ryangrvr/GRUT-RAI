@@ -26,15 +26,8 @@ _CLAIMS = [
           "τ_micro = ℏ/(k_B T_c) ≈ 1.4×10⁻¹⁹ s — the microscopic correlation scale.",
           Tier.ANCHOR),
 
-    # ── FOUNDATION: α is an ANCHOR (Target 2/2B); single-pole is PENDING_REVIEW (1D, round 2) ──
-    Claim("fast_mode_content",
-          "The vacuum's fast (Mori–Zwanzig orthogonal) modes are standard massless relativistic "
-          "field modes — dispersion ω=c|k|, local TT/derivative coupling to the slow shear. This "
-          "is the COMMITMENT already implied by the existing anchors (the 1/r kernel ⇒ massless "
-          "mediator; the relativistic CTP action ⇒ Lorentz-invariant dispersion), made EXPLICIT "
-          "after external specialist review (2026-06-24). It de-commits only for an exotic "
-          "non-relativistic / IR-enhanced substrate, which masslessness argues against.",
-          Tier.ANCHOR, axiom=False),
+    # ── FOUNDATION: α and single-pole are BOTH ANCHORS, each on a free datum the action omits ──
+    #    (single-pole: collisionality, Targets 1C/1D; α: the IR-carrier identity, Targets 2/2B)
     Claim("alpha",
           "α = 1/3 — the dimensionless vacuum impedance — POSITED, not derived. GRUT's "
           "conditional theorem is a/c=1/3 ⟹ α=1/3 IF the conformal Riegert mode is the IR "
@@ -55,29 +48,28 @@ _CLAIMS = [
           "dominating the IR — itself tensioned by GRUT's Q-unitarity (so not merely unestablished). "
           "Q-unitarity (no new propagating vacuum pole) protects THIS (α) anchor — a propagating-mode "
           "question. CORRECTION (external review, 2026-06-24): it does NOT protect single-pole, which "
-          "is a DOS-edge question Q does not address (a sub-Ohmic continuum is no new pole) — and "
-          "single-pole is now PENDING_REVIEW (argued s≥1 across branches, exponent open), not "
-          "anchored. The 'one prohibition, two anchors' unification was over-tight: Q-protection is "
-          "real for α only.",
+          "is a transport / collisionality question Q does not address (a free-streaming continuum is "
+          "no new pole). The 'one prohibition, two anchors' unification was over-tight: Q-protection "
+          "is real for α only. (single-pole remains an anchor — see its claim — for a DIFFERENT "
+          "reason: collisionality is free data.)",
           Tier.ANCHOR, axiom=False),
     Claim("constitutive_law_single_pole",
-          "The single-pole constitutive law τ₀ż + z = z_target (χ = α/(1−iωτ₀)). PENDING_REVIEW — "
-          "argued s≥1, exponent OPEN (re-tiered from a premature DERIVED on 2026-06-24, round 2 of "
-          "external review). Single-pole-ness ⟺ the bath IR exponent s≥1. The exponent is NOT "
-          "settled by power-counting — it is COLLISIONALITY-dependent: collisional (Kubo) ⇒ s=1 "
-          "(Ohmic); collisionless vacuum (T=0) ⇒ s≈2 (super-Ohmic); collisionless thermal ⇒ a "
-          "free-gas δ(ω) needing interpretation. ROBUST: every clean branch is s≥1, and s<1 needs "
-          "an IR-enhanced DOS masslessness forbids — so single-pole-ness is WELL-MOTIVATED, NOT a "
-          "theorem. TWO errors are on the record: 1B/1C treated the DOS edge as FREE (wrong — "
-          "relativity fixes it); round 1 then claimed s=2 (wrong — conflated the DOS with J(ω); "
-          "the 1/ω_k mode normalization gives the massless linear case s=1, marginal). 'DERIVED "
-          "pending review' was a tier contradiction. See targets/fast_mode_dos.py.",
-          Tier.PENDING_REVIEW, inputs=("ctp_action", "fast_mode_content"),
-          derivation_ref="targets/fast_mode_dos.py — cross-branch argument (every branch s≥1; "
-                         "sub-Ohmic forbidden by masslessness)",
-          target="finite-T interacting ⟨T_TT T_TT⟩(ω,k→0) for GRUT's TT/quadrupole vertex — Ohmic "
-                 "(s=1) vs super-Ohmic (s≥2), and the free-gas δ(ω) interpretation; externalized "
-                 "for external adjudication (publishable as-is)"),
+          "The single-pole constitutive law τ₀ż + z = z_target (χ = α/(1−iωτ₀)). ANCHOR — the "
+          "verdict FORKS on collisionality, a free datum the action does not fix (this is the 1C "
+          "conclusion, vindicated after three review rounds that wrongly tried to graduate it). "
+          "The right object is the finite-T TT transport memory, NOT a vacuum DOS/phase-space "
+          "exponent: COLLISIONAL (viscous, T_c) ⇒ Kubo Im G^TT~ηω, exponential/Ohmic kernel ⇒ "
+          "single-pole HOLDS; COLLISIONLESS (free-streaming) ⇒ Weinberg 2004 / Hawking 1966 give a "
+          "NON-LOCAL Bessel-tail kernel (power-law ~s⁻³, oscillatory, long residual) ⇒ single-pole "
+          "FAILS. The action does not say which branch the vacuum is on ⇒ single-pole is a posited "
+          "ANCHOR. ERRORS ON RECORD (kept honest): round 1 'DOS fixes s=2' (DOS≠J); round 2 'argued "
+          "s≥1 across branches, PENDING_REVIEW' (still leaned on the DOS picture Weinberg overturns; "
+          "the s≈2 attributed to the reviewer was a misattribution — their floor was (∂φ)², the "
+          "graviton vertex runs to ω⁵ per Cho–Hu, and the vacuum T=0 exponent is the wrong object). "
+          "See targets/fast_mode_dos.py.",
+          Tier.ANCHOR, axiom=False, notes="de-anchor: prove GRUT's vacuum at T_c is viscous "
+          "(⇒ single-pole) or free-streaming (⇒ refuted) — map the z·T_TT vertex onto GW-in-medium "
+          "(Weinberg 2004, Hawking 1966 answer each branch)."),
 
     # ── FORWARD RUNGS: DERIVED (derivation_ref + passing check + novelty) ─────────
     Claim("Q_causal_arrow",
@@ -140,10 +132,10 @@ _CLAIMS = [
           "(higher-derivative TT operator ⇒ Ostrogradsky ghost ⇒ Im χ<0 ⇒ N<0 by FDT "
           "⇒ Q-violation). The dark-matter no-go and the hierarchy-magnitude no-go are "
           "this same prohibition. SCOPE (re-stated after external review): this forbids a new "
-          "UNDAMPED DISCRETE pole — a propagating-mode statement. It does NOT by itself exclude a "
-          "sub-Ohmic CONTINUUM (a branch cut is no new pole); that escape is instead argued closed "
-          "because every clean bath branch is s≥1 and masslessness forbids the IR-enhanced DOS s<1 "
-          "needs (single-pole PENDING_REVIEW, targets/fast_mode_dos.py), not by this no-go.",
+          "UNDAMPED DISCRETE pole — a propagating-mode statement. It does NOT exclude the free-"
+          "streaming CONTINUUM (Weinberg non-local memory) that the collisionless branch produces "
+          "— that is no new pole, so this no-go is silent on it. Whether single-pole survives is the "
+          "separate collisionality question (an ANCHOR; targets/fast_mode_dos.py), not this no-go.",
           Tier.FORBIDDEN, inputs=("ctp_action", "constitutive_law_single_pole"),
           derivation_ref="Ostrogradsky + Q/FDT pincer; single-mode pole classification",
           novelty=Novelty.REUSED,

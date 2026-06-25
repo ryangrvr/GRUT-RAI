@@ -6,23 +6,25 @@
 
 ---
 
-> **⚠ REVISED post external review (two rounds, 2026-06-24).** A qualified reviewer overturned the
-> single-pole half of this note's headline.
-> - **Round 1:** GRUT is not input-free on the dispersion relation — "massless + 1/r + relativistic
->   CTP" commits to `ω=c|k|`, so the bath IR exponent is *fixed, not free* (the §2.3 "free DOS edge"
->   is wrong). Only **α** stays a Q-protected anchor; the §4 "two anchors / one prohibition" was
->   over-tight (Q protects α — a propagating-mode question — but not single-pole, a DOS-edge one);
->   the §6/§2 tension resolves *by agreement* (the §6 Anastopoulos–Hu kernel is itself super-Ohmic).
-> - **Round 2:** the round-1 fix over-corrected. Its `s=2` conflated the DOS with the spectral
->   density `J(ω)` (the `1/ω_k` mode normalization gives the massless linear case `s=1`, Ohmic), and
->   the exponent is *collisionality-dependent* (collisional `s=1` / collisionless-vacuum `s≈2` /
->   collisionless-thermal a `δ(ω)`), not a single number. **Single-pole-ness is therefore
->   PENDING-REVIEW — well-motivated (`s≥1` across all clean branches; sub-Ohmic forbidden by
->   masslessness) but NOT a theorem.** The deciding finite-T `⟨T_TT T_TT⟩(ω,k→0)` is externalized.
+> **⚠ REVISED post external review (three rounds, 2026-06-24).** A qualified reviewer overturned
+> the single-pole half of this note's headline — and the round-3 destination is the *original* §2.3
+> anchor. **α is untouched throughout.**
+> - **Round 1:** flagged §2.3's "free DOS edge" and tried to graduate single-pole to DERIVED. The
+>   §4 "two anchors / one prohibition" is over-tight (Q protects α — a propagating-mode question —
+>   but not single-pole); the §6/§2 tension is real. *(Both the DERIVED claim and its `s=2` were
+>   themselves wrong — see rounds 2–3.)*
+> - **Round 2:** `s=2` conflated the DOS with the spectral density (the `1/ω_k` factor gives the
+>   massless linear case `s=1`); the exponent is collisionality-dependent, not a single number.
+> - **Round 3 (current):** the DOS/phase-space picture is the *wrong object*. The deciding quantity
+>   is the finite-T TT transport memory, which **forks on collisionality**: collisional ⇒ Ohmic ⇒
+>   single-pole holds; **collisionless ⇒ Weinberg (2004) non-local Bessel-tail memory ⇒ single-pole
+>   FAILS.** The action doesn't fix which branch ⇒ **single-pole is an ANCHOR** (collisionality the
+>   free datum) — exactly where §2.3 / Target 1C began. Three rounds of "sharpening" walked away
+>   from the correct answer before the literature walked it back.
 >
 > **The body below is the pre-review v1 record;** corrections are in
-> [SPECIALIST_RESPONSE.md](SPECIALIST_RESPONSE.md) (§R2 at top) and the gate (`single_pole` is
-> **PENDING-REVIEW**, a tier added for exactly this state). Affected sections carry inline ⚠ markers.
+> [SPECIALIST_RESPONSE.md](SPECIALIST_RESPONSE.md) (§R3 at top) and the gate (`single_pole` is an
+> **ANCHOR**; collisionality is its free datum). Affected sections carry inline ⚠ markers.
 
 ---
 
@@ -44,10 +46,10 @@ action does not fix**:
   exponent `s ≥ 1`. We compute the reduction explicitly and show `s` is the bath's *transport
   exponent*: `s = 1` for a collisional bath (Kubo), `s =` the free density-of-states edge for a
   collisionless one. The action fixes **neither the collisionality nor the edge**.
-  *(⚠ Revised: the edge is not free (relativity fixes `ρ~ω²`). But round 2 corrected the rest —
-  `J(ω)≠`DOS (`1/ω_k` ⇒ linear `s=1`, Ohmic), and the exponent is collisionality-dependent. Net:
-  `s≥1` across branches but NOT a single exponent ⇒ single-pole is **PENDING-REVIEW**, not derived.
-  See SPECIALIST_RESPONSE.md §R2.)*
+  *(⚠ Revised (round 3): the right object is the finite-T TT transport memory, not a DOS/spectral
+  exponent. It forks on collisionality: collisional ⇒ Ohmic ⇒ single-pole holds; collisionless ⇒
+  Weinberg non-local Bessel-tail ⇒ single-pole FAILS. The action doesn't fix which ⇒ single-pole is
+  an **ANCHOR** (collisionality the free datum). See SPECIALIST_RESPONSE.md §R3.)*
 - **α = 1/3** holds iff the conformal (Riegert, spin-0) mode is the infrared carrier of the
   vacuum response. We compute `a/c = 1/3` from the trace anomaly (scheme-independent, validated
   against tabulated CFT values, **not** reverse-fit) and show the **carrier identity is free
@@ -61,14 +63,14 @@ share a single cause: **deriving either parameter would require a new propagatin
 exactly that**. So GRUT's two foundational anchors and its no-gos are **one prohibition**.
 
 > **⚠ Revised:** the paragraph above is **half wrong**. It holds for **α** (a propagating-mode
-> question — Q genuinely bites). It fails for **single-pole**: the slow threat there is a sub-Ohmic
-> *continuum* (a branch cut), which is *not* a new propagating pole, so Q is orthogonal to it. The
-> single-pole verdict is instead a DOS-edge / collisionality question, *argued* `s ≥ 1` across
-> branches but with the exact exponent open — so single-pole is **PENDING-REVIEW**, not anchored and
-> not (yet) derived. Corrected headline: **one Q-protected anchor (α) + one well-motivated
-> strong-conjecture-pending-computation (single-pole)**.
+> question — Q genuinely bites). It fails for **single-pole**: the slow threat there is a free-
+> streaming *continuum* (Weinberg non-local memory), which is *not* a new propagating pole, so Q is
+> orthogonal to it. Single-pole is an **ANCHOR** for a *different* reason than α — collisionality is
+> free data (collisional ⇒ holds, free-streaming ⇒ fails). Corrected headline: **one Q-protected
+> anchor (α) + one collisionality-forked anchor (single-pole)** — two anchors, but NOT one
+> prohibition.
 
-Everything below is mechanized: 13 claims in a tier registry, 39 runnable tests, a build gate
+Everything below is mechanized: 13 claims in a tier registry, 44 runnable tests, a build gate
 that fails on any laundering. The point of this document is to take the result **out of the
 loop** — every claim is stated precisely enough for an outside specialist to confirm or refute.
 The questions we most want adjudicated are listed at the end.
@@ -186,13 +188,14 @@ Code: `v4/targets/bath_spectrum.py`.
 
 ### 2.3 Target 1C — curved space does not fix `s` either; `single_pole → ANCHOR`
 
-> **⚠ Revision 1 — this section's conclusion is RETRACTED.** It treats the DOS IR-edge as free
-> data (relativity fixes `ρ~ω²`). But `J(ω)` is **not** the DOS — the `1/ω_k` mode normalization
-> gives the massless linear case `s=1` (Ohmic), not `s=2`, and the exponent is collisionality-
-> dependent (collisional `s=1` / collisionless-vacuum `s≈2` / collisionless-thermal a `δ(ω)`). Net:
-> `s≥1` across all clean branches and sub-Ohmic is forbidden by masslessness, so single-pole-ness is
-> **PENDING-REVIEW** (well-motivated, not a theorem). The H-friction-break and dS-IR-protection
-> sub-results below remain valid. See SPECIALIST_RESPONSE.md §R2 and `targets/fast_mode_dos.py`.
+> **⚠ This section's framing was wrong, but its CONCLUSION (ANCHOR) was right.** The "DOS-edge /
+> spectral exponent `s`" language below is the wrong object — three review rounds established the
+> deciding quantity is the finite-T TT transport memory, which forks on collisionality: collisional
+> ⇒ Ohmic ⇒ single-pole holds; collisionless ⇒ Weinberg (2004) non-local Bessel-tail ⇒ single-pole
+> FAILS. The action doesn't fix the branch, so `single_pole` is an **ANCHOR with collisionality as
+> the free datum** — which is exactly what this section concluded (right answer, wrong mechanism).
+> The H-friction-break and dS-IR-protection sub-results below remain valid as written. See
+> SPECIALIST_RESPONSE.md §R3 and `targets/fast_mode_dos.py`.
 
 The verdict lives in the IR, where curvature matters; this is the second route. `J(ω)` for a
 bath bilinearly coupled to the slow shear is the **coupling-weighted bath density of states**, so
@@ -295,12 +298,13 @@ live expert debate. We claim only that GRUT does not *force* the carrier.
 
 ## 4. The unification: one prohibition
 
-> **⚠ Revision 1 — over-tight; downgraded.** The "one prohibition protects *both*" claim holds for
-> **α** (a propagating-mode question; Q bites) but **not** for single-pole (a DOS-edge question; the
-> sub-Ohmic *continuum* threat is a branch cut, not a new pole, so Q is orthogonal to it). And
-> single-pole is no longer anchored at all (it is PENDING-REVIEW — argued `s≥1`, exponent open).
-> Corrected: **Q-protection is real for α only.** This was the most aesthetically pleasing result in
-> the arc and got the least scrutiny — the reviewer caught it. See SPECIALIST_RESPONSE.md §4/§R2.
+> **⚠ Over-tight; downgraded.** The "one prohibition protects *both*" claim holds for **α** (a
+> propagating-mode question; Q bites) but **not** for single-pole (a transport/collisionality
+> question; the free-streaming *continuum* threat is a branch cut, not a new pole, so Q is
+> orthogonal to it). Both parameters are still anchors — but for *different* reasons (α: Q-forbidden
+> propagating conformal mode; single-pole: collisionality is free data), **not one prohibition.**
+> This was the most aesthetically pleasing result in the arc and got the least scrutiny — the
+> reviewer caught it. See SPECIALIST_RESPONSE.md §4/§R3.
 
 Running both parameters' second routes surfaced a connection we did not go looking for, and it
 falls out rather than being imposed:
@@ -330,8 +334,7 @@ anchored, borrowed, open, and falsifiable — without trusting us.
 |---|---|---|
 | CTP action | ANCHOR (axiom) | foundational |
 | `τ₀`, `τ_micro` | ANCHOR | measured-type scales |
-| **single-pole law** | **PENDING-REVIEW** *(⚠ was ANCHOR → ~~DERIVED~~)* | argued `s≥1` across branches (collisional `s=1` / collisionless `s≈2`); exact exponent open; sub-Ohmic forbidden by masslessness (Target 1D) |
-| `fast_mode_content` | ANCHOR *(new)* | the commitment: fast modes are massless relativistic (`ω=c|k|`) — implied by 1/r + relativistic CTP |
+| **single-pole law** | **ANCHOR** *(⚠ was briefly ~~DERIVED~~/~~PENDING~~; reverted round 3)* | collisionality fork — collisional ⇒ holds, free-streaming ⇒ Weinberg-fails; collisionality the free datum (Targets 1C/1D) |
 | **α = 1/3** | **ANCHOR** | `a/c=1/3` robust; antecedent (IR carrier) free data on 2 routes |
 | Q (causal arrow) | DERIVED | checked; clean |
 | μ_linear = 1 | DERIVED | checked; clean (P^TT no-go) |
@@ -343,18 +346,18 @@ anchored, borrowed, open, and falsifiable — without trusting us.
 | F(t) dark matter | CONJECTURAL | a sharpened impossibility, not a result |
 
 **Zero OPEN claims.** Both research-spine gaps are resolved — not by derivation, but by proving
-non-derivability and anchoring honestly. Gate: 13 claims, 0 violations. Tests: **39 passed**.
+non-derivability and anchoring honestly. Gate: 13 claims, 0 violations. Tests: **44 passed**.
 
 ---
 
 ## 6. The standalone falsifier
 
-> **⚠ Revision 1.** "Independent of the above" is too strong, and the reviewer caught why: a
-> fully-specified noise kernel is, by the FDT of §2, a fully-specified dissipation kernel — hence a
-> fixed `s`. The Anastopoulos–Hu kernel here is **super-Ohmic** (`J~ω³`, `s≈3`), so §6 always
-> committed `s ≥ 1`. Far from conflicting with §2, this *agrees* with the corrected §2 (single-pole
-> derived, super-Ohmic) — the apparent "`s` free" of v1 §2 was the error, now fixed. The 689 Hz
-> number and its F6 discriminator are unaffected.
+> **⚠ Revised.** "Independent of the above" is too strong: a fully-specified noise kernel is, by
+> the FDT of §2, a fully-specified dissipation kernel — so §6 implicitly commits to a particular
+> bath. Which branch of the §R3 collisionality fork the Anastopoulos–Hu kernel corresponds to (and
+> hence whether it is consistent with single-pole) is itself part of the open question, not an
+> independent confirmation. The 689 Hz number and its F6 discriminator are unaffected. See
+> SPECIALIST_RESPONSE.md §R3.
 
 Independent of the above, GRUT predicts a **gravitational-decoherence plateau ≈ 689 Hz** for a
 1 μm gold sphere, from the Diósi / Anastopoulos–Hu noise kernel tied to the `τ₀` scale, with
@@ -436,7 +439,7 @@ the gate makes it cheap to find.
 
 ```
 python -m v4.ci_check                      # the gate: 0 = clean
-python -m pytest v4/tests                  # 39 tests, incl. the laundering-rejection proofs
+python -m pytest v4/tests                  # 44 tests, incl. the laundering-rejection proofs
 python -m v4.targets.memory_function       # Target 1   — K̃(ω) ← J(ω)
 python -m v4.targets.bath_spectrum         # Target 1B  — the IR exponent s
 python -m v4.targets.curved_bath           # Target 1C  — curved-space s; single_pole → ANCHOR

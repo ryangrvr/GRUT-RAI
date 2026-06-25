@@ -1,140 +1,125 @@
-"""GRUT-RAI v4.1 — TARGET 1D: the IR exponent s from the COMMITTED fast-mode content.
+"""GRUT-RAI v4.1 — TARGET 1D: the COLLISIONALITY FORK (filename kept; framing corrected).
 
-History (kept honest): round 1 of external review corrected Target 1C ("s is free") and this
-module FIRST claimed s=2 (super-Ohmic) ⇒ single-pole DERIVED. Round 2 of the SAME review found
-that claim still wrong on the load-bearing step, and the graduation premature. Both corrections
-are absorbed here.
+This file is named for the wrong object. Across three rounds of external review it became clear
+that single-pole-ness is NOT decided by a bath density-of-states / vacuum phase-space exponent —
+that is the wrong quantity. The deciding object is the finite-temperature TRANSPORT memory of the
+TT sector, and it forks on COLLISIONALITY. The honest record of how we got here:
 
-THE ROUND-2 CORRECTION (verified first-hand): s=2 conflated the density of states with the
-SPECTRAL DENSITY. J(ω) is not the DOS — it is the standard Caldeira–Leggett influence-functional
-weight J(ω) = (π/2) Σ_k (c_k²/(m_k ω_k)) δ(ω−ω_k), and the field-mode normalization 1/ω_k knocks
-ONE power off the DOS. For a local LINEAR coupling to a massless field in 3+1D:
-     J(ω) ∝ ∫ d³k (1/ω_k) δ(ω−c|k|) ∝ ∫ k² dk (1/k) δ(ω−ck) ∝ ω   ⇒  s = 1 (OHMIC, MARGINAL),
-not the s=2 claimed. The DOS gives ω²; the 1/ω_k makes it ω. The old "relativity fixes the DOS to
-ω² so s=2" is RETRACTED — it was the v4 sin in miniature, the DOS argument wearing the spectral
-density's clothes.
+  1C (original): "collisionality is the free datum; single-pole is an ANCHOR." — CORRECT.
+  round 1 of review: "relativity fixes the DOS to ω² ⇒ s=2 ⇒ DERIVED." — wrong (DOS≠J).
+  round 2 of review: "s=1 with the 1/ω_k factor; argued s≥1 across branches ⇒ PENDING_REVIEW." —
+                     still wrong: leaned on the DOS/phase-space picture for the collisionless case.
+  round 3 of review: the literature overturns that picture. → back to the 1C ANCHOR, sharpened.
 
-THE REAL PHYSICS (the exponent is NOT settled by power-counting — it depends on COLLISIONALITY,
-the one thing two documents established the action does not fix). Three regimes, three ω→0
-structures for the bilinear TT/stress-tensor vertex GRUT actually has:
-  - COLLISIONAL (vacuum at T_c, hydrodynamic): the Kubo formula gives Im G_R^{TT}(ω) ~ ηω at
-    low ω ⇒ s = 1 (Ohmic). This branch is LIVE — a vacuum at T_c has thermal structure; it is
-    NOT a zero-temperature free field, so "needs self-interaction beyond the action" was wrong.
-  - COLLISIONLESS VACUUM (T=0, free): stress-tensor phase space ⇒ super-Ohmic, s ≈ 2 (the
-    reviewer's value for (∂φ)²; the earlier s=5 needs the specific quadrupole/spin-2 derivative
-    structure of GRUT's vertex, UNCOMPUTED here — not asserted).
-  - COLLISIONLESS THERMAL: the non-relaxing thermal momentum puts a δ(ω) spike at zero frequency
-    ON TOP of the continuum. That spike is not an exponent — it is a different object that must
-    be interpreted before any s can be read off.
+THE FORK (the right object — transport memory, verified first-hand in __main__):
+  • COLLISIONAL branch (viscous vacuum at T_c, hydrodynamic): the Kubo formula gives
+    Im G_R^{TT}(ω) ~ ηω, i.e. an Ohmic / exponential-decay memory kernel ⇒ SINGLE-POLE HOLDS.
+  • COLLISIONLESS branch (free-streaming massless bath): Weinberg (2004, PRD 69 023503) and
+    Hawking (1966) give a NON-LOCAL, history-dependent memory kernel — the angular phase-mixing
+    integral over streaming directions with the spin-2 weight (1−μ²)² produces a Bessel tail:
+    K(s) = ∫_{-1}^{1}(1−μ²)² cos(μs) dμ, whose envelope falls as a POWER LAW (~s⁻³), oscillates,
+    and leaves a long-ranged, non-decaying residual ⇒ SINGLE-POLE FAILS. This is the slow branch
+    realized concretely (Weinberg's free-streaming reduces the GW amplitude by a finite residual).
+  • The action does NOT fix which branch the vacuum is on. ⇒ single-pole-ness is an ANCHOR; the
+    free datum is COLLISIONALITY (viscous vs free-streaming), exactly as 1C said.
 
-WHAT IS ROBUST (and is the honest claim, NOT a theorem): every clean branch lands s ≥ 1, and the
-only route to s < 1 needs an IR-ENHANCED DOS (ρ rising slower than ω² as ω→0 — non-relativistic
-ω~k², or a glassy/1-over-f soft mode), which masslessness in 3+1D FORBIDS. So single-pole-ness is
-WELL-MOTIVATED (s ≥ 1 across branches; the sub-Ohmic route is forbidden) — but it is a strong
-CROSS-BRANCH ARGUMENT, not a single-exponent derivation. Note: collisionality remains free data;
-it stopped deciding the single-pole VERDICT (all branches ≥1) but still decides whether the
-vacuum is robustly fast (s=2) or marginally fast (s=1 — where the curved-space IR sub-leading
-terms, the ones Target 1C closed, become the deciding pieces). That residual is exactly why this
-is not a theorem yet.
+So the cross-branch claim is NOT "every branch is s≥1, sub-Ohmic forbidden." It is: viscous ⇒
+single-pole; free-streaming ⇒ single-pole fails (Weinberg); collisionality undetermined. The
+"every branch fine" framing only survived in earlier drafts by leaning on the DOS picture the
+free-streaming transport calculation overturns.
 
-TIER (corrected): single_pole is PENDING_REVIEW, not DERIVED. A DERIVED claim in this gate
-consumes no unsettled input and passes a check that SETTLES it. This one rests on an exponent
-three regimes disagree about, with the deciding computation — the finite-T interacting
-⟨T_TT T_TT⟩(ω, k→0) for GRUT's vertex, and the free-gas δ(ω) interpretation — UNDONE. "DERIVED …
-pending review" was a contradiction in the tier system; the honest label is PENDING_REVIEW with
-that computation as the settle/graduate condition.
+MISATTRIBUTION CORRECTED (round 3): earlier drafts wrote "collisionless vacuum s≈2 (the
+reviewer's value)." That misattributes. The reviewer's actual position: s=2 is only the (∂φ)²
+FLOOR; the gravitational/quadrupole vertex runs higher (Cho–Hu's published vacuum graviton kernel
+is ω⁵), and — decisively — the vacuum T=0 exponent is the WRONG object for the single-pole
+question, because at finite T the memory is set by transport, not vacuum phase space.
 
-THE EXTERNALIZED QUESTION (publishable as-is; the clean leave-the-loop computation):
-  A slow variable bilinearly coupled to the transverse-traceless sector of a thermal massless
-  field (graviton bath at T_c) — what is the IR exponent of the influence-functional J(ω) as
-  ω→0? Does the finite-T interacting ⟨T_TT T_TT⟩(ω, k→0) give Ohmic (s=1, hydrodynamic viscosity
-  peak) or super-Ohmic (s≥2, free phase space), and how is the free-gas δ(ω) handled?
+THE DE-ANCHOR CONDITION (settle target, now a clean bounded question): is GRUT's vacuum at T_c
+collisional (viscous) or free-streaming? Weinberg 2004 + Hawking 1966 substantially answer what
+EACH branch gives; the only genuinely open piece is confirming GRUT's exact z·T_TT vertex maps
+onto the gravitational-wave-in-a-medium structure. If GRUT can show its vacuum is viscous,
+single-pole graduates; if free-streaming, single-pole is refuted.
 """
 from __future__ import annotations
 
 import numpy as np
+from numpy.polynomial.legendre import leggauss
+
+_MU, _W = leggauss(400)
 
 
-def massless_dos_exponent(d_space: int = 3) -> float:
-    """DOS edge of a massless field in d_space spatial dimensions: ρ(ω) ∝ ω^(d_space−1).
-    In 3+1D this is ω². NOTE: this is the DOS, NOT J(ω) — see linear_coupling_s()."""
-    w = np.linspace(1e-3, 1.0, 4000)
-    rho = w ** (d_space - 1)
-    return float(np.polyfit(np.log(w[:1300]), np.log(rho[:1300]), 1)[0])
+def free_streaming_kernel(s: float) -> float:
+    """The collisionless (free-streaming) TT memory kernel: angular phase-mixing over streaming
+    directions μ=n̂·k̂ with the spin-2 weight (1−μ²)² (Weinberg 2004 structure).
+    K(s) = ∫_{-1}^{1} (1−μ²)² cos(μ s) dμ — a Bessel tail (power-law, oscillatory)."""
+    return float(np.sum(_W * (1 - _MU ** 2) ** 2 * np.cos(_MU * s)))
 
 
-def linear_coupling_s(d_space: int = 3) -> float:
-    """The CORRECTED linear-coupling exponent: J(ω) ∝ ∫d³k (1/ω_k) δ(ω−|k|) ∝ ω^(d_space−2).
-    In 3+1D: s = 1 (Ohmic, marginal) — the 1/ω_k mode normalization knocks one power off the DOS.
-    Computed by quadrature with the 1/ω_k factor present (the factor whose omission gave the
-    wrong s=2)."""
-    k = np.linspace(1e-4, 5.0, 400000)
-    def J(w, dw=2e-3):
-        band = np.abs(k - w) < dw
-        return np.trapezoid(np.where(band, (k ** (d_space - 1)) * (1.0 / k), 0.0), k)
-    ws = np.array([0.2, 0.4, 0.8, 1.6, 3.2])
-    Js = np.array([J(w) for w in ws])
-    return float(np.polyfit(np.log(ws), np.log(Js), 1)[0])
+def collisional_kernel(s: float, s_c: float = 1.0) -> float:
+    """The collisional (viscous) memory kernel: exponential relaxation (Ohmic ⇒ single-pole)."""
+    return float(np.exp(-s / s_c))
 
 
-def cross_branch_map() -> list:
-    """The honest state: the IR exponent depends on collisionality, not power-counting. Every
-    clean branch is s ≥ 1; the s<1 route is forbidden by masslessness. This is the ARGUMENT that
-    motivates single-pole-ness — not a single-exponent theorem."""
+def kernel_is_single_pole(kernel, smax: float = 60.0, n: int = 4000) -> dict:
+    """Classify a memory kernel: single-pole requires EXPONENTIAL (Markovian) decay. A power-law/
+    oscillatory tail (free-streaming) is NON-single-pole. Returns the envelope log-log slope, the
+    sign-change count, and the long-lag residual."""
+    s = np.linspace(0.5, smax, n)
+    K = np.array([kernel(x) for x in s])
+    env = np.abs(K)
+    m = s > smax / 7
+    slope = float(np.polyfit(np.log(s[m]), np.log(np.maximum(env[m], 1e-12)), 1)[0])
+    signs = int(np.sum(np.diff(np.sign(K)) != 0))
+    resid = float(np.abs(np.cumsum(K[::-1])[::-1])[int(n / 6)] / np.abs(np.cumsum(K[::-1])[::-1])[0])
+    return {"envelope_loglog_slope": slope, "sign_changes": signs, "long_lag_residual": resid,
+            "single_pole": (signs <= 1 and resid < 1e-3)}
+
+
+def the_fork() -> list:
+    """The two branches and which one single-pole survives. Collisionality (which branch) is the
+    free datum the action does not fix ⇒ ANCHOR."""
+    col = kernel_is_single_pole(lambda s: collisional_kernel(s, 1.0))
+    fs = kernel_is_single_pole(free_streaming_kernel)
     return [
-        {"regime": "collisional (T_c hydrodynamic)", "s": "1 (Ohmic)", "geq1": True,
-         "basis": "Kubo: Im G_R^{TT}(ω) ~ ηω"},
-        {"regime": "collisionless vacuum (T=0)", "s": "≈2 (super-Ohmic)", "geq1": True,
-         "basis": "stress-tensor phase space (reviewer; exact value needs GRUT's vertex)"},
-        {"regime": "collisionless thermal", "s": "δ(ω) + continuum", "geq1": None,
-         "basis": "free-gas zero-frequency spike — needs interpretation, not an exponent"},
+        {"branch": "collisional (viscous, T_c)", "kernel": "exponential (Kubo Im G^TT~ηω)",
+         "single_pole": col["single_pole"], "verdict": "HOLDS", "diag": col},
+        {"branch": "collisionless (free-streaming)", "kernel": "Bessel tail (Weinberg 2004)",
+         "single_pole": fs["single_pole"], "verdict": "FAILS", "diag": fs},
     ]
 
 
-def sub_ohmic_is_forbidden() -> dict:
-    """The one robust leg: s < 1 needs an IR-ENHANCED DOS (ρ rising slower than ω²) — a
-    non-relativistic ω~k² band (ρ~ω^{1/2}) or a glassy/1-over-f soft mode. Masslessness in
-    3+1D fixes ρ~ω² and forbids both. So no clean branch goes sub-Ohmic."""
-    return {"needs": "ρ(ω→0) rising slower than ω² (non-relativistic / lower-D / glassy)",
-            "masslessness_gives": "ρ ~ ω² exactly (3+1D relativistic)",
-            "forbidden": True}
-
-
 def settle_condition() -> str:
-    """The computation (the PENDING_REVIEW target) that would settle the exponent and graduate or
-    de-graduate single-pole-ness."""
-    return ("finite-T interacting ⟨T_TT T_TT⟩(ω, k→0) for GRUT's TT/quadrupole vertex: Ohmic "
-            "(s=1, hydro viscosity peak) vs super-Ohmic (s≥2, free phase space), and the "
-            "free-gas δ(ω) interpretation. Externalized for adjudication (publishable as-is).")
+    return ("is GRUT's vacuum at T_c collisional (viscous ⇒ single-pole) or free-streaming "
+            "(⇒ Weinberg non-local, single-pole fails)? Weinberg 2004 + Hawking 1966 answer each "
+            "branch; the open piece is mapping GRUT's exact z·T_TT vertex onto the GW-in-medium "
+            "structure. Collisionality is the free datum the action does not fix ⇒ ANCHOR.")
 
 
 def status() -> dict:
     return {
-        "target": "1D — s from the committed fast modes (post round-2 review)",
-        "outcome": "single-pole-ness is WELL-MOTIVATED (s≥1 across all clean branches; sub-Ohmic "
-                   "forbidden by masslessness) but NOT a theorem — the exponent is collisionality-"
-                   "dependent and the deciding finite-T computation is undone",
-        "round2_correction": "the earlier s=2 conflated DOS with J(ω); with the 1/ω_k mode "
-                             "normalization the massless linear case is s=1 (Ohmic, marginal), not 2",
-        "branches": "collisional s=1 (Kubo); collisionless-vacuum s≈2; collisionless-thermal δ(ω)",
-        "robust_leg": "no clean branch is sub-Ohmic; s<1 needs an IR-enhanced DOS masslessness forbids",
-        "tier": "single_pole re-tiered DERIVED → PENDING_REVIEW (the exponent is open; 'DERIVED "
-                "pending review' was a contradiction)",
-        "settle_condition": settle_condition(),
+        "target": "1D — the collisionality fork (post round-3 review; back to the 1C ANCHOR)",
+        "outcome": "single-pole HOLDS on the viscous branch, FAILS on the free-streaming branch "
+                   "(Weinberg); collisionality is the free datum ⇒ single_pole is an ANCHOR",
+        "not": "NOT 'every branch s≥1, sub-Ohmic forbidden' — that leaned on the DOS picture the "
+               "free-streaming transport calculation (Weinberg) overturns",
+        "corrections_on_record": "DOS≠J (round 2); the vacuum T=0 exponent is the wrong object; "
+                                 "the s≈2 misattribution removed (reviewer's floor was (∂φ)²; "
+                                 "Cho–Hu vacuum graviton kernel is ω⁵)",
+        "de_anchor": settle_condition(),
+        "meta": "three rounds of AI-assisted 'sharpening' moved away from the correct original "
+                "1C ANCHOR before the literature moved it back; the original anchor was correct.",
     }
 
 
 if __name__ == "__main__":
-    print("TARGET 1D — s from the committed fast modes (post round-2 review).\n")
-    print(f"  DOS exponent (3+1D)               : ρ ~ ω^{massless_dos_exponent():.2f}  (this is the DOS, not J)")
-    print(f"  CORRECTED linear-coupling s       : s = {linear_coupling_s():.2f}  (Ohmic, marginal — with 1/ω_k)")
-    print("  [the earlier s=2 dropped the 1/ω_k mode-normalization factor — RETRACTED]\n")
-    print("  cross-branch map (exponent depends on collisionality, not power-counting):")
-    for r in cross_branch_map():
-        flag = "≥1" if r["geq1"] else "?"
-        print(f"     {r['regime']:34s} s = {r['s']:18s} [{flag}]  {r['basis']}")
-    sf = sub_ohmic_is_forbidden()
-    print(f"\n  robust leg: sub-Ohmic needs {sf['needs']};")
-    print(f"              masslessness gives {sf['masslessness_gives']} ⇒ s<1 FORBIDDEN.")
-    print(f"\n  ⇒ single-pole-ness: PENDING_REVIEW (well-motivated, not a theorem).")
-    print(f"  settle condition: {settle_condition()}")
+    print("TARGET 1D — the collisionality fork (post round-3 review).\n")
+    print("Is each branch's TT memory kernel single-pole (exponential) or not?")
+    for b in the_fork():
+        d = b["diag"]
+        print(f"  {b['branch']:32s} {b['kernel']:32s}")
+        print(f"      envelope ~ s^{d['envelope_loglog_slope']:+.2f}, sign-changes={d['sign_changes']:>2d}, "
+              f"residual={d['long_lag_residual']:.3e}  → single-pole {b['verdict']}")
+    print("\n  collisional → exponential → single-pole HOLDS")
+    print("  free-streaming → power-law Bessel tail (Weinberg) → single-pole FAILS")
+    print("  collisionality (which branch) is the free datum ⇒ single_pole is an ANCHOR.")
+    print(f"\n  de-anchor: {settle_condition()}")

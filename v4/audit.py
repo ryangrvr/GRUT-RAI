@@ -42,13 +42,6 @@ def render() -> str:
     if not opens:
         p("  • (none)")
 
-    pend = by(Tier.PENDING_REVIEW)
-    if pend:
-        p("\nPENDING-REVIEW — a derivation-grade ARGUMENT, not yet settled; awaiting the computation"
-          "\n  or external adjudication named as its target (a DERIVED claim may not consume one):")
-        for c in pend:
-            p(f"  • {c.id:<32} → settle: {c.target}")
-
     p("\nDERIVED — derivation_ref + a PASSING runnable check + novelty tag:")
     for c in by(Tier.DERIVED):
         ok = "✓" if (c.check and c.check()) else "✗"
@@ -95,8 +88,8 @@ def render() -> str:
         for c in spine_open:
             p(f"     - {c.id}: {c.target}")
     else:
-        p("  research spine: α is ANCHORED + Q-protected (Targets 2/2B); single-pole is PENDING-REVIEW")
-        p("    (argued s≥1 across branches, exact exponent open — finite-T J(ω) externalized, round 2).")
+        p("  research spine: α ANCHORED + Q-protected (Targets 2/2B); single-pole ANCHORED — holds on")
+        p("    the viscous branch, fails on free-streaming (Weinberg); collisionality is the free datum.")
     p(f"  GATE: {'PASS (0 violations)' if not viols else 'FAIL — ' + str(len(viols)) + ' violations'}")
     return "\n".join(L)
 

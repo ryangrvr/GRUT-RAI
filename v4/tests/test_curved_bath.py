@@ -57,10 +57,10 @@ def test_grut_curved_ir_exponent_raises():
         cb.grut_curved_ir_exponent()
 
 
-def test_single_pole_tier_history_landed_at_pending_review():
-    """1C re-tiered single_pole OPEN→ANCHOR (free-DOS-edge — wrong). Review round 1 over-corrected
-    to DERIVED (super-Ohmic s=2 — also wrong, DOS-vs-J conflation). Review round 2 landed it at
-    PENDING_REVIEW: argued s≥1 across branches, exact exponent open. This test pins the current,
-    corrected tier; the still-valid 1C legs (H-friction break, dS-IR protection) pass above."""
-    assert REGISTRY["constitutive_law_single_pole"].tier == gate.Tier.PENDING_REVIEW
+def test_single_pole_tier_history_landed_back_at_anchor():
+    """Tier history: 1C ANCHOR (collisionality free — RIGHT) → round-1 DERIVED (DOS=s2, wrong) →
+    round-2 PENDING_REVIEW (argued s≥1, still leaning on DOS) → round-3 ANCHOR again. The
+    collisionless branch is Weinberg-non-local (single-pole fails); collisionality is free data.
+    Three rounds of 'sharpening' returned to the correct original answer."""
+    assert REGISTRY["constitutive_law_single_pole"].tier == gate.Tier.ANCHOR
     assert gate.validate(REGISTRY) == []

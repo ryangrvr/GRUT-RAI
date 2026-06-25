@@ -6,6 +6,57 @@
 
 ---
 
+> ## ⚠ R3 — ROUND-3 CORRECTION (you were right again, and about the *direction*, not just the number)
+>
+> Two things, and the second is the one that matters.
+>
+> **(1) The misattribution — the same pattern a third time.** I wrote "collisionless vacuum (T=0):
+> stress-tensor phase space ⇒ `s ≈ 2` (your value)." That is not your value. You gave `s = 2` only
+> as the `(∂φ)²` *floor*, flagged the gravitational/quadrupole vertex runs higher (Cho–Hu's
+> published vacuum graviton kernel is `ω⁵`), and — decisively — said the vacuum `T=0` exponent is
+> the *wrong object*, because at finite `T` the memory is set by transport, not vacuum phase space.
+> A tidy intermediate I didn't check against the source. Removed from the map and the docs.
+>
+> **(2) The literature returned something stronger and worse for the claim than "`s≥1` across
+> branches."** I leaned on the DOS/phase-space picture for the collisionless case — and that
+> picture is exactly what the transport calculation overturns. Weinberg (2004) is a refereed
+> derivation that a collisionless massless bath coupled to the TT sector produces a **non-local,
+> history-dependent, Bessel-tail memory kernel** — long-ranged memory, the explicit *opposite* of
+> single-pole, with a finite non-decaying residual. I reproduced the structure first-hand (this
+> time the right object): `K(s)=∫(1−μ²)²cos(μs)dμ` has a `~s⁻³` power-law envelope, 18 sign
+> changes, and a long-lag residual ~10²× the exponential branch's. So the honest map is **not**
+> "every branch `≥1`, sub-Ohmic forbidden." It is:
+> - **collisional → Ohmic → single-pole holds**;
+> - **collisionless → Weinberg non-local → single-pole FAILS**;
+> - **collisionality is not fixed by the action.**
+>
+> That is a genuine fork, and the deciding datum is free. **So single-pole-ness is an ANCHOR — and
+> it is the *original* 1C ANCHOR, the one with collisionality as the free datum from the start.**
+>
+> **The thing worth sitting with.** Three rounds in, the destination is where I began. The 1C
+> anchor wasn't timidity — it was correct, and each round of AI-assisted "sharpening" moved away
+> from it (ANCHOR → DERIVED → PENDING-REVIEW) before the literature moved it back. The loop's
+> errors had a *direction*: toward the stronger, more flattering claim. That is the failure mode
+> the gate cannot catch — it keeps me honest about what I've *shown*, but it has no opinion about
+> which way I'm wrong. Only an outside referee with the transport literature in hand did.
+>
+> **Reverts (the machinery, not just the claim).** `single_pole` → **ANCHOR**; the `PENDING_REVIEW`
+> tier I added in round 2 → **removed** (its "pending a number that settles it" framing was the
+> over-optimism — the verdict depends on free data, not a pending computation); the round-1
+> `fast_mode_content` scaffolding → **removed**. Clean 6-tier gate, 13 claims, 0 violations; 44
+> tests pass. `targets/fast_mode_dos.py` reframed to the collisionality fork.
+>
+> **The settle target, corrected:** not "does `s≥1` survive," but **"is GRUT's vacuum at `T_c`
+> collisional or free-streaming?"** Weinberg 2004 + Hawking 1966 answer what each branch gives; the
+> only genuinely open piece is confirming GRUT's exact `z·T_TT` vertex maps onto the
+> gravitational-wave-in-a-medium structure. Viscous ⇒ single-pole graduates; free-streaming ⇒
+> single-pole is refuted. α is untouched.
+>
+> Round 2 below (and round 1 under it) are kept as the honest record of the path. Both are
+> superseded on the single-pole tier by this section.
+
+---
+
 > ## ⚠ R2 — ROUND-2 CORRECTION (you were right again; I over-corrected in round 1)
 >
 > You caught two things and both land. **(1) The `s = 2` was still wrong** — it conflated the DOS

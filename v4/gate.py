@@ -29,16 +29,15 @@ from typing import Callable, Optional, Dict, List, Set, Tuple
 
 class Tier(str, Enum):
     ANCHOR = "ANCHOR"            # a load-bearing input: the action, or a measured/adopted scale (τ₀, τ_micro)
-    DERIVED = "DERIVED"          # computed + checked, consuming no OPEN/CONJECTURAL/PENDING input
+    DERIVED = "DERIVED"          # computed + checked, consuming no OPEN/CONJECTURAL input
     HOSTED = "HOSTED"            # received from outside (SM content), or a result built on an OPEN input
     FORBIDDEN = "FORBIDDEN"      # ruled out by the framework's own axioms (a no-go theorem)
     OPEN = "OPEN"               # no mechanism yet; attackable; MUST name a computable target
     CONJECTURAL = "CONJECTURAL"  # a structural hook only, far from derivation
-    # a derivation-grade ARGUMENT that does not yet pass a SETTLING check — the deciding
-    # computation or external adjudication is outstanding. NOT DERIVED (the check would settle
-    # it), NOT OPEN (there IS a mechanism). Added 2026-06-24 on a reviewer's recommendation, to
-    # hold a claim like single-pole-ness: argued s≥1 across branches, exact exponent open.
-    PENDING_REVIEW = "PENDING-REVIEW"  # MUST name a target (the open computation that settles it)
+    # NOTE: a PENDING_REVIEW tier was added 2026-06-24 (round 2 of external review) to hold
+    # single-pole-ness as "argued s≥1, awaiting a number". Round 3 showed that framing itself was
+    # over-optimistic — the verdict is branch-dependent on a FREE datum (collisionality), not
+    # pending a computation — so single-pole is honestly an ANCHOR and the tier was removed.
 
 
 class Novelty(str, Enum):
@@ -53,10 +52,9 @@ class Step(str, Enum):
 
 
 # Tiers that, appearing as a DIRECT input, hard-block a consumer from being DERIVED.
-# PENDING_REVIEW caps too: a DERIVED claim may not rest on an argued-but-unsettled input.
-_CAPPING = (Tier.OPEN, Tier.CONJECTURAL, Tier.PENDING_REVIEW)
+_CAPPING = (Tier.OPEN, Tier.CONJECTURAL)
 # Tiers that, anywhere in the transitive closure, make a DERIVED claim PROVISIONAL.
-_PROVISIONAL = (Tier.OPEN, Tier.CONJECTURAL, Tier.PENDING_REVIEW)
+_PROVISIONAL = (Tier.OPEN, Tier.CONJECTURAL)
 
 
 @dataclass
@@ -140,9 +138,9 @@ def validate(reg: Dict[str, Claim]) -> List[str]:
                     err(c, f"anti-laundering: DERIVED consumes {reg[inp].tier.value} input "
                            f"'{inp}' — cap at HOSTED/OPEN until '{inp}' closes")
 
-        # Rule 4 — OPEN (and PENDING_REVIEW) must name the computable target that would settle it.
-        if c.tier in (Tier.OPEN, Tier.PENDING_REVIEW) and not c.target:
-            err(c, f"{c.tier.value} must name a computable target (target=) that would settle it")
+        # Rule 4 — OPEN must name a computable target.
+        if c.tier == Tier.OPEN and not c.target:
+            err(c, "OPEN must name a computable target (target=) that would close it")
 
         # Rule 5 — RESOLVED only if its blocker is closed.
         if c.resolved and c.blocker_id:
