@@ -86,16 +86,22 @@ _CLAIMS = [
           "the free-streaming branch). Carrying it swappable is the round-3 discipline.",
           Tier.ANCHOR, axiom=False),
     Claim("closure_condition",
-          "INPUT 2 — CLOSED system. ENERGY is conserved within the medium (1st law). FINE-GRAINED "
-          "information is conserved only under unitary/Liouville evolution — a SEPARATE statement, and "
-          "at that level there is no dissipation. At the COARSE-GRAINED level the relaxation kernel and "
-          "loss modulus actually describe, memory is redistributed into inaccessible micro-correlations "
-          "(operationally lost) and coarse-grained entropy rises. So 'the vacuum remembers ever since' "
-          "is literal only fine-grained; at the resolved level it is metaphor — and on the continuum / "
-          "free-streaming branch memory radiates to k→∞ and never returns (Poincaré recurrence → ∞). A "
-          "posited structural property; the strong 'eternal literal memory' reading is unsupported "
-          "(corrected after an adversarial pre-screen, C-D).",
+          "INPUT 2 — CLOSED system: ENERGY is conserved within the medium (1st law); nothing leaves. "
+          "A posited structural property. (The separate 'persistent memory / remembers ever since' "
+          "reading is NOT folded in here — it is its own CONJECTURAL claim, persistent_memory_"
+          "conjecture, because it is in genuine tension with coarse-grained dissipation.)",
           Tier.ANCHOR, axiom=False),
+    Claim("persistent_memory_conjecture",
+          "The 'scaling and remembering' frame: the vacuum 'remembers ever since' — memory persists / "
+          "is redistributed across scales rather than lost. TENSION, stated loudly (not reworded away, "
+          "per the reviewer): the viscoelastic kernel is a COARSE-GRAINED object, and coarse-grained "
+          "dissipation IS operational memory loss — that is what dissipation is (G'' is the channel by "
+          "which coherence leaves the resolved mode). Fine-grained unitary 'nothing is truly lost' is "
+          "true but is NOT the level the theory operates at; on the free-streaming branch memory "
+          "radiates to k→∞ and never returns. So 'remembering ever since' and 'viscoelastic dissipation' "
+          "may be in REAL CONFLICT, not merely imprecisely stated. CONJECTURAL with the tension explicit "
+          "— for the referee to weigh, not a settled property.",
+          Tier.CONJECTURAL, inputs=("closure_condition", "relaxation_kernel")),
     Claim("driving_strain",
           "INPUT 3 — the driving strain the medium responds to: the source/forcing whose history the "
           "kernel integrates. Posited as a spine input; its microphysical origin is left open here.",
@@ -161,21 +167,33 @@ _CLAIMS = [
           step=Step.DERIVE, novelty=Novelty.COMPOSITION,
           novelty_cite="Diósi / Anastopoulos–Hu noise kernel, CQG 30 165007 (2013) "
                        "(KNOWN-REUSED); NEW: the extended-body F6 kink + the τ₀-tied plateau."),
-    Claim("deborah_runs_with_scale",
-          "The closed medium's scale-structure, from the Deborah number De(L)=τ_relax/t_probe(L). On "
-          "the single-τ / Maxwell (collisional) branch there is ONE dividing scale L*=c_s·τ_relax — "
-          "elastic (holds structure) below, viscous (flows) above — so 'different aspects of reality "
-          "at different scales' is literal THERE. On the power-law / free-streaming (Weinberg) branch "
-          "there is NO characteristic time, NO L*, and the medium is SCALE-FREE (the same aspect at "
-          "every scale). So this does NOT bypass the kernel fork — it presupposes the collisional side; "
-          "its value is that the two branches predict DIFFERENT scale-structure (a dividing scale vs "
-          "scale invariance), an OBSERVABLE HANDLE on the fork. HOSTED/PLACE: De(L)=c_s·τ/L is "
-          "algebraic substitution of two anchors (the kernel's τ + the posited probe law t_probe=L/c_s), "
-          "NOT a derivation. The character discriminant is DEGENERATE (many-to-one: closely-spaced "
-          "multi-mode mimics Maxwell, a continuum mimics power-law). c_s free; the c_s=c value (~12.9 "
-          "Mpc) is suggestive only. (Corrected after an adversarial pre-screen broke the first "
-          "'kernel-independent forward motion' framing; targets/deborah_scaling.py.)",
+    Claim("rheology_scale_discriminant",
+          "A POSITED contrast (the branch CONTENT, not the De algebra): at the ENDPOINTS a single-τ / "
+          "Maxwell medium imprints a CHARACTERISTIC SCALE in structure support, while a strict "
+          "scale-free (critical-gel) medium does not. The Deborah number running with scale "
+          "(De(L)=c_s·τ/L) is the mechanism, but that algebra is two anchors multiplied (HOSTED/PLACE, "
+          "NOT a derivation). HEAVILY CAVEATED after a second pre-screen: the contrast is DEGENERATE — "
+          "a collisional medium with a broad relaxation SPECTRUM (≳5 decades) reads scale-free, "
+          "identical to free-streaming, so this distinguishes NARROW-spectrum from scale-free, NOT "
+          "'collisional vs free-streaming'. No physical scale is computed (the c_s=c near-BAO value was "
+          "EXCISED — a footnoted near-match is the match-temptation deferred). targets/deborah_scaling.py.",
           Tier.HOSTED, inputs=("relaxation_kernel", "scale_coupling", "tau0"), step=Step.PLACE),
+    Claim("power_spectrum_branch_test",
+          "TOWARD the first claim data can kill — OPEN, NOT yet a falsifier (demoted from a premature "
+          "DERIVED after a second adversarial pre-screen broke it four ways, all verified first-hand): "
+          "(P-C) the break-vs-scale-free discriminant is DEGENERATE — broad-spectrum collisional reads "
+          "scale-free; Maxwell and the gel are endpoints of one spectrum-width parameter. (P-B) "
+          "falsifiability is ONE-SIDED (a free k_star lets a collisional break hide outside any window "
+          "⇒ collisional is the unfalsifiable null; only free-streaming is killable) AND entangled with "
+          "known ΛCDM breaks (k_eq turnover, BAO). (P-D) definition-as-target: scale-invariance is "
+          "algebraic (the De^α cancels), De∝k does no work, and De∝k + S=support are posited ansätze, "
+          "not derived. (P-A) the match was deferred not avoided; the near-BAO c_s=c value was excised.",
+          Tier.OPEN, inputs=("relaxation_kernel", "scale_coupling"),
+          target="make it a real two-sided ΛCDM-separable falsifier: (a) derive/bound the collisional "
+                 "relaxation-spectrum width from GRUT (narrow ⇒ break, broad ⇒ degenerate); (b) derive "
+                 "De(k)∝k and S=structure-support from the action; (c) full structure-formation P(k) per "
+                 "branch, separable from k_eq/BAO; (d) bound c_s independently (not =c) for two-sided "
+                 "falsifiability without a fit — targets/power_spectrum_discriminant.py"),
 
     # ── A NO-GO (FORBIDDEN) — forbids a new propagating pole; single-pole is now DERIVED ──
     Claim("propagating_relic_no_go",

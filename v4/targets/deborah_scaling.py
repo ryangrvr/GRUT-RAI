@@ -39,9 +39,12 @@ character functions below sweep a dimensionless frequency x = ωτ_ref in ω-spa
 They are different objects; the ω-sweep is named `x` to stop it lending false well-posedness to the
 L-space mechanism.
 
-GUARD held (the one thing the pre-screen confirmed was clean): c_s is a free parameter, L* is carried
-as L*(c_s), and the c_s=c value (~12.9 Mpc) appears only in a print, never in a check — not fit to
-any observed scale.
+GUARD (strengthened after a SECOND pre-screen, P-A): c_s is a free parameter and L* is symbolic
+only. The earlier draft computed the c_s=c member, a near-BAO-scale value, and labeled it
+"suggestive" — but a near-match computed from the anchored τ₀ and footnoted is itself the
+match-temptation, just deferred. It is now EXCISED: no physical scale is computed anywhere in this
+module. The dividing scale's LOCATION carries zero predictive content until c_s is independently
+derived (not posited = c).
 
 TIER: this is HOSTED / PLACE, not DERIVED — De(L)=c_s τ/L is algebraic substitution of two anchors
 (the kernel's τ and the posited probe law), scoped to the un-resolved single-τ branch. It is a
@@ -146,7 +149,9 @@ def status() -> dict:
                       "invariance) ⇒ the observed scale-dependence is an OBSERVABLE HANDLE ON the fork",
         "discriminant": "DEGENERATE (many-to-one): resolves the kernel only for well-separated times "
                         "spanning the window; closely-spaced multi-mode mimics Maxwell, a continuum mimics power-law",
-        "guard_held": "c_s free, L*(c_s) a function; the c_s=c value (~12.9 Mpc) is not fit to any observed scale",
+        "guard": "c_s free; L*(c_s) is symbolic only — NO physical scale is computed anywhere (the "
+                 "earlier c_s=c → ~12.9 Mpc value was EXCISED: a near-BAO number labeled 'suggestive' "
+                 "is itself the match-temptation, per a second pre-screen, P-A)",
         "errors_fixed": "peak counter (3-mode read 4 → now 3); fictitious L* on the power-law branch "
                         "(crossover_scale now returns None); DERIVED→HOSTED (definitional substitution, not a derivation)",
     }
@@ -154,11 +159,10 @@ def status() -> dict:
 
 if __name__ == "__main__":
     print("TARGET 3 — Deborah number & scale (corrected, HOSTED/PLACE).\n")
-    print("Dividing scale L*=c_s·τ_relax exists only on the single-τ (Maxwell) branch:")
+    print("A dividing scale L*=c_s·τ_relax EXISTS only on the single-τ (Maxwell) branch (its LOCATION")
+    print("is a free function of the unknown c_s — no physical value is computed here, by design):")
     for k in ("maxwell", "multi_mode", "power_law"):
-        L = crossover_scale(1.0, 3e10, k)
-        print(f"  {k:11s}: dividing scale? {has_dividing_scale(k)!s:5s}  L*(c_s=c)="
-              f"{'None (scale-free)' if L is None else f'{L:.2e} cm'}")
+        print(f"  {k:11s}: dividing scale exists? {has_dividing_scale(k)}")
     print("\nRheology character (DEGENERATE clean-limit heuristic; sweep x=ωτ_ref, not L-space De):")
     for k in ("maxwell", "power_law", "multi_mode"):
         r = rheology_character(k)

@@ -22,7 +22,7 @@ def test_dividing_scale_only_on_single_tau_branch():
 
 
 def test_crossover_scale_linear_in_free_cs():
-    """L* = c_s·τ — a function of the FREE parameter c_s (the c_s=c value is not fit to anything)."""
+    """L* = c_s·τ — symbolic only, a function of the FREE parameter c_s; no physical scale computed."""
     assert ds.crossover_scale(2.0, 30.0) == 10 * ds.crossover_scale(2.0, 3.0)
 
 
@@ -45,14 +45,24 @@ def test_discriminant_is_degenerate():
     assert ds.discriminant_is_degenerate() is True
 
 
-def test_deborah_is_hosted_not_derived():
-    """The claim is HOSTED/PLACE — a definitional substitution of two anchors scoped to the un-resolved
-    collisional branch, NOT a derivation (pre-screen C-E). The gate passes; it carries no DERIVED check."""
-    c = REGISTRY["deborah_runs_with_scale"]
-    assert c.tier == gate.Tier.HOSTED and c.step == gate.Step.PLACE
-    assert c.check is None
-    assert "relaxation_kernel" in c.inputs            # rests on the un-resolved kernel fork
+def test_banked_claim_is_the_discriminant_not_the_algebra():
+    """What is banked is the branch CONTRAST (rheology_scale_discriminant), HOSTED/PLACE — a
+    definitional substitution of two anchors, NOT 'De runs with scale' as a derivation (reviewer's
+    flag: a definition must not wear a target's clothes). The contentful forward claim is the
+    OUTWARD power_spectrum_branch_test, not the algebra."""
+    c = REGISTRY["rheology_scale_discriminant"]
+    assert c.tier == gate.Tier.HOSTED and c.step == gate.Step.PLACE and c.check is None
+    assert "relaxation_kernel" in c.inputs
+    assert "deborah_runs_with_scale" not in REGISTRY    # renamed away from the algebra
     assert gate.validate(REGISTRY) == []
+
+
+def test_persistent_memory_is_conjectural_with_tension():
+    """The 'remembers ever since' claim was lifted OUT of the closure anchor to a CONJECTURAL claim
+    that states the coarse-grained-dissipation tension loudly (reviewer's C-D follow-up) — not a
+    wording fix smoothed into an anchor."""
+    assert REGISTRY["persistent_memory_conjecture"].tier == gate.Tier.CONJECTURAL
+    assert "ENERGY" in REGISTRY["closure_condition"].statement   # closure trimmed to energy/closed
 
 
 def test_spine_four_inputs_are_anchors():

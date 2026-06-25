@@ -61,7 +61,12 @@ def test_alpha_retiered_to_anchor_and_gate_passes():
     assert gate.provisional_on(REGISTRY, "omega_lambda") == []
 
 
-def test_no_open_claims_remain():
-    """Both research-spine gaps (single_pole, α) are now proven anchors — the registry has no
-    OPEN claims left; de-anchoring either requires new physics, not a missing computation."""
-    assert [c.id for c in REGISTRY.values() if c.tier == gate.Tier.OPEN] == []
+def test_foundational_params_are_anchors_not_open():
+    """The two FOUNDATIONAL parameters (single_pole, α) are anchors, not OPEN — de-anchoring needs
+    new physics, not a missing computation. (OPEN claims may still exist for FORWARD research
+    targets, e.g. the power-spectrum branch test — that is legitimate forward work, not a
+    foundational gap.)"""
+    assert REGISTRY["constitutive_law_single_pole"].tier == gate.Tier.ANCHOR
+    assert REGISTRY["alpha"].tier == gate.Tier.ANCHOR
+    opens = [c.id for c in REGISTRY.values() if c.tier == gate.Tier.OPEN]
+    assert "constitutive_law_single_pole" not in opens and "alpha" not in opens
