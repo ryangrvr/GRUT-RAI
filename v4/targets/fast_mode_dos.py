@@ -1,54 +1,54 @@
 """GRUT-RAI v4.1 — TARGET 1D: the IR exponent s from the COMMITTED fast-mode content.
 
-This module exists because of an external specialist review (2026-06-24) that found a real
-error in Target 1C. 1C concluded "collisionless bath ⇒ s = the free DOS edge ⇒ generically
-< 1 ⇒ slow," and anchored single-pole-ness on that freedom. The specialist showed this is
-BACKWARDS for a relativistic vacuum: GRUT is not input-free on the dispersion relation —
-"massless + 1/r kernel + relativistic CTP action" commits to ω = c|k|, and once the fast bath
-modes have a fixed dispersion and a fixed (TT/derivative) vertex, J(ω) is the coupling-weighted
-density of states and s is COMPUTABLE, not free. A massless field in 3+1D has DOS ρ(ω) ~ ω²,
-which is SUPER-OHMIC. The "s is free" position only survives if GRUT declines to commit to what
-its fast vacuum modes are — and the rest of the framework reads as a commitment.
+History (kept honest): round 1 of external review corrected Target 1C ("s is free") and this
+module FIRST claimed s=2 (super-Ohmic) ⇒ single-pole DERIVED. Round 2 of the SAME review found
+that claim still wrong on the load-bearing step, and the graduation premature. Both corrections
+are absorbed here.
 
-The 1C error in one line: it treated the DOS IR-edge as a free dial. Relativity FIXES it.
+THE ROUND-2 CORRECTION (verified first-hand): s=2 conflated the density of states with the
+SPECTRAL DENSITY. J(ω) is not the DOS — it is the standard Caldeira–Leggett influence-functional
+weight J(ω) = (π/2) Σ_k (c_k²/(m_k ω_k)) δ(ω−ω_k), and the field-mode normalization 1/ω_k knocks
+ONE power off the DOS. For a local LINEAR coupling to a massless field in 3+1D:
+     J(ω) ∝ ∫ d³k (1/ω_k) δ(ω−c|k|) ∝ ∫ k² dk (1/k) δ(ω−ck) ∝ ω   ⇒  s = 1 (OHMIC, MARGINAL),
+not the s=2 claimed. The DOS gives ω²; the 1/ω_k makes it ω. The old "relativity fixes the DOS to
+ω² so s=2" is RETRACTED — it was the v4 sin in miniature, the DOS argument wearing the spectral
+density's clothes.
 
-────────────────────────────────────────────────────────────────────────────────────────
-OUTCOME (verified first-hand, not rubber-stamped to the reviewer's expectation): for GRUT's
-committed fast modes, s ≥ 1 robustly ⇒ single-pole-ness is a THEOREM, not an anchor. This
-GRADUATES single_pole ANCHOR → DERIVED. The two-anchor symmetry was over-tight (the specialist:
-"one anchor graduates and the two-anchor symmetry was over-tight — progress, not damage").
+THE REAL PHYSICS (the exponent is NOT settled by power-counting — it depends on COLLISIONALITY,
+the one thing two documents established the action does not fix). Three regimes, three ω→0
+structures for the bilinear TT/stress-tensor vertex GRUT actually has:
+  - COLLISIONAL (vacuum at T_c, hydrodynamic): the Kubo formula gives Im G_R^{TT}(ω) ~ ηω at
+    low ω ⇒ s = 1 (Ohmic). This branch is LIVE — a vacuum at T_c has thermal structure; it is
+    NOT a zero-temperature free field, so "needs self-interaction beyond the action" was wrong.
+  - COLLISIONLESS VACUUM (T=0, free): stress-tensor phase space ⇒ super-Ohmic, s ≈ 2 (the
+    reviewer's value for (∂φ)²; the earlier s=5 needs the specific quadrupole/spin-2 derivative
+    structure of GRUT's vertex, UNCOMPUTED here — not asserted).
+  - COLLISIONLESS THERMAL: the non-relaxing thermal momentum puts a δ(ω) spike at zero frequency
+    ON TOP of the continuum. That spike is not an exponent — it is a different object that must
+    be interpreted before any s can be read off.
 
-THE COMMITMENT (made explicit, as the specialist demanded — "state it"):
-  The vacuum's fast (Mori–Zwanzig orthogonal) modes are standard massless relativistic field
-  modes, dispersion ω = c|k|, coupled to the slow TT-shear z by a local (TT/derivative) vertex.
-  This is not a new free input — it is what the existing anchors (the 1/r kernel ⇒ massless
-  mediator; the relativistic CTP action ⇒ Lorentz-invariant dispersion) already commit to. This
-  module only makes the commitment visible and computes its consequence.
+WHAT IS ROBUST (and is the honest claim, NOT a theorem): every clean branch lands s ≥ 1, and the
+only route to s < 1 needs an IR-ENHANCED DOS (ρ rising slower than ω² as ω→0 — non-relativistic
+ω~k², or a glassy/1-over-f soft mode), which masslessness in 3+1D FORBIDS. So single-pole-ness is
+WELL-MOTIVATED (s ≥ 1 across branches; the sub-Ohmic route is forbidden) — but it is a strong
+CROSS-BRANCH ARGUMENT, not a single-exponent derivation. Note: collisionality remains free data;
+it stopped deciding the single-pole VERDICT (all branches ≥1) but still decides whether the
+vacuum is robustly fast (s=2) or marginally fast (s=1 — where the curved-space IR sub-leading
+terms, the ones Target 1C closed, become the deciding pieces). That residual is exactly why this
+is not a theorem yet.
 
-THE COMPUTATION (all reproduced in __main__; the escape genuinely probed):
-  - DOS of a massless field in 3+1D: ρ(ω) = ∫d³k/(2π)³ δ(ω−|k|) ∝ ω². (super-Ohmic edge)
-  - LINEAR coupling z·φ:        J(ω) ∝ ρ(ω) ∝ ω²            ⇒ s = 2.
-  - STRESS-TENSOR coupling (z couples to T ~ (∂φ)²): the slow mode decays into TWO bath quanta,
-    phase space ∫₀^ω ρ(ω₁)ρ(ω−ω₁)dω₁ ∝ ω⁵ ⇒ s = 5. Derivative vertices only RAISE the power.
-  - Both ≥ 1 ⇒ τ_K is UV-set ⇒ the single-pole (Markovian) form is exact ⇒ FAST.
-  - FINITE-T boundary: an interacting bath gives Kubo J(ω→0)=ηω ⇒ s=1; a free thermal bath sits
-    between s=1 and the T=0 super-Ohmic values. EVERY case is s ≥ 1. The only sub-Ohmic (s<1)
-    route needs an IR-ENHANCED DOS (non-relativistic ω~k², or a glassy/disordered soft mode) —
-    which masslessness ARGUES AGAINST.
+TIER (corrected): single_pole is PENDING_REVIEW, not DERIVED. A DERIVED claim in this gate
+consumes no unsettled input and passes a check that SETTLES it. This one rests on an exponent
+three regimes disagree about, with the deciding computation — the finite-T interacting
+⟨T_TT T_TT⟩(ω, k→0) for GRUT's vertex, and the free-gas δ(ω) interpretation — UNDONE. "DERIVED …
+pending review" was a contradiction in the tier system; the honest label is PENDING_REVIEW with
+that computation as the settle/graduate condition.
 
-CONSISTENCY WITH §6 (the specialist's cleanest catch, now resolved in our favour): the
-Anastopoulos–Hu "zero-free-parameter" decoherence kernel is itself super-Ohmic (graviton-DOS
-descended, J ~ ω³, s=3). By FDT a specified noise kernel IS a specified dissipation kernel, so
-§6 always IMPORTED s ≥ 1. The old §2 claim "s is free" was therefore in tension with our own
-falsifier. Corrected, §2 and §6 AGREE — both super-Ohmic. The tension dissolves because the two
-were never opposed; §2 was wrong to call free what §6 had already committed.
-
-HONEST RESIDUAL (the de-graduate condition, stated so it can be checked): this rests on the
-fast modes being standard massless relativistic field content. If GRUT's vacuum substrate were
-non-relativistic or IR-enhanced (a different theory), s could drop below 1 — but that contradicts
-the masslessness the framework commits to. The exact exponent (1 ≤ s ≤ 5) depends on the coupling
-and temperature; the VERDICT (s ≥ 1 ⇒ single-pole) is robust across that range. This graduation
-is being returned to the same specialist for second review before it is treated as settled.
+THE EXTERNALIZED QUESTION (publishable as-is; the clean leave-the-loop computation):
+  A slow variable bilinearly coupled to the transverse-traceless sector of a thermal massless
+  field (graviton bath at T_c) — what is the IR exponent of the influence-functional J(ω) as
+  ω→0? Does the finite-T interacting ⟨T_TT T_TT⟩(ω, k→0) give Ohmic (s=1, hydrodynamic viscosity
+  peak) or super-Ohmic (s≥2, free phase space), and how is the free-gas δ(ω) handled?
 """
 from __future__ import annotations
 
@@ -57,91 +57,84 @@ import numpy as np
 
 def massless_dos_exponent(d_space: int = 3) -> float:
     """DOS edge of a massless field in d_space spatial dimensions: ρ(ω) ∝ ω^(d_space−1).
-    In 3+1D this is ω² (super-Ohmic). Returns the exponent (fitted, to show it's computed)."""
+    In 3+1D this is ω². NOTE: this is the DOS, NOT J(ω) — see linear_coupling_s()."""
     w = np.linspace(1e-3, 1.0, 4000)
     rho = w ** (d_space - 1)
-    lw, lf = np.log(w[:1300]), np.log(rho[:1300])
-    return float(np.polyfit(lw, lf, 1)[0])
+    return float(np.polyfit(np.log(w[:1300]), np.log(rho[:1300]), 1)[0])
 
 
-def J_exponent(coupling: str = "stress_tensor", d_space: int = 3) -> float:
-    """IR exponent s of the friction spectral density J(ω) for the committed massless bath.
-    'linear': J ∝ ρ(ω) ⇒ s = d_space−1.  'stress_tensor': two-quantum phase space
-    ∫ρ(ω₁)ρ(ω−ω₁)dω₁ ⇒ s = 2(d_space−1)+1. Computed by quadrature, not asserted."""
-    w = np.linspace(1e-3, 1.0, 3000)
-    p = d_space - 1
-    if coupling == "linear":
-        J = w ** p
-    elif coupling == "stress_tensor":
-        J = np.array([np.trapezoid((x ** p) * ((wi - x) ** p), x) if wi > 0 else 0.0
-                      for wi in w for x in [np.linspace(0.0, wi, 300)]])
-    else:
-        raise ValueError(coupling)
-    m = J > 0
-    lw, lf = np.log(w[m][:1000]), np.log(J[m][:1000])
-    return float(np.polyfit(lw, lf, 1)[0])
+def linear_coupling_s(d_space: int = 3) -> float:
+    """The CORRECTED linear-coupling exponent: J(ω) ∝ ∫d³k (1/ω_k) δ(ω−|k|) ∝ ω^(d_space−2).
+    In 3+1D: s = 1 (Ohmic, marginal) — the 1/ω_k mode normalization knocks one power off the DOS.
+    Computed by quadrature with the 1/ω_k factor present (the factor whose omission gave the
+    wrong s=2)."""
+    k = np.linspace(1e-4, 5.0, 400000)
+    def J(w, dw=2e-3):
+        band = np.abs(k - w) < dw
+        return np.trapezoid(np.where(band, (k ** (d_space - 1)) * (1.0 / k), 0.0), k)
+    ws = np.array([0.2, 0.4, 0.8, 1.6, 3.2])
+    Js = np.array([J(w) for w in ws])
+    return float(np.polyfit(np.log(ws), np.log(Js), 1)[0])
 
 
-def dos_edges_table() -> list:
-    """The escape check: which bath DOS gives sub-Ohmic? Only IR-enhanced ones masslessness
-    forbids. A relativistic massless vacuum is NOT among the slow cases."""
+def cross_branch_map() -> list:
+    """The honest state: the IR exponent depends on collisionality, not power-counting. Every
+    clean branch is s ≥ 1; the s<1 route is forbidden by masslessness. This is the ARGUMENT that
+    motivates single-pole-ness — not a single-exponent theorem."""
     return [
-        {"bath": "massless relativistic (GRUT's commitment)", "rho_edge": "ω²", "s": 2.0, "verdict": "FAST"},
-        {"bath": "non-relativistic ω~k²", "rho_edge": "ω^0.5", "s": 0.5, "verdict": "slow (excluded by masslessness)"},
-        {"bath": "glassy / 1-over-f soft mode", "rho_edge": "ω^-1", "s": -1.0, "verdict": "slow (excluded by masslessness)"},
+        {"regime": "collisional (T_c hydrodynamic)", "s": "1 (Ohmic)", "geq1": True,
+         "basis": "Kubo: Im G_R^{TT}(ω) ~ ηω"},
+        {"regime": "collisionless vacuum (T=0)", "s": "≈2 (super-Ohmic)", "geq1": True,
+         "basis": "stress-tensor phase space (reviewer; exact value needs GRUT's vertex)"},
+        {"regime": "collisionless thermal", "s": "δ(ω) + continuum", "geq1": None,
+         "basis": "free-gas zero-frequency spike — needs interpretation, not an exponent"},
     ]
 
 
-def ah_kernel_is_super_ohmic() -> dict:
-    """§6 consistency: the Anastopoulos–Hu kernel used by the 689 Hz falsifier is super-Ohmic
-    (J ~ ω³). By FDT a fixed noise kernel is a fixed dissipation kernel, so §6 imported s≥1 all
-    along — §2 and §6 agree once §2 is corrected."""
-    w = np.linspace(1e-3, 0.3, 4000)
-    J_AH = w ** 3
-    N = (1.0 / np.tanh(w / 2.0)) * J_AH                 # FDT noise (β=1)
-    J_rec = N * np.tanh(w / 2.0)                         # invert: J = N·tanh(βω/2)
-    s = lambda f: float(np.polyfit(np.log(w[:1200]), np.log(f[:1200]), 1)[0])
-    return {"J_AH_exponent": s(J_AH), "noise_exponent": s(N), "J_recovered_exponent": s(J_rec),
-            "note": "AH kernel s≈3 (super-Ohmic); §6 always committed s≥1"}
+def sub_ohmic_is_forbidden() -> dict:
+    """The one robust leg: s < 1 needs an IR-ENHANCED DOS (ρ rising slower than ω²) — a
+    non-relativistic ω~k² band (ρ~ω^{1/2}) or a glassy/1-over-f soft mode. Masslessness in
+    3+1D fixes ρ~ω² and forbids both. So no clean branch goes sub-Ohmic."""
+    return {"needs": "ρ(ω→0) rising slower than ω² (non-relativistic / lower-D / glassy)",
+            "masslessness_gives": "ρ ~ ω² exactly (3+1D relativistic)",
+            "forbidden": True}
 
 
-def check_single_pole_super_ohmic() -> bool:
-    """GATE CHECK: GRUT's committed massless fast modes give s ≥ 1 (super-Ohmic) by BOTH the
-    linear and stress-tensor couplings ⇒ single-pole is a theorem. (The escape, s<1, needs an
-    IR-enhanced DOS masslessness forbids.) Returns True iff the computation yields s ≥ 1."""
-    s_lin = J_exponent("linear")
-    s_st = J_exponent("stress_tensor")
-    dos = massless_dos_exponent()
-    return (dos > 1.5) and (s_lin >= 1.0) and (s_st >= 1.0)
+def settle_condition() -> str:
+    """The computation (the PENDING_REVIEW target) that would settle the exponent and graduate or
+    de-graduate single-pole-ness."""
+    return ("finite-T interacting ⟨T_TT T_TT⟩(ω, k→0) for GRUT's TT/quadrupole vertex: Ohmic "
+            "(s=1, hydro viscosity peak) vs super-Ohmic (s≥2, free phase space), and the "
+            "free-gas δ(ω) interpretation. Externalized for adjudication (publishable as-is).")
 
 
 def status() -> dict:
     return {
-        "target": "1D — s from the committed fast-mode content (post specialist review)",
-        "outcome": "s ≥ 1 (super-Ohmic) for GRUT's committed massless relativistic bath ⇒ "
-                   "single-pole is a THEOREM; single_pole graduates ANCHOR → DERIVED",
-        "corrects": "Target 1C, which treated the DOS edge as free and concluded s<1/slow — "
-                    "BACKWARDS for a relativistic vacuum (caught by external review)",
-        "commitment": "fast modes = standard massless relativistic field modes (ω=c|k|), implied "
-                      "by the 1/r kernel + relativistic CTP; made explicit here",
-        "exponents": "DOS ρ~ω²; linear coupling s=2; stress-tensor s=5; finite-T/interacting s=1 "
-                     "(Kubo) — all ≥ 1",
-        "escape_closed": "sub-Ohmic needs an IR-enhanced DOS (non-relativistic / glassy) that "
-                         "masslessness argues against",
-        "sec6_consistency": "the AH 689 Hz kernel is super-Ohmic (s≈3); §2 and §6 now agree",
-        "pending": "returned to the same specialist for second review before treated as settled",
+        "target": "1D — s from the committed fast modes (post round-2 review)",
+        "outcome": "single-pole-ness is WELL-MOTIVATED (s≥1 across all clean branches; sub-Ohmic "
+                   "forbidden by masslessness) but NOT a theorem — the exponent is collisionality-"
+                   "dependent and the deciding finite-T computation is undone",
+        "round2_correction": "the earlier s=2 conflated DOS with J(ω); with the 1/ω_k mode "
+                             "normalization the massless linear case is s=1 (Ohmic, marginal), not 2",
+        "branches": "collisional s=1 (Kubo); collisionless-vacuum s≈2; collisionless-thermal δ(ω)",
+        "robust_leg": "no clean branch is sub-Ohmic; s<1 needs an IR-enhanced DOS masslessness forbids",
+        "tier": "single_pole re-tiered DERIVED → PENDING_REVIEW (the exponent is open; 'DERIVED "
+                "pending review' was a contradiction)",
+        "settle_condition": settle_condition(),
     }
 
 
 if __name__ == "__main__":
-    print("TARGET 1D — s from the committed fast modes (post specialist review).\n")
-    print(f"  massless DOS exponent (3+1D)      : ρ ~ ω^{massless_dos_exponent():.2f}  (super-Ohmic)")
-    print(f"  J(ω) IR exponent, linear coupling : s = {J_exponent('linear'):.2f}")
-    print(f"  J(ω) IR exponent, stress-tensor   : s = {J_exponent('stress_tensor'):.2f}")
-    print(f"  gate check (s ≥ 1, single-pole)   : {check_single_pole_super_ohmic()}")
-    print("\n  escape check (only these give s<1, all excluded by masslessness):")
-    for r in dos_edges_table():
-        print(f"     {r['bath']:42s} ρ~{r['rho_edge']:5s} s={r['s']:+.1f}  {r['verdict']}")
-    ah = ah_kernel_is_super_ohmic()
-    print(f"\n  §6 consistency: AH kernel s≈{ah['J_AH_exponent']:.0f} (super-Ohmic) — §2 and §6 agree.")
-    print("\n  ⇒ single-pole-ness is DERIVED (super-Ohmic theorem) from the committed fast modes.")
+    print("TARGET 1D — s from the committed fast modes (post round-2 review).\n")
+    print(f"  DOS exponent (3+1D)               : ρ ~ ω^{massless_dos_exponent():.2f}  (this is the DOS, not J)")
+    print(f"  CORRECTED linear-coupling s       : s = {linear_coupling_s():.2f}  (Ohmic, marginal — with 1/ω_k)")
+    print("  [the earlier s=2 dropped the 1/ω_k mode-normalization factor — RETRACTED]\n")
+    print("  cross-branch map (exponent depends on collisionality, not power-counting):")
+    for r in cross_branch_map():
+        flag = "≥1" if r["geq1"] else "?"
+        print(f"     {r['regime']:34s} s = {r['s']:18s} [{flag}]  {r['basis']}")
+    sf = sub_ohmic_is_forbidden()
+    print(f"\n  robust leg: sub-Ohmic needs {sf['needs']};")
+    print(f"              masslessness gives {sf['masslessness_gives']} ⇒ s<1 FORBIDDEN.")
+    print(f"\n  ⇒ single-pole-ness: PENDING_REVIEW (well-motivated, not a theorem).")
+    print(f"  settle condition: {settle_condition()}")

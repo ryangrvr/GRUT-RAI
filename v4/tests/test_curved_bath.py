@@ -57,10 +57,10 @@ def test_grut_curved_ir_exponent_raises():
         cb.grut_curved_ir_exponent()
 
 
-def test_single_pole_was_corrected_to_derived_post_review():
-    """1C ORIGINALLY re-tiered single_pole OPEN→ANCHOR on a free-DOS-edge argument. External
-    review (2026-06-24) showed that argument backwards for a relativistic vacuum, so single_pole
-    GRADUATED ANCHOR→DERIVED (super-Ohmic theorem, Target 1D). This test pins the correction; the
-    still-valid 1C legs (H-friction break, dS-IR protection) are tested above and still pass."""
-    assert REGISTRY["constitutive_law_single_pole"].tier == gate.Tier.DERIVED
+def test_single_pole_tier_history_landed_at_pending_review():
+    """1C re-tiered single_pole OPEN→ANCHOR (free-DOS-edge — wrong). Review round 1 over-corrected
+    to DERIVED (super-Ohmic s=2 — also wrong, DOS-vs-J conflation). Review round 2 landed it at
+    PENDING_REVIEW: argued s≥1 across branches, exact exponent open. This test pins the current,
+    corrected tier; the still-valid 1C legs (H-friction break, dS-IR protection) pass above."""
+    assert REGISTRY["constitutive_law_single_pole"].tier == gate.Tier.PENDING_REVIEW
     assert gate.validate(REGISTRY) == []

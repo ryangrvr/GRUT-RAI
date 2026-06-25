@@ -6,17 +6,23 @@
 
 ---
 
-> **⚠ REVISION 1 (post external specialist review, 2026-06-24).** A qualified reviewer overturned
-> the single-pole half of this note's headline. The correction is *constructive*: GRUT is not
-> input-free on the dispersion relation — "massless + 1/r + relativistic CTP" commits to `ω=c|k|`,
-> whose density of states is `ρ(ω)~ω²` (super-Ohmic), so the bath IR exponent `s ≥ 1` is **fixed,
-> not free**, and **single-pole-ness GRADUATES from anchor to a derived theorem.** Only **α** remains
-> a Q-protected anchor; the "two anchors / one prohibition" unification (§4) was over-tight (Q
-> protects α — a propagating-mode question — but not single-pole, a DOS-edge question). The §6/§2
-> tension the reviewer flagged is real and resolves *by agreement* (the §6 Anastopoulos–Hu kernel
-> is itself super-Ohmic). **The body below is the pre-review v1 record;** the corrections are in
-> [SPECIALIST_RESPONSE.md](SPECIALIST_RESPONSE.md) and the gate (`single_pole` is now DERIVED).
-> Affected sections carry inline ⚠ markers.
+> **⚠ REVISED post external review (two rounds, 2026-06-24).** A qualified reviewer overturned the
+> single-pole half of this note's headline.
+> - **Round 1:** GRUT is not input-free on the dispersion relation — "massless + 1/r + relativistic
+>   CTP" commits to `ω=c|k|`, so the bath IR exponent is *fixed, not free* (the §2.3 "free DOS edge"
+>   is wrong). Only **α** stays a Q-protected anchor; the §4 "two anchors / one prohibition" was
+>   over-tight (Q protects α — a propagating-mode question — but not single-pole, a DOS-edge one);
+>   the §6/§2 tension resolves *by agreement* (the §6 Anastopoulos–Hu kernel is itself super-Ohmic).
+> - **Round 2:** the round-1 fix over-corrected. Its `s=2` conflated the DOS with the spectral
+>   density `J(ω)` (the `1/ω_k` mode normalization gives the massless linear case `s=1`, Ohmic), and
+>   the exponent is *collisionality-dependent* (collisional `s=1` / collisionless-vacuum `s≈2` /
+>   collisionless-thermal a `δ(ω)`), not a single number. **Single-pole-ness is therefore
+>   PENDING-REVIEW — well-motivated (`s≥1` across all clean branches; sub-Ohmic forbidden by
+>   masslessness) but NOT a theorem.** The deciding finite-T `⟨T_TT T_TT⟩(ω,k→0)` is externalized.
+>
+> **The body below is the pre-review v1 record;** corrections are in
+> [SPECIALIST_RESPONSE.md](SPECIALIST_RESPONSE.md) (§R2 at top) and the gate (`single_pole` is
+> **PENDING-REVIEW**, a tier added for exactly this state). Affected sections carry inline ⚠ markers.
 
 ---
 
@@ -38,8 +44,10 @@ action does not fix**:
   exponent `s ≥ 1`. We compute the reduction explicitly and show `s` is the bath's *transport
   exponent*: `s = 1` for a collisional bath (Kubo), `s =` the free density-of-states edge for a
   collisionless one. The action fixes **neither the collisionality nor the edge**.
-  *(⚠ Revision 1: WRONG — the edge is not free. A relativistic massless bath has `ρ~ω²`, so
-  `s = 2`–`5 ≥ 1`; single-pole-ness is DERIVED. See SPECIALIST_RESPONSE.md §2.)*
+  *(⚠ Revised: the edge is not free (relativity fixes `ρ~ω²`). But round 2 corrected the rest —
+  `J(ω)≠`DOS (`1/ω_k` ⇒ linear `s=1`, Ohmic), and the exponent is collisionality-dependent. Net:
+  `s≥1` across branches but NOT a single exponent ⇒ single-pole is **PENDING-REVIEW**, not derived.
+  See SPECIALIST_RESPONSE.md §R2.)*
 - **α = 1/3** holds iff the conformal (Riegert, spin-0) mode is the infrared carrier of the
   vacuum response. We compute `a/c = 1/3` from the trace anomaly (scheme-independent, validated
   against tabulated CFT values, **not** reverse-fit) and show the **carrier identity is free
@@ -52,12 +60,13 @@ share a single cause: **deriving either parameter would require a new propagatin
 (the in-in causal arrow, the same prohibition behind the framework's no-go theorems) **forbids
 exactly that**. So GRUT's two foundational anchors and its no-gos are **one prohibition**.
 
-> **⚠ Revision 1:** the paragraph above is **half wrong**. It holds for **α** (a propagating-mode
+> **⚠ Revised:** the paragraph above is **half wrong**. It holds for **α** (a propagating-mode
 > question — Q genuinely bites). It fails for **single-pole**: the slow threat there is a sub-Ohmic
-> *continuum* (a branch cut), which is *not* a new propagating pole, so Q neither blocks nor
-> completes that derivation — and the derivation is instead *done* by the relativistic DOS
-> (`s ≥ 1`). Single-pole is **DERIVED**, not anchored. Corrected headline: **one Q-protected anchor
-> (α) + one super-Ohmic theorem (single-pole)**.
+> *continuum* (a branch cut), which is *not* a new propagating pole, so Q is orthogonal to it. The
+> single-pole verdict is instead a DOS-edge / collisionality question, *argued* `s ≥ 1` across
+> branches but with the exact exponent open — so single-pole is **PENDING-REVIEW**, not anchored and
+> not (yet) derived. Corrected headline: **one Q-protected anchor (α) + one well-motivated
+> strong-conjecture-pending-computation (single-pole)**.
 
 Everything below is mechanized: 13 claims in a tier registry, 39 runnable tests, a build gate
 that fails on any laundering. The point of this document is to take the result **out of the
@@ -178,11 +187,12 @@ Code: `v4/targets/bath_spectrum.py`.
 ### 2.3 Target 1C — curved space does not fix `s` either; `single_pole → ANCHOR`
 
 > **⚠ Revision 1 — this section's conclusion is RETRACTED.** It treats the DOS IR-edge as free
-> data. It is not: a massless relativistic bath (`ω=c|k|`) has `ρ(ω)~ω²`, so `s = 2`–`5 ≥ 1`
-> (super-Ohmic) and single-pole-ness is DERIVED. *Collisionless free fields are super-Ohmic in
-> 3+1D, not sub-Ohmic.* The H-friction-break and de-Sitter-IR-protection sub-results below remain
-> valid; only "free ⇒ slow ⇒ ANCHOR" is wrong. See SPECIALIST_RESPONSE.md §2 and
-> `targets/fast_mode_dos.py`.
+> data (relativity fixes `ρ~ω²`). But `J(ω)` is **not** the DOS — the `1/ω_k` mode normalization
+> gives the massless linear case `s=1` (Ohmic), not `s=2`, and the exponent is collisionality-
+> dependent (collisional `s=1` / collisionless-vacuum `s≈2` / collisionless-thermal a `δ(ω)`). Net:
+> `s≥1` across all clean branches and sub-Ohmic is forbidden by masslessness, so single-pole-ness is
+> **PENDING-REVIEW** (well-motivated, not a theorem). The H-friction-break and dS-IR-protection
+> sub-results below remain valid. See SPECIALIST_RESPONSE.md §R2 and `targets/fast_mode_dos.py`.
 
 The verdict lives in the IR, where curvature matters; this is the second route. `J(ω)` for a
 bath bilinearly coupled to the slow shear is the **coupling-weighted bath density of states**, so
@@ -288,9 +298,9 @@ live expert debate. We claim only that GRUT does not *force* the carrier.
 > **⚠ Revision 1 — over-tight; downgraded.** The "one prohibition protects *both*" claim holds for
 > **α** (a propagating-mode question; Q bites) but **not** for single-pole (a DOS-edge question; the
 > sub-Ohmic *continuum* threat is a branch cut, not a new pole, so Q is orthogonal to it). And
-> single-pole is now DERIVED by the relativistic DOS, not anchored at all. Corrected: **Q-protection
-> is real for α only.** This was the most aesthetically pleasing result in the arc and got the least
-> scrutiny — the reviewer caught it. See SPECIALIST_RESPONSE.md §4.
+> single-pole is no longer anchored at all (it is PENDING-REVIEW — argued `s≥1`, exponent open).
+> Corrected: **Q-protection is real for α only.** This was the most aesthetically pleasing result in
+> the arc and got the least scrutiny — the reviewer caught it. See SPECIALIST_RESPONSE.md §4/§R2.
 
 Running both parameters' second routes surfaced a connection we did not go looking for, and it
 falls out rather than being imposed:
@@ -320,8 +330,8 @@ anchored, borrowed, open, and falsifiable — without trusting us.
 |---|---|---|
 | CTP action | ANCHOR (axiom) | foundational |
 | `τ₀`, `τ_micro` | ANCHOR | measured-type scales |
-| **single-pole law** | **DERIVED** *(⚠ Rev 1: was ANCHOR)* | super-Ohmic theorem — committed massless DOS `ρ~ω²` ⇒ `s≥1` (`fast_mode_content` anchor; Target 1D) |
-| `fast_mode_content` | ANCHOR *(Rev 1, new)* | the commitment: fast modes are massless relativistic (`ω=c|k|`) — implied by 1/r + relativistic CTP |
+| **single-pole law** | **PENDING-REVIEW** *(⚠ was ANCHOR → ~~DERIVED~~)* | argued `s≥1` across branches (collisional `s=1` / collisionless `s≈2`); exact exponent open; sub-Ohmic forbidden by masslessness (Target 1D) |
+| `fast_mode_content` | ANCHOR *(new)* | the commitment: fast modes are massless relativistic (`ω=c|k|`) — implied by 1/r + relativistic CTP |
 | **α = 1/3** | **ANCHOR** | `a/c=1/3` robust; antecedent (IR carrier) free data on 2 routes |
 | Q (causal arrow) | DERIVED | checked; clean |
 | μ_linear = 1 | DERIVED | checked; clean (P^TT no-go) |

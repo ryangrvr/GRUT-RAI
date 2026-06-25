@@ -1,12 +1,55 @@
-# Response to Specialist Review — Revision 1
+# Response to Specialist Review
 
-### GRUT-RAI v4.1, "Two Q-Protected Anchors" → "One Q-Protected Anchor + One Super-Ohmic Theorem"
+### GRUT-RAI v4.1, single-pole status: ANCHOR → ~~DERIVED~~ → **PENDING-REVIEW**
 
-**2026-06-24** · in reply to the first external review of [WRITEUP.md](WRITEUP.md)
+**2026-06-24** · §0–§8 below are Revision 1 (round 1); §R2 at top is Revision 2 (round 2)
 
 ---
 
-## 0. What the review did
+> ## ⚠ R2 — ROUND-2 CORRECTION (you were right again; I over-corrected in round 1)
+>
+> You caught two things and both land. **(1) The `s = 2` was still wrong** — it conflated the DOS
+> with the spectral density. `J(ω)` carries the field-mode normalization `1/(2ω_k)`, and for a
+> local linear coupling to a massless field in 3+1D `J(ω) ∝ ∫d³k (1/ω_k) δ(ω−c|k|) ∝ ω` — **Ohmic,
+> `s = 1` (marginal), not `s = 2`.** I verified it two ways; the number is fixed in
+> `targets/fast_mode_dos.py::linear_coupling_s`. That a wrong intermediate survived a "first-hand
+> re-derivation" is the tell you named — the DOS argument wearing the spectral density's clothes,
+> the v4 sin in miniature. Owned.
+>
+> **(2) The exponent is not settled by power-counting — it's collisionality-dependent**, the one
+> thing the framework leaves free. The honest map (now in the module):
+> - **collisional** (`T_c`, hydrodynamic): Kubo `Im G_R^{TT}(ω) ~ ηω` ⇒ `s = 1` (Ohmic). *This
+>   branch is live* — a vacuum at `T_c` has thermal structure; my round-1 "needs self-interaction
+>   beyond the action" was wrong.
+> - **collisionless vacuum** (`T=0`): stress-tensor phase space ⇒ `s ≈ 2` (your value; my `s = 5`
+>   needed GRUT's quadrupole/spin-2 vertex, uncomputed — retracted).
+> - **collisionless thermal**: a free-gas `δ(ω)` spike on the continuum — an object to interpret,
+>   not an exponent.
+>
+> **What survives, and what doesn't.** Survives: every clean branch is `s ≥ 1`, and `s < 1` needs
+> an IR-enhanced DOS masslessness forbids — so single-pole-ness is **well-motivated across
+> branches**. Does not: "relativity fixes the DOS to `ω²` so `s = 2`," and the graduation to
+> DERIVED built on it. **`DERIVED … pending review` was a contradiction in my own tier system.**
+>
+> **Action taken.** Added a `PENDING_REVIEW` tier to the gate (your recommendation) — a
+> derivation-grade *argument* that does not pass a settling check, which a DERIVED claim may not
+> consume. Re-tiered `single_pole` DERIVED → **PENDING_REVIEW**, with the cross-branch argument as
+> its support and the finite-T computation as its settle condition. The round-1 graduation is
+> reverted; the honest record (1C wrong, round-1 wrong) is kept, not overwritten. Gate: 14 claims,
+> 0 violations; 46 tests pass.
+>
+> **The externalized question (your phrasing, recorded verbatim as the settle target):** *A slow
+> variable bilinearly coupled to the transverse-traceless sector of a thermal massless field
+> (graviton bath at `T_c`) — what is the IR exponent of the influence-functional `J(ω)` as `ω→0`?
+> Does finite-T interacting `⟨T_TT T_TT⟩(ω,k→0)` give Ohmic (`s=1`, hydrodynamic viscosity peak)
+> or super-Ohmic (`s≥2`, free phase space), and how is the free-gas `δ(ω)` handled?*
+>
+> The rest of round 1 stands: α holds, Q2/Q4 sound, §4 over-tight. Only the single-pole half moved
+> — from a premature theorem to an honest strong-conjecture-pending-computation.
+
+---
+
+## 0. What the review did *(round 1)*
 
 You found the load-bearing tension on first pass, traced it across §2/§4/§6, and handed back a
 *constructive* correction that makes the foundation stronger, not weaker. Every code and physics
@@ -124,6 +167,9 @@ correctly placed in the antecedent, which §3.2/Q2 handles.
 ---
 
 ## 6. Where the foundation stands now
+
+> *(⚠ This is the round-1 table. The single-pole row below — "DERIVED, super-Ohmic theorem" — was
+> itself corrected in round 2: see §R2 at the top. Current tier is **PENDING-REVIEW**.)*
 
 | Parameter | Before | After this review |
 |---|---|---|
