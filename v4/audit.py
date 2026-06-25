@@ -88,8 +88,8 @@ def render() -> str:
         for c in spine_open:
             p(f"     - {c.id}: {c.target}")
     else:
-        p("  research spine: CLOSED — single-pole and α proven non-derivable on two routes each,")
-        p("    both ANCHORED; the same Q-unitarity that powers the no-gos protects both anchors.")
+        p("  research spine: α is ANCHORED + Q-protected (Targets 2/2B); single-pole GRADUATED to")
+        p("    DERIVED (super-Ohmic theorem from the committed massless DOS, Target 1D, post-review).")
     p(f"  GATE: {'PASS (0 violations)' if not viols else 'FAIL — ' + str(len(viols)) + ' violations'}")
     return "\n".join(L)
 

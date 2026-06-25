@@ -1,5 +1,17 @@
 """GRUT-RAI v4.1 — TARGET 1C: the curved-space IR exponent s of the TT-shear bath.
 
+╔══════════════════════════════════════════════════════════════════════════════════════╗
+║ CORRECTED BY EXTERNAL REVIEW (2026-06-24). This module's central conclusion — "s is    ║
+║ free data, collisionless ⇒ s<1 ⇒ slow ⇒ single-pole ANCHORED" — IS WRONG, and is kept  ║
+║ here as the honest record of the error. A specialist showed the DOS edge is NOT free   ║
+║ for a relativistic vacuum: "massless + 1/r + relativistic CTP" commits to ω=c|k|, whose ║
+║ DOS is ρ(ω)~ω² (super-Ohmic), so s≥1 and single-pole-ness is a THEOREM. The mistake     ║
+║ below was treating the DOS IR-edge as a free dial; relativity fixes it. See the         ║
+║ correction and graduation in targets/fast_mode_dos.py (Target 1D). The H-friction-break ║
+║ and de-Sitter-IR-protection legs below remain correct; only the "free ⇒ slow ⇒ ANCHOR" ║
+║ conclusion is retracted.                                                                ║
+╚══════════════════════════════════════════════════════════════════════════════════════╝
+
 Target 1B reduced single-pole-ness to ONE number: the IR exponent s of the bath spectral
 density J(ω) ~ ω^s (ω→0). s≥1 ⇒ single-pole THEOREM; s<1 ⇒ sub-Ohmic power-law continuum
 (SLOW). Flat-space did not fix s. The verdict lives in the IR, where curvature matters; this

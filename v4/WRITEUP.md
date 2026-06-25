@@ -6,6 +6,20 @@
 
 ---
 
+> **⚠ REVISION 1 (post external specialist review, 2026-06-24).** A qualified reviewer overturned
+> the single-pole half of this note's headline. The correction is *constructive*: GRUT is not
+> input-free on the dispersion relation — "massless + 1/r + relativistic CTP" commits to `ω=c|k|`,
+> whose density of states is `ρ(ω)~ω²` (super-Ohmic), so the bath IR exponent `s ≥ 1` is **fixed,
+> not free**, and **single-pole-ness GRADUATES from anchor to a derived theorem.** Only **α** remains
+> a Q-protected anchor; the "two anchors / one prohibition" unification (§4) was over-tight (Q
+> protects α — a propagating-mode question — but not single-pole, a DOS-edge question). The §6/§2
+> tension the reviewer flagged is real and resolves *by agreement* (the §6 Anastopoulos–Hu kernel
+> is itself super-Ohmic). **The body below is the pre-review v1 record;** the corrections are in
+> [SPECIALIST_RESPONSE.md](SPECIALIST_RESPONSE.md) and the gate (`single_pole` is now DERIVED).
+> Affected sections carry inline ⚠ markers.
+
+---
+
 ## Abstract
 
 GRUT (the Grand Responsive Universe Theory) is built on a Schwinger–Keldysh closed-time-path
@@ -24,6 +38,8 @@ action does not fix**:
   exponent `s ≥ 1`. We compute the reduction explicitly and show `s` is the bath's *transport
   exponent*: `s = 1` for a collisional bath (Kubo), `s =` the free density-of-states edge for a
   collisionless one. The action fixes **neither the collisionality nor the edge**.
+  *(⚠ Revision 1: WRONG — the edge is not free. A relativistic massless bath has `ρ~ω²`, so
+  `s = 2`–`5 ≥ 1`; single-pole-ness is DERIVED. See SPECIALIST_RESPONSE.md §2.)*
 - **α = 1/3** holds iff the conformal (Riegert, spin-0) mode is the infrared carrier of the
   vacuum response. We compute `a/c = 1/3` from the trace anomaly (scheme-independent, validated
   against tabulated CFT values, **not** reverse-fit) and show the **carrier identity is free
@@ -35,6 +51,13 @@ share a single cause: **deriving either parameter would require a new propagatin
 — a dark pole for single-pole-ness, a propagating conformal mode for α — and GRUT's Q-unitarity
 (the in-in causal arrow, the same prohibition behind the framework's no-go theorems) **forbids
 exactly that**. So GRUT's two foundational anchors and its no-gos are **one prohibition**.
+
+> **⚠ Revision 1:** the paragraph above is **half wrong**. It holds for **α** (a propagating-mode
+> question — Q genuinely bites). It fails for **single-pole**: the slow threat there is a sub-Ohmic
+> *continuum* (a branch cut), which is *not* a new propagating pole, so Q neither blocks nor
+> completes that derivation — and the derivation is instead *done* by the relativistic DOS
+> (`s ≥ 1`). Single-pole is **DERIVED**, not anchored. Corrected headline: **one Q-protected anchor
+> (α) + one super-Ohmic theorem (single-pole)**.
 
 Everything below is mechanized: 13 claims in a tier registry, 39 runnable tests, a build gate
 that fails on any laundering. The point of this document is to take the result **out of the
@@ -154,6 +177,13 @@ Code: `v4/targets/bath_spectrum.py`.
 
 ### 2.3 Target 1C — curved space does not fix `s` either; `single_pole → ANCHOR`
 
+> **⚠ Revision 1 — this section's conclusion is RETRACTED.** It treats the DOS IR-edge as free
+> data. It is not: a massless relativistic bath (`ω=c|k|`) has `ρ(ω)~ω²`, so `s = 2`–`5 ≥ 1`
+> (super-Ohmic) and single-pole-ness is DERIVED. *Collisionless free fields are super-Ohmic in
+> 3+1D, not sub-Ohmic.* The H-friction-break and de-Sitter-IR-protection sub-results below remain
+> valid; only "free ⇒ slow ⇒ ANCHOR" is wrong. See SPECIALIST_RESPONSE.md §2 and
+> `targets/fast_mode_dos.py`.
+
 The verdict lives in the IR, where curvature matters; this is the second route. `J(ω)` for a
 bath bilinearly coupled to the slow shear is the **coupling-weighted bath density of states**, so
 `s` is the bath's **transport exponent**:
@@ -255,6 +285,13 @@ live expert debate. We claim only that GRUT does not *force* the carrier.
 
 ## 4. The unification: one prohibition
 
+> **⚠ Revision 1 — over-tight; downgraded.** The "one prohibition protects *both*" claim holds for
+> **α** (a propagating-mode question; Q bites) but **not** for single-pole (a DOS-edge question; the
+> sub-Ohmic *continuum* threat is a branch cut, not a new pole, so Q is orthogonal to it). And
+> single-pole is now DERIVED by the relativistic DOS, not anchored at all. Corrected: **Q-protection
+> is real for α only.** This was the most aesthetically pleasing result in the arc and got the least
+> scrutiny — the reviewer caught it. See SPECIALIST_RESPONSE.md §4.
+
 Running both parameters' second routes surfaced a connection we did not go looking for, and it
 falls out rather than being imposed:
 
@@ -283,7 +320,8 @@ anchored, borrowed, open, and falsifiable — without trusting us.
 |---|---|---|
 | CTP action | ANCHOR (axiom) | foundational |
 | `τ₀`, `τ_micro` | ANCHOR | measured-type scales |
-| **single-pole law** | **ANCHOR** | proven non-derivable on 2 routes; missing datum = bath collisionality |
+| **single-pole law** | **DERIVED** *(⚠ Rev 1: was ANCHOR)* | super-Ohmic theorem — committed massless DOS `ρ~ω²` ⇒ `s≥1` (`fast_mode_content` anchor; Target 1D) |
+| `fast_mode_content` | ANCHOR *(Rev 1, new)* | the commitment: fast modes are massless relativistic (`ω=c|k|`) — implied by 1/r + relativistic CTP |
 | **α = 1/3** | **ANCHOR** | `a/c=1/3` robust; antecedent (IR carrier) free data on 2 routes |
 | Q (causal arrow) | DERIVED | checked; clean |
 | μ_linear = 1 | DERIVED | checked; clean (P^TT no-go) |
@@ -300,6 +338,13 @@ non-derivability and anchoring honestly. Gate: 13 claims, 0 violations. Tests: *
 ---
 
 ## 6. The standalone falsifier
+
+> **⚠ Revision 1.** "Independent of the above" is too strong, and the reviewer caught why: a
+> fully-specified noise kernel is, by the FDT of §2, a fully-specified dissipation kernel — hence a
+> fixed `s`. The Anastopoulos–Hu kernel here is **super-Ohmic** (`J~ω³`, `s≈3`), so §6 always
+> committed `s ≥ 1`. Far from conflicting with §2, this *agrees* with the corrected §2 (single-pole
+> derived, super-Ohmic) — the apparent "`s` free" of v1 §2 was the error, now fixed. The 689 Hz
+> number and its F6 discriminator are unaffected.
 
 Independent of the above, GRUT predicts a **gravitational-decoherence plateau ≈ 689 Hz** for a
 1 μm gold sphere, from the Diósi / Anastopoulos–Hu noise kernel tied to the `τ₀` scale, with

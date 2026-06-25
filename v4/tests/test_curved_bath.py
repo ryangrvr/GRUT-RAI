@@ -57,10 +57,10 @@ def test_grut_curved_ir_exponent_raises():
         cb.grut_curved_ir_exponent()
 
 
-def test_single_pole_retiered_to_anchor_and_gate_passes():
-    """1C re-tiered single_pole OPEN→ANCHOR; the gate still passes and the relic no-go now reads
-    as conditional on the anchored posit (SPLIT), not provisional on an open gap."""
-    assert REGISTRY["constitutive_law_single_pole"].tier == gate.Tier.ANCHOR
+def test_single_pole_was_corrected_to_derived_post_review():
+    """1C ORIGINALLY re-tiered single_pole OPEN→ANCHOR on a free-DOS-edge argument. External
+    review (2026-06-24) showed that argument backwards for a relativistic vacuum, so single_pole
+    GRADUATED ANCHOR→DERIVED (super-Ohmic theorem, Target 1D). This test pins the correction; the
+    still-valid 1C legs (H-friction break, dS-IR protection) are tested above and still pass."""
+    assert REGISTRY["constitutive_law_single_pole"].tier == gate.Tier.DERIVED
     assert gate.validate(REGISTRY) == []
-    assert "constitutive_law_single_pole" in gate.anchored_inputs(REGISTRY, "propagating_relic_no_go")
-    assert gate.provisional_on(REGISTRY, "propagating_relic_no_go") == []

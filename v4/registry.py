@@ -11,6 +11,7 @@ from __future__ import annotations
 from v4.gate import Claim, Tier, Novelty, Step
 from v4 import checks
 from v4.falsifiers import decoherence_689hz as decoh
+from v4.targets import fast_mode_dos
 
 _CLAIMS = [
     # ── FOUNDATION: anchors, entered visibly as load-bearing inputs ──────────────
@@ -26,7 +27,15 @@ _CLAIMS = [
           "τ_micro = ℏ/(k_B T_c) ≈ 1.4×10⁻¹⁹ s — the microscopic correlation scale.",
           Tier.ANCHOR),
 
-    # ── FOUNDATION: both research-spine gaps are now proven ANCHORS (Targets 1C, 2) ──────
+    # ── FOUNDATION: α is an ANCHOR (Target 2/2B); single-pole GRADUATED to DERIVED (1D) ──
+    Claim("fast_mode_content",
+          "The vacuum's fast (Mori–Zwanzig orthogonal) modes are standard massless relativistic "
+          "field modes — dispersion ω=c|k|, local TT/derivative coupling to the slow shear. This "
+          "is the COMMITMENT already implied by the existing anchors (the 1/r kernel ⇒ massless "
+          "mediator; the relativistic CTP action ⇒ Lorentz-invariant dispersion), made EXPLICIT "
+          "after external specialist review (2026-06-24). It de-commits only for an exotic "
+          "non-relativistic / IR-enhanced substrate, which masslessness argues against.",
+          Tier.ANCHOR, axiom=False),
     Claim("alpha",
           "α = 1/3 — the dimensionless vacuum impedance — POSITED, not derived. GRUT's "
           "conditional theorem is a/c=1/3 ⟹ α=1/3 IF the conformal Riegert mode is the IR "
@@ -45,22 +54,32 @@ _CLAIMS = [
           "conformalon) but does NOT FORCE the carrier. So α is an ANCHOR on TWO exhausted routes, "
           "symmetric with single-pole. De-anchor condition: a legitimate non-ghost conformalon "
           "dominating the IR — itself tensioned by GRUT's Q-unitarity (so not merely unestablished). "
-          "Q-unitarity (no new propagating vacuum pole) protects BOTH spine anchors.",
+          "Q-unitarity (no new propagating vacuum pole) protects THIS (α) anchor — a propagating-mode "
+          "question. CORRECTION (external review, 2026-06-24): it does NOT protect single-pole, which "
+          "is a DOS-edge question Q does not address (a sub-Ohmic continuum is no new pole) — and "
+          "single-pole has since GRADUATED to DERIVED anyway. The 'one prohibition, two anchors' "
+          "unification was over-tight: Q-protection is real for α only.",
           Tier.ANCHOR, axiom=False),
     Claim("constitutive_law_single_pole",
-          "The single-pole constitutive law τ₀ż + z = z_target (χ = α/(1−iωτ₀)) — POSITED, not "
-          "derived. Single-pole-ness reduces to ONE number: the IR exponent s of the TT-shear "
-          "bath J(ω) (s≥1 ⇒ single-pole theorem; s<1 ⇒ a dark sub-Ohmic continuum). BOTH "
-          "derivation routes failed to fix s: flat-space (1B, targets/bath_spectrum.py) and "
-          "curved-space de Sitter/FRW (1C, targets/curved_bath.py). s is the bath TRANSPORT "
-          "exponent — 1 if collisional (Kubo/finite shear viscosity), the free DOS-edge if "
-          "collisionless — and GRUT's Q + FDT + 1/r kernel + KMS(T_c) fix NEITHER the "
-          "collisionality NOR the DOS edge. (1C also broke 1B's 'Hubble-friction ⇒ fast' lean and "
-          "closed only the de Sitter-IR slow channel.) With both routes exhausted, single-pole-ness "
-          "is an ANCHOR (a posited input), not a theorem — it de-anchors only if GRUT later "
-          "specifies the bath microphysics. v4's τ_K=τ_micro (assume s=1) was the fast conclusion "
-          "smuggled in as an input; now entered HONESTLY as a visible anchor instead.",
-          Tier.ANCHOR, axiom=False),
+          "The single-pole constitutive law τ₀ż + z = z_target (χ = α/(1−iωτ₀)). DERIVED — "
+          "GRADUATED from ANCHOR after external specialist review (2026-06-24). Single-pole-ness "
+          "⟺ the bath IR exponent s ≥ 1, and for GRUT's COMMITTED fast modes (massless, ω=c|k|) "
+          "the density of states is ρ(ω)~ω² (super-Ohmic), giving s=2 (linear coupling) to s=5 "
+          "(stress-tensor T~(∂φ)²) — both ≥ 1, so τ_K is UV-set and the Markovian single-pole "
+          "form is exact. The s<1 (slow) escape needs an IR-ENHANCED DOS that masslessness "
+          "forbids. This CORRECTS Targets 1B/1C, which treated the DOS edge as FREE and wrongly "
+          "anchored single-pole; relativity FIXES the edge (targets/fast_mode_dos.py). Consistent "
+          "with §6: the Anastopoulos–Hu 689 Hz kernel is itself super-Ohmic (s≈3), so the "
+          "falsifier always committed s≥1. Rests on the fast-mode commitment; returned to the "
+          "specialist for second review before treated as fully settled.",
+          Tier.DERIVED, inputs=("ctp_action", "fast_mode_content"),
+          derivation_ref="targets/fast_mode_dos.py — massless relativistic DOS ρ~ω² ⇒ s≥1 (super-Ohmic)",
+          check=fast_mode_dos.check_single_pole_super_ohmic,
+          check_ref="targets.fast_mode_dos.check_single_pole_super_ohmic",
+          step=Step.DERIVE, novelty=Novelty.COMPOSITION,
+          novelty_cite="Caldeira–Leggett spectral-density classification + the relativistic DOS "
+                       "(KNOWN); NEW: single-pole-ness as a super-Ohmic theorem fixed by the "
+                       "vacuum's masslessness, correcting the free-DOS-edge reading (external review)."),
 
     # ── FORWARD RUNGS: DERIVED (derivation_ref + passing check + novelty) ─────────
     Claim("Q_causal_arrow",
@@ -117,15 +136,16 @@ _CLAIMS = [
           novelty_cite="Diósi / Anastopoulos–Hu noise kernel, CQG 30 165007 (2013) "
                        "(KNOWN-REUSED); NEW: the extended-body F6 kink + the τ₀-tied plateau."),
 
-    # ── A NO-GO (FORBIDDEN) — CONDITIONAL on the single-pole ANCHOR (audit shows SPLIT) ──
+    # ── A NO-GO (FORBIDDEN) — forbids a new propagating pole; single-pole is now DERIVED ──
     Claim("propagating_relic_no_go",
           "No new propagating vacuum pole may be built from the vacuum's action "
           "(higher-derivative TT operator ⇒ Ostrogradsky ghost ⇒ Im χ<0 ⇒ N<0 by FDT "
           "⇒ Q-violation). The dark-matter no-go and the hierarchy-magnitude no-go are "
-          "this same prohibition. SCOPE (re-stated after 1C): this forbids a new UNDAMPED "
-          "DISCRETE pole; it is CONDITIONAL on the single-pole ANCHOR. It does NOT exclude the "
-          "sub-Ohmic dark CONTINUUM that an s<1 bath would produce — that slow channel is closed "
-          "only as a discrete relic (FDT positivity, 1B/1C), not as a continuum.",
+          "this same prohibition. SCOPE (re-stated after external review): this forbids a new "
+          "UNDAMPED DISCRETE pole — a propagating-mode statement. It does NOT by itself exclude a "
+          "sub-Ohmic CONTINUUM (a branch cut is no new pole); but that escape is independently "
+          "closed because GRUT's committed massless bath is super-Ohmic (single-pole now DERIVED, "
+          "targets/fast_mode_dos.py), not by this no-go.",
           Tier.FORBIDDEN, inputs=("ctp_action", "constitutive_law_single_pole"),
           derivation_ref="Ostrogradsky + Q/FDT pincer; single-mode pole classification",
           novelty=Novelty.REUSED,
