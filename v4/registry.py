@@ -2,9 +2,12 @@
 
 Every claim is a gate.Claim. The build (ci_check.py) runs gate.validate over this
 registry; it must return zero violations. The audit (audit.py) renders the
-one-pass reader view. This file is small ON PURPOSE: the brief forbids expanding
-sectors before the two OPEN targets (K̃, S⁴ a/c) land. Breadth on an unproven
-footing is the v4 baggage in cleaner code.
+one-pass reader view. The two foundational parameters (single-pole, α) are ANCHORS —
+each on a free datum the action does not fix (collisionality; the IR-carrier identity),
+established across three rounds of external review. With the kernel carried SWAPPABLE,
+the closed-viscoelastic spine (four constitutive inputs) is now pinned, and the first
+forward target — the Deborah number running with scale — is a DERIVED consequence that
+does NOT depend on resolving the kernel fork.
 """
 from __future__ import annotations
 
@@ -71,6 +74,39 @@ _CLAIMS = [
           "(⇒ single-pole) or free-streaming (⇒ refuted) — map the z·T_TT vertex onto GW-in-medium "
           "(Weinberg 2004, Hawking 1966 answer each branch)."),
 
+    # ── THE CLOSED-VISCOELASTIC SPINE: four constitutive inputs (the reviewer's forward plan) ──
+    #    The medium is a closed viscoelastic solid; these four inputs define it. Pin them as
+    #    anchors now; the kernel is SWAPPABLE (the fork is unresolved). Forward targets compute
+    #    consequences (Target 3 below: the Deborah mechanism — kernel-independent).
+    Claim("relaxation_kernel",
+          "INPUT 1 — the relaxation kernel K(t), i.e. the medium's RHEOLOGY, carried as a SWAPPABLE "
+          "parameter (NOT a settled value): single-pole (Maxwell) / power-law (critical gel) / "
+          "multi-mode. Which one is the collisionality fork (Targets 1C/1D); constitutive_law_single_"
+          "pole is its Maxwell instance (holds on the viscous branch, fails — Weinberg non-local — on "
+          "the free-streaming branch). Carrying it swappable is the round-3 discipline.",
+          Tier.ANCHOR, axiom=False),
+    Claim("closure_condition",
+          "INPUT 2 — CLOSED system. ENERGY is conserved within the medium (1st law). FINE-GRAINED "
+          "information is conserved only under unitary/Liouville evolution — a SEPARATE statement, and "
+          "at that level there is no dissipation. At the COARSE-GRAINED level the relaxation kernel and "
+          "loss modulus actually describe, memory is redistributed into inaccessible micro-correlations "
+          "(operationally lost) and coarse-grained entropy rises. So 'the vacuum remembers ever since' "
+          "is literal only fine-grained; at the resolved level it is metaphor — and on the continuum / "
+          "free-streaming branch memory radiates to k→∞ and never returns (Poincaré recurrence → ∞). A "
+          "posited structural property; the strong 'eternal literal memory' reading is unsupported "
+          "(corrected after an adversarial pre-screen, C-D).",
+          Tier.ANCHOR, axiom=False),
+    Claim("driving_strain",
+          "INPUT 3 — the driving strain the medium responds to: the source/forcing whose history the "
+          "kernel integrates. Posited as a spine input; its microphysical origin is left open here.",
+          Tier.ANCHOR, axiom=False),
+    Claim("scale_coupling",
+          "INPUT 4 — the scale-coupling: relaxation at one scale feeds structure at the next "
+          "('scaling and remembering'). It sets the probe-time-vs-scale law t_probe(L) that makes the "
+          "Deborah number run with scale. Posited as a spine input; the explicit cross-scale (RG-like) "
+          "map is left open.",
+          Tier.ANCHOR, axiom=False),
+
     # ── FORWARD RUNGS: DERIVED (derivation_ref + passing check + novelty) ─────────
     Claim("Q_causal_arrow",
           "Q — the in-in causal arrow: physics responds only to realized past "
@@ -125,6 +161,21 @@ _CLAIMS = [
           step=Step.DERIVE, novelty=Novelty.COMPOSITION,
           novelty_cite="Diósi / Anastopoulos–Hu noise kernel, CQG 30 165007 (2013) "
                        "(KNOWN-REUSED); NEW: the extended-body F6 kink + the τ₀-tied plateau."),
+    Claim("deborah_runs_with_scale",
+          "The closed medium's scale-structure, from the Deborah number De(L)=τ_relax/t_probe(L). On "
+          "the single-τ / Maxwell (collisional) branch there is ONE dividing scale L*=c_s·τ_relax — "
+          "elastic (holds structure) below, viscous (flows) above — so 'different aspects of reality "
+          "at different scales' is literal THERE. On the power-law / free-streaming (Weinberg) branch "
+          "there is NO characteristic time, NO L*, and the medium is SCALE-FREE (the same aspect at "
+          "every scale). So this does NOT bypass the kernel fork — it presupposes the collisional side; "
+          "its value is that the two branches predict DIFFERENT scale-structure (a dividing scale vs "
+          "scale invariance), an OBSERVABLE HANDLE on the fork. HOSTED/PLACE: De(L)=c_s·τ/L is "
+          "algebraic substitution of two anchors (the kernel's τ + the posited probe law t_probe=L/c_s), "
+          "NOT a derivation. The character discriminant is DEGENERATE (many-to-one: closely-spaced "
+          "multi-mode mimics Maxwell, a continuum mimics power-law). c_s free; the c_s=c value (~12.9 "
+          "Mpc) is suggestive only. (Corrected after an adversarial pre-screen broke the first "
+          "'kernel-independent forward motion' framing; targets/deborah_scaling.py.)",
+          Tier.HOSTED, inputs=("relaxation_kernel", "scale_coupling", "tau0"), step=Step.PLACE),
 
     # ── A NO-GO (FORBIDDEN) — forbids a new propagating pole; single-pole is now DERIVED ──
     Claim("propagating_relic_no_go",
