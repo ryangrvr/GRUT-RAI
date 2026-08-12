@@ -186,3 +186,35 @@ caught it, as it caught the same error once before.)
             recordable as a research note (as the assembly-attempt entry correctly did), and
             is not a reply from the audience of record. No sentence in this entry adds to,
             narrows, or glosses what C1 says.
+
+2026-08-10  RESEARCH NOTE: THE LITERATURE PASS ON C1'S OBJECT (in-house work product; same
+            handling as the in-house assembly attempt). Cites v4, sha256 =
+            f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61. Touches no
+            channel line. *** NO STOP TRIGGER FIRES: C1 remains STILL OPEN. *** Its cause
+            SHARPENS on this note, from "unbuilt" to "possibly ill-posed as stated, plus a
+            well-posed static-patch substitute":
+            (1) THE ILL-POSEDNESS EVIDENCE. The dispatch's ask fixes omega conjugate to
+            cosmic time. Across ~200 pages of the audience-of-record corpus (2103.08547,
+            2107.13905, 2409.12003, 2507.04308, 2508.17787, 2601.12887, 2601.09309,
+            2501.05077) the terms frequency / omega / Fourier / spectral / retarded / pole /
+            branch cut / damping score ZERO. Three structural reasons, not oversight:
+            Sigma(x;x') is never reduced to a time difference; the leading-log truncation
+            trades the two-time kernel for a local ODE in T = Ht; the stochastic field's
+            band [H, Ha(t)] moves with absolute time. The dispatch is marked HELD with this
+            reason on its face; the C1 clock has not started (no send).
+            (2) THE OPEN ROUTE, RECORDED NOT BANKED: in the dS STATIC PATCH omega exists as
+            the boost eigenvalue. Bernar-Crispino-Higuchi (arXiv:1405.3827) give an
+            IR-finite, time-translation-invariant graviton two-point function there;
+            Anninos-Hartnoll-Hofman (arXiv:1109.4942) give the graviton retarded Green's
+            function in omega as a ratio of Gamma functions -- meromorphic, poles only.
+            Free spectral weight vanishes linearly as omega -> 0, and the poles form a
+            GAPPED TOWER at |omega| >= 2H -- not a single pole. Arnaudo-Withers
+            (2510.18956, 2511.17703) prove a branch cut is a line of dS quasinormal-mode
+            poles coalescing as Lambda -> 0+. NOBODY has computed a loop correction to a dS
+            graviton QNM. If C1 is re-posed, the well-posed form is plausibly "does the
+            one-loop graviton correction move the static-patch QNM tower toward or away
+            from a single dominant relaxation pole" -- recorded as a candidate re-pose,
+            asserting nothing.
+            (3) BOUNDARY OF THIS ENTRY: in-house instrument output, not a reply from the
+            audience of record (per the clarifying entry above); no channel verdict changes;
+            no register field moves on this note.

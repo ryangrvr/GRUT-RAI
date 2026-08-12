@@ -1,5 +1,24 @@
 # C1 in-house assembly attempt — how far the pole-vs-cut question can be pushed without the specialist
 
+> ## ERRATUM (2026-08-10b) — four source-verified corrections; the body below is retained unedited
+> 1. **T² is a coefficient function, not a structure function** (p.23: "the only one of the
+>    coefficient functions Tⁱ(x;x′) that contributes is T²(x;x′)"). The nine structure functions
+>    are T¹², T¹⁶, T¹⁸, T¹⁹, S², S⁴, S⁷, S⁸, S¹⁰ (p.14, Epilogue); eq. (81) makes T² a composite
+>    of six of them. Step 1's "one of the nine structure functions" is wrong at the category.
+> 2. **The tabulated T² is the in-out (Feynman) object, not retarded** — Step 1's "T² *is* the
+>    (gauge-fixed) retarded TT self-energy kernel" is wrong at the definition. In 48 pages:
+>    `retarded` 0, `causal` 0, `Schwinger` 0, `Keldysh` 0, `in-in` 0; T*-ordered VEVs at
+>    eqs. (116), (133); Feynman iε at eq. (9). The SK conversion is arXiv:2107.13905 §2.2.3
+>    (T²_SK; eqs. (52)–(55) create the causal support and branch structure).
+> 3. **"exact one-loop coincidence-limit tables" is inverted on both words** — §4.2: "The actual
+>    computation [22] was made in D=4 dimensions before it was understood how to employ
+>    dimensional regularization, so it can only be used away from coincidence." Not dim-reg'd,
+>    not renormalized, missing local terms.
+> 4. **A position-space ln(H²∆x²) is not time-domain secularity** — that needs the x′ integration
+>    of eq. (109), which the paper explicitly has not done (Epilogue). "Demonstrably nonzero and
+>    secular" overstates: NONZERO is established; "secular" awaits the integration.
+
+
 *Node: `rung3_single_pole` / channel `C1` (`PREREG_TERMINATION_V4_2026-08-10.txt`). Status: **NOT a resolution of C1** — R2 ("nodes decide") and R4 ("quotes decide") govern C1's actual channel line, logged separately in `provenance/prereg/RESULT_TERMINATION_events.txt`. This file is an in-house computation attempt using only published, cited results — the thing DISPATCH_ONE_PAGE.md was sent out precisely because this attempt cannot finish it. Read as: how far can the existing literature legitimately carry the assembly before hitting a named, uncompleted piece of machinery — not as a specialist-grade derivation.*
 
 *Sources (full technical extraction in `c1_assembly_technical_inputs.md`, not copied into this repo — cite directly): Tan, Tsamis, Woodard, [arXiv:2103.08547](https://arxiv.org/abs/2103.08547) (CQG 38 (2021) 145024); Glavan, Miao, Prokopec, Woodard, [arXiv:2602.07908](https://arxiv.org/abs/2602.07908) (JHEP 04 (2026) 159); Mora, Tsamis, Woodard, [arXiv:1307.1422](https://arxiv.org/abs/1307.1422) (JCAP 10 (2013) 018); Tan, Tsamis, Woodard, [arXiv:2107.13905](https://arxiv.org/abs/2107.13905) (Phil. Trans. R. Soc. A 380 (2021) 0187); Miao, Tsamis, Woodard, [arXiv:2409.12003](https://arxiv.org/abs/2409.12003) ("Leading Logarithm Quantum Gravity").
