@@ -68,3 +68,51 @@ class TestDocSync(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestAnchorConditionalityTravels(unittest.TestCase):
+    """ENFORCEMENT HOOK (2026-08-10c, overseer-found). The four-boundaries anchor claim was
+    corrected in STATE.md and NOT in GRUT_I_What_Survived.md -- which STATE.md itself calls
+    "the label-for-label deposit", i.e. the document written for external readers. The
+    correction landed in the internal snapshot and skipped the public one.
+
+    That is the RELOCATION pattern, not a new error class: fixing an inconsistency in one of two
+    documents MOVES it instead of closing it. A claim this load-bearing must not depend on
+    someone remembering both sites, so it is carried here the way the register stamps are.
+
+    THE AUTHORITY IS THE LEDGER: NO_GO_LEDGER.md holds the no-crossing "conditional on the open
+    `rung3` (a no-go cannot outrank its anchor) -- held `to-derive`." Any document asserting the
+    boundaries are clean of the anchor must carry that conditionality in the same breath."""
+
+    PHRASE = "clean of the open anchor"
+    # the qualifier that must accompany it -- any of these forms
+    QUALIFIERS = ("anchor-conditional", "anchor-CONDITIONAL", "conditional on the open",
+                  "THREE of the four", "three are clean")
+    WINDOW = 1200   # chars after the phrase within which the qualifier must appear
+
+    def test_the_ledger_still_states_the_conditionality(self):
+        """Guard the authority itself: if the ledger's own line is ever softened, this fires
+        first -- otherwise the docs below could be 'corrected' toward a claim nobody holds."""
+        with open(os.path.join(ROOT, "NO_GO_LEDGER.md")) as f:
+            led = f.read()
+        self.assertIn("conditional on the open", led,
+                      "NO_GO_LEDGER is the authority on boundary strength grades; its "
+                      "anchor-conditionality line is missing")
+        self.assertIn("a no-go cannot outrank its anchor", led)
+
+    def test_no_doc_asserts_anchor_cleanliness_unqualified(self):
+        import glob
+        offenders = []
+        for path in sorted(glob.glob(os.path.join(ROOT, "*.md"))):
+            with open(path) as f:
+                text = f.read()
+            for m in re.finditer(re.escape(self.PHRASE), text):
+                window = text[m.start():m.start() + self.WINDOW]
+                if not any(q in window for q in self.QUALIFIERS):
+                    offenders.append(f"{os.path.basename(path)} @ char {m.start()}")
+        self.assertFalse(offenders,
+                         f"unqualified anchor-cleanliness assertion at: {offenders}. "
+                         f"NO_GO_LEDGER.md holds the no-crossing conditional on the open rung3; "
+                         f"three of the four boundaries are anchor-clean, the fourth is not. "
+                         f"Carry the conditionality in the same passage, or the correction has "
+                         f"merely RELOCATED to whichever document you did not edit.")
