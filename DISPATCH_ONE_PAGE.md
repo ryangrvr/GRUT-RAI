@@ -47,4 +47,4 @@ We maintain a small research program (an open-system, finite-memory framing of t
 
 Either way the answer is publishable stand-alone dS physics; our use of it is downstream and attributed.
 
-**Contact:** Ryan Graver — ryngrvr@gmail.com. We will send the full brief, our conventions file, and our own partial computations (with their recorded dead-ends) on request.
+**Contact:** D. Ryan Grover — ryngrvr@gmail.com. We will send the full brief, our conventions file, and our own partial computations (with their recorded dead-ends) on request.

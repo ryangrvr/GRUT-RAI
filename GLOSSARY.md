@@ -58,3 +58,51 @@ private language. **Rule: any banking that coins a term adds its line here in th
 | **quotable** | the one number/statement from a calculation that may be cited downstream; everything else is diagnostic |
 | **D3 deposit** | the pre-defined honorable ending: publish the ontology + derived boundaries + method, and stop |
 | **the dispatch** | the one-page external question (pole vs cut of the vacuum's tensor response) that only an outside specialist can answer |
+
+---
+
+## "Specialist" — what the register has actually meant (added 2026-08-12, B0.2 audit)
+
+> **Standing rule for any public-facing document: the word "specialist" never appears unqualified.
+> Either name the modality in the same sentence ("an AI-relayed adversarial pass," "an in-house
+> screen") or do not use the word. In a public document "specialist" says *human expert* to every
+> reader, and on this program's record that reading would be false.**
+
+**The audit.** `provenance/claims.json` contains **41 occurrences of "specialist"/"specialists"
+across 15 of 70 claims** (verified by Python `re` over the raw file at every commit in the repo's
+history — the count has never differed). Classified by which sense is in force:
+
+| sense | count | what it denotes | risk |
+|---|---|---|---|
+| **A — prospective / reserved** | **17** | *"frontier-reserved (specialist, not in-house)," "escalate to a … specialist," "reserve for specialist," "the specialist dispatch."* A **future** human expert. Asserts that nobody has done this. | Low — these are honest statements of what is owed. |
+| **B — a pass that was RUN, and whose output was banked** | **22** | *"finite-T CONFIRMED 2026-06-25 by open-systems specialist," "RESOLVED 2026-06-26 (specialist)," "EXTERNAL CHECK 2026-07-04 … an independent specialist … INDEPENDENTLY reconstructed the identical disposition," "the verified specialist deliverable," "CEILING-CHECK ANSWERED by the specialist."* | **High — this is the dangerous class.** |
+| **C — collective/generic** | **2** | *"three specialists conflict"* — shorthand for three analytical positions. | Low. |
+
+**What the record does and does not establish about class B.**
+
+The register **never records the modality** of any class-B pass — not once, in 22 occurrences. It
+does not say "human expert," and it does not say "AI-relayed." That silence is itself the finding.
+
+What the record *does* establish, checkably:
+
+- **No transmission to any external human expert is logged at any date.** The event log states the
+  one drafted ask "remains unsent," and a later entry confirms "no entry since records a send to
+  either author group."
+- **The one time a class-B-style entry was examined, it was an in-house instrument.** The event log
+  entry of 2026-08-10 records that words previously logged as a reply were "output of an AI
+  literature-research tool operated by the owner — an in-house instrument," and rules the general
+  case: such output "is in-house work product, recordable as a research note … and is not a reply
+  from the audience of record."
+
+So the honest statement is: **class-B "specialist" denotes an adversarial or literature pass run by
+the owner — presumptively AI-relayed on the one precedent the record contains — and no occurrence
+of the word anywhere in this register is backed by a logged communication with an outside human.**
+
+**The concentration matters.** 13 of the 22 class-B occurrences sit in one node,
+`rung3_single_pole` — the framework's load-bearing structural conjecture — including the sentence
+*"the FIRST external check logged in this register."* That is the single most misreadable line in
+the register, in the single most load-bearing node.
+
+**Why the register text is NOT being mass-renamed.** The register is a historical record and
+rewriting it would destroy the evidence of what was believed when. The fix is this entry, plus the
+standing rule above, plus the enforcement test in `provenance/test_doc_sync.py`.

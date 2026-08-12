@@ -1,5 +1,33 @@
 # rung3 — the spectral structure of the earned-under-determined disposition (in-house toy + verdict)
 
+> ## ⚠️ LOAD-BEARING INPUT SUPERSEDED (marked 2026-08-12) — READ BEFORE USING THE O(G²) RESULT
+>
+> **This file's entire premise is the frozen-TT input, and that input was re-scoped on 2026-08-10.**
+> The document below rests on "the TT graviton mode function is frozen at one loop," taken from
+> Tan–Tsamis–Woodard arXiv:2103.08547. The register's scoping correction of 2026-08-10
+> (`rung3_single_pole.boundary_condition`, source-verified) established that the paper's
+> "no changes in the graviton mode function" sentence is **explicitly SCALAR-LOOP-SCOPED** — its
+> citation is Park–Woodard 2011, the massless-minimally-coupled-scalar computation. For the
+> **graviton loop**, the same paper's Table 8 entries are **nonzero and carry ln(H²Δx²)**.
+>
+> **Consequence for the O(G²) conclusion:** the "frozen at O(G) ⇒ leading TT dissipation is O(G²)"
+> chain holds **for scalar-loop sources**. For graviton-loop sources — which is GRUT's own case,
+> the pure-graviton self-energy — the premise is contradicted at the gauge-fixed level, so the
+> O(G²) localization **does not carry over unexamined**. Whether the graviton-loop TT dissipation
+> is still O(G²) for some other reason is **open and uncomputed**; nothing here establishes it.
+>
+> **What survives unchanged:** the secular-envelope → low-ω-singularity dictionary itself (verified,
+> self-test at rel.err ~1e-13); the fence that "frozen at O(G)" means **silent**, not Class A and
+> not Class B, with **both horns live**; and the file's own catch that the spin-0 "Class-B-like"
+> label re-performed the retracted secular-log⇒cut shortcut.
+>
+> **Recorded as the pattern, not an excuse:** the 2026-08-10 correction reached the register node,
+> then the standing documents, then the source registry entry — and **not this calculation's
+> write-up**, which is where the superseded premise does the most work. Fourth relocation site.
+> The O(G²) result must not be used in any public document at its stated strength until the
+> graviton-loop case is worked or the claim is restated as scalar-loop-scoped.
+
+
 *Turns the QUALITATIVE spine-test result ("earned under-determined") into its QUANTITATIVE form. The spine test banked that the de Sitter secular growth is channel-dependent (spin-0 potentials Ψ,Φ grow ∼ ln a; the TT graviton mode function is frozen at one loop). This feeds that channel-resolved input through the exact secular-envelope → low-ω-singularity dictionary and reads off ρ(ω)=2 Im G_R(ω) channel by channel. Code: `calc/rung3_spectral_structure.py`. Register: `rung3_single_pole` (derived-pending, ledger 0 — UNCHANGED). Scope, held throughout: **TOY/SCALING** (envelopes, not the tensor/gauge-invariant self-energy), inputs at **leading-order/simplest-gauge**, **O(G) un-resummed**. Default-BROKEN: the win is the honest quantitative form, not a resolved class.*
 
 ---

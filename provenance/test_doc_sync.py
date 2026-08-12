@@ -107,7 +107,7 @@ class TestAnchorConditionalityTravels(unittest.TestCase):
             with open(path) as f:
                 text = f.read()
             for m in re.finditer(re.escape(self.PHRASE), text):
-                window = text[m.start():m.start() + self.WINDOW]
+                window = text[max(0, m.start() - self.WINDOW):m.start() + self.WINDOW]
                 if not any(q in window for q in self.QUALIFIERS):
                     offenders.append(f"{os.path.basename(path)} @ char {m.start()}")
         self.assertFalse(offenders,
@@ -116,3 +116,58 @@ class TestAnchorConditionalityTravels(unittest.TestCase):
                          f"three of the four boundaries are anchor-clean, the fourth is not. "
                          f"Carry the conditionality in the same passage, or the correction has "
                          f"merely RELOCATED to whichever document you did not edit.")
+
+
+class TestSpecialistNeverUnqualifiedInPublicDocs(unittest.TestCase):
+    """B0.2 ENFORCEMENT (2026-08-12). In this register "specialist" denotes, 22 times out of 41,
+    a pass that was RUN and banked -- with the modality never recorded, and no logged transmission
+    to any outside human at any date. In a public document the word says "human expert" to every
+    reader. The register keeps its historical text; PUBLIC-FACING documents may not use the word
+    without naming the modality in the same sentence.
+
+    Scoped to public documents by an explicit list, so adding a public doc is a deliberate act
+    that opts into the rule."""
+
+    PUBLIC_DOCS = ["GRUT_V1_PLAIN.md", "DISPATCH_ONE_PAGE.md", "README.md", "HOW_TO_VERIFY.md"]
+    # A public doc may use the word only if the qualification appears NEAR it -- in EITHER
+    # direction. The first draft looked forward only, and immediately mis-flagged the correction
+    # notes it had just caused to be written (where the qualifier precedes the quoted word). A
+    # one-directional window is the wrong shape for a rule about a word travelling with its
+    # qualifier.
+    WINDOW = 400
+    QUALIFIERS = ("AI-relayed", "AI relayed", "in-house", "no outside", "unsent", "drafted",
+                  "never answered", "no human", "AI-assisted", "would be", "outside experts",
+                  "prospective", "owner-run", "outside human",
+                  # A mention that POINTS THE READER AT THE AUDIT is qualified by construction --
+                  # that is what the glossary entry is for. Without this the rule mis-flags its
+                  # own correction notes, which is the guard eating its own remedy.
+                  "GLOSSARY")
+
+    def test_no_public_doc_uses_specialist_unqualified(self):
+        import glob
+        offenders = []
+        for name in self.PUBLIC_DOCS:
+            path = os.path.join(ROOT, name)
+            if not os.path.exists(path):
+                continue
+            text = open(path).read()
+            for m in re.finditer(r"[Ss]pecialists?", text):
+                window = text[max(0, m.start() - self.WINDOW):m.start() + self.WINDOW]
+                if not any(q in window for q in self.QUALIFIERS):
+                    offenders.append(f"{name} @ char {m.start()}: "
+                                     f"...{text[max(0, m.start()-90):m.start()+90]}...")
+        self.assertFalse(offenders,
+                         "unqualified use of 'specialist' in a public document:\n  " +
+                         "\n  ".join(offenders) +
+                         "\n\nIn this register the word denotes an owner-run pass 22 times out of "
+                         "41, modality never recorded, with NO logged transmission to any outside "
+                         "human at any date. Name the modality in the same sentence or drop the "
+                         "word. See GLOSSARY.md, the 2026-08-12 B0.2 audit entry.")
+
+    def test_the_glossary_carries_the_audit(self):
+        with open(os.path.join(ROOT, "GLOSSARY.md")) as f:
+            g = f.read()
+        for phrase in ("what the register has actually meant", "41 occurrences",
+                       "never records the modality", "No transmission to any external human"):
+            self.assertIn(phrase.lower(), g.lower(),
+                          f"GLOSSARY.md is missing the B0.2 audit element: {phrase!r}")

@@ -53,7 +53,8 @@ gate/         the hard gates, as functions not slogans
   kms.py          KMS/FDT admission gate: a kernel enters the foundation only if it passes detailed balance
 calc/         the physics calculations (each one a runnable falsifier)
   finite_T_exponent.py   kill-shot #1 — does finite-T break single-pole?
-  RESULTS_finite_T.md    the result: soften-not-break (lead; awaiting specialist sign-off)
+  RESULTS_finite_T.md    the result: soften-not-break (lead; awaiting outside-expert sign-off,
+                         which as of 2026-08-12 has never been sought or received)
 ```
 All pure Python 3 stdlib — no deps, so the calculations are inspectable and reproducible as-is.
 
@@ -69,7 +70,8 @@ Adversarial review returned REJECT-pending-three-repairs on the physics headline
 crediting the discipline scaffolding. The four legs (in-in/CTP, Mori-Zwanzig, FDT/KMS,
 trace-anomaly α) verified against primaries. Open kill-shots:
 1. **finite-T single-pole** — COMPUTED: soften-not-break (s:3→2, still super-Ohmic, S(0)=0,
-   cutoff-set memory). Pending specialist pole-structure sign-off. → `calc/RESULTS_finite_T.md`
+   cutoff-set memory). Pending pole-structure sign-off by an outside expert — never sought or received as of
+   2026-08-12; the in-house passes recorded below were owner-run. → `calc/RESULTS_finite_T.md`
 2. **falsifier energy-basis** — RECOMPUTED: relocated, not dead. The differentiator is the
    energy-basis signature (Γ scales with energy gap ΔE, ignores spatial size Δx — orthogonal to
    DP/CSL), and it is *independent of #1*. "689 Hz parameter-free" retired → staked cutoff scale
@@ -90,8 +92,12 @@ matching shape is to-derive. A second observable independent of rung 8 (GW dissi
 Im[χ]) is still open.
 
 Rung 3 (`finite_T_exponent.py`) is now **DERIVED** — single-pole confirmed at finite T by an
-open-systems specialist (analyticity: S∼aω²+bω⁴, no second pole), conditional on no second
-bath scale (see two-scale finding above).
+owner-run open-systems adversarial pass (analyticity: S∼aω²+bω⁴, no second pole), conditional
+on no second bath scale (see two-scale finding above). **[QUALIFIED 2026-08-12: this note read
+"by an open-systems specialist," which in a public document says *human expert*. The register
+never records the modality of any such pass and logs no transmission to an outside human at any
+date — see `GLOSSARY.md`'s "specialist" entry. The tier was later re-qualified as
+regime-conditional and rung3 now stands `derived-pending`; this build-log line is historical.]**
 
 **Rung 4 GW dissipation** (`gw_dissipation_bounds.py`, `calc/RESULTS_gw.md`): outcome **(B)
 real-but-unobservable** — Im[χ] gives GW dephasing/v_g≠c (absent in GR) but ~10²²–10⁶² orders
@@ -99,7 +105,11 @@ below LIGO; GW170817 speed bound satisfied with 26–66 orders to spare (not bin
 a second differentiator; the smallness is the same Planck suppression that gives solar-system
 safety, so it does not weaken GRUT.
 
-**Specialist verdicts (2026-06-25, all four questions answered — `SPECIALIST_BRIEF.md`):**
+**In-house adversarial-pass verdicts (2026-06-25, four questions worked — `SPECIALIST_BRIEF.md`):**
+**[QUALIFIED 2026-08-12: this heading read "Specialist verdicts … all four questions answered,"
+which asserts outside experts answered. They did not. These were owner-run passes; the register
+logs no transmission to any outside human at any date, and the one drafted ask remains unsent.
+See `GLOSSARY.md`'s "specialist" entry (41 occurrences audited, 22 of them of this class).]**
 - **Q1** energy-basis falsifier — decision tree confirmed; survival reduces to one operator-algebra
   question: does the effective gravitational coupling satisfy **[A, H_S] ≠ 0**? Yes → samples
   S(ΔE), falsifier lives; no → samples S(0)=0, quiet bath, falsifier dies. **The decisive next calc.**

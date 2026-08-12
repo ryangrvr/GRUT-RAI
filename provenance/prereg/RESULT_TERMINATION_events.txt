@@ -250,3 +250,17 @@ caught it, as it caught the same error once before.)
             pre-seed baseline differed from working in exactly one node, one field
             (rung3_single_pole.boundary_condition, missing the second correction); its
             shape was intact ({_comment, claims}, 70 claims, rung3 present).
+
+2026-08-12  CLERICAL CORRECTION: THE SIGNATORY'S NAME. Cites v4, sha256 =
+            f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61. Touches no
+            channel line; no stop trigger fires; the signing entry above is NOT edited
+            (append-only log; the entry is part of the in-force record).
+            The signing entry of 2026-08-10 reads "SIGNED: Ryan Graver". The signatory's
+            name is D. RYAN GROVER (as registered on the program's public deposits:
+            "Grover, D. Ryan"). The misspelling is CLERICAL and affects no operative
+            content: the signature's force attaches to the owner's recorded act of signing,
+            not to the orthography of the string. The same clerical error appeared in
+            DISPATCH_ONE_PAGE.md's contact line, this repository's LICENSE, the claimledger
+            package metadata, and the git commit author fields of both repositories (left
+            as-is in history; corrected at source for future commits). All prose sites
+            corrected 2026-08-12.
