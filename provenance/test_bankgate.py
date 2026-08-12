@@ -136,3 +136,51 @@ class TestWaiverCostsAndSeverity(unittest.TestCase):
         self.assertEqual(sev.get("zeta_interior_family"), "TIER-OR-LEDGER",
                          f"an unearned graduation rendered as {sev.get('zeta_interior_family')!r} "
                          f"-- it must be categorically distinct, or it hides in alarm fatigue")
+
+
+class TestBaselineIsNotGitHead(unittest.TestCase):
+    """REGRESSION LOCK (2026-08-10). `git init` once silently switched the gate's baseline from
+    the --accept snapshot to git HEAD, so committing a register edit auto-accepted it -- the
+    pre-upload pass consumed its own pending flag. The baseline must be claims.baseline.json
+    UNCONDITIONALLY: version control records HISTORY, the snapshot records ACCEPTANCE. Without
+    this test the defect silently returns; this class has recurred enough to earn a permanent
+    guard."""
+
+    def test_resolver_reads_the_snapshot_not_head(self):
+        """Direct: the resolver's label must be the snapshot file, and its content must equal the
+        snapshot's content -- in a tree where git HEAD and the snapshot DISAGREE (they do right
+        now whenever an accepted state differs from the last commit; construct the disagreement
+        explicitly so the test does not depend on repo state)."""
+        import bankgate, json, copy
+        baseline, label = bankgate._resolve_baseline()
+        self.assertEqual(label, bankgate.BASELINE,
+                         f"baseline resolved to {label!r} -- git HEAD must never be a baseline "
+                         f"source; commit is not accept")
+        snap = json.load(open(os.path.join(HERE, bankgate.BASELINE)))["claims"]
+        self.assertEqual(baseline, snap)
+
+    def test_a_committed_but_unaccepted_edit_still_flags(self):
+        """Behavioral: simulate the exact failure -- an edit present in the working set (as it
+        would be after `git commit`) but NOT in the snapshot. The gate MUST report it. Under the
+        old resolver this returned CLEAN because HEAD already contained the edit."""
+        import bankgate, json, copy
+        baseline, _ = bankgate._resolve_baseline()
+        working = copy.deepcopy(baseline)
+        target = next(c for c in working if c["id"] == "rung3_single_pole")
+        target["boundary_condition"] = (target.get("boundary_condition", "") +
+                                        " [SIMULATED COMMITTED-BUT-UNACCEPTED EDIT]")
+        srcs = set(json.load(open(os.path.join(HERE, "sources.json"))))
+        rep = bank_gate(baseline, working, srcs)
+        self.assertEqual(rep["overall"], "FLAG-FOR-FIREWALL",
+                         "a committed-but-unaccepted edit must FLAG -- if this is CLEAN, "
+                         "commit has become accept again")
+        self.assertEqual([r["claim_id"] for r in rep["flags"]], ["rung3_single_pole"])
+
+    def test_no_git_invocation_remains_in_bankgate(self):
+        """The module must not consult git at all -- a future 'helpful' fallback is the same
+        regression wearing a smaller hat."""
+        import inspect, bankgate
+        src = inspect.getsource(bankgate)
+        self.assertNotIn("git", src.replace("git init converted", "").replace("GIT INIT CONVERTED", "")
+                         .replace("`git init`", "").replace("git HEAD", "").replace("under git ", ""),
+                         "bankgate must not invoke git; only prose mentions of the regression are allowed")

@@ -17,6 +17,11 @@ DOCS = ["STATE.md", "POSTULATE_MAP.md", "GRUT_II_Agenda.md", "GRUT_I_What_Surviv
     "X_FLOOR_MAP.md",            # marker that nothing was enforcing (firewall finding)
 ]
 MARKER = re.compile(r"<!-- REGISTER-SYNC: (\d+) nodes, net \+(\d+) -->")
+# B1 (2026-08-10): the sync marker's count is GRUT-scope and readers running len(claims) got 70 --
+# so every marker now travels with a TOTAL stamp naming BOTH counts and BOTH nets. Machine-checked
+# here so the stamps derive from the register rather than being hand-maintained prose.
+TOTAL = re.compile(r"<!-- REGISTER-TOTAL: (\d+) = (\d+) grut \+ (\d+) vacuum-cluster; "
+                   r"nets \+(\d+) grut, \+(\d+) cluster -->")
 
 
 class TestDocSync(unittest.TestCase):
@@ -26,6 +31,12 @@ class TestDocSync(unittest.TestCase):
         # SCOPED 2026-08-04: the REGISTER-SYNC markers in the standing docs describe GRUT's
         # register. Out-of-scope nodes (the vacuum-cluster map) have their own deliverable and
         # their own gate, and must not silently move GRUT's doc markers.
+        self.total = len(claims)
+        cluster = [c for c in claims if c.get("ledger_scope") == "vacuum-cluster"]
+        self.n_cluster = len(cluster)
+        self.net_cluster = sum(c.get("ledger_delta", 0) for c in cluster
+                               if isinstance(c.get("ledger_delta"), int)
+                               and not isinstance(c.get("ledger_delta"), bool))
         claims = [c for c in claims if c.get("ledger_scope", "grut") == "grut"]
         self.n = len(claims)
         self.net = sum(c.get("ledger_delta", 0) for c in claims
@@ -42,6 +53,17 @@ class TestDocSync(unittest.TestCase):
                                  f"{doc}: marker says {m.group(1)} nodes, register has {self.n}")
                 self.assertEqual(int(m.group(2)), self.net,
                                  f"{doc}: marker says net +{m.group(2)}, register nets +{self.net}")
+            totals = list(TOTAL.finditer(text))
+            self.assertEqual(len(totals), len(markers),
+                             f"{doc}: every REGISTER-SYNC marker must travel with a REGISTER-TOTAL "
+                             f"stamp (found {len(markers)} sync, {len(totals)} total) -- the "
+                             f"GRUT-count/full-count ambiguity is what let '49 nodes' read as "
+                             f"falsified against a 70-claim file")
+            for t in totals:
+                got = tuple(int(t.group(i)) for i in range(1, 6))
+                want = (self.total, self.n, self.n_cluster, self.net, self.net_cluster)
+                self.assertEqual(got, want,
+                                 f"{doc}: REGISTER-TOTAL stamp {got} != register {want}")
 
 
 if __name__ == "__main__":

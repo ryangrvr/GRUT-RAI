@@ -6,6 +6,7 @@
 
 *This is the stronger question precisely because it **does not require GRUT to be right**: GRUT becomes a **probe of the universality/microscopic boundary**, not a candidate to validate. That boundary is where the deepest developments in physics have lived — thermodynamics vs statistical mechanics, hydrodynamics vs molecular dynamics, EFT vs UV-completion. V2 is **structural, not empirical** (signature-null persists); modal outcome = structural-clarification + under-determination, not a universality theorem. Six entry claims are posed (`u1_`–`u6_`, ledger 0 each; gate GREEN at net +13, 45 nodes — 34 GRUT claims + 11 borrowed/open-field scaffold; posing open questions adds no underived input).*
 <!-- REGISTER-SYNC: 49 nodes, net +13 -->
+<!-- REGISTER-TOTAL: 70 = 49 grut + 21 vacuum-cluster; nets +13 grut, +0 cluster -->
 
 > **The GRUT II charter (`u0`, governing rule — also `CHARTER.md` §8):** *The purpose of GRUT II is not to derive a Theory of Everything. It is to determine whether constitutive response possesses mathematical structures universal across microscopic realizations. **Every branch is a constrained classification problem with explicit failure states — never an ontology to defend.*** (The central object it classifies — "constitutive organization" — is defined provisionally in `GLOSSARY.md`.)
 

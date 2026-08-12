@@ -3,8 +3,8 @@
 
 The resident (propose/check_change) is a pure library; until now nothing forced a real edit to
 claims.json through it, so 'self-auditing' was a property of the TESTS, not of the register. This gate
-closes that gap: it diffs the working claims.json against a BASELINE (git HEAD if the tree is under
-version control, else the committed snapshot claims.baseline.json) and runs the resident's propose() on
+closes that gap: it diffs the working claims.json against the BASELINE SNAPSHOT claims.baseline.json
+(UNCONDITIONALLY -- never git HEAD; see _resolve_baseline for the 2026-08-10 regression this rule fixed) and runs the resident's propose() on
 every ADDED or MODIFIED claim.
 
   BLOCK              -> a discipline/structural violation (laundering, unresolved dep, cycle).
@@ -26,7 +26,6 @@ bank_gate() is pure (reads nothing, writes nothing); all I/O lives in main().
 import json
 import os
 import shutil
-import subprocess
 import sys
 
 from resident import propose
@@ -133,20 +132,21 @@ def _load(name):
 
 
 def _resolve_baseline():
-    """Return (baseline_claims, label). Prefer git HEAD if the tree is version-controlled; else the
-    committed snapshot claims.baseline.json; else (None, None)."""
-    try:
-        top = subprocess.run(["git", "-C", HERE, "rev-parse", "--show-toplevel"],
-                             capture_output=True, text=True)
-        if top.returncode == 0:
-            root = top.stdout.strip()
-            rel = os.path.relpath(os.path.join(HERE, "claims.json"), root)
-            show = subprocess.run(["git", "-C", HERE, "show", f"HEAD:{rel}"],
-                                  capture_output=True, text=True)
-            if show.returncode == 0 and show.stdout.strip():
-                return json.loads(show.stdout)["claims"], f"git HEAD:{rel}"
-    except (OSError, ValueError):
-        pass
+    """Return (baseline_claims, label). The baseline is claims.baseline.json UNCONDITIONALLY.
+
+    REGRESSION FIX 2026-08-10 (overseer-found, verified by execution): this function used to
+    PREFER git HEAD when the tree was version-controlled. Before the repo was under git that
+    branch was dead code and the gate baselined on the snapshot -- which moves ONLY when a human
+    runs --accept, i.e. a real checkpoint. The moment `git init` ran (the pre-upload pass, commit
+    2c522b20), the baseline silently switched to HEAD -- WHICH MOVES ON EVERY COMMIT. Effect:
+    committing a register edit auto-accepted it; the corrections pass consumed its own pending
+    flag. GIT INIT CONVERTED "COMMIT" INTO "ACCEPT". The instance list gains its cleanest entry:
+    the act of making the register auditable disabled its audit checkpoint.
+
+    Rule now: version control records HISTORY; the snapshot records ACCEPTANCE. They are different
+    facts and the gate reads only the second. The seed path for a fresh tree survives below.
+    Locked by test_bankgate.py::TestBaselineIsNotGitHead (a state where HEAD and the snapshot
+    disagree MUST flag)."""
     if os.path.exists(os.path.join(HERE, BASELINE)):
         return _load(BASELINE)["claims"], BASELINE
     return None, None
@@ -193,7 +193,7 @@ def main(argv=None):
 
     baseline, label = _resolve_baseline()
     if baseline is None:
-        print(f"no baseline found (no git HEAD, no {BASELINE}). Seed one with `bankgate.py --accept`.")
+        print(f"no baseline found (no {BASELINE}). Seed one with `bankgate.py --accept`.")
         return 0
 
     rep = bank_gate(baseline, working, source_ids)

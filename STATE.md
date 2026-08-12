@@ -3,8 +3,11 @@
 > **STAGE CLOSED 2026-08-09** (owner decision) — see `STAGE_CLOSE_2026-08-09.md` for the forest-level state, what was and was not done, and the two owner acts that remain. **[2026-08-10: the second act is DONE — the termination condition was SIGNED (v4, `f4bc613c…`, one page, gate-passed) and is IN FORCE; the signing entry and its three-part seam disclosure are in the companion event log. The remaining owner act is the dispatch send (under v4 no C1 window exists -- silence is still-open, unbounded; the only clock is the stop clock).]** The register below is held, not growing: gates green, bank-gate CLEAN, net +13, all seals verify. The plain-language account is `GRUT_V1_PLAIN.md`.
 
 
-*One page, two-minute read: where the program is, for external review and the deposit decision. Snapshot 2026-08-02; register line and node count current as of 2026-08-09. Crystallization only — this ties the artifacts together; it does not re-derive or duplicate them. Register: **gate GREEN, net +13, 49 nodes** (37 GRUT claims: 26 Version I deposit + 6 Version II entry + `eft_operator_basis` + `zeta_interior_family` + the x-floor trio `passivity_channel_diagonal`/`x_no_pin_theorem`/`kk_static_transfer` (2026-08-09, each Δ0, overseer-ruled split; the transfer question answered same-day, staged); + 11 borrowed/open-field scaffold + `emergence_chain`, the building-stage construction node at Δ0 — the coverage map, `provenance/coverage.py`).*
+*One page, two-minute read: where the program is, for external review and the deposit decision. Snapshot 2026-08-02; register line and node count current as of 2026-08-09. Crystallization only — this ties the artifacts together; it does not re-derive or duplicate them. Register: **gate GREEN; net +13 (GRUT), 0 (cluster); 49 GRUT-scope nodes + 21 vacuum-cluster = 70 in `claims.json`** (37 GRUT claims: 26 Version I deposit + 6 Version II entry + `eft_operator_basis` + `zeta_interior_family` + the x-floor trio `passivity_channel_diagonal`/`x_no_pin_theorem`/`kk_static_transfer` (2026-08-09, each Δ0, overseer-ruled split; the transfer question answered same-day, staged); + 11 borrowed/open-field scaffold + `emergence_chain`, the building-stage construction node at Δ0 — the coverage map, `provenance/coverage.py`).*
 <!-- REGISTER-SYNC: 49 nodes, net +13 -->
+<!-- REGISTER-TOTAL: 70 = 49 grut + 21 vacuum-cluster; nets +13 grut, +0 cluster -->
+*(Count disambiguation: **49** is the GRUT-scope claim count the sync marker tracks; `claims.json` holds **70** total = 49 GRUT + 21 vacuum-cluster. Nets: **+13** GRUT, +0 cluster. Anyone running `len(claims)` gets 70.)*
+Of the **+13**, **+8 rides on four declared `laundering_ok` waivers** (`rung1_inin_action` +3, `rung5_gr_limit` +2, `rung6_qm_limit` +2, `p_tt_ansatz` +1), each carrying a written stance justification — `validate.py` prints the waived total on its own face.
 *Vocabulary gloss for outside readers (added 2026-08-10 after an external reviewer reasonably misread it): **net +13** is the blind SUM of the register's underived-input ledger — the standing price of every assumption, unchanged for weeks and meant to stay unchanged — not a count of new entries; **CLEAN** means the register is unmodified since the last accepted change. Neither is a progress metric.*
 
 
@@ -20,7 +23,7 @@
 
 26 claims, net **+12**. The honest crystallization:
 - **Zero novel positive predictions** (`✓ derived = 0`).
-- **Four derived boundaries** (GRUT-specific negatives, each *clean of the open anchor*): GW-dissipation **invisible-by-suppression** · the α→TT bridge **settled-negative** · an economical evolving w(z) **settled-negative** · μ=4/3 **excluded**.
+- **Four derived boundaries** (GRUT-specific negatives): GW-dissipation **invisible-by-suppression** · the α→TT bridge **settled-negative** · an economical evolving w(z) **settled-negative** · μ=4/3 **excluded**. **[CORRECTED 2026-08-10, in the ledger's direction: the earlier "each clean of the open anchor" overstated — NO_GO_LEDGER's own calibration holds the w(z) entry's no-crossing component *conditional on the open `rung3`* ("a no-go cannot outrank its anchor"), held `to-derive`. Three of the four are anchor-clean; the fourth is anchor-conditional. Note also that `GRUT_V1_PLAIN.md` Part II selects a partly different four (normalization failure · endpoint exclusion · projector-as-choice · anomaly no-pin) and says so explicitly in its selection-honesty paragraph — the two lists serve different questions and are both labeled; the ledger is the authority on strength grades.]**
 - **The responsive-medium ontology** (the one ontological bet) + responsiveness-as-constitutive + finite-memory-as-premise. *(Note: every surviving positive statement is **structural**, not numerical; every death was numerical — see `GRUT_I_What_Survived.md`.)*
 - **A self-auditing method that, screened on itself, declined to bank itself** (weakly-novel synthesis of prior art; owes independent external validation).
 - → `GRUT_I_What_Survived.md` (the label-for-label deposit), `NO_GO_LEDGER.md` (the boundaries), `SIGNATURE_AUDIT.md` (signature-null).
@@ -59,7 +62,7 @@ The four-domain **observable hunt** (pre-registered A/B/C bar, adversarially ref
 **Standing watch:** DESI DR3 + improved low-ℓ ISW cross-correlations (the window's edge).
 
 ## Pointers
-- `provenance/claims.json` — the register (49 nodes). · `provenance/validate.py` — the gate (GREEN, +13). · `provenance/coverage.py` — the coverage map. · `provenance/bankgate.py` — the live bank-time gate.
+- `provenance/claims.json` — the register (70 nodes: 49 GRUT-scope + 21 vacuum-cluster). · `provenance/validate.py` — the gate (GREEN, +13). · `provenance/coverage.py` — the coverage map. · `provenance/bankgate.py` — the live bank-time gate.
 - V1: `GRUT_I_What_Survived.md` · `NO_GO_LEDGER.md` · `SIGNATURE_AUDIT.md` · `POSTULATE_MAP.md`.
 - V2: `GRUT_II_Agenda.md` · `SPECIALIST_BRIEF_rung3_spine.md`.
 - The book: `GRUT_ToE.md` (filename legacy; reframed to the closure/universality frame).

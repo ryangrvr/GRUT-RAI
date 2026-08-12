@@ -2,7 +2,7 @@
 
 *A consolidation of the responsive-vacuum program's strongest, most defensible exports: the things it rules out, excludes, or cannot do. Each entry is stated at its **earned strength** (these are not interchangeable), names its **obstruction class**, points to its **register claim** in `provenance/claims.json`, and — the constructive half — states the **specification it imposes on any completion**. The ledger therefore doubles as the forward roadmap: it is the finite, named list of what a completion must supply or route around.*
 
-*Scope: every entry below is a deflationary / no-go / containment result drawn from a **banked** claim in this rebuild's register. Foundational stances and gates (rung1, rung2) and the single-pole anchor (rung3) are not deflationary exports and are not itemized here. Every entry is a theorem **about GRUT-as-written**, not about nature. Strength labels are load-bearing and distinct — see the legend.*
+*Scope: every entry below is a deflationary / no-go / containment result drawn from a **banked** claim in this rebuild's register (net **+13** GRUT). Of the **+13**, **+8 rides on four declared `laundering_ok` waivers** (`rung1_inin_action` +3, `rung5_gr_limit` +2, `rung6_qm_limit` +2, `p_tt_ansatz` +1), each carrying a written stance justification — `validate.py` prints the waived total on its own face. Foundational stances and gates (rung1, rung2) and the single-pole anchor (rung3) are not deflationary exports and are not itemized here. Every entry is a theorem **about GRUT-as-written**, not about nature. Strength labels are load-bearing and distinct — see the legend.*
 
 ---
 

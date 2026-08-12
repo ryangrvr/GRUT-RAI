@@ -4,6 +4,7 @@
 
 > **Frozen snapshot.** This document is the **Version I deposit — 26 claims, gate GREEN, net +12** — and is held fixed at that milestone. Version II has since opened, and the map has grown borrowed/open scaffold (**live register now 45 nodes: 34 GRUT claims + 11 borrowed/open-field scaffold, net now +13** — the 2026-08-02 restriction booking, the program's first net move — see [`GRUT_II_Agenda.md`](GRUT_II_Agenda.md), `provenance/coverage.py`); those post-V1 nodes are deliberately **not** added here. The 26 labels below are the V1 close.
 <!-- REGISTER-SYNC: 49 nodes, net +13 -->
+<!-- REGISTER-TOTAL: 70 = 49 grut + 21 vacuum-cluster; nets +13 grut, +0 cluster -->
 
 ---
 

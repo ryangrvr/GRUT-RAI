@@ -218,3 +218,35 @@ caught it, as it caught the same error once before.)
             (3) BOUNDARY OF THIS ENTRY: in-house instrument output, not a reply from the
             audience of record (per the clarifying entry above); no channel verdict changes;
             no register field moves on this note.
+
+2026-08-10  PROCESS NOTE: THE BASELINE REGRESSION, AND ONE AUTHORIZED ACCEPT. Cites v4,
+            sha256 = f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61.
+            Touches no channel line; no stop trigger fires.
+            (1) THE REGRESSION (overseer-found, verified by execution). bankgate's baseline
+            resolver PREFERRED git HEAD when the tree was version-controlled. That branch
+            was dead code until the pre-upload pass ran `git init` (commit 2c522b20) -- at
+            which point the baseline silently switched from claims.baseline.json (moves
+            ONLY on a human --accept: a real checkpoint) to HEAD (moves on every commit).
+            Effect: the corrections commit (80c99fe2) auto-consumed its own pending flag;
+            the gate read CLEAN with an unaccepted register edit in the tree. GIT INIT
+            CONVERTED "COMMIT" INTO "ACCEPT". Nothing was laundered -- the edit was
+            verified and is accepted below -- but the checkpoint that would have caught a
+            wrong one was absent between those two commits. INSTANCE LIST: the cleanest
+            occurrence yet of the standing shape -- THE ACT OF MAKING THE REGISTER
+            AUDITABLE (version control) IS WHAT DISABLED ITS AUDIT CHECKPOINT.
+            (2) THE FIX. _resolve_baseline reads claims.baseline.json UNCONDITIONALLY;
+            bankgate no longer consults git at all (version control records HISTORY; the
+            snapshot records ACCEPTANCE). Locked by three tests
+            (test_bankgate.py::TestBaselineIsNotGitHead), including the behavioral one: a
+            committed-but-unaccepted edit MUST flag.
+            (3) THE AUTHORIZED ACCEPT. The rung3_single_pole SECOND CORRECTION
+            (2026-08-10b: T^2 a coefficient function; the tabulated object in-out, not
+            retarded; Table 8 usable only away from coincidence; position-space log is not
+            time-domain secularity) was OVERSEER-VERIFIED BY EXECUTION (full suite 182
+            passed / 1 skipped; register 70 @ +13; correction text read verbatim) and the
+            overseer's follow-up brief of this date is the written authorization to seed
+            the baseline from the current claims.json. The accept carries NO tier move and
+            NO ledger move: rung3 stays derived-pending at Delta 0; net stays +13. The
+            pre-seed baseline differed from working in exactly one node, one field
+            (rung3_single_pole.boundary_condition, missing the second correction); its
+            shape was intact ({_comment, claims}, 70 claims, rung3 present).

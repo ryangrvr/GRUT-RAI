@@ -3,9 +3,10 @@
 ### A research program with an audited-discipline method and a resident consistency-AI — physics as its one tested sector
 
 <!-- REGISTER-SYNC: 49 nodes, net +13 -->
+<!-- REGISTER-TOTAL: 70 = 49 grut + 21 vacuum-cluster; nets +13 grut, +0 cluster -->
 *Vocabulary gloss for outside readers (added 2026-08-10 after an external reviewer reasonably misread it): **net +13** is the blind SUM of the register's underived-input ledger — the standing price of every assumption, unchanged for weeks and meant to stay unchanged — not a count of new entries; **CLEAN** means the register is unmodified since the last accepted change. Neither is a progress metric.*
 
-*Living document — the canonical GRUT book. Compiled 2026-06-27, reframed 2026-06-28. Kept consistent, claim-by-claim, with the machine-checked register (`provenance/claims.json`, validator GREEN at net +13, 45 nodes -- 34 GRUT claims + 11 borrowed/open-field scaffold). This is the program's working record and its eventual Zenodo deposit.*
+*Living document — the canonical GRUT book. Compiled 2026-06-27, reframed 2026-06-28. Kept consistent, claim-by-claim, with the machine-checked register (`provenance/claims.json`, validator GREEN at net +13 GRUT; 49 GRUT-scope + 21 vacuum-cluster = 70 nodes). Of the **+13**, **+8 rides on four declared `laundering_ok` waivers** (`rung1_inin_action` +3, `rung5_gr_limit` +2, `rung6_qm_limit` +2, `p_tt_ansatz` +1), each carrying a written stance justification — `validate.py` prints the waived total on its own face. This is the program's working record and its eventual Zenodo deposit.*
 
 ---
 
@@ -49,7 +50,7 @@ The deepest commitment in this program is not responsiveness. It is the **discip
 
 - **`provenance/claims.json`** — the tiered register: every claim with its tier, sub-status, sources, falsifying computation, and `ledger_delta`. This file is the ground truth this book is checked against.
 - **`provenance/auditor.py`** — the **generalized discipline engine**. `audit(claims, source_ids, valid_tiers)` applies, to *any* claim set, the same checks: every claim **tiered**, **sourced** (sources resolve in the register), **falsifiable** (carries an overturning computation), and **not laundered** (no net-positive `ledger_delta` sold as shown/derived/derived-pending without an explicit stance flag; `assumed`+positive only warns). It is not GRUT-specific.
-- **`provenance/validate.py`** — the GRUT gate: a thin wrapper running the engine on the register, plus one repo-specific invariant (the α-normalization single-count). **GREEN at net +13, 45 nodes.**
+- **`provenance/validate.py`** — the GRUT gate: a thin wrapper running the engine on the register, plus one repo-specific invariant (the α-normalization single-count). **GREEN at net +13 (GRUT); 70 nodes total (49 GRUT-scope + 21 cluster).**
 - **`provenance/bankgate.py`** — the **live bank-time gate** (added 2026-07-06): diffs the working register against an accepted baseline and runs the resident's `propose()` on every changed claim — **BLOCK** stops a bank, **FLAG-FOR-FIREWALL** surfaces it for adversarial screen + overseer verification before acceptance. This converted "self-auditing" from a library the tests exercised into a **property of every edit**.
 - **`provenance/coverage.py`** — the **coverage map** (2026-07-06): every node carries `domain` + `grut_standing` (covered / borrowed / open field / silent, plus a named-absent gap list), so the register reads as a *map of known physics with GRUT's fills marked* — borrowed scaffold can never silently read as GRUT reach (machine-checked over-claim sweep in `test_coverage.py`).
 - **`gate/kms.py`** — the FDT/KMS admission gate as an executable predicate.
@@ -239,7 +240,7 @@ GRUT is an **audited Responsive Open-System Framework**. It adopts the **right t
 Register `provenance/claims.json`, gated by `provenance/validate.py` (→ `provenance/auditor.py`) against `provenance/sources.json`, with `gate/kms.py` the FDT/KMS predicate and `provenance/test_auditor.py` the discipline tests. Calculations are pure-stdlib Python with `RESULTS_*.md` write-ups (`finite_T_exponent.py`, `energy_basis_decoherence.py`, `q1_energy_basis_magnitude.py`, `gw_dissipation_bounds.py`, `wz_dark_energy.py`, `arrow_origin.py`, `mu_linear.py`, the conformalon thread `two_scale_desitter.py`/`conformalon_joint.py`/`conformalon_q2_band.py`/`delta4_stability.py`). Standalone extracts: `ARROW_OF_TIME.md`, `NO_GO_LEDGER.md`, `RESULTS_auditor.md`. Governed by `CHARTER.md`.
 
 ```
-python3 provenance/validate.py        # the gate: GREEN, net +13, 45 nodes
+python3 provenance/validate.py        # the gate: GREEN, net +13 GRUT (70 nodes total)
 python3 provenance/test_auditor.py     # 16 discipline tests
 ```
 Everything runs in seconds with no third-party dependencies — each result inspectable and reproducible as written.
