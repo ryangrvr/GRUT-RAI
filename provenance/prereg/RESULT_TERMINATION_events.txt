@@ -1,0 +1,188 @@
+COMPANION EVENT LOG.
+CITES PRE-REGISTRATION: prereg/PREREG_TERMINATION_2026-08-09.txt
+    sha256 = c504576ef0a2abd0a252b2575f05026d7ee3d9864f3222944a4856f6a83c64f7
+(The sealed file is NEVER edited; events land here. The citation format above is the pinned one --
+the first draft pointed at the manifest instead of carrying the hash, and the citation guard
+caught it, as it caught the same error once before.)
+
+2026-08-09  STAGE CLOSED by owner decision (see STAGE_CLOSE_2026-08-09.md). Recorded facts:
+            - The termination condition remains UNSIGNED and therefore NOT IN FORCE.
+            - The stage close is an owner decision SEPARATE from the sealed condition; it neither
+              triggers nor satisfies any channel. If signed later, the condition binds from the
+              signing date with its channels and date as sealed.
+            - The Part-7 calcs named in channel C3's scope were NOT executed this stage; C3 remains
+              in its pre-registered "still open" state.
+            - DISPATCH SEND DATE: not yet sent. The C1 six-month clock has NOT started.
+
+(append-only below this line)
+2026-08-10  VERSION 2 SEALED: PREREG_TERMINATION_2026-08-10.txt supersedes the 2026-08-09 seal
+            (which remains immutable, unsigned history). Cause: seven structural gaps from two
+            adversarial review passes (P1-P7, REVIEW_PACKET_TERMINATION_2026-08-09.md) -- every
+            channel now carries an explicit still-open outcome; no trigger fires across
+            channels (the C1(b)/mu_linear conflation removed, replaced by a pre-registered
+            adjudication); thresholded outcomes fire only on pre-frozen named thresholds; the
+            date/window ranking is explicit. v2 is UNSIGNED and NOT IN FORCE. Next: the outside
+            adversarial read of v2 (the packet's reviewer), then the owner's sign-or-decline.
+2026-08-10  VERSION 4 SEALED: PREREG_TERMINATION_V4_2026-08-10.txt
+            (sha256 = f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61) -- the
+            one-page rebuild, drafted AGAINST the pre-sealed gate PREREG_V4_GATE_2026-08-10.txt
+            (sha256 = 09a0da0898e869709e6a39c890463310409bda5be0a87e7b831fc4e144ca5dc6, sealed
+            BEFORE drafting). THE GATE PASSED on its single pre-registered internal adversarial
+            pass: all four known failure cases land in exactly one home; 71 lines / 5876 chars
+            (limit 75/7500); burden test passed -- a non-drafting hostile reader produced 13
+            correct deposit lines mechanically in one read; no new bespoke exception machinery.
+            Per the gate's own no-repair rule, v4 is sealed EXACTLY AS PASSED; the pass's
+            non-blocking notes travel in the review packet's gate record for the external
+            reviewer. The v3 draft is retired permanently, unsealed, as the record of the
+            maximal-architecture attempt. v4 supersedes v1 and v2 (sealed unsigned history).
+            v4 is UNSIGNED and NOT IN FORCE. Next: external adversarial read of v4 with the
+            gate record attached, then the owner's sign-or-decline. Future events concerning
+            this condition cite v4's hash above, per its R4/log rule.
+
+2026-08-10  SIGNING OF v4 (sha256 = f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61).
+            The signer records, descriptively and without interpreting any clause, a seam
+            identified by external adversarial review AFTER the gate pass and NOT repaired
+            here -- the gate's no-round-five rule governs, and a repair would be the (C)
+            outcome.
+            R1 lists "landed inside the deposit month and unconsumed" among the still-open
+            causes. R5 scopes consumption of external results to "before the deposit." Three
+            descriptive facts about their interaction:
+            (1) SELF-REPORTING. R1 requires the cause stated in plain words, so any use of
+            that clause appears on the face of the deposit as "landed, unconsumed." It cannot
+            hide a channel, force a resolved reading, or be used silently.
+            (2) PERMANENCE. In-house calculation has stopped by then under R5, and no clause
+            requires the deferred result to be consumed after the deposit is written. A
+            channel reported still-open for this cause may remain so.
+            (3) SILENCE. This document does not address post-deposit consumption of a landed
+            result -- it neither requires nor forbids it. Whether the register may later
+            consume it is undetermined by this condition.
+            Scope of the gate pass: the gate (PREREG_V4_GATE_2026-08-10.txt, sha256 =
+            09a0da0898e869709e6a39c890463310409bda5be0a87e7b831fc4e144ca5dc6) tested cases
+            K1-K4. This seam was not among them. The pass verdict is earned for K1-K4 and
+            says nothing about this interaction.
+
+            SIGNED: Ryan Graver    DATE: 2026-08-10
+            Recorded in this log at the owner's explicit instruction, per v4's own signature
+            block ("the log records the signing; the sealed file is never edited") -- the
+            sealed file's on-face STATUS line ("UNSIGNED = NOT IN FORCE") is superseded by
+            this entry under that same rule. *** THE TERMINATION CONDITION v4 IS NOW IN
+            FORCE from this date. *** Its clock rules bind from here: the stop fires at the
+            earliest of 2026-12-31, discharge of both Part-7 fronts, or a logged
+            unconditional cut-class reply; every future event concerning this condition
+            carries v4's hash, per its log rule. The dispatch remains unsent as of this
+            entry; the C1 six-month window starts only at the send date.
+
+2026-08-10  CLARIFYING ENTRY (append-only; cites v4, sha256 =
+            f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61): the signing
+            entry above ends "the C1 six-month window starts only at the send date." UNDER v4
+            NO SIX-MONTH WINDOW EXISTS -- that vocabulary belongs to superseded v1/v2 (their
+            C1 non-response outcomes) and was imported by drift into the in-force record. In
+            v4, silence and non-substantive replies are STILL OPEN without time bound; the
+            only clock is R5's stop clock. The prior sentence's operative content was
+            protective (denying any clock had started) and is preserved in the correct form:
+            as of the signing, the dispatch is unsent, and no clock of any kind attached to
+            C1 exists or can start under v4. Caught by the independent post-signing
+            coherence audit; recorded rather than edited, per the append-only rule -- one
+            more instance of a superseded document's vocabulary outliving it inside the
+            record meant to govern.
+
+2026-08-10  IMPORT PREAMBLE (append-only; cites v4, sha256 =
+            f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61): the TWO entries
+            below were written in an offline session copy of this log on 2026-08-10 and are
+            imported here VERBATIM as the record of what that session logged -- history is
+            preserved exactly, including its defects; the correcting entry follows the import,
+            append-only, per the standing rule. Until this import, the canonical log ended at
+            the six-month-window clarifying entry above.
+
+2026-08-10  DISPATCH SENT; REPLY RECEIVED (cites v4, sha256 =
+            f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61). The C1 dispatch
+            (DISPATCH_ONE_PAGE.md content, pole-vs-cut question) was put to the external
+            specialist channel this date; a reply was received the same date. R4 (quotes
+            decide, entries assert nothing): the reply's operative words, verbatim --
+            "No source found answers this [exact pole-vs-branch-cut question for the low-
+            frequency TT spectral density of the interacting pure-graviton de Sitter self-
+            energy after gauge-invariant assembly, IR resummation, and analytic continuation]."
+            "the pure-graviton one-loop self-energy exists as a gauge-fixed structure-function
+            object, while gauge-independent assemblies located are scalar-probe/self-mass or
+            conformal-matter potential calculations rather than a pure-graviton TT self-energy."
+            "The problem appears tractable in principle but technically underdeveloped ...
+            No forbidding theorem was found." "the pole-vs-cut question in this specific form
+            has not been posed" -- "Likely correct based on this search."
+            C1 CLASSIFICATION: the quoted words assert neither the POLE class nor the CUT
+            class, conditionally or unconditionally -- the reply reports that the required
+            gauge-invariant pure-graviton TT assembly has not yet been performed by anyone, so
+            there is no computed retarded kernel for the specialist to read a pole-vs-cut
+            verdict off of. `C1 STILL OPEN: no verdict at register grade (R1 cause, verbatim);
+            words quoted above.` Per R1, still-open is never rounded into a resolved outcome --
+            neither (a) POLE nor (b) CUT is available on this record, and none is forced.
+            STOP-TRIGGER CHECK (R5(iii)): the trigger fires on "a logged reply whose own words
+            assert the cut class unconditionally." No quoted sentence above asserts the cut
+            class, conditionally or otherwise (nor the pole class) -- so stop (iii) DOES NOT
+            FIRE on this reply. In-house calculation is not stopped by this event; the R5 clock
+            (2026-12-31 / both Part-7 fronts discharged / a future logged unconditional
+            cut-class reply) is unaffected and continues to run exactly as before this entry.
+            NOTE (not a register predicate, per R4): the reply also flags that the underlying
+            computation -- the gauge-invariant assembled low-omega TT observable for the pure-
+            graviton dS self-energy -- appears tractable but unbuilt, i.e. C1 cannot resolve
+            until that computation exists and someone (in-house or external) reads its low-
+            omega analytic structure. This is a fact about the reply, not a register claim, and
+            binds nothing beyond the mechanical channel line above.
+
+2026-08-10  IN-HOUSE ASSEMBLY ATTEMPT RUN, C1 UNCHANGED (cites v4, sha256 =
+            f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61). Owner requested
+            an in-house push on the C1 object itself ("assemble the C1"); full writeup at
+            `calc/RESULTS_c1_inhouse_assembly_attempt.md`. Per R2 (nodes decide) and R4 (quotes
+            decide), an in-house literature-grounded attempt is NOT a logged specialist reply
+            and does not touch C1's channel line -- recorded here as a research note only.
+            SUMMARY OF THE ATTEMPT: identified T^2 (Tan-Tsamis-Woodard, arXiv:2103.08547, eq.
+            108-109) as the exact gauge-fixed object DISPATCH_ONE_PAGE.md asks about; found it
+            IS secular for graviton-self-loop sources (Table 8, T^2_L != 0; corroborated by
+            Mora-Tsamis-Woodard arXiv:1307.1422 and Tan-Tsamis-Woodard arXiv:2107.13905
+            mode-function results) -- CORRECTING the open "TT-frozen"/trivial-response escape
+            this file's STATE.md had left available; that escape holds only for scalar-loop
+            sources, not graviton-loop sources. Attempt then hit two named, specific blockers,
+            neither a no-go: (A) the gauge-invariant source/observer/external-mode-function
+            assembly of Glavan-Miao-Prokopec-Woodard (arXiv:2602.07908, JHEP 04 (2026) 159) is
+            built only for a scalar probe and has never been formulated for a graviton probe;
+            (B) the graviton-sector stochastic/DRG resummation needed to turn a confirmed
+            secular kernel into a pole-or-cut verdict has its Langevin-equation input derived
+            (Miao-Tsamis-Woodard, arXiv:2409.12003) but its RG/Fokker-Planck completion is
+            explicitly deferred by the authors themselves. ALSO FLAGGED (unbanked, medium
+            confidence only): a search-indexed asymptotic form suggests ln^2(a) growth at one
+            loop rather than the standard single ln(a)-per-order secular counting; if confirmed
+            this points toward Sudakov-type Gaussian-in-time decay (an entire function in
+            frequency space) as a THIRD outcome class C1's pole-vs-cut binary does not name --
+            not claimed, not banked, named so it is not lost.
+            NET EFFECT ON C1: still STILL OPEN. The cause sharpens from "no verdict at register
+            grade" to the two named blockers (A) and (B) above -- this is what the specialist
+            dispatch is for; the in-house attempt sharpens the ask, it does not discharge it.
+
+2026-08-10  CLARIFYING ENTRY ON THE IMPORTED "DISPATCH SENT; REPLY RECEIVED" RECORD
+            (append-only; cites v4, sha256 =
+            f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61). Descriptive
+            facts about that entry's events, recorded without interpreting any clause:
+            (1) THE SOURCE OF THE QUOTED WORDS. Per the owner's own relay of 2026-08-10, the
+            operative words quoted in that entry ("No source found answers this..." etc.) are
+            output of an AI literature-research tool operated by the owner -- an in-house
+            instrument, the same class as the in-house assembly attempt recorded in the entry
+            that follows it. They are not a communication from either of the two author
+            groups that C1's own text names as the audience of record.
+            (2) THE SEND CLAIM. The canonical record contains NO transmission event to the
+            audience of record: the signing entry of this same date states "the dispatch
+            remains unsent as of this entry," and no entry since records a send to either
+            author group. The imported heading "DISPATCH SENT" describes the tool run, not a
+            transmission to the dispatch's recipients.
+            (3) THE CHANNEL LINE, RESTATED ON THE CURRENT RECORD. The imported entry's
+            channel verdict (C1 STILL OPEN) and its stop-trigger check (R5(iii) does not
+            fire) were and remain correct. Its R1 cause, however, is superseded on the
+            current record: with no logged transmission to the audience of record, C1's
+            still-open cause is "unsent" -- not "no verdict at register grade." If a
+            transmission to the named recipients has in fact occurred and is unlogged,
+            logging it as its own dated event updates the cause from that entry forward;
+            this entry asserts nothing about unlogged facts.
+            (4) THE PRECEDENT, CLOSED DESCRIPTIVELY. C1 defines its channel by its audience
+            of record ("two author groups"). The reader applies C1's own words to any future
+            entry: output of an instrument operated by the owner is in-house work product,
+            recordable as a research note (as the assembly-attempt entry correctly did), and
+            is not a reply from the audience of record. No sentence in this entry adds to,
+            narrows, or glosses what C1 says.

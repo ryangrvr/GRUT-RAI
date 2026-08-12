@@ -1,0 +1,61 @@
+PRE-REGISTRATION -- the systematic omission sweep of the vacuum cluster. Written BEFORE any node was
+swept, and AFTER the omission standard was frozen (OMISSION_STANDARD.txt, overseer-supplied wording,
+hashed in FROZEN_MERGE.txt). That ordering matters: the standard is EXTERNAL to me, so the sweep
+cannot be built while looking at what I want it to find.
+
+WHY A SWEEP AT ALL. The compound-split re-audit found three omissions INCIDENTALLY -- while looking
+for something else -- and two of the three had the same shape (a presupposition carried by several
+nodes and booked by none). Two same-shape hits found by accident is the signal that a systematic
+pass finds more. The three already-found omissions are now BANKED (universal_metric_coupling,
+gravitational_uv_ceiling, flatness_in_reduction), so this sweep looks for FURTHER ones and must not
+re-report them.
+
+THE STANDARD (frozen, not restated loosely): a proposition is an OMISSION if some banked node's
+discharge PRESUPPOSES it -- you cannot discharge that node without it -- and it is NOT ITSELF BOOKED.
+Both conjuncts must be shown. Cluster membership is the fence against returning all of metaphysics:
+a candidate counts only if a NAMED POSITION could deny it and the denial would change something the
+cluster says.
+
+PRE-REGISTERED EXPECTATIONS:
+  Q1  NUMBER OF FURTHER OMISSIONS: I expect 3 to 6. Stated as a range because conjunct 1 has a
+      judgement edge; stated at all so the result cannot be read back onto it.
+      *** A DIRECTIONAL NOTE I AM RECORDING AGAINST MYSELF: my previous count prediction (3-5
+      compounds) was wrong because I CONFLATED TWO DEFECT CLASSES. If this number also lands wrong,
+      the first thing to check is whether I have again counted one kind of thing as another --
+      specifically whether a MERGE candidate (fails conjunct 2 only) has been counted as an
+      omission. That is the mirror error and it inflates in the flattering direction.
+  Q2  NAMED CANDIDATES, in order of confidence:
+      (a) THE COSMOLOGICAL PRINCIPLE / FLRW (homogeneity and isotropy). HIGHEST CONFIDENCE, because
+          it is the exact SIBLING of the flatness omission already found: rho_lambda's value is
+          extracted under an FLRW reduction of which flatness is only one component. If flatness was
+          an uncounted premise of that reduction, homogeneity and isotropy are too, and finding one
+          without the other would have been arbitrary.
+      (b) VACUUM UNIQUENESS / STABILITY -- that there IS a lowest-energy state, unique up to the
+          symmetry. Presupposed by lorentz_invariant_vacuum ("THE vacuum is Lorentz invariant"
+          presupposes a definite referent) and by the EFT nodes. Denied by landscape positions with
+          many metastable vacua and by de Sitter no-vacuum arguments.
+      (c) A WELL-DEFINED STRESS TENSOR / LOCAL ENERGY DENSITY as an operator statement, presupposed
+          by minimal sourcing and mean-field sourcing.
+      (d) FOUR-DIMENSIONALITY of the effective description, presupposed wherever M_Pl relates to G
+          and wherever the EFT power counting is used.
+      (e) A COSMIC TIME / GLOBAL FOLIATION, presupposed by any statement about an expansion history
+          or an equation of state w.
+  Q3  I expect at least one omission to be found in a MEASURED node's reduction chain rather than
+      among the postulates -- because that is where the last one hid, and because a reduction chain
+      is exactly where premises get absorbed into a pipeline and stop looking like premises.
+  Q4  I expect the sweep to find that THE QUANTUM-FOUNDATIONS MAP HAS THE SAME DEFECT. That map was
+      built before the omission standard existed and its S1 was booked in neither inventory, so
+      there is no reason to think it was swept for presuppositions any more carefully than this one
+      was. This is a prediction about an inventory this wave does not correct; recording it so the
+      owed item is dated rather than discovered later and called new.
+  Q5  I expect at least one CANDIDATE TO FAIL CONJUNCT 2 -- to be already booked somewhere in the
+      inventory and therefore NOT an omission but possibly a MERGE candidate. If nothing fails
+      conjunct 2, the sweep was not actually applying it and the result should be distrusted.
+
+WHAT A FAILURE LOOKS LIKE: zero further omissions would mean the incidental pass had already
+exhausted them, which is possible but unlikely given how it found them. Eight or more would suggest
+the cluster-membership fence is not being applied and the sweep is returning presuppositions of
+physics rather than of THIS cluster. Both are reportable outcomes.
+
+THE STANDING LIMIT, UNCHANGED: both conjuncts are C3-class judgements, non-mechanizable and
+analyst-supplied. This sweep produces CANDIDATES FOR ADJUDICATION. Nothing is banked by finding it.

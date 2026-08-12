@@ -1,0 +1,246 @@
+FROZEN_MERGE -- the merge criterion's pre-registration record.
+
+Both hashes live OUTSIDE both files (v1 recorded its own hash inside itself, which made that half
+unverifiable by construction). Verify with:  shasum -a 256 merge_criterion.py merge_test.py
+
+v3.2 -- RE-FROZEN 2026-08-04 after the Control-B fixture amendment (six hypercharge fixtures,
+scope 'fixture', derived by RULE 1/RULE 2). The instrument was then EXAMINED against two textbook
+shared-constraint cases with expectations pre-registered and hashed BEFORE scoring
+(PREREG_CONTROLS_2026-08-04.txt): both PASS, vectors and pairwise nulls exact.
+
+v3.1 -- RE-FROZEN 2026-08-04 after (a) the registry AMENDMENT derived from the register by
+registry_mapping.py (six entries; two ids a hand-list would have added were REFUSED by the
+register itself), and (b) the borrowed/grut SCOPE field, which makes a reduction eliminating
+only borrowed inputs structurally incapable of reading as a GRUT ledger move.
+
+v3 -- frozen 2026-08-04, after a NARROW independent review of v2's new machinery returned RED with
+eight blockers. v2's repairs were all real and every one RELOCATED the free parameter rather than
+eliminating it: v1 counted analyst-chosen LABELS, v2 summed analyst-chosen INTEGERS -- strictly
+more expressive for an attacker. The review's verdict was 'sound in the refusal direction, unsound
+in the reduction direction' -- the wrong half, since a live sweep can only ever BANK a reduction.
+
+v3 closes it by removing the free parameter instead of moving it: dimensions come ONLY from the
+frozen ATOMIC registry in merge_criterion.py (amending it is a dated, hashed event), eliminations
+must be bound to a mandatory relation_inputs field, the enumeration span is computed in BOTH
+directions and THE WORST READING IS THE VERDICT, the axes are {continuous, discrete, posit} and
+are never summed, and an empty merged account is refused.
+
+52c6ba97116e63231673bb47b94faa1476d47c8e46770f76d8ea4738e84a5b72  merge_criterion.py
+e079a5bf0eba67137f7d0dc09718c5b837719aa4744dca984caa2f9791d722f0  merge_test.py
+
+NOTE ON WHAT A FREEZE ESTABLISHES, AND WHAT v3 GIVES UP (self-caught at re-freeze, recorded rather
+than papered over):
+
+A hash proves a file has not changed SINCE the hash was taken. It does NOT prove when the content
+was authored relative to any analysis.
+
+For v1/v2 the pre-registration had real evidence: both files contained ZERO domain content, so the
+criterion demonstrably could not have been shaped around an answer. *** THAT IS NO LONGER TRUE OF
+v3, AND THE WEAKENING IS STRUCTURAL, NOT INCIDENTAL. *** v3's fix for the bundle attack was to move
+dimensions out of the proposal and into a frozen registry -- and a registry must NAME THE INPUTS.
+merge_criterion.ATOMIC therefore contains vacuum-cluster and GRUT ledger ids, and those entries
+were written AFTER the analyses they will be used on existed.
+
+SO THE HONEST SPLIT IS:
+  * merge_test.py -- the SCORING LOGIC -- remains domain-free and pre-registered in the full sense.
+  * merge_criterion.ATOMIC -- the REGISTRY -- is NOT pre-registered in that sense. Its dimensions
+    and kinds could in principle have been chosen to produce a desired verdict.
+
+THE ATTACK SURFACE MOVED; IT DID NOT VANISH. v1: analyst-chosen labels. v2: analyst-chosen integers
+inside each proposal. v3: analyst-chosen integers inside one frozen, hashed, reviewable table. That
+is a genuine improvement -- one table, versioned, diffable, amended only as a dated event, and the
+same number used by every proposal -- but anyone relying on a v3 verdict should audit the REGISTRY
+first, not the arithmetic. The arithmetic is no longer where the judgement lives.
+
+WHAT WOULD RESTORE THE STRONGER CLAIM: populate the registry from a source independent of whoever
+runs the analysis, or freeze each input's dimension BEFORE any proposal referencing it is scored.
+
+
+================ RE-FREEZE 2026-08-04 (C1a promotion + registry split into two tables) ====
+WHAT CHANGED: (1) the registry is now INPUTS (24, audited) + FIXTURES (23, inert), separate
+tables and separate namespaces -- 23 of 47 entries were test scaffolding sharing a namespace
+with what they exist to be excluded from, and v3's whole answer to the bundle attack is
+'audit the registry'. (2) C1a `relation_axioms` is now a REQUIRED checklist field: DERIVED
+RELATIVE TO WHOSE AXIOMS. It does not make C1 mechanizable -- it forbids C1 being answered
+SILENTLY, which is how two honest analysts reach opposite verdicts and neither can see why.
+UNCHANGED: the arithmetic, the vector verdict, the cardinal invariant. The registry is STILL
+NOT pre-registered in the full sense; you must audit the REGISTRY, not the arithmetic.
+REGISTRY_AMENDMENT_2026-08-04.txt is hashed here but *** NOT APPLIED *** -- relay first.
+
+aa2da43d8e5c2357fa1d341cd87dc4cd40acc70528e6494fb455f219b20a250d  merge_criterion.py
+0c9ea709c8309b7e2c6cce7714dce984873e15969f9aa6ab75272af9a9abc925  merge_test.py
+1cd45edd2e5f6b4f7a36d2ed85efbcaf51dc0d46bf5b45abb7ea108c8c5a510a  registry_mapping.py
+1231b653ae3aeb86ce1bc2e492f34ed569b6a3bd02ac3c5bc98e19de6fc31470  REGISTRY_AMENDMENT_2026-08-04.txt
+
+
+================ FREEZE 2026-08-04b: THE OMISSION STANDARD + the applied amendment ========
+OMISSION_STANDARD.txt is the overseer-supplied wording for the OTHER defect class. Frozen
+BEFORE the systematic sweep that uses it, so the standard cannot be built while looking at
+what it is wanted to find. Atomicity had a frozen test; omission had none, so 'presupposed by
+nodes 4, 6 and 9 but booked by none' was an analyst judgement with nothing behind it.
+REGISTRY AMENDMENT NOW APPLIED (relayed 2026-08-04, accepted same day): INPUTS 24 -> 29,
+with semiclassical_sourcing and eft_validity moved to RETIRED_INPUTS (pointer, not deletion --
+merge_test names the supersession instead of letting a live-looking id hit a default dim).
+Three of the five additions are DERIVED from omission nodes accepted the same day and were
+NOT in the relayed amendment text; flagged in the relay, not applied silently.
+
+e7ff63bf0c26f4ab497b465839491266e40c3cc83b8022741e7b4690b4e67561  OMISSION_STANDARD.txt
+2021cdeafed9c269401914174481467e64af7c9046067c3fc576522c430aada3  merge_criterion.py
+f83e3eb969acb1284d0251033445bd2c2f920b2d1fe0ace9b7e126662d56ec67  merge_test.py
+4c61c96e2d8726aab79bb44c5be2bf2f530a71af006616085d8576d645f7d8b3  resident.py
+f66d430b017e7861fda770898dbe9d843793ff51a6c9742fe2b1e3bd17ea295d  validate_scoped.py
+
+
+================ FREEZE 2026-08-05: OMISSION STANDARD v2 + the sweep ledger ==========
+v1 (OMISSION_STANDARD.txt) is UNEDITED and its hash above still verifies. v2 supersedes it:
+the STANDARD is unchanged; three application rulings are added, each produced by the first
+sweep under v1 failing in a way v1 could not see. R1 the fence decides, no new convention.
+R2 every raised candidate gets a disposition (MECHANIZED, sweep_ledger.py). R3 conjunct 2
+is per-cluster and a drop list is never inherited. R4 atomise BEFORE the conjuncts --
+conjunct 2 is not distributive. R5 wiring is part of banking an omission.
+Also frozen: the builder's TWO-IN-A-ROW HIGH BIAS on finding counts, to be carried into
+the next pre-registration as a stated correction rather than discovered a third time.
+
+ddc94bcbe766e4dae3fbaa6c610adad61813c41339a0d8a96412c374f8a06a94  OMISSION_STANDARD_v2.txt
+6378c740662752192f350e1092510f3199691762c4a258d40d3bcc4c3fe0b37b  sweep_ledger.py
+8b1fd6a6bfc47b210e93efe89df6158024c351fb2c97cdc99e030425b8c3117e  test_sweep_ledger.py
+f580473a7d2ef48314c89bbfbcd55e4282a29c61481a1621ea93f6cc00dbdf3c  sweeps/SWEEP_2026-08-04_vacuum_omissions.json
+
+
+================ FREEZE 2026-08-05b: the OPEN/CLOSED distinction ====================
+A sweep may be recorded OPEN with its gaps listed; it may NOT be called finished while a
+single candidate is unadjudicated. Added because the follow-up wave's own scoring rule
+(survives = votes >= 2) filed candidates NOBODY EXAMINED as REFUTED when its verifiers
+died -- an absent verdict scored as a negative one, the third appearance of one shape.
+The guard is keyed on a STRUCTURED lenses_run field, never on prose.
+
+3d72c5c417afdf18e3d10ad99e19826e4d6d06e8840a939c241790973f72d87e  sweep_ledger.py
+5db21e58ee8a9452e661145d9fff968a14534ada9ee118659ff07f38db4661e6  test_sweep_ledger.py
+389167ba47e0a4d7c95fa1bd0b1f5d0da784612997a217dd8ec89a8ffca2e5a0  sweeps/SWEEP_2026-08-05_used_modality.json
+aac891169795d90edb98ff23e434f94821a9fe7773bf8f9f749b42247dd20e6b  prereg/RESULT_USED_MODALITY_2026-08-05.txt
+
+
+================ RE-FREEZE 2026-08-09: gate amendment A8 + the kappa-wave close-out ====
+A8 (overseer-blessed under the freeze's own rule) demotes the TT-auto headline on three
+defects: kappa-range unbounded in banked physics; theta-step excluded as a shape (no
+replacement licensed); the filter an UNBANKED WORLD-MODEL INSERTION (P2 is exact -- no
+approximation exists to guard). All gate numbers marked INSERTION-CONTAMINATED. The anomaly
+screen correspondingly loses its tension floor ('<= +2.80 sigma, unbounded below'), with the
+DIRECTION RULE applied and mutation-pinned: this correction FAVORS GRUT and says so.
+The BLIND-SAFE prereg rule is mechanized (TestBlindSafe; the sealed kappa prereg provably
+fails its patterns -- the check bites on the defect that motivated it). Rider A addendum
+names the two kappa-wave blocked inputs for the rung3 specialist.
+
+52786951e2d405df23186735950f279d386ae92b73b473d86c98d41523f14a8a  calc/isw_tt_auto.py
+018c90df5439acf90addf42c96c5a6ab4507cb45582182dd61284fb1d3798005  calc/sigma0_anomaly_screen.py
+8fb18ba98052097a2d7d2c4d0d7159dd8537c73d06913e3ace69e272c907d0ad  calc/RESULTS_isw_tt_auto.md
+a7e82634eaa48f17a3cefaedb857287b0c17a9406ce1216fe5ca0498e581c4a3  test_prereg_immutable.py
+672e3249df16ff8b75bb1b7a552c8c2bbd7fd62eac5486254b4e85aa115c30b0  SPECIALIST_BRIEF_rung3_spine.md
+0f5570d6887b5120280ea6f87843514765db7bdbdfd29dae632a0f071907e9a2  prereg/RESULT_KAPPA_2026-08-08.txt
+
+================ ADDENDUM 2026-08-09b: Part 3 applied (overseer-ruled) ================
+zeta_interior_family: warrant corrected condition->criterion (booking at ACCEPTANCE, the
+rung7 precedent); structured consumed_by registry added (gate=held-at-flag/insertion-
+contaminated, screen=non-banking); armed trigger now CHECKED by test_consumed_by.py
+(fail-closed on unknown statuses; mutation-proven to fire). Delta stays 0; NET +13.
+Side-effect caught by the coverage ratchet itself: consumed_by made the screen register-
+cited, so it is now registered in BATTERIES with two external anchor mutants (the two
+errors actually committed on it). The guard guarding the guards worked.
+
+f955627e0d998ffa71db0ed4b1695196f22b33e03d08f5fa4faea654404a3f74  claims.json
+ed5909922f90a3c96cc152db7e99280ab4a425ab040c87487475750e397aa2d9  test_consumed_by.py
+cdcb7d33996534450f5ffbf0ff29debfaab79db4f474f55d22d50ef472c226e9  mutation_registry.py
+
+================ FREEZE 2026-08-09c: the external-review close-out, Parts 0-3 ==========
+Part 0 (consumed_by + warrant) recorded above. Part 1: (1a) held-ledger -- reviewed-and-held
+vs never-looked-at, display-only, tier/ledger/disposition moves get TIER-OR-LEDGER severity
+rendered loud (mutation-proven); (1b) laundering_ok now BLOCKS without stance_justification
+(proven to fire; the 4 live waivers carry declared stances; validate prints '+8 of net behind
+4 waivers' on its own face); (1c) Layer 5 WIRED (existence always, execution behind
+GRUT_RUN_SLOW=1); (1d) README top-line corrected -- discipline, not truth. Tenth
+guard-honest/narrative-drifted instance. Part 2: the |Gamma_T| <~ few x H_0 number FENCED as
+an un-computed order-of-magnitude inference, attributed to the overseer relay at the
+overseer's own instruction; compute-or-retire at gw_tensor_friction.py. Part 3: the one-page
+dispatch (DISPATCH_ONE_PAGE.md) -- the object, the computation, the gap, the stakes.
+
+147d4b9e0c30c67517e8546f5c59e0aad6170a515cc42060c1bfb3e95df97a90  auditor.py
+aa6e721c7d2c7e80ddbab8c1d033b55cdb7bdf3ccb9d172109096142adc9595d  validate.py
+d6a68721efcaca0c8884fc67b8fe4362d4b55ccff38565568775ced4916ff11c  bankgate.py
+3061b93f7eab381c8356ddd43d7df23b0267ddf232a72fc2ecb54eb36be8e8be  claims.json
+962213add7ba1e8de163bf8f7975eac6b658968d2c27d0bb75ed50004485b340  test_bankgate.py
+40a463c61ef7b50c7d301177eaeefa8141d6d30afb3b7910e59ff80e0a1dd26d  test_layer5_overturning.py
+d752f0e4937f462683605412b5cd183730c28810fba44159f9412544c77ff966  README.md
+59026a35652c1fb0111d449e9846f2bea71fc13b57d4016f371038164eb588f1  DISPATCH_ONE_PAGE.md
+
+================ RECORD 2026-08-09d: Part 4 -- the auditor split out ================
+claimledger 0.1.0 (../claimledger, own git repo, commit 6853b78): the discipline engine,
+domain-free, pip-installable, 11 tests each proven to fire. First foreign-corpus run:
+Du et al. 2602.03110 -- honest encoding PASSES net +2; as-quoted-downstream encoding
+BLOCKED (laundering + unpriced posit). Discharges the 'different problem' half of
+method_novelty's falsifier ONLY; 'different team' stays open; tier stays to-derive.
+The split-out engine's own suite caught a dead-code guard pre-release (11th instance).
+
+1d713a18d5a25a8cc81993ae38ee62009a7e6c0eefbe45aadf3f20aeb2dee534  claimledger/claimledger/engine.py
+4859b315a9ca040b908ff2b62e6ba1b2a54f487e0d6c27de876e11ad11af3a85  claimledger/claimledger/cli.py
+007f1015c81589fe765332cf4996f66b3b8e2fb17338a5bb70519d86b6fa21e9  claimledger/tests/test_engine.py
+97842a62cd38d8ce65ca4d9e566333711624c4efe6c1e5d0ae36f423bc9b15cf  claimledger/README.md
+c5babdc08159985e4a2f79becceb045bc836f137f490421ba9f64161d8fbf173  claimledger/examples/du2026_honest.json
+dbfeea25db80be4ff08f859ca94b4a813d511b8ba9869e7e2fe8b9586d76fc87  claimledger/examples/du2026_laundered.json
+
+================ RECORD 2026-08-09e: cold corpus + the termination prereg ================
+COLD RUN (claimledger 61c0a3e): selection rule committed BEFORE fetch (first q-bio.PE listing
+paper w/ quantitative headline -> Nowak 2608.06147, encoded on first read). PASS net +5.
+Ledger-forced finding: the SUCCESS CRITERION (pi_max includes CD/DC alternation) is a posit
+the abstract never states -- the second value proposition demonstrated on a paper that
+prices its assumptions well (no error found; scored honestly both directions).
+TERMINATION PREREG sealed BLIND-SAFE (its guard caught an eager-f-string crash on the green
+path -- 12th instance, a guard untested on its own passing branch). UNSIGNED = NOT IN FORCE;
+the signature is the owner's. CHARTER gains discipline 6 (pre-registered termination).
+
+c504576ef0a2abd0a252b2575f05026d7ee3d9864f3222944a4856f6a83c64f7  prereg/PREREG_TERMINATION_2026-08-09.txt
+c7c5e68632c2c05ff90d3edb2a8cd381c6c932f407dbad44c21fd4103146e64c  test_prereg_immutable.py
+828ec0810dc9818d5bef780817d981a6def6a14b7fc6020f639a16f7b74d7021  CHARTER.md
+
+================ RECORD 2026-08-09f: Part 6 complete ================
+Hygiene: calc.zip + stray mutant removed; 4 superseded specialist briefs marked with
+standardized status headers pointing at the live pair (DISPATCH_ONE_PAGE + rung3_spine).
+Translation layer: 32 dialect terms in GLOSSARY.md, one plain line each, maintained-as-
+part-of-banking rule stated in place, decay pinned by test_translation_layer.py.
+GRUT_V1_PLAIN.md: ~8000 words, 3 blinded-writer drafts + cold-reader dialect police +
+assembly; zero dialect leakage on final scan; load-bearing numbers verified against the
+register (net +13, 45 claims, the ~2sigma retraction history, the +12->+13 single move,
+the +8-behind-waivers disclosure). Survived a mid-run host shutdown via journal cache.
+
+18303ad9fec3f53ae91fb6e8f58bd017ca92d084c69813a46f231d3c4d5b9f9c  GRUT_V1_PLAIN.md
+9b6e9ef959c6a70372e378b9e521fe3b9e265229330a87d51e42ffe8ea73240b  GLOSSARY.md
+8a1b358b943bc5da49b475dc0ebe6fb06ccfe71bcb32c33d42a49c4bf75b24be  test_translation_layer.py
+
+================ STAGE CLOSE 2026-08-09 (final record of this stage) ================
+Closed by owner decision; termination prereg UNSIGNED/not-in-force; C1 clock NOT started;
+Part-7 calcs recorded OWED-OR-RETIRED (not quietly dropped); method_novelty edit accepted
+after overseer verification; baseline CLEAN. The owner's trees/forest judgment is recorded
+in the close-out: the machinery's job from here is to HOLD STATE, NOT GROW.
+
+2394fd9c08ad2d014767268cf32e056de4559eb65f27ca96919421347a64791a  STAGE_CLOSE_2026-08-09.md
+71dc273dbd811e12f17a34ebc24b1b974057a23222899ba8b2b66e5a33bc9277  prereg/RESULT_TERMINATION_events.txt
+f8cb447c6f0b88181a5b1e0e04000e8785ce9e657311e13d12f858a9bd840b7d  STATE.md
+(correction 2026-08-09: companion file re-hashed after citation-format fix: f0a4c6ee76f720948a520de0e866e144c83ba96b8f6b73fc354587a1b0358008  prereg/RESULT_TERMINATION_events.txt)
+
+================ BUILDING STAGE OPENS 2026-08-09: the emergence chain ================
+First construction artifact: EMERGENCE_CHAIN.md, GENERATED by emergence_chain.py -- the
+stage->claims mapping is authored, EVERY STATUS is generated from the register (narrative
+pressure is the laundering shape here; a generated column cannot be softened without
+editing a gated file). 12 links, 2 marked concurrences, matter SILENT, observers UNPOSED.
+Node emergence_chain banked at delta 0 (construction, no new physics); GRUT +13 unmoved.
+THE FINDING: original content clusters in the middle (links 2-6, core 3-5); the chain's
+center of gravity is the ledger's ONLY -1 (rung2_kms_gate); the ends differ in kind --
+origin buildable (priced import beside the strongest result), matter not (silent, nothing
+adjacent). Three registry gaps surfaced: SM spectrum in constitution but booked nowhere;
+classicality all prose; no structured generic-vs-original field. The coverage guard fired
+on the chain's own node at banking -- proof it bites. Part 4 (the origin end) NAMED, not
+started, per the brief.
+
+e076971a30e579be187f86337dfc280a944213f94c21c687fa50f6cf221f0365  emergence_chain.py
+0bcfd4b6b5931e9f84da46448dcb260ec5765c5f977bb85207afa9a06b620f69  test_emergence_chain.py
+8c187eec7fa2577f5a1018ea42e84f88dd39f5ef0a2203144fae673c08bac154  EMERGENCE_CHAIN.md
+76cfbb9792b195e060ac6f3603df3c78530f40e1f5a45eae77a9cba9229098c8  claims.json

@@ -1,0 +1,63 @@
+PRE-REGISTRATION -- the kappa (activation-scale) wave. Written BEFORE any analysis.
+
+THE QUESTION. The interior family's modification is applied through a declared filter:
+    mu_k(a) = 1 + x*alpha * [k > kappa * a * H(a)],   Sigma_k(a) = 1 + (x*alpha/2) * [same]
+kappa is the horizon-multiple at which the quasi-static scalar (P^0s) response is taken to switch
+on. It is currently a GENERIC-VALIDITY GUESS, scanned over {1, 3} rather than derived, and the
+scanned members differ by ~10x -- A5 of the TT-auto freeze says in as many words that THE KAPPA
+LEVER IS THE VERDICT. Every named-point verdict in that gate is kappa-conditional because of it.
+
+WHY IT IS NOW WORTH IN-HOUSE TIME, stated so the motive is on the record: the Du et al. Sigma_0
+result (arXiv:2602.03110, screened in calc/sigma0_anomaly_screen.py, NOTHING BANKED) puts a measured
+lensing deviation ABOVE every gate this program holds, and kappa is the difference between a tension
+of +0.31 sigma and +2.80 sigma across the two backgrounds. kappa decides whether a published
+anomaly is compatible with the framework or excludes it. THE MOTIVE IS ALSO THE HAZARD: wanting a
+particular kappa is now possible in a way it was not last wave, and that is exactly when this
+program's directional-optimism rule (CHARTER Sec.1 discipline 4) applies hardest.
+
+*** THE CALIBRATION CORRECTION, MANDATED BY OMISSION_STANDARD_v2 AND APPLIED HERE. *** The builder
+over-predicted findings TWICE RUNNING, both high, both toward "more result": compounds 3-5 predicted
+/ 2 found; omissions 3-6 predicted / 2 found. The analogue here is predicting a POSITIVE outcome
+(that kappa is derivable). I therefore adjust DOWNWARD and pre-register the negative.
+
+PRE-REGISTERED EXPECTATIONS:
+  K1  PRIMARY: I expect NO PIN. kappa will NOT come out as a computed number that makes the
+      TT-auto verdicts unconditional. Confidence ~70%. This matches the program's track record on
+      every pinning route attempted so far (R1 anomaly action-map: no pin, returns a SCALE not a
+      number; u5: a classifier by structure, not a pinner).
+  K2  THE MECHANISM I EXPECT FOR THE NO-PIN: kappa is set by the ratio of the vacuum response's
+      MEMORY TIME to the Hubble time. GRUT's memory time is fixed by the bath spectral function --
+      which is rung3, the declared frontier, and NOT an in-house calculation (CHARTER Sec.3:
+      "banking a resolution of this in-house is an automatic fail"). If that is right, KAPPA
+      INHERITS RUNG3'S BLOCKAGE and the honest output is a no-pin with a named mechanism, not a
+      number. I expect this specific mechanism at ~50%.
+  K3  THE OUTCOME I WOULD RATE MOST VALUABLE, and it is NOT a pin: that the sharp step
+      [k > kappa*a*H] is a FICTION -- the kernel has a frequency response chi(omega) and the real
+      transition is smooth and set by that response, so kappa is a PARAMETERIZATION ARTIFACT to be
+      replaced rather than a physical parameter to be measured. This would DISSOLVE kappa (merge
+      class M6) rather than pin it, and would make the verdicts depend on chi(omega) -- which is
+      banked structure -- instead of on a guess. ~30%, and I flag now that I WANT this outcome,
+      which is grounds for extra scrutiny of any argument that reaches it.
+  K4  I expect the answer, whatever it is, to be the SAME for the TT-auto gate and for the
+      Du et al. comparison -- i.e. one kappa, not a channel-dependent one. If the analysis returns
+      a channel-dependent kappa that is a finding about the parameterization, not about the vacuum.
+  K5  I expect NO outcome in which the anomaly becomes COMFORTABLE. The measurement sits above every
+      gate under both backgrounds; a kappa that made the tension vanish would require the gate to
+      loosen by more than the scanned 10x span, and I pre-register that as implausible so it cannot
+      be quietly reached.
+
+WHAT WOULD FALSIFY THE PRE-REGISTRATION: a clean in-house derivation of a numerical kappa from
+banked structure alone, with no appeal to the bath spectral function. I do not expect it and I am
+recording that I do not, so that finding it would be a real result rather than a confirmed hope.
+
+KILL-CONDITIONS FOR THIS WAVE:
+  KC1  NO RUNG3 SMUGGLING. If a route needs the bath spectral function, it is FRONTIER-BLOCKED and
+       must be reported as such. An in-house "reasonable choice" for the bath is the automatic fail.
+  KC2  NO MOTIVATED KAPPA. Any argument that lands on a kappa which happens to relieve the Du et al.
+       tension is default-refused and must be re-derived by someone who has not seen the tension
+       numbers. State the kappa BEFORE evaluating what it does to the anomaly.
+  KC3  DERIVATION vs CONVENTION. Distinguish "the quasi-static approximation is valid for
+       k > kappa aH" (a statement about an APPROXIMATION SCHEME) from "the vacuum response switches
+       on at k > kappa aH" (a statement about the WORLD). The first is ours to choose; the second is
+       not. Conflating them is the category error this wave most likely commits.
+  KC4  NOTHING IS BANKED BY THIS WAVE. Output is a candidate for adjudication and a relay.

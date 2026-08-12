@@ -1,0 +1,89 @@
+THE OMISSION STANDARD, v2 -- 2026-08-05. SUPERSEDES OMISSION_STANDARD.txt (v1, frozen 2026-08-04).
+
+v1 is UNEDITED and still hashed in FROZEN_MERGE.txt; it said "do not edit, supersede with a dated
+successor", and this is that successor. THE STANDARD ITSELF IS UNCHANGED -- v2 adds three overseer
+rulings about HOW IT IS APPLIED, all three produced by the first sweep run under v1 failing in ways
+v1 could not see.
+
+================================ THE STANDARD (unchanged from v1) ================================
+
+    A proposition is an OMISSION if some banked node's discharge PRESUPPOSES it -- you cannot
+    discharge that node without it -- and it is NOT ITSELF BOOKED.
+
+CONJUNCT 1 is DISCHARGE-BLOCKING: suppose the candidate false or absent -- can the node's content
+  still be "ESTABLISHED, STATED, AND USED"? *** ALL THREE VERBS. See R4. *** A presupposition is
+  typically INVISIBLE in the node's text; if it APPEARS in the statement it is a SPLIT question.
+CONJUNCT 2: the proposition is not itself booked -- see R3 for the scope of "booked".
+THE MEMBERSHIP FENCE: a candidate counts only if a NAMED POSITION could deny it AND the denial would
+  change something the cluster says. See R1 -- the fence does more work than v1 gave it credit for.
+THE MULTIPLICITY SIGNAL: presupposed by several nodes and booked by none is the highest-confidence
+  shape. See R5 -- the register must be able to COMPUTE this, not merely assert it in prose.
+
+================================ R1 -- THE FENCE DECIDES; DO NOT ADD A CONVENTION ================
+A sweep proposed a new convention to settle whether a MEASURED node's discharge is indexed to its
+NUMBER or to its DECLARED PIPELINE. *** THAT DICHOTOMY IS REFUSED. *** Both horns are bad:
+value-indexed hides model-dependence; pipeline-indexed opens every prior in a likelihood and blows
+the volume guard. The standard's own device already decides, and gradedly:
+
+    AN INPUT IS SOMETHING A NAMED POSITION DENIES.
+
+  * FLATNESS PASSES -- non-flat cosmologies are named positions AND the denial changes what the
+    cluster says. vc_flatness_in_reduction stands as banked.
+  * A GENERIC INSTRUMENTAL CALIBRATION FAILS -- nobody denies it. It is a RIDER on the value's
+    scheme_tag, not a node.
+  * Most priors in a likelihood have no named denier, so the inventory does not explode.
+A candidate is tested against the fence SPECIFICALLY, on the physics, and never ruled dead by fiat
+because a convention would have been tidier.
+
+================================ R2 -- EVERY RAISED CANDIDATE GETS A DISPOSITION ==================
+*** "ABSORBED INTO A COMPOUND" IS A DISPOSITION, NOT A REASON TO DROP. ***
+Mechanized in sweep_ledger.py and pinned in test_sweep_ledger.py: raw candidates raised must equal
+the sum over dispositions, absorption must POINT at a canonical that itself carries a terminal
+disposition, and a sweep must additionally answer for the candidates ITS OWN PRE-REGISTRATION named
+("the sweep did not reach it" is a finding about the sweep and must be stated). A remembered rule is
+not a rule; this one is now a broken build.
+
+================================ R3 -- CONJUNCT 2 IS PER-CLUSTER =================================
+"Booked" means booked in THIS CLUSTER'S inventory. An input shared across clusters is booked in
+each, and that is not a double-count. Two reasons, both structural rather than convenient:
+  (i)  WE NEVER SUM ACROSS CLUSTERS -- already ruled, and reaffirmed by the w=-1 edge note. There
+       is no global total for a repeated booking to corrupt.
+  (ii) THE MEMBERSHIP FENCE IS CLUSTER-INDEXED, so a proposition deniable in one cluster and not in
+       another is LEGITIMATELY an input in one and not the other. Worked instance: the
+       individual-vs-ensemble reading of the expectation value was DROPPED by the fence in the
+       vacuum cluster (Ballentine/QBism change no vacuum-cluster statement) and PASSES it in
+       quantum foundations, where the ensemble reading is a rival account of outcome-selection.
+       *** A DROP LIST IS NEVER INHERITED ACROSS CLUSTERS. Re-run the fence every time. ***
+Per-cluster is correct throughout, not only for conjunct 2.
+
+================================ R4 -- ATOMISE BEFORE APPLYING THE CONJUNCTS =====================
+*** CONJUNCT 2 IS NOT DISTRIBUTIVE. *** A COMPOUND candidate can pass it AS A WHOLE while containing
+a part that is already booked. That is the mirror of the failure conjunct 2 exists to prevent,
+smuggled in as a conjunct -- and it happened on the first run: a candidate carrying "one Omega_k",
+a straight re-book of vc_flatness_in_reduction, passed conjunct 2 because the candidate was tested
+whole. Atomise FIRST, then apply both conjuncts to each part. Never "note the atomicity debt on
+entry" and ship the conjunction.
+NOTE THE SHAPE OF THIS FIX: it moves the count in BOTH directions, which is what distinguishes a
+repair from a tightening.
+
+================================ R5 -- WIRING IS PART OF BANKING AN OMISSION =====================
+When an omission is banked, THE NODES THAT PRESUPPOSE IT MUST GAIN depends_on EDGES TO IT. The
+standard leans on multiplicity and the register could not compute it: of 20 vacuum-cluster nodes,
+ONE had a non-empty depends_on, and all three omissions were banked with none -- including
+vc_flatness_in_reduction, which was FOUND AS A LINK IN vc_rho_lambda's CHAIN while vc_rho_lambda
+kept depends_on: []. *** THE REGISTER FIXED AN INSTANCE OF EDGE-BLINDNESS WITHOUT RECORDING THE
+EDGE. *** Unwired, the signal stays prose and is re-derived from scratch every wave -- which is
+exactly how detection went blind to S1. Pinned: no omission node may have zero inbound edges.
+
+================================ THE CALIBRATION CORRECTION (carry this forward) ==================
+The builder OVER-PREDICTED FINDING COUNTS TWICE RUNNING, both high, both toward "more findings":
+compounds 3-5 predicted / 2 found; omissions 3-6 predicted / 2 found. Two in a row in the same
+direction is a fact about the estimator, not noise. THE NEXT PRE-REGISTRATION STATES THIS
+CORRECTION EXPLICITLY AND ADJUSTS, rather than discovering it a third time. Note the direction: it
+is the same pull toward finding things that this program polices everywhere else -- now visible in
+the builder's own priors rather than in a result.
+
+================================ THE STANDING LIMIT (unchanged) ==================================
+Both conjuncts are C3-class judgements: non-mechanizable, analyst-supplied. v2 mechanizes the
+BOOKKEEPING around them (dispositions, edges) and mechanizes none of the judgement. It makes the
+CLAIM checkable, never the answer correct.

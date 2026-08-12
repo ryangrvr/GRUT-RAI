@@ -1,0 +1,85 @@
+PRE-REGISTRATION -- the x_no_pin wave (X_FLOOR_MAP attack item 2; overseer brief 2026-08-09).
+Written BEFORE calc/x_no_pin.py exists or runs. Immutable once manifested; results go to a
+separate citing file.
+
+BLIND-SAFE: yes
+(No measurement is being blinded here -- the wave is structural, not observational -- but the
+flag is carried anyway so this prereg holds no result-adjacent numerics by construction.)
+
+SCOPING, RECORDED FIRST SO THE RESULT IS NOT OVER-GRADED ON ARRIVAL: this is the register's own
+named next step, not a novel application. X_FLOOR_MAP.md already names calc/x_no_pin.py as attack
+item 2 and names the passivity argument as the only candidate home for the retracted orientation
+lemma ("screened on its own merits, never inherited"). The passivity-inequality pattern is
+precedented in-house on rung7 (RESULTS_wz_sign.md: the second law fixes the SIDE, not the SLOPE).
+Nothing in this wave is the first of its kind; what is new is that the constraint is finally
+APPLIED to the two-channel kernel family.
+
+THE QUESTION. For the Ward-surviving two-channel kernel family the register carries
+(eft_operator_basis: K_R = c2*P2 + c0*P0s on orthogonal idempotent spin projectors), what does
+passivity -- omega * Im K_R(omega) positive-semidefinite AS A MATRIX (rung2's S4, the banked
+matrix-sense condition) -- do to the two coefficient functions? Specifically:
+  Q1  Is the matrix condition EQUIVALENT to the two channel-wise scalar conditions
+      (omega*Im c2 and omega*Im c0 each nonnegative), with NO cross-channel compensation --
+      i.e. can a large compliant shear channel ever rescue a violating bulk channel?
+  Q2  Does passivity (with KMS layered on it) yield any UPPER bound on either channel's
+      amplitude, or on their ratio -- i.e. any ceiling or pin on the family's mixing freedom?
+  Q3  Is the KMS noise-dissipation lock itself channel-diagonal at this level (the noise kernel
+      decomposing on the same projectors with the same scalar thermal factor)?
+
+THE VARIABLE CAUTION, PRE-COMMITTED: whatever this calc establishes, it establishes about c0 (the
+action-level dissipative modulus), NOT about x (the phenomenological slip-sector coupling of
+mu_slip_interior), because the x <-> c0 action-level map is that file's own named OPEN item (R1
+in its docstring). No statement about x banks from this calc alone. The transfer to x becomes
+definitional only if and when S_IF defines x as the normalized c0 modulus -- a separate,
+declared construction step, not an inference this calc may smuggle.
+
+THE GUARD, quoted from BRIEF_p_tt_interrogation.md kill-condition 4 and binding here: "Passivity
+(omega*Im chi positive-semidefinite as a matrix) constrains signs and cross-channel magnitudes;
+it can propagate a channel's vanishing (a zero diagonal kills its cross-couplings) but can never
+source one. Any argument deriving channel annihilation from passivity alone is a category error
+and dies." This wave's output is a SIGN condition per channel. It is not, and may never be read
+as, a licence for the pure-TT ansatz (channel annihilation) or against it.
+
+DIRECTIONAL PRESSURE, NAMED: the near-free outcome is the per-channel sign condition (Q1 yes),
+so the FLATTERING outcome -- the one that would read as a genuinely new derived constraint --
+is a ceiling or two-sided bound (Q2 yes). That is therefore the direction to scrutinize hardest.
+DEFAULT-BROKEN TOWARD: no ceiling from positivity alone. The scaling structure of a convex cone
+(nonnegative rescalings of admissible coefficients stay admissible) is expected to defeat any
+amplitude ceiling; a claimed ceiling must exhibit the specific inequality that breaks scale
+invariance, or it is an artifact.
+
+PRE-REGISTERED OUTCOMES (exactly one banks):
+  (a) FLOOR ONLY -- per-channel sign conditions, no ceiling, no pin. The lemma banks at ledger
+      zero as a structural fact about projector algebra plus passivity; it CLASSIFIES admissible
+      kernels and pins nothing (u5 route R3 closing as "classifier, not pinner", as X_FLOOR_MAP
+      already prices it).
+  (b) TWO-SIDED -- passivity/KMS yields a genuine upper bound on a channel or ratio. Banks ONLY
+      with the scale-invariance-breaking mechanism exhibited explicitly and mutation-tested, and
+      carries maximum directional-guard pressure (this is the seductive branch).
+  (c) NOTHING INTERNAL FORBIDS ANY MIXING -- even the sign condition fails to be channel-wise
+      (cross-channel compensation possible). Then the orientation route dies at its candidate
+      home and that is recorded; "nothing internal forbids this" is itself a bankable statement,
+      stronger than "unchecked".
+
+THE ISRAEL-STEWART CEILING, PRE-COMMITTED AS OUT OF SCOPE: an honest causality ceiling needs
+named background thermodynamic inputs (a relaxation time, a sound speed, an entropy density)
+that exist nowhere in this corpus, and the register's Israel-Stewart node is a borrowed-scaffold
+pointer (attaches_to, deliberately not depends_on) that cannot carry structure into GRUT's
+ledger. This wave RECLASSIFIES that ceiling as a rung3-dispatch sub-question; it does not
+compute one. Any in-house Israel-Stewart number appearing in this wave's results is a defect.
+
+MUTATION BATTERY, PRE-REGISTERED WRONG ANSWERS (the battery ships with the calc; each mutant
+must make the calc's own machine-checkable verdict fail):
+  M1  aggregate positivity -- the PSD check degraded to a trace condition, which is exactly the
+      cross-channel-rescue laundering (a large compliant channel paying for a violating one).
+  M2  the ceiling installed -- the frozen verdict flipped to claim an upper bound (the named
+      flattering direction).
+  M3  orientation flipped -- the passive witness family negated, silently reversing the sign of
+      the floor.
+  M4  the KMS lock broken -- noise coefficients detached from the signed dissipation (absolute
+      value or similar), so noise positivity would mask a dissipation-sign violation.
+
+LEDGER EXPECTATION: zero. A structural lemma about the already-admissible family adds no
+underived input; GRUT stays at its standing net. Any ledger movement out of this wave belongs to
+the SEPARATE Part-4 relay (the kernel-vs-constant reframe), which is overseer-gated and not
+covered by this pre-registration.

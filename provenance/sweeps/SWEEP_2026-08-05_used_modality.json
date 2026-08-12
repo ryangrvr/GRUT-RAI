@@ -1,0 +1,115 @@
+{
+ "sweep": "vacuum-cluster USED-modality probe (the third verb) + fence + parity",
+ "date": "2026-08-05",
+ "status": "open",
+ "prereg": "prereg/PREREG_OMISSION_SWEEP_2026-08-04.txt",
+ "prereg_sha256": "7c08d02b30f8f5dd61fbe311cd06d38346c138fb32eaadbdd4d47f8c0b8b30c8",
+ "result": "prereg/RESULT_USED_MODALITY_2026-08-05.txt",
+ "_note": "OPEN. Run under the modality the first sweep never ran -- conjunct 1's THIRD VERB, 'used'. 14 of 29 agents died on a session limit mid-verify. The gaps are recorded rather than hidden, and the two NEWTON-CONSTANT candidates -- the completeness critic's headline missed omission -- are among them. NOTHING HERE IS BANKED.",
+ "raw": [
+  {
+   "id": "used-00",
+   "from": "used-modality probe",
+   "proposition": "Matter stress-energy is covariantly conserved: nabla^mu T_munu = 0 exactly, at all epochs, with no energy exchange with the gravitational or quantum-gravitational sector."
+  },
+  {
+   "id": "used-01",
+   "from": "used-modality probe",
+   "proposition": "The QCD chiral and gluon condensates are space-filling properties of the vacuum everywhere, so their energy density is a homogeneous gravitating contribution rather than a quantity confined to hadronic interiors."
+  },
+  {
+   "id": "used-02",
+   "from": "used-modality probe",
+   "proposition": "The universe's thermal history actually contained the electroweak and QCD epochs -- it was once above ~100 GeV -- so the SM's symmetry-breaking vacuum-energy depths are differences between states this universe realised."
+  },
+  {
+   "id": "used-03",
+   "from": "used-modality probe",
+   "proposition": "The G measured by cm\u2013m torsion balances in a terrestrial-density environment is the same G that appears in the Hubble-scale field equations \u2014 G's constancy across scale, environment and epoch. (Constancy across sources a"
+  },
+  {
+   "id": "used-04",
+   "from": "used-modality probe",
+   "proposition": "The vacuum energy of a supersymmetry-breaking sector is set by the breaking scale, rho_vac ~= M_S^4 \u2014 so discharging the Lambda problem at its observed value forces M_S ~= rho_obs^(1/4)."
+  },
+  {
+   "id": "used-05",
+   "from": "used-modality probe",
+   "proposition": "rho_Lambda and v are values of PARAMETERS of the theory, not values selected by cosmological history \u2014 dynamical attractor, membrane nucleation, or integration constant. The cluster's 'underived inputs' are Lagrangian da"
+  },
+  {
+   "id": "used-06",
+   "from": "used-modality probe",
+   "proposition": "ONE NEWTON CONSTANT ACROSS SCALES AND ENVIRONMENTS: the G measured by torsion balances at cm-to-m separations in the solar-system environment is the same G that appears in the Hubble-scale field equations and in the defi"
+  },
+  {
+   "id": "used-07",
+   "from": "used-modality probe",
+   "proposition": "'The electroweak scale' names ONE gauge-invariant quantity: the Higgs potential's order parameter is a physical scale, and the muon-decay-extracted v = (sqrt2 G_F)^(-1/2) IS that quantity -- not a gauge-and-truncation-fi"
+  }
+ ],
+ "dispositions": {
+  "used-00": {
+   "disposition": "refuted-at-verify",
+   "proposition": "Matter stress-energy is covariantly conserved: nabla^mu T_munu = 0 exactly, at all epochs, with no energy exchange with the gravitational or quantum-gravitational sector.",
+   "note": "all three adversarial lenses ran and refused it",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "used-01": {
+   "disposition": "refuted-at-verify",
+   "proposition": "The QCD chiral and gluon condensates are space-filling properties of the vacuum everywhere, so their energy density is a homogeneous gravitating contribution rather than a quantity confined to hadronic interiors.",
+   "note": "all three adversarial lenses ran and refused it",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "used-02": {
+   "disposition": "refuted-at-verify",
+   "proposition": "The universe's thermal history actually contained the electroweak and QCD epochs -- it was once above ~100 GeV -- so the SM's symmetry-breaking vacuum-energy depths are differences between states this universe realised.",
+   "note": "all three adversarial lenses ran and refused it",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "used-03": {
+   "disposition": "not-adjudicated",
+   "proposition": "The G measured by cm\u2013m torsion balances in a terrestrial-density environment is the same G that appears in the Hubble-scale field equations \u2014 G's constancy across scale, environment and epoch. (Constancy across sources a",
+   "note": "ONLY 1 OF 3 LENSES RAN (the rest died on a session limit). The workflow's own scoring rule filed this as REFUTED because 0 >= 2 is false -- an absent verdict scored as a negative one. It is OWED, not refused.",
+   "lenses_run": 1,
+   "lenses_required": 3
+  },
+  "used-04": {
+   "disposition": "not-adjudicated",
+   "proposition": "The vacuum energy of a supersymmetry-breaking sector is set by the breaking scale, rho_vac ~= M_S^4 \u2014 so discharging the Lambda problem at its observed value forces M_S ~= rho_obs^(1/4).",
+   "note": "ONLY 0 OF 3 LENSES RAN (the rest died on a session limit). The workflow's own scoring rule filed this as REFUTED because 0 >= 2 is false -- an absent verdict scored as a negative one. It is OWED, not refused.",
+   "lenses_run": 0,
+   "lenses_required": 3
+  },
+  "used-05": {
+   "disposition": "not-adjudicated",
+   "proposition": "rho_Lambda and v are values of PARAMETERS of the theory, not values selected by cosmological history \u2014 dynamical attractor, membrane nucleation, or integration constant. The cluster's 'underived inputs' are Lagrangian da",
+   "note": "ONLY 0 OF 3 LENSES RAN (the rest died on a session limit). The workflow's own scoring rule filed this as REFUTED because 0 >= 2 is false -- an absent verdict scored as a negative one. It is OWED, not refused.",
+   "lenses_run": 0,
+   "lenses_required": 3
+  },
+  "used-06": {
+   "disposition": "not-adjudicated",
+   "proposition": "ONE NEWTON CONSTANT ACROSS SCALES AND ENVIRONMENTS: the G measured by torsion balances at cm-to-m separations in the solar-system environment is the same G that appears in the Hubble-scale field equations and in the defi",
+   "note": "ONLY 0 OF 3 LENSES RAN (the rest died on a session limit). The workflow's own scoring rule filed this as REFUTED because 0 >= 2 is false -- an absent verdict scored as a negative one. It is OWED, not refused.",
+   "lenses_run": 0,
+   "lenses_required": 3
+  },
+  "used-07": {
+   "disposition": "not-adjudicated",
+   "proposition": "'The electroweak scale' names ONE gauge-invariant quantity: the Higgs potential's order parameter is a physical scale, and the muon-decay-extracted v = (sqrt2 G_F)^(-1/2) IS that quantity -- not a gauge-and-truncation-fi",
+   "note": "ONLY 0 OF 3 LENSES RAN (the rest died on a session limit). The workflow's own scoring rule filed this as REFUTED because 0 >= 2 is false -- an absent verdict scored as a negative one. It is OWED, not refused.",
+   "lenses_run": 0,
+   "lenses_required": 3
+  }
+ },
+ "prereg_candidates": {
+  "Q2e-cosmic-time-foliation": {
+   "outcome": "not-raised",
+   "note": "still owed from the 2026-08-04 sweep; this wave did not reach it either, and a second disappearance of the same modality is a method defect rather than two coincidences"
+  }
+ }
+}

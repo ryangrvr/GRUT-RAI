@@ -1,0 +1,52 @@
+PRE-REGISTRATION -- the vacuum-cluster compound-split re-audit. Written BEFORE any node was
+re-examined. Immutable once manifested; results go to a separate citing file.
+
+WHY THIS IS THE HARDEST PLACE TO PRE-REGISTER HONESTLY: this is an audit of MY OWN BANKED WORK.
+Every compound found is a defect in an enumeration I wrote and relayed as complete. The standing
+incentive is therefore to find FEW. That is precisely why the count is written down first.
+
+THE ATOMICITY TEST (the same dissociation logic used everywhere else in this program):
+    An input is COMPOUND if one part can be discharged INDEPENDENTLY of the rest.
+    It is ATOMIC if no part discharges alone.
+Worked instance already established: semiclassical_sourcing fails it -- S1 ("there is a state and an
+expectation functional on the observable algebra") is dischargeable without S2 ("the metric couples
+to the MEAN of that functional"), which is exactly why only S1 recurs in quantum foundations.
+
+DIRECTIONAL GUARD: DEFAULT-BROKEN TOWARD COMPOUND. Assume each node splits until shown otherwise,
+and record the ATOMICITY ARGUMENT FOR EVERY NODE -- not only for the ones that split. A node
+declared atomic without a recorded argument is an unexamined node wearing a verdict.
+OPPOSITE GUARD, equally binding: DO NOT OVER-SPLIT. Arbitrarily fine slicing inflates a count
+meaninglessly and would be the mirror failure. If a proposed part cannot be discharged ALONE, it is
+not a part. Two guards pointing opposite ways is the correct shape here.
+
+PRE-REGISTERED EXPECTATIONS:
+  P1  NUMBER OF FURTHER COMPOUNDS AMONG THE 13 NODES: I expect 3 to 5, inclusive of the one already
+      known (semiclassical_sourcing). Stating a RANGE rather than a number because the atomicity
+      test has a judgement edge; stating it at all so the result cannot be read back onto it.
+  P2  NAMED CANDIDATES, in my order of confidence:
+        (a) vc_semiclassical_sourcing -- KNOWN compound (S1 / S2). Certainty.
+        (b) vc_typicality_measure -- "there is an ensemble" is dischargeable without "and there is
+            a measure on it under which we are typical". Expect COMPOUND.
+        (c) vc_rho_lambda -- the register already carries this as undecided pair U-E: an amplitude
+            and a CONSTANCY may be two inputs, not one. Expect COMPOUND, and note this one was
+            already flagged by the register and NOT acted on, which is its own finding.
+        (d) vc_ir_gravity_is_gr -- "gravity is described by a metric" is dischargeable without "the
+            metric obeys the Einstein equations at Hubble scales". Expect COMPOUND.
+        (e) vc_naturalness_normative -- possible split between the technical criterion and the
+            normative obligation. LOW confidence; I expect this one to survive as atomic.
+  P3  EXPECTED ATOMIC: vc_v_ew, vc_m_planck, vc_lorentz_invariant_vacuum, vc_heavy_thresholds_exist,
+      vc_eft_validity, vc_vacuum_energy_gravitates (the last two were split once already and I
+      expect the residue to be atomic), vc_w_equals_minus_one, vc_grut_relation.
+  P4  S1 WILL BE REGISTRABLE AFTER THE SPLIT and cross-cluster detection will then SEE it. I expect
+      S1 to genuinely recur in quantum foundations rather than the match being an artifact of the
+      compound. If it does NOT recur once atomised, that is a more interesting result than if it
+      does, and it must not be quietly dropped.
+  P5  eft_validity will still NOT recur across clusters after the re-audit. The refusal rested on
+      operand, product and licensing, none of which a split changes.
+
+WHAT A FAILURE LOOKS LIKE: finding 0-1 compounds would mean either the inventory was already right
+(possible, but it has now been wrong three times) or the atomicity test was applied leniently
+because I wrote the thing being tested. Finding 8+ would mean over-splitting. Both are reportable.
+
+THE STANDING LIMIT: atomicity is a C3-class judgement -- non-mechanizable, analyst-supplied. The
+tool cannot check it. This audit inherits that limit exactly as every other wave has.

@@ -1,0 +1,320 @@
+{
+ "sweep": "vacuum-cluster omission sweep",
+ "date": "2026-08-04",
+ "prereg": "prereg/PREREG_OMISSION_SWEEP_2026-08-04.txt",
+ "prereg_sha256": "7c08d02b30f8f5dd61fbe311cd06d38346c138fb32eaadbdd4d47f8c0b8b30c8",
+ "result": "prereg/RESULT_OMISSION_SWEEP_2026-08-04.txt",
+ "_note": "MAPPING IS BUILDER-ASSIGNED and is the reviewable surface of this record. The dedup stage clustered 24 raw candidates into 14 canonicals; which raw is the CARRIER and which are ABSORBED is my assignment, reconstructed from the dedup output. The dispositions themselves come from the run, not from me.",
+ "raw": [
+  {
+   "id": "raw-00",
+   "from": "vc_state_expectation_functional",
+   "proposition": "The gravitating universe possesses ONE gauge-invariant observable algebra carrying ONE state -- i.e. the flat-space algebra-plus-state structure survives intact once gravity is dynamical and the space"
+  },
+  {
+   "id": "raw-01",
+   "from": "vc_mean_field_sourcing",
+   "proposition": "The source of gravity is a LOCAL operator field: in a theory with dynamical gravity there exist local, gauge-invariant operators -- in particular a stress tensor at a point, T_munu(x), as an operator-"
+  },
+  {
+   "id": "raw-02",
+   "from": "vc_mean_field_sourcing",
+   "proposition": "There is a STATE-ADMISSIBILITY restriction: only states of a specified short-distance regularity class (Hadamard) are allowed to source the metric, so that the renormalized expectation value exists an"
+  },
+  {
+   "id": "raw-03",
+   "from": "vc_mean_field_sourcing",
+   "proposition": "The expectation value is a property of the INDIVIDUAL system -- the one universe -- rather than an average over an ensemble of similarly prepared systems or an agent's degree of belief."
+  },
+  {
+   "id": "raw-04",
+   "from": "vc_naturalness_normative",
+   "proposition": "THE GRADED PARAMETERIZATION IS PRIVILEGED: there is a determinate, non-conventional answer to which quantities count as the theory's independent parameters (and in which scheme), relative to which 'a "
+  },
+  {
+   "id": "raw-05",
+   "from": "vc_typicality_measure",
+   "proposition": "AN OBSERVER WEIGHTING AND A REFERENCE CLASS: converting a measure over vacua into a probability for OUR observation requires a weighting of ensemble members by observers (or an equivalent indexical pr"
+  },
+  {
+   "id": "raw-06",
+   "from": "vc_typicality_measure",
+   "proposition": "THE MEASURED DARK-ENERGY DENSITY IS THE VACUUM TERM ITSELF: the observed rho_Lambda is the value of the field-independent constant that the ensemble scans, not a distinct dynamical component with the "
+  },
+  {
+   "id": "raw-07",
+   "from": "vc_vacuum_energy_gravitates",
+   "proposition": "THE THEORY HAS A VACUUM: among the states there is a distinguished, stable, essentially-unique stationary state -- energy bounded below (a spectrum condition) in flat space, selected by an adiabatic/H"
+  },
+  {
+   "id": "raw-08",
+   "from": "vc_vacuum_energy_gravitates",
+   "proposition": "The observed four-dimensional metric EXHAUSTS the gravitational response to a field-independent (zero-momentum) source: the low-energy gravitational sector contains no further arena -- a bulk, an extr"
+  },
+  {
+   "id": "raw-09",
+   "from": "vc_lorentz_invariant_vacuum",
+   "proposition": "THE THEORY HAS A VACUUM: among the states there is a distinguished, stable, essentially-unique stationary state -- energy bounded below (a spectrum condition) in flat space, selected by an adiabatic/H"
+  },
+  {
+   "id": "raw-10",
+   "from": "vc_lorentz_invariant_vacuum",
+   "proposition": "Lorentz invariance is EXACT IN THE DYNAMICS -- not merely emergent or approximate in the infrared -- so the symmetry still holds at the scales that dominate the vacuum-energy accounting, and a symmetr"
+  },
+  {
+   "id": "raw-11",
+   "from": "vc_rho_lambda",
+   "proposition": "The large-scale average of the actual inhomogeneous universe obeys the same Einstein dynamics as a smooth FLRW model, and our vantage point is not special \u2014 i.e. averaging commutes with the Einstein e"
+  },
+  {
+   "id": "raw-12",
+   "from": "vc_rho_lambda",
+   "proposition": "The CMB/BAO standard ruler is calibrated by known physics with present-day constants: recombination proceeds standardly at the standard redshift, the pre-recombination radiation content is the Standar"
+  },
+  {
+   "id": "raw-13",
+   "from": "vc_v_ew",
+   "proposition": "The closure clause of the naturalness heuristic: a dimensionless ratio OF ORDER UNITY carries no explanatory obligation and may therefore be ABSORBED into the quantities it relates rather than booked "
+  },
+  {
+   "id": "raw-14",
+   "from": "vc_m_planck",
+   "proposition": "Spacetime has exactly four macroscopic dimensions across the whole range the cluster compares \u2014 from the ~cm-to-m scales at which G is measured up to the cluster's UV \u2014 so that the four-dimensional Ne"
+  },
+  {
+   "id": "raw-15",
+   "from": "vc_ir_gravity_is_gr",
+   "proposition": "THE COSMOLOGICAL PRINCIPLE: the universe is spatially homogeneous and isotropic on large scales, so that an FLRW description applies at the scales the node quantifies over. (The cosmic-time/global-fol"
+  },
+  {
+   "id": "raw-16",
+   "from": "vc_ir_gravity_is_gr",
+   "proposition": "EMPIRICAL SEPARABILITY OF GEOMETRY FROM SOURCE at Hubble scales: the metric's dynamics can be discriminated from the stress-energy that sources it, i.e. there is no total dark degeneracy between 'modi"
+  },
+  {
+   "id": "raw-17",
+   "from": "vc_gravitational_uv_ceiling",
+   "proposition": "GRAVITY ADMITS A LOCAL EFFECTIVE-FIELD-THEORY DESCRIPTION -- the gravitational effective action is organized as a local derivative expansion, with finitely many local operators at each order -- over s"
+  },
+  {
+   "id": "raw-18",
+   "from": "vc_eft_decoupling",
+   "proposition": "The effective description is FOUR-DIMENSIONAL across the whole range over which the EFT accounting is run: no additional accessible spacetime dimensions (and no KK/string tower realising them) open be"
+  },
+  {
+   "id": "raw-19",
+   "from": "vc_eft_vacuum_operator",
+   "proposition": "There is a lowest-energy state to expand about -- the spectrum is bounded below and an (at least effectively stable) vacuum EXISTS, with a definite energy density."
+  },
+  {
+   "id": "raw-20",
+   "from": "vc_heavy_thresholds_exist",
+   "proposition": "The Higgs is an ELEMENTARY scalar field in the effective description throughout the range between v and the threshold scale M -- it does not become a composite/bound state at an intermediate scale f."
+  },
+  {
+   "id": "raw-21",
+   "from": "vc_flatness_in_reduction",
+   "proposition": "THE COSMOLOGICAL PRINCIPLE: the large-scale universe is spatially homogeneous and isotropic, so that its geometry reduces to a single FLRW metric with one scale factor a(t) and one spatial-curvature p"
+  },
+  {
+   "id": "raw-22",
+   "from": "vc_w_equals_minus_one",
+   "proposition": "THE DARK-ENERGY SECTOR'S GRAVITATIONAL CONTENT IS EXHAUSTED BY ITS BACKGROUND EQUATION OF STATE: the accelerating component carries no independent perturbative parameters -- no free sound speed c_s^2,"
+  },
+  {
+   "id": "raw-23",
+   "from": "vc_w_equals_minus_one",
+   "proposition": "DARK-SECTOR SEPARABILITY: the total gravitating source decomposes into physically determinate components, one of which is 'the dark energy', so that a dark-energy density and its equation of state are"
+  }
+ ],
+ "dispositions": {
+  "raw-00": {
+   "disposition": "absorbed-into-cluster",
+   "canonical": "raw-01",
+   "from_node": "vc_state_expectation_functional",
+   "proposition": "The gravitating universe possesses ONE gauge-invariant observable algebra carrying ONE state -- i.e. the flat-space algebra-plus-state structure survives intact once gravity is dynamical and the space",
+   "note": "same proposition as the canonical in different words; the raised_from multiplicity of the canonical is what this contributes"
+  },
+  "raw-01": {
+   "disposition": "refuted-at-verify",
+   "from_node": "vc_mean_field_sourcing",
+   "proposition": "The source of gravity is a LOCAL operator field: in a theory with dynamical gravity there exist local, gauge-invariant operators -- in particular a stress tensor at a point, T_munu(x), as an operator-",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "raw-02": {
+   "disposition": "refuted-at-verify",
+   "from_node": "vc_mean_field_sourcing",
+   "proposition": "There is a STATE-ADMISSIBILITY restriction: only states of a specified short-distance regularity class (Hadamard) are allowed to source the metric, so that the renormalized expectation value exists an",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "raw-03": {
+   "disposition": "dropped-membership-fence",
+   "from_node": "vc_mean_field_sourcing",
+   "proposition": "The expectation value is a property of the INDIVIDUAL system -- the one universe -- rather than an average over an ensemble of similarly prepared systems or an agent's degree of belief."
+  },
+  "raw-04": {
+   "disposition": "refuted-at-verify",
+   "from_node": "vc_naturalness_normative",
+   "proposition": "THE GRADED PARAMETERIZATION IS PRIVILEGED: there is a determinate, non-conventional answer to which quantities count as the theory's independent parameters (and in which scheme), relative to which 'a ",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "raw-05": {
+   "disposition": "already-booked",
+   "from_node": "vc_typicality_measure",
+   "proposition": "AN OBSERVER WEIGHTING AND A REFERENCE CLASS: converting a measure over vacua into a probability for OUR observation requires a weighting of ensemble members by observers (or an equivalent indexical pr"
+  },
+  "raw-06": {
+   "disposition": "refuted-at-verify",
+   "from_node": "vc_typicality_measure",
+   "proposition": "THE MEASURED DARK-ENERGY DENSITY IS THE VACUUM TERM ITSELF: the observed rho_Lambda is the value of the field-independent constant that the ensemble scans, not a distinct dynamical component with the ",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "raw-07": {
+   "disposition": "refuted-at-verify",
+   "from_node": "vc_vacuum_energy_gravitates",
+   "proposition": "THE THEORY HAS A VACUUM: among the states there is a distinguished, stable, essentially-unique stationary state -- energy bounded below (a spectrum condition) in flat space, selected by an adiabatic/H",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "raw-08": {
+   "disposition": "absorbed-into-cluster",
+   "canonical": "raw-18",
+   "from_node": "vc_vacuum_energy_gravitates",
+   "proposition": "The observed four-dimensional metric EXHAUSTS the gravitational response to a field-independent (zero-momentum) source: the low-energy gravitational sector contains no further arena -- a bulk, an extr",
+   "note": "same proposition as the canonical in different words; the raised_from multiplicity of the canonical is what this contributes"
+  },
+  "raw-09": {
+   "disposition": "absorbed-into-cluster",
+   "canonical": "raw-07",
+   "from_node": "vc_lorentz_invariant_vacuum",
+   "proposition": "THE THEORY HAS A VACUUM: among the states there is a distinguished, stable, essentially-unique stationary state -- energy bounded below (a spectrum condition) in flat space, selected by an adiabatic/H",
+   "note": "same proposition as the canonical in different words; the raised_from multiplicity of the canonical is what this contributes"
+  },
+  "raw-10": {
+   "disposition": "already-booked",
+   "from_node": "vc_lorentz_invariant_vacuum",
+   "proposition": "Lorentz invariance is EXACT IN THE DYNAMICS -- not merely emergent or approximate in the infrared -- so the symmetry still holds at the scales that dominate the vacuum-energy accounting, and a symmetr"
+  },
+  "raw-11": {
+   "disposition": "survived-verify",
+   "from_node": "vc_rho_lambda",
+   "proposition": "The large-scale average of the actual inhomogeneous universe obeys the same Einstein dynamics as a smooth FLRW model, and our vantage point is not special \u2014 i.e. averaging commutes with the Einstein e",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "raw-12": {
+   "disposition": "survived-verify",
+   "from_node": "vc_rho_lambda",
+   "proposition": "The CMB/BAO standard ruler is calibrated by known physics with present-day constants: recombination proceeds standardly at the standard redshift, the pre-recombination radiation content is the Standar",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "raw-13": {
+   "disposition": "absorbed-into-cluster",
+   "canonical": "raw-04",
+   "from_node": "vc_v_ew",
+   "proposition": "The closure clause of the naturalness heuristic: a dimensionless ratio OF ORDER UNITY carries no explanatory obligation and may therefore be ABSORBED into the quantities it relates rather than booked ",
+   "note": "same proposition as the canonical in different words; the raised_from multiplicity of the canonical is what this contributes"
+  },
+  "raw-14": {
+   "disposition": "absorbed-into-cluster",
+   "canonical": "raw-18",
+   "from_node": "vc_m_planck",
+   "proposition": "Spacetime has exactly four macroscopic dimensions across the whole range the cluster compares \u2014 from the ~cm-to-m scales at which G is measured up to the cluster's UV \u2014 so that the four-dimensional Ne",
+   "note": "same proposition as the canonical in different words; the raised_from multiplicity of the canonical is what this contributes"
+  },
+  "raw-15": {
+   "disposition": "absorbed-into-cluster",
+   "canonical": "raw-11",
+   "from_node": "vc_ir_gravity_is_gr",
+   "proposition": "THE COSMOLOGICAL PRINCIPLE: the universe is spatially homogeneous and isotropic on large scales, so that an FLRW description applies at the scales the node quantifies over. (The cosmic-time/global-fol",
+   "note": "same proposition as the canonical in different words; the raised_from multiplicity of the canonical is what this contributes"
+  },
+  "raw-16": {
+   "disposition": "refuted-at-verify",
+   "from_node": "vc_ir_gravity_is_gr",
+   "proposition": "EMPIRICAL SEPARABILITY OF GEOMETRY FROM SOURCE at Hubble scales: the metric's dynamics can be discriminated from the stress-energy that sources it, i.e. there is no total dark degeneracy between 'modi",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "raw-17": {
+   "disposition": "refuted-at-verify",
+   "from_node": "vc_gravitational_uv_ceiling",
+   "proposition": "GRAVITY ADMITS A LOCAL EFFECTIVE-FIELD-THEORY DESCRIPTION -- the gravitational effective action is organized as a local derivative expansion, with finitely many local operators at each order -- over s",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "raw-18": {
+   "disposition": "refuted-at-verify",
+   "from_node": "vc_eft_decoupling",
+   "proposition": "The effective description is FOUR-DIMENSIONAL across the whole range over which the EFT accounting is run: no additional accessible spacetime dimensions (and no KK/string tower realising them) open be",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "raw-19": {
+   "disposition": "absorbed-into-cluster",
+   "canonical": "raw-07",
+   "from_node": "vc_eft_vacuum_operator",
+   "proposition": "There is a lowest-energy state to expand about -- the spectrum is bounded below and an (at least effectively stable) vacuum EXISTS, with a definite energy density.",
+   "note": "same proposition as the canonical in different words; the raised_from multiplicity of the canonical is what this contributes"
+  },
+  "raw-20": {
+   "disposition": "refuted-at-verify",
+   "from_node": "vc_heavy_thresholds_exist",
+   "proposition": "The Higgs is an ELEMENTARY scalar field in the effective description throughout the range between v and the threshold scale M -- it does not become a composite/bound state at an intermediate scale f.",
+   "lenses_run": 3,
+   "lenses_required": 3
+  },
+  "raw-21": {
+   "disposition": "absorbed-into-cluster",
+   "canonical": "raw-11",
+   "from_node": "vc_flatness_in_reduction",
+   "proposition": "THE COSMOLOGICAL PRINCIPLE: the large-scale universe is spatially homogeneous and isotropic, so that its geometry reduces to a single FLRW metric with one scale factor a(t) and one spatial-curvature p",
+   "note": "same proposition as the canonical in different words; the raised_from multiplicity of the canonical is what this contributes"
+  },
+  "raw-22": {
+   "disposition": "absorbed-into-cluster",
+   "canonical": "raw-16",
+   "from_node": "vc_w_equals_minus_one",
+   "proposition": "THE DARK-ENERGY SECTOR'S GRAVITATIONAL CONTENT IS EXHAUSTED BY ITS BACKGROUND EQUATION OF STATE: the accelerating component carries no independent perturbative parameters -- no free sound speed c_s^2,",
+   "note": "same proposition as the canonical in different words; the raised_from multiplicity of the canonical is what this contributes"
+  },
+  "raw-23": {
+   "disposition": "absorbed-into-cluster",
+   "canonical": "raw-16",
+   "from_node": "vc_w_equals_minus_one",
+   "proposition": "DARK-SECTOR SEPARABILITY: the total gravitating source decomposes into physically determinate components, one of which is 'the dark energy', so that a dark-energy density and its equation of state are",
+   "note": "same proposition as the canonical in different words; the raised_from multiplicity of the canonical is what this contributes"
+  }
+ },
+ "prereg_candidates": {
+  "Q2a-cosmological-principle": {
+   "outcome": "raised",
+   "raw_id": "raw-11",
+   "note": "the top-ranked pre-registered candidate and the ONE prediction that came true; survived 2/3, then ruled bankable only in its averaging half"
+  },
+  "Q2b-vacuum-uniqueness": {
+   "outcome": "raised",
+   "raw_id": "raw-07",
+   "note": "raised from two nodes; REFUTED 0/3 -- already booked distributively, and 'the vacuum' appears verbatim in vc_lorentz_invariant_vacuum's statement, the standard's own split marker"
+  },
+  "Q2c-local-stress-tensor": {
+   "outcome": "raised",
+   "raw_id": "raw-01",
+   "note": "refuted 0/3"
+  },
+  "Q2d-four-dimensionality": {
+   "outcome": "raised",
+   "raw_id": "raw-18",
+   "note": "refuted 0/3"
+  },
+  "Q2e-cosmic-time-foliation": {
+   "outcome": "not-raised",
+   "note": "*** THE DEFECT THIS LEDGER EXISTS FOR. *** A PRE-REGISTERED candidate that appears nowhere in the sweep's output -- not survived, not refuted, not booked, not dropped. Its content was absorbed into the FLRW compound ('one global expansion history') and never adjudicated on its own. The SAME modality went missing from the quantum-foundations map. OWED: adjudicate it on its own terms, and treat a second disappearance as a method defect rather than two coincidences."
+  }
+ }
+}

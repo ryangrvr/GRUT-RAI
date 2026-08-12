@@ -1,0 +1,83 @@
+PRE-REGISTRATION -- the kk_static_transfer wave (the register node's owed calc; overseer brief
+2026-08-09 Part 3). Written BEFORE calc/kk_static_transfer.py exists or runs. Immutable once
+manifested; results go to a separate citing file.
+
+BLIND-SAFE: yes
+(No measurement is blinded -- the wave is structural mathematics -- but the flag is carried so
+this prereg holds no result-adjacent numerics by construction.)
+
+THE QUESTION (the register node kk_static_transfer, verbatim in spirit): does the per-channel
+DISSIPATIVE sign floor (x_no_pin_theorem: omega*Im c0 >= 0 pointwise) transfer to the sign of
+the STATIC quasi-static modulus that mu(x) actually couples to? This is the load-bearing gap
+between "the family has a floor" and "mu has a floor" -- the claim any reader actually wants.
+
+THE MATHEMATICAL ROUTE, STATED BEFORE COMPUTING: for a retarded (upper-half-plane-analytic)
+response chi(omega) whose high-frequency limit is a real constant chi_inf (the INSTANTANEOUS or
+contact part), the once-subtracted dispersion relation gives, when the dispersion integral
+converges,
+    chi(0) = chi_inf + (two/pi) * integral over positive omega of Im chi(omega)/omega.
+Passivity makes the integral term nonnegative, so chi(0) >= chi_inf ALWAYS -- and chi(0) >= 0
+is guaranteed if and only if chi_inf >= 0. The entire transfer question therefore collapses
+onto the sign of the instantaneous part, which is a REACTIVE datum that passivity never
+constrains: it is a property of the kernel's UV/contact structure -- bath microphysics.
+
+PRE-REGISTERED OUTCOMES (as already named on the register node; exactly the obtaining set banks):
+  (a) UNCONDITIONAL TRANSFER -- the declared structure (causality, KMS, passivity, the S_IF
+      inventory) forces chi_inf >= 0, so the static modulus inherits the floor with no further
+      hypothesis. THIS IS THE FLATTERING OUTCOME (it hands mu a derived floor) and carries the
+      heavier burden: it must exhibit the forcing mechanism explicitly and survive the
+      counterexample search below.
+  (b) COUNTEREXAMPLE -- a kernel that is retarded-analytic, passive at every frequency, and
+      KMS-consistent, whose static modulus is NEGATIVE (via a negative instantaneous part).
+      Kills the unconditional transfer permanently.
+  (c) CONDITIONAL / RUNG3-GATED -- the transfer holds exactly on a named kernel class (the
+      vanishing-instantaneous-part class, which contains the single-pole/Debye family that
+      rung3_single_pole conjectures), and membership in that class is a bath property the
+      register prices at rung3. The mu-facing floor is then exactly as strong as the
+      single-pole conjecture, never stronger.
+
+EXPECTED LANDING, stated honestly before the run: (b) AND (c) JOINTLY. The candidate
+counterexample is pre-named by FORM (no constants here, per blind-safety): a negative real
+contact term plus a passive Debye relaxor, with the contact term's magnitude exceeding the
+relaxor's static weight. Its Im part is the relaxor's alone (a real constant contributes no
+imaginary part), so passivity should hold pointwise while the static value is negative. If
+this candidate FAILS to verify -- passivity broken somewhere, or analyticity lost -- that
+failure is reportable and outcome (a) regains standing; it is not to be quietly repaired.
+
+DIRECTIONAL PRESSURE, NAMED: (a) is the flattering branch. DEFAULT-BROKEN TOWARD (b)/(c).
+A landing on (a) requires the forcing mechanism named, mutation-tested, and relayed with
+maximum directional-guard pressure before any banking.
+
+CONTEXT REMARK, PRE-COMMITTED AS ANALOGY-GRADE (never a proof step): the register already banks
+(at p_tt_ansatz, exact arithmetic) that linearized Einstein-Hilbert's own kernel carries a
+NEGATIVE omega-independent scalar-channel coefficient. Negative real contact structure in the
+scalar channel of gravity is therefore not exotic -- but the EH kernel is the KINEMATIC
+operator, not the vacuum's dissipative response deviation, and the remark transfers nothing.
+
+CONVERGENCE CAVEAT, PRE-COMMITTED: the dispersion route needs the integral of Im chi/omega to
+converge. If the admissible class's UV behavior requires further subtractions, additional
+unconstrained constants enter and outcome (c)'s condition tightens further -- this too is a
+bath/UV property. The calc must state its convergence assumptions explicitly.
+
+WHAT MAY NOT BANK FROM THIS WAVE, regardless of outcome: any statement about the TT channel's
+ceiling; any Israel-Stewart number; any unconditional "mu has a floor" quote unless outcome (a)
+obtains at its heavier burden; any kernel-class assertion about GRUT's actual vacuum (that is
+rung3's, priced there).
+
+MUTATION BATTERY, PRE-REGISTERED WRONG ANSWERS (ships with the calc; each mutant must make the
+calc's machine-checkable verdict fail):
+  M1  COUNTEREXAMPLE NEUTERED -- the contact term's sign or magnitude altered so the exhibited
+      kernel is no longer negative at zero frequency; the refutation of unconditional transfer
+      would silently evaporate.
+  M2  FLATTERING VERDICT INSTALLED -- the frozen verdict flipped to claim unconditional
+      transfer (the named seductive branch).
+  M3  DISPERSION MACHINERY BROKEN -- the Kramers-Kronig quadrature corrupted (prefactor or
+      integrand), so the reconstruction-against-closed-form identity fails; every downstream
+      statement would be numerology.
+  M4  INSTANTANEOUS PART SMUGGLED TO ZERO -- the class-condition read of chi_inf forced to
+      report zero always, erasing the counterexample class and faking outcome (a).
+
+LEDGER EXPECTATION: zero (structural mathematics on already-priced inputs; the conditional
+outcome's hypothesis is priced at rung3, counted once, there). Any tier movement on the
+kk_static_transfer node is STAGED AND RELAYED, never self-accepted -- the bank gate's
+TIER-OR-LEDGER flag is the intended loud surface for it.

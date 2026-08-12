@@ -1,0 +1,154 @@
+PRE-REGISTRATION -- THE TERMINATION CONDITION FOR IN-HOUSE GRUT PHYSICS. VERSION 2.
+BLIND-SAFE: yes
+
+SUPERSEDES: PREREG_TERMINATION_2026-08-09.txt (sealed
+c504576ef0a2abd0a252b2575f05026d7ee3d9864f3222944a4856f6a83c64f7, which remains on disk and in
+the manifest as immutable history -- it was never signed and never in force). WHY A NEW SEALED
+VERSION RATHER THAN AN EDIT: seals are immutable; a fix applied quietly to a sealed stop
+condition would be the certifier-inside-the-certified failure applied to the program's ending.
+WHY THE SUPERSESSION: two adversarial review passes (the builder's packet P1-P4; an independent
+verification pass P5-P7 -- REVIEW_PACKET_TERMINATION_2026-08-09.md) found seven structural gaps,
+each of which would have been graded under deposit-day incentives. Every fix below is
+structural, not cosmetic. This file is UNSIGNED and NOT IN FORCE until the block at the bottom
+is signed.
+
+STATUS: *** UNSIGNED = NOT IN FORCE. ***
+
+WHY OUTCOMES-FIRST (carried from v1, still true): every wave that pre-registered its outcomes
+was honest under pressure, and every number that traveled without a pre-registration eventually
+needed a retraction. The stop condition is the largest single claim the program will ever make
+about itself; it gets the same discipline.
+
+================================ THE UNIVERSAL RULES (new in v2) ================================
+
+U1. STILL-OPEN IS A FIRST-CLASS OUTCOME OF EVERY CHANNEL, by construction. Each channel below
+    carries its own explicit still-open line with the same standing as any resolved outcome, so
+    the deposit's "reports each channel in whichever of its pre-registered outcomes obtains"
+    never has to fight a specific list (v1's P2 defect: the general clause offered still-open
+    while no channel's list contained it -- and the companion log had already exercised exactly
+    that flattening).
+
+U2. NO MECHANICAL ACTION FIRES ACROSS CHANNELS. A trigger executes only on ITS OWN banked
+    predicate, quoted by node name; an answer in one channel that bears on another channel's
+    trigger OPENS A RECORDED ADJUDICATION, never an execution (v1's P4 defect: C1(b) bound the
+    mu_linear armed trigger -- whose banked predicate is a spin-0 result -- to the TT channel's
+    answer, with re-litigation forbidden; that was a trigger-laundering ordered by the sealed
+    text itself).
+
+U3. NO THRESHOLD BY GESTURE. An outcome that needs a data-grade threshold may fire only if the
+    threshold is FROZEN BY NAME in a separate instrument BEFORE the data are read; if no such
+    freeze exists when the data land, the thresholded outcome CANNOT fire and the channel
+    reports its no-verdict line (v1's P7 defect: C2(a)'s "kill grade" cited a number that
+    exists nowhere in the register, against the preamble's own promise).
+
+U4. CHERRY-PICKING FORBIDDEN, unchanged from v1: the channels below are ALL of the program's
+    live empirical fronts as of sealing; the deposit reports every one, each in exactly one
+    pre-registered outcome.
+
+================================ THE CHANNELS AND THEIR OUTCOMES ================================
+
+C1. THE SPECIALIST DISPATCH (the pole-vs-cut question; DISPATCH_ONE_PAGE.md, clock convention
+    now stated in the artifact). The clock starts at the SEND DATE (the owner's act), recorded
+    by a dated line in the companion event file -- never in this file.
+    (a) POLE-CLASS ANSWER: the core structural assumption is earned at one loop. Continuation
+        past the termination date is a NEW signed decision, never momentum. This clause governs
+        CONTINUATION DECISIONS whenever the answer arrives, before or after the date; THE DATE
+        below governs DEPOSIT TIMING -- the two never conflict because they govern different
+        acts (v1's P6 conflict resolved by this explicit ranking).
+    (b) CUT-CLASS ANSWER: rung3_single_pole is refuted as stated; the program moves to deposit
+        within one wave, saying plainly that its one decisive external question was answered
+        against it. THE TRIGGER HANDLING, corrected per U2: the mu_linear armed trigger does
+        NOT fire on this answer -- its banked predicate (mu_linear.boundary_condition, quoted:
+        "if rung3 resolves AGAINST the trace-correlator route (Pi_0 != 0 established)") is a
+        spin-0 result this TT-channel answer does not deliver. Instead a cut-class answer OPENS
+        the pre-registered adjudication: "does the TT-cut refutation foreclose mu_linear's only
+        remaining graduation route, such that derived-pending -> assumed follows on the route's
+        closure rather than on the trigger's predicate?" The adjudication's outcome is written
+        into the deposit with its reasoning; executing the tier move without it is the
+        TRIGGER-LAUNDERING kill, here as everywhere.
+    (c) DETERMINATE-BUT-NEITHER: an under-determined, partial, conditional, or
+        assembly-obstructed return -- the outcome this exact question ALREADY produced once
+        (rung3_single_pole records earned-under-determined, externally reviewed) and which v1
+        had no home for (P5). Recorded as such; fires nothing; is not spun toward either horn.
+        The Rider-A return (the spin-0 sector locked to the GR ratio by a Ward/constraint
+        identity) is ALSO homed here as a named special case: it is decisive physics, and it is
+        the one return that genuinely bears on the Pi_0 predicate -- if it arrives, it feeds
+        D1's route per that route's own banked predicates (X_FLOOR_MAP), never per this file.
+    (d) NO RESPONSE after the FULL six-month window from the send date, with at least one
+        reminder: recorded as posed-and-unclaimed. Non-response is NOT evidence for either horn
+        and must not be spun as either. This outcome can only fire after the window has
+        actually elapsed -- if the deposit is written mid-window, C1 reports (e), and the
+        posed-and-unclaimed recording lands later in the companion file as a consumed external
+        fact (the post-stop consumption rule permits exactly this).
+    (e) STILL OPEN: unsent at deposit time, or sent with the window not yet elapsed and no
+        answer. Reported as exactly that, with the send date (or its absence) stated.
+
+C2. DESI DR3 / THE w(z) CHANNEL. The register's kill-channel commitments (rung7's
+    no-phantom-crossing; the two-scale IR mode) stand as banked. This file adds NO numbers.
+    (a) A CROSSING ESTABLISHED at a threshold frozen by name, per U3, in an instrument sealed
+        BEFORE the DR3 data are read. The register's rung7 overturning clauses are structural
+        (a passive single-pole kernel exhibited to cross), NOT statistical -- v1's P7 finding
+        is recorded here so no one re-reads them as a data threshold. If no statistical
+        threshold has been frozen when DR3 lands, THIS OUTCOME CANNOT FIRE. If it fires: the
+        w(z) leg dies, executed per its own overturning clause; a differentiator dies, not the
+        framing.
+    (b) EVOLVING-w STRENGTHENS short of the frozen threshold (or with no threshold frozen):
+        the leg's window narrows; NO new dial may be added to rescue it.
+    (c) CONSISTENCY WITH A CONSTANT at DR3's own reported grade: the leg survives unused; the
+        deposit carries it as an untriggered instrument.
+    (d) NO REGISTER-GRADE VERDICT EXTRACTABLE: dataset-combination-dependent or
+        model-framing-dependent ambiguity -- the shape this channel's own DR2 experience took
+        (recorded on the register's vacuum-cluster rider), which v1 had no home for (P1).
+        Reported as still open, stated as such, spun toward nothing.
+
+C3. THE TT-AUTO RIGOROUS CHANNEL (Part-7 calc, time-boxed; A8 discipline applies in full: the
+    demotion's operative content is an unbanked filter insertion, an excluded sharp-theta
+    shape, and an unbounded kappa range -- not merely "family-conditional"; the weaker v1 gloss
+    is corrected here so the sealed acknowledgment is not weaker than the instrument it cites).
+    (a) THE WINDOW CLOSES TO UNOBSERVABLE at every declared family member. FIREABLE ONLY IF
+        the activation-scale question has been resolved from outside so the verdicts are
+        unconditional (A8: otherwise every number the gate emits is insertion-contaminated and
+        this outcome is STRUCTURALLY UNREACHABLE -- stated here so it cannot be
+        costume-resolved at deposit; v1's P3). If it fires: the empirical surface is gone; the
+        deposit is ontology + derived boundaries + method (the D3 terminal), said without
+        euphemism.
+    (b) A PERCENT-LEVEL WINDOW SURVIVES: ships in the deposit as an ALLOWANCE, never a
+        prediction (x has no floor -- and the 2026-08-09 result stands: the quasi-static
+        coupling inherits a sign only conditional on the vacuum kernel's instantaneous part,
+        never unconditionally), with every insertion declared per A8.
+    (c) THE CALC IS UNRUN OR UNFINISHED at the date: reported as exactly that -- still open,
+        owed-or-retired per the stage-close record, never quietly dropped (v1's P2: the date
+        clause's "whichever is EARLIER" makes this state reachable, and v1 had no line for it).
+
+C4. THE METHOD (claimledger + the register discipline).
+    (a) method_novelty's falsifier discharges PER ITS OWN NODE TEXT, quoted exactly rather
+        than paraphrased (v1's gloss dropped a leg): "independent EXTERNAL validation -- a
+        DIFFERENT team, on a DIFFERENT problem, where the method's discipline catches a REAL
+        error (not its own)". The node then graduates TOWARD a banked contribution per its own
+        text -- the graduation is the node's, executed there, not this file's.
+    (b) NO EXTERNAL UPTAKE by the termination date: the method ships as-is, bounded exactly as
+        the node states; the claim does not inflate at deposit time.
+    (c) PARTIAL DISCHARGE (some legs, not all -- the node's own recorded precedent): reported
+        leg-by-leg per the node's bookkeeping; no leg is rounded up.
+
+================================ THE DATE ================================
+IN-HOUSE PHYSICS CALCULATION STOPS on 2026-12-31, or upon completion of the two Part-7
+time-boxed calcs, WHICHEVER IS EARLIER. After the stop: banking waves may only CONSUME external
+results (specialist answers, DESI releases, external claimledger reports, the C1(d) recording)
+against the frozen instruments; no new in-house physics calculations may be started. The
+deposit is written in the first wave after the date, whatever state the channels are in, and
+reports each channel in exactly one of ITS OWN pre-registered outcomes -- which now include,
+for every channel, the explicit still-open line (U1), so "still open" is never an appeal to a
+general clause against a specific list. RANKING (v1's P6): THE DATE governs deposit timing;
+C1(a) governs continuation decisions; a pole-class answer arriving after the date and inside
+the C1 window re-opens continuation ONLY as a new signed decision, exactly as one arriving
+before it -- the deposit is not retracted, it is superseded by the new decision's record.
+
+WHAT THIS FILE MAY NEVER BE USED FOR: cherry-picking (U4). Reporting the deposit on a subset
+because the subset looks better is the laundering shape, applied to an ending.
+
+================================ SIGNATURE ================================
+Owner signature (types name + date to sign; the seal covers the file WITH this block EMPTY, and
+the companion result file records the signing -- the sealed file itself is never edited):
+
+    SIGNED: ______________________  DATE: ____________

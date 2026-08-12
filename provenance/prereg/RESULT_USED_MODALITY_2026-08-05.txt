@@ -1,0 +1,122 @@
+RESULT -- the fence test on S-2, the "USED" modality probe, and the L/H parity check.
+
+CITES PRE-REGISTRATION: prereg/PREREG_OMISSION_SWEEP_2026-08-04.txt
+    sha256 = 7c08d02b30f8f5dd61fbe311cd06d38346c138fb32eaadbdd4d47f8c0b8b30c8
+Standard: OMISSION_STANDARD_v2.txt. Ledger: sweeps/SWEEP_2026-08-05_used_modality.json.
+*** STATUS: OPEN. NOTHING BANKED. *** 14 of 29 agents died on a session limit mid-verification.
+
+================================ THE FENCE RULING ON S-2: FAILS-FENCE ================================
+The overseer's reading was that early-dark-energy and modified-recombination programmes deny the
+sound-horizon calibration, so S-2 might survive the fence rather than dying by convention. The check
+was run on the physics and the answer is NO -- but the reasoning matters and it SPLITS the question:
+
+  PROPERTY ONE (a named position denies it) HOLDS, once the candidate is atomised. Varying m_e at
+  recombination (Hart-Chluba; Sekiguchi-Takahashi) genuinely denies that lab constants fix z_*;
+  primordial magnetic fields / baryon clumping (Jedamzik-Pogosian) and free-function recombination
+  (Lynch-Knox-Chluba) genuinely deny standard recombination. These are denials OF THE CALIBRATION.
+  *** Early dark energy is NOT: it changes H(z), an INPUT to r_s = integral c_s/H dz. That is a
+  parameter change WITHIN the pipeline, not a denial of it -- exactly the distinction the overseer
+  flagged as the whole question. *** Non-standard N_eff likewise: Planck already marginalises it.
+
+  PROPERTY TWO (the denial changes something the cluster says) FAILS, quantitatively. Every named
+  programme shifts rho_Lambda by <= 0.091 dex (H0 67.4 -> 74). Against the cluster's OWN declared
+  tolerances: the explanandum survives to rho = 1e-40 (6.6 dex); the convention span is >= 5.00 dex;
+  the mu-sweep band 2.25 dex; reduced-vs-non-reduced M_Pl alone 2.80 dex. EW vacuum depth moves
+  10^54.675 -> 10^54.58. The Banks window 2.3-5.2 -> 2.36-5.34 TeV, no flip. No verdict, count,
+  undecided pair or explanandum moves. Structurally: r_s deniers add no term to the z=0 Friedmann
+  sum rule, add no inventory member, and every one RETAINS Lambda by design.
+
+  DISPOSITION: a RIDER on vc_rho_lambda's scheme_tag, ledger-neutral -- which is precisely the
+  graded outcome R1 predicted for a calibration nobody denies in a way that matters here.
+  CONTRAST THAT VINDICATES THE GRADING: Buchert/Wiltshire/LTB DELETE the explanandum (banked as
+  vc_averaging_commutes); a closed universe adds Omega_k to the same sum rule. Those move the
+  cluster. r_s does not. RE-READ IF pair U-E collapses.
+
+================================ THE PARITY CHECK: THE HEADLINE IS NOT CONTAMINATED ==================
+Verdict: the asymmetric booking is CORRECT and the L/H independence ruling is STRENGTHENED -- but
+not for the reason the flag assumed. (The flag was also understated: the ratio is 3-0, not 2-0;
+vc_mean_field_sourcing's rider carries a third piece of renormalization content.)
+
+  The naturalness literature runs together two objects the register never distinguishes:
+  (1) the CUTOFF quadratic divergence delta m_H^2 ~ Lambda^2/16pi^2 -- AN ARTIFACT, vanishing
+      identically in dim reg. Bardeen and Wetterich are RIGHT about this, by exactly the mechanism
+      the register already used to demolish the Lambda side's "120 orders" folklore.
+  (2) the THRESHOLD MATCHING contribution delta m_H^2 ~ kappa M^2/16pi^2 with M a PHYSICAL mass --
+      scheme-INDEPENDENT, a large finite matching term at mu ~ M. m_H^2 is a RELEVANT operator, so
+      Appelquist-Carazzone gives no protection and heavy states anti-decouple into it as M^2.
+  *** THE MAP'S STATED H CONTENT IS ALREADY (2). IT NOWHERE SAYS SO. *** A reader's default
+  resolution is (1), the refuted form. Right answer, unrecorded reason -- THE EXACT SHAPE OF THE
+  FLATNESS OMISSION, and the single highest-value edit this probe yields.
+
+  Parity arithmetic (script written, self-tested, NO MUTATION BATTERY -> NOT BANKABLE under the
+  calc-layer floor, and reported as such): Lambda span 2.800 (M_Pl^4) + 2.198 (loop) = 4.999 orders,
+  which reproduces the banked >= 5.00 as a control. H span 1.400 + 2.198 = 3.599 orders -- so THE H
+  SIDE IS NOT CONVENTION-FREE EITHER. Span on the L/H CONTRAST: 1.400 orders, whose entire content
+  is the M_Pl convention at the difference of operator dimensions (4 vs 2).
+  WHY THE CONSEQUENT DOES NOT FOLLOW: the convention content is COMMON-MODE (same conventions, same
+  direction, loop factor identical to 12 digits), and common-mode content cannot manufacture a
+  difference along the axis it is common to -- at most 9.6% of the separation, 0% of the spine. The
+  spine itself (L -> L + c is an exact flat-space symmetry, broken only by gravity) is regulator-
+  free. And the Lambda side's scheme-dependence is A COROLLARY OF THE SPINE, not a contaminant: the
+  flat-space vacuum constant has no scheme-free value BECAUSE IT IS UNOBSERVABLE IN FLAT SPACE.
+  The two scheme riders are the ledger's shadow of the spine.
+
+  ONE CAVEAT THAT CUTS THE OTHER WAY AND BELONGS ON THE HEADLINE: the Lambda side's scheme-
+  independent core is m_h^2 v^2/8 -- a function of v, THE H SIDE'S MEASURED INPUT. No merge follows
+  (nothing is removed; the v-dependence is derived, hence free), so independence-as-defined is
+  untouched. But a reader taking "independent" to mean "the two problems' magnitudes are unrelated"
+  IS MISLED: the size of the Lambda problem's scheme-independent core is set by the H problem's
+  scale. vc_rho_lambda has no depends_on edge to vc_v_ew. Under R5 that is an unwired live edge.
+
+================================ THE USED-MODALITY PROBE: 8 RAISED, AND A SCORING DEFECT ============
+*** THE WAVE'S MOST IMPORTANT FINDING IS A DEFECT IN ITS OWN SCORING, AND IT IS THE THIRD
+APPEARANCE OF ONE SHAPE. *** The workflow reported "survived 0, refuted 8". The tallies say:
+  3 GENUINELY REFUTED (all three lenses ran and refused)
+  1 UNDER-VERIFIED (1 of 3 lenses)
+  4 NOT ADJUDICATED (ZERO lenses ran)
+The scoring rule was `survives = votes_for >= 2`. With zero votes cast, 0 >= 2 is false, so
+candidates NOBODY HAD EXAMINED were filed as REFUTED. *** AN ABSENT VERDICT SCORED AS A NEGATIVE
+VERDICT -- a gap wearing a verdict, which is exactly what the 10 absorbed candidates were, now
+reproduced INSIDE the machinery built to catch them. *** Recorded, not hidden: the sweep ledger
+carries status "open" with all five gaps, and a new pin refuses any record that labels an
+incomplete verification as refuted. That pin is keyed on a STRUCTURED lenses_run field, not on
+prose -- a case-sensitive regex already let two calcs escape this program's coverage check once.
+
+  AND THE GAPS ARE THE IMPORTANT CANDIDATES. BOTH NEWTON-CONSTANT candidates -- the completeness
+  critic's headline missed omission, ONE NEWTON CONSTANT ACROSS SCALES AND ENVIRONMENTS (G from
+  torsion balances at cm-m separations vs G in the cosmological field equations; deniers: chameleon,
+  symmetron, Vainshtein screening, which KEEP universal metric coupling and BREAK G's constancy) --
+  are among the unadjudicated. So is the gauge-dependence of "the electroweak scale" (Nielsen
+  identities; Andreassen-Frost-Schwartz). NOTHING may be concluded about these from this wave.
+
+  GENUINELY REFUTED (3 lenses each), reported because a clean refusal is a result:
+   - covariant conservation of matter stress-energy: refuted at conjunct 1 at all three named use
+     sites, and independently at conjunct 2 (a Bianchi THEOREM of vc_ir_gravity_is_gr -- RULE 3,
+     cost booked elsewhere). Note the self-undermining structure the lens caught: its own named
+     denier (Josset-Perez-Sudarsky) ALSO denies minimal sourcing, so denying the candidate ADDS a
+     live denier and STRENGTHENS the droppability verdict it claimed to block.
+   - QCD condensates as space-filling vacuum properties; the actual thermal history containing the
+     EW and QCD epochs.
+
+================================ WHAT IS OWED ================================
+ 1. ADJUDICATE THE 5 GAPS, Newton-constant first. The ledger blocks closure until then.
+ 2. RIDER on vc_eft_decoupling: the matching-vs-cutoff distinction, naming Bardeen and Wetterich as
+    CORRECT about the form the cluster does not use. Costs the inventory nothing (riders count as
+    booked under conjunct 2) and closes the highest-value gap this probe found.
+ 3. RIDER on vc_rho_lambda's scheme_tag: the r_s calibration, per the fence ruling above.
+ 4. WIRE vc_rho_lambda -> vc_v_ew (R5): the Lambda side's scheme-independent core is a function of
+    the H side's measured input.
+ 5. C2, A LIVE OMISSION CANDIDATE, medium confidence, NOT banked: "the naive EFT bookkeeping for the
+    DIMENSION-TWO operator |H|^2 survives in the UV-complete theory (no UV/IR mixing)" -- the exact
+    structural twin of vc_eft_vacuum_operator, which books the identical claim for the dimension-
+    ZERO operator. Deniers: Craig-Koren, Abel-Dienes, Dvali's species scale. Honest bounds stated by
+    its own analyst: multiplicity 1 (the weakest shape, and what a mislocated split looks like), and
+    the H-side denying literature is THINNER than the Lambda side's -- "do not report parity of
+    evidence where there is only parity of structure."
+ 6. A METHOD QUESTION THAT GENERALIZES, flagged by the analyst rather than exploited: conjunct 1's
+    split carve-out is keyed to the node's STATEMENT field, and this register puts long provenance
+    prose in statements -- so text merely MENTIONED can trigger "that is a split question" and
+    narrow "omission" beyond what the standard intends. Rule on whether the carve-out reads asserted
+    node content or any text in the field.
+ 7. Q2(e) COSMIC TIME is STILL not raised, in a second consecutive wave. Per the standard's own
+    note, a second disappearance of one modality is a method defect, not two coincidences.

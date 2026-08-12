@@ -1,0 +1,78 @@
+RESULT -- the kk_static_transfer wave, scored against its sealed pre-registration.
+
+CITES PRE-REGISTRATION: PREREG_KK_STATIC_2026-08-09.txt
+  sha256 = 1f9c3bf6f2954087f1bfb24d2fe24a24e2f1d96856c3ccfcdcbb219619f37755
+
+ARTIFACTS: calc/kk_static_transfer.py (selftest green; four-mutant battery registered and
+verified -- control passes, every mutant killed); calc/RESULTS_kk_static_transfer.md; staged
+register updates on kk_static_transfer and x_no_pin_theorem (held at the bank gate for relay --
+the tier move is NOT self-accepted).
+
+SCORED OUTCOME: (b) AND (c) JOINTLY -- the pre-stated expected landing, and the default-broken
+(non-flattering) set. Outcome (a), the flattering unconditional transfer, DID NOT BANK.
+
+  (b) COUNTEREXAMPLE EXHIBITED AND VERIFIED: chi(omega) = C_INF + B/(1 - i omega tau) with
+      C_INF = -1.0, B = 0.4, tau = 1. Retarded-analytic (only pole at omega = -i/tau, lower
+      half-plane); passive at every probed frequency (the real contact term contributes nothing
+      to Im chi, so passivity is structurally blind to it); KMS-consistent (the lock rides Im
+      alone -- verified identical with and without the contact term); static modulus
+      chi(0) = -0.6 < 0. UNCONDITIONAL TRANSFER IS REFUTED, permanently.
+
+  (c) CONDITIONAL TRANSFER DERIVED: the decomposition identity chi(0) = chi_inf +
+      (2/pi) INT_0^inf domega Im chi/omega (verified to machine precision against closed forms,
+      including on the counterexample: 0.4 both sides) shows the floor pushes the static
+      modulus up FROM chi_inf and never below it. On the VANISHING-INSTANTANEOUS-PART class
+      (chi_inf = 0) the transfer holds: chi(0) >= 0. The single-pole/Debye family that
+      rung3_single_pole conjectures is IN that class. THE HEADLINE, stated exactly:
+      *** mu's floor is exactly as strong as the single-pole conjecture, and not one step
+      stronger. Conditional on rung3's class, x_static >= 0; unconditionally, nothing. ***
+      Class membership is bath/UV structure -- rung3's question, priced there, undecided here.
+
+THE CORRECTION THE FIRST RUN FORCED, recorded: the first quadrature (uniform Simpson on a
+truncated half-line) under-resolved relaxor features narrower than its step; the selftest
+rejected the reconstruction (errors to the percent level against closed forms) and FAILED.
+Fixed by the tan substitution mapping the half-line to a finite interval where the integrand is
+smooth and finite at both ends -- reconstruction now at machine precision (1e-15), stability
+verified under n-doubling on the widest-timescale sample. A fix of the method, not a loosening
+of the tolerance; documented in kk_static's docstring.
+
+FENCES HELD (each pre-committed): no TT/ceiling statement; no Israel-Stewart number; no
+unconditional mu-floor quote (forbidden permanently by (b)); no assertion about GRUT's actual
+kernel class; the EH-negative-contact remark stayed analogy-grade; KC4 carried.
+
+CONVERGENCE: all exhibited kernels have convergent dispersion integrals; the caveat that
+further subtractions only TIGHTEN the condition is recorded in the calc header.
+
+MUTATION BATTERY: M1-M4 registered exactly as pre-sealed; all four verified killed.
+
+LEDGER: zero, as pre-registered. Net +13 unchanged. The staged tier move on kk_static_transfer
+(to-derive -> derived-pending, the answer recorded in-node, pending only rung3's class
+question) surfaces as the bank gate's loud TIER-OR-LEDGER flag and waits for the overseer.
+
+================================ ADDENDUM (same wave, post-verification) ================================
+PRECISION CORRECTION, forced by the wave's own adversarial verification pass (four independent
+auditors; the math auditor independently reproduced every number and then refuted the HEADLINE):
+"mu's floor is exactly as strong as the single-pole conjecture, and not one step stronger" was a
+FALSE EQUIVALENCE -- only sufficiency was proven. The exact criterion, as the sealed prereg
+itself stated: chi(0) >= 0 iff chi_inf >= 0. Single-pole (chi_inf = 0) is one sufficient
+subclass; a branch-cut kernel with chi_inf >= 0 keeps the floor, so the conditional does NOT die
+with single-pole -- and the staged kill-condition ("dies with the class") would have mis-fired on
+exactly that case. All artifacts corrected in-wave: the calc's docstring/Part D, the verdict
+(new machine-checked key criterion_is_sign_of_instantaneous_part, with a positive-contact
+witness sample), RESULTS md, the staged node fields, and every doc echo. "KMS-consistent" also
+scoped everywhere to the two-point KMS/FDT lock (the only KMS content rung2 banks). The
+mathematics itself required no correction -- the defect was the banked linkage statement and its
+kill-condition, which is exactly the class of defect the verification layer exists to catch.
+
+================================ SECOND ADDENDUM (2026-08-10, overseer's independent check) ================================
+The first addendum's own summary sentence ("chi(0) >= 0 iff chi_inf >= 0") was ALSO imprecise --
+a false biconditional when read of an individual kernel: the overseer constructed the necessity
+counterexample directly (a negative chi_inf lifted above zero by a large dissipative integral),
+so chi_inf >= 0 is SUFFICIENT and NOT necessary, and passivity supplies no necessary condition
+on chi_inf at all. The exact statement is class-level only: chi_inf >= 0 is the tightest premise
+on the instantaneous part yielding the guarantee across the whole admissible class. The headline
+has now been wrong twice in two different ways (false equivalence, then false biconditional) --
+both caught by review, neither by the author; the class-vs-kernel collapse is recorded next to
+the corrected sentence in every unsealed artifact. The sealed prereg's own "guaranteed if and
+only if" phrasing survives unedited (seals are immutable) and is to be read in the class-level
+"guaranteed" sense it states.

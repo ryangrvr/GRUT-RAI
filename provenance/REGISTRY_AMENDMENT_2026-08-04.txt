@@ -1,0 +1,84 @@
+REGISTRY AMENDMENT -- proposed 2026-08-04. *** NOT APPLIED. RELAYED BEFORE USE. ***
+
+STATUS: this file EXISTS and is UNUSED. merge_criterion.INPUTS is unchanged; nothing below has been
+written into the registry. This is the KC2 discipline that stopped a previous sweep of my own:
+a registry amendment authored by whoever runs the analysis, applied by the same person, in the same
+wave, is the bundle attack with extra steps. The amendment is dated, hashed externally (see
+FROZEN_MERGE.txt), and waits for the overseer.
+
+SOURCE OF THE ENTRIES: the compound-split re-audit of 2026-08-04, pre-registered at
+prereg/PREREG_COMPOUND_SPLIT_2026-08-04.txt (sha256 c9a2d2cd59c30f4a...), results at
+prereg/RESULT_COMPOUND_SPLIT_2026-08-04.txt. Two nodes were ruled COMPOUND. Each becomes two
+entries and the parent id is RETIRED -- not kept alongside, which would double-book the same
+commitment under a coarse id and a fine one.
+
+DERIVATION, per registry_mapping.py -- no entry below is hand-authored:
+  RULE 1 (dimension): dim = 1 for every named input. All four are single named commitments; no
+      exception is claimed, so no exception needs justifying.
+  RULE 2 (kind): kind is read from the PARENT CLAIM'S TIER through the frozen TIER_KIND table.
+      Both parents are tier `postulate` -> discrete. A split does not change the type of the thing
+      being split: a proposition cut into two propositions yields two discrete commitments.
+  RULE 3 (non-independence): not triggered -- each half is separately dischargeable, which is the
+      finding that produced it.
+  SCOPE: `cluster-input` for all four, inherited from the parents. NOTE that S1 recurs across
+      clusters (see below); scope is a LEDGER property, not a cluster-membership label, so a shared
+      input is still cluster-input. It is never a grut-input and can never move GRUT's +13.
+
+--------------------------------- ENTRIES TO ADD ---------------------------------
+
+  state_expectation_functional   {"dim": 1, "kind": "discrete", "scope": "cluster-input"}
+      "There is a quantum state and an expectation functional on the observable algebra."
+      (= S1.) Discharges independently of S2: it holds in flat-space QFT with no gravity at all.
+      *** THIS IS THE ENTRY THE WHOLE RE-AUDIT WAS FOR. *** Without an id, cross-cluster detection
+      cannot see the one input the program has found in two clusters.
+      Does NOT split further: in the algebraic formulation a state IS a positive normalised
+      functional on the algebra, so "an algebra" + "a state on it" is definitional unpacking. Both
+      independent analysts reached this separately.
+
+  mean_field_sourcing            {"dim": 1, "kind": "discrete", "scope": "cluster-input"}
+      "The metric couples to the MEAN of that functional." (= S2.) Denied by stochastic gravity
+      (Hu-Verdaguer), by collapse-sourced gravity (Diosi-Penrose), and by outcome-sourced gravity.
+
+  eft_decoupling                 {"dim": 1, "kind": "discrete", "scope": "cluster-input"}
+      "Decoupling holds; the EFT description is valid for local non-gravitational observables up to
+      the relevant scales." (= E1.)
+
+  eft_vacuum_operator            {"dim": 1, "kind": "discrete", "scope": "cluster-input"}
+      "The same EFT accounting extends to the dimension-zero (field-independent) operator once
+      gravity is included." (= E2.) Denied by Cohen-Kaplan-Nelson, by UV/IR mixing, and by
+      holographic bounds -- each accepts ordinary decoupling and denies the naive vacuum-energy
+      bookkeeping. This is a real literature, not a conceivability argument.
+
+--------------------------------- ENTRIES TO RETIRE ---------------------------------
+
+  semiclassical_sourcing   -> superseded by state_expectation_functional + mean_field_sourcing
+  eft_validity             -> superseded by eft_decoupling + eft_vacuum_operator
+
+RETIREMENT IS NOT DELETION. Both ids appear in banked text. The retirement must leave a pointer, or
+a future reader resolves a live id against nothing and gets DEFAULT_ATOMIC_DIM silently -- the
+unregistered-default path that merge_test already refuses at the boundary and must keep refusing.
+
+--------------------------------- NET EFFECT, TYPED ---------------------------------
+
+Registry: 24 inputs -> 26 (+4 added, -2 retired). Vacuum-cluster typed inventory: postulate-standard
+6 -> 8. NOT A SCALAR CHANGE and not to be reported as one: no measured, heuristic or open entry
+moves, and the types do not commute, by the standing ruling.
+
+GRUT'S LEDGER IS UNTOUCHED. NET +13. Every entry here is cluster-scoped by construction, and the
+scope guard makes a reduction over them structurally incapable of reading as a GRUT ledger move.
+
+--------------------------------- WHAT IS *NOT* IN THIS AMENDMENT ---------------------------------
+
+The re-audit's other three findings are OMISSIONS, not splits -- inputs the inventory never had,
+rather than inputs it fused. They are REGISTER additions (new nodes with tiers, sources, falsifiers
+and riders), not registry ids, and they need their own ruling. Listing them here so the boundary is
+explicit rather than tacit:
+  O1  universal metric coupling / the equivalence principle -- presupposed by vc_vacuum_energy_-
+      gravitates, vc_semiclassical_sourcing AND vc_ir_gravity_is_gr; booked by none.
+  O2  the gravitational EFT's UV ceiling -- currently housed only inside vc_heavy_thresholds_exist's
+      false "equivalently", and homeless the moment that parenthetical is struck.
+  O3  spatial flatness -- an uncounted premise of vc_rho_lambda's measured value, which carries
+      depends_on: [] while its own scheme_tag says "base-LCDM, FLAT, w FIXED = -1".
+THESE MUST NOT BE TALLIED WITH THE SPLITS. Counting an omission as a compound would report a defect
+class the atomicity test did not detect -- which was an adversary's pre-registered prediction about
+this very audit, and it came true.

@@ -1,0 +1,35 @@
+PRE-REGISTRATION -- the instrument's exam, written BEFORE either control was scored.
+
+WHY: the criterion was REBUILT to see shared-constraint merges (n>=3 derived constraints that cut
+the joint count without collapsing to one input, invisible to any pairwise check). Two textbook
+instances of exactly that shape have known answers. If the repaired criterion fails to find a
+reduction it was specifically rebuilt to find, in a case whose answer is in every textbook, the
+instrument is still broken and NO cluster downstream is trustworthy. Same move as freezing the
+TT-auto gate against a known length before measuring an unknown one.
+
+CONTROL A -- the Friedmann sum rule.  Omega_m + Omega_Lambda + Omega_k = 1, a DERIVED identity of
+the FRW metric (not a posit). Three parameters, one constraint, so the constraint surface is
+2-dimensional.
+  EXPECTED, triple (n=3): REDUCTION, vector {continuous: -1, discrete: 0, posit: 0}
+  EXPECTED, every pair  : NO-REDUCTION  (the constraint is not localizable to any pair)
+
+CONTROL B -- SM hypercharge anomaly cancellation.  The five hypercharges of one generation
+(Q, u, d, L, e) are fixed by the anomaly-cancellation conditions -- [SU(3)^2 U(1)], [SU(2)^2 U(1)],
+[U(1)^3], [grav^2 U(1)] -- up to ONE overall normalization. The conditions are DERIVED (quantum
+consistency of the gauge theory), not posited.
+  EXPECTED, all five (n=5): REDUCTION, vector {continuous: -4, discrete: 0, posit: 0}
+  EXPECTED, every pair    : NO-REDUCTION
+
+*** WHAT THESE CONTROLS DO AND DO NOT ESTABLISH -- stated now, not after the result. ***
+They exercise whether the criterion's STRUCTURE AND ARITHMETIC can represent and detect a
+shared-constraint reduction that pairwise evaluation misses: the n-sided path, the derived-relation
+cost of zero, the pairwise blindness, the vector.
+They do NOT validate the PHYSICS JUDGEMENT, and cannot. That the Friedmann surface is 2-dimensional,
+and that the anomaly conditions leave one free normalization, are C3 declarations SUPPLIED BY THE
+ANALYST. A control whose answer is baked into a declared dimension proves the plumbing, not the
+physics. That limit is by design -- three of the four judgements are non-mechanizable -- and saying
+so here is the difference between a control and a demonstration.
+
+PASS CRITERION: both triples REDUCE with the expected vector, and every pair shows NO-REDUCTION.
+FAIL: any pair reduces (the criterion is localizing something it should not), or either triple
+fails to reduce (the rebuilt class is still unreachable). On FAIL: STOP. No cluster proceeds.

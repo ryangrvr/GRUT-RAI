@@ -1,0 +1,52 @@
+{
+  "derived": {
+    "entropy_area": {
+      "dim": 1,
+      "kind": "discrete",
+      "derived_from": "rung5_gr_limit.ledger_note names it: 'entropy~area (sets G)'"
+    },
+    "unruh_temperature": {
+      "dim": 1,
+      "kind": "discrete",
+      "derived_from": "rung5_gr_limit.ledger_note names it: 'Unruh T (sets hbar)'"
+    },
+    "quantization_condition": {
+      "dim": 1,
+      "kind": "discrete",
+      "derived_from": "rung6_qm_limit.ledger_note names it: 'quantization/single-valuedness condition'"
+    },
+    "born_measure_postulate": {
+      "dim": 1,
+      "kind": "discrete",
+      "derived_from": "rung6_qm_limit.ledger_note names it: 'Born probability-measure postulate'"
+    },
+    "p_tt_ansatz": {
+      "dim": 1,
+      "kind": "discrete",
+      "derived_from": "tier assumed -> discrete via the frozen TIER_KIND table"
+    },
+    "born_rule": {
+      "dim": 1,
+      "kind": "discrete",
+      "derived_from": "tier assumed -> discrete via the frozen TIER_KIND table"
+    }
+  },
+  "exceptions": [
+    {
+      "id": "born_rule",
+      "rule_deviated": "none (recorded for review)",
+      "justification": "ledger_delta 0 with grut_standing 'borrowed': a real input to the PHYSICS that GRUT does not pay for. It is a legitimate side in a sweep; it must never be counted as a GRUT ledger input.",
+      "declared_by": "register"
+    }
+  ],
+  "refused": [
+    {
+      "id": "rung9a_value",
+      "reason": "tier `shown` -> RULE 2 maps result-tiers to None. Its own ledger_note: the rung-9 anchor credit is SUSPENDED and alpha is an ADOPTED axiom 'earning NO anchor credit going forward'. The register already answers what it is."
+    },
+    {
+      "id": "mu_linear",
+      "reason": "tier `derived-pending` -> RULE 2 result-tier. Its own ledger_note states it outright: 'it adds no input directly -- the input it RESTS ON (the pure-TT projector ansatz) is registered SEPARATELY as its own assumed'. Registering it would double-count against p_tt_ansatz."
+    }
+  ]
+}
