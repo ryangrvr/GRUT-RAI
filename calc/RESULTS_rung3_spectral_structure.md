@@ -26,6 +26,13 @@
 > write-up**, which is where the superseded premise does the most work. Fourth relocation site.
 > The O(G²) result must not be used in any public document at its stated strength until the
 > graviton-loop case is worked or the claim is restated as scalar-loop-scoped.
+>
+> **RULED 2026-08-12 (overseer): do NOT work the graviton-loop case to rescue this.** That is
+> blocker-(A)-scale new physics, not a section. The public document's Part IV.2 is written as
+> what actually happened: *the fork was located at O(G²); the localization rested on a premise
+> the program then corrected against itself; where the graviton-loop fork sits is open and
+> uncomputed.* Losing the document's strongest physics section to the program's own correction
+> IS the document's thesis, demonstrated on the freshest possible material.
 
 
 *Turns the QUALITATIVE spine-test result ("earned under-determined") into its QUANTITATIVE form. The spine test banked that the de Sitter secular growth is channel-dependent (spin-0 potentials Ψ,Φ grow ∼ ln a; the TT graviton mode function is frozen at one loop). This feeds that channel-resolved input through the exact secular-envelope → low-ω-singularity dictionary and reads off ρ(ω)=2 Im G_R(ω) channel by channel. Code: `calc/rung3_spectral_structure.py`. Register: `rung3_single_pole` (derived-pending, ledger 0 — UNCHANGED). Scope, held throughout: **TOY/SCALING** (envelopes, not the tensor/gauge-invariant self-energy), inputs at **leading-order/simplest-gauge**, **O(G) un-resummed**. Default-BROKEN: the win is the honest quantitative form, not a resolved class.*

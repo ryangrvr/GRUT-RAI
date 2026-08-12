@@ -151,7 +151,19 @@ class TestSpecialistNeverUnqualifiedInPublicDocs(unittest.TestCase):
             if not os.path.exists(path):
                 continue
             text = open(path).read()
-            for m in re.finditer(r"[Ss]pecialists?", text):
+            # CASE-INSENSITIVE, and the reason is recorded because this exact defect recurred:
+            # the B0.2 audit's own pattern was r"[Ss]pecialists?" -- a character class on the FIRST
+            # LETTER ONLY -- which silently dropped every ALL-CAPS "SPECIALIST" (8 of 49 in the
+            # register, 6 of them the dangerous class). This guard was written with the same bug
+            # and missed 2 public-doc occurrences. Third recorded instance of case-sensitive-audit-
+            # regex in this program (the coverage regex that let two calcs escape was the prior).
+            for m in re.finditer(r"specialists?", text, re.I):
+                # NARROW, NAMED EXEMPTION: the literal filename token SPECIALIST_BRIEF*. A path is
+                # a path -- it makes no assertion about who did what. Kept deliberately narrow
+                # (exact token, not "any uppercase use") because carve-outs are how guards rot;
+                # the filename's own misleading-ness is recorded in GLOSSARY.md instead.
+                if text[m.start():m.start() + 16].upper().startswith("SPECIALIST_BRIE"):
+                    continue
                 window = text[max(0, m.start() - self.WINDOW):m.start() + self.WINDOW]
                 if not any(q in window for q in self.QUALIFIERS):
                     offenders.append(f"{name} @ char {m.start()}: "
@@ -167,7 +179,21 @@ class TestSpecialistNeverUnqualifiedInPublicDocs(unittest.TestCase):
     def test_the_glossary_carries_the_audit(self):
         with open(os.path.join(ROOT, "GLOSSARY.md")) as f:
             g = f.read()
-        for phrase in ("what the register has actually meant", "41 occurrences",
+        # NB: this list first pinned "41 occurrences" -- the WRONG count -- so when the glossary
+        # was corrected to 49 the test FAILED, defending the error it was written alongside. A
+        # guard that hard-codes a figure inherits that figure's mistakes. The count is now checked
+        # AGAINST THE REGISTER below instead of being hard-coded here.
+        for phrase in ("what the register has actually meant",
                        "never records the modality", "No transmission to any external human"):
             self.assertIn(phrase.lower(), g.lower(),
                           f"GLOSSARY.md is missing the B0.2 audit element: {phrase!r}")
+        # the stated count must equal a live count from the register, not a remembered figure
+        import json
+        cl = json.load(open(os.path.join(HERE, "claims.json")))["claims"]
+        pat = re.compile(r"specialists?", re.I)
+        live = sum(len(pat.findall(json.dumps(c))) for c in cl)
+        nodes = sum(1 for c in cl if pat.search(json.dumps(c)))
+        self.assertIn(f"{live} occurrences", g,
+                      f"GLOSSARY.md must state the LIVE count ({live}); a hard-coded audit figure "
+                      f"is how the first run's undercount survived review")
+        self.assertIn(f"across {nodes} of {len(cl)} claims", g)

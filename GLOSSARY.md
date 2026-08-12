@@ -61,26 +61,27 @@ private language. **Rule: any banking that coins a term adds its line here in th
 
 ---
 
-## "Specialist" — what the register has actually meant (added 2026-08-12, B0.2 audit)
+## "Specialist" — what the register has actually meant (added 2026-08-12, B0.2 audit; **corrected same day — see the method note at the end**)
 
 > **Standing rule for any public-facing document: the word "specialist" never appears unqualified.
 > Either name the modality in the same sentence ("an AI-relayed adversarial pass," "an in-house
 > screen") or do not use the word. In a public document "specialist" says *human expert* to every
 > reader, and on this program's record that reading would be false.**
 
-**The audit.** `provenance/claims.json` contains **41 occurrences of "specialist"/"specialists"
-across 15 of 70 claims** (verified by Python `re` over the raw file at every commit in the repo's
-history — the count has never differed). Classified by which sense is in force:
+**The audit.** `provenance/claims.json` contains **49 occurrences of "specialist"/"specialists"/
+"SPECIALIST" across 18 of 70 claims** — all of them in GRUT-scope nodes, none in the vacuum
+cluster. Classified by which sense is in force:
 
 | sense | count | what it denotes | risk |
 |---|---|---|---|
-| **A — prospective / reserved** | **17** | *"frontier-reserved (specialist, not in-house)," "escalate to a … specialist," "reserve for specialist," "the specialist dispatch."* A **future** human expert. Asserts that nobody has done this. | Low — these are honest statements of what is owed. |
-| **B — a pass that was RUN, and whose output was banked** | **22** | *"finite-T CONFIRMED 2026-06-25 by open-systems specialist," "RESOLVED 2026-06-26 (specialist)," "EXTERNAL CHECK 2026-07-04 … an independent specialist … INDEPENDENTLY reconstructed the identical disposition," "the verified specialist deliverable," "CEILING-CHECK ANSWERED by the specialist."* | **High — this is the dangerous class.** |
+| **A — prospective / reserved** | **17** | *"frontier-reserved (specialist, not in-house)," "escalate to a … specialist," "reserve for specialist," "the specialist dispatch."* A **future** human expert. Asserts that nobody has done this. | Low — honest statements of what is owed. |
+| **B — a pass that RAN, and whose output was banked** | **28** | *"finite-T CONFIRMED 2026-06-25 by open-systems specialist," "SPECIALIST 2026-06-25 (Q4): the diffeomorphism Ward identity …," "SPECIALIST CONFIRMED 2026-06-25 (Q3): agrees," "SPECIALIST-CORRECTED 2026-06-25," "EXTERNAL CHECK 2026-07-04 … INDEPENDENTLY reconstructed the identical disposition."* | **High — this is the dangerous class.** |
 | **C — collective/generic** | **2** | *"three specialists conflict"* — shorthand for three analytical positions. | Low. |
+| **D — filename reference** | **2** | `SPECIALIST_BRIEF_rung3_spine.md` cited as a path. Asserts nothing about a person — but the **filename itself** reads as a claim to a public browser, and is a legacy artifact this program is not renaming (it would break every reference). | Low in prose, non-zero on a file listing. |
 
 **What the record does and does not establish about class B.**
 
-The register **never records the modality** of any class-B pass — not once, in 22 occurrences. It
+The register **never records the modality** of any class-B pass — not once, in 28 occurrences. It
 does not say "human expert," and it does not say "AI-relayed." That silence is itself the finding.
 
 What the record *does* establish, checkably:
@@ -91,18 +92,40 @@ What the record *does* establish, checkably:
 - **The one time a class-B-style entry was examined, it was an in-house instrument.** The event log
   entry of 2026-08-10 records that words previously logged as a reply were "output of an AI
   literature-research tool operated by the owner — an in-house instrument," and rules the general
-  case: such output "is in-house work product, recordable as a research note … and is not a reply
-  from the audience of record."
+  case: such output "is in-house work product … and is not a reply from the audience of record."
 
-So the honest statement is: **class-B "specialist" denotes an adversarial or literature pass run by
-the owner — presumptively AI-relayed on the one precedent the record contains — and no occurrence
-of the word anywhere in this register is backed by a logged communication with an outside human.**
+So: **class-B "specialist" denotes an adversarial or literature pass run by the owner —
+presumptively AI-relayed on the one precedent the record contains — and no occurrence of the word
+anywhere in this register is backed by a logged communication with an outside human.**
 
-**The concentration matters.** 13 of the 22 class-B occurrences sit in one node,
-`rung3_single_pole` — the framework's load-bearing structural conjecture — including the sentence
-*"the FIRST external check logged in this register."* That is the single most misreadable line in
-the register, in the single most load-bearing node.
+**Two concentrations matter.** 19 of the 49 sit in `rung3_single_pole`, the framework's
+load-bearing conjecture, including *"the FIRST external check logged in this register."* And six
+class-B occurrences — spread across `rung4_love_kk`, `rung5_gr_limit`, `rung7_wz` (×2),
+`rung8_falsifier`, and `arrow_of_time` — are the **primary per-node records of one event**, the
+2026-06-25 "four questions" pass, whose README heading read *"Specialist verdicts … all four
+questions answered."* One owner-run session is recorded in six places in the voice of an outside
+authority.
 
 **Why the register text is NOT being mass-renamed.** The register is a historical record and
 rewriting it would destroy the evidence of what was believed when. The fix is this entry, plus the
 standing rule above, plus the enforcement test in `provenance/test_doc_sync.py`.
+
+---
+
+### Method note: the first run of this audit undercounted by 8, and the defect is worth naming
+
+The audit was first reported as **41 across 15**. It was wrong. The pattern was `[Ss]pecialist` — a
+character class on the **first letter only**, which matches `specialist` and `Specialist` and
+**silently drops every `SPECIALIST`**. All 8 missed occurrences were all-caps, and **6 of the 8 were
+class B** — the dangerous class. The cross-check that made the wrong number look solid ("identical
+at every commit") returned the same wrong number at every commit, because the same bad pattern ran
+each time: a consistency check across snapshots cannot detect a defect in the instrument applied to
+all of them.
+
+**Corrected method, stated so it can be re-run:** pattern `re.compile(r"specialists?", re.I)`,
+applied to `json.dumps(claim)` per claim and to the raw file, both giving 49/18.
+
+**This is at least the third instance of case-sensitive-audit-regex in this program** (the prior:
+a coverage regex that let two calc files escape entirely). And the enforcement test written *in
+response to this very audit* was drafted with the same bug and was itself missing two public-document
+occurrences until corrected. A guard written to catch a defect reproduced the defect.

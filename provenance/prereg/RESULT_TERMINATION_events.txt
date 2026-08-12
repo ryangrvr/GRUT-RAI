@@ -264,3 +264,38 @@ caught it, as it caught the same error once before.)
             package metadata, and the git commit author fields of both repositories (left
             as-is in history; corrected at source for future commits). All prose sites
             corrected 2026-08-12.
+
+2026-08-12  ACCEPT + AUDIT CORRECTION. Cites v4, sha256 =
+            f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61. Touches no
+            channel line; no stop trigger fires.
+            (1) ACCEPTED, overseer-ruled: rung3_single_pole's page-convention declaration
+            (page citations to arXiv:2103.08547 in this register are PDF page numbers; the
+            printed folio runs one behind throughout, final folio 47 on PDF page 48). No
+            tier move, no ledger move; net stays +13. Accepted BECAUSE it declares the
+            convention on its face rather than silently renumbering.
+            (2) THE B0.2 AUDIT WAS UNDERCOUNTED AND IS CORRECTED. First reported as 41
+            occurrences of "specialist" across 15 claims; the true figures are 49 ACROSS 18,
+            all in GRUT-scope nodes. The defect: the audit pattern was r"[Ss]pecialist" -- a
+            character class on the FIRST LETTER ONLY -- which silently dropped every all-caps
+            "SPECIALIST". All 8 missed occurrences were all-caps and SIX OF THE EIGHT were
+            the dangerous class (a pass that ran and was banked in the voice of an outside
+            authority): rung4_love_kk, rung5_gr_limit, rung7_wz (x2), rung8_falsifier,
+            arrow_of_time -- which together are the primary per-node records of ONE event,
+            the 2026-06-25 "four questions" pass.
+            (3) WHY THE CROSS-CHECK DID NOT CATCH IT. The builder's supporting check was
+            "identical at every commit", which returned the same wrong number at all five
+            commits because THE SAME BAD PATTERN RAN EACH TIME. A consistency check across
+            snapshots cannot detect a defect in the instrument applied to all of them. This
+            is the standing shape, occurring INSIDE an audit whose purpose was to find a
+            misleading count.
+            (4) THE DEFECT CLASS IS A REPEAT. Case-sensitive audit regex: at least the third
+            instance in this program (prior: a coverage regex that let two calc files escape).
+            The enforcement test written IN RESPONSE to this audit carried the same bug and
+            was itself missing two public-document occurrences; and that test hard-coded the
+            wrong figure "41", so correcting the glossary made the test FAIL IN DEFENCE OF
+            THE ERROR. Both fixed: the pattern is now re.I, and the count is checked against
+            a live register count rather than a remembered figure.
+            (5) BEARING ON THE PUBLIC DOCUMENT: front-matter fixed point (2) -- "no outside
+            physicist has answered any physics question put by this program" -- now rests on
+            a complete audit (49/49 classified: 17 prospective, 28 a-pass-that-ran, 2
+            collective, 2 filename references) rather than on one that missed eight.
