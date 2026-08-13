@@ -39,7 +39,7 @@ The constitutive posit: the gravitational vacuum is an open medium that responds
 
 ## 3. Persistence: what the medium remembers
 
-The memory kernel -- what persists is what the kernel carries. The single-pole (finite-memory) form is the framework's load-bearing structural conjecture, and it is DERIVED-PENDING on the bath: the one decisive external question (pole vs cut) lives here, dispatched, unanswered.
+The memory kernel -- what persists is what the kernel carries. The single-pole (finite-memory) form is the framework's load-bearing structural conjecture, and it is DERIVED-PENDING on the bath: the one decisive external question (pole vs cut) lives here -- DRAFTED AS AN ASK, HELD, NEVER SENT (corrected 2026-08-12; it read "dispatched, unanswered", which asserts a transmission that never occurred).
 
 **Link status (generated):** original-result + derived-pending + open
 

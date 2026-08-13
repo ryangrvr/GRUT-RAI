@@ -14,7 +14,7 @@ negative results the program proved about itself), an arrow-of-time decompositio
 interior family whose observables are an **allowance, never a prediction** (the modulus has no
 floor), and **zero novel positive predictions**. Its methodological output is the discipline
 itself, now split out domain-free as the public `claimledger` package with two worked examples on
-foreign papers. Everything decisive that remains is **external**: one dispatched physics question
+foreign papers. Everything decisive that remains is **external**: one physics question **drafted as an ask and never sent** *(corrected 2026-08-12 — this read "one dispatched physics question")*
 (is the vacuum's tensor response single-pole or branch-cut — `DISPATCH_ONE_PAGE.md`), one dataset
 (DESI DR3), one validation condition (an independent team using the method). The honest current
 reading of the one observational contact (the lensing-deviation screen): tension bounded above,

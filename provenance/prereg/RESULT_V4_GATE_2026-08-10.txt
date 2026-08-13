@@ -1,5 +1,19 @@
 RESULT -- THE v4 GATE PASS, scored against its sealed pre-registration.
 
+*** READER WARNING, ADDED 2026-08-12 -- THE QUOTED "REPLIES" IN THIS FILE ARE CONSTRUCTED
+    HYPOTHETICALS, NOT COMMUNICATIONS FROM ANY PERSON. ***
+This file scores a gate by walking CONSTRUCTED SCENARIOS (K1-K4) -- invented cases used to test
+whether the sealed condition's rules produce a determinate answer. Strings such as
+  "received this, will take a look"
+  "in our scheme, assuming your kernel normalization, this is a branch cut"
+  "the assembled low-omega TT response is single-pole; eta is finite"
+  "our assembly finds a cut, full stop"
+are TEST FIXTURES THE AUTHOR WROTE. No physicist said any of them. The one drafted ask remains
+unsent (see RESULT_TERMINATION_events.txt). This header exists because a skeptic grepping the
+repository for evidence of outside contact would otherwise find quoted replies from physicists
+sitting in a public file -- a false positive the author handed him, found by an adversarial
+pre-screen of the public document on 2026-08-12.
+
 CITES PRE-REGISTRATION: PREREG_V4_GATE_2026-08-10.txt
   sha256 = 09a0da0898e869709e6a39c890463310409bda5be0a87e7b831fc4e144ca5dc6
 

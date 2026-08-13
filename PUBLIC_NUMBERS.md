@@ -11,8 +11,8 @@
 | of the GRUT net, carried behind declared waivers | **+8** across 4 claims |
 | primary sources in `sources.json` | **75** |
 | calculation files in `calc/` | **25** |
-| test files in `provenance/` | **17** |
-| tests collected | **197** |
+| test files in `provenance/` | **18** |
+| tests collected | **202** |
 
 ### Tier histogram, GRUT scope (49 claims)
 
@@ -32,6 +32,39 @@
 | `rung1_inin_action` | **+3** |
 | `rung5_gr_limit` | **+2** |
 | `rung6_qm_limit` | **+2** |
+
+### The "specialist" audit (B0.2)
+
+| quantity | value |
+|---|---|
+| occurrences of specialist/specialists/SPECIALIST in `claims.json` | **49** |
+| claims containing at least one | **18** of 70 |
+| sense A — prospective/reserved (a future outside expert) | **17** |
+| sense B — a pass that RAN, banked in the voice of an authority | **28** |
+| sense C — collective/generic | **2** |
+| sense D — filename reference | **2** |
+| — of sense B, all-caps records of the single 2026-06-25 session | **5** nodes |
+
+| claim | A | B | C | D |
+|---|---|---|---|---|
+| `rung3_single_pole` | 3 | 13 | 2 | 1 |
+| `l0_r2_exact_unique_breaker` | 5 | 0 | 0 | 0 |
+| `rung7_w2_wa_sign` | 2 | 1 | 0 | 0 |
+| `rung7_wz` | 0 | 3 | 0 | 0 |
+| `rung9a_value` | 1 | 2 | 0 | 0 |
+| `arrow_of_time` | 0 | 2 | 0 | 0 |
+| `founding_h2_R_zeta_bridge` | 1 | 1 | 0 | 0 |
+| `rung8_falsifier` | 1 | 1 | 0 | 0 |
+| `founding_h1_zeta_casimir` | 0 | 1 | 0 | 0 |
+| `founding_h3_doubleslit_anchor` | 0 | 1 | 0 | 0 |
+| `p_tt_ansatz` | 1 | 0 | 0 | 0 |
+| `rung4_love_kk` | 0 | 1 | 0 | 0 |
+| `rung5_gr_limit` | 0 | 1 | 0 | 0 |
+| `rung7_w3_nocrossing_export` | 1 | 0 | 0 | 0 |
+| `rung9b_bridge` | 0 | 1 | 0 | 0 |
+| `u4_constitutive_origin` | 1 | 0 | 0 | 0 |
+| `u6_constitutive_order` | 1 | 0 | 0 | 0 |
+| `x_no_pin_theorem` | 0 | 0 | 0 | 1 |
 
 ### Closed dispositions, GRUT scope
 

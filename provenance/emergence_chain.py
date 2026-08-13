@@ -54,7 +54,9 @@ STAGES = [
  ("persistence", "Persistence: what the medium remembers",
   "The memory kernel -- what persists is what the kernel carries. The single-pole (finite-memory) "
   "form is the framework's load-bearing structural conjecture, and it is DERIVED-PENDING on the "
-  "bath: the one decisive external question (pole vs cut) lives here, dispatched, unanswered.",
+  "bath: the one decisive external question (pole vs cut) lives here -- DRAFTED AS AN ASK, HELD, "
+  "NEVER SENT (corrected 2026-08-12; it read \"dispatched, unanswered\", which asserts a "
+  "transmission that never occurred).",
   ["rung3_single_pole", "rung4_love_kk", "eft_operator_basis", "u2_kernel_universality",
    "u4_constitutive_origin"],
   None,

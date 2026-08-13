@@ -15,6 +15,7 @@ that a reader can diff it against a fresh run without reading around an argument
 """
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -31,7 +32,7 @@ STAMP_DATE = "2026-08-12"
 # this block changed the number the block asserts. A number-emitter that recurses through its own
 # verifier is not a stable reference. The constant is enforced against a real collection by
 # test_public_numbers.py::test_the_stamped_test_count_is_true, so it cannot silently rot.
-STAMPED_TEST_COUNT = 197
+STAMPED_TEST_COUNT = 202
 
 
 def _load():
@@ -72,11 +73,56 @@ def numbers():
         if c.get("disposition"):
             dispositions[c["disposition"]] = dispositions.get(c["disposition"], 0) + 1
 
+    # ---- the B0.2 "specialist" audit, computed live (never a remembered figure) ----
+    # The pattern is CASE-INSENSITIVE and the reason is on the record: the audit's first run used
+    # a character class on the first letter only, silently dropped every all-caps SPECIALIST, and
+    # undercounted by 8 -- six of which were the class that reads as external validation.
+    spec_pat = re.compile(r"specialists?", re.I)
+    spec_nodes = {c["id"]: len(spec_pat.findall(json.dumps(c))) for c in cl
+                  if spec_pat.search(json.dumps(c))}
+    # The class-B records -- phrased as a pass having RUN -- identified by their own date/verb
+    # markers. Recomputed here rather than carried as a constant.
+    ran_markers = re.compile(
+        r"specialist\s+confirmed|specialist-corrected|specialist\s+20\d\d-\d\d-\d\d|"
+        r"by (?:an? )?[\w-]*\s*specialist|\(specialist[,)]|specialist\s*\(|specialist,\s*(?:favorable|"
+        r"lean)|external specialist|independent specialist|verified specialist|"
+        r"the specialist (?:explicitly|sharpened|declines)|answered by the specialist|"
+        r"specialist-teed|banked \w+ specialist", re.I)
+    ran_nodes = sorted({c["id"] for c in cl if ran_markers.search(json.dumps(c))})
+    # The analyst classification, tallied here and CROSS-CHECKED against the live scan. A
+    # disagreement REFUSES rather than reporting -- the first run's undercount survived precisely
+    # because nothing compared a classification against an independent count of the same thing.
+    with open(os.path.join(HERE, "specialist_audit.json")) as f:
+        aud = json.load(f)["nodes"]
+    senses = {k: sum(v[k] for v in aud.values()) for k in ("A", "B", "C", "D")}
+    if sum(senses.values()) != sum(spec_nodes.values()):
+        raise SystemExit(
+            f"SPECIALIST AUDIT REFUSES: classification totals {sum(senses.values())} but a live "
+            f"case-insensitive scan of the register finds {sum(spec_nodes.values())}. Reclassify "
+            f"the difference -- do not adjust either number to match the other.")
+    if set(aud) != set(spec_nodes):
+        raise SystemExit(f"SPECIALIST AUDIT REFUSES: node sets differ. "
+                         f"unclassified={sorted(set(spec_nodes) - set(aud))}, "
+                         f"phantom={sorted(set(aud) - set(spec_nodes))}")
+
+    # The six all-caps records of the single 2026-06-25 "four questions" session.
+    caps_2026_06_25 = sorted({c["id"] for c in cl
+                              if re.search(r"SPECIALIST[ -](?:CONFIRMED|CORRECTED|2026-06-25)",
+                                           json.dumps(c))
+                              or re.search(r"SPECIALIST \(Q\d\)", json.dumps(c))})
+
     return dict(total=len(cl), n_grut=len(grut), n_cluster=len(cluster),
                 net_grut=net(grut), net_cluster=net(cluster), tiers=tiers,
                 waivers=waivers, waived_total=sum(d for _, d in waivers),
                 n_sources=len(srcs), n_calcs=len(calcs), n_test_files=len(tests),
-                n_tests=n_tests, dispositions=dispositions)
+                n_tests=n_tests, dispositions=dispositions,
+                spec_total=sum(spec_nodes.values()), spec_nodes=len(spec_nodes),
+                spec_nodes_detail=spec_nodes,
+                spec_ran_nodes=ran_nodes,
+                spec_2026_06_25_nodes=caps_2026_06_25,
+                n_spec_2026_06_25_nodes=len(caps_2026_06_25),
+                spec_A=senses["A"], spec_B=senses["B"], spec_C=senses["C"], spec_D=senses["D"],
+                spec_audit=aud)
 
 
 def block():
@@ -115,6 +161,25 @@ def block():
     L.append("|---|---|")
     for cid, d in sorted(n["waivers"]):
         L.append(f"| `{cid}` | **+{d}** |")
+    L.append("")
+    L.append("### The \"specialist\" audit (B0.2)\n")
+    L.append("| quantity | value |")
+    L.append("|---|---|")
+    L.append(f"| occurrences of specialist/specialists/SPECIALIST in `claims.json` | "
+             f"**{n['spec_total']}** |")
+    L.append(f"| claims containing at least one | **{n['spec_nodes']}** of {n['total']} |")
+    L.append(f"| sense A — prospective/reserved (a future outside expert) | **{n['spec_A']}** |")
+    L.append(f"| sense B — a pass that RAN, banked in the voice of an authority | "
+             f"**{n['spec_B']}** |")
+    L.append(f"| sense C — collective/generic | **{n['spec_C']}** |")
+    L.append(f"| sense D — filename reference | **{n['spec_D']}** |")
+    L.append(f"| — of sense B, all-caps records of the single 2026-06-25 session | "
+             f"**{n['n_spec_2026_06_25_nodes']}** nodes |")
+    L.append("")
+    L.append("| claim | A | B | C | D |")
+    L.append("|---|---|---|---|---|")
+    for cid, v in sorted(n["spec_audit"].items(), key=lambda kv: (-sum(kv[1].values()), kv[0])):
+        L.append(f"| `{cid}` | {v['A']} | {v['B']} | {v['C']} | {v['D']} |")
     L.append("")
     if n["dispositions"]:
         L.append("### Closed dispositions, GRUT scope\n")
