@@ -23,7 +23,7 @@ Two inflations are refused. The physics is not presented as a theory. The method
 ## If you read nothing else
 
 1. **No novel positive prediction.** The `derived` tier is empty and a test fails if that changes without this sentence changing.
-2. **Three results outlive the framework**, and two are facts about GR: the linearized-EH kernel is not transverse-traceless (exact ratio −2, constrained sector); the arrow decomposes into intrinsic existence and imported direction.
+2. **Three results outlive the framework**, and two are facts about GR: the linearized-EH kernel is not transverse-traceless (exact ratio −2, constrained sector); the arrow decomposes into intrinsic existence and imported direction; and the anomaly action meant to fix the framework's one free parameter was computed and **fixes nothing** — it yields a scale, not a number.
 3. Its one decisive question — **pole or cut in ρ_TT(ω→0)** — was **drafted, held, never sent**, and may be ill-posed as posed.
 4. **No outside physicist has answered any physics question put by this program.** Fixed point 2 states this checkably rather than as a denial.
 5. **Every verifier in the chain but one human is an AI** — including the role the register calls "overseer," in 214 places.
