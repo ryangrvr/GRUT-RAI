@@ -18,6 +18,18 @@ Two inflations are refused. The physics is not presented as a theory. The method
 
 **Every link in this program's verification chain except one human being is an AI.** That is stated in the front matter, at full volume, because a program whose audit chain is AI is more trustworthy for saying so than for letting the word "verified" do quiet work.
 
+**Where to check any of this.** Repository: `github.com/ryangrvr/GRUT-RAI`, commit `f4ff2dfe16cb`, MIT licence; the rebuild described here is the `rebuild/` subtree, and the prior lineage discussed below is retained in the same repository as historical record. The commands below reproduce everything numeric in this document, from a clean checkout, with no dependencies beyond the Python 3 standard library:
+
+```bash
+cd rebuild
+python3 provenance/validate.py                     # the register gate
+python3 provenance/emit_public_numbers.py --check   # every count above, regenerated
+python3 provenance/build_public_doc.py --check      # this document, re-rendered from source
+cd provenance && python3 -m pytest -q               # the full suite
+```
+
+`rebuild/HOW_TO_VERIFY.md` gives the rest, including what a green run does and does not mean. The eleven commits this document's argument points at — the regression that turned *commit* into *accept*, the audit that undercounted by eight, the 4 occasions adversarial pressure removed a claim I wanted — are in that history, dated. **This work has not been deposited under its own DOI; when it is, this line will name it.** Independent researcher, no institutional affiliation; contact ryngrvr@gmail.com.
+
 ---
 
 ## If you read nothing else
