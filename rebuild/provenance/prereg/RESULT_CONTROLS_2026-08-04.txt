@@ -1,0 +1,30 @@
+RESULT -- the two positive controls. SEPARATE FILE BY CONSTRUCTION.
+
+CITES PRE-REGISTRATION: prereg/PREREG_CONTROLS_2026-08-04.txt
+  sha256 = 48172f7bf8d316684f9a878b42bcc63b14bfd38ff8ca408de62570f104b48301
+  verify: shasum -a 256 prereg/PREREG_CONTROLS_2026-08-04.txt
+
+WHY SEPARATE (the finding that produced this layout): the first attempt APPENDED these results to
+the hashed pre-registration, so the file on disk was no longer the file that was hashed and the
+cryptographic claim was void. The substance was unaffected -- expectations preceded results and the
+honest limit was written in the expectations block before any result existed -- but "verify by hash"
+became unverifiable. Identical shape to FROZEN_MERGE.txt's first version, where the hash lived
+inside the file it described. THE RULE: a pre-registration is IMMUTABLE ONCE HASHED. Results cite
+it; they never join it.
+
+================================ RESULT, scored after the above was written ================================
+CONTROL A -- Friedmann.   triple (n=3): REDUCTION, {continuous: -1, discrete: 0, posit: 0}
+                          all 3 pairs : NO-REDUCTION                                    => PASS
+CONTROL B -- hypercharge. n=5        : REDUCTION, {continuous: -4, discrete: 0, posit: 0}
+                          all 10 pairs: NO-REDUCTION                                    => PASS
+
+BOTH MATCH THE PRE-REGISTERED EXPECTATION EXACTLY, including the vectors and the pairwise nulls.
+The criterion finds, in two textbook cases, exactly the class it was rebuilt to find -- and finds
+nothing pairwise in either, which is the blindness that motivated the rebuild.
+
+WHAT THIS LICENSES, AND WHAT IT DOES NOT (repeating the limit stated before scoring, because a PASS
+is when it is most tempting to forget it): the plumbing is validated -- n-sided evaluation, the
+derived-relation zero cost, pairwise blindness, the vector. The PHYSICS JUDGEMENT is not, and cannot
+be: that the Friedmann surface is 2-dimensional and that the anomaly conditions leave one free
+normalization were DECLARED, not verified. A control whose answer is baked into a declared dimension
+proves the pipe, not the water. Every downstream cluster inherits exactly that limit.

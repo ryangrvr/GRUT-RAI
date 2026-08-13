@@ -1,0 +1,69 @@
+PRE-REGISTRATION -- the authority-vocabulary audit. Written and SEALED BEFORE the audit runs.
+BLIND-SAFE: yes
+
+WHY THIS IS PRE-REGISTERED AND THE FIRST ONE WAS NOT. The 2026-08-12 "specialist" audit found 49
+occurrences across 18 claims and classified them. It was still fatally narrow, and the fatal
+property was NOT the regex (that was a separate, second defect). It was that THE AUDITED PARTY
+CHOSE THE SEARCH WORD AFTER KNOWING WHAT IT WANTED TO FIND. One word, chosen by the person whose
+work the word would indict, is not an audit -- it is a search for a reassuring answer, and it
+returned one. A hostile reader greps the obvious synonym and finds an external reviewer catching
+errors in the first file he opens.
+
+THE CORRECTION: the term list is written down and hashed FIRST. Whatever it returns, it returns.
+
+================================ THE TERM LIST (frozen; do not extend after seeing results) =====
+Case-insensitive, whole-word where the term is a word. Searched across the ENTIRE repository
+(every .md, .txt, .py, .json), not only claims.json -- the first audit's scope was also too narrow,
+since a reader greps the repo, not the register.
+
+  T1  specialist / specialists          (the already-audited term; re-run for completeness)
+  T2  referee / referees
+  T3  reviewer / reviewers
+  T4  external review / externally reviewed / external reviewer / external check
+  T5  overseer / overseers
+  T6  independent  (as a modifier of a person or a pass: "independent specialist", "an independent
+                    check" -- NOT "independent variable", "independent of", "independently of")
+  T7  verified by / confirmed by / corrected by / answered by / signed off
+  T8  expert / experts / consulted / correspondence / colleague
+
+RATIONALE FOR INCLUDING T5 AND T6, stated before the counts are known: the glossary defines
+"overseer" as the human author of this program. Every "overseer-verified" string therefore reads
+as EXTERNAL VALIDATION to a reader who has not read the glossary -- and readers do not read
+glossaries first. "Independent" has the same defect: it is true of the PROCESS (a separate session,
+clean context) and false of the PERSONNEL, and the document's own fixed point turns on personnel.
+
+================================ THE CLASSIFICATION SCHEME (frozen) ==============================
+Every occurrence lands in exactly one:
+  A  PROSPECTIVE     -- a future outside party; asserts nobody has done it. ("reserve for a
+                        specialist", "escalate to")
+  B  READS-AS-EXTERNAL -- phrased so that a reader reasonably infers an outside party acted.
+                        THE DANGEROUS CLASS. Includes self-attributions whose SURFACE reads
+                        external ("overseer-verified", "independent specialist", "externally
+                        reviewed") regardless of what the glossary says.
+  C  GENERIC         -- collective/abstract, no actor implied ("three specialists conflict").
+  D  MECHANICAL      -- filenames, paths, field names, code identifiers.
+  E  TRUE-EXTERNAL   -- an actual outside human acted, with a logged transmission.
+                        *** PRE-REGISTERED EXPECTATION: E = 0. If E > 0, fixed point 2 as drafted
+                        is FALSE and must be rewritten before publication, not softened. ***
+
+================================ PRE-REGISTERED EXPECTATIONS ====================================
+  P1  T5 (overseer) will be the LARGEST term by a wide margin, and mostly class B by surface
+      reading. I expect this to be the finding that reshapes fixed point 2.
+  P2  Total across all terms will EXCEED 250 repo-wide. (Stated so a smaller number cannot be
+      quietly reported as thoroughness.)
+  P3  E = 0. No occurrence will be backed by a logged transmission to an outside human.
+  P4  At least one term I am including "for completeness" will return a class-B population I did
+      not anticipate. (The first audit's lesson: the surprise is in the term you didn't pick.)
+  P5  CALIBRATION CORRECTION, mandated by this program's own record: the builder has now
+      UNDER-counted once (41 vs 49) and the overseer has OVER-stated once (the flat "no
+      transmission" claim). Both errors ran toward a cleaner story. Neither number below is to be
+      adjusted after the fact toward comfort.
+
+================================ WHAT THIS AUDIT MAY NOT DO ======================================
+  KC1  NO MASS RENAMING. The register is a historical record; rewriting it destroys the evidence
+       of what was believed when. Survivors are ANNOTATED, never renamed.
+  KC2  NO TERM MAY BE ADDED after results are seen. If a term is missing, that is a finding about
+       this pre-registration, recorded as such in the result file -- not patched into the list.
+  KC3  NOTHING IS BANKED. No tier moves, no ledger moves. Output is a classification and a set of
+       annotations.
+  KC4  FIXED POINT 2 OF THE PUBLIC DOCUMENT DOES NOT PUBLISH UNTIL THIS CLOSES.

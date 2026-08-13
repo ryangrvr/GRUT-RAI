@@ -1,0 +1,131 @@
+RESULT -- the authority-vocabulary audit.
+
+CITES PRE-REGISTRATION: prereg/PREREG_AUTHORITY_TERMS_2026-08-12.txt
+    sha256 = 23a86fc8749d769369e3d9432b688b13fccd306d349da44bc081b29c2e98d9a0
+The prereg is UNMODIFIED since sealing. NOTHING IS BANKED. No tier moves, no ledger moves.
+
+METHOD. Term list written and hashed BEFORE the audit ran. Four analysts classified by term family
+under the frozen five-sense scheme; a fifth agent HUNTED for sense E adversarially (charged to
+assume an outside human had acted and find the evidence); an adjudicator tallied and ruled.
+
+================================ THE COUNTS ================================
+REPO-WIDE, all eight term families:      1143 occurrences across 8 families
+IN claims.json:                           197 occurrences
+CLASSIFICATION (the four analysed families): A 39 | B 149 | C 51 | D 21 | *** E 0 ***
+
+For scale: the first audit examined ONE term and found 49. The authority vocabulary is
+twenty-three times that. This was not an audit gap; it is the register's dominant voice.
+
+================================ THE RULING ON E ================================
+*** E = 0, and it is now grounded TWO WAYS, which is the important part. ***
+  (1) BY SEARCH. No file, log line, git object, filesystem attribute or archived snapshot records
+      a transmission to an outside human or a reply from one. What would have counted was stated
+      in advance: a dated entry pairing a send to a named outside party with a returned reply
+      bearing on a claim; equivalently a third-party address, an "On ... wrote:" block, a referee
+      report, a decline, or a git author other than the owner. All returned empty.
+  (2) BY THE AUTHOR'S STATEMENT, dated 2026-08-12. The search establishes ABSENCE OF A LOGGED
+      TRANSMISSION. It cannot establish AUTHORSHIP -- and the register never records modality
+      ("that silence is itself the finding"). The author has now stated the modality directly.
+
+THE DISTINCTION MATTERS AND THE PUBLIC DOCUMENT MUST CARRY IT: the headline is checkable against
+the register; the attribution is NOT, and is sourced to the author, dated. A reader must be able to
+tell which of the two he is being asked to verify and which he is being asked to take on testimony.
+
+================================ THE 2026-06-24 EPISODE -- RULED, AND THE BEST MATERIAL IN THE CORPUS
+The sense-E hunt found what four classifiers structurally could not: the six all-caps records of
+2026-06-25 have an upstream, one day earlier and one lineage back --
+GRUT-RAI-v2/v4/SPECIALIST_RESPONSE.md, "Response to Specialist Review", three rounds, addressed
+throughout to a second person ("You gave s = 2 only as the (d-phi)^2 floor"; "Four questions back
+to you (using you twice, as intended)"; "Thank you; round two above"). v4/WRITEUP.md: "REVISED post
+external review (three rounds, 2026-06-24). A qualified reviewer overturned..." A live code banner
+in v4/targets/curved_bath.py reads "CORRECTED BY EXTERNAL REVIEW (2026-06-24)".
+
+RULED 2026-08-12 BY THE AUTHOR: THE COUNTERPARTY WAS AN AI INSTRUMENT, NOT A HUMAN. No transmission
+occurred. E stays 0.
+
+WHAT THE EPISODE ACTUALLY CONTAINS, and why it belongs in the public document rather than merely in
+a disclosure. The instrument corrected the author THREE TIMES, each time against his interest:
+  R1  s = 5 RETRACTED -- it required GRUT's quadrupole/spin-2 vertex, which was uncomputed.
+  R2  s = 2 was the DENSITY OF STATES wearing the spectral density's clothes; J(omega) ~ omega,
+      Ohmic, s = 1.
+  R3  the author attributed s = 2 to the counterparty -- "That is not your value." It had been
+      given only as the (d-phi)^2 floor, with the gravitational vertex flagged as running higher
+      (citing Cho-Hu's published omega^5 vacuum graviton kernel), and with the decisive point that
+      the T = 0 exponent is THE WRONG OBJECT because at finite T the memory is set by transport.
+R3 is what produced the Weinberg-2004 non-local Bessel-tail finding, which reverted single-pole
+from DERIVED to ANCHOR. *** THAT DEMOTION STILL STANDS. rung3_single_pole sits where it sits today,
+three months and an entire rebuild later, because of that exchange. ***
+
+AND THE SENTENCE THE AUTHOR WROTE THE SAME DAY, quoted here because the public document will quote
+it against itself:
+  "each round of AI-assisted 'sharpening' moved away from it... The loop's errors had a direction:
+   toward the stronger, more flattering claim. That is the failure mode the gate cannot catch -- it
+   keeps me honest about what I've shown, but it has no opinion about which way I'm wrong. Only an
+   outside referee with the transport literature in hand did."
+The author drew the AI-loop / outside-referee distinction himself, contemporaneously, in one
+sentence -- AND MISPLACED THE INSTRUMENT ON THE WRONG SIDE OF IT, in the same paragraph diagnosing
+his loop's bias toward the flattering claim. That is the vocabulary drift happening INSIDE the
+sentence that diagnoses the drift. It is the cleanest instance of this program's central pattern
+anywhere in the corpus, it is dated, it is on disk, and it implicates the author rather than anyone
+else. It becomes the lead example of the public document's method section -- better than the
+examples currently slotted there, because it is the one where THE MACHINERY WORKED AND THE LANGUAGE
+FAILED, SIMULTANEOUSLY.
+
+================================ SCORING THE PRE-REGISTRATION ================================
+P1  WRONG. Predicted "overseer" would be the largest term by a wide margin. The largest is
+    INDEPENDENT (450 repo-wide, 89 files) -- a term included "for completeness". overseer is third
+    (247). Of overseer's 54 register occurrences, 52 are class B.
+P2  RIGHT, and by a margin that should have been predicted better: >250 was the floor; the answer
+    is 1143.
+P3  RIGHT. E = 0.
+P4  RIGHT, and it is the reason the prereg was worth writing: "the surprise is in the term you
+    didn't pick." It was "independent" -- true of the PROCESS (separate session, clean context) and
+    false of the PERSONNEL, which is exactly what the public document's claim turns on.
+P5  HONOURED. Neither number was adjusted toward comfort. The builder's earlier undercount (41 vs
+    49) and the overseer's earlier overstatement (the flat no-transmission claim) both ran toward a
+    cleaner story; both are recorded, neither is repaired by adjustment.
+
+================================ TWO PREREG FAILURES, RECORDED AS FAILURES (KC2) ================
+Recorded rather than patched, because a pre-registration that under-scoped is exactly as
+instructive as one that held.
+
+FAILURE 1 -- THE TERM LIST MISSED AN ENTIRE CLAIM CLASS. Three live strings assert the dispatch was
+SENT, and NONE contains any T1-T8 term, so all three were invisible to the frozen list:
+    calc/RESULTS_c1_inhouse_assembly_attempt.md -- "the thing DISPATCH_ONE_PAGE.md was sent out"
+    provenance/emergence_chain.py               -- "dispatched, unanswered"
+    STAGE_CLOSE_2026-08-09.md                   -- "one dispatched physics question"
+The first sat in THE VERY FILE whose purpose is to record that the work was in-house. LESSON: the
+list enumerated words for AUTHORITIES and omitted words for ACTS. A claim of outside contact does
+not need to name an authority to make the claim. All three corrected 2026-08-12, marked in place.
+
+FAILURE 2 -- SCOPE DECLARED REPO-WIDE, EXECUTED REGISTER-ONLY. The prereg says "Searched across the
+ENTIRE repository ... since a reader greps the repo, not the register." The T1/T2/T3 analyst
+scanned only claims.json. "specialist" occurs 311 times repo-wide, not 49. The escaped population
+includes live code that PRINTS authority language when the calcs are run:
+    calc/arrow_origin.py       -- print("VERDICT (lead; the human specialist is the firewall)")
+    calc/finite_T_exponent.py  -- "The specialist's worry"; "The specialist's 'pushes toward
+                                  Ohmic/sub-Ohmic' is directionally right"  [a quoted fragment
+                                  attributed to a specialist, in executable code]
+    calc/q1_energy_basis_magnitude.py -- "The specialist confirmed the decision tree"
+    calc/two_scale_desitter.py -- "the human de Sitter / stochastic-inflation specialist is the
+                                  firewall"
+LESSON: a declared scope that no step enforces is a scope nobody kept. The next audit of this class
+must assert its own scope in code before classifying.
+
+================================ WHAT THIS AUDIT STILL CANNOT SEE ================================
+It cannot establish authorship, only the absence of logged transmission -- the authorship half now
+rests on the author's dated statement and on nothing else. It cannot see intent. It cannot see
+material outside the two repositories examined. And its own two failures above show that a frozen
+term list catches the classes its author thought of, which is the same limitation, one level up,
+that the first one-word audit had.
+
+================================ OWED ================================
+  O1  ANNOTATE the highest-risk class-B strings in place (never rename -- the register is
+      historical evidence and the drift IS the finding).
+  O2  The public document's fixed point 2 states the modality AND names its source as the author,
+      not the register.
+  O3  The public document discloses that every link in the verification chain except the author is
+      an AI -- including the "overseer" in 214 places -- at the same volume as everything else.
+  O4  The 2026-06-24 episode leads the method section, with the "outside referee" sentence quoted
+      verbatim against itself.
+  O5  The four executable-code strings above are annotated where they print.

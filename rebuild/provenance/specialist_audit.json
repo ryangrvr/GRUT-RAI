@@ -1,0 +1,114 @@
+{
+ "_comment": "B0.2 specialist audit, 2026-08-12. Per-node classification of every occurrence of 'specialist'/'specialists'/'SPECIALIST' in claims.json. SENSES: A = prospective/reserved (a FUTURE outside expert; asserts nobody has done it). B = a pass that RAN and whose output was banked -- the class that reads as external validation. C = collective/generic ('three specialists conflict'). D = filename reference (SPECIALIST_BRIEF*.md as a path). The emitter tallies this file and REFUSES if the total disagrees with a live case-insensitive scan of the register -- which is exactly the check the first run lacked.",
+ "_method": "re.compile(r'specialists?', re.I) over json.dumps(claim) per claim and the raw file.",
+ "nodes": {
+  "rung3_single_pole": {
+   "A": 3,
+   "B": 13,
+   "C": 2,
+   "D": 1
+  },
+  "l0_r2_exact_unique_breaker": {
+   "A": 5,
+   "B": 0,
+   "C": 0,
+   "D": 0
+  },
+  "rung7_w2_wa_sign": {
+   "A": 2,
+   "B": 1,
+   "C": 0,
+   "D": 0
+  },
+  "rung7_wz": {
+   "A": 0,
+   "B": 3,
+   "C": 0,
+   "D": 0
+  },
+  "rung9a_value": {
+   "A": 1,
+   "B": 2,
+   "C": 0,
+   "D": 0
+  },
+  "arrow_of_time": {
+   "A": 0,
+   "B": 2,
+   "C": 0,
+   "D": 0
+  },
+  "founding_h2_R_zeta_bridge": {
+   "A": 1,
+   "B": 1,
+   "C": 0,
+   "D": 0
+  },
+  "rung8_falsifier": {
+   "A": 1,
+   "B": 1,
+   "C": 0,
+   "D": 0
+  },
+  "founding_h1_zeta_casimir": {
+   "A": 0,
+   "B": 1,
+   "C": 0,
+   "D": 0
+  },
+  "founding_h3_doubleslit_anchor": {
+   "A": 0,
+   "B": 1,
+   "C": 0,
+   "D": 0
+  },
+  "p_tt_ansatz": {
+   "A": 1,
+   "B": 0,
+   "C": 0,
+   "D": 0
+  },
+  "rung4_love_kk": {
+   "A": 0,
+   "B": 1,
+   "C": 0,
+   "D": 0
+  },
+  "rung5_gr_limit": {
+   "A": 0,
+   "B": 1,
+   "C": 0,
+   "D": 0
+  },
+  "rung7_w3_nocrossing_export": {
+   "A": 1,
+   "B": 0,
+   "C": 0,
+   "D": 0
+  },
+  "rung9b_bridge": {
+   "A": 0,
+   "B": 1,
+   "C": 0,
+   "D": 0
+  },
+  "u4_constitutive_origin": {
+   "A": 1,
+   "B": 0,
+   "C": 0,
+   "D": 0
+  },
+  "u6_constitutive_order": {
+   "A": 1,
+   "B": 0,
+   "C": 0,
+   "D": 0
+  },
+  "x_no_pin_theorem": {
+   "A": 0,
+   "B": 0,
+   "C": 0,
+   "D": 1
+  }
+ }
+}

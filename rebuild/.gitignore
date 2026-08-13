@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Mutation-battery artifacts: the batteries write these and occasionally leave one behind.
+# One already reached a commit (2026-08-13) and one survived to the hygiene pass before that.
+_mutant_*.py

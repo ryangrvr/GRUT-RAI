@@ -1,0 +1,63 @@
+RESULT -- the x_no_pin wave, scored against its sealed pre-registration.
+
+CITES PRE-REGISTRATION: PREREG_X_NO_PIN_2026-08-09.txt
+  sha256 = 47e3a29e7c162739ee56699d7d6403af9459225e9b63d86963334e7b3ec4ee2b
+
+ARTIFACTS: calc/x_no_pin.py (selftest green; four-mutant battery registered in
+provenance/mutation_registry.py); calc/RESULTS_x_no_pin.md (the prose record);
+proposed register node passivity_channel_diagonal (staged, held at the bank gate for relay).
+
+SCORED OUTCOME: (a) FLOOR ONLY -- the default-broken expectation, and the non-flattering one.
+
+  Q1  CHANNEL-DIAGONAL: YES, computed. omega*Im K_R = a*P2 + b*P0s is PSD exactly when a >= 0
+      and b >= 0, both directions of the equivalence verified by generic Jacobi eigenvalues on
+      the assembled 6x6 matrix at four k-hats, on a full sign grid plus independent selftest
+      probes. NO CROSS-CHANNEL RESCUE: with b = -1e-3 the minimum eigenvalue stays exactly at
+      the violating channel's value while the compliant channel is amplified through 1e6 --
+      the min eigenvalue is pinned at b, verified numerically to 1e-6.
+  Q2  CEILING / PIN: NONE. The admissible set is a convex cone closed under independent
+      nonnegative per-channel rescaling (verified through amplitude 1e6) and realizes every
+      nonnegative ratio tested (0 through 1e6). Passivity is amplitude-homogeneous per channel:
+      it can orient, never bound, never select. The flattering direction did not bank.
+  Q3  KMS LOCK CHANNEL-DIAGONAL: YES, computed. The thermal factor coth(beta*omega/2) is a
+      common scalar, so the noise kernel decomposes on the same projectors; the passive pair's
+      noise is PSD at every probe and a dissipation-sign violation survives the lock (is not
+      masked by it).
+
+THE ONE CORRECTION THE FIRST RUN FORCED, recorded because it is exactly the pre-registered
+trap: the first PSD implementation used an ABSOLUTE eigenvalue tolerance, and at channel
+amplitude 1e6 the Jacobi engine's 1e-14-relative float error exceeded it -- the selftest
+reported a fake ceiling (computed ceiling_from_passivity = True against the frozen False) and
+FAILED. That is the directional guard working: the flattering outcome arrived first as a
+numerical artifact and was rejected by the frozen-verdict comparison. Fixed by making the
+tolerance relative to the matrix scale (the standard reading of PSD at machine precision);
+the fix is documented in the psd() docstring in the calc itself.
+
+FENCES HELD (each pre-committed in the prereg):
+  * VARIABLE CAUTION: everything above is about c0/c2, the action-level moduli. NOTHING here is
+    a statement about x (mu_slip_interior's coupling) -- the transfer is definitional only
+    under S_IF.md's declared x := normalized-c0 construction.
+  * KC4 GUARD: the lemma is a sign condition; it sources no channel's vanishing and licenses
+    neither the pure-TT ansatz nor its negation.
+  * ISRAEL-STEWART: no in-house causality ceiling was computed (the needed background inputs --
+    relaxation time, sound speed, entropy density -- exist nowhere in the corpus); the ceiling
+    is reclassified as a rung3-dispatch sub-question. No number appears in this wave.
+
+MUTATION BATTERY: M1-M4 registered exactly as pre-sealed (aggregate positivity; ceiling
+installed; orientation flipped; KMS lock unsigned). Enforcement via test_mutation_battery.py.
+
+LEDGER: zero, as pre-registered. GRUT net unchanged at +13. Register edit staged as a new
+shown/ledger-0 node, surfaced by the bank gate as NEW-FLAG and held for the overseer relay --
+not accepted in this wave.
+
+================================ ADDENDUM (2026-08-09, post-relay ruling) ================================
+The single staged node was SPLIT by overseer ruling. The builder's cited-not-edged resolution of
+the gate's TIER-CONTRADICTION rested on a precedent that does not hold (zeta_interior_family
+cites-not-edges MU_LINEAR against a false BUILDS-ON-CLOSED; it DOES edge the enumeration), and the
+sharper tell was the conflation itself: a node cannot be general enough for 'shown' without the
+enumeration edge and specific enough to inherit the KC5 frame fence. Resolution, as ruled: the
+GENERAL lemma banks at passivity_channel_diagonal (shown, frame-free, no enumeration edge); the
+GRUT APPLICATION banks at x_no_pin_theorem (derived-pending on the enumeration's own frontier --
+the tier the gate itself suggested); and the dissipative-to-static transfer gap is promoted from
+S_IF prose to its own owed register node, kk_static_transfer, with three pre-named outcomes.
+The gate caught something real; it was resolved, not overridden. Scored outcome (a) is unchanged.

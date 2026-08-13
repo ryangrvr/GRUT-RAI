@@ -1,0 +1,157 @@
+RESULT -- the systematic omission sweep of the vacuum cluster.
+
+CITES PRE-REGISTRATION: prereg/PREREG_OMISSION_SWEEP_2026-08-04.txt
+    sha256 = 7c08d02b30f8f5dd61fbe311cd06d38346c138fb32eaadbdd4d47f8c0b8b30c8
+Standard used: OMISSION_STANDARD.txt (overseer-supplied wording), frozen and hashed in
+FROZEN_MERGE.txt BEFORE this sweep ran. Nothing below is banked. These are CANDIDATES FOR
+ADJUDICATION; the sweep produces no verdicts.
+
+METHOD. 7 analysts swept all 18 live nodes with object/structure/pipeline/applicability probes
+(18 node reports, 24 raw candidates) -> barrier -> dedup + conjunct 2 against the whole inventory
+-> 3 hostile lenses per survivor (attack conjunct 1 / hunt it already-booked / attack the
+classification), 2-of-3 to live -> completeness critic. 42 agents total.
+
+PROCESS FAILURE, DISCLOSED: the first workflow DIED at the dedup barrier (connection closed
+mid-response on an unbounded free-text stage). The 7 sweep agents had completed, so their 24
+candidates were recovered from the run journal rather than re-run, and the remaining stages were
+rebuilt with the dedup output SCHEMA-BOUNDED. No analysis was lost. An unbounded response is an
+unbounded failure surface, and that is now a build note, not a lesson to relearn.
+
+================================ THE COUNT ================================
+  24 raw -> 11 after dedup+conjunct 2 -> *** 2 SURVIVED *** 3 hostile lenses. 9 refuted 0/3.
+  2 ALREADY-BOOKED (conjunct 2 fired). 1 DROPPED by the membership fence.
+
+Q1 predicted 3-6. Delivered 2. *** I OVER-PREDICTED FOR THE SECOND WAVE RUNNING *** (compounds:
+predicted 3-5, found 2). Two over-predictions in a row is a calibration fact about me, not noise,
+and it belongs in the record rather than in a footnote about ranges.
+
+Q5 PASSED, and this is the check that makes the rest legible: CONJUNCT 2 ACTUALLY FIRED. Two
+candidates were already booked -- and on the register's own PRIOR RULINGS rather than on a word
+search, which is the harder failure mode to detect. (i) "Lorentz invariance is exact in the
+dynamics" is carried by vc_lorentz_invariant_vacuum's statement, its regulator-covariance rider and
+its overturning clause -- and the 2026-08-04 audit already disposed of that exact residue as
+"SCHEME content, and scheme content is booked in riders here". (ii) "An observer weighting and a
+reference class" is carried by vc_typicality_measure's statement and by map pair 4 -- and the same
+audit had already put that node's entire load on precisely the measure-to-our-observation
+conversion, tested against Hartle-Srednicki by name. BOTH ARE MERGE CANDIDATES, NOT ADDITIONS.
+
+Q3 CONFIRMED, and more strongly than expected: BOTH survivors are priors of a MEASURED node's
+reduction chain. Q4 (the QF map has the same defect) -- see the critic, section 5.
+
+================================ THE TWO SURVIVORS (candidates, not findings) ================
+S-1  THE COSMOLOGICAL PRINCIPLE / FLRW AVERAGING. 2/3, high confidence, raised from vc_rho_lambda,
+     vc_ir_gravity_is_gr and vc_flatness_in_reduction. Deniers: Buchert's averaging/backreaction
+     programme, Wiltshire timescape, LTB voids, Ellis's fitting problem -- all AFFIRM GR and DENY
+     the cosmological principle, removing rho_Lambda as a datum and deleting the explanandum.
+     Zero register hits for homogen/isotrop/FLRW/averag/backreact.
+     *** THIS WAS MY PRE-REGISTERED Q2(a), THE TOP-RANKED CANDIDATE, AND IT IS THE ONE PREDICTION
+     I GOT RIGHT. *** It is also the candidate the critic says is compound and must not be banked
+     whole -- see below.
+S-2  THE CMB/BAO STANDARD-RULER CALIBRATION. 2/3, LOW confidence, single-node. Deniers: early dark
+     energy, varying m_e at recombination (Hart-Chluba), non-standard N_eff, primordial magnetic
+     fields. The dissenting lens supplies a concrete defeater: an r_s-free route (uncalibrated BAO
+     shape + SN + a late-time absolute anchor) discharges the value without recombination physics.
+
+================================ THE CRITIC'S FINDINGS (the wave's real output) ================
+*** 1. THE SWEEP COMMITTED THE EXACT FAILURE THE STANDARD WAS FROZEN TO PREVENT. ***
+BOTH survivors are COMPOUNDS shipped whole with the atomicity debt "noted on entry" rather than
+paid. And the mechanical defect underneath is precise: CONJUNCT 2 IS NOT DISTRIBUTIVE, AND THE
+SWEEP NEVER ATOMISED BEFORE TESTING. S-1 contains "one Omega_k", which is a straight RE-BOOK of
+vc_flatness_in_reduction -- it passed conjunct 2 only because conjunct 2 was applied to the
+candidate AS A WHOLE, which is unbooked. That is the mirror failure conjunct 2 exists to prevent,
+smuggled in as a conjunct.
+  FIX, and it is a change to the METHOD not to the standard: ATOMISE CANDIDATES BEFORE APPLYING
+  THE TWO CONJUNCTS, never "on entry". It will move the count in BOTH directions.
+  RULED CONSEQUENCE FOR S-1: bank ONLY the averaging/backreaction half (does the smooth model's
+  dynamics equal the averaged dynamics -- what timescape denies while affirming statistical
+  homogeneity). The metric-ansatz half is VISIBLE in vc_flatness_in_reduction's statement, which
+  the standard's own carve-out makes a SPLIT question of that node. Banking the conjunction whole
+  would hang "homogeneity and isotropy" off vc_ir_gravity_is_gr, WHOSE ACTUAL DENIERS (f(R),
+  Horndeski) AFFIRM IT -- manufacturing precisely the false edge the standard exists to catch.
+
+*** 2. THE REGISTER CANNOT EXPRESS THE SIGNAL THE STANDARD RELIES ON. ***
+Of 20 vacuum-cluster nodes, exactly ONE has a non-empty depends_on. All three banked omissions were
+added with depends_on: [] -- INCLUDING vc_flatness_in_reduction, which was FOUND as a link in
+vc_rho_lambda's chain while vc_rho_lambda still carries depends_on: []. THE REGISTER FIXED AN
+INSTANCE OF EDGE-BLINDNESS WITHOUT RECORDING THE EDGE. Consequence: the MULTIPLICITY SIGNAL -- the
+standard's own highest-confidence diagnostic -- is not computable from the register at all and must
+be re-derived from prose every wave. A by-node sweep on an edgeless graph cannot reach edge-borne
+presuppositions. OWED: wire the edges (vc_rho_lambda -> vc_flatness_in_reduction;
+vc_universal_metric_coupling depended-on by three nodes).
+
+*** 3. A MISSED OMISSION THE CRITIC FOUND BY A MODALITY THE SWEEP DID NOT RUN. ***
+ONE NEWTON CONSTANT ACROSS SCALES -- the G measured in the lab is the G in the cosmological field
+equations. Presupposed by vc_m_planck ("the MEASURED content is entirely G" -- measured WHERE?),
+vc_ir_gravity_is_gr, vc_universal_metric_coupling, and by the M_Pl^4/rho_obs ratio itself.
+DISTINCT FROM THE EQUIVALENCE PRINCIPLE: screened scalar-tensor theories (chameleon, symmetron,
+Vainshtein) KEEP universal metric coupling and BREAK G's constancy across environments. "Newton"
+occurs ONCE in the entire register, and there in the UV asymptotic-safety sense. Multiplicity 3,
+booked nowhere, named deniers, and the denial changes the very ratio the cluster exists to state.
+This is the closest thing to a missed EP-shaped omission, and the by-node sweep structurally could
+not raise it because it is carried by no single node's text.
+
+4. MODALITY NOT RUN: the sweep tested "established" and "stated" and never "USED" -- the third verb
+   in the frozen conjunct-1 wording. Nothing was probed at the cluster's INFERENTIAL JOINTS (the
+   comparison defining the explanandum, the dissociation arguments, the L/H parity of the headline).
+   By-parity probing yields a standing finding on its own: regulator/scheme dependence is booked
+   TWICE on the Lambda side and ZERO times on the hierarchy side, in a cluster whose headline is an
+   L/H INDEPENDENCE ruling. A premise audited on one side and unaudited on the other is a
+   completeness defect no by-node probe can raise.
+
+5. A PRE-REGISTERED CANDIDATE WAS SILENTLY DROPPED. Q2(e), cosmic time / global foliation, appears
+   NOWHERE in the returned material -- not survived, not refuted, not booked, not dropped. Its
+   content was absorbed into the FLRW compound and never adjudicated on its own. That violates the
+   standard's own directional guard ("record the argument for every node examined, including the
+   ones that yield nothing"). The same modality went missing in the QF map. IF IT GOES MISSING
+   TWICE, IT IS A METHOD DEFECT, NOT TWO COINCIDENCES.
+
+6. HYGIENE FINDING ON THE REFUSAL SIDE. Three of the nine refutations discharge conjunct 2 by
+   pointing at vc_w_equals_minus_one and/or pair U-E -- the one booking THE REGISTER ITSELF has
+   just marked as "an EDGE BOOKED AS A VERTEX... booked in an edge list, a vertex list and a
+   field". A booking already flagged for demolition is doing a third of the sweep's refuting work.
+   IF w = -1 IS EVER COLLAPSED INTO U-E, THOSE THREE REFUTATIONS MUST BE RE-RUN.
+
+7. THE ONE RULING THAT DECIDES BOTH SURVIVORS AT ONCE:
+       IS A MEASURED NODE'S DISCHARGE INDEXED TO ITS NUMBER, OR TO ITS DECLARED PIPELINE?
+   Value-indexed: the r_s-free route discharges rho_Lambda and S-2 fails conjunct 1 outright.
+   Pipeline-indexed (what the scheme_tag rider asserts, and what vc_flatness_in_reduction was
+   banked on): the calibration is presupposed and S-2 is an omission. S-1's surviving conjunct-1
+   leg AND its conjunct-2 defence BOTH run off the same flatness precedent. THE REGISTER OWES ONE
+   RULING, NOT TWO. It has a cost in both directions: pipeline-indexed opens every prior in the
+   Planck likelihood as a candidate and hands the whole filtering job to the membership fence;
+   value-indexed retro-weakens an already-banked node.
+
+8. AN UNDEFINED SCOPE CONVENTION, TO BE RULED BEFORE THE QF SWEEP RUNS. S1 is now banked as
+   vc_state_expectation_functional at ledger_scope vacuum-cluster, while the QF result says it is
+   booked in NEITHER inventory. Conjunct 2 says "booked anywhere in the RELEVANT INVENTORY", and
+   for a declared CROSS-CLUSTER shared input "relevant inventory" is undefined -- a QF candidate
+   booked only in the vacuum cluster is booked or not depending on how an analyst reads a scope
+   field. Rule it, or the first adjudication is decided by an unrecorded convention.
+
+================================ PREDICTIONS FOR THE QF SWEEP (scoreable) ================
+  (a) HIGHEST CONFIDENCE, the EP/S1-shaped hit: MEASUREMENT INDEPENDENCE / SETTINGS AUTONOMY.
+      Presupposed by the Born measure's operational content, by the pilot-wave-out-of-equilibrium
+      witness the QF result uses for its direction-(a) dissociation, by einselection's
+      system/environment split, and by the noncontextuality residue Gleason/Busch leaves. Zero
+      register occurrences of measurement-independence / superdeterminism / free choice. Deniers:
+      't Hooft, Palmer, Hossenfelder; Price/Wharton. Denial costs the "TWO INPUTS" headline a leg.
+  (b) The measured-chain hit (the flatness sibling): the statistical-inference pipeline behind the
+      map's one MEASURED entry -- fair sampling, i.i.d. runs, and the link principle converting a
+      measure into observed FREQUENCIES. The QF result names the last IN PROSE and books it nowhere
+      -- exactly how flatness hid inside rho_Lambda's scheme_tag.
+  (c) The foliation / external-time hit -- the twin of the Q2(e) that went missing here.
+  (d) PREDICTED NON-HITS, so the sweep can be scored against them: tensor factorization, unitarity
+      scope, state completeness, the classical-record condition. Merge candidates at most.
+  (e) ONE CANDIDATE FLIPS ACROSS CLUSTERS. The individual-vs-ensemble reading of the expectation
+      value was DROPPED here by the membership fence (Ballentine/QBism change no vacuum-cluster
+      statement) and PASSES it in QF, where the ensemble reading is a rival account of what
+      outcome-selection must do. *** THE FENCE IS CLUSTER-INDEXED AND MUST BE RE-RUN, NEVER
+      INHERITED. *** A QF sweep importing this drop list would lose a real candidate.
+
+================================ THE STANDING LIMIT ================================
+Both conjuncts are C3-class judgements: non-mechanizable, analyst-supplied. Three hostile lenses is
+a better instrument than one reading and is not a proof. The delivered count of 2 is worth exactly
+the arguments above, and the critic's judgement that BOTH of them are compound means the honest
+statement is not "2 omissions" but "TWO CANDIDATE REGIONS, ONE OF WHICH IS RULED BANKABLE ONLY IN
+HALF". Cutting or padding to reach the pre-registered range would be reading the result back onto
+the prereg; the correct correction is ATOMISATION, which moves the count in both directions.

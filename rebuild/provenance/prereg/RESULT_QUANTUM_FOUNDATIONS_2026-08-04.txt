@@ -1,0 +1,75 @@
+RESULT -- the quantum-foundations cluster. SEPARATE FILE BY CONSTRUCTION.
+
+CITES PRE-REGISTRATION: prereg/PREREG_QUANTUM_FOUNDATIONS_2026-08-04.txt
+  sha256 = 75bcd2f2efd0c309e11c88bb25b9469a14d3a9d84b9539ca6e821830eb959fb1
+  verify: shasum -a 256 prereg/PREREG_QUANTUM_FOUNDATIONS_2026-08-04.txt
+
+*** NOTHING BANKS FROM THIS WAVE. *** The node labels below are MAP labels, not frozen-registry
+ids (KC2). No registry amendment was made, so no reading was scored against the ledger and no
+cross-cluster merge was banked.
+
+================================ THE CLUSTER QUESTION ================================
+RULING: TWO INPUTS. Outcome-selection and the Born measure are two, and the default-broken position
+survived on POSITIVE evidence rather than absence-of-evidence -- which is more than the
+pre-registration asked for.
+
+TWO-DIRECTIONAL NON-DETERMINATION (the ground): (a) outcome-selection does not fix the measure --
+pilot-wave out of quantum equilibrium is a consistent construction with exactly one definite
+outcome per run and NON-Born statistics; (b) the measure does not fix outcome-selection --
+Everettian and ensemble formulations carry the full Born measure while asserting no single definite
+outcome. One-directional non-determination is an argument; TWO-directional is a dissociation.
+
+THE WEIGHTS-DERIVATION LITERATURE, met head-on rather than waved past: Gleason/Busch, envariance,
+and decision-theory all have the same structure -- MEASURE-GIVEN-STRUCTURE. Each removes the
+quadratic functional form as a free choice and each LEAVES a replacement posit (noncontextuality /
+envariance-locality+continuity / branching indifference), plus, in every case, the separate question
+of why the numbers are observed FREQUENCIES. None derives the measure FROM outcome-selection or
+outcome-selection FROM the measure. That directed relation is what a merge requires; it is absent in
+all three. Under this criterion each is a TRADE, never a REDUCTION.
+
+================================ AGAINST THE PRE-REGISTRATION ================================
+E1 MET at the predicted grade (ATTESTED), WITH AN UNANTICIPATED STRENGTHENING: the dissociation is
+   ASYMMETRIC. Einselection's own machinery is built from the Born functional form -- the reduced
+   density matrix is defined by Tr[(Tr_E rho)A] = Tr[rho(A x I)], which IS a Born statement -- so
+   the map carries a DIRECTED edge, preferred_basis <- born_measure, with nothing running back.
+   CONSEQUENCE: "decoherence explains the classical world independently of the interpretation of
+   probability" is FOLKLORE wherever 'classicality' means observed statistics.
+   ALSO UNANTICIPATED, and arguably bigger: einselection RELOCATES the basis input into the
+   TENSOR FACTORIZATION rather than eliminating it.
+E2 MET, FOR A STRONGER REASON THAN WRITTEN. The prereg expected TWO from an argument from absence;
+   the wave delivered positive witnesses in both directions.
+E3 MET -- dissolution DOES NOT APPLY -- with the prereg's stated REASON corrected. Note the process
+   event: an analyst amended the criterion mid-exercise to exclude his own candidate, flagging it as
+   an unregistered tightening. The adjudicator READ THE FROZEN FILE and found the needed conjunct
+   ("so A stops being a question rather than being answered") ALREADY PRESENT in the hashed prose.
+   The amendment was unnecessary and the freeze is what showed it.
+E4 MET. Typed tally: measured 1 | postulate-standard 6 | postulate-CONTESTED 6 | heuristic 1 |
+   open 1 | downstream 4. Postulate-heavy with a single measured entry, as predicted. NO SCALAR
+   TOTAL IS SHIPPED and no cross-cluster count comparison is shipped.
+E5 SPLIT -- and the FAILING half is the more useful.
+   * eft_validity DOES NOT RECUR. The tempting bridge ("integrating out heavy modes = tracing out
+     the environment") fails on operand, product, and licensing -- and decoherence works precisely
+     BECAUSE the environment does not decouple, which is the opposite of the EFT premise. "Both are
+     domain-of-validity assumptions" is the KC1 category move, refused. MY PREDICTION WAS WRONG.
+   * semiclassical_sourcing PARTIALLY RECURS, and the recurrence is CURRENTLY UNDETECTABLE: the
+     registered vacuum node is a COMPOUND of (S1) there is a state and an expectation functional on
+     the observable algebra, and (S2) the metric couples to the MEAN of that functional. S2 has no
+     counterpart here. S1 is a genuine shared premise AND IS BOOKED IN NEITHER INVENTORY.
+     => the confirming half exposes an OMITTED NODE in an already-banked inventory.
+
+BEST SINGLE CATCH (KC4): initial_condition_factorized -- decoherence's monotone direction requires a
+FACTORIZED, low-entropy initial environment state; the time-reversed solution is equally admissible
+dynamically. It is an INPUT, routinely omitted, and MY OWN PRE-REGISTERED KC4 CANDIDATE LIST MISSED
+IT (I listed unitarity-universal, state-completeness, factorization).
+
+WEAKEST LINK, in the adjudicator's own words and endorsed: "TWO" is convention-sensitive at exactly
+one joint, and the convention is the instrument's, not the physics'. It rests on the rule that a
+DERIVED-CONDITIONAL relation counts as POSITED. Both serious merge candidates are
+derived-relative-to-their-own-axioms; under a different and defensible scoring convention the
+headline could move.
+
+FIVE UNDECIDED PAIRS with deciding questions named -- U1 basis/factorization (eliminated or merely
+relocated?), U2 unitarity-scope/outcome-selection (the pair the cluster turns on), U3 the
+Deutsch-Wallace route (derivation or re-posit?), U4 noncontextuality/state-completeness (pilot-wave
+denies both -- one commitment or two?), U5 the factorized initial condition vs the classical-record
+condition (an extra input, or the thermodynamic one already booked elsewhere in physics?).

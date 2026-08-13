@@ -1,0 +1,71 @@
+PRE-REGISTRATION -- THE TERMINATION CONDITION FOR IN-HOUSE GRUT PHYSICS. VERSION 4. BLIND-SAFE: yes
+Supersedes v1 (c504576ef0a2abd0...) and v2 (05fa401bc1fe649b...), sealed unsigned history; the v3
+draft is retired unsealed (its three-round stress record: REVIEW_PACKET_TERMINATION_2026-08-09.md).
+Drafted against the pre-sealed gate PREREG_V4_GATE_2026-08-10.txt. STATUS: UNSIGNED = NOT IN FORCE.
+The log = the companion event file, provenance/prereg/RESULT_TERMINATION_events.txt (one file).
+
+RULES
+R1 STILL-OPEN: every channel may always report STILL OPEN with its cause stated in plain words
+   (unsent; mid-window; no reply beyond acknowledgment; data not landed; landed inside the deposit
+   month and unconsumed; no verdict at register grade; instrument never frozen -- cause named).
+   Still-open is never rounded into a resolved outcome, and no resolved outcome is ever forced.
+R2 NODES DECIDE: a resolved outcome's consequences execute ONLY at the named register node, per
+   that node's own text, by an adjudication recorded in the log. This file executes nothing.
+R3 PUBLIC EVENTS ONLY: a thresholded outcome fires only against a threshold frozen by name in a
+   manifested instrument BEFORE the public event it judges (a release landing; a reply arriving).
+   Private acts (reading, considering) freeze nothing. No freeze -> that outcome cannot fire, and
+   the channel's report states the foreclosure and whether a decline was logged.
+R4 QUOTES DECIDE, ENTRIES ASSERT NOTHING: every received communication and every owner act or
+   omission named here is logged with its operative language quoted verbatim. A log entry may not
+   assert what register text says; an entry doing so is VOID ON ITS FACE and binds nothing. The
+   only register predicates this condition uses are Q1-Q3, quoted below in this sealed file;
+   entries cite them by label or quote the outside world.
+R5 ONE CLOCK: in-house physics calculation STOPS at the earliest of (i) 2026-12-31; (ii) both
+   Part-7 fronts discharged (calc completed, or retired with a statement naming what dies and
+   why); (iii) a logged reply whose own words assert the cut class unconditionally (the stop, once
+   fired, stands even if later replies contest the channel line). After the stop, only external
+   results are consumed -- all of them, favorable and adverse alike, before the deposit -- and the
+   deposit is written in the first wave after the stop, within one calendar month.
+
+THE DEPOSIT reports each channel below in exactly one line: RESOLVED (one of its listed outcomes,
+with the deciding quote) or STILL OPEN (with its R1 cause). There is no third form.
+
+C1 THE DISPATCH (pole-vs-cut; DISPATCH_ONE_PAGE.md; node rung3_single_pole). The send date, one
+   reminder, and every reply land in the log with words quoted (R4). RESOLVED: (a) a reply asserts
+   the POLE class in its own words, unconditionally; (b) a reply asserts the CUT class likewise
+   (fires stop (iii); node consequences per R2 -- this file fires no register trigger).
+   Acknowledgments, caveats, conditions, conflicting replies, silence: STILL OPEN, words quoted.
+C2 DESI DR3 (node rung7_wz). Its falsifier is Q1 and is NOT a data threshold; any data-grade kill
+   needs an R3-frozen crossing threshold. RESOLVED: (a) a crossing at the frozen threshold, agreed
+   across the release's own headline combinations (leg data-closed; node consequences per R2);
+   (b) constancy at the release's own grade, agreed across those combinations. Anything else --
+   no release, unconsumed within the deposit month, combination flips, strengthening short of or
+   without a frozen threshold: STILL OPEN, cause stated.
+C3 THE TT-AUTO CALC (first Part-7 front; nodes zeta_interior_family, mu_linear; anchor Q2).
+   Numbers are register-grade only with every insertion declared (the A8 record, X_FLOOR_MAP.md;
+   the operative gate record is the SECOND freeze of calc/isw_tt_auto.py -- the first was voided).
+   RESOLVED: (a) a register-grade window SURVIVES at one or more declared kappa-members -- ships
+   as an ALLOWANCE, never a prediction (Q2), its position below any frozen reach threshold stated
+   when so; (b) the family EXCLUDED at register grade at every declared member (node consequences
+   per R2); (c) RETIRED with a statement naming what dies and why. Anything else -- unrun,
+   unfinished, voided, middle-band, undeclarable, mixed members: STILL OPEN, obstruction named.
+C4 THE METHOD (node method_novelty). RESOLVED: full discharge of Q3, all three legs, graduation
+   executing at the node per R2. Anything less -- no uptake, adoption without a caught error, any
+   proper subset of the legs: STILL OPEN, the legs discharged so far stated with their quotes.
+C5 THE XI_IJ / GAMMA_T CALC (second Part-7 front; obligation recorded in
+   STAGE_CLOSE_2026-08-09.md). RESOLVED: (a) computed at register grade, consumed at its own node
+   per R2; (b) RETIRED with a statement naming what dies and why. Else: STILL OPEN, cause stated.
+
+QUOTES (the only register text this condition uses; each verified both ways by the standing check
+provenance/test_register_citations.py):
+Q1 rung7_wz.overturning_computation: "if the full in-in (Calzetta-Hu) stress tensor of a
+   horizon-relaxing vacuum gives wa>0 (not DESI's wa<0), or needs as many params as CPL, rung7
+   FAILS as the second differentiator"
+Q2 zeta_interior_family.boundary_condition: "The family ALLOWS up to the edge; it predicts
+   nothing (x has no floor)"
+Q3 method_novelty.overturning_computation: "GRADUATES toward a banked contribution ONLY on
+   independent EXTERNAL validation -- a DIFFERENT team, on a DIFFERENT problem, where the
+   method's discipline catches a REAL error (not its own)"
+
+SIGNATURE (the seal covers this file with the block empty; the log records the signing; the
+sealed file is never edited):  SIGNED ______________________  DATE ____________

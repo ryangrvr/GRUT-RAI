@@ -1,0 +1,87 @@
+RESULT -- THE v4 GATE PASS, scored against its sealed pre-registration.
+
+*** READER WARNING, ADDED 2026-08-12 -- THE QUOTED "REPLIES" IN THIS FILE ARE CONSTRUCTED
+    HYPOTHETICALS, NOT COMMUNICATIONS FROM ANY PERSON. ***
+This file scores a gate by walking CONSTRUCTED SCENARIOS (K1-K4) -- invented cases used to test
+whether the sealed condition's rules produce a determinate answer. Strings such as
+  "received this, will take a look"
+  "in our scheme, assuming your kernel normalization, this is a branch cut"
+  "the assembled low-omega TT response is single-pole; eta is finite"
+  "our assembly finds a cut, full stop"
+are TEST FIXTURES THE AUTHOR WROTE. No physicist said any of them. The one drafted ask remains
+unsent (see RESULT_TERMINATION_events.txt). This header exists because a skeptic grepping the
+repository for evidence of outside contact would otherwise find quoted replies from physicists
+sitting in a public file -- a false positive the author handed him, found by an adversarial
+pre-screen of the public document on 2026-08-12.
+
+CITES PRE-REGISTRATION: PREREG_V4_GATE_2026-08-10.txt
+  sha256 = 09a0da0898e869709e6a39c890463310409bda5be0a87e7b831fc4e144ca5dc6
+
+DOCUMENT UNDER TEST: PREREG_TERMINATION_V4_2026-08-10.txt
+  sha256 = f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61 (sealed AS PASSED,
+  per the gate's no-repair rule; the pass's non-blocking notes live in the review packet's
+  gate record and were NOT applied to the document).
+
+VERDICT: PASS on the single pre-registered internal adversarial run (two non-drafting
+auditors). All four sealed cases K1-K4 land in exactly one home; 71 lines / 5876 characters
+(limit 75 / 7500); no new bespoke exception machinery; burden test passed. This file exists
+because an external reviewer correctly noted the pass was attested but not reproducible: the
+packet summarized thirteen deposit lines without containing them. Below is the burden-test
+reader's work product, VERBATIM from the workflow record (agent ab08a18fb9f637021, workflow
+wf_b59ad42f-44d, 2026-08-10) -- reproduced, not reconstructed. Its self-flagged observations
+(case 4's thin point; I3's R5/R1 seam; I4's overlap) are the same items filed as the pass's
+non-blocking findings; nothing here is new content, and nothing here edits v4.
+
+================================ THE BURDEN-TEST TRANSCRIPT, VERBATIM ================================
+
+Both files read. I executed the burden test against the v4 document alone (the gate used only to define my success criteria, not to classify anything). Below is the work product; the verdict follows in structured output.
+
+## Required-case deposit lines
+
+**1 (K1, C3 zero-bucket corner)**
+`C3 RESOLVED (a): "a register-grade window SURVIVES at one or more declared kappa-members -- ships as an ALLOWANCE, never a prediction (Q2), its position below any frozen reach threshold stated when so"` — survives at two declared members; both positions below the frozen reach threshold, stated; insertions declared (A8 record, second freeze operative). "Activation-scale" appears nowhere in the document; mapping it onto any still-open item (unrun/unfinished/voided/middle-band/undeclarable/mixed) would require re-deriving physics, which is forbidden — so the fact is inert and (a) is the only home. Mechanical.
+
+**2 (K2, ack only)**
+`C1 STILL OPEN: no reply beyond acknowledgment; words quoted: "received this, will take a look"` — R1 names the cause verbatim; the reply's own words assert no class, so no stop trigger fires and nothing is blocked. Mechanical.
+
+**3 (conditional cut reply)**
+`C1 STILL OPEN: conditional reply; words quoted: "in our scheme, assuming your kernel normalization, this is a branch cut"` — "assuming" is a condition; C1's still-open list names "caveats, conditions" verbatim. Stop (iii) does not fire: the reply's own words do not assert the cut class *unconditionally*. Mechanical.
+
+**4 (unconditional pole, then unconditional cut)**
+Channel line: `C1 STILL OPEN: conflicting replies; words quoted: "the assembled low-omega TT response is single-pole; eta is finite" vs "our assembly finds a cut, full stop"` — the compound situation is named verbatim and classified STILL OPEN on the page; R1 says no resolved outcome is ever forced.
+Stop status: **stop (iii) FIRED** at the second reply's log date — R5(iii)'s trigger is "a logged reply whose own words assert the cut class unconditionally," a pure quote check on "our assembly finds a cut, full stop"; per R5 the stop, once fired, stands even where the channel line records conflict. In-house calculation stopped; deposit due within one calendar month. Producible, but this is the thinnest point on the page (see findings).
+
+**5 (DR3, evolving-w preference, no frozen threshold)**
+`C2 STILL OPEN: strengthening without a frozen threshold; no crossing threshold was frozen before the release landed (R3), so outcome (a) is foreclosed — foreclosure stated; decline logged: [per log]` — "strengthening short of or without a frozen threshold" is verbatim; (b) is unavailable because the release shows evolution, not constancy; C2's anchor sentence ("Its falsifier is Q1 and is NOT a data threshold") blocks the wrong move of firing Q1 off the release. The decline bit is a log lookup, not a judgment. Mechanical.
+
+**6 (xi_ij retirement)**
+`C5 RESOLVED (b): "we retire the Gamma_T front: the fenced number cannot be computed at register grade before the stop; the GW-friction bound class dies unquantified"` — the statement names what dies and why, exactly the (b) requirement; also discharges the second Part-7 front for stop (ii) accounting. Mechanical.
+
+**7 (method uptake, no caught error)**
+`C4 STILL OPEN: adoption without a caught error; legs discharged so far with quotes: DIFFERENT team (outside team, quoted), DIFFERENT problem (their own paper, quoted); the REAL-error leg undischarged` — "adoption without a caught error" is verbatim in C4's still-open list. Mechanical.
+
+## Invented adversarial scenarios (aimed at the thin spots)
+
+**I1 — late freeze (K4 shape).** A crossing threshold entered in the manifest three days after DR3 lands; owner argues it precedes "consumption." `C2 STILL OPEN: threshold not frozen BEFORE the public event it judges (R3: "a release landing"); crossing outcome cannot fire; foreclosure stated; decline logged: none.` R3 keys on the public landing date vs the manifest date — "consumption" has no writable form as a freeze anchor. Mechanical.
+
+**I2 — register-asserting entry as the only record (K3 shape).** Sole log entry: "their reply meets the register's cut definition under rung3_single_pole, which requires non-analytic low-omega response." R4: the entry "is VOID ON ITS FACE and binds nothing." `C1 STILL OPEN: received communication not logged with its operative language quoted verbatim (R4 owner omission); the sole entry is void on its face.` Stop (iii) cannot fire — no logged reply's OWN WORDS assert the cut class. Mechanical.
+
+**I3 — late-landing adverse release, unconsumed.** Stop (i) fires 2026-12-31; DR3 lands 2027-01-20; deposit written 2027-01-28 unconsumed. `C2 STILL OPEN: "landed inside the deposit month and unconsumed" (verbatim R1 cause).` Line mechanical — but note the seam: R5 commands consuming "all of them, favorable and adverse alike, before the deposit," while R1 licenses as a line-cause the very state that duty forbids. The page truthfully records a consumption dodge without preventing it (filed as a finding).
+
+**I4 — mixed kappa-members.** Window survives at one declared member, excluded at register grade at the other. `C3 STILL OPEN: mixed members; obstruction named.` "Mixed members" is enumerated under "Anything else," which is itself the precedence statement — even though (a)'s "one or more" is literally satisfied. Producible by situation-name match; overlap filed as a finding.
+
+**I5 — ack then unconditional pole.** June ack "got it, interesting"; September reply "the low-omega response assembles to a simple pole; no cut," no qualifiers. `C1 RESOLVED (a): "the low-omega response assembles to a simple pole; no cut".` A hyper-literal read of the still-open list ("Acknowledgments...: STILL OPEN") could suggest any ack vetoes resolution, but R1's cause wording — "no reply beyond acknowledgment" — is unavailable once a reply beyond acknowledgment exists. Mechanical via R1's wording.
+
+**I6 — verdict computed under the voided first freeze.** `C3 STILL OPEN: voided — verdict rests on the FIRST freeze of calc/isw_tt_auto.py; "the operative gate record is the SECOND freeze... -- the first was voided"; obstruction named.` Mechanical.
+
+## The three questions
+
+**(i) Judgment calls:** No line required re-derived physics or unstated-precedence weighing. The two nearest approaches — case 4's channel line and I4 — are both settled because the still-open lists name the compound situation verbatim and classify it, and R1 forbids forcing a resolved outcome; matching a named situation is a quote operation. K1's extraneous fact is inert precisely because the forbidden-physics rule bars importing off-page vocabulary.
+
+**(ii) Time pressure:** Yes. The execution algorithm is uniform across all five channels: locate channel; test each logged quote for an unconditional class assertion; otherwise find your situation named in the still-open list; copy the quote/cause. Thirteen lines took roughly fifteen minutes; only case 4 required re-checking R5(iii) against C1's still-open sentence. The log is consulted only to copy quotes and read the decline bit — never to interpret.
+
+**(iii) Dead text:** "BLIND-SAFE: yes" was never operative. The v1/v2 hashes and the v3 stress-record pointer are provenance identity only — no line touched them. Everything else was exercised: Q1's body was never quoted in a line, but its anchor sentence actively blocked a wrong RESOLVED in case 5, so it is not dead; the STATUS line and signature block are operative at one bit (in-force check).
+
+**Reading burden:** Light. One careful pass of ~4–5 minutes; 72 lines; rules block is five short rules; each channel is 3–7 lines self-contained with its outcomes and its still-open causes co-located.
+
+Files: /Users/mpg/Library/Mobile Documents/com~apple~CloudDocs/Ryans Projects/GRUT ResponsiveAI/provenance/prereg/PREREG_TERMINATION_V4_2026-08-10.txt (document under test), /Users/mpg/Library/Mobile Documents/com~apple~CloudDocs/Ryans Projects/GRUT ResponsiveAI/provenance/prereg/PREREG_V4_GATE_2026-08-10.txt (test definition).

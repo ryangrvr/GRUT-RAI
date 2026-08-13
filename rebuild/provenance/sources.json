@@ -1,0 +1,305 @@
+{
+ "_comment": "Primary-source register. Every load-bearing claim must cite an id here. Verified against the actual papers in the 2026-06-25 review, not against secondary summaries.",
+ "born1926": {
+  "ref": "M. Born, Z. Phys. 37, 863 (1926), 'Zur Quantenmechanik der Stossvorgaenge'",
+  "verifies": "the Born rule (probability = |amplitude|^2); a QM postulate, not derived within GRUT"
+ },
+ "albert2000": {
+  "ref": "D. Z. Albert, 'Time and Chance' (Harvard Univ. Press, 2000)",
+  "verifies": "the Past Hypothesis (a low-entropy initial macrostate) as an imported cosmological boundary condition"
+ },
+ "israel_stewart1979": {
+  "ref": "W. Israel & J. M. Stewart, Ann. Phys. 118, 341 (1979)",
+  "verifies": "transient (causal) relativistic hydro; a relaxation time makes transport a causal single-pole/telegrapher response"
+ },
+ "unruh1981": {
+  "ref": "W. G. Unruh, Phys. Rev. Lett. 46, 1351 (1981), 'Experimental Black-Hole Evaporation?'",
+  "verifies": "analogue gravity: an acoustic/emergent metric in a moving medium -- KINEMATICS, not the transport class"
+ },
+ "barcelo_liberati_visser2005": {
+  "ref": "C. Barcelo, S. Liberati & M. Visser, Living Rev. Relativity 8, 12 (2005), 'Analogue Gravity'",
+  "verifies": "emergent-metric kinematics from condensed-matter media; the analogy is kinematic, not dynamical"
+ },
+ "landau1941": {
+  "ref": "L. D. Landau, J. Phys. USSR 5, 71 (1941), 'Theory of the Superfluidity of Helium II'",
+  "verifies": "two-fluid superfluid transport (first/second sound) -- a MULTI-mode transport class"
+ },
+ "gibbs1902": {
+  "ref": "J. W. Gibbs, 'Elementary Principles in Statistical Mechanics' (Yale Univ. Press, 1902)",
+  "verifies": "the Gibbs ensemble entropy; equilibrium statistical mechanics"
+ },
+ "vonneumann1932": {
+  "ref": "J. von Neumann, 'Mathematische Grundlagen der Quantenmechanik' (Springer, 1932)",
+  "verifies": "the von Neumann entropy S = -Tr(rho ln rho)"
+ },
+ "boltzmann1872": {
+  "ref": "L. Boltzmann, Wien. Ber. 66, 275 (1872)",
+  "verifies": "the H-theorem and Boltzmann transport equation; the -integral f ln f kinetic entropy and monotone entropy production"
+ },
+ "boltzmann1877": {
+  "ref": "L. Boltzmann, Wien. Ber. 76, 373 (1877)",
+  "verifies": "the probabilistic entropy S = k ln W (log of the number of microstates)"
+ },
+ "jarzynski1997": {
+  "ref": "C. Jarzynski, Phys. Rev. Lett. 78, 2690 (1997)",
+  "verifies": "the nonequilibrium work relation <e^{-W/kT}> = e^{-dF/kT}"
+ },
+ "crooks1999": {
+  "ref": "G. E. Crooks, Phys. Rev. E 60, 2721 (1999)",
+  "verifies": "the fluctuation theorem relating forward/reverse work distributions to free-energy differences"
+ },
+ "lindblad1976": {
+  "ref": "G. Lindblad, Commun. Math. Phys. 48, 119 (1976)",
+  "verifies": "generators of completely-positive dynamical semigroups (the Lindblad form for open-system dissipation)"
+ },
+ "desi_mg2024": {
+  "ref": "DESI Collaboration 2024 VII [arXiv:2411.12026], modified-gravity constraints",
+  "verifies": "mu0 = 0.05 +/- 0.22, Sigma0 = 0.009 +/- 0.045 (DESI FS+BAO + Planck + DES; overseer-verified against primary 2026-08-02, banked in SIGNATURE_AUDIT)"
+ },
+ "bardeen1980": {
+  "ref": "J. M. Bardeen, Phys. Rev. D 22, 1882 (1980), 'Gauge-invariant cosmological perturbations'",
+  "verifies": "the scalar-vector-tensor decomposition and gauge-invariant perturbation variables on an FRW background"
+ },
+ "salcedo_colas_dufner_pajer2026": {
+  "ref": "Salcedo, Colas, Dufner & Pajer, JHEP 02 (2026) 241 [arXiv:2507.03103] (open EFT of gravity)",
+  "verifies": "dissipative tensor friction Gamma_T explicitly distinct from the conservative alpha_M*H, with a MANDATORY stochastic source xi, in a Schwinger-Keldysh open EFT -- the first mainstream parameterization of the dissipative-graviton-kernel-plus-noise object CLASS (overseer-verified against primary, 2026-08-02)"
+ },
+ "schwinger1961": {
+  "ref": "J. Schwinger, J. Math. Phys. 2, 407 (1961), 'Brownian Motion of a Quantum Particle'",
+  "verifies": "closed-time-path / in-in formalism origin"
+ },
+ "keldysh1964": {
+  "ref": "L. V. Keldysh, ZhETF 47, 1515 (1964) [Sov. Phys. JETP 20, 1018 (1965)]",
+  "verifies": "CTP real-time nonequilibrium technique"
+ },
+ "feynman_vernon1963": {
+  "ref": "R. P. Feynman & F. L. Vernon, Ann. Phys. 24, 118 (1963)",
+  "verifies": "influence functional; noise/dissipation split"
+ },
+ "calzetta_hu_ctp1988": {
+  "ref": "E. Calzetta & B. L. Hu, Phys. Rev. D 37, 2878 (1988)",
+  "verifies": "CTP effective action; real & causal EOM for expectation values"
+ },
+ "calzetta_hu_book": {
+  "ref": "E. Calzetta & B. L. Hu, 'Nonequilibrium Quantum Field Theory' (Cambridge, 2008)",
+  "verifies": "vacuum with memory + causal arrow as in-in effective action"
+ },
+ "callen_welton1951": {
+  "ref": "H. B. Callen & T. A. Welton, Phys. Rev. 83, 34 (1951)",
+  "verifies": "quantum FDT; origin of the coth(hbar*omega/2kT) factor"
+ },
+ "kubo1966": {
+  "ref": "R. Kubo, Rep. Prog. Phys. 29, 255 (1966), 'The fluctuation-dissipation theorem'",
+  "verifies": "FDT; symmetrized noise = hbar*coth(hbar*omega/2kT)*Im[chi]"
+ },
+ "leggett_rmp1987": {
+  "ref": "A. J. Leggett et al., Rev. Mod. Phys. 59, 1 (1987)",
+  "verifies": "spectral-density classification J~omega^s; Ohmic s=1, super-Ohmic s>1, sub-Ohmic s<1; 3D massless bath -> J~omega^3 (s=3)"
+ },
+ "anastopoulos_hu2013": {
+  "ref": "C. Anastopoulos & B. L. Hu, Class. Quantum Grav. 30, 165007 (2013), arXiv:1305.5231",
+  "verifies": "gravitational-decoherence master equation; ENERGY-basis decoherence; rate depends on free 'textures' parameters (NOT parameter-free)"
+ },
+ "bassi_rmp2013": {
+  "ref": "A. Bassi, K. Lochan, S. Satin, T. P. Singh, H. Ulbricht, Rev. Mod. Phys. 85, 471 (2013)",
+  "verifies": "map of collapse models; Diosi-Penrose & CSL are position-basis localization"
+ },
+ "riegert1984": {
+  "ref": "R. J. Riegert, Phys. Lett. B 134, 56 (1984)",
+  "verifies": "nonlocal trace-anomaly action; Paneitz operator"
+ },
+ "komargodski_schwimmer2011": {
+  "ref": "Z. Komargodski & A. Schwimmer, JHEP 12 (2011) 099, arXiv:1107.3987",
+  "verifies": "4D a-theorem; a_UV > a_IR monotone under RG flow (constrains RUNNING, not absolute value)"
+ },
+ "antoniadis_mottola": {
+  "ref": "I. Antoniadis & E. Mottola, Phys. Rev. D 45, 2013 (1992) and related",
+  "verifies": "anomaly-induced gravity; conformal-mode kinetic term independent normalization (conformalon)"
+ },
+ "jacobson1995": {
+  "ref": "T. Jacobson, Phys. Rev. Lett. 75, 1260 (1995), 'Thermodynamics of Spacetime'",
+  "verifies": "Einstein eq as equation of state from Clausius dQ=TdS; imports entropy~area, Unruh T"
+ },
+ "weinberg1989": {
+  "ref": "S. Weinberg, Rev. Mod. Phys. 61, 1 (1989), 'The cosmological constant problem'",
+  "verifies": "no ToE derives Lambda from zero; anthropic/selected not derived"
+ },
+ "mori1965_zwanzig": {
+  "ref": "H. Mori, Prog. Theor. Phys. 33, 423 (1965); R. Zwanzig, 'Nonequilibrium Statistical Mechanics' (Oxford, 2001)",
+  "verifies": "projection-operator GLE; slow variable + fast bath + memory kernel"
+ },
+ "musigma_mg": {
+  "ref": "Pogosian & Silvestri, Phys. Rev. D 94, 104014 (2016); Zhao-Pogosian-Silvestri-Zylberberg, PRD 79, 083513 (2009) (MGCAMB mu-Sigma parametrization)",
+  "verifies": "linear modified-gravity bookkeeping: modified-Poisson mu(a,k), lensing Sigma(a,k), gravitational slip eta=Psi/Phi"
+ },
+ "isw_lowl": {
+  "ref": "Giannantonio et al., PRD 77, 123520 (2008) and updates; low-ell ISW galaxy-CMB cross-correlation as a probe of late-time potential decay",
+  "verifies": "the low-ell ISW excess that empirically excludes the mu=4/3 (trace-only) GRUT branch. PROVENANCE CAVEAT (2026-08-02, Part-3 hardening): the ~32sigma EXCLUSION significance banked in mu_linear is NOT this reference's headline number (the cited papers report ISW DETECTIONS at ~4-5sigma); it is a DERIVED exclusion quantity with NO in-repo computation. RESOLVED 2026-08-03: calc/isw_exclusion.py now EXISTS and COMPUTED the exclusion (firewall-corrected same wave: Weyl-source Sigma factor, B1) -- cross-channel N(1) ~ 2.0sigma (computed 1.97 central; band ~0.6-4.8); the ~32sigma is RETIRED (impossible in the cross channel -- capped ~9-12sigma for a signal-suppressing model; the mechanism as banked was backwards). The register carries the computed record (cross ~2.0 + DESI Sigma0 3.5, joint ~4sigma-class + separate-universe EdS-quantified); the window edge is DESI-Sigma0-lensing-bound (x < ~0.59, central-inputs/loose-upper per the F-MAP fence); the low-ell TT AUTO channel (estimate-grade, order-10^2-sigma-class) is owed its own rigorous calc."
+ },
+ "casimir1948": {
+  "ref": "H. B. G. Casimir, Proc. Kon. Ned. Akad. Wet. 51, 793 (1948), 'On the attraction between two perfectly conducting plates'",
+  "verifies": "a vacuum zero-point mode-sum regularized to a finite physical (Casimir) energy; zeta(-1)=-1/12 reproduces the finite part -- the bare-divergent / physical-finite two-state structure of a vacuum sum (generic, textbook)"
+ },
+ "duff1994": {
+  "ref": "M. J. Duff, Class. Quantum Grav. 11, 1387 (1994), 'Twenty years of the Weyl anomaly', arXiv:hep-th/9308075",
+  "verifies": "Weyl/trace-anomaly coefficients a (Euler E4) and c (Weyl^2) for free conformal fields; the conformally-coupled scalar has a=1/360, c=1/120 -> a/c=1/3 (GRUT's alpha), from heat-kernel/Seeley-DeWitt b4 coefficients -- a 4D object distinct from the 1D Riemann-zeta value zeta(-1)=-1/12"
+ },
+ "feynman_lectures_III": {
+  "ref": "R. P. Feynman, R. B. Leighton, M. Sands, The Feynman Lectures on Physics, Vol. III, ch. 1 (Addison-Wesley, 1965)",
+  "verifies": "the double-slit interference / which-path complementarity as the canonical quantum-superposition phenomenon -- the standard-QM baseline against which any GRUT-distinct double-slit prediction must be measured"
+ },
+ "wilson_kogut1974": {
+  "ref": "K. G. Wilson & J. Kogut, Phys. Rep. 12, 75 (1974), 'The renormalization group and the epsilon expansion'",
+  "verifies": "Wilsonian renormalization as coarse-graining / integrating out short-distance modes -- renormalization as an information-projection (monotone loss of short-distance information). STANDARD/generic."
+ },
+ "zamolodchikov1986": {
+  "ref": "A. B. Zamolodchikov, JETP Lett. 43, 730 (1986), 'Irreversibility of the flux of the renormalization group in a 2D field theory'",
+  "verifies": "the 2D c-theorem -- a monotone (distinguishability) function decreasing along RG flow; renormalization as monotone information loss. STANDARD/generic."
+ },
+ "casini_huerta2012": {
+  "ref": "H. Casini & M. Huerta, Phys. Rev. D 85, 125016 (2012), arXiv:1202.5650; and Casini-Huerta, Phys. Lett. B 600, 142 (2004)",
+  "verifies": "entanglement-entropy RG monotones; entropic (strong-subadditivity / relative-entropy) proofs of the c- and a-theorems -- the a-theorem as a distinguishability/information monotone, and the universal entanglement coefficient = anomaly coefficient. STANDARD/generic (already implied by GRUT's rung9a)."
+ },
+ "weinberg2003": {
+  "ref": "S. Weinberg, Phys. Rev. D 67, 123504 (2003), 'Adiabatic modes in cosmology', arXiv:astro-ph/0302326",
+  "verifies": "the long-wavelength adiabatic mode as a residual large-gauge transformation (a spatial dilatation) of the cosmological action -- standard cosmological perturbation theory, NOT GRUT-specific"
+ },
+ "maldacena2002": {
+  "ref": "J. Maldacena, JHEP 05 (2003) 013, 'Non-Gaussian features of primordial fluctuations in single field inflationary models', arXiv:astro-ph/0210603",
+  "verifies": "the single-field consistency relation / soft theorem for the adiabatic mode -- the dilatation Ward identity (standard)"
+ },
+ "hinterbichler_hui_khoury2014": {
+  "ref": "L. Hinterbichler, L. Hui, J. Khoury, JCAP 01 (2014) 039, 'An Infinite Set of Ward Identities for Adiabatic Modes in Cosmology', arXiv:1304.5527",
+  "verifies": "the adiabatic spatial dilatation (and an infinite tower of higher modes) as residual symmetries with Ward identities -- the dilatation-as-redundancy structure (standard)"
+ },
+ "gubitosi_piazza_vernizzi2013": {
+  "ref": "G. Gubitosi, F. Piazza, F. Vernizzi, JCAP 02 (2013) 032, 'The Effective Field Theory of Dark Energy', arXiv:1210.0201",
+  "verifies": "the unitary-gauge EFT-of-dark-energy map: a single scalar/response sector defines an effective T_munu and an effective equation of state w(z)=p/rho -- the STANDARD relaxing-response -> w(z) construction (generic; NOT GRUT-specific). Used for W1 (the map exists)."
+ },
+ "vikman2005": {
+  "ref": "A. Vikman, Phys. Rev. D 71, 023515 (2005), 'Can dark energy evolve to the phantom?', arXiv:astro-ph/0407107",
+  "verifies": "the phantom-divide no-go: a single non-ghost (NEC-respecting) scalar/fluid cannot DYNAMICALLY cross w=-1; crossing requires a ghost (NEC violation), >=2 fields (quintom), or fine-tuned/oscillatory structure. Used for W2 (no-crossing for a passive single-channel vacuum)."
+ },
+ "li_barrow2009": {
+  "ref": "B. Li & J. D. Barrow, Phys. Rev. D 79, 103521 (2009), 'Does bulk viscosity create a viscous dark energy?', arXiv:0902.3163",
+  "verifies": "bulk-viscous dark energy: a passive (second-law, zeta>=0) bulk viscosity gives bulk-viscous pressure Pi=-3 zeta H <= 0, an EFFECTIVE w_eff <= -1 (apparent phantom) WITHOUT a ghost. Used for W2 (the bulk-viscosity framing -> wa<=0, the sign-tension with the banked phase-lag wa>0)."
+ },
+ "_methodology_note": "Sources below are METHODOLOGY prior-art for the method_novelty screen (the fourth pillar's gauntlet), not physics primaries. They establish that each component of the self-auditing discipline maps to an existing practice.",
+ "lakatos1970": {
+  "ref": "I. Lakatos, 'Falsification and the Methodology of Scientific Research Programmes', in Lakatos & Musgrave (eds), Criticism and the Growth of Knowledge (Cambridge UP, 1970)",
+  "verifies": "progressive vs degenerate research programmes; the hard-core/protective-belt and the accounting of auxiliary assumptions -- prior art for the signed underived-input ledger."
+ },
+ "popper1959": {
+  "ref": "K. Popper, 'The Logic of Scientific Discovery' (Hutchinson, 1959)",
+  "verifies": "falsifiability as the demarcation criterion -- prior art for the falsifier-per-claim requirement."
+ },
+ "guyatt_grade2008": {
+  "ref": "G. Guyatt et al., 'GRADE: an emerging consensus on rating quality of evidence and strength of recommendations', BMJ 336:924 (2008)",
+  "verifies": "graded evidence/quality tiers (high/moderate/low/very-low) -- prior art for the shown->to-derive tier vocabulary."
+ },
+ "klein_roodman2005": {
+  "ref": "J. R. Klein & A. Roodman, Annu. Rev. Nucl. Part. Sci. 55, 141 (2005), 'Blind Analysis in Nuclear and Particle Physics'",
+  "verifies": "blind analysis -- the result/admissibility logic is fixed before it can see the data -- prior art for the harness's 'admissibility cannot see data' invariant."
+ },
+ "moreau_prov2013": {
+  "ref": "L. Moreau, P. Missier (eds), 'PROV-DM: The PROV Data Model', W3C Recommendation (2013)",
+  "verifies": "provenance/lineage graphs (entities, activities, derivation edges) -- prior art for the resident dependency-DAG and consistency lineage."
+ },
+ "dhuliawala_cove2023": {
+  "ref": "S. Dhuliawala et al., 'Chain-of-Verification Reduces Hallucination in Large Language Models', arXiv:2309.11495 (2023)",
+  "verifies": "LLM agentic self-verification / chain-of-verification -- prior art for the default-broken adversarial subagent firewall; the emerging pattern the method is a competent instance of."
+ },
+ "_v2_note": "Sources below resolve the Version II universality entry claims (u1/u2/u3).",
+ "caldeira_leggett1983": {
+  "ref": "A. O. Caldeira & A. J. Leggett, 'Path integral approach to quantum Brownian motion', Physica A 121, 587 (1983)",
+  "verifies": "any local linear-response open system coarse-grains to the influence-functional form (dissipation kernel + noise kernel) -- the universal FORM (U1), independent of microscopic detail."
+ },
+ "sieberer_buchhold_diehl2016": {
+  "ref": "L. M. Sieberer, M. Buchhold, S. Diehl, 'Keldysh field theory for driven open quantum systems', Rep. Prog. Phys. 79, 096001 (2016), arXiv:1512.00637",
+  "verifies": "non-equilibrium Keldysh field theory: the S_IF = K_R + (i/2)N retarded+noise structure is the generic IR form of an open quantum system -- form-universality (U1), standard not GRUT-specific."
+ },
+ "burgess_lrr2004": {
+  "ref": "C. P. Burgess, 'Quantum Gravity in Everyday Life: General Relativity as an Effective Field Theory', Living Rev. Relativity 7, 5 (2004), arXiv:gr-qc/0311082",
+  "verifies": "the EFT-of-gravity framing: which IR quantities are UV-completion-INDEPENDENT (universal) vs which require microscopic input -- the framing for U2 (is the response KERNEL universal across QG completions?)."
+ },
+ "zurek2003": {
+  "ref": "W. H. Zurek, 'Decoherence, einselection, and the quantum origins of the classical', Rev. Mod. Phys. 75, 715 (2003), arXiv:quant-ph/0105127",
+  "verifies": "the system/bath split / coarse-graining as the (presupposed) origin of classicality -- the foundations U3 interrogates (why is there a split at all?), NOT a derivation of the split itself."
+ },
+ "kadanoff_martin1963": {
+  "ref": "L. P. Kadanoff & P. C. Martin, 'Hydrodynamic equations and correlation functions', Ann. Phys. 24, 419 (1963)",
+  "verifies": "the emergence of constitutive/hydrodynamic (response) structure from microscopic correlation functions -- the foundations U4 interrogates (why does coarse-graining yield a RESPONSE form?), presupposed here, not derived."
+ },
+ "forster1975": {
+  "ref": "D. Forster, 'Hydrodynamic Fluctuations, Broken Symmetry, and Correlation Functions' (Benjamin, 1975)",
+  "verifies": "susceptibility / memory-function / linear-response formalism as the generic effective description of slow variables -- the constitutive form U4 asks the ORIGIN of (why response rather than an arbitrary functional)."
+ },
+ "crossley_glorioso_liu2017": {
+  "ref": "M. Crossley, P. Glorioso, H. Liu, 'Effective field theory of dissipative fluids', JHEP 09 (2017) 095, arXiv:1511.03646",
+  "verifies": "the modern Schwinger-Keldysh EFT derivation of dissipative/constitutive structure from symmetry + coarse-graining -- the closest existing attempt at U4's question (why constitutive structure is generic across EFTs); still presupposes the coarse-graining and near-equilibrium conditions."
+ },
+ "hohenberg_halperin1977": {
+  "ref": "P. C. Hohenberg & B. I. Halperin, 'Theory of dynamic critical phenomena', Rev. Mod. Phys. 49, 435 (1977)",
+  "verifies": "the DYNAMIC universality classes (Models A-J): distinct classes of relaxational/response dynamics with different critical exponents and RG fixed points -- the template U5 asks whether constitutive response chi(omega,k) admits an analogous class structure."
+ },
+ "landau1937": {
+  "ref": "L. D. Landau, 'On the theory of phase transitions', Zh. Eksp. Teor. Fiz. 7, 19 (1937) [Phys. Z. Sowjetunion 11, 26 (1937)]",
+  "verifies": "order-parameter theory of phase transitions -- the template U6 asks whether constitutive organization admits an order parameter (with the RG monotone as a corollary, not the theorem)."
+ },
+ "tan_tsamis_woodard2021": {
+  "ref": "L. Tan, N. C. Tsamis, R. P. Woodard, \"Graviton Self-Energy from Gravitons in Cosmology\", arXiv:2103.08547 (2021) [TITLE ADDED 2026-08-10c: the entry carried no title, and an in-house brief had misdescribed it as a scalar-loop paper -- it is the PURE-GRAVITON computation, which is exactly why it is the register's object]",
+  "verifies": "the one-loop graviton self-energy FROM GRAVITONS on de Sitter -- the pure-graviton, matter-free computed object. *** CORRECTED 2026-08-10c: this entry carried the superseded UNSCOPED reading and is the third site the scoping correction had to reach (register node first, standing docs second, the SOURCE ENTRY last -- the relocation pattern, in the citation layer). *** What it actually verifies: (i) after TT projection the single contributing COEFFICIENT function is T^2(x;x') -- 'the only one of the coefficient functions T^i(x;x-prime) that contributes is T^2(x;x-prime)' (PDF p.23 = printed folio 22; see the page-convention note below); the NINE objects called STRUCTURE functions are T^12, T^16, T^18, T^19, S^2, S^4, S^7, S^8, S^10, and eq. (81) makes T^2 a composite of six of them. (ii) The 'no changes in the graviton mode function' sentence is SCALAR-LOOP-SCOPED (its citation is Park-Woodard 2011); for the GRAVITON loop, Table 8's entries carry ln(H^2 Delta-x^2) and are nonzero. The former unscoped gloss in this field ('the TT graviton mode function is UNCHANGED at one loop; the secular ln(a) growth lives in the spin-0 potentials, NOT in the TT propagator') was WRONG as stated and is retired here. (iii) The tabulated object is IN-OUT (Feynman), not retarded -- first-party verified 2026-08-10 by local extraction (pypdf, 48 pages, 76186 chars) and Python-re scan, raw and ligature-normalized: 'retarded' 0, 'causal' 0, 'Schwinger' 0, 'Keldysh' 0, 'in-in' 0. The SK conversion is arXiv:2107.13905 section 2.2.3 (symbol T^2_SK). (iv) Table 8 is usable only AWAY FROM COINCIDENCE (section 4.2), not dimensionally regulated, not renormalized. The authors flag the dS gauge-dependence as 'not known'. PAGE CONVENTION FOR THIS SOURCE, declared because the register is built on quote-precision: page citations to this paper are PDF PAGE NUMBERS. The printed folio runs ONE BEHIND (PDF p.23 = folio 22; final folio 47 on PDF page 48). A checker turning to printed page 23 will not find the quoted sentence; turn to PDF page 23 / folio 22."
+ },
+ "gmpw_lowomega_frontier2026": {
+  "ref": "arXiv:2602.07908, JHEP 04 (2026) 159 (cf. Glavan-Miao-Prokopec-Woodard, JHEP 03 (2024) 129 / arXiv:2402.05452)",
+  "verifies": "gauge-invariant assembly of the dS graviton self-energy into an observable requires collecting source + observer + external-leg corrections; the low-omega gauge-invariant assembled observable for the PURE-graviton case is the still-OPEN 2026 frontier (the existing assembled observables require inserted matter). This is the computation the rung3 dispatch is EARNED for."
+ },
+ "planck2018": {
+  "ref": "Planck Collaboration, A&A 641, A6 (2020), 'Planck 2018 results VI: cosmological parameters'",
+  "verifies": "Omega_Lambda = 0.6889 +/- 0.0056, H0 = 67.36 +/- 0.54 (TT,TE,EE+lowE+lensing); the base-LCDM reduction with w FIXED = -1 -- the model-conditioning rider on rho_Lambda"
+ },
+ "pdg2024": {
+  "ref": "Particle Data Group, Review of Particle Physics (2024)",
+  "verifies": "G_F = 1.1663787(6)e-5 GeV^-2 hence v = 246.22 GeV; m_h = 125.25 GeV; G = 6.67430(15)e-11 m^3/kg/s^2 hence M_Pl"
+ },
+ "weinberg1989_cc": {
+  "ref": "S. Weinberg, Rev. Mod. Phys. 61, 1 (1989), 'The cosmological constant problem'",
+  "verifies": "the canonical statement of the CC problem, the cutoff-scheme magnitude estimate, and the no-go for adjustment mechanisms"
+ },
+ "thooft1980": {
+  "ref": "G. 't Hooft, in Recent Developments in Gauge Theories (NATO ASI B59, 1980), 'Naturalness, chiral symmetry, and spontaneous chiral symmetry breaking'",
+  "verifies": "technical naturalness as a CRITERION: a small parameter is natural if setting it to zero enhances the symmetry -- a heuristic, explicitly not a law"
+ },
+ "unimodular_alvarez": {
+  "ref": "E. Alvarez, S. Gonzalez-Martin, M. Herrero-Valea, C.P. Martin, JHEP 08 (2015) 078; R. Percacci, Found. Phys. 48, 1364 (2018)",
+  "verifies": "unimodular gravity: trace-free field equations, Lambda as an INTEGRATION CONSTANT, vacuum energy decoupling from the field equations (the live denial of 'vacuum energy gravitates')"
+ },
+ "padilla_saltas": {
+  "ref": "A. Padilla, I.D. Saltas, arXiv:1409.3573 (Eur.Phys.J. C75, 561)",
+  "verifies": "the CONTRA position: unimodular gravity as gauge-fixed GR with identical predictions -- the split that leaves pair U-A undecided"
+ },
+ "kaloper_padilla": {
+  "ref": "N. Kaloper, A. Padilla, Phys. Rev. Lett. 112, 091304 (2014), 'Sequestering the standard model vacuum energy'",
+  "verifies": "the global-constraint sequestering mechanism -- a second live formulation dropping minimal sourcing of vacuum energy"
+ },
+ "witten1981": {
+  "ref": "E. Witten, Nucl. Phys. B188, 513 (1981), 'Dynamical breaking of supersymmetry'",
+  "verifies": "H = (1/4)Sum{Q,Qdag} >= 0 so E_0 >= 0 with equality iff Q|0> = 0 (exact global SUSY forces zero vacuum energy); and dynamical scale generation as a mechanism class"
+ },
+ "bardeen1995": {
+  "ref": "W.A. Bardeen, FERMILAB-CONF-95-391-T, 'On naturalness in the standard model'",
+  "verifies": "the position that the SM alone, absent heavy thresholds, has no hierarchy problem -- the live denial of the 'heavy thresholds exist' input"
+ },
+ "desi_dr2_2025": {
+  "ref": "DESI Collaboration, DR2 BAO cosmological constraints (2025)",
+  "verifies": "2.8-4.2 sigma preference for w0waCDM over LCDM depending on the SN compilation, always inside the two-parameter CPL family -- the empirical motion behind undecided pair U-E"
+ },
+ "cohen_kaplan_nelson1999": {
+  "ref": "A. G. Cohen, D. B. Kaplan, A. E. Nelson, Phys. Rev. Lett. 82, 4971 (1999), 'Effective Field Theory, Black Holes, and the Cosmological Constant'",
+  "verifies": "the UV/IR relation bounding a 4D EFT's validity by black-hole formation -- the named position that accepts ordinary decoupling and denies the naive EFT bookkeeping for the vacuum-energy operator. CITATION RECALLED, NOT VERIFIED IN-SESSION; the citing node's attestation rider says so."
+ },
+ "du_kids_legacy_sigma0_2026": {
+  "ref": "G.-H. Du, T.-N. Li, T. Liu, J.-F. Zhang, X. Zhang, 'Evidence for deviation in gravitational light deflection from general relativity at cosmological scales with KiDS-Legacy and CMB lensing', arXiv:2602.03110 (submitted 2026-02-03, revised 2026-04-28)",
+  "verifies": "mu-Sigma modified-gravity constraints from KiDS-Legacy WL (1347 deg^2, z<=2.0) + Planck/ACT/SPT CMB + DESI DR2 BAO + DES-Dovekie SNe. FULL PDF READ 2026-08-05; numbers off their Table I. LCDM background: Sigma_0 = 0.149 +/- 0.051 (3.0 sigma), mu_0 = 0.21 +/- 0.21. w0waCDM background: Sigma_0 = 0.115 +/- 0.053 (2.2 sigma), mu_0 = 0.09 +0.28/-0.24, w0 = -0.827 +/- 0.055, wa = -0.59 +/- 0.21. PARAMETERIZATION (their Eqs. 6-7, LOAD-BEARING FOR US): mu(a) = 1 + mu_0*Omega_DE(a)/Omega_Lambda and Sigma(a) = 1 + Sigma_0*Omega_DE(a)/Omega_Lambda, scale-independent in the quasi-static sub-horizon regime -- i.e. the deviation SWITCHES ON LATE, whereas GRUT's Sigma-1 = x*alpha/2 is CONSTANT in time. The F-MAP shape fence therefore fires and moves our tension UP, not down. AUTHORS' OWN CAVEATS: the deviation is 'likely driven by the higher amplitudes in the large-scale CMB lensing measurements'; and the 3.0 -> 2.2 swing is a PARAMETER DEGENERACY -- 'the introduction of a dynamical DE background absorbs a fraction of the anomalous lensing signal'. Their own model comparison PREFERS the dynamical background (Delta-DIC = -12.64 for w0waCDM, -14.36 for mu0Sigma0w0wa, relative to LCDM), which is exactly why silently adopting it would be the flattering choice. VERIFIED IN-SESSION; NOT CITED BY ANY CLAIM -- screened in calc/sigma0_anomaly_screen.py, nothing banked."
+ }
+}

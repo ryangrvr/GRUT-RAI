@@ -1,0 +1,196 @@
+RESULT -- the vacuum-cluster compound-split re-audit, and the cross-cluster detection re-run.
+
+CITES PRE-REGISTRATION: prereg/PREREG_COMPOUND_SPLIT_2026-08-04.txt
+    sha256 = c9a2d2cd59c30f4a28f9d004c3b96858872762e957cfd36374b6e1b8a2bf3fc9
+    (verify: shasum -a 256 prereg/PREREG_COMPOUND_SPLIT_2026-08-04.txt, compare to prereg/MANIFEST.txt)
+The prereg is UNMODIFIED since sealing. This file is where results live; that separation is the
+rule, and it is the rule because I broke it once by appending results to a hashed artifact.
+
+METHOD. Two independent analysts under OPPOSED mandates, run in parallel with no sight of each
+other: an ADVERSARIAL SPLITTER (default-broken toward compound, as the prereg demands) and an
+OVER-SPLIT POLICE (charged with killing artifacts of fine slicing). I adjudicated. The opposed pair
+was chosen because the directional guard is a guard on ME -- every compound found is a defect in an
+enumeration I wrote and relayed as complete, so the splitting pressure had to come from outside.
+
+================================ THE HEADLINE ================================
+
+*** THE AUDIT FOUND A DIFFERENT DEFECT CLASS THAN THE ONE IT WAS CHARTERED TO FIND. ***
+
+  RULED COMPOUND:  2   (vc_semiclassical_sourcing, vc_eft_validity)
+  RULED ATOMIC:   10
+  OMISSIONS FOUND: 3   -- inputs the inventory NEVER HAD, not inputs it fused
+
+The pre-registration predicted 3-5 compounds. The literal count is 2, and the 3-5 range is reachable
+ONLY by counting omissions as compounds. That is not my observation: it is a FALSIFIABLE PREDICTION
+THE OVER-SPLIT POLICE MADE, IN WRITING, ABOUT THIS AUDIT -- "if the count lands in 3-5 and the extra
+entries are these, the atomicity test did not find compounds; the omission sweep did, and the two
+must be tallied separately." It came true. The two tallies are therefore kept apart below, and the
+headline is 2, not 5.
+
+WHY THIS MATTERS MORE THAN THE COUNT. Compoundness and omission present IDENTICALLY to a splitter:
+both feel like "this node is carrying more than one thing." A splitter holding only one tool fixes
+an omission by cutting the nearest node -- which mislocates a cluster-wide presupposition into one
+node's dependency structure and manufactures a false dependency graph. Two of the prereg's five
+named candidates are exactly this error, including one I ranked at medium-high confidence.
+
+================================ SCORING THE PRE-REGISTRATION ================================
+
+P1  WRONG, and diagnosably so. Predicted 3-5 compounds; found 2. The error was not calibration --
+    it was CONFLATING TWO DEFECT CLASSES under one count.
+P2  Named candidates, scored:
+      (a) vc_semiclassical_sourcing  CORRECT (was already known -- no credit).
+      (b) vc_typicality_measure      WRONG NODE-JOINT, and ruled ATOMIC. I proposed cutting
+          [ensemble] from [measure]. The police showed the real joint is one word over --
+          [ensemble+measure] vs [TYPICALITY] (Hartle-Srednicki decline typicality while granting
+          both) -- and then showed that even THAT fails the load test here, because no cluster
+          statement survives on the measure alone: Weinberg's bound needs the typicality inference,
+          not just the measure. Atomic, with the load on typicality.
+          *** A REAL JOINT NEARBY DOES NOT LICENSE A CUT AT THE GRAMMATICAL ONE. ***
+      (c) vc_rho_lambda              WRONG. The amplitude/constancy joint is not node 1's to hold:
+          the constancy is ALREADY BOOKED as vc_lorentz_invariant_vacuum ("...hence w = -1").
+          Splitting node 1 would have been the THIRD booking of one commitment.
+      (d) vc_ir_gravity_is_gr        RIGHT PHYSICS, WRONG NODE. The equivalence-principle half is
+          real and separately denied (f(R), Horndeski, massive gravity, TeVeS accept a metric and
+          deny Einstein's equations) -- but it is presupposed EQUALLY by nodes 4, 6 and 9 and owned
+          by none. It is an OMISSION, not node 9's part. Both analysts converged on this
+          independently, from opposite mandates.
+      (e) vc_naturalness_normative   CORRECT (atomic), and for the reason predicted.
+    Score: 1 of 4 real predictions correct.
+P3  *** THE SHARPEST RESULT: THE ONE GENUINE NEW COMPOUND WAS ON MY EXPECTED-ATOMIC LIST. ***
+    vc_eft_validity, pre-registered as atomic, splits. Cohen-Kaplan-Nelson, UV/IR mixing and
+    holographic bounds all accept ordinary decoupling (E1) and deny that the naive EFT bookkeeping
+    survives for the vacuum-energy operator once gravity is included (E2). Real literature, not
+    conceivability. The split matters to the cluster: one node was feeding BOTH sides of the
+    lambda/hierarchy division the headline ruling turns on.
+P4  CONFIRMED -- see detection, below.
+P5  SURVIVED A TEST IT COULD HAVE FAILED -- see detection, below.
+
+================================ PART 1: PER-NODE ATOMICITY ARGUMENTS ================================
+Recorded for EVERY node, per the prereg. A node declared atomic without a recorded attempt is an
+unexamined node wearing a verdict.
+
+ 1 vc_rho_lambda            ATOMIC. Attempted: existence/value (entailed, not a second input);
+   raw-observable vs LCDM-reduction (already carried by the scheme_tag rider; promoting it obliges
+   the same for v_ew over G_F and M_Pl over G -- inflates uniformly, discriminates nothing);
+   amplitude/constancy (belongs to node 5, see (c) above). SEPARATE DEFECT: depends_on is [] while
+   the value is extracted under flatness -> omission O3.
+ 2 vc_v_ew                  ATOMIC. Attempted: "G_F measured, hence v" vs "v is the hierarchy-
+   relevant scale" -- composite Higgs really does relocate the scale to f. Fails because the
+   identification has no content except via nodes 7+10; booking it separately double-books them.
+ 3 vc_m_planck              ATOMIC. Attempted: G-as-measured vs M_Pl-as-definitional (the node
+   already rules this against itself: booking both books a definition); and G-as-coupling vs
+   M_Pl-as-cutoff (real disagreement -- asymptotic safety, induced gravity -- but already carried
+   by pair U-D). The live question here is MEMBERSHIP, not arity.
+ 4 vc_vacuum_energy_gravitates  ATOMIC. Attempted, and this was the best failed split in the audit:
+   "sources the metric at all" vs "with THE SAME G", with degravitation (Dvali-Hofmann-Khoury) as a
+   named witness. Fails on cost-already-booked: degravitation IS an IR modification of gravity,
+   i.e. the denial of node 9, whose overturning clause says so in as many words. The witness is
+   evidence for the 4-9 MERGE (pair U-A), not for a 4-split -- same fact, opposite direction.
+ 5 vc_lorentz_invariant_vacuum  ATOMIC. Attempted three ways; the interesting failure is state-
+   invariance vs regulator-covariance. Load-bearing (a hard 3-momentum cutoff gives w = +1/3 and
+   deletes the explanandum) but it is SCHEME content, and scheme content is booked in riders here.
+   CONVENTION FLAGGED: if node 6's split were refused, S1's cost would land here and node 5 would
+   become the compound instead. WHICH node carries S1 is convention; that it is carried EXACTLY
+   ONCE is not.
+ 6 vc_semiclassical_sourcing    *** COMPOUND. *** S1 (a state and an expectation functional on the
+   observable algebra) / S2 (the metric couples to the MEAN). S1 holds in flat-space QFT with no
+   gravity; S2 is denied by stochastic gravity, Diosi-Penrose, and outcome-sourced gravity.
+   Does S1 split further? NO -- in the algebraic formulation a state IS a positive normalised
+   functional on the algebra. Both analysts, independently.
+   S2a/S2b (one geometry per state / first moment specifically) is AVAILABLE at second order with
+   named holders on both sides, and is NOT BANKED: booking depth is a convention and this wave has
+   no ruling on it. Recorded so a later wave finds it rather than rediscovering it.
+ 7 vc_heavy_thresholds_exist    ATOMIC. Attempted: existence vs Higgs-coupling -- fails because an
+   uncoupled heavy state is not an input to this cluster at all; and existence+coupling vs
+   unprotected-by-symmetry -- fails because that clause lives inside node 10.
+   *** STATEMENT DEFECT, FOUND INDEPENDENTLY BY BOTH ANALYSTS: the node's "equivalently" is FALSE.
+   "States above v that couple to the Higgs" strictly ENTAILS "the EFT has a cutoff below M_Pl" and
+   is not entailed by it -- a cutoff can be non-particle (strong coupling, extra dimensions, a
+   species scale). Two analysts converging on one wording defect from opposite mandates is the
+   strongest signal in the audit. Striking it makes the UV-ceiling content homeless -> omission O2.
+ 8 vc_eft_validity          *** COMPOUND. *** E1 (decoupling for local non-gravitational
+   observables) / E2 (the accounting extends to the dimension-zero operator once gravity is in).
+   ADJUDICATION NOTE, and it is the load-bearing methodological call of this wave: the police
+   argued E1/E2 fails because it is ONE-DIRECTIONAL (nobody holds E2 while denying E1), importing
+   the two-directional standard from the quantum-foundations result. *** I REFUSED THAT IMPORT. ***
+   Two-directionality is the standard for NON-DETERMINATION between two inputs -- a MERGE question.
+   The atomicity test, as frozen, is explicitly one-directional: "one part can be discharged
+   INDEPENDENTLY of the rest." Applying the merge standard to the split test would kill the
+   calibration case itself, since S2 entails S1 and S1/S2 is one-directional too -- and the police
+   had to make an unstated exception for exactly that node. THE TELL WAS THE EXCEPTION. This is the
+   second time in two waves that an analyst tightened a frozen standard mid-exercise and the frozen
+   text settled it; the first time the needed conjunct was already present, this time the imported
+   clause was already excluded.
+ 9 vc_ir_gravity_is_gr      ATOMIC AS A NODE; its would-be part is omission O1. See P2(d).
+10 vc_naturalness_normative ATOMIC. Attempted: 't Hooft technical criterion vs normative demand.
+   The dissociation is real at the level of POSITIONS (the landscape camp, Wells, Hossenfelder all
+   accept the classification and deny the obligation) but the technical criterion is DERIVABLE --
+   radiative stability under symmetry protection is a theorem of the EFT, not an underived input --
+   so it books nothing and the residue is the normative clause alone.
+   CATEGORY FLAG, RECORDED NOT RESOLVED: the frozen test uses the verb DISCHARGE, and heuristics
+   are typed as criteria with NO TRUTH-VALUE -- a criterion is never discharged, it is adopted or
+   declined. For nodes 10 and 11 the test must be restated as "can one part be DECLINED while the
+   other is retained?" I applied the restated test and the verdicts are unchanged, but performing
+   a verb-swap silently is precisely the class of move this program exists to refuse.
+11 vc_typicality_measure    ATOMIC (closest call in the audit; see P2(b)). The deciding question and
+   its answer are recorded so this can be overturned on the argument rather than on taste: DOES ANY
+   CLUSTER STATEMENT SURVIVE UNDER [ensemble+measure retained, typicality declined]? Weinberg's
+   bound does not -- it is the typicality inference that converts a measure into a prediction about
+   what WE observe. So the load is on typicality and the rest is its presupposition.
+12 vc_w_equals_minus_one    NOT A SPLIT QUESTION. It is an EDGE BOOKED AS A VERTEX: its content is
+   identical to pair U-E in the map's own undecided-pairs list, and appears a third time inside
+   node 1's overturning_computation. Triple-booked across an edge list, a vertex list and a field.
+   Costs nothing today because the map refuses a total by ruling. *** STANDING CONDITION: if anyone
+   ever ships an integer, node 12 MUST NOT BE SUMMED. *** Adding an edge to a vertex count is the
+   exact error the no-total ruling was built to prevent.
+   Also: its ANSWERED-IF names only a w(z) reconstruction, which settles the empirical half and
+   leaves the bookkeeping half untouched.
+13 vc_grut_relation         Decorative, zero-credit, out of scope by KC5. Not examined.
+
+================================ THE THREE OMISSIONS (TALLIED SEPARATELY) ================================
+  O1  UNIVERSAL METRIC COUPLING / THE EQUIVALENCE PRINCIPLE. Presupposed by nodes 4, 6 and 9 alike;
+      booked by none. *** THE SAME SHAPE AS S1, WHICH IS THE POINT: a homeless, multiply-
+      presupposed background premise is now the SECOND instance, so the omission is SYSTEMATIC and
+      not a one-off. ***
+  O2  THE GRAVITATIONAL EFT'S UV CEILING. Housed only inside node 7's false "equivalently".
+  O3  SPATIAL FLATNESS. An uncounted premise of node 1's measured value. Same class as the KC4
+      catch that added vc_lorentz_invariant_vacuum -- and note that node 1 is a MEASURED node, so
+      the omission is inside a datum's reduction chain rather than in a postulate.
+
+================================ PART 4: CROSS-CLUSTER DETECTION, RE-RUN ================================
+
+P4 -- POSITIVE. *** S1 RECURS. THIS IS THE FIRST REAL CROSS-CLUSTER SHARED INPUT THE PROGRAM HAS
+FOUND, AND IT IS WHAT BREADTH-FIRST EXISTS TO PRODUCE. ***
+  In the vacuum cluster: <T_munu> is an expectation functional, presupposed by semiclassical sourcing.
+  In quantum foundations: the reduced density matrix is DEFINED by Tr[(Tr_E rho)A] = Tr[rho(A tensor I)]
+    -- einselection's entire machinery runs on a state and an expectation functional.
+  It survives the KC1 test that killed eft_validity, and it survives it on the OPERAND: an
+    operational reconstruction of the state-plus-functional structure (Hardy; Chiribella-D'Ariano-
+    Perinotti) would discharge it in BOTH clusters AT ONCE. That is the criterion for one input
+    rather than two same-shaped ones, and it is what "shared" has to mean if it is to mean anything.
+  The match was NOT an artifact of the compound. The partial match reported in the quantum-
+    foundations wave was partial precisely BECAUSE the compound hid it: S2 has no counterpart in
+    quantum foundations at all, and it was S2's presence in the fused node that made the recurrence
+    look partial. Atomised, S1's recurrence is total.
+  AND IT IS STILL BOOKED IN NEITHER INVENTORY. The amendment (REGISTRY_AMENDMENT_2026-08-04.txt) is
+    written and UNAPPLIED, pending relay. Detection can now SEE it; the register still cannot.
+
+P5 -- NEGATIVE, AND STRONGER THAN BEFORE. eft_validity does NOT recur, and *** THE SPLIT DID NOT
+RESCUE IT, THOUGH IT WAS THE SPLIT MOST LIKELY TO. *** E1 fails the bridge on all three counts that
+the quantum-foundations wave refused it on -- operand, product, licensing -- and decoherence works
+BECAUSE the environment does not decouple, which is the opposite of the EFT premise. E2 has no
+counterpart in quantum foundations whatsoever. The split was adjudicated on independent grounds
+(Cohen-Kaplan-Nelson), and it happens to be the one cut that could plausibly have produced a
+recurrence. It did not. A clean refusal that survives a test it could have failed is evidence the
+detection is not merely matching labels.
+
+SECOND CANDIDATE, REPORTED WITH ITS DISCOUNT: O1 (universal metric coupling) recurs between the
+vacuum cluster and LCDM-Friedmann. Reported for completeness and DISCOUNTED: recurrence between two
+gravitational clusters is near-trivial. Recurrence between gravity and quantum foundations is the
+informative kind, and S1 is the only one of those.
+
+================================ WHAT THIS AUDIT DID NOT AND CANNOT DO ================================
+Atomicity is a C3-class judgement -- non-mechanizable, analyst-supplied. The NAMED POSITIONS above
+are checkable and should be checked; the atomicity calls built on them are not. Two analysts under
+opposed mandates is a better instrument than one analyst, and it is not a proof. The count 2 is as
+trustworthy as the twelve arguments above, no more.

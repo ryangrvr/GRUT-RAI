@@ -1,0 +1,67 @@
+THE OMISSION STANDARD -- frozen 2026-08-04. Overseer-supplied wording; hashed externally in
+FROZEN_MERGE.txt. Do not edit; supersede with a dated successor if it must change.
+
+WHY IT EXISTS. The compound-split re-audit was chartered to find COMPOUNDS and found something else:
+three OMISSIONS, two of them the same shape. Atomicity had a frozen test; omission had none, so
+"presupposed by nodes 4, 6 and 9 but booked by none" was an analyst judgement with nothing behind it.
+Two same-shape hits found while looking for something ELSE is exactly the signal that a systematic
+pass would find more -- and a systematic pass needs a standard, or it is just a second opinion.
+
+================================ THE STANDARD ================================
+
+    A proposition is an OMISSION if some banked node's discharge PRESUPPOSES it -- you cannot
+    discharge that node without it -- and it is NOT ITSELF BOOKED.
+
+Two conjuncts, and BOTH must be shown. Written in the same dissociation idiom as the atomicity test
+so the two can be told apart at the point of use:
+
+    ATOMICITY (a SPLIT test):   can one part of this node discharge ALONE?      -> if yes, SPLIT it.
+    OMISSION  (an ADD test):    is this presupposed by a node and booked nowhere? -> if yes, ADD it.
+
+*** THE DISTINCTION IS THE POINT, AND IT IS WHY THIS FILE EXISTS. *** Compoundness and omission
+PRESENT IDENTICALLY to an analyst: both feel like "this node is carrying more than one thing." An
+analyst holding only the split tool fixes an omission by CUTTING THE NEAREST NODE, which mislocates
+a cluster-wide presupposition into one node's dependency structure and manufactures a false
+dependency graph. In the 2026-08-04 re-audit two of five pre-registered candidates were exactly that
+error, one of them at medium-high confidence. THE TWO TALLIES ARE NEVER SUMMED.
+
+================================ CONJUNCT 1: PRESUPPOSED ================================
+Not "related to", not "in the same area", not "also true". The test is DISCHARGE-BLOCKING:
+    Take the banked node. Suppose the candidate proposition is FALSE or simply absent.
+    Can the node still be discharged -- can its content still be established, stated, and used?
+    If NO, the node presupposes it. If YES, it does not, however adjacent it feels.
+A presupposition is typically INVISIBLE in the node's own text; that is what makes it an omission
+rather than a conjunct. If it appears in the node's statement it is a SPLIT question, not this one.
+
+================================ CONJUNCT 2: NOT ITSELF BOOKED ================================
+Booked means: carried by a node, by a rider, or by an already-declared undecided pair -- ANYWHERE in
+the relevant inventory, not merely in the node under examination. This is the same cost clause as
+registry_mapping RULE 3 (a claim whose cost is booked elsewhere gets no entry) and it is the guard
+against the mirror failure: RE-BOOKING a commitment the inventory already carries under another name
+inflates the count exactly as over-splitting does, and is harder to see.
+    A candidate that fails ONLY conjunct 2 is not an omission -- it may be a MERGE candidate, and
+    should be handed to the merge criterion rather than added.
+
+================================ THE MULTIPLICITY SIGNAL (diagnostic, not a conjunct) ================
+A proposition presupposed by SEVERAL banked nodes and booked by NONE is the highest-confidence shape,
+because the multiplicity rules out its being a hidden conjunct of any one node. Both confirmed
+instances so far have it:
+    S1  (a state and an expectation functional)   -- presupposed across two whole CLUSTERS.
+    O1  (universal metric coupling / the EP)      -- presupposed by three nodes of one cluster.
+Single-node omissions are still omissions; they just need the discharge test done more carefully,
+because a single-node presupposition is exactly what a mislocated split looks like.
+
+================================ DIRECTIONAL GUARDS, BOTH WAYS ================================
+TOWARD FINDING: an omission is a defect in an enumeration someone banked and relayed as complete, so
+whoever runs the sweep on their own work has a standing incentive to find NONE. Default-broken toward
+omission; record the argument for every node examined, including the ones that yield nothing.
+AGAINST FINDING: every proposition has infinitely many presuppositions (logic, arithmetic, that
+there is a world). CLUSTER MEMBERSHIP is the fence -- a presupposition is a candidate only if it
+could be DENIED BY A NAMED POSITION and the denial would change something the cluster says. Without
+that fence the sweep returns the whole of metaphysics and discriminates nothing.
+
+================================ THE STANDING LIMIT ================================
+Both conjuncts are C3-class judgements: non-mechanizable, analyst-supplied. This standard does not
+make omission-detection checkable; it makes the CLAIM checkable, by forcing the discharge argument
+and the not-booked-anywhere search to be stated rather than asserted. Same limit the atomicity test
+carries, declared for the same reason.

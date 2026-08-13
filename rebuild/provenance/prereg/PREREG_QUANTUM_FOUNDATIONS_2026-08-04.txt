@@ -1,0 +1,53 @@
+PRE-REGISTRATION -- the quantum-foundations cluster. Written BEFORE any analysis was run.
+Immutable once the manifest records its hash; results go to a separate RESULT_ file that cites it.
+
+THE CLUSTER QUESTION, bounded (an unbounded "node quantum foundations" is the failure shape):
+    ARE OUTCOME-SELECTION AND THE PROBABILITY MEASURE ONE INPUT OR TWO?
+i.e. does whatever accounts for a single definite outcome occurring also account for the Born
+weights, or are those two separate underived inputs?
+
+THE CHEAP DECISIVE TEST, run first (same move as SUSY/unimodular in the vacuum cluster, which
+settled that headline in one pass):
+    EINSELECTION DISSOCIATION. Environment-induced superselection derives the PREFERRED BASIS from
+    the interaction Hamiltonian -- which basis is stable under monitoring -- and demonstrably does
+    NOT derive which outcome occurs, nor the weights. If that dissociation holds, the basis problem
+    is separable from the outcome problem, and the analysis becomes enumeration rather than
+    adjudication.
+
+PRE-REGISTERED EXPECTATIONS (stated now, so a later result cannot be read back onto them):
+  E1  The einselection dissociation HOLDS: einselection addresses basis selection and leaves both
+      outcome-selection and the Born weights untouched. Grade expected: ATTESTED, not derived
+      in-house.
+  E2  Outcome-selection and the Born measure are TWO inputs, not one, under the criterion --
+      because no DERIVED relation from one to the other is exhibited. Expected reading: TRADE at
+      best (a posited relation), NEVER a REDUCTION. If a REDUCTION is reported here, the relation
+      claimed as derived must be named and it must survive C1, or the result is void.
+  E3  The DISSOLUTION class gets its first live exercise. Predicted OUTCOME: dissolution does NOT
+      apply between these two. Gleason/Born-from-decision-theory arguments derive the MEASURE GIVEN
+      that outcomes occur; they do not falsify the presupposition that outcomes occur. A candidate
+      that removes a question rather than answering it is what dissolution is for, and this is
+      probably not one. Recording the prediction because the class has never touched anything real
+      and a first use that "works" is exactly when a class gets over-applied.
+  E4  Expected typed inventory: predominantly POSTULATE (propositions about the world) and
+      HEURISTIC, with few or no MEASURED entries. Quantum foundations is a cluster of stances, not
+      of fitted numbers. A MEASURED-heavy inventory would signal a mis-declaration.
+  E5  Expected cross-cluster recurrence with the vacuum cluster: `semiclassical_sourcing` (the
+      source is the expectation value IN THE STATE -- which presupposes a state and a measure) and
+      `eft_validity`. These were registered for the vacuum map and were NOT chosen with this
+      cluster in view. If they recur, that is the first genuine cross-cluster shared input.
+
+DIRECTIONAL GUARD: "outcome-selection and the Born measure are ONE input" is the flattering horn --
+it would be a unification found by the instrument on its first unknown cluster. DEFAULT-BROKEN
+TOWARD TWO. A merge requires a DERIVED relation; a posited one is a TRADE and moves nothing.
+
+KILL-CONDITIONS: (KC1) no merging by category -- "both are measurement-problem inputs" is a
+classification. (KC2) ids from the frozen ATOMIC registry via the domain-free mapping; a needed
+entry is a dated hashed amendment relayed before use. (KC3) no quoted magnitude without its scheme.
+(KC4) background assumptions counted as inputs, not context -- candidates: unitarity holding
+universally, the state being the complete description, and system/apparatus factorization.
+(KC5) no external framework as a lens -- GRUT enters last, marked, zero-credit, if at all.
+
+THE STANDING LIMIT, repeated here because a passing exam is when it is most tempting to forget:
+the criterion's arithmetic is validated; its PHYSICS JUDGEMENTS (derived-vs-posited, discharge over
+the family, complete enumeration, and every declared dimension) are analyst inputs and are NOT.
+This cluster inherits that limit in full.

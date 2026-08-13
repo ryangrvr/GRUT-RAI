@@ -1,0 +1,139 @@
+RESULT -- the kappa (activation-scale) wave.
+
+CITES PRE-REGISTRATION: prereg/PREREG_KAPPA_2026-08-05.txt
+    sha256 = 83373fbb388468e989f1a24dc18b64a5e85eb8ce1e4afbacefa6ca3eda3465db
+Sealed 2026-08-05 BEFORE analysis; run split across the weekly limit (5 routes completed 08-05,
+cached; 15 verify lenses + adjudication completed 2026-08-08 from cache-resume, run wf_2aae4841-2fe).
+The prereg is UNMODIFIED since sealing. NOTHING IS BANKED BY THIS WAVE (its own KC4).
+
+METHOD. Five independent routes attacked kappa under a BLINDING PROTOCOL (forbidden the anomaly
+numbers, the web, and any sigma0/anomaly file), then three hostile lenses per route (derivation /
+hidden-bath / KC3 category), 2-of-3 to survive, then an adjudicator who re-verified citations
+in-repo and INDEPENDENTLY RECOMPUTED the load-bearing numbers (|f-1| growth values; the kappa=10
+out-of-scan edge 0.5495 -- third independent replication). 21 agents.
+
+================================ THE RULING: NO-PIN ================================
+Not a number, not a scale, not a dissolution, not bare frontier-blockage. The four surviving routes
+(qs-validity 2/3, projector-structure 3/3, frontier-inheritance 3/3, convention-audit 3/3;
+dissolution KILLED 1/3) form one two-lobed structure:
+
+  SCHEME LOBE: the quasi-static validity criterion for the banked single-pole kernel is
+    |omega*tau| << 1 with omega = |dln g/dt| = H|f-1| -- K-INDEPENDENT (the growth ODE has no k;
+    recomputed 0.009/0.123/0.264/0.473 at a=0.2/0.5/0.7/1.0). k drops out; the condition is
+    H*tau << 1, an EPOCH condition. There is no kappa on the scheme side -- not hard to compute:
+    ABSENT. Independently, the projector algebra is degree-zero in |k| (computed to 8.5e-16 over
+    18 decades), so no banked structural object supplies a k-scale either.
+  WORLD LOBE: all k-magnitude structure lives in c0(omega,k^2), which the register deliberately
+    leaves arbitrary. Its scale is the bath's (CHARTER Sec.3: choosing it in-house is the automatic
+    fail); its form is the frontier-reserved Bardeen/Riegert-Paneitz covariant completion. TWO
+    distinct blocked inputs. Both prongs terminate without a number; converting between prongs is
+    exactly the KC3 category error.
+
+ONE-SENTENCE FORM: kappa is not a parameter of GRUT; it is a coordinate on a model dimension GRUT
+has not banked, and the register can neither supply its value nor legally trade the step for any
+specific smooth replacement.
+
+================================ SCORING THE PRE-REGISTRATION ================================
+K1 (NO PIN, ~70%)            RIGHT. *** THE CALIBRATION CORRECTION WORKED: after two waves of
+                             over-predicting findings, the mandated downward adjustment
+                             pre-registered the negative, and the negative is what happened. ***
+K2 (mechanism = inherited    WRONG AS STATED, and the wave proved something sharper: THE MEMORY
+    via the memory time)     TIME CANNOT CARRY KAPPA AT ALL. tau enters only through H*tau (epoch,
+                             not mode). The frontier inheritance is real but routes through
+                             c0's k-structure + the covariant completion -- a different vehicle.
+                             Half-credit on direction, zero on mechanism, and the adjudicator's
+                             instruction stands: do not let "inheritance happened" launder the miss.
+K3 (the WANTED dissolution)  WRONG, AND THE DISCIPLINE HELD WHERE THE PREREG ARMED IT. The one
+                             route reaching for the wanted outcome was killed 1/3 -- on CHARTER
+                             grounds: to make chi(omega) deliver the shape it had to buy
+                             k^2-analyticity of c0 in-house, the collisional horn of rung3's open
+                             fork. Better: the wanted mechanism is AFFIRMATIVELY REFUTED --
+                             chi(omega) is structurally incapable of k-discrimination. The builder
+                             wanted it, flagged the want, and the machinery killed it anyway.
+K4 (one kappa, not           NOT SCORED -- moot; zero kappas pinned in zero channels.
+    channel-dependent)
+K5 (no comfortable outcome)  RIGHT IN LETTER, SHARPENED UNCOMFORTABLY: no relief was reached, but
+                             the prereg called "gate loosens beyond the scanned span" implausible
+                             -- and the wave showed the gate's own algorithm LOOSENS WITHOUT BOUND
+                             as kappa grows (edges 0.55 / 0.90 at kappa = 10 / 30, replicated
+                             three times). The pressure did not vanish; THE GATE'S UNCONDITIONAL
+                             FLOOR DID.
+
+================================ SURVIVING PARTIAL RESULTS (relay candidates only) ================
+S1  kappa >= 1. Activating super-horizon contradicts banked PART E. A validity FLOOR, 3/3-verified.
+    (N6: the floor is not a value -- never promote to kappa = 1.)
+S2  *** NO UPPER BOUND ON KAPPA EXISTS IN BANKED PHYSICS. Consequence, triple-replicated: the
+    TT-auto gate's "UNCONDITIONAL x < 0.358" is SCAN-RELATIVE, conditional on kappa <~ 6. THERE IS
+    CURRENTLY NO UNCONDITIONAL x-BOUND FROM THE TT-AUTO GATE. *** The program's flagship bound is
+    demoted, not the tension relieved -- an anti-comfortable result in the direction nobody wanted.
+S3  The memory time drops out; tau cannot source a k-threshold. The only edge a memory kernel
+    supplies tracks fixed proper length (k ~ a), not the horizon (k ~ aH). K2's vehicle: refuted.
+S4  DIRECTION THEOREM: banked structure is LOW-PASS. It can only suppress above an edge;
+    horizon-tracking ACTIVATION requires unbanked structure (Yukawa mass, sound speed, tau ~ 1/H --
+    the last being exactly the second internal dynamical scale rung3 conditions against).
+S5  The exact theta-step in k is not the k-dependence of any causal finite-memory kernel
+    (Paley-Wiener-grade). Excludes ONLY the measure-zero exact step; licenses NO replacement --
+    expressly not W ~ 0.5, expressly not F = C u^2 (both conditional on in-house bath choices).
+S6  The KC3 conflation is located IN THE GATE ITSELF (below).
+S7  A FIRED FENCE: zeta_interior_family's ledger_note booked the c0-collapse at delta 0 "BECAUSE
+    nothing result-tier rests on it". The frozen gate is result-tier and A5 makes that collapse's
+    hand-restored k-structure the verdict. The justification no longer holds; booking owed re-audit.
+
+================================ THE KC3 RULING ================================
+THE FILTER IS A WORLD-CLAIM WEARING A SCHEME LABEL, AND THE CONFLATION IS THE GATE'S, NOT THE
+ROUTES'. As implemented, act() edits the growth ODE's source term and initial conditions -- it
+changes the PREDICTION, and there is no quasi-static approximation in the pipeline to guard (P2 is
+exact line-of-sight; verified in code). A validity statement cannot move observables 10x. As
+labeled, it is "quasi-static validity filter" -- three lines from A5's world-language. The gate
+commits the pre-registered category error verbatim.
+
+CONSEQUENCE, PLAINLY: the 10x spread across the kappa scan is NEITHER a conditionality of the
+theory (GRUT-as-banked makes no kappa prediction to be conditional ON) NOR a polishable numerical
+defect (there is no scheme-side kappa to converge to). It is an UNBANKED WORLD-MODEL INSERTION
+INSIDE A FROZEN GATE -- and it sits where the money is: the ISW signal's central 68% lives at
+k/aH in [1.7, 15.7], median 6.2, so every named-point verdict was computed in the region where the
+register is silent. The fix is frontier-gated; what can be fixed NOW is the gate's claim-typing and
+its quotable object (O1).
+
+================================ THE BLINDING DEFECT (O4) -- BUILDER'S OWN ================
+THE PREREG SELF-UNBLINDS. Its motive paragraph states the tension sigmas and the arXiv id, and the
+blinding text pointed every route at that file. Four of five routes disclosed the exposure
+independently and stopped reading; the adjudicator read the prereg DIGITS-MASKED and stayed blind.
+Steering risk to THIS wave is low by construction -- every surviving verdict lands on NO NUMBER,
+the one output unblinding cannot optimize; a motivated agent wanting comfort would have pinned a
+large kappa, and none did. But the defect is the program's own recorded shape -- THE CERTIFIER
+SITTING INSIDE THE CERTIFIED, sixth appearance -- with the roles inverted: the seal itself was the
+leak. RULE FOR EVERY FUTURE OBSERVATION-ADJACENT WAVE: motive quantities go in a SEPARATE CITING
+FILE; the hashed prereg must be blind-safe. The hashed file is NOT silently rewritten (it cannot
+be -- it is sealed); this note is the upstream flag.
+
+================================ OWED (in order) / MUST NOT BE BANKED ================
+O1  GATE AMENDMENT (overseer-blessed, per the freeze's own rule): "UNCONDITIONAL x < 0.358" becomes
+    "x < 0.358 conditional on the declared filter family (sharp theta, kappa <= 3); no unconditional
+    x-bound exists from this gate pending the activation-scale frontier." kappa = 1, 3 members stay
+    as declared-family diagnostics.
+O2  Re-audit zeta_interior_family's delta-0 booking (S7). Ledger-integrity item.
+O3  AMEND THE FRONTIER DISPATCH: Brief 1 / rung3 must now also name (a) c0(omega,k^2)'s k-direction
+    structure and crossover scale, and (b) separately, the Bardeen/Riegert-Paneitz covariant
+    completion -- two distinct blocked inputs, both owed from outside.
+O4  The blind-safe prereg rule, above.
+O5  A6's Boltzmann-grade common-mode check stands unchanged as a precondition on kappa=3 kill use.
+
+MUST NOT BE BANKED: N1 any kappa (number, scale, or "natural O(1)"). N2 any replacement shape
+(W~0.5, F=Cu^2, Yukawa, and specifically the 0.149 edge -- A7's sensitivity record, not a result).
+N3 the dissolution outcome in any form -- affirmatively refuted, and the builder wanted it, so it
+must not re-enter through a summary. N4 any bath commitment smuggled as reasonableness. N5 the
+out-of-scan edges (0.55, 0.90) as quotable gates. N6 kappa >= 1 promoted to kappa = 1.
+
+================================ WHAT THIS MEANS FOR THE ANOMALY SCREEN ================
+The Du et al. tension range (+0.31 to +2.80 sigma) was computed against gate members that are now
+known to be FAMILY-CONDITIONAL with no unconditional member. The range statement survives (it was
+already kappa-conditional by construction) but its tightest end loses "held gate" status pending
+O1. The exclusion direction is UNCHANGED: Sigma_0 sits above every declared-family member under
+both backgrounds. Nothing about this wave makes the anomaly comfortable; it makes our own bound
+honester and looser at the same time.
+
+FOR THE RECORD: the builder's wanted outcome did not survive, the prereg's named mechanism did not
+survive, and the wave's real product is a demotion of the program's own flagship bound -- three
+results against the grain of desire. That is what makes the NO-PIN bankable-grade when the overseer
+adjudicates it.

@@ -1,0 +1,69 @@
+PRE-REGISTRATION -- THE GATE FOR TERMINATION-CONDITION VERSION 4. Sealed BEFORE v4 is drafted,
+so the rebuild is written AGAINST these conditions rather than toward them.
+BLIND-SAFE: yes
+
+THE RULING THIS EXECUTES (overseer, 2026-08-10): not a fourth patch round on the v3
+architecture (the guard became exempt from its own guard twice); not the universal-rules-only
+rebuild as pitched (both deepest defects lived IN the universal layer; the disease is
+complexity accretion, not channel-vs-universal). Instead: ONE short rebuild on the primitives
+that survived three hostile reads, with minimal channel anchors -- the goal is not zero
+specificity but ZERO UNVERIFIED SPECIFICITY -- then ONE internal adversarial pass, then the
+decision. NO ROUND FIVE. Reaching outcome (C) is a first-class finding about the domain, not
+a loss: if three rounds establish that a signable complete-partition stop condition is not
+achievable for a program of this shape, that banks as a result.
+
+WHAT v4 MUST BE BUILT FROM (pre-committed design constraints):
+  D1. The surviving primitives: still-open first-class in every channel with its cause stated;
+      thresholds frozen only against PUBLIC events (a release landing, a manifest entry) --
+      never a private act such as reading; every received communication logged with its
+      operative language quoted verbatim; consequences execute only at their own register
+      nodes per those nodes' own text; consumption symmetric and dutiful; ONE deposit-timing
+      rule.
+  D2. Minimal channel anchors ONLY: source node, its actual predicate quoted verbatim, one or
+      two resolved outcomes, the still-open state. No nested refinement trees, no per-channel
+      timing rules, no per-channel classification machinery.
+  D3. THE FORBID BRANCH of the citation fix: future event-log entries MAY NOT assert what
+      register text says, structurally -- every register predicate the condition will ever
+      need is pre-quoted in the sealed file itself, so no event entry has occasion to assert
+      register text at all. The hole is removed, not patrolled.
+  D4. Reply classification carries no reasoning machinery: a reply classifies as a resolved
+      outcome ONLY if its own quoted language asserts that outcome unconditionally; anything
+      less -- acknowledgment, caveat, condition, conflict between replies -- is still-open
+      with the operative language quoted. The document decides nothing a quote cannot decide.
+
+THE FOUR CASES (each must land in EXACTLY ONE home, by the document's text alone):
+  K1. The C3 zero-bucket corner: activation-scale unresolved; a reach threshold frozen; the
+      calc complete at register grade; the surviving window below the threshold and not
+      excluded. (Fell through all five v3 buckets.)
+  K2. "Received, will look": a non-substantive acknowledgment at receipt. Must have a home
+      that neither classifies it as a resolved outcome nor lets it block or fire any stop
+      trigger.
+  K3. A register assertion attempted in a future event entry: must be structurally
+      impossible under the document's rules (nothing to patrol -- the entry has no licit form
+      that asserts register text).
+  K4. A threshold frozen against a private act ("before the data are read"): must be
+      unwritable -- the document's freeze rule admits only public events.
+
+THE SIZE LIMIT (the burden test's proxy, stated in advance, non-negotiable): v4 in FULL --
+header, rules, channels, stop, signature block, everything -- fits ONE PAGE, mechanically
+defined as AT MOST 75 LINES AND AT MOST 7500 CHARACTERS. A document that busts the limit has
+FAILED regardless of the four cases: the round-3 finding was that operating burden exceeded
+what a single signer can execute correctly, and length is the committed proxy.
+
+THE BURDEN TEST: a hostile reader who did not draft v4 must produce the correct deposit line
+for each of the four cases PLUS at least three adversarially-invented scenarios of their own,
+using only the document, in one read, with no judgment call beyond quoting causes. Any
+scenario requiring the reader to re-derive physics, weigh unstated precedence, or choose
+between two defensible buckets is a failure.
+
+THE DECISION RULE (pre-committed; executing it is Part 4, re-opening it is forbidden):
+  PASS = all four cases land exactly-one; size within limit; burden test passed; no new
+  bespoke exception machinery was needed during drafting.
+  -> v4 is sealed, manifested, and goes to the external reviewer with the gate record.
+  FAIL on ANY condition -> outcome (C): the stop condition is retired with a statement; the
+  program proceeds under the two named owner acts plus ordinary register discipline; the
+  three-round record and this gate bank as the finding. NO ROUND FIVE, no partial credit,
+  no "one more small fix" -- a v4 that needs repair after its one pass IS the (C) outcome.
+
+THE PASS ITSELF: one internal adversarial workflow, run by agents that did not draft v4,
+before any external eyes. The external reviewer sees v4 only if the internal pass is clean.
