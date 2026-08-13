@@ -1,3 +1,43 @@
+# GRUT RAI
+
+## Two lineages live in this repository. They are not the same theory.
+
+**Read this before anything else.**
+
+| | what it is | where | status |
+|---|---|---|---|
+| **The prior lineage (v2 / v3 / v4)** | the earlier framework and its book — the *Grand Responsive Universe Theory* preprint series on Zenodo, plus the computational platform built around it | everything outside `rebuild/` — including `theory/`, `uploads/`, `grut/` | **HISTORICAL RECORD, retained deliberately.** Substantially wrong in ways its own successor documents; **not** current claims. See the retraction note below. |
+| **The clean rebuild (v5)** | a from-scratch reconstruction under a different discipline: every claim tiered, sourced, given a falsifier, and priced in a signed assumption ledger, machine-checked | [`rebuild/`](rebuild/) | current. **It does not inherit the book's numbers**, and where the two disagree the rebuild's register — with its sources and falsifiers — is what is stood behind, at exactly the tiers stated and no higher. |
+
+**The rebuild's own account of what it established, what it did not, and where it stops:**
+[`rebuild/docs/WHERE_IT_STOPS.md`](rebuild/docs/WHERE_IT_STOPS.md) — a negative-results report.
+It also states plainly what is wrong in the prior lineage's live Zenodo deposit, and that the
+correction to that deposit is **owed and not yet done**.
+
+**To verify the rebuild yourself** (no dependencies, Python 3 stdlib only):
+
+```bash
+cd rebuild
+python3 provenance/validate.py                    # the register gate
+python3 provenance/emit_public_numbers.py --check  # every published count, regenerated
+python3 provenance/build_public_doc.py --check     # the document, re-rendered from its source
+cd provenance && python3 -m pytest -q              # the full suite
+```
+`rebuild/HOW_TO_VERIFY.md` gives the rest. **Note the `cd rebuild` — the rebuild's own
+documentation assumes its directory is the working root, which it is in its own repository and is
+not here.**
+
+**Why the prior lineage is retained rather than deleted.** Its errors are cited, by identifier, in
+the rebuild's retraction note; deleting the evidence would make that note uncheckable. It is kept
+as a record of what was believed and when — not as a claim about nature.
+
+---
+
+*Everything below this line describes the prior lineage and is retained unedited as part of that
+record.*
+
+---
+
 # GRUT RAI v2
 
 **Grand Responsive Universe Theory — Interactive Research Platform**
