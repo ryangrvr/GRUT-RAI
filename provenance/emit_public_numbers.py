@@ -121,12 +121,25 @@ def numbers():
                          f"phantom={sorted(set(aud) - set(spec_nodes))}")
 
     # The six all-caps records of the single 2026-06-25 "four questions" session.
+    caps_pat = re.compile(r"SPECIALIST[ -](?:CONFIRMED|CORRECTED|2026-06-25)|SPECIALIST \(Q\d\)")
+    caps_occurrences = sum(len(caps_pat.findall(json.dumps(c))) for c in cl)
+    # The recomputed ISW cross-channel significance, read from the register rather than typed:
+    # this is THIS program's own recomputation (the retired 32-sigma anchor), so it falls under
+    # neither of the document's two quoting exceptions and must be a token.
+    isw = re.search(r"N\(1\) ~ ([0-9.]+)", json.dumps(cl))
+    isw_sigma = isw.group(1) if isw else None
+    isw_c = re.search(r"computed ([0-9.]+) central", json.dumps(cl))
+    isw_central = isw_c.group(1) if isw_c else None
+
     caps_2026_06_25 = sorted({c["id"] for c in cl
                               if re.search(r"SPECIALIST[ -](?:CONFIRMED|CORRECTED|2026-06-25)",
                                            json.dumps(c))
                               or re.search(r"SPECIALIST \(Q\d\)", json.dumps(c))})
 
-    return dict(total=len(cl), n_grut=len(grut), n_cluster=len(cluster),
+    with open(os.path.join(HERE, "construction_pressure.json")) as f:
+        pressure = json.load(f)["occasions"]
+
+    return dict(n_pressure_removals=len(pressure), total=len(cl), n_grut=len(grut), n_cluster=len(cluster),
                 net_grut=net(grut), net_cluster=net(cluster), tiers=tiers,
                 waivers=waivers, waived_total=sum(d for _, d in waivers),
                 n_sources=len(srcs), n_calcs=len(calcs), n_test_files=len(tests),
@@ -137,6 +150,8 @@ def numbers():
                 spec_ran_nodes=ran_nodes,
                 spec_2026_06_25_nodes=caps_2026_06_25,
                 n_spec_2026_06_25_nodes=len(caps_2026_06_25),
+                n_spec_2026_06_25_occurrences=caps_occurrences,
+                isw_sigma=isw_sigma, isw_central=isw_central,
                 spec_A=senses["A"], spec_B=senses["B"], spec_C=senses["C"], spec_D=senses["D"],
                 spec_audit=aud)
 

@@ -42,6 +42,10 @@ def values():
         "spec_A": n["spec_A"], "spec_B": n["spec_B"],
         "spec_C": n["spec_C"], "spec_D": n["spec_D"],
         "n_spec_2026_06_25_nodes": n["n_spec_2026_06_25_nodes"],
+        "n_spec_2026_06_25_occurrences": n["n_spec_2026_06_25_occurrences"],
+        "isw_sigma": n["isw_sigma"], "isw_central": n["isw_central"],
+        "spec_raw_incl_annotations": n["spec_raw_incl_annotations"],
+        "n_pressure_removals": n["n_pressure_removals"],
     }
     for tier in ("shown", "derived", "derived-pending", "assumed", "to-derive"):
         v["tier_" + tier.replace("-", "_")] = n["tiers"].get(tier, 0)
