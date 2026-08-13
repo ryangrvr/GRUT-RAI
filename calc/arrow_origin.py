@@ -98,6 +98,9 @@ def main():
     print("       fixed by the ASSUMED initial condition (coth = the bath's occupation).")
 
     print("\n" + "=" * 78)
+  # AUTHORITY-VOCABULARY ANNOTATION 2026-08-12: 'specialist' here is an IN-HOUSE AI pass,
+  # not an outside human. No outside human has ever been contacted by this program.
+  # Annotated, not renamed -- see provenance/prereg/RESULT_AUTHORITY_TERMS_2026-08-12.txt
     print("VERDICT  (lead; the human specialist is the firewall)")
     print("=" * 78)
     print("""\

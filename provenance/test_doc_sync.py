@@ -187,13 +187,15 @@ class TestSpecialistNeverUnqualifiedInPublicDocs(unittest.TestCase):
                        "never records the modality", "No transmission to any external human"):
             self.assertIn(phrase.lower(), g.lower(),
                           f"GLOSSARY.md is missing the B0.2 audit element: {phrase!r}")
-        # the stated count must equal a live count from the register, not a remembered figure
-        import json
-        cl = json.load(open(os.path.join(HERE, "claims.json")))["claims"]
-        pat = re.compile(r"specialists?", re.I)
-        live = sum(len(pat.findall(json.dumps(c))) for c in cl)
-        nodes = sum(1 for c in cl if pat.search(json.dumps(c)))
+        # The stated count must equal a live count -- taken from THE EMITTER, not re-derived here.
+        # Re-deriving is exactly how these two drifted apart: the emitter learned to exclude the
+        # dated annotation blocks (which necessarily contain the audited words, so annotating
+        # inflated the count 49 -> 58) and this test did not, so it demanded the inflated figure.
+        # One source of truth, or the guard and the thing it guards disagree.
+        import emit_public_numbers as EPN
+        _n = EPN.numbers()
+        live, nodes = _n["spec_total"], _n["spec_nodes"]
         self.assertIn(f"{live} occurrences", g,
                       f"GLOSSARY.md must state the LIVE count ({live}); a hard-coded audit figure "
                       f"is how the first run's undercount survived review")
-        self.assertIn(f"across {nodes} of {len(cl)} claims", g)
+        self.assertIn(f"across {nodes} of {_n['total']} claims", g)

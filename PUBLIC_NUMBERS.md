@@ -39,6 +39,7 @@
 |---|---|
 | occurrences of specialist/specialists/SPECIALIST in `claims.json` | **49** |
 | claims containing at least one | **18** of 70 |
+| (same, counting the 2026-08-12 annotation blocks that document them) | **58** |
 | sense A — prospective/reserved (a future outside expert) | **17** |
 | sense B — a pass that RAN, banked in the voice of an authority | **28** |
 | sense C — collective/generic | **2** |

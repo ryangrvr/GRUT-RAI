@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Q1 (DECISIVE): energy-basis falsifier -- the MAGNITUDE, not just the commutator.
 
+  # AUTHORITY-VOCABULARY ANNOTATION 2026-08-12: 'specialist' here is an IN-HOUSE AI pass,
+  # not an outside human. No outside human has ever been contacted by this program.
+  # Annotated, not renamed -- see provenance/prereg/RESULT_AUTHORITY_TERMS_2026-08-12.txt
 The specialist confirmed the decision tree: [A,H_S]=0 -> samples S(0)=0 -> quiet bath;
 [A,H_S]!=0 -> samples S(dE) -> formally lives. But 'lives' and 'observable' are two
 different questions. This calc reports the RATIO (predicted decoherence rate / detectable

@@ -78,8 +78,23 @@ def numbers():
     # a character class on the first letter only, silently dropped every all-caps SPECIALIST, and
     # undercounted by 8 -- six of which were the class that reads as external validation.
     spec_pat = re.compile(r"specialists?", re.I)
-    spec_nodes = {c["id"]: len(spec_pat.findall(json.dumps(c))) for c in cl
-                  if spec_pat.search(json.dumps(c))}
+
+    # ANNOTATION BLOCKS ARE EXCLUDED FROM THE COUNT, and the reason is recorded because the
+    # problem is genuinely funny and genuinely real: the 2026-08-12 annotations that DOCUMENT the
+    # audited vocabulary necessarily CONTAIN the audited words, so annotating inflated the count
+    # the annotations exist to explain (49 -> 58). The exclusion is narrow -- only text inside a
+    # dated, uniquely-marked AUTHORITY-VOCABULARY ANNOTATION block -- and BOTH numbers are
+    # emitted, so the exclusion cannot hide anything: a reader sees the register's own uses and
+    # the commentary about them as separate figures.
+    ANNOT = re.compile(r"\[AUTHORITY-VOCABULARY ANNOTATION.*?vocabulary drift is itself the "
+                       r"finding\.\]", re.S)
+
+    def _blob(c):
+        return ANNOT.sub("", json.dumps(c))
+
+    spec_nodes = {c["id"]: len(spec_pat.findall(_blob(c))) for c in cl
+                  if spec_pat.search(_blob(c))}
+    spec_raw_incl_annotations = sum(len(spec_pat.findall(json.dumps(c))) for c in cl)
     # The class-B records -- phrased as a pass having RUN -- identified by their own date/verb
     # markers. Recomputed here rather than carried as a constant.
     ran_markers = re.compile(
@@ -117,6 +132,7 @@ def numbers():
                 n_sources=len(srcs), n_calcs=len(calcs), n_test_files=len(tests),
                 n_tests=n_tests, dispositions=dispositions,
                 spec_total=sum(spec_nodes.values()), spec_nodes=len(spec_nodes),
+                spec_raw_incl_annotations=spec_raw_incl_annotations,
                 spec_nodes_detail=spec_nodes,
                 spec_ran_nodes=ran_nodes,
                 spec_2026_06_25_nodes=caps_2026_06_25,
@@ -168,6 +184,8 @@ def block():
     L.append(f"| occurrences of specialist/specialists/SPECIALIST in `claims.json` | "
              f"**{n['spec_total']}** |")
     L.append(f"| claims containing at least one | **{n['spec_nodes']}** of {n['total']} |")
+    L.append(f"| (same, counting the 2026-08-12 annotation blocks that document them) | "
+             f"**{n['spec_raw_incl_annotations']}** |")
     L.append(f"| sense A — prospective/reserved (a future outside expert) | **{n['spec_A']}** |")
     L.append(f"| sense B — a pass that RAN, banked in the voice of an authority | "
              f"**{n['spec_B']}** |")

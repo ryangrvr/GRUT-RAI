@@ -97,6 +97,9 @@ HORIZON-FORCED part (intrinsic to de Sitter, NOT inserted):
        tau2 ~ 1/H is FORCED by the horizon (up to the O(1) coupling).""")
 
     print("\n" + "=" * 78)
+  # AUTHORITY-VOCABULARY ANNOTATION 2026-08-12: 'specialist' here is an IN-HOUSE AI pass,
+  # not an outside human. No outside human has ever been contacted by this program.
+  # Annotated, not renamed -- see provenance/prereg/RESULT_AUTHORITY_TERMS_2026-08-12.txt
     print("VERDICT  (lead; the human de Sitter / stochastic-inflation specialist is the firewall)")
     print("=" * 78)
     print("""\

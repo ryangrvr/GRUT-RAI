@@ -5,6 +5,9 @@ The single-pole graduation rests on: omega = c|k| massless fast modes
 => DOS ~ omega^2 => spectral density J(omega) ~ omega^3 (s=3 super-Ohmic)
 => short memory => single (Markovian-like) pole.
 
+  # AUTHORITY-VOCABULARY ANNOTATION 2026-08-12: 'specialist' here is an IN-HOUSE AI pass,
+  # not an outside human. No outside human has ever been contacted by this program.
+  # Annotated, not renamed -- see provenance/prereg/RESULT_AUTHORITY_TERMS_2026-08-12.txt
 The specialist's worry: the FDT/KMS thermal factor coth(hbar*omega/2kT) ~ 2kT/(hbar*omega)
 at low frequency multiplies the *noise* spectrum down by one power of omega, softening
 the effective exponent and possibly restoring LONG memory in the regime that counts.
