@@ -9,10 +9,10 @@
 | net underived-input ledger, GRUT scope | **+13** |
 | net underived-input ledger, vacuum-cluster scope | **+0** |
 | of the GRUT net, carried behind declared waivers | **+8** across 4 claims |
-| primary sources in `sources.json` | **75** |
+| primary sources in `sources.json` | **79** |
 | calculation files in `calc/` | **25** |
 | test files in `provenance/` | **18** |
-| tests collected | **205** |
+| tests collected | **206** |
 
 ### Tier histogram, GRUT scope (49 claims)
 

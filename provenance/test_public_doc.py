@@ -54,6 +54,15 @@ class TestPublicDoc(unittest.TestCase):
         stripped = re.sub(r"[⁰¹²³⁴⁵⁶⁷⁸⁹½]", "", stripped)
         # LIMIT NOTATION is physics, not a count: rho_TT(omega->0), lim as x -> 0, etc.
         stripped = re.sub(r"[ωx]\s*[→>-]+\s*0", "", stripped)
+        # PHYSICS-STRUCTURAL NUMERALS (new class, introduced by Part I): spin labels, tensor ranks
+        # and dimension compounds. "spin-2", "rank-2", "six-dimensional", "four-dimensionally" are
+        # properties of the mathematics; none can go stale when the register changes, which is the
+        # only failure this guard exists to prevent. Stripped, and then PROVEN not to blind the
+        # guard: test_the_guard_still_bites_inside_part_I mutates a register count into Part I's
+        # own prose and requires it caught.
+        stripped = re.sub(r"\b(?:spin|rank|helicity)-\d+", "", stripped, flags=re.I)
+        stripped = re.sub(r"\b(?:one|two|three|four|five|six|seven|eight|nine|ten|\d+)-"
+                          r"dimensional(?:ly)?", "", stripped, flags=re.I)
         for formula in ("2 Im G_R^TT", "= -2", "= −2", "P⁽⁰ˢ⁾/P⁽²⁾", "2P", "ratio −2", "ratio -2"):
             stripped = stripped.replace(formula, "")
         # BLOCKQUOTES are exception 1 by construction -- this document only block-quotes the prior
@@ -81,7 +90,10 @@ class TestPublicDoc(unittest.TestCase):
         offenders = []
         for name, val in guarded.items():
             # (a) as a bare integer
-            if re.search(rf"(?<![\d.]){val}(?![\d.])", int_scan):
+            # A NEGATIVE number is never one of the guarded register counts (they are all
+            # non-negative tallies), so a preceding minus excludes it -- which is what lets the
+            # physics ratio "exactly -2" coexist with the guard on spec_C = 2.
+            if re.search(rf"(?<![\d.\-−]){val}(?![\d.])", int_scan):
                 offenders.append(f"{name}={val} (as a digit)")
             # (b) as a spelled-out numeral -- the class that falsified the rule in its own paragraph
             # Word-forms are checked only for values > 3. Below that the numeral collides with
@@ -116,6 +128,30 @@ class TestPublicDoc(unittest.TestCase):
                          f"register counts typed into the source prose: {offenders}. "
                          f"Use the {{{{placeholder}}}} form -- a typed count goes stale silently, "
                          f"which is the failure the prior deposit made at scale.")
+
+    def test_the_guard_still_bites_inside_part_I(self):
+        """The physics-notation strippers must not blind the guard in the section that motivated
+        them. Mutate a register count into Part I's own prose and require it caught."""
+        import emit_public_numbers as E
+        n = E.numbers()
+        src = open(SRC).read()
+        i = src.find("# Part I —")
+        self.assertGreater(i, 0, "Part I not found")
+        mutated = (src[:i] +
+                   src[i:].replace("The Ward identity buys **transversality**.",
+                                   f"The Ward identity buys **transversality** in all "
+                                   f"{n['spec_B']} cases.", 1))
+        self.assertNotEqual(mutated, src, "mutation anchor missing")
+        # re-run the same scan the real test uses, on the mutated text
+        import tempfile, shutil, os as _os
+        bak = SRC + ".bak"
+        shutil.copy(SRC, bak)
+        try:
+            open(SRC, "w").write(mutated)
+            with self.assertRaises(AssertionError):
+                self.test_the_source_types_no_register_count()
+        finally:
+            shutil.move(bak, SRC)
 
     def test_fixed_point_one_tracks_the_empty_derived_tier(self):
         import emit_public_numbers as E

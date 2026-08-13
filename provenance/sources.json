@@ -301,5 +301,21 @@
  "du_kids_legacy_sigma0_2026": {
   "ref": "G.-H. Du, T.-N. Li, T. Liu, J.-F. Zhang, X. Zhang, 'Evidence for deviation in gravitational light deflection from general relativity at cosmological scales with KiDS-Legacy and CMB lensing', arXiv:2602.03110 (submitted 2026-02-03, revised 2026-04-28)",
   "verifies": "mu-Sigma modified-gravity constraints from KiDS-Legacy WL (1347 deg^2, z<=2.0) + Planck/ACT/SPT CMB + DESI DR2 BAO + DES-Dovekie SNe. FULL PDF READ 2026-08-05; numbers off their Table I. LCDM background: Sigma_0 = 0.149 +/- 0.051 (3.0 sigma), mu_0 = 0.21 +/- 0.21. w0waCDM background: Sigma_0 = 0.115 +/- 0.053 (2.2 sigma), mu_0 = 0.09 +0.28/-0.24, w0 = -0.827 +/- 0.055, wa = -0.59 +/- 0.21. PARAMETERIZATION (their Eqs. 6-7, LOAD-BEARING FOR US): mu(a) = 1 + mu_0*Omega_DE(a)/Omega_Lambda and Sigma(a) = 1 + Sigma_0*Omega_DE(a)/Omega_Lambda, scale-independent in the quasi-static sub-horizon regime -- i.e. the deviation SWITCHES ON LATE, whereas GRUT's Sigma-1 = x*alpha/2 is CONSTANT in time. The F-MAP shape fence therefore fires and moves our tension UP, not down. AUTHORS' OWN CAVEATS: the deviation is 'likely driven by the higher amplitudes in the large-scale CMB lensing measurements'; and the 3.0 -> 2.2 swing is a PARAMETER DEGENERACY -- 'the introduction of a dynamical DE background absorbs a fraction of the anomalous lensing signal'. Their own model comparison PREFERS the dynamical background (Delta-DIC = -12.64 for w0waCDM, -14.36 for mu0Sigma0w0wa, relative to LCDM), which is exactly why silently adopting it would be the flattering choice. VERIFIED IN-SESSION; NOT CITED BY ANY CLAIM -- screened in calc/sigma0_anomaly_screen.py, nothing banked."
+ },
+ "barnes1963": {
+  "ref": "K. J. Barnes, Ph.D. thesis, University of London (1963); the spin-projection operators for a symmetric rank-2 field, conventionally cited jointly with Rivers (1964) as the Barnes-Rivers operators",
+  "verifies": "PRIORITY, NOT SUPPORT. The spin-projector decomposition this program uses is not this program's. Cited so the register cannot be read as claiming the decomposition. Verified 2026-08-13 to the level of existence, authorship and date via secondary literature that cites it as the origin (the thesis itself was not read); the joint Barnes-Rivers attribution is standard in the higher-derivative-gravity propagator literature. ATTESTATION: secondary-literature-verified, NOT read in original."
+ },
+ "rivers1964": {
+  "ref": "R. J. Rivers, 'Lagrangian theory for neutral massive spin-2 fields', Nuovo Cimento 34, 386 (1964)",
+  "verifies": "PRIORITY, NOT SUPPORT. With Barnes (1963), the origin of the spin-projection operators for symmetric rank-2 fields on which the P^(2)/P^(0s)/P^(0w)/P^(1) decomposition rests. ATTESTATION: secondary-literature-verified (title, journal, volume, year), NOT read in original."
+ },
+ "vannieuwenhuizen1973": {
+  "ref": "P. van Nieuwenhuizen, 'On ghost-free tensor Lagrangians and linearized gravitation', Nucl. Phys. B60, 478 (1973)",
+  "verifies": "PRIORITY, NOT SUPPORT. The canonical application of the Barnes-Rivers projectors to linearized gravitation and to the ghost/unitarity analysis of tensor Lagrangians -- i.e. exactly the operation this program performs on the linearized Einstein-Hilbert kernel. ATTESTATION: secondary-literature-verified, NOT read in original."
+ },
+ "stelle1977": {
+  "ref": "K. S. Stelle, 'Renormalization of higher-derivative quantum gravity', Phys. Rev. D 16, 953 (1977)",
+  "verifies": "PRIORITY, NOT SUPPORT. The higher-derivative-gravity propagator analysis from which the spin-projector decomposition of gravitational kernels became routine; every subsequent propagator/ghost analysis in that literature performs the same decomposition. Cited so the document states plainly that decomposing a gravitational kernel on these projectors is textbook. ATTESTATION: secondary-literature-verified, NOT read in original."
  }
 }
