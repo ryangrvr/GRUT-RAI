@@ -105,6 +105,15 @@ def bank_gate(baseline_claims, working_claims, source_ids, valid_tiers=None):
 
     deletions = [cid for cid in base_by_id if cid not in work_by_id]
 
+    # SILENT-PASS DISCLOSURE (2026-08-12, overseer-found). A batch of nine identical-in-kind
+    # annotation edits produced six flags and three silent passes, and the gate reported only the
+    # six -- the other three vanished from the count entirely. The heuristic is NOT mysterious: a
+    # change flags if (a) it touches a field in resident.SUBSTANTIVE_FIELDS, or (b) it raises a
+    # consistency flag (e.g. RE-OPENS on a closed disposition). tier_note and ledger_note are in
+    # NEITHER path, so edits confined to them pass silently. That is defensible for commentary --
+    # and indefensible as SILENCE: a gate that can swallow three of nine identical edits can
+    # swallow a real one, and `method_novelty` was among the three. The classification stays;
+    # the silence does not. Passing changes are now REPORTED with the fields that were changed.
     blocks = [r for r in reports if r["verdict"] == "BLOCK"]
     flags = [r for r in reports if r["verdict"] == "FLAG-FOR-FIREWALL"]
     passes = [r for r in reports if r["verdict"] == "PASS"]
@@ -119,7 +128,9 @@ def bank_gate(baseline_claims, working_claims, source_ids, valid_tiers=None):
     else:
         overall = "CLEAN"
 
+    silent = [r for r in passes if not r["is_new"] and r.get("_changed_fields")]
     return {"overall": overall, "blocks": blocks, "flags": flags, "passes": passes,
+            "silent_changes": silent,
             "deletions": deletions, "net_baseline": net_base, "net_working": net_work,
             "n_changed": len(reports)}
 
@@ -242,6 +253,14 @@ def main(argv=None):
             print(f"\n  [NEW-FLAG/DELETION] DELETED claim: {cid} (removing a banked claim is substantive)")
     if rep["flags"] or rep["deletions"]:
         print(f"\n  flags: {n_new} NEW (never reviewed) / {n_held} held (reviewed, awaiting accept)")
+    if rep["silent_changes"]:
+        print(f"\n  ALSO CHANGED, classified NON-SUBSTANTIVE ({len(rep['silent_changes'])}) -- "
+              f"reported, not flagged:")
+        for r in rep["silent_changes"]:
+            print(f"    · {r['claim_id']}  (fields: {', '.join(r['_changed_fields'])})")
+        print("    These touched no field in SUBSTANTIVE_FIELDS and raised no consistency flag, so")
+        print("    they do not require the firewall. They are listed because a change the gate")
+        print("    does not count is a change nobody can see.")
 
     print(f"\nOVERALL: {rep['overall']}")
     if rep["overall"] == "BLOCK":

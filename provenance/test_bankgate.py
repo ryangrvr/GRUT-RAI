@@ -184,3 +184,42 @@ class TestBaselineIsNotGitHead(unittest.TestCase):
         self.assertNotIn("git", src.replace("git init converted", "").replace("GIT INIT CONVERTED", "")
                          .replace("`git init`", "").replace("git HEAD", "").replace("under git ", ""),
                          "bankgate must not invoke git; only prose mentions of the regression are allowed")
+
+
+class TestNonSubstantiveChangesAreReported(unittest.TestCase):
+    """2026-08-12: a nine-edit batch produced six flags and three SILENT passes, and the gate
+    reported only six. The classification is defensible (tier_note/ledger_note are commentary and
+    sit in neither the SUBSTANTIVE_FIELDS path nor the consistency-flag path); the SILENCE is not.
+    A gate that can swallow three of nine identical edits can swallow a real one."""
+
+    def _pair(self):
+        import json, copy
+        base = json.load(open(os.path.join(HERE, "claims.baseline.json")))["claims"]
+        work = copy.deepcopy(base)
+        # a commentary-only edit: touches no substantive field, raises no consistency flag
+        t = next(c for c in work if c["id"] == "rung7_wz")
+        t["ledger_note"] = t.get("ledger_note", "") + " [commentary-only edit for the test]"
+        srcs = set(json.load(open(os.path.join(HERE, "sources.json"))))
+        return base, work, srcs
+
+    def test_a_commentary_only_edit_is_reported_not_dropped(self):
+        base, work, srcs = self._pair()
+        rep = bank_gate(base, work, srcs)
+        ids = [r["claim_id"] for r in rep["silent_changes"]]
+        self.assertIn("rung7_wz", ids,
+                      "a commentary-only edit must be REPORTED under silent_changes -- a change "
+                      "the gate does not count is a change nobody can see")
+
+    def test_it_is_still_not_flagged(self):
+        """The classification must not drift the other way: reporting is not flagging, and turning
+        every comment edit into a firewall item would restore the alarm fatigue 1a removed."""
+        base, work, srcs = self._pair()
+        rep = bank_gate(base, work, srcs)
+        self.assertNotIn("rung7_wz", [r["claim_id"] for r in rep["flags"]])
+        self.assertEqual(rep["overall"], "CLEAN")
+
+    def test_the_two_flag_paths_are_documented_in_source(self):
+        import inspect, bankgate
+        src = inspect.getsource(bankgate)
+        self.assertIn("SUBSTANTIVE_FIELDS", src)
+        self.assertIn("consistency flag", src)
