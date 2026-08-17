@@ -43,8 +43,7 @@ In the Keldysh basis, at quadratic order, at fixed (ω, k) in the enumerated fra
 
     S_IF[h_r, h_a] = ∫ (dω/2π) d³k  [ h_a · K_R(ω, k²) · h_r  +  (i/2) h_a · N(ω, k²) · h_a ]
 
-with BOTH kernels decomposed on the Ward-surviving projector pair — the full admissible family,
-not a chosen point of it [eft_operator_basis: exactly two survivors at this frame/order]:
+with BOTH kernels decomposed on the Ward-surviving projector pair [eft_operator_basis: exactly two survivors at this frame/order — **WARD-SCOPE CORRECTION 2026-08-14**: per the SCDP read (arXiv:2507.03103), dissipative and noise operators necessarily break the doubled diffeomorphism group to its diagonal, so the two-survivor exhaustiveness is conditional on an advanced-branch identity no dissipative completion sustains. Under the surviving diagonal identity, K_R's transversality on its **retarded slot** is Ward-bought; the **advanced-slot and noise-kernel transversality are INPUTS** — supported externally by stochastic-gravity Bianchi consistency (Hu–Verdaguer), cited not claimed. The family below is therefore a **declared restriction**, not the full admissible open-gravity space (SCDP's own noise functional carries non-transverse structures); the passivity and no-pin results are statements WITHIN this declared family]:
 
     K_R(ω, k²) = c₂(ω, k²) P⁽²⁾ + c₀(ω, k²) P⁽⁰ˢ⁾        (retarded / dissipation)
     N(ω, k²)   = n₂(ω, k²) P⁽²⁾ + n₀(ω, k²) P⁽⁰ˢ⁾        (noise)

@@ -4,10 +4,11 @@
 
 D. Ryan Grover · 2026-08-12
 
-> **⚠ PART I IS UNDER CORRECTION AS OF 2026-08-12.** A hostile pre-screen returned DO-NOT-SHIP on it and found substantive errors, at least one of them a physics error: the gauge fence in I.1 states a limitation that is true of the 3+1 spatial decomposition and **false** of the four-dimensional covariant basis the section is written in, and the priority claims are overstated against literature the program's own register already flagged as owing a read. **Do not cite I.1 until this line is removed.** The section is left standing rather than pulled because deleting it would hide the error; that is the whole method this document is about.
+> **Correction record, 2026-08-12.** Part I's first draft failed its mandatory hostile pre-screen (DO-NOT-SHIP): I.1 overstated two priority claims and contained a physics error in its gauge fence. The section was left standing under a do-not-cite banner rather than pulled, then corrected: I.1 is now one third its drafted length and claims nothing beyond the literature it cites; the register nodes that carried the same over-scoped clause were corrected **first**, with the source read (arXiv:2507.03103) that the register itself had flagged as owed. The full trail — draft, verdict, correction — is in the repository history.
 >
-> **Published in parts.** Complete as of 2026-08-12: the front matter and the note on the
-> prior deposit. **Outstanding:** Parts 0 through VII and the appendices. The outline is fixed
+> **Published in parts.** Complete as of 2026-08-12: the front matter, the note on the
+> prior deposit, and **Part I** (corrected; see the record above). **Outstanding:** Parts 0 and
+> II through VII, and the appendices. The outline is fixed
 > and lives in the repository; the sections below this front matter **do not yet exist**. This
 > line is updated at the close of every wave, and a document silent about its own
 > completeness would be the last uncaught instance of the pattern this document is about.
@@ -109,38 +110,13 @@ Most of what follows this Part is about a framework that stopped. This Part is n
 
 ## I.1 — General relativity's own response kernel is not transverse-traceless
 
-> **In one paragraph, for a reader who wants the point without the algebra.** When you write down how spacetime responds to being disturbed, the response splits into pieces labelled by spin — a spin-2 piece (the two polarizations of a gravitational wave) and a spin-0 piece (a scalar). It is tempting, and extremely common in model-building, to keep only the spin-2 piece: gravitational waves have two polarizations, so a "purely gravitational" response ought to be purely spin-2. **That reasoning is wrong, and general relativity is the counterexample.** Linearized Einstein–Hilbert's own response kernel carries a scalar piece *twice the size* of its spin-2 piece. So a model that keeps only spin-2 has made a **choice**, not a derivation — and if it wants to defend that choice it needs an argument, not an appeal to how many polarizations a wave has.
+> **In one paragraph.** When you write down how spacetime responds to being disturbed, the response splits into pieces labelled by spin. It is tempting, in model-building, to keep only the spin-2 piece — gravitational waves have two polarizations, so a "purely gravitational" response ought to be purely spin-2. That reasoning is wrong, and general relativity is the counterexample: linearized Einstein–Hilbert's own kernel carries a scalar piece alongside its spin-2 one. A model that keeps only spin-2 has made a **choice**.
 
-### What is not new here, stated first
+**Everything in this section is standard material, and this time that sentence is the section.** The spin-projector decomposition is Barnes (1963) and Rivers (1964), applied to linearized gravitation by van Nieuwenhuizen (1973), routine since Stelle (1977). The kernel of linearized Einstein–Hilbert in that basis is the standard form ½k²[P⁽²⁾ − (d−2)P⁽⁰ˢ⁾] with P⁽⁰ˢ⁾ = θθ/(d−1) — in four dimensions, a scalar-to-spin-2 ratio of **−2** — and its scalar coefficient is precisely what produces the textbook conserved-source exchange T·T − ½T², so it is observationally load-bearing: it fixes the Newtonian normalization and the light-bending ratio, while **carrying no radiative degrees of freedom** — the physical spectrum is exactly two helicities. The scalar-channel-on-or-off question is likewise old ground: Stelle's R² coefficient switches the spin-0 channel on independently; Weyl-squared gravity is the standard case where it is zero *with a symmetry argument supplied*; ghost-free non-local gravity treats the spin-0 form factor as an independent function. This program's own computations of the −2 are **transcription checks against that literature, twice, in exact rational arithmetic** — not the source of the number.
 
-**The decomposition is textbook.** Splitting a symmetric rank-2 kernel onto spin-projection operators — the spin-2 projector, the two spin-0 projectors, and the spin-1 projector — goes back to Barnes (1963) and Rivers (1964), and was applied to linearized gravitation and to ghost analysis by van Nieuwenhuizen (1973). Since Stelle (1977) it has been the routine first step of every higher-derivative-gravity propagator calculation: you decompose the kernel, read off the pole structure sector by sector, and check which sectors carry ghosts. *Anyone who has computed a propagator in higher-derivative gravity has performed this decomposition.* Nothing in this section improves on that machinery, and the arithmetic below is arithmetic anyone in that literature could have done in an afternoon.
+*(Attestation: the priority references above were verified for existence, authorship, journal and year through secondary literature; I did not read the originals. An earlier draft of this section claimed two narrow novelties on top of the textbook material. A hostile pre-screen — run under this program's own mandatory rules — found both overstated and found a physics error in the section's gauge fence; the corrected account is in the repository, and the register's own nodes now carry the correction. The details are Part VI's material: the short version is that a symmetry restriction this framework's documentation attributed to the Ward identity turns out, per Salcedo–Colás–Dufner–Pajer's open-gravity construction, to be partly a choice — which makes the sentence below stronger, not weaker.)*
 
-*(Attestation, because this document's own rules require it: the priority references above were verified for existence, authorship, journal and year through secondary literature that cites them as the origin of the operators. I did not read the originals. They are in the register as priority citations, not as support for any claim of mine.)*
-
-**Nor is the observation that GR has a scalar sector new.** The constraint structure of general relativity — that the scalar sector is where the Hamiltonian and momentum constraints live, and that it does not propagate — is standard canonical gravity.
-
-### The narrow thing that is offered
-
-Two things, and they are model-building observations rather than discoveries:
-
-**First, the enumeration on both closed-time-path branches.** In an open-system (in-in / Schwinger–Keldysh) treatment, the response kernel lives on a doubled contour, and the diffeomorphism Ward identity must be imposed on **both** branches. Doing that enumeration leaves exactly **two** surviving structures out of the six-dimensional covariant kernel space: the spin-2 projector and the transverse-but-traceful spin-0 projector. The Ward identity buys **transversality**. It stops exactly one condition short of transverse-*traceless*. Tracelessness is a separate condition, and nothing in diffeomorphism invariance supplies it.
-
-**Second, the consequence for anyone building a dissipative open effective theory of gravity.** Linearized Einstein–Hilbert is itself, in this basis, ½k²[P⁽²⁾ − 2P⁽⁰ˢ⁾] — an exact rational identity, verified twice in this program by independent computation with zero residual. The ratio of scalar to spin-2 is **exactly −2**. *And that ratio must be read with its qualifier in the same breath: P⁽⁰ˢ⁾ is non-propagating, constraint-sector response, and the physical radiative spectrum of general relativity remains exactly two helicities.* The scalar piece is not a hidden third graviton polarization; it is the off-shell constraint sector, and it is large.
-
-The consequence is then immediate and, as far as I can tell, not usually stated: **a model that zeroes the scalar channel of its gravitational response kernel has made a constitutive choice.** It cannot defend that choice by counting propagating gravitational-wave polarizations, because general relativity has exactly two of those *and* a scalar kernel twice its spin-2 one. Counting radiative modes tells you nothing about kernel structure. If a framework wants a transverse-traceless-only response, it owes an argument.
-
-### The fence on the ratio
-
-The ratio is convention-dependent and gauge-scoped, and both limits belong here rather than in a footnote:
-
-- **Convention.** The number −2 is stated in the four-dimensional Barnes–Rivers basis with signature (−+++) and P⁽⁰ˢ⁾ = ⅓ θ_μν θ_ρσ. The factor of ⅓ is load-bearing: drop it and the same computation returns −⅔. Any comparison against another calculation must match conventions or state its own.
-- **Gauge.** P⁽²⁾ is invariant under the full four-dimensional diffeomorphism group. P⁽⁰ˢ⁾ is invariant only under the spatial subgroup at fixed slicing. **The four-dimensionally covariant completion of the scalar-sector statement is open in this program** — it is reserved as frontier work and is not claimed.
-
-### And what it did to the framework this document is about
-
-One paragraph, last, because it is the smaller consequence. The responsive-vacuum framework was built on a purely transverse-traceless response kernel. The result above says that ansatz is an assumption rather than a theorem, so the register prices it as one: it is a declared input carrying a cost in the assumption ledger, and every downstream result that leans on it inherits that conditionality. The interrogation that produced this section was commissioned to find out whether the ansatz was forced. It is not. That answer made the framework weaker and the register more honest, which is the trade this whole program is built to make.
-
----
+**The one thing this section is for:** the framework this document describes was built on a purely transverse-traceless response kernel. Nothing above forces that — general relativity's own kernel is the counterexample, and the open-gravity operator space is wider still. So the register prices the TT ansatz as what it is: **a declared assumption, costing one entry in the ledger, inherited as a conditionality by every result that leans on it.** The interrogation that established this was commissioned by this program against its own framework, and the answer — *chosen, not forced* — made the framework weaker and the register more honest.
 
 ## I.2 — Where the arrow of time is imported
 
@@ -192,7 +168,7 @@ The two results differ in what they are about. I.1 is a fact about **general rel
 
 I.2 says so about itself in its own source document, and has from the beginning: *"This is not a solution to the arrow of time."* Every ingredient — Feynman–Vernon factorization, Poincaré recurrence, Pusz–Woronowicz passivity, the Nakajima–Zwanzig deletion — is established work by other people. What is offered is the *organization*: the claim that three assumptions are one, and the refusal to let it hide.
 
-I.1 must be demoted the same way, and this document is the first place it is written down that plainly. The projectors are Barnes and Rivers'. The application to linearized gravity is van Nieuwenhuizen's. The decomposition is routine in the higher-derivative literature. The exact ratio is arithmetic. What is offered is the **enumeration on both closed-time-path branches** and the **model-building consequence** — that zeroing the scalar channel is a choice needing an argument. If someone shows me that consequence stated in the open-effective-field-theory-of-gravity literature, the honest response is to cite them and reduce this section to a pointer, and I would rather that happened than not.
+I.1 is demoted further than I.2, because its pre-screen demanded it: the section now claims **nothing** beyond the literature it cites. Its first draft claimed two narrow novelties; the mandated hostile pass found both overstated — one refuted by Stelle's own organization of the scalar channel, the other inverted by Salcedo–Colás–Dufner–Pajer's result that dissipation necessarily breaks the doubled diffeomorphism symmetry — and found a physics error besides. The pre-commitment in the first draft read: *if someone shows me that consequence stated in the literature, the honest response is to cite them and reduce this section to a pointer.* Someone did — the program's own pre-screen — and this is the pointer.
 
 So the correct grade for this Part is: **two clarifications, carefully made, of things the literature already contains** — one of which cost the framework a load-bearing assumption when it landed. Not discoveries. Useful anyway, and useful independently of everything that follows.
 

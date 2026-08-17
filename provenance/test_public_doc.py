@@ -61,8 +61,8 @@ class TestPublicDoc(unittest.TestCase):
         # guard: test_the_guard_still_bites_inside_part_I mutates a register count into Part I's
         # own prose and requires it caught.
         stripped = re.sub(r"\b(?:spin|rank|helicity)-\d+", "", stripped, flags=re.I)
-        stripped = re.sub(r"\b(?:one|two|three|four|five|six|seven|eight|nine|ten|\d+)-"
-                          r"dimensional(?:ly)?", "", stripped, flags=re.I)
+        stripped = re.sub(r"\b(?:one|two|three|four|five|six|seven|eight|nine|ten|\d+)[- ]"
+                          r"dimensions?(?:al(?:ly)?)?", "", stripped, flags=re.I)
         for formula in ("2 Im G_R^TT", "= -2", "= −2", "P⁽⁰ˢ⁾/P⁽²⁾", "2P", "ratio −2", "ratio -2"):
             stripped = stripped.replace(formula, "")
         # BLOCKQUOTES are exception 1 by construction -- this document only block-quotes the prior
@@ -138,9 +138,9 @@ class TestPublicDoc(unittest.TestCase):
         i = src.find("# Part I —")
         self.assertGreater(i, 0, "Part I not found")
         mutated = (src[:i] +
-                   src[i:].replace("The Ward identity buys **transversality**.",
-                                   f"The Ward identity buys **transversality** in all "
-                                   f"{n['spec_B']} cases.", 1))
+                   src[i:].replace("the physical spectrum is exactly two helicities.",
+                                   f"the physical spectrum is exactly two helicities, checked in "
+                                   f"{n['spec_B']} configurations.", 1))
         self.assertNotEqual(mutated, src, "mutation anchor missing")
         # re-run the same scan the real test uses, on the mutated text
         import tempfile, shutil, os as _os
