@@ -41,7 +41,11 @@ class TestPublicDoc(unittest.TestCase):
         n = E.numbers()
         src = open(SRC).read()
         # strip fenced code, inline code, and DOIs/dates, where digits are legitimate
-        stripped = re.sub(r"`[^`]*`", "", src)                       # inline code
+        # PLACEHOLDERS FIRST: {{token}} is the rule's own mechanism; a digit inside a token
+        # NAME (e.g. sigma0) is not a typed count. Found the hard way when {{desi_sigma0}}'s
+        # trailing 0 tripped the integer scan (2026-08-17).
+        stripped = re.sub(r"\{\{[A-Za-z_0-9]+\}\}", "", src)
+        stripped = re.sub(r"`[^`]*`", "", stripped)                  # inline code
         stripped = re.sub(r"\d{4}-\d{2}-\d{2}", "", stripped)        # dates
         stripped = re.sub(r"10\.5281/zenodo\.\d+", "", stripped)      # DOIs
         stripped = re.sub(r"arXiv:\s*\d{4}\.\d{4,5}", "", stripped)  # arXiv ids
@@ -51,6 +55,10 @@ class TestPublicDoc(unittest.TestCase):
         # WHY THIS STRIPPING IS NOT A LOOPHOLE: the guard's job is to catch a REGISTER COUNT typed
         # as prose. "2 Im G_R^TT" and "P^(0s)/P^(2) = -2" are physics, and a guard that cannot tell
         # them from a count will either cry wolf or be switched off -- which is how guards die.
+        # POWERS OF TEN are physics magnitudes, never register counts -- and they must go
+        # BEFORE the bare-superscript strip, which would otherwise decapitate "10⁷" into a
+        # bare "10" (found 2026-08-17 when tier_shown=10 fired on exactly that residue).
+        stripped = re.sub(r"~?10[⁰¹²³⁴⁵⁶⁷⁸⁹]+[×x]?", "", stripped)
         stripped = re.sub(r"[⁰¹²³⁴⁵⁶⁷⁸⁹½]", "", stripped)
         # LIMIT NOTATION is physics, not a count: rho_TT(omega->0), lim as x -> 0, etc.
         stripped = re.sub(r"[ωx]\s*[→>-]+\s*0", "", stripped)
@@ -88,6 +96,9 @@ class TestPublicDoc(unittest.TestCase):
         # Hyphenated ratios are handled by their own check below; strip them here so their
         # component digits are not ALSO reported as bare integers (the "0" in "0-of-7").
         int_scan = re.sub(r"\b\d+-of-\d+\b", "", stripped)
+        # Sigma-values are check (c)'s jurisdiction, with its clause-level attribution rule;
+        # strip them here so a guarded integer inside "~4σ-class" is not ALSO reported bare.
+        int_scan = re.sub(r"~?\d+(?:\.\d+)?\s*(?:sigma|σ)", "", int_scan)
         offenders = []
         for name, val in guarded.items():
             # (a) as a bare integer
@@ -125,10 +136,40 @@ class TestPublicDoc(unittest.TestCase):
                 if not re.search(r"quoted|cited|that pass|attributed|prior deposit|literature",
                                  sentence, re.I):
                     offenders.append(f"{what} typed unmarked: {m.group(0)!r}")
+        # (d) bare register-derived decimals (the Part III.2 class: the interior-family edge
+        # and its neighbours). No exception machinery: these are THIS register's computed
+        # values, never quotable from elsewhere.
+        for name in ("x_upper", "mu_allowance", "desi_sigma0", "isw_sigma", "isw_central", "x_gate"):
+            val = n.get(name)
+            if not val:
+                continue
+            if re.search(rf"(?<![\d.{{]){re.escape(str(val))}(?![\d}}])", stripped):
+                offenders.append(f"{name}={val} (as a bare decimal)")
         self.assertFalse(offenders,
                          f"register counts typed into the source prose: {offenders}. "
                          f"Use the {{{{placeholder}}}} form -- a typed count goes stale silently, "
                          f"which is the failure the prior deposit made at scale.")
+
+    def test_the_guard_still_bites_inside_part_III(self):
+        """The decimal guard (check d) must bite in the section that introduced the class.
+        Mutate III.2's ceiling sentence to type the register's own decimal and require it
+        caught."""
+        import emit_public_numbers as E
+        n = E.numbers()
+        src = open(SRC).read()
+        target = "admits the interior below a ceiling of roughly {{x_upper}} in x"
+        self.assertIn(target, src, "III.2's ceiling sentence moved; re-anchor this mutant")
+        mutated = src.replace(
+            target, f"admits the interior below a ceiling of roughly {n['x_upper']} in x", 1)
+        import shutil
+        bak = SRC + ".bak"
+        shutil.copy(SRC, bak)
+        try:
+            open(SRC, "w").write(mutated)
+            with self.assertRaises(AssertionError):
+                self.test_the_source_types_no_register_count()
+        finally:
+            shutil.move(bak, SRC)
 
     def test_the_guard_still_bites_inside_part_I(self):
         """The physics-notation strippers must not blind the guard in the section that motivated

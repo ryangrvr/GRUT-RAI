@@ -46,6 +46,8 @@ def values():
         "n_spec_2026_06_25_nodes": n["n_spec_2026_06_25_nodes"],
         "n_spec_2026_06_25_occurrences": n["n_spec_2026_06_25_occurrences"],
         "isw_sigma": n["isw_sigma"], "isw_central": n["isw_central"],
+        "x_upper": n["x_upper"], "mu_allowance": n["mu_allowance"],
+        "desi_sigma0": n["desi_sigma0"], "x_gate": n["x_gate"],
         "spec_raw_incl_annotations": n["spec_raw_incl_annotations"],
         "n_pressure_removals": n["n_pressure_removals"],
     }

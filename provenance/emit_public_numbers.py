@@ -37,7 +37,7 @@ WAVE_DATE = "2026-08-17"         # bumped at the close of every wave
 # this block changed the number the block asserts. A number-emitter that recurses through its own
 # verifier is not a stable reference. The constant is enforced against a real collection by
 # test_public_numbers.py::test_the_stamped_test_count_is_true, so it cannot silently rot.
-STAMPED_TEST_COUNT = 206
+STAMPED_TEST_COUNT = 207
 
 
 def _load():
@@ -141,6 +141,17 @@ def numbers():
                                            json.dumps(c))
                               or re.search(r"SPECIALIST \(Q\d\)", json.dumps(c))})
 
+    # The interior family's computed edge and its empirical neighbours, read from the register
+    # rather than typed (Part III.2's numbers; same rationale as the ISW pair above).
+    xu = re.search(r"x < ~([0-9.]+) \(central-inputs", json.dumps(cl))
+    x_upper = xu.group(1) if xu else None
+    mu = re.search(r"mu-1 <= ~([0-9.]+)\)", json.dumps(cl))
+    mu_allowance = mu.group(1) if mu else None
+    ds = re.search(r"DESI Sigma0 ~([0-9.]+)sigma \(independent", json.dumps(cl))
+    desi_sigma0 = ds.group(1) if ds else None
+    xg = re.search(r"interior-viability claim above x ~ ([0-9.]+)", json.dumps(cl))
+    x_gate = xg.group(1) if xg else None
+
     with open(os.path.join(HERE, "construction_pressure.json")) as f:
         pressure = json.load(f)["occasions"]
 
@@ -157,6 +168,8 @@ def numbers():
                 n_spec_2026_06_25_nodes=len(caps_2026_06_25),
                 n_spec_2026_06_25_occurrences=caps_occurrences,
                 isw_sigma=isw_sigma, isw_central=isw_central,
+                x_upper=x_upper, mu_allowance=mu_allowance, desi_sigma0=desi_sigma0,
+                x_gate=x_gate,
                 spec_A=senses["A"], spec_B=senses["B"], spec_C=senses["C"], spec_D=senses["D"],
                 spec_audit=aud)
 

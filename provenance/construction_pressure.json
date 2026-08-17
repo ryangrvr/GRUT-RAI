@@ -1,29 +1,35 @@
 {
- "_comment": "Occasions during the construction of docs/WHERE_IT_STOPS.md on which an adversarial pass removed a claim the author wanted to make. Recorded as DATA so the number in the document is emitted rather than typed, and so a reader can check the instances rather than the count.",
- "occasions": [
-  {
-   "date": "2026-08-12",
-   "claim_wanted": "that the program's adversarial passes are 'independent'",
-   "removed_by": "hostile pre-screen, prior-deposit lens",
-   "why": "borrows exactly the credential fixed point 2 spends a paragraph removing: same operator, same model family, no human in the loop but the author"
-  },
-  {
-   "date": "2026-08-12",
-   "claim_wanted": "that a result is attacked 'before it may be banked'",
-   "removed_by": "hostile pre-screen, verified against bankgate.py",
-   "why": "the gate exits zero on a flag -- it surfaces, it does not block; the phrasing implied a lock that does not exist"
-  },
-  {
-   "date": "2026-08-12",
-   "claim_wanted": "'No count in this document was typed by hand'",
-   "removed_by": "hostile pre-screen, all four lenses",
-   "why": "falsified inside its own paragraph -- spelled-out numerals and hyphenated ratios walked past a guard that checked bare integers only"
-  },
-  {
-   "date": "2026-08-12",
-   "claim_wanted": "'All trace to sessions the author ran himself'",
-   "removed_by": "adversarial sense-E hunt",
-   "why": "the register proves ABSENCE OF A LOGGED TRANSMISSION and never records modality; the attribution is the author's testimony and is now labelled as such"
-  }
- ]
+    "_comment": "Occasions during the construction of docs/WHERE_IT_STOPS.md on which an adversarial pass removed a claim the author wanted to make. Recorded as DATA so the number in the document is emitted rather than typed, and so a reader can check the instances rather than the count.",
+    "occasions": [
+        {
+            "date": "2026-08-12",
+            "claim_wanted": "that the program's adversarial passes are 'independent'",
+            "removed_by": "hostile pre-screen, prior-deposit lens",
+            "why": "borrows exactly the credential fixed point 2 spends a paragraph removing: same operator, same model family, no human in the loop but the author"
+        },
+        {
+            "date": "2026-08-12",
+            "claim_wanted": "that a result is attacked 'before it may be banked'",
+            "removed_by": "hostile pre-screen, verified against bankgate.py",
+            "why": "the gate exits zero on a flag -- it surfaces, it does not block; the phrasing implied a lock that does not exist"
+        },
+        {
+            "date": "2026-08-12",
+            "claim_wanted": "'No count in this document was typed by hand'",
+            "removed_by": "hostile pre-screen, all four lenses",
+            "why": "falsified inside its own paragraph -- spelled-out numerals and hyphenated ratios walked past a guard that checked bare integers only"
+        },
+        {
+            "date": "2026-08-12",
+            "claim_wanted": "'All trace to sessions the author ran himself'",
+            "removed_by": "adversarial sense-E hunt",
+            "why": "the register proves ABSENCE OF A LOGGED TRANSMISSION and never records modality; the attribution is the author's testimony and is now labelled as such"
+        },
+        {
+            "date": "2026-08-13",
+            "claim_wanted": "two priority claims in Part I.1 -- a both-branches Ward-exhaustiveness novelty and a 'not usually stated' framing -- plus the section's gauge fence",
+            "removed_by": "mandated hostile pre-screen (four lenses + adjudicator), verdict DO-NOT-SHIP",
+            "why": "one novelty was inverted by published work the register itself had flagged as owed (arXiv:2507.03103: dissipation necessarily breaks the doubled diffeomorphism symmetry), the other was refuted by Stelle's own organization of the scalar channel, and the gauge fence transcribed a spatial-frame fact onto the covariant basis where it is false; the register was corrected first, then the section shrunk to one third of its drafted length and re-graded 'claims nothing beyond the literature it cites'"
+        }
+    ]
 }
