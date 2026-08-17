@@ -43,8 +43,10 @@ STAGES = [
 
  ("medium", "The medium: a responsive vacuum with finite memory",
   "The constitutive posit: the gravitational vacuum is an open medium that responds and relaxes. "
-  "This is the program's entry price (+3: the system/bath split, the Gaussian truncation, the "
-  "causal background), booked openly as a stance, with the standard open-system toolkit borrowed "
+  "This is the program's entry price (+4: the system/bath split, the Gaussian truncation, the "
+  "causal background, and -- booked 2026-08-17 on the noise-accounting ruling -- the 4d-covariant "
+  "availability of the Ward-sourced gauge-orbit zero, an open layer with an explicit discharge "
+  "condition), booked openly as a stance, with the standard open-system toolkit borrowed "
   "as scaffolding.",
   ["rung1_inin_action", "u3_split_origin", "linear_response_viscoelastic",
    "relativistic_hydro_israel_stewart", "superfluid_bec_media"],

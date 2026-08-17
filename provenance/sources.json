@@ -177,8 +177,8 @@
   "verifies": "the unitary-gauge EFT-of-dark-energy map: a single scalar/response sector defines an effective T_munu and an effective equation of state w(z)=p/rho -- the STANDARD relaxing-response -> w(z) construction (generic; NOT GRUT-specific). Used for W1 (the map exists)."
  },
  "vikman2005": {
-  "ref": "A. Vikman, Phys. Rev. D 71, 023515 (2005), 'Can dark energy evolve to the phantom?', arXiv:astro-ph/0407107",
-  "verifies": "the phantom-divide no-go: a single non-ghost (NEC-respecting) scalar/fluid cannot DYNAMICALLY cross w=-1; crossing requires a ghost (NEC violation), >=2 fields (quintom), or fine-tuned/oscillatory structure. Used for W2 (no-crossing for a passive single-channel vacuum)."
+  "ref": "A. Vikman, Phys. Rev. D 71, 023515 (2005) [arXiv:astro-ph/0407107], 'Can dark energy evolve to the phantom?'",
+  "verifies": "a single non-ghost degree of freedom cannot dynamically cross w = -1 -- the generic anchor the register mandates citing at any shipped strength of the no-crossing statement (rung7_w3: a no-go cannot outrank its anchor); attested: known through the secondary literature, NOT read in original by the builder"
  },
  "li_barrow2009": {
   "ref": "B. Li & J. D. Barrow, Phys. Rev. D 79, 103521 (2009), 'Does bulk viscosity create a viscous dark energy?', arXiv:0902.3163",
@@ -333,5 +333,13 @@
  "landau_lifshitz_sp1": {
   "ref": "L. D. Landau & E. M. Lifshitz, Statistical Physics Part 1 (Course of Theoretical Physics vol. 5), FDT sections",
   "verifies": "the matrix FDT + passivity engine (PSD propagation) is textbook-standard -- cited so the closure theorem claims only the Ward-sourced zero and the assembly as new; standard-text attribution, not re-derived from the original by the builder"
+ },
+ "sakharov1967": {
+  "ref": "A. D. Sakharov, Dokl. Akad. Nauk SSSR 177, 70 (1967) [Sov. Phys. Dokl. 12, 1040 (1968)], 'Vacuum quantum fluctuations in curved space and the theory of gravitation'",
+  "verifies": "induced gravity -- the metric's dynamics as an effective elasticity of the vacuum, paid for with the UV matter content; cited as LINEAGE for the medium-ontology motivation, not as support for any result; attested: known through the secondary literature, NOT read in original by the builder"
+ },
+ "jaffe2005": {
+  "ref": "R. L. Jaffe, Phys. Rev. D 72, 021301 (2005) [arXiv:hep-th/0503158], 'Casimir effect and the quantum vacuum'",
+  "verifies": "the Casimir force is derivable from the plates' mutual polarization (source theory, alpha->infinity limit) without reference to vacuum zero-point energy -- the citation carried by 0.1's interpretive hedge; attested: known through the secondary literature and the paper's abstract, NOT read in full by the builder"
  }
 }

@@ -33,6 +33,8 @@ def values():
     n = E.numbers()
     v = {
         "STAMP_DATE": E.STAMP_DATE,
+        "CORRECTION_DATE": E.CORRECTION_DATE,
+        "WAVE_DATE": E.WAVE_DATE,
         "total": n["total"], "n_grut": n["n_grut"], "n_cluster": n["n_cluster"],
         "net_grut": f"+{n['net_grut']}", "net_cluster": f"+{n['net_cluster']}",
         "waived_total": f"+{n['waived_total']}", "n_waivers": len(n["waivers"]),

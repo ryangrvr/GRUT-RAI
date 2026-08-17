@@ -2,16 +2,17 @@
 
 *A negative-results report on a program that modelled the gravitational vacuum as a medium with memory, priced every assumption it took, and pushed until it stopped.*
 
-D. Ryan Grover · {{STAMP_DATE}}
+D. Ryan Grover · {{WAVE_DATE}}
 
-> **Correction record, {{STAMP_DATE}}.** Part I's first draft failed its mandatory hostile pre-screen (DO-NOT-SHIP): I.1 overstated two priority claims and contained a physics error in its gauge fence. The section was left standing under a do-not-cite banner rather than pulled, then corrected: I.1 is now one third its drafted length and claims nothing beyond the literature it cites; the register nodes that carried the same over-scoped clause were corrected **first**, with the source read (arXiv:2507.03103) that the register itself had flagged as owed. The full trail — draft, verdict, correction — is in the repository history.
+> **Correction record, {{CORRECTION_DATE}}.** Part I's first draft failed its mandatory hostile pre-screen (DO-NOT-SHIP): I.1 overstated two priority claims and contained a physics error in its gauge fence. The section was left standing under a do-not-cite banner rather than pulled, then corrected: I.1 is now one third its drafted length and claims nothing beyond the literature it cites; the register nodes that carried the same over-scoped clause were corrected **first**, with the source read (arXiv:2507.03103) that the register itself had flagged as owed. The full trail — draft, verdict, correction — is in the repository history.
 >
-> **Published in parts.** Complete as of {{STAMP_DATE}}: the front matter, the note on the
-> prior deposit, and **Part I** (corrected; see the record above). **Outstanding:** Parts 0 and
-> II through VII, and the appendices. The outline is fixed
-> and lives in the repository; the sections below this front matter **do not yet exist**. This
-> line is updated at the close of every wave, and a document silent about its own
-> completeness would be the last uncaught instance of the pattern this document is about.
+> **Published in parts.** Complete as of {{WAVE_DATE}}: the front matter, the note on the
+> prior deposit, **Part 0**, **Part I** (corrected; see the record above), and **Part II**
+> (its figure enters with the figures wave and is marked in place). **Outstanding:** Parts III
+> through VII, the appendices, and all figures. The outline is fixed and lives in the
+> repository; the sections not listed as complete **do not yet exist**. This line is updated
+> at the close of every wave, and a document silent about its own completeness would be the
+> last uncaught instance of the pattern this document is about.
 
 ---
 
@@ -102,6 +103,32 @@ Two errors can be quoted from the book against itself. Its key-points list adver
 
 ---
 
+# Part 0 — Why anyone would model the vacuum this way
+
+## 0.1 — The complaint against an inert vacuum
+
+The quantum vacuum, as measured, is not inert. It polarizes: the effective electric charge runs with distance because the vacuum screens it, and the Lamb shift sits in the hydrogen spectrum — in the standard, ordering-dependent picture, because the vacuum's fluctuations move the electron. A force between uncharged plates — Casimir's — is measured to high precision, though whether it measures vacuum energy or the plates' mutual polarization is itself argued (Jaffe 2005) — a caution worth remembering every time this Part leans on an analogy. And an accelerated detector is predicted to find the vacuum thermal — the Unruh temperature, standard but unobserved. All of this is standard physics — the first items textbook QED, the Unruh prediction free-field theory for accelerated observers — and the measured effects are uncontested, whatever their interpretation: the vacuum, as measured, responds.
+
+The question this program asked is one step further. Elsewhere in physics, response comes tied to dispersion and — somewhere in its spectrum — to loss. The textbook dielectric polarizes instantly; every real dielectric has dispersion — its polarization lags the field, carries a memory of it, and dissipates. A viscoelastic solid is the mechanical version: it pushes back like a spring at short times and flows like a fluid at long times, and the connection between the two behaviours is a memory kernel. Instant, lossless response — response with *zero* memory — is an idealization no measured medium realizes exactly: response comes with dispersion, and dispersion — by Kramers–Kronig — with absorption somewhere in the spectrum. The complaint against an inert gravitational vacuum is simply that "inert" asserts the zero-memory limit exactly, for the one case where it is checked far less stringently than in any laboratory medium — binary-pulsar damping and GW170817 bound it; they do not probe it as a dielectric is probed.
+
+What is that analogy worth? One thing only: a question precise enough to fail. An analogy between the vacuum and a viscoelastic medium licenses no conclusion about gravity — media are made of parts, and whether the vacuum is "made of" anything is exactly what nobody knows. The entire worth of the intuition is whether it can be turned into a definite mathematical object with a definite parameter space and definite exclusion rules, so that the world can say no to it. Part II writes that object down; Part III reports where it stopped.
+
+The idea itself is not new, and that comes first. Sakharov (1967) proposed that gravity is not fundamental but *induced* — the metric's stiffness an effective elasticity of the vacuum, paid for by the matter content at high energy. Jacobson (1995) derived the Einstein equation as an *equation of state*, thermodynamic rather than fundamental, from horizon entropy and the Unruh temperature. The analogue-gravity program (Unruh's sonic horizons onward; Barceló–Liberati–Visser for the survey) exhibits laboratory media — flowing fluids, condensates — in which effective metrics and horizons demonstrably arise, and Hawking-like radiation is reported, its thermality still argued. (The lineage citations here carry the same verification scope as Part I's priority references: verified through secondary literature, not read in original.) A vacuum that behaves as a medium is a decades-old hypothesis; the lineage above is its record. What this program put on top of that lineage is not a new idea but a bookkeeping discipline — every assumption priced, one of them late, caught by the program's own screen; every derivation gated — and whether *that* was worth anything is Part VI's question, not this section's.
+
+## 0.2 — What a memory would buy
+
+If the gravitational vacuum relaxed with finite memory, three things would follow — and each is stated here as a hope, a direction of search, not a result.
+
+A cosmological constant that is not constant: late-time acceleration as a medium still relaxing, its slow approach to equilibrium doing the work the bare constant does in the standard picture. A structural home for gravitational dissipation: an open medium's response and its noise are locked together by the fluctuation-dissipation relation everywhere in equilibrium physics, so gravitational-wave damping and gravitational noise would arrive as one package with a defined shape, wherever the medium is near equilibrium, rather than as free inventions. And a setting where the arrow of time's machinery becomes load-bearing: an open medium *has* an arrow, and a framework built on one must say precisely where that arrow comes from — an obligation Part I.2 reports in full.
+
+That is the hope, in full. The parts that follow report what pursuing it produced: no novel positive prediction, several exclusions, and a small number of results that outlive the framework — most of them results *about the hope's own limits*.
+
+## 0.3 — What it costs before anything is derived
+
+The entry price — most of it paid up front, the last item priced late, after the program's own adversarial screen caught a theorem consuming it unpriced: the division of the world into a slow metric and a fast bath; the restriction of the bath's influence to Gaussian order; the background's causal structure, taken as given; and the covariant availability of the gauge-orbit identity that late-caught theorem leans on (the theorem is Part II.1's). Each is a named input booked under the founding ledger entry (`rung1_inin_action` in `provenance/claims.json`); none has a derivation exhibited from anything above it; the last carries an explicit condition for its own retirement. Everything claimed for the framework below is downstream of that purchase, and no framework result is stronger than it. Part I's two results are the deliberate exception — they hold whether or not the purchase was worth making.
+
+---
+
 # Part I — Two results that outlive the framework
 
 Most of what follows this Part is about a framework that stopped. This Part is not. The two results here are about general relativity and about open-system irreversibility, and they hold whether or not the responsive-vacuum framing is worth anything. They are also, both of them, **careful restatements of standard material** rather than new physics — that claim is made explicitly in I.3, and the reader should hold me to it while reading I.1 and I.2.
@@ -171,5 +198,55 @@ I.2 says so about itself in its own source document, and has from the beginning:
 I.1 is demoted further than I.2, because its pre-screen demanded it: the section now claims **nothing** beyond the literature it cites. Its first draft claimed two narrow novelties; the mandated hostile pass found both overstated — one refuted by Stelle's own organization of the scalar channel, the other inverted by Salcedo–Colás–Dufner–Pajer's result that dissipation necessarily breaks the doubled diffeomorphism symmetry — and found a physics error besides. The pre-commitment in the first draft read: *if someone shows me that consequence stated in the literature, the honest response is to cite them and reduce this section to a pointer.* Someone did — the program's own pre-screen — and this is the pointer.
 
 So the correct grade for this Part is: **two clarifications, carefully made, of things the literature already contains** — one of which cost the framework a load-bearing assumption when it landed. Not discoveries. Useful anyway, and useful independently of everything that follows.
+
+---
+
+# Part II — The framework, written down
+
+## II.1 — The premise as mathematics
+
+> **In one sentence, for readers who skip this section:** the framework is a single quadratic influence action for the metric perturbation on a doubled time contour — a dissipation kernel and a noise kernel, each carried on the spin-2 and scalar tensor structures, a restriction that is a family-conditional theorem resting on one priced input, not a gift of the symmetries — and that action *orients* (a sign floor, x_diss(ω) ≥ 0 pointwise — never a value) its one free scalar ratio, x, without ever fixing it.
+
+The system is the metric perturbation h_μν on a declared background, doubled in the in-in (Schwinger–Keldysh) way that open-system physics requires: one copy for each branch of the time contour, or equivalently an average field and a difference field. The bath — the vacuum's fast degrees of freedom, the metric's own fast modes included — is **integrated out and deliberately not specified**. It is the framework's priced frontier: the bath's one structural property that matters (the shape of its memory) is exactly the question the program drafted for outside help and never sent (Part IV).
+
+The symmetries imposed are declared as an inventory, and nothing beyond the inventory is available: retarded causality; truncation at quadratic order; the system/bath division itself; the equilibrium (KMS) condition with matrix passivity — whose fluctuation-dissipation lock, noise tied to dissipation channel by channel, is that condition's *consequence*, the ledger's assumption-removing event, not a separate imposition; diffeomorphism invariance **with its corrected, narrower scope** — dissipation necessarily breaks the doubled diffeomorphism symmetry down to its diagonal (Salcedo–Colás–Dufner–Pajer), so the surviving identity buys transversality on one slot of the response kernel only, not the exhaustiveness an earlier version of this framework's documentation claimed; background homogeneity and isotropy with their inherited parity-evenness; and the Onsager pair symmetry. Linearized Weyl invariance is *not* on the list and not available — the framework imports the trace anomaly, which is the statement that Weyl invariance is broken.
+
+At quadratic order, at fixed frequency and wavenumber, the action is then
+
+    S_IF[h_r, h_a] = ∫ h_a · K_R · h_r + (i/2) h_a · N · h_a
+
+— a retarded dissipation kernel and a noise kernel, each decomposed on the spin-2 projector P⁽²⁾ and the transverse scalar projector P⁽⁰ˢ⁾. Each channel's coefficient obeys: upper-half-plane analyticity (causality); the KMS lock in equilibrium, noise tied to dissipation channel by channel; and passivity — no channel may amplify at any frequency, with no cross-channel rescue. The restriction of *both* kernels to those two structures has a history: after the correction recorded in Part I it stood as a **declared restriction**, not a consequence; it has since been shown in-house to be a **theorem on the framework's own admissible family, conditional on one priced input** — the covariant availability of the gauge-orbit identity, the ledger's newest entry — with positivity doing the closing work the broken symmetry could not. The same positivity closes the spin-2 dissipation channel at spacelike momenta on the same family — the closure rides the same priced input, and tensor-sector spacelike support would require the medium frame the framework's covariant family excludes. Outside that family — noise decoupled from dissipation, non-thermal occupations — a strictly larger operator space exists (Salcedo–Colás–Dufner–Pajer's open-gravity construction) and is fenced at its point of entry. One structural conjecture remains deliberately open and labelled: that the memory is *finite* — a single relaxation pole rather than a branch cut. That is the framework's load-bearing conjecture, it is external, and Part IV is about it.
+
+One anchor sets the scale: general relativity's own kernel, ½k²[P⁽²⁾ − 2P⁽⁰ˢ⁾] — its scalar component, twice the spin-2 one in magnitude, is Part I's first result made structural, and GR itself refuses the pure-spin-2 idealization. And the scalar modulus is given a name: x, the scalar channel's coefficient normalized to the trace-only endpoint — the configuration whose scalar channel couples to the trace alone (x = 1) — **declared a function of frequency and wavenumber rather than a constant**, because nothing in the program's corpus forces it constant and pretending otherwise would smuggle a dial.
+
+The landing: **the action does not fix x.** What it forbids is real — anti-passive response in either channel at any frequency; noise detached from dissipation in equilibrium; acausal kernels. Two further exclusions have homes outside the action and are recorded at their own strength: the trace-only endpoint x = 1 at constant x, excluded by a partly empirical export (the register's `mu_linear` no-go), not by the action's conditions; and — held at to-derive by the register's own ruling, conditional on the single-pole conjecture this paragraph just declared open, and generic where it holds (Vikman 2005) — the statement that a single passive channel cannot cross the phantom divide. What the action itself does not forbid is recorded with equal weight: any amplitude of either modulus, any nonnegative value of x, any frequency- or wavenumber-structure compatible with the conditions above. The action carries a *family*. "Responsiveness" means exactly this list — a doubled rank-2 field, this inventory of symmetries, two kernel channels with these analyticity, balance, and positivity conditions, one adopted dimensionless axiom (α, the anomaly normalization, conditional-theorem grade), one open conjecture (the single-pole memory, external), one hand-chosen point (x = 0 constant — the pure-TT choice, priced in the ledger), and one unfixed function. Anything attributed to "responsiveness" that does not follow from that list is an insertion, and the register books it as one.
+
+## II.2 — What it bets
+
+The postulate map sorts every input by kind, and the sort answers "what is this framework actually betting?" *(The figure for this section — the postulate sort drawn as a map — enters with the figures wave; the completeness line above tracks it.)*
+
+**Bedrock: posits that are not even candidates for derivation.** The medium ontology itself, with its division into slow metric and fast bath — the bet, and a framework must bet something. The low-entropy past boundary — Part I.2 is the demonstration that, in every case surveyed, the arrow's *direction* is imported rather than dynamical — so the framework imports it, priced. And the Born measure: decoherence machinery selects a pointer *basis*; it does not by itself supply the outcome *probability*; the probability rule is inherited. The discipline's claim about these is not "unsolved" but "un-derivable in every case surveyed" (Part I.2's scope): surveyed derivation claims relocate the input; they do not remove it — and counting a relocation as a removal is the laundering the register books (laundering — deriving with an input the derivation does not declare).
+
+**Open layers: assumed today, each with a named path to discharge.** The bath's memory shape — pole or cut, the framework's one decisive external question. The pure-spin-2 choice — the symmetry route to forcing it is *closed* (Part I.1); a dynamical route through the bath survives, at the recorded cost that it would relocate the assumption rather than remove it. The general action carries x free; the framework's cosmology exports were computed at the hand-chosen point x = 0 — the pure-TT choice — and that point, not the family, is what this open layer names. And the covariant gauge-orbit availability — the entry booked while this document was in preparation, which is booked to retire into the operator basis's reserved covariant completion — the register's named placeholder for that work — if and when it lands, in-house or in the literature.
+
+**Borrowings, with the loan recorded: things the framework does not host.** General relativity itself is *recovered with imports*, never derived — the memory-to-zero limit collapses the kernel to a local form, and the recovery leans on horizon area and the Unruh temperature, both priced. Each program surveyed pays somewhere: Jacobson pays with horizon thermodynamics, Sakharov with the high-energy matter content. And the anomaly-to-amplitude bridge — the hope that the trace anomaly would normalize the spin-2 response — is settled negative on projector orthogonality: the trace is scalar, the response is spin-2, and no metric-built object intertwines them.
+
+**Results, never inputs.** The fluctuation-dissipation lock — an entry that *removed* an assumption (the register's negative ledger event, `rung2_kms_gate`). Linear cosmology in the ΛCDM shape — held not by derivation but by a partly empirical exclusion the framework exports against its own naive modification; derived-pending, leaning on the pure-TT point and carrying that conditionality. The no-crossing statement — a single passive channel cannot cross the phantom divide (the second law fixes the side, not the slope) — held at to-derive, gated on the single-pole question, generic where it holds (Vikman 2005). The map's reading rule: a bedrock item claimed as derived is laundering; an open layer that graduates is a real ledger event; a borrowing sold as hosted is an over-claim; a result counted as an input is the category error the register's gate exists to catch.
+
+One sentence for the whole bet: **a medium taken at Gaussian order on a given causal background, a boundary condition, and a measure — everything else is either open with a named discharge, borrowed with the loan recorded, or output.**
+
+## II.3 — The whole story, with the holes marked
+
+The register's story is authored where it must be and generated where it matters: the stage-to-claims mapping is the construction — authored — and every link's status is computed from the claims, not narrated over them. The chain, from origin to observers, at a glance — the status marks exactly as generated:
+
+> origin → medium → persistence → arrow ∥ thermality → gravity → quantum → classicality ∥ structure → dark energy → matter (SILENT) → observers (UNPOSED)
+
+The marks are the content. Two pairs of links are *concurrent* (∥) because forcing them into sequence would be a readability lie: the arrow and thermality are one fact doing two jobs, and decoherence of cosmological perturbations happens *during* structure formation — the two do not cleanly separate. One link is **SILENT**: no node in the framework's scope books the Standard Model's spectrum or couplings as a claim — the chain's matter link (persistence's far neighbour) is empty, and the chain says so in capitals rather than tidying the hole away. One link is **UNPOSED**: how observers arise has never even been asked in the register, and the chain ends by admitting it.
+
+What the generated statuses show, read as a whole: the original content clusters in the middle. The memory kernel, the fluctuation-dissipation lock, the arrow decomposition — the links where the open-system toolkit actually grips — carry the program's own contributions. Both ends are borrowed or empty: the origin link is pure import (the past boundary), and the far end is silence. The framework is a **middle-of-the-story framework**, strongest exactly where dissipation, memory, and detailed balance do work, empty where they have nothing to hold.
+
+And one structural fact the chain surfaced: the story's strongest joint — the node shared between the arrow and thermality links — is the same node as the ledger's assumption-*removing* entry (`rung2_kms_gate`). The place where the narrative is most load-bearing and the place where the accounting ran negative coincide. The shared node is the authored mapping's; its negative ledger entry is the register's — both halves are checkable.
+
+The chain also keeps its own books: every claim in the framework's scope (the GRUT nodes) is either placed in a link or listed off-chain with a reason, and the generator errors if one goes missing. The full artifact, statuses and all, is `EMERGENCE_CHAIN.md` in the repository, regenerated on every register change; this section is a reading of it, and where the two disagree, the generated artifact wins.
 
 ---

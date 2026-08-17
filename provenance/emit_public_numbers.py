@@ -25,6 +25,11 @@ OUT = os.path.join(ROOT, "PUBLIC_NUMBERS.md")
 # The date is an ARGUMENT, never `today` -- a block that silently re-dates itself on every run
 # cannot be diffed, and "generated on a stated date" is the property the rule needs.
 STAMP_DATE = "2026-08-12"
+# Date split (2026-08-17 pre-screen ruling): the correction record is a frozen historical
+# stamp; the byline and completeness line are living wave stamps. One shared token let the
+# banner mis-date the Part-I correction.
+CORRECTION_DATE = "2026-08-14"   # the Part-I correction arc (register-first, then prose)
+WAVE_DATE = "2026-08-17"         # bumped at the close of every wave
 
 # The collected-test count is a STAMPED CONSTANT, not a live collection.
 # WHY (found by the guard on its first run): the emitter originally shelled out to pytest to count

@@ -63,7 +63,8 @@ class TestPublicDoc(unittest.TestCase):
         stripped = re.sub(r"\b(?:spin|rank|helicity)-\d+", "", stripped, flags=re.I)
         stripped = re.sub(r"\b(?:one|two|three|four|five|six|seven|eight|nine|ten|\d+)[- ]"
                           r"dimensions?(?:al(?:ly)?)?", "", stripped, flags=re.I)
-        for formula in ("2 Im G_R^TT", "= -2", "= −2", "P⁽⁰ˢ⁾/P⁽²⁾", "2P", "ratio −2", "ratio -2"):
+        for formula in ("2 Im G_R^TT", "= -2", "= −2", "P⁽⁰ˢ⁾/P⁽²⁾", "2P", "ratio −2", "ratio -2",
+                        "(i/2)", "≥ 0", ">= 0", "x = 0", "x = 1"):
             stripped = stripped.replace(formula, "")
         # BLOCKQUOTES are exception 1 by construction -- this document only block-quotes the prior
         # deposit and the literature, both of which the rule exempts and both of which are marked
