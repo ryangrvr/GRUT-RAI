@@ -39,6 +39,48 @@ without one.
 # arithmetic is exactly as load-bearing as a calc.
 
 BATTERIES = {
+    # ------------------------------------------------- noise transversality (the derive-or-book exhibit)
+    "noise_transversality_check.py": {
+        "slow": True,
+        "mutants": [
+            ("conjugation_dropped_in_rho",
+             "(K - K.H) / (2 * I)",
+             "(K - K.T) / (2 * I)",
+             "breaks the Hermiticity relation D_A = K_R^dag that the spectral form rests on; the "
+             "Ward-sourced zero g'rho g = 0 no longer follows and PART 1/PART 3 must fail. If the "
+             "calc still passes, its identity check was verifying its own construction."),
+            ("gauge_orbit_lowered",
+             "kup[r] * (1 if s == a else 0)",
+             "klow[r] * (1 if s == a else 0)",
+             "malformed gauge orbit (lower-index k): the theorem gets tested against the wrong "
+             "orbit and the family kernel no longer annihilates it -- the wrong-object error."),
+            ("witness_sign_flipped",
+             "if val < 0:",
+             "if val > 0:",
+             "installs THE FLATTERING OUTCOME: the positivity-violation witness is never found, so "
+             "the counterexample reads as positivity-compatible and 'KMS alone suffices' -- the "
+             "exact wrong answer that would have made the derivation look cheaper than it is."),
+            ("engine_bound_inverted",
+             "if not (lhs <= stat):",
+             "if not (lhs >= stat):",
+             "corrupts the PSD engine's Cauchy-Schwarz bound -- the propagation step's motor; "
+             "PART 2 (or the battery's own M3 catch) must fail."),
+            ("psd_conj_slip_reinstalled",
+             "A[i, j] - f * A[pivot_i, j]",
+             "A[i, j] - f * sp.conjugate(A[pivot_i, j])",
+             "re-installs the first draft's Schur-complement conj-slip -- correct on real "
+             "symmetric input, wrong on complex Hermitian (reports [[1,2i],[-2i,2]], det -2, "
+             "as positive). The PART-0 selftest must catch it; if the calc still passes, the "
+             "selftest has gone dead. Found by the 2026-08-17 re-screen."),
+            ("off_family_spacelike_instance",
+             "(Rational(0) if spacelike else Rational(2))",
+             "(Rational(2) if spacelike else Rational(2))",
+             "re-installs the first draft's own caught defect: a spacelike family instance with "
+             "s2 > 0, which the theorem's positivity premise bars (P^(2) is plain-indefinite at "
+             "spacelike k^2). The composition assert added on the 2026-08-17 screen finding must "
+             "refuse it; if the calc still passes, that assert has gone dead."),
+        ],
+    },
     # ---------------------------------------------------------------- the merge criterion's tool
     "merge_test.py": {
         "slow": False, "dir": "provenance",

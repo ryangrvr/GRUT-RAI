@@ -3,8 +3,8 @@
 *A durable companion to `NO_GO_LEDGER.md`. The no-go ledger records what GRUT **forbids**; this map records what GRUT **assumes**, sorted by the kind of assumption — so no input can hide and no output can be mistaken for one. It is the honest answer to "what is GRUT actually betting, and where?"*
 
 *The register carries **19 named dependency items** that net to **+13** after the internal offsets (the KMS-locking credit −1, plus the suspended single-pole and α-anchor credits; item 19 = the single-departure-shape closure, booked 2026-08-02). This map sorts those 19 — and the program's results — into four bins. Kept consistent, claim-by-claim, with `provenance/claims.json` (validator GREEN, net +13, 45 nodes — 34 GRUT claims + 11 borrowed/open-field scaffold).*
-<!-- REGISTER-SYNC: 49 nodes, net +13 -->
-<!-- REGISTER-TOTAL: 70 = 49 grut + 21 vacuum-cluster; nets +13 grut, +0 cluster -->
+<!-- REGISTER-SYNC: 49 nodes, net +14 -->
+<!-- REGISTER-TOTAL: 70 = 49 grut + 21 vacuum-cluster; nets +14 grut, +0 cluster -->
 
 ---
 

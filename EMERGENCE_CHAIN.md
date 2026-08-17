@@ -28,7 +28,7 @@ The constitutive posit: the gravitational vacuum is an open medium that responds
 
 | register claim | status (generated) |
 |---|---|
-| `rung1_inin_action` | shown +3 |
+| `rung1_inin_action` | shown +4 |
 | `u3_split_origin` | to-derive |
 | `linear_response_viscoelastic` | assumed (borrowed) |
 | `relativistic_hydro_israel_stewart` | assumed (borrowed) |

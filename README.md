@@ -14,8 +14,8 @@ There are **two distinct bodies of work called GRUT**, and they are **not the sa
 
 To verify the state of this repository yourself, see [`HOW_TO_VERIFY.md`](HOW_TO_VERIFY.md).
 
-<!-- REGISTER-SYNC: 49 nodes, net +13 -->
-<!-- REGISTER-TOTAL: 70 = 49 grut + 21 vacuum-cluster; nets +13 grut, +0 cluster -->
+<!-- REGISTER-SYNC: 49 nodes, net +14 -->
+<!-- REGISTER-TOTAL: 70 = 49 grut + 21 vacuum-cluster; nets +14 grut, +0 cluster -->
 *Vocabulary gloss for outside readers (added 2026-08-10 after an external reviewer reasonably misread it): **net +13** is the blind SUM of the register's underived-input ledger — the standing price of every assumption, unchanged for weeks and meant to stay unchanged — not a count of new entries; **CLEAN** means the register is unmodified since the last accepted change. Neither is a progress metric.*
 
 > **📘 Canonical theory book: [`GRUT_ToE.md`](GRUT_ToE.md)** — the single living document for GRUT's

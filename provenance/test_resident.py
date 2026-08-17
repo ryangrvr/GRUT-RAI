@@ -8,7 +8,7 @@ Covers the spec exactly:
   - a proposal re-opening a settled-negative FLAGS;
   - a tier-contradiction FLAGS;
   - the dependency graph is acyclic and resolves;
-  - the live register still audits GREEN +13 with tiers unchanged;
+  - the live register still audits GREEN +14 with tiers unchanged;
   - plus: prior-lineage flags, unresolved-deps blocks, downstream works, the resident never
     turns a substantive claim into a silent PASS (laundering harder, never banking easier).
 
@@ -284,15 +284,15 @@ class TestResident(unittest.TestCase):
             cl = next(c for c in self.claims if c["id"] == cid)
             self.assertTrue(_r._is_closed(cl), f"{cid} must be recognized closed via sub_status")
 
-    # ---- live register regression: GREEN +13, tiers unchanged, graph valid ----
-    def test_live_register_green_plus13_tiers_unchanged(self):
+    # ---- live register regression: GREEN +14, tiers unchanged, graph valid ----
+    def test_live_register_green_plus14_tiers_unchanged(self):
         # SCOPED 2026-08-04: these assertions are about GRUT'S register. The same file now also
         # carries the vacuum-cluster physics map under a different vocabulary and a separate
         # ledger (validate_scoped.py); it must not enter GRUT's count.
         grut = [c for c in self.claims if c.get("ledger_scope", "grut") == "grut"]
         r = audit(grut, self.src, DEFAULT_TIERS)
         self.assertTrue(r.ok, f"live register must audit clean; blocks={r.blocking}")
-        self.assertEqual(r.net, 13)
+        self.assertEqual(r.net, 14)
         self.assertEqual(len(grut), 49)   # 46 + the x-floor wave's three delta-0 nodes (2026-08-09: passivity_channel_diagonal, x_no_pin_theorem, kk_static_transfer)
         # depends_on present on every claim; tiers are the banked ones
         for c in self.claims:
@@ -300,8 +300,8 @@ class TestResident(unittest.TestCase):
         graph, errors = dependency_graph(self.claims)
         self.assertEqual(errors, [])
 
-    def test_ledger_graph_reconciliation_net_plus13_no_double_count(self):
-        # A3 RECONCILIATION: net = sum of ledger_delta over DISTINCT nodes (each id once) == +13 (post the 2026-08-02 rung7 booking).
+    def test_ledger_graph_reconciliation_net_plus14_no_double_count(self):
+        # A3 RECONCILIATION: net = sum of ledger_delta over DISTINCT nodes (each id once) == +14 (post the 2026-08-02 rung7 booking and the 2026-08-17 rung1 bath-genuineness booking).
         # The blind-sum auditor cannot catch a double count, so this pins it structurally: the promoted
         # borrowed premises carry ZERO credit (their +1 stays inside the borrower), so growing the graph
         # cost zero honesty. A node carrying +1 AND its borrower keeping its delta would push net to +14
@@ -310,7 +310,7 @@ class TestResident(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)), "duplicate claim ids -> a node counted twice")
         net = sum(c.get("ledger_delta", 0) for c in self.claims
                   if isinstance(c.get("ledger_delta"), int) and not isinstance(c.get("ledger_delta"), bool))
-        self.assertEqual(net, 13, "net over distinct nodes must be +13 (rung7 books 3 since 2026-08-02)")
+        self.assertEqual(net, 14, "net over distinct nodes must be +14 (rung7 books 3 since 2026-08-02; rung1 books 4 since 2026-08-17)")
         # the A3 promoted premises are zero-credit re-typings (borrowers keep their declared deltas)
         by_id = {c["id"]: c for c in self.claims}
         for cid in ("born_rule", "entropy_area_unruh", "past_hypothesis", "lambda_undetermined"):

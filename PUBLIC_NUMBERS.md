@@ -6,11 +6,11 @@
 | claims in `claims.json` (all scopes) | **70** |
 | — of those, GRUT-scope | **49** |
 | — of those, vacuum-cluster scope | **21** |
-| net underived-input ledger, GRUT scope | **+13** |
+| net underived-input ledger, GRUT scope | **+14** |
 | net underived-input ledger, vacuum-cluster scope | **+0** |
-| of the GRUT net, carried behind declared waivers | **+8** across 4 claims |
-| primary sources in `sources.json` | **79** |
-| calculation files in `calc/` | **25** |
+| of the GRUT net, carried behind declared waivers | **+9** across 4 claims |
+| primary sources in `sources.json` | **83** |
+| calculation files in `calc/` | **26** |
 | test files in `provenance/` | **18** |
 | tests collected | **206** |
 
@@ -29,7 +29,7 @@
 | claim | ledger_delta |
 |---|---|
 | `p_tt_ansatz` | **+1** |
-| `rung1_inin_action` | **+3** |
+| `rung1_inin_action` | **+4** |
 | `rung5_gr_limit` | **+2** |
 | `rung6_qm_limit` | **+2** |
 

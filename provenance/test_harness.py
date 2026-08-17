@@ -9,7 +9,7 @@ Hammers the guards from the brief:
   - the forward map: single-scale -> w=-1 derived (no inserted input); a 2nd scale -> inserted-input flag;
   - NO TUNING-AS-LAUNDERING: a kernel tuned to match DESI -> data_consistent False + laundering_flag;
   - default-broken: an empty admissible-and-matching set is a valid, returnable result;
-  - no universe is ever tier 'shown'; the live register still audits GREEN +13 (harness writes nothing).
+  - no universe is ever tier 'shown'; the live register still audits GREEN +14 (harness writes nothing).
 
 Pure stdlib (unittest). Run:  python3 provenance/test_harness.py
 """
@@ -319,8 +319,8 @@ class TestHarness(unittest.TestCase):
         r = harness.evaluate(harness.universe("z0", L0=0.0, spectral_form="single-pole"), self.claims)
         self.assertFalse(r["admissible"])
 
-    # ---- the harness writes no physics input; register stays GREEN +13 ----
-    def test_register_unchanged_green_plus13(self):
+    # ---- the harness writes no physics input; register stays GREEN +14 ----
+    def test_register_unchanged_green_plus14(self):
         # sampling a whole family must not change the register
         before = [c["ledger_delta"] for c in load_claims()]
         harness.sample_family(self.claims, [harness.universe("z"), harness.universe("z2", second_scale=1e3)])
@@ -334,7 +334,7 @@ class TestHarness(unittest.TestCase):
         grut = [c for c in after if c.get("ledger_scope", "grut") == "grut"]
         r = audit(grut, source_ids, DEFAULT_TIERS)
         self.assertTrue(r.ok)
-        self.assertEqual(r.net, 13)
+        self.assertEqual(r.net, 14)
         self.assertEqual(len(grut), 49)   # 46 + the x-floor wave's three delta-0 nodes (2026-08-09: passivity_channel_diagonal, x_no_pin_theorem, kk_static_transfer)
 
 

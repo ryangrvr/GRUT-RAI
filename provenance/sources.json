@@ -317,5 +317,21 @@
  "stelle1977": {
   "ref": "K. S. Stelle, 'Renormalization of higher-derivative quantum gravity', Phys. Rev. D 16, 953 (1977)",
   "verifies": "PRIORITY, NOT SUPPORT. The higher-derivative-gravity propagator analysis from which the spin-projector decomposition of gravitational kernels became routine; every subsequent propagator/ghost analysis in that literature performs the same decomposition. Cited so the document states plainly that decomposing a gravitational kernel on these projectors is textbook. ATTESTATION: secondary-literature-verified, NOT read in original."
+ },
+ "hu_verdaguer_lrr": {
+  "ref": "B. L. Hu & E. Verdaguer, 'Stochastic Gravity: Theory and Applications', Living Rev. Relativity",
+  "verifies": "noise-kernel bitensor transversality DERIVED from matter stress-tensor conservation (nabla^a xi_ab = 0), with PSD-ness from self-adjointness -- the conserved-current-bath subclass route; cited as corroboration-by-different-route, never as the license; verified by the 2026-08-16/17 adversarial screen's physics lens against the fetched text (an AI instrument), NOT read in original by the builder -- same attestation class as barnes1963/rivers1964"
+ },
+ "salcedo_colas_pajer2025": {
+  "ref": "Salcedo, Colas & Pajer, JHEP 03 (2025) 138 [arXiv:2412.12299]",
+  "verifies": "Bianchi/conservation-route noise constraints in open gravity whose no-dissipation corner reproduces the transversality conclusion and which DEFORM under dissipation -- the demarcation neighbour of the family-conditional closure theorem (which covers the with-dissipation FDT-locked case); verified by the 2026-08-16/17 adversarial screen's physics lens against the fetched text (an AI instrument), NOT read in original by the builder -- same attestation class as barnes1963/rivers1964"
+ },
+ "abe_nishii2026": {
+  "ref": "Abe & Nishii, arXiv:2605.22822, Sec. 4.3",
+  "verifies": "the (Ward, FDT, positivity) triad used with the transverse projection IMPOSED as an input -- the projection the 2026-08-17 closure chain derives; verified by the 2026-08-16/17 adversarial screen's physics lens against the fetched text (an AI instrument), NOT read in original by the builder -- same attestation class as barnes1963/rivers1964"
+ },
+ "landau_lifshitz_sp1": {
+  "ref": "L. D. Landau & E. M. Lifshitz, Statistical Physics Part 1 (Course of Theoretical Physics vol. 5), FDT sections",
+  "verifies": "the matrix FDT + passivity engine (PSD propagation) is textbook-standard -- cited so the closure theorem claims only the Ward-sourced zero and the assembly as new; standard-text attribution, not re-derived from the original by the builder"
  }
 }

@@ -4,8 +4,8 @@
 
 
 *One page, two-minute read: where the program is, for external review and the deposit decision. Snapshot 2026-08-02; register line and node count current as of 2026-08-09. Crystallization only — this ties the artifacts together; it does not re-derive or duplicate them. Register: **gate GREEN; net +13 (GRUT), 0 (cluster); 49 GRUT-scope nodes + 21 vacuum-cluster = 70 in `claims.json`** (37 GRUT claims: 26 Version I deposit + 6 Version II entry + `eft_operator_basis` + `zeta_interior_family` + the x-floor trio `passivity_channel_diagonal`/`x_no_pin_theorem`/`kk_static_transfer` (2026-08-09, each Δ0, overseer-ruled split; the transfer question answered same-day, staged); + 11 borrowed/open-field scaffold + `emergence_chain`, the building-stage construction node at Δ0 — the coverage map, `provenance/coverage.py`).*
-<!-- REGISTER-SYNC: 49 nodes, net +13 -->
-<!-- REGISTER-TOTAL: 70 = 49 grut + 21 vacuum-cluster; nets +13 grut, +0 cluster -->
+<!-- REGISTER-SYNC: 49 nodes, net +14 -->
+<!-- REGISTER-TOTAL: 70 = 49 grut + 21 vacuum-cluster; nets +14 grut, +0 cluster -->
 *(Count disambiguation: **49** is the GRUT-scope claim count the sync marker tracks; `claims.json` holds **70** total = 49 GRUT + 21 vacuum-cluster. Nets: **+13** GRUT, +0 cluster. Anyone running `len(claims)` gets 70.)*
 Of the **+13**, **+8 rides on four declared `laundering_ok` waivers** (`rung1_inin_action` +3, `rung5_gr_limit` +2, `rung6_qm_limit` +2, `p_tt_ansatz` +1), each carrying a written stance justification — `validate.py` prints the waived total on its own face.
 *Vocabulary gloss for outside readers (added 2026-08-10 after an external reviewer reasonably misread it): **net +13** is the blind SUM of the register's underived-input ledger — the standing price of every assumption, unchanged for weeks and meant to stay unchanged — not a count of new entries; **CLEAN** means the register is unmodified since the last accepted change. Neither is a progress metric.*

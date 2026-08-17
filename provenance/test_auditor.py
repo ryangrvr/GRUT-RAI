@@ -11,7 +11,7 @@ Mirrors the discipline exactly:
   - laundering_ok exempts a declared stance/recovery;
   - assumed + positive WARNS (non-blocking);
   - the engine is NOT GRUT-specific (custom vocab, non-GRUT claims);
-  - REGRESSION: the live GRUT register still audits GREEN at net +13.
+  - REGRESSION: the live GRUT register still audits GREEN at net +14.
 
 Pure stdlib (unittest). Run:  python3 provenance/test_auditor.py
 """
@@ -137,7 +137,7 @@ class TestAuditor(unittest.TestCase):
         self.assertFalse(r2.ok)
 
     # --- regression: the live register stays GREEN at +12 ---
-    def test_live_register_audits_green_at_plus_12(self):
+    def test_live_register_audits_green_at_booked_net(self):
         with open(os.path.join(HERE, "sources.json")) as f:
             sources = json.load(f)
         source_ids = {k for k in sources if not k.startswith("_")}
@@ -148,7 +148,7 @@ class TestAuditor(unittest.TestCase):
         claims = [c for c in claims if c.get("ledger_scope", "grut") == "grut"]
         r = audit(claims, source_ids, DEFAULT_TIERS)
         self.assertTrue(r.ok, f"live register must audit clean; blocks={r.blocking}")
-        self.assertEqual(r.net, 13, "net ledger must be +13 (the 2026-08-02 restriction booking)")
+        self.assertEqual(r.net, 14, "net ledger must be +14 (the 2026-08-02 restriction booking + the 2026-08-17 rung1 bath-genuineness booking)")
         self.assertEqual(len(claims), 49, "GRUT scope holds 49 nodes (37 GRUT claims incl. eft_operator_basis + zeta_interior_family + the x-floor trio passivity_channel_diagonal/x_no_pin_theorem/kk_static_transfer + 11 borrowed/open-field scaffold + emergence_chain, the building-stage construction node, delta 0)")
 
 
