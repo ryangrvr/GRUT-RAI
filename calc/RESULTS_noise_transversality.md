@@ -20,9 +20,14 @@ On the register's booked family (FDT-locked kernels, scalar occupation dials):
 2. **Positivity propagates it.** N is a PSD covariance on the full index space, plain
    pairing (Wightman/Bochner; bath-side unitarity — the system-side wrong-sign sector
    lives in Re K_R). PSD + zero diagonal ⇒ zero row (Cauchy–Schwarz applied directly
-   to N). **This is the priced input**: rung1's fourth declared input (+1, net +14) —
-   the FV *form* was banked; the positivity *content* was not, and the spatial-frame S4
-   is frontier-reserved at the needed 4d strength (KC5 fence, x_no_pin_theorem precedent).
+   to N). **The priced input** (renamed at owner verification 2026-08-17): rung1's fourth declared
+   input (+1, net +14) is the **4d-covariant availability of the Ward-sourced gauge-orbit
+   zero** — the KC5-reserved covariantization ("P2 full-4d-invariant; P0s
+   spatial-subgroup-only, Bardeen completion frontier-reserved"), with an explicit
+   discharge condition: the +1 retires when that frontier work lands.
+   N-as-PSD-covariance was ruled CONSTITUTIVE of the banked Gaussian bath; the
+   spatial-frame S4 stays frontier-reserved at the needed 4d strength (KC5 fence,
+   x_no_pin precedent).
 3. **The lock closes it.** N = coth·ρ in equilibrium; the booked departures are scalar
    occupations n(ω) (the (eps, τ₂) dials, already paid at rung7_wz). So N g = 0 —
    **the noise kernel is transverse** — and ρg = Ng/n(ω) ⇒ **K_R is transverse on both
@@ -65,9 +70,10 @@ Re-screen verdict: SHIP.
 
 ## Register footprint
 
-- `rung1_inin_action`: ledger_delta 3 → 4 (fourth input: bath genuineness / covariance
-  positivity), stance updated; the 0-delta alternative horn is stated in the note for the
-  owner and was not taken by the builder.
+- `rung1_inin_action`: ledger_delta 3 → 4 (fourth input, renamed at owner verification:
+  the 4d-covariant gauge-orbit Ward zero, KC5-reserved, explicit discharge condition),
+  stance updated; the 0-delta horn was DECLINED by the owner 2026-08-17, three grounds
+  recorded in the note.
 - `p_tt_ansatz`, `eft_operator_basis`: discharge addenda appended to the 2026-08-14 marks
   (appended, not superseding). p_tt_ansatz's +1 stays: transversality-derived does not
   force tracelessness; TT remains CHOSEN.

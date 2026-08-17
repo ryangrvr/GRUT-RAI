@@ -10,7 +10,8 @@ either BOOK the input (+1) or DERIVE it from what is already booked -- "exhibite
 THE ANSWER, as it stands after the 2026-08-16/17 adversarial screen (three refuter lenses plus
 adjudicator; the screen's findings are incorporated below and marked where they cut): BOTH horns,
 composed. The chain is a genuine derivation, but it consumes ONE premise the register had not
-priced -- so that premise is booked (+1 at rung1: bath genuineness / covariance positivity), and
+priced -- so that premise is booked (+1 at rung1; renamed at owner verification: the
+4d-covariant availability of the Ward-sourced gauge-orbit zero, KC5-reserved), and
 transversality is then a THEOREM conditional on that priced input. The chain:
 
   P1  WARD SOURCES A ZERO (the accepted 2026-08-14 mark): K_R annihilates the gauge orbit
@@ -30,7 +31,10 @@ transversality is then a THEOREM conditional on that priced input. The chain:
       premise -- bath genuineness -- is NOT inside rung1's banked form-only statement, and the
       spatial-frame S4 (operator_basis.py, KC5 fence) is frontier-reserved at exactly the
       needed 4d strength, so it CANNOT substitute (it corroborates in the spatial frame only).
-      The premise is therefore BOOKED: rung1's fourth declared input (+1, 2026-08-17).
+      The premise is therefore BOOKED: rung1's fourth declared input (+1, 2026-08-17;
+      renamed at owner verification -- the priced half is the 4D-COVARIANT AVAILABILITY
+      of the Ward-sourced gauge-orbit zero, the KC5-reserved covariantization;
+      N-as-PSD-covariance was ruled CONSTITUTIVE of the banked Gaussian bath).
       [A c-number-commutator route to rho-positivity claimed in this file's first draft was
       WRONG -- T_munu is quadratic in bath fields, its commutator is operator-valued and
       state-dependent; rho-positivity per sign of omega is passive-STATE content. Struck by
@@ -79,7 +83,9 @@ transversality is then a THEOREM conditional on that priced input. The chain:
       per-scalar-channel gate, gate/kms.py, is SILENT on non-normal kernels like K_cx, which
       admit no orthogonal channel decomposition) -- yet its noise is non-transverse. It dies
       at positivity: its spectral form is INDEFINITE (exact witness printed). The bar is
-      N-covariance positivity, i.e. the premise priced under the 2026-08-17 booking.
+      N-covariance positivity (ruled constitutive of the banked Gaussian bath at owner
+      verification; the 2026-08-17 +1 prices the 4d gauge-orbit zero the chain also
+      consumes).
 
   NON-VACUOUS COMPOSITION (PART 3b, the screen's owed instance): for K = K_fam + d*K_cx with
       ANY d != 0 -- retarded-slot Ward intact, general within the post-correction books -- the
@@ -390,7 +396,8 @@ def part4_counterexample(env, verbose=False):
               f"advanced slot {'PASS' if ward_adv else 'FAIL'}  (both figures reported)")
         print(f"    N_cx non-transverse: |rho g|^2 over orbit = {nonT}")
         print(f"    positivity witness: x = u + ({t}) v  gives  x' rho x = {Qx} < 0 -- "
-              f"indefinite; barred by N-covariance positivity (the 2026-08-17 booked premise)")
+              f"indefinite; barred by N-covariance positivity (ruled constitutive of the "
+              f"banked Gaussian bath, owner verification 2026-08-17)")
     return ward_ret and (not ward_adv) and noise_nontransverse and indefinite
 
 
@@ -479,9 +486,10 @@ def main():
             ok = ok and res
     print("=" * 94)
     print("VERDICT: noise-kernel transversality is a THEOREM on the booked family, CONDITIONAL "
-          "on the 2026-08-17 priced input (bath genuineness / N-covariance positivity, rung1 "
-          "+1); the family closes on the transverse pair; outside the family SCDP's larger "
-          "space stands." if ok else "SOME CHECK FAILED -- verdict not established.")
+          "on the 2026-08-17 priced input (renamed at owner verification: the 4d-covariant "
+          "availability of the Ward-sourced gauge-orbit zero, KC5-reserved; rung1 +1; "
+          "N-as-PSD-covariance ruled constitutive of the banked Gaussian bath); the family "
+          "closes on the transverse pair; outside the family SCDP's larger space stands." if ok else "SOME CHECK FAILED -- verdict not established.")
     return 0 if ok else 1
 
 
