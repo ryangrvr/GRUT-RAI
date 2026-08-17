@@ -1,5 +1,7 @@
 # Where the Responsive Vacuum Stops — the fixed outline
 
+*(2026-08-17, Wave 4b pre-screen ruling: Part IV's title and IV.4's line amended — the drafted titles asserted the stronger of two defensible strengths; the map records the shipped forms.)*
+
 *This is the outline the document's front matter points at: fixed before the sections were
 written (owner's brief, 2026-08-13), committed as an artifact on the Wave-3 pre-screen's
 ruling so the front-matter sentence "the outline is fixed and lives in the repository" has a
@@ -27,9 +29,9 @@ III.0 How to read a boundary · III.1 Containment results, by strength · III.2 
 empirical surface: a ceiling with no floor · III.3 The times the machinery fired against
 the author
 
-**Part IV — The question that dissolved** (~3,200w + the decision table)
+**Part IV — The question that was never sent** (~3,200w + the decision table)
 IV.1 The single-pole conjecture and why it is load-bearing · IV.2 Where the fork actually
-sits · IV.3 The arc (Figure 3) · IV.4 It was never sent — and the record that briefly said
+sits · IV.3 The arc (Figure 3) · IV.4 It was never sent, and the records that said
 it was · IV.5 The ask, restated · IV.6 The decision table
 
 **Part V — Falsifiers, position, reach** (~2,300w)
