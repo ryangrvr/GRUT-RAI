@@ -83,6 +83,10 @@ class TestPublicDoc(unittest.TestCase):
         stripped = re.sub(r"^#{1,6}\s.*$", "", stripped, flags=re.M)
         stripped = re.sub(r"\*\*\d+\s*[—–-]", "", stripped)
         stripped = re.sub(r"[Ff]ixed point \d+", "", stripped)
+        # In-prose section references ("Part 0", "Part IV.6") and data-release identifiers
+        # ("DESI DR2") are document structure and proper names, not register counts.
+        stripped = re.sub(r"\bPart \d+", "", stripped)
+        stripped = re.sub(r"\bDR\d+\b", "", stripped)
         guarded = {"n_grut": n["n_grut"], "spec_total": n["spec_total"], "spec_B": n["spec_B"],
                    "spec_A": n["spec_A"], "spec_C": n["spec_C"], "spec_D": n["spec_D"],
                    "n_tests": n["n_tests"], "total": n["total"],

@@ -1,6 +1,6 @@
 # Where the Responsive Vacuum Stops — the fixed outline
 
-*(2026-08-17, Wave 4b pre-screen ruling: Part IV's title and IV.4's line amended — the drafted titles asserted the stronger of two defensible strengths; the map records the shipped forms.)*
+*(2026-08-17, Wave 4b pre-screen ruling: Part IV's title and IV.4's line amended — the drafted titles asserted the stronger of two defensible strengths; the map records the shipped forms. Same date, Wave 5 pre-screen ruling: VI.2's line amended to "The guard whose circumvention cannot be a small change" — the drafted title claimed more than the section's own body.)*
 
 *This is the outline the document's front matter points at: fixed before the sections were
 written (owner's brief, 2026-08-13), committed as an artifact on the Wave-3 pre-screen's
@@ -39,8 +39,7 @@ V.1 What would make it wrong, and which falsifiers can fire · V.2 Where this si
 other people's work · V.3 The one place the boundaries reach past this program
 
 **Part VI — GRUT RAI: the method, scoped** (~3,300w)
-VI.1 The register and the gate (Figure 1) · VI.2 The one guard that cannot be talked
-around · VI.3 Human and AI: what the guards caught, including in their authors · VI.4 Does
+VI.1 The register and the gate (Figure 1) · VI.2 The guard whose circumvention cannot be a small change · VI.3 Human and AI: what the guards caught, including in their authors · VI.4 Does
 it transfer?
 
 **Part VII — Standing, ending, and the name** (~1,900w)
