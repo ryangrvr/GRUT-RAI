@@ -46,6 +46,16 @@ def _load():
 
 
 
+def _empty_tier_row(tier):
+    """A tier with no members still gets a row. `derived` empty is the document's headline; any
+    other tier emptying is a fact the appendix must show rather than hide, so the text is
+    parameterized rather than hard-coded to one tier's story."""
+    note = ("*no claim in the register holds this tier — the document's headline result*"
+            if tier == "derived" else
+            f"*no claim in the register holds this tier*")
+    return f"| *(none)* | **{tier}** | — | {note} |"
+
+
 def register_table():
     """Appendix A, generated: every framework-scope claim, its tier, its ledger delta, and the
     first sentence of its statement. Generated so the appendix cannot drift from the register;
@@ -57,15 +67,14 @@ def register_table():
     grut.sort(key=lambda c: (order.get(c.get("tier"), 9), c["id"]))
     rows = ["| claim | tier | ledger | statement (opening) |",
             "|---|---|---|---|"]
+    empty = [t for t in order if not any(g.get("tier") == t for g in grut)]
     seen_tiers = set()
     for c in grut:
         # THE EMPTY TIER GETS A ROW. An appendix ordered by tier that silently omits the tier
         # with no members hides the document's own headline result (figure lens, 2026-08-17).
         t = c.get("tier")
-        for missing in [x for x in order if order[x] < order.get(t, 9) and x not in seen_tiers
-                        and not any(g.get("tier") == x for g in grut)]:
-            rows.append(f"| *(none)* | **{missing}** | — | *no claim in the register holds this "
-                        f"tier — the document's headline result* |")
+        for missing in [x for x in empty if order[x] < order.get(t, 9) and x not in seen_tiers]:
+            rows.append(_empty_tier_row(missing))
             seen_tiers.add(missing)
         seen_tiers.add(t)
         st = re.split(r"(?<=[.])\s", c.get("statement", ""), 1)[0].strip()
@@ -79,6 +88,11 @@ def register_table():
         d = c.get("ledger_delta", 0)
         d = f"+{d}" if isinstance(d, int) and d > 0 else str(d)
         rows.append(f"| `{c['id']}` | {c.get('tier')} | {d} | {st} |")
+    # trailing empty tiers too: the first version's loop only fired when a LATER populated tier
+    # arrived, so an emptied last tier would have vanished from an appendix ordered by tier --
+    # the same omission class the empty-row fix was written for (re-screen, 2026-08-17).
+    for missing in [x for x in empty if x not in seen_tiers]:
+        rows.append(_empty_tier_row(missing))
     return "\n".join(rows)
 
 

@@ -220,22 +220,39 @@ class TestPublicDoc(unittest.TestCase):
                         "the document must not imply the dispatch was sent")
 
     def test_vii3_is_handed_over_unwritten(self):
-        """The one section reserved for the human author must stay unwritten, and the document
-        must keep saying so. Pins: the handover note is present, the section carries no authored
-        body outside the blockquote frame, and the completeness line still lists it outstanding.
-        The document's answer to every 'how would we know' is a test; this is that test for its
-        highest-risk sentence."""
+        """The one section reserved for the human author must stay unwritten, and the frame must
+        stay the frame. The first version of this test filtered out every blockquoted line -- but
+        the frame IS a blockquote, so it was blind to the exact defect it answered (ghost-writing
+        by negation, inside the quote). It now pins the frame's own content: the declared shape
+        must be intact and nothing may be added to it."""
         src = open(SRC).read()
         i = src.find("## VII.3")
         self.assertGreater(i, 0, "VII.3 is missing")
-        j = src.find("\n---", i)
-        body = src[i:j]
-        self.assertIn("To be written by D. Ryan Grover", body,
-                      "the handover note is gone -- VII.3 must remain the author's")
-        prose = [ln for ln in body.split("\n")[1:]
-                 if ln.strip() and not ln.lstrip().startswith(">")]
-        self.assertEqual(prose, [],
-                         f"VII.3 has authored body text outside its handover frame: {prose}")
+        body = src[i:src.find("\n---", i)]
+        lines = [ln.strip() for ln in body.split("\n")[1:] if ln.strip()]
+        prose = [ln for ln in lines if not ln.startswith(">")]
+        self.assertEqual(prose, [], f"VII.3 has body text outside its handover frame: {prose}")
+        quoted = " ".join(ln.lstrip("> ").strip() for ln in lines)
+        # the frame's declared shape, pinned sentence by sentence
+        for required in [
+                "must not be produced that way",
+                "so it is not drafted",
+                "it must not re-argue the physics",
+                "must not promise future work",
+                "must not thank the machinery",
+                "is the author's to say and is not specified here",
+                "To be written by D. Ryan Grover",
+        ]:
+            self.assertIn(required, quoted, f"the handover frame lost: {required!r}")
+        # AND NOTHING BEYOND IT. A length cap is not enough: one added sentence slipped a
+        # mutation test under a generous bound. The frame's paragraph count is pinned exactly,
+        # so any inserted line inside the blockquote fails here -- which is the only form of
+        # ghost-writing this section can suffer.
+        paras = [ln.lstrip("> ").strip() for ln in lines if ln.lstrip("> ").strip()]
+        self.assertEqual(len(paras), 4,
+                         f"the handover frame is {len(paras)} paragraphs, not its declared 4 -- "
+                         f"prose added inside the blockquote is ghost-writing by another route: "
+                         f"{paras}")
         self.assertRegex(src, r"\*\*Outstanding:\*\* VII\.3",
                          "the completeness line must still report VII.3 outstanding")
 
@@ -250,15 +267,27 @@ class TestPublicDoc(unittest.TestCase):
         self.assertNotIn("enters with the figures wave", src,
                          "a figure-deferral marker survived the wave it defers to")
 
-    def test_figure_two_names_exist_in_the_postulate_map(self):
-        """Figure 2 claims its membership is transcribed from POSTULATE_MAP.md. Nothing bound the
-        two, so the figure could drift from the map forever while the drift test passed. Each
-        member's distinctive words must appear in the map."""
+    def test_figure_two_tracks_the_postulate_map(self):
+        """Figure 2 claims its membership is transcribed from POSTULATE_MAP.md. Bind BOTH
+        directions, with explicit per-member anchors rather than any-word matching: the first
+        version of this test passed a bogus member on the single word 'framework' and could not
+        see a dropped member at all -- while three of Bin 4's members were in fact missing
+        (re-screen mutation, 2026-08-17). Bin 4 is the results-never-inputs bin, so a dropped
+        member is exactly a result the figure stops protecting."""
         import build_figures
-        mp = open(os.path.join(ROOT, "POSTULATE_MAP.md")).read().lower()
+        mp = open(os.path.join(ROOT, "POSTULATE_MAP.md")).read()
+        # forward: every drawn member names a phrase the map actually contains
         for _title, members in build_figures.BINS:
-            for m in members:
-                key = re.sub(r"[^a-z ]", " ", m.lower().replace("\n", " "))
-                words = [w for w in key.split() if len(w) > 4]
-                self.assertTrue(any(w in mp for w in words),
-                                f"figure 2 member {m!r} has no anchor in POSTULATE_MAP.md")
+            for label, anchor in members:
+                self.assertIn(anchor, mp,
+                              f"figure 2 draws {label!r} whose anchor {anchor!r} is not in the map")
+        # backward: every member the map lists is drawn -- counted per bin section
+        sections = re.split(r"^### Bin \d+", mp, flags=re.M)[1:]
+        self.assertEqual(len(sections), len(build_figures.BINS),
+                         "the map's bin count and the figure's disagree")
+        for i, (sec, (_t, members)) in enumerate(zip(sections, build_figures.BINS), start=1):
+            body = re.split(r"^#{2,3} ", sec, flags=re.M)[0].split("> ")[0]
+            listed = re.findall(r"^(?:\d+\.|-)\s+\*\*", body, flags=re.M)
+            self.assertEqual(len(listed), len(members),
+                             f"Bin {i}: the map lists {len(listed)} members, figure 2 draws "
+                             f"{len(members)} -- a member was added or dropped without the figure")

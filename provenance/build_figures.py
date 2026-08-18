@@ -91,23 +91,39 @@ def fig1():
                  f'stroke="{INK}" stroke-width="1"/>')
     parts.append(f'<text x="{W//2}" y="{H - 14}" text-anchor="middle" font-size="11" '
                  f'fill="{INK}">bars in the vocabulary\'s canonical order, never sorted; '
-                 f'the empty bar is the result</text>')
+                 f'the empty tier is the result</text>')
     parts.append('</svg>')
     return "\n".join(parts)
 
 
+# Each member is (label drawn in the figure, the phrase that must appear in POSTULATE_MAP.md).
+# The anchors exist so test_figure_two_tracks_the_postulate_map can bind the figure to the map in
+# BOTH directions: no invented member, and no map member silently dropped. The first version
+# carried neither binding and had already lost three of Bin 4's members (re-screen, 2026-08-17).
 BINS = [
-    ("Bedrock: posits, not\nderivation targets",
-     ["medium ontology + split", "low-entropy past boundary", "Born measure"]),
-    ("Open layers: named\ndischarge paths",
-     ["bath memory shape", "pure-TT choice", "covariant gauge-orbit\navailability"]),
-    ("Borrowings, loan\nrecorded",
-     ["GR (recovered with\nimports)", "anomaly-to-amplitude\nbridge (settled negative)"]),
-    ("Results — never\ninputs",
-     ["FDT lock (removed an\nassumption)",
-      "the μ=4/3 modification\nexcluded — ΛCDM is what\nsurvives, not what is ruled out",
-      "no-crossing (to-derive,\nanchored)",
-      "the dissolved-screen\nnegatives"]),
+    ("Bedrock: posits, not\nderivation targets", [
+        ("medium ontology + split", "responsive-medium ontology + system/bath split"),
+        ("low-entropy past boundary", "The Past Hypothesis"),
+        ("Born measure", "The Born measure"),
+    ]),
+    ("Open layers: named\ndischarge paths", [
+        ("bath memory shape", "The bath's pole structure / collisionality"),
+        ("pure-TT choice", "The pure-TT projector"),
+        ("covariant gauge-orbit\navailability", "The 4d-covariant gauge-orbit availability"),
+    ]),
+    ("Borrowings, loan\nrecorded", [
+        ("GR (recovered with\nimports)", "GR / the Einstein–Hilbert action"),
+        ("anomaly-to-amplitude\nbridge (settled negative)", "The α→TT bridge"),
+    ]),
+    ("Results — never\ninputs", [
+        ("FDT lock (removed an\nassumption)", "`rung2_kms_gate`"),
+        ("tidal Love/KK link", "`rung4_love_kk`"),
+        ("α = a/c (shown,\nconditional theorem)", "`rung9a_value`"),
+        ("the μ=4/3 modification\nexcluded — ΛCDM survives,\nit is not what is ruled out", "`mu_linear`"),
+        ("no-crossing (to-derive,\nanchored)", "The no-crossing"),
+        ("the arrow's existence\n(intrinsic)", "The arrow's existence"),
+        ("the dissolved-screen\nnegatives", "The dissolved-screen negatives"),
+    ]),
 ]
 
 
@@ -116,15 +132,15 @@ def _bin_height(title, members):
     trailing empty space inside a bin reads as 'more could go here' — an incompleteness the
     sort does not have (found by rendering, 2026-08-17)."""
     h = 20 + len(title.split("\n")) * 15 + 8
-    for m in members:
-        h += len(m.split("\n")) * 14 + 8
+    for label, _anchor in members:
+        h += len(label.split("\n")) * 14 + 8
     return h + 14
 
 
 def fig2():
-    bw, gap, ml, mt = 160, 16, 20, 46
+    bw, gap, ml, mt = 172, 14, 20, 46
     box_h = max(_bin_height(t, m) for t, m in BINS)
-    W, H = 720, mt + box_h + 20
+    W, H = ml * 2 + 4 * bw + 3 * gap, mt + box_h + 20
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" '
              f'font-family="Helvetica,Arial,sans-serif">',
              f'<text x="{W//2}" y="24" text-anchor="middle" font-size="15" fill="{INK}">'
@@ -139,8 +155,8 @@ def fig2():
                          f'font-weight="bold" fill="{INK}">{line}</text>')
             ty += 15
         ty += 8
-        for m in members:
-            for line in m.split("\n"):
+        for label, _anchor in members:
+            for line in label.split("\n"):
                 parts.append(f'<text x="{x + bw//2}" y="{ty}" text-anchor="middle" '
                              f'font-size="11" fill="{INK}">{line}</text>')
                 ty += 14
@@ -158,8 +174,10 @@ def _axes(x0, w, label, status):
          f'fill="{INK}">ω = 0</text>',
          f'<text x="{x0 + w // 2}" y="{y_base + 34}" text-anchor="middle" font-size="12" '
          f'fill="{INK}">{label}</text>',
-         f'<text x="{x0 + w // 2}" y="{y_base + 50}" text-anchor="middle" font-size="10" '
-         f'fill="{INK}">{status}</text>']
+         ]
+    for n, line in enumerate(status.split("|")):
+        s.append(f'<text x="{x0 + w // 2}" y="{y_base + 50 + n * 13}" text-anchor="middle" '
+                 f'font-size="10" fill="{INK}">{line}</text>')
     return s, y_base, h
 
 
@@ -182,10 +200,10 @@ def fig3():
     # (a) single pole
     x0 = left
     ax, yb, h = _axes(x0, pw, "(a) single pole",
-                      "the framework's conjecture — derived-pending, its lean recorded circular")
+                      "the framework's conjecture — derived-pending,|lean recorded circular")
     parts += ax
     pts = []
-    for i in range(0, pw + 1, 4):
+    for i in sorted(set(list(range(0, pw + 1, 4)) + [pw // 2])):
         u = (i - pw / 2) / (pw / 14.0)
         y = yb - h * AMP / (1 + u * u)
         pts.append(f"{x0 + i},{y:.1f}")
@@ -194,7 +212,7 @@ def fig3():
     # (b) branch cut -- a SHELF, not a tent: an apex at omega = 0 would make the cut read as a
     # blunt version of (a). Its content is continuous support through zero with no isolated peak.
     x0 = left + pw + pgap
-    ax, yb, h = _axes(x0, pw, "(b) branch cut", "the refuting outcome — would retire the conjecture")
+    ax, yb, h = _axes(x0, pw, "(b) branch cut", "the refuting outcome —|would retire the conjecture")
     parts += ax
     top = yb - h * AMP
     pts = [f"{x0 + 6},{yb}"]
@@ -213,7 +231,7 @@ def fig3():
     # this panel must not create. The claim is structural: discrete support, none below the gap.
     x0 = left + 2 * (pw + pgap)
     ax, yb, h = _axes(x0, pw, "(c) gapped tower",
-                      "the known free-field structure in the well-posed substitute")
+                      "the known free-field structure|in the well-posed substitute")
     parts += ax
     gap_px, lead, step = int(pw * 0.20), 12, 22
     assert gap_px + lead + 2 * step < pw // 2, "tower poles would run off the panel"
@@ -221,9 +239,9 @@ def fig3():
     for sgn in (-1, 1):
         for k in range(3):
             px = x0 + pw // 2 + sgn * (gap_px + lead + k * step)
-            parts.append(f'<line x1="{px}" y1="{yb}" x2="{px}" y2="{yb - ph:.0f}" '
+            parts.append(f'<line x1="{px}" y1="{yb}" x2="{px}" y2="{yb - ph:.1f}" '
                          f'stroke="{BAR}" stroke-width="3"/>')
-            parts.append(f'<circle cx="{px}" cy="{yb - ph:.0f}" r="3" fill="{BAR}"/>')
+            parts.append(f'<circle cx="{px}" cy="{yb - ph:.1f}" r="3" fill="{BAR}"/>')
     # the gap box spans the ACTUAL empty interval between the innermost poles, edge to edge
     half = gap_px + lead
     parts.append(f'<rect x="{x0 + pw//2 - half}" y="{yb - ph - 6:.0f}" width="{2 * half}" '
@@ -238,8 +256,19 @@ def fig3():
     # pole never rendered -- five visible poles, asymmetric, the very cluster the panel exists to
     # avoid. The pole-inside-panel assert above passed throughout. Both are checked now.
     import re as _re
-    xs = [float(v) for v in _re.findall(r'(?:x|x1|x2|cx)="([0-9.]+)"', svg)]
-    assert max(xs) < W, f"figure 3 draws past its canvas: {max(xs)} >= {W}"
+    xs = [float(v) for v in _re.findall(r'(?:x|x1|x2|cx)="(-?[0-9.]+)"', svg)]
+    for pts in _re.findall(r'points="([^"]+)"', svg):
+        xs += [float(p.split(",")[0]) for p in pts.split()]
+    # TEXT counts too: a centred label wider than its panel clips at the viewport, and the first
+    # version of this guard read only anchor coordinates -- so it certified a canvas whose panel
+    # (a) status line ran to the left edge (re-screen, 2026-08-17). Advance width is estimated at
+    # 0.55em, deliberately generous.
+    for anchor_x, size, text in _re.findall(
+            r'<text x="(-?[0-9.]+)"[^>]*font-size="([0-9.]+)"[^>]*>([^<]*)</text>', svg):
+        half = 0.55 * float(size) * len(text) / 2
+        xs += [float(anchor_x) - half, float(anchor_x) + half]
+    assert max(xs) < W, f"figure 3 draws past its canvas: {max(xs):.1f} >= {W}"
+    assert min(xs) >= 0, f"figure 3 draws off the left edge: {min(xs):.1f}"
     return svg
 
 
