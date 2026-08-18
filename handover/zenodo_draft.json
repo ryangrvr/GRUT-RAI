@@ -1,5 +1,5 @@
 {
-  "_HANDOVER_NOTE": "DRAFT ONLY -- not .zenodo.json, deliberately. Renaming this file to .zenodo.json arms the repository's server-side Zenodo hook; that act is the owner's alone, at the moment of deposit. Prepared 2026-08-18.",
+  "_HANDOVER_NOTE": "DRAFT ONLY -- not .zenodo.json, deliberately. Renaming this file to .zenodo.json arms the repository's server-side Zenodo hook; that act is the owner's alone, at the moment of deposit. Prepared 2026-08-18. The superseding note beside this file is depositable NOW and does not wait on VII.3: it points at the repository and leaves the report's DOI to be written in later.",
   "title": "Where the Responsive Vacuum Stops: a negative-results report on an open-system model of the gravitational vacuum",
   "upload_type": "publication",
   "publication_type": "report",
@@ -31,7 +31,7 @@
       "identifier": "10.5281/zenodo.19803663",
       "relation": "isNewVersionOf",
       "resource_type": "publication-book",
-      "_note": "PLACEHOLDER RELATION -- the owner decides at deposit whether this report is a new version of the prior concept record or an independent deposit that merely cites it. They are different claims and only the owner can make that one."
+      "_note": "OWNER'S RECORDED READ (2026-08-18): NEW VERSION under the concept DOI. Stated reason, verbatim: it 'makes every existing citation resolve to the correction, which is the whole point of the debt you've been carrying in public'; an independent deposit 'leaves the wrong record wherever people already point.' Recorded here as the owner's position, not executed -- the relation is set at deposit, by the owner, in the Zenodo interface."
     },
     {
       "identifier": "https://github.com/ryangrvr/GRUT-RAI",
