@@ -9,8 +9,9 @@ D. Ryan Grover · 2026-08-17
 > **Published in parts.** Complete as of 2026-08-17: the front matter, the note on the
 > prior deposit, **Part 0**, **Part I** (corrected; see the record above), **Part II**
 > (its figure enters with the figures wave and is marked in place), **Part III**, **Part IV**
-> (its figure likewise deferred and marked), **Part V**, and **Part VI** (its figure likewise
-> deferred and marked). **Outstanding:** Part VII, the appendices, and all figures. The outline is fixed and lives in the
+> (its figure likewise deferred and marked), **Part V**, **Part VI**,
+> **Part VII** (with VII.3 left empty for its author, by design), the appendices, and all three
+> figures. **Outstanding:** nothing but VII.3 and the publication steps. The outline is fixed and lives in the
 > repository; the sections not listed as complete **do not yet exist**. This line is updated
 > at the close of every wave, and a document silent about its own completeness would be the
 > last uncaught instance of the pattern this document is about.
@@ -479,5 +480,178 @@ The graduation condition is sealed, and the failure comes first: **the load-bear
 What has been delivered, stated after the failure because it is weaker than the failure is strong: the discipline was split out as a stand-alone package and run on a *different problem* — worked examples on other people's published papers: warm (a paper the encoder already knew — the run the register's close-out records) and cold (a paper selected blind under the package's own pre-registered protocol, recorded in the package, not in the register). The close-out grades this, in its own two-half cut, as discharging the different-problem half — a half into which it folds the real-error leg, and its grading of the one recorded catch is deflationary in its own words: *a quotation-practice shape, not a peer-blessed novel catch*. This document claims no more than that ruling, because the claim that matters is the team leg and no reading of the examples supplies it.
 
 The scope sentence for the whole Part, last: a method for keeping one author honest, validated so far only by that author's own record of being caught by it, transfers exactly as far as the sealed condition says — which is, as of this line, not yet.
+
+---
+
+# Part VII — Standing, ending, and the name
+
+## VII.1 — Where the program stands
+
+Every figure in this section is generated from the register or quoted from a dated record; none is typed.
+
+**The physics.** Of the claims in the framework's scope, the tier reserved for derivations that were exhibited and checked holds **0** — the empty bar of Figure 1. Populated: `shown` **10**, `derived-pending` **4**, `assumed` **15**, `to-derive` **20**, across **49** framework claims (**70** in the register overall, the remainder belonging to a separate mapping exercise with its own scope). The ledger's net stands where the validator prints it, most recently moved *upward* — a cost discovered, not a cost removed — when the program's own screen caught a theorem consuming an unpriced input (Part II.1). What outlives the framework is Part I's pair, plus the anomaly computation that yielded a scale rather than a number. What the framework predicts that nothing else does: nothing.
+
+**The question.** Unsent, held, possibly ill-posed as posed, with a well-posed substitute recorded and uncomputed. No channel of the sealed condition has resolved; no stop has fired.
+
+**The method.** Ungraduated at its own sealed bar, for the reason VI.4 states first.
+
+**The deposit.** The prior book remains live and wrong under its own DOI, and its correction remains owed rather than done. This document is not that correction and does not discharge it.
+
+![Figure 1 — register tiers, generated](fig1_tiers.svg)
+
+*Figure 1. Tier counts, framework scope, generated from the register at build time; bars in the vocabulary's canonical order, never sorted by height. The dashed bar is the `derived` tier at its true value.*
+
+## VII.2 — How it ends, and why this document is not that ending
+
+The program's ending is not a matter of mood or of this document. It is fixed in advance by a sealed instrument, signed into force on 2026-08-10, whose stopping rule reads in full:
+
+> "R5 ONE CLOCK: in-house physics calculation STOPS at the earliest of (i) 2026-12-31; (ii) both Part-7 fronts discharged (calc completed, or retired with a statement naming what dies and why); (iii) a logged reply whose own words assert the cut class unconditionally (the stop, once fired, stands even if later replies contest the channel line). After the stop, only external results are consumed — all of them, favorable and adverse alike, before the deposit — and the deposit is written in the first wave after the stop, within one calendar month."
+
+Three features of that rule are worth stating plainly, because they are what make it an instrument rather than an intention. It has a **date-certain leg**: the stop arrives whether or not anything is resolved, so no channel can be kept open by never finishing. It requires that external results be consumed **all of them, favorable and adverse alike** — the clause that forbids the ending from being assembled out of the kind news. And its reply-triggered leg fires on the *unfavorable* outcome, the cut class, which is the direction a program hoping to continue would least like to hear.
+
+**This document is not that ending.** No stop condition has fired; this is a correction of a wrong live deposit and a statement of where the work stopped, written while the clock runs. When the stop does fire, the closing document is owed within a month of it, and it will report each channel in one line: resolved with its deciding quote, or still open with its cause. That form is fixed already, which is the point of fixing it early.
+
+What this document is for, stated without inflation: a reader who encounters the prior book should be able to find, in one place, what was wrong with it, what replaced it, what the replacement does and does not establish, and how to check every claim of that description mechanically. If the program stops tomorrow, that purpose is already served.
+
+## VII.3 — What the name reaches for
+
+> **This section is the author's, in the first person, and is deliberately left empty here.**
+>
+> Everything else in this document was drafted by an AI instrument operated by its author, screened by other AI instruments, and accepted by the one human in the chain — that is disclosed in the front matter at full volume, and it is the document's own subject. The one paragraph that must not be produced that way is the paragraph about what the name *Grand Responsive Universe Theory* was reaching for: an AI ghost-writing the human's account of his own ambition would be the single worst sentence in a document about verification chains, and no disclosure would repair it.
+>
+> **What this section must not do**, recorded as the standing brief so the emptiness has a shape: it must not re-argue the physics — Parts I through V settled what is established and what is not, and a closing appeal cannot upgrade a tier. It must not claim the name was justified. It must not claim the name was merely a mistake, if it was not. It must not promise future work as compensation for present absence. It must not thank the machinery. And it must not end on a rise — the document's last movement before it is a program reporting that it stopped.
+>
+> *To be written by D. Ryan Grover, signed, and placed last.*
+
+---
+
+# Appendices
+
+## Appendix A — The register
+
+Generated at build time from `provenance/claims.json`; a claim's full text, sources, ledger note, and overturning computation live in that file, which this table indexes. Framework scope only, ordered by tier then identifier.
+
+| claim | tier | ledger | statement (first sentence) |
+|---|---|---|---|
+| `founding_h1_zeta_casimir` | shown | 0 | FOUNDING-HYPOTHESIS sub-claim H1 (GENERIC/borrowed -- NOT uniquely GRUT): a single physical response admits TWO LEVELS OF DESCRIPTION -- an unregul... |
+| `info_i1_renorm_as_information` | shown | 0 | INFORMATION-PRINCIPLE sub-claim I1 (GENERIC -- already in GRUT, NOT uniquely GRUT): renormalization/coarse-graining is an information-projection, a... |
+| `l0_r1_redundancy_exists` | shown | 0 | FRONTIER-3 sub-claim R1 (GENERIC -- not uniquely GRUT): the long-wavelength adiabatic spatial dilatation is a residual large-gauge / large-diffeomo... |
+| `passivity_channel_diagonal` | shown | 0 | THE CHANNEL-DIAGONAL PASSIVITY LEMMA -- the GENERAL statement, frame-free (pre-registered PREREG_X_NO_PIN_2026-08-09.txt, sealed before the calc ex... |
+| `rung1_inin_action` | shown | +4 | The gravitational vacuum is a responsive medium with finite memory, described by a single Schwinger-Keldysh influence action S_IF with retarded dis... |
+| `rung2_kms_gate` | shown | -1 | In equilibrium the noise kernel N is locked to Im[chi] by FDT with a coth(hbar*omega/2kT) factor; |
+| `rung4_love_kk` | shown | 0 | Re[chi] = elastic/storage (Love-number) response, KK-linked to dissipative Im[chi]; |
+| `rung7_w1_wz_map` | shown | 0 | RUNG7-SIGN sub-claim W1 (GENERIC -- not uniquely GRUT): a relaxing causal susceptibility chi(omega) defines an effective dark-energy stress tensor... |
+| `rung9a_value` | shown | 0 | The alpha value a/c = 1/3 (Komargodski-Schwimmer 2011 / Duff): IF the conformal mode is the IR carrier THEN a/c = 1/3. |
+| `u1_form_universality` | shown | 0 | Version II, entry U1 (form-universality, GENERIC/BORROWED): the responsive-medium influence-functional FORM -- a Schwinger-Keldysh S_IF = K_R + (i/... |
+| `kk_static_transfer` | derived-pending | 0 | THE STATIC-TRANSFER QUESTION (the load-bearing gap between 'the family has a floor' and 'mu has a floor'; |
+| `mu_linear` | derived-pending | 0 | Linear-order cosmology, a NO-GO EXPORT with a conditional positive leg. |
+| `rung3_single_pole` | derived-pending | 0 | Committing to relativistic massless fast modes (omega=c/k/) gives DOS~omega^2, J(omega)~omega^3 (s=3 super-Ohmic); |
+| `x_no_pin_theorem` | derived-pending | 0 | THE x_no_pin THEOREM (X_FLOOR_MAP attack item 2 / route R3; |
+| `analogue_gravity_acoustic` | assumed | 0 | Analogue gravity / acoustic metrics (Unruh 1981; |
+| `arrow_of_time` | assumed | +1 | The thermodynamic arrow of time -- GRUT's last-standing distinctness claim, honestly scoped: the in-in/Schwinger-Keldysh foundation makes the EXIST... |
+| `born_rule` | assumed | 0 | The Born rule (measurement probability = /amplitude/^2) is a quantum-mechanics postulate GRUT BORROWS via the rung6 quantum-limit recovery; |
+| `entropy_area_unruh` | assumed | 0 | Horizon entropy ~ area (Bekenstein-Hawking) and the Unruh temperature are thermodynamic-gravity inputs GRUT BORROWS via the rung5 GR-limit recovery... |
+| `entropy_foundations` | assumed | 0 | The foundations of entropy -- Boltzmann S=k ln W, the Gibbs ensemble entropy, and the von Neumann entropy S=-Tr(rho ln rho) -- are the standard sta... |
+| `fluctuation_theorems` | assumed | 0 | Fluctuation theorems -- the linear-response fluctuation-dissipation theorem (FDT; |
+| `linear_response_viscoelastic` | assumed | 0 | Linear-response / viscoelastic transport (Kubo, Kadanoff-Martin, Forster): a medium with a single relaxation time has a Maxwell/Debye single-pole r... |
+| `p_tt_ansatz` | assumed | +1 | The vacuum response is purely transverse-traceless: K^R = alpha*chi(omega)*P^TT, with the projector P^TT chosen (not derived). |
+| `past_hypothesis` | assumed | 0 | The Past Hypothesis (a low-entropy initial macrostate of the universe) is a cosmological boundary condition GRUT BORROWS via arrow_of_time; |
+| `relativistic_hydro_israel_stewart` | assumed | 0 | Transient (causal) relativistic hydrodynamics (Israel-Stewart): a relaxation time makes dissipative transport a causal single-pole / telegrapher re... |
+| `rung5_gr_limit` | assumed | +2 | GR limit: tau_c->0 collapses chi to its conservative local form; |
+| `rung6_qm_limit` | assumed | +2 | QM limit: integrating out the bath yields the reduced-density-matrix master equation; |
+| `rung9b_bridge` | assumed | 0 | The c_0 normalization (alpha-bridge): c_0 = alpha is an ADOPTED phenomenological DC normalization of the TT response kernel (K^R = alpha*chi*P^TT)... |
+| `second_law_h_theorem` | assumed | 0 | The second law of thermodynamics and Boltzmann's H-theorem (monotone entropy production), with the Lindblad form for the completely-positive genera... |
+| `superfluid_bec_media` | assumed | 0 | Superfluid / BEC media (Landau two-fluid; |
+| `eft_operator_basis` | to-derive | 0 | The open-EFT operator basis for the quadratic influence action: enumerate the admissible tensor structures for K_R on the declared background under... |
+| `emergence_chain` | to-derive | 0 | THE EMERGENCE CHAIN (the building stage's first artifact, 2026-08-09): the ordered story from origin to observers, each link carrying its covering... |
+| `founding_h2_R_zeta_bridge` | to-derive | 0 | FOUNDING-HYPOTHESIS sub-claim H2 (THE CRUX, open research program -- FRONTIER-RESERVED): can R = sqrt(1+alpha) be formulated as a SPECTRAL INVARIAN... |
+| `founding_h3_doubleslit_anchor` | to-derive | 0 | FOUNDING-HYPOTHESIS sub-claim H3 (DEFERRED, open): does the double-slit experiment yield a UNIQUE OBSERVABLE distinct from standard quantum mechani... |
+| `info_i2_beyond_standard_bridge` | to-derive | 0 | INFORMATION-PRINCIPLE sub-claim I2 (THE CRUX, open, default-BROKEN): is there a PRECISE, FALSIFIABLE distinguishability/information statement about... |
+| `info_i3_distinct_consequence` | to-derive | 0 | INFORMATION-PRINCIPLE sub-claim I3 (falsifiable anchor, open, default-BROKEN): does I2's beyond-standard principle (if any) produce a DISTINCT CONS... |
+| `l0_r2_exact_unique_breaker` | to-derive | 0 | FRONTIER-3 sub-claim R2 (THE CRUX, open, default-BROKEN): derived from the CTP influence action S_IF -- (i) is the adiabatic dilatation an EXACT re... |
+| `l0_r3_payoff_mu_linear` | to-derive | 0 | FRONTIER-3 sub-claim R3 (the consequence, open, default-BROKEN): IF R2 proves, does it (a) GRADUATE mu_linear -- turn its presupposed separate-univ... |
+| `lambda_undetermined` | to-derive | 0 | The value of the cosmological constant Lambda is UNDETERMINED by GRUT (the cosmological-constant problem): GRUT's responsive-vacuum framing does no... |
+| `method_novelty` | to-derive | 0 | PILLAR-4 METHOD-NOVELTY (the fourth pillar's own gauntlet): the self-auditing discipline -- a machine-checkable register + signed underived-input l... |
+| `rung7_w2_wa_sign` | to-derive | 0 | RUNG7-SIGN sub-claim W2 (THE CRUX, open, default-BROKEN): for the passive (Im chi >= 0), causal (KK), KMS-consistent SINGLE-POLE vacuum the shown s... |
+| `rung7_w3_nocrossing_export` | to-derive | 0 | RUNG7-SIGN sub-claim W3 (the consequence, open, default-BROKEN): IF W2's no-crossing graduates, does it export a falsifiable-direction NO-GO -- 'GR... |
+| `rung7_wz` | to-derive | +3 | Out of equilibrium FDT no longer locks N to K_R; |
+| `rung8_falsifier` | to-derive | +2 | The tabletop falsifier: GRUT's noise kernel N driving the Anastopoulos-Hu 2013 gravitational-decoherence master equation predicts a decoherence sig... |
+| `u2_kernel_universality` | to-derive | 0 | Version II, entry U2 (content / kernel-universality, THE genuine Version-II frontier): is the SPECIFIC response kernel (L0, the low-omega pole stru... |
+| `u3_split_origin` | to-derive | 0 | Version II, entry U3 / the Q1 origin question (the deepest frontier): WHY is there a system/bath split / coarse-graining at all? Feynman-Vernon (U1... |
+| `u4_constitutive_origin` | to-derive | 0 | Version II, entry U4 / Frontier 3 (the origin of the constitutive FORM): GIVEN coarse-graining, WHY does the effective description take a RESPONSE... |
+| `u5_constitutive_phases` | to-derive | 0 | Version II, entry U5 (a branch of U4 / Frontier 3): classify the UNIVERSALITY CLASSES of the constitutive response chi(omega,k). |
+| `u6_constitutive_order` | to-derive | 0 | Version II, entry U6 (a branch of U4 / Frontier 3): does constitutive organization admit an ORDER PARAMETER with RG significance? (The RG monotone... |
+| `zeta_interior_family` | to-derive | 0 | The {shear, bulk} INTERIOR: the admissible two-moduli kernel family K = c2*P^TT + c0*P0s between the banked endpoints (TT-only mu=1; |
+
+## Appendix B — How to verify
+
+Every number in this document is regenerated by the commands in the front matter. What a green run means, and what it does not:
+
+A green run establishes that the register is internally consistent, that every claim carries a tier, sources, and a named overturning computation, that the emitted numbers match the register, that this document matches its source and its source matches the register, that the sealed pre-registrations are unmodified since sealing, and that no register edit is sitting unaccepted. **It establishes nothing about whether any claim is true of the world.** The repository's `HOW_TO_VERIFY.md` states the same limit at greater length and is the authoritative version.
+
+Two verification acts are not mechanical and are named as such: the tiers are assigned by the author, and the assessment that no outside human has answered a physics question rests, in its attribution half, on the author's dated statement (fixed point 2).
+
+## Appendix C — The termination condition
+
+The sealed instrument in force, quoted for its channels and its rules; the file itself is `provenance/prereg/PREREG_TERMINATION_V4_2026-08-10.txt` and is never edited — events land in a companion log.
+
+> "R1 STILL-OPEN: every channel may always report STILL OPEN with its cause stated in plain words … Still-open is never rounded into a resolved outcome, and no resolved outcome is ever forced.
+> R2 NODES DECIDE: a resolved outcome's consequences execute ONLY at the named register node, per that node's own text, by an adjudication recorded in the log. This file executes nothing.
+> R3 PUBLIC EVENTS ONLY: a thresholded outcome fires only against a threshold frozen by name in a manifested instrument BEFORE the public event it judges … No freeze -> that outcome cannot fire.
+> R4 QUOTES DECIDE, ENTRIES ASSERT NOTHING: every received communication and every owner act or omission named here is logged with its operative language quoted verbatim. A log entry may not assert what register text says; an entry doing so is VOID ON ITS FACE and binds nothing."
+
+The channels it governs are the dispatch, the DESI release, the two owed calculations, and the method's external-validation channel — sorted for fireability in Part V.1. The deposit reports each in exactly one line: resolved with its deciding quote, or still open with its cause. **There is no third form.**
+
+## Appendix D — The authority-term classification
+
+The audit behind fixed point 2, with its term list pre-registered and hashed *before* it ran. Its figures are that audit's, dated 2026-08-12, attributed here rather than emitted — they are historical findings about a record, not live register counts.
+
+The audit examined eight families of authority-flavored vocabulary across the repository, not the single word the first pass had counted, and classified every occurrence in the register by sense: **(A)** reserving a *future* outside expert; **(B)** phrased as a pass that already ran; **(C)** generic or collective; **(D)** filename or path references; **(E)** an outside human actually answering. Class B is the dangerous one and, in the audit's own words, the register's dominant voice. **Class E returns none** — grounded two ways, and the reader is owed the difference: by *search* (no file, log line, git object, or archived snapshot records a transmission to an outside human or a reply from one, against criteria stated in advance), which establishes the absence of a logged transmission; and by the *author's dated statement*, which is what establishes authorship, because the register never records modality. One is auditable; the other is testimony.
+
+The audit's own two failures are recorded as failures: its frozen term list enumerated words for *authorities* and missed words for *acts*, so three live strings asserting the dispatch had been sent were invisible to it (Part IV.4 quotes them); and its declared repository-wide scope was executed register-only, leaving live code that prints authority language when run — an owed item, still owed. The full classification, per term family and per node, is in `provenance/prereg/RESULT_AUTHORITY_TERMS_2026-08-12.txt`, together with the 2026-08-17 addendum recording that the overseeing role's own identity had been entered in the record two contradictory ways.
+
+## Appendix E — The calculation index
+
+Generated at build time. "Cited by the register" means the file is named in `provenance/claims.json`; uncited files are support, superseded, or exploratory, and their own headers say which.
+
+| calculation | cited by the register |
+|---|---|
+| `calc/L0_redundancy.py` | yes |
+| `calc/anomaly_c0_map.py` | yes |
+| `calc/arrow_origin.py` | yes |
+| `calc/conformalon_joint.py` | yes |
+| `calc/conformalon_q2_band.py` | no (support or superseded) |
+| `calc/delta4_stability.py` | yes |
+| `calc/energy_basis_decoherence.py` | yes |
+| `calc/finite_T_exponent.py` | yes |
+| `calc/gw_dissipation_bounds.py` | yes |
+| `calc/isw_exclusion.py` | yes |
+| `calc/isw_tt_auto.py` | yes |
+| `calc/kk_static_transfer.py` | yes |
+| `calc/mu_linear.py` | yes |
+| `calc/mu_slip_interior.py` | yes |
+| `calc/noise_transversality_check.py` | yes |
+| `calc/operator_basis.py` | yes |
+| `calc/q1_energy_basis_magnitude.py` | yes |
+| `calc/rung3_spectral_structure.py` | yes |
+| `calc/sigma0_anomaly_screen.py` | yes |
+| `calc/two_scale_desitter.py` | yes |
+| `calc/u5u6_deformability.py` | yes |
+| `calc/vacuum_scheme_compare.py` | yes |
+| `calc/wz_dark_energy.py` | yes |
+| `calc/wz_sign.py` | yes |
+| `calc/x_no_pin.py` | yes |
+| `calc/zeta_interior.py` | yes |
+
+## Appendix F — Errata to this document's own sources
+
+Corrections this program made to its *own* records while writing, listed so that a reader comparing the repository's history against this text finds them documented rather than silent. Each is dated and in place; none is a physics result.
+
+- **The kernel-object erratum.** The in-house assembly write-up took source-verified corrections in one dated block, its superseded body retained beneath them: a coefficient function mislabelled a structure function; a tabulated object identified as retarded when it is the in-out one; a claim about coincidence-limit tables inverted on both of its words; and a position-space logarithm read as time-domain secularity. Part IV.2 carries the surviving form.
+- **The retired third-outcome flag.** A double-logarithm reading, raised as a possible third analytic class, was retired on its face when source verification killed its premise twice — retired rather than deleted, so no later pass re-raises it from the same misread.
+- **The Ward-scope correction.** Two register nodes and the action specification carried a symmetry licence wider than the literature supports; corrected first in the register, then in Part I, with the document's correction record at its head.
+- **The stale headers.** Three standing documents carried hand-typed register figures that had gone stale; each now defers to the machine-checked stamps instead. The postulate map, the no-go ledger, and the glossary are the three.
+- **The overseer gloss.** The glossary defined the role that verifies and adjudicates as human; the role as executed is an AI's, and the human is the owner who relays, rules, and signs. Corrected 2026-08-17, prior gloss retained as superseded, with the attestation split into its auditable and testimonial halves (Part VI.3, Appendix D).
+- **The page-citation convention.** Citations to one source's page numbers are PDF pages; that source's printed folio runs one behind throughout. Declared rather than silently renumbered.
 
 ---

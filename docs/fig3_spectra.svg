@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" font-family="Helvetica,Arial,sans-serif">
+<text x="450" y="22" text-anchor="middle" font-size="15" fill="#1a1a1a">Three low-frequency structures, identical axes — schematic by declared intent</text>
+<line x1="30" y1="300" x2="290" y2="300" stroke="#1a1a1a"/>
+<line x1="160" y1="300" x2="160" y2="90" stroke="#1a1a1a" stroke-dasharray="2 3"/>
+<text x="160" y="316" text-anchor="middle" font-size="11" fill="#1a1a1a">ω = 0</text>
+<text x="160" y="330" text-anchor="middle" font-size="12" fill="#1a1a1a">(a) single pole</text>
+<polyline points="30,296.1 34,295.9 38,295.6 42,295.3 46,295.0 50,294.6 54,294.2 58,293.8 62,293.3 66,292.7 70,292.1 74,291.4 78,290.6 82,289.6 86,288.6 90,287.3 94,285.8 98,284.1 102,282.0 106,279.6 110,276.6 114,272.9 118,268.4 122,262.8 126,255.6 130,246.5 134,234.7 138,219.6 142,200.4 146,176.8 150,150.2 154,125.1 158,109.0 162,109.0 166,125.1 170,150.2 174,176.8 178,200.4 182,219.6 186,234.7 190,246.5 194,255.6 198,262.8 202,268.4 206,272.9 210,276.6 214,279.6 218,282.0 222,284.1 226,285.8 230,287.3 234,288.6 238,289.6 242,290.6 246,291.4 250,292.1 254,292.7 258,293.3 262,293.8 266,294.2 270,294.6 274,295.0 278,295.3 282,295.6 286,295.9 290,296.1" fill="none" stroke="#7a8ba6" stroke-width="2.2"/>
+<line x1="350" y1="300" x2="610" y2="300" stroke="#1a1a1a"/>
+<line x1="480" y1="300" x2="480" y2="90" stroke="#1a1a1a" stroke-dasharray="2 3"/>
+<text x="480" y="316" text-anchor="middle" font-size="11" fill="#1a1a1a">ω = 0</text>
+<text x="480" y="330" text-anchor="middle" font-size="12" fill="#1a1a1a">(b) branch cut</text>
+<polygon points="356,300 356,250.9 360,239.1 364,229.0 368,220.6 372,213.5 376,207.6 380,202.8 384,198.8 388,195.6 392,193.0 396,190.9 400,189.3 404,188.0 408,187.0 412,186.3 416,185.8 420,185.4 424,185.1 428,184.9 432,184.7 436,184.6 440,184.6 444,184.5 448,184.5 452,184.5 456,184.5 460,184.5 464,184.5 468,184.5 472,184.5 476,184.5 480,184.5 484,184.5 488,184.5 492,184.5 496,184.5 500,184.5 504,184.5 508,184.5 512,184.5 516,184.5 520,184.6 524,184.6 528,184.7 532,184.9 536,185.1 540,185.4 544,185.8 548,186.3 552,187.0 556,188.0 560,189.3 564,190.9 568,193.0 572,195.6 576,198.8 580,202.8 584,207.6 588,213.5 592,220.6 596,229.0 600,239.1 604,250.9 604,300" fill="#7a8ba6" fill-opacity="0.35" stroke="#7a8ba6" stroke-width="1.5"/>
+<text x="480" y="172.5" text-anchor="middle" font-size="11" fill="#1a1a1a">continuous through ω = 0 — no isolated peak</text>
+<line x1="670" y1="300" x2="930" y2="300" stroke="#1a1a1a"/>
+<line x1="800" y1="300" x2="800" y2="90" stroke="#1a1a1a" stroke-dasharray="2 3"/>
+<text x="800" y="316" text-anchor="middle" font-size="11" fill="#1a1a1a">ω = 0</text>
+<text x="800" y="330" text-anchor="middle" font-size="12" fill="#1a1a1a">(c) gapped tower</text>
+<line x1="736" y1="300" x2="736" y2="170" stroke="#7a8ba6" stroke-width="3"/>
+<circle cx="736" cy="170" r="3" fill="#7a8ba6"/>
+<line x1="714" y1="300" x2="714" y2="170" stroke="#7a8ba6" stroke-width="3"/>
+<circle cx="714" cy="170" r="3" fill="#7a8ba6"/>
+<line x1="692" y1="300" x2="692" y2="170" stroke="#7a8ba6" stroke-width="3"/>
+<circle cx="692" cy="170" r="3" fill="#7a8ba6"/>
+<line x1="864" y1="300" x2="864" y2="170" stroke="#7a8ba6" stroke-width="3"/>
+<circle cx="864" cy="170" r="3" fill="#7a8ba6"/>
+<line x1="886" y1="300" x2="886" y2="170" stroke="#7a8ba6" stroke-width="3"/>
+<circle cx="886" cy="170" r="3" fill="#7a8ba6"/>
+<line x1="908" y1="300" x2="908" y2="170" stroke="#7a8ba6" stroke-width="3"/>
+<circle cx="908" cy="170" r="3" fill="#7a8ba6"/>
+<rect x="748" y="164" width="104" height="136" fill="none" stroke="#c0392b" stroke-dasharray="5 4"/>
+<text x="800" y="136" text-anchor="middle" font-size="11" fill="#c0392b">no support below the gap</text>
+<text x="800" y="152" text-anchor="middle" font-size="11" fill="#c0392b">— not a near-miss of (a)</text>
+</svg>

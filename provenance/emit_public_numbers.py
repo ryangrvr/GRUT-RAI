@@ -37,13 +37,48 @@ WAVE_DATE = "2026-08-17"         # bumped at the close of every wave
 # this block changed the number the block asserts. A number-emitter that recurses through its own
 # verifier is not a stable reference. The constant is enforced against a real collection by
 # test_public_numbers.py::test_the_stamped_test_count_is_true, so it cannot silently rot.
-STAMPED_TEST_COUNT = 207
+STAMPED_TEST_COUNT = 208
 
 
 def _load():
     with open(os.path.join(HERE, "claims.json")) as f:
         return json.load(f)["claims"]
 
+
+
+def register_table():
+    """Appendix A, generated: every framework-scope claim, its tier, its ledger delta, and the
+    first sentence of its statement. Generated so the appendix cannot drift from the register;
+    a reader wanting the full text reads claims.json, which this table indexes."""
+    with open(os.path.join(HERE, "claims.json")) as f:
+        cl = json.load(f)["claims"]
+    grut = [c for c in cl if c.get("ledger_scope", "grut") == "grut"]
+    order = {"shown": 0, "derived": 1, "derived-pending": 2, "assumed": 3, "to-derive": 4}
+    grut.sort(key=lambda c: (order.get(c.get("tier"), 9), c["id"]))
+    rows = ["| claim | tier | ledger | statement (first sentence) |",
+            "|---|---|---|---|"]
+    for c in grut:
+        st = re.split(r"(?<=[.;])\s", c.get("statement", ""), 1)[0].strip()
+        st = st.replace("|", "/")
+        if len(st) > 150:
+            st = st[:147].rstrip() + "..."
+        d = c.get("ledger_delta", 0)
+        d = f"+{d}" if isinstance(d, int) and d > 0 else str(d)
+        rows.append(f"| `{c['id']}` | {c.get('tier')} | {d} | {st} |")
+    return "\n".join(rows)
+
+
+def calc_index():
+    """Appendix E, generated: the calculations, and which are cited by the register."""
+    with open(os.path.join(HERE, "claims.json")) as f:
+        raw = f.read()
+    calcdir = os.path.join(ROOT, "calc")
+    names = sorted(f for f in os.listdir(calcdir) if f.endswith(".py"))
+    rows = ["| calculation | cited by the register |", "|---|---|"]
+    for n in names:
+        cited = "yes" if f"calc/{n}" in raw else "no (support or superseded)"
+        rows.append(f"| `calc/{n}` | {cited} |")
+    return "\n".join(rows)
 
 def numbers():
     cl = _load()
