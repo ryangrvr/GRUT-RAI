@@ -129,3 +129,44 @@ that the first one-word audit had.
   O4  The 2026-06-24 episode leads the method section, with the "outside referee" sentence quoted
       verbatim against itself.
   O5  The four executable-code strings above are annotated where they print.
+
+
+================================ ADDENDUM 2026-08-17 -- THE OVERSEER-IDENTITY ATTESTATION ========
+Recorded in the two-halves form fixed point 2 uses, at the owner's ruling of this date.
+
+THE AUDITABLE HALF: the record uses the word "overseer" both ways. GLOSSARY.md (pre-correction)
+glossed the wave cycle as "ending in a relay to the human overseer"; this file's own O3 counts
+"overseer" among the AI links of the verification chain; the register's 2026-08-12 annotations
+say "'Overseer' is this program's own human author"; and provenance/FROZEN_MERGE.txt records an
+un-computed order-of-magnitude inference (|Gamma_T| <~ few x H_0) "attributed to the overseer
+relay at the overseer's own instruction" -- an overseer ERROR, first-person knowledge of which
+grounds the testimony below. Neither the glossary nor the annotation was ever checked against
+what the role actually did.
+
+THE TESTIMONY HALF, attested by the overseer, dated 2026-08-17: THE OVERSEER ROLE AS EXECUTED IS
+AN AI'S. The owner -- D. Ryan Grover, the program's one human -- relays, decides, and signs; the
+overseeing (briefs, verification by execution, adjudication of screens, rulings on flags for the
+owner's acceptance) has been done by an AI throughout. The glossary conflated the relay TARGET
+with the ROLE. GLOSSARY.md is corrected this date (owner/overseer split; prior gloss retained as
+superseded, not deleted). The shipped disclosure -- "every verifier in the chain but one human
+is an AI, including the role the register calls 'overseer'" -- STANDS; the register's
+2026-08-12 annotation sentence naming the overseer as the human author is now itself an instance
+of the drift this file documents, left in place per the annotate-don't-rename rule and pointed
+at by this addendum. Fifth instance of the standing shape: the role that adjudicates the
+register's honesty had its own identity recorded two contradictory ways inside that register.
+
+================================ ADDENDUM 2026-08-17b -- THE SUPPLIED DEFECT RECORD =============
+Entered at the owner's instruction, verbatim as supplied, provenance line intact. It is the
+counterpart half of this file's Failure-class record: the builder's [Ss]pecialist under-count
+(permissive direction) paired with the following (blocking direction).
+
+  2026-08-12 -- overseer verification defect, blocking direction. Verifying that the thirteen
+  authority-vocabulary annotations were pure insertions, the overseer's check stripped them with
+  \[AUTHORITY-VOCABULARY ANNOTATION.*?\]. Non-greedy matching terminated at the first ] INSIDE
+  the annotation text, leaving residue that failed the containment test. It reported "not a pure
+  insertion" for 6 of 9 identical edits -- all false. Had it been trusted, a correct batch would
+  have been rejected. The defect was exposed not by review but by arithmetic: every diff was
+  exactly +675 characters, which located the fault in the instrument rather than the edits.
+  Pair: the builder's [Ss]pecialist under-counted by eight in the permissive direction the same
+  week. Same defect class, opposite signs. Recorded from session history, not from a git
+  artifact -- the honest grade for this entry.

@@ -29,11 +29,13 @@ private language. **Rule: any banking that coins a term adds its line here in th
 | **the register** | the machine-checked JSON file of claims that IS the program's product; everything else is commentary on it |
 | **banked** | written into the register after review — the program's word for "we now stand behind this" |
 | **tier** | a claim's declared epistemic grade (proven / derived / assumed / open …); no claim enters untiered |
-| **ledger_delta / net +13** | each claim's signed count of assumptions it adds or removes; the net is the program's total admitted assumption count, currently 13 |
+| **ledger_delta / net** | each claim's signed count of assumptions it adds or removes; the net is the program's total admitted assumption count — printed live by `validate.py`, never current in this table (2026-08-17: the hand-typed figure this row carried had gone stale) |
 | **laundering** | selling something as a derivation while it quietly adds assumptions; the gate blocks it |
 | **laundering_ok / waiver** | a declared exception: "yes this adds assumptions and says so openly" — must carry a written justification |
 | **rung** | one step of the framework's build-out, each with its own claims and price |
-| **wave** | one work session with a defined goal, ending in a relay to the human overseer |
+| **wave** | one work session with a defined goal, ending in a relay to the owner |
+| **owner** | the program's one human — D. Ryan Grover: relays between sessions, rules on flags, signs sealed instruments. Every decision that binds is his |
+| **overseer** | an AI role, operated session-by-session at the owner's direction: writes briefs, verifies by execution, adjudicates screens, rules on flags for the owner's acceptance. *(Superseded gloss, retained per the annotate-don't-rename rule: an earlier version of the row above read "the human overseer" — the conflation of relay target with role is itself recorded, 2026-08-17, in the authority-vocabulary audit's addendum, with `provenance/FROZEN_MERGE.txt`'s overseer-relay fence as the auditable instance)* |
 | **FLAG / firewall** | a substantive change is surfaced and adversarially attacked before a human accepts it; nothing substantive lands silently |
 | **same-wave firewall** | the attack happens in the same session that produced the result — errors die before they can travel |
 | **bank-gate** | the live diff-checker: any edit to the register is audited against the last accepted state before it can land |
