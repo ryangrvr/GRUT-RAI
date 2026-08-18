@@ -37,7 +37,7 @@ WAVE_DATE = "2026-08-17"         # bumped at the close of every wave
 # this block changed the number the block asserts. A number-emitter that recurses through its own
 # verifier is not a stable reference. The constant is enforced against a real collection by
 # test_public_numbers.py::test_the_stamped_test_count_is_true, so it cannot silently rot.
-STAMPED_TEST_COUNT = 208
+STAMPED_TEST_COUNT = 211
 
 
 def _load():
@@ -55,13 +55,27 @@ def register_table():
     grut = [c for c in cl if c.get("ledger_scope", "grut") == "grut"]
     order = {"shown": 0, "derived": 1, "derived-pending": 2, "assumed": 3, "to-derive": 4}
     grut.sort(key=lambda c: (order.get(c.get("tier"), 9), c["id"]))
-    rows = ["| claim | tier | ledger | statement (first sentence) |",
+    rows = ["| claim | tier | ledger | statement (opening) |",
             "|---|---|---|---|"]
+    seen_tiers = set()
     for c in grut:
-        st = re.split(r"(?<=[.;])\s", c.get("statement", ""), 1)[0].strip()
+        # THE EMPTY TIER GETS A ROW. An appendix ordered by tier that silently omits the tier
+        # with no members hides the document's own headline result (figure lens, 2026-08-17).
+        t = c.get("tier")
+        for missing in [x for x in order if order[x] < order.get(t, 9) and x not in seen_tiers
+                        and not any(g.get("tier") == x for g in grut)]:
+            rows.append(f"| *(none)* | **{missing}** | — | *no claim in the register holds this "
+                        f"tier — the document's headline result* |")
+            seen_tiers.add(missing)
+        seen_tiers.add(t)
+        st = re.split(r"(?<=[.])\s", c.get("statement", ""), 1)[0].strip()
         st = st.replace("|", "/")
         if len(st) > 150:
-            st = st[:147].rstrip() + "..."
+            cut = st[:150]
+            sp = cut.rfind(" ")
+            st = (cut[:sp] if sp > 60 else cut).rstrip(" ,;:(-") + " …"
+            if st.count("(") > st.count(")"):
+                st += ")"
         d = c.get("ledger_delta", 0)
         d = f"+{d}" if isinstance(d, int) and d > 0 else str(d)
         rows.append(f"| `{c['id']}` | {c.get('tier')} | {d} | {st} |")

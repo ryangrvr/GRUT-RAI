@@ -7,8 +7,11 @@ And the honesty constraints are structural, not editorial:
 
   FIGURE 1 (tier histogram): bars in the CANONICAL tier order (the front matter's vocabulary
   order), never sorted by height — a sorted histogram is an editorial ordering. The `derived`
-  bar is drawn at its true height with its count labelled, so its emptiness is a datum, not a
-  gap in the axis. Flat fills, no gradients, no smoothing.
+  tier has no bar: it is marked by an EMPTY DASHED FRAME spanning the plot, labelled with its
+  count, so the reader sees a tier present in the vocabulary and unpopulated in fact. The frame
+  is a marker, not a bar — its extent is not a value, and the caption must not say it is
+  (corrected 2026-08-17 after the figure lens read the caption against the drawing).
+  Flat fills, no gradients, no smoothing.
 
   FIGURE 2 (postulate sort): the four bins with their members as NAMES — no counts anywhere,
   so nothing can go stale and no bin reads as "bigger" by a number. Membership is transcribed
@@ -101,7 +104,10 @@ BINS = [
     ("Borrowings, loan\nrecorded",
      ["GR (recovered with\nimports)", "anomaly-to-amplitude\nbridge (settled negative)"]),
     ("Results — never\ninputs",
-     ["FDT lock (removed an\nassumption)", "ΛCDM-shape exclusion", "no-crossing (to-derive,\nanchored)"]),
+     ["FDT lock (removed an\nassumption)",
+      "the μ=4/3 modification\nexcluded — ΛCDM is what\nsurvives, not what is ruled out",
+      "no-crossing (to-derive,\nanchored)",
+      "the dissolved-screen\nnegatives"]),
 ]
 
 
@@ -143,87 +149,98 @@ def fig2():
     return "\n".join(parts)
 
 
-def _axes(x0, w, label):
+def _axes(x0, w, label, status):
     y_base, h = 300, 210
     s = [f'<line x1="{x0}" y1="{y_base}" x2="{x0 + w}" y2="{y_base}" stroke="{INK}"/>',
          f'<line x1="{x0 + w // 2}" y1="{y_base}" x2="{x0 + w // 2}" y2="{y_base - h}" '
          f'stroke="{INK}" stroke-dasharray="2 3"/>',
          f'<text x="{x0 + w // 2}" y="{y_base + 16}" text-anchor="middle" font-size="11" '
          f'fill="{INK}">ω = 0</text>',
-         f'<text x="{x0 + w // 2}" y="330" text-anchor="middle" font-size="12" '
-         f'fill="{INK}">{label}</text>']
+         f'<text x="{x0 + w // 2}" y="{y_base + 34}" text-anchor="middle" font-size="12" '
+         f'fill="{INK}">{label}</text>',
+         f'<text x="{x0 + w // 2}" y="{y_base + 50}" text-anchor="middle" font-size="10" '
+         f'fill="{INK}">{status}</text>']
     return s, y_base, h
 
 
 def fig3():
-    W, H, pw = 900, 350, 260
+    # ONE amplitude for all three panels. Different heights across panels would be an editorial
+    # weight cue on three MUTUALLY EXCLUSIVE candidate answers to one undetermined question, and
+    # there is no y-axis to normalize against (found by the mandated figure lens, 2026-08-17:
+    # the first version drew the framework's assumed case ~47% taller than the known one).
+    AMP = 0.62
+    pw, pgap, left = 260, 60, 30
+    W, H = left + 3 * pw + 2 * pgap + left, 400
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" '
              f'font-family="Helvetica,Arial,sans-serif">',
              f'<text x="{W//2}" y="22" text-anchor="middle" font-size="15" fill="{INK}">'
-             f'Three low-frequency structures, identical axes — schematic by declared intent'
+             f'Three candidate low-frequency structures — identical axes and amplitudes, '
+             f'schematic by declared intent</text>',
+             f'<text x="{W//2}" y="40" text-anchor="middle" font-size="11" fill="{INK}">'
+             f'the order is not a ranking; each panel carries its status in the register'
              f'</text>']
-    # (a) single pole: Lorentzian centred at 0
-    x0 = 30
-    ax, yb, h = _axes(x0, pw, "(a) single pole")
+    # (a) single pole
+    x0 = left
+    ax, yb, h = _axes(x0, pw, "(a) single pole",
+                      "the framework's conjecture — derived-pending, its lean recorded circular")
     parts += ax
     pts = []
     for i in range(0, pw + 1, 4):
         u = (i - pw / 2) / (pw / 14.0)
-        y = yb - h * 0.92 / (1 + u * u)
+        y = yb - h * AMP / (1 + u * u)
         pts.append(f"{x0 + i},{y:.1f}")
     parts.append(f'<polyline points="{" ".join(pts)}" fill="none" stroke="{BAR}" '
                  f'stroke-width="2.2"/>')
-    # (b) branch cut: continuum from 0 (shaded wedge, no peak)
-    x0 = 30 + pw + 60
-    ax, yb, h = _axes(x0, pw, "(b) branch cut")
+    # (b) branch cut -- a SHELF, not a tent: an apex at omega = 0 would make the cut read as a
+    # blunt version of (a). Its content is continuous support through zero with no isolated peak.
+    x0 = left + pw + pgap
+    ax, yb, h = _axes(x0, pw, "(b) branch cut", "the refuting outcome — would retire the conjecture")
     parts += ax
-    # A SHELF, NOT A TENT. An apex at omega = 0 would make the cut read as a blunt version of
-    # panel (a) -- the same near-miss defect the tower panel is mandated to avoid, in the other
-    # direction. The cut's content is CONTINUOUS SUPPORT THROUGH ZERO with no isolated peak, so
-    # the top is flat across the origin and falls only at the outer edges.
-    top = yb - h * 0.55
+    top = yb - h * AMP
     pts = [f"{x0 + 6},{yb}"]
     for i in range(0, pw - 11, 4):
         xx = x0 + 6 + i
         u = (xx - (x0 + pw / 2)) / (pw * 0.5)
-        y = top + (h * 0.42) * (u ** 6)          # flat through the origin, soft outer falloff
+        y = top + (h * AMP * 0.72) * (u ** 6)
         pts.append(f"{xx},{min(y, yb):.1f}")
     pts.append(f"{x0 + pw - 6},{yb}")
     parts.append(f'<polygon points="{" ".join(pts)}" fill="{BAR}" fill-opacity="0.35" '
                  f'stroke="{BAR}" stroke-width="1.5"/>')
-    parts.append(f'<text x="{x0 + pw//2}" y="{top - 12}" text-anchor="middle" font-size="11" '
+    parts.append(f'<text x="{x0 + pw//2}" y="{top - 12:.0f}" text-anchor="middle" font-size="11" '
                  f'fill="{INK}">continuous through ω = 0 — no isolated peak</text>')
-    # (c) gapped tower: discrete poles, none inside the gap; the gap annotated as the content
-    x0 = 30 + 2 * (pw + 60)
-    ax, yb, h = _axes(x0, pw, "(c) gapped tower")
+    # (c) gapped tower -- EQUAL HEIGHTS, deliberately: innermost-tallest gives the eye an envelope
+    # peaking at omega = 0 with a notch cut out, i.e. an almost-single-pole, the exact impression
+    # this panel must not create. The claim is structural: discrete support, none below the gap.
+    x0 = left + 2 * (pw + pgap)
+    ax, yb, h = _axes(x0, pw, "(c) gapped tower",
+                      "the known free-field structure in the well-posed substitute")
     parts += ax
-    # EQUAL HEIGHTS, DELIBERATELY. A tower drawn with its innermost poles tallest gives the eye
-    # an envelope peaking at omega = 0 with a notch cut out -- i.e. it reads as an almost-single
-    # pole, the exact impression this panel is mandated not to create. The claim here is
-    # structural only: DISCRETE support, NONE below the gap. Residue magnitudes are not the
-    # content, so they are not drawn as if they were. (Defect found in this figure's first
-    # render, 2026-08-17, before screening; recorded here so a later edit does not reinstate it.)
-    # geometry pinned so all six poles sit INSIDE the panel and symmetric about the origin:
-    # gap_px + lead + 2*step must stay under pw/2 (found by rendering, 2026-08-17 -- the first
-    # spacing ran the outermost poles off the panel and read as an asymmetric cluster).
     gap_px, lead, step = int(pw * 0.20), 12, 22
     assert gap_px + lead + 2 * step < pw // 2, "tower poles would run off the panel"
-    ph = h * 0.62
+    ph = h * AMP
     for sgn in (-1, 1):
         for k in range(3):
             px = x0 + pw // 2 + sgn * (gap_px + lead + k * step)
             parts.append(f'<line x1="{px}" y1="{yb}" x2="{px}" y2="{yb - ph:.0f}" '
                          f'stroke="{BAR}" stroke-width="3"/>')
             parts.append(f'<circle cx="{px}" cy="{yb - ph:.0f}" r="3" fill="{BAR}"/>')
-    # the gap box spans the EMPTY interval only, and stops short of the innermost poles
-    parts.append(f'<rect x="{x0 + pw//2 - gap_px}" y="{yb - ph - 6:.0f}" width="{2 * gap_px}" '
-                 f'height="{ph + 6:.0f}" fill="none" stroke="{EMPTY}" stroke-dasharray="5 4"/>')
+    # the gap box spans the ACTUAL empty interval between the innermost poles, edge to edge
+    half = gap_px + lead
+    parts.append(f'<rect x="{x0 + pw//2 - half}" y="{yb - ph - 6:.0f}" width="{2 * half}" '
+                 f'height="{ph + 6:.0f}" fill="none" stroke="{INK}" stroke-dasharray="5 4"/>')
     parts.append(f'<text x="{x0 + pw//2}" y="{yb - ph - 34:.0f}" text-anchor="middle" '
-                 f'font-size="11" fill="{EMPTY}">no support below the gap</text>')
+                 f'font-size="11" fill="{INK}">no support below the gap</text>')
     parts.append(f'<text x="{x0 + pw//2}" y="{yb - ph - 18:.0f}" text-anchor="middle" '
-                 f'font-size="11" fill="{EMPTY}">— not a near-miss of (a)</text>')
+                 f'font-size="11" fill="{INK}">— not a near-miss of (a)</text>')
     parts.append('</svg>')
-    return "\n".join(parts)
+    svg = "\n".join(parts)
+    # CANVAS GUARD: the first version's panel (c) ran 30px past the viewBox and its outermost
+    # pole never rendered -- five visible poles, asymmetric, the very cluster the panel exists to
+    # avoid. The pole-inside-panel assert above passed throughout. Both are checked now.
+    import re as _re
+    xs = [float(v) for v in _re.findall(r'(?:x|x1|x2|cx)="([0-9.]+)"', svg)]
+    assert max(xs) < W, f"figure 3 draws past its canvas: {max(xs)} >= {W}"
+    return svg
 
 
 FIGS = {"fig1_tiers.svg": fig1, "fig2_postulates.svg": fig2, "fig3_spectra.svg": fig3}

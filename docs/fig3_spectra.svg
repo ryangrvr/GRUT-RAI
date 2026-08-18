@@ -1,20 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" font-family="Helvetica,Arial,sans-serif">
-<text x="450" y="22" text-anchor="middle" font-size="15" fill="#1a1a1a">Three low-frequency structures, identical axes — schematic by declared intent</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" font-family="Helvetica,Arial,sans-serif">
+<text x="480" y="22" text-anchor="middle" font-size="15" fill="#1a1a1a">Three candidate low-frequency structures — identical axes and amplitudes, schematic by declared intent</text>
+<text x="480" y="40" text-anchor="middle" font-size="11" fill="#1a1a1a">the order is not a ranking; each panel carries its status in the register</text>
 <line x1="30" y1="300" x2="290" y2="300" stroke="#1a1a1a"/>
 <line x1="160" y1="300" x2="160" y2="90" stroke="#1a1a1a" stroke-dasharray="2 3"/>
 <text x="160" y="316" text-anchor="middle" font-size="11" fill="#1a1a1a">ω = 0</text>
-<text x="160" y="330" text-anchor="middle" font-size="12" fill="#1a1a1a">(a) single pole</text>
-<polyline points="30,296.1 34,295.9 38,295.6 42,295.3 46,295.0 50,294.6 54,294.2 58,293.8 62,293.3 66,292.7 70,292.1 74,291.4 78,290.6 82,289.6 86,288.6 90,287.3 94,285.8 98,284.1 102,282.0 106,279.6 110,276.6 114,272.9 118,268.4 122,262.8 126,255.6 130,246.5 134,234.7 138,219.6 142,200.4 146,176.8 150,150.2 154,125.1 158,109.0 162,109.0 166,125.1 170,150.2 174,176.8 178,200.4 182,219.6 186,234.7 190,246.5 194,255.6 198,262.8 202,268.4 206,272.9 210,276.6 214,279.6 218,282.0 222,284.1 226,285.8 230,287.3 234,288.6 238,289.6 242,290.6 246,291.4 250,292.1 254,292.7 258,293.3 262,293.8 266,294.2 270,294.6 274,295.0 278,295.3 282,295.6 286,295.9 290,296.1" fill="none" stroke="#7a8ba6" stroke-width="2.2"/>
+<text x="160" y="334" text-anchor="middle" font-size="12" fill="#1a1a1a">(a) single pole</text>
+<text x="160" y="350" text-anchor="middle" font-size="10" fill="#1a1a1a">the framework's conjecture — derived-pending, its lean recorded circular</text>
+<polyline points="30,297.4 34,297.2 38,297.1 42,296.9 46,296.6 50,296.4 54,296.1 58,295.8 62,295.5 66,295.1 70,294.7 74,294.2 78,293.6 82,293.0 86,292.3 90,291.4 94,290.4 98,289.3 102,287.9 106,286.2 110,284.2 114,281.8 118,278.7 122,274.9 126,270.1 130,263.9 134,256.0 138,245.8 142,232.9 146,217.0 150,199.1 154,182.1 158,171.3 162,171.3 166,182.1 170,199.1 174,217.0 178,232.9 182,245.8 186,256.0 190,263.9 194,270.1 198,274.9 202,278.7 206,281.8 210,284.2 214,286.2 218,287.9 222,289.3 226,290.4 230,291.4 234,292.3 238,293.0 242,293.6 246,294.2 250,294.7 254,295.1 258,295.5 262,295.8 266,296.1 270,296.4 274,296.6 278,296.9 282,297.1 286,297.2 290,297.4" fill="none" stroke="#7a8ba6" stroke-width="2.2"/>
 <line x1="350" y1="300" x2="610" y2="300" stroke="#1a1a1a"/>
 <line x1="480" y1="300" x2="480" y2="90" stroke="#1a1a1a" stroke-dasharray="2 3"/>
 <text x="480" y="316" text-anchor="middle" font-size="11" fill="#1a1a1a">ω = 0</text>
-<text x="480" y="330" text-anchor="middle" font-size="12" fill="#1a1a1a">(b) branch cut</text>
-<polygon points="356,300 356,250.9 360,239.1 364,229.0 368,220.6 372,213.5 376,207.6 380,202.8 384,198.8 388,195.6 392,193.0 396,190.9 400,189.3 404,188.0 408,187.0 412,186.3 416,185.8 420,185.4 424,185.1 428,184.9 432,184.7 436,184.6 440,184.6 444,184.5 448,184.5 452,184.5 456,184.5 460,184.5 464,184.5 468,184.5 472,184.5 476,184.5 480,184.5 484,184.5 488,184.5 492,184.5 496,184.5 500,184.5 504,184.5 508,184.5 512,184.5 516,184.5 520,184.6 524,184.6 528,184.7 532,184.9 536,185.1 540,185.4 544,185.8 548,186.3 552,187.0 556,188.0 560,189.3 564,190.9 568,193.0 572,195.6 576,198.8 580,202.8 584,207.6 588,213.5 592,220.6 596,229.0 600,239.1 604,250.9 604,300" fill="#7a8ba6" fill-opacity="0.35" stroke="#7a8ba6" stroke-width="1.5"/>
-<text x="480" y="172.5" text-anchor="middle" font-size="11" fill="#1a1a1a">continuous through ω = 0 — no isolated peak</text>
+<text x="480" y="334" text-anchor="middle" font-size="12" fill="#1a1a1a">(b) branch cut</text>
+<text x="480" y="350" text-anchor="middle" font-size="10" fill="#1a1a1a">the refuting outcome — would retire the conjecture</text>
+<polygon points="356,300 356,240.4 360,227.8 364,217.1 368,208.1 372,200.6 376,194.4 380,189.2 384,185.0 388,181.6 392,178.8 396,176.6 400,174.9 404,173.5 408,172.5 412,171.7 416,171.1 420,170.7 424,170.4 428,170.2 432,170.0 436,169.9 440,169.9 444,169.8 448,169.8 452,169.8 456,169.8 460,169.8 464,169.8 468,169.8 472,169.8 476,169.8 480,169.8 484,169.8 488,169.8 492,169.8 496,169.8 500,169.8 504,169.8 508,169.8 512,169.8 516,169.8 520,169.9 524,169.9 528,170.0 532,170.2 536,170.4 540,170.7 544,171.1 548,171.7 552,172.5 556,173.5 560,174.9 564,176.6 568,178.8 572,181.6 576,185.0 580,189.2 584,194.4 588,200.6 592,208.1 596,217.1 600,227.8 604,240.4 604,300" fill="#7a8ba6" fill-opacity="0.35" stroke="#7a8ba6" stroke-width="1.5"/>
+<text x="480" y="158" text-anchor="middle" font-size="11" fill="#1a1a1a">continuous through ω = 0 — no isolated peak</text>
 <line x1="670" y1="300" x2="930" y2="300" stroke="#1a1a1a"/>
 <line x1="800" y1="300" x2="800" y2="90" stroke="#1a1a1a" stroke-dasharray="2 3"/>
 <text x="800" y="316" text-anchor="middle" font-size="11" fill="#1a1a1a">ω = 0</text>
-<text x="800" y="330" text-anchor="middle" font-size="12" fill="#1a1a1a">(c) gapped tower</text>
+<text x="800" y="334" text-anchor="middle" font-size="12" fill="#1a1a1a">(c) gapped tower</text>
+<text x="800" y="350" text-anchor="middle" font-size="10" fill="#1a1a1a">the known free-field structure in the well-posed substitute</text>
 <line x1="736" y1="300" x2="736" y2="170" stroke="#7a8ba6" stroke-width="3"/>
 <circle cx="736" cy="170" r="3" fill="#7a8ba6"/>
 <line x1="714" y1="300" x2="714" y2="170" stroke="#7a8ba6" stroke-width="3"/>
@@ -27,7 +31,7 @@
 <circle cx="886" cy="170" r="3" fill="#7a8ba6"/>
 <line x1="908" y1="300" x2="908" y2="170" stroke="#7a8ba6" stroke-width="3"/>
 <circle cx="908" cy="170" r="3" fill="#7a8ba6"/>
-<rect x="748" y="164" width="104" height="136" fill="none" stroke="#c0392b" stroke-dasharray="5 4"/>
-<text x="800" y="136" text-anchor="middle" font-size="11" fill="#c0392b">no support below the gap</text>
-<text x="800" y="152" text-anchor="middle" font-size="11" fill="#c0392b">— not a near-miss of (a)</text>
+<rect x="736" y="164" width="128" height="136" fill="none" stroke="#1a1a1a" stroke-dasharray="5 4"/>
+<text x="800" y="136" text-anchor="middle" font-size="11" fill="#1a1a1a">no support below the gap</text>
+<text x="800" y="152" text-anchor="middle" font-size="11" fill="#1a1a1a">— not a near-miss of (a)</text>
 </svg>

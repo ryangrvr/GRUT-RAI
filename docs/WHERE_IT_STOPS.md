@@ -7,11 +7,12 @@ D. Ryan Grover · 2026-08-17
 > **Correction record, 2026-08-14.** Part I's first draft failed its mandatory hostile pre-screen (DO-NOT-SHIP): I.1 overstated two priority claims and contained a physics error in its gauge fence. The section was left standing under a do-not-cite banner rather than pulled, then corrected: I.1 is now one third its drafted length and claims nothing beyond the literature it cites; the register nodes that carried the same over-scoped clause were corrected **first**, with the source read (arXiv:2507.03103) that the register itself had flagged as owed. The full trail — draft, verdict, correction — is in the repository history.
 >
 > **Published in parts.** Complete as of 2026-08-17: the front matter, the note on the
-> prior deposit, **Part 0**, **Part I** (corrected; see the record above), **Part II**
-> (its figure enters with the figures wave and is marked in place), **Part III**, **Part IV**
-> (its figure likewise deferred and marked), **Part V**, **Part VI**,
-> **Part VII** (with VII.3 left empty for its author, by design), the appendices, and all three
-> figures. **Outstanding:** nothing but VII.3 and the publication steps. The outline is fixed and lives in the
+> prior deposit, **Part 0**, **Part I** (corrected; see the record above), **Part II**,
+> **Part III**, **Part IV**, **Part V**, **Part VI**,
+> **Part VII** — except **VII.3**, which is left unwritten for its author — the appendices, and
+> all three figures, each placed with its section (a fourth figure, the allowance window of
+> Part III.2, was considered and refused there, on the grounds stated at that surface).
+> **Outstanding:** VII.3 and the publication steps. The outline is fixed and lives in the
 > repository; the sections not listed as complete **do not yet exist**. This line is updated
 > at the close of every wave, and a document silent about its own completeness would be the
 > last uncaught instance of the pattern this document is about.
@@ -28,9 +29,9 @@ The framework produced **no novel positive prediction**; the register's `derived
 
 Two inflations are refused. The physics is not presented as a theory. The method — a claim register that prices assumptions and blocks derivations that quietly acquire them — is the more transferable output and is **unvalidated by anyone but its author**. A prior book by the same author, with a live DOI, describes a **different** framework and is substantially wrong; the note below says what and why the correction is owed rather than done.
 
-**Every link in this program's verification chain except one human being is an AI.** That is stated in the front matter, at full volume, because a program whose audit chain is AI is more trustworthy for saying so than for letting the word "verified" do quiet work.
+**Every link in this program's verification chain except one human being is an AI — and so is the drafting of this document's prose.** The text was drafted by an AI instrument operated by the author, screened by other AI instruments charged with breaking it, and accepted by him; one section, VII.3, is reserved for the author's own hand and is unwritten here. That is stated in the front matter, at full volume, because a program whose audit chain is AI is more trustworthy for saying so than for letting the word "verified" do quiet work.
 
-**Where to check any of this.** Repository: `github.com/ryangrvr/GRUT-RAI`, commit `f4ff2dfe16cb`, MIT licence — that commit holds every artifact this document describes, and the document naming it is necessarily a descendant of it, since a file cannot contain its own hash; the rebuild described here is the `rebuild/` subtree, and the prior lineage discussed below is retained in the same repository as historical record. The commands below reproduce everything numeric in this document, from a clean checkout, with no dependencies beyond the Python 3 standard library:
+**Where to check any of this.** Repository: `github.com/ryangrvr/GRUT-RAI`, MIT licence. **The commit hash is written in at publication and is not yet present in this version** — an earlier draft named one that does not resolve, which is exactly the failure this line exists to prevent, so it now says what it is. A file cannot contain its own hash, so the pinned commit is necessarily an ancestor of the published document; the rebuild described here is the `rebuild/` subtree, and the prior lineage discussed below is retained in the same repository as historical record. The commands below reproduce everything numeric in this document, from a clean checkout, with no dependencies beyond the Python 3 standard library:
 
 ```bash
 cd rebuild
@@ -50,7 +51,7 @@ cd provenance && python3 -m pytest -q               # the full suite
 2. **Three results outlive the framework**, and two are facts about GR: the linearized-EH kernel is not transverse-traceless (exact ratio −2, constrained sector); the arrow decomposes into intrinsic existence and imported direction; and the anomaly action meant to fix the framework's one free parameter was computed and **fixes nothing** — it yields a scale, not a number.
 3. Its one decisive question — **pole or cut in ρ_TT(ω→0)** — was **drafted, held, never sent**, and may be ill-posed as posed.
 4. **No outside physicist has answered any physics question put by this program.** Fixed point 2 states this checkably rather than as a denial.
-5. **Every verifier in the chain but one human is an AI** — including the role the register calls "overseer," in 214 places.
+5. **Every verifier in the chain but one human is an AI** — including the role the register calls "overseer," a word the register uses freely and which named a *human* in this program's own glossary until the correction recorded in Part VI.3.
 6. A previous book by this author, live under its own DOI, is **not this framework** and is substantially wrong. The correction is **owed, not done**.
 
 ---
@@ -61,9 +62,9 @@ cd provenance && python3 -m pytest -q               # the full suite
 
 **2 — No outside physicist has answered any physics question put by this program.** Stated specifically, because the general denial is unfalsifiable-sounding:
 
-The register contains **28 records phrased as an external pass having run** — among them **6, across 5 nodes**, written as *SPECIALIST CONFIRMED* and *SPECIALIST-CORRECTED* and dated 2026-06-25. **No transmission to any outside human is logged at any date** — that half is checkable against the register in minutes, and an adversarial search of every file, log, git object and archived snapshot found none. That those passes were AI sessions run by the author is **not** established by the register, which never records modality; **it is the author's own statement, made 2026-08-12**, and the reader should treat the two halves differently: one is auditable, the other is testimony.
+Of one term's occurrences, the register contains **28 records phrased as an external pass having run** — among them **6, across 5 nodes**, written as *SPECIALIST CONFIRMED* and *SPECIALIST-CORRECTED* and dated 2026-06-25. **No transmission to any outside human is logged at any date** — that half is checkable against the register in minutes, and an adversarial search of every file, log, git object and archived snapshot found none. That those passes were AI sessions run by the author is **not** established by the register, which never records modality; **it is the author's own statement, made 2026-08-12**, and the reader should treat the two halves differently: one is auditable, the other is testimony.
 
-An audit of the word *specialist* found **49 occurrences across 18 of 70 claims** (58 if you count the 2026 annotation blocks that document them), classified: **28** phrased as a pass having run, **17** reserving a *future* expert, **2** generic or collective, **2** filenames. That word is not the only one that reads as outside authority — the register also uses *referee*, *reviewer*, *externally reviewed*, and *overseer-verified*, where "overseer" is the author. Appendix D classifies all of them. The first version of this audit used one word and one letter-case; both narrowings are why the term list is now pre-registered before the audit runs.
+An audit of the word *specialist* found **49 occurrences across 18 of 70 claims** (58 if you count the 2026 annotation blocks that document them), classified: **28** phrased as a pass having run, **17** reserving a *future* expert, **2** generic or collective, **2** filenames. That word is not the only one that reads as outside authority — the register also uses *referee*, *reviewer*, *externally reviewed*, and *overseer-verified*. Appendix D gives the audit's classification scheme and its findings; the per-occurrence classification lives in the audit's own sealed result file, which the appendix names. The first version of this audit used one word and one letter-case; both narrowings are why the term list is now pre-registered before the audit runs.
 
 **3 — A prior book with a live DOI describes a different theory.** Concept DOI `10.5281/zenodo.19803663`; latest version `10.5281/zenodo.20783057`. See the note below.
 
@@ -71,7 +72,7 @@ An audit of the word *specialist* found **49 occurrences across 18 of 70 claims*
 
 **5 — This is not the program's final deposit.** A signed termination condition schedules a closing document *after* a stop condition fires. **No stop condition has fired.** This document corrects a wrong live DOI — a different obligation — and changes nothing about what fires or when.
 
-**6 — The name contains "Theory of Everything."** It does, on the prior deposit's title page. What that reaches for is addressed at the end, in the author's own voice, last.
+**6 — The name contains "Theory of Everything."** It does, on the prior deposit's title page. What that reaches for is left to the author, in his own voice, at the end of the body — see VII.3, which is unwritten as of this version.
 
 ---
 
@@ -225,7 +226,11 @@ The landing: **the action does not fix x.** What it forbids is real — anti-pas
 
 ## II.2 — What it bets
 
-The postulate map sorts every input by kind, and the sort answers "what is this framework actually betting?" *(The figure for this section — the postulate sort drawn as a map — enters with the figures wave; the completeness line above tracks it.)*
+The postulate map sorts every input by kind, and the sort answers "what is this framework actually betting?"
+
+![Figure 2 — the postulate sort](fig2_postulates.svg)
+
+*Figure 2. The sort, by names rather than counts: equal boxes carry no claim about equal weight or equal number, and the left-to-right order is the map's presentation order, not a hierarchy. Membership is transcribed from `POSTULATE_MAP.md`, and a test fails if a name here is absent there.*
 
 **Bedrock: posits that are not even candidates for derivation.** The medium ontology itself, with its division into slow metric and fast bath — the bet, and a framework must bet something. The low-entropy past boundary — Part I.2 is the demonstration that, in every case surveyed, the arrow's *direction* is imported rather than dynamical — so the framework imports it, priced. And the Born measure: decoherence machinery selects a pointer *basis*; it does not by itself supply the outcome *probability*; the probability rule is inherited. The discipline's claim about these is not "unsolved" but "un-derivable in every case surveyed" (Part I.2's scope): surveyed derivation claims relocate the input; they do not remove it — and counting a relocation as a removal is the laundering the register books (laundering — deriving with an input the derivation does not declare).
 
@@ -329,7 +334,9 @@ What survives the supersession, stated with it: the *dictionary* connecting a la
 
 ## IV.3 — The arc
 
-*(The figure for this Part — single pole, branch cut, gapped tower as three sketches of the same low-frequency plane — enters with the figures wave; the completeness line tracks it.)*
+![Figure 3 — three candidate low-frequency structures](fig3_spectra.svg)
+
+*Figure 3. The three candidate answers, on identical axes and at identical amplitudes — the amplitudes carry no weight claim, since these are mutually exclusive candidates for one undetermined object and no normalization exists to compare them. The order is not a ranking; each panel carries its status in the register, including that the framework's own conjecture is the first panel and the known free-field structure is the third.*
 
 Documents with different authority speak in this section, and the difference is the section's subject, so it is stated up front: the *register* grades claims; the *event log* (`provenance/prereg/RESULT_TERMINATION_events.txt`, dated, append-only) records events and carries the question's channel line; the *sealed condition* alone governs what resolves or stops; and the *dispatch's face* carries its own status. The question's whole decision history is that log, this section is a reading of it, and where the two disagree, the log wins.
 
@@ -435,7 +442,9 @@ The containment results of Part III are statements about this framework as writt
 
 ## VI.1 — The register and the gate
 
-*(The figure for this Part — the tier histogram generated from the register, its derived bar empty — enters with the figures wave; the completeness line tracks it.)*
+![Figure 1 — register tiers, generated](fig1_tiers.svg)
+
+*Figure 1. Tier counts, framework scope, generated from the register at build time; bars in the vocabulary's canonical order, never sorted by height. The `derived` tier has no bar — the dashed frame is a marker that the tier exists in the vocabulary and is unpopulated in fact; its extent is not a value. Scope note: the framework's claims only; the register also holds a separate mapping exercise, excluded here and disclosed in the body.*
 
 The method is a claim register and the machinery that polices it. Every claim the framework makes lives as a structured entry with: a tier (the vocabulary of the front matter — shown, derived-pending, assumed, to-derive, and the empty derived); a signed ledger delta naming what the claim costs in underived inputs, summed blind across the register into the net the validator prints on its own face; its sources, verified by the author — against primary literature where the register's per-source attestation says so, through secondary literature where it does not; and an *overturning computation* — the named calculation that would falsify or deflate it, recorded at bank time so the claim carries its own kill condition.
 
@@ -497,9 +506,7 @@ Every figure in this section is generated from the register or quoted from a dat
 
 **The deposit.** The prior book remains live and wrong under its own DOI, and its correction remains owed rather than done. This document is not that correction and does not discharge it.
 
-![Figure 1 — register tiers, generated](fig1_tiers.svg)
-
-*Figure 1. Tier counts, framework scope, generated from the register at build time; bars in the vocabulary's canonical order, never sorted by height. The dashed bar is the `derived` tier at its true value.*
+The tier counts above are Figure 1, in Part VI.1.
 
 ## VII.2 — How it ends, and why this document is not that ending
 
@@ -517,11 +524,11 @@ What this document is for, stated without inflation: a reader who encounters the
 
 > **This section is the author's, in the first person, and is deliberately left empty here.**
 >
-> Everything else in this document was drafted by an AI instrument operated by its author, screened by other AI instruments, and accepted by the one human in the chain — that is disclosed in the front matter at full volume, and it is the document's own subject. The one paragraph that must not be produced that way is the paragraph about what the name *Grand Responsive Universe Theory* was reaching for: an AI ghost-writing the human's account of his own ambition would be the single worst sentence in a document about verification chains, and no disclosure would repair it.
+> The prose of this document was drafted by an AI instrument, as the front matter discloses. The section about the name must not be produced that way: an AI drafting the author's account of his own ambition would be a disclosure failure this document could not repair, so it is not drafted.
 >
-> **What this section must not do**, recorded as the standing brief so the emptiness has a shape: it must not re-argue the physics — Parts I through V settled what is established and what is not, and a closing appeal cannot upgrade a tier. It must not claim the name was justified. It must not claim the name was merely a mistake, if it was not. It must not promise future work as compensation for present absence. It must not thank the machinery. And it must not end on a rise — the document's last movement before it is a program reporting that it stopped.
+> **The constraints handed over with the empty section**, so that a reader knows what was and was not specified for it: it must not re-argue the physics — the document has already recorded what is established and what is not, and a closing appeal cannot upgrade a tier. It must not promise future work as compensation for present absence. It must not thank the machinery. Whether the name was justified, mistaken, or something else is the author's to say and is not specified here.
 >
-> *To be written by D. Ryan Grover, signed, and placed last.*
+> *To be written by D. Ryan Grover, signed, and placed last in the body, before the appendices.*
 
 ---
 
@@ -531,63 +538,64 @@ What this document is for, stated without inflation: a reader who encounters the
 
 Generated at build time from `provenance/claims.json`; a claim's full text, sources, ledger note, and overturning computation live in that file, which this table indexes. Framework scope only, ordered by tier then identifier.
 
-| claim | tier | ledger | statement (first sentence) |
+| claim | tier | ledger | statement (opening) |
 |---|---|---|---|
-| `founding_h1_zeta_casimir` | shown | 0 | FOUNDING-HYPOTHESIS sub-claim H1 (GENERIC/borrowed -- NOT uniquely GRUT): a single physical response admits TWO LEVELS OF DESCRIPTION -- an unregul... |
-| `info_i1_renorm_as_information` | shown | 0 | INFORMATION-PRINCIPLE sub-claim I1 (GENERIC -- already in GRUT, NOT uniquely GRUT): renormalization/coarse-graining is an information-projection, a... |
-| `l0_r1_redundancy_exists` | shown | 0 | FRONTIER-3 sub-claim R1 (GENERIC -- not uniquely GRUT): the long-wavelength adiabatic spatial dilatation is a residual large-gauge / large-diffeomo... |
-| `passivity_channel_diagonal` | shown | 0 | THE CHANNEL-DIAGONAL PASSIVITY LEMMA -- the GENERAL statement, frame-free (pre-registered PREREG_X_NO_PIN_2026-08-09.txt, sealed before the calc ex... |
-| `rung1_inin_action` | shown | +4 | The gravitational vacuum is a responsive medium with finite memory, described by a single Schwinger-Keldysh influence action S_IF with retarded dis... |
-| `rung2_kms_gate` | shown | -1 | In equilibrium the noise kernel N is locked to Im[chi] by FDT with a coth(hbar*omega/2kT) factor; |
-| `rung4_love_kk` | shown | 0 | Re[chi] = elastic/storage (Love-number) response, KK-linked to dissipative Im[chi]; |
-| `rung7_w1_wz_map` | shown | 0 | RUNG7-SIGN sub-claim W1 (GENERIC -- not uniquely GRUT): a relaxing causal susceptibility chi(omega) defines an effective dark-energy stress tensor... |
+| `founding_h1_zeta_casimir` | shown | 0 | FOUNDING-HYPOTHESIS sub-claim H1 (GENERIC/borrowed -- NOT uniquely GRUT): a single physical response admits TWO LEVELS OF DESCRIPTION -- an … |
+| `info_i1_renorm_as_information` | shown | 0 | INFORMATION-PRINCIPLE sub-claim I1 (GENERIC -- already in GRUT, NOT uniquely GRUT): renormalization/coarse-graining is an information-projection, and … |
+| `l0_r1_redundancy_exists` | shown | 0 | FRONTIER-3 sub-claim R1 (GENERIC -- not uniquely GRUT): the long-wavelength adiabatic spatial dilatation is a residual large-gauge / … |
+| `passivity_channel_diagonal` | shown | 0 | THE CHANNEL-DIAGONAL PASSIVITY LEMMA -- the GENERAL statement, frame-free (pre-registered PREREG_X_NO_PIN_2026-08-09.txt, sealed before the calc …) |
+| `rung1_inin_action` | shown | +4 | The gravitational vacuum is a responsive medium with finite memory, described by a single Schwinger-Keldysh influence action S_IF with retarded … |
+| `rung2_kms_gate` | shown | -1 | In equilibrium the noise kernel N is locked to Im[chi] by FDT with a coth(hbar*omega/2kT) factor; admissible kernels must satisfy KMS detailed … |
+| `rung4_love_kk` | shown | 0 | Re[chi] = elastic/storage (Love-number) response, KK-linked to dissipative Im[chi]; recovers worldline-EFT tidal-response structure for the vacuum. |
+| `rung7_w1_wz_map` | shown | 0 | RUNG7-SIGN sub-claim W1 (GENERIC -- not uniquely GRUT): a relaxing causal susceptibility chi(omega) defines an effective dark-energy stress tensor … |
 | `rung9a_value` | shown | 0 | The alpha value a/c = 1/3 (Komargodski-Schwimmer 2011 / Duff): IF the conformal mode is the IR carrier THEN a/c = 1/3. |
-| `u1_form_universality` | shown | 0 | Version II, entry U1 (form-universality, GENERIC/BORROWED): the responsive-medium influence-functional FORM -- a Schwinger-Keldysh S_IF = K_R + (i/... |
-| `kk_static_transfer` | derived-pending | 0 | THE STATIC-TRANSFER QUESTION (the load-bearing gap between 'the family has a floor' and 'mu has a floor'; |
+| `u1_form_universality` | shown | 0 | Version II, entry U1 (form-universality, GENERIC/BORROWED): the responsive-medium influence-functional FORM -- a Schwinger-Keldysh S_IF = K_R + … |
+| *(none)* | **derived** | — | *no claim in the register holds this tier — the document's headline result* |
+| `kk_static_transfer` | derived-pending | 0 | THE STATIC-TRANSFER QUESTION (the load-bearing gap between 'the family has a floor' and 'mu has a floor'; overseer-ruled into the register …) |
 | `mu_linear` | derived-pending | 0 | Linear-order cosmology, a NO-GO EXPORT with a conditional positive leg. |
-| `rung3_single_pole` | derived-pending | 0 | Committing to relativistic massless fast modes (omega=c/k/) gives DOS~omega^2, J(omega)~omega^3 (s=3 super-Ohmic); |
-| `x_no_pin_theorem` | derived-pending | 0 | THE x_no_pin THEOREM (X_FLOOR_MAP attack item 2 / route R3; |
-| `analogue_gravity_acoustic` | assumed | 0 | Analogue gravity / acoustic metrics (Unruh 1981; |
-| `arrow_of_time` | assumed | +1 | The thermodynamic arrow of time -- GRUT's last-standing distinctness claim, honestly scoped: the in-in/Schwinger-Keldysh foundation makes the EXIST... |
-| `born_rule` | assumed | 0 | The Born rule (measurement probability = /amplitude/^2) is a quantum-mechanics postulate GRUT BORROWS via the rung6 quantum-limit recovery; |
-| `entropy_area_unruh` | assumed | 0 | Horizon entropy ~ area (Bekenstein-Hawking) and the Unruh temperature are thermodynamic-gravity inputs GRUT BORROWS via the rung5 GR-limit recovery... |
-| `entropy_foundations` | assumed | 0 | The foundations of entropy -- Boltzmann S=k ln W, the Gibbs ensemble entropy, and the von Neumann entropy S=-Tr(rho ln rho) -- are the standard sta... |
-| `fluctuation_theorems` | assumed | 0 | Fluctuation theorems -- the linear-response fluctuation-dissipation theorem (FDT; |
-| `linear_response_viscoelastic` | assumed | 0 | Linear-response / viscoelastic transport (Kubo, Kadanoff-Martin, Forster): a medium with a single relaxation time has a Maxwell/Debye single-pole r... |
+| `rung3_single_pole` | derived-pending | 0 | Committing to relativistic massless fast modes (omega=c/k/) gives DOS~omega^2, J(omega)~omega^3 (s=3 super-Ohmic); WITHIN the … |
+| `x_no_pin_theorem` | derived-pending | 0 | THE x_no_pin THEOREM (X_FLOOR_MAP attack item 2 / route R3; D3 completion-bar item (ii)): applying the channel-diagonal passivity lemma to the … |
+| `analogue_gravity_acoustic` | assumed | 0 | Analogue gravity / acoustic metrics (Unruh 1981; Barcelo-Liberati-Visser): a moving medium furnishes an emergent (acoustic) metric for perturbations. |
+| `arrow_of_time` | assumed | +1 | The thermodynamic arrow of time -- GRUT's last-standing distinctness claim, honestly scoped: the in-in/Schwinger-Keldysh foundation makes the … |
+| `born_rule` | assumed | 0 | The Born rule (measurement probability = /amplitude/^2) is a quantum-mechanics postulate GRUT BORROWS via the rung6 quantum-limit recovery; GRUT does … |
+| `entropy_area_unruh` | assumed | 0 | Horizon entropy ~ area (Bekenstein-Hawking) and the Unruh temperature are thermodynamic-gravity inputs GRUT BORROWS via the rung5 GR-limit recovery … |
+| `entropy_foundations` | assumed | 0 | The foundations of entropy -- Boltzmann S=k ln W, the Gibbs ensemble entropy, and the von Neumann entropy S=-Tr(rho ln rho) -- are the standard … |
+| `fluctuation_theorems` | assumed | 0 | Fluctuation theorems -- the linear-response fluctuation-dissipation theorem (FDT; Callen-Welton, Kubo) and its far-from-equilibrium generalizations … |
+| `linear_response_viscoelastic` | assumed | 0 | Linear-response / viscoelastic transport (Kubo, Kadanoff-Martin, Forster): a medium with a single relaxation time has a Maxwell/Debye single-pole … |
 | `p_tt_ansatz` | assumed | +1 | The vacuum response is purely transverse-traceless: K^R = alpha*chi(omega)*P^TT, with the projector P^TT chosen (not derived). |
-| `past_hypothesis` | assumed | 0 | The Past Hypothesis (a low-entropy initial macrostate of the universe) is a cosmological boundary condition GRUT BORROWS via arrow_of_time; |
-| `relativistic_hydro_israel_stewart` | assumed | 0 | Transient (causal) relativistic hydrodynamics (Israel-Stewart): a relaxation time makes dissipative transport a causal single-pole / telegrapher re... |
-| `rung5_gr_limit` | assumed | +2 | GR limit: tau_c->0 collapses chi to its conservative local form; |
-| `rung6_qm_limit` | assumed | +2 | QM limit: integrating out the bath yields the reduced-density-matrix master equation; |
-| `rung9b_bridge` | assumed | 0 | The c_0 normalization (alpha-bridge): c_0 = alpha is an ADOPTED phenomenological DC normalization of the TT response kernel (K^R = alpha*chi*P^TT)... |
-| `second_law_h_theorem` | assumed | 0 | The second law of thermodynamics and Boltzmann's H-theorem (monotone entropy production), with the Lindblad form for the completely-positive genera... |
-| `superfluid_bec_media` | assumed | 0 | Superfluid / BEC media (Landau two-fluid; |
-| `eft_operator_basis` | to-derive | 0 | The open-EFT operator basis for the quadratic influence action: enumerate the admissible tensor structures for K_R on the declared background under... |
-| `emergence_chain` | to-derive | 0 | THE EMERGENCE CHAIN (the building stage's first artifact, 2026-08-09): the ordered story from origin to observers, each link carrying its covering... |
-| `founding_h2_R_zeta_bridge` | to-derive | 0 | FOUNDING-HYPOTHESIS sub-claim H2 (THE CRUX, open research program -- FRONTIER-RESERVED): can R = sqrt(1+alpha) be formulated as a SPECTRAL INVARIAN... |
-| `founding_h3_doubleslit_anchor` | to-derive | 0 | FOUNDING-HYPOTHESIS sub-claim H3 (DEFERRED, open): does the double-slit experiment yield a UNIQUE OBSERVABLE distinct from standard quantum mechani... |
-| `info_i2_beyond_standard_bridge` | to-derive | 0 | INFORMATION-PRINCIPLE sub-claim I2 (THE CRUX, open, default-BROKEN): is there a PRECISE, FALSIFIABLE distinguishability/information statement about... |
-| `info_i3_distinct_consequence` | to-derive | 0 | INFORMATION-PRINCIPLE sub-claim I3 (falsifiable anchor, open, default-BROKEN): does I2's beyond-standard principle (if any) produce a DISTINCT CONS... |
-| `l0_r2_exact_unique_breaker` | to-derive | 0 | FRONTIER-3 sub-claim R2 (THE CRUX, open, default-BROKEN): derived from the CTP influence action S_IF -- (i) is the adiabatic dilatation an EXACT re... |
-| `l0_r3_payoff_mu_linear` | to-derive | 0 | FRONTIER-3 sub-claim R3 (the consequence, open, default-BROKEN): IF R2 proves, does it (a) GRADUATE mu_linear -- turn its presupposed separate-univ... |
-| `lambda_undetermined` | to-derive | 0 | The value of the cosmological constant Lambda is UNDETERMINED by GRUT (the cosmological-constant problem): GRUT's responsive-vacuum framing does no... |
-| `method_novelty` | to-derive | 0 | PILLAR-4 METHOD-NOVELTY (the fourth pillar's own gauntlet): the self-auditing discipline -- a machine-checkable register + signed underived-input l... |
-| `rung7_w2_wa_sign` | to-derive | 0 | RUNG7-SIGN sub-claim W2 (THE CRUX, open, default-BROKEN): for the passive (Im chi >= 0), causal (KK), KMS-consistent SINGLE-POLE vacuum the shown s... |
-| `rung7_w3_nocrossing_export` | to-derive | 0 | RUNG7-SIGN sub-claim W3 (the consequence, open, default-BROKEN): IF W2's no-crossing graduates, does it export a falsifiable-direction NO-GO -- 'GR... |
-| `rung7_wz` | to-derive | +3 | Out of equilibrium FDT no longer locks N to K_R; |
-| `rung8_falsifier` | to-derive | +2 | The tabletop falsifier: GRUT's noise kernel N driving the Anastopoulos-Hu 2013 gravitational-decoherence master equation predicts a decoherence sig... |
-| `u2_kernel_universality` | to-derive | 0 | Version II, entry U2 (content / kernel-universality, THE genuine Version-II frontier): is the SPECIFIC response kernel (L0, the low-omega pole stru... |
-| `u3_split_origin` | to-derive | 0 | Version II, entry U3 / the Q1 origin question (the deepest frontier): WHY is there a system/bath split / coarse-graining at all? Feynman-Vernon (U1... |
-| `u4_constitutive_origin` | to-derive | 0 | Version II, entry U4 / Frontier 3 (the origin of the constitutive FORM): GIVEN coarse-graining, WHY does the effective description take a RESPONSE... |
+| `past_hypothesis` | assumed | 0 | The Past Hypothesis (a low-entropy initial macrostate of the universe) is a cosmological boundary condition GRUT BORROWS via arrow_of_time; the … |
+| `relativistic_hydro_israel_stewart` | assumed | 0 | Transient (causal) relativistic hydrodynamics (Israel-Stewart): a relaxation time makes dissipative transport a causal single-pole / telegrapher … |
+| `rung5_gr_limit` | assumed | +2 | GR limit: tau_c->0 collapses chi to its conservative local form; Clausius dQ=TdS on Rindler horizons recovers the Einstein equations as an equation … |
+| `rung6_qm_limit` | assumed | +2 | QM limit: integrating out the bath yields the reduced-density-matrix master equation; unitary core = Schrodinger, noise N supplies decoherence … |
+| `rung9b_bridge` | assumed | 0 | The c_0 normalization (alpha-bridge): c_0 = alpha is an ADOPTED phenomenological DC normalization of the TT response kernel (K^R = alpha*chi*P^TT) … |
+| `second_law_h_theorem` | assumed | 0 | The second law of thermodynamics and Boltzmann's H-theorem (monotone entropy production), with the Lindblad form for the completely-positive … |
+| `superfluid_bec_media` | assumed | 0 | Superfluid / BEC media (Landau two-fluid; Leggett): multi-mode transport (first/second sound, quantized vortices, two-fluid structure). |
+| `eft_operator_basis` | to-derive | 0 | The open-EFT operator basis for the quadratic influence action: enumerate the admissible tensor structures for K_R on the declared background under … |
+| `emergence_chain` | to-derive | 0 | THE EMERGENCE CHAIN (the building stage's first artifact, 2026-08-09): the ordered story from origin to observers, each link carrying its covering … |
+| `founding_h2_R_zeta_bridge` | to-derive | 0 | FOUNDING-HYPOTHESIS sub-claim H2 (THE CRUX, open research program -- FRONTIER-RESERVED): can R = sqrt(1+alpha) be formulated as a SPECTRAL INVARIANT … |
+| `founding_h3_doubleslit_anchor` | to-derive | 0 | FOUNDING-HYPOTHESIS sub-claim H3 (DEFERRED, open): does the double-slit experiment yield a UNIQUE OBSERVABLE distinct from standard quantum mechanics … |
+| `info_i2_beyond_standard_bridge` | to-derive | 0 | INFORMATION-PRINCIPLE sub-claim I2 (THE CRUX, open, default-BROKEN): is there a PRECISE, FALSIFIABLE distinguishability/information statement about … |
+| `info_i3_distinct_consequence` | to-derive | 0 | INFORMATION-PRINCIPLE sub-claim I3 (falsifiable anchor, open, default-BROKEN): does I2's beyond-standard principle (if any) produce a DISTINCT … |
+| `l0_r2_exact_unique_breaker` | to-derive | 0 | FRONTIER-3 sub-claim R2 (THE CRUX, open, default-BROKEN): derived from the CTP influence action S_IF -- (i) is the adiabatic dilatation an EXACT … |
+| `l0_r3_payoff_mu_linear` | to-derive | 0 | FRONTIER-3 sub-claim R3 (the consequence, open, default-BROKEN): IF R2 proves, does it (a) GRADUATE mu_linear -- turn its presupposed … |
+| `lambda_undetermined` | to-derive | 0 | The value of the cosmological constant Lambda is UNDETERMINED by GRUT (the cosmological-constant problem): GRUT's responsive-vacuum framing does not … |
+| `method_novelty` | to-derive | 0 | PILLAR-4 METHOD-NOVELTY (the fourth pillar's own gauntlet): the self-auditing discipline -- a machine-checkable register + signed underived-input … |
+| `rung7_w2_wa_sign` | to-derive | 0 | RUNG7-SIGN sub-claim W2 (THE CRUX, open, default-BROKEN): for the passive (Im chi >= 0), causal (KK), KMS-consistent SINGLE-POLE vacuum the shown … |
+| `rung7_w3_nocrossing_export` | to-derive | 0 | RUNG7-SIGN sub-claim W3 (the consequence, open, default-BROKEN): IF W2's no-crossing graduates, does it export a falsifiable-direction NO-GO … |
+| `rung7_wz` | to-derive | +3 | Out of equilibrium FDT no longer locks N to K_R; a relaxing chi(omega) yields an effective dark-energy equation of state w(z) that can evolve away … |
+| `rung8_falsifier` | to-derive | +2 | The tabletop falsifier: GRUT's noise kernel N driving the Anastopoulos-Hu 2013 gravitational-decoherence master equation predicts a decoherence … |
+| `u2_kernel_universality` | to-derive | 0 | Version II, entry U2 (content / kernel-universality, THE genuine Version-II frontier): is the SPECIFIC response kernel (L0, the low-omega pole …) |
+| `u3_split_origin` | to-derive | 0 | Version II, entry U3 / the Q1 origin question (the deepest frontier): WHY is there a system/bath split / coarse-graining at all? Feynman-Vernon (U1) … |
+| `u4_constitutive_origin` | to-derive | 0 | Version II, entry U4 / Frontier 3 (the origin of the constitutive FORM): GIVEN coarse-graining, WHY does the effective description take a RESPONSE / … |
 | `u5_constitutive_phases` | to-derive | 0 | Version II, entry U5 (a branch of U4 / Frontier 3): classify the UNIVERSALITY CLASSES of the constitutive response chi(omega,k). |
-| `u6_constitutive_order` | to-derive | 0 | Version II, entry U6 (a branch of U4 / Frontier 3): does constitutive organization admit an ORDER PARAMETER with RG significance? (The RG monotone... |
-| `zeta_interior_family` | to-derive | 0 | The {shear, bulk} INTERIOR: the admissible two-moduli kernel family K = c2*P^TT + c0*P0s between the banked endpoints (TT-only mu=1; |
+| `u6_constitutive_order` | to-derive | 0 | Version II, entry U6 (a branch of U4 / Frontier 3): does constitutive organization admit an ORDER PARAMETER with RG significance? (The RG monotone is …) |
+| `zeta_interior_family` | to-derive | 0 | The {shear, bulk} INTERIOR: the admissible two-moduli kernel family K = c2*P^TT + c0*P0s between the banked endpoints (TT-only mu=1; trace-only …) |
 
 ## Appendix B — How to verify
 
-Every number in this document is regenerated by the commands in the front matter. What a green run means, and what it does not:
+Every *register-derived* number in this document is regenerated by the commands in the front matter; the marked exceptions (quotations from the prior deposit, cited literature, that verification pass's findings, and this program's own dated audit figures) are attributed where they occur and no command produces them. What a green run means, and what it does not:
 
-A green run establishes that the register is internally consistent, that every claim carries a tier, sources, and a named overturning computation, that the emitted numbers match the register, that this document matches its source and its source matches the register, that the sealed pre-registrations are unmodified since sealing, and that no register edit is sitting unaccepted. **It establishes nothing about whether any claim is true of the world.** The repository's `HOW_TO_VERIFY.md` states the same limit at greater length and is the authoritative version.
+A green run establishes that the register is internally consistent, that every claim carries a tier, sources, and a named overturning computation, that the emitted numbers match the register, that this document matches its source and its source matches the register, and that the sealed pre-registrations are unmodified since sealing. Whether a register edit is sitting unaccepted is a separate check — `python3 provenance/bankgate.py`, which the front matter's commands do not run — and a reader auditing this document should run it too. **None of it establishes whether any claim is true of the world.** The repository's `HOW_TO_VERIFY.md` states the same limit at greater length and is the authoritative version.
 
 Two verification acts are not mechanical and are named as such: the tiers are assigned by the author, and the assessment that no outside human has answered a physics question rests, in its attribution half, on the author's dated statement (fixed point 2).
 
@@ -597,22 +605,22 @@ The sealed instrument in force, quoted for its channels and its rules; the file 
 
 > "R1 STILL-OPEN: every channel may always report STILL OPEN with its cause stated in plain words … Still-open is never rounded into a resolved outcome, and no resolved outcome is ever forced.
 > R2 NODES DECIDE: a resolved outcome's consequences execute ONLY at the named register node, per that node's own text, by an adjudication recorded in the log. This file executes nothing.
-> R3 PUBLIC EVENTS ONLY: a thresholded outcome fires only against a threshold frozen by name in a manifested instrument BEFORE the public event it judges … No freeze -> that outcome cannot fire.
+> R3 PUBLIC EVENTS ONLY: a thresholded outcome fires only against a threshold frozen by name in a manifested instrument BEFORE the public event it judges … No freeze -> that outcome cannot fire, and the channel's report states the foreclosure and whether a decline was logged.
 > R4 QUOTES DECIDE, ENTRIES ASSERT NOTHING: every received communication and every owner act or omission named here is logged with its operative language quoted verbatim. A log entry may not assert what register text says; an entry doing so is VOID ON ITS FACE and binds nothing."
 
-The channels it governs are the dispatch, the DESI release, the two owed calculations, and the method's external-validation channel — sorted for fireability in Part V.1. The deposit reports each in exactly one line: resolved with its deciding quote, or still open with its cause. **There is no third form.**
+Its stopping rule, R5, is quoted in full in Part VII.2 and is the clause the ending turns on; its "Part-7 fronts" are the two owed calculations named in plain language in Part V.1 — the phrase is the sealed file's own internal numbering from an earlier scheme and has nothing to do with this document's Part VII. The channels it governs are the dispatch, the DESI release, those two owed calculations, and the method's external-validation channel — sorted for fireability in Part V.1. The companion event log the condition names is where the channel lines live; a reader opening it meets a prominent heading reading "DISPATCH SENT; REPLY RECEIVED" that the log itself unmakes two entries later, as Part IV.4 quotes. The deposit reports each in exactly one line: resolved with its deciding quote, or still open with its cause. **There is no third form.**
 
 ## Appendix D — The authority-term classification
 
 The audit behind fixed point 2, with its term list pre-registered and hashed *before* it ran. Its figures are that audit's, dated 2026-08-12, attributed here rather than emitted — they are historical findings about a record, not live register counts.
 
-The audit examined eight families of authority-flavored vocabulary across the repository, not the single word the first pass had counted, and classified every occurrence in the register by sense: **(A)** reserving a *future* outside expert; **(B)** phrased as a pass that already ran; **(C)** generic or collective; **(D)** filename or path references; **(E)** an outside human actually answering. Class B is the dangerous one and, in the audit's own words, the register's dominant voice. **Class E returns none** — grounded two ways, and the reader is owed the difference: by *search* (no file, log line, git object, or archived snapshot records a transmission to an outside human or a reply from one, against criteria stated in advance), which establishes the absence of a logged transmission; and by the *author's dated statement*, which is what establishes authorship, because the register never records modality. One is auditable; the other is testimony.
+The audit counted eight pre-registered term families across the repository — not the single word the first pass had counted — and classified by sense the occurrences of the families it analysed — a subset of them, as its own heading records: **(A)** reserving a *future* outside expert; **(B)** phrased as a pass that already ran; **(C)** generic or collective; **(D)** filename or path references; **(E)** an outside human actually answering. Class B is the audit's own "dangerous class." Its scale statement is about the authority vocabulary as a whole rather than that class alone: the first audit examined one term, the full vocabulary is many times that, and in the audit's words it is "the register's dominant voice." **Class E returns none** — grounded two ways, and the reader is owed the difference: by *search* (no file, log line, git object, or archived snapshot records a transmission to an outside human or a reply from one, against criteria stated in advance), which establishes the absence of a logged transmission; and by the *author's dated statement*, which is what establishes authorship, because the register never records modality. One is auditable; the other is testimony.
 
-The audit's own two failures are recorded as failures: its frozen term list enumerated words for *authorities* and missed words for *acts*, so three live strings asserting the dispatch had been sent were invisible to it (Part IV.4 quotes them); and its declared repository-wide scope was executed register-only, leaving live code that prints authority language when run — an owed item, still owed. The full classification, per term family and per node, is in `provenance/prereg/RESULT_AUTHORITY_TERMS_2026-08-12.txt`, together with the 2026-08-17 addendum recording that the overseeing role's own identity had been entered in the record two contradictory ways.
+The audit's own two failures are recorded as failures: its frozen term list enumerated words for *authorities* and missed words for *acts*, so three live strings asserting the dispatch had been sent were invisible to it (Part IV.4 quotes them); and its declared repository-wide scope was executed register-only, leaving live code that prints authority language when run — an owed item, still owed. The audit's result file — `provenance/prereg/RESULT_AUTHORITY_TERMS_2026-08-12.txt` — carries its aggregate counts, its ruling on the class-E question, its scoring against the sealed pre-registration, and its two recorded failures; it does *not* carry a per-node table, and a reader wanting per-occurrence detail must re-run the classification over the register themselves. The same file carries the 2026-08-17 addendum recording that the overseeing role's own identity had been entered in the record two contradictory ways, and the supplied defect record of the verification check that failed in the blocking direction.
 
 ## Appendix E — The calculation index
 
-Generated at build time. "Cited by the register" means the file is named in `provenance/claims.json`; uncited files are support, superseded, or exploratory, and their own headers say which.
+Generated at build time by listing the calculation directory. "Cited by the register" means the file is named in `provenance/claims.json`. An uncited file is not thereby graded: it may be support, superseded, exploratory, or work in progress, and this index does not say which — its own header does, when it says anything.
 
 | calculation | cited by the register |
 |---|---|
@@ -648,10 +656,10 @@ Generated at build time. "Cited by the register" means the file is named in `pro
 Corrections this program made to its *own* records while writing, listed so that a reader comparing the repository's history against this text finds them documented rather than silent. Each is dated and in place; none is a physics result.
 
 - **The kernel-object erratum.** The in-house assembly write-up took source-verified corrections in one dated block, its superseded body retained beneath them: a coefficient function mislabelled a structure function; a tabulated object identified as retarded when it is the in-out one; a claim about coincidence-limit tables inverted on both of its words; and a position-space logarithm read as time-domain secularity. Part IV.2 carries the surviving form.
-- **The retired third-outcome flag.** A double-logarithm reading, raised as a possible third analytic class, was retired on its face when source verification killed its premise twice — retired rather than deleted, so no later pass re-raises it from the same misread.
-- **The Ward-scope correction.** Two register nodes and the action specification carried a symmetry licence wider than the literature supports; corrected first in the register, then in Part I, with the document's correction record at its head.
+- **The retired third-outcome flag.** A double-logarithm reading, raised as a possible third analytic class, was retired on its face when source verification killed its premise twice — retired rather than deleted.
+- **The Ward-scope correction.** Two register nodes and the action specification carried a symmetry licence wider than the literature supports; corrected in the register and then in Part I; the document's correction record is at its head.
 - **The stale headers.** Three standing documents carried hand-typed register figures that had gone stale; each now defers to the machine-checked stamps instead. The postulate map, the no-go ledger, and the glossary are the three.
 - **The overseer gloss.** The glossary defined the role that verifies and adjudicates as human; the role as executed is an AI's, and the human is the owner who relays, rules, and signs. Corrected 2026-08-17, prior gloss retained as superseded, with the attestation split into its auditable and testimonial halves (Part VI.3, Appendix D).
-- **The page-citation convention.** Citations to one source's page numbers are PDF pages; that source's printed folio runs one behind throughout. Declared rather than silently renumbered.
+- **The page-citation convention** — listed here as a declaration rather than an erratum, since it corrects no prior error: citations to one source's page numbers are PDF pages, and that source's printed folio runs one behind throughout.
 
 ---

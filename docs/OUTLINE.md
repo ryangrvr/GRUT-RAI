@@ -1,6 +1,6 @@
 # Where the Responsive Vacuum Stops — the fixed outline
 
-*(2026-08-17, Wave 4b pre-screen ruling: Part IV's title and IV.4's line amended — the drafted titles asserted the stronger of two defensible strengths; the map records the shipped forms. Same date, Wave 5 pre-screen ruling: VI.2's line amended to "The guard whose circumvention cannot be a small change" — the drafted title claimed more than the section's own body.)*
+*(2026-08-17, Wave 4b pre-screen ruling: Part IV's title and IV.4's line amended — the drafted titles asserted the stronger of two defensible strengths; the map records the shipped forms. Wave 6 pre-screen ruling, same date: Appendix D ships as "the authority-term classification" rather than the drafted "translation layer" — the glossary it would have reproduced is pinned by tests and lives in the repository, and the audit's classification is what the front matter's fixed point actually points at; Figure 1 sits at VI.1 as this map assigns it, and Figures 2 and 3 at II.2 and IV.3. Same date, Wave 5 pre-screen ruling: VI.2's line amended to "The guard whose circumvention cannot be a small change" — the drafted title claimed more than the section's own body.)*
 
 *This is the outline the document's front matter points at: fixed before the sections were
 written (owner's brief, 2026-08-13), committed as an artifact on the Wave-3 pre-screen's

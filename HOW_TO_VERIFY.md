@@ -8,14 +8,14 @@ Everything below is Python 3 stdlib — no dependencies, no network. From a clea
 python3 provenance/validate.py
 ```
 Blocking validator: every claim tiered, sourced, falsifiable; the anti-laundering discipline; the
-blind ledger sum. Expect `PASS`, the net ledger (**+13**), and the waived-by-stance disclosure
-(+8 behind 4 justified waivers) printed on its face.
+blind ledger sum. Expect `PASS`, the net ledger as the validator prints it, and the waived-by-stance disclosure
+(the waived total the validator prints) printed on its face.
 
 ```bash
 python3 provenance/validate_scoped.py
 ```
 The scoped gate: one register, several ledgers (GRUT vs the physics-cluster maps), plus the
-cluster typed inventory. GRUT's net must be +13 regardless of cluster contents.
+cluster typed inventory. GRUT's net is whatever the validator prints for grut scope, and must not move when cluster contents change (2026-08-17: this line carried a hand-typed +13 that had gone stale once the fourth rung1 input was booked — the same defect the standing docs' sync stamps exist to prevent).
 
 ```bash
 python3 provenance/bankgate.py

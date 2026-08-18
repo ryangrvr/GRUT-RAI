@@ -86,6 +86,9 @@ class TestPublicDoc(unittest.TestCase):
         # In-prose section references ("Part 0", "Part IV.6") and data-release identifiers
         # ("DESI DR2") are document structure and proper names, not register counts.
         stripped = re.sub(r"\bPart \d+", "", stripped)
+        stripped = re.sub(r"\bFigure \d+", "", stripped)          # figure references
+        stripped = re.sub(r"\]\([^)]*\)", "", stripped)            # markdown link/image targets
+        stripped = re.sub(r"\bR\d\b", "", stripped)               # sealed-file rule labels
         stripped = re.sub(r"\bDR\d+\b", "", stripped)
         guarded = {"n_grut": n["n_grut"], "spec_total": n["spec_total"], "spec_B": n["spec_B"],
                    "spec_A": n["spec_A"], "spec_C": n["spec_C"], "spec_D": n["spec_D"],
@@ -215,3 +218,47 @@ class TestPublicDoc(unittest.TestCase):
         src = open(SRC).read()
         self.assertTrue(re.search(r"never sent|held, and never sent|unsent", src),
                         "the document must not imply the dispatch was sent")
+
+    def test_vii3_is_handed_over_unwritten(self):
+        """The one section reserved for the human author must stay unwritten, and the document
+        must keep saying so. Pins: the handover note is present, the section carries no authored
+        body outside the blockquote frame, and the completeness line still lists it outstanding.
+        The document's answer to every 'how would we know' is a test; this is that test for its
+        highest-risk sentence."""
+        src = open(SRC).read()
+        i = src.find("## VII.3")
+        self.assertGreater(i, 0, "VII.3 is missing")
+        j = src.find("\n---", i)
+        body = src[i:j]
+        self.assertIn("To be written by D. Ryan Grover", body,
+                      "the handover note is gone -- VII.3 must remain the author's")
+        prose = [ln for ln in body.split("\n")[1:]
+                 if ln.strip() and not ln.lstrip().startswith(">")]
+        self.assertEqual(prose, [],
+                         f"VII.3 has authored body text outside its handover frame: {prose}")
+        self.assertRegex(src, r"\*\*Outstanding:\*\* VII\.3",
+                         "the completeness line must still report VII.3 outstanding")
+
+    def test_every_generated_figure_is_placed_in_the_document(self):
+        """A generated figure nobody reads is not a figure. The drift test checks
+        file-versus-generator; this checks figure-versus-document -- the gap that let two of
+        three figures ship unreferenced while the completeness line called them complete."""
+        import build_figures
+        src = open(SRC).read()
+        for name in build_figures.FIGS:
+            self.assertIn(f"]({name})", src, f"{name} is generated but never placed in the document")
+        self.assertNotIn("enters with the figures wave", src,
+                         "a figure-deferral marker survived the wave it defers to")
+
+    def test_figure_two_names_exist_in_the_postulate_map(self):
+        """Figure 2 claims its membership is transcribed from POSTULATE_MAP.md. Nothing bound the
+        two, so the figure could drift from the map forever while the drift test passed. Each
+        member's distinctive words must appear in the map."""
+        import build_figures
+        mp = open(os.path.join(ROOT, "POSTULATE_MAP.md")).read().lower()
+        for _title, members in build_figures.BINS:
+            for m in members:
+                key = re.sub(r"[^a-z ]", " ", m.lower().replace("\n", " "))
+                words = [w for w in key.split() if len(w) > 4]
+                self.assertTrue(any(w in mp for w in words),
+                                f"figure 2 member {m!r} has no anchor in POSTULATE_MAP.md")

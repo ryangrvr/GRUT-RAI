@@ -7,11 +7,12 @@ D. Ryan Grover · {{WAVE_DATE}}
 > **Correction record, {{CORRECTION_DATE}}.** Part I's first draft failed its mandatory hostile pre-screen (DO-NOT-SHIP): I.1 overstated two priority claims and contained a physics error in its gauge fence. The section was left standing under a do-not-cite banner rather than pulled, then corrected: I.1 is now one third its drafted length and claims nothing beyond the literature it cites; the register nodes that carried the same over-scoped clause were corrected **first**, with the source read (arXiv:2507.03103) that the register itself had flagged as owed. The full trail — draft, verdict, correction — is in the repository history.
 >
 > **Published in parts.** Complete as of {{WAVE_DATE}}: the front matter, the note on the
-> prior deposit, **Part 0**, **Part I** (corrected; see the record above), **Part II**
-> (its figure enters with the figures wave and is marked in place), **Part III**, **Part IV**
-> (its figure likewise deferred and marked), **Part V**, **Part VI**,
-> **Part VII** (with VII.3 left empty for its author, by design), the appendices, and all three
-> figures. **Outstanding:** nothing but VII.3 and the publication steps. The outline is fixed and lives in the
+> prior deposit, **Part 0**, **Part I** (corrected; see the record above), **Part II**,
+> **Part III**, **Part IV**, **Part V**, **Part VI**,
+> **Part VII** — except **VII.3**, which is left unwritten for its author — the appendices, and
+> all three figures, each placed with its section (a fourth figure, the allowance window of
+> Part III.2, was considered and refused there, on the grounds stated at that surface).
+> **Outstanding:** VII.3 and the publication steps. The outline is fixed and lives in the
 > repository; the sections not listed as complete **do not yet exist**. This line is updated
 > at the close of every wave, and a document silent about its own completeness would be the
 > last uncaught instance of the pattern this document is about.
@@ -28,9 +29,9 @@ The framework produced **no novel positive prediction**; the register's `derived
 
 Two inflations are refused. The physics is not presented as a theory. The method — a claim register that prices assumptions and blocks derivations that quietly acquire them — is the more transferable output and is **unvalidated by anyone but its author**. A prior book by the same author, with a live DOI, describes a **different** framework and is substantially wrong; the note below says what and why the correction is owed rather than done.
 
-**Every link in this program's verification chain except one human being is an AI.** That is stated in the front matter, at full volume, because a program whose audit chain is AI is more trustworthy for saying so than for letting the word "verified" do quiet work.
+**Every link in this program's verification chain except one human being is an AI — and so is the drafting of this document's prose.** The text was drafted by an AI instrument operated by the author, screened by other AI instruments charged with breaking it, and accepted by him; one section, VII.3, is reserved for the author's own hand and is unwritten here. That is stated in the front matter, at full volume, because a program whose audit chain is AI is more trustworthy for saying so than for letting the word "verified" do quiet work.
 
-**Where to check any of this.** Repository: `github.com/ryangrvr/GRUT-RAI`, commit `f4ff2dfe16cb`, MIT licence — that commit holds every artifact this document describes, and the document naming it is necessarily a descendant of it, since a file cannot contain its own hash; the rebuild described here is the `rebuild/` subtree, and the prior lineage discussed below is retained in the same repository as historical record. The commands below reproduce everything numeric in this document, from a clean checkout, with no dependencies beyond the Python 3 standard library:
+**Where to check any of this.** Repository: `github.com/ryangrvr/GRUT-RAI`, MIT licence. **The commit hash is written in at publication and is not yet present in this version** — an earlier draft named one that does not resolve, which is exactly the failure this line exists to prevent, so it now says what it is. A file cannot contain its own hash, so the pinned commit is necessarily an ancestor of the published document; the rebuild described here is the `rebuild/` subtree, and the prior lineage discussed below is retained in the same repository as historical record. The commands below reproduce everything numeric in this document, from a clean checkout, with no dependencies beyond the Python 3 standard library:
 
 ```bash
 cd rebuild
@@ -50,7 +51,7 @@ cd provenance && python3 -m pytest -q               # the full suite
 2. **Three results outlive the framework**, and two are facts about GR: the linearized-EH kernel is not transverse-traceless (exact ratio −2, constrained sector); the arrow decomposes into intrinsic existence and imported direction; and the anomaly action meant to fix the framework's one free parameter was computed and **fixes nothing** — it yields a scale, not a number.
 3. Its one decisive question — **pole or cut in ρ_TT(ω→0)** — was **drafted, held, never sent**, and may be ill-posed as posed.
 4. **No outside physicist has answered any physics question put by this program.** Fixed point 2 states this checkably rather than as a denial.
-5. **Every verifier in the chain but one human is an AI** — including the role the register calls "overseer," in 214 places.
+5. **Every verifier in the chain but one human is an AI** — including the role the register calls "overseer," a word the register uses freely and which named a *human* in this program's own glossary until the correction recorded in Part VI.3.
 6. A previous book by this author, live under its own DOI, is **not this framework** and is substantially wrong. The correction is **owed, not done**.
 
 ---
@@ -61,9 +62,9 @@ cd provenance && python3 -m pytest -q               # the full suite
 
 **2 — No outside physicist has answered any physics question put by this program.** Stated specifically, because the general denial is unfalsifiable-sounding:
 
-The register contains **{{spec_B}} records phrased as an external pass having run** — among them **{{n_spec_2026_06_25_occurrences}}, across {{n_spec_2026_06_25_nodes}} nodes**, written as *SPECIALIST CONFIRMED* and *SPECIALIST-CORRECTED* and dated 2026-06-25. **No transmission to any outside human is logged at any date** — that half is checkable against the register in minutes, and an adversarial search of every file, log, git object and archived snapshot found none. That those passes were AI sessions run by the author is **not** established by the register, which never records modality; **it is the author's own statement, made 2026-08-12**, and the reader should treat the two halves differently: one is auditable, the other is testimony.
+Of one term's occurrences, the register contains **{{spec_B}} records phrased as an external pass having run** — among them **{{n_spec_2026_06_25_occurrences}}, across {{n_spec_2026_06_25_nodes}} nodes**, written as *SPECIALIST CONFIRMED* and *SPECIALIST-CORRECTED* and dated 2026-06-25. **No transmission to any outside human is logged at any date** — that half is checkable against the register in minutes, and an adversarial search of every file, log, git object and archived snapshot found none. That those passes were AI sessions run by the author is **not** established by the register, which never records modality; **it is the author's own statement, made 2026-08-12**, and the reader should treat the two halves differently: one is auditable, the other is testimony.
 
-An audit of the word *specialist* found **{{spec_total}} occurrences across {{spec_nodes}} of {{total}} claims** ({{spec_raw_incl_annotations}} if you count the 2026 annotation blocks that document them), classified: **{{spec_B}}** phrased as a pass having run, **{{spec_A}}** reserving a *future* expert, **{{spec_C}}** generic or collective, **{{spec_D}}** filenames. That word is not the only one that reads as outside authority — the register also uses *referee*, *reviewer*, *externally reviewed*, and *overseer-verified*, where "overseer" is the author. Appendix D classifies all of them. The first version of this audit used one word and one letter-case; both narrowings are why the term list is now pre-registered before the audit runs.
+An audit of the word *specialist* found **{{spec_total}} occurrences across {{spec_nodes}} of {{total}} claims** ({{spec_raw_incl_annotations}} if you count the 2026 annotation blocks that document them), classified: **{{spec_B}}** phrased as a pass having run, **{{spec_A}}** reserving a *future* expert, **{{spec_C}}** generic or collective, **{{spec_D}}** filenames. That word is not the only one that reads as outside authority — the register also uses *referee*, *reviewer*, *externally reviewed*, and *overseer-verified*. Appendix D gives the audit's classification scheme and its findings; the per-occurrence classification lives in the audit's own sealed result file, which the appendix names. The first version of this audit used one word and one letter-case; both narrowings are why the term list is now pre-registered before the audit runs.
 
 **3 — A prior book with a live DOI describes a different theory.** Concept DOI `10.5281/zenodo.19803663`; latest version `10.5281/zenodo.20783057`. See the note below.
 
@@ -71,7 +72,7 @@ An audit of the word *specialist* found **{{spec_total}} occurrences across {{sp
 
 **5 — This is not the program's final deposit.** A signed termination condition schedules a closing document *after* a stop condition fires. **No stop condition has fired.** This document corrects a wrong live DOI — a different obligation — and changes nothing about what fires or when.
 
-**6 — The name contains "Theory of Everything."** It does, on the prior deposit's title page. What that reaches for is addressed at the end, in the author's own voice, last.
+**6 — The name contains "Theory of Everything."** It does, on the prior deposit's title page. What that reaches for is left to the author, in his own voice, at the end of the body — see VII.3, which is unwritten as of this version.
 
 ---
 
@@ -225,7 +226,11 @@ The landing: **the action does not fix x.** What it forbids is real — anti-pas
 
 ## II.2 — What it bets
 
-The postulate map sorts every input by kind, and the sort answers "what is this framework actually betting?" *(The figure for this section — the postulate sort drawn as a map — enters with the figures wave; the completeness line above tracks it.)*
+The postulate map sorts every input by kind, and the sort answers "what is this framework actually betting?"
+
+![Figure 2 — the postulate sort](fig2_postulates.svg)
+
+*Figure 2. The sort, by names rather than counts: equal boxes carry no claim about equal weight or equal number, and the left-to-right order is the map's presentation order, not a hierarchy. Membership is transcribed from `POSTULATE_MAP.md`, and a test fails if a name here is absent there.*
 
 **Bedrock: posits that are not even candidates for derivation.** The medium ontology itself, with its division into slow metric and fast bath — the bet, and a framework must bet something. The low-entropy past boundary — Part I.2 is the demonstration that, in every case surveyed, the arrow's *direction* is imported rather than dynamical — so the framework imports it, priced. And the Born measure: decoherence machinery selects a pointer *basis*; it does not by itself supply the outcome *probability*; the probability rule is inherited. The discipline's claim about these is not "unsolved" but "un-derivable in every case surveyed" (Part I.2's scope): surveyed derivation claims relocate the input; they do not remove it — and counting a relocation as a removal is the laundering the register books (laundering — deriving with an input the derivation does not declare).
 
@@ -329,7 +334,9 @@ What survives the supersession, stated with it: the *dictionary* connecting a la
 
 ## IV.3 — The arc
 
-*(The figure for this Part — single pole, branch cut, gapped tower as three sketches of the same low-frequency plane — enters with the figures wave; the completeness line tracks it.)*
+![Figure 3 — three candidate low-frequency structures](fig3_spectra.svg)
+
+*Figure 3. The three candidate answers, on identical axes and at identical amplitudes — the amplitudes carry no weight claim, since these are mutually exclusive candidates for one undetermined object and no normalization exists to compare them. The order is not a ranking; each panel carries its status in the register, including that the framework's own conjecture is the first panel and the known free-field structure is the third.*
 
 Documents with different authority speak in this section, and the difference is the section's subject, so it is stated up front: the *register* grades claims; the *event log* (`provenance/prereg/RESULT_TERMINATION_events.txt`, dated, append-only) records events and carries the question's channel line; the *sealed condition* alone governs what resolves or stops; and the *dispatch's face* carries its own status. The question's whole decision history is that log, this section is a reading of it, and where the two disagree, the log wins.
 
@@ -435,7 +442,9 @@ The containment results of Part III are statements about this framework as writt
 
 ## VI.1 — The register and the gate
 
-*(The figure for this Part — the tier histogram generated from the register, its derived bar empty — enters with the figures wave; the completeness line tracks it.)*
+![Figure 1 — register tiers, generated](fig1_tiers.svg)
+
+*Figure 1. Tier counts, framework scope, generated from the register at build time; bars in the vocabulary's canonical order, never sorted by height. The `derived` tier has no bar — the dashed frame is a marker that the tier exists in the vocabulary and is unpopulated in fact; its extent is not a value. Scope note: the framework's claims only; the register also holds a separate mapping exercise, excluded here and disclosed in the body.*
 
 The method is a claim register and the machinery that polices it. Every claim the framework makes lives as a structured entry with: a tier (the vocabulary of the front matter — shown, derived-pending, assumed, to-derive, and the empty derived); a signed ledger delta naming what the claim costs in underived inputs, summed blind across the register into the net the validator prints on its own face; its sources, verified by the author — against primary literature where the register's per-source attestation says so, through secondary literature where it does not; and an *overturning computation* — the named calculation that would falsify or deflate it, recorded at bank time so the claim carries its own kill condition.
 
@@ -497,9 +506,7 @@ Every figure in this section is generated from the register or quoted from a dat
 
 **The deposit.** The prior book remains live and wrong under its own DOI, and its correction remains owed rather than done. This document is not that correction and does not discharge it.
 
-![Figure 1 — register tiers, generated](fig1_tiers.svg)
-
-*Figure 1. Tier counts, framework scope, generated from the register at build time; bars in the vocabulary's canonical order, never sorted by height. The dashed bar is the `derived` tier at its true value.*
+The tier counts above are Figure 1, in Part VI.1.
 
 ## VII.2 — How it ends, and why this document is not that ending
 
@@ -517,11 +524,11 @@ What this document is for, stated without inflation: a reader who encounters the
 
 > **This section is the author's, in the first person, and is deliberately left empty here.**
 >
-> Everything else in this document was drafted by an AI instrument operated by its author, screened by other AI instruments, and accepted by the one human in the chain — that is disclosed in the front matter at full volume, and it is the document's own subject. The one paragraph that must not be produced that way is the paragraph about what the name *Grand Responsive Universe Theory* was reaching for: an AI ghost-writing the human's account of his own ambition would be the single worst sentence in a document about verification chains, and no disclosure would repair it.
+> The prose of this document was drafted by an AI instrument, as the front matter discloses. The section about the name must not be produced that way: an AI drafting the author's account of his own ambition would be a disclosure failure this document could not repair, so it is not drafted.
 >
-> **What this section must not do**, recorded as the standing brief so the emptiness has a shape: it must not re-argue the physics — Parts I through V settled what is established and what is not, and a closing appeal cannot upgrade a tier. It must not claim the name was justified. It must not claim the name was merely a mistake, if it was not. It must not promise future work as compensation for present absence. It must not thank the machinery. And it must not end on a rise — the document's last movement before it is a program reporting that it stopped.
+> **The constraints handed over with the empty section**, so that a reader knows what was and was not specified for it: it must not re-argue the physics — the document has already recorded what is established and what is not, and a closing appeal cannot upgrade a tier. It must not promise future work as compensation for present absence. It must not thank the machinery. Whether the name was justified, mistaken, or something else is the author's to say and is not specified here.
 >
-> *To be written by D. Ryan Grover, signed, and placed last.*
+> *To be written by D. Ryan Grover, signed, and placed last in the body, before the appendices.*
 
 ---
 
@@ -535,9 +542,9 @@ Generated at build time from `provenance/claims.json`; a claim's full text, sour
 
 ## Appendix B — How to verify
 
-Every number in this document is regenerated by the commands in the front matter. What a green run means, and what it does not:
+Every *register-derived* number in this document is regenerated by the commands in the front matter; the marked exceptions (quotations from the prior deposit, cited literature, that verification pass's findings, and this program's own dated audit figures) are attributed where they occur and no command produces them. What a green run means, and what it does not:
 
-A green run establishes that the register is internally consistent, that every claim carries a tier, sources, and a named overturning computation, that the emitted numbers match the register, that this document matches its source and its source matches the register, that the sealed pre-registrations are unmodified since sealing, and that no register edit is sitting unaccepted. **It establishes nothing about whether any claim is true of the world.** The repository's `HOW_TO_VERIFY.md` states the same limit at greater length and is the authoritative version.
+A green run establishes that the register is internally consistent, that every claim carries a tier, sources, and a named overturning computation, that the emitted numbers match the register, that this document matches its source and its source matches the register, and that the sealed pre-registrations are unmodified since sealing. Whether a register edit is sitting unaccepted is a separate check — `python3 provenance/bankgate.py`, which the front matter's commands do not run — and a reader auditing this document should run it too. **None of it establishes whether any claim is true of the world.** The repository's `HOW_TO_VERIFY.md` states the same limit at greater length and is the authoritative version.
 
 Two verification acts are not mechanical and are named as such: the tiers are assigned by the author, and the assessment that no outside human has answered a physics question rests, in its attribution half, on the author's dated statement (fixed point 2).
 
@@ -547,22 +554,22 @@ The sealed instrument in force, quoted for its channels and its rules; the file 
 
 > "R1 STILL-OPEN: every channel may always report STILL OPEN with its cause stated in plain words … Still-open is never rounded into a resolved outcome, and no resolved outcome is ever forced.
 > R2 NODES DECIDE: a resolved outcome's consequences execute ONLY at the named register node, per that node's own text, by an adjudication recorded in the log. This file executes nothing.
-> R3 PUBLIC EVENTS ONLY: a thresholded outcome fires only against a threshold frozen by name in a manifested instrument BEFORE the public event it judges … No freeze -> that outcome cannot fire.
+> R3 PUBLIC EVENTS ONLY: a thresholded outcome fires only against a threshold frozen by name in a manifested instrument BEFORE the public event it judges … No freeze -> that outcome cannot fire, and the channel's report states the foreclosure and whether a decline was logged.
 > R4 QUOTES DECIDE, ENTRIES ASSERT NOTHING: every received communication and every owner act or omission named here is logged with its operative language quoted verbatim. A log entry may not assert what register text says; an entry doing so is VOID ON ITS FACE and binds nothing."
 
-The channels it governs are the dispatch, the DESI release, the two owed calculations, and the method's external-validation channel — sorted for fireability in Part V.1. The deposit reports each in exactly one line: resolved with its deciding quote, or still open with its cause. **There is no third form.**
+Its stopping rule, R5, is quoted in full in Part VII.2 and is the clause the ending turns on; its "Part-7 fronts" are the two owed calculations named in plain language in Part V.1 — the phrase is the sealed file's own internal numbering from an earlier scheme and has nothing to do with this document's Part VII. The channels it governs are the dispatch, the DESI release, those two owed calculations, and the method's external-validation channel — sorted for fireability in Part V.1. The companion event log the condition names is where the channel lines live; a reader opening it meets a prominent heading reading "DISPATCH SENT; REPLY RECEIVED" that the log itself unmakes two entries later, as Part IV.4 quotes. The deposit reports each in exactly one line: resolved with its deciding quote, or still open with its cause. **There is no third form.**
 
 ## Appendix D — The authority-term classification
 
 The audit behind fixed point 2, with its term list pre-registered and hashed *before* it ran. Its figures are that audit's, dated 2026-08-12, attributed here rather than emitted — they are historical findings about a record, not live register counts.
 
-The audit examined eight families of authority-flavored vocabulary across the repository, not the single word the first pass had counted, and classified every occurrence in the register by sense: **(A)** reserving a *future* outside expert; **(B)** phrased as a pass that already ran; **(C)** generic or collective; **(D)** filename or path references; **(E)** an outside human actually answering. Class B is the dangerous one and, in the audit's own words, the register's dominant voice. **Class E returns none** — grounded two ways, and the reader is owed the difference: by *search* (no file, log line, git object, or archived snapshot records a transmission to an outside human or a reply from one, against criteria stated in advance), which establishes the absence of a logged transmission; and by the *author's dated statement*, which is what establishes authorship, because the register never records modality. One is auditable; the other is testimony.
+The audit counted eight pre-registered term families across the repository — not the single word the first pass had counted — and classified by sense the occurrences of the families it analysed — a subset of them, as its own heading records: **(A)** reserving a *future* outside expert; **(B)** phrased as a pass that already ran; **(C)** generic or collective; **(D)** filename or path references; **(E)** an outside human actually answering. Class B is the audit's own "dangerous class." Its scale statement is about the authority vocabulary as a whole rather than that class alone: the first audit examined one term, the full vocabulary is many times that, and in the audit's words it is "the register's dominant voice." **Class E returns none** — grounded two ways, and the reader is owed the difference: by *search* (no file, log line, git object, or archived snapshot records a transmission to an outside human or a reply from one, against criteria stated in advance), which establishes the absence of a logged transmission; and by the *author's dated statement*, which is what establishes authorship, because the register never records modality. One is auditable; the other is testimony.
 
-The audit's own two failures are recorded as failures: its frozen term list enumerated words for *authorities* and missed words for *acts*, so three live strings asserting the dispatch had been sent were invisible to it (Part IV.4 quotes them); and its declared repository-wide scope was executed register-only, leaving live code that prints authority language when run — an owed item, still owed. The full classification, per term family and per node, is in `provenance/prereg/RESULT_AUTHORITY_TERMS_2026-08-12.txt`, together with the 2026-08-17 addendum recording that the overseeing role's own identity had been entered in the record two contradictory ways.
+The audit's own two failures are recorded as failures: its frozen term list enumerated words for *authorities* and missed words for *acts*, so three live strings asserting the dispatch had been sent were invisible to it (Part IV.4 quotes them); and its declared repository-wide scope was executed register-only, leaving live code that prints authority language when run — an owed item, still owed. The audit's result file — `provenance/prereg/RESULT_AUTHORITY_TERMS_2026-08-12.txt` — carries its aggregate counts, its ruling on the class-E question, its scoring against the sealed pre-registration, and its two recorded failures; it does *not* carry a per-node table, and a reader wanting per-occurrence detail must re-run the classification over the register themselves. The same file carries the 2026-08-17 addendum recording that the overseeing role's own identity had been entered in the record two contradictory ways, and the supplied defect record of the verification check that failed in the blocking direction.
 
 ## Appendix E — The calculation index
 
-Generated at build time. "Cited by the register" means the file is named in `provenance/claims.json`; uncited files are support, superseded, or exploratory, and their own headers say which.
+Generated at build time by listing the calculation directory. "Cited by the register" means the file is named in `provenance/claims.json`. An uncited file is not thereby graded: it may be support, superseded, exploratory, or work in progress, and this index does not say which — its own header does, when it says anything.
 
 {{calc_index}}
 
@@ -571,10 +578,10 @@ Generated at build time. "Cited by the register" means the file is named in `pro
 Corrections this program made to its *own* records while writing, listed so that a reader comparing the repository's history against this text finds them documented rather than silent. Each is dated and in place; none is a physics result.
 
 - **The kernel-object erratum.** The in-house assembly write-up took source-verified corrections in one dated block, its superseded body retained beneath them: a coefficient function mislabelled a structure function; a tabulated object identified as retarded when it is the in-out one; a claim about coincidence-limit tables inverted on both of its words; and a position-space logarithm read as time-domain secularity. Part IV.2 carries the surviving form.
-- **The retired third-outcome flag.** A double-logarithm reading, raised as a possible third analytic class, was retired on its face when source verification killed its premise twice — retired rather than deleted, so no later pass re-raises it from the same misread.
-- **The Ward-scope correction.** Two register nodes and the action specification carried a symmetry licence wider than the literature supports; corrected first in the register, then in Part I, with the document's correction record at its head.
+- **The retired third-outcome flag.** A double-logarithm reading, raised as a possible third analytic class, was retired on its face when source verification killed its premise twice — retired rather than deleted.
+- **The Ward-scope correction.** Two register nodes and the action specification carried a symmetry licence wider than the literature supports; corrected in the register and then in Part I; the document's correction record is at its head.
 - **The stale headers.** Three standing documents carried hand-typed register figures that had gone stale; each now defers to the machine-checked stamps instead. The postulate map, the no-go ledger, and the glossary are the three.
 - **The overseer gloss.** The glossary defined the role that verifies and adjudicates as human; the role as executed is an AI's, and the human is the owner who relays, rules, and signs. Corrected 2026-08-17, prior gloss retained as superseded, with the attestation split into its auditable and testimonial halves (Part VI.3, Appendix D).
-- **The page-citation convention.** Citations to one source's page numbers are PDF pages; that source's printed folio runs one behind throughout. Declared rather than silently renumbered.
+- **The page-citation convention** — listed here as a declaration rather than an erratum, since it corrects no prior error: citations to one source's page numbers are PDF pages, and that source's printed folio runs one behind throughout.
 
 ---
