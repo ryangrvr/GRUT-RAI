@@ -43,3 +43,42 @@ from the emitter, and the fix was verified by re-running the mutation that prove
 **Where the incentive lives, recorded as the standing lesson:** the overstatement clustered where
 the program describes its own machinery, not where it describes the world. That is not a
 coincidence, and no lens aimed at physics claims would have found it.
+
+---
+
+## Addendum, same date — two findings from the metadata-disarming pass
+
+Recorded here rather than in the public document for the same reason as the calibration above:
+these are methodological judgments, not physics claims, and one of them is an AI instrument's
+correction of its own reasoning.
+
+### Provenance is a question, not an inference
+
+The `.zenodo.json` disarming pass had to state a fact it could not verify locally — how many
+GitHub releases exist — and correctly refused to assert it. It then **inferred the source**,
+attributing the fact to the author's report, and filed it under testimony. The fact had actually
+come from GitHub's public REST API: unauthenticated, no credentials, one `curl` away, and *more*
+checkable than the tag list it sat beside.
+
+So a file whose entire purpose was separating what a reader can check from what rests on someone's
+word put its one API-verified fact in the wrong column, and named the wrong source — for the
+single fact establishing that the hazard had already fired. As written, a skeptical reader had to
+take a person's word for the load-bearing claim. Moved to auditable with the endpoint, the
+disclosure supports itself.
+
+**The lesson, which generalizes past this file:** when you cannot verify a fact, you can still
+establish *where it came from* — and asking is usually cheaper than verifying, while settling
+which column the fact belongs in. The refusal to assert was right; the inference about its origin
+was the error, and it was avoidable by a question.
+
+### Checking the corrected claim corrected it again
+
+Verifying the endpoint first-party — the check the file now instructs its reader to run — returned
+**seventeen** published releases, not the ten the correction supplied. Ten is exactly the first
+page of the default newest-first ordering; the full set runs to v1.0 (2026-03-13). Neither party
+had the number right, and it was settled by running the command rather than by either party's
+recollection.
+
+Recorded because the sequence is the whole method in one exchange: an instrument declined to
+assert what it could not check, mis-attributed the source instead, was corrected on the
+attribution, and the correction's own figure was then corrected by the check it had prescribed.
