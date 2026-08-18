@@ -85,3 +85,11 @@ class TestPublicNumbers(unittest.TestCase):
         src = open(os.path.join(HERE, "emit_public_numbers.py")).read()
         self.assertNotIn("datetime.date.today", src,
                          "the stamp must be a fixed argument, never `today`")
+
+    def test_figures_match_their_generators(self):
+        """Generated figures obey the same rule as generated counts: a hand-edited figure is a
+        build failure, not a reading error. Figure 1 re-derives from the register, so a tier
+        change that did not reach the figure fails here."""
+        r = subprocess.run([sys.executable, os.path.join(HERE, "build_figures.py"), "--check"],
+                           capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, f"figures drifted:\n{r.stdout}{r.stderr}")
