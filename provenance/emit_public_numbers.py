@@ -37,7 +37,7 @@ WAVE_DATE = "2026-08-17"         # bumped at the close of every wave
 # this block changed the number the block asserts. A number-emitter that recurses through its own
 # verifier is not a stable reference. The constant is enforced against a real collection by
 # test_public_numbers.py::test_the_stamped_test_count_is_true, so it cannot silently rot.
-STAMPED_TEST_COUNT = 211
+STAMPED_TEST_COUNT = 212
 
 
 def _load():
@@ -215,6 +215,11 @@ def numbers():
     xg = re.search(r"interior-viability claim above x ~ ([0-9.]+)", json.dumps(cl))
     x_gate = xg.group(1) if xg else None
 
+    # "overseer" in the REGISTER, scope declared so the figure cannot drift: a typed
+    # count of this word went stale once (2026-08-18) and its correction manufactured a
+    # second error. Emitted, register-scope, occurrences not lines.
+    n_overseer_register = len(re.findall(r"overseer", json.dumps(cl), re.I))
+
     with open(os.path.join(HERE, "construction_pressure.json")) as f:
         pressure = json.load(f)["occasions"]
 
@@ -232,6 +237,7 @@ def numbers():
                 n_spec_2026_06_25_occurrences=caps_occurrences,
                 isw_sigma=isw_sigma, isw_central=isw_central,
                 x_upper=x_upper, mu_allowance=mu_allowance, desi_sigma0=desi_sigma0,
+                n_overseer_register=n_overseer_register,
                 x_gate=x_gate,
                 spec_A=senses["A"], spec_B=senses["B"], spec_C=senses["C"], spec_D=senses["D"],
                 spec_audit=aud)

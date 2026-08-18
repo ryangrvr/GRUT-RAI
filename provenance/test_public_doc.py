@@ -291,3 +291,17 @@ class TestPublicDoc(unittest.TestCase):
             self.assertEqual(len(listed), len(members),
                              f"Bin {i}: the map lists {len(listed)} members, figure 2 draws "
                              f"{len(members)} -- a member was added or dropped without the figure")
+
+    def test_the_address_block_names_the_public_repository_and_its_hash(self):
+        """The address block is this document's single pointer to its own evidence. It was
+        emptied once by a check run against the wrong repository (the subtree SOURCE cannot
+        resolve objects the subtree ADD created in the destination), and the correction published
+        a confession to an error that had not occurred. Pins: the hash is present, and the
+        wrong-repository trap is stated where a reader would otherwise repeat it."""
+        src = open(SRC).read()
+        self.assertRegex(src, r"commit `[0-9a-f]{12}`",
+                         "the address block must carry the public repository's commit hash")
+        self.assertIn("not against a working tree", src,
+                      "the subtree trap must be stated where the hash is claimed")
+        self.assertNotIn("named one that does not resolve", src,
+                         "the manufactured-defect confession must not return")

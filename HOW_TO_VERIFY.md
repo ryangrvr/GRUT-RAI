@@ -23,6 +23,25 @@ python3 provenance/bankgate.py
 The bank-time gate: diffs the working register against the last accepted baseline. `CLEAN` means
 no unaccepted change; any edit shows as a flag with severity.
 
+## Any claim about the public repository is checked against the public repository
+
+**The trap, recorded because this program fell into it (2026-08-18).** The rebuild tree is the
+*source* of a `git subtree` contribution. `git subtree add` rewrites the contributed history into
+**new commit objects in the destination**, and the source repository has no knowledge of them. So
+a commit hash that is perfectly valid in `github.com/ryangrvr/GRUT-RAI` returns
+`fatal: Not a valid object name` when checked from the rebuild tree — and both answers are
+correct, because they are answers about different repositories.
+
+What this cost, in full: a verification run in the wrong repository was reported as proof that the
+public document cited a nonexistent commit; the "correction" then deleted a true statement and
+published a confession to an error that had not occurred. An audit hunting over-claims waved the
+resulting *under*-claim straight through.
+
+**The rule:** to check anything the document says about `github.com/ryangrvr/GRUT-RAI` — a commit
+hash, a file's presence, a count over the published tree — clone or fetch **that** repository and
+run the check there. Naming a repository in a sentence and testing a different one is not a check.
+
+
 ## 2. The full test suite
 
 ```bash
