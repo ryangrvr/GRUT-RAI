@@ -25,13 +25,13 @@ II.1 The premise as mathematics · II.2 What it bets (Figure 2) · II.3 The whol
 the holes marked
 
 **Part III — Where it stops** (~4,400w)
-III.0 How to read a boundary · III.1 Containment results, by strength · III.2 The one
+III.0 How to read a boundary · III.1 The containment results, entry by entry · III.2 The one
 empirical surface: a ceiling with no floor · III.3 The times the machinery fired against
 the author
 
 **Part IV — The question that was never sent** (~3,200w + the decision table)
-IV.1 The single-pole conjecture and why it is load-bearing · IV.2 Where the fork actually
-sits · IV.3 The arc (Figure 3) · IV.4 It was never sent, and the records that said
+IV.1 The conjecture, and what it gates · IV.2 Where the fork sits: a localization,
+superseded by its own correction · IV.3 The arc (Figure 3) · IV.4 It was never sent, and the records that said
 it was · IV.5 The ask, restated · IV.6 The decision table
 
 **Part V — Falsifiers, position, reach** (~2,300w)
@@ -48,7 +48,7 @@ that ending · VII.3 What the name reaches for — the author, first person, sig
 last on purpose
 
 **Appendices** (~2,900w) — A register (generated) · B how to verify · C termination
-condition (verbatim) · D translation layer · E calculation index · F errata to this
+condition (verbatim) · D the authority-term classification · E calculation index · F errata to this
 document's own sources
 
 **Figures — exactly three.** (1) The tier histogram, generated from the register, the

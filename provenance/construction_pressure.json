@@ -1,5 +1,5 @@
 {
-    "_comment": "Occasions during the construction of docs/WHERE_IT_STOPS.md on which an adversarial pass removed a claim the author wanted to make. Recorded as DATA so the number in the document is emitted rather than typed, and so a reader can check the instances rather than the count.",
+    "_comment": "Occasions during the construction of docs/WHERE_IT_STOPS.md on which an adversarial pass removed a claim the author wanted to make. Recorded as DATA so the number in the document is emitted rather than typed, and so a reader can check the instances rather than the count. MAINTENANCE RULE (added 2026-08-18, after a whole-document screen found this file stale from 2026-08-13 while construction ran to 2026-08-18): this file is appended in the same commit as the wave whose screen produced the removal. A pressure record that stops before the construction does understates the pressure and is the program's own signature defect -- a figure accurate when written, stale one commit later -- landing on the single number offered as evidence the gate bites.",
     "occasions": [
         {
             "date": "2026-08-12",
@@ -30,6 +30,48 @@
             "claim_wanted": "two priority claims in Part I.1 -- a both-branches Ward-exhaustiveness novelty and a 'not usually stated' framing -- plus the section's gauge fence",
             "removed_by": "mandated hostile pre-screen (four lenses + adjudicator), verdict DO-NOT-SHIP",
             "why": "one novelty was inverted by published work the register itself had flagged as owed (arXiv:2507.03103: dissipation necessarily breaks the doubled diffeomorphism symmetry), the other was refuted by Stelle's own organization of the scalar channel, and the gauge fence transcribed a spatial-frame fact onto the covariant basis where it is false; the register was corrected first, then the section shrunk to one third of its drafted length and re-graded 'claims nothing beyond the literature it cites'"
+        },
+        {
+            "date": "2026-08-14",
+            "claim_wanted": "that the noise-kernel transversality derivation owed nothing -- 'nothing new is owed', net unmoved",
+            "removed_by": "adversarial screen, register-scope lens (three refuters + adjudicator)",
+            "why": "the chain consumed a premise the register had never priced (N as a PSD covariance on the full index space); the spatial-frame passivity condition is frontier-reserved at the needed 4d strength and cannot substitute. The ledger moved UP, +13 to +14 -- a cost discovered, not removed"
+        },
+        {
+            "date": "2026-08-17",
+            "claim_wanted": "that a single passive channel cannot cross the phantom divide, stated as an action-level exclusion",
+            "removed_by": "mandated strength-label lens (Wave 4a), checking every label against its register node in both directions",
+            "why": "the register holds the no-crossing at to-derive by explicit ruling -- conditional on the open single-pole conjecture the same paragraph declares open, and generic where it holds (Vikman 2005). The draft transcribed an exclusion list without checking the tier behind each item"
+        },
+        {
+            "date": "2026-08-17",
+            "claim_wanted": "a decision table for the framework's decisive question, published as a pre-registration",
+            "removed_by": "mandated decision-table lens (Wave 4b), reachability check",
+            "why": "the table had NO ROW for the pole-class landing -- the favourable outcome -- while its own preamble named that outcome as one of two that resolve the channel. A pre-registration missing the flattering branch is not a pre-registration"
+        },
+        {
+            "date": "2026-08-17",
+            "claim_wanted": "that the method's worked examples left the third graduation element open for a reader to judge",
+            "removed_by": "mandated credential-converter lens (Wave 5)",
+            "why": "the register had already ruled on it, deflationarily -- 'a quotation-practice shape, not a peer-blessed novel catch'. Deferring to the reader withheld an on-record ruling and invited a second delivered element the register declined"
+        },
+        {
+            "date": "2026-08-17",
+            "claim_wanted": "three figures, described in the completeness line as complete and placed",
+            "removed_by": "mandated figure lens (Wave 6)",
+            "why": "two of the three were generated, drift-tested, and never referenced in the document; the same sentence called all three complete and two deferred. Separately the tower panel shipped clipped past its own canvas, and the panel set drew the framework's assumed case 47% taller than the known structure on axes captioned 'identical'"
+        },
+        {
+            "date": "2026-08-18",
+            "claim_wanted": "that the document's address block cited a commit hash that does not resolve -- a confession of error",
+            "removed_by": "owner verification against the PUBLIC repository",
+            "why": "THE ONLY REMOVAL IN THIS FILE THAT RUNS THE OTHER WAY: the hash resolves in the repository the sentence names; the check had been run in the subtree source, which cannot see objects the subtree destination created. The 'correction' deleted a true statement and published a fabricated defect. An under-claim wears the costume of honesty and a screen hunting over-claims passes it"
+        },
+        {
+            "date": "2026-08-18",
+            "claim_wanted": "'a second test fails if any register-derived figure appears typed in the source'",
+            "removed_by": "whole-document cross-part lens, by mutation",
+            "why": "the guard's coverage list was hand-maintained: three emitted values typed into the source left the entire suite green, among them the token introduced days earlier to stop a count from going stale. The claim was broader than the machine; coverage now derives from the emitter"
         }
     ]
 }

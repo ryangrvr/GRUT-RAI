@@ -1,5 +1,5 @@
 {
- "_comment": "Primary-source register. Every load-bearing claim must cite an id here. Verified against the actual papers in the 2026-06-25 review, not against secondary summaries.",
+ "_comment": "Primary-source register. Every load-bearing claim must cite an id here. Verification is PER ENTRY and stated in the entry's own text: most were checked against the actual papers in the 2026-06-25 review; several -- including the priority references carrying Part I of the public document -- are attested as verified through secondary literature and NOT read in original, and say so. (Corrected 2026-08-18: this header previously asserted primary verification for all of them, which the entries themselves contradict.)",
  "born1926": {
   "ref": "M. Born, Z. Phys. 37, 863 (1926), 'Zur Quantenmechanik der Stossvorgaenge'",
   "verifies": "the Born rule (probability = |amplitude|^2); a QM postulate, not derived within GRUT"

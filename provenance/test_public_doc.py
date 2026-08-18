@@ -90,29 +90,45 @@ class TestPublicDoc(unittest.TestCase):
         stripped = re.sub(r"\]\([^)]*\)", "", stripped)            # markdown link/image targets
         stripped = re.sub(r"\bR\d\b", "", stripped)               # sealed-file rule labels
         stripped = re.sub(r"\bDR\d+\b", "", stripped)
-        guarded = {"n_grut": n["n_grut"], "spec_total": n["spec_total"], "spec_B": n["spec_B"],
-                   "spec_A": n["spec_A"], "spec_C": n["spec_C"], "spec_D": n["spec_D"],
-                   "n_tests": n["n_tests"], "total": n["total"],
-                   "n_spec_2026_06_25_nodes": n["n_spec_2026_06_25_nodes"],
-                   "n_spec_2026_06_25_occurrences": n["n_spec_2026_06_25_occurrences"],
-                   "tier_derived": n["tiers"].get("derived", 0),
-                   "tier_derived_pending": n["tiers"].get("derived-pending", 0),
-                   "tier_shown": n["tiers"].get("shown", 0),
-                   "tier_assumed": n["tiers"].get("assumed", 0),
-                   "tier_to_derive": n["tiers"].get("to-derive", 0)}
+        # THE GUARDED SET IS DERIVED, NEVER HAND-LISTED. It was hand-listed until 2026-08-18,
+        # when a whole-document screen typed three emitted values into the source and the ENTIRE
+        # suite stayed green -- among them n_overseer_register, the token introduced days earlier
+        # precisely to stop a typed count from going stale. A hand-maintained coverage list is an
+        # enforcement instrument claiming coverage it does not have, which is the defect class
+        # this program keeps finding in itself. Coverage now derives from what the emitter emits,
+        # so a new number cannot enter the document outside the guard.
+        guarded = {k: v for k, v in n.items() if isinstance(v, int) and not isinstance(v, bool)}
+        guarded.update({f"tier_{k.replace('-', '_')}": v for k, v in n["tiers"].items()})
         # Hyphenated ratios are handled by their own check below; strip them here so their
         # component digits are not ALSO reported as bare integers (the "0" in "0-of-7").
         int_scan = re.sub(r"\b\d+-of-\d+\b", "", stripped)
         # Sigma-values are check (c)'s jurisdiction, with its clause-level attribution rule;
         # strip them here so a guarded integer inside "~4σ-class" is not ALSO reported bare.
         int_scan = re.sub(r"~?\d+(?:\.\d+)?\s*(?:sigma|σ)", "", int_scan)
+        # THE FOUR DECLARED EXCEPTION CLASSES, enforced rather than banned. The rule permits
+        # quoted, cited, verification-pass and dated-audit-record figures WHEN MARKED at the
+        # occurrence; checks (a)/(b) previously ignored the marking and so would have banned a
+        # correctly-attributed historical figure that happened to equal a live register count.
+        # Clause-level, like check (c) -- proximity is not attribution.
+        DELIMS_AB = ".!?;:\n"
+        MARKERS = (r"quoted|cited|that pass|attributed|prior deposit|literature|"
+                   r"dated disclosure|dated record|the audit's|audit correction|"
+                   r"its own heading records|the record's|the log's")
+
+        def _marked(hay, start, end):
+            lo = max((hay.rfind(c, 0, start) for c in DELIMS_AB), default=-1) + 1
+            hi = min((x for x in (hay.find(c, end) for c in DELIMS_AB) if x != -1),
+                     default=len(hay))
+            return re.search(MARKERS, hay[lo:hi + 1], re.I) is not None
+
         offenders = []
         for name, val in guarded.items():
             # (a) as a bare integer
             # A NEGATIVE number is never one of the guarded register counts (they are all
             # non-negative tallies), so a preceding minus excludes it -- which is what lets the
             # physics ratio "exactly -2" coexist with the guard on spec_C = 2.
-            if re.search(rf"(?<![\d.\-−]){val}(?![\d.])", int_scan):
+            m = re.search(rf"(?<![\d.\-−]){val}(?![\d.])", int_scan)
+            if m and not _marked(int_scan, m.start(), m.end()):
                 offenders.append(f"{name}={val} (as a digit)")
             # (b) as a spelled-out numeral -- the class that falsified the rule in its own paragraph
             # Word-forms are checked only for values > 3. Below that the numeral collides with
@@ -121,7 +137,8 @@ class TestPublicDoc(unittest.TestCase):
             # DECLARED LIMITATION, not a silent carve-out: values 0-3 are placeholder-disciplined
             # but not machine-enforced in word form. Stated here so the limit is auditable.
             w = self.WORDS.get(val)
-            if w and val > 3 and re.search(rf"\b{w}\b", stripped, re.I):
+            mw = re.search(rf"\b{w}\b", stripped, re.I) if (w and val > 3) else None
+            if mw and not _marked(stripped, mw.start(), mw.end()):
                 offenders.append(f"{name}={val} (as the word {w!r})")
         # (c) hyphenated ratios and sigma-values sourced from THIS register (not quoted, not cited)
         for pat, what in ((r"\b\d+-of-\d+\b", "a hyphenated ratio"),
@@ -305,3 +322,32 @@ class TestPublicDoc(unittest.TestCase):
                       "the subtree trap must be stated where the hash is claimed")
         self.assertNotIn("named one that does not resolve", src,
                          "the manufactured-defect confession must not return")
+
+    def test_every_source_token_is_guarded_or_declared_nonnumeric(self):
+        """The guard's coverage derives from the emitter, but a token could still be added that
+        the emitter exposes as a non-int (a string figure, say) and so escape check (a)/(b).
+        Every placeholder the source uses must therefore be either an int the guard covers, or
+        named here as deliberately non-numeric. Closes the class rather than the instance."""
+        import build_public_doc as B
+        import emit_public_numbers as E
+        n = E.numbers()
+        NON_NUMERIC = {"STAMP_DATE", "CORRECTION_DATE", "WAVE_DATE", "register_table",
+                       "calc_index", "net_grut", "net_cluster", "waived_total"}
+        DECIMAL_GUARDED = {"x_upper", "mu_allowance", "desi_sigma0", "isw_sigma", "isw_central",
+                           "x_gate"}
+        src = open(SRC).read()
+        used = set(re.findall(r"\{\{([A-Za-z_0-9]+)\}\}", src))
+        vals = B.values()
+        for tok in sorted(used):
+            self.assertIn(tok, vals, f"source uses undefined placeholder {tok!r}")
+            if tok in NON_NUMERIC or tok in DECIMAL_GUARDED:
+                continue
+            # a tier key is ABSENT from n["tiers"] exactly when the tier is empty -- which is
+            # the document's headline case -- so check the canonical vocabulary, not the
+            # observed keys.
+            TIERS = ("shown", "derived", "derived-pending", "assumed", "to-derive")
+            base = tok[5:].replace("_", "-") if tok.startswith("tier_") else tok
+            covered = isinstance(n.get(tok), int) or base in TIERS
+            self.assertTrue(covered,
+                            f"placeholder {tok!r} is neither an int the guard covers nor declared "
+                            f"non-numeric -- it could be typed into the source undetected")
