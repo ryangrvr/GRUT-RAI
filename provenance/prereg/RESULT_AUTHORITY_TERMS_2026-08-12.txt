@@ -170,3 +170,25 @@ counterpart half of this file's Failure-class record: the builder's [Ss]pecialis
   Pair: the builder's [Ss]pecialist under-counted by eight in the permissive direction the same
   week. Same defect class, opposite signs. Recorded from session history, not from a git
   artifact -- the honest grade for this entry.
+
+================================ ADDENDUM 2026-08-18 -- THE "214 PLACES" FIGURE, REPRODUCED =====
+Recorded because the alternative reading (an unreproducible figure) was raised and is WRONG, and
+because the two readings carry different lessons.
+
+THE FIGURE WAS ACCURATE WHEN WRITTEN. Scope, supplied by the owner and re-run first-party:
+the rebuild repository only, files *.md / *.txt / *.json, case-insensitive, occurrences not lines.
+
+    a894b59   214 in 44 files   2026-08-12  "B0.2 corrected to 49/18; accept the page-convention"
+    a64b440   221 in 45 files   2026-08-12  "Authority-vocabulary audit (sealed term list)"
+    HEAD      277 in 48 files   2026-08-18
+
+O3's "214 places" matched the tree at the commit that was HEAD when it was written. It went stale
+WITHIN ONE COMMIT -- and the commit that broke it is THIS AUDIT. Documenting the word increased
+the count of the word: 214 -> 221 -> 277. That is the annotation-inflation finding of this file's
+own record, in a second figure, and it is the same mechanism (commentary containing its subject).
+
+GRADE: a one-number-rule failure -- typed rather than emitted -- NOT a fabricated figure. The
+distinction matters and is recorded: an invented number is a defect of care; a stale number is a
+defect of mechanism, and only the second is fixed by machinery. FIXED at the mechanism: the public
+document now emits the count with its scope declared on its face (register-scope occurrences,
+provenance/emit_public_numbers.py::n_overseer_register), so it cannot drift again.

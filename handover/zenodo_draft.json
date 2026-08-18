@@ -1,0 +1,50 @@
+{
+  "_HANDOVER_NOTE": "DRAFT ONLY -- not .zenodo.json, deliberately. Renaming this file to .zenodo.json arms the repository's server-side Zenodo hook; that act is the owner's alone, at the moment of deposit. Prepared 2026-08-18.",
+  "title": "Where the Responsive Vacuum Stops: a negative-results report on an open-system model of the gravitational vacuum",
+  "upload_type": "publication",
+  "publication_type": "report",
+  "access_right": "open",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Grover, D. Ryan",
+      "affiliation": "Independent researcher",
+      "orcid": ""
+    }
+  ],
+  "description": "<p><strong>This is a negative-results report.</strong> A framework treating the gravitational vacuum as an open medium with finite memory -- one Schwinger-Keldysh influence action, its response kernel decomposed on spin projectors -- was built, priced assumption by assumption in a machine-checked claim register, and pushed until it stopped. The report states where it stopped.</p><p><strong>The framework produced no novel positive prediction.</strong> The register's <code>derived</code> tier -- reserved for results whose derivation was exhibited and checked -- is empty, and a test fails if that changes without the report changing. Three results outlive the framework, and two of them are statements about general relativity rather than about this model; the report grades all three as careful restatements of material the literature already contains, not as discoveries.</p><p>The single decisive question the framework rests on -- whether the low-frequency tensor response of the pure-graviton de Sitter self-energy has a relaxation pole or a branch cut -- was drafted as a one-page ask and <strong>never sent</strong>, and in-house work suggests it may be ill-posed in the formalism its intended readers use.</p><p><strong>Disclosure carried at full volume:</strong> every link in this program's verification chain except one human being is an AI, and so is the drafting of the report's prose. The method -- a claim register that prices assumptions and blocks derivations that quietly acquire them -- is the more transferable output and is <strong>unvalidated by anyone but its author</strong>, ungraduated at its own sealed bar.</p><p><strong>This deposit supersedes nothing automatically.</strong> A prior book by the same author, live under concept DOI 10.5281/zenodo.19803663, describes a DIFFERENT framework and is substantially wrong; a separate superseding note under that concept DOI carries that correction. Every count in the report is generated from the register rather than typed, and the commands that reproduce them run from a clean checkout with no dependencies beyond the Python 3 standard library.</p>",
+  "keywords": [
+    "negative results",
+    "open quantum systems",
+    "Schwinger-Keldysh",
+    "influence functional",
+    "fluctuation-dissipation",
+    "de Sitter space",
+    "research methodology",
+    "claim register",
+    "reproducibility",
+    "AI-assisted research",
+    "gravitational decoherence"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.19803663",
+      "relation": "isNewVersionOf",
+      "resource_type": "publication-book",
+      "_note": "PLACEHOLDER RELATION -- the owner decides at deposit whether this report is a new version of the prior concept record or an independent deposit that merely cites it. They are different claims and only the owner can make that one."
+    },
+    {
+      "identifier": "https://github.com/ryangrvr/GRUT-RAI",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ],
+  "notes": "Section VII.3 of the report is written by the author in his own voice and is the one section no instrument drafted. The report is not deposited until it exists.",
+  "_owner_checks_before_deposit": [
+    "VII.3 written, signed, placed last in the body",
+    "the commit hash in the report's address block updated to the published commit and verified IN github.com/ryangrvr/GRUT-RAI (not in a working tree -- subtree rewrites object ids)",
+    "the DOI line in the report's front matter written in",
+    "the relation above chosen deliberately (new-version-of vs cites)",
+    "the repository's live .zenodo.json replaced or the hook disarmed, so the stale v2.2.0 metadata cannot publish itself"
+  ]
+}
