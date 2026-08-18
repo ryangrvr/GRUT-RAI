@@ -1,0 +1,26 @@
+{
+  "_accepted_note": "Refreshed by a human act. Refreshing this file is the claim that the document's prose about each node below has been re-read and still matches the register.",
+  "artifacts": {
+    "GLOSSARY.md": "fee35d04d7140043",
+    "HOW_TO_VERIFY.md": "fc7dbddb3f915dbc",
+    "NO_GO_LEDGER.md": "90dba9ecffbe22a6",
+    "POSTULATE_MAP.md": "a21e8d0f9b20be65",
+    "S_IF.md": "05d9bf1bda3ec2d8"
+  },
+  "nodes": {
+    "kk_static_transfer": "fc89e52fb499cb53",
+    "mu_linear": "c51b5de311199f55",
+    "rung1_inin_action": "f75e69d3f2422d60",
+    "rung2_kms_gate": "2589e38b9d936cd3",
+    "rung3_single_pole": "cae4974deda5b5fb",
+    "rung4_love_kk": "397b24de1d46d25a",
+    "rung5_gr_limit": "e070d4f8609c8bd6",
+    "rung6_qm_limit": "e070d4f8609c8bd6",
+    "rung7_w2_wa_sign": "648a1c60b5ea5d72",
+    "rung7_w3_nocrossing_export": "727687367bb40842",
+    "rung7_wz": "ab9fe66c97bc52fe",
+    "rung8_falsifier": "7e35dd9ed8576d2f",
+    "rung9a_value": "ab1c8b71ea14d4b3",
+    "rung9b_bridge": "f96fcf17527c7d6c"
+  }
+}

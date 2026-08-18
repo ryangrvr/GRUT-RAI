@@ -23,6 +23,34 @@ python3 provenance/bankgate.py
 The bank-time gate: diffs the working register against the last accepted baseline. `CLEAN` means
 no unaccepted change; any edit shows as a flag with severity.
 
+## Keeping the book current with the register
+
+The public document is a **derived artifact in four ways, and all four are checked**:
+
+| what | how it stays true | what fails |
+|---|---|---|
+| counts | emitted from the register; never typed | `emit_public_numbers.py --check`, and a guard whose coverage derives from the emitter |
+| tables | generated at build time | `build_public_doc.py --check` |
+| figures | generated from the register and the map | `build_figures.py --check` |
+| **prose** | **pinned to the register nodes it cites** | **`doc_register_pins.py`** |
+
+The fourth was unguarded until 2026-08-18. A tier moving, a claim retiring, a price changing —
+every sentence describing it would go stale and nothing would fail. Now the fields prose depends
+on (`tier`, `ledger_delta`, `sub_status`, `grut_standing`) are pinned for every node the document
+names, along with the standing artifacts it vouches for.
+
+**When the register moves, the check fails and names the node.** That is a prompt, not a lock:
+re-read the sentences citing it, reconcile them, then
+
+```
+python3 provenance/doc_register_pins.py --accept
+```
+
+Re-pinning is a human act and it is a claim: *the prose about this node has been re-read and still
+says what the register says.* Refresh it without reading and the machinery is intact while the
+book is not — which is the failure this program convicts its own prior deposit of.
+
+
 ## Any claim about the public repository is checked against the public repository
 
 **The trap, recorded because this program fell into it (2026-08-18).** The rebuild tree is the
