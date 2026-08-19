@@ -58,6 +58,35 @@ def coth(x):
 
 
 # ---------------------------------------------------------------------------------------------
+def part0_the_regulator_regulates():
+    """THE PREMISE THIS FILE FORGOT TO CHECK, added after a mutant walked straight through.
+
+    Everything below is an integral of J(w) coth(w/2T) against cos(w t). If J does not fall off
+    fast enough, that integral does not exist and every number downstream is quadrature noise
+    wearing the shape of an answer. This file discarded two regulators for exactly that reason and
+    then did not GUARD the property -- so reinstating the discarded Drude factor as a mutant
+    changed nothing any check could see. It does now.
+
+    Test: the tail mass on [A, 2A] must SHRINK as A grows. A genuine cutoff kills it; a Drude
+    factor leaves J ~ w * w_c^2, whose tail mass grows like A^2."""
+    print("\nPART 0 -- does the regulator actually regulate?")
+    import mpmath as mp
+    mp.mp.dps = 25
+    T, wc = mp.mpf('0.05'), mp.mpf(1)
+    masses = []
+    for A in (8, 16, 32):
+        A = mp.mpf(A)
+        m = mp.quad(lambda w: _J(w, float(wc)) / mp.tanh(w/(2*T)), [A, 2*A])
+        masses.append(float(abs(m)))
+        print(f"       tail mass on [{int(A)}, {int(2*A)}] = {float(abs(m)):.6e}")
+    check(masses[1] < masses[0] and masses[2] < masses[1],
+          "the tail mass shrinks as the window moves out -- the defining integral converges")
+    check(masses[-1] < 1e-12 * max(masses[0], 1e-300),
+          f"and it is negligible by [32, 64] ({masses[-1]:.1e}) -- so the numbers below are an "
+          f"integral and not a quadrature artefact")
+
+
+# ---------------------------------------------------------------------------------------------
 def part1_residues():
     """coth's poles ARE the ladder. Residue of coth(w/2T) at w = 2 pi i n T is 2T, for every n."""
     print("\nPART 1 -- where the ladder comes from: the poles of coth itself")
@@ -172,6 +201,84 @@ def part4_why_the_memory_time_hid_it():
 
 
 # ---------------------------------------------------------------------------------------------
+def part4b_leading_rung_share():
+    """THE QUANTITATIVE CONSEQUENCE, which is where this bites rung3.
+
+    Weighting the rungs by residue -- J ~ omega^3 continued to omega = -i n H gives weight n^3 --
+    the ladder is sum_n n^3 x^n with x = e^{-H t}, and the LEADING rung's share of the whole is
+
+        share(Ht) = (1 - x)^4 / (1 + 4x + x^2),      x = e^{-H t}
+
+    since sum_n n^3 x^n = x(1 + 4x + x^2)/(1-x)^4. Closed form, checked against the sum.
+
+    THE HEADLINE NUMBER: at H t = 1 -- the framework's own operating scale, since rung7 carries
+    tau_2 ~ 1/H_0 -- the leading pole carries SIX PERCENT of the structure. Single-pole is not an
+    approximation there in any useful sense; it is six percent of the answer.
+
+    SENSITIVITY, STATED BECAUSE IT RUNS THE FAVOURABLE WAY: a UV cutoff truncates the top of the
+    ladder, which can only INCREASE the leading rung's share. The untruncated number is therefore
+    the most adverse reading, and the table below shows how much a hard truncation buys."""
+    print("\nPART 4b -- the leading rung's share of the ladder")
+
+    def share_exact(Ht):
+        x = math.exp(-Ht)
+        return (1 - x)**4 / (1 + 4*x + x*x)
+
+    def share_trunc(Ht, nmax):
+        x = math.exp(-Ht)
+        tot = sum(n**3 * x**n for n in range(1, nmax + 1))
+        return x / tot
+
+    print("     closed form vs direct summation (untruncated):")
+    worst = 0.0
+    for Ht in (0.5, 1.0, 2.0, 3.0, 4.33, 6.68):
+        a, b = share_exact(Ht), share_trunc(Ht, 4000)
+        worst = max(worst, abs(a - b))
+    check(worst < 1e-12, f"share(Ht) = (1-x)^4/(1+4x+x^2) matches the sum to {worst:.1e}")
+
+    print("\n       H t      n=1 share    (with the ladder truncated at n <= ...)")
+    print("                 untruncated      30        10         3")
+    for Ht in (0.5, 1.0, 2.0, 3.0, 4.33, 6.68):
+        row = "  ".join(f"{share_trunc(Ht, n)*100:8.1f}%" for n in (30, 10, 3))
+        print(f"       {Ht:<6.2f}   {share_exact(Ht)*100:8.1f}%     {row}")
+
+    check(abs(share_exact(1.0) - 0.0612) < 0.001,
+          f"at H t = 1 the leading rung carries {share_exact(1.0)*100:.1f}% of the ladder")
+    # where does the leading rung finally dominate?
+    lo, hi = 1.0, 20.0
+    for _ in range(200):
+        mid = (lo + hi)/2
+        if share_exact(mid) < 0.90: lo = mid
+        else: hi = mid
+    t90 = hi
+    lo, hi = 1.0, 40.0
+    for _ in range(200):
+        mid = (lo + hi)/2
+        if share_exact(mid) < 0.99: lo = mid
+        else: hi = mid
+    t99 = hi
+    check(abs(t90 - 4.33) < 0.02 and abs(t99 - 6.68) < 0.02,
+          f"the leading rung reaches 90% only at H t = {t90:.2f} and 99% at H t = {t99:.2f}")
+    print("\n     rung7 carries tau_2 ~ 1/H_0, i.e. H t ~ 1. Single-pole dominance needs H t > 4.3.")
+    print("     THE COSMOLOGICAL SECTOR OPERATES ABOUT FOUR E-FOLDS SHORT OF WHERE THE")
+    print("     APPROXIMATION BECOMES GOOD, and no limit of the parameters moves it there --")
+    print("     the ladder spacing is H and H is the only scale the framework has.")
+    print("\n     AND IT IS DENSER THAN THE STRUCTURE IT REPLACED. The QNM tower retracted on")
+    print("     2026-08-19 had spacing 2H; this ladder has spacing H. Comparing like with like,")
+    print("     the SECOND rung against the FIRST at H t = 1:")
+    print(f"       spacing 2H, unweighted : {math.exp(-2)*100:.1f}%")
+    print(f"       spacing  H, unweighted : {math.exp(-1)*100:.1f}%")
+    print(f"       spacing  H, n^3 weights: {8*math.exp(-1)*100:.0f}%   <-- the second rung is")
+    print("                                        nearly three times the first")
+    print(f"     and the WHOLE tail against the first rung is "
+          f"{(1-share_exact(1.0))/share_exact(1.0):.1f}x.")
+    print("     'The tower was retracted' reads as a reprieve. It is the opposite: the structure")
+    print("     that replaced it is denser and less favourable to single-pole.")
+    print("\n     ROBUST TO THE REGULATOR, which is the escape route that does not work: even")
+    print("     truncating the ladder at n <= 3 only lifts the H t = 1 share from 6.1% to 13.2%.")
+
+
+# ---------------------------------------------------------------------------------------------
 def part5_for_this_framework():
     """T is not free here: it is H/2pi, so the ladder is at n H with spacing exactly H."""
     print("\nPART 5 -- what this is for the framework's own declared state")
@@ -197,14 +304,20 @@ def part5_for_this_framework():
 
 
 def main():
+    part0_the_regulator_regulates()
     part1_residues()
     part2_tail_is_the_ladder()
     part3_it_is_a_tower_not_a_second_pole()
     part4_why_the_memory_time_hid_it()
+    part4b_leading_rung_share()
     part5_for_this_framework()
     print("\n" + "=" * 92)
     if FAIL:
-        print("SELFTEST FAILED:")
+        # The marker string is load-bearing: provenance/test_mutation_battery.py classifies a
+        # mutant as "caught by a check" only if it sees "SELFTEST: FAIL". This file first printed
+        # "SELFTEST FAILED:", so its checks fired and the harness recorded them as CRASHES --
+        # a battery would have read as proving nothing when it was in fact working.
+        print("SELFTEST: FAIL")
         for m in FAIL:
             print("   -", m)
         return 1

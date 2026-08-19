@@ -39,6 +39,55 @@ without one.
 # arithmetic is exactly as load-bearing as a calc.
 
 BATTERIES = {
+    # ------------------------------------- the finite-T Matsubara ladder (adverse to rung3)
+    # Cited by rung3_single_pole's overturning_computation from 2026-08-19. Every mutant below
+    # installs a SPECIFIC wrong answer about the ladder, and three of the five make the framework
+    # look BETTER than it is -- which is the direction a battery has to cover here.
+    "finite_T_pole_structure.py": {
+        # slow (quadosc at 30 digits, five mutants ~ 5 min): declared here and always anchor-checked,
+        # EXECUTED under GRUT_FULL_MUTATION=1. All five were verified caught BY A CHECK (not by an
+        # incidental crash) on 2026-08-19 before this flag was set.
+        "slow": True,
+        "mutants": [
+            ("ladder_placed_off_the_matsubara_frequencies",
+             "        w0 = 2j * math.pi * n * T",
+             "        w0 = 2.6j * math.pi * n * T",
+             "puts the ladder at frequencies that are NOT poles of coth, so the residue probe "
+             "returns 0 instead of 2T: the wrong answer being 'the rungs sit somewhere other "
+             "than the Matsubara frequencies'. The odd factor is chosen so the probe lands on no "
+             "OTHER pole either -- a mutant that merely crashes proves nothing, which this "
+             "battery learned when its first version died on a division by zero instead of on a "
+             "check. PART 1 must reject it."),
+            ("ladder_rate_halved",
+             "            t = k/target",
+             "            t = k/(2*target)",
+             "measures the late-time decay over a window half as far out, reinstating the exact "
+             "defect this file records: a window far enough for one temperature and not another. "
+             "The reported rate then misses 2 pi T and PART 2 must fail -- the wrong answer being "
+             "'the slowest rung is not at 2 pi T after all'."),
+            ("share_exponent_lowered",
+             "        return (1 - x)**4 / (1 + 4*x + x*x)",
+             "        return (1 - x)**3 / (1 + 4*x + x*x)",
+             "installs THE FLATTERING NUMBER: a wrong closed form for the leading rung's share "
+             "that reports single-pole carrying MORE of the structure than it does at H t = 1, "
+             "which is precisely the direction that would make rung3 look survivable. PART 4b's "
+             "closed-form-versus-sum check must fail."),
+            ("dS_temperature_doubled",
+             "    T = H / (2 * math.pi)",
+             "    T = H / math.pi",
+             "installs the wrong de Sitter temperature, so the ladder is reported at spacing 2H "
+             "rather than H -- the SAME spacing as the retracted QNM tower, which would make the "
+             "new structure look no denser than the one it replaced. PART 5's exactness check "
+             "must fail."),
+            ("cutoff_that_does_not_cut_off",
+             "    return w**3 * math.exp(-(w/wc)**2)",
+             "    return w**3 * wc**2 / (w*w + wc*wc)",
+             "reinstates the discarded Drude regulator, which takes w^3 down to w*w_c^2 so the "
+             "defining integral does not converge at all; the quadrature then returns large "
+             "oscillating values that look like a physical kernel. This is the instrument failure "
+             "the file records, installed as a mutant so it cannot come back silently."),
+        ],
+    },
     # ------------------------------------------------- noise transversality (the derive-or-book exhibit)
     "noise_transversality_check.py": {
         "slow": True,
