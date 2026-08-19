@@ -39,6 +39,77 @@ without one.
 # arithmetic is exactly as load-bearing as a calc.
 
 BATTERIES = {
+    # ------------------------------------- the static-patch exhibit (c = 0 and the retraction)
+    # Cited by rung3_single_pole from 2026-08-19 for the c = 0 derivation. The calc is ~7 min per
+    # run, so this battery is slow by necessity rather than by choice.
+    "static_patch_tt_response.py": {
+        "slow": True,
+        "mutants": [
+            ("master_variable_loses_its_f",
+             "    h1 = r*Z/f",
+             "    h1 = r*Z",
+             "installs a WRONG MASTER VARIABLE (Z = h1/r instead of f h1/r). A stray first-"
+             "derivative term then survives and the equation is not in Schrodinger form, so any c "
+             "read off it is meaningless. This is the flattering failure: the algebra still "
+             "produces a tidy-looking potential. PART 1b's 'A1 reduces to exactly f f'' check "
+             "must reject it."),
+            ("centrifugal_coefficient_wrong",
+             "    claim_rp = (-(lval*(lval+1) - 2)*fb*h1f + w**2*r**2*h1f",
+             "    claim_rp = (-(lval*(lval+1))*fb*h1f + w**2*r**2*h1f",
+             "drops the -2 in the l(l+1)-2 coefficient of E_{r,phi}, i.e. asserts the linearised "
+             "equation has a different centrifugal structure than it does. The factorisation check "
+             "(quotient must contain neither h0 nor h1) must reject it."),
+            ("scalar_potential_given_the_graviton_value",
+             "    want = f*(l*(l+1)/r**2 - 2*H**2)",
+             "    want = f*(l*(l+1)/r**2)",
+             "sets the MASSLESS SCALAR's potential equal to the graviton's, erasing the 2 H^2 f "
+             "difference. That difference is the entire resolution of the apparent clash with the "
+             "reported de Sitter quasinormal spectrum, so this mutant reinstates a contradiction "
+             "with the literature that does not exist. PART 1 must reject it."),
+            ("blaschke_sign_dropped",
+             "        blaschke = (-1)**lv*sp.prod([(ww + sp.I*j)/(ww - sp.I*j) for j in range(1, lv + 1)])",
+             "        blaschke = sp.prod([(ww + sp.I*j)/(ww - sp.I*j) for j in range(1, lv + 1)])",
+             "drops the (-1)^l from the reflection amplitude. |R| = 1 still holds, so the "
+             "kinematic half of PART 3c survives -- which is exactly why the identity check must "
+             "be the thing that fires: the sign is the part that is NOT forced by unitarity."),
+        ],
+    },
+    # ------------------------------------- Mori-Zwanzig inheritance (narrows the adverse filing)
+    # Cited by rung3_single_pole from 2026-08-19. THREE OF THE FOUR MUTANTS INSTALL A FLATTERING
+    # ANSWER -- two flattering to the adverse reading this file NARROWS, one flattering to the
+    # framework. A battery on a result that cuts both ways has to cover both directions.
+    "mz_inheritance.py": {
+        "slow": True,
+        "mutants": [
+            ("kubo_weight_halved_exponent",
+             "    weight = sp.simplify(sp.integrate(sp.exp(-w*lam), (lam, 0, beta))/beta)",
+             "    weight = sp.simplify(sp.integrate(sp.exp(-w*lam/2), (lam, 0, beta))/beta)",
+             "corrupts the Kubo transform's own defining integral, so C_K no longer reduces to "
+             "2 chi''/(beta w). The wrong answer installed is that the Kubo route KEEPS a coth-like "
+             "factor -- which would restore the ladder on both routes and leave the earlier adverse "
+             "filing standing unqualified. Flattering to the claim this file narrows."),
+            ("detailed_balance_sign_flipped",
+             "    Cgreater = 2*chi2/(1 - sp.exp(-beta*w))",
+             "    Cgreater = 2*chi2/(1 + sp.exp(-beta*w))",
+             "installs the wrong KMS/detailed-balance relation between the greater function and "
+             "chi''. Both the symmetrised and the Kubo identities then come out wrong, so the "
+             "dichotomy that is this file's whole result would be an artefact of a mis-stated "
+             "relation rather than a fact about the state."),
+            ("friction_given_a_coth",
+             "w**(s-1)*mp.e**(-(w/wc)**2)*mp.cos(w*t)",
+             "w**(s-1)*mp.e**(-(w/wc)**2)/mp.tanh(w/(2*T))*mp.cos(w*t)",
+             "puts a thermal factor into the friction kernel, which does not have one. gamma would "
+             "then move with temperature and inheritance would look AUTOMATIC -- the wrong answer "
+             "that makes the ladder bear on rung3 unconditionally. PART 3's bit-identical check "
+             "must reject it."),
+            ("noise_stripped_of_its_coth",
+             "w**s*mp.e**(-(w/wc)**2)/mp.tanh(w/(2*T))*mp.cos(w*t)",
+             "w**s*mp.e**(-(w/wc)**2)*mp.cos(w*t)",
+             "removes the KMS factor from the noise kernel, so nu no longer carries the ladder and "
+             "its late-time rate stops tracking 2 pi T. Installs the answer FLATTERING TO THE "
+             "FRAMEWORK: no ladder anywhere, nothing adverse to rung3 at all."),
+        ],
+    },
     # ------------------------------------- the finite-T Matsubara ladder (adverse to rung3)
     # Cited by rung3_single_pole's overturning_computation from 2026-08-19. Every mutant below
     # installs a SPECIFIC wrong answer about the ladder, and three of the five make the framework

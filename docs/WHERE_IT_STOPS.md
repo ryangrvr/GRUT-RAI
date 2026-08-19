@@ -646,12 +646,13 @@ Generated at build time by listing the calculation directory's Python files; the
 | `calc/kk_static_transfer.py` | yes |
 | `calc/mu_linear.py` | yes |
 | `calc/mu_slip_interior.py` | yes |
+| `calc/mz_inheritance.py` | yes |
 | `calc/noise_transversality_check.py` | yes |
 | `calc/operator_basis.py` | yes |
 | `calc/q1_energy_basis_magnitude.py` | yes |
 | `calc/rung3_spectral_structure.py` | yes |
 | `calc/sigma0_anomaly_screen.py` | yes |
-| `calc/static_patch_tt_response.py` | no (support or superseded) |
+| `calc/static_patch_tt_response.py` | yes |
 | `calc/two_scale_desitter.py` | yes |
 | `calc/u5u6_deformability.py` | yes |
 | `calc/vacuum_scheme_compare.py` | yes |

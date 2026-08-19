@@ -10,7 +10,7 @@
 | net underived-input ledger, vacuum-cluster scope | **+0** |
 | of the GRUT net, carried behind declared waivers | **+9** across 4 claims |
 | primary sources in `sources.json` | **85** |
-| calculation files in `calc/` | **28** |
+| calculation files in `calc/` | **29** |
 | test files in `provenance/` | **20** |
 | tests collected | **231** |
 

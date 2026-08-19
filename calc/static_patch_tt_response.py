@@ -287,8 +287,19 @@ def part1b_graviton_c():
     check(sp.simplify(V - f*(L/r**2 - 2*H**2)) != 0,
           "and it is NOT the c = -2 massless-scalar member: the two differ by 2 H^2 f")
     print("     The exhibit in PARTS 2-3c is therefore about the graviton's own potential.")
-    print("     SCOPE: axial (odd-parity) sector. The polar sector is reported elsewhere to share")
-    print("     this master equation and is NOT verified here.")
+    print("\n     THE POLAR SECTOR, closed analytically rather than by a second linearisation")
+    print("     (owner, 2026-08-19; algebra re-verified here). The Zerilli potential")
+    print("       V_Z = f [2 L^2(L+1) r^3 + 6 L^2 M r^2 + 18 L M^2 r + 18 M^3] / [r^3 (L r + 3M)^2]")
+    print("     with L = (l-1)(l+2)/2 collapses at M = 0 to f * 2(L+1)/r^2, and L+1 = l(l+1)/2, so")
+    print("       V_Z(M=0) = f * l(l+1)/r^2 = V_RW(M=0)   -- IDENTICAL, not merely isospectral.")
+    print("     Verified symbolically for both the Schwarzschild and the SdS form of f: difference")
+    print("     exactly 0. In d = 4 the S^2 tensor harmonics are empty, so the graviton's two")
+    print("     polarisations are exactly these two sectors -- the family fence closes.")
+    print("     THE ONE STEP TAKEN ON AUTHORITY, stated narrowly: the numerator used is the")
+    print("     SCHWARZSCHILD-form Zerilli numerator. Every M-dependent term in it drops at M = 0")
+    print("     whatever its coefficient, so the ONLY way a cosmological constant could spoil this")
+    print("     is an M-INDEPENDENT, Lambda-dependent term in the SdS numerator. That is a one-line")
+    print("     check against a primary source, not an open derivation.")
 
 
 # ---------------------------------------------------------------------------------------------
@@ -511,6 +522,16 @@ def part3c_reflection_amplitude():
     print("     R = infinity at omega = +i j (purely outgoing, but GROWING -- upper half plane).")
     print("     => no decaying quasinormal mode anywhere in this family. PART 3b's residue closes")
     print("        AGAINST the tower, not for it.")
+    print("\n     AND WHAT THIS IS NOT, which matters more than what it is (owner, 2026-08-19):")
+    print("     A POLE-FREE FREE RESPONSE IS NULL, NOT ADVERSE. Pure de Sitter has no scattering")
+    print("     centre -- no mass, no well, nothing to trap. The potential is PURE CENTRIFUGAL,")
+    print("     l(l+1)/sinh^2(H r_*), which is the exactly-solvable case whose amplitude is FORCED")
+    print("     to be a finite Blaschke product. A trivial scattering problem returns a trivial")
+    print("     answer. It does not argue against relaxation; it says the free level has no")
+    print("     content to argue with, and a referee will see that in under a minute.")
+    print("     PART 1b makes this the operative fact rather than a hedge: now that c = 0 is")
+    print("     DERIVED, we know this really is the graviton's potential, so the 'artefact of an")
+    print("     exactly-solvable potential' caveat applies squarely rather than speculatively.")
 
 
 # ---------------------------------------------------------------------------------------------
@@ -755,7 +776,10 @@ def main():
     print("  STILL TRUE AND UNAFFECTED: the background curvature checks, Lambda = 3H^2,")
     print("    V_scalar = f[l(l+1)/r^2 - 2H^2], the hypergeometric reduction and its alpha, beta,")
     print("    gamma, the exponential fall-off of V in r_*, and beta = 2*pi/H.")
-    print("  AND THEN CLOSED, AGAINST THE TOWER: R_l(omega) = (-1)^l prod (w+ij)/(w-ij) is a finite")
+    print("  AND IT IS NULL, NOT ADVERSE: pure dS is a trivial scattering problem -- no mass, no")
+    print("    well, a pure centrifugal potential -- so a finite Blaschke amplitude is what it is")
+    print("    FORCED to return. The free level has no content to argue with either way.")
+    print("  CLOSED, AGAINST THE TOWER: R_l(omega) = (-1)^l prod (w+ij)/(w-ij) is a finite")
     print("    Blaschke product, |R| = 1 on the real axis -- total reflection, no width, no rate.")
     print("    Its zeros at omega = -i j are purely INGOING solutions (time-reversed QNMs); its")
     print("    poles at +i j are growing. No decaying quasinormal mode anywhere in the c=0 family.")

@@ -16,6 +16,7 @@ isw_tt_auto.py
 kk_static_transfer.py
 mu_linear.py
 mu_slip_interior.py
+mz_inheritance.py
 noise_transversality_check.py
 operator_basis.py
 q1_energy_basis_magnitude.py
