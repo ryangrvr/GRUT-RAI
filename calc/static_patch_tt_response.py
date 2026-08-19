@@ -109,6 +109,32 @@ def part0_background():
 
 
 # ---------------------------------------------------------------------------------------------
+def part0b_native_temperature():
+    """E1's first half, in-house: the KMS temperature is a PROPERTY OF THE GEOMETRY here, not an
+    import.  Euclidean continuation t -> -i tau; regularity of the (tau, r) section at the horizon
+    fixes the period of tau, and hence a temperature, with nothing put in by hand."""
+    print("\nPART 0b -- the temperature is native (Euclidean regularity)")
+    rho, tau = sp.symbols('rho tau', positive=True)
+    rh = 1/H
+    d = sp.Symbol('delta', positive=True)            # delta = r_h - r
+    f = 1 - H**2*r**2
+    near = sp.simplify(sp.series(f.subs(r, rh - d), d, 0, 2).removeO())
+    check(sp.simplify(near - 2*H*d) == 0, "f -> 2 H delta near the horizon (delta = 1/H - r)")
+    # substitute delta = H rho^2 / 2 and read off the angle
+    g_tt = sp.simplify(near.subs(d, H*rho**2/2))
+    g_rr = sp.simplify((1/near).subs(d, H*rho**2/2)*sp.diff(H*rho**2/2, rho)**2)
+    check(sp.simplify(g_rr - 1) == 0, "the radial part becomes d rho^2 exactly")
+    check(sp.simplify(g_tt - H**2*rho**2) == 0,
+          "the Euclidean section is  d rho^2 + rho^2 (H d tau)^2 : a plane in polar form")
+    print("     => smooth at rho = 0 iff H*tau has period 2*pi, i.e. beta = 2*pi/H,")
+    print("        T = H/(2*pi).  Derived from regularity; nothing imported.")
+    print("     NOTE ON WHAT THIS DOES AND DOES NOT BUY. It makes the temperature native to the")
+    print("     frame -- E1's claim. It does NOT re-derive the register's rung5 Unruh-T import,")
+    print("     and it does not by itself establish the KMS lock on the noise kernel, which is a")
+    print("     statement about a state on an algebra and not about a conical deficit.")
+
+
+# ---------------------------------------------------------------------------------------------
 def part1_scalar_potential():
     """Compute the massless-scalar radial potential from the metric. c = -2 is DERIVED here."""
     print("\nPART 1 -- the massless minimally coupled scalar potential, from the metric")
@@ -431,6 +457,7 @@ def part6_mutants():
 
 def main():
     part0_background()
+    part0b_native_temperature()
     part1_scalar_potential()
     part2_hypergeometric()
     part3_exact_modes()
