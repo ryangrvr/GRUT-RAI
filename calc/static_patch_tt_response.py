@@ -30,12 +30,12 @@ WHAT IS ESTABLISHED HERE, and at what strength:
   (B) DERIVED. c = -2 is the massless minimally coupled scalar: the potential is computed here
       from the metric, not quoted.
 
-  (C) NOT DERIVED IN-HOUSE, AND FLAGGED. The value of c for the axial gravitational master
-      equation is not established by this file. Two attempts at a full linearised-Einstein
-      derivation on this hardware did not complete. THE STRUCTURAL CONCLUSION DOES NOT DEPEND ON
-      IT: (A) holds for every c, so the tower's existence, its purely-imaginary character and its
-      2H spacing are independent of which member of the family the graviton picks. What DOES
-      depend on c is the GAP, and that is reported as c-dependent rather than as a number.
+  (C) DERIVED IN-HOUSE 2026-08-19, PART 1b -- this was flagged as an open gap and is now closed.
+      Linearising R_mn = Lambda g_mn about the static patch with an odd-parity Regge-Wheeler
+      ansatz, at EXPLICIT l (which is what made it finish where two abstract-l attempts did not),
+      gives V = f(r) l(l+1)/r^2: c = 0 EXACTLY, and NOT the c = -2 massless-scalar member. So the
+      exhibit is about the graviton's own potential. SCOPE: axial sector; the polar sector is
+      reported elsewhere to share the master equation and is not verified here.
 
   (A-RETRACTED, 2026-08-19) PART 3b RETRACTS the claim that the frequencies in (A) are
       quasinormal. The boundary-condition check tested the wrong thing. Read PART 3b before
@@ -165,6 +165,130 @@ def part1_scalar_potential():
     check(sp.simplify(sp.expand_trig(sp.simplify(Vs - want))) == 0,
           "V_scalar = f(r) [ l(l+1)/r^2 - 2H^2 ]   i.e. the family member c = -2")
     return want
+
+
+# ---------------------------------------------------------------------------------------------
+def part1b_graviton_c():
+    """THE GRAVITON'S c, DERIVED IN-HOUSE. This closes the gap flagged as (C) above.
+
+    Two earlier attempts failed on HARDWARE, not on physics: both carried an abstract P(theta) with
+    a Legendre substitution, and sympy would not finish. Fixing l and using the explicit Legendre
+    polynomial makes every angular object concrete trig and the linearisation takes seconds.
+
+    METHOD, and it is a derivation rather than a citation: linearise the vacuum equation
+    R_mn = Lambda g_mn (Lambda = 3H^2, checked in PART 0) about the static patch with an
+    odd-parity Regge-Wheeler ansatz h_{t phi} = h0(r) e^{-i w t} S(theta),
+    h_{r phi} = h1(r) e^{-i w t} S(theta), S = sin(theta) d_theta P_l(cos theta); expand the FULL
+    Ricci tensor in eps and take the O(eps) part. Two independent equations survive:
+
+        E_{theta phi}:  -i w h0 = f d/dr ( f h1 )          [l-INDEPENDENT]
+        E_{r phi}:      -(l(l+1) - 2) f h1 + w^2 r^2 h1 - i w r^2 h0' + 2 i w r h0 = 0
+
+    The l(l+1)-2 coefficient is read off two explicit runs: it is 4 at l=2 and 10 at l=3.
+
+    Substituting h0 and setting Z = f h1 / r gives A2 Z'' + A1 Z' + A0 Z with A1/(A2/f^2) EXACTLY
+    f f' -- no stray first-derivative term, which is what makes Z the master variable rather than
+    a convenient rescaling -- and
+
+        V = f(r) * l(l+1) / r^2,    i.e.  c = 0 EXACTLY.
+
+    SO THE EXHIBIT IS ABOUT THE GRAVITON'S POTENTIAL. The c = 0 family analysed in PARTS 3b/3c is
+    the one the framework's own object lives in, and the pole-free result is about it.
+
+    SCOPE, STATED: this is the AXIAL (odd-parity) sector. An independent derivation in the same
+    wave reported that the polar (even-parity) sector shares the same master equation; that is NOT
+    verified here and is taken as unconfirmed."""
+    print("\nPART 1b -- the graviton's c, derived (axial sector)")
+
+    # ---- step 1: the linearisation itself, at explicit l = 2, in this file ----------------
+    eps = sp.Symbol('epsilon')
+    lval = 2
+    fb = 1 - H**2*r**2
+    P = sp.legendre(lval, sp.cos(th))
+    S = sp.sin(th)*sp.diff(P, th)
+    h0f, h1f = sp.Function('h0')(r), sp.Function('h1')(r)
+    T = sp.exp(-sp.I*w*t)
+    g0 = sp.diag(-fb, 1/fb, r**2, r**2*sp.sin(th)**2)
+    g0i = sp.diag(-1/fb, fb, 1/r**2, 1/(r**2*sp.sin(th)**2))
+    hp = sp.zeros(4, 4)
+    hp[0, 3] = hp[3, 0] = h0f*S*T
+    hp[1, 3] = hp[3, 1] = h1f*S*T
+    g = g0 + eps*hp
+    gi = g0i - eps*(g0i*hp*g0i)
+    xs = [t, r, th, ph]
+
+    def tr(e):
+        e = sp.expand(e)
+        return e.coeff(eps, 0) + eps*e.coeff(eps, 1)
+
+    G = [[[0]*4 for _ in range(4)] for _ in range(4)]
+    for a in range(4):
+        for b in range(4):
+            for d in range(b, 4):
+                acc = 0
+                for e_ in range(4):
+                    if gi[a, e_] == 0:
+                        continue
+                    acc += gi[a, e_]*(sp.diff(g[e_, b], xs[d]) + sp.diff(g[e_, d], xs[b])
+                                      - sp.diff(g[b, d], xs[e_]))
+                G[a][b][d] = G[a][d][b] = tr(acc/2)
+
+    def ric(b, d):
+        acc = 0
+        for a in range(4):
+            acc += sp.diff(G[a][b][d], xs[a]) - sp.diff(G[a][b][a], xs[d])
+            for e_ in range(4):
+                acc += G[a][a][e_]*G[e_][b][d] - G[a][d][e_]*G[e_][b][a]
+        return tr(acc)
+
+    Eth = sp.simplify(sp.cancel(sp.together(sp.expand(
+        tr(ric(2, 3) - 3*H**2*g[2, 3]).coeff(eps, 1)/T))))
+    Erp = sp.simplify(sp.cancel(sp.together(sp.expand(
+        tr(ric(1, 3) - 3*H**2*g[1, 3]).coeff(eps, 1)/T))))
+    # E_theta,phi must be proportional to [ f (f h1)' + i w h0 ]
+    claim_th = fb*sp.diff(fb*h1f, r) + sp.I*w*h0f
+    q = sp.simplify(sp.cancel(sp.together(Eth/claim_th)))
+    check(sp.simplify(sp.diff(q, h1f)) == 0 and sp.simplify(sp.diff(q, h0f)) == 0
+          and sp.simplify(Eth - q*claim_th) == 0,
+          "E_{theta,phi} factors EXACTLY as (angular) x [ f d/dr(f h1) + i w h0 ] -- the "
+          "constraint, and it carries no l")
+    # E_r,phi must be proportional to the second equation with l(l+1) - 2 = 4 at l = 2
+    claim_rp = (-(lval*(lval+1) - 2)*fb*h1f + w**2*r**2*h1f
+                - sp.I*w*r**2*sp.diff(h0f, r) + 2*sp.I*w*r*h0f)
+    q2 = sp.simplify(sp.cancel(sp.together(Erp/claim_rp)))
+    check(sp.simplify(sp.diff(q2, h1f)) == 0 and sp.simplify(sp.diff(q2, h0f)) == 0
+          and sp.simplify(Erp - q2*claim_rp) == 0,
+          f"E_{{r,phi}} factors EXACTLY as (angular) x [ -(l(l+1)-2) f h1 + w^2 r^2 h1 "
+          f"- i w r^2 h0' + 2 i w r h0 ] at l = {lval} (coefficient 4 = l(l+1)-2)")
+    print("     (the same two forms were obtained at l = 3, where the coefficient is 10 = l(l+1)-2;")
+    print("      that run takes ~400 s and is not repeated in this selftest)")
+
+    # ---- step 2: assemble the master equation with l(l+1) symbolic -------------------------
+    L = sp.Symbol('L')
+    f = 1 - H**2*r**2
+    Z = sp.Function('Z')(r)
+    h1 = r*Z/f
+    h0 = sp.I*f*sp.diff(f*h1, r)/w
+    E = sp.expand(sp.cancel(sp.together(sp.expand(
+        -(L - 2)*f*h1 + w**2*r**2*h1 - sp.I*w*r**2*sp.diff(h0, r) + 2*sp.I*w*r*h0))))
+    A2 = sp.simplify(E.coeff(sp.Derivative(Z, (r, 2))))
+    A1 = sp.simplify(E.coeff(sp.Derivative(Z, r)))
+    A0 = sp.simplify(sp.simplify(E - A2*sp.Derivative(Z, (r, 2))
+                                 - A1*sp.Derivative(Z, r)).coeff(Z))
+    k = sp.simplify(A2/f**2)
+    check(sp.simplify(A1/k - f*sp.diff(f, r)) == 0,
+          "no stray first-derivative term: A1 reduces to exactly f f', so Z = f h1 / r really is "
+          "the master variable")
+    V = sp.simplify(w**2 - A0/k)
+    check(sp.simplify(V/f - L/r**2) == 0, f"V = f(r) * l(l+1)/r^2   (V/f = {sp.factor(V/f)})")
+    cc = sp.Symbol('c')
+    sol = sp.solve(sp.Eq(sp.simplify(V - f*(L/r**2 + cc*H**2)), 0), cc)
+    check(sol == [0], f"*** c = {sol} EXACTLY -- the graviton sits in the c = 0 family ***")
+    check(sp.simplify(V - f*(L/r**2 - 2*H**2)) != 0,
+          "and it is NOT the c = -2 massless-scalar member: the two differ by 2 H^2 f")
+    print("     The exhibit in PARTS 2-3c is therefore about the graviton's own potential.")
+    print("     SCOPE: axial (odd-parity) sector. The polar sector is reported elsewhere to share")
+    print("     this master equation and is NOT verified here.")
 
 
 # ---------------------------------------------------------------------------------------------
@@ -601,6 +725,7 @@ def main():
     part0_background()
     part0b_native_temperature()
     part1_scalar_potential()
+    part1b_graviton_c()
     part2_hypergeometric()
     part3_exact_modes()
     part3b_the_outgoing_check_was_wrong()
