@@ -68,15 +68,15 @@ DECLARED = {
     "test_resident.py::TestResident::test_no_tier_contradiction_in_live_register": {
         "enumerate": _tier_cases,
         "cases": {
-            "rung1_inin_action": "P1-RUNG1-TIER",
-            "rung2_kms_gate": "P1-RUNG1-TIER",
+            "rung1_inin_action": "P1A-EDGE-REPRESENTATION",
+            "rung2_kms_gate": "P1A-EDGE-REPRESENTATION",
         },
     },
     "test_resident.py::TestResident::test_clean_annotation_change_passes": {
         "enumerate": _annotation_cases,
         "cases": {
-            "rung1_inin_action": "P1-RUNG1-TIER",
-            "rung2_kms_gate": "P1-RUNG1-TIER",
+            "rung1_inin_action": "P1A-EDGE-REPRESENTATION",
+            "rung2_kms_gate": "P1A-EDGE-REPRESENTATION",
         },
     },
     "test_prereg_immutable.py::TestBlindSafe::"
@@ -109,19 +109,27 @@ DECLARED = {
 
 
 def open_passes():
-    """{id: STATUS} from OPEN_PASSES.txt. Closing a pass is a human act performed in that file."""
+    """{id: {"status": ..., "symptomless": bool}} from OPEN_PASSES.txt.
+
+    Changing a pass's status is a HUMAN ACT performed in that file. Three statuses, because "the
+    symptom went away" is not "the question was answered": OPEN, CLOSED (ruled), MOOT (dissolved
+    without a ruling -- never citable as one)."""
     out, cur = {}, None
     with open(PASSES_FILE) as f:
         for line in f:
             m = re.match(r"^PASS\s+(\S+)\s*$", line)
             if m:
                 cur = m.group(1)
-                out[cur] = None
+                out[cur] = {"status": None, "symptomless": False}
+                continue
+            if not cur:
                 continue
             m = re.match(r"^STATUS:\s*(\S+)\s*$", line)
-            if m and cur:
-                out[cur] = m.group(1).upper()
-                cur = None
+            if m:
+                out[cur]["status"] = m.group(1).upper()
+                continue
+            if re.match(r"^MAY_HAVE_NO_SYMPTOM:\s*yes\s*$", line, re.I):
+                out[cur]["symptomless"] = True
     return out
 
 
@@ -130,18 +138,37 @@ def main():
     passes = open_passes()
 
     # -- the adjudications each case cites must exist and still be open ------------------------
+    cited = set()
     for test, d in DECLARED.items():
         for case, pid in d["cases"].items():
+            cited.add(pid)
             if pid not in passes:
                 problems.append(f"UNKNOWN PASS {pid!r} cited by {test}\n"
                                 f"      case: {case}\n"
                                 f"      No such id in OPEN_PASSES.txt. A declaration must cite a "
                                 f"pass that exists.")
-            elif passes[pid] != "OPEN":
-                problems.append(f"CLOSED PASS {pid!r} ({passes[pid]}) still cited by {test}\n"
-                                f"      case: {case}\n"
-                                f"      The adjudication has been ruled. Remove this declaration; "
-                                f"if the test still fails, that failure is NEW.")
+            elif passes[pid]["status"] != "OPEN":
+                problems.append(f"NON-OPEN PASS {pid!r} ({passes[pid]['status']}) still cited by "
+                                f"{test}\n      case: {case}\n"
+                                f"      That adjudication is no longer open. Remove this "
+                                f"declaration; if the test still fails, that failure is NEW.")
+
+    # -- an OPEN pass that nothing cites is an error, unless it declares that it cannot have a
+    # -- symptom. Otherwise a question can go quiet the moment its symptom disappears -- and a
+    # -- silent suite becomes the answer nobody had to give.
+    standing = []
+    for pid, meta in sorted(passes.items()):
+        if meta["status"] != "OPEN" or pid in cited:
+            continue
+        if meta["symptomless"]:
+            standing.append(pid)
+        else:
+            problems.append(f"ORPHANED OPEN PASS {pid!r}: open, and no declared case cites it.\n"
+                            f"      Either it was ruled and OPEN_PASSES.txt was not updated, or "
+                            f"its symptom disappeared without a ruling -- in which case it is "
+                            f"MOOT, not CLOSED, and the stanza must say so. If it genuinely "
+                            f"cannot have a symptom, declare MAY_HAVE_NO_SYMPTOM: yes with the "
+                            f"reason no instrument can see it.")
 
     # -- the failing tests must be exactly the declared tests -----------------------------------
     r = subprocess.run([sys.executable, "-m", "pytest", "-q", HERE],
@@ -186,6 +213,11 @@ def main():
     n_cases = sum(len(d["cases"]) for d in DECLARED.values())
     print(f"\nAll {len(failing)} failing tests are declared, at {n_cases} declared cases, "
           f"each citing an OPEN pass. No new red.")
+    if standing:
+        print("\n  STANDING OPEN QUESTIONS -- open, and NO INSTRUMENT CAN SEE THEM. A green suite "
+              "is not an answer to these:")
+        for pid in standing:
+            print(f"    [{pid}]")
     return 0
 
 

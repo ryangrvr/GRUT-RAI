@@ -10,22 +10,62 @@ OR UNKNOWN PASS FAILS IN ITS OWN RIGHT. Closing a pass is a HUMAN ACT: set STATU
 the date and the ruling, and every declaration resting on it must then be removed. If the test
 still fails afterwards, it is a NEW RED and says so.
 
-Machine-read fields: `PASS <id>` and `STATUS: OPEN|CLOSED`. The prose is for the reader.
+THREE STATUSES, because "the symptom went away" is not "the question was answered":
+  OPEN    the adjudication is live.
+  CLOSED  RULED. The owner decided it; the ruling is recorded in the stanza.
+  MOOT    the question DISSOLVED without being answered -- the structure it was about no longer
+          exists. A moot pass is not a ruling and must never be cited as one.
+
+AND A PASS MAY OUTLIVE ITS SYMPTOM. An OPEN pass with no failing test is normally an error: either
+it was ruled and this file was not updated, or its symptom disappeared without anyone ruling. So
+the runner FAILS on an open pass that nothing cites -- UNLESS the stanza declares
+`MAY_HAVE_NO_SYMPTOM: yes` with the reason no instrument can see it. Those are printed as STANDING
+OPEN QUESTIONS on every run, so that a quiet suite cannot become an answer by default.
+
+Machine-read fields: `PASS <id>`, `STATUS: OPEN|CLOSED|MOOT`, `MAY_HAVE_NO_SYMPTOM: yes`. The
+prose is for the reader.
 
 ---------------------------------------------------------------------------------------------
-PASS P1-RUNG1-TIER
+PASS P1A-EDGE-REPRESENTATION
 STATUS: OPEN
 OPENED: 2026-08-18
-TITLE: rung1's tier, after booking the background time-translation flow
+SPLIT: 2026-08-19, out of the former P1-RUNG1-TIER, which spanned two questions with different
+  fates. Splitting it BEFORE the migration rather than after is the point: after the migration one
+  half is moot and the other is invisible, and a single pass covering both would have had to be
+  half-closed by whoever noticed.
+TITLE: does an R5 wiring edge mean what the tier-contradiction check reads it as meaning?
 QUESTION: Booking background_time_translation_flow (+1) and wiring its mandated R5 edges made
-  rung1 (tier `shown`) rest on an `assumed` input, so the live register now carries a standing
-  tier contradiction. TWO questions, deliberately not merged:
-    (a) is the EDGE REPRESENTATION wrong -- does an R5 wiring edge mean the same thing the
-        contradiction check reads it as meaning?
-    (b) is `shown` right for a node standing on five assumed inputs? This is the convention that
-        has never been screened, and it is the larger of the two.
-CLOSES WHEN: the owner rules on both halves.
-OWNER-ONLY: yes. The builder is the party whose booking created the contradiction.
+  rung1_inin_action and rung2_kms_gate -- both at tier `shown` -- rest on an `assumed` input, so
+  the live register carries a standing tier contradiction at both. Is the EDGE REPRESENTATION
+  wrong: does an R5 wiring edge, which exists to make a presupposition's multiplicity visible,
+  mean the same thing the contradiction check reads it as meaning?
+CLOSES WHEN: the owner rules.
+GOES MOOT IF: the static-patch migration discharges background_time_translation_flow. That edge is
+  the ONLY dependency either node carries, so the symptom vanishes and the question dissolves --
+  WITHOUT BEING ANSWERED. If that happens, this stanza is set to MOOT, never to CLOSED, and the
+  discharge is recorded as the cause. A moot pass is not a ruling.
+
+---------------------------------------------------------------------------------------------
+PASS P1B-SHOWN-ON-LEDGER-INPUTS
+STATUS: OPEN
+MAY_HAVE_NO_SYMPTOM: yes
+OPENED: 2026-08-18
+SPLIT: 2026-08-19, out of the former P1-RUNG1-TIER. See P1A.
+TITLE: is `shown` right for a node whose inputs are priced in prose rather than wired as edges?
+QUESTION: rung1_inin_action stands at tier `shown` with ledger_delta 4 -- the system/bath split,
+  the Gaussian/linear-response truncation, the background Lorentzian causal structure, and the
+  4d-covariant gauge-orbit Ward zero. None of the four is an edge. The convention that lets a node
+  stand at `shown` while its inputs are declared in a ledger note has NEVER BEEN SCREENED, and it
+  is the larger of the two questions the tier contradiction raised.
+WHY IT MAY HAVE NO SYMPTOM, which is the whole reason this stanza exists: no instrument in this
+  repository can see those four inputs. The resident reads EDGES; ledger prose is invisible to it.
+  The tier-contradiction flag that raised this question fires on the fifth input, the one that WAS
+  wired -- and the migration is expected to discharge exactly that one. When it does, two of the
+  four declared reds go green and nothing anywhere fires on this question again.
+  A GREEN SUITE WOULD THEN BE THE ANSWER, AND NOBODY WOULD HAVE HAD TO GIVE ONE. Recorded before
+  the migration, because after it the recording would be worthless.
+CLOSES WHEN: the owner rules on the convention. Nothing else closes it, and in particular the
+  disappearance of the tier-contradiction flag does not.
 
 ---------------------------------------------------------------------------------------------
 PASS P2-TERMINATION-EVENTLOG

@@ -52,10 +52,10 @@ class TestExpectedRed(unittest.TestCase):
         would otherwise print green while citing a ruling that already happened. Staleness cannot
         catch it -- stale fires only when a test starts PASSING."""
         base = X.open_passes()
-        X.open_passes = lambda: {**base, "P1-RUNG1-TIER": "CLOSED"}
+        X.open_passes = lambda: {**base, "P1A-EDGE-REPRESENTATION": {"status": "CLOSED", "symptomless": False}}
         rc, out = self._run()
         self.assertEqual(rc, 1)
-        self.assertIn("CLOSED PASS", out)
+        self.assertIn("NON-OPEN PASS", out)
 
     def test_a_declaration_citing_an_unknown_pass_is_refused(self):
         base = X.open_passes()
@@ -98,6 +98,37 @@ class TestExpectedRed(unittest.TestCase):
             X.DECLARED[POINTER]["enumerate"] = real
         self.assertEqual(rc, 1)
         self.assertIn("UNMODELLED FAILURE", out)
+
+    def test_an_orphaned_open_pass_is_refused(self):
+        """A question must not go quiet because its symptom disappeared. An OPEN pass that nothing
+        cites is either an unrecorded ruling or a dissolution nobody declared -- and the second is
+        MOOT, not CLOSED. Without this, the static-patch migration would clear the tier
+        contradiction and leave an open adjudication with no trace anywhere."""
+        base = X.open_passes()
+        X.open_passes = lambda: {**base,
+                                 "P9-INVENTED": {"status": "OPEN", "symptomless": False}}
+        rc, out = self._run()
+        self.assertEqual(rc, 1)
+        self.assertIn("ORPHANED OPEN PASS", out)
+
+    def test_a_symptomless_pass_is_allowed_and_printed(self):
+        """The green path for the same rule, and it is load-bearing rather than cosmetic: the
+        `shown`-on-ledger-inputs question CANNOT have a symptom, because the resident reads edges
+        and those four inputs are ledger prose. It must survive a green run AND be shown on it."""
+        rc, out = self._run()
+        self.assertEqual(rc, 0, out)
+        self.assertIn("STANDING OPEN QUESTIONS", out)
+        self.assertIn("P1B-SHOWN-ON-LEDGER-INPUTS", out)
+
+    def test_a_moot_pass_cannot_be_cited_by_a_declaration(self):
+        """MOOT is not a ruling. A declaration resting on a dissolved question must be removed,
+        not carried."""
+        base = X.open_passes()
+        X.open_passes = lambda: {**base, "P1A-EDGE-REPRESENTATION":
+                                 {"status": "MOOT", "symptomless": False}}
+        rc, out = self._run()
+        self.assertEqual(rc, 1)
+        self.assertIn("NON-OPEN PASS", out)
 
     def test_every_declaration_supplies_an_enumerator(self):
         """Structural: a declaration without an enumerator would be a test-granularity declaration

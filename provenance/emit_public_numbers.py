@@ -37,7 +37,7 @@ WAVE_DATE = "2026-08-18"         # bumped at the close of every wave
 # this block changed the number the block asserts. A number-emitter that recurses through its own
 # verifier is not a stable reference. The constant is enforced against a real collection by
 # test_public_numbers.py::test_the_stamped_test_count_is_true, so it cannot silently rot.
-STAMPED_TEST_COUNT = 228
+STAMPED_TEST_COUNT = 231
 
 
 def _load():

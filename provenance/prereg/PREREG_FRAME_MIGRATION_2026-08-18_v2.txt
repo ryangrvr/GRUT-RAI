@@ -1,0 +1,138 @@
+SEALED 2026-08-19 (v2). SUPERSEDES the v1 of 2026-08-18, which remains hashed, unedited, and
+readable as history. IN FORCE from this date. BINDING: no static-patch reformulation work begins
+under this program without satisfying X1-X3 below. Immutable once manifested; results go to a
+separate citing file.
+
+*** WHAT THIS SUPERSESSION IS, STATED ON ITS FACE BECAUSE THE SHAPE MATTERS MORE THAN THE
+CONTENT. ***
+Sealing a pre-registration and then amending it BEFORE the act it governs is the exact shape
+frame-shopping would take. So the nature of this amendment is declared, and is checkable by
+anyone who doubts it against the still-sealed v1:
+
+  - THE PREDICATE IS IDENTICAL AND UNCHANGED. E1-E4, S1-S2 and R1-R2 below are reproduced
+    VERBATIM from v1. Not one expectation is softened, no survival condition is widened, and no
+    retirement condition is narrowed.
+  - NO ILLEGITIMACY CONDITION IS WEAKENED. X1-X3 are reproduced VERBATIM and apply with full
+    force. ONE PARENTHETICAL IS ADDED TO X3, and it is the only text in this file that touches an
+    illegitimacy condition: it records that no static-patch computation of the TT response has
+    been run, and that the clock X3 runs against remains v1's seal of 2026-08-18. That is a
+    TIGHTENING, not a loosening -- it forecloses the reading in which superseding a
+    pre-registration restarts its own look-ahead clock, which is precisely the loophole a
+    disclosure-only amendment would otherwise open. It is named here rather than left for the
+    diff to reveal.
+  - WHAT IS ADDED IS DISCLOSURE, AND ONLY DISCLOSURE, of two consequences of the migration that
+    were found AFTER v1 was sealed and that v1 therefore does not state. Both make the migration
+    look BETTER than v1 described it. Both are recorded here for exactly that reason.
+  - v1 STAYS SEALED. The diff is a fact anyone can compute, and it is meant to be computed.
+
+A reader who suspects this file of adjusting a threshold should check that suspicion against the
+diff rather than against this paragraph.
+
+PRE-REGISTRATION -- THE STATIC-PATCH FRAME MIGRATION
+BLIND-SAFE: yes. Contains no computed result from the reformulation it governs.
+
+WHY THIS EXISTS. Four independent arrows point at the de Sitter static patch as the frame this
+framework's declared inputs have been living in, while its action is written on the expanding
+patch: (i) the KMS temperature was bought as a HORIZON object -- T = T_dS = H/2pi, paid via
+rung5's Unruh-T import; (ii) gate/kms.py requires a frequency and the identity
+G_A(omega) = conj(G_R(omega)), which need a time-translation flow, not merely causality;
+(iii) the conserved-energy count closes only where a timelike Killing vector exists, which the
+expanding patch lacks; (iv) whatever declares that flow -- an open classification question as of
+this writing -- is the same flow.
+
+AND THE HAZARD THAT MAKES PRE-REGISTRATION MANDATORY RATHER THAN TIDY: the move that would make
+rung3_single_pole WELL-POSED is plausibly the same move that answers it AGAINST the framework.
+In the static patch the free graviton retarded function is reported meromorphic with a GAPPED
+TOWER, not a single pole, and the best available interacting analysis (scalar) reports
+interactions shifting and MULTIPLYING towers rather than collapsing them to one. Reformulating
+first and reading the answer after would be migrating frames and then reporting a result --
+unfalsifiable-shaped, and the exact pattern this program has caught in itself repeatedly.
+
+*** THE INCENTIVE THIS FILE IS SEALED IN KNOWLEDGE OF -- disclosed here rather than left for a
+later reader to discover and weigh backwards. ***
+On 2026-08-18 an omission was booked (+1, net +14 -> +15): the background's time-translation flow.
+Its discharge condition, ruled the same day, is that on a background carrying a timelike Killing
+vector the flow is a property of the background and the node retires. THAT BACKGROUND IS THE
+STATIC PATCH. So the ledger now pays a -1 DISCHARGE for making exactly the migration this file
+governs, and this file names frame-shopping (X1) as one of three conditions that would make that
+migration illegitimate.
+Nothing improper has occurred and the discharge is correctly stated. But the incentive is real,
+it points at the frame under pre-registration, and it is recorded here so that it is part of the
+sealed record rather than a later discovery. THE ILLEGITIMACY CONDITIONS X1-X3 APPLY WITH FULL
+FORCE NOTWITHSTANDING THE DISCHARGE, and a migration that satisfies X1-X3 earns the -1 while a
+migration that fails any of them does not earn it regardless of what the ledger would otherwise
+allow. A ledger reduction is never itself an argument that a migration was legitimate.
+
+*** THE SECOND HALF OF THAT INCENTIVE, ADDED IN v2 BECAUSE v1 DISCLOSED THE SMALLER HALF. ***
+The ledger's -1 is not the whole of what the migration pays the migrator. The booked node is the
+ONLY assumed edge that rung1_inin_action and rung2_kms_gate carry -- each of those nodes stands at
+tier `shown` with exactly one dependency, and it is this one. Discharging it therefore stops the
+live register's tier-contradiction flag from firing at both nodes, and TWO OF THE FOUR CURRENTLY
+DECLARED EXPECTED-RED TESTS GO GREEN as a side effect of the migration.
+THIS IS THE MORE SEDUCTIVE HALF AND IS NAMED AS SUCH. A ledger point is abstract and known to a
+handful of readers; a guard suite going from four declared failures to two is visible to every
+future reader of this repository and reads, without anyone saying so, as the machinery endorsing
+the move. Neither the -1 nor the two cleared reds is evidence about the physics, and neither is
+evidence that X1-X3 were satisfied. If any later relay cites a quieter suite as support for the
+migration, this clause voids that citation in advance.
+
+*** WHAT THE DISCHARGE DOES NOT ANSWER -- ADDED IN v2, FOR THE SAME REASON. ***
+Discharging background_time_translation_flow does not answer whether `shown` is correct for a node
+resting on four further inputs recorded as LEDGER ENTRIES rather than as edges. rung1_inin_action
+carries ledger_delta 4 -- the system/bath split, the Gaussian/linear-response truncation, the
+background Lorentzian causal structure, and the 4d-covariant gauge-orbit Ward zero -- none of
+which is an edge, and none of which any instrument in this repository can see. The convention that
+lets a node stand at `shown` while its inputs are priced in prose has never been screened.
+THE TIER FLAG GOING GREEN IS A CONSEQUENCE OF THE DISCHARGE, NOT A RULING. That question survives
+the migration and remains open. It is recorded here because it is cheap to record now and
+impossible to record honestly afterwards: once the flag is green, the absence of a symptom would
+itself become the answer, and no one would ever have to give one.
+
+*** THE EXPECTATION, WRITTEN WHILE IT IS STILL AN EXPECTATION ***
+E1  I expect the static-patch reformulation to be WELL-POSED where the cosmic-time version was
+    not: omega exists as the boost eigenvalue, the KMS temperature is native, and a retarded
+    response function of a single frequency is definable.
+E2  I expect the reformulated object's free-level structure to be a GAPPED DISCRETE TOWER, not a
+    single relaxation pole. I expect this to run AGAINST the single-pole conjecture.
+E3  I expect the interacting question -- whether loop corrections move the tower toward or away
+    from one dominant pole -- to remain OPEN after the migration, because no computation of it
+    exists for gravitons. Migration makes the question askable; it does not answer it.
+E4  I expect the migration to COST rather than save: objects currently justified on the expanding
+    patch (the FRW-frame cosmology sector, the interior family's observables, rung7's tau_2 pinned
+    to 1/H0) do not automatically transfer, and their re-derivation is not free.
+
+*** WHAT WOULD COUNT AS THE SINGLE-POLE FORM SURVIVING ***
+S1  A computed static-patch retarded TT response whose low-frequency structure is dominated by ONE
+    pole -- a single dominant relaxation mode with the rest of the tower parametrically
+    suppressed -- with the suppression exhibited, not asserted.
+S2  OR: a demonstration that the framework's kernel is compatible with a gapped tower AND that
+    every observable the register banks depends only on the tower's leading pole, so that
+    "single-pole" was always a statement about the leading behaviour. This is a WEAKER survival
+    and must be booked as a restatement, not a confirmation: the node's text would change.
+
+*** WHAT RETIRES IT ***
+R1  A computed static-patch structure in which no single pole dominates the low-frequency
+    response, with the register's banked consequences shown to depend on the multiplicity.
+R2  A demonstration that the framework's own declared inputs FORCE a multi-pole or elastic
+    (high-frequency-elastic) constitutive form -- for instance via a universality-class argument
+    whose antecedent is shown to hold for this object.
+Either fires the node's own consequences at the node, per the sealed termination condition's R2.
+This file executes nothing.
+
+*** WHAT WOULD MAKE THE MIGRATION ITSELF ILLEGITIMATE ***
+X1  FRAME-SHOPPING: if the reformulation quietly changes WHAT is being claimed rather than WHERE
+    it is claimed, it fails on its face. The test is stated in advance: the static-patch claim
+    must reduce to, or explicitly supersede with a stated reason, the cosmic-time claim the
+    register currently books. A new claim wearing the old node's name is not a migration.
+X2  SELECTIVE MIGRATION: moving the frame for the objects that benefit while leaving the
+    cosmology sector on the expanding patch, without stating that the two sectors are now
+    declared in different frames and pricing that.
+X3  READING THE ANSWER FIRST. If any static-patch computation of the TT response is run before
+    this file is sealed, this pre-registration is void for that computation and must say so.
+    (v2 note, carried without weakening: no static-patch computation of the TT response has been
+    run under this program at the time of this sealing. The clock this condition runs against is
+    v1's seal of 2026-08-18, which is the earlier and therefore the binding one; superseding for
+    disclosure does not restart it.)
+
+THE STANDING LIMIT. This file fixes expectations and predicates. It cannot make the migration
+correct, and it does not license the reformulation -- that is a separate decision, unmade.

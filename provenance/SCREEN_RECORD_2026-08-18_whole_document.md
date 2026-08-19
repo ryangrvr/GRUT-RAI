@@ -267,3 +267,32 @@ The first attempt to see this drift rendered the document to a variable, compare
 `--write` writes it. The check compared the committed file against itself and reported agreement.
 Fourth instance this week of the same shape, this one about thirty seconds old at the time, in a
 check written to investigate the third.
+
+### A declaration filed against a test that cannot see the case
+
+**A new defect class, named 2026-08-19, and worse than the thing it resembles.**
+
+> A declaration filed against a test that cannot see the case does not record a known red. It
+> converts an **undetected** defect into an **apparently-managed** one. The register reads "known
+> and pinned" where the truth is "unseen."
+
+That is strictly worse than an undeclared failure, because an undeclared failure at least *looks
+like* something. A misattributed declaration looks like diligence. It survives review precisely
+because it presents as the output of a working process — and the more disciplined the
+classification machinery around it, the more credible the false entry becomes.
+
+The instance: the pointer guard's pattern excluded hyphens, so it could not match any *dated*
+filename, and the case entered against it as "mine, permanent" had never been produced by that
+test at all. Two guards and a classifier all agreed the defect was managed. None of them had seen
+it.
+
+**It is also the strongest argument yet for case granularity**, and it arrived after the fix
+rather than motivating it: a declaration that must *name the case* and be verified against the
+live failing case set **cannot be filed against a test that does not produce it**. The runner
+rejects it as a stale case. Test-granularity declaration had no such check available to it — not
+because anyone skipped one, but because at that granularity there is nothing to compare.
+
+Filed alongside **verify the referent before the string** and **an exculpatory argument built on
+an instrument's narrow answer inherits the narrowness and none of the doubt.** All three are the
+same failure at different distances: trusting a string, trusting a narrow answer, and trusting a
+record of a narrow answer.
