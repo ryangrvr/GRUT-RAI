@@ -1,6 +1,6 @@
 COMPANION CITING FILE -- the context deliberately kept OUT of the blind-safe pre-registration.
-CITES PRE-REGISTRATION: prereg/PREREG_DESI_DR3_2026-08-18_v2.txt
-    sha256 = c8b65d030155c4cddccd374114b0d86fcff31e268c9a55415b251e1239cd1091
+CITES PRE-REGISTRATION: prereg/PREREG_DESI_DR3_2026-08-18_v3.txt
+    sha256 = 4a172e4721d304e7153809fb274e4375247e4bef53b784dd24eaf95a2d6593d8
 (and its superseded v1, which remains hashed and unedited). Not sealed; not blind-safe;
 asserts no threshold and moves no register field. It exists so the predicate's file can stay
 blind while the reasoning behind it stays inspectable.

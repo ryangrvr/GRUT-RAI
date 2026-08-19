@@ -23,6 +23,33 @@ python3 provenance/bankgate.py
 The bank-time gate: diffs the working register against the last accepted baseline. `CLEAN` means
 no unaccepted change; any edit shows as a flag with severity.
 
+## Verify before any irreversible act
+
+**The rule, and what it cost to learn it.** On 2026-08-18 two pre-registrations were sealed and
+manifested, and the suite ran afterwards. The guard that governs blind-safe seals fired
+immediately — against a file that could no longer be edited, because sealing it was the point.
+The artifact was repaired by supersession; **seal-then-verify is an ordering defect, and in a
+class where the act is irreversible an ordering defect simply recurs.**
+
+So: **the guard suite is a precondition of any irreversible act, not something done near one.**
+That covers sealing, manifesting, tagging, releasing, and depositing — everything a working tree
+cannot undo.
+
+For sealing, the rule is mechanized:
+
+```
+python3 provenance/seal.py <prereg filename>
+```
+
+It refuses when an **undeclared** failure is open, when the file is already manifested, and — the
+whole point — when a blind-safe file fails the blind-safe guard, *before* the hash exists, where
+the answer can still change. Declared adjudications (`provenance/expected_red.py`) do not block;
+a new red does.
+
+For tagging, releasing and depositing there is no local tool, because the act happens elsewhere.
+The rule is the same and is the operator's to keep.
+
+
 ## Keeping the book current with the register
 
 The public document is a **derived artifact in four ways, and all four are checked**:
