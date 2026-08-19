@@ -110,3 +110,26 @@ every one of them answered it correctly.
 **Consequence for this artifact:** the metadata file now carries the counting command itself
 rather than the endpoint URL, so the next reader runs an instrument that returns a number instead
 of one that describes a page.
+
+### Findings and their counter-readings get separate passes
+
+**Adopted as a standing rule, 2026-08-18, with the episode that produced it attached.**
+
+A screen surfaced that this framework's machinery requires a time-translation flow its declared
+symmetry inventory never names. The same relay that reported it also supplied the defense that
+defuses it — a quasi-stationary WKB reading, valid for H ≪ ω — in the same breath, and correctly
+kicked the decision upward. The owner then ruled *through* the soft reading.
+
+The soft reading did not survive: the single-pole conjecture is a statement about
+η = lim(ω→0) Im G_R(ω)/ω, and H ≪ ω fails **exactly** at ω → 0. The approximation is valid in the
+regime the conjecture does not live in and invalid in the one it does. It was never a defense of
+the load-bearing use; it looked like one because it arrived attached to the finding.
+
+**The rule:** the screen produces the finding. A **separate pass, run afterward**, produces the
+counter-reading. They arrive as two items, not one paragraph. The reason is order effects, not
+correctness — both readings were honestly offered and the softer one anchored anyway, in a
+program whose whole discipline is not letting that happen.
+
+**Generalization worth keeping:** a counter-reading delivered with its finding is not a check on
+the finding — it is a frame around it. Checks have to be able to arrive too late to be
+comfortable.
