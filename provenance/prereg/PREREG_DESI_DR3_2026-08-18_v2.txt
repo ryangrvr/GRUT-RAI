@@ -1,0 +1,81 @@
+SEALED 2026-08-18 (v2). SUPERSEDES PREREG_DESI_DR3_2026-08-18.txt (v1), which remains hashed,
+unedited and readable as history. WHY THERE IS A v2, on its face: v1 declared BLIND-SAFE and
+then carried arXiv identifiers and significance figures in its context paragraph -- unblinding
+the reader it promised to blind. The program's own guard caught it AFTER the seal, because the
+seal was applied before the suite was run. THE PREDICATE IS UNCHANGED between v1 and v2; only
+the motive material is removed, to the companion citing file. IN FORCE from this date; frozen
+BEFORE DESI DR3, expected 2027.
+
+PRE-REGISTRATION -- THE DESI DR3 FALSIFICATION THRESHOLD FOR THE NO-CROSSING EXPORT
+BLIND-SAFE: yes. This file contains no result numbers from the data it judges.
+
+WHY NOW. DESI completed its five-year survey (announced April 2026). DR3 / first full-survey
+BAO cosmology is expected in 2027. A threshold set before the data is worth something; set
+afterward it is worth nothing, and this is the last window in which it can be set honestly.
+
+THE NODE THIS JUDGES. rung7_w3_nocrossing_export (tier to-derive), with rung7_wz and
+rung7_w2_wa_sign. The framework's sourced statement is w = -1 flat; its no-crossing result --
+held at to-derive, generic where it holds (Vikman 2005), and conditional on the open
+single-pole conjecture -- forbids a single passive channel from crossing w = -1.
+
+CURRENT STATE, DELIBERATELY NOT SUMMARIZED HERE. Everything this program knows about the present
+state of the measurement -- significances, which parametrizations produce a crossing, which
+re-analyses moved which figure, and the citations for all of it -- lives in the companion file
+RESULT_DESI_DR3_CONTEXT_2026-08-18.txt, which cites this seal by hash. It is kept out of this
+file on purpose: a reader who opens a blind-safe pre-registration must not be told what the
+literature currently favours by the pre-registration itself. THE ONE FACT THE PREDICATE NEEDS,
+stated without sources or figures: no published result has met the threshold below by a
+model-independent route, and the framework is not falsified by present data.
+
+*** THE THRESHOLD, FROZEN ***
+The no-crossing export is FALSIFIED by, and only by:
+  a detection of w(z) < -1 at any redshift, at >= 5 sigma, that is
+  (i)  MODEL-INDEPENDENT: obtained by a reconstruction that does not impose a crossing-capable
+       two-parameter form -- explicitly NOT CPL/w0-wa, and not any parametrization whose
+       functional form permits crossing by construction;
+  (ii) ROBUST ACROSS THE RELEASE'S OWN HEADLINE COMBINATIONS, not confined to one supernova
+       compilation or one full-shape variant; and
+  (iii) PUBLISHED by the collaboration or in the peer-reviewed literature, with the
+       reconstruction method stated.
+
+WHAT EXPLICITLY DOES NOT COUNT, named in advance so it cannot be argued afterward:
+  - a CPL-parametrized preference at any significance, however large;
+  - a result driven by a single supernova compilation, or one that disappears when that
+    compilation is swapped;
+  - a full-shape-specific or combination-specific excursion not reproduced across the
+    release's headline combinations;
+  - a strengthening of the evidence against a cosmological constant that is not itself a
+    crossing detection. Lambda can fail without w crossing -1, and that outcome falsifies
+    nothing here.
+
+THE THREE OUTCOMES, ALL FIRST-CLASS:
+  (a) THRESHOLD MET -> the no-crossing export is REFUTED as stated. Consequences execute at
+      the named nodes, per the sealed termination condition's R2; this file executes nothing.
+  (b) THRESHOLD NOT MET AND THE PREFERENCE IS CROSSING-SHAPED BUT PARAMETRIZATION-DEPENDENT
+      -> STILL OPEN, cause stated in plain words. Not a survival claim: the framework is not
+      thereby confirmed, and the register books no credit for it.
+  (c) NO RELEASE, OR THE RELEASE DOES NOT ADDRESS CROSSING MODEL-INDEPENDENTLY -> STILL OPEN,
+      cause stated. Silence is not evidence in either direction.
+
+*** WHAT A NULL DOES -- named in advance, because a channel that can only fire against the
+framework or stay silent is where a stop condition goes soft. ***
+  SUSTAINED NON-CROSSING at DR3 precision is CONSISTENT with the no-crossing export and CONFERS
+  NO CREDIT. It is not a confirmation, not partial support, and not a reason to raise any tier.
+  The reason is structural and already banked: the framework's one live parameter has NO FLOOR --
+  the family ALLOWS up to its edge and predicts nothing -- so a null is exactly what the framework
+  predicts AND exactly what a cosmological constant predicts, and an observation both models
+  predict discriminates neither. Stating this before the data forecloses the reading this clause
+  exists to prevent: that survival is evidence. It is not. The register books nothing on outcome
+  (b) or (c), and any later relay claiming otherwise is void against this file.
+
+WHAT THIS FILE DOES NOT DO. It does not amend the sealed termination condition, does not
+create a new channel, and does not fire any register trigger. It fixes ONE predicate in
+advance so that a later reading of DR3 cannot be fitted to the framework's convenience --
+which is the only thing a pre-registration is for.
+
+THE HONEST CEILING, STATED ON THE FACE. "Passive single-mode dissipative vacuum" is this
+program's own construct, not a named model in the literature. The falsification logic is
+sound -- such a model cannot cross w = -1 -- but the mapping from that construct onto the
+observables DR3 will report is not established in any published work located to date. A
+reader should treat this threshold as this program's commitment about its own model, not as
+a test the cosmology literature would recognize as addressed to it.

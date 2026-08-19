@@ -1,0 +1,15 @@
+COMPANION CITING FILE -- the context deliberately kept OUT of the blind-safe pre-registration.
+CITES PRE-REGISTRATION: prereg/PREREG_DESI_DR3_2026-08-18_v2.txt
+    sha256 = c8b65d030155c4cddccd374114b0d86fcff31e268c9a55415b251e1239cd1091
+(and its superseded v1, which remains hashed and unedited). Not sealed; not blind-safe;
+asserts no threshold and moves no register field. It exists so the predicate's file can stay
+blind while the reasoning behind it stays inspectable.
+
+CURRENT STATE, RECORDED SO THE THRESHOLD IS NOT SET AGAINST A MISREMEMBERED BASELINE. As of
+this writing the DESI DR2 preference against a cosmological constant is parametrization-
+dependent and, on the reading this program adopts, not consolidated as physical: the apparent
+crossing is argued to be an artifact of the CPL (w0-wa) parametrization, which enforces
+crossing by construction (Dinda & Maartens arXiv:2504.15190; Keeley, Shafieloo & Matthewson
+arXiv:2506.15091), and the highest published figure softened on the DES re-analysis
+(arXiv:2508.10514). No combination has reached the threshold below by a model-independent
+route. THE FRAMEWORK IS NOT FALSIFIED BY PRESENT DATA, and this file does not pretend it is.
