@@ -341,6 +341,55 @@ def part3b_the_outgoing_check_was_wrong():
 
 
 # ---------------------------------------------------------------------------------------------
+def part3c_reflection_amplitude():
+    """CLOSES the question PART 3b left open, and it closes it against the tower.
+
+    The regular solution is u_+ - u_-, so its outgoing/ingoing ratio is fixed by the two horizon
+    amplitudes alone: R_l(omega) = Q_l(1) / Q_l(1)|_{omega -> -omega}. Computing it gives
+
+        R_l(omega) = (-1)^l  prod_{j=1..l}  (omega + i j H) / (omega - i j H)
+
+    which is a FINITE BLASCHKE PRODUCT: |R_l| = 1 identically on the real axis. The cavity is
+    TOTALLY REFLECTING at every real frequency -- no transmission, no width, no relaxation rate.
+
+    And it settles PART 3b's residue. The only pole candidates left were omega = -i j, j = 1..l,
+    where the Jost pair degenerates. There R_l = 0: the regular solution is purely INGOING, the
+    time-reverse of a quasinormal mode, not a quasinormal mode. R_l blows up at omega = +i j, where
+    the solution IS purely outgoing -- but that is the UPPER half plane, a growing mode, and not a
+    decaying resonance. So there is no decaying quasinormal mode anywhere in the c = 0 family.
+
+    Independently obtained by an adversarial re-derivation in the same wave and reproduced here
+    from this file's own Jost polynomials; the two agree including the (-1)^l sign."""
+    print("\nPART 3c -- the reflection amplitude, and the last pole candidates")
+    tt, ww = sp.Symbol('t'), sp.Symbol('w')
+
+    def Qpoly(lv, wsym):
+        co = [sp.Symbol(f'q{i}') for i in range(lv)]
+        Q = tt**lv + sum(co[i]*tt**i for i in range(lv))
+        eq = sp.expand((tt**2 - 1)*sp.diff(Q, tt, 2) + 2*(tt - sp.I*wsym)*sp.diff(Q, tt)
+                       - lv*(lv + 1)*Q)
+        return sp.expand(Q.subs(sp.solve(sp.Poly(eq, tt).all_coeffs(), co, dict=True)[0]))
+
+    for lv in range(1, 8):
+        R = sp.simplify(Qpoly(lv, ww).subs(tt, 1)/Qpoly(lv, -ww).subs(tt, 1))
+        blaschke = (-1)**lv*sp.prod([(ww + sp.I*j)/(ww - sp.I*j) for j in range(1, lv + 1)])
+        # |R| = 1 checked EXACTLY on the real axis, not numerically: for real omega each factor
+        # has |omega + i j|^2 = |omega - i j|^2 = omega^2 + j^2, so the modulus is 1 identically.
+        # (An earlier numeric form of this check failed at l=4 and l=7 on 1e-16 -- double-precision
+        # epsilon read as a defect, which is the wrong tolerance, not the wrong physics.)
+        # for real omega the conjugate is obtained by I -> -I, so |R|^2 = R * R|_{I -> -I}
+        mod2 = sp.cancel(sp.together(R*R.subs(sp.I, -sp.I)))
+        check(sp.simplify(sp.factor(R) - sp.factor(blaschke)) == 0 and sp.simplify(mod2 - 1) == 0,
+              f"l={lv}: R = (-1)^l prod (w+ij)/(w-ij), and |R|^2 - 1 = "
+              f"{sp.simplify(mod2 - 1)} identically for real omega")
+    print("     TOTAL REFLECTION at every real frequency: no transmission, no width, no rate.")
+    print("     R = 0 at omega = -i j (purely INGOING: the time reverse of a QNM, not a QNM);")
+    print("     R = infinity at omega = +i j (purely outgoing, but GROWING -- upper half plane).")
+    print("     => no decaying quasinormal mode anywhere in this family. PART 3b's residue closes")
+    print("        AGAINST the tower, not for it.")
+
+
+# ---------------------------------------------------------------------------------------------
 def part4_structure(cvals=(-2, -1, 0)):
     """The structural facts, and the one that decides the conjecture."""
     print("\nPART 4 -- the structure OF THE CANDIDATE SET")
@@ -555,6 +604,7 @@ def main():
     part2_hypergeometric()
     part3_exact_modes()
     part3b_the_outgoing_check_was_wrong()
+    part3c_reflection_amplitude()
     part4_structure()
     part4b_no_branch_cut()
     part5_memory_kernel()
@@ -580,10 +630,11 @@ def main():
     print("  STILL TRUE AND UNAFFECTED: the background curvature checks, Lambda = 3H^2,")
     print("    V_scalar = f[l(l+1)/r^2 - 2H^2], the hypergeometric reduction and its alpha, beta,")
     print("    gamma, the exponential fall-off of V in r_*, and beta = 2*pi/H.")
-    print("  NOT ESTABLISHED, EITHER WAY: what the analytic structure actually IS. The only")
-    print("    surviving pole candidates for c = 0 are the finitely many omega = -i k, k = 1..l,")
-    print("    where the Jost pair degenerates. The c = -2 case and non-integer Delta are")
-    print("    untouched by the retraction and unverified by it.")
+    print("  AND THEN CLOSED, AGAINST THE TOWER: R_l(omega) = (-1)^l prod (w+ij)/(w-ij) is a finite")
+    print("    Blaschke product, |R| = 1 on the real axis -- total reflection, no width, no rate.")
+    print("    Its zeros at omega = -i j are purely INGOING solutions (time-reversed QNMs); its")
+    print("    poles at +i j are growing. No decaying quasinormal mode anywhere in the c=0 family.")
+    print("    The c = -2 case and non-integer Delta remain untouched and unverified.")
     print("  DISCREPANCY, SURFACED NOT ADJUDICATED: this contradicts the widely reported de Sitter")
     print("    quasinormal spectrum, and the public document repeats that spectrum on literature")
     print("    authority. One of the two is wrong. This file does not claim to be the survivor.")

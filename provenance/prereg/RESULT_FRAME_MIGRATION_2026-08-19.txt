@@ -1,0 +1,148 @@
+RESULT -- THE STATIC-PATCH FRAME MIGRATION, SCORED AGAINST ITS PRE-REGISTRATION
+Not sealed. Not blind-safe. Asserts no threshold. Moves no register field: every consequence below
+is a RECOMMENDATION for the owner, and this file executes nothing.
+
+CITES PRE-REGISTRATION: prereg/PREREG_FRAME_MIGRATION_2026-08-18.txt (v1)
+    sha256 = 7b7ffaaa185a49e4a6dbad26535f6eeb6a4a066307cbcc7b08f166f49a00a83e
+CITES PRE-REGISTRATION: prereg/PREREG_FRAME_MIGRATION_2026-08-18_v2.txt (v2, disclosure-only)
+    sha256 = 2f456d00e92f8ea2720240de5fa0e181a6b62ac789ca6fb29ac8ab1be522c88a
+Both sealed before any static-patch computation existed. X3 was checked repository-wide first: no
+static-patch TT computation had been run, and the public document already recorded that fact.
+
+CALCULATION: calc/static_patch_tt_response.py (selftest green, mutation battery 5/5).
+ADVERSARIAL VERIFICATION: a 12-agent workflow -- five independent derivations, four refutation
+lenses, three audits. Three of the four refutation lenses returned REFUTED, and they were right.
+
+=====================================================================================
+*** THE HEADLINE IS A RETRACTION AND A NEGATIVE RECOMMENDATION ***
+
+  1. The frequencies omega/H = -i(l+2n+Delta), which I first reported as a gapped tower of
+     quasinormal poles, ARE NOT QUASINORMAL. My boundary-condition check tested that the
+     hypergeometric factor is non-zero at the horizon; it never tested outgoingness.
+  2. The free static-patch response for the graviton family has NO decaying quasinormal mode at
+     all. The cavity is TOTALLY REFLECTING at every real frequency.
+  3. The migration should NOT be performed as a migration. X1 fails and X2 fails.
+=====================================================================================
+
+*** THE EXPECTATIONS, SCORED ***
+
+E1  WELL-POSEDNESS.  PARTIALLY MET, and one half is better than expected.
+    MET: the temperature is native -- Euclidean regularity gives beta = 2*pi/H by a conical-deficit
+    computation done in-house, with nothing imported. A timelike Killing vector exists and omega is
+    its eigenvalue.
+    NOT MET AS STATED: "a retarded response function of a single frequency is definable" is true
+    per (l, m) sector, but the independent well-posedness derivation found the static slice is an
+    open hemisphere of S^3 -- a manifold WITH BOUNDARY -- so the York split loses its
+    L2-orthogonality and a TT decomposition adapted to the static Killing time is NOT available in
+    the usual sense. It returned tt_decomposition_available = "no", and G_R(omega) and
+    G_A = conj(G_R) as "conditional". E1 is met in the frequency sense and not in the TT sense.
+
+E2  A GAPPED DISCRETE TOWER RATHER THAN A SINGLE POLE.  NOT MET -- and not met in the direction
+    that refutes the expectation rather than confirming it. There is no tower. There is also no
+    single pole. The free retarded response is pole-free: R_l(omega) = (-1)^l prod_{j=1..l}
+    (omega + i j H)/(omega - i j H), a finite Blaschke product with |R| = 1 identically on the real
+    axis. Total reflection, no transmission, no width, no relaxation rate. The expectation was
+    WRONG, and it was wrong in a way that cost the framework nothing, because -- see E3 -- the
+    free level was never going to decide the conjecture.
+
+E3  THE INTERACTING QUESTION REMAINS OPEN.  MET, exactly and unsurprisingly. Nothing here touches
+    the transport self-energy Sigma. The register already books that the free bath correlator does
+    not decide the fork. NET EPISTEMIC MOVEMENT ON THE SINGLE-POLE CONJECTURE: ZERO.
+
+E4  THE MIGRATION COSTS RATHER THAN SAVES.  MET, and understated. See the transfer audit below.
+
+*** THE SURVIVAL AND RETIREMENT CONDITIONS ***
+
+S1  A single dominant pole with the rest parametrically suppressed.  DOES NOT FIRE. There is no
+    pole to be dominant. (Even on the retracted reading it failed: gap and spacing were both O(H),
+    ratio 1.00-1.50, no small parameter anywhere.)
+S2  Compatible with a gapped tower AND every banked observable depends only on the leading pole.
+    DOES NOT FIRE. First conjunct is now moot -- there is no tower. Second conjunct was never
+    demonstrated and is not demonstrated here.
+R1  No single pole dominates, AND the banked consequences shown to depend on the multiplicity.
+    DOES NOT FIRE AS STATED. The first conjunct is established more strongly than R1 anticipated
+    (there is no pole at all). The second conjunct is NOT shown: nothing here demonstrates that any
+    banked consequence depends on multiplicity, and with no poles "multiplicity" does not denote.
+R2  The declared inputs FORCE a multi-pole or elastic form via a universality-class argument whose
+    antecedent is shown to hold.  DOES NOT FIRE. No such argument was constructed.
+
+    SO: NOTHING FIRES. rung3_single_pole does not move, in either direction, on this work.
+
+*** THE ILLEGITIMACY CONDITIONS ***
+
+X1  FRAME-SHOPPING.  FAILS. The audit's verdict is DIFFERENT-CLAIM, on a computed obstruction:
+    K = d/dt_cosmic - H x.d/dx is Killing and d/dt_cosmic is not, and [K, P_i] = +H P_i, so the
+    boost frequency and the comoving wavenumber admit NO COMMON EIGENBASIS. The two clocks agree
+    only on the single worldline r = 0. The static-patch statement is therefore not the
+    cosmic-time claim relocated; it is a different claim about a different operator. The
+    pre-registration's "reduce to" branch is closed in principle.
+X2  SELECTIVE MIGRATION.  FAILS, and more severely than the condition anticipated. The audit's
+    finding is not "two sectors in two frames" but NOT TWO CHARTS -- TWO DIFFERENT SOLUTIONS. The
+    static patch is an exact Lambda-vacuum: G_mn + 3H^2 g_mn = 0 identically, w = -1 at every r and
+    every t, with no free function. A cosmology sector with Omega_m != 0 is a different spacetime,
+    and there is no diffeomorphism between different solutions. No amount of declaring or pricing
+    repairs that.
+X3  READING THE ANSWER FIRST.  SATISFIED. Verified repository-wide before any computation.
+
+*** WHAT THE MIGRATION WOULD COST -- E4, itemised ***
+
+  - J(omega) ~ omega^3 DOES NOT TRANSFER, on three independent breaks: the "massless bath" premise
+    is a substitution artefact in the new frame; the omega^2 density of states was a flat,
+    infinite-volume, comoving continuum count; and the couplings -- the half a mode count cannot
+    supply -- carry 2l MORE powers of infrared weight below omega ~ H. The static-patch bath is
+    LESS super-Ohmic, not more.
+  - "FINITE MEMORY" SURVIVES, BUT ONLY THE WEAK HALF, AND BY A DIFFERENT MECHANISM: tau_c = 1/H
+    exactly, holding by KMS analyticity rather than by super-Ohmicity, and 1/H is the only
+    timescale de Sitter has. A claim that survives under a different mechanism is a different
+    claim.
+  - THE KMS/FDT LOCK TRANSFERS AND GENUINELY UPGRADES: on the static patch the state is a true KMS
+    state with respect to the boost flow, with beta = 2*pi/H from surface gravity kappa = H.
+  - w(z), the linear-cosmology result and the interior family DO NOT TRANSFER. The static patch has
+    no expansion, no redshift-distance relation and no epoch label. Its redshift is a static,
+    position-dependent, reversible Tolman shift: 1+z_static = 1/sqrt(1-H^2 r^2), against the
+    expanding patch's 1+z_cosmo = 1/(1-Hr). They disagree at first order.
+  - tau_2 STOPS BEING A FREE PIN AND BECOMES A PREDICTION THAT MISSES. The static patch has exactly
+    one rate, H_dS = H0*sqrt(Omega_Lambda). Declaring the kernel there fixes tau_2 = 1.205/H0
+    against the booked pin of 1/H0 -- 20.5% off -- and writing one symbol H for both asserts
+    Omega_Lambda = 1.
+  - THE LARGEST UNBOOKED COST is that the migration changes the DOMAIN, not the coordinates: the
+    static patch is one observer's causal diamond, and everything super-horizon lies outside it by
+    construction.
+
+*** A DEFECT IN THE EXISTING BOOKING, PATCH-INDEPENDENT AND FLAGGED SEPARATELY ***
+
+    The thermal factor softens the infrared exponent by one full power: J(omega)*coth(beta*omega/2)
+    -> (2/beta)*omega^(s-1) as omega -> 0 (verified symbolically). So a bath booked as super-Ohmic
+    s = 3 behaves as s = 2 in the deep infrared at ANY finite temperature. "Super-Ohmic implies
+    short memory" is a T = 0 statement. This bears on what rung3 already books and does not depend
+    on any migration. Surfaced, not adjudicated: it is the owner's call whether it moves a tier.
+
+*** THE RECOMMENDATION ***
+
+    DO NOT PERFORM THE MIGRATION. X1 and X2 both fail, and X2 fails on a fact no declaration can
+    repair. The route that remains open is SUPERSESSION, not migration: a NEW node with a new id
+    and its own tier, with the cosmic-time node marked superseded and the reason recorded --
+    that the cosmic-time omega was never a well-defined label, while the boost omega is. That is a
+    larger act than the one pre-registered here and it is not taken in this file.
+
+    CONSEQUENTLY: background_time_translation_flow IS NOT DISCHARGED. The -1 is not earned, the
+    tier-contradiction flag keeps firing, and P1A and P1B both stay open. The pre-registration says
+    a migration that fails X1-X3 does not earn the -1 regardless of what the ledger would allow,
+    and that clause is now load-bearing rather than decorative.
+
+*** WHAT I GOT WRONG, ON THE RECORD ***
+
+    I reported a gapped tower of quasinormal poles, with 96 modes "exhibited". The ODE-residual and
+    polynomial-truncation checks were sound. The boundary-condition check was not: it verified that
+    the hypergeometric factor is non-zero at the horizon, which does not establish pure
+    outgoingness, because the peeled factor (1-r^2)^(-i w/2) = cosh(x)^(i w) is itself not purely
+    outgoing when i*w is a positive integer. That is the Gamma(-i w) pole colliding with the
+    1/Gamma(alpha) zero -- 0 x infinity -- which the calculation's own PART 2 printed, which I
+    noted as needing care, and which I then did not carry through. The exact counterexample:
+    c=0, l=2, i*w=3 gives psi = sinh^3(x) with outgoing amplitude 3/16 and ingoing amplitude
+    -3/16, decomposition residual ~1e-163.
+
+    I also reported the graviton's m^2 = 2H^2 as a substantive finding. The frame-shopping audit
+    showed it is a Regge-Wheeler substitution artefact: V = f[l(l+1)/r^2 + m^2 + f'/r] with
+    f'/r = -2H^2 identically, so m^2 = +2H^2 exactly cancels that term and carries no invariant
+    content. That correction is the audit's, not mine.
