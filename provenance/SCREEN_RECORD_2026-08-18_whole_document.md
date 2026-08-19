@@ -82,3 +82,31 @@ recollection.
 Recorded because the sequence is the whole method in one exchange: an instrument declined to
 assert what it could not check, mis-attributed the source instead, was corrected on the
 attribution, and the correction's own figure was then corrected by the check it had prescribed.
+
+### For a count, use an instrument that returns the data — not one that reads it
+
+The correction that moved the release list from testimony to auditable supplied **ten**. Running
+the endpoint returned **seventeen**, and the endpoint had not truncated: GitHub's default page
+size is 30, so all seventeen arrived in one response. The ten came from a *summarizing model*
+asked to read the response — one instructed, in its own prompt, *"Do not summarize or infer —
+report the literal contents."*
+
+**Telling a summarizer not to summarize does not change what it is.** The instruction described
+the desired behaviour; the instrument's nature decided the actual behaviour, and the failure was
+silent, plausible, and in the direction of less. Ten is exactly the first page of the default
+ordering, which is the shape a partial read produces.
+
+The generalization: **for a count, reach for a tool that returns the data, not a tool that reads
+it.** `curl | python3 -c "print(len(...))"` and "fetch this and tell me what's in it" are
+different kinds of instrument, and the second cannot be converted into the first by instruction.
+
+This is the session's standing shape once more, one level out: it is not the claim about
+*content* that failed but the claim about *coverage* — the same defect as the audit regex that
+dropped every all-caps match, the enforcement test that claimed a coverage list it did not have,
+and the figure drift-check that compared files to generators while two figures were absent from
+the document entirely. Every one of them answered a narrower question than the one asked, and
+every one of them answered it correctly.
+
+**Consequence for this artifact:** the metadata file now carries the counting command itself
+rather than the endpoint URL, so the next reader runs an instrument that returns a number instead
+of one that describes a page.
