@@ -11,8 +11,8 @@
 | of the GRUT net, carried behind declared waivers | **+9** across 4 claims |
 | primary sources in `sources.json` | **85** |
 | calculation files in `calc/` | **26** |
-| test files in `provenance/` | **19** |
-| tests collected | **218** |
+| test files in `provenance/` | **20** |
+| tests collected | **228** |
 
 ### Tier histogram, GRUT scope (50 claims)
 

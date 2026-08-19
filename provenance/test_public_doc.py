@@ -351,3 +351,46 @@ class TestPublicDoc(unittest.TestCase):
             self.assertTrue(covered,
                             f"placeholder {tok!r} is neither an int the guard covers nor declared "
                             f"non-numeric -- it could be typed into the source undetected")
+
+    def test_the_calc_index_and_the_calc_count_are_the_same_set(self):
+        """A GENERATED TABLE AND AN EMITTED COUNT OVER THE SAME DIRECTORY MUST AGREE.
+
+        They did not. The Appendix E table listed every `*.py` in `calc/`; the emitted `n_calcs`
+        listed every `*.py` not starting with `_`. Two rules, one directory, nothing comparing
+        them -- so the published table could carry a row the published count did not count. Found
+        2026-08-18 when a gitignored mutant, left behind by a mutation battery, inserted itself as
+        a row in the calculation index of a document that gets committed.
+
+        The second half of that defect is pinned by test_the_calc_index_ignores_the_working_tree:
+        the set is now taken from the REPOSITORY, not from the working directory, because a count
+        another clone cannot reproduce is not a verifiable number."""
+        import emit_public_numbers as E
+        rows = [r for r in E.calc_index().splitlines() if r.startswith("| `calc/")]
+        self.assertEqual(len(rows), E.numbers()["n_calcs"],
+                         "Appendix E's row count and the emitted n_calcs disagree -- two rules "
+                         "over one directory")
+
+    def test_the_calc_manifest_matches_the_repository(self):
+        """The published calculation set must be a property of the REPOSITORY, not of whatever is
+        sitting in calc/ when the document is built -- a gitignored mutant reached Appendix E that
+        way. The emitter may not shell out, so it reads a committed manifest; THIS test is what
+        keeps that manifest from becoming the hand-maintained list Wave 7 found in the one-number
+        guard. The truth is derived from git here and compared."""
+        r = subprocess.run([sys.executable, os.path.join(HERE, "build_calc_manifest.py"),
+                            "--check"], capture_output=True, text=True, timeout=120)
+        self.assertEqual(r.returncode, 0, r.stdout)
+
+    def test_the_calc_index_ignores_the_working_tree(self):
+        """Belt and braces on the same defect, at the emitter rather than the manifest: plant an
+        untracked file in calc/ and require the published set to be unchanged."""
+        import emit_public_numbers as E
+        before = E.calc_files()
+        planted = os.path.join(ROOT, "calc", "zz_untracked_probe.py")
+        try:
+            with open(planted, "w") as f:
+                f.write("# planted by the guard suite; must not reach the published index\n")
+            self.assertEqual(E.calc_files(), before,
+                             "an untracked file in calc/ changed the published calculation set")
+        finally:
+            if os.path.exists(planted):
+                os.remove(planted)

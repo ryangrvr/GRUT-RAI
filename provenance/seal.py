@@ -13,9 +13,17 @@ PRECONDITION of sealing, not a thing done near it.
     python3 seal.py <file.txt>      seal one prereg into MANIFEST.txt, ONLY if the checks pass
 
 It refuses when a NEW red exists (see expected_red.py -- declared adjudications do not block, an
-undeclared failure does), when the file is already manifested, or when a blind-safe file fails the
+undeclared failure does), when the file is already manifested, or when a blind-safe file fails ANY
 blind-safe guard. The last is the whole point: the check that would have caught the 2026-08-18
 error runs BEFORE the hash, where it can still change the outcome.
+
+WHY PRECONDITION 2/2 CANNOT BE DELEGATED TO PRECONDITION 1/2. The suite's pointer guard is ONE
+SET-VALUED TEST over every sealed blind-safe pre-registration, and it is currently a DECLARED red.
+A declared red is not a blocking failure -- so a third file carrying that very defect would have
+passed precondition 1/2 on the strength of the record OF THAT DEFECT, and precondition 2/2, which
+originally ran only the numeric patterns, would not have looked. The guard written against the
+defect was blinded by the record of the defect. Both guards now run against the CANDIDATE
+directly, where no declaration can speak for it.
 
 THE SAME RULE APPLIES TO EVERY IRREVERSIBLE ACT and this tool covers only one of them. Tagging,
 releasing, and depositing are equally irreversible and equally outside a working tree's undo --
@@ -55,17 +63,22 @@ def main():
               "you something new.")
         return 1
 
-    print("precondition 2/2 -- the blind-safe guard against THIS file ...")
+    print("precondition 2/2 -- EVERY blind-safe guard, run against THIS file directly ...")
     sys.path.insert(0, HERE)
     import test_prereg_immutable as G
-    body = open(path).read()
-    if "BLIND-SAFE: yes" in body:
-        for pat, what in G.TestBlindSafe.LEAK_PATTERNS:
-            m = pat.search(body)
-            if m is not None:
-                print(f"REFUSED: {name} declares BLIND-SAFE and contains {what} ({m.group(0)!r}). "
-                      f"This is the check that fired too late on 2026-08-18.")
-                return 1
+    if "BLIND-SAFE: yes" in open(path).read():
+        # BOTH guards, not one. The first version ran only the numeric patterns, so a file
+        # carrying the POINTER defect -- the one the repair for the last violation reproduced --
+        # sealed cleanly through this path.
+        for what in G.numeric_leaks_in(path):
+            print(f"REFUSED: {name} declares BLIND-SAFE and contains {what}. "
+                  f"This is the check that fired too late on 2026-08-18.")
+            return 1
+        for target, what in G.pointer_leaks_in(path):
+            print(f"REFUSED: {name} declares BLIND-SAFE and names {target}, which contains "
+                  f"{what}. The pointer is the leak: a blinded reader follows the name and "
+                  f"arrives at exactly what the blinding was for.")
+            return 1
 
     h = hashlib.sha256(open(path, "rb").read()).hexdigest()
     with open(MANIFEST, "a") as f:

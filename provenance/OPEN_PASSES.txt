@@ -1,0 +1,70 @@
+OPEN PASSES -- the adjudications this program is waiting on.
+
+WHY THIS FILE EXISTS. Every declared expected-red in expected_red.py asserts that an adjudication
+is OPEN. Nothing verified that assertion. The failure it permitted: a pass closes, the test keeps
+failing for an unrelated reason, and the runner prints green while citing an adjudication that no
+longer exists. Staleness cannot catch it -- stale fires only when a test starts PASSING.
+
+So the passes are named here, each declaration cites one by id, and A DECLARATION CITING A CLOSED
+OR UNKNOWN PASS FAILS IN ITS OWN RIGHT. Closing a pass is a HUMAN ACT: set STATUS to CLOSED, with
+the date and the ruling, and every declaration resting on it must then be removed. If the test
+still fails afterwards, it is a NEW RED and says so.
+
+Machine-read fields: `PASS <id>` and `STATUS: OPEN|CLOSED`. The prose is for the reader.
+
+---------------------------------------------------------------------------------------------
+PASS P1-RUNG1-TIER
+STATUS: OPEN
+OPENED: 2026-08-18
+TITLE: rung1's tier, after booking the background time-translation flow
+QUESTION: Booking background_time_translation_flow (+1) and wiring its mandated R5 edges made
+  rung1 (tier `shown`) rest on an `assumed` input, so the live register now carries a standing
+  tier contradiction. TWO questions, deliberately not merged:
+    (a) is the EDGE REPRESENTATION wrong -- does an R5 wiring edge mean the same thing the
+        contradiction check reads it as meaning?
+    (b) is `shown` right for a node standing on five assumed inputs? This is the convention that
+        has never been screened, and it is the larger of the two.
+CLOSES WHEN: the owner rules on both halves.
+OWNER-ONLY: yes. The builder is the party whose booking created the contradiction.
+
+---------------------------------------------------------------------------------------------
+PASS P2-TERMINATION-EVENTLOG
+STATUS: OPEN
+OPENED: 2026-08-18
+TITLE: a blind-safe seal that names its own event log
+QUESTION: PREREG_TERMINATION_V3 and _V4 declare BLIND-SAFE and name RESULT_TERMINATION_events.txt,
+  which carries arXiv identifiers. There is a real defense: the termination condition names its
+  event log BY ARCHITECTURE -- quotes decide, entries land in the log -- and the log holds events,
+  not motive figures. Whether that defense holds, or whether this is the pointer defect one hop
+  out, is a judgement the builder should not make alone: calling a pre-existing sealed instrument
+  defective, on a guard that has now over-fired once and under-fired once, is the over-demotion
+  this program treats as its own defect class.
+CLOSES WHEN: the owner rules. Note the case set is TWO files, not one -- V4 was masked by
+  fail-fast until the case-granularity fix, and any ruling should say whether it covers both.
+
+---------------------------------------------------------------------------------------------
+PASS P3-SEALED-HISTORY-POLICY
+STATUS: OPEN
+OPENED: 2026-08-18
+TITLE: does the blind-safe guard treat sealed, superseded history as history?
+QUESTION: Two of the builder's own defects are sealed and therefore permanent: DESI v1 declared
+  BLIND-SAFE and carried arXiv identifiers; DESI v2 removed the figures but kept a named pointer
+  at the companion holding them. Both are superseded by v3, which carries the same predicate
+  cleanly. The seal forbids editing either, so these cases cannot be repaired -- only exempted or
+  kept. Exempting superseded seals would quiet the instrument that caught the builder's own error,
+  which is why the builder does not decide it.
+CLOSES WHEN: the owner rules on the policy, not on the two files individually.
+
+---------------------------------------------------------------------------------------------
+PASS P4-TERMINATION-KAPPA-RESULT
+STATUS: OPEN
+OPENED: 2026-08-18
+TITLE: a blind-safe seal that names a results file carrying significance figures
+QUESTION: PREREG_TERMINATION_V3 also names RESULT_KAPPA_2026-08-08.txt, which carries sigma
+  quantities and a signed numeric range. THIS IS A DIFFERENT QUESTION FROM P2 AND IS FILED
+  SEPARATELY ON PURPOSE. The architecture defense available to the event log does NOT extend to
+  it: a results file of significance figures is exactly what "the pointer is the leak" was written
+  about. Surfaced 2026-08-18 by the character-class fix to the pointer pattern -- before that fix
+  the guard could not see any pointer at a dated filename, so this case had never been reported.
+CLOSES WHEN: the owner rules. The builder states no verdict here; the previously-offered defense
+  is withdrawn as to this case, having been argued from the one target the broken pattern showed.

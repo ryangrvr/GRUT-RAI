@@ -34,6 +34,58 @@ def load_register():
     return claims, source_ids
 
 
+# ---------------------------------------------------------------------------------------------
+# CASE ENUMERATORS. See expected_red.py and OPEN_PASSES.txt: a declared expected-red is declared at
+# (test, CASE) granularity, because declaring a SET-VALUED test red silences it for every future
+# member of the set. These are the single implementation; the tests below assert the sets are
+# empty, and the runner diffs them against what is declared.
+
+_CLEAN_ANNOTATION = {"differentiator": "reworded; no content/provenance/lineage change"}
+
+
+def tier_contradiction_cases(claims=None):
+    """Every live claim carrying a TIER-CONTRADICTION -- ALL of them, not the first."""
+    claims = claims if claims is not None else load_register()[0]
+    return {c["id"] for c in claims
+            if any("TIER-CONTRADICTION" in f for f in consistency_flags(c, claims))}
+
+
+def clean_annotation_rejection_cases(claims=None, source_ids=None):
+    """Every live claim where a PRESENTATIONAL-ONLY edit is refused FOR A TIER CONTRADICTION.
+
+    Widened past the single node the test names -- enumerating one node would rebuild at case
+    granularity the same blind spot case granularity exists to remove -- and it earned that
+    immediately: rung2_kms_gate is in this set and was never declared, because the test fails on
+    rung1 and stops.
+
+    TWO EXCLUSIONS, NAMED HERE RATHER THAN LEFT IMPLICIT, because a narrowing that is not written
+    down at the point of narrowing is indistinguishable from a blind spot:
+
+      1. DESIGNED FLAGS. 11 claims carrying a closed disposition refuse any edit as re-opening
+         settled ground (RE-OPENS / BUILDS-ON-CLOSED). That is the gate working, pinned by its own
+         tests, and not a red.
+
+      2. SURFACED, NOT ADJUDICATED -- 21 claims BLOCK on a presentational edit with the reason
+         "invalid tier". They are the vacuum-cluster nodes, carrying the physics vocabulary
+         (postulate / measured / heuristic / open). auditor.audit() IS scope-aware -- the live
+         audit filters to ledger_scope == "grut" -- but resident.check_change() is NOT, so it
+         judges every node against DEFAULT_TIERS and refuses all 21. The failure is SAFE (it
+         blocks; it does not wave anything through) and no test covers it because no test edits
+         those nodes. Which vocabulary the resident should enforce per scope is a governance
+         question, and the physics tier vocabulary is itself awaiting a ruling. Not folded in
+         here: it is a different defect from the one this test is failing on, and quietly
+         enlarging a declared case set with an unrelated finding would bury it.
+    """
+    if claims is None or source_ids is None:
+        claims, source_ids = load_register()
+    out = set()
+    for c in claims:
+        r = check_change(c["id"], dict(_CLEAN_ANNOTATION), claims, source_ids)
+        if r["verdict"] != "PASS" and any("TIER-CONTRADICTION" in f for f in r["consistency_flags"]):
+            out.add(c["id"])
+    return out
+
+
 def newclaim(**kw):
     base = dict(
         id="proposed_x",
@@ -88,11 +140,14 @@ class TestResident(unittest.TestCase):
 
     def test_clean_annotation_change_passes(self):
         # changing ONLY a presentational annotation (differentiator) is non-substantive -> PASS
-        r = check_change("rung1_inin_action",
-                         {"differentiator": "reworded; no content/provenance/lineage change"},
-                         self.claims, self.src)
+        r = check_change("rung1_inin_action", dict(_CLEAN_ANNOTATION), self.claims, self.src)
         self.assertEqual(r["verdict"], "PASS")
         self.assertFalse(r["substantive"])
+        # ...and it must hold for EVERY node, not only the one named above. The enumerator is the
+        # single implementation the runner diffs against; its docstring names the two exclusions.
+        bad = sorted(clean_annotation_rejection_cases(self.claims, self.src))
+        self.assertEqual(bad, [], f"a presentational-only edit is refused for a tier "
+                                  f"contradiction at: {bad}")
 
     # ---- laundering BLOCKS ----
     def test_laundering_proposal_blocks(self):
@@ -321,11 +376,11 @@ class TestResident(unittest.TestCase):
         self.assertEqual(by_id["arrow_of_time"]["ledger_delta"], 1)
 
     def test_no_tier_contradiction_in_live_register(self):
-        # the live register must contain no shown/derived claim resting on an open input
-        for c in self.claims:
-            flags = consistency_flags(c, self.claims)
-            self.assertFalse(any("TIER-CONTRADICTION" in f for f in flags),
-                             f"{c['id']} has a tier-contradiction: {flags}")
+        # the live register must contain no shown/derived claim resting on an open input.
+        # COLLECTS EVERY CASE: the loop this replaced stopped at the first, which is how
+        # rung2_kms_gate stayed out of the expected-red declaration that named only rung1.
+        bad = sorted(tier_contradiction_cases(self.claims))
+        self.assertEqual(bad, [], f"tier-contradiction in the live register at: {bad}")
 
     # ---- regression: 'neither derived nor refuted' is OPEN, not a closed disposition ----
     def test_negated_refuted_is_not_closed(self):

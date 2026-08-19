@@ -42,12 +42,56 @@ python3 provenance/seal.py <prereg filename>
 ```
 
 It refuses when an **undeclared** failure is open, when the file is already manifested, and — the
-whole point — when a blind-safe file fails the blind-safe guard, *before* the hash exists, where
-the answer can still change. Declared adjudications (`provenance/expected_red.py`) do not block;
-a new red does.
+whole point — when a blind-safe file fails **any** blind-safe guard, *before* the hash exists,
+where the answer can still change. Declared adjudications (`provenance/expected_red.py`) do not
+block; a new red does.
+
+**Why the candidate is checked twice.** The suite's blind-safe guards are *set-valued* — one test
+over every sealed pre-registration — and they are currently declared reds. A declared red does not
+block, so a new file carrying the very defect those guards exist to catch would have sealed
+cleanly **on the strength of the record of that defect**. Two fixes, both in force: declarations
+are made at *(test, case)* granularity so a new member of a declared set is a new red, and
+`seal.py` runs every blind-safe guard against the **candidate directly**, where no declaration can
+speak for it.
 
 For tagging, releasing and depositing there is no local tool, because the act happens elsewhere.
 The rule is the same and is the operator's to keep.
+
+
+## The open adjudications, and what a declared red is allowed to mean
+
+`provenance/expected_red.py` gives a known failure a third state between green and broken. Every
+declaration names **the specific cases it covers** and, for each case, **the open adjudication it
+waits on** — an id in `provenance/OPEN_PASSES.txt`.
+
+Two properties the file enforces, both learned the hard way:
+
+- **A new member of a declared set is a new red.** The runner diffs the live case set, produced by
+  the same enumerator the test asserts on, against the declared one.
+- **A declaration citing a closed or unknown adjudication fails in its own right.** Otherwise a
+  pass closes, the test keeps failing for an unrelated reason, and the runner prints green while
+  citing a ruling that already happened — which staleness cannot catch, because stale fires only
+  when a test starts *passing*.
+
+**Closing a pass is a human act**: set `STATUS: CLOSED` in `OPEN_PASSES.txt` with the ruling, then
+remove every declaration resting on it. If a test still fails afterwards, that failure is new and
+the runner says so.
+
+
+## Adding a calculation
+
+`calc/` is enumerated from a **committed manifest**, not from the directory — a gitignored mutant
+left by a mutation battery once inserted itself as a row in the published calculation index, and a
+count another clone cannot reproduce is not a verifiable number. So adding a calculation is two
+acts:
+
+```
+python3 provenance/build_calc_manifest.py --write
+python3 provenance/build_public_doc.py --write
+```
+
+The manifest is not trusted on its word: `test_public_doc.py` derives the calculation set from
+`git ls-files` and fails if the manifest disagrees.
 
 
 ## Keeping the book current with the register

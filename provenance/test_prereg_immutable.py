@@ -71,6 +71,32 @@ class TestBlindSafe(unittest.TestCase):
     opt-in: sealed history is immutable and stays as the recorded defect; every FUTURE
     observation-adjacent prereg must carry the flag and pass."""
 
+    # ------------------------------------------------------------------------------------------
+    # THE ONE NAMED, DELIBERATE EXCEPTION (ruled 2026-08-18, recorded here rather than repaired).
+    #
+    # A blind-safe pre-registration may state, IN WORDS AND WITHOUT FIGURES OR SOURCES, that its
+    # own threshold is AS YET UNMET. The in-force DESI threshold seal (v3) does exactly this:
+    # "no published result has met the threshold below by a model-independent route, and the
+    # framework is not falsified by present data."
+    #
+    # WHY IT IS EXEMPT RATHER THAN A DEFECT: a pre-registration that could not say its threshold
+    # is as yet unmet would have NO PROSPECTIVE CONTENT -- it would be indistinguishable from a
+    # post-hoc reading. The statement is near-tautological, since a threshold already met would
+    # not be worth freezing, and it hands a blinded reader nothing: no significance, no
+    # comparison, no direction of the current preference, no route to any of them.
+    #
+    # RECORDED, NOT REPAIRED, ON PURPOSE. This file has already been superseded three times in one
+    # day; a fourth supersession for a residual both parties agree is defensible would be
+    # over-correction with a credibility cost of its own, and a seal should not have to carry its
+    # own exception list. The exception lives here, in the guard's documentation, where anyone
+    # auditing the guard meets it.
+    #
+    # SCOPE, STATED SO IT CANNOT BE STRETCHED: the exemption covers the BARE UNMET-NESS of the
+    # frozen threshold. It does NOT cover which parametrizations are favoured, which re-analyses
+    # moved which figure, how close any result came, any identifier, or any pointer to a file
+    # carrying those. The leak patterns below remain in force against all of it.
+    # ------------------------------------------------------------------------------------------
+
     # Result-adjacent numerics: sigma values, tension ranges, and arXiv ids. A blind-safe prereg
     # states the QUESTION and the EXPECTATIONS; the motive's numbers live in a separate citing file.
     import re as _re
@@ -114,23 +140,19 @@ class TestBlindSafe(unittest.TestCase):
         return sorted(glob.glob(os.path.join(PREREG, "PREREG_*.txt")))
 
     def test_blind_safe_preregs_carry_no_result_adjacent_numerics(self):
-        checked = 0
-        for path in self._preregs():
-            body = open(path).read()
-            if "BLIND-SAFE: yes" not in body:
-                continue
-            checked += 1
-            for pat, what in self.LEAK_PATTERNS:
-                m = pat.search(body)
-                # NB: build the message only on failure -- an f-string evaluates eagerly, and the
-                # first draft crashed on the PASSING path (m is None), a path that could not fire
-                # until the first blind-safe prereg existed. A guard untested on its green path.
-                if m is not None:
-                    self.fail(f"{os.path.basename(path)} declares BLIND-SAFE but contains {what} "
-                              f"({m.group(0)!r}). Motive quantities go in a separate citing file; "
-                              f"a blinded reader of this prereg has been unblinded by the seal "
-                              f"itself.")
-        # No assertion on checked>0: the flag is opt-in and no blind-safe prereg exists yet.
+        # COLLECTS EVERY CASE, does not stop at the first. A set-valued guard that fails fast
+        # reports one member even when three are broken -- and once that one member is declared
+        # expected-red, the other two are invisible. See numeric_leak_cases() and expected_red.py.
+        # (The green path is exercised by test_the_sealed_v3_predicate_survives_its_own_guard: an
+        # earlier draft of this test built its failure f-string eagerly and crashed when nothing
+        # matched -- a guard untested on its passing path.)
+        cases = sorted(numeric_leak_cases())
+        if cases:
+            self.fail("blind-safe pre-registrations carrying result-adjacent numerics "
+                      f"({len(cases)}): " + "; ".join(cases) +
+                      " -- motive quantities go in a separate citing file; a blinded reader of "
+                      "such a prereg has been unblinded by the seal itself.")
+        # No assertion on non-emptiness of the blind-safe set: the flag is opt-in.
 
     def test_the_kappa_prereg_would_have_failed(self):
         """The check must BITE on the real defect, not merely exist. Run the leak patterns against
@@ -176,24 +198,86 @@ class TestBlindSafe(unittest.TestCase):
         this ('the blinding text pointed every blinded agent at that file'), and the repair for the
         v1 violation reproduced it one hop out. Citation runs COMPANION -> SEAL only: a citing file
         binds itself to a sealed predicate by hash; the seal never reaches back."""
-        for path in self._preregs():
-            body = open(path).read()
-            if "BLIND-SAFE: yes" not in body:
-                continue
-            # FOLLOW THE POINTER, do not match the name. A blind-safe prereg may legitimately
-            # name a companion whose content cannot unblind anyone -- the termination condition
-            # names its own event log by architecture, and that log holds events, not motive
-            # figures. What makes a pointer a leak is where it LANDS. So the target is fetched and
-            # run through the same leak patterns: a pointer to a file that leaks, leaks.
-            # (Over-firing here would be its own defect -- over-demotion is a defect too, and this
-            # test found a false positive on its first run before this was added.)
-            for m in re.finditer(r"\b(?:RESULT|CITES)_[A-Za-z0-9_]+\.txt", body):
-                target = os.path.join(PREREG, m.group(0))
-                if not os.path.exists(target):
-                    continue
-                tbody = open(target).read()
-                leaks = [what for pat, what in self.LEAK_PATTERNS if pat.search(tbody)]
-                if leaks:
-                    self.fail(f"{os.path.basename(path)} is blind-safe and names "
-                              f"{m.group(0)!r}, which contains {leaks[0]} -- the pointer is the "
-                              f"leak. Citation runs COMPANION -> SEAL only.")
+        # COLLECTS EVERY CASE. Same reason as above, and this test is the one that proved it:
+        # it is one set-valued test over every sealed blind-safe prereg, so declaring it red once
+        # declared it red for every file that would ever join the set.
+        cases = sorted(pointer_leak_cases())
+        if cases:
+            self.fail(f"blind-safe pre-registrations naming a companion that leaks "
+                      f"({len(cases)}): " + "; ".join(cases) +
+                      " -- the pointer IS the leak. Citation runs COMPANION -> SEAL only.")
+
+
+# ---------------------------------------------------------------------------------------------
+# CASE ENUMERATORS -- the single implementation of each blind-safe check.
+#
+# WHY THESE EXIST, AND WHY THE TESTS ARE THIN WRAPPERS AROUND THEM. A declared expected-red is
+# declared at (test, CASE) granularity, not at test granularity, because DECLARING A SET-VALUED
+# TEST RED SILENCES IT FOR EVERY FUTURE MEMBER OF THE SET. That is a property of
+# classification-at-test-granularity, not of any one test -- see SCREEN_RECORD, "Declaring a
+# set-valued test red silences it for every future member of the set."
+#
+# Three consumers, one implementation:
+#   the tests            assert the case set is empty;
+#   expected_red.py      diffs the case set against what is declared, so a NEW member is a NEW red
+#                        even while the test is a declared failure;
+#   seal.py              runs the SINGLE-FILE forms against a candidate BEFORE it is hashed, which
+#                        is the only moment at which the answer can still change.
+
+def blind_safe_preregs():
+    """Every sealed pre-registration that OPTS IN to the blind-safe rule."""
+    out = []
+    for path in sorted(glob.glob(os.path.join(PREREG, "PREREG_*.txt"))):
+        if "BLIND-SAFE: yes" in open(path).read():
+            out.append(path)
+    return out
+
+
+def numeric_leaks_in(path):
+    """Result-adjacent numerics in ONE file. Returns a description per matching pattern."""
+    body = open(path).read()
+    return [what for pat, what in TestBlindSafe.LEAK_PATTERNS if pat.search(body) is not None]
+
+
+# THE CHARACTER CLASS, AND WHY IT IS NOT WIDER. The first form of this pattern was
+# `(?:RESULT|CITES)_[A-Za-z0-9_]+\.txt` -- NO HYPHEN. Every dated artifact in this repository is
+# named `NAME_YYYY-MM-DD.txt`, so the pattern could only ever match the handful of UNDATED targets,
+# and the pointer defect it was written for -- a dated companion -- was invisible to it. Measured
+# consequence, not a hunch: with the hyphen, three further live cases appear, including the one
+# this guard's own declaration had claimed it was catching.
+# Widening further was TESTED AND REJECTED. Following every `*.txt|md|json|py` token flags a
+# blind-safe prereg for naming `claims.json` -- naming the register unblinds nobody -- and rakes in
+# calculation scripts and dispatch memos. The `RESULT_`/`CITES_` convention IS the defect class:
+# what unblinds a reader is a pointer at a file of RESULTS.
+_POINTER = re.compile(r"\b(?:RESULT|CITES)_[A-Za-z0-9_-]+\.txt")
+
+
+def pointer_leaks_in(path):
+    """Outbound pointers from ONE file that LAND on leaking material.
+
+    Follows the pointer rather than matching the name: a blind-safe prereg may legitimately name a
+    companion whose content cannot unblind anyone. What makes a pointer a leak is where it lands.
+    Returns (companion, description) pairs."""
+    body = open(path).read()
+    out = []
+    for m in re.finditer(_POINTER, body):
+        target = os.path.join(PREREG, m.group(0))
+        if not os.path.exists(target):
+            # NOT SILENTLY SKIPPED. A pointer at a file that does not exist yet is still a route:
+            # the seal is immutable and the target can be written tomorrow. Reported as its own
+            # case so it is visible and declarable rather than invisible.
+            out.append((m.group(0), "an unresolved pointer -- target not on disk"))
+            continue
+        for what in numeric_leaks_in(target):
+            out.append((m.group(0), what))
+    return out
+
+
+def numeric_leak_cases():
+    return {f"{os.path.basename(p)} :: {what}"
+            for p in blind_safe_preregs() for what in numeric_leaks_in(p)}
+
+
+def pointer_leak_cases():
+    return {f"{os.path.basename(p)} -> {tgt} :: {what}"
+            for p in blind_safe_preregs() for tgt, what in pointer_leaks_in(p)}

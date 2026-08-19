@@ -37,7 +37,7 @@ WAVE_DATE = "2026-08-18"         # bumped at the close of every wave
 # this block changed the number the block asserts. A number-emitter that recurses through its own
 # verifier is not a stable reference. The constant is enforced against a real collection by
 # test_public_numbers.py::test_the_stamped_test_count_is_true, so it cannot silently rot.
-STAMPED_TEST_COUNT = 218
+STAMPED_TEST_COUNT = 228
 
 
 def _load():
@@ -96,12 +96,43 @@ def register_table():
     return "\n".join(rows)
 
 
+def calc_files():
+    """THE calculation set -- ONE rule, used by both the Appendix E table and the emitted count.
+
+    Two defects sat here at once, found 2026-08-18 by a drift failure:
+
+      1. TWO RULES OVER ONE DIRECTORY. The table listed every `*.py` in `calc/`; the emitted count
+         `n_calcs` listed every `*.py` NOT starting with `_`. So the published table could carry a
+         row the published count did not count, and nothing compared them. Fixed by making this
+         the single source; test_public_doc pins table-rows == n_calcs.
+
+      2. THE PUBLISHED DOCUMENT READ THE WORKING TREE. `os.listdir` sees untracked and GITIGNORED
+         files. A mutant left behind by a mutation battery -- ignored, never committable -- had
+         inserted itself as a row in the calculation index of a document that IS committed. A
+         count of the program's own calculations that another clone cannot reproduce is not a
+         verifiable number, which is the one property the one-number rule exists to buy.
+
+    Read from a COMMITTED MANIFEST, not from the directory and not from a `git` call: this module
+    must not shell out (test_the_emitter_does_not_recurse_through_pytest -- the drift check would
+    run pytest from inside pytest, and adding a test would change the number the block asserts).
+    build_calc_manifest.py regenerates the manifest; test_public_doc derives the truth from git and
+    fails if the manifest disagrees, so the list cannot silently drift the way a hand-maintained
+    one would.
+    """
+    path = os.path.join(HERE, "CALC_MANIFEST.txt")
+    with open(path) as f:
+        names = sorted(line.strip() for line in f
+                       if line.strip() and not line.startswith("#"))
+    if not names:
+        raise SystemExit("CALC_MANIFEST.txt is empty -- run build_calc_manifest.py --write")
+    return names
+
+
 def calc_index():
     """Appendix E, generated: the calculations, and which are cited by the register."""
     with open(os.path.join(HERE, "claims.json")) as f:
         raw = f.read()
-    calcdir = os.path.join(ROOT, "calc")
-    names = sorted(f for f in os.listdir(calcdir) if f.endswith(".py"))
+    names = calc_files()
     rows = ["| calculation | cited by the register |", "|---|---|"]
     for n in names:
         cited = "yes" if f"calc/{n}" in raw else "no (support or superseded)"
@@ -129,8 +160,7 @@ def numbers():
     with open(os.path.join(HERE, "sources.json")) as f:
         srcs = [k for k in json.load(f) if not k.startswith("_")]
 
-    calcs = sorted(f for f in os.listdir(os.path.join(ROOT, "calc"))
-                   if f.endswith(".py") and not f.startswith("_"))
+    calcs = calc_files()
     tests = sorted(f for f in os.listdir(HERE)
                    if f.startswith("test_") and f.endswith(".py"))
 
