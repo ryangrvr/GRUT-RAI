@@ -232,8 +232,16 @@ class TestSelftestMarker(unittest.TestCase):
                 continue
             emitters = [ln for ln in open(path).read().splitlines()
                         if "SELFTEST" in ln and "print(" in ln]
-            if not emitters:
-                continue          # fails by assertion instead; _run() classifies that correctly
+            # NO EXEMPTION. The first version skipped calcs with no emitter, assuming they failed
+            # via assertion so that _run() would classify them correctly. That assumption was
+            # never checked, the exemption covered a set of size ONE, and that one --
+            # noise_transversality_check.py -- was precisely the calc whose battery had been
+            # proving nothing since the day it was written. An exemption carved for a single
+            # member is not a rule, it is a hole.
+            self.assertTrue(emitters,
+                            f"{calc} prints no SELFTEST verdict at all, so a caught mutant would "
+                            f"be recorded as a crash unless the calc happens to fail via an "
+                            f"AssertionError -- which is not something this test can assume.")
             self.assertTrue(any("SELFTEST:" in self._normalise(ln) for ln in emitters),
                             f"{calc} prints a selftest verdict but no emitter uses the COLON form "
                             f"that test_mutation_battery._run() matches. Its checks would be "

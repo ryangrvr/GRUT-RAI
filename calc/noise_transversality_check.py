@@ -490,6 +490,14 @@ def main():
           "availability of the Ward-sourced gauge-orbit zero, KC5-reserved; rung1 +1; "
           "N-as-PSD-covariance ruled constitutive of the banked Gaussian bath); the family "
           "closes on the transverse pair; outside the family SCDP's larger space stands." if ok else "SOME CHECK FAILED -- verdict not established.")
+    # The verdict line above is prose. provenance/test_mutation_battery._run() classifies a mutant
+    # as caught BY A CHECK only on the exact string "SELFTEST: FAIL"; this file emitted neither
+    # that nor an AssertionError, so its OWN battery's gauge_orbit_lowered mutant -- which IS
+    # caught, by three separate PART failures -- was recorded as an incidental CRASH from the day
+    # it was written. The battery is slow-flagged, so it never ran in the default suite and the
+    # defect sat undetected. Third instance of this marker slip; the guard in
+    # test_mutation_battery.TestSelftestMarker now requires every batteried calc to emit it.
+    print(f"  SELFTEST: {'PASS' if ok else 'FAIL'}")
     return 0 if ok else 1
 
 
