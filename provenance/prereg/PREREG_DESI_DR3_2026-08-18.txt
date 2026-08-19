@@ -1,6 +1,5 @@
-DRAFT -- UNSEALED, NOT IN FORCE, NOT IN THE MANIFEST. Presented for the owner's approval
-before sealing, per the Task-4 instruction "report Task 4's sealed text before it seals."
-Sealing is a human act: hash it, add it to prereg/MANIFEST.txt, and it binds from that date.
+SEALED 2026-08-18 at the owner's order, and IN FORCE from this date. Immutable once manifested;
+results go to a separate citing file. Frozen BEFORE DESI DR3, which is expected in 2027.
 
 PRE-REGISTRATION -- THE DESI DR3 FALSIFICATION THRESHOLD FOR THE NO-CROSSING EXPORT
 BLIND-SAFE: yes. This file contains no result numbers from the data it judges.

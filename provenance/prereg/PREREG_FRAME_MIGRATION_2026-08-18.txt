@@ -1,6 +1,6 @@
-DRAFT -- UNSEALED, NOT IN FORCE, NOT IN THE MANIFEST. Presented for the owner's approval before
-sealing, per the Task-5 instruction. BINDING ONCE SEALED: no static-patch reformulation work
-begins before this file is hashed and manifested.
+SEALED 2026-08-18 at the owner's order, and IN FORCE from this date. BINDING: no static-patch
+reformulation work begins under this program without satisfying X1-X3 below. Immutable once
+manifested; results go to a separate citing file.
 
 PRE-REGISTRATION -- THE STATIC-PATCH FRAME MIGRATION
 BLIND-SAFE: yes. Contains no computed result from the reformulation it governs.
@@ -21,6 +21,21 @@ TOWER, not a single pole, and the best available interacting analysis (scalar) r
 interactions shifting and MULTIPLYING towers rather than collapsing them to one. Reformulating
 first and reading the answer after would be migrating frames and then reporting a result --
 unfalsifiable-shaped, and the exact pattern this program has caught in itself repeatedly.
+
+*** THE INCENTIVE THIS FILE IS SEALED IN KNOWLEDGE OF -- disclosed here rather than left for a
+later reader to discover and weigh backwards. ***
+On 2026-08-18 an omission was booked (+1, net +14 -> +15): the background's time-translation flow.
+Its discharge condition, ruled the same day, is that on a background carrying a timelike Killing
+vector the flow is a property of the background and the node retires. THAT BACKGROUND IS THE
+STATIC PATCH. So the ledger now pays a -1 DISCHARGE for making exactly the migration this file
+governs, and this file names frame-shopping (X1) as one of three conditions that would make that
+migration illegitimate.
+Nothing improper has occurred and the discharge is correctly stated. But the incentive is real,
+it points at the frame under pre-registration, and it is recorded here so that it is part of the
+sealed record rather than a later discovery. THE ILLEGITIMACY CONDITIONS X1-X3 APPLY WITH FULL
+FORCE NOTWITHSTANDING THE DISCHARGE, and a migration that satisfies X1-X3 earns the -1 while a
+migration that fails any of them does not earn it regardless of what the ledger would otherwise
+allow. A ledger reduction is never itself an argument that a migration was legitimate.
 
 *** THE EXPECTATION, WRITTEN WHILE IT IS STILL AN EXPECTATION ***
 E1  I expect the static-patch reformulation to be WELL-POSED where the cosmic-time version was

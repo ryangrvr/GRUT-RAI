@@ -155,3 +155,29 @@ first. Prior instances: **TT** (transverse-traceless vs temperature-temperature)
 decoherence amplitude vs a cosmological activation wavenumber), and **τ₀** (a prior-lineage figure
 inside retracted reasoning). Four collisions, four different sectors, each one caught only because
 someone checked the referent rather than the string.
+
+### Verify the referent before the string
+
+**Standing rule, adopted 2026-08-18 after the fourth instance.** When a claim turns on a symbol,
+check what the symbol denotes *at that occurrence* before treating two occurrences as the same
+object.
+
+The four, each in a different sector, each caught only by someone asking what the label pointed at:
+
+- **TT** — transverse-traceless (the framework's tensor projector) versus temperature-temperature
+  (the CMB auto-spectrum). A coinage built on the collision put a scalar-sector bound in the
+  spin-2 sector.
+- **κ** — a tabletop decoherence amplitude bounded by laboratory experiment, versus a cosmological
+  activation wavenumber in `κ·aH`. An inference attached an open in-house question to a booked +2
+  that had nothing to do with it.
+- **τ₀** — a prior-lineage figure surviving inside retracted reasoning in the clean register,
+  where a reader grepping for a memory scale would find it.
+- **S1** — the vacuum cluster's shared input (a state and an expectation functional) versus the
+  symmetry inventory's causal/retarded structure, **six lines apart in the same file**, one
+  offered as evidence about the other.
+
+The S1 case is the sharpest because of *where* it landed: it was the **strongest-looking leg** of
+a ruling, and its strength came entirely from the string. "The cross-cluster shared input S1"
+reads as multiplicity — which was exactly the property under dispute — while the referent was a
+different object that says nothing about multiplicity at all. A collision does its worst damage
+when the string happens to assert the thing being argued.
