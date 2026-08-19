@@ -639,6 +639,7 @@ Generated at build time by listing the calculation directory's Python files; the
 | `calc/delta4_stability.py` | yes |
 | `calc/energy_basis_decoherence.py` | yes |
 | `calc/finite_T_exponent.py` | yes |
+| `calc/finite_T_pole_structure.py` | no (support or superseded) |
 | `calc/gw_dissipation_bounds.py` | yes |
 | `calc/isw_exclusion.py` | yes |
 | `calc/isw_tt_auto.py` | yes |

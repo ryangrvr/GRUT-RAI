@@ -9,6 +9,7 @@ conformalon_q2_band.py
 delta4_stability.py
 energy_basis_decoherence.py
 finite_T_exponent.py
+finite_T_pole_structure.py
 gw_dissipation_bounds.py
 isw_exclusion.py
 isw_tt_auto.py
