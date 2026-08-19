@@ -20,6 +20,7 @@ operator_basis.py
 q1_energy_basis_magnitude.py
 rung3_spectral_structure.py
 sigma0_anomaly_screen.py
+static_patch_tt_response.py
 two_scale_desitter.py
 u5u6_deformability.py
 vacuum_scheme_compare.py

@@ -108,3 +108,31 @@ QUESTION: PREREG_TERMINATION_V3 also names RESULT_KAPPA_2026-08-08.txt, which ca
   the guard could not see any pointer at a dated filename, so this case had never been reported.
 CLOSES WHEN: the owner rules. The builder states no verdict here; the previously-offered defense
   is withdrawn as to this case, having been argued from the one target the broken pattern showed.
+
+---------------------------------------------------------------------------------------------
+PASS P5-RESIDENT-SCOPE
+STATUS: OPEN
+MAY_HAVE_NO_SYMPTOM: yes
+OPENED: 2026-08-19
+TITLE: the resident judges every node against GRUT's tier vocabulary, including nodes that are
+  not GRUT's
+QUESTION: auditor.audit() IS scope-aware -- the live audit filters to ledger_scope == "grut" --
+  but resident.check_change() is NOT. It judges all 21 vacuum-cluster nodes against DEFAULT_TIERS
+  and refuses every edit to them with "invalid tier", because they carry the physics vocabulary
+  (postulate / measured / heuristic / open) that the register adopted and the resident never
+  learned. The failure is SAFE: it blocks, it does not wave anything through. Which vocabulary the
+  resident should enforce per scope is a governance question, and the physics tier vocabulary is
+  itself awaiting a ruling.
+WHY IT HAS NO SYMPTOM: no test edits those nodes, so nothing fails. It was found only by
+  generalising an enumerator past the single node its test names.
+WHY IT IS FILED NOW RATHER THAN LATER -- this is the operational half. The static-patch migration's
+  FIRST act is an edit to rung1_inin_action, and that is the node whose edit-check is already red
+  under P1A. So the migration will meet TWO pre-existing failures at its first register commit,
+  neither of them caused by the migration:
+    (i)  P1A: a clean annotation change to rung1 or rung2 returns FLAG-FOR-FIREWALL for a tier
+         contradiction -- expected, declared, and NOT a sign that the edit is wrong;
+    (ii) THIS PASS: any edit to a vacuum-cluster node returns BLOCK with "invalid tier" -- also
+         expected, also not about the edit.
+  Recorded in advance so that a blocked edit is not diagnosed as a migration problem and chased in
+  the wrong direction.
+CLOSES WHEN: the owner rules on which vocabulary the resident enforces per scope.

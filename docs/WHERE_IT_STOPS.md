@@ -650,6 +650,7 @@ Generated at build time by listing the calculation directory's Python files; the
 | `calc/q1_energy_basis_magnitude.py` | yes |
 | `calc/rung3_spectral_structure.py` | yes |
 | `calc/sigma0_anomaly_screen.py` | yes |
+| `calc/static_patch_tt_response.py` | no (support or superseded) |
 | `calc/two_scale_desitter.py` | yes |
 | `calc/u5u6_deformability.py` | yes |
 | `calc/vacuum_scheme_compare.py` | yes |
