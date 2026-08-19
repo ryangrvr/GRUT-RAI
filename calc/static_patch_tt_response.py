@@ -37,6 +37,10 @@ WHAT IS ESTABLISHED HERE, and at what strength:
       2H spacing are independent of which member of the family the graviton picks. What DOES
       depend on c is the GAP, and that is reported as c-dependent rather than as a number.
 
+  (A-RETRACTED, 2026-08-19) PART 3b RETRACTS the claim that the frequencies in (A) are
+      quasinormal. The boundary-condition check tested the wrong thing. Read PART 3b before
+      anything else in this file; every downstream part is now marked conditional.
+
   (D) THE CONSEQUENCE FOR THE SINGLE-POLE CONJECTURE, stated at the weaker of two strengths.
       A single-pole (Debye/Markovian) kernel has ONE pole. This object has infinitely many, and
       -- the point that decides it -- THERE IS NO PARAMETER SEPARATING THE LEADING POLE FROM THE
@@ -239,14 +243,16 @@ def part3_exact_modes(cmain=(-2, -1, 0), ccontrast=(1,), lmax=3, nmax=2):
                     if not sp.simplify(Fp).is_polynomial(r):
                         bad_poly += 1
                     if sp.simplify(Fp.subs(r, 1)) == 0:
-                        bad_horizon += 1
+                        bad_horizon += 1   # RETAINED, BUT IT DOES NOT MEAN WHAT IT SAID -- see
+                        #                    part3b_the_outgoing_check_was_wrong()
                     freqs.setdefault(cv, set()).add(sp.simplify(sp.I*wv))
     check(bad_ode == 0, f"all {total} exhibited modes satisfy the ODE with residual 0 "
                         f"({total - tier2} symbolically, {tier2} to 45 digits at 8 radii)")
     check(bad_poly == 0, f"all {total} truncate to polynomials (so the mode is elementary)")
     check(bad_horizon == 0,
-          f"all {total} have a NONZERO analytic factor at the horizon -- purely outgoing, no "
-          f"ingoing admixture")
+          f"all {total} have a NONZERO analytic factor at the horizon "
+          f"(NOTE: this does NOT establish 'purely outgoing' -- see PART 3b, which retracts the "
+          f"reading this check was given)")
     for cv in tuple(cmain) + tuple(ccontrast):
         got = sorted(freqs[cv], key=lambda x: (float(sp.re(x)), float(sp.im(x))))
         tag = "" if cv <= sp.Rational(1, 4) else "   <-- c > 1/4: a REAL part appears"
@@ -256,18 +262,103 @@ def part3_exact_modes(cmain=(-2, -1, 0), ccontrast=(1,), lmax=3, nmax=2):
 
 
 # ---------------------------------------------------------------------------------------------
+def part3b_the_outgoing_check_was_wrong():
+    """RETRACTION, WITH THE COUNTEREXAMPLE COMPUTED.
+
+    PART 3 originally reported that each exhibited mode is "purely outgoing at the horizon by
+    inspection", on the argument that psi = r^{l+1} (1-r^2)^{-i w/2} x (polynomial) is the peeled
+    outgoing factor times something analytic and non-zero at r = 1.  THAT ARGUMENT IS FALSE, and
+    the error was visible in this file's own PART 2 output: gamma - alpha - beta = i*w, so the
+    ingoing connection coefficient carries Gamma(-i*w), which has a POLE exactly when i*w is a
+    positive integer -- which is exactly where the quantisation condition 1/Gamma(alpha) = 0 puts
+    these modes.  0 x infinity.  It was noticed, called "need care", and then not carried through.
+
+    Concretely: (1-r^2)^{-i w/2} = cosh(x)^{i w} in the tortoise coordinate, and
+        cosh(x)^{i w} = (e^x/2)^{i w} (1 + e^{-2x})^{i w},
+    whose binomial series contributes e^{i w x} e^{-2 n x}.  When i*w is a positive integer, one of
+    those terms IS e^{-i w x}.  The peeled factor is not purely outgoing at precisely the claimed
+    frequencies.
+
+    The counterexample is elementary and is computed below: for the c = 0 family the exact Jost
+    pair is u_+- = e^{+-i w x} Q_l(coth x) with Q_l MONIC of degree l, so BOTH behave as x^{-l} at
+    the origin, and the regular solution is therefore u_+ - u_- -- giving ingoing amplitude
+    B = -A for EVERY omega.  B never vanishes, so these are not quasinormal modes and nothing in
+    the c = 0 family is."""
+    print("\nPART 3b -- RETRACTION: the 'purely outgoing' check did not test outgoingness")
+    xx = sp.Symbol('x', positive=True)
+    tt = sp.Symbol('t')
+    ww = sp.Symbol('w')
+
+    def Qpoly(lv, wsym):
+        co = [sp.Symbol(f'q{i}') for i in range(lv)]
+        Q = tt**lv + sum(co[i]*tt**i for i in range(lv))
+        eq = sp.expand((tt**2 - 1)*sp.diff(Q, tt, 2) + 2*(tt - sp.I*wsym)*sp.diff(Q, tt)
+                       - lv*(lv + 1)*Q)
+        return sp.expand(Q.subs(sp.solve(sp.Poly(eq, tt).all_coeffs(), co, dict=True)[0]))
+
+    for lv, iw, psi in ((1, 2, sp.sinh(xx)**2), (2, 3, sp.sinh(xx)**3),
+                        (2, 4, sp.sinh(xx)**3*sp.cosh(xx))):
+        wv = -sp.I*iw
+        V = lv*(lv + 1)/sp.sinh(xx)**2
+        assert sp.simplify(sp.diff(psi, xx, 2) + (wv**2 - V)*psi) == 0
+        up = sp.exp(sp.I*wv*xx)*Qpoly(lv, wv).subs(tt, sp.coth(xx))
+        um = sp.exp(-sp.I*wv*xx)*Qpoly(lv, -wv).subs(tt, sp.coth(xx))
+        A, B = sp.symbols('A B')
+        sol = sp.solve([sp.Eq(psi.subs(xx, q), (A*up + B*um).subs(xx, q))
+                        for q in (sp.Rational(3, 4), sp.Rational(3, 2))], [A, B], dict=True)[0]
+        Av, Bv = sp.simplify(sol[A]), sp.simplify(sol[B])
+        res = max(abs(complex(sp.N((psi - (Av*up + Bv*um)).subs(xx, q), 30)))
+                  for q in (sp.Rational(1, 2), 1, 2, sp.Rational(5, 2)))
+        check(res < 1e-40 and sp.simplify(Bv) != 0,
+              f"c=0, l={lv}, i*w={iw}: exact decomposition (residual {res:.0e}) gives "
+              f"A = {sp.nsimplify(sp.N(Av, 20))}, B = {sp.nsimplify(sp.N(Bv, 20))} -- "
+              f"B is NOT zero, so this is NOT a quasinormal mode")
+
+    print("\n     THE GENERAL STATEMENT, for the c = 0 family:")
+    for lv in range(1, 7):
+        Qp, Qm = Qpoly(lv, ww), Qpoly(lv, -ww)
+        monic = sp.Poly(Qp, tt).all_coeffs()[0] == 1 and sp.Poly(Qm, tt).all_coeffs()[0] == 1
+        up = sp.exp(sp.I*ww*xx)*Qp.subs(tt, sp.coth(xx))
+        um = sp.exp(-sp.I*ww*xx)*Qm.subs(tt, sp.coth(xx))
+        ser = sp.expand(sp.series(sp.simplify(up - um), xx, 0, lv + 2).removeO())
+        neg = [m for m in range(-lv, 0) if sp.simplify(ser.coeff(xx, m)) != 0]
+        check(monic and not neg,
+              f"l={lv}: both Jost solutions are MONIC in coth x, so u_+ - u_- is regular "
+              f"(no x^-k terms) => B = -A for every omega, and B never vanishes")
+    print("\n     CONSEQUENCE: the c = 0 (graviton) family has NO quasinormal modes at the")
+    print("     frequencies this file originally reported, and the argument above shows it has")
+    print("     none from that branch at any omega.")
+    print("     STILL OPEN, AND NOT CLAIMED EITHER WAY: at omega = -i k for k = 1..l the two Jost")
+    print("     solutions COINCIDE (the normalisation of u_+ - u_- carries a factor")
+    print("     omega * prod_{k=1..l} (omega^2 + k^2)), so the argument is silent there. Those")
+    print("     finitely many frequencies are the only surviving pole candidates and this file")
+    print("     does not resolve them.")
+    print("     ALSO NOT CLAIMED: the c = -2 (massless scalar) case, and non-integer Delta. For")
+    print("     NON-INTEGER Delta the Gamma(-i w) pole does not collide with the 1/Gamma(alpha)")
+    print("     zero, so the original truncation argument is expected to stand there -- which")
+    print("     would mean the tower is real for generic c and absent for exactly the two")
+    print("     physically relevant members. That expectation is NOT verified here.")
+
+
+# ---------------------------------------------------------------------------------------------
 def part4_structure(cvals=(-2, -1, 0)):
     """The structural facts, and the one that decides the conjecture."""
-    print("\nPART 4 -- the structure")
+    print("\nPART 4 -- the structure OF THE CANDIDATE SET")
+    print("     READ THIS AFTER PART 3b. What follows describes where the quantisation condition")
+    print("     1/Gamma(alpha) = 0 puts its roots. For the two physically relevant members --")
+    print("     c = -2 and c = 0, both with INTEGER Delta -- PART 3b shows those roots are NOT")
+    print("     poles of the retarded response. The formulae below are therefore a description of")
+    print("     a CANDIDATE SET, not of a pole set, and every word like 'tower' or 'gap' should")
+    print("     be read that way until the non-integer-Delta case is verified.")
     n, lv = sp.symbols('n l_', nonnegative=True, integer=True)
     for cv in cvals:
         s = sp.sqrt(1 - 4*cv)
         lo = sp.simplify(lv + 2*n + (3 - s)/2)
         hi = sp.simplify(lv + 2*n + (3 + s)/2)
         step = sp.simplify(lo.subs(n, n + 1) - lo)
-        check(step == 2, f"c = {cv:>2}: overtone spacing is exactly 2H (independent of l and c)")
+        check(step == 2, f"c = {cv:>2}: candidate spacing is exactly 2H (independent of l and c)")
         print(f"     c = {cv:>2}:  i*omega/H = {lo}   and   {hi}")
-    print("\n     TWO PROPERTIES AT DIFFERENT STRENGTHS, kept apart on purpose:")
+    print("\n     TWO PROPERTIES OF THE CANDIDATE SET, kept apart on purpose:")
     print("       DISCRETE, and spaced exactly 2H in the overtone index -- for EVERY c. This is")
     print("         the property the single-pole conjecture turns on, and it is unconditional.")
     print("       PURELY IMAGINARY (no oscillation, only decay) -- only for c <= 1/4. Past that")
@@ -339,7 +430,9 @@ def part4b_no_branch_cut():
 # ---------------------------------------------------------------------------------------------
 def part5_memory_kernel():
     """What the tower means for a MEMORY KERNEL, which is what the conjecture is about."""
-    print("\nPART 5 -- the memory kernel: single pole versus tower")
+    print("\nPART 5 -- the memory kernel: single pole versus tower (CONDITIONAL)")
+    print("     This part compares a single-pole kernel with a MULTI-POLE one. Per PART 3b it is")
+    print("     conditional on there being a tower at all, which is NOT established for c = 0.")
     tt, tau, A0, A1 = sp.symbols('t tau A_0 A_1', positive=True)
     debye = sp.exp(-tt/tau)
     check(sp.simplify(sp.diff(debye, tt)*tau + debye) == 0,
@@ -371,7 +464,7 @@ def part5b_mode_density():
     multiplicity of each angular momentum:
         N(Gamma) = sum_branches sum_{l >= l_min} (2l+1) * #{ n >= 0 : l + 2n + Delta <= Gamma }.
     """
-    print("\nPART 5b -- the mode density of the tower")
+    print("\nPART 5b -- the mode density of the CANDIDATE set (conditional, see PART 3b)")
     import math
 
     def N(Gamma, cv, lmin):
@@ -461,6 +554,7 @@ def main():
     part1_scalar_potential()
     part2_hypergeometric()
     part3_exact_modes()
+    part3b_the_outgoing_check_was_wrong()
     part4_structure()
     part4b_no_branch_cut()
     part5_memory_kernel()
@@ -472,14 +566,27 @@ def main():
         for m in FAIL:
             print("   -", m)
         return 1
-    print("SELFTEST GREEN. Structure on the de Sitter static patch, at two strengths:")
-    print("  UNCONDITIONAL, for every member of the family: a DISCRETE tower of retarded poles,")
-    print("    spaced exactly 2H in the overtone index, with NO parameter separating the leading")
-    print("    pole from the rest -- gap and spacing are both O(H). Not a single pole; not a cut.")
-    print("  CONDITIONAL on c <= 1/4: the poles are purely imaginary, so the response decays")
-    print("    without oscillating. Past that branch point a real part appears. Which member the")
-    print("    graviton picks is not established here.")
-    print("  The gap is sector-dependent and is reported as such, never as a number.")
+    print("SELFTEST GREEN -- and the headline is a RETRACTION, not a result.")
+    print("  ESTABLISHED: for the c = 0 family (which the workflow's independent derivation")
+    print("    identifies as the graviton's, both parities), the frequencies")
+    print("    omega/H = -i(l + 2n + Delta) are NOT quasinormal. The regular solution has ingoing")
+    print("    amplitude B = -A at every omega, exactly, because both Jost solutions are monic in")
+    print("    coth(x) and so share the same x^-l singularity. Shown exactly at three frequencies")
+    print("    (decomposition residual ~1e-163) and generally for l = 1..6.")
+    print("  WHAT WENT WRONG: 'purely outgoing by inspection' tested that the hypergeometric")
+    print("    factor is non-zero at the horizon. The peeled factor (1-r^2)^{-i w/2} is itself not")
+    print("    purely outgoing when i*w is a positive integer -- the Gamma(-i w) pole colliding")
+    print("    with the 1/Gamma(alpha) zero, which PART 2 printed and this file then ignored.")
+    print("  STILL TRUE AND UNAFFECTED: the background curvature checks, Lambda = 3H^2,")
+    print("    V_scalar = f[l(l+1)/r^2 - 2H^2], the hypergeometric reduction and its alpha, beta,")
+    print("    gamma, the exponential fall-off of V in r_*, and beta = 2*pi/H.")
+    print("  NOT ESTABLISHED, EITHER WAY: what the analytic structure actually IS. The only")
+    print("    surviving pole candidates for c = 0 are the finitely many omega = -i k, k = 1..l,")
+    print("    where the Jost pair degenerates. The c = -2 case and non-integer Delta are")
+    print("    untouched by the retraction and unverified by it.")
+    print("  DISCREPANCY, SURFACED NOT ADJUDICATED: this contradicts the widely reported de Sitter")
+    print("    quasinormal spectrum, and the public document repeats that spectrum on literature")
+    print("    authority. One of the two is wrong. This file does not claim to be the survivor.")
     return 0
 
 
