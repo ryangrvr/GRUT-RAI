@@ -191,3 +191,62 @@ class TestComparisonRule(unittest.TestCase):
                                 f"{fname} has discrimination "
                                 f"{r['lock']['discrimination_sigma']:.2f} sigma but nowhere states "
                                 f"that the comparison cannot adjudicate")
+
+
+class TestSelftestMarker(unittest.TestCase):
+    """A battery can only prove something if the harness can tell a CHECK from a CRASH.
+
+    _run() classifies a mutant as caught-by-a-check on the exact string "SELFTEST: FAIL". Two
+    calcs shipped "SELFTEST FAILED:" instead -- no colon -- so their checks fired and were
+    recorded as crashes: a working guard reading as proving nothing, the mirror of a broken guard
+    reading as managed. Calcs that fail via assertions are fine (mech == "assertion"); this pins
+    only the calcs that PRINT a verdict.
+
+    THIS TEST WAS WRONG TWICE BEFORE IT WAS RIGHT, and the attempts are recorded rather than
+    quietly rewritten, because the pattern is the finding. (1) It first required the literal
+    "SELFTEST: FAIL" in the SOURCE -- nine false alarms, because those calcs build the marker with
+    an f-string, f"SELFTEST: {'PASS' if ok else 'FAIL'}". (2) It then required the substring
+    "SELFTEST: " -- one more false alarm, because print("  SELFTEST:", "FAIL") emits the right
+    text from source in which the colon is followed by a quote, not a space. A guard checking the
+    string instead of the behaviour, written to catch a guard checking the string instead of the
+    behaviour, twice. (3) It now NORMALISES the line -- strips the punctuation that separates
+    string literals -- and then asks for the colon form, which is what the emitted text actually
+    depends on. Verified against all three idioms and against the real defect.
+
+    THE STANDING LIMIT, since two wrong versions is enough evidence for it: a static read of a
+    print statement cannot in general determine what it emits. The authoritative discriminator is
+    the runtime one that already exists -- _run()'s crash-versus-check classification -- and this
+    test is only a cheap early warning for it, not a replacement."""
+
+    @staticmethod
+    def _normalise(line):
+        """Drop the punctuation that separates string literals, so that the three idioms
+        print("SELFTEST: FAIL") / print(f"SELFTEST: {...}") / print("SELFTEST:", "FAIL")
+        all reduce to text containing 'SELFTEST:' followed by whitespace."""
+        return line.replace('"', ' ').replace("'", ' ').replace(",", " ")
+
+    def test_batteried_calcs_use_the_marker_the_harness_matches(self):
+        for calc, spec in MR.BATTERIES.items():
+            path = os.path.join(_dir_for(spec), calc)
+            if not os.path.exists(path):
+                continue
+            emitters = [ln for ln in open(path).read().splitlines()
+                        if "SELFTEST" in ln and "print(" in ln]
+            if not emitters:
+                continue          # fails by assertion instead; _run() classifies that correctly
+            self.assertTrue(any("SELFTEST:" in self._normalise(ln) for ln in emitters),
+                            f"{calc} prints a selftest verdict but no emitter uses the COLON form "
+                            f"that test_mutation_battery._run() matches. Its checks would be "
+                            f"classified as CRASHES and its battery would prove nothing while "
+                            f"looking maintained. Emitters seen: {emitters}")
+
+    def test_this_guard_still_catches_the_real_defect(self):
+        """The green path plus the biting path -- a guard that has been wrong twice must show it
+        can still fail on the thing it exists for."""
+        n = self._normalise
+        self.assertNotIn("SELFTEST:", n('print("SELFTEST FAILED:")'),
+                         "the guard must still reject the missing-colon form that caused this")
+        for good in ('print("SELFTEST: FAIL")',
+                     'print(f"SELFTEST: {\'PASS\' if ok else \'FAIL\'}")',
+                     'print("  SELFTEST:", "FAIL")'):
+            self.assertIn("SELFTEST:", n(good), f"false alarm on a valid idiom: {good}")

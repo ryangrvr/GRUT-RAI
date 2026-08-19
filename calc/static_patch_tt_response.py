@@ -449,7 +449,32 @@ def part3b_the_outgoing_check_was_wrong():
               f"A = {sp.nsimplify(sp.N(Av, 20))}, B = {sp.nsimplify(sp.N(Bv, 20))} -- "
               f"B is NOT zero, so this is NOT a quasinormal mode")
 
-    print("\n     THE GENERAL STATEMENT, for the c = 0 family:")
+    print("\n     WHY IT HOLDS FOR EVERY l, NOT JUST THE ONES CHECKED -- the gap in the first")
+    print("     version of this argument, named by the owner and closed here. Monic-ness kills")
+    print("     only the LEADING x^-l term; regularity needs x^-l through x^-1 to go, which is")
+    print("     l-1 further conditions that monic-ness does not supply. The missing ingredient is")
+    print("     PARITY:")
+    xx2, ll = sp.Symbol('x', positive=True), sp.Symbol('l', positive=True)
+    Vv = ll*(ll + 1)/sp.sinh(xx2)**2
+    pw = sorted({t[0][0] for t in sp.Poly(sp.expand(sp.series(Vv, xx2, 0, 8).removeO()*xx2**2),
+                                          xx2).all_terms() if t[1] != 0})
+    check(all(q % 2 == 0 for q in pw),
+          f"(a) V*x^2 carries only EVEN powers {pw}, so the Frobenius recursion steps by 2")
+    rho = sp.Symbol('rho')
+    roots = sp.solve(sp.Eq(rho*(rho - 1), ll*(ll + 1)), rho)
+    check(sp.simplify(sp.Abs(roots[1] - roots[0]) - (2*ll + 1)) == 0,
+          "(b) the indicial exponents are -l and l+1, differing by 2l+1 -- ODD")
+    kk = sp.Symbol('k', integer=True, nonnegative=True)
+    check(sp.solve(sp.Eq(2*kk, 2*ll + 1), kk) == [ll + sp.Rational(1, 2)],
+          "(c) so -l + 2k = l+1 has no integer solution: NO resonance, NO log, and the singular "
+          "Frobenius solution is CANONICAL")
+    print("     (d) the ODE contains omega only as omega^2, so that canonical singular solution's")
+    print("         coefficients are functions of omega^2 -- psi_sing is EVEN in omega;")
+    print("     (e) Q_l monic then gives u_+ = psi_sing + A(omega) psi_reg with the SAME")
+    print("         psi_sing for u_-, whence u_+ - u_- = [A(omega) - A(-omega)] psi_reg.")
+    print("     ALL l-1 SUBLEADING SINGULAR TERMS CANCEL AT ONCE, for every l. The l = 1..6 runs")
+    print("     below are now corroboration rather than the argument.")
+    print("\n     THE EXPLICIT CHECK, l = 1..6:")
     for lv in range(1, 7):
         Qp, Qm = Qpoly(lv, ww), Qpoly(lv, -ww)
         monic = sp.Poly(Qp, tt).all_coeffs()[0] == 1 and sp.Poly(Qm, tt).all_coeffs()[0] == 1
@@ -517,9 +542,20 @@ def part3c_reflection_amplitude():
         check(sp.simplify(sp.factor(R) - sp.factor(blaschke)) == 0 and sp.simplify(mod2 - 1) == 0,
               f"l={lv}: R = (-1)^l prod (w+ij)/(w-ij), and |R|^2 - 1 = "
               f"{sp.simplify(mod2 - 1)} identically for real omega")
-    print("     TOTAL REFLECTION at every real frequency: no transmission, no width, no rate.")
-    print("     R = 0 at omega = -i j (purely INGOING: the time reverse of a QNM, not a QNM);")
-    print("     R = infinity at omega = +i j (purely outgoing, but GROWING -- upper half plane).")
+    print("\n     |R| = 1 IS KINEMATIC AND IS NOT THE RESULT (owner's restatement, adopted).")
+    print("     A half-line with a regular centre, a real potential and no absorption has nowhere")
+    print("     for flux to go: for real omega the regular solution is real up to a phase, so its")
+    print("     outgoing and ingoing amplitudes are complex conjugates and |R| = 1 FOLLOWS FROM")
+    print("     FLUX CONSERVATION ALONE. It would hold for any real potential in this geometry.")
+    print("     So it is a CHECK ON THE MACHINERY, not a fact about de Sitter, and presenting it")
+    print("     as a discovery invites a reviewer to discount the part that is not automatic.")
+    print("\n     THE CONTENT IS THE POLE AND ZERO LOCATIONS, which are NOT forced by unitarity:")
+    print("       R has POLES at omega = +i j H  (purely outgoing there -- but GROWING modes, in")
+    print("         the UPPER half plane, so not resonances);")
+    print("       R has ZEROS at omega = -i j H  (purely INGOING there -- time-reversed QNMs);")
+    print("       and NOTHING in the lower half plane is a quasinormal frequency.")
+    print("     That asymmetry -- everything that could be a decaying resonance sits on the wrong")
+    print("     side -- is the physics; the unit modulus is the bookkeeping.")
     print("     => no decaying quasinormal mode anywhere in this family. PART 3b's residue closes")
     print("        AGAINST the tower, not for it.")
     print("\n     AND WHAT THIS IS NOT, which matters more than what it is (owner, 2026-08-19):")
@@ -758,7 +794,12 @@ def main():
     part6_mutants()
     print("\n" + "=" * 92)
     if FAIL:
-        print("SELFTEST FAILED:")
+        # "SELFTEST: FAIL" is the exact string provenance/test_mutation_battery.py matches to
+        # classify a mutant as caught BY A CHECK rather than as an incidental crash. This file
+        # printed "SELFTEST FAILED:", so the master_variable_loses_its_f mutant -- which IS caught,
+        # by three separate checks -- was recorded as a CRASH and the battery read as proving
+        # nothing. Second instance of the same marker slip; test_selftest_marker now pins it.
+        print("SELFTEST: FAIL")
         for m in FAIL:
             print("   -", m)
         return 1
