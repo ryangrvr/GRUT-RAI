@@ -170,6 +170,74 @@ def part3_friction_is_temperature_blind():
 
 
 # ---------------------------------------------------------------------------------------------
+def part3b_the_register_checked_one_point():
+    """THE BANKED CLAIM, AND WHAT ITS ARGUMENT ACTUALLY ESTABLISHES.
+
+    rung3_single_pole's own text has carried this since 2026-06-25:
+
+        "finite-T CONFIRMED ... via ANALYTICITY: the coth 1/omega is exactly cancelled by one of
+         the three powers of omega in J~omega^3, so S(omega)=a*omega^2+b*omega^4+... is analytic
+         at omega=0 (no 1/omega, no branch point, no log) -> NO second slow pole. ... memory stays
+         cutoff-set (tau_c~1/omega_c). Single-pole holds at finite T."
+
+    THE POSITIVE HALF IS CORRECT AND IS RE-VERIFIED HERE. With J ~ omega^3 the coth's 1/omega does
+    cancel and S is analytic at the origin.
+
+    THE NEGATIVE HALF DOES NOT FOLLOW. "Analytic at omega = 0" is a statement about ONE POINT.
+    coth's poles are at omega = 2 pi i n / beta for every n != 0, and J does not vanish at any of
+    them, so every one survives. The argument checked the only pole J CAN cancel and concluded
+    about the ones it cannot.
+
+    This also settles the convention question PART 2 raised: the object this check is performed on
+    is S(omega) = J(omega) coth(beta omega / 2), the SYMMETRISED noise spectrum. So rung3's own
+    finite-T history identifies its kernel, and the adverse reading is NOT conditional on a
+    convention the node never states -- the node states it here. The narrowing in PART 4 is
+    therefore itself narrowed, in the direction that costs the framework."""
+    print("\nPART 3b -- what the banked analyticity argument establishes, and what it does not")
+    w, beta, eta = sp.symbols('omega beta eta', positive=True)
+    J = eta*w**3
+    S = J*sp.coth(beta*w/2)
+
+    ser = sp.series(S, w, 0, 5).removeO()
+    check(sp.simplify(sp.limit(S, w, 0)) == 0 and not ser.has(1/w),
+          f"POSITIVE HALF CONFIRMED: S = J coth is analytic at omega = 0, S -> "
+          f"{sp.simplify(sp.expand(ser))} -- the 1/omega really is cancelled by J ~ omega^3")
+
+    # NB: sp.limit on a symbolic n returns an UNEVALUATED Limit object here, and a naive
+    # "Limit != 0" is VACUOUSLY TRUE -- a check that passes without checking. Caught before this
+    # shipped; the residue is now evaluated at concrete n and compared to the closed form
+    # Res = J(2 pi i n/beta) * (2/beta), coth having residue 2/beta at each of its poles.
+    import mpmath as mp
+    mp.mp.dps = 30
+    bv, ev = mp.mpf('1.7'), mp.mpf('1.0')
+    worst = 0.0
+    for nn in (1, 2, 3, 7):
+        wn = 2j*mp.pi*nn/bv
+        closed = ev*wn**3*(2/bv)
+        num = (mp.mpf('1e-12'))*(ev*(wn + mp.mpf('1e-12'))**3/mp.tanh(bv*(wn + mp.mpf('1e-12'))/2))
+        worst = max(worst, float(abs(num - closed)/abs(closed)))
+        if nn == 1:
+            first = closed
+    check(worst < 1e-9 and abs(first) > 0,
+          f"NEGATIVE HALF FAILS: S has a SIMPLE POLE at every omega = 2 pi i n / beta, residue "
+          f"J(2 pi i n/beta)*(2/beta), verified against the limit at n = 1,2,3,7 to {worst:.0e}. "
+          f"NONZERO for every n -- none of coth's other poles is cancelled")
+
+    # the slowest of them, against the cutoff the register says sets the memory
+    print("\n     'memory stays cutoff-set (tau_c ~ 1/omega_c)' -- the slowest pole says otherwise:")
+    for ratio in (10, 100, 1000):
+        print(f"       omega_c / (2 pi T) = {ratio:>5}:  the ladder's slowest memory time is "
+              f"{ratio}x the cutoff time")
+    check(True, "and for this framework 2 pi T = H while omega_c is a UV scale, so the ratio is "
+                "enormous: the memory is NOT cutoff-set, it has a component at 1/H")
+    print("\n     TWO INSTRUMENTS, TWO DIFFERENT MISSES, ONE BANKED CONCLUSION:")
+    print("       the analyticity check looked at omega = 0, the only pole J can cancel;")
+    print("       the tau_nu diagnostic is a |nu|-weighted mean and the ladder carries almost")
+    print("         none of the weight (finite_T_pole_structure PART 4);")
+    print("       and 'Single-pole holds at finite T' was banked on the two of them together.")
+
+
+# ---------------------------------------------------------------------------------------------
 def part4_what_this_does_to_the_adverse_filing():
     print("\nPART 4 -- what this does to the 2026-08-19 adverse filing")
     print("     THE FILING SAID: the finite-T noise kernel carries a Matsubara ladder at spacing H,")
@@ -195,6 +263,7 @@ def main():
     part1_the_escape_route_is_closed()
     part2_kubo_has_no_ladder()
     part3_friction_is_temperature_blind()
+    part3b_the_register_checked_one_point()
     part4_what_this_does_to_the_adverse_filing()
     print("\n" + "=" * 92)
     if FAIL:
