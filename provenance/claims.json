@@ -5,7 +5,9 @@
    "id": "rung1_inin_action",
    "domain": "open-systems-EFT",
    "grut_standing": "covered",
-   "depends_on": [],
+   "depends_on": [
+    "background_time_translation_flow"
+   ],
    "statement": "The gravitational vacuum is a responsive medium with finite memory, described by a single Schwinger-Keldysh influence action S_IF with retarded dissipation kernel K_R and noise kernel N (doubled x_r/x_a fields).",
    "tier": "shown",
    "sources": [
@@ -27,7 +29,8 @@
    "domain": "open-systems-EFT",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action"
+    "rung1_inin_action",
+    "background_time_translation_flow"
    ],
    "statement": "In equilibrium the noise kernel N is locked to Im[chi] by FDT with a coth(hbar*omega/2kT) factor; admissible kernels must satisfy KMS detailed balance. Enforced as a hard admission gate.",
    "tier": "shown",
@@ -1530,6 +1533,25 @@
    "ledger_note": "0: the chain ADDS NO INPUT -- it is construction over already-booked claims; every status is generated from fields the gate already audits, so the narrative cannot carry a price the register does not. Ordering is itself a claim, and the two ambiguous orderings are MARKED rather than asserted -- an asserted ordering with physical content would be a new claim needing its own node and price. GRUT net unchanged: +13.",
    "grut_standing": "covered",
    "sub_status": "building-stage artifact; Part 4 (the origin end) is the named next build, NOT started in the banking wave per the brief"
+  },
+  {
+   "id": "background_time_translation_flow",
+   "domain": "open-systems-EFT",
+   "grut_standing": "covered",
+   "depends_on": [],
+   "statement": "The declared background carries a TIME-TRANSLATION FLOW -- a one-parameter family of time translations under which the setup is invariant, so that two-point kernels depend on the time DIFFERENCE alone and a kernel of a single frequency K_R(omega, k) is definable. BOOKED 2026-08-18 as an OMISSION (a presupposition booked nowhere), not as a split of any existing node.",
+   "tier": "assumed",
+   "sub_status": "presupposition of the formalism's basic form; NOT a physics claim about de Sitter -- the claim is only that the framework HAS BEEN USING such a flow. Discharge route named.",
+   "tier_note": "WHY THIS IS AN OMISSION AND NOT A SPLIT (CHARTER.md's tell, run in full, after the opposite repair was ordered and withdrawn). The tell's FIRST clause -- 'if the candidate appears in the node's own statement, it is a split question' -- was applied to S4 (KMS/FDT + passivity) on the reasoning that KMS is definitionally relative to a modular flow. The tell's SECOND clause decides against that: 'If it is INVISIBLE IN THE TEXT and presupposed by the node's discharge, it is an omission -- and IF SEVERAL NODES PRESUPPOSE IT, IT IS CERTAINLY AN OMISSION, because multiplicity rules out its being any one node's hidden conjunct. An analyst holding only the split tool fixes an omission by cutting the nearest node, which mislocates a cluster-wide presupposition into that node's dependency structure.' THREE CHECKABLE FACTS: (1) the string 'stationar' occurs ZERO times in S_IF.md -- invisible in the text; (2) S1 of the declared symmetry inventory is justified as 'background Lorentzian causal structure -> retarded/causal kernel K_R(omega,k)' -- causality gives RETARDED SUPPORT, and collapsing to a function of one omega additionally requires dependence on t-t' alone, which causal structure does NOT supply, so S1 presupposes the flow WITHOUT invoking thermality; (3) S4's statement text names KMS and passivity, so the commitment is an ENTAILMENT of a named concept rather than an appearance of the candidate. Multiplicity therefore holds and the omission repair is the correct one. *** R4 ATOMISATION (OMISSION_STANDARD_v2), WHICH SHARPENED WHAT IS BOOKED: the raw candidate 'stationarity' is COMPOUND -- it factors into (a) a time-translation flow on the BACKGROUND and (b) the STATE's invariance under that flow. Part (b) is ALREADY BOOKED: it is inside rung2's KMS content (a KMS state is invariant under the modular flow it is defined against). Only part (a) is unbooked and multiply presupposed, and part (a) alone is what this node books -- which is why the external read that argued 'S4 carries it' was RIGHT ABOUT THE STATE HALF and wrong about the classification of the whole. Disposition of part (b), per R2: ABSORBED into rung2_kms_gate, which carries a terminal disposition. *** R1 MEMBERSHIP FENCE: passes -- named positions deny it. Cosmological perturbation theory on FRW and the secular/non-stationary de Sitter programs work on a background with NO timelike Killing vector, and the denial changes what this framework says: without the flow there is no single-omega kernel and no omega->0 transport coefficient to conjecture about. *** WHAT THIS NODE DOES NOT CLAIM: it asserts nothing about which background is correct, and it does not restate the framework in any frame. It records that a flow has been in use and prices it.",
+   "sources": [
+    "schwinger1961",
+    "keldysh1964",
+    "calzetta_hu_book"
+   ],
+   "overturning_computation": "OVERTURNED / DISCHARGED IF: the declared background is one carrying a timelike Killing vector -- the de Sitter static patch is the named candidate -- in which case the flow is a PROPERTY OF THE BACKGROUND rather than a commitment, and this node retires into that declaration at zero. ALSO OVERTURNED IF: a formulation is exhibited in which every banked kernel result is stated without a single-frequency kernel (no K_R(omega,k) anywhere), which would show the flow was never used. Note the WKB escape is CLOSED and recorded at rung3_single_pole: quasi-stationarity holds for H << omega and the single-pole claim lives at omega -> 0, exactly where it fails.",
+   "ledger_delta": 1,
+   "ledger_note": "+1: ONE input -- the background's time-translation flow. Priced at one because the ledger prices INPUTS, not importance: fan-out is carried by the dependency graph, and pricing by load-bearingness would introduce a new mechanism and make deltas incomparable across nodes (owner ruling 2026-08-18). Net +14 -> +15. R5 WIRING, mandatory and done in the same edit: rung1_inin_action and rung2_kms_gate both gain depends_on edges to this node, because both presuppose it -- an omission banked without its edges leaves the multiplicity signal as prose to be re-derived every wave, which is the recorded failure of the first vacuum-cluster sweep. THE TIER QUESTION IS FLAGGED AND NOT MOVED HERE: whether rung3_single_pole's 'derived-pending' survives a condition that fails in its own defining limit is a SEPARATE adjudication, deliberately not taken in the same pass as this booking, so that neither hides the other (owner ruling, same date).",
+   "differentiator": "NON-DIFFERENTIATING: a bookkeeping correction about what the formalism has been assuming. It predicts nothing and removes nothing; it makes an existing commitment visible and gives it a discharge route."
   }
  ]
 }

@@ -43,13 +43,15 @@ STAGES = [
 
  ("medium", "The medium: a responsive vacuum with finite memory",
   "The constitutive posit: the gravitational vacuum is an open medium that responds and relaxes. "
-  "This is the program's entry price (+4: the system/bath split, the Gaussian truncation, the "
-  "causal background, and -- booked 2026-08-17 on the noise-accounting ruling -- the 4d-covariant "
-  "availability of the Ward-sourced gauge-orbit zero, an open layer with an explicit discharge "
-  "condition), booked openly as a stance, with the standard open-system toolkit borrowed "
+  "This is the program's entry price (+4 at the founding node: the system/bath split, the "
+  "Gaussian truncation, the causal background, and the 4d-covariant availability of the "
+  "Ward-sourced gauge-orbit zero), plus a fifth input booked 2026-08-18 as its own node -- the "
+  "background's TIME-TRANSLATION FLOW, the presupposition that lets a kernel be written at a "
+  "single frequency at all, found by running the charter's omission-versus-compound tell to its "
+  "second clause), booked openly as a stance, with the standard open-system toolkit borrowed "
   "as scaffolding.",
-  ["rung1_inin_action", "u3_split_origin", "linear_response_viscoelastic",
-   "relativistic_hydro_israel_stewart", "superfluid_bec_media"],
+  ["rung1_inin_action", "background_time_translation_flow", "u3_split_origin",
+   "linear_response_viscoelastic", "relativistic_hydro_israel_stewart", "superfluid_bec_media"],
   None,
   "u3 (why a system/bath split exists at all) is the deepest open question at this link."),
 

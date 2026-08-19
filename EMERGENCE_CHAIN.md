@@ -22,13 +22,14 @@ The story begins with a boundary condition, not a mechanism: the universe starts
 
 ## 2. The medium: a responsive vacuum with finite memory
 
-The constitutive posit: the gravitational vacuum is an open medium that responds and relaxes. This is the program's entry price (+4: the system/bath split, the Gaussian truncation, the causal background, and -- booked 2026-08-17 on the noise-accounting ruling -- the 4d-covariant availability of the Ward-sourced gauge-orbit zero, an open layer with an explicit discharge condition), booked openly as a stance, with the standard open-system toolkit borrowed as scaffolding.
+The constitutive posit: the gravitational vacuum is an open medium that responds and relaxes. This is the program's entry price (+4 at the founding node: the system/bath split, the Gaussian truncation, the causal background, and the 4d-covariant availability of the Ward-sourced gauge-orbit zero), plus a fifth input booked 2026-08-18 as its own node -- the background's TIME-TRANSLATION FLOW, the presupposition that lets a kernel be written at a single frequency at all, found by running the charter's omission-versus-compound tell to its second clause), booked openly as a stance, with the standard open-system toolkit borrowed as scaffolding.
 
-**Link status (generated):** original-result + open + borrowed
+**Link status (generated):** original-result + priced-import + open + borrowed
 
 | register claim | status (generated) |
 |---|---|
 | `rung1_inin_action` | shown +4 |
+| `background_time_translation_flow` | assumed +1 |
 | `u3_split_origin` | to-derive |
 | `linear_response_viscoelastic` | assumed (borrowed) |
 | `relativistic_hydro_israel_stewart` | assumed (borrowed) |

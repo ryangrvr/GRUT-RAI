@@ -11,7 +11,7 @@ Mirrors the discipline exactly:
   - laundering_ok exempts a declared stance/recovery;
   - assumed + positive WARNS (non-blocking);
   - the engine is NOT GRUT-specific (custom vocab, non-GRUT claims);
-  - REGRESSION: the live GRUT register still audits GREEN at net +14.
+  - REGRESSION: the live GRUT register still audits GREEN at net +15.
 
 Pure stdlib (unittest). Run:  python3 provenance/test_auditor.py
 """
@@ -148,8 +148,8 @@ class TestAuditor(unittest.TestCase):
         claims = [c for c in claims if c.get("ledger_scope", "grut") == "grut"]
         r = audit(claims, source_ids, DEFAULT_TIERS)
         self.assertTrue(r.ok, f"live register must audit clean; blocks={r.blocking}")
-        self.assertEqual(r.net, 14, "net ledger must be +14 (the 2026-08-02 restriction booking + the 2026-08-17 rung1 bath-genuineness booking)")
-        self.assertEqual(len(claims), 49, "GRUT scope holds 49 nodes (37 GRUT claims incl. eft_operator_basis + zeta_interior_family + the x-floor trio passivity_channel_diagonal/x_no_pin_theorem/kk_static_transfer + 11 borrowed/open-field scaffold + emergence_chain, the building-stage construction node, delta 0)")
+        self.assertEqual(r.net, 15, "net ledger must be +15 (the 2026-08-02 restriction booking + the 2026-08-17 rung1 bath-genuineness booking)")
+        self.assertEqual(len(claims), 50, "GRUT scope holds 50 nodes (38 GRUT claims incl. eft_operator_basis + zeta_interior_family + the x-floor trio passivity_channel_diagonal/x_no_pin_theorem/kk_static_transfer + 11 borrowed/open-field scaffold + emergence_chain, the building-stage construction node, delta 0)")
 
 
 if __name__ == "__main__":

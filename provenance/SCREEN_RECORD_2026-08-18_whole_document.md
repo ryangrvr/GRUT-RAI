@@ -133,3 +133,25 @@ program whose whole discipline is not letting that happen.
 **Generalization worth keeping:** a counter-reading delivered with its finding is not a check on
 the finding — it is a frame around it. Checks have to be able to arrive too late to be
 comfortable.
+
+### The tell's quotable half is not its dispositive half
+
+Two independent readers — an external note and the owner — classified the same candidate the same
+wrong way, and stopped at the same sentence. The charter's omission-versus-compound tell opens
+*"if the candidate appears in the node's own statement, it is a split question"* and continues,
+two clauses later, *"if several nodes presuppose it, it is **certainly an omission**, because
+multiplicity rules out its being any one node's hidden conjunct."*
+
+The first clause is short, memorable, and quotable. The second is the one that decides. Anyone
+working from memory applies the first. **That is a property of how the standard is written, not of
+who read it, and it will recur** — which is why it is recorded here rather than treated as two
+people's slip.
+
+Recorded alongside: the same wave produced the fourth same-symbol collision in this program's
+history. `S_IF.md` uses the label **S1** for two different objects six lines apart — the
+vacuum-cluster's shared input (a state and an expectation functional) in §1, and the symmetry
+inventory's causal/retarded structure in §2 — and the second was offered as evidence about the
+first. Prior instances: **TT** (transverse-traceless vs temperature-temperature), **κ** (a
+decoherence amplitude vs a cosmological activation wavenumber), and **τ₀** (a prior-lineage figure
+inside retracted reasoning). Four collisions, four different sectors, each one caught only because
+someone checked the referent rather than the string.

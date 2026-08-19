@@ -2,8 +2,8 @@
 
 *Status: **INSTRUMENT, ledger 0** (per the front's own trap fence: a decision procedure banks at ledger 0 or not at all — it is furniture until a computation fires a predicate). No register edit accompanies this document. Provenance: the 2026-08-03 x-floor reconnaissance (four route-mappers + adjudicator, every load-bearing register claim re-verified; full record in the session workflow journal). The overseer rules on the attack order before any calc is built.*
 
-<!-- REGISTER-SYNC: 49 nodes, net +14 -->
-<!-- REGISTER-TOTAL: 70 = 49 grut + 21 vacuum-cluster; nets +14 grut, +0 cluster -->
+<!-- REGISTER-SYNC: 50 nodes, net +15 -->
+<!-- REGISTER-TOTAL: 71 = 50 grut + 21 vacuum-cluster; nets +15 grut, +0 cluster -->
 
 ---
 
