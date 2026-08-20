@@ -394,3 +394,37 @@ class TestPublicDoc(unittest.TestCase):
         finally:
             if os.path.exists(planted):
                 os.remove(planted)
+
+    def test_how_to_verify_battery_figures_match_the_registry(self):
+        """HOW_TO_VERIFY is where the document sends readers for the battery claim, so its numbers
+        must be checked like the document's own. They are typed there (that file is not built from
+        a template), which is exactly why they need a test: the sentence they qualify was a
+        coverage claim the batteries could not support, and a stale number would restore it."""
+        import mutation_registry as MR
+        bat = MR.BATTERIES
+        want = {
+            "mutation batteries": str(len(bat)),
+            "mutants that run by default":
+                f"{sum(len(v['mutants']) for v in bat.values() if not v.get('slow'))} of "
+                f"{sum(len(v['mutants']) for v in bat.values())}",
+            "cited calcs still owing a battery": str(len(MR.OWED)),
+        }
+        text = open(os.path.join(ROOT, "HOW_TO_VERIFY.md"), encoding="utf-8").read()
+        for label, value in want.items():
+            row = [ln for ln in text.splitlines() if label in ln and ln.strip().startswith("|")]
+            self.assertTrue(row, f"HOW_TO_VERIFY.md has no row for {label!r}")
+            self.assertIn(value, row[0],
+                          f"HOW_TO_VERIFY.md reports {label!r} as {row[0].strip()!r}, but the "
+                          f"registry says {value!r}")
+
+    def test_how_to_verify_names_the_right_mutation_env_var(self):
+        """The file once told readers GRUT_RUN_SLOW=1 runs the slow mutants. It does not --
+        test_mutation_battery gates on GRUT_FULL_MUTATION. Following the instruction left 39% of
+        the mutants unexecuted while the neighbouring sentence called the guards proven."""
+        import test_mutation_battery as TMB
+        src = open(os.path.join(HERE, "test_mutation_battery.py")).read()
+        self.assertIn('os.environ.get("GRUT_FULL_MUTATION")', src,
+                      "the battery harness no longer gates on GRUT_FULL_MUTATION; update the doc")
+        text = open(os.path.join(ROOT, "HOW_TO_VERIFY.md"), encoding="utf-8").read()
+        self.assertIn("GRUT_FULL_MUTATION=1", text,
+                      "HOW_TO_VERIFY must name the variable that actually runs the slow mutants")

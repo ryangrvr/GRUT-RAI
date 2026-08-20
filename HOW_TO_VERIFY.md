@@ -146,10 +146,38 @@ run the check there. Naming a repository in a sentence and testing a different o
 ```bash
 cd provenance && python3 -m pytest -q
 ```
-All test files, including: the mutation batteries (guards proven to FAIL on wrong answers —
-`GRUT_RUN_SLOW=1` runs the slow ones and the falsifier-execution layer), the prereg seal checks,
-the consumed-by trigger, the emergence-chain drift check, and the doc-sync markers. One test is
-skipped by design without `GRUT_RUN_SLOW=1`, and it says so.
+All test files, including the mutation batteries, the prereg seal checks, the consumed-by
+trigger, the emergence-chain drift check, and the doc-sync markers. One test is skipped by design
+without `GRUT_RUN_SLOW=1`, and it says so.
+
+**The batteries, stated honestly — the earlier wording here was a coverage claim it could not
+support.** A mutation battery is a set of pre-registered wrong answers that must make the calc's
+own selftest fail. The figures are emitted from `provenance/mutation_registry.py`, never typed
+(see `PUBLIC_NUMBERS.md`, and `test_public_doc.py` fails if they drift):
+
+| | |
+|---|---|
+| mutation batteries | **14** |
+| **mutants that run by default** | **33 of 54** |
+| cited calcs still owing a battery | **15** |
+
+So *"guards proven to fail on wrong answers"* is true of the batteries that run, and the honest
+form of the claim is: **every cited calc ships a battery or is declared owed, and every battery
+that exists has been executed at least once.** The second half became true only on 2026-08-19 —
+before that, 21 of the 54 mutants had never fired, and one of them had been mis-classified since
+the day it was written.
+
+**TWO different environment variables, which this file previously conflated into one:**
+
+```bash
+GRUT_FULL_MUTATION=1 python3 -m pytest -q test_mutation_battery.py   # runs the 21 slow mutants
+GRUT_RUN_SLOW=1      python3 -m pytest -q                           # the falsifier-execution layer
+```
+
+The earlier text said `GRUT_RUN_SLOW=1` ran the slow mutants. It does not. A reader following that
+instruction would have left 39% of the mutants unexecuted while the same sentence told them the
+guards were proven — the documented procedure could not reproduce the claim beside it. The full
+mutation run takes about 50 minutes.
 
 ## 3. The seals
 

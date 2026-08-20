@@ -11,8 +11,11 @@
 | of the GRUT net, carried behind declared waivers | **+9** across 4 claims |
 | primary sources in `sources.json` | **85** |
 | calculation files in `calc/` | **29** |
-| test files in `provenance/` | **20** |
-| tests collected | **233** |
+| test files in `provenance/` | **21** |
+| mutation batteries | **14** |
+| mutants that run by default | **33 of 54** |
+| cited calcs still owing a battery | **15** |
+| tests collected | **238** |
 
 ### Tier histogram, GRUT scope (50 claims)
 

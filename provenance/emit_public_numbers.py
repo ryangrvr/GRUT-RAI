@@ -37,7 +37,7 @@ WAVE_DATE = "2026-08-18"         # bumped at the close of every wave
 # this block changed the number the block asserts. A number-emitter that recurses through its own
 # verifier is not a stable reference. The constant is enforced against a real collection by
 # test_public_numbers.py::test_the_stamped_test_count_is_true, so it cannot silently rot.
-STAMPED_TEST_COUNT = 233
+STAMPED_TEST_COUNT = 238
 
 
 def _load():
@@ -253,7 +253,22 @@ def numbers():
     with open(os.path.join(HERE, "construction_pressure.json")) as f:
         pressure = json.load(f)["occasions"]
 
-    return dict(n_pressure_removals=len(pressure), total=len(cl), n_grut=len(grut), n_cluster=len(cluster),
+    # ---- mutation-battery coverage, EMITTED so it cannot be typed stale -------------------
+    # HOW_TO_VERIFY calls the batteries "guards proven to FAIL on wrong answers". That is a
+    # coverage claim, and it was true of the batteries that RUN rather than of all of them, so
+    # the figures now come from the registry. Plain import, no subprocess.
+    import mutation_registry as _MR
+    _bat = _MR.BATTERIES
+    n_batteries = len(_bat)
+    n_batteries_slow = sum(1 for v in _bat.values() if v.get("slow"))
+    n_mutants_total = sum(len(v["mutants"]) for v in _bat.values())
+    n_mutants_default = sum(len(v["mutants"]) for v in _bat.values() if not v.get("slow"))
+    n_calcs_owed = len(_MR.OWED)
+
+    return dict(n_batteries=n_batteries, n_batteries_slow=n_batteries_slow,
+                n_mutants_total=n_mutants_total, n_mutants_default=n_mutants_default,
+                n_calcs_owed=n_calcs_owed,
+                n_pressure_removals=len(pressure), total=len(cl), n_grut=len(grut), n_cluster=len(cluster),
                 net_grut=net(grut), net_cluster=net(cluster), tiers=tiers,
                 waivers=waivers, waived_total=sum(d for _, d in waivers),
                 n_sources=len(srcs), n_calcs=len(calcs), n_test_files=len(tests),
@@ -291,6 +306,9 @@ def block():
     L.append(f"| primary sources in `sources.json` | **{n['n_sources']}** |")
     L.append(f"| calculation files in `calc/` | **{n['n_calcs']}** |")
     L.append(f"| test files in `provenance/` | **{n['n_test_files']}** |")
+    L.append(f"| mutation batteries | **{n['n_batteries']}** |")
+    L.append(f"| mutants that run by default | **{n['n_mutants_default']} of {n['n_mutants_total']}** |")
+    L.append(f"| cited calcs still owing a battery | **{n['n_calcs_owed']}** |")
     if n["n_tests"] is not None:
         L.append(f"| tests collected | **{n['n_tests']}** |")
     L.append("")
