@@ -12,7 +12,7 @@
 | primary sources in `sources.json` | **85** |
 | calculation files in `calc/` | **29** |
 | test files in `provenance/` | **20** |
-| tests collected | **231** |
+| tests collected | **233** |
 
 ### Tier histogram, GRUT scope (50 claims)
 

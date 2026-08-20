@@ -296,3 +296,52 @@ Filed alongside **verify the referent before the string** and **an exculpatory a
 an instrument's narrow answer inherits the narrowness and none of the doubt.** All three are the
 same failure at different distances: trusting a string, trusting a narrow answer, and trusting a
 record of a narrow answer.
+
+### A working guard wearing a broken label — the mirror, and the exemption that hid it
+
+**Recorded 2026-08-19 alongside the misattributed declaration, because it is the same failure in
+the opposite sign.**
+
+Every earlier instance of this program's recurring shape made something look **better** than it
+was: a defect wearing a "known and pinned" label, a coverage claim the guard did not have, a count
+reported fresh that was stale. This one runs the other way.
+
+`provenance/test_mutation_battery._run()` classifies a mutant as *caught by a check* on the exact
+string `SELFTEST: FAIL`. Three calcs emitted something else — two wrote `SELFTEST FAILED:`, and one
+ended with the prose line *"SOME CHECK FAILED — verdict not established."* In all three the
+mutants were **caught**, by real checks, and were recorded as **incidental crashes**. A working
+battery read as proving nothing.
+
+The oldest of the three had been in that state since the day it was written. Its battery is
+slow-flagged, so it never executed in the default suite, and its *anchor* test passed throughout —
+the guard looked maintained from every angle except the one that mattered.
+
+> **An audit that only hunts over-claim will miss half of this class, because half of it hides
+> working machinery rather than broken machinery.**
+
+**And the guard written to catch it was wrong four times.** It asked for the literal string in the
+source (nine false alarms — those calcs build the marker with an f-string); then for the substring
+`SELFTEST: ` (one more — `print("  SELFTEST:", "FAIL")` emits correctly from source where the
+colon is followed by a quote); then, correctly, for the colon form after normalising string
+punctuation. Each failure was the same shape as the defect it hunted: **asking what the source
+says rather than what the run does.**
+
+The fourth was worse and is the one worth keeping. The guard **exempted** calcs with no
+`SELFTEST` emitter at all, on the assumption they fail via assertion so the harness classifies them
+correctly. The assumption was never checked. The exemption covered a set of size **one**. That one
+was the defect.
+
+> **An exemption carved for a single member is not a rule, it is a hole.**
+
+The standing limit, adopted with it: *a static read of a print statement cannot in general
+determine what it emits.* The authoritative discriminator is the runtime crash-versus-check
+classification that already existed; the static test is a cheap early warning for it and is
+documented as nothing more.
+
+**Outcome, stated as a number rather than as a claim about diligence:** with the three markers
+fixed and the exemption removed, all **54 declared mutants across 14 batteries** execute and are
+caught by checks — 49 minutes under `GRUT_FULL_MUTATION=1`. That is the first run in this
+repository's history in which every declared mutant has actually fired. Before it, **21 of 54
+(39%) had never executed in the default suite**, and 15 further cited calcs sit in `OWED` with no
+battery at all — so *"every cited calc ships a verified battery"* was true of the registry and
+false of what ran.
