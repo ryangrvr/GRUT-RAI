@@ -57,6 +57,24 @@ def _pointer_cases():
     return pointer_leak_cases()
 
 
+def _stale_net_cases():
+    import os
+    import test_doc_sync as T
+    cls = T.TestProseMatchesTheMarker
+    cur = cls('test_no_standing_doc_asserts_a_stale_net')._current_net()
+    out = set()
+    for doc in T.DOCS:
+        path = os.path.join(T.ROOT, doc)
+        if not os.path.exists(path):
+            continue
+        for i, line in enumerate(open(path, encoding="utf-8").read().splitlines(), 1):
+            for m in cls.NET.finditer(line):
+                if int(m.group(1)) == cur or any(c in line for c in cls.HIST):
+                    continue
+                out.add(f"{doc}:{i}")
+    return out
+
+
 def _numeric_cases():
     from test_prereg_immutable import numeric_leak_cases
     return numeric_leak_cases()
@@ -97,6 +115,13 @@ DECLARED = {
             "PREREG_TERMINATION_V3_2026-08-10.txt -> RESULT_KAPPA_2026-08-08.txt "
             ":: a signed numeric range": "P4-TERMINATION-KAPPA-RESULT",
         },
+    },
+    "test_doc_sync.py::TestProseMatchesTheMarker::test_no_standing_doc_asserts_a_stale_net": {
+        "enumerate": _stale_net_cases,
+        "cases": {c: "P6-STALE-NETS-IN-STANDING-DOCS" for c in (
+            "GRUT_II_Agenda.md:7", "GRUT_ToE.md:7", "GRUT_ToE.md:53", "GRUT_ToE.md:172",
+            "GRUT_ToE.md:243", "GRUT_ToE.md:252", "GRUT_ToE.md:253", "README.md:19",
+            "README.md:22", "GRUT_II_What_Survived.md:83")},
     },
     "test_prereg_immutable.py::TestBlindSafe::"
     "test_blind_safe_preregs_carry_no_result_adjacent_numerics": {

@@ -136,3 +136,24 @@ WHY IT IS FILED NOW RATHER THAN LATER -- this is the operational half. The stati
   Recorded in advance so that a blocked edit is not diagnosed as a migration problem and chased in
   the wrong direction.
 CLOSES WHEN: the owner rules on which vocabulary the resident enforces per scope.
+
+---------------------------------------------------------------------------------------------
+PASS P6-STALE-NETS-IN-STANDING-DOCS
+STATUS: OPEN
+OPENED: 2026-08-19
+TITLE: four standing documents assert net +13 as current state
+QUESTION: The owner ordered STATE.md corrected because its headline (+13, 49 nodes) disagreed with
+  its own machine-emitted REGISTER-SYNC marker (+15, 50). STATE.md is corrected. But extending the
+  guard to read PROSE rather than only the marker showed the defect is NOT confined to it: ten
+  lines across FOUR further standing documents -- GRUT_ToE.md (six), README.md (two),
+  GRUT_II_Agenda.md, GRUT_II_What_Survived.md -- assert a stale net as present tense, several
+  alongside stale node counts (45, 49, 70).
+  THE MARKER WAS ALWAYS CHECKED AND THE SENTENCES BESIDE IT NEVER WERE, in every one of these
+  files, which is why the drift is uniform rather than isolated.
+WHY IT IS NOT FIXED HERE: these are public-facing documents. README.md and GRUT_ToE.md are the
+  program's front matter, GRUT_II_What_Survived.md carries a deposit-adjacent summary, and amending
+  them is a wave-governed act rather than a bookkeeping edit. The builder corrected only the file
+  the owner named.
+CLOSES WHEN: the owner rules on whether to amend the four documents, and the amendment lands. The
+  guard test_doc_sync.TestProseMatchesTheMarker stays red until then, declared and pinned rather
+  than suppressed.

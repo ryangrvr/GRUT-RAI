@@ -199,3 +199,54 @@ class TestSpecialistNeverUnqualifiedInPublicDocs(unittest.TestCase):
                       f"GLOSSARY.md must state the LIVE count ({live}); a hard-coded audit figure "
                       f"is how the first run's undercount survived review")
         self.assertIn(f"across {nodes} of {_n['total']} claims", g)
+
+
+class TestProseMatchesTheMarker(unittest.TestCase):
+    """THE MARKER WAS CHECKED AND THE SENTENCES BESIDE IT WERE NOT.
+
+    On 2026-08-19 STATE.md -- the standing snapshot -- opened with "net +13, all seals verify"
+    while its own machine-emitted REGISTER-SYNC marker two lines below said net +15, and 49 nodes
+    against the marker's 50. test_doc_sync verified the COMMENT and never read the PROSE, so a
+    public-facing headline could contradict the instrument sitting in the same file.
+
+    THE RULE, stated as a criterion rather than an exemption list (an exemption carved for a
+    single member is a hole): every "net +N" in a standing doc must either be the register's
+    CURRENT net, or sit on a line carrying an explicit HISTORICAL cue. A sentence that asserts a
+    net with no cue is asserting the present."""
+
+    HIST = ("->", "→", "stayed", "was ", "at that adjudication", "deposit", "History",
+            "as of", "superseded", "Version I", "earlier", "then **+", "first net-ledger move")
+    NET = re.compile(r"net \*{0,2}\+(\d+)")
+
+    def _current_net(self):
+        with open(os.path.join(HERE, "claims.json")) as f:
+            claims = json.load(f)["claims"]
+        return sum(c.get("ledger_delta", 0) for c in claims
+                   if c.get("ledger_scope", "grut") == "grut"
+                   and isinstance(c.get("ledger_delta"), int)
+                   and not isinstance(c.get("ledger_delta"), bool))
+
+    def test_no_standing_doc_asserts_a_stale_net(self):
+        cur = self._current_net()
+        for doc in DOCS:
+            path = os.path.join(ROOT, doc)
+            if not os.path.exists(path):
+                continue
+            for i, line in enumerate(open(path, encoding="utf-8").read().splitlines(), 1):
+                for m in self.NET.finditer(line):
+                    if int(m.group(1)) == cur:
+                        continue
+                    if any(cue in line for cue in self.HIST):
+                        continue
+                    self.fail(f"{doc}:{i} asserts {m.group(0)!r} with no historical cue, but the "
+                              f"register's current net is +{cur}. Either correct the figure or "
+                              f"mark the sentence as history.\n    {line.strip()[:160]}")
+
+    def test_the_rule_would_have_caught_the_2026_08_19_defect(self):
+        """Biting path: the exact sentence that stood in STATE.md for a fortnight."""
+        stale = "The register below is held, not growing: gates green, bank-gate CLEAN, net +13, all seals verify."
+        m = self.NET.search(stale)
+        self.assertIsNotNone(m, "the pattern must match the real sentence")
+        self.assertNotEqual(int(m.group(1)), self._current_net())
+        self.assertFalse(any(cue in stale for cue in self.HIST),
+                         "the offending sentence carries no historical cue, so the rule fires")

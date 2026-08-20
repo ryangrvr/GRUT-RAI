@@ -15,7 +15,7 @@
 | mutation batteries | **14** |
 | mutants that run by default | **33 of 55** |
 | cited calcs still owing a battery | **15** |
-| tests collected | **238** |
+| tests collected | **240** |
 
 ### Tier histogram, GRUT scope (50 claims)
 
