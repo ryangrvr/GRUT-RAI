@@ -225,6 +225,106 @@ def part1b_is_the_escape_REALISED_at_free_level():
 
 
 # ---------------------------------------------------------------------------------------------
+def part1c_the_panel_corrections():
+    """FOUR CORRECTIONS from the adversarial pass of 2026-08-19. All four lenses returned
+    refuted=False -- the adverse conclusion survives -- and all four found something wrong with
+    how it was stated. Two run FAVOURABLE to the framework, one is a real gap in my reasoning, and
+    the fourth relocates the cause of the favourable half entirely.
+
+    (1) THE ZERO SET WAS UNDER-COUNTED, favourably. N ~ w prod_{j=1..l}(w^2 + j^2) carries an
+        overall w, so it vanishes at w = 0 and at the NEGATIVE rungs too: exactly 2l+1 zeros,
+        |n| <= l. So l+1 NON-NEGATIVE rungs cancel (n = 0..l), not l.
+
+    (2) "A IS PROPORTIONAL TO N" IS FALSE AS WRITTEN -- reported independently by two lenses, and
+        it is a genuine gap rather than a wrong number. The identity is
+            A(w) = N(w) psi_reg(x_<;w) psi_reg(x_>;w) / (2i W)
+        and that prefactor is entire of order 1, so it has INFINITELY MANY zeros -- located for
+        l=2 at x=0.9 near w = 6.2564, 10.0118, 13.6229, ... and at x=2.0 near 2.6137, 4.3734, ...,
+        a different set spaced ~pi/x. So A at fixed (x,x') vanishes at infinitely many w that are
+        NOT rungs, and "at no others" is true of N and FALSE of A.
+        THE RUNG CONCLUSION SURVIVES, but only via an argument that was not in my claim: on the
+        imaginary axis w = i kappa the equation is psi'' = (kappa^2 + V) psi with V > 0, so
+        psi_reg leaves the origin positive and stays positive -- no zeros there, so the prefactor
+        adds no rung zeros. I asserted about A what I had proved about N.
+
+    (3) THE ADVERSE CONCLUSION IS STRONGER THAN I STATED. At FIXED l the surviving rungs are the
+        whole infinite tower n = l+1, l+2, ... So there is no single relaxation rate even at fixed
+        multipole, before any sum over l. My phrasing implied the multiplicity came from summing
+        over multipoles; it does not need to.
+
+    (4) AND THE FAVOURABLE HALF IS KINEMATIC, NOT GEOMETRIC -- the most consequential correction.
+        There is an exact sum rule, verified below to 26+ digits:
+
+            sum_{l>=0} (2l+1) A_l(x,x;w)  =  -w sinh^2(x)
+
+        The entire prod(w^2 + j^2) structure CANCELS IDENTICALLY when the multipoles are summed
+        with their natural (2l+1) degeneracy. The l-summed local spectral density is exactly
+        OHMIC and has NO Matsubara-rung zeros at all. So the ladder zeros are a PARTIAL-WAVE
+        THRESHOLD FACTOR -- the de Sitter splitting of the flat-space order-(2l+1) centrifugal
+        zero at w = 0 -- not a property of the physical local response. They survive into the
+        graviton bath SOLELY BECAUSE l = 0 and l = 1 TENSOR HARMONICS DO NOT EXIST.
+        So "the geometry genuinely kills the two slowest rungs" is wrong as filed: TWO MISSING
+        PARTIAL WAVES kill them, and de Sitter does nothing. The effect is real and its cause is
+        kinematic accident, which is a much weaker thing to book.
+
+    AND ONE NEAR-MISS OF MY OWN, recorded because it nearly went the other way: my first attempt
+    to check the sum rule summed to l = 80 at 30 digits and returned 1e16 instead of 1. I was one
+    step from reporting "could not reproduce" against a correct result -- the failure was my own
+    precision (the downward recursion and the double factorials lose everything at that l), not
+    the rule."""
+    print("\nPART 1c -- the adversarial pass: four corrections, two of them favourable")
+    import mpmath as mp
+    mp.mp.dps = 60
+
+    def df(n):
+        return 1 if n <= 0 else n*df(n - 2)
+
+    def Qv(l, w, t):
+        a = {l: mp.mpc(1), l + 1: mp.mpc(0), l + 2: mp.mpc(0)}
+        for k in range(l - 1, -1, -1):
+            a[k] = ((k + 2)*(k + 1)*a[k + 2] + 2j*w*(k + 1)*a[k + 1])/((k - l)*(k + l + 1))
+        return sum(a[k]*t**k for k in range(l + 1))
+
+    def Nv(l, w):
+        p = 2j*w
+        for j in range(1, l + 1):
+            p *= (w*w + j*j)
+        return p/((2*l + 1)*df(2*l - 1)**2)
+
+    def termA(l, x, w):
+        t = mp.coth(x)
+        u = mp.e**(1j*w*x)*Qv(l, w, t) - mp.e**(-1j*w*x)*Qv(l, -w, t)
+        ps = u/Nv(l, w)
+        return -(ps*ps)*Nv(l, w)/(2j)
+
+    # (1) the zero set, including n = 0 and the negative rungs
+    for l in (2, 3):
+        z = [n for n in range(-l - 2, l + 3) if abs(Nv(l, mp.mpc(0, n))) < mp.mpf('1e-30')]
+        check(z == list(range(-l, l + 1)),
+              f"(1) l={l}: N vanishes at n = {z} -- {len(z)} = 2l+1 rungs including n = 0, so "
+              f"l+1 NON-NEGATIVE rungs cancel, not l (I under-counted, favourably)")
+    # (4) the sum rule
+    worst = mp.mpf(0)
+    for x, w in ((mp.mpf('0.8'), mp.mpf('1.3')), (mp.mpf('1.5'), mp.mpc('0.4', '0.9')),
+                 (mp.mpf('0.6'), mp.mpc(0, '2.2')), (mp.mpf('1.2'), mp.mpf('0.35'))):
+        tot = sum(termA(l, x, w) for l in range(0, 31))
+        tgt = -w*mp.sinh(x)**2
+        worst = max(worst, abs(tot - tgt))
+    check(worst < mp.mpf('1e-11'),
+          f"(4) THE SUM RULE: sum_l (2l+1) A_l(x,x;w) = -w sinh^2 x at four (x,w), worst "
+          f"deviation {mp.nstr(worst, 3)} -- the ladder structure CANCELS IDENTICALLY on summing")
+    print("     => the l-summed local spectral density is exactly OHMIC with NO rung zeros.")
+    print("     => the ladder zeros are a PARTIAL-WAVE THRESHOLD FACTOR. They survive into the")
+    print("        graviton bath only because l = 0 and l = 1 tensor harmonics do not exist, so")
+    print("        the favourable half is a KINEMATIC ACCIDENT OF TWO MISSING PARTIAL WAVES, not")
+    print("        something de Sitter or the graviton does. Filed as such, weaker than booked.")
+    print("     (2) 'A is proportional to N' is false as written -- see the docstring; the rung")
+    print("         conclusion survives only via a positivity argument that was not in my claim.")
+    print("     (3) at FIXED l the surviving rungs are the whole infinite tower n >= l+1, so")
+    print("         there is no single rate even before summing over multipoles.")
+
+
+# ---------------------------------------------------------------------------------------------
 def part2_kubo_has_no_ladder():
     """DERIVE C_K(w) = 2 chi''(w)/(beta w) from the definition of the Kubo transform."""
     print("\nPART 2 -- the Kubo-Mori correlation function, derived from its definition")
@@ -425,6 +525,7 @@ def part4_what_this_does_to_the_adverse_filing():
 def main():
     part1_the_escape_route_is_NOT_closed()
     part1b_is_the_escape_REALISED_at_free_level()
+    part1c_the_panel_corrections()
     part2_kubo_has_no_ladder()
     part3_friction_is_temperature_blind()
     part3b_the_register_checked_one_point()
