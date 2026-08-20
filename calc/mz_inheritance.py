@@ -57,24 +57,135 @@ def check(cond, msg):
 
 
 # ---------------------------------------------------------------------------------------------
-def part1_the_escape_route_is_closed():
-    """Does Im K_R vanish at the Matsubara frequencies? For this framework's J it does not."""
-    print("\nPART 1 -- the named escape: zeros of Im K_R at the Matsubara frequencies")
-    w, wc, eta, v = sp.symbols('omega omega_c eta v', positive=True)
-    J = eta*w**3*sp.exp(-(w/wc)**2)
-    Jiv = sp.simplify(J.subs(w, sp.I*v))
-    print(f"     J(w)   = {J}")
-    print(f"     J(i v) = {sp.simplify(Jiv)}")
-    check(sp.simplify(sp.Abs(Jiv)) != 0,
-          "J(i v) is nonzero for every real v > 0 -- the Gaussian factor becomes exp(+v^2/w_c^2), "
-          "which GROWS; nothing vanishes")
-    # a general statement: a J that is a positive power times a nowhere-zero entire factor
-    for s_ in (1, 2, 3, 5):
-        Js = eta*w**s_*sp.exp(-(w/wc)**2)
-        z = sp.simplify(Js.subs(w, sp.I*v))
-        check(sp.simplify(z) != 0, f"s = {s_}: J(i v) != 0, so no cancellation at any rung")
-    print("     => on the SYMMETRISED route the ladder is inherited: N(w) = J(w) coth(beta w/2)")
-    print("        keeps every pole of coth. The escape the owner named is closed for this J.")
+def part1_the_escape_route_is_NOT_closed():
+    """RETRACTED AND REPLACED, 2026-08-19, on the owner's counterexample.
+
+    THE FIRST VERSION scanned J = eta w^s exp(-(w/w_c)^2) for s = 1,2,3,5, found J(i v) != 0 every
+    time, and concluded "the escape the owner named is closed for this J". Every evaluation was
+    correct and the conclusion does not follow: THE LOOP VARIED THE EXPONENT AND HELD THE
+    FUNCTIONAL FORM FIXED, and the form is the only thing that matters. A positive power times a
+    nowhere-vanishing entire factor cannot have zeros off the origin -- true BY CONSTRUCTION OF
+    THE FAMILY, not as a fact about de Sitter.
+
+    AND IT IS THE SAME FAILURE THIS FILE DIAGNOSES TWO PARTS LATER. PART 3b convicts the June
+    analyticity argument of checking omega = 0 -- the one point where cancellation was possible --
+    and concluding about the rungs. PART 1 checked a family where cancellation was IMPOSSIBLE by
+    construction and concluded about the general case. Both are sampling-region failures; they
+    point in opposite directions; and the second was written into this file by the same hand that
+    wrote the first up as a lesson, in the same file, in the same wave.
+
+    THE COUNTEREXAMPLE, in this file's own idiom, cutoff and all:
+
+        A(w) = eta w^2 tanh(pi w / H) exp(-(w/w_c)^2)
+
+    odd, positive for w > 0 (so passive / Herglotz-admissible on the line), Gaussian cutoff intact,
+    A -> pi eta w^3 / H in the infrared (super-Ohmic s = 3, exactly what is booked), and -- since
+    beta = 2 pi / H -- coth(beta w/2) A(w) = eta w^2 exp(-(w/w_c)^2), ENTIRE. Every Matsubara pole
+    is gone. An admissible spectral function executes the escape completely.
+
+    THE UNDECLARED ASSUMPTION, now declared: power-law-times-cutoff is the FLAT-SPACE thermal-bath
+    idiom, where T is an external parameter and nothing would produce a tanh(beta w/2) factor. In
+    de Sitter T = H/2pi and the dynamics both descend from H, so A is a function of w/H and the
+    reflection formula Gamma(z)Gamma(1-z) = pi/sin(pi z) generates exactly sinh/cosh structure in
+    pi w / H. The escape is not exotic here. Whether it is REALISED is PART 1b's question."""
+    print("\nPART 1 -- RETRACTED: the escape route is NOT closed by the scan that was here")
+    import mpmath as mp
+    mp.mp.dps = 30
+    M = mp.mpf
+    H, wc = M(1), M(30)
+    A = lambda w: w**2*mp.tanh(mp.pi*w/H)*mp.e**(-(w/wc)**2)
+    check(all(abs(A(-M(v)) + A(M(v))) < M('1e-25') for v in ('0.7', '2.3')),
+          "the counterexample A = w^2 tanh(pi w/H) exp(-(w/w_c)^2) is ODD")
+    check(all(A(M(v)) > 0 for v in ('0.3', '1', '4')),
+          "positive for w > 0 -- passive, admissible on the real line")
+    check(abs(A(M('0.003'))/M('0.003')**3 - mp.pi/H) < M('1e-4'),
+          f"super-Ohmic s = 3 in the IR: A/w^3 -> {mp.nstr(A(M('0.003'))/M('0.003')**3, 8)} "
+          f"= pi/H")
+    check(all(abs(A(mp.mpc(0, n))) < M('1e-25') for n in (1, 2, 3, 7)),
+          "and it VANISHES at w = i n H for n = 1,2,3,7 -- on the whole ladder")
+    Nf = lambda w: w**2*mp.e**(-(w/wc)**2)
+    check(max(abs(A(M(v))/mp.tanh(mp.pi*M(v)/H) - Nf(M(v))) for v in ('0.4', '1.5', '6'))
+          < M('1e-25'),
+          "so coth(beta w/2) A(w) = w^2 exp(-(w/w_c)^2) EXACTLY: entire, no Matsubara pole")
+    print("     => the escape is CONSISTENT with passivity, with super-Ohmic scaling and with the")
+    print("        Herglotz representation. It is not structurally impossible, and the earlier")
+    print("        scan could not have found this because tanh is not in the family it varied.")
+
+
+# ---------------------------------------------------------------------------------------------
+def part1b_is_the_escape_REALISED_at_free_level():
+    """THE DECISIVE EVALUATION, done from this repository's own exact c = 0 solution rather than
+    from a Gamma-ratio taken on report.
+
+    G_R(x,x') = psi_reg(x_<) u_+(x_>) / W, and A(w) = [G_R(w) - G_R(-w)]/2i is the analytic
+    continuation of Im G_R. Three facts, each checked numerically below, collapse it:
+        u_+(-w) = u_-(w) exactly;  psi_reg (canonically ~ x^{l+1}) is EVEN in w;
+        W[psi_reg, u_+] = -(2l+1), independent of w.
+    Hence A(w) is proportional to u_+ - u_- = N(w) psi_reg, and A's w-zeros ARE N's:
+
+        N(w) = 2 i w prod_{j=1..l} (w^2 + j^2 H^2) / c_l
+
+    SO THE FREE SPECTRAL FUNCTION VANISHES AT THE FIRST l RUNGS AND AT NO OTHERS. The escape needs
+    zeros at EVERY rung. At fixed l it gets exactly l of them, and is NONZERO at every n > l.
+    Summing over l with its (2l+1) degeneracy does not help: at rung n the terms with l >= n
+    vanish and the terms with l < n do not, so the total is nonzero at every rung.
+
+    THE ANSWER IS THEREFORE: PARTIALLY, AND NOT ENOUGH. The mechanism the owner identified is
+    real -- the geometry does put spectral zeros on the Matsubara ladder, at spacing exactly H --
+    but it truncates at l. Note the SAME finite set already appeared in an independent object:
+    calc/static_patch_tt_response.py PART 3c's Blaschke amplitude has zeros at w = -i j H for
+    j = 1..l. Two different objects, one truncated ladder.
+
+    WHAT THIS DOES TO rung3: the escape has no free-level realisation, so it would require the
+    interacting Sigma to manufacture zeros at every n > l where the free theory has none. That is
+    a much heavier lift than preserving zeros that are already there, and it is the outcome
+    adverse to single-pole."""
+    print("\nPART 1b -- is the escape REALISED at free level? (exact c = 0 solution)")
+    import mpmath as mp
+    mp.mp.dps = 30
+    xs, ws, tsym = sp.symbols('x omega t')
+
+    def Qp(l, wsym):
+        co = [sp.Symbol(f'q{i}') for i in range(l)]
+        P = tsym**l + sum(co[i]*tsym**i for i in range(l))
+        eq = sp.expand((tsym**2 - 1)*sp.diff(P, tsym, 2)
+                       + 2*(tsym - sp.I*wsym)*sp.diff(P, tsym) - l*(l+1)*P)
+        return sp.expand(P.subs(sp.solve(sp.Poly(eq, tsym).all_coeffs(), co, dict=True)[0]))
+
+    for l in (1, 2, 3):
+        ups = sp.exp(sp.I*ws*xs)*Qp(l, ws).subs(tsym, sp.coth(xs))
+        ums = sp.exp(-sp.I*ws*xs)*Qp(l, -ws).subs(tsym, sp.coth(xs))
+        up = sp.lambdify((xs, ws), ups, 'mpmath')
+        um = sp.lambdify((xs, ws), ums, 'mpmath')
+        Nsym = sp.simplify(sp.expand(sp.series(sp.simplify(ups - ums), xs, 0, l + 2)
+                                     .removeO()).coeff(xs, l + 1))
+        Nl = sp.lambdify(ws, Nsym, 'mpmath')
+        par = max(abs(up(mp.mpf(a), -mp.mpf(b)) - um(mp.mpf(a), mp.mpf(b)))
+                  for a, b in (('0.7', '0.4'), ('1.3', '2.1')))
+        d = mp.mpf('1e-10')
+        psi = lambda x, w: (up(x, w) - um(x, w))/Nl(w)
+        Wr = []
+        for a, b in (('0.6', '0.5'), ('1.1', '2.7'), ('2.0', '0.2')):
+            x, w = mp.mpf(a), mp.mpf(b)
+            dpsi = (psi(x + d, w) - psi(x - d, w))/(2*d)
+            dup = (up(x + d, w) - up(x - d, w))/(2*d)
+            Wr.append(psi(x, w)*dup - dpsi*up(x, w))
+        check(par < mp.mpf('1e-20'), f"l={l}: u_+(-w) = u_-(w) exactly (dev {mp.nstr(par, 3)})")
+        check(all(abs(v + (2*l + 1)) < mp.mpf('1e-15') for v in Wr),
+              f"l={l}: W[psi_canonical, u_+] = -(2l+1) = {-(2*l+1)} at three (x, w) -- "
+              f"w-INDEPENDENT, so A is proportional to N(w)")
+        zeros = [n for n in range(1, l + 3) if abs(Nl(mp.mpc(0, n))) < mp.mpf('1e-20')]
+        nonz = [n for n in range(1, l + 3) if abs(Nl(mp.mpc(0, n))) >= mp.mpf('1e-20')]
+        check(zeros == list(range(1, l + 1)) and nonz,
+              f"l={l}: N = {sp.factor(Nsym)} -> A VANISHES at rungs n = {zeros} and is "
+              f"NONZERO at n = {nonz}")
+    print("\n     ANSWER: PARTIALLY, AND NOT ENOUGH. The free spectral function carries ladder")
+    print("     zeros at spacing exactly H -- the geometry really does produce them -- but only")
+    print("     the FIRST l of them per angular momentum, and none beyond. The escape requires")
+    print("     all of them. Summing over l cannot repair it: at rung n the l >= n terms vanish")
+    print("     and the l < n terms do not.")
+    print("     => the escape has NO FREE-LEVEL REALISATION, and Sigma would have to manufacture")
+    print("        zeros where the free theory has none. That is the outcome adverse to rung3.")
 
 
 # ---------------------------------------------------------------------------------------------
@@ -240,6 +351,22 @@ def part3b_the_register_checked_one_point():
 # ---------------------------------------------------------------------------------------------
 def part4_what_this_does_to_the_adverse_filing():
     print("\nPART 4 -- what this does to the 2026-08-19 adverse filing")
+    print("\n     FIRST, A TENSION IN THE RECORD, ADJUDICATED RATHER THAN LEFT STANDING (owner):")
+    print("     On 2026-08-19 the convention-narrowing was WITHDRAWN, on the ground that rung3's")
+    print("     own June check runs on S = J coth and therefore identifies its kernel. PART 2")
+    print("     then says inheritance DEPENDS on the convention. As filed those contradict.")
+    print("     THEY ARE BOTH RIGHT ABOUT DIFFERENT OBJECTS, and that is the finding:")
+    print("       - June's robustness check examines the SYMMETRISED spectrum S = J coth;")
+    print("       - the Mori-Zwanzig projection conventionally uses the KUBO-MORI correlation;")
+    print("       - rung3's STATEMENT names 'the Mori-Zwanzig kernel' while its own supporting")
+    print("         argument examines the symmetrised one.")
+    print("     So the node is not merely under-specified: IT IS INTERNALLY INCONSISTENT -- its")
+    print("     claim and its evidence are about two different correlation functions. That is a")
+    print("     stronger defect than the one recorded, and it is recorded here as such.")
+    print("     PART 1b MAKES IT PARTLY MOOT IN THE ADVERSE DIRECTION: at free level the escape")
+    print("     is unrealised on EITHER reading, because the spectral function carries only l")
+    print("     ladder zeros. The convention decides how the ladder bears on the kernel; it does")
+    print("     not decide whether the escape exists, and free-level it does not.")
     print("     THE FILING SAID: the finite-T noise kernel carries a Matsubara ladder at spacing H,")
     print("       the leading rung carries 6.1% at Ht = 1, and whether the projected memory kernel")
     print("       inherits it was the open step.")
@@ -260,7 +387,8 @@ def part4_what_this_does_to_the_adverse_filing():
 
 
 def main():
-    part1_the_escape_route_is_closed()
+    part1_the_escape_route_is_NOT_closed()
+    part1b_is_the_escape_REALISED_at_free_level()
     part2_kubo_has_no_ladder()
     part3_friction_is_temperature_blind()
     part3b_the_register_checked_one_point()

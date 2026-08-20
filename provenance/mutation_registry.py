@@ -81,6 +81,16 @@ BATTERIES = {
     "mz_inheritance.py": {
         "slow": True,
         "mutants": [
+            ("ingoing_jost_built_with_the_wrong_sign",
+             "ums = sp.exp(-sp.I*ws*xs)*Qp(l, -ws).subs(tsym, sp.coth(xs))",
+             "ums = sp.exp(-sp.I*ws*xs)*Qp(l, ws).subs(tsym, sp.coth(xs))",
+             "builds the INGOING Jost solution from Q_l(+w) instead of Q_l(-w), so u_+ - u_- is "
+             "no longer the regular solution and the spectral normalisation N(w) loses its "
+             "factorised form. PART 1b then reports the free spectral function vanishing at NO "
+             "rung at all -- an answer even more adverse to rung3 than the true one, which is why "
+             "it has to be caught: a battery must reject a wrong answer that happens to point the "
+             "way the analyst already believes. (A first attempt at this mutant perturbed the "
+             "Taylor index instead and merely CRASHED on a zero divisor, proving nothing.)"),
             ("kubo_weight_halved_exponent",
              "    weight = sp.simplify(sp.integrate(sp.exp(-w*lam), (lam, 0, beta))/beta)",
              "    weight = sp.simplify(sp.integrate(sp.exp(-w*lam/2), (lam, 0, beta))/beta)",

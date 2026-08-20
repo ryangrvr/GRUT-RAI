@@ -13,7 +13,7 @@
 | calculation files in `calc/` | **29** |
 | test files in `provenance/` | **21** |
 | mutation batteries | **14** |
-| mutants that run by default | **33 of 54** |
+| mutants that run by default | **33 of 55** |
 | cited calcs still owing a battery | **15** |
 | tests collected | **238** |
 
