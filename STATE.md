@@ -1,5 +1,9 @@
 # GRUT — STATE (standing snapshot)
 
+> **STAGE CLOSED 2026-08-19** (owner's direction) — see `STAGE_CLOSE_2026-08-19.md` for this
+> stage's verified state, what it did, and the seven adjudications plus the bank gate that
+> remain with the owner. The previous boundary follows.
+>
 > **STAGE CLOSED 2026-08-09** (owner decision) — see `STAGE_CLOSE_2026-08-09.md` for the forest-level state, what was and was not done, and the two owner acts that remain. **[2026-08-10: the second act is DONE — the termination condition was SIGNED (v4, `f4bc613c…`, one page, gate-passed) and is IN FORCE; the signing entry and its three-part seam disclosure are in the companion event log. The remaining owner act is the dispatch send (under v4 no C1 window exists -- silence is still-open, unbounded; the only clock is the stop clock).]** The register below is **no longer held**: it grew on 2026-08-18 (`background_time_translation_flow`, +1) and carries substantive edits awaiting the firewall. Gates green, **bank-gate FLAG-FOR-FIREWALL** (three text-only edits to `rung3` plus the two flags standing since 2026-08-18), **net +15**, all seals verify. The plain-language account is `GRUT_V1_PLAIN.md`.
 
 
