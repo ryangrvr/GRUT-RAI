@@ -28,6 +28,16 @@ yet carry a battery. The test asserts OWED only ever SHRINKS -- a calc may be re
 without one.
 """
 
+# *** THE CRASH-VERSUS-CHECK DISTINCTION -- fourth instance, so it gets its own line. ***
+# A mutant that makes the calc CRASH proves nothing. Only a mutant REJECTED BY A CHECK shows the
+# guard works, and test_mutation_battery enforces that separately from "did it fail". Four
+# separate mutants have now been re-anchored for dying incidentally rather than being caught:
+# a coth-residue probe that landed on another pole and divided by zero; a Taylor-index shift that
+# zeroed a divisor; and two calcs whose checks fired but whose verdict string the harness could
+# not recognise, so working batteries were recorded as crashes. WHEN WRITING A MUTANT, aim for a
+# WRONG FINITE ANSWER, not for breakage -- and prefer the wrong answer that flatters the result
+# you expect, because that is the one a guard is least likely to be built to reject.
+
 # --------------------------------------------------------------------------- the batteries
 # Each entry: calc file -> list of mutants. A mutant is (name, find, replace, why).
 # `why` states WHAT WRONG ANSWER the mutant installs -- so the battery reads as a pre-registration

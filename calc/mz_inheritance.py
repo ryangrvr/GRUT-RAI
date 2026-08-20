@@ -152,7 +152,7 @@ def part1b_is_the_escape_REALISED_at_free_level():
                        + 2*(tsym - sp.I*wsym)*sp.diff(P, tsym) - l*(l+1)*P)
         return sp.expand(P.subs(sp.solve(sp.Poly(eq, tsym).all_coeffs(), co, dict=True)[0]))
 
-    for l in (1, 2, 3):
+    for l in (2, 3, 4):          # PHYSICAL MULTIPOLES ONLY -- the graviton has no l < 2
         ups = sp.exp(sp.I*ws*xs)*Qp(l, ws).subs(tsym, sp.coth(xs))
         ums = sp.exp(-sp.I*ws*xs)*Qp(l, -ws).subs(tsym, sp.coth(xs))
         up = sp.lambdify((xs, ws), ups, 'mpmath')
@@ -179,6 +179,42 @@ def part1b_is_the_escape_REALISED_at_free_level():
         check(zeros == list(range(1, l + 1)) and nonz,
               f"l={l}: N = {sp.factor(Nsym)} -> A VANISHES at rungs n = {zeros} and is "
               f"NONZERO at n = {nonz}")
+    print("\n     *** THE PHYSICAL MULTIPOLE RANGE, corrected 2026-08-19 (owner). The graviton has")
+    print("     NO l = 0 and NO l = 1 -- those carry mass and angular momentum and are not")
+    print("     dynamical -- so every physical multipole has l >= 2. An earlier version of this")
+    print("     part tabulated l = 1, which is not a graviton mode. ***")
+    print("\n     THE CORRECTION, FILED FIRST BECAUSE THE FAVOURABLE HALF IS THE QUOTABLE ONE:")
+    print("       A_l vanishes at n = 1..l, so the SLOWEST SURVIVING RUNG IS (l+1)H.")
+    print("       The free-level memory time is therefore 1/(3H), NOT 1/H. Every statement in")
+    print("       this repository reading 'slowest rung exactly H' or 'memory time 1/H' is about")
+    print("       a ladder that includes modes the graviton does not have.")
+    print("       AND IT IS MULTIPOLE-DEPENDENT: 3H for l=2, 4H for l=3, (l+1)H generally.")
+    print("       rung3 asserts THE memory time. The free theory supplies a FAMILY indexed by")
+    print("       multipole, so there is no single rate for a single pole to be -- which is a")
+    print("       stronger objection than any share arithmetic: the approximation is not poor,")
+    print("       THE OBJECT IT APPROXIMATES IS NOT THERE.")
+    print("\n     THE FAVOURABLE HALF, real and worth booking: because every physical l >= 2,")
+    print("     RUNGS n = 1 AND n = 2 VANISH FOR EVERY PHYSICAL MULTIPOLE. The escape mechanism")
+    print("     is genuine and it kills the two slowest rungs universally -- the ones that govern")
+    print("     late-time memory. That is the first structural result in this fortnight that runs")
+    print("     the framework's way.")
+    print("\n     leading-surviving-rung share (weights |A_l| on the ladder, no cutoff):")
+    import math as _m
+
+    def _w(l, n):
+        p = n
+        for j in range(1, l + 1):
+            p *= abs(j*j - n*n)
+        return p
+    print(f"       {'Ht':>5} " + "".join(f"{'l=' + str(l):>9}" for l in (2, 3, 4)))
+    for Ht in (1.0, 2.0, 3.0):
+        row = f"       {Ht:>5.1f} "
+        for l in (2, 3, 4):
+            tot = sum(_w(l, n)*_m.exp(-n*Ht) for n in range(l + 1, l + 400))
+            row += f"{_w(l, l + 1)*_m.exp(-(l + 1)*Ht)/tot*100:8.1f}%"
+        print(row)
+    print("       -- 6.4% at l=2 and Ht=1, and the share FALLS with l: higher multipoles are")
+    print("       WORSE, not better. Indicative: the weighting is |A_l| with no cutoff.")
     print("\n     ANSWER: PARTIALLY, AND NOT ENOUGH. The free spectral function carries ladder")
     print("     zeros at spacing exactly H -- the geometry really does produce them -- but only")
     print("     the FIRST l of them per angular momentum, and none beyond. The escape requires")
