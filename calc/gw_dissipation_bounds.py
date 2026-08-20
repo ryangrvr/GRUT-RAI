@@ -45,6 +45,13 @@ def chi_mag(omega, q, omega_c=OMEGA_P, alpha=ALPHA_G):
     Im[chi] ~ alpha (omega/omega_c)^q  (super-Ohmic dissipation; q=s-1, s=3 -> q=2; thermal
     s_eff=2 reading -> q=1). Re[chi] is the Kramers-Kronig partner, SAME order for a power-law
     spectrum with a smooth cutoff, so we use |Re[chi]| ~ |Im[chi]| for an order-of-magnitude.
+
+    SCOPE FENCE ADDED 2026-08-20. The |Re| ~ |Im| step is true FOR THIS POWER-LAW BRANCH and is
+    FALSE for a far-IR Lorentzian tail, where Im/Re = omega*tau -> 6.3e20 at 100 Hz for
+    tau_2 ~ 1/H0. The old text let that step be read as general, which is what licensed the
+    "fractional amplitude loss: same order" line below. Everything this function returns is the
+    power-law branch and is unaffected; the amplitude channel of a second, IR pole is NOT
+    covered by it. See the REGIME CHECK block for what that does and does not change.
     """
     return alpha * (omega / omega_c) ** q
 
@@ -64,10 +71,43 @@ KRAMERS-KRONIG / COUPLING (stated explicitly):
   For Im[chi] ~ omega^q with a smooth UV cutoff omega_c, Re[chi] is the same order at omega<<omega_c.
   GW dispersion: omega^2 = c^2 k^2 (1 + chi(omega)) => k = (omega/c)(1 - chi/2),
     phase shift vs GR (v=c):  Dphi = (omega/c)(Re[chi]/2) D
-    fractional amplitude loss: same order, (omega/c)(Im[chi]/2) D
+    fractional amplitude loss: (omega/c)(Im[chi]/2) D -- "same order" as the phase holds ONLY
+      on the single-pole power-law branch; it is FALSE once a second (IR) pole is present,
+      where Im/Re = omega*tau_2 ~ 6e20 at 100 Hz. See the REGIME CHECK block below.
     speed offset:             |v_g - c|/c ~ |Re[chi]|/2.
-  Regime check: LIGO omega ~ 6e2-6e3 rad/s >> H0 ~ 1e-18, so propagation sees the UV-cutoff
-  (tau_c) pole; the IR horizon pole (tau_2 ~ 1/H0) is invisible here -- correct Im[chi] used.
+  REGIME CHECK -- CORRECTED 2026-08-20. The previous text read: "LIGO omega ~ 6e2-6e3 rad/s
+  >> H0 ~ 1e-18, so propagation sees the UV-cutoff (tau_c) pole; the IR horizon pole
+  (tau_2 ~ 1/H0) is invisible here -- correct Im[chi] used." THAT SENTENCE IS FALSE for Im[chi].
+  A Lorentzian pole does not switch off above its own frequency. For the two-scale kernel this
+  register itself books, chi = A/(1 - i w tau_c) + B/(1 - i w tau_2),
+      Im chi_UV ~ A*w*tau_c        (RISING with w)
+      Im chi_IR ~ B/(w*tau_2)      (FALLING with w, but nonzero)
+  so the two cross at the GEOMETRIC MEAN w_x = sqrt((B/A)*w_c*H0), not at w ~ H0. With this
+  corpus's own w_c = 1e40*H0 and B/A = 0.4, w_x ~ 63 rad/s (~10 Hz) -- INSIDE the LIGO band,
+  where Im chi_IR / Im chi_UV = 1.0e-2 at 100 Hz. With the Planck cutoff instead, w_x ~ 4e12
+  rad/s. The crossover moves ~10 orders on an UNPINNED constant (three in-corpus values of w_c
+  span 39.6 orders) -- that adjudication is owed and it is load-bearing here.
+
+  WHAT THIS CHANGES, AND WHAT IT DOES NOT.
+   - The Dphi numbers below are computed from Re[chi] on the power-law branch. They are
+     UNAFFECTED. The IR pole's Re part is B/(1 + (w*tau_2)^2), which IS negligible at LIGO
+     frequencies, so rung4's filed "22-62 orders below" stands AS A DEPHASING STATEMENT.
+   - What the false sentence licensed was the "fractional amplitude loss: same order" step. It
+     is not the same order once a second pole is present, and the amplitude channel is
+     therefore NOT covered by anything computed in this file.
+
+  THE UNCOVERED CHANNEL, stated so it is not mistaken for a result. The IR pole contributes
+  ACHROMATIC friction Gamma = B*H0/2. Achromatic means it is degenerate with the coalescence
+  phase, so the matched-filter dephasing test below is blind to it BY CONSTRUCTION; it would
+  appear instead in standard-siren AMPLITUDE. At B = 0.4 that is 0.2*H0 -- inside the
+  |Gamma_T| <~ few x H0 slot bound this program already quotes (SIGNATURE_AUDIT.md:62), not
+  22-62 orders below it. NOT SETTLED EITHER WAY HERE, and two reasons why: B is a STAKED
+  illustrative amplitude whose own source file disclaims the form (wz_dark_energy.py:18-25),
+  and the conformalon rate leg would put B ~ 2.4e-4, which returns the channel to invisibility.
+  The forward calculation that settles it is calc/gw_tensor_friction.py -- specified at
+  SIGNATURE_AUDIT.md:68 and DOES NOT EXIST. Until it runs, do not amend the 22-62 orders
+  downstream; mark it CONDITIONAL on the sector question (does the tau_2 pole appear in P^TT
+  at all, or only in the scalar channel p_tt_ansatz excludes?).
 """)
 
     for q in (1, 2):
@@ -137,7 +177,7 @@ KRAMERS-KRONIG / COUPLING (stated explicitly):
     print("""\
   OUTCOME (B): BOUNDABLE-IN-PRINCIPLE-BUT-TINY. The dissipative effect is REAL (Im[chi]!=0,
   v_g != c, frequency-dependent damping -- qualitatively absent in lossless GR), but for a
-  Planck-cutoff vacuum it is ~10^22 (q=1) to ~10^62 (q=2) orders of magnitude below LIGO
+  Planck-cutoff vacuum it is a factor ~10^22 (q=1) to ~10^62 (q=2) below LIGO
   phase sensitivity, and ~26-66 orders below even the GW170817 speed bound. GW dissipation is
   NOT a usable differentiator with current (or any foreseeable) detectors. The GW170817 speed
   bound is satisfied trivially -- it is not binding because the effect is far beneath it.

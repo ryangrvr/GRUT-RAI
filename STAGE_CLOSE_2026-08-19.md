@@ -117,3 +117,40 @@ away.
 committed here so it is not lost. **It banks nothing, is not a claim, and is outside this stage's
 verified work**; it is recorded, not endorsed, and the builder did not author or review it as part
 of this stage.
+
+---
+
+## Addendum, 2026-08-20 — a wave landed after the close
+
+The close above recorded a clean working tree. It is no longer accurate: a post-close wave arrived
+and is committed alongside this addendum. **The register is still untouched** — `claims.json` is
+byte-identical to its state at the close, and every register-touching item from that wave is
+*drafted, not applied*, in `handover/REGISTER_EDITS_DRAFT_2026-08-20.md` for the bank gate.
+
+**Applied (calc and prose layer only):** a corrected regime check and KK scope fence in
+`calc/gw_dissipation_bounds.py`; a units slip (`10^22..10^62` where the field means the *exponent*)
+repaired at seven sites including inside `provenance/harness.py`, which is gate machinery; and a
+retraction in `PRIMITIVE_INVERSION_SCOPE.md` §9 of a Matsubara conjecture that failed on four
+independent counts.
+
+**Verified at commit, by re-running rather than by report:** `validate.py` PASS · the calc still
+runs · all five currency legs clean · `expected_red.py` exit 0 with the identical 5 declared reds at
+21 cases and no new red — which also confirms the P6 declarations, pinned by line number, survived
+in-line edits to `README.md` and `GRUT_ToE.md`.
+
+**Outstanding is unchanged and still the owner's**, now with six drafted register edits added to it.
+Two of those are flagged as more than bookkeeping: **pinning ω_c** (two passes computed the same
+crossover and got 10 Hz versus 0.64 THz purely from choosing different cutoffs — a 10-order swing
+that decides whether the effect sits inside the LIGO band), and the **`rung7_wz` +2/+3 discrepancy**,
+which touches the net and only the owner can rule on.
+
+**And one item now outranks everything queued, because it bears on results filed during this stage.**
+`rung3`'s ladder rate is per static-patch Killing time; `rung7`'s τ₂ ~ 1/H₀ is FRW cosmic time; the
+conformalon's shortfall is in the e-folding clock. Every *"Ht ≈ 1 versus Ht ≳ 4.3"* comparison filed
+into `rung3` this stage compares two clocks without checking they are the same one. They coincide on
+the r = 0 worldline; w(z) is not an origin-worldline quantity. The register has **no vocabulary for
+the distinction** — `foliat`, `cosmic time` and `proper time` return zero occurrences across every
+field — which is why it went uncaught, and it was pre-registered as Q2(e) and lost twice. Recomputing
+both rates in one coordinate either strengthens the stage's central adverse finding by surviving a
+check nobody ran, or shows it to be a coordinate artifact. Both outcomes are worth more than
+anything else on the board.

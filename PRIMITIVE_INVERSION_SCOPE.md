@@ -174,27 +174,49 @@ Both declines were locally correct. Neither adjudicates §1. Recording this patt
 criticism of either ruling — it is the observation that a node-by-node audit cannot see a question
 that was never any one node's.
 
-## 9. One same-day checkable, offered separately from the above
+## 9. RETRACTED 2026-08-20 — the Matsubara coincidence was numerology
 
-`static_patch_tt_response.py` (A) reports ω_{n,l}/H = −i[l + 2n + (3∓√(1−4c))/2], and (C) derives
-c = 0 for the graviton's own potential. At c = 0 the bracket is an **integer**, so the poles sit at
-ω = −i m H.
+*This section originally offered a "same-day checkable": that `static_patch_tt_response.py`'s
+c = 0 pole set at omega = -i m H coincides with the Matsubara ladder of the Gibbons-Hawking
+temperature T = H/2pi, and that if real it would mean result (D) reads a **thermal** structure of
+the state as a **bath-structural** one — with the flattering gloss that this would be "a direct
+fingerprint of the modular flow in an object this program computed for unrelated reasons."*
 
-The Matsubara ladder for the Gibbons–Hawking temperature T = H/2π is ω_m = −i·2πmT = −i m H.
-**These coincide.**
+**It was tested and it is refuted.** It fails on four elementary counts before reaching the
+Euclidean-vs-retarded objection that was flagged here in advance:
 
-If that is not a coincidence, result (D) — "infinitely many poles, so single-pole is in trouble" —
-may be reading a **thermal** structure of the state as a **bath-structural** one, which is a
-materially different verdict for `rung3`. It would also be a direct fingerprint of the modular flow
-in an object this program computed for unrelated reasons.
+1. **Support.** Rungs m = 0, 1, 2 have no candidate at any physical multipole l >= 2. The candidate
+   set is a proper subset of the ladder; the sets are not equal. (The register reached the same
+   arithmetic from the opposite direction — "rungs 1 and 2 die for every physical multipole",
+   commit `deacfb9`.)
+2. **Sign.** coth is odd, so the ladder is symmetric under m -> -m. The candidate set is
+   lower-half-plane only.
+3. **Multiplicity.** The ladder has uniform simple poles at constant residue 2T = H/pi. The
+   candidate set carries degeneracy growing as m - 2.
+4. **Cause.** The integer bracket holds iff sqrt(1-4c) is an odd integer — c-SELECTIVE — while
+   beta = 2pi/H is c-independent. A thermal cause cannot be c-selective, so the temperature is not
+   what puts the set on the integers.
 
-**Held at conjecture-grade, deliberately.** Two blockers before it is worth anything: PART 3b has
-**retracted** the quasinormal reading of those frequencies ("the boundary-condition check tested the
-wrong thing"), so their status is currently conditional; and Matsubara poles are a property of the
-*Euclidean* correlator, whose relation to the retarded function's analytic structure has to be done
-properly rather than pattern-matched. This is precisely CHARTER §4's **"match temptation"** — a
-number landing near another number — and it is logged here to be scrutinised hardest, not
-celebrated. It is separable from §1 and can be checked or dropped on its own.
+**Then the flagged objection, which is fatal on its own.** Matsubara frequencies are the discrete
+sampling points at which the Euclidean correlator is defined; G_E has no poles there. What
+genuinely has poles at omega = i m H is the KMS weight coth(beta*omega/2) — a property of THE
+STATE, present for every J and every regulator. A retarded pole is a property of THE DYNAMICS and
+must lie in the lower half plane by causality. Different objects. Had the coincidence held it would
+have produced an order-2 pole in the symmetrised noise kernel at every shared rung — a pathology,
+not a fingerprint.
+
+**What is real underneath, and it is the opposite of the conjecture.** At c = 0 the free response's
+special points on the imaginary axis partition exactly at m = l: the response has **zeros** where
+the ladder has rungs (cancelling them for |m| <= l), and where the conjecture placed poles the
+response is pole-free and what sits there is coth's pole — the state, not the graviton.
+
+**Process note, which is the part worth keeping.** This section named both blockers correctly,
+cited CHARTER §4's "match temptation" against itself, and held the claim at conjecture-grade. That
+worked: the caveat was the thing that got it tested rather than banked. But the section ALSO wrote
+the flattering reading beside the caveat, and the flattering reading was wrong on five independent
+counts. The lesson is not "the caveat saved it" — it is that a caveat is not a licence to state the
+attractive version at all. **Nothing here graduates; §1 is untouched by this retraction, which was
+always separable from it.**
 
 ## 10. Cost, and what survives a negative result
 

@@ -18,7 +18,7 @@ nowhere near the GW170817 bound; the bound does not falsify it and is not the bi
 ## The ratio — the answer
 Predicted accumulated dephasing over D_L = 40 Mpc vs the ~0.1 rad detectability threshold:
 
-| q | Im[χ]∼(ω/ω_c)^q | Δφ at 100 Hz | Δφ/threshold | orders too small |
+| q | Im[χ]∼(ω/ω_c)^q | Δφ at 100 Hz | Δφ/threshold | factor too small |
 |---|---|---|---|---|
 | 1 (thermal s_eff=2) | (ω/ω_P)¹ | 4.4×10⁻²³ rad | 4.4×10⁻²² | **~10²²** |
 | 2 (bare s=3) | (ω/ω_P)² | 1.5×10⁻⁶³ rad | 1.5×10⁻⁶² | **~10⁶²** |

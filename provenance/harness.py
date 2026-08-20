@@ -79,7 +79,7 @@ def forward_tidal(kernel):
         sample[omega] = {"storage_Re_chi": c.real, "loss_Im_chi": c.imag}
     # GW-dissipation observability is Planck-suppressed (banked rung4): real but ~10^22-10^62 below.
     return {"derived": True, "rung": "rung4_love_kk", "samples": sample,
-            "gw_dissipation_orders_below_detectable": "1e22..1e62", "note": "real but invisible (Planck-suppressed)"}
+            "gw_dissipation_orders_below_detectable": "22..62", "note": "real but invisible (Planck-suppressed)"}
 
 
 def forward_wz(kernel):

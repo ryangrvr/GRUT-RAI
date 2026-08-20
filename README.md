@@ -100,7 +100,7 @@ date — see `GLOSSARY.md`'s "specialist" entry. The tier was later re-qualified
 regime-conditional and rung3 now stands `derived-pending`; this build-log line is historical.]**
 
 **Rung 4 GW dissipation** (`gw_dissipation_bounds.py`, `calc/RESULTS_gw.md`): outcome **(B)
-real-but-unobservable** — Im[χ] gives GW dephasing/v_g≠c (absent in GR) but ~10²²–10⁶² orders
+real-but-unobservable** — Im[χ] gives GW dephasing/v_g≠c (absent in GR) but ~22–62 orders
 below LIGO; GW170817 speed bound satisfied with 26–66 orders to spare (not binding). Ruled out as
 a second differentiator; the smallness is the same Planck suppression that gives solar-system
 safety, so it does not weaken GRUT.

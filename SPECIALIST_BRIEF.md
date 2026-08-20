@@ -81,7 +81,7 @@ w(z) is no longer a cheap differentiator.
 
 **Setup.** Kramers-Kronig ties the elastic Re[χ] (Love-number response) to a dissipative Im[χ];
 a GW through the vacuum gets Δφ(ω) and v_g(ω) ≠ c. For a Planck-cutoff super-Ohmic vacuum we get
-Im[χ] ∼ (ω/ω_P)^q, q ≥ 1 → predicted Δφ over 40 Mpc is ∼10⁻²³ rad (q=1), **~10²²–10⁶² orders below**
+Im[χ] ∼ (ω/ω_P)^q, q ≥ 1 → predicted Δφ over 40 Mpc is ∼10⁻²³ rad (q=1), **~22–62 orders below**
 LIGO sensitivity; GW170817 |c_gw−c|/c < 10⁻¹⁵ satisfied with 26–66 orders to spare (not binding).
 
 > **Question:** Is the GW dissipative response of a Planck-cutoff super-Ohmic vacuum genuinely

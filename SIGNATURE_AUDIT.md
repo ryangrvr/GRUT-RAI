@@ -10,7 +10,7 @@
 
 | Observable | Register | Verdict | Why |
 |---|---|---|---|
-| **GW dissipation** (Im χ → GW dephasing/attenuation, v_g≠c) | `rung4_love_kk` | **invisible-by-suppression** | real (absent in lossless GR) but ~10²²–10⁶² orders below LIGO sensitivity; GW170817 speed bound satisfied with 26–66 orders to spare. Planck-suppressed, structural. |
+| **GW dissipation** (Im χ → GW dephasing/attenuation, v_g≠c) | `rung4_love_kk` | **invisible-by-suppression** | real (absent in lossless GR) but ~22–62 orders below LIGO sensitivity; GW170817 speed bound satisfied with 26–66 orders to spare. Planck-suppressed, structural. |
 | **Dark-energy w(z)** | `rung7_wz`, `rung7_w2/w3` | **signature-null (sourced = ΛCDM)** | the sourced prediction is w = −1 flat; an evolving w(z) requires an inserted, un-sourced second scale (laundering); no clean DESI match. The wₐ sign is frontier; the no-crossing is a *direction*, not a signature. |
 | **Tabletop decoherence** (energy-basis wedge) | `rung8_falsifier` | **invisible-by-suppression (quiet-or-faint)** | qualitatively distinct from Diósi–Penrose/CSL (energy- vs position-basis), but the dominant diagonal coupling samples S(0)=0 (quiet, Γ=0) and the off-diagonal wedge sits 7–47 orders below detectable. Observability would need tuning the amplitude to the current matter-wave bound. |
 | **Linear cosmology** (μ, Σ growth) | `mu_linear` | **signature-removing (no-go export)** | μ = 1 = ΛCDM; GRUT *forbids* the μ=4/3 modification its own coefficient naively suggests. This *removes* a would-be signature — deflationary, not predictive. |
@@ -32,7 +32,7 @@ No admissible, dedicated, parameter-free signature survives. The forward-model h
 There is exactly **one** observable the audit could not fully close by a dedicated calculation:
 
 - **Black-hole quasinormal modes / ringdown damping.** GRUT's dissipative tidal response (Im χ, `rung4`) is a horizon/tidal dissipation channel that could in principle shift QNM frequencies or ringdown damping times — a place where a *dynamical* (lossy) tidal response differs from GR's conservative one.
-- **Flagged status: invisible-by-inheritance, NOT a dedicated calc.** The expectation is that any such shift inherits `rung4`'s structural Planck-suppression (~the same 10²²⁺ orders below detectable), so it is *expected* invisible — but this is an **inheritance argument, not a computation.** It is the single observable not given its own forward calculation.
+- **Flagged status: invisible-by-inheritance, NOT a dedicated calc.** The expectation is that any such shift inherits `rung4`'s structural Planck-suppression (~the same 22+ orders below detectable), so it is *expected* invisible — but this is an **inheritance argument, not a computation.** It is the single observable not given its own forward calculation.
 - **Honest disposition:** a soft spot, recorded openly. The likely outcome of a dedicated QNM/ringdown calc is "confirms invisible," but until that calc exists, the audit's EMPTY verdict carries this one explicit caveat. This is the natural next empirical thread *if* the program ever wants to convert "signature-null by inheritance" into "signature-null by calculation."
 
 ---
