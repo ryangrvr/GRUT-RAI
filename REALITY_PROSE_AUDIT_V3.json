@@ -1,0 +1,202 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "prose_audit_v3.py"
+  },
+  "phase1": {
+    "discovered": 105,
+    "scanned": 104,
+    "excluded": 1,
+    "unjustified_exclusions": 0,
+    "missing_expected_files": [
+      {
+        "expected": "GRUT_I_II_What_Survived.md",
+        "likely_alternatives": [
+          "GRUT_II_What_Survived.md",
+          "GRUT_I_What_Survived.md"
+        ]
+      }
+    ],
+    "summary_line": "105 audited markdown files; 104 scanned; 1 explicitly excluded; 105 = 104 + 1"
+  },
+  "phase2": {
+    "targets": {
+      "discovered": 100,
+      "searchable": 90,
+      "unsearchable": 10
+    },
+    "unsearchable_list": [
+      {
+        "target": "single-pole",
+        "kind": "semantic-term",
+        "reason": "not a node id; clause inside rung1_inin_action"
+      },
+      {
+        "target": "single pole",
+        "kind": "semantic-term",
+        "reason": "not a node id; clause inside rung1_inin_action"
+      },
+      {
+        "target": "finite-memory",
+        "kind": "semantic-term",
+        "reason": "not a node id; clause inside rung1_inin_action"
+      },
+      {
+        "target": "finite memory",
+        "kind": "semantic-term",
+        "reason": "not a node id; clause inside rung1_inin_action"
+      },
+      {
+        "target": "responsive-medium",
+        "kind": "semantic-term",
+        "reason": "not a node id; clause inside rung1_inin_action"
+      },
+      {
+        "target": "responsive medium",
+        "kind": "semantic-term",
+        "reason": "not a node id; clause inside rung1_inin_action"
+      },
+      {
+        "target": "relaxing",
+        "kind": "semantic-term",
+        "reason": "not a node id; clause inside rung1_inin_action"
+      },
+      {
+        "target": "relaxor",
+        "kind": "semantic-term",
+        "reason": "not a node id; clause inside rung1_inin_action"
+      },
+      {
+        "target": "two-scale",
+        "kind": "semantic-term",
+        "reason": "not a node id; clause inside rung1_inin_action"
+      },
+      {
+        "target": "aliases (short forms)",
+        "kind": "alias",
+        "reason": "no canonical alias-to-id mapping; LOW-confidence only"
+      }
+    ],
+    "high_edges_node_to_files": 658,
+    "low_short_refs": 515,
+    "low_ontology_refs": 428
+  },
+  "phase3": {
+    "split": {
+      "rung1_inin_formalism": {
+        "desc": "SK/FV influence action: K_R + (i/2)N, doubled fields",
+        "tier": "shown",
+        "status": "borrowed"
+      },
+      "rung1_ontology_finite_memory": {
+        "desc": "vacuum IS responsive medium w/ finite single-pole memory",
+        "tier": "stance",
+        "status": "un-derived"
+      }
+    },
+    "ont_vocab_to_target": {
+      "single-pole": "rung1_ontology_finite_memory",
+      "single pole": "rung1_ontology_finite_memory",
+      "finite-memory": "rung1_ontology_finite_memory",
+      "finite memory": "rung1_ontology_finite_memory",
+      "responsive-medium": "rung1_ontology_finite_memory",
+      "responsive medium": "rung1_ontology_finite_memory",
+      "relaxing": "rung1_ontology_finite_memory",
+      "relaxor": "rung1_ontology_finite_memory",
+      "two-scale": "rung1_ontology_finite_memory"
+    },
+    "claims_json_untouched": true,
+    "delta4_allocation": "NOT PROPOSED \u2014 owner adjudication"
+  },
+  "phase5": {
+    "mutants": [
+      {
+        "mutant": "remove-load-bearing-file",
+        "detected": true,
+        "would_exit_nonzero": true,
+        "summary_blocked": true
+      },
+      {
+        "mutant": "rename-file",
+        "detected": true,
+        "would_exit_nonzero": true,
+        "summary_blocked": true
+      },
+      {
+        "mutant": "add-unreferenced-file",
+        "detected": true,
+        "would_exit_nonzero": true,
+        "summary_blocked": true
+      },
+      {
+        "mutant": "duplicate-file",
+        "detected": true,
+        "would_exit_nonzero": true,
+        "summary_blocked": true
+      },
+      {
+        "mutant": "file-with-known-dependency",
+        "detected": true,
+        "would_exit_nonzero": true,
+        "summary_blocked": true
+      },
+      {
+        "mutant": "remove-from-scan-path",
+        "detected": true,
+        "would_exit_nonzero": true,
+        "summary_blocked": true
+      },
+      {
+        "mutant": "reintroduce-filename-typo",
+        "detected": true,
+        "would_exit_nonzero": true,
+        "summary_blocked": true
+      },
+      {
+        "mutant": "only-short-forms-file",
+        "detected": true,
+        "would_exit_nonzero": true,
+        "summary_blocked": true
+      },
+      {
+        "mutant": "only-ontology-refs-file",
+        "detected": true,
+        "would_exit_nonzero": true,
+        "summary_blocked": true
+      }
+    ],
+    "all_blocked": true,
+    "criterion": "non-zero exit + no green summary [V3-2]"
+  },
+  "phase7": {
+    "classification_first": true,
+    "full_corpus_formalism_terms": 221,
+    "full_corpus_ontology_terms": 451,
+    "files_scanned_for_classification": 104,
+    "incumbent_note": "incumbent (6 of 27) computed over 28 files; full corpus is 104; difference reported as finding, not reconciled"
+  },
+  "phase8_gates": [
+    {
+      "gate": "corpus denominator",
+      "established_by": "mechanical os.walk discovery",
+      "self_referential": false
+    },
+    {
+      "gate": "target denominator",
+      "established_by": "register ids + declared schema objects + declared terms/aliases",
+      "self_referential": false
+    },
+    {
+      "gate": "summary equality",
+      "established_by": "invariant S+E=D checked before emission",
+      "self_referential": false
+    },
+    {
+      "gate": "adversarial blocking",
+      "established_by": "mutation of the discovered set itself",
+      "self_referential": true,
+      "flag": "SELF-REFERENTIAL-GATE",
+      "note": "the harness mutates its own discovered list; independent fact = filesystem state. Flagged."
+    }
+  ]
+}
