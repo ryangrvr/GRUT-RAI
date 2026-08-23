@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "prose_extractor.py"
+  },
+  "counts": {
+    "live_edges": 46,
+    "inactive_edges": 1,
+    "negation_edges": 4,
+    "substring_collisions": 0
+  },
+  "top15_blast_prose": [
+    {
+      "id": "background_time_translation_flow",
+      "tier": "assumed",
+      "downstream": 12
+    },
+    {
+      "id": "emergence_chain",
+      "tier": "to-derive",
+      "downstream": 6
+    },
+    {
+      "id": "rung2_kms_gate",
+      "tier": "shown",
+      "downstream": 5
+    },
+    {
+      "id": "passivity_channel_diagonal",
+      "tier": "shown",
+      "downstream": 5
+    },
+    {
+      "id": "kk_static_transfer",
+      "tier": "derived-pending",
+      "downstream": 5
+    },
+    {
+      "id": "vc_universal_metric_coupling",
+      "tier": "postulate",
+      "downstream": 5
+    },
+    {
+      "id": "rung1_inin_action",
+      "tier": "shown",
+      "downstream": 4
+    },
+    {
+      "id": "rung9a_value",
+      "tier": "shown",
+      "downstream": 4
+    },
+    {
+      "id": "l0_r2_exact_unique_breaker",
+      "tier": "to-derive",
+      "downstream": 4
+    },
+    {
+      "id": "l0_r3_payoff_mu_linear",
+      "tier": "to-derive",
+      "downstream": 4
+    },
+    {
+      "id": "rung7_w2_wa_sign",
+      "tier": "to-derive",
+      "downstream": 4
+    },
+    {
+      "id": "x_no_pin_theorem",
+      "tier": "derived-pending",
+      "downstream": 4
+    },
+    {
+      "id": "mu_linear",
+      "tier": "derived-pending",
+      "downstream": 3
+    },
+    {
+      "id": "p_tt_ansatz",
+      "tier": "assumed",
+      "downstream": 3
+    },
+    {
+      "id": "eft_operator_basis",
+      "tier": "to-derive",
+      "downstream": 3
+    }
+  ]
+}
