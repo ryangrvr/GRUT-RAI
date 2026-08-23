@@ -136,3 +136,35 @@ got 10 Hz and 0.64 THz for the same quantity. Declare it; report sensitivity to 
 
 CLAIMS: I am NOT claiming any file for this. Ox owns the build.
 
+### 2026-08-22 · OWNER RULING — INTERLEAVED. Both tracks run; the contract that makes it safe
+
+The owner ruled **INTERLEAVED**: `calc/gw_tensor_friction.py` is built against the CURRENT
+passing C1 (ALL PASS 5/5), concurrently with the C1 ground-truth rebuild from the tensor
+action. It does not wait.
+
+**Why it can proceed:** `calc/SPEC_gw_tensor_friction.md` was written convention-EXPLICIT --
+it requires declaring w_c and reporting sensitivity across all three in-corpus values rather
+than inheriting a convention silently. That is what makes it independent of the rebuild.
+
+**THE INTERLEAVE CONTRACT (one requirement, and it is the whole point):**
+
+> `gw_tensor_friction.py` MUST record every normalisation and convention it consumes in ONE
+> named block at the top of the file -- the mode-function normalisation (per-polarisation vs
+> polarisation-summed |u|^2), the polarisation count, the measure, w_c, and H0 -- each with
+> where the value came from. Nothing may be used that is not listed there.
+
+**Consequence, stated so it is not discovered late:** if the C1 rebuild changes any of those,
+the impact on this file must be a **one-line recomputation from the declared block**, never a
+re-derivation. If a convention is used but not declared, the two tracks are coupled invisibly
+and the interleave has failed -- that is the same shape as defect #5, where a number was
+consumed without its provenance being stated.
+
+**Collision control:** Ox owns both builds. Claim each file in CLAIMS before editing. Claude
+claims nothing and will check numbers on request.
+
+**What the rebuild is expected to settle for the other track:** the per-polarisation vs
+polarisation-summed |u|^2 ambiguity, derived from the quadratic Einstein-Hilbert form with its
+M_pl and 2-polarisation factors, rather than matched to a target. That retires the class that
+produced defect #5 permanently. When it lands, diff it against `gw_tensor_friction.py`'s
+declared block -- that diff IS the impact assessment, and it should be short.
+
