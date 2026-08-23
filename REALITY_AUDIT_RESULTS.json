@@ -1,0 +1,647 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "auditor": "Ox (builder), self-audit; charter sec.7 limitation applies"
+  },
+  "nodes": [
+    {
+      "id": "rung1_inin_action",
+      "tier": "shown",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "DOES-NOT-HOLD",
+      "reason": "finite-memory clause contradicted by 4/7 Class-C outcome branches; tier shown over-states",
+      "blast_radius": 27
+    },
+    {
+      "id": "rung2_kms_gate",
+      "tier": "shown",
+      "type": "FRAMEWORK",
+      "evidence": "BORROWED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "reproduction harness / source-open not yet run for this node",
+      "blast_radius": 20
+    },
+    {
+      "id": "rung3_single_pole",
+      "tier": "derived-pending",
+      "type": "PHYSICAL",
+      "evidence": "DERIVED",
+      "verdict": "HOLDS-NARROWER",
+      "reason": "class-A pair adverse to super-Ohmic premise; free theory gives a FAMILY indexed by multipole, not THE memory time",
+      "blast_radius": 9
+    },
+    {
+      "id": "rung4_love_kk",
+      "tier": "shown",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "HOLDS-NARROWER",
+      "reason": "22-62 orders correct for dephasing only; amplitude channel uncovered",
+      "blast_radius": 3
+    },
+    {
+      "id": "rung5_gr_limit",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "NULL-ASSERTED",
+      "reason": "assumed-tier asserted; null result per ADDED-2",
+      "blast_radius": 4
+    },
+    {
+      "id": "rung6_qm_limit",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 2
+    },
+    {
+      "id": "rung7_wz",
+      "tier": "to-derive",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "+2/+3 statement-vs-ledger discrepancy needs owner adjudication",
+      "blast_radius": 2
+    },
+    {
+      "id": "rung8_falsifier",
+      "tier": "to-derive",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "reproduction harness / source-open not yet run for this node",
+      "blast_radius": 1
+    },
+    {
+      "id": "rung9a_value",
+      "tier": "shown",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 9
+    },
+    {
+      "id": "rung9b_bridge",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "arrow_of_time",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "mu_linear",
+      "tier": "derived-pending",
+      "type": "MATHEMATICAL",
+      "evidence": "DERIVED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 2
+    },
+    {
+      "id": "p_tt_ansatz",
+      "tier": "assumed",
+      "type": "FRAMEWORK",
+      "evidence": "ASSERTED",
+      "verdict": "HOLDS-NARROWER",
+      "reason": "TT-only choice is CHOSEN not forced per own rung3 text",
+      "blast_radius": 5
+    },
+    {
+      "id": "founding_h1_zeta_casimir",
+      "tier": "shown",
+      "type": "MATHEMATICAL",
+      "evidence": "BORROWED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 2
+    },
+    {
+      "id": "founding_h2_R_zeta_bridge",
+      "tier": "to-derive",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 1
+    },
+    {
+      "id": "founding_h3_doubleslit_anchor",
+      "tier": "to-derive",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "reproduction harness / source-open not yet run for this node",
+      "blast_radius": 0
+    },
+    {
+      "id": "info_i1_renorm_as_information",
+      "tier": "shown",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "info_i2_beyond_standard_bridge",
+      "tier": "to-derive",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "reproduction harness / source-open not yet run for this node",
+      "blast_radius": 1
+    },
+    {
+      "id": "info_i3_distinct_consequence",
+      "tier": "to-derive",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "reproduction harness / source-open not yet run for this node",
+      "blast_radius": 0
+    },
+    {
+      "id": "l0_r1_redundancy_exists",
+      "tier": "shown",
+      "type": "MATHEMATICAL",
+      "evidence": "DERIVED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 2
+    },
+    {
+      "id": "l0_r2_exact_unique_breaker",
+      "tier": "to-derive",
+      "type": "MATHEMATICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "reproduction harness / source-open not yet run for this node",
+      "blast_radius": 1
+    },
+    {
+      "id": "l0_r3_payoff_mu_linear",
+      "tier": "to-derive",
+      "type": "MATHEMATICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "rung7_w1_wz_map",
+      "tier": "shown",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 2
+    },
+    {
+      "id": "rung7_w2_wa_sign",
+      "tier": "to-derive",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 1
+    },
+    {
+      "id": "rung7_w3_nocrossing_export",
+      "tier": "to-derive",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "reproduction harness / source-open not yet run for this node",
+      "blast_radius": 0
+    },
+    {
+      "id": "method_novelty",
+      "tier": "to-derive",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "prior-art screen never ran against formal-methods corpora",
+      "blast_radius": 0
+    },
+    {
+      "id": "u1_form_universality",
+      "tier": "shown",
+      "type": "MATHEMATICAL",
+      "evidence": "DERIVED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "u2_kernel_universality",
+      "tier": "to-derive",
+      "type": "MATHEMATICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "u3_split_origin",
+      "tier": "to-derive",
+      "type": "MATHEMATICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "u4_constitutive_origin",
+      "tier": "to-derive",
+      "type": "FRAMEWORK",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "u5_constitutive_phases",
+      "tier": "to-derive",
+      "type": "FRAMEWORK",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "u6_constitutive_order",
+      "tier": "to-derive",
+      "type": "FRAMEWORK",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "born_rule",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "NULL-ASSERTED",
+      "reason": "assumed-tier asserted; null result per ADDED-2",
+      "blast_radius": 3
+    },
+    {
+      "id": "entropy_area_unruh",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 5
+    },
+    {
+      "id": "past_hypothesis",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 1
+    },
+    {
+      "id": "lambda_undetermined",
+      "tier": "to-derive",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "eft_operator_basis",
+      "tier": "to-derive",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 3
+    },
+    {
+      "id": "zeta_interior_family",
+      "tier": "to-derive",
+      "type": "MATHEMATICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "passivity_channel_diagonal",
+      "tier": "shown",
+      "type": "FRAMEWORK",
+      "evidence": "DERIVED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 2
+    },
+    {
+      "id": "x_no_pin_theorem",
+      "tier": "derived-pending",
+      "type": "MATHEMATICAL",
+      "evidence": "DERIVED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 1
+    },
+    {
+      "id": "kk_static_transfer",
+      "tier": "derived-pending",
+      "type": "FRAMEWORK",
+      "evidence": "DERIVED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "linear_response_viscoelastic",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "relativistic_hydro_israel_stewart",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "analogue_gravity_acoustic",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "superfluid_bec_media",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "entropy_foundations",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "fluctuation_theorems",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "second_law_h_theorem",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_rho_lambda",
+      "tier": "measured",
+      "type": "PHYSICAL",
+      "evidence": "EMPIRICAL",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_v_ew",
+      "tier": "measured",
+      "type": "PHYSICAL",
+      "evidence": "EMPIRICAL",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_m_planck",
+      "tier": "measured",
+      "type": "PHYSICAL",
+      "evidence": "EMPIRICAL",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_vacuum_energy_gravitates",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_lorentz_invariant_vacuum",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_semiclassical_sourcing",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_heavy_thresholds_exist",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_eft_validity",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_ir_gravity_is_gr",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_naturalness_normative",
+      "tier": "heuristic",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_typicality_measure",
+      "tier": "heuristic",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_w_equals_minus_one",
+      "tier": "open",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_grut_relation",
+      "tier": "open",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_state_expectation_functional",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 1
+    },
+    {
+      "id": "vc_mean_field_sourcing",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_eft_decoupling",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_eft_vacuum_operator",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "vc_universal_metric_coupling",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 3
+    },
+    {
+      "id": "vc_gravitational_uv_ceiling",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 1
+    },
+    {
+      "id": "vc_flatness_in_reduction",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 1
+    },
+    {
+      "id": "vc_averaging_commutes",
+      "tier": "postulate",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 1
+    },
+    {
+      "id": "emergence_chain",
+      "tier": "to-derive",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 0
+    },
+    {
+      "id": "background_time_translation_flow",
+      "tier": "assumed",
+      "type": "PHYSICAL",
+      "evidence": "ASSERTED",
+      "verdict": "UNRESOLVED-BLOCKED",
+      "reason": "audit sweep incomplete; tooling gap",
+      "blast_radius": 28
+    }
+  ]
+}
