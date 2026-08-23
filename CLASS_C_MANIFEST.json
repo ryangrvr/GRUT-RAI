@@ -1,0 +1,56 @@
+{
+  "manifest_version": "1.1",
+  "supersedes": {
+    "version": "1.0",
+    "frozen_certificate": "CLASS_C_DISPATCH_FROZEN.md",
+    "decisions_record": "CLASS_C_DISPATCH_DECISIONS.md",
+    "reason": "execution began; clock formulation, boundary conditions and approximation order resolved as scientific events D1-D3; gauge and renormalization deliberately remain UNDECIDED-DISPATCH"
+  },
+  "problem": "rung3_class_c_assembled_response",
+  "primary_object": "gauge-invariantly assembled retarded TT response G_R^TT derived from the pure-graviton de Sitter self-energy Sigma(x,x')",
+  "not_the_object": [
+    "worldline proxy kernel (class A, closed 2026-08-21)",
+    "staked spectral density J(omega) of any form",
+    "any scalar-surrogate spectrum exported as TT"
+  ],
+  "background": {
+    "spacetime": "de Sitter",
+    "patch": "flat FLRW",
+    "H": "constant; units H = 1 permitted"
+  },
+  "state": "Bunch-Davies (booked rung2)",
+  "content": "pure graviton, no matter",
+  "gauge": "UNDECIDED-DISPATCH",
+  "channel_policy": {
+    "track_separately": ["P^(2)", "P^(0,s)"],
+    "export_rule": "no scalar result may be exported as TT; transversality does not imply tracelessness"
+  },
+  "clock": {
+    "status": "DECLARED (D1, CLASS_C_DISPATCH_DECISIONS.md)",
+    "declaration": "primary class-C object is the two-time response G_R(x,x'); no global rho(omega) presumed; any one-clock spectral reduction requires its own proof for the assembled object; candidate clocks catalogued (static-Killing T: only global candidate; comoving proper tau: worldline kernels only)",
+    "constraint": "must be named per keystone map D1-D6 before any spectral reduction; D3a does not transfer unproven"
+  },
+  "boundary_conditions": "DECLARED (D2): Bunch-Davies analyticity — Euclidean regularity at the horizon, the i-epsilon prescription of the booked state",
+  "renormalization": "UNDECIDED-DISPATCH",
+  "regulators": [],
+  "regulator_policy": "every regulator must be appended here with purpose/location/limit/order BEFORE use; solvers refusing undeclared regulators is correct behaviour",
+  "approximation_order": "DECLARED (D3, wording tightened 2026-08-22): CHOSEN perturbative target order for the current calculation = leading candidate nonzero assembled TT dissipation O(G^2) per rung3 coherence (null-collision Gamma ~ G^2 H^5); CAVEAT on its face: whether O(G^2) is actually the first nonzero order FOR GRAVITON loops is UNESTABLISHED (frozen-TT premise was scalar-loop-scoped); exact free kinematics retained",
+  "allowed_reductions": ["only reductions proved stationary within their own declared scope; none presumed"],
+  "requested_observables": ["low-frequency structure classification per CLASS_C_DISPATCH_SPEC section 6"],
+  "permitted_outcome_classes": [
+    "isolated pole",
+    "multiple poles / ladder",
+    "branch cut / continuum",
+    "secular / nonstationary memory",
+    "no long-memory structure",
+    "ill-posed even after assembly"
+  ],
+  "prohibitions": [
+    "J(omega) ~ omega^3 as an input",
+    "single-pole ansatz inside the test",
+    "tau_0 or any target timescale",
+    "imported class-A stationarity",
+    "unstated epoch/window parameters"
+  ],
+  "fail_closed": true
+}

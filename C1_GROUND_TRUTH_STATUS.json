@@ -1,0 +1,35 @@
+{
+  "verdict": "ALL PASS",
+  "checks": [
+    {
+      "id": "R1_symbolic_canonical",
+      "desc": "v EOM residual",
+      "pass": true,
+      "detail": "residual=0"
+    },
+    {
+      "id": "R1_symbolic_strain",
+      "desc": "h=v/a EOM residual",
+      "pass": true,
+      "detail": "residual=0"
+    },
+    {
+      "id": "R2_convergence",
+      "desc": "residual decreases",
+      "pass": true,
+      "detail": "res: 1.46e-04, 1.46e-06, 1.52e-08, 1.77e-06"
+    },
+    {
+      "id": "R3_rk4_vs_analytic",
+      "desc": "RK4 vs analytic at eta=-1",
+      "pass": true,
+      "detail": "rel=8.33e-11"
+    },
+    {
+      "id": "Wronskian_constancy",
+      "desc": "W Im spread",
+      "pass": true,
+      "detail": "spread=2.55e-09 mean=1.000000"
+    }
+  ]
+}

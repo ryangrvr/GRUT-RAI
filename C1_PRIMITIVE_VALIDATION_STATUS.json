@@ -1,0 +1,41 @@
+{
+  "verdict": "1 FAILURES: R3_rk4_vs_analytic",
+  "checks": [
+    {
+      "id": "R1_symbolic_canonical",
+      "desc": "canonical EOM residual",
+      "pass": true,
+      "detail": "res=0"
+    },
+    {
+      "id": "R1_symbolic_strain",
+      "desc": "strain EOM residual",
+      "pass": true,
+      "detail": "res=0"
+    },
+    {
+      "id": "R2_convergence",
+      "desc": "numerical residual converges",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "R3_rk4_vs_analytic",
+      "desc": "RK4 vs analytic at eta=-1",
+      "pass": false,
+      "detail": "rel=1.48e+00"
+    },
+    {
+      "id": "Wronskian_constancy",
+      "desc": "W Im constant",
+      "pass": true,
+      "detail": "spread=2.55e-09 mean=1.000000"
+    },
+    {
+      "id": "cross_variable",
+      "desc": "h=v/a<->v=-eta*h identity",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}
