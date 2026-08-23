@@ -104,8 +104,15 @@ print("\nSTEP 4 -- independent RK4 ODE integration")
 def rk4_canonical(k_val, eta0, eta1, n):
     d = (eta1 - eta0) / n
     v0 = (1 - 1j/(k_val*eta0)) * cmath.exp(-1j*k_val*eta0) / math.sqrt(2*k_val)
+    # CORRECTED 2026-08-22 -- identical defect to calc/C1_GROUND_TRUTH_MODE.py, found by
+    # provenance/emit_gate_status.py surfacing this artifact's 5/6. Sign was flipped on the
+    # dominant term and the factor i was missing on 1/(k eta^2). For
+    # v = (1 - i/(k eta)) exp(-i k eta)/sqrt(2k),
+    #   dv/deta = exp(-i k eta)/sqrt(2k) * [ i/(k eta^2) - i k (1 - i/(k eta)) ]
+    # (sympy-verified exact). The wrong seed excites the second solution: |v| is preserved,
+    # phase is ~antiphase, so a magnitude-only control passes it. rel 1.483 -> 8.33e-11.
     dp0 = cmath.exp(-1j*k_val*eta0) * (
-        1j*k_val*(1 - 1j/(k_val*eta0)) - 1/(k_val*eta0**2)
+        1j/(k_val*eta0**2) - 1j*k_val*(1 - 1j/(k_val*eta0))
     ) / math.sqrt(2*k_val)
     v_, p_ = v0, dp0
     e = eta0

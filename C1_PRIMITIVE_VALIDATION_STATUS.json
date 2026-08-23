@@ -1,5 +1,5 @@
 {
-  "verdict": "1 FAILURES: R3_rk4_vs_analytic",
+  "verdict": "ALL CHECKS PASS",
   "checks": [
     {
       "id": "R1_symbolic_canonical",
@@ -22,8 +22,8 @@
     {
       "id": "R3_rk4_vs_analytic",
       "desc": "RK4 vs analytic at eta=-1",
-      "pass": false,
-      "detail": "rel=1.48e+00"
+      "pass": true,
+      "detail": "rel=8.33e-11"
     },
     {
       "id": "Wronskian_constancy",
