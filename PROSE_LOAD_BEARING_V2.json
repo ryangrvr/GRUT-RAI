@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "prose_extractor_v2.py",
+    "note": "R1 split is SCHEMA-LEVEL ONLY; claims.json untouched"
+  },
+  "schema_split": {
+    "proposed_ids": [
+      "rung1_inin_formalism",
+      "rung1_ontology_finite_memory"
+    ],
+    "rationale": "ontology terms have no node id to attach to (correction defect 2)"
+  },
+  "counts": {
+    "high_confidence_node_to_node_edges": 50,
+    "low_confidence_short_form_refs": 31,
+    "low_confidence_ontology_term_refs": 34,
+    "precision_diagnostic_substring_collisions_v1": 0
+  },
+  "short_form_table": {
+    "rung3": 16,
+    "rung2": 5,
+    "rung1": 3,
+    "rung4": 3,
+    "rung7": 3,
+    "rung9": 1
+  },
+  "ontology_term_table": {
+    "single-pole": 16,
+    "finite-memory": 6,
+    "relaxor": 4,
+    "single pole": 2,
+    "relaxing": 2,
+    "responsive-medium": 2,
+    "two-scale": 1,
+    "finite memory": 1
+  },
+  "high_edges": {
+    "rung1_inin_action": [
+      "eft_operator_basis",
+      "p_tt_ansatz"
+    ],
+    "rung2_kms_gate": [
+      "entropy_area_unruh",
+      "rung7_wz"
+    ],
+    "rung7_wz": [
+      "arrow_of_time"
+    ],
+    "rung9a_value": [
+      "mu_linear"
+    ],
+    "arrow_of_time": [
+      "past_hypothesis"
+    ],
+    "mu_linear": [
+      "p_tt_ansatz",
+      "zeta_interior_family"
+    ],
+    "p_tt_ansatz": [
+      "mu_linear"
+    ],
+    "l0_r2_exact_unique_breaker": [
+      "mu_linear"
+    ],
+    "l0_r3_payoff_mu_linear": [
+      "mu_linear"
+    ],
+    "rung7_w2_wa_sign": [
+      "p_tt_ansatz"
+    ],
+    "born_rule": [
+      "rung6_qm_limit"
+    ],
+    "entropy_area_unruh": [
+      "rung5_gr_limit"
+    ],
+    "past_hypothesis": [
+      "arrow_of_time"
+    ],
+    "eft_operator_basis": [
+      "p_tt_ansatz"
+    ],
+    "zeta_interior_family": [
+      "eft_operator_basis",
+      "mu_linear",
+      "p_tt_ansatz"
+    ],
+    "passivity_channel_diagonal": [
+      "x_no_pin_theorem"
+    ],
+    "x_no_pin_theorem": [
+      "eft_operator_basis",
+      "p_tt_ansatz"
+    ],
+    "kk_static_transfer": [
+      "mu_linear",
+      "x_no_pin_theorem",
+      "zeta_interior_family"
+    ],
+    "vc_semiclassical_sourcing": [
+      "vc_mean_field_sourcing",
+      "vc_state_expectation_functional"
+    ],
+    "vc_heavy_thresholds_exist": [
+      "vc_gravitational_uv_ceiling"
+    ],
+    "vc_eft_validity": [
+      "vc_eft_decoupling",
+      "vc_eft_vacuum_operator"
+    ],
+    "vc_w_equals_minus_one": [
+      "vc_rho_lambda"
+    ],
+    "vc_grut_relation": [
+      "lambda_undetermined"
+    ],
+    "vc_state_expectation_functional": [
+      "vc_semiclassical_sourcing"
+    ],
+    "vc_mean_field_sourcing": [
+      "vc_semiclassical_sourcing"
+    ],
+    "vc_eft_decoupling": [
+      "vc_eft_validity"
+    ],
+    "vc_eft_vacuum_operator": [
+      "vc_eft_validity"
+    ],
+    "vc_universal_metric_coupling": [
+      "vc_ir_gravity_is_gr",
+      "vc_mean_field_sourcing",
+      "vc_state_expectation_functional",
+      "vc_vacuum_energy_gravitates"
+    ],
+    "vc_gravitational_uv_ceiling": [
+      "vc_heavy_thresholds_exist"
+    ],
+    "vc_flatness_in_reduction": [
+      "vc_rho_lambda"
+    ],
+    "vc_averaging_commutes": [
+      "vc_flatness_in_reduction",
+      "vc_ir_gravity_is_gr"
+    ],
+    "emergence_chain": [
+      "past_hypothesis",
+      "rung2_kms_gate"
+    ],
+    "background_time_translation_flow": [
+      "rung1_inin_action",
+      "rung2_kms_gate",
+      "rung3_single_pole"
+    ]
+  }
+}
