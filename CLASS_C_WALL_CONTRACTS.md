@@ -123,14 +123,32 @@ adopts a prescription satisfying this contract. What is frozen: the divergence
 set (Q1), the permitted counterterm boundary (Q2), the scheme-dependence map
 (Q3), the scheme-independence requirement on classification (Q4/Q5).
 
-## Cross-contract consequences
+## RUNG1 CONSEQUENCE ASSESSMENT (draft — owner adjudication required)
 
-1. D4-Q4 + D5-Q2 jointly define the assembled diagram set; neither contract may
-   be satisfied while the other is violated.
-2. The D1 formulation decision stands unchanged: if the assembled object admits
-   no stationary reduction, Q4/Q5's "classification" is evaluated on the
-   two-time response's late-time structure instead of a spectrum.
-3. Any future amendment to either contract requires a new versioned dispatch
-   explaining what the old contract could not express (owner operational rule).
+If the assembled class-C response yields any of C1.d (secular/nonstationary),
+C1.e (no long-memory structure), or C1.f (ill-posed), those outcomes contradict
+`rung1_inin_action`'s clause *"a responsive medium with finite memory"* at tier
+`shown`, Δ4. Three of seven branches noticed this contradiction and listed rung1
+as untouched anyway — declining to carry the consequence into the register.
+
+The contradiction is real and must be assessed, not routed around:
+
+- If the response shows **secular growth** or **nonstationary memory**, then
+  "finite memory" is not an exact property of the medium — it may hold only in
+  a regime (e.g., subhorizon, early-time) that the class-C calculation probes
+  beyond. Rung1 would need re-tiering from `shown` to `derived-pending` on
+  the finite-memory clause specifically, with the scope of validity stated.
+- If the response shows **no long-memory structure at all**, then "finite
+  memory" fails as a description of the medium's response to gravitational
+  perturbations — which would require re-examining whether rung1's influence-
+  action formalism describes gravity at all, or only matter on a fixed
+  gravitational background.
+- Either way, the consequence propagates: `rung3_single_pole` inherits the
+  revised rung1 status, and every downstream export that assumed finite memory
+  inherits the revision.
+
+This assessment requires owner adjudication because it touches a shown-tier,
+Δ4 node — the highest-consequence register change available in this program.
+
 
 

@@ -1,0 +1,81 @@
+PRE-REGISTRATION -- THE TERMINATION CONDITION FOR IN-HOUSE GRUT PHYSICS. VERSION 5 DRAFT.
+Supersedes v4 (sealed, unsigned). STATUS: UNSIGNED = NOT IN FORCE.
+This draft exists because the seven-outcome enumeration in CLASS_C_DISPATCH_SPEC.md
+produces results that V4's C1 channel cannot resolve: five of seven leave the stop
+clock open under V4's rules. V5 closes that gap by enumerating every outcome class
+from the frozen manifest and mapping each to a resolution path.
+
+RULES (carried from V4 unchanged)
+R1 STILL-OPEN: every channel may always report STILL OPEN with its cause stated.
+R2 NODES DECIDE: consequences execute only at the named register node.
+R3 PUBLIC EVENTS ONLY: thresholded outcomes fire only against thresholds frozen
+   before the public event they judge.
+R4 QUOTES DECIDE: communications logged with operative language quoted verbatim.
+R5 ONE CLOCK: in-house physics STOPS at the earliest of:
+   (i) 2026-12-31;
+   (ii) all channels below reach RESOLVED or RETIRED status;
+   (iii) any logged reply or computed result asserting an outcome class flagged
+        FIRES STOP in channel C1 (the stop, once fired, stands even if later
+        replies contest the channel line).
+   After the stop: consume external results (all of them) before deposit.
+
+CHANNELS
+
+C1 THE ASSEMBLED TT RESPONSE (nodes rung3_single_pole, zeta_interior_family,
+   mu_linear; supersedes V4's C1 which resolved on only POLE and CUT).
+   The permitted outcome classes are those enumerated in the frozen manifest
+   (CLASS_C_MANIFEST.json, permitted_outcome_classes). Each resolves as follows:
+
+   C1.a ISOLATED POLE: a reply or computed result asserts a single relaxation
+        pole unconditionally. This is FAVOURABLE to rung3's registered premise
+        (confirms finite memory at the computed scale) — no stop fires.
+        Proceed to τ_phys extraction per D4/D5 contracts; node consequences
+        per R2.
+   C1.b MULTIPLE POLES / LADDER: a reply or computed result asserts discrete
+        multi-pole structure. Node consequences per R2. This may still support
+        finite memory (multiple relaxation channels are still memory) but
+        changes the spectral classification from the registered single-pole
+        form. Assessment required before interpretation.
+   C1.c BRANCH CUT / CONTINUUM: a reply or computed result asserts non-analytic
+        low-frequency structure. ADVERSE to rung3's registered premise.
+        FIRES STOP (iii): the mechanism fails as registered.
+   C1.d SECULAR / NONSTATIONARY MEMORY: the response exhibits secular growth or
+        epoch-dependent structure preventing stationary reduction.
+        Contradicts rung1_inin_action's "finite memory" clause at tier shown.
+        FIRES STOP (iii) AND triggers rung1 consequence assessment per R2.
+   C1.e NO LONG-MEMORY STRUCTURE: no identifiable memory scale.
+        FIRES STOP (iii).
+   C1.f ILL-POSED EVEN AFTER ASSEMBLY: reduction does not exist in any clock,
+        demonstrated structurally. FIRES STOP (iii).
+   C1.g ANOTHER STRUCTURE justified by calculation: classified on its own
+        terms; stop assessed by owner.
+
+   Acknowledgments, caveats, silence: STILL OPEN, words quoted (R4).
+
+C2 DESI DR3 (unchanged from V4).
+C3 THE TT-AUTO CALC (unchanged from V4).
+C4 THE METHOD (unchanged from V4).
+C5 THE XI_IJ / GAMMA_T CALC (unchanged from V4).
+
+QUOTES (unchanged from V4): Q1, Q2, Q3 as sealed.
+
+WHAT CHANGED FROM V4 AND WHY
+
+V4's C1 channel resolved on exactly two outcomes: POLE or CUT. The frozen
+dispatch spec enumerates six permitted outcome classes plus a seventh catch-all
+("another structure justified by the calculation"). Five of these — ladder,
+secular/nonstationary, no-long-memory, ill-posed-after-assembly, and other —
+could not fire V4's R5(iii), meaning the program structurally could not recognise
+five of its own endings. V5 fixes this by enumerating every outcome class from
+the frozen manifest and mapping each to a resolution path, with C1.c, C1.d, and
+C1.e explicitly firing the stop.
+
+ADDITIONAL CONSEQUENCE: four outcome classes (ladder, secular/nonstationary,
+no-long-memory, and another-structure) potentially contradict rung1_inin_action's
+"finite memory" clause at tier shown. If any of these fires, the rung1 consequence
+assessment must evaluate whether the contradiction requires re-tiering rung1 or
+whether the finite-memory clause survives as an approximation valid in the
+regime probed.
+
+SIGNATURE (the seal covers this file with the block empty; UNSIGNED = NOT IN FORCE):
+  SIGNED ______________________  DATE ____________
