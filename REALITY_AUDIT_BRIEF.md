@@ -121,6 +121,37 @@ seen the audit being produced — only its results. Its specific charge:
 5. Is there a node the audit was reluctant to grade DOES-NOT-HOLD because of what it carries?
    **Name it.** Blast radius must not influence verdict — ADDED-2 and §3 are separate axes.
 
+## [ADDED-7] The blocker log — a required output, and a success mode
+
+The owner's stated expectation for this run: *"I don't expect to actually get an answer right now,
+I'm sure we'll find where software needs updating to even attempt the answer."*
+
+**Take that literally. It changes what a successful run is.** If the tooling cannot answer a
+question, that is a RESULT, and it is the result this run most likely produces. Do not work around
+a gap silently, do not approximate past it, and do not let a node quietly receive a weaker verdict
+because the instrument to grade it properly does not exist.
+
+**Emit `REALITY_AUDIT_BLOCKERS.md`**, and treat it as co-equal with the results file. One entry per
+blocker:
+
+| field | content |
+|---|---|
+| what I could not do | the specific question left unanswered |
+| for which nodes | ids |
+| why | missing tool / unreachable source / uncomputable object / undecided owner ruling / cost |
+| what would unblock it | the concrete thing that has to exist |
+| verdict consequence | what verdict the node received *because* of the blocker, and what it might have received otherwise |
+
+**The last row is the one that matters.** A node graded UNRESOLVED because the instrument is
+missing is a different fact from a node graded UNRESOLVED because nature is ambiguous, and the
+summary counts must not merge them. Add the suffix **-BLOCKED** to any verdict caused by a blocker
+rather than by evidence (e.g. `UNRESOLVED-BLOCKED`), and count them separately.
+
+**An audit that returns few verdicts and a precise blocker log has succeeded.** An audit that
+returns 71 confident verdicts by quietly lowering its standard where the tooling ran out has
+failed, and it will be indistinguishable from success in the summary table — which is exactly why
+this section exists.
+
 ---
 
 ## Everything below is the owner's brief, unchanged and in force
