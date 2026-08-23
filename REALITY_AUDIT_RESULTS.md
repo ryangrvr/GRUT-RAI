@@ -8,7 +8,7 @@
 
 | tier | HOLDS | HOLDS-NARROWER | DOES-NOT-HOLD | NULL | BLOCKED |
 |---|---|---|---|---|
-| shown | 0 | 1 | 1 | 0 | 8 |
+| shown | 0 | 2 | 0 | 0 | 8 |
 | assumed | 0 | 1 | 0 | 2 | 13 |
 | postulate | 0 | 0 | 0 | 0 | 14 |
 | to-derive | 0 | 0 | 0 | 0 | 20 |
@@ -21,7 +21,7 @@
 
 | id | tier | type | evidence | verdict | blast | reason |
 |---|---|---|---|---|---|---|
-| rung1_inin_action | shown | PHYSICAL | ASSERTED | DOES-NOT-HOLD | 27 | finite-memory clause contradicted by 4/7 Class-C outcome branches; tier shown over-states |
+| rung1_inin_action | shown | PHYSICAL | ASSERTED | HOLDS-NARROWER | 27 | COMPOUND: shown formalism (SK influence action, borrowed) + assumed ontology (finite-memor |
 | rung2_kms_gate | shown | FRAMEWORK | BORROWED | UNRESOLVED-BLOCKED | 20 | reproduction harness / source-open not yet run for this node |
 | rung3_single_pole | derived-pending | PHYSICAL | DERIVED | HOLDS-NARROWER | 9 | class-A pair adverse to super-Ohmic premise; free theory gives a FAMILY indexed by multipo |
 | rung4_love_kk | shown | PHYSICAL | ASSERTED | HOLDS-NARROWER | 3 | 22-62 orders correct for dephasing only; amplitude channel uncovered |
@@ -98,7 +98,7 @@
 | rank | id | tier | verdict | downstream |
 |---|---|---|---|---|
 | 1 | background_time_translation_flow | assumed | UNRESOLVED-BLOCKED | 28 |
-| 2 | rung1_inin_action | shown | DOES-NOT-HOLD | 27 |
+| 2 | rung1_inin_action | shown | HOLDS-NARROWER | 27 |
 | 3 | rung2_kms_gate | shown | UNRESOLVED-BLOCKED | 20 |
 | 4 | rung3_single_pole | derived-pending | HOLDS-NARROWER | 9 |
 | 5 | rung9a_value | shown | UNRESOLVED-BLOCKED | 9 |

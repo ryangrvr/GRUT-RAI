@@ -9,8 +9,8 @@
       "tier": "shown",
       "type": "PHYSICAL",
       "evidence": "ASSERTED",
-      "verdict": "DOES-NOT-HOLD",
-      "reason": "finite-memory clause contradicted by 4/7 Class-C outcome branches; tier shown over-states",
+      "verdict": "HOLDS-NARROWER",
+      "reason": "COMPOUND: shown formalism (SK influence action, borrowed) + assumed ontology (finite-memory stance); SPLIT repair owed. Class-C branches = EXPOSURE (4/7 hypothetical, none realised); class-A pair = ADVERSE AT PROXY SCOPE",
       "blast_radius": 27
     },
     {

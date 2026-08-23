@@ -56,7 +56,7 @@ BLAST={c['id']:len(forward_closure([c['id']])) for c in REG}
 # Verdicts. Fragile eight graded from session work; rest start BLOCKED.
 V={
  'rung3_single_pole':('HOLDS-NARROWER','class-A pair adverse to super-Ohmic premise; free theory gives a FAMILY indexed by multipole, not THE memory time'),
- 'rung1_inin_action':('DOES-NOT-HOLD','finite-memory clause contradicted by 4/7 Class-C outcome branches; tier shown over-states'),
+ 'rung1_inin_action':('HOLDS-NARROWER','COMPOUND: shown formalism (SK influence action, borrowed) + assumed ontology (finite-memory stance); SPLIT repair owed. Class-C branches = EXPOSURE (4/7 hypothetical, none realised); class-A pair = ADVERSE AT PROXY SCOPE'),
  'rung4_love_kk':('HOLDS-NARROWER','22-62 orders correct for dephasing only; amplitude channel uncovered'),
  'rung7_wz':('UNRESOLVED-BLOCKED','+2/+3 statement-vs-ledger discrepancy needs owner adjudication'),
  'p_tt_ansatz':('HOLDS-NARROWER','TT-only choice is CHOSEN not forced per own rung3 text'),
@@ -79,6 +79,17 @@ for c in REG:
         V[c['id']]=('UNRESOLVED-BLOCKED','audit sweep incomplete; tooling gap')
 
 TOP_LOAD=sorted(BLAST.items(),key=lambda x:-x[1])[:15]
+
+# Blast radii as SETS with overlaps (correction 1: never addable integers)
+CHAIN_ROOT='background_time_translation_flow'
+chain_reach=forward_closure([CHAIN_ROOT])
+nested={}
+for cid,_ in TOP_LOAD[:5]:
+    r=forward_closure([cid])
+    nested[cid]={'reach':len(r),'is_subset_of_root':r.issubset(chain_reach),
+                 'overlap_with_root':len(r & chain_reach)}
+UNION_ALL=len(set().union(*[forward_closure([c]) for c in [CHAIN_ROOT,'rung1_inin_action','rung2_kms_gate']]))
+
 def VERD_CLASS(v):
     if 'BLOCKED' in v: return 'BLOCKED'
     if 'NULL' in v: return 'NULL'
@@ -127,7 +138,21 @@ for c in REG:
 open(os.path.join(ROOT,'REALITY_AUDIT_BLOCKERS.md'),'w').write('\n'.join(B))
 
 M=['# Reality Load-Bearing Map','',
-"The audit's most valuable output (charter §8.3). Edge-graph only; prose graph (~0.78x additional) not machine-extracted.",'',
+'The audit\'s most valuable output (charter §8.3). **Blast radii are sets with overlaps, never addable integers.**',
+'Edge-graph only; prose graph (~0.78x additional) not machine-extracted.','',
+'## The chain (corrected arithmetic)','',
+f'**One nested chain carries {UNION_ALL} of {len(REG)} nodes ({100*UNION_ALL//len(REG)}% of the register):**','',
+'```','background_time_translation_flow -> rung1_inin_action -> rung2_kms_gate -> ...','```','',
+f'Root: `{CHAIN_ROOT}` — booked 2026-08-18 as an OMISSION, tier `assumed`, Δ+1,',
+'sub_status: *"NOT a physics claim about de Sitter."*','',
+'| node | reach | subset of root? | overlap with root | verdict |','|---|---|---|---|---|']
+for cid in [CHAIN_ROOT,'rung1_inin_action','rung2_kms_gate']:
+    n=nested.get(cid,BLAST[cid])
+    sub='YES' if isinstance(n,dict) and n['is_subset_of_root'] else '—'
+    ov = n['overlap_with_root'] if isinstance(n,dict) else '—'
+    M.append(f"| {cid} | {BLAST[cid]} | {sub} | {ov} | {V[cid][0]} |")
+M+=['',f'**UNION of the three: {UNION_ALL}. Do NOT sum the reach column.**','',
+'## Top 15 by individual blast radius (for reference only; NOT additive)','',
 '| rank | id | tier | verdict | downstream |','|---|---|---|---|---|']
 for i,(cid,n) in enumerate(TOP_LOAD,1):
     M.append('| %d | %s | %s | %s | %d |'%(i,cid,BY_ID[cid]['tier'],V[cid][0],n))

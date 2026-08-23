@@ -1,11 +1,33 @@
 # Reality Load-Bearing Map
 
-The audit's most valuable output (charter §8.3). Edge-graph only; prose graph (~0.78x additional) not machine-extracted.
+The audit's most valuable output (charter §8.3). **Blast radii are sets with overlaps, never addable integers.**
+Edge-graph only; prose graph (~0.78x additional) not machine-extracted.
+
+## The chain (corrected arithmetic)
+
+**One nested chain carries 28 of 71 nodes (39% of the register):**
+
+```
+background_time_translation_flow -> rung1_inin_action -> rung2_kms_gate -> ...
+```
+
+Root: `background_time_translation_flow` — booked 2026-08-18 as an OMISSION, tier `assumed`, Δ+1,
+sub_status: *"NOT a physics claim about de Sitter."*
+
+| node | reach | subset of root? | overlap with root | verdict |
+|---|---|---|---|---|
+| background_time_translation_flow | 28 | YES | 28 | UNRESOLVED-BLOCKED |
+| rung1_inin_action | 27 | YES | 27 | HOLDS-NARROWER |
+| rung2_kms_gate | 20 | YES | 20 | UNRESOLVED-BLOCKED |
+
+**UNION of the three: 28. Do NOT sum the reach column.**
+
+## Top 15 by individual blast radius (for reference only; NOT additive)
 
 | rank | id | tier | verdict | downstream |
 |---|---|---|---|---|
 | 1 | background_time_translation_flow | assumed | UNRESOLVED-BLOCKED | 28 |
-| 2 | rung1_inin_action | shown | DOES-NOT-HOLD | 27 |
+| 2 | rung1_inin_action | shown | HOLDS-NARROWER | 27 |
 | 3 | rung2_kms_gate | shown | UNRESOLVED-BLOCKED | 20 |
 | 4 | rung3_single_pole | derived-pending | HOLDS-NARROWER | 9 |
 | 5 | rung9a_value | shown | UNRESOLVED-BLOCKED | 9 |
