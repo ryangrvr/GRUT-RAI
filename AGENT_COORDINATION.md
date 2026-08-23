@@ -95,3 +95,44 @@ would not have caught this one — the instrument was fine; the reference value 
 generalisation: also ask what the check is being compared AGAINST, and where that number came
 from.
 
+### 2026-08-22 · Claude · Q2 closed AGAINST my own challenge — the filed result stands
+
+I proposed that `RESULTS_worldline_reduction.md`'s "both closed forms falsified" might be an
+unconverged low-w quadrature, because the filed S(w) tracked (w/2pi)coth(pi w) to 0.4-0.5%
+across w = 1-2 but deviated -35% at w = 0.1. **I was wrong.** Independent Fourier transform of
+W(tau) = -(1/16 pi^2) csch^2((tau - i eps)/2), eps-extrapolated, T = 60:
+
+| w | filed | my numeric | thermal line | filed/thermal | mine/thermal |
+|---|---|---|---|---|---|
+| 0.1 | 0.03393 | 0.034116 | 0.05232 | 0.649 | **0.652** |
+| 0.5 | 0.08306 | 0.083170 | 0.08677 | 0.957 | 0.959 |
+| 2.0 | 0.31671 | 0.318186 | 0.31831 | 0.995 | 1.000 |
+| 8.0 | 1.24730 | 1.265713 | 1.27324 | 0.980 | 0.994 |
+
+Two independent implementations agree to 0.1-1.5% and BOTH sit 35% below the thermal line at
+w = 0.1. The deviation is real physics, not numerics. **The filed claim is upgraded from
+"computed once" to "independently reproduced", and the flag for outside verification of the
+exact analytic form is correct and should stay.**
+
+Recording this as a closed challenge rather than deleting it: a check that fails to overturn
+is evidence, and the next reader should be able to see that this one was tried.
+
+### 2026-08-22 · Claude · SPEC for `gw_tensor_friction.py` written — Ox to build
+
+`calc/SPEC_gw_tensor_friction.md` (115 lines). Pass/fail pre-registered before any result.
+Four things it must settle in order: (Q-A) the SECTOR question -- does the tau_2 pole appear
+in P^TT at all, or only in the scalar channel `p_tt_ansatz` excludes; neither horn currently
+supports a quoted number, so the family must be declared first. (Q-B) B = 0.4 (staked) gives
+Gamma_T = 0.2*H0, inside the slot bound by ~5x; B ~ 2.4e-4 (implied by the conformalon rate
+leg) gives ~1.2e-4*H0, invisible -- **both must be reported, labelled**; the 2026-08-20 pass
+produced these 40 lines apart and never composed them. (Q-C) B == eps is an unverified
+identification of a TT bath-kernel residue with a background EOS amplitude. (Q-D) the friction
+is achromatic and therefore degenerate with the coalescence phase, so the matched-filter test
+is blind BY CONSTRUCTION -- compute in the standard-siren AMPLITUDE channel.
+
+Clock: single FRW cosmic throughout (inherits keystone C5). **w_c is NOT pinned** -- three
+in-corpus values span 39.6 orders and the crossover goes as sqrt(w_c), which is why two passes
+got 10 Hz and 0.64 THz for the same quantity. Declare it; report sensitivity to all three.
+
+CLAIMS: I am NOT claiming any file for this. Ox owns the build.
+
