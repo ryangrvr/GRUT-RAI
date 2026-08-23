@@ -1,6 +1,6 @@
 # CLASS_C_CONTAMINATION_AUDIT — emitted, never hand-typed
 
-*Generated 2026-08-22 22:38 by `provenance/class_c_contamination_audit.py` (Phase 0, owner brief 2026-08-21). Verdict: **CLEAN**.*
+*Generated 2026-08-22 22:49 by `provenance/class_c_contamination_audit.py` (Phase 0, owner brief 2026-08-21). Verdict: **CLEAN**.*
 
 ## What was searched
 

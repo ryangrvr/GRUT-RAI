@@ -32,7 +32,7 @@ caught by re-running something. Neither of us caught it by being told.
 
 | # | answer | answered by |
 |---|---|---|
-| Q1 | **The factor 2/π² IS the correct 3D phase-space measure for 2 polarizations.** d³k/(2π)³ angular-integrated = k²dk/(2π²), times 2 pols = 2k²dk/(2π²) = k²dk/π². The code's 2/π² × k² × |u|² × dk equals k²dk/π² × |u|² × (2/2). The factor-of-4 discrepancy comes from a different convention for what |u|² means: per-polarization vs polarisation-summed. The code's convention is self-consistent but the distinction must be documented. | Ox Alpha |
+| Q1 | **Correct factor is k²dk/(2π²) — NOT 2/π².** d³k/(2π)³ angular-integrated = k²dk/(2π²), times 2 pols = 2k²dk/(2π²) = k²dk/π² for the polarisation-SUMMED |u|², or k²dk/(2π²) per-polarization with explicit ×2 in the integrand. The earlier factor 2/π² was **4× too large** and had been tuned to a 4×-too-large `want` (324.23 instead of 81.11). Both sides corrected: integrand now `k**2 / (2*math.pi**2)` with explicit ×2 pols, `want = (hi**2-lo**2)/(4*pi^2)`, giving got=81.11260 want=81.05695 rel=0.0007. **The distinction between per-polarization and polarisation-summed |u|² must be documented wherever mode functions are used.** | Ox Alpha (corrected by Claude) |
 
 ## LOG (append only, newest last)
 
