@@ -277,3 +277,28 @@ gauge-invariant scalar/Bardeen response to zero?' -- i.e. exactly the booked que
 Next: the owner's ten-point kinematic brief -- gauge-invariant Bardeen basis, THEN Ward,
 THEN closure premises. No Sigma at this stage.
 
+### 2026-08-24 · Claude · Bardeen gate 1 STARTED (not completed): orbit DERIVED, invariants exact
+
+`PHYSICS_LEDGER/wall_a_bardeen_basis.py`. The FRW gauge orbit computed from the Lie
+derivative on g = a^2 diag(-1,1,1,1) -- no transformation rule recalled. Exact results:
+
+  scalar sector: 9 jet coords, orbit rank 6 -> 3 invariants, containing
+                 Psi = psi - H(B-E')  and  Phi = phi + H(B-E') + (B-E')'  (derived convention)
+  vector sector: 4 jet coords, rank 3 -> 1 invariant: V = S - F'
+  tensor sector: delta h_TT = 0 identically -- invariant outright
+  plants: pure-gauge annihilated; bare psi and bare E (P0s-analogue) correctly NOT invariant
+
+SELF-CATCH: my recalled candidate Bardeen forms had the wrong relative sign for the derived
+convention and failed the check; the null space supplied the true forms. The derivation
+corrected the memory -- the recall-proof design working as built.
+
+STATUS PER OWNER RULING: this is the START of the Bardeen completion -- perturbation space
++ gauge invariants only. The flat anchor is untouched and remains the regression target.
+The kernel-structure table (diagonal-Ward 11 = 1+2+8; both-slot/closure 6 = 1+1+4; new
+named license = boost/local-Lorentz covariance of the response, UNBOOKED) is a TYPED
+PRE-REGISTERED PREDICTION for the kernel-level gate, not a result.
+
+NEXT GATE: exact curved KERNEL basis on these blocks -> diagonal Ward (r-slot annihilates
+the full orbit incl. xi^0) -> flat-limit regression to {P2, P0s, Xsw}. Start from the larger
+space; let the FRW gauge algebra reduce it. Second-author review owed (standing).
+
