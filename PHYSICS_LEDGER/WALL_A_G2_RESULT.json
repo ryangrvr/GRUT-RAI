@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "wall_a_g2_assembly.py"
+  },
+  "G0": "mode-counting basis DECLARED: k-continuum constant-a slice, rho~w^2",
+  "registry": [
+    {
+      "symbol": "J(w)",
+      "represents": "spectral density (bath exchange)",
+      "domain": "frequency",
+      "units": "[E]^2 per domega",
+      "fourier_conv": "e^{-iwt}; two-sided not used; one-sided positive-w",
+      "produced_by": "boundary input / DOS model",
+      "omega_power_vs_J": "0"
+    },
+    {
+      "symbol": "gamma(t)",
+      "represents": "friction kernel",
+      "domain": "time",
+      "units": "1/[E^2]",
+      "fourier_conv": "cosine; gamma=(2/pi)int f(w)cos",
+      "produced_by": "cosine-transform of J/w",
+      "omega_power_vs_J": "-1"
+    },
+    {
+      "symbol": "f(w)=J/w",
+      "represents": "friction spectrum = Im chi (registered conv.)",
+      "domain": "frequency",
+      "units": "1/[E]",
+      "fourier_conv": "-",
+      "produced_by": "J divided by omega",
+      "omega_power_vs_J": "-1"
+    },
+    {
+      "symbol": "Im chi(w)",
+      "represents": "response (dissipative part)",
+      "domain": "frequency",
+      "units": "1/[E]",
+      "fourier_conv": "same as friction spectrum at tree level",
+      "produced_by": "= friction spectrum f(w)",
+      "omega_power_vs_J": "-1"
+    }
+  ],
+  "tree_results": [
+    {
+      "coupling_p": 1,
+      "recovered_slope": 3.9632,
+      "predicted_from_declared_inputs": 4,
+      "response_class": "s>=2",
+      "G0_label": "INHERITED-FROM-DOS-MODEL",
+      "convergence": "CONVERGENT (inherited object; not evidence about gravity)"
+    },
+    {
+      "coupling_p": 2,
+      "recovered_slope": 5.9632,
+      "predicted_from_declared_inputs": 6,
+      "response_class": "s>=2",
+      "G0_label": "INHERITED-FROM-DOS-MODEL",
+      "convergence": "CONVERGENT (inherited object; not evidence about gravity)"
+    }
+  ],
+  "verdict": "OBSTRUCTED AT WALL A: one-loop self-energy assembly requires (a) dS 3-vertex contraction (b) KC5-reserved covariant operator-basis completion (c) UV renormalization. Tree-level exchange spectrum is kinematics only (no H, no curvature) and carries the G0 label INHERITED-FROM-DOS-MODEL."
+}
