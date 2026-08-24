@@ -88,13 +88,10 @@ DECLARED = {
         "cases": {
             # rung1_inin_action cases removed 2026-08-23: node split per Ruling B.
             # rung1_inin_formalism inherits the old background-flow dependency contradiction.
-            # rung7_w1_wz_map + u1_form_universality: NEW tension created by the edge migration
-            # itself -- their 'shown' tiers now rest (partly) on the assumed ontology half.
-            # Referred to owner: either their tiers drop toward derived-pending, or their edges
-            # return to FORMALISM-only. Not resolved here; declared so the suite stays legible.
+            # rung7_w1_wz_map / u1_form_universality cases REMOVED 2026-08-23 (owner edge
+            # correction): reattached to FORMALISM per their own GENERIC self-declarations,
+            # which RESOLVED the tier-vs-edge tensio            # which RESOLVED the tier-vs-edge tensio            # whidge review -> genericity evidence -> owner correction).
             "rung1_inin_formalism": "P1A-EDGE-REPRESENTATION",
-            "rung7_w1_wz_map": "P1A-EDGE-REPRESENTATION",
-            "u1_form_universality": "P1A-EDGE-REPRESENTATION",
             "rung2_kms_gate": "P1A-EDGE-REPRESENTATION",
         },
     },
@@ -102,8 +99,6 @@ DECLARED = {
         "enumerate": _annotation_cases,
         "cases": {
             "rung1_inin_formalism": "P1A-EDGE-REPRESENTATION",
-            "rung7_w1_wz_map": "P1A-EDGE-REPRESENTATION",
-            "u1_form_universality": "P1A-EDGE-REPRESENTATION",
             "rung2_kms_gate": "P1A-EDGE-REPRESENTATION",
         },
     },
