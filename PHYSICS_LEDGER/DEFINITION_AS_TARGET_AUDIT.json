@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "manual sweep with [D-1] discriminator + [D-2] plant-and-recover",
+    "discriminator": "DEFINITION-AS-TARGET iff rival outcome is excluded by a free parameterization choice (caller-set, never derived, never swept), not by a computed step",
+    "coverage": {"calc_files_total": 35, "deep_read": 10, "mechanical_grep_only": 25,
+      "note": "grep-only files remain lower-priority candidates; flagged not cleared"}
+  },
+  "confirmed_definition_as_target": [
+    {
+      "file": "calc/wz_sign.py",
+      "claim": "w(z) cannot cross the phantom divide for the passive vacuum (rung7_w2/w3 export)",
+      "ansatz": "w(a)+1 = sign*EPS*H_over_H0(a); sign and EPS caller-set constants",
+      "constraint": "H/H0 > 0 so w+1 inherits fixed sign of EPS*sign for all a",
+      "excluded_outcome": "sign change of (w+1) across z",
+      "plant_recover": "swept sign in {-1,+1}, EPS in {-0.05, 0.05, 1, 50}: zero configurations produce crossing; rival mechanically unreachable",
+      "downstream_uses": ["rung7_w3_nocrossing_export (to-derive)", "rung7_w2_wa_sign sub_status", "NO_GO_LEDGER entry 3 in-house line"],
+      "replacement_required": "kernel-family chi(omega) scan with passivity as emergent constraint; already built at PHYSICS_LEDGER/rung7_discriminator.py"
+    },
+    {
+      "file": "calc/wz_dark_energy.py",
+      "claim": "single-relaxor w(z): CPL parameters and no-crossing (rung7_wz toy)",
+      "ansatz": "w_relaxor = -1 + eps*x^2/(1+x^2); eps never swept through zero",
+      "constraint": "x^2/(1+x^2) >= 0 so w+1 inherits sign of eps for all z",
+      "excluded_outcome": "crossing of w=-1 within the ansatz",
+      "status_modifier": "self-flagged SUPERSEDED 2026-06-29; structural classification missing until this audit",
+      "plant_recover": "same one-signedness structure; eps swept confirms rival unreachable",
+      "downstream_uses": ["rung7_wz narrative only"],
+      "replacement_required": "superseded content; cite kernel-family discriminator instead"
+    }
+  ],
+  "survivors_inspected": [
+    {"file": "mu_linear.py", "why": "bookkeeping-only; adversarially framed pre-computation"},
+    {"file": "x_no_pin.py", "why": "pre-registered sealed hash; default-BROKEN framing"},
+    {"file": "kk_static_transfer.py", "why": "pre-registered; rival reachable"},
+    {"file": "zeta_interior.py", "why": "default-BROKEN both horns first-class"},
+    {"file": "isw_exclusion.py", "why": "computed against externally cited observable"},
+    {"file": "u5u6_deformability.py", "why": "graduates neither claim; horns undecided"},
+    {"file": "finite_T_pole_structure.py", "why": "open question either way"}
+  ],
+  "lower_priority_candidates_not_hand_read": [
+    "anomaly_c0_map.py", "arrow_origin.py", "class_c_solver.py", "class_c_stage_c1.py",
+    "conformalon_joint.py", "conformalon_q2_band.py", "delta4_stability.py",
+    "energy_basis_decoherence.py", "finite_T_exponent.py", "gw_dissipation_bounds.py",
+    "isw_tt_auto.py", "mu_slip_interior.py", "mz_inheritance.py", "noise_transversality_check.py",
+    "operator_basis.py", "q1_energy_basis_magnitude.py", "rung3_spectral_structure.py",
+    "sigma0_anomaly_screen.py", "static_patch_tt_response.py", "tt_worldline_spectrum.py",
+    "two_scale_desitter.py", "vacuum_scheme_compare.py", "worldline_reduction.py",
+    "zeta_interior_family placeholder check", "C1_GROUND_TRUTH_MODE.py", "C1_PRIMITIVE_VALIDATION.py",
+    "L0_redundancy.py", "sigma0_anomaly_screen duplicate check"
+  ]
+}

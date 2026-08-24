@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "priority1b_rerun.py",
+    "convention_anchor": {
+      "debye_min_Im": 0.009999,
+      "frozen": true
+    },
+    "note": "cos-kernel retained as inadmissible test case; not evidence"
+  },
+  "results": [
+    {
+      "kernel": "registered single-pole Debye (convention control)",
+      "params": "tau=1",
+      "crossing_by_framing": {
+        "phase-lag/elastic": "APPROACH WITHOUT CROSSING",
+        "dissipative": "APPROACH WITHOUT CROSSING"
+      },
+      "passivity": {
+        "min_Im_chi_w_pos": 0.009999000099990002,
+        "passive": true
+      },
+      "KK": 7.4794,
+      "KMS": {
+        "passed": true,
+        "max_residual": 0.0,
+        "reason": "detailed balance holds within tol",
+        "worst_omega": null
+      }
+    },
+    {
+      "kernel": "INADMISSIBLE cos-kernel (prior run, for record)",
+      "params": "gamma=1 Omega=2",
+      "crossing_by_framing": {
+        "phase-lag/elastic": "APPROACH WITHOUT CROSSING",
+        "dissipative": "TRUE CROSSING"
+      },
+      "passivity": {
+        "min_Im_chi_w_pos": -0.10264618294135028,
+        "passive": false
+      },
+      "KK": 3.2693,
+      "KMS": {
+        "passed": true,
+        "max_residual": 0.0,
+        "reason": "detailed balance holds within tol",
+        "worst_omega": null
+      }
+    },
+    {
+      "kernel": "PASSIVE Lorentz oscillatory",
+      "params": "gamma=0.5 omega0=2",
+      "crossing_by_framing": {
+        "phase-lag/elastic": "TRUE CROSSING",
+        "dissipative": "APPROACH WITHOUT CROSSING"
+      },
+      "passivity": {
+        "min_Im_chi_w_pos": 0.0012500605490265559,
+        "passive": true
+      },
+      "KK": 1.9203,
+      "KMS": {
+        "passed": true,
+        "max_residual": 0.0,
+        "reason": "detailed balance holds within tol",
+        "worst_omega": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "priority2_grut_kk.py",
+    "convention": "Im chi = J/omega (friction, registered); noise variant S=J coth(w/2T) also run",
+    "validity": "VALIDITY-UNDECLARED in register; implied domain w << wc (low-w claims)",
+    "calibration": {
+      "debye_rel_err_pct": [
+        0.208,
+        0.17,
+        0.132,
+        0.119
+      ],
+      "threshold": 2
+    }
+  },
+  "probe": {
+    "s=3 registered J (Gaussian)": {
+      "zero_x": [
+        1.1686
+      ],
+      "convergence": {
+        "wmax60_n120k": [
+          1.1686
+        ],
+        "wmax120_n240k": [
+          1.1646
+        ],
+        "stable": false
+      },
+      "cutoff_shape_variants": {
+        "exponential cutoff": {
+          "zeros": [
+            2.9214
+          ],
+          "matches_gaussian_position": false
+        },
+        "hard cutoff": {
+          "zeros": [
+            0.8864
+          ],
+          "matches_gaussian_position": false
+        },
+        "soft power-law": {
+          "zeros": [
+            1.9426
+          ],
+          "matches_gaussian_position": false
+        }
+      },
+      "low_frequency_Re_chi": [
+        [
+          0.01,
+          0.31858
+        ],
+        [
+          0.05,
+          0.32258
+        ],
+        [
+          0.1,
+          0.33094
+        ],
+        [
+          0.3,
+          0.36397
+        ]
+      ]
+    },
+    "noise-based S at T=1": {
+      "zero_x": [
+        0.9666
+      ],
+      "convergence": {
+        "wmax60_n120k": [
+          0.9666
+        ],
+        "wmax120_n240k": [
+          0.9632
+        ],
+        "stable": false
+      },
+      "cutoff_shape_variants": {},
+      "low_frequency_Re_chi": [
+        [
+          0.01,
+          1.17343
+        ],
+        [
+          0.05,
+          1.1683
+        ],
+        [
+          0.1,
+          1.15237
+        ],
+        [
+          0.3,
+          0.9911
+        ]
+      ]
+    }
+  }
+}

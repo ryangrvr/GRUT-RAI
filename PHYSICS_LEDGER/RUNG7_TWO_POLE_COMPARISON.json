@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "rung7_discriminator.py",
+    "criterion": "TRUE CROSSING iff sign change persists at 4x refinement"
+  },
+  "results": [
+    {
+      "kernel": "single-pole Debye (control)",
+      "params": "tau=1",
+      "crossing_by_framing": {
+        "phase-lag/elastic": "APPROACH WITHOUT CROSSING",
+        "dissipative": "APPROACH WITHOUT CROSSING"
+      },
+      "passivity": {
+        "min_Im_chi_w_pos": 0.009999000099990002,
+        "passive": true
+      },
+      "KK": {
+        "kk_max_rel_residual": 7.4794
+      }
+    },
+    {
+      "kernel": "two REAL poles",
+      "params": "A=(0.6,0.4) tau=(0.5,3)",
+      "crossing_by_framing": {
+        "phase-lag/elastic": "APPROACH WITHOUT CROSSING",
+        "dissipative": "APPROACH WITHOUT CROSSING"
+      },
+      "passivity": {
+        "min_Im_chi_w_pos": 0.014989134713134821,
+        "passive": true
+      },
+      "KK": {
+        "kk_max_rel_residual": 9.9906
+      }
+    },
+    {
+      "kernel": "complex-conjugate OSCILLATORY pair",
+      "params": "gamma=0.5 Omega=2 (flip w*=2 in band [1,3.9])",
+      "crossing_by_framing": {
+        "phase-lag/elastic": "TRUE CROSSING",
+        "dissipative": "APPROACH WITHOUT CROSSING"
+      },
+      "passivity": {
+        "min_Im_chi_w_pos": 0.00031251513725663897,
+        "passive": true
+      },
+      "KK": {
+        "kk_max_rel_residual": 1.9203
+      }
+    },
+    {
+      "kernel": "one-channel NON-Debye Cole-Cole",
+      "params": "alpha=0.6",
+      "crossing_by_framing": {
+        "phase-lag/elastic": "APPROACH WITHOUT CROSSING",
+        "dissipative": "APPROACH WITHOUT CROSSING"
+      },
+      "passivity": {
+        "min_Im_chi_w_pos": 0.047345272672447765,
+        "passive": true
+      },
+      "KK": {
+        "kk_max_rel_residual": 14.3341
+      }
+    },
+    {
+      "kernel": "three REAL poles (control)",
+      "params": "A=(0.5,0.3,0.2) tau=(0.5,1,2)",
+      "crossing_by_framing": {
+        "phase-lag/elastic": "APPROACH WITHOUT CROSSING",
+        "dissipative": "APPROACH WITHOUT CROSSING"
+      },
+      "passivity": {
+        "min_Im_chi_w_pos": 0.009498038171303564,
+        "passive": true
+      },
+      "KK": {
+        "kk_max_rel_residual": 8.7972
+      }
+    },
+    {
+      "kernel": "PLANT corrupted sign",
+      "params": "flip Im",
+      "crossing_by_framing": {
+        "phase-lag/elastic": "APPROACH WITHOUT CROSSING",
+        "dissipative": "APPROACH WITHOUT CROSSING"
+      },
+      "passivity": {
+        "min_Im_chi_w_pos": -0.5,
+        "passive": false
+      },
+      "KK": {
+        "kk_max_rel_residual": 7.4794
+      }
+    }
+  ]
+}

@@ -1,0 +1,387 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "physics_collect.py",
+    "rule": "COLLECT BEFORE COMPUTING \u2014 machine-readable partial answer to \"what is uniquely GRUT\""
+  },
+  "summary": {
+    "UNSET": 33,
+    "NON-DIFFERENTIATING": 15,
+    "CONDITIONAL-DIFFERENTIATING": 14,
+    "FAILS-DIFFERENTIATION": 5,
+    "NO-GO-EXPORT": 2,
+    "DIFFERENTIATING-RESULT (negative-direction)": 1,
+    "META": 1
+  },
+  "nodes": {
+    "NON-DIFFERENTIATING": [
+      {
+        "id": "rung1_inin_action",
+        "tier": "shown",
+        "differentiator": "NON-DIFFERENTIATING-BY-CONSTRUCTION: the retarded arrow is structural, not yet observable."
+      },
+      {
+        "id": "rung9a_value",
+        "tier": "shown",
+        "differentiator": "NON-DIFFERENTIATING: an adopted dimensionless axiom (conditional theorem), not an absolute anchor."
+      },
+      {
+        "id": "rung9b_bridge",
+        "tier": "assumed",
+        "differentiator": "NON-DIFFERENTIATING: an adopted phenomenological normalization, obstruction-backed."
+      },
+      {
+        "id": "p_tt_ansatz",
+        "tier": "assumed",
+        "differentiator": "NON-DIFFERENTIATING: a declared structural assumption, not a result."
+      },
+      {
+        "id": "founding_h1_zeta_casimir",
+        "tier": "shown",
+        "differentiator": "NON-DIFFERENTIATING: generic Casimir/zeta/heat-kernel physics, explicitly not uniquely GRUT."
+      },
+      {
+        "id": "info_i1_renorm_as_information",
+        "tier": "shown",
+        "differentiator": "NON-DIFFERENTIATING: standard information-RG, already imported via rung1/rung2/rung9a."
+      },
+      {
+        "id": "l0_r1_redundancy_exists",
+        "tier": "shown",
+        "differentiator": "NON-DIFFERENTIATING: standard adiabatic-mode redundancy."
+      },
+      {
+        "id": "l0_r3_payoff_mu_linear",
+        "tier": "to-derive",
+        "differentiator": "NON-DIFFERENTIATING (foundational, not predictive): would shore up mu_linear and the memory-as-struc"
+      },
+      {
+        "id": "rung7_w1_wz_map",
+        "tier": "shown",
+        "differentiator": "NON-DIFFERENTIATING: standard relaxing-response -> w(z) map."
+      },
+      {
+        "id": "method_novelty",
+        "tier": "to-derive",
+        "differentiator": "NON-DIFFERENTIATING: no novel component; weakly-novel synthesis; the freshest angle is the AI-assist"
+      },
+      {
+        "id": "u1_form_universality",
+        "tier": "shown",
+        "differentiator": "NON-DIFFERENTIATING: the universal influence-functional FORM is standard open-system EFT, not GRUT-s"
+      },
+      {
+        "id": "u3_split_origin",
+        "tier": "to-derive",
+        "differentiator": "NON-DIFFERENTIATING (foundational, fenced): would explain the origin of the system/bath split; curre"
+      },
+      {
+        "id": "u4_constitutive_origin",
+        "tier": "to-derive",
+        "differentiator": "NON-DIFFERENTIATING (foundational, fenced, DEEPEST/least-tractable frontier): would explain why effe"
+      },
+      {
+        "id": "passivity_channel_diagonal",
+        "tier": "shown",
+        "differentiator": "NON-DIFFERENTIATING: standard linear-response mathematics, stated and machine-verified so the applic"
+      },
+      {
+        "id": "background_time_translation_flow",
+        "tier": "assumed",
+        "differentiator": "NON-DIFFERENTIATING: a bookkeeping correction about what the formalism has been assuming. It predict"
+      }
+    ],
+    "FAILS-DIFFERENTIATION": [
+      {
+        "id": "rung2_kms_gate",
+        "tier": "shown",
+        "differentiator": "FAILS-DIFFERENTIATION by design (equilibrium agreement is the gate)."
+      },
+      {
+        "id": "rung4_love_kk",
+        "tier": "shown",
+        "differentiator": "FAILS-DIFFERENTIATION (real-but-invisible): frequency-dependent GW dephasing/attenuation and v_g(ome"
+      },
+      {
+        "id": "rung5_gr_limit",
+        "tier": "assumed",
+        "differentiator": "FAILS-DIFFERENTIATION: at tau_c=0 GRUT IS Jacobson/Padmanabhan and inherits their criticisms."
+      },
+      {
+        "id": "rung8_falsifier",
+        "tier": "to-derive",
+        "differentiator": "FAILS-DIFFERENTIATION (quiet-or-faint): Q1 magnitude calc (2026-06-25) shows the dominant DIAGONAL c"
+      },
+      {
+        "id": "arrow_of_time",
+        "tier": "assumed",
+        "differentiator": "FAILS-DIFFERENTIATION as a from-scratch derivation (the arrow DIRECTION is imported, like every prog"
+      }
+    ],
+    "CONDITIONAL-DIFFERENTIATING": [
+      {
+        "id": "rung3_single_pole",
+        "tier": "derived-pending",
+        "differentiator": "tau_c>0 vs tau_c=0; observable deferred to rung 8."
+      },
+      {
+        "id": "rung6_qm_limit",
+        "tier": "assumed",
+        "differentiator": "Decoherence RATE is differentiating; Born rule FAILS-DIFFERENTIATION (inherited postulate)."
+      },
+      {
+        "id": "founding_h2_R_zeta_bridge",
+        "tier": "to-derive",
+        "differentiator": "WOULD-BE-DIFFERENTIATING IF a rigorous spectral construction R=f(Spec(L)) were found; currently to-d"
+      },
+      {
+        "id": "founding_h3_doubleslit_anchor",
+        "tier": "to-derive",
+        "differentiator": "WOULD-BE-DIFFERENTIATING IF a unique double-slit observable computable from GRUT existed; currently "
+      },
+      {
+        "id": "info_i2_beyond_standard_bridge",
+        "tier": "to-derive",
+        "differentiator": "WOULD-BE-DIFFERENTIATING IF a beyond-standard principle survived; currently to-derive / default-brok"
+      },
+      {
+        "id": "info_i3_distinct_consequence",
+        "tier": "to-derive",
+        "differentiator": "WOULD-BE-DIFFERENTIATING IF a distinct consequence existed; currently to-derive / default-broken."
+      },
+      {
+        "id": "l0_r2_exact_unique_breaker",
+        "tier": "to-derive",
+        "differentiator": "WOULD-BE-FOUNDATIONAL (not novel physics) IF proven: it would graduate mu_linear and make 'memory=st"
+      },
+      {
+        "id": "rung7_w2_wa_sign",
+        "tier": "to-derive",
+        "differentiator": "WOULD-BE-DIFFERENTIATING (a falsifiable-direction no-go) IF the no-crossing graduates: 'GRUT's passi"
+      },
+      {
+        "id": "rung7_w3_nocrossing_export",
+        "tier": "to-derive",
+        "differentiator": "WOULD-BE-DIFFERENTIATING (a falsifiable-direction no-go) IF W2's no-crossing graduates: it makes the"
+      },
+      {
+        "id": "u2_kernel_universality",
+        "tier": "to-derive",
+        "differentiator": "WOULD-BE-DIFFERENTIATING (a genuine universality result) IF >=2 QG completions flow to the same IR-k"
+      },
+      {
+        "id": "u5_constitutive_phases",
+        "tier": "to-derive",
+        "differentiator": "WOULD-BE-A-STRUCTURAL-RESULT (a classification of constitutive universality classes) IF it closes; c"
+      },
+      {
+        "id": "u6_constitutive_order",
+        "tier": "to-derive",
+        "differentiator": "WOULD-BE-A-STRUCTURAL-RESULT (an order parameter for constitutive organization) IF non-reducible to "
+      },
+      {
+        "id": "eft_operator_basis",
+        "tier": "to-derive",
+        "differentiator": "WOULD-BE-THE-INSTRUMENT for the p_tt interrogation (forced-vs-chosen) IF the full-covariant order cl"
+      },
+      {
+        "id": "zeta_interior_family",
+        "tier": "to-derive",
+        "differentiator": "THE FIRST PARAMETERIZED EMPIRICAL SURFACE of the GRUT family: mu deviations allowed up to the ~20%-l"
+      }
+    ],
+    "DIFFERENTIATING-RESULT (negative-direction)": [
+      {
+        "id": "rung7_wz",
+        "tier": "to-derive",
+        "differentiator": "STRUCTURAL PASS (evolving w(z) is impossible for the static-Lambda time-symmetric family) but DESI-s"
+      }
+    ],
+    "NO-GO-EXPORT": [
+      {
+        "id": "mu_linear",
+        "tier": "derived-pending",
+        "differentiator": "NO-GO EXPORT, not a differentiator: 'GRUT forbids the mu=4/3 modification its own conformal coeffici"
+      },
+      {
+        "id": "x_no_pin_theorem",
+        "tier": "derived-pending",
+        "differentiator": "Register-internal yield, named: (i) route R3 closed as classifier on computed grounds (D3 completion"
+      }
+    ],
+    "UNSET": [
+      {
+        "id": "born_rule",
+        "tier": "assumed",
+        "differentiator": ""
+      },
+      {
+        "id": "entropy_area_unruh",
+        "tier": "assumed",
+        "differentiator": ""
+      },
+      {
+        "id": "past_hypothesis",
+        "tier": "assumed",
+        "differentiator": ""
+      },
+      {
+        "id": "lambda_undetermined",
+        "tier": "to-derive",
+        "differentiator": ""
+      },
+      {
+        "id": "linear_response_viscoelastic",
+        "tier": "assumed",
+        "differentiator": ""
+      },
+      {
+        "id": "relativistic_hydro_israel_stewart",
+        "tier": "assumed",
+        "differentiator": ""
+      },
+      {
+        "id": "analogue_gravity_acoustic",
+        "tier": "assumed",
+        "differentiator": ""
+      },
+      {
+        "id": "superfluid_bec_media",
+        "tier": "assumed",
+        "differentiator": ""
+      },
+      {
+        "id": "entropy_foundations",
+        "tier": "assumed",
+        "differentiator": ""
+      },
+      {
+        "id": "fluctuation_theorems",
+        "tier": "assumed",
+        "differentiator": ""
+      },
+      {
+        "id": "second_law_h_theorem",
+        "tier": "assumed",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_rho_lambda",
+        "tier": "measured",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_v_ew",
+        "tier": "measured",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_m_planck",
+        "tier": "measured",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_vacuum_energy_gravitates",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_lorentz_invariant_vacuum",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_semiclassical_sourcing",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_heavy_thresholds_exist",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_eft_validity",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_ir_gravity_is_gr",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_naturalness_normative",
+        "tier": "heuristic",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_typicality_measure",
+        "tier": "heuristic",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_w_equals_minus_one",
+        "tier": "open",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_grut_relation",
+        "tier": "open",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_state_expectation_functional",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_mean_field_sourcing",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_eft_decoupling",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_eft_vacuum_operator",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_universal_metric_coupling",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_gravitational_uv_ceiling",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_flatness_in_reduction",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "vc_averaging_commutes",
+        "tier": "postulate",
+        "differentiator": ""
+      },
+      {
+        "id": "emergence_chain",
+        "tier": "to-derive",
+        "differentiator": ""
+      }
+    ],
+    "META": [
+      {
+        "id": "kk_static_transfer",
+        "tier": "derived-pending",
+        "differentiator": "The discriminating question for every downstream use of the orientation floor: whether 'x_diss(omega"
+      }
+    ]
+  }
+}

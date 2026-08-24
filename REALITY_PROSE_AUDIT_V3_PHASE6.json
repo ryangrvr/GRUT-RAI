@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "prose_phase6.py",
+    "rule": "overlapping reaches reported as unions+subsets, never summed"
+  },
+  "chain": {
+    "nodes": [
+      "background_time_translation_flow",
+      "rung1_inin_action",
+      "rung2_kms_gate"
+    ],
+    "graph_union": 29,
+    "graph_union_pct_register": 40.8,
+    "prose_union_HIGH_node_node": 13,
+    "units_warning": "chain graph reach fixed by claims.json construction; only prose/combined can move",
+    "r1_attribution_node_level": {
+      "formalism": 17,
+      "ontology": 6,
+      "ambiguous": 4
+    }
+  },
+  "per_node_top12": [
+    {
+      "id": "background_time_translation_flow",
+      "tier": "assumed",
+      "direct_graph_dependents": 0,
+      "high_prose_refs": 3,
+      "low_short_candidate_groups": 0,
+      "transitive_graph_reach": 28,
+      "transitive_prose_reach": 12,
+      "combined_union_reach": 30,
+      "pre_existing_file_refs": 5,
+      "audit_generated_file_refs": 7
+    },
+    {
+      "id": "rung1_inin_action",
+      "tier": "shown",
+      "direct_graph_dependents": 1,
+      "high_prose_refs": 2,
+      "low_short_candidate_groups": 1,
+      "transitive_graph_reach": 27,
+      "transitive_prose_reach": 4,
+      "combined_union_reach": 27,
+      "pre_existing_file_refs": 13,
+      "audit_generated_file_refs": 12
+    },
+    {
+      "id": "rung2_kms_gate",
+      "tier": "shown",
+      "direct_graph_dependents": 2,
+      "high_prose_refs": 2,
+      "low_short_candidate_groups": 1,
+      "transitive_graph_reach": 20,
+      "transitive_prose_reach": 5,
+      "combined_union_reach": 22,
+      "pre_existing_file_refs": 7,
+      "audit_generated_file_refs": 9
+    },
+    {
+      "id": "rung9a_value",
+      "tier": "shown",
+      "direct_graph_dependents": 0,
+      "high_prose_refs": 1,
+      "low_short_candidate_groups": 1,
+      "transitive_graph_reach": 9,
+      "transitive_prose_reach": 2,
+      "combined_union_reach": 10,
+      "pre_existing_file_refs": 11,
+      "audit_generated_file_refs": 4
+    },
+    {
+      "id": "rung3_single_pole",
+      "tier": "derived-pending",
+      "direct_graph_dependents": 2,
+      "high_prose_refs": 0,
+      "low_short_candidate_groups": 1,
+      "transitive_graph_reach": 9,
+      "transitive_prose_reach": 0,
+      "combined_union_reach": 9,
+      "pre_existing_file_refs": 13,
+      "audit_generated_file_refs": 15
+    },
+    {
+      "id": "p_tt_ansatz",
+      "tier": "assumed",
+      "direct_graph_dependents": 1,
+      "high_prose_refs": 1,
+      "low_short_candidate_groups": 0,
+      "transitive_graph_reach": 5,
+      "transitive_prose_reach": 2,
+      "combined_union_reach": 6,
+      "pre_existing_file_refs": 24,
+      "audit_generated_file_refs": 9
+    },
+    {
+      "id": "passivity_channel_diagonal",
+      "tier": "shown",
+      "direct_graph_dependents": 1,
+      "high_prose_refs": 1,
+      "low_short_candidate_groups": 0,
+      "transitive_graph_reach": 2,
+      "transitive_prose_reach": 5,
+      "combined_union_reach": 6,
+      "pre_existing_file_refs": 7,
+      "audit_generated_file_refs": 2
+    },
+    {
+      "id": "emergence_chain",
+      "tier": "to-derive",
+      "direct_graph_dependents": 0,
+      "high_prose_refs": 2,
+      "low_short_candidate_groups": 0,
+      "transitive_graph_reach": 0,
+      "transitive_prose_reach": 6,
+      "combined_union_reach": 6,
+      "pre_existing_file_refs": 5,
+      "audit_generated_file_refs": 2
+    },
+    {
+      "id": "entropy_area_unruh",
+      "tier": "assumed",
+      "direct_graph_dependents": 0,
+      "high_prose_refs": 1,
+      "low_short_candidate_groups": 0,
+      "transitive_graph_reach": 5,
+      "transitive_prose_reach": 1,
+      "combined_union_reach": 5,
+      "pre_existing_file_refs": 2,
+      "audit_generated_file_refs": 3
+    },
+    {
+      "id": "eft_operator_basis",
+      "tier": "to-derive",
+      "direct_graph_dependents": 3,
+      "high_prose_refs": 1,
+      "low_short_candidate_groups": 0,
+      "transitive_graph_reach": 3,
+      "transitive_prose_reach": 3,
+      "combined_union_reach": 5,
+      "pre_existing_file_refs": 12,
+      "audit_generated_file_refs": 4
+    },
+    {
+      "id": "x_no_pin_theorem",
+      "tier": "derived-pending",
+      "direct_graph_dependents": 2,
+      "high_prose_refs": 2,
+      "low_short_candidate_groups": 0,
+      "transitive_graph_reach": 1,
+      "transitive_prose_reach": 4,
+      "combined_union_reach": 5,
+      "pre_existing_file_refs": 9,
+      "audit_generated_file_refs": 7
+    },
+    {
+      "id": "kk_static_transfer",
+      "tier": "derived-pending",
+      "direct_graph_dependents": 1,
+      "high_prose_refs": 3,
+      "low_short_candidate_groups": 0,
+      "transitive_graph_reach": 0,
+      "transitive_prose_reach": 5,
+      "combined_union_reach": 5,
+      "pre_existing_file_refs": 9,
+      "audit_generated_file_refs": 9
+    }
+  ],
+  "per_node_all_count": 71,
+  "classification_vocab": [
+    "FORMALISM-DEPENDENT",
+    "ONTOLOGY-DEPENDENT",
+    "AMBIGUOUS",
+    "CITATION-ONLY",
+    "NEGATED",
+    "HISTORICAL-RETRACTED"
+  ]
+}

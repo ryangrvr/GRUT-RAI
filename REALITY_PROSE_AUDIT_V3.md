@@ -65,3 +65,40 @@ Incumbent (28-file corpus): 6 of 27 dependents ontology-dependent. Full-corpus o
 One gate flagged SELF-REFERENTIAL-GATE (adversarial harness mutates its own list; independent fact is filesystem state). All other gates anchored outside the instrument.
 
 > This audit cannot discharge the external-validation debt. An instrument passing its own internal checks is not evidence the instrument is complete.
+
+---
+
+# PHASE 7 REDO (appended) — supersedes the term-frequency section above
+
+**Status:** the 451/221 figure above is reclassified **HISTORICAL / DIAGNOSTIC ONLY** — a raw vocabulary tally, not a dependency result. The redo classifies EDGES with retraction/negation applied BEFORE counting.
+
+## Epoch partition (filesystem birth+mod times; never filename)
+
+| epoch | files | ONT-DEP | FORM-DEP | AMBIG | NEGATED | HIST-RETR |
+|---|---|---|---|---|---|---|
+| PRE_EXISTING | 64 | 181 | 93 | 44 | 4 | 5 |
+| AUDIT_GENERATED | 44 | 226 | 70 | 20 | 2 | 2 |
+| UNKNOWN | 0 | — | — | — | — | — |
+
+Records: **517 total · 493 confident · 24 ambiguous**. Authoritative unit: `file + line + matched form + classification + reason` — every record traceable to source text.
+
+## Incumbent test — REPLACED per owner instruction
+
+The pre-existing corpus is ontology-dense at **1.95:1 by classified prose-edge count**. The V2
+node-dependency structure is formalism-dominant at approximately **2.8:1**. These are different
+observables: prose-edge frequency measures *discussion/attention*; node reach measures
+*architectural dependence*. Neither substitutes for the other.
+
+**Principal Phase-7 finding — the discussion-versus-dependence gap:** GRUT discusses its
+distinctive ontology substantially more heavily than that ontology appears to carry the dependency
+structure. The prose is ontology-dense while the verified node-dependency structure is
+formalism-dominant. This is a descriptive architectural contrast, not evidence that either side is
+physically correct.
+
+**Caveat preserved:** rule-based single-line classification; semantic recall RECALL-UNMEASURABLE
+until stratified hand-validation; 1.95:1 is provisional and not a hand-verified semantic
+measurement.
+
+## Caveat on this artifact's face
+
+Rule-based single-line classification with traceable records; NOT yet a hand-validated semantic dependency graph. Precision/recall remain unmeasured until the stratified hand-check runs. RECALL-UNMEASURABLE stands for the semantic layer.

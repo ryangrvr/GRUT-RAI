@@ -1,7 +1,7 @@
 {
   "discovered": 105,
   "scanned": 104,
-  "excluded": 1,
+  "excluded": 2,
   "unjustified_exclusions": 0,
   "missing_expected_files": [
     {
@@ -125,6 +125,22 @@
       "category": "TOOLING",
       "can_contain_dependencies": false,
       "rule": ".pytest_cache"
+    },
+    {
+      "path_prefix": "PHYSICS_LEDGER/",
+      "category": "LEDGER-FENCE",
+      "reason": "physics ledger, epoch-tagged at creation; prevents the 48% self-contamination recurrence",
+      "can_contain_dependencies": true,
+      "rule": "excluded from prose-audit corpus by default; recorded at creation, not discovered later",
+      "path": "PHYSICS_LEDGER/*",
+      "paths_moved": []
     }
-  ]
+  ],
+  "ledger_fence": {
+    "path_prefix": "PHYSICS_LEDGER/",
+    "category": "LEDGER-FENCE",
+    "reason": "physics ledger, epoch-tagged at creation; prevents the 48% self-contamination recurrence",
+    "can_contain_dependencies": true,
+    "rule": "excluded from prose-audit corpus by default; recorded at creation, not discovered later"
+  }
 }
