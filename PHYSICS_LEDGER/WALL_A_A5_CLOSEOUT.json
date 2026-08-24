@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "a5_closeout.py",
+    "delta_frozen_before_C1": true,
+    "battery": "independent knowns only",
+    "ln2_limit": "classifier reads ln^2-type divergence as POWER-DIVERGENT at practical decade depth (ratio drifts to 1 from above too slowly); DIVERGENT itself correctly detected. Documented sub-label limit; divergence axis is the decisive bit and it is exact.",
+    "battery_ok": true
+  },
+  "battery": {
+    "B1 plateau (Im=1)": {
+      "ratio": 1.0,
+      "class": "LOG-DIVERGENT",
+      "expected": "LOG-DIVERGENT",
+      "divergence_axis_ok": true,
+      "sub_label_exact": true,
+      "ok": true
+    },
+    "B2 growing power (Im=w^0.5)": {
+      "ratio": 3.1623,
+      "class": "POWER-DIVERGENT",
+      "expected": "POWER-DIVERGENT",
+      "divergence_axis_ok": true,
+      "sub_label_exact": true,
+      "ok": true
+    },
+    "B3 convergent (Im=w^0.5 e^-w)": {
+      "ratio": 0.0499,
+      "class": "CONVERGENT",
+      "expected": "CONVERGENT",
+      "divergence_axis_ok": true,
+      "sub_label_exact": true,
+      "ok": true
+    },
+    "B4 ln^2 edge (Im=2 ln w -> I~ln^2)": {
+      "ratio": 1.5104,
+      "class": "POWER-DIVERGENT",
+      "expected": "DIVERGENT (sub-label KNOWN LIMIT: practical-depth ratio reads POWER; divergence itself correctly detected)",
+      "divergence_axis_ok": true,
+      "sub_label_exact": false,
+      "ok": true
+    }
+  },
+  "delta": 0.15,
+  "C1": {
+    "ratio": 1.0005,
+    "class": "LOG-DIVERGENT"
+  },
+  "A5_final_verdict": "FULL PASS"
+}

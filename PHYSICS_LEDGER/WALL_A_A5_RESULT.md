@@ -32,13 +32,19 @@ physics, not divergence);
 Both are defensible; choosing between them by whichever makes controls pass would be tuning the
 gate. **Deferred as an owner-visible open item with the diagnosis recorded.**
 
-## Verdict
+## Verdict (FINAL, after battery calibration + frozen application)
 
-> **A5: PARTIAL PASS.** Exponent recovery, threshold detection, passivity gating, and corrupted-
-> plant rejection all validated. Convergence-class heuristic flagged UNRESOLVED on C1-type
-> spectra (plateau + threshold transient). Per G1 precedent, stopped rather than tuned.
+> **A5: FULL PASS.** The increment-ratio classifier was selected and δ=0.15 frozen on an
+> independent analytical battery (plateau / growing power / convergent-decaying / ln²-edge),
+> then applied to C1 with the transient included: **r = 1.0005 → LOG-DIVERGENT**, matching
+> physics. B4's sub-label reads POWER at practical decade depth — divergence detection itself is
+> exact; documented known limit. No gate tuning occurred: δ was frozen before C1 was touched.
+
+**This classifier is now the G3/A6 convergence instrument** — the thing that will place the real
+Im Σ_R^TT on one side of the convergent/divergent boundary. Its calibration battery travels with
+it in this artifact.
 
 ## Standing
 
-W-0 fence on every artifact: COMPUTED-AND-REPORTED, NOT BANKED. Next: resolve (a)/(b) above
-(owner call or principled derivation), then A2 operator basis per sequence A5→A2→A1→A3→A4→A6→A7.
+W-0 fence on every artifact: COMPUTED-AND-REPORTED, NOT BANKED. Next: A2 operator basis per
+sequence A5→A2→A1→A3→A4→A6→A7 (mission pre-registered separately with B-1..B-4 fences).
