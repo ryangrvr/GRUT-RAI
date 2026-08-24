@@ -188,3 +188,26 @@ stands. W-0: computed-and-reported, not banked. Bardeen/FRW completion remains t
 (projector algebra vs raw eta/k monomials) but same-author. Ox reviews or re-derives before
 the graduation screen. Authorship disclosed in the file docstring and the JSON.
 
+### 2026-08-24 · OWNER RULING — S7 licensing, recorded before any use
+
+**S7 is NOT to be treated as a generally available symmetry license.** Until it is derived or
+explicitly adopted with scope:
+
+    GRUT's symmetry-bought covariant family  =  3D   {P2, P0s, Xsw}
+    GRUT's currently used family             =  2D   {P2, P0s}, CONDITIONAL on S7
+
+S7 is not to be silently booked to preserve the two-parameter ansatz. c0 = 0 remains
+CHOSEN/constitutive, not derived (EH counterexample standing).
+
+**The Bardeen/FRW completion's job, in the owner's order:**
+1. Does S7 survive the actual open-system, de Sitter setting?
+2. Does the 3D flat anchor remain complete once u^mu and time dependence enter?
+3. Do additional structures appear?
+4. Only then: does the full assembly legitimately reduce to {P2, P0s}?
+
+**Second-author review of `PHYSICS_LEDGER/wall_a_a2_routes.py` is required before the
+graduation screen** -- the enumeration is now load-bearing and same-author double
+implementation is not independent reproduction by this program's own rule.
+
+State: A2 flat covariant anchor GREEN · S7 licensing OPEN · Bardeen/FRW completion NEXT.
+
