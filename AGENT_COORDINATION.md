@@ -211,3 +211,26 @@ implementation is not independent reproduction by this program's own rule.
 
 State: A2 flat covariant anchor GREEN · S7 licensing OPEN · Bardeen/FRW completion NEXT.
 
+### 2026-08-24 · Claude · EH hard stop RESOLVED from first principles
+
+`PHYSICS_LEDGER/wall_a_eh_projection.py`: linearized Ricci kernel derived, its correctness
+PROVED by exact gauge invariance R[k_(mu xi_nu)] = 0 (3 random xi, two k), Einstein kernel
+formed, six-channel decomposition by orthogonal component pairing:
+
+    P2 = k^2/2 · P0s = -k^2 · P1 = P0w = Xsw = Xws = 0 IDENTICALLY · residual = 0 EXACTLY
+    ratio coeff(P0s)/coeff(P2) = -2  (banked target met)
+
+CONSEQUENCE FOR THE OLD 23.9 RESIDUAL: the un-gauge-fixed EH kernel has ZERO gauge-sector
+content, so 'modulo gauge' was never an available explanation for a mismatch against it.
+The earlier G_coord was defective (or a gauge-fixed variant); the hard-stop question --
+does the banked identity hold -- is answered YES from first principles.
+
+TWO SELF-CATCHES IN THIS FILE'S OWN BUILD, same index family: (i) my kernel encoding used
+kup/delta where all-lower storage requires klo/eta -- caught by the gauge-invariance gate;
+(ii) my earlier 'conjugate pairing' note for transfer coefficients was wrong -- under full
+component pairing the six structures are mutually orthogonal and transfers self-pair.
+Both corrected in-file with the reason on the face. The index-variance rule keeps earning.
+
+Queue advances: S7 regime adjudication (owner step 2) -> Bardeen completion from the 3D
+family (step 3). c0 = 0 stays separate (step 4).
+
