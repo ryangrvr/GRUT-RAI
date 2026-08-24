@@ -540,7 +540,7 @@
    "domain": "dark-energy-cosmology",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_ontology_finite_memory",
+    "rung1_inin_formalism",
     "rung4_love_kk"
    ],
    "statement": "RUNG7-SIGN sub-claim W1 (GENERIC -- not uniquely GRUT): a relaxing causal susceptibility chi(omega) defines an effective dark-energy stress tensor and an effective equation of state w(a) = p/rho = -1 + (w+1), where the deviation (w+1) = Pi/rho is the dissipative pressure correction off the de Sitter equilibrium w_eq=-1. This relaxing-response -> w(z) map is standard effective-field-theory-of-dark-energy (Gubitosi-Piazza-Vernizzi); it follows from rung1 (memory) + rung4 (KK causality) and names neither a sign nor a GRUT-specific structure.",
@@ -556,7 +556,8 @@
    "ledger_note": "0: a borrowed generic map (EFT-of-DE); adds no GRUT input and claims no GRUT derivation. Net unchanged (+12).",
    "differentiator": "NON-DIFFERENTIATING: standard relaxing-response -> w(z) map.",
    "edge_note": {
-    "rung1_split_2026_08_23": "ONTOLOGY per V2 node-level classification"
+    "rung1_split_2026_08_23": "SUPERSEDED by owner edge correction same day -- retained as history: was ONTOLOGY per V2 preliminary classification.",
+    "rung1_split_2026_08_23_owner_correction": "OWNER EDGE CORRECTION 2026-08-23 (adjudication; prior migration retained as history). Provenance chain: V2 preliminary split (17 formalism-only / 6 ontology-dependent / 4 ambiguous) -> edge review (tier-vs-edge tension surfaced on both nodes) -> genericity evidence -> owner correction. Evidence from each node's own first clause: rung7_w1_wz_map declares GENERIC -- not uniquely GRUT (differentiator: standard relaxing-response -> w(z) map); u1_form_universality declares GENERIC/BORROWED and asserts the form is universal over ANY local causal open quantum system (Feynman-Vernon / Caldeira-Leggett). A claim universal over any open quantum system cannot depend on GRUT's particular ontological stance. Use-vs-mention: ontology vocabulary, borrowed content. Tiers remain shown; the edges were wrong, not the tiers."
    }
   },
   {
@@ -638,7 +639,7 @@
    "domain": "universality-classification",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_ontology_finite_memory"
+    "rung1_inin_formalism"
    ],
    "statement": "Version II, entry U1 (form-universality, GENERIC/BORROWED): the responsive-medium influence-functional FORM -- a Schwinger-Keldysh S_IF = K_R + (i/2)N -- is UNIVERSAL in the sense that ANY local, causal open quantum system yields it under coarse-graining (Feynman-Vernon / Caldeira-Leggett / non-equilibrium Keldysh EFT). GRUT's framework is therefore a genuine universal IR LANGUAGE for the FORM -- but the form is standard open-system physics, NOT a GRUT result.",
    "tier": "shown",
@@ -654,7 +655,8 @@
    "ledger_note": "0: a borrowed generic fact (the universal open-system influence-functional form); adds no GRUT input and claims no GRUT derivation. Net unchanged (+12).",
    "differentiator": "NON-DIFFERENTIATING: the universal influence-functional FORM is standard open-system EFT, not GRUT-specific.",
    "edge_note": {
-    "rung1_split_2026_08_23": "ONTOLOGY per V2 node-level classification"
+    "rung1_split_2026_08_23": "SUPERSEDED by owner edge correction same day -- retained as history: was ONTOLOGY per V2 preliminary classification.",
+    "rung1_split_2026_08_23_owner_correction": "OWNER EDGE CORRECTION 2026-08-23 (adjudication; prior migration retained as history). Provenance chain: V2 preliminary split (17 formalism-only / 6 ontology-dependent / 4 ambiguous) -> edge review (tier-vs-edge tension surfaced on both nodes) -> genericity evidence -> owner correction. Evidence from each node's own first clause: rung7_w1_wz_map declares GENERIC -- not uniquely GRUT (differentiator: standard relaxing-response -> w(z) map); u1_form_universality declares GENERIC/BORROWED and asserts the form is universal over ANY local causal open quantum system (Feynman-Vernon / Caldeira-Leggett). A claim universal over any open quantum system cannot depend on GRUT's particular ontological stance. Use-vs-mention: ontology vocabulary, borrowed content. Tiers remain shown; the edges were wrong, not the tiers."
    }
   },
   {

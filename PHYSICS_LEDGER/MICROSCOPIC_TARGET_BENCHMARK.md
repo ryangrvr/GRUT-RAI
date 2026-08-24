@@ -59,3 +59,29 @@ boundary fixed in advance so the adjudication cannot drift after seeing the answ
 The Priority-2A result is stated as: **"derived absence of a converged dispersive sign change for
 the registered spectral model within the tested low-frequency validity regime."** Not a theorem
 about all admissible GRUT spectra.
+
+## G3 — TWO AXES (added 2026-08-23, pre-registered before assembly)
+
+The phenomenology showed pure relaxation suffices for no-crossing; single-pole is stronger than
+needed. So a purely-relaxational-but-MULTI-pole outcome is real and likely, and the exponent axis
+alone cannot express it. Report both axes independently:
+
+**Axis 1 — low-ω spectral class:** `s ≥ 2` · `s ≤ 1` · `NOT-A-POWER-LAW` · `UNRESOLVED`,
+plus Re χ(0) = (2/π)∫ Im χ/ω′ dω′ computed in every case.
+
+**Axis 2 — analytic character within the declared validity domain (ω ≪ ω_c):**
+`PURELY-RELAXATIONAL` (Re χ > 0 throughout, no resonance) · `RESONANT` (Re χ changes sign inside
+the domain) · `INDETERMINATE`.
+
+| axis 2 | axis 1 | ledger consequence |
+|---|---|---|
+| purely relaxational | convergent | **derives what rung7 needs** — relaxational content becomes derived; single-pole specifically does NOT. +1 partially discharges; excess strength of single-pole becomes explicit |
+| resonant | any | contradicts rung7's no-crossing microscopically — ontology takes the hit directly |
+| any | divergent | class-A was right; response framework needs reformulating |
+| indeterminate | any | cannot adjudicate; report which component is missing |
+
+**Do not collapse row 1 into a clean win or clean loss.** It derives the *behaviour* GRUT needs
+while leaving its *stated commitment* stronger than the derivation supports.
+
+Also carried: if the low-ω behaviour is not a power law, report the actual functional form and do
+not fit an effective exponent — compute the convergence integral directly instead.
