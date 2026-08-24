@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "wall_a_a5_plant.py",
+    "W0_fence": "COMPUTED-AND-REPORTED, NOT BANKED (charter:73 frontier fence)",
+    "controls": [
+      {
+        "control": "C1 scalar one-loop bubble",
+        "passivity": {
+          "min_Im": 0.0,
+          "passed": true
+        },
+        "loww_fit_slope": null,
+        "fit_points": 0,
+        "expected_loww": "ZERO-BELOW-THRESHOLD",
+        "convergence": {
+          "partial_2": 0.0044,
+          "partial_6": 0.015,
+          "partial_full": 0.05,
+          "growth_ratio": 3.35,
+          "class": "POWER-DIVERGENT"
+        },
+        "expected_convergence": "LOG-DIVERGENT",
+        "recovered": true,
+        "conv_recovered": false
+      },
+      {
+        "control": "C2 Lorentz oscillator",
+        "passivity": {
+          "min_Im": 2.0011424895199525e-07,
+          "passed": true
+        },
+        "loww_fit_slope": 1.1358,
+        "fit_points": 20,
+        "expected_loww": 1.0,
+        "convergence": {
+          "partial_2": 0.8655,
+          "partial_6": 1.56,
+          "partial_full": 1.563,
+          "growth_ratio": 1.0,
+          "class": "LOG-DIVERGENT"
+        },
+        "expected_convergence": "DIVERGENT",
+        "recovered": true,
+        "conv_recovered": false
+      },
+      {
+        "control": "C3 corrupted sign (must FAIL)",
+        "passivity": {
+          "min_Im": -4.984420604851454,
+          "passed": false
+        },
+        "rejected_by_gate": true
+      },
+      {
+        "control": "C4 white floor",
+        "passivity": {
+          "min_Im": 1.0,
+          "passed": true
+        },
+        "loww_fit_slope": 0.0,
+        "fit_points": 20,
+        "expected_loww": 0.0,
+        "convergence": {
+          "partial_2": 3.3064,
+          "partial_6": 4.413,
+          "partial_full": 7.924,
+          "growth_ratio": 1.8,
+          "class": "LOG-DIVERGENT"
+        },
+        "expected_convergence": "DIVERGENT",
+        "recovered": true,
+        "conv_recovered": false
+      }
+    ],
+    "gate_ok": true,
+    "verdict": "FAIL - consumer pipeline not validated"
+  }
+}
