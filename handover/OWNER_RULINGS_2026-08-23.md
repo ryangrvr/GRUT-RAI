@@ -73,6 +73,51 @@ ontology is arguably the same shape.
 **Recommendation: option 1 with the explicit note, or option 2 — but not option 1 silently.** A Δ0
 on the program's most load-bearing un-derived claim needs its reason on the node's own face.
 
+### B.5 — OWNER FINALISATION: **OPTION 2**
+
+    rung1_inin_formalism          shown            delta +4
+    rung1_ontology_finite_memory  assumed/stance   delta +1
+    NET: +15 -> +16
+
+**Owner's rationale, recorded:** methodological consistency with the ledger's own precedent.
+`background_time_translation_flow` was priced because it is an underived presupposition that does
+work; the R1 ontology is at least as clearly one. *"The gravitational vacuum is a finite-memory
+responsive medium"* is not a consequence of the SK/FV formalism, the record already calls it a
+stance rather than a derivation, and it is load-bearing for the distinctive rung3/rung7 content.
+
+**Node-local `ledger_note` to carry, owner's wording:**
+
+> The finite-memory responsive-medium ontology is the framework's founding commitment, not an
+> added modeling parameter; nevertheless it is explicitly priced +1 because it is underived,
+> load-bearing, and independently separable from the borrowed SK/FV formalism. **Founding status
+> does not exempt an input from epistemic pricing.** The +1 is not a claim that the ontology is
+> externally imported; it records its current status as an un-derived physical commitment.
+
+**And it gives the Wall-A outcome a clean ledger reading:** derive the finite-memory structure and
+the +1 can be retired · fail to derive it and the +1 stands as an explicit foundational assumption
+· contradict it and the central ontology takes the hit directly. That is strictly better than
+hiding the epistemic cost inside the phrase "founding commitment."
+
+### B.6 — PRE-FLIGHT: what banking the net change breaks, anticipated not discovered
+
+**12 sites across 8 documents currently assert net +15** — `GRUT_ToE.md`, `README.md`, `STATE.md`,
+`GRUT_I_What_Survived.md`, `GRUT_II_What_Survived.md`, `GRUT_II_Agenda.md`, `POSTULATE_MAP.md`,
+`X_FLOOR_MAP.md`.
+
+At +16 all 12 go stale. `test_doc_sync`'s live stale-net cases go **10 -> 22** while
+`expected_red.py` declares **10**, so the enumerator will mismatch and the suite will show new red.
+
+**Correct sequence — do these in ONE commit:** edit the register (split + Δ allocation), update the
+12 sites to the emitted net, then re-run `emit_public_numbers.py` and `expected_red.py`. Live
+stale-net cases should return to **10** — the pre-existing +13 backlog under
+`P6-STALE-NETS-IN-STANDING-DOCS`, which is unrelated to this change.
+
+**Do NOT add the 12 to `DECLARED`.** They are a fixable drift caused by this edit, not an accepted
+open pass; declaring them would convert a repair into a permanent exception.
+
+*This is the doc-sync guard working as designed — it exists to catch exactly this, and it will
+fire correctly.*
+
 ## RULING C — rung7_wz stays Δ3; the "+2" wording is fixed
 
 **Arithmetic verified:** three declared inputs — the free out-of-equilibrium amplitude ε · the IR
