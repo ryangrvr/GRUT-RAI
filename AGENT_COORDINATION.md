@@ -234,3 +234,26 @@ Both corrected in-file with the reason on the face. The index-variance rule keep
 Queue advances: S7 regime adjudication (owner step 2) -> Bardeen completion from the 3D
 family (step 3). c0 = 0 stays separate (step 4).
 
+### 2026-08-24 · OWNER RULING — S7 classification accepted at the sharper form; NO new booking
+
+    KMS equilibrium:                    S7 DERIVED (Onsager)                    -> 2D
+    registered (eps,tau_2) family:      2D is a THEOREM COROLLARY (both-slot    -> 2D
+                                        transversality via the closure theorem;
+                                        conditional on the priced closure premises)
+    genuine non-equilibrium outside:    S7 ABSENT                               -> 3D
+
+No new S7 node. The existing priced closure premises do the work inside the registered
+sub-sector; outside it, X_sw must remain available.
+
+**BARDEEN/FRW STARTING POINT (binding):**
+
+    K_R = c2 P^(2) + c0 P^(0,s) + c_sw X_sw     -- 3D, before any reduction
+
+**The five gates, in order:** (1) construct the curved/time-dependent gauge-invariant basis;
+(2) identify the dS state and whether KMS/FDT actually applies to the relevant response;
+(3) test the closure theorem's premises DIRECTLY; (4) only then reduce X_sw; (5) c0 = 0 stays
+completely separate -- unlicensed.
+
+The frontier question is no longer 'can we justify two?' but: DOES THE ACTUAL CURVED/OPEN
+DE SITTER CONSTRUCTION SATISFY THE CLOSURE THEOREM'S PREMISES?
+
