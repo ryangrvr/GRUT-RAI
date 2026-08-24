@@ -1,0 +1,173 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "wall_a_g1_v2.py",
+    "note": "closed-form gamma removes stage-1 numeric error; isolates reconstruction"
+  },
+  "control": [
+    {
+      "label": "s=1 numeric baseline",
+      "T": 30.0,
+      "m": 6000,
+      "slope": 0.0,
+      "npts": 11,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "label": "s=2 numeric baseline",
+      "T": 30.0,
+      "m": 6000,
+      "slope": 1.0308,
+      "npts": 11,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "label": "s=3 numeric baseline",
+      "T": 30.0,
+      "m": 6000,
+      "slope": 0.7207,
+      "npts": 6,
+      "expected": 2,
+      "ok": false
+    }
+  ],
+  "matrix": [
+    {
+      "label": "s=1 baseline",
+      "T": 30.0,
+      "m": 6000,
+      "slope": 0.9741,
+      "npts": 11,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "label": "s=2 baseline",
+      "T": 30.0,
+      "m": 6000,
+      "slope": 1.9552,
+      "npts": 11,
+      "expected": 2,
+      "ok": true
+    },
+    {
+      "label": "s=3 baseline",
+      "T": 30.0,
+      "m": 6000,
+      "slope": 2.9384,
+      "npts": 11,
+      "expected": 3,
+      "ok": true
+    },
+    {
+      "label": "s=1 dt/2",
+      "T": 30.0,
+      "m": 12000,
+      "slope": 0.9741,
+      "npts": 11,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "label": "s=2 dt/2",
+      "T": 30.0,
+      "m": 12000,
+      "slope": 1.9552,
+      "npts": 11,
+      "expected": 2,
+      "ok": true
+    },
+    {
+      "label": "s=3 dt/2",
+      "T": 30.0,
+      "m": 12000,
+      "slope": 2.9384,
+      "npts": 11,
+      "expected": 3,
+      "ok": true
+    },
+    {
+      "label": "s=1 dt/4",
+      "T": 30.0,
+      "m": 24000,
+      "slope": 0.9741,
+      "npts": 11,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "label": "s=2 dt/4",
+      "T": 30.0,
+      "m": 24000,
+      "slope": 1.9552,
+      "npts": 11,
+      "expected": 2,
+      "ok": true
+    },
+    {
+      "label": "s=3 dt/4",
+      "T": 30.0,
+      "m": 24000,
+      "slope": 2.9384,
+      "npts": 11,
+      "expected": 3,
+      "ok": true
+    },
+    {
+      "label": "s=1 T x2 (truncation)",
+      "T": 60.0,
+      "m": 6000,
+      "slope": 0.9571,
+      "npts": 11,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "label": "s=2 T x2 (truncation)",
+      "T": 60.0,
+      "m": 6000,
+      "slope": 1.9551,
+      "npts": 11,
+      "expected": 2,
+      "ok": true
+    },
+    {
+      "label": "s=3 T x2 (truncation)",
+      "T": 60.0,
+      "m": 6000,
+      "slope": 2.9427,
+      "npts": 11,
+      "expected": 3,
+      "ok": true
+    },
+    {
+      "label": "s=1 T x4 (truncation)",
+      "T": 120.0,
+      "m": 6000,
+      "slope": 0.9539,
+      "npts": 11,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "label": "s=2 T x4 (truncation)",
+      "T": 120.0,
+      "m": 6000,
+      "slope": 1.4797,
+      "npts": 11,
+      "expected": 2,
+      "ok": false
+    },
+    {
+      "label": "s=3 T x4 (truncation)",
+      "T": 120.0,
+      "m": 6000,
+      "slope": 0.392,
+      "npts": 11,
+      "expected": 3,
+      "ok": false
+    }
+  ]
+}
