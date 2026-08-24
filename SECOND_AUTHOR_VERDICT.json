@@ -1,0 +1,21 @@
+{
+  "calibration": {
+    "gate1_theta_transverse": true,
+    "gate2_omega_longitudinal": true,
+    "gate3_property_battery": true
+  },
+  "blind_review": {
+    "ward_survivors": [
+      "P0s",
+      "P2",
+      "Xsw"
+    ],
+    "count_ward": 3,
+    "s7_survivors": [
+      "P0s",
+      "P2"
+    ],
+    "count_s7": 2
+  },
+  "verdict": "6 -> 3 -> 2 confirmed by independent reviewer"
+}
