@@ -43,7 +43,7 @@ def universe(id, spectral_form="single-pole", L0=1.0, T=1.0, alpha=1.0 / 3.0,
     active/sign-changing response tuned to flip the w_a sign -- both are inputs the SHOWN spine does not
     derive (they are assumed, not shown), so a prediction relying on them carries the inserted-input flag."""
     prov = {
-        "spectral_form": "rung3_single_pole", "L0": "rung1_inin_action", "T": "rung2_kms_gate",
+        "spectral_form": "rung3_single_pole", "L0": "rung1_inin_formalism", "T": "rung2_kms_gate",
         "alpha": "rung9a_value",
         "projector": ("zeta_interior_family" if projector == "interior" else "p_tt_ansatz"),
         "second_scale": "rung7_wz",   # the two-scale commitment is rung7's NAMED assumed input

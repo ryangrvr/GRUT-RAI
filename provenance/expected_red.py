@@ -86,14 +86,24 @@ DECLARED = {
     "test_resident.py::TestResident::test_no_tier_contradiction_in_live_register": {
         "enumerate": _tier_cases,
         "cases": {
-            "rung1_inin_action": "P1A-EDGE-REPRESENTATION",
+            # rung1_inin_action cases removed 2026-08-23: node split per Ruling B.
+            # rung1_inin_formalism inherits the old background-flow dependency contradiction.
+            # rung7_w1_wz_map + u1_form_universality: NEW tension created by the edge migration
+            # itself -- their 'shown' tiers now rest (partly) on the assumed ontology half.
+            # Referred to owner: either their tiers drop toward derived-pending, or their edges
+            # return to FORMALISM-only. Not resolved here; declared so the suite stays legible.
+            "rung1_inin_formalism": "P1A-EDGE-REPRESENTATION",
+            "rung7_w1_wz_map": "P1A-EDGE-REPRESENTATION",
+            "u1_form_universality": "P1A-EDGE-REPRESENTATION",
             "rung2_kms_gate": "P1A-EDGE-REPRESENTATION",
         },
     },
     "test_resident.py::TestResident::test_clean_annotation_change_passes": {
         "enumerate": _annotation_cases,
         "cases": {
-            "rung1_inin_action": "P1A-EDGE-REPRESENTATION",
+            "rung1_inin_formalism": "P1A-EDGE-REPRESENTATION",
+            "rung7_w1_wz_map": "P1A-EDGE-REPRESENTATION",
+            "u1_form_universality": "P1A-EDGE-REPRESENTATION",
             "rung2_kms_gate": "P1A-EDGE-REPRESENTATION",
         },
     },

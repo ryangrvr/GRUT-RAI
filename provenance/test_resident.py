@@ -8,7 +8,7 @@ Covers the spec exactly:
   - a proposal re-opening a settled-negative FLAGS;
   - a tier-contradiction FLAGS;
   - the dependency graph is acyclic and resolves;
-  - the live register still audits GREEN +15 with tiers unchanged;
+  - the live register still audits GREEN +16 with tiers unchanged;
   - plus: prior-lineage flags, unresolved-deps blocks, downstream works, the resident never
     turns a substantive claim into a silent PASS (laundering harder, never banking easier).
 
@@ -94,7 +94,7 @@ def newclaim(**kw):
         sources=["kubo1966"],
         overturning_computation="a calc that would kill it",
         ledger_delta=0,
-        depends_on=["rung1_inin_action"],
+        depends_on=["rung1_inin_formalism"],
     )
     base.update(kw)
     return base
@@ -127,7 +127,7 @@ class TestResident(unittest.TestCase):
         dn = downstream("p_tt_ansatz", self.claims)
         self.assertIn("mu_linear", dn)
         # rung1 is foundational -> many dependents
-        self.assertGreater(len(downstream("rung1_inin_action", self.claims)), 5)
+        self.assertGreater(len(downstream("rung1_inin_formalism", self.claims)), 5)
 
     # ---- clean proposals ----
     def test_clean_new_substantive_flags_for_firewall(self):
@@ -140,7 +140,7 @@ class TestResident(unittest.TestCase):
 
     def test_clean_annotation_change_passes(self):
         # changing ONLY a presentational annotation (differentiator) is non-substantive -> PASS
-        r = check_change("rung1_inin_action", dict(_CLEAN_ANNOTATION), self.claims, self.src)
+        r = check_change("rung1_inin_formalism", dict(_CLEAN_ANNOTATION), self.claims, self.src)
         self.assertEqual(r["verdict"], "PASS")
         self.assertFalse(r["substantive"])
         # ...and it must hold for EVERY node, not only the one named above. The enumerator is the
@@ -242,7 +242,7 @@ class TestResident(unittest.TestCase):
     def test_cycle_via_change_blocks(self):
         # rung8 already depends_on rung6; making rung6 depend_on rung8 closes a 2-cycle.
         r = check_change("rung6_qm_limit",
-                         {"depends_on": ["rung1_inin_action", "rung2_kms_gate", "rung8_falsifier"]},
+                         {"depends_on": ["rung1_inin_formalism", "rung2_kms_gate", "rung8_falsifier"]},
                          self.claims, self.src)
         self.assertEqual(r["verdict"], "BLOCK")
         self.assertTrue(r["dependencies"]["introduces_cycle"])
@@ -250,7 +250,7 @@ class TestResident(unittest.TestCase):
 
     def test_falsifier_degradation_flags(self):
         # rewriting a banked claim's overturning_computation must NOT be a silent PASS
-        r = check_change("rung1_inin_action", {"overturning_computation": "x"}, self.claims, self.src)
+        r = check_change("rung1_inin_formalism", {"overturning_computation": "x"}, self.claims, self.src)
         self.assertEqual(r["verdict"], "FLAG-FOR-FIREWALL")
         self.assertTrue(r["substantive"])
 
@@ -280,7 +280,7 @@ class TestResident(unittest.TestCase):
     # ---- provenance/lineage edits must never bank easier than a fresh claim ----
     def test_sources_change_flags(self):
         # gutting a banked claim's provenance basis (5 sources -> 1) must NOT be a silent PASS
-        r = check_change("rung1_inin_action", {"sources": ["kubo1966"]}, self.claims, self.src)
+        r = check_change("rung1_inin_formalism", {"sources": ["kubo1966"]}, self.claims, self.src)
         self.assertNotEqual(r["verdict"], "PASS")
         self.assertEqual(r["verdict"], "FLAG-FOR-FIREWALL")
         self.assertTrue(r["substantive"])
@@ -301,7 +301,7 @@ class TestResident(unittest.TestCase):
 
     def test_legit_rootless_axiom_not_orphan_flagged(self):
         # rung1 (the stance) is legitimately rootless; a cosmetic edit must NOT raise ORPHANED-RESULT
-        r = check_change("rung1_inin_action", {"differentiator": "reworded"}, self.claims, self.src)
+        r = check_change("rung1_inin_formalism", {"differentiator": "reworded"}, self.claims, self.src)
         self.assertFalse(any("ORPHANED-RESULT" in f for f in r["consistency_flags"]))
 
     def test_prior_lineage_no_false_positive_on_historical_note(self):
@@ -339,23 +339,23 @@ class TestResident(unittest.TestCase):
             cl = next(c for c in self.claims if c["id"] == cid)
             self.assertTrue(_r._is_closed(cl), f"{cid} must be recognized closed via sub_status")
 
-    # ---- live register regression: GREEN +15, tiers unchanged, graph valid ----
-    def test_live_register_green_plus15_tiers_unchanged(self):
+    # ---- live register regression: GREEN +16, tiers unchanged, graph valid ----
+    def test_live_register_green_plus16_tiers_unchanged(self):
         # SCOPED 2026-08-04: these assertions are about GRUT'S register. The same file now also
         # carries the vacuum-cluster physics map under a different vocabulary and a separate
         # ledger (validate_scoped.py); it must not enter GRUT's count.
         grut = [c for c in self.claims if c.get("ledger_scope", "grut") == "grut"]
         r = audit(grut, self.src, DEFAULT_TIERS)
         self.assertTrue(r.ok, f"live register must audit clean; blocks={r.blocking}")
-        self.assertEqual(r.net, 15)
-        self.assertEqual(len(grut), 50)   # 46 + the x-floor wave's three delta-0 nodes (2026-08-09: passivity_channel_diagonal, x_no_pin_theorem, kk_static_transfer)
+        self.assertEqual(r.net, 16)
+        self.assertEqual(len(grut), 51)   # 50 + the Ruling-B split's second half (rung1_ontology_finite_memory, 2026-08-23); was 46 + the x-floor wave's three delta-0 nodes
         # depends_on present on every claim; tiers are the banked ones
         for c in self.claims:
             self.assertIn("depends_on", c, f"{c['id']} missing depends_on metadata")
         graph, errors = dependency_graph(self.claims)
         self.assertEqual(errors, [])
 
-    def test_ledger_graph_reconciliation_net_plus15_no_double_count(self):
+    def test_ledger_graph_reconciliation_net_plus16_no_double_count(self):
         # A3 RECONCILIATION: net = sum of ledger_delta over DISTINCT nodes (each id once) == +14 (post the 2026-08-02 rung7 booking and the 2026-08-17 rung1 bath-genuineness booking).
         # The blind-sum auditor cannot catch a double count, so this pins it structurally: the promoted
         # borrowed premises carry ZERO credit (their +1 stays inside the borrower), so growing the graph
@@ -365,7 +365,7 @@ class TestResident(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)), "duplicate claim ids -> a node counted twice")
         net = sum(c.get("ledger_delta", 0) for c in self.claims
                   if isinstance(c.get("ledger_delta"), int) and not isinstance(c.get("ledger_delta"), bool))
-        self.assertEqual(net, 15, "net over distinct nodes must be +15 (rung7 books 3 since 2026-08-02; rung1 books 4 since 2026-08-17)")
+        self.assertEqual(net, 16, "net over distinct nodes must be +16 (rung7 books 3 since 2026-08-02; rung1 formalism books 4 and ontology 1 since the Ruling-B split 2026-08-23)")
         # the A3 promoted premises are zero-credit re-typings (borrowers keep their declared deltas)
         by_id = {c["id"]: c for c in self.claims}
         for cid in ("born_rule", "entropy_area_unruh", "past_hypothesis", "lambda_undetermined"):

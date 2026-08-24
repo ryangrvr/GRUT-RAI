@@ -3,28 +3,28 @@
 
 | quantity | value |
 |---|---|
-| claims in `claims.json` (all scopes) | **71** |
-| — of those, GRUT-scope | **50** |
+| claims in `claims.json` (all scopes) | **72** |
+| — of those, GRUT-scope | **51** |
 | — of those, vacuum-cluster scope | **21** |
-| net underived-input ledger, GRUT scope | **+15** |
+| net underived-input ledger, GRUT scope | **+16** |
 | net underived-input ledger, vacuum-cluster scope | **+0** |
 | of the GRUT net, carried behind declared waivers | **+9** across 4 claims |
 | primary sources in `sources.json` | **85** |
-| calculation files in `calc/` | **29** |
+| calculation files in `calc/` | **35** |
 | test files in `provenance/` | **21** |
 | mutation batteries | **14** |
 | mutants that run by default | **33 of 55** |
 | cited calcs still owing a battery | **15** |
 | tests collected | **240** |
 
-### Tier histogram, GRUT scope (50 claims)
+### Tier histogram, GRUT scope (51 claims)
 
 | tier | count |
 |---|---|
 | `shown` | **10** |
 | `derived` | **0** |
 | `derived-pending` | **4** |
-| `assumed` | **16** |
+| `assumed` | **17** |
 | `to-derive` | **20** |
 
 ### Waiver itemization
@@ -32,7 +32,7 @@
 | claim | ledger_delta |
 |---|---|
 | `p_tt_ansatz` | **+1** |
-| `rung1_inin_action` | **+4** |
+| `rung1_inin_formalism` | **+4** |
 | `rung5_gr_limit` | **+2** |
 | `rung6_qm_limit` | **+2** |
 
@@ -41,7 +41,7 @@
 | quantity | value |
 |---|---|
 | occurrences of specialist/specialists/SPECIALIST in `claims.json` | **49** |
-| claims containing at least one | **18** of 71 |
+| claims containing at least one | **18** of 72 |
 | (same, counting the 2026-08-12 annotation blocks that document them) | **58** |
 | sense A — prospective/reserved (a future outside expert) | **17** |
 | sense B — a pass that RAN, banked in the voice of an authority | **28** |

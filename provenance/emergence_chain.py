@@ -50,7 +50,7 @@ STAGES = [
   "single frequency at all, found by running the charter's omission-versus-compound tell to its "
   "second clause), booked openly as a stance, with the standard open-system toolkit borrowed "
   "as scaffolding.",
-  ["rung1_inin_action", "background_time_translation_flow", "u3_split_origin",
+  ["rung1_inin_formalism", "rung1_ontology_finite_memory", "background_time_translation_flow", "u3_split_origin",
    "linear_response_viscoelastic", "relativistic_hydro_israel_stewart", "superfluid_bec_media"],
   None,
   "u3 (why a system/bath split exists at all) is the deepest open question at this link."),

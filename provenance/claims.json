@@ -2,13 +2,13 @@
  "_comment": "The derivation ladder as machine-checkable claims. tier in {shown, derived-pending, assumed, to-derive}. Every claim MUST carry sources[] (ids from sources.json) and an overturning_computation (the calc that would falsify/deflate it). ledger_delta is the signed NET change in the underived-input count at this rung. Validator blocks any claim missing a source or overturning_computation, and flags any rung with ledger_delta>0 that claims tier shown/derived-pending (laundering).",
  "claims": [
   {
-   "id": "rung1_inin_action",
+   "id": "rung1_inin_formalism",
    "domain": "open-systems-EFT",
    "grut_standing": "covered",
    "depends_on": [
     "background_time_translation_flow"
    ],
-   "statement": "The gravitational vacuum is a responsive medium with finite memory, described by a single Schwinger-Keldysh influence action S_IF with retarded dissipation kernel K_R and noise kernel N (doubled x_r/x_a fields).",
+   "statement": "The gravitational vacuum's response is described by a single Schwinger-Keldysh influence action S_IF with retarded dissipation kernel K_R and noise kernel N (doubled x_r/x_a fields). [Ruling B split 2026-08-23: formalism half. The companion ontological claim -- that the vacuum IS a responsive medium with finite/single-pole memory -- is booked separately as rung1_ontology_finite_memory.]",
    "tier": "shown",
    "sources": [
     "schwinger1961",
@@ -19,17 +19,36 @@
    ],
    "overturning_computation": "Show the in-in influence action does NOT reduce to K_R (retarded) + (i/2)N (noise) for a Gaussian bath, i.e. that the standard Feynman-Vernon structure fails. (Borrowed result; high bar to overturn.)",
    "ledger_delta": 4,
-   "ledger_note": "+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET stays +13). *** The four recorded double-count checks were all PAIRWISE, and a pairwise sweep is structurally blind to the SHARED-CONSTRAINT class -- a derived constraint on n>=3 that cuts the joint count without being localizable to any pair (the Friedmann shape: Om+OL+Ok=1 costs two inputs, every pair correctly shows nothing, a pairwise map reports three). THIS NODE'S THREE DECLARED INPUTS were therefore evaluated JOINTLY, using the frozen merge criterion (provenance/merge_criterion.py v3.1; FROZEN_MERGE.txt). RESULT: TRADE -- discrete -2, posit +1. NO REDUCTION IS AVAILABLE AND THE LEDGER DOES NOT MOVE: the would-be relation is POSITED, and taking it would swap three booked stances for one unbooked relation, which is the laundering the ledger exists to prevent. THE HONEST POSITIVE: every PAIR also scores TRADE at -1, so pairwise blindness was concealing nothing here -- the Friedmann blindness is CLOSED at home rather than merely named. THE THREE NON-MECHANIZABLE JUDGEMENTS, with attribution: (C1 derived-or-posited) BUILDER -- no chain exhibited in any direction; a fixed Lorentzian background admits arbitrarily many system/bath partitions, a partition admits Gaussian OR non-Gaussian influence actions, and Gaussianity constrains correlator ORDER only. Jointly the three are co-members of 'prerequisites for writing S_IF at all', which is a CLASSIFICATION, and merging by category is the pre-registered error. => POSITED. (C2 discharge over the family) BUILDER -- fixing any one leaves the other two free; the degenerate 'trivial theory' reading is the exact-point error this program withdrew and is refused by construction. (C3 enumeration) REGISTER, verified by BUILDER -- exactly the three ids this ledger_note names; none invented (KC2). HONEST CEILING, stated in place: this audits the triple that was NAMED. It is not a search for constraints nobody has proposed, and it cannot be. The tool that produced the arithmetic is a DECLARATION SCHEMA plus a structural validator, never an adjudicator -- passing it banks nothing (see its cardinal invariant). *** FOURTH INPUT BOOKED 2026-08-17, RENAMED AT OWNER VERIFICATION SAME DAY (+1, net +13 -> +14; the 2026-08-16 noise-accounting ruling's book-or-derive fallback, taken on the adversarial screen's finding): THE 4D-COVARIANT AVAILABILITY OF THE WARD-SOURCED GAUGE-ORBIT ZERO -- that K_R annihilates the FULL 4d gauge orbit {k (x) xi + xi (x) k, all xi including time components} on its retarded slot, at covariant strength. WHY THIS IS THE INPUT'S TRUE NAME (the owner's decomposition, 2026-08-17): the transversality chain consumed TWO things. (1) N as a PSD covariance on the full index space -- RULED CONSTITUTIVE of what this node already banks: the symmetrized correlator of any genuine state is PSD by construction, and the system/bath split and Gaussian truncation are inputs one and two. (2) The gauge-orbit zero at 4d covariant strength -- the half the screen actually caught, which the register's own KC5 record reserves as unbuilt ('P2 full-4d-invariant; P0s spatial-subgroup-only, Bardeen completion frontier-reserved' -- calc/RESULTS_operator_basis.md) and which the x_no_pin precedent bars from silent use. A general 'covariance-positivity' label understated the owed half and pointed a future reader at the wrong thing; renamed so the price sits on the frontier item. DISCHARGE CONDITION, explicit: when the KC5-reserved 4d/Bardeen completion of the operator basis lands (eft_operator_basis's own graduation screen), this +1 retires into that work's accounting -- a clear discharge, not a dissolving stance. WHAT THE INPUT BUYS (with the discharge addenda on p_tt_ansatz and eft_operator_basis): noise-kernel transversality and both-slot K_R transversality as family-conditional THEOREMS (calc/noise_transversality_check.py), closing the admissible family on the transverse pair. SCOPE FENCE unchanged: bath-side unitarity only -- the system-side wrong-sign (conformal-mode) sector lives in Re K_R and is untouched; a completion with fundamental (non-bath-realizable) openness rejects the bath reading and re-opens SCDP's larger space, priced at its point of entry. THE 0-DELTA HORN WAS DECLINED by the owner 2026-08-17, three grounds recorded: (a) the register fences this itself -- KC5's gauge-footing asymmetry is exactly the covariantization the chain needs, reserved as unbuilt; (b) the 0-delta horn is the flattering direction -- it returns net to +13 and makes the framework look cheaper, which is precisely when this program's own guard says to distrust the reasoning; (c) overriding the screen toward the cheaper answer would make the screen decorative. The fallback the 2026-08-16 ruling pre-authorized fired correctly and stands.",
+   "ledger_note": "+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET stays +13). *** The four recorded double-count checks were all PAIRWISE, and a pairwise sweep is structurally blind to the SHARED-CONSTRAINT class -- a derived constraint on n>=3 that cuts the joint count without being localizable to any pair (the Friedmann shape: Om+OL+Ok=1 costs two inputs, every pair correctly shows nothing, a pairwise map reports three). THIS NODE'S THREE DECLARED INPUTS were therefore evaluated JOINTLY, using the frozen merge criterion (provenance/merge_criterion.py v3.1; FROZEN_MERGE.txt). RESULT: TRADE -- discrete -2, posit +1. NO REDUCTION IS AVAILABLE AND THE LEDGER DOES NOT MOVE: the would-be relation is POSITED, and taking it would swap three booked stances for one unbooked relation, which is the laundering the ledger exists to prevent. THE HONEST POSITIVE: every PAIR also scores TRADE at -1, so pairwise blindness was concealing nothing here -- the Friedmann blindness is CLOSED at home rather than merely named. THE THREE NON-MECHANIZABLE JUDGEMENTS, with attribution: (C1 derived-or-posited) BUILDER -- no chain exhibited in any direction; a fixed Lorentzian background admits arbitrarily many system/bath partitions, a partition admits Gaussian OR non-Gaussian influence actions, and Gaussianity constrains correlator ORDER only. Jointly the three are co-members of 'prerequisites for writing S_IF at all', which is a CLASSIFICATION, and merging by category is the pre-registered error. => POSITED. (C2 discharge over the family) BUILDER -- fixing any one leaves the other two free; the degenerate 'trivial theory' reading is the exact-point error this program withdrew and is refused by construction. (C3 enumeration) REGISTER, verified by BUILDER -- exactly the three ids this ledger_note names; none invented (KC2). HONEST CEILING, stated in place: this audits the triple that was NAMED. It is not a search for constraints nobody has proposed, and it cannot be. The tool that produced the arithmetic is a DECLARATION SCHEMA plus a structural validator, never an adjudicator -- passing it banks nothing (see its cardinal invariant). *** FOURTH INPUT BOOKED 2026-08-17, RENAMED AT OWNER VERIFICATION SAME DAY (+1, net +13 -> +14; the 2026-08-16 noise-accounting ruling's book-or-derive fallback, taken on the adversarial screen's finding): THE 4D-COVARIANT AVAILABILITY OF THE WARD-SOURCED GAUGE-ORBIT ZERO -- that K_R annihilates the FULL 4d gauge orbit {k (x) xi + xi (x) k, all xi including time components} on its retarded slot, at covariant strength. WHY THIS IS THE INPUT'S TRUE NAME (the owner's decomposition, 2026-08-17): the transversality chain consumed TWO things. (1) N as a PSD covariance on the full index space -- RULED CONSTITUTIVE of what this node already banks: the symmetrized correlator of any genuine state is PSD by construction, and the system/bath split and Gaussian truncation are inputs one and two. (2) The gauge-orbit zero at 4d covariant strength -- the half the screen actually caught, which the register's own KC5 record reserves as unbuilt ('P2 full-4d-invariant; P0s spatial-subgroup-only, Bardeen completion frontier-reserved' -- calc/RESULTS_operator_basis.md) and which the x_no_pin precedent bars from silent use. A general 'covariance-positivity' label understated the owed half and pointed a future reader at the wrong thing; renamed so the price sits on the frontier item. DISCHARGE CONDITION, explicit: when the KC5-reserved 4d/Bardeen completion of the operator basis lands (eft_operator_basis's own graduation screen), this +1 retires into that work's accounting -- a clear discharge, not a dissolving stance. WHAT THE INPUT BUYS (with the discharge addenda on p_tt_ansatz and eft_operator_basis): noise-kernel transversality and both-slot K_R transversality as family-conditional THEOREMS (calc/noise_transversality_check.py), closing the admissible family on the transverse pair. SCOPE FENCE unchanged: bath-side unitarity only -- the system-side wrong-sign (conformal-mode) sector lives in Re K_R and is untouched; a completion with fundamental (non-bath-realizable) openness rejects the bath reading and re-opens SCDP's larger space, priced at its point of entry. THE 0-DELTA HORN WAS DECLINED by the owner 2026-08-17, three grounds recorded: (a) the register fences this itself -- KC5's gauge-footing asymmetry is exactly the covariantization the chain needs, reserved as unbuilt; (b) the 0-delta horn is the flattering direction -- it returns net to +13 and makes the framework look cheaper, which is precisely when this program's own guard says to distrust the reasoning; (c) overriding the screen toward the cheaper answer would make the screen decorative. The fallback the 2026-08-16 ruling pre-authorized fired correctly and stands. [RULING B SPLIT 2026-08-23: this node is the FORMALISM half -- the SK/Feynman-Vernon influence-action structure with its four priced prerequisites (system/bath split, Gaussian/linear-response truncation, Lorentzian causal background, 4d-covariant Ward gauge-orbit-zero availability), carried here because each is a prerequisite for WRITING S_IF at all and none is the proposition that the vacuum physically possesses finite memory. That proposition is booked separately as rung1_ontology_finite_memory (assumed, +1, owner finalisation B.5 option 2). Edge migration used the V2 node-level classification: 17 of 27 transitive dependents are formalism-only; ambiguous dissipat-only cases attach here because K_R IS the dissipation kernel.]",
    "differentiator": "NON-DIFFERENTIATING-BY-CONSTRUCTION: the retarded arrow is structural, not yet observable.",
    "laundering_ok": true,
    "stance_justification": "STANCE: this is the program's entry price, booked openly. The in-in/CTP influence-functional framing IS the posit; its four inputs (system/bath split, Gaussian truncation, causal structure, and -- booked 2026-08-17, renamed at owner verification -- the 4d-covariant availability of the Ward-sourced gauge-orbit zero, KC5-reserved) are declared as +4 in the note rather than absorbed into 'shown'. The tier grades the four-leg verification against primary literature; the waiver says the ledger, not the tier, carries the inputs. The n-sided double-count check (2026-08-04) audited exactly this."
+  },
+  {
+   "id": "rung1_ontology_finite_memory",
+   "domain": "open-systems-EFT",
+   "grut_standing": "covered",
+   "depends_on": [
+    "background_time_translation_flow"
+   ],
+   "statement": "The gravitational vacuum IS a responsive medium with finite memory, characterised in the strongest GRUT form by a single-pole relaxation structure. [Ruling B split 2026-08-23: ontological half -- a STANCE, explicitly not derived. The SK/FV formalism that would describe such a medium is booked separately as rung1_inin_formalism (shown, +4); the formalism does not imply the ontology.]",
+   "tier": "assumed",
+   "sources": [
+    "schwinger1961",
+    "keldysh1964",
+    "calzetta_hu_book"
+   ],
+   "overturning_computation": "Derive the gravitational vacuum response from microscopic gravity (Sigma -> G_R^TT -> K_R -> J(omega)) and show it is NOT a finite-memory responsive-medium structure -- e.g. purely Markovian response, or one whose static response diverges without an IR regulator. Pre-registered pass/fail: convergent side vs divergent side; three-way fork pre-recorded in PHYSICS_LEDGER/MICROSCOPIC_TARGET_BENCHMARK.md.",
+   "ledger_delta": 1,
+   "ledger_note": "The finite-memory responsive-medium ontology is the framework's founding commitment, not an added modeling parameter; nevertheless it is explicitly priced +1 because it is underived, load-bearing, and... [sources: the SK literature as the formal context in which the stance is stated, per the background_time_translation_flow precedent for assumed-tier nodes.] independently separable from the borrowed SK/FV formalism. Founding status does not exempt an input from epistemic pricing. The +1 is not a claim that the ontology is externally imported; it records its current status as an un-derived physical commitment. [Owner finalisation B.5 option 2, 2026-08-23; consistency with background_time_translation_flow precedent.] Wall-A ledger reading: derive finite memory and the +1 retires; fail and it stands as an explicit foundational assumption; contradict it and this node takes the hit directly.",
+   "differentiator": "CONDITIONAL-DIFFERENTIATING: carries rung3_single_pole and the rung7 family; every condition open."
   },
   {
    "id": "rung2_kms_gate",
    "domain": "open-systems-EFT",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_inin_formalism",
     "background_time_translation_flow"
    ],
    "statement": "In equilibrium the noise kernel N is locked to Im[chi] by FDT with a coth(hbar*omega/2kT) factor; admissible kernels must satisfy KMS detailed balance. Enforced as a hard admission gate.",
@@ -41,14 +60,17 @@
    "overturning_computation": "gate/kms.py: any candidate (chi, N) pair whose residual |G_K - coth*(G_R-G_A)| exceeds tol over the frequency grid FAILS and is barred from the foundation.",
    "ledger_delta": -1,
    "ledger_note": "-1: N removed as an independent input (locked to Im chi by chi + T_KMS). T is NOT booked as an independent input anywhere, DELIBERATELY (adjudicated 2026-08-02, T/ledger fork pre-screen: T_SUBSUMED). (i) IN EQUILIBRIUM the KMS temperature carries zero freedom: on the declared background the Hadamard/KMS condition forces T = T_dS = H/2pi uniquely (any other T is singular at the horizon; cf. rung7's boundary -- the horizon FORCES the noise level), and the horizon-temperature RELATION is already paid as rung5's Unruh-T import (borrowed node entropy_area_unruh); booking it again here would double-count, same ruling as rung9b/#13. (ii) OUT OF EQUILIBRIUM there is no KMS temperature by definition; the departure of N from its KMS-locked value is parameterized by exactly the two dials rung7_wz's items (i)-(ii) book (+2 of its +3): amplitude = the free eps, spectral locus/shape = the tau_2~1/H0 relaxation mode. An 'effective temperature' is a coordinate ON the (eps, tau_2) family, not a third axis; rung8's tabletop stakes (kappa, omega_c) contain no T either (T_dS ~ 3e-30 K is exp(-10^21)-negligible at lab frequencies, and S(0)=0 is finite-T robust per rung3's analyticity check). AMENDED 2026-08-02 (the 0b restriction screen + overseer ruling -- BOTH things are true): T itself IS subsumed as above, but the RESTRICTION TO THE (eps, tau_2) FAMILY is NOT -- collapsing the free non-KMS occupation profile n(omega) to two dials is a separate, stronger input than Gaussianity (which fixes correlator order, not the omega-profile), and it is now BOOKED as rung7_wz's third input (+1, net +13; see rung7_wz ledger_note, four double-count checks recorded there). The earlier sentence 'the departure is parameterized by exactly the two dials' was a completeness ASSERTION in a note with no priced delta -- the exact profile of an unpriced input; corrected by booking. FENCE (content unchanged, rescoped to beyond-(eps,tau_2)): any FURTHER state-shape dial beyond (eps, tau_2) -- e.g. a T_eff != T_dS ansatz or a second departure mode -- is another new input, booked at its point of entry.",
-   "differentiator": "FAILS-DIFFERENTIATION by design (equilibrium agreement is the gate)."
+   "differentiator": "FAILS-DIFFERENTIATION by design (equilibrium agreement is the gate).",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "rung3_single_pole",
    "domain": "open-systems-EFT",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_ontology_finite_memory",
     "rung2_kms_gate"
    ],
    "statement": "Committing to relativistic massless fast modes (omega=c|k|) gives DOS~omega^2, J(omega)~omega^3 (s=3 super-Ohmic); WITHIN the collisional/analytic-bath regime, and PROVIDED the vacuum bath carries no second internal dynamical scale, super-Ohmic baths are short-memory and the Mori-Zwanzig kernel collapses to single-pole / Markovian-like. Whether GRUT's vacuum IS in that regime (pole vs branch-cut) is the open anchor question -- see boundary_condition.",
@@ -65,14 +87,17 @@
    "overturning_computation": "calc/finite_T_exponent.py (computed) + specialist analyticity check (confirmed 2026-06-25). REMAINING falsifier: if the vacuum susceptibility contains a second dynamical scale (e.g. J~omega^3/(1+omega^2 tau^2), or an internal resonance/diffusive mode), a second slow pole appears and short-memory breaks. GRUT must commit to no-second-scale or check it. ALSO NOW BEARING ON THIS NODE (2026-08-19, adverse, no tier move): calc/finite_T_pole_structure.py -- the finite-T noise kernel's Matsubara ladder at spacing H. The falsifying step it does NOT take is Mori-Zwanzig inheritance; see tier_note. AND NARROWED BY calc/mz_inheritance.py (2026-08-19): the inheritance step is convention-dependent -- symmetrised correlation inherits the ladder, Kubo-Mori does not -- so this node's 'Mori-Zwanzig kernel' must be disambiguated before the ladder counts for or against it.",
    "ledger_delta": 0,
    "ledger_note": "0 (derived-pending), settled 2026-06-26 after the transport-pin round-trip. The -1 'derived' credit stays SUSPENDED (single-pole not cleanly derived) but is NOT a +1 cost either: it is genuinely open (both Class A/survives and Class B/dissolves leans are live; the Class-B viscosity pin is flat-space and does not cleanly transfer to de Sitter). Collisionality is the named input #17; net +12 as of 2026-06-27 (single-pole's OWN delta unchanged at 0 -- the +12 reflects the rung-9 anchor-credit suspension elsewhere, not a single-pole change). The favorable lean is CIRCULAR (the finite-memory axiom == single-pole) so it carries near-zero independent weight; the only genuinely-independent earned content is the small finite-T robustness check.",
-   "differentiator": "tau_c>0 vs tau_c=0; observable deferred to rung 8."
+   "differentiator": "tau_c>0 vs tau_c=0; observable deferred to rung 8.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "ONTOLOGY per V2 node-level classification"
+   }
   },
   {
    "id": "rung4_love_kk",
    "domain": "open-systems-EFT",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_inin_formalism",
     "rung2_kms_gate"
    ],
    "statement": "Re[chi] = elastic/storage (Love-number) response, KK-linked to dissipative Im[chi]; recovers worldline-EFT tidal-response structure for the vacuum.",
@@ -83,14 +108,17 @@
    ],
    "overturning_computation": "calc/gw_dissipation_bounds.py: predicted GW dephasing Dphi(omega) over D_L vs the ~0.1 rad detectability threshold; GW170817 speed-bound check done first. If a bath resonance or coherent build-up lifted |chi| into [1e-19,1e-15] it would become observable (outcome A); the computed Planck-suppressed value rules that out. (KK structure itself: show Re[chi],Im[chi] are not KK partners for a causal chi.)",
    "ledger_delta": 0,
-   "differentiator": "FAILS-DIFFERENTIATION (real-but-invisible): frequency-dependent GW dephasing/attenuation and v_g(omega)!=c are absent in GR, but ~22-62 orders below detectability (outcome B), so not a working differentiator."
+   "differentiator": "FAILS-DIFFERENTIATION (real-but-invisible): frequency-dependent GW dephasing/attenuation and v_g(omega)!=c are absent in GR, but ~22-62 orders below detectability (outcome B), so not a working differentiator.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "rung5_gr_limit",
    "domain": "gravitation",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_inin_formalism",
     "rung3_single_pole",
     "entropy_area_unruh"
    ],
@@ -105,14 +133,17 @@
    "ledger_note": "+2 imports: entropy~area (sets G), Unruh T (sets hbar). Lambda undetermined. RECOVERY, must not be sold as derivation.",
    "differentiator": "FAILS-DIFFERENTIATION: at tau_c=0 GRUT IS Jacobson/Padmanabhan and inherits their criticisms.",
    "laundering_ok": true,
-   "stance_justification": "STANCE: a RECOVERY, so its imports (entropy~area, Unruh T) are the content -- the +2 exists BECAUSE the recovery is not sold as a derivation. Removing the waiver would force delta=0 and hide the imports, which is the laundering the flag exists to prevent, inverted."
+   "stance_justification": "STANCE: a RECOVERY, so its imports (entropy~area, Unruh T) are the content -- the +2 exists BECAUSE the recovery is not sold as a derivation. Removing the waiver would force delta=0 and hide the imports, which is the laundering the flag exists to prevent, inverted.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "rung6_qm_limit",
    "domain": "quantum-foundations",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_inin_formalism",
     "rung2_kms_gate",
     "born_rule"
    ],
@@ -128,18 +159,21 @@
    "ledger_note": "+2: (i) quantization/single-valuedness condition, (ii) Born probability-measure postulate. KILL-SHOT note: ledger was undercounted as +1.",
    "differentiator": "Decoherence RATE is differentiating; Born rule FAILS-DIFFERENTIATION (inherited postulate).",
    "laundering_ok": true,
-   "stance_justification": "STANCE: same recovery shape as rung5 -- the QM limit imports the quantization condition and the Born measure, and the +2 declares them (the kill-shot note records this was once undercounted as +1; the waiver keeps the honest count payable)."
+   "stance_justification": "STANCE: same recovery shape as rung5 -- the QM limit imports the quantization condition and the Born measure, and the +2 declares them (the kill-shot note records this was once undercounted as +1; the waiver keeps the honest count payable).",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "rung7_wz",
    "domain": "dark-energy-cosmology",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_ontology_finite_memory",
     "rung2_kms_gate",
     "rung3_single_pole"
    ],
-   "statement": "Out of equilibrium FDT no longer locks N to K_R; a relaxing chi(omega) yields an effective dark-energy equation of state w(z) that can evolve away from -1 -- but ONLY via the inserted, un-sourced two-scale commitment (the IR relaxation mode tau_2~1/H0 booked in this claim's +2). The SOURCED prediction is w = -1 flat.",
+   "statement": "Out of equilibrium FDT no longer locks N to K_R; a relaxing chi(omega) yields an effective dark-energy equation of state w(z) that can evolve away from -1 -- but ONLY via the inserted, un-sourced two-scale commitment (the IR relaxation mode tau_2~1/H0 which constitutes two of this claim's three declared inputs (+2 of the +3 total); the remaining +1 is the single-departure-shape closure). The SOURCED prediction is w = -1 flat.",
    "tier": "to-derive",
    "tier_note": "EXPLORED 2026-06-25 (calc/wz_dark_energy.py). STRUCTURE (robust): a UV-cutoff single-pole vacuum gives w=-1 flat (FAILS-DIFFERENTIATION, reproduces Lambda). Evolving w(z) REQUIRES a second, cosmologically slow scale tau_2~1/H0. With tau_2 pinned to the horizon, w(z) is a ONE-parameter (eps) family -> correlated (w0,wa) locus, fewer params than CPL (pre-registerable). DESI MISMATCH reported straight: simplest passive relaxor gives wa>0, the WRONG sign for DESI's (w0>-1, wa<0 quintom); a w=-1 crossing may need two modes (+param) or a sign-changing in-in response -- to-derive. SPECIALIST 2026-06-25 (Q2): provisionally signs 'single passive relaxor => NO phantom-divide crossing' (one pole gives a monotone phase lag 0..-pi/2 and a monotone pressure correction -> wa>0, exactly the toy result); crossing to wa<0 requires >=2 modes / oscillatory poles / nonlocal sign-changing kernel / active response / extra DOF (cf. why quintom uses two fields). Caveat: not a published theorem; explicit proof owed in GRUT's effective stress tensor. CONSEQUENCE: the one-parameter economy win is provisionally LOST -- matching DESI costs a 2nd mode (~CPL parity). SOFTENED 2026-06-29 (rung7_w2 sign screen, overseer-ruled): the 'wa>0, WRONG sign for DESI' reading above is RETRACTED as an UN-EARNED over-claim. It is only ONE of two passivity-consistent branches. What the second law FIXES is the SIDE, not the wa slope (CORRECTED 2026-06-29, firewall physics-asymmetry lens): passivity zeta>=0 forces Pi=-3 zeta H <= 0, so the DISSIPATIVE branch sits at w<=-1 and the REACTIVE (Re chi) branch at w>=-1 -- entropy-fixed (sigma=Pi^2/(zeta T)>=0), which is what FORBIDS a crossing on each branch. But sigma is QUADRATIC in Pi, blind to dPi/dt, so the wa SLOPE sign is NOT second-law-fixed -- passive zeta(a) scalings (e.g. zeta~1/H^2) give Pi<=0, sigma>=0 yet wa>0; the toy's wa<=0 is a zeta=const/Eckart ARTIFACT. So the sign is GENUINELY INDETERMINATE (no DESI-ward theorem); the robust second-law content is the phantom-SIDE (no-crossing support), and the explicit slope-sign proof is owed in the de Sitter trace-sector stress tensor (rung7_w2). CRUCIAL (overseer): this does NOT make GRUT a DESI-predictor -- the SOURCED prediction is w=-1 FLAT (pure-TT / mu_linear); ANY wa!=0, either sign, requires activating the trace sector mu_linear EXCLUDES (an inserted input). GRUT predicts flat; the sign question lives only in the excluded sector. The harness forward_wz is softened in lockstep (the no-clean-DESI-match result is carried by the evolving=>needs_unsourced_input INVARIANT, not the sign). AMENDED 2026-06-29 (verify-the-verifier: the overseer ran an independent workflow on their OWN later 'wa<=0 second-law-fixed' sharpening and RETRACTED it too -- so both over-claims, 'wa>0 wrong sign' [away-from-DESI] and 'wa<=0 second-law-fixed' [toward-DESI], are now retracted; the honest middle is open-slope): the wa slope is OPEN; TWO NON-THEOREM ARGUMENTS lean it wa<0 (DESI's sign), banked as NOTES not tiered claims -- (i) the de Sitter-attractor/entropy-max boundary excludes the strongest wa>0 profiles (zeta~1/H^2 gives zeta*H not->0), (ii) thermal naturalness (zeta tracks the cooling Gibbons-Hawking bath, falling with a); and the w<=-1 floor is in mild TENSION with DESI's present-day w0>-1 (the dissipative branch matches DESI's slope-SIGN but sits on the WRONG SIDE for w0 today). NET: sourced flat, wa open, soft DESI-ward lean flagged as argument-not-theorem, no clean DESI match; the NO-CROSSING is the robustly-supported (second-law) piece, still to-derive + rung3-gated. See rung7_w2_wa_sign + calc/RESULTS_wz_sign.md.",
    "boundary_condition": "TWO-SCALE COMMITMENT (couples to rung3): evolving w(z) needs an IR relaxation mode tau_2~1/H0, i.e. exactly the 'second bath scale' that rung3's single-pole confirmation forbids -- BUT they coexist by ~40-orders scale separation (UV cutoff omega_c for the tabletop where omega>>H0; IR horizon scale for cosmology where omega~H). GRUT must commit to this two-scale vacuum explicitly. Ties rung3 + rung7 + the kill-shot-#1 de Sitter crossover into one picture. EXAMINED 2026-06-26 (calc/two_scale_desitter.py + calc/conformalon_joint.py + 7-agent workflow, primary-verified vs Starobinsky-Yokoyama / Beneke-Moch / Serreau): the de Sitter horizon FORCES the noise (H/2pi=T_dS) and the EXISTENCE of relaxation, but NOT the timescale tau2. Both horns INSERT tau2~1/H -- a free field needs a tuned m~H (eta-problem); a self-interacting O(1) mode RELOCATES the insertion to a structural bundle (light mode + O(1) coupling) via a dynamical mass m^2_eff~sqrt(lambda)H^2 that tracks H (NOT forced; and tau~1/H needs lambda~O(1), where the SY attractor is unverified). CONFORMALON HYPOTHESIS (rung7<->rung9 unification): the rung-9 conformalon is the candidate self-coupled mode; if it does double duty, one anomaly-fixed Q^2 governs both. DECIDABLE by two computations: (1) prefactor ratio k_w/k_alpha >= 7 (w-deviation vs alpha-shift, both ~ <sigma^2>); (2) the conformalon stress sign -- the lag-driven w(z) gives w_a<0 (DESI sign, unlike the passive relaxor) in toy. RESOLVED 2026-06-26 (specialist): the conformalon CANNOT supply the IR mode -- no Starobinsky-Yokoyama dynamical mass for the Delta_4 Paneitz compensator, and the anomaly/stress couplings are one nonlocal kernel (ratio O(1), not >=7). Q^2_SM~5.53 PINNED (primary-verified, AMM/Mottola). GROUNDED CLOSURE (3 independent reasons, prefactors carried): (1) the pinned conformal-mode stress is w=+1/3 (radiation-like, a^-4; Anderson-Molina-Paris-Mottola 0907.0823) -- WRONG equation of state for a DE deviation near -1, not just wrong magnitude; (2) carrying 1/(2Q^2)~0.09 on BOTH legs, the w-deviation is ~0.024, ~8x below DESI's 0.2 (at N=60; rising toward ~11x at fewer e-folds); (3) k_alpha plausibly protected to 0 by one-loop-exactness of the anomaly coeff. The earlier 'near-hit' (<sigma^2>~0.18~0.2) was a DROPPED-PREFACTOR ARTIFACT (caught by the grounding's anti-laundering critic). So the two-scale IR relaxation tau_2~1/H stays an INSERTED, assumed structure; the economical unification does NOT exist. rung7 stays to-derive with the two-scale mode inserted (needs >=2 modes). See calc/RESULTS_conformalon.md. CONFORMALON MECHANISM FROZEN (Version I, disposition-only): the conformalon-as-the-IR-relaxation-mode / rung7<->rung9 unifier is marked DEAD, not 'open' -- the Delta_4 Paneitz compensator is a nonlocal 1/k^4 object, too different in kind to serve as the local relaxation mode rung7 needs (no Starobinsky-Yokoyama dynamical mass; w=+1/3 wrong EoS; ratio O(1) not >=7). Do not circle it again as rung7's second scale. SCOPE OF THE FREEZE: this freezes ONLY the conformalon-as-mechanism; it does NOT touch the SEPARATE, genuinely-open M2 question of the conformal sector's late-time stability (the Delta_4 Green's-function secular-blow-up question, which stays live in rung9a_value). tier/ledger unchanged.",
@@ -149,14 +183,17 @@
    "overturning_computation": "calc/wz_dark_energy.py: if the full in-in (Calzetta-Hu) stress tensor of a horizon-relaxing vacuum gives wa>0 (not DESI's wa<0), or needs as many params as CPL, rung7 FAILS as the second differentiator -> diversify to GW dissipation from Im[chi] instead.",
    "ledger_delta": 3,
    "ledger_note": "+3: (i) the free amplitude eps (out-of-equilibrium N); (ii) the two-scale structural commitment -- the vacuum carries an IR relaxation mode tau_2~1/H0 (its scale pinned to the horizon, but its existence is an assumption); (iii) SINGLE-DEPARTURE-SHAPE CLOSURE (booked 2026-08-02, the restriction screen's verdict RESTRICTION_UNBOOKED, overseer-verified and RULED book-it -- the FIRST net-ledger move of the program, +12 -> +13 [AUTHORITY-VOCABULARY ANNOTATION 2026-08-12, sealed audit PREREG_AUTHORITY_TERMS_2026-08-12.txt (23a86fc8...): the word above reads as an OUTSIDE party to anyone who has not read the glossary. It is not one. 'Overseer' is this program's own human author; 'specialist', 'referee', 'independent' and 'external' denote in-house passes -- separate AI sessions run by that same author from a clean context. NO OUTSIDE HUMAN HAS EVER BEEN CONTACTED BY THIS PROGRAM: no transmission is logged at any date, and the author states directly that none occurred. The string is ANNOTATED, NOT RENAMED -- the register is historical evidence and the vocabulary drift is itself the finding.]): the out-of-equilibrium N departs from its KMS-locked value in the tau_2-mode shape ONLY, at amplitude eps -- the quasi-equilibrium ansatz collapsing the free non-KMS occupation profile n(omega)/T_eff(omega) (cf. arrow_of_time: out of KMS there is no single beta; N and Im chi decouple) to a two-dial family. FOUR DOUBLE-COUNT CHECKS, recorded explicitly (each run by the screen and independently re-verified by the overseer): (1) NOT rung1's Gaussian truncation -- that restricts correlator ORDER (two-point-determined), not the two-point's omega-profile; a Gaussian non-KMS state still carries arbitrary n(omega). (2) NOT eps -- amplitude != shape. (3) NOT tau_2 -- 'a mode EXISTS at tau_2' is strictly weaker than 'the departure is NOTHING BUT this mode'; existence does not price exhaustiveness. (4) NOT rung3's single-pole -- rung3 constrains K_R; out of equilibrium FDT breaks and N DECOUPLES from K_R (this claim's own founding premise), so N's shape cannot be inherited from K_R's. Exit-pricing (+param per extra mode) prices departures FROM the family, never the selection OF it -- a fence on the future does not pay for the present. T itself remains subsumed (see rung2 ledger_note): the booked input is the RESTRICTION, not a temperature.",
-   "differentiator": "STRUCTURAL PASS (evolving w(z) is impossible for the static-Lambda time-symmetric family) but DESI-shape NOT earned: the sourced prediction is w=-1 FLAT, and the wa SIGN of any inserted-scale evolution is FRONTIER-indeterminate (rung7_w2; the 2nd law fixes only the phantom SIDE w<=-1 of the dissipative branch -- which forbids crossing -- NOT the wa slope, whose sign is a zeta(a)-scaling modeling choice) -- NOT 'wrong sign' (that reading retracted 2026-06-29). #1-independent for the structure; the matching shape is to-derive. SPECIALIST (Q2): DESI quintom match needs >=2 modes -> economy win provisionally lost; the structural w(z)-evolution differentiator survives but is WEAK (any dynamical dark energy evolves)."
+   "differentiator": "STRUCTURAL PASS (evolving w(z) is impossible for the static-Lambda time-symmetric family) but DESI-shape NOT earned: the sourced prediction is w=-1 FLAT, and the wa SIGN of any inserted-scale evolution is FRONTIER-indeterminate (rung7_w2; the 2nd law fixes only the phantom SIDE w<=-1 of the dissipative branch -- which forbids crossing -- NOT the wa slope, whose sign is a zeta(a)-scaling modeling choice) -- NOT 'wrong sign' (that reading retracted 2026-06-29). #1-independent for the structure; the matching shape is to-derive. SPECIALIST (Q2): DESI quintom match needs >=2 modes -> economy win provisionally lost; the structural w(z)-evolution differentiator survives but is WEAK (any dynamical dark energy evolves).",
+   "edge_note": {
+    "rung1_split_2026_08_23": "ONTOLOGY per V2 node-level classification"
+   }
   },
   {
    "id": "rung8_falsifier",
    "domain": "gravitational-vacuum-observables",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_inin_formalism",
     "rung2_kms_gate",
     "rung6_qm_limit"
    ],
@@ -170,7 +207,11 @@
    "overturning_computation": "calc/energy_basis_decoherence.py: if the energy-basis Delta-E scaling is absent, or the predicted magnitude is unobservably small (S(0)=0 suppression and/or omega_c cutoff), or it lands inside the excluded DP/CSL band, the falsifier fails. FOOTING UPDATE 2026-06-25 (object-precise -- NOT a tier claim): the finite-T spectral-SHAPE check (calc/finite_T_exponent.py: S(omega) analytic at omega=0, no second slow pole WITHIN the analytic class) is confirmed, so the short-memory spectral-shape footing is solid (conditional on the analytic class HOLDING and on no second bath scale -- the analytic-class/pole-vs-cut anchor itself stays open) and no longer a working assumption. rung3's TIER stays derived-pending -- the pole-vs-cut anchor question is open. The qualitative energy-vs-position wedge never depended on it.",
    "ledger_delta": 2,
    "ledger_note": "+2 staked inputs, now explicit: (i) the overall amplitude/coupling normalization kappa (must survive MICROSCOPE/LISA-Pathfinder/Donadi bounds); (ii) the cutoff scale omega_c that places the energy-gap peak (what '689 Hz' really was). The SHAPE and the energy-vs-position wedge are predicted, not staked.",
-   "differentiator": "FAILS-DIFFERENTIATION (quiet-or-faint): Q1 magnitude calc (2026-06-25) shows the dominant DIAGONAL coupling is quiet (S(0)=0, Gamma=0) and the wedge-carrying OFF-DIAGONAL coupling is ~7-47 orders below detectable. The energy-basis wedge is not a working parameter-free observable falsifier; observability would require tuning the amplitude to the current matter-wave bound. The robust Pikovski effect is position-basis (not the wedge). Net: the falsifier does not carry the program."
+   "differentiator": "FAILS-DIFFERENTIATION (quiet-or-faint): Q1 magnitude calc (2026-06-25) shows the dominant DIAGONAL coupling is quiet (S(0)=0, Gamma=0) and the wedge-carrying OFF-DIAGONAL coupling is ~7-47 orders below detectable. The energy-basis wedge is not a working parameter-free observable falsifier; observability would require tuning the amplitude to the current matter-wave bound. The robust Pikovski effect is position-basis (not the wedge). Net: the falsifier does not carry the program.",
+   "cutoff_convention": "Ruling A 2026-08-23: this calculation uses the STAKED TABLETOP CUTOFF omega_c = 2*pi*689 rad/s. Sector-dependent-cutoffs ruling: no universal omega_c; every calculation must name which cutoff it uses. Validity domain declared: spectral claims scoped to w << w_c; the vicinity w ~ w_c is OUTSIDE the declared validity domain.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "rung9a_value",
@@ -198,7 +239,7 @@
    "disposition": "settled-negative",
    "depends_on": [
     "rung9a_value",
-    "rung1_inin_action",
+    "rung1_inin_formalism",
     "p_tt_ansatz"
    ],
    "statement": "The c_0 normalization (alpha-bridge): c_0 = alpha is an ADOPTED phenomenological DC normalization of the TT response kernel (K^R = alpha*chi*P^TT) -- the conformal anomaly does NOT derive it. Structural obstruction (projector-orthogonality PRIMARY / Ward / UV-IR no-RG-protection) + FDT/KMS leaves c_0 FREE; NOT forbidden; rescue open via the E4 kinematic S^4 a/c. MECHANISM REFINED 2026-08-03 (overseer-ruled; computed in calc/anomaly_c0_map.py): the PRIMARY obstruction's coarse form ('trace = spin-0, TT = spin-2, therefore no bridge') is REPLACED by THE a/c SECTOR-SPLIT (COMPUTED 2026-08-03, calc/anomaly_c0_map.py, exact rationals at four independent 4-momenta, fit + held-out, mutation-tested): b' (the a-anomaly) reaches the SPIN-0 channel ONLY -- int E_4's flat-space quadratic form is IDENTICALLY ZERO and the a-source enters solely through the box-R vertex -> int R^2 = 3 k^4 P0s with P2 coefficient EXACTLY 0; b (the c-anomaly) reaches the SPIN-2 channel ONLY -- int sqrt(g) C^2 = (1/2) k^4 P2 with P0s coefficient EXACTLY 0. THEREFORE alpha = a/c is a RATIO OF COEFFICIENTS LIVING IN DIFFERENT CHANNELS -- the coefficient of NEITHER. (Scope: this is the statement about the LOCAL C^2 counterterm and the nonlocal C ln(box) C sharing its P2 structure; the WZ vertex b*sigma*C^2 is O(sigma h^2), cubic, and contributes nothing to the tree-level two-point kernel.) The refinement STRENGTHENS the mechanism -- it is no longer an argument from which sector the anomaly 'is in', but a computed statement that the ratio's numerator and denominator live in orthogonal channels. *** EXPLICIT GRADE GUARD (overseer-ruled, and recorded BECAUSE a sharper mechanism is exactly the temptation to upgrade): the grade DOES NOT MOVE. This stays settled-negative -- obstruction-backed, NOT a formal no-go; NO promotion; tier stays assumed; ledger_delta stays 0; the Version-I freeze and its sole reopen condition (a genuinely new metric-built scalar->TT intertwiner) are UNCHANGED. A better-computed obstruction is still an obstruction, not an impossibility proof. *** FENCE ON THIS NODE'S OWN RESCUE ROUTE (co-located 2026-08-04 so the completeness is symmetric): the same computation that sharpens the obstruction also touches the premise of the named rescue (this node's overturning_computation contemplates 'an anomaly coefficient -- the c/C_T of the Weyl-squared term, which lives in the TT sector -- normalizes the TT 2-point'), and the wave DID compute that b reaches P2. It is NOT fresh evidence for the rescue: what reaches P2 is b ALONE, never the ratio a/c that this node's c_0 is identified with, and the C^2 structure is k^4 rather than the k^2 of the response kernel. The rescue condition is UNCHANGED and still requires a genuinely new metric-built scalar->TT intertwiner.",
@@ -212,14 +253,17 @@
    "overturning_computation": "A NEW-IDENTITY RESCUE would lift settled-negative: exhibit a metric-built scalar->TT intertwiner, OR a legitimate CFT route in which an anomaly coefficient (the c/C_T of the Weyl-squared term, which lives in the TT sector) normalizes the TT 2-point -- the anomaly correlator is NOT the response correlator, so this is not excluded (why it is 'repair owed', not fatal). Absent such an identity in any extension it would harden toward forbidden; that stronger claim is NOT made here.",
    "ledger_delta": 0,
    "ledger_note": "0 -- NOT +1, by deliberate ruling (overseer 2026-06-27). Although 'assumed' claims normally carry a +1, this claim is the CLAIM-LEVEL HOME of the alpha-normalization assumption already named as ledger input #13 (and accounted as the SUSPENDED rung-9 anchor credit, -1 -> 0). Booking +1 here would DOUBLE-COUNT #13. The adopted-parameter cost is real but recorded ONCE (at #13 / the suspended credit), not twice -> Delta 0, net stays +12. (Validator: tier 'assumed' with delta 0 triggers no cost and no warning, so this does not break GREEN.) The alpha-dependent exports R, S, Omega_Lambda are tagged 'conditional on adopted c_0/alpha' and carry no derived-anchor weight.",
-   "differentiator": "NON-DIFFERENTIATING: an adopted phenomenological normalization, obstruction-backed."
+   "differentiator": "NON-DIFFERENTIATING: an adopted phenomenological normalization, obstruction-backed.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "arrow_of_time",
    "domain": "statistical-mechanics-arrow",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_inin_formalism",
     "rung2_kms_gate",
     "past_hypothesis"
    ],
@@ -235,7 +279,10 @@
    "overturning_computation": "calc/arrow_origin.py: independent-boson dephasing shows Gamma(t) EVEN in t (time-symmetric dynamics), full recurrence at t_rec ~ N (reversible), decay fixed by the assumed bath state. Workflow primaries: Partovi PRE 77 021110 (2008) -- arrow REVERSES for entangled initial states (opposite to molecular chaos); te Vrugt 2022 (Mori-Zwanzig delta-rho(0)=0 is the irreversibility-generating step); Pusz-Woronowicz 1978 (KMS beta>0 == passivity). CEILING-CHECK ANSWERED by the specialist 2026-06-25: NO -- sign(beta) alone does NOT generally fix the direction; non-passive/non-KMS baths (squeezed, driven, active) can relax monotonically to a NESS with no meaningful beta, direction set by the Liouvillian/rates. But that direction is STILL state-dependent (set by the chosen reservoir state in the Liouvillian), not dynamics-intrinsic, in the cases surveyed -- so no dynamics-only route to a direction was found under the stated assumptions (NOT a universal no-go). Within GRUT's assumed KMS vacuum the sign(beta)>0 reading is sound.",
    "ledger_delta": 1,
    "ledger_note": "+1: the low-entropy / passive (beta>0) past-boundary state -- the Past Hypothesis -- as a named underived input. NOT derived; LOCATED. This is the honest floor: the existence-vs-direction decomposition + triangulating the three guises into one initial-condition assumption no derivation escapes.",
-   "differentiator": "FAILS-DIFFERENTIATION as a from-scratch derivation (the arrow DIRECTION is imported, like every program since Boltzmann). The genuine contribution is METHODOLOGICAL: locating exactly where and in what form the arrow is assumed (passive past-boundary state) and separating intrinsic existence from imported direction -- a real, honest contribution to the Albert/Price/Carroll problem, NOT 'GRUT solves the arrow.'"
+   "differentiator": "FAILS-DIFFERENTIATION as a from-scratch derivation (the arrow DIRECTION is imported, like every program since Boltzmann). The genuine contribution is METHODOLOGICAL: locating exactly where and in what form the arrow is assumed (passive past-boundary state) and separating intrinsic existence from imported direction -- a real, honest contribution to the Albert/Price/Carroll problem, NOT 'GRUT solves the arrow.'",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "mu_linear",
@@ -266,7 +313,7 @@
    "domain": "gravitational-response-structure",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action"
+    "rung1_inin_formalism"
    ],
    "statement": "The vacuum response is purely transverse-traceless: K^R = alpha*chi(omega)*P^TT, with the projector P^TT chosen (not derived). This is the structural input the mu_linear no-go export rests on.",
    "boundary_condition": "INTERROGATION RESULT 2026-08-02 (the forced-vs-chosen question ANSWERED; overseer-run five-angle interrogation, each angle adversarially verified against the five pre-registered kill-conditions, core computation independently replicated in EXACT RATIONAL ARITHMETIC by three verifiers; converges with the in-house frame-level eft_operator_basis result at a strictly stronger level of generality -- full Lorentz-covariant, closing that calc's frontier-reserved gap): VERDICT = CHOSEN, unanimous. THE PHYSICS IN ONE LINE: diffeomorphism invariance gets you to TRANSVERSE and stops exactly one condition short of transverse-TRACELESS. The complete Lorentz-covariant kernel space is 6-dimensional (Barnes-Rivers); the diffeo Ward identity on BOTH Schwinger-Keldysh branches leaves exactly TWO survivors [WARD-SCOPE CORRECTION 2026-08-14, from the SCDP primary-literature read this register's own fence flagged as OWED (salcedo_colas_dufner_pajer2026, arXiv:2507.03103, read in full extraction). THE CLAUSE 'the diffeo Ward identity on BOTH Schwinger-Keldysh branches leaves exactly TWO survivors' IS RE-SCOPED: imposing the ADVANCED-branch identity at quadratic order selects kernels transverse on the advanced slot and a transverse noise kernel -- but per SCDP, verbatim: 'operators that are inherently linked to the openness of the system, such as dissipative or noise-induced terms, necessarily break 4d-diff+ x 4d-diff- to its diagonal subgroup 4d-diff_r', and 'the closed, unitary limit corresponds to sending to zero all EFT coefficients of operators that break the symmetry'. Their general quadratic noise functional (their Eq. 1.11) contains explicitly NON-transverse structures ((a00)^2, (a.g)^2, a_0mu a_0nu g^munu). CONSEQUENCES, bounded: (1) the 'EXACTLY TWO survivors' EXHAUSTIVENESS is CONDITIONAL on imposing the advanced-branch identity -- a symmetry no dissipative completion sustains; under the surviving DIAGONAL identity the Ward constraint is transversality on the RETARDED SLOT ONLY, and the admissible space is strictly larger. (2) The CHOSEN verdict SURVIVES AND STRENGTHENS: a larger admissible space makes TT-only more of a choice, not less. (3) The EH counterexample and the -2 ratio are UNTOUCHED: Einstein-Hilbert is unitary, and both-branch is the correct symmetry of the closed action. (4) The frame-level enumeration (operator_basis.py, S1-S7, its own KC5 fences) is UNTOUCHED -- it never used both-branch language. (5) NEW INPUT SURFACED: the NOISE kernel's transversality is NOT bought by the diagonal Ward identity; it is an input, with available literature support in stochastic-gravity Bianchi consistency (Hu-Verdaguer Einstein-Langevin requires a conserved stochastic source) -- support cited, not claimed. (6) The SCDP full-basis fence is PARTIALLY DISCHARGED: their basis demonstrably carries scalar-sector and non-transverse noise operators. DIRECTION, stated on the face: AGAINST the framework's licensing (one more constraint that read as symmetry-bought is a choice) and FOR the CHOSEN verdict. Found by a mandated priority lens attacking the public document's Part I, 2026-08-13; the register correction precedes the prose correction by ruling.] -- P^(2) (spin-2, traceless; GRUT's P^TT) and P^(0,s) (spin-0, transverse but traceful). Transversality is what the Ward identity buys; tracelessness is a separate, unforced condition. GRUT keeps one survivor and zeroes the other BY HAND (on the FRW frame mu_linear uses: 5 independent form factors, GRUT keeps 1, zeroes 4). THE DECISIVE FACT (verified twice, exact arithmetic): linearized Einstein-Hilbert is ITSELF (1/2)k^2[P^(2) - 2P^(0,s)] -- GR's own response kernel carries a scalar component TWICE its spin-2 one. No general principle can force a gravitational response kernel to be TT-only, because GR's is not. This kills the KC2 defense outright (EH has exactly two radiative TT polarizations AND a large off-shell scalar kernel -- counting propagating GW modes says nothing about kernel structure). THE ONE SYMMETRY that would force TT-only -- linearized Weyl invariance -- is blocked, most sharply by GRUT itself: rung9a imports alpha as the TRACE-ANOMALY ratio, and the trace anomaly IS the statement that Weyl invariance is broken; you cannot use Weyl invariance to delete the scalar channel while importing its anomaly coefficient as your normalization. CONSTITUTIVE RESTATEMENT (GRUT's own borrowed vocabulary): {P^(2), P^(0,s)} are SHEAR and BULK response; p_tt_ansatz restated is zeta_vacuum == 0 -- a CONSTITUTIVE ASSERTION, not a symmetry consequence; both borrowed media (linear_response_viscoelastic, relativistic_hydro_israel_stewart) carry BOTH moduli. THE ALPHA TERM [CORRECTED 2026-08-04 -- overseer-ruled; the sentence below is RETIRED here at its ORIGINAL home, matching the retirement at eft_operator_basis finding (iv), so the register does not carry the retraction and the un-retired original at once]. RETIRED TEXT: 'the anomaly's linear-response carrier is the spin-0 channel P^TT annihilates, while the anomaly leaves the TT channel unaffected -- GRUT attaches an anomaly ratio to the one channel the anomaly does not touch, having deleted the one it does'. WHY IT IS RETIRED (computed, calc/anomaly_c0_map.py): at TWO-POINT order the anomaly has BOTH carriers -- b' (a-anomaly) reaches P0s at k^4 and b (c-anomaly) reaches P2 at k^4 (int sqrt(g) C^2 = (1/2)k^4 P2 with P0s coefficient EXACTLY 0). So 'leaves the TT channel unaffected' is FALSE, and 'the one channel the anomaly does not touch' is FALSE for the c-part; the first half's TWO-POINT reading ('the carrier is the spin-0 channel', singular) is likewise wrong -- there are two carriers, in orthogonal channels. WHAT SURVIVES, in its own words: (1) the ONE-POINT fact that <T^mu_mu> is a spin-0 object; (2) the a-part of the original observation -- GRUT did delete the channel the a-anomaly lives in; and (3) the REPLACEMENT, which is stronger than what it replaces: alpha = a/c is a RATIO OF COEFFICIENTS LIVING IN DIFFERENT CHANNELS -- the coefficient of NEITHER. This transports nothing into c2 (the conformal direction has identically zero P2 overlap; what reaches P2 is b ALONE, never the ratio) and changes NOTHING about the CHOSEN verdict, which rests on Barnes-Rivers + the both-branch Ward identity + the linearized-EH counterexample + Weyl-broken -- not on this sentence (rung9b's settled-negative seen from the other side). THE ONE ESCAPE, honestly named: IF a bath-microphysics commitment makes the trace correlator <T^mu_mu T^nu_nu>_R vanish non-perturbatively, Pi_0 = 0 follows and this flips to FORCED -- but that is a NEW +1 at its point of entry (rung3): it RELOCATES the assumption, it does not discharge it. The symmetry route to FORCED is definitively closed; only the dynamical route survives, and it costs what it saves. THE CONSTRUCTIVE OPENING: the INTERIOR of the {shear, bulk} family (zeta_vacuum != 0, NOT the excluded trace-only endpoint) is empirically viable -- not ruled out by the ISW (2026-08-03: the 32sigma retired, computed ~2.0sigma cross; the interior's viability is STRENGTHENED -- see mu_linear/zeta_interior_family) -- and is exactly the sector where the observables live; GRUT foreclosed it by fiat, not by data or symmetry. The question is RE-HOMED to u4/u5 ('is zeta_vacuum = 0?' is a constitutive-classification question). CONSEQUENCES BANKED ELSEWHERE: the +1 here does NOT retire (stays assumed/+1 -- now with a DERIVED justification for why it is an assumption); mu_linear's demotion is OPENED as its own screened question (see mu_linear.boundary_condition); net ledger unaffected by this banking. *** DISCHARGE ADDENDUM 2026-08-17 (appended, not superseding -- both clauses of the 2026-08-14 mark remain true: noise transversality is NOT bought by the diagonal Ward identity alone, and outside the family below it remains an input). On the booked family, noise-kernel transversality is DERIVED: the Ward-sourced zero (g'rho g = 0, from this correction's own surviving retarded-slot content) + N-covariance positivity in the plain pairing + the booked (eps,tau_2) scalar lock, with Cauchy-Schwarz applied directly to N (N g = 0; rho g = N g / n(omega) wherever n != 0) -- CONDITIONAL on rung1_inin_action's FOURTH declared input priced 2026-08-17 (+1, net +14), RENAMED at owner verification the same day: THE 4D-COVARIANT AVAILABILITY OF THE WARD-SOURCED GAUGE-ORBIT ZERO (the KC5-reserved covariantization; explicit discharge condition in rung1's note). The owner's decomposition: N-as-PSD-covariance was ruled CONSTITUTIVE of the banked Gaussian bath (any genuine state's symmetrized correlator is PSD by construction); the frontier half -- the 4d gauge-orbit zero -- is what the +1 pays for. The 0-delta horn was DECLINED by the owner 2026-08-17, grounds recorded at rung1. The spatial-frame S4 CANNOT substitute for the carrier: its banked home is the 6-dim SVT frame whose KC5 fence frontier-reserves the h_0mu/4d completion (x_no_pin_theorem precedent); it corroborates in the spatial frame only. COROLLARY, same conditionality: K_R is transverse on BOTH slots on the family (K_R^dag g = K_R g - 2i rho g = 0); omega<0 runs with rho NSD and the conclusion sign-independent; the omega->0 edge closes by continuity. CLOSURE, NOT RESTORATION: within the booked FDT-locked scalar-dial family the admissible (K_R, N) pair closes on the transverse pair P^(2), P^(0s) -- a family-conditional closure theorem; the unconditional both-branch classification stays RETIRED; outside the family (independent non-FDT noise, channel-structured occupations -- SCDP's Eq. 1.11 class) SCDP's strictly larger space stands, priced at entry by rung2's standing fence. SIGNATURE FACT (screen-found): plain-pairing positivity itself forces s2 = 0 at spacelike k^2 on this family (P^(2) is indefinite there; spacelike tensor-channel support needs a medium frame u^mu, outside the eta,k-only family) -- transversality there holds via P^(0s) alone. The counterexample K_cx = i(k x k)(x)Pi is barred by N-covariance positivity (ruled constitutive of the banked Gaussian bath at owner verification 2026-08-17): it satisfies the matrix-adjoint lock form N = coth*(K - K^dag)/2i -- the form the booked family itself uses -- while the banked per-scalar-channel gate is silent on non-normal kernels. DEMARCATION (screen-mandated): SCDP App. B.2 + salcedo_colas_pajer2025 derive noise constraints by a Bianchi route whose no-dissipation corner reproduces this conclusion and deforms under dissipation (this theorem covers the with-dissipation FDT-locked case by a different mechanism); abe_nishii2026 Sec. 4.3 uses the identical (Ward, FDT, positivity) triad with the transverse projection IMPOSED as an input -- the projection this chain derives; the PSD/FDT matrix engine is landau_lifshitz_sp1-standard -- the new content is only the Ward-sourced zero on the gravitational gauge orbit and the assembly. hu_verdaguer_lrr: corroboration by a different route (bath stress-tensor conservation) in the conserved-current-bath subclass -- SHIPPED unamended by the screen. EXHIBIT: calc/noise_transversality_check.py (exact rationals, both signatures, six in-process + six registry mutants, every one a verified killer) with calc/RESULTS_noise_transversality.md; adversarially screened 2026-08-16/17 (three refuter lenses + adjudicator + targeted re-screen: SHIP). THE SCREEN'S OWN CATCH, recorded because it is the program's recurring shape: the first draft's exhibit ran an off-family spacelike instance its own theorem bars, and its exact-PSD tool was wrong on complex-Hermitian input -- both caught BEFORE banking, both fixed, both now mutant-covered. Kill-condition 4 compliance: the zero is Ward-sourced, positivity only propagates it (a zero diagonal kills its cross-couplings -- the guard's own licensed mechanism); no physical channel is annihilated, only gauge directions; P^(0s) survives and CHOSEN stands. FOR THIS NODE: the +1 stays. Transversality-derived does not force TRACELESSNESS -- P^(0s) remains admissible, the TT restriction remains CHOSEN, and this node's price is exactly that choice.",
@@ -280,7 +327,10 @@
    "ledger_note": "+1: a hand-inserted structural postulate (the response's tensor structure), previously buried, now named. It is the input mu_linear is derived-pending ON, and the locus of the rung-9 alpha-carrier contradiction. Net +10 -> +11.",
    "laundering_ok": true,
    "differentiator": "NON-DIFFERENTIATING: a declared structural assumption, not a result.",
-   "stance_justification": "STANCE: the hand-inserted TT projector is the register's single most interrogated input -- previously buried, now named and charged +1. The waiver lets an 'assumed' node carry its own cost instead of relocating it into the derived-pending results that rest on it."
+   "stance_justification": "STANCE: the hand-inserted TT projector is the register's single most interrogated input -- previously buried, now named and charged +1. The waiver lets an 'assumed' node carry its own cost instead of relocating it into the derived-pending results that rest on it.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "founding_h1_zeta_casimir",
@@ -347,7 +397,7 @@
    "domain": "information-RG",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_inin_formalism",
     "rung2_kms_gate",
     "rung9a_value"
    ],
@@ -365,7 +415,10 @@
    "overturning_computation": "Show that renormalization/coarse-graining is NOT an information-projection, or that the a-theorem and entanglement monotones are not distinguishability measures -- contradicts established results (Wilson-Kogut; Zamolodchikov; Komargodski-Schwimmer; Casini-Huerta; Kubo FDT). CRITICAL: I1 being TRUE is GENERIC and ALREADY BANKED in GRUT (rung1/rung2/rung9a); it confers NO novel GRUT claim. Only I2 (a beyond-standard principle) and I3 (a distinct consequence) could be novel.",
    "ledger_delta": 0,
    "ledger_note": "0: a borrowed generic motif already present via rung1/rung2/rung9a; adds no GRUT input and claims no GRUT derivation. Net unchanged (+12).",
-   "differentiator": "NON-DIFFERENTIATING: standard information-RG, already imported via rung1/rung2/rung9a."
+   "differentiator": "NON-DIFFERENTIATING: standard information-RG, already imported via rung1/rung2/rung9a.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "info_i2_beyond_standard_bridge",
@@ -373,7 +426,7 @@
    "grut_standing": "open field",
    "disposition": "screened-refuted",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_inin_formalism",
     "rung2_kms_gate",
     "rung9a_value"
    ],
@@ -389,7 +442,10 @@
    "overturning_computation": "I2 is REFUTED if the proposed information statement (a) reduces to restating rung1 (trace-out/influence-functional), rung2 (FDT/KMS), or rung9a (a-theorem) -- standard info-RG already in GRUT; OR (b) is an interpretation ('GRUT is about information') with no distinct consequence; OR (c) backdoors the refuted zeta bridge (founding_h2). I2 SURVIVES only with a GRUT-specific, precise principle yielding a relation/bound/no-go that standard info-RG does NOT already give. FRONTIER-RESERVED if a candidate survives; relay any graduation UP before banking.",
    "ledger_delta": 0,
    "ledger_note": "0: an OPEN question naming no new accepted input (defaults broken). Net unchanged (+12). A surviving beyond-standard principle would graduate it (relay-gated); the lean is that it dissolves into standard info-RG + interpretation.",
-   "differentiator": "WOULD-BE-DIFFERENTIATING IF a beyond-standard principle survived; currently to-derive / default-broken, lean = dissolves into standard info-RG (already in GRUT) + interpretation."
+   "differentiator": "WOULD-BE-DIFFERENTIATING IF a beyond-standard principle survived; currently to-derive / default-broken, lean = dissolves into standard info-RG (already in GRUT) + interpretation.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "info_i3_distinct_consequence",
@@ -437,7 +493,7 @@
    "grut_standing": "open field",
    "disposition": "screened-dissolves",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_inin_formalism",
     "l0_r1_redundancy_exists"
    ],
    "statement": "FRONTIER-3 sub-claim R2 (THE CRUX, open, default-BROKEN): derived from the CTP influence action S_IF -- (i) is the adiabatic dilatation an EXACT redundancy specifically at L0->0 (delta S_IF -> 0 as the memory length L0 -> 0)? (ii) is L0 the UNIQUE breaking parameter (delta S_IF = O(L0), nothing else breaks it)? (iii) is the adiabatic mode and its invariance DERIVED from S_IF, or PRESUPPOSED?",
@@ -452,7 +508,10 @@
    "overturning_computation": "calc/L0_redundancy.py: R2 PROVES only if (i) delta S_IF -> 0 exactly at L0->0 AND (ii) L0 is the UNIQUE breaker (no other scale/anomaly breaks it) AND (iii) the adiabatic mode is DERIVED from S_IF (not inserted). REFUTED if any fails: the toy shows (i) holds but (ii) fails (the trace anomaly co-breaks) and (iii) is presupposed -> R2 rests on an irreducible input. A full proof needs the real S_IF dilatation variation (CTP, de Sitter) + a from-the-action derivation of the mode -- FRONTIER; escalate to a CTP/spectral specialist if it enters over-claim territory. SCOPE: even if proven, R2 is a FOUNDATIONAL THEOREM -- no new physics, no observable, no constant.",
    "ledger_delta": 0,
    "ledger_note": "0: an OPEN question naming no new accepted input (defaults broken). Net unchanged (+12). A full proof (exact + unique + derived) would graduate it AND mu_linear (relay-gated); the current lean is that it rests on a presupposed input.",
-   "differentiator": "WOULD-BE-FOUNDATIONAL (not novel physics) IF proven: it would graduate mu_linear and make 'memory=structure-creator' a clean theorem. Currently to-derive / default-broken; lean = rests on a presupposed input, L0 not strictly unique."
+   "differentiator": "WOULD-BE-FOUNDATIONAL (not novel physics) IF proven: it would graduate mu_linear and make 'memory=structure-creator' a clean theorem. Currently to-derive / default-broken; lean = rests on a presupposed input, L0 not strictly unique.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "l0_r3_payoff_mu_linear",
@@ -481,7 +540,7 @@
    "domain": "dark-energy-cosmology",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_ontology_finite_memory",
     "rung4_love_kk"
    ],
    "statement": "RUNG7-SIGN sub-claim W1 (GENERIC -- not uniquely GRUT): a relaxing causal susceptibility chi(omega) defines an effective dark-energy stress tensor and an effective equation of state w(a) = p/rho = -1 + (w+1), where the deviation (w+1) = Pi/rho is the dissipative pressure correction off the de Sitter equilibrium w_eq=-1. This relaxing-response -> w(z) map is standard effective-field-theory-of-dark-energy (Gubitosi-Piazza-Vernizzi); it follows from rung1 (memory) + rung4 (KK causality) and names neither a sign nor a GRUT-specific structure.",
@@ -495,7 +554,10 @@
    "overturning_computation": "Show a relaxing causal chi(omega) does NOT define an effective T_munu / w(a)=p/rho -- contradicts standard EFT-of-dark-energy (Gubitosi-Piazza-Vernizzi). CRITICAL: W1 is GENERIC and confers NO GRUT-specific content; only W2 (the SIGN of wa / the no-crossing no-go from passivity) carries the GRUT claim.",
    "ledger_delta": 0,
    "ledger_note": "0: a borrowed generic map (EFT-of-DE); adds no GRUT input and claims no GRUT derivation. Net unchanged (+12).",
-   "differentiator": "NON-DIFFERENTIATING: standard relaxing-response -> w(z) map."
+   "differentiator": "NON-DIFFERENTIATING: standard relaxing-response -> w(z) map.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "ONTOLOGY per V2 node-level classification"
+   }
   },
   {
    "id": "rung7_w2_wa_sign",
@@ -576,7 +638,7 @@
    "domain": "universality-classification",
    "grut_standing": "covered",
    "depends_on": [
-    "rung1_inin_action"
+    "rung1_ontology_finite_memory"
    ],
    "statement": "Version II, entry U1 (form-universality, GENERIC/BORROWED): the responsive-medium influence-functional FORM -- a Schwinger-Keldysh S_IF = K_R + (i/2)N -- is UNIVERSAL in the sense that ANY local, causal open quantum system yields it under coarse-graining (Feynman-Vernon / Caldeira-Leggett / non-equilibrium Keldysh EFT). GRUT's framework is therefore a genuine universal IR LANGUAGE for the FORM -- but the form is standard open-system physics, NOT a GRUT result.",
    "tier": "shown",
@@ -590,14 +652,17 @@
    "overturning_computation": "Refuted-as-purely-borrowed (-> would GRADUATE to a GRUT-specific form result) IF a structural feature of GRUT's S_IF is exhibited that is NOT generic to open-system influence functionals (a form-level addition beyond the kernel). Absent that, U1 is borrowed: universal but not GRUT's. CRITICAL: U1 being TRUE is GENERIC and confers NO GRUT-specific content; only U2 (kernel-universality) could host a genuine universality RESULT.",
    "ledger_delta": 0,
    "ledger_note": "0: a borrowed generic fact (the universal open-system influence-functional form); adds no GRUT input and claims no GRUT derivation. Net unchanged (+12).",
-   "differentiator": "NON-DIFFERENTIATING: the universal influence-functional FORM is standard open-system EFT, not GRUT-specific."
+   "differentiator": "NON-DIFFERENTIATING: the universal influence-functional FORM is standard open-system EFT, not GRUT-specific.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "ONTOLOGY per V2 node-level classification"
+   }
   },
   {
    "id": "u2_kernel_universality",
    "domain": "universality-classification",
    "grut_standing": "open field",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_inin_formalism",
     "rung3_single_pole"
    ],
    "statement": "Version II, entry U2 (content / kernel-universality, THE genuine Version-II frontier): is the SPECIFIC response kernel (L0, the low-omega pole structure) UNIVERSAL among microscopic completions -- in particular quantum-gravity ones (string / asymptotic-safety / causal-set / LQG)? This is NOT answered by Feynman-Vernon, which fixes only the FORM. If the IR kernel is UV-completion-independent, GRUT's specific response is a robust prediction of quantum gravity; if completions flow to different kernels, the kernel is non-universal / microscopic-input-dependent.",
@@ -611,7 +676,10 @@
    "overturning_computation": "GRADUATES to 'kernel universal' ONLY if >=2 distinct microscopic / QG completions are shown to flow to the SAME IR-kernel class (same pole structure / L0 scaling). REFUTED-as-non-universal if they flow to DIFFERENT kernels. UNDER-DETERMINED (a first-class outcome) if the completions cannot be compared at the IR-kernel level with current tools. Default-broken: do NOT manufacture universality.",
    "ledger_delta": 0,
    "ledger_note": "0: an OPEN question naming no new accepted input (default-broken). Net unchanged (+12). A graduation would be a genuine universality result (relay-gated, firewalled).",
-   "differentiator": "WOULD-BE-DIFFERENTIATING (a genuine universality result) IF >=2 QG completions flow to the same IR-kernel class; currently to-derive / default-broken, likely under-determined out of the gate (rung3-coupled)."
+   "differentiator": "WOULD-BE-DIFFERENTIATING (a genuine universality result) IF >=2 QG completions flow to the same IR-kernel class; currently to-derive / default-broken, likely under-determined out of the gate (rung3-coupled).",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "u3_split_origin",
@@ -760,7 +828,7 @@
   {
    "id": "eft_operator_basis",
    "depends_on": [
-    "rung1_inin_action",
+    "rung1_inin_formalism",
     "rung2_kms_gate",
     "rung5_gr_limit"
    ],
@@ -778,7 +846,10 @@
    "ledger_note": "0: posing a classification adds no underived input; the frame-level (b) result names no new input either (it REPORTS that c0=0 is an input ALREADY booked as p_tt_ansatz +1 -- counted once, there). Net unchanged: +12. HARD FENCE: any future ledger consequence (e.g. an (a)-outcome retiring p_tt_ansatz's +1 -> +11) is a separate pre-screened change, never this node's.",
    "grut_standing": "open field",
    "domain": "qft-foundations",
-   "differentiator": "WOULD-BE-THE-INSTRUMENT for the p_tt interrogation (forced-vs-chosen) IF the full-covariant order closes; currently to-derive with the frame-level (b) result banked. All three outcomes first-class."
+   "differentiator": "WOULD-BE-THE-INSTRUMENT for the p_tt interrogation (forced-vs-chosen) IF the full-covariant order closes; currently to-derive with the frame-level (b) result banked. All three outcomes first-class.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (ambiguous dissipat-only -> FORMALISM)"
+   }
   },
   {
    "id": "zeta_interior_family",
@@ -931,9 +1002,12 @@
    "ledger_note": "0: a BORROWED reference-class node (zero GRUT credit). Marked borrowed; never a GRUT fill. Net unchanged: +12.",
    "grut_standing": "borrowed",
    "domain": "analogue-gravity",
-   "attaches_to": "rung1_inin_action",
+   "attaches_to": "rung1_inin_formalism",
    "match_verdict": "PARTIAL / KINEMATIC: analogue gravity supplies the emergent-metric KINEMATICS of a vacuum-as-medium picture but does NOT fix the transport (pole-vs-cut) class -- so it does NOT match or settle GRUT's admitted response class; a kinematic attachment only, explicitly not a coverage claim.",
-   "tier_note": "SCAFFOLD 2026-07-06 (B1). Attaches at rung1 (the vacuum-as-medium premise / S_IF). GRUT-standing: borrowed -- kinematics borrowed, transport NOT covered."
+   "tier_note": "SCAFFOLD 2026-07-06 (B1). Attaches at rung1 (the vacuum-as-medium premise / S_IF). GRUT-standing: borrowed -- kinematics borrowed, transport NOT covered.",
+   "edge_note": {
+    "rung1_split_2026_08_23": "FORMALISM per Ruling B default (string-valued edge normalised at bank time)"
+   }
   },
   {
    "id": "superfluid_bec_media",

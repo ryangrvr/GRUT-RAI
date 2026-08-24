@@ -10,8 +10,8 @@
 <rect x="292" y="240" width="90" height="50" fill="#7a8ba6"/>
 <text x="337" y="234" text-anchor="middle" font-size="13" fill="#1a1a1a">4</text>
 <text x="337" y="308" text-anchor="middle" font-size="12" fill="#1a1a1a">derived-pending</text>
-<rect x="408" y="90" width="90" height="200" fill="#7a8ba6"/>
-<text x="453" y="84" text-anchor="middle" font-size="13" fill="#1a1a1a">16</text>
+<rect x="408" y="78" width="90" height="212" fill="#7a8ba6"/>
+<text x="453" y="72" text-anchor="middle" font-size="13" fill="#1a1a1a">17</text>
 <text x="453" y="308" text-anchor="middle" font-size="12" fill="#1a1a1a">assumed</text>
 <rect x="524" y="40" width="90" height="250" fill="#7a8ba6"/>
 <text x="569" y="34" text-anchor="middle" font-size="13" fill="#1a1a1a">20</text>

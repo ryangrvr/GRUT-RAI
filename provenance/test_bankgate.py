@@ -22,7 +22,7 @@ def load():
     return claims, {k for k in sources if not k.startswith("_")}
 
 
-def _open_node(cid, delta=0, deps=("rung1_inin_action",)):
+def _open_node(cid, delta=0, deps=("rung1_inin_formalism",)):
     return {"id": cid, "statement": "A born-open / borrowed scaffold sub-claim.",
             "tier": "to-derive", "sources": ["kubo1966"],
             "overturning_computation": "a calc that would kill it", "ledger_delta": delta,
@@ -59,7 +59,7 @@ class TestBankGate(unittest.TestCase):
         working = copy.deepcopy(self.claims) + [
             {"id": "launder_demo", "statement": "We derived something for free.",
              "tier": "derived", "sources": ["kubo1966"], "overturning_computation": "a calc",
-             "ledger_delta": 2, "depends_on": ["rung1_inin_action"]}]
+             "ledger_delta": 2, "depends_on": ["rung1_inin_formalism"]}]
         rep = bank_gate(self.claims, working, self.source_ids)
         self.assertEqual(rep["overall"], "BLOCK")
         self.assertTrue(any(r["claim_id"] == "launder_demo" for r in rep["blocks"]))

@@ -58,13 +58,13 @@ cd provenance && python3 -m pytest -q               # the full suite
 
 ## Six fixed points
 
-**1 — Zero novel positive predictions; the `derived` tier is empty.** Of 50 claims in the framework's scope, the tier reserved for "follows from the foundation, derivation exhibited and checked" holds **0**. Populated: `shown` (10, standard physics verified against primary sources by the author), `derived-pending` (4, derived modulo a *named* open input), `assumed` (16), `to-derive` (20). The tiers are assigned by the author, alone.
+**1 — Zero novel positive predictions; the `derived` tier is empty.** Of 51 claims in the framework's scope, the tier reserved for "follows from the foundation, derivation exhibited and checked" holds **0**. Populated: `shown` (10, standard physics verified against primary sources by the author), `derived-pending` (4, derived modulo a *named* open input), `assumed` (17), `to-derive` (20). The tiers are assigned by the author, alone.
 
 **2 — No outside physicist has answered any physics question put by this program.** Stated specifically, because the general denial is unfalsifiable-sounding:
 
 Of one term's occurrences, the register contains **28 records phrased as an external pass having run** — among them **6, across 5 nodes**, written as *SPECIALIST CONFIRMED* and *SPECIALIST-CORRECTED* and dated 2026-06-25. **No transmission to any outside human is logged at any date** — that half is checkable against the register in minutes, and an adversarial search of every file, log, git object and archived snapshot found none. That those passes were AI sessions run by the author is **not** established by the register, which never records modality; **it is the author's own statement, made 2026-08-12**, and the reader should treat the two halves differently: one is auditable, the other is testimony.
 
-An audit of the word *specialist* found **49 occurrences across 18 of 71 claims** (58 if you count the 2026 annotation blocks that document them), classified: **28** phrased as a pass having run, **17** reserving a *future* expert, **2** generic or collective, **2** filenames. That word is not the only one that reads as outside authority — the register also uses *referee*, *reviewer*, *externally reviewed*, and *overseer-verified*. Appendix D gives the audit's classification scheme and its findings; the per-claim classification for the audited word is generated into `provenance/PUBLIC_NUMBERS.md`, and the audit's own result file — appendable, citing its sealed pre-registration by hash rather than being sealed itself — carries the aggregates and the rulings. The first version of this audit used one word and one letter-case; both narrowings are why the term list is now pre-registered before the audit runs.
+An audit of the word *specialist* found **49 occurrences across 18 of 72 claims** (58 if you count the 2026 annotation blocks that document them), classified: **28** phrased as a pass having run, **17** reserving a *future* expert, **2** generic or collective, **2** filenames. That word is not the only one that reads as outside authority — the register also uses *referee*, *reviewer*, *externally reviewed*, and *overseer-verified*. Appendix D gives the audit's classification scheme and its findings; the per-claim classification for the audited word is generated into `provenance/PUBLIC_NUMBERS.md`, and the audit's own result file — appendable, citing its sealed pre-registration by hash rather than being sealed itself — carries the aggregates and the rulings. The first version of this audit used one word and one letter-case; both narrowings are why the term list is now pre-registered before the audit runs.
 
 **3 — A prior book with a live DOI describes a different theory.** Concept DOI `10.5281/zenodo.19803663`; latest version `10.5281/zenodo.20783057`. See the note below.
 
@@ -504,7 +504,7 @@ The scope sentence for the whole Part, last: a method for keeping one author hon
 
 Every figure in this section is generated from the register or quoted from a dated record; none is typed.
 
-**The physics.** Of the claims in the framework's scope, the tier reserved for derivations that were exhibited and checked holds **0** — the empty tier marked in Figure 1. Populated: `shown` **10**, `derived-pending` **4**, `assumed` **16**, `to-derive` **20**, across **50** framework claims (**71** in the register overall, the remainder belonging to a separate mapping exercise with its own scope). The ledger's net stands where the validator prints it, most recently moved *upward* — a cost discovered, not a cost removed — when the program's own screen caught a theorem consuming an unpriced input (Part II.1). What outlives the framework is Part I's pair, plus the anomaly computation that yielded a scale rather than a number. What the framework predicts that nothing else does: nothing.
+**The physics.** Of the claims in the framework's scope, the tier reserved for derivations that were exhibited and checked holds **0** — the empty tier marked in Figure 1. Populated: `shown` **10**, `derived-pending` **4**, `assumed` **17**, `to-derive` **20**, across **51** framework claims (**72** in the register overall, the remainder belonging to a separate mapping exercise with its own scope). The ledger's net stands where the validator prints it, most recently moved *upward* — a cost discovered, not a cost removed — when the program's own screen caught a theorem consuming an unpriced input (Part II.1). What outlives the framework is Part I's pair, plus the anomaly computation that yielded a scale rather than a number. What the framework predicts that nothing else does: nothing.
 
 **The question.** Unsent, held, possibly ill-posed as posed, with a well-posed substitute recorded and uncomputed. No channel of the sealed condition has resolved; no stop has fired.
 
@@ -550,7 +550,7 @@ Generated at build time from `provenance/claims.json`; a claim's full text, sour
 | `info_i1_renorm_as_information` | shown | 0 | INFORMATION-PRINCIPLE sub-claim I1 (GENERIC -- already in GRUT, NOT uniquely GRUT): renormalization/coarse-graining is an information-projection, and … |
 | `l0_r1_redundancy_exists` | shown | 0 | FRONTIER-3 sub-claim R1 (GENERIC -- not uniquely GRUT): the long-wavelength adiabatic spatial dilatation is a residual large-gauge / … |
 | `passivity_channel_diagonal` | shown | 0 | THE CHANNEL-DIAGONAL PASSIVITY LEMMA -- the GENERAL statement, frame-free (pre-registered PREREG_X_NO_PIN_2026-08-09.txt, sealed before the calc …) |
-| `rung1_inin_action` | shown | +4 | The gravitational vacuum is a responsive medium with finite memory, described by a single Schwinger-Keldysh influence action S_IF with retarded … |
+| `rung1_inin_formalism` | shown | +4 | The gravitational vacuum's response is described by a single Schwinger-Keldysh influence action S_IF with retarded dissipation kernel K_R and noise … |
 | `rung2_kms_gate` | shown | -1 | In equilibrium the noise kernel N is locked to Im[chi] by FDT with a coth(hbar*omega/2kT) factor; admissible kernels must satisfy KMS detailed … |
 | `rung4_love_kk` | shown | 0 | Re[chi] = elastic/storage (Love-number) response, KK-linked to dissipative Im[chi]; recovers worldline-EFT tidal-response structure for the vacuum. |
 | `rung7_w1_wz_map` | shown | 0 | RUNG7-SIGN sub-claim W1 (GENERIC -- not uniquely GRUT): a relaxing causal susceptibility chi(omega) defines an effective dark-energy stress tensor … |
@@ -572,6 +572,7 @@ Generated at build time from `provenance/claims.json`; a claim's full text, sour
 | `p_tt_ansatz` | assumed | +1 | The vacuum response is purely transverse-traceless: K^R = alpha*chi(omega)*P^TT, with the projector P^TT chosen (not derived). |
 | `past_hypothesis` | assumed | 0 | The Past Hypothesis (a low-entropy initial macrostate of the universe) is a cosmological boundary condition GRUT BORROWS via arrow_of_time; the … |
 | `relativistic_hydro_israel_stewart` | assumed | 0 | Transient (causal) relativistic hydrodynamics (Israel-Stewart): a relaxation time makes dissipative transport a causal single-pole / telegrapher … |
+| `rung1_ontology_finite_memory` | assumed | +1 | The gravitational vacuum IS a responsive medium with finite memory, characterised in the strongest GRUT form by a single-pole relaxation structure. |
 | `rung5_gr_limit` | assumed | +2 | GR limit: tau_c->0 collapses chi to its conservative local form; Clausius dQ=TdS on Rindler horizons recovers the Einstein equations as an equation … |
 | `rung6_qm_limit` | assumed | +2 | QM limit: integrating out the bath yields the reduced-density-matrix master equation; unitary core = Schrodinger, noise N supplies decoherence … |
 | `rung9b_bridge` | assumed | 0 | The c_0 normalization (alpha-bridge): c_0 = alpha is an ADOPTED phenomenological DC normalization of the TT response kernel (K^R = alpha*chi*P^TT) … |
@@ -631,9 +632,13 @@ Generated at build time by listing the calculation directory's Python files; the
 
 | calculation | cited by the register |
 |---|---|
+| `calc/C1_GROUND_TRUTH_MODE.py` | no (support or superseded) |
+| `calc/C1_PRIMITIVE_VALIDATION.py` | no (support or superseded) |
 | `calc/L0_redundancy.py` | yes |
 | `calc/anomaly_c0_map.py` | yes |
 | `calc/arrow_origin.py` | yes |
+| `calc/class_c_solver.py` | no (support or superseded) |
+| `calc/class_c_stage_c1.py` | no (support or superseded) |
 | `calc/conformalon_joint.py` | yes |
 | `calc/conformalon_q2_band.py` | no (support or superseded) |
 | `calc/delta4_stability.py` | yes |
@@ -653,9 +658,11 @@ Generated at build time by listing the calculation directory's Python files; the
 | `calc/rung3_spectral_structure.py` | yes |
 | `calc/sigma0_anomaly_screen.py` | yes |
 | `calc/static_patch_tt_response.py` | yes |
+| `calc/tt_worldline_spectrum.py` | no (support or superseded) |
 | `calc/two_scale_desitter.py` | yes |
 | `calc/u5u6_deformability.py` | yes |
 | `calc/vacuum_scheme_compare.py` | yes |
+| `calc/worldline_reduction.py` | no (support or superseded) |
 | `calc/wz_dark_energy.py` | yes |
 | `calc/wz_sign.py` | yes |
 | `calc/x_no_pin.py` | yes |

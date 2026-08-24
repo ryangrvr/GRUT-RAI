@@ -3,8 +3,8 @@
 *The human-readable crystallization of the register at the Version I close. This is a **presentation layer over `provenance/claims.json`** — no new content, no new physics. Every claim gets exactly **one** label. It is checked to match the machine register tier-for-tier. This is the **depositable product**: the honest statement of where the responsiveness hypothesis reached, and where it stopped.*
 
 > **Frozen snapshot.** This document is the **Version I deposit — 26 claims, gate GREEN, net +12** — and is held fixed at that milestone. Version II has since opened, and the map has grown borrowed/open scaffold (**live register now 45 nodes: 34 GRUT claims + 11 borrowed/open-field scaffold, net now +13** — the 2026-08-02 restriction booking, the program's first net move — see [`GRUT_II_Agenda.md`](GRUT_II_Agenda.md), `provenance/coverage.py`); those post-V1 nodes are deliberately **not** added here. The 26 labels below are the V1 close.
-<!-- REGISTER-SYNC: 50 nodes, net +15 -->
-<!-- REGISTER-TOTAL: 71 = 50 grut + 21 vacuum-cluster; nets +15 grut, +0 cluster -->
+<!-- REGISTER-SYNC: 51 nodes, net +16 -->
+<!-- REGISTER-TOTAL: 72 = 51 grut + 21 vacuum-cluster; nets +16 grut, +0 cluster -->
 
 ---
 

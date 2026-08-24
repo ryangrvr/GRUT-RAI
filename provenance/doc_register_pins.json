@@ -1,16 +1,15 @@
 {
   "_accepted_note": "Refreshed by a human act. Refreshing this file is the claim that the document's prose about each node below has been re-read and still matches the register.",
   "artifacts": {
-    "GLOSSARY.md": "e41dae232105ac9e",
+    "GLOSSARY.md": "297f200241c89227",
     "HOW_TO_VERIFY.md": "c1cf075a31f79574",
     "NO_GO_LEDGER.md": "90dba9ecffbe22a6",
-    "POSTULATE_MAP.md": "8edccea2f0e6fee5",
+    "POSTULATE_MAP.md": "9329f50d54df00bd",
     "S_IF.md": "05d9bf1bda3ec2d8"
   },
   "nodes": {
     "kk_static_transfer": "fc89e52fb499cb53",
     "mu_linear": "c51b5de311199f55",
-    "rung1_inin_action": "f75e69d3f2422d60",
     "rung2_kms_gate": "2589e38b9d936cd3",
     "rung3_single_pole": "cae4974deda5b5fb",
     "rung4_love_kk": "397b24de1d46d25a",
