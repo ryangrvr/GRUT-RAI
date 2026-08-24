@@ -8,15 +8,17 @@ import json, math
 A=0.05   # = 1/20, the owner's exp(-w/20) cutoff scale
 
 def gamma_exact(t,s):
-    # (2/pi)*Gamma(s+1)*Re[(a - i t)^(-(s+1))]
+    # PASS-CRITERION OBJECT: the RESPONSE spectrum Im chi = J/omega = w^(s-1) e^{-a w}.
+    # Its cosine transform: gamma(t) = (2/pi)*Gamma(s)*Re[(a - i t)^(-s)].
+    # s indexes the RESPONSE exponent; declared targets are 0 / 1 / 2 for plants s_J=1,2,3.
     r=math.hypot(A,t); th=math.atan2(t,A)
-    return (2.0/math.pi)*math.gamma(s+1)*(r**-(s+1))*math.cos((s+1)*th)
+    return (2.0/math.pi)*math.gamma(s)*(r**-(s))*math.cos(s*th)
 
 def gamma_numeric(t,s,W=400.0,n=40000):
     h=W/n; acc=0.0
     for i in range(n):
         w=W*(i+0.5)/n
-        acc+=(w**(s-1))*math.cos(w*t)*h   # J/w with J=w^s e^{-w/20}~w^s at w<<20
+        acc+=(w**(s-1))*math.cos(w*t)*h   # response object: J/w = w^(s-1) e^{-w/20}
     return (2.0/math.pi)*acc
 
 def reconstruct(gamma_of_t,T=30.0,m=6000,w_probe=None):
@@ -75,7 +77,8 @@ def main():
         for s in (1,2,3):
             matrix.append(run_cell(s,T_,m_,'s=%d %s'%(s,label),gamma_exact,s))
     json.dump({'meta':{'date':'2026-08-23','tool':'wall_a_g1_v2.py',
-      'note':'closed-form gamma removes stage-1 numeric error; isolates reconstruction'},
+      'note':'closed-form gamma removes stage-1 numeric error; isolates reconstruction',
+       'pass_criterion_object':'Im chi = J/omega (response spectrum); targets 0/1/2 are RESPONSE exponents for plants s_J=1/2/3'},
       'control':ctrl,'matrix':matrix},
       open('G1_DIAGNOSTIC_V2.json','w'),indent=2)
     dev=[r for r in matrix if not r['ok']]

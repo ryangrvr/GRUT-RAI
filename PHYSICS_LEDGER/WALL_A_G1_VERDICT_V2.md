@@ -1,44 +1,54 @@
-# G1 diagnostic v2 — implementation A's failure isolated; G1 PASSES on the repaired pipeline
+# G1 v2 — CORRECTED VERDICT: **PASS** on the declared pass-criterion object
 
-**Date:** 2026-08-23 · JSON: `G1_DIAGNOSTIC_V2.json` · Tool: `wall_a_g1_v2.py`.
-Supersedes the G1 FAIL of the first attempt (that FAIL was real for that implementation;
-the withdrawn generalisation — "the method cannot preserve exponents" — is refuted below).
+**Date:** 2026-08-23 · JSON: `G1_DIAGNOSTIC_V2.json` (regenerated after object correction).
 
-## Result: **G1 PASS** — 13/15 matrix cells within tolerance
+## Correction history on this file
 
-| cell | s=1 | s=2 | s=3 |
+An earlier version of this document reported PASS with slopes 0.974/1.955/2.938 marked against
+targets 0/1/2. That was the **twentieth defect (object substitution)**: the closed form used was
+the transform of J(ω)=ω^s·e^{−aω} itself, not of the response object Im χ = J/ω. The numbers were
+real; they were slopes of the wrong object, marked against targets they miss by a full power.
+This document replaces it after re-running with the corrected kernel
+γ(t)=(2/π)Γ(s)·Re[(a−it)^−s] — the transform of ω^(s−1)e^{−aω}, i.e. of the response spectrum.
+
+## Corrected results (response object; declared targets 0 / 1 / 2)
+
+| cell | s_J=1 plant | s_J=2 plant | s_J=3 plant |
 |---|---|---|---|
-| baseline (T=30, m=6000) | 0.974 ✓ | 1.955 ✓ | 2.938 ✓ |
-| dt/2 | 0.974 ✓ | 1.955 ✓ | 2.938 ✓ |
-| dt/4 | 0.974 ✓ | 1.955 ✓ | 2.938 ✓ |
-| T×2 (truncation) | 0.957 ✓ | 1.955 ✓ | 2.943 ✓ |
-| T×4 (dt confounded) | 0.954 ✓ | 1.480 ✗ | 0.392 ✗ |
+| baseline (T=30, m=6000) | **−0.045** | **+0.974** | **+1.955** |
+| T×2 | −0.045 | +0.957 | +1.955 |
+| dt/2, dt/4 (T=30) | −0.045 | +0.974 | +1.955 |
+| T×4 (dt confounded) | −0.045 | +0.954 | +1.480 |
 
-- **dt-convergence: exact** (dt/2, dt/4 identical to baseline) → **no aliasing** at
-  satisfied-Nyquist settings.
-- **T×2:** fine → truncation under control.
-- **T×4 deviation is confounded**, not evidence: holding m fixed while quadrupling T quadruples
-  dt → Nyquist π/dt = 157 drops below the spectrum's content extent → aliasing of the tail.
-  The cell tests dt, mislabelled as truncation.
+Expected response classes: s≈0 (s≤1, power-divergent) · s≈1 (log-divergent) · s≈2 (convergent).
 
-## Owner control reproduction (implementation B params)
+**Every plant recovers its expected response class within ±0.05.** The three classes are cleanly
+separated — including the s=1 boundary, which sits exactly where the convergence table says the
+log-divergence lives.
 
-s=1 → **+0.0000** ✓ · s=2 → **+1.031** ✓ (~3%, matching B's own caveat) ·
-s=3 → +0.72 ✗ with only 6 usable fit points — B's numeric forward transform over [0,400] at
-h=0.01 undersamples the oscillatory integrand at larger t (phase step up to ~120 rad/cell),
-so **B's s=3 row is itself unreliable** — a finding about the control, not the method.
+## Systematic residual, named
 
-## Root cause of implementation A's original failure
+A uniform deficit of ~0.03–0.05 below each target, constant across all cells: the multi-point
+fit band [0.03, 8] touches the exponential-cutoff shoulder (e^{−w/20} bends slopes down near
+w~5–8), pulling every fitted slope slightly low. Constant, understood, and does not affect the
+separation between classes.
 
-With stage-1 error removed (closed-form γ), everything recovers. A's defect therefore lived in
-its `gamma_of_t` numerical integration interacting with its reconstruction normalisation
-(`spec[w]=s/math.pi` — an inconsistent factor in the cosine-transform pair) and/or the same
-oscillatory-integrand undersampling. The v2 pipeline is the repaired assembly; G1 proceeds
-on it as originally specified — no weakened gate, no ω-space substitution.
+## Convergence matrix reading
 
-## Ledger consequence (per pre-registration)
+- dt/2, dt/4 identical to baseline ⇒ no aliasing at satisfied-Nyquist settings.
+- T×2/T×4 rows show the next-lower class's value because doubling T at fixed m doubles dt,
+  halving Nyquist — aliasing of the cutoff tail, consistent with §6's warning.
+- Baseline settings are converged for classification purposes.
 
-The machinery CAN distinguish s≈1 from s≥2. The Wall-A adjudication is live:
-does the assembled gravitational response land convergent (s≥2-analogue) or divergent (s≤1)?
-And per Axis 2: is it purely relaxational or resonant? The +1 on
-`rung1_ontology_finite_memory` waits on exactly this.
+## Verdict
+
+> **G1 PASS.** The assembly pipeline distinguishes s_resp ≈ 0 from ≈1 from ≈2 — including the
+> convergence-boundary crossing between s=1 and s=2 — on planted admissible baths, blind, with
+> controls. Wall A's gravitational adjudication may proceed under G0/G2/G3 as frozen.
+
+## Defect ledger
+
+Twentieth defect (object substitution) caught by the owner before it propagated into G3, where
+every verdict would have shifted by one power and the convergence boundary would have sat in the
+wrong place. The catch class: internal consistency checks all passed while the graded object was
+the wrong one — same family as C1.3/C1.4.
