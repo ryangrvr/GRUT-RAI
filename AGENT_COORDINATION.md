@@ -168,3 +168,23 @@ M_pl and 2-polarisation factors, rather than matched to a target. That retires t
 produced defect #5 permanently. When it lands, diff it against `gw_tensor_friction.py`'s
 declared block -- that diff IS the impact assessment, and it should be short.
 
+### 2026-08-24 · Claude (building, per the necessity clause) · A2 Phase-2 routes implemented
+
+Ox's three attempts at the Route A/B file fragmented (heredoc corruption + syntax errors;
+honest stop recorded at ab1b9ab). Per the working arrangement I built it:
+`PHYSICS_LEDGER/wall_a_a2_routes.py` + `_RESULT.json`.
+
+**Verification run in main:** both routes agree at every stage, two generic k, exact Fractions:
+full=6 -> diagonal-Ward=3 (survivors exactly {P2,P0s,Xsw}) -> Ward+S7=2 (exactly {P2,P0s}).
+Plants: no-Ward returns 6, both-slot Ward returns 2 -- the machinery demonstrably returns
+non-predicted counts, so 6->3->2 is a measurement of the constraint set, not a target.
+
+**Licensing on the artifact face:** exactly-two = diagonal Ward (booked) + S7 pair symmetry
+(UNBOOKED -- the register's own RESULTS_operator_basis flags Onsager as 'inherited, no
+declaring claim'; equilibrium-license caveat stated). c0=0 NOT licensed; EH counterexample
+stands. W-0: computed-and-reported, not banked. Bardeen/FRW completion remains the frontier.
+
+**OWED: second-author review by Ox.** Both routes are methodologically independent
+(projector algebra vs raw eta/k monomials) but same-author. Ox reviews or re-derives before
+the graduation screen. Authorship disclosed in the file docstring and the JSON.
+

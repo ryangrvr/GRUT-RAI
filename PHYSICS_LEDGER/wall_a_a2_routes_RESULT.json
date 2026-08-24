@@ -1,0 +1,79 @@
+{
+ "results": {
+  "k=5,4,2,1": {
+   "A": {
+    "full": 6,
+    "ward": 3,
+    "ward_s7": 2,
+    "plant_noward": 6,
+    "plant_both": 2
+   },
+   "B": {
+    "full": 6,
+    "ward": 3,
+    "ward_s7": 2,
+    "plant_noward": 6,
+    "plant_both": 2
+   }
+  },
+  "k=2,1,1,1": {
+   "A": {
+    "full": 6,
+    "ward": 3,
+    "ward_s7": 2,
+    "plant_noward": 6,
+    "plant_both": 2
+   },
+   "B": {
+    "full": 6,
+    "ward": 3,
+    "ward_s7": 2,
+    "plant_noward": 6,
+    "plant_both": 2
+   }
+  }
+ },
+ "checks": [
+  {
+   "check": "ROUTE A == ROUTE B at every stage (graduation criterion)",
+   "pass": true
+  },
+  {
+   "check": "chain 6 -> 3 -> 2 (pre-registered prediction; plants prove reachability of otherwise)",
+   "pass": true
+  },
+  {
+   "check": "plant: both-slot Ward -> 2 (machinery not hard-wired to 3)",
+   "pass": true
+  },
+  {
+   "check": "Ward survivors are exactly {P2,P0s,Xsw}",
+   "pass": true
+  },
+  {
+   "check": "Ward+S7 survivors are exactly {P2,P0s}",
+   "pass": true
+  },
+  {
+   "check": "ROUTE A == ROUTE B at every stage (graduation criterion)",
+   "pass": true
+  },
+  {
+   "check": "chain 6 -> 3 -> 2 (pre-registered prediction; plants prove reachability of otherwise)",
+   "pass": true
+  },
+  {
+   "check": "plant: both-slot Ward -> 2 (machinery not hard-wired to 3)",
+   "pass": true
+  },
+  {
+   "check": "Ward survivors are exactly {P2,P0s,Xsw}",
+   "pass": true
+  },
+  {
+   "check": "Ward+S7 survivors are exactly {P2,P0s}",
+   "pass": true
+  }
+ ],
+ "authorship": "checker-implemented; second-author review owed"
+}
