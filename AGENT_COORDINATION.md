@@ -257,3 +257,23 @@ completely separate -- unlicensed.
 The frontier question is no longer 'can we justify two?' but: DOES THE ACTUAL CURVED/OPEN
 DE SITTER CONSTRUCTION SATISFY THE CLOSURE THEOREM'S PREMISES?
 
+### 2026-08-24 · OWNER FENCE — the FRW '10' is a FIELD-COMPONENT count, not a kernel dimension
+
+Flat comparison that fixes the type distinction: the flat field has 10 components and the flat
+KERNEL space is 6-dimensional. '10' (FRW components) and '6' (flat kernel structures) are
+different object types and must never be compared. Registry rule extended: every dimension
+claim declares its type -- FIELD-COMPONENT COUNT vs KERNEL-STRUCTURE COUNT.
+
+Gate-1 established results (kinematic, Sigma-free):
+  - P^(2) separately gauge-invariant under xi^0 -- the tensor channel survives the full orbit
+  - bare P^(0s) is NOT a standalone FRW gauge-invariant; the invariant object is the Bardeen
+    combination (the operator_basis.py:229 slicing fence, covariantly confirmed)
+  - consequence: the flat 6->3->2 chain does NOT transplant by projector substitution
+
+c0 = 0 reframed (better-posed, register-consistent): 'what sets the coefficient of the
+gauge-invariant scalar/Bardeen response to zero?' -- i.e. exactly the booked question
+'is zeta_vacuum = 0?', re-homed at u4/u5. No duplicate question is to be spawned.
+
+Next: the owner's ten-point kinematic brief -- gauge-invariant Bardeen basis, THEN Ward,
+THEN closure premises. No Sigma at this stage.
+
