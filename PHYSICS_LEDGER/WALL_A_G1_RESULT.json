@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "date": "2026-08-23",
+    "tool": "wall_a_g1_ohmic_plant.py",
+    "G0_declaration": "mode-counting basis: none; J supplied as boundary input",
+    "tolerance_s": 0.3,
+    "registered_convention": "Im chi = J/omega (friction)",
+    "hann_apodization": true,
+    "diagnosis": "Hann window loses the low-w signal entirely (t~0 region carries the spectral shape); un-windowed variant returned slope~0 for ALL plants (high-w truncation ringing swamped the probes). Both variants cannot distinguish s~1 from s>=2. G1 FAILS on this implementation."
+  },
+  "plants": [
+    {
+      "plant": "PLANT-OHMIC (s_J=1)",
+      "s_J": 1,
+      "expected_response_class": "s<=1",
+      "expected_convergence": "DIVERGENT",
+      "recovered_slope": null,
+      "classification": null,
+      "convergence": {
+        "partial_hi3": -0.0,
+        "partial_hi6": -0.0,
+        "converged": false,
+        "tail_fraction": 0.198
+      },
+      "plant_recovered": false
+    },
+    {
+      "plant": "PLANT-SUPEROHMIC (s_J=3)",
+      "s_J": 3,
+      "expected_response_class": "s>=2",
+      "expected_convergence": "CONVERGENT",
+      "recovered_slope": null,
+      "classification": null,
+      "convergence": {
+        "partial_hi3": -0.0013,
+        "partial_hi6": -0.0015,
+        "converged": true,
+        "tail_fraction": 0.089
+      },
+      "plant_recovered": false
+    },
+    {
+      "plant": "PLANT-BOUNDARY (s_J=2)",
+      "s_J": 2,
+      "expected_response_class": "s~1-LOG-DIVERGENT",
+      "expected_convergence": "LOG-DIVERGENT",
+      "recovered_slope": 0.013,
+      "classification": "s<=1",
+      "convergence": {
+        "partial_hi3": 0.0001,
+        "partial_hi6": 0.0001,
+        "converged": false,
+        "tail_fraction": 0.166
+      },
+      "plant_recovered": false
+    }
+  ],
+  "verdict": "FAIL - STOP: instrument cannot adjudicate the conflict"
+}
