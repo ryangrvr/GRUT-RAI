@@ -578,3 +578,33 @@ errors in A1 on either side. W-0: computed-and-reported, NOT banked.
 NEXT: A3 declarations (renormalisation scheme; bath-state computed-vs-assumed; G0
 spectral wiring) -- then the loop assembles and Sigma_R^TT gets asked the three-part
 wall question.
+
+### 2026-08-25 · Owner ruling · A3 CONFIRMED AS NEXT, three additions, two-step freeze
+
+Owner ratifies the A3 brief with additions, verbatim principles:
+  1. RENORMALISATION REGISTRY SPLIT: Pi_ren = Pi_local^scheme + Pi_nonlocal^invariant,
+     with each of the three wall questions marked for which part it is sensitive to.
+     THE CRITICAL PRINCIPLE: "No finite local counterterm may be selected because it
+     produces a preferred spectral or memory behavior." Two admissible schemes differing
+     only by local polynomial terms -> their agreement/disagreement in the NONLOCAL
+     low-frequency analytic structure IS the robustness test. A3 must not become a
+     mechanism for manufacturing the desired K_R.
+  2. BD != EQUILIBRIUM RESPONSE: A3 distinguishes STATE SPECIFICATION from the
+     KMS/detailed-balance PROPERTY OF THE INTERACTING RESPONSE -- the latter is a
+     loop/closure-stage question. The closure test established equilibrium/KMS => 3->2
+     while genuine non-equilibrium leaves 3D; A3 must not pre-answer question (ii).
+  3. SPECTRAL WIRING ENFORCED BY CODE, NOT PROSE: the direction
+     "registered J(omega) -> Sigma_R construction" must be made IMPOSSIBLE by the
+     registry/assembly mechanism. Correct direction: BD mode functions + declared
+     interactions -> loop -> Sigma_R/K_R/Im chi -> compare AFTERWARD with registered
+     J(omega). The registered spectrum is the benchmark under test, not an ingredient.
+  4. SEQUENCING: A3 declarations -> A4 dual gauge -> Sigma_R^TT. The gauge-comparison
+     protocol is FROZEN AT A3 TIME -- the second gauge must not first appear at the loop,
+     and its protocol cannot be redesigned after seeing the first-gauge answer.
+  5. TWO-STEP FREEZE: Ox drafts the declaration; the checker reviews it BEFORE it is
+     hash-frozen -- "the last clean opportunity to catch a hidden input before the
+     one-loop physics begins."
+
+Status boxed by the owner: A1 COUNTERSIGNED; A2/Bardeen/kinematics COUNTERSIGNED;
+A5 FULL PASS; A3 NEXT; Sigma_R^TT untouched. The crisp target:
+Sigma_R^TT ?in K_3D^Lorentz ?in K_2D^closure, plus its IR analytic structure.
