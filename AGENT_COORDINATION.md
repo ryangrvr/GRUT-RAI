@@ -521,3 +521,22 @@ errors; every defect was instrument/wording currency. W-0: computed-and-reported
 NOT banked. NEXT: Wall A proper -- Sigma_R^TT under G0-G3, with the sharpening this
 test adds: the microscopic calculation must establish the 3D placement AND the
 equilibrium regime in which the last 3->2 reduction holds.
+
+### 2026-08-24 · Owner ruling · WALL A OPENS AT A1 -- vertex object sharpened, full-then-project mandated
+
+Owner ratifies the A1 opening as structured, with three rules re-emphasised (object
+registry before algebra; flat-limit + mis-indexed plants before the de Sitter vertex is
+trusted; STOP at A1 -- no silent renormalisation or spectral choices that belong to
+A3/G3) and ONE MODIFICATION, verbatim intent: the A1 deliverable must be stated
+explicitly as the FULL vertex Gamma^{mu nu}_{ab}(x; y, z), with TT projection a
+DOWNSTREAM operation. Mandated sequence:
+    S_interaction -> Gamma^{mu nu} -> Gamma^TT -> Sigma_R^TT
+never S_interaction -> Gamma^TT by assumption -- "otherwise there is a risk of deleting
+longitudinal/scalar structures before the assembly has had a chance to determine whether
+they matter." (Checker's note: early TT projection would also partially IMPOSE placement
+(i), corrupting the +1 discharge test itself.)
+
+Status boxed by the owner: A2/Bardeen/closure kinematics CLOSED; A1 vertex NEXT;
+Sigma_R^TT still uncomputed. The registered experiment: "When the microscopic
+gravitational vertex is actually assembled, what response structure does the theory
+produce before any GRUT target is imposed?"
