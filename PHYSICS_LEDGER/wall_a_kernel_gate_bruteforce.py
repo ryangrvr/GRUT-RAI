@@ -93,17 +93,43 @@ K_both=equiv_dim(6,Jr,Pr,6,Jr,Pr)
 print("(B) equivariance solution dims: K_full=%d (target 21)  K_Ward=%d (target 11)  K_both=%d (target 6)"
       %(K_full,K_ward,K_both))
 
+# ---------- (C0) inline recomputation of the flat orthogonality (C) relies on ----------
+# DOCSTRING-OVERCLAIM REPAIR 2026-08-24: the docstring said 're-verified inline' while the
+# orthogonality was only cited (21702bf). Now it IS recomputed here, making the claim true.
+def flat_orthogonality():
+    ETA=[[F(1 if i==j==0 else (-1 if i==j else 0)) for j in range(4)] for i in range(4)]
+    kup=[F(2),F(1),F(1),F(1)]
+    klo=[sum(ETA[m][n]*kup[n] for n in range(4)) for m in range(4)]
+    k2=sum(kup[m]*klo[m] for m in range(4))
+    th=[[ETA[m][n]-klo[m]*klo[n]/k2 for n in range(4)] for m in range(4)]
+    om=[[klo[m]*klo[n]/k2 for n in range(4)] for m in range(4)]
+    R4=range(4)
+    def T4(f): return {(m,n,r,ss):f(m,n,r,ss) for m in R4 for n in R4 for r in R4 for ss in R4}
+    P1 =T4(lambda m,n,r,ss:(th[m][r]*om[n][ss]+th[m][ss]*om[n][r]
+                            +th[n][r]*om[m][ss]+th[n][ss]*om[m][r])/2)
+    fam={'P2':T4(lambda m,n,r,ss:(th[m][r]*th[n][ss]+th[m][ss]*th[n][r])/2-th[m][n]*th[r][ss]/3),
+         'P0s':T4(lambda m,n,r,ss:th[m][n]*th[r][ss]/3),
+         'Xsw':T4(lambda m,n,r,ss:th[m][n]*om[r][ss])}
+    def pair(A,B):
+        return sum(A[(m,n,r,ss)]*ETA[m][m]*ETA[n][n]*ETA[r][r]*ETA[ss][ss]*B[(m,n,r,ss)]
+                   for m in R4 for n in R4 for r in R4 for ss in R4)
+    return {nm: pair(P1,K) for nm,K in fam.items()}
+orth=flat_orthogonality()
+orth_ok=all(v==0 for v in orth.values())
+print("(C0) flat orthogonality RECOMPUTED INLINE: pair(P1,{P2,P0s,Xsw}) = %s -> %s"
+      %({k:str(v) for k,v in orth.items()}, "ALL EXACT ZERO" if orth_ok else "FAIL"))
+
 # ---------- (C) boost-killed: computed portion ----------
 print("""(C) boost-killed list, status by computation:
    VECTOR BLOCK (2 structures): the flat Lorentz Ward family {P2,P0s,Xsw} has ZERO
-   helicity-1 component -- countersigned orthogonality (pair(P1,family)=0 exact, commit
-   21702bf) -- so both vector structures are OUTSIDE the family: COMPUTED-BY-ORTHOGONALITY.
+   helicity-1 component -- orthogonality pair(P1,family)=0, RECOMPUTED INLINE in (C0) above (and countersigned
+   at 21702bf) -- so both vector structures are OUTSIDE the family: COMPUTED-BY-ORTHOGONALITY.
    SCALAR BLOCK (6 of 8): FROZEN RECIPE, pending machine run:
      build T: fields <-> h_mn (bijective at fixed k); pull back P0s and Xsw to field
      bilinears; express the 8 curved scalar structures' H->0 limits at rational frequency
      samples; rank-test membership in span{P0s,Xsw}. Expect exactly 2 members, 6 outside.
    UNTIL THAT RUNS: boost-killed = 2 COMPUTED + 6 IDENTIFIED (not yet machine-checked).""")
-ok = (K_full,K_ward,K_both)==(21,11,6)
+ok = (K_full,K_ward,K_both)==(21,11,6) and orth_ok
 print("VERDICT:","BRUTE-FORCE CONFIRMS 21/11/6; annihilator gate exact; boost list 2 computed + 6 pending"
       if ok else "COUNTS DIFFER FROM PREDICTION: %s"%str((K_full,K_ward,K_both)))
 sys.exit(0 if ok else 1)
