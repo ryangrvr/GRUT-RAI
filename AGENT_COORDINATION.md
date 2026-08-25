@@ -540,3 +540,41 @@ Status boxed by the owner: A2/Bardeen/closure kinematics CLOSED; A1 vertex NEXT;
 Sigma_R^TT still uncomputed. The registered experiment: "When the microscopic
 gravitational vertex is actually assembled, what response structure does the theory
 produce before any GRUT target is imposed?"
+
+### 2026-08-24 · Claude · A1 VERTEX COUNTERSIGNED WITH CORRECTIONS -- the wall's first stage stands
+
+SECOND-AUTHOR REVIEW of wall_a_a1_vertex.py: reproduced byte-identical, then
+second_author_a1_vertex.py (E1-E5 all PASS) + independent verifier fleet (from-scratch
+routes disjoint at every stage: Leibniz-sum determinant, multiplication-verified Neumann
+inverse, two-plane-wave extraction, two-distinct-fields normalisation regulator).
+VERDICT: NOT REFUTED. The vertex Gamma^{mu nu} = (kappa a^2/2)[p q + q p - eta(p.q + a^2 m^2)],
+both discards, the a^2-vs-a^4 channel split, and the normalisation chain all confirmed.
+
+THE REVIEW'S PHYSICS ADDITION: the GENUINE gauge-orbit reconciliation, FRW layer included.
+The orbit from Lie_xi g carries the conformal 2(a'/a)xi^0 eta_mn term; the vertex's
+variation reduces IDENTICALLY to (bath EoM with friction) x (xi.dphi) + total derivative,
+arbitrary phi/xi/a(eta). No residual -- no obstruction for the loop stage. The constant-H
+trap exhibited as negative control. (The builder file's own 'recon' gate turned out to
+DUPLICATE its Ward gate -- the "checker's lever closes" line in the builder report was an
+independence overclaim, struck-and-replaced in the STAGE doc; content was never missing:
+Gamma.(K xi + xi K) == 2 xi.(K.Gamma) algebraically.)
+
+CORRECTIONS APPLIED TO THE BUILDER'S FILES (build-and-disclose; none touches the vertex):
+chk_det gate had verified only the O(kappa^0) term while claiming the O(kappa) check --
+on the very det-check the file's own lesson calls blind; now compared to h_tr and gated.
+The MISSING recomposition gate (second-author target 5 had no gate) added at review:
+Gamma exactly recoverable from (Gamma^TT, trace, longitudinal); discards parameterise ALL
+non-TT content, no third structure. Flat-plant sign degeneracy recorded (harmless: two
+insertions in Sigma).
+
+REVIEWER SELF-CATCH (the recurring pattern, now on the checker's side): review
+instrument's first draft spuriously eta-raised the extracted vertex -- the h01-symbol
+coefficient already IS the lower-index component Gamma contracts; only 0i components
+flipped, caught by my own E2 gate, diagnosed before reporting. Target file never
+implicated. DISCLOSURE: two fleet verifiers died on a subagent session limit; their
+targets covered by E1/E4/E5 + the completed derivation verifier. Zero confirmed physics
+errors in A1 on either side. W-0: computed-and-reported, NOT banked.
+
+NEXT: A3 declarations (renormalisation scheme; bath-state computed-vs-assumed; G0
+spectral wiring) -- then the loop assembles and Sigma_R^TT gets asked the three-part
+wall question.

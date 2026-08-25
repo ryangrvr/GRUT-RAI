@@ -1,0 +1,36 @@
+{
+  "instrument": "wall_a_a1_vertex.py",
+  "standing_state": "e754d14; kinematic half closed; W-0: computed-and-reported, not banked",
+  "vertex": {
+    "form": "Gamma^{mu nu} = (kappa a^2(eta)/2)[p^mu q^nu + q^mu p^nu - eta^{mu nu}(p.q + a^2 m^2)]",
+    "derived_programmatically": true,
+    "compact_form_matches": true,
+    "ctp": "Gamma_a = eta_a Gamma, eta_+ = +1, eta_- = -1"
+  },
+  "gates": {
+    "sqrt_expansion_check": true,
+    "sqrt_expansion_okappa_check": true,
+    "structural_match": true,
+    "flat_limit_plant": true,
+    "misindexed_detected": true,
+    "ward_eom_identity": true,
+    "onshell_vanishing": true,
+    "misindexed_ward_detected": true,
+    "tt_projection_wellformed": true,
+    "discard_reconciliation": true
+  },
+  "discards_recorded": {
+    "trace": "eta_mn Gamma^{mn} = -kappa a^2 (p.q + 2 a^2 m^2)",
+    "longitudinal": "K_mu Gamma^{mu nu} = (kappa a^2/2)[(p^2-a^2m^2) q^nu + (q^2-a^2m^2) p^nu]"
+  },
+  "declared_not_derived": [
+    "xi = 0 minimal coupling",
+    "Bunch-Davies bath state"
+  ],
+  "a3_forks": [
+    "renormalisation scheme",
+    "bath state computed-vs-assumed",
+    "spectral wiring (G0 INHERITED-FROM-DOS-MODEL)"
+  ],
+  "verdict": "A1 COMPLETE: the full graviton-bath vertex is derived programmatically (no typed formula), passes the flat-limit plant, detects the mis-indexed plant, satisfies the Ward/EoM identity exactly, and its longitudinal content reconciles with the countersigned gauge orbit. TT projection recorded with discards as data. A1 STOPS at the vertex; A3/G3 own renormalisation, spectral wiring, and state status."
+}

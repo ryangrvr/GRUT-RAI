@@ -1,0 +1,19 @@
+{
+  "instrument": "second_author_a1_vertex.py",
+  "reviews": "wall_a_a1_vertex.py",
+  "expectations": {
+    "E1_det_gate_and_blindness": true,
+    "E2_independent_route_vertex": true,
+    "E3_orbit_identity_arbitrary_xi": true,
+    "E4_recomposition_and_variance_site": true,
+    "E5_sign_degeneracy_quadratic": true
+  },
+  "all_pass": true,
+  "coverage_note": "two fleet verifiers died on a subagent session limit; their targets (det blindness, recomposition, variance site, sign degeneracy, gate audit) are covered by E1/E4/E5 here plus the hand audit recorded in the coordination log; flat-plant independence settled by the completed derivation verifier's from-scratch rederivation",
+  "corrections": [
+    "chk_det gate verified only the O(kappa^0) term while its print claimed the O(kappa) check; det_lin == h_tr verified here (E1) and the gate added to the reviewed file",
+    "'recon' gate duplicates the ward gate (same contraction) -- independence overclaim in the builder report; content-wise the Ward gate DOES carry the full flat-orbit statement (E3: arbitrary-xi contraction == 2 xi.l algebraically)",
+    "recomposition gate was MISSING (second-author target 5 had no gate): added here (E4) -- discards parameterise all non-TT content, no third structure",
+    "flat plant fixes only (sign of T)x(sign of S_int); harmless downstream (E5)"
+  ]
+}
