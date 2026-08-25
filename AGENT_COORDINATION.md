@@ -371,3 +371,31 @@ priced against a COMPUTED list of 8. Book it with scope and price, or accept the
 After the ruling: closure-premise test on the actual 3D family, then the kinematic story
 closes and only Sigma_R^TT remains.
 
+### 2026-08-24 · OWNER RULING (PENDING second-author review) — boost/Lorentz covariance IS a genuine additional license, to be booked +1
+
+Grounds: measured, not preferred -- the FRW gauge-allowed space is 11-dimensional; the
+Lorentz-covariant flat-compatible subspace is 3-dimensional; the width of 8 is established
+by explicit computation (2 orthogonality + 6 membership), not subtraction.
+
+**THE SCOPE, verbatim (must not drift):** "The priced assumption is not 'the background is
+Lorentz invariant.' It is that the vacuum response kernel itself belongs to the
+Lorentz-covariant subspace identified by the flat-limit membership test." The background on
+FRW is not globally Lorentz invariant; the assumption is about the KERNEL.
+
+FINAL ARCHITECTURE: 21 (full FRW bilinear) -> 11 (gauge) -> 3 (Lorentz-covariant response,
++1 if booked) -> 2 (S7/closure, regime-dependent) -> c0 = 0 still UNLICENSED on top.
+
+GATE BEFORE RULING: second-author review of the three kernel files. The docstring item is
+ALREADY DISCHARGED BY RECOMPUTATION (9c1016b), per the owner's instruction that it be
+corrected by computation, not wording.
+
+BANKING PRE-FLIGHT (anticipated, not discovered): booking the +1 moves net +16 -> +17.
+Same one-commit sequence as Ruling B: register edit + update every standing-doc site
+asserting net +16 (the 12 sites updated at the last banking) + re-run emit_public_numbers /
+emit_gate_status / emit_audit_matrix / expected_red. Expect stale-net live cases to return
+to the pre-existing backlog count, and DO NOT add new drift to DECLARED.
+
+THE NEXT SUBSTANTIVE QUESTION, owner's words: does the actual gravitational self-energy
+place the vacuum response inside the 3D Lorentz-compatible subspace, and then inside the
+2D closure family? -- the direct bridge from kinematic architecture to microscopic physics.
+
