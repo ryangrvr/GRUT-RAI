@@ -155,9 +155,12 @@ print("""   Step 1. Two insertions of the countersigned vertex on CTP branches a
    Step 2. One loop ("fish"): vertex x (branch a, indices mu nu), vertex x' (branch b,
      indices rho sigma); BOTH internal lines carry the same contour indices (a,b)
      since both attach to branch-a fields at x and branch-b fields at x'. Routing:
-     legs (l, K-l) at x and (-l, l-K) at x'. Wick count: two identical phi pairs per
-     vertex x two pairings x 1/2! from the exponential x (1/2)^2 normalisations
-     => NET FACTOR 1. No residual combinatoric factor.
+     legs (l, K-l) at x and (-l, l-K) at x'. Wick count -- SECOND-AUTHOR CORRECTED
+     (second_author_assembly1.py E1, exact zero-dimensional Gaussian): the net factor is
+     ONE HALF, not 1: Sigma = (1/2) Gamma1 Gamma2 [G]^2. With the FULL unrestricted d^4l
+     integral the l <-> K-l exchange double-counts the pairing; ASSEMBLY-2 must carry an
+     explicit 1/2 (or halve the integration domain). Normalisation only -- support,
+     placement, and s-class are untouched; the J(omega) magnitude comparison is not.
    Step 3. Components: Sigma_ab = eta_a eta_b (kappa^2 a1^2 a2^2/4)
      N(l,K) (x) [G^{ab}(x,x')]^2 (+ l-integral), with
      N = gamma(l, K-l) (x) gamma(-l, l-K),
@@ -247,8 +250,11 @@ tol = 1e-9 * scale
 neg_ok = all(abs(row) < tol for t, row, _, _ in rows if t < 0)
 pos_nonzero = all(abs(row) > 1e-6 * scale for t, row, _, _ in rows if t > 0)
 check(neg_ok and pos_nonzero,
-      "ROW rule Sigma_R = Sigma++ - Sigma+- : STRICT theta(t-t') support "
-      "(zero for t<t', nonzero for t>t' -- no trivial pass)")
+      "ROW rule on UNSIGNED propagator content S_ab = (G_ab)^2: S++ - S+- has STRICT "
+      "theta(t-t') support (zero for t<t', nonzero for t>t' -- no trivial pass). "
+      "SECOND-AUTHOR SIGN PIN (E2): with the SIGNED Step-3 components "
+      "Sigma_ab = eta_a eta_b S_ab, the retarded object is Sigma_R = Sigma++ + Sigma+- "
+      "== S++ - S+-; the literal signed difference is NOT retarded (2 Ftilde^2 at t<t')")
 trc_max = max(abs(trc) for _, _, trc, _ in rows)
 if trc_max < tol:
     print(f"   COMPUTED FACT (disclosed): the TRACE mix annihilates the fish at every")
@@ -647,8 +653,8 @@ RESULT = {
     "file_claim": "AGENT_COORDINATION.md, Ox, 2026-08-25 (this file + result json)",
     "gates": {
         "G1": "registry loaded first; barred-inputs guard LOAD/ECHO/SCAN/FAIL live+clean",
-        "G2": "Gamma_a -> Sigma_CTP -> Sigma_R explicit on face; Wick count printed",
-        "G3": {"rule": "Sigma_R = Sigma++ - Sigma+-",
+        "G2": "Gamma_a -> Sigma_CTP -> Sigma_R explicit on face; Wick net factor CORRECTED to 1/2 at second-author review (exact Gaussian, E1)",
+        "G3": {"rule": "UNSIGNED: Sigma_R = S++ - S+- ; SIGNED (Step-3 components, the form ASSEMBLY-2 must implement): Sigma_R = Sigma++ + Sigma+- (second-author sign pin, E2)",
                "support": "strict theta(t-t') on grid; nonzero for t>t' (no trivial pass)",
                "trace_mix_annihilates_fish": True,
                "negative_control_time_ordered": "non-retarded support, detected"},

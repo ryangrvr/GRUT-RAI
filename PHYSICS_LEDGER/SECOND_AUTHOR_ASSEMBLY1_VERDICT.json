@@ -1,0 +1,15 @@
+{
+  "instrument": "second_author_assembly1.py",
+  "reviews": "wall_a_assembly1.py",
+  "expectations": {
+    "E1_wick_half_refutes_net1": true,
+    "E2_ctp_sign_pin_and_largest_time": true,
+    "E3_k0_degeneracy_kneq0_growth": true
+  },
+  "all_pass": true,
+  "findings": [
+    "F-A1-1 (NORMALISATION, load-bearing for magnitudes): the Step-3 net factor is 1/2, not 1 -- exact zero-dimensional Gaussian gives Sigma = (1/2) Gamma^2 G^2; with the full d^4l integral the l <-> K-l exchange double-counts. Fix at ASSEMBLY-2 entry; support/placement/s-class untouched.",
+    "F-A1-2 (SIGN PIN, load-bearing for causality downstream): numeric Gate 3 tested the correct UNSIGNED row S_++ - S_+-; the label is wrong for the signed Step-3 components: Sigma_R = Sigma_++ + Sigma_+- (signed). Implementing the literal label on signed components yields a NON-retarded object (2 Ftilde^2 at t<t'). Trace-mix annihilation confirmed as the largest-time identity.",
+    "F-A1-3 (SCOPE, blind-hygiene): six-channel closure at k = 0 is kinematically guaranteed (u parallel K); Q1 placement content exists only at k != 0 (span growth exhibited: rank +3 with u-structures). The rest-frame closure must not be cited as placement evidence."
+  ]
+}

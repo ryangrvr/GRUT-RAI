@@ -819,3 +819,45 @@ extraction configuration (Gate 5); (5) guard leak-path audit (F5).
 STOP REACHED CLEANLY per scope: no renormalisation, no MS subtraction, no Q1-Q5, no
 J(omega) comparison. ASSEMBLY-2 is authorised ONLY after checker verification of the
 CTP-to-retarded algebra and the flat-limit plant.
+
+### 2026-08-25 · Claude · FILE CLAIM (retroactive, gap disclosed) + ASSEMBLY-1 CHECKER VERDICT
+
+FILE CLAIM: PHYSICS_LEDGER/second_author_assembly1.py,
+PHYSICS_LEDGER/SECOND_AUTHOR_ASSEMBLY1_VERDICT.json (new), and in-place corrections to
+PHYSICS_LEDGER/wall_a_assembly1.py. DISCLOSED GAP: the claim is being logged AFTER the
+review instrument was written -- the checker broke its own file-claim rule on the first
+exercise after instituting it; no collision occurred (new paths + the builder idle), but
+the miss is recorded rather than hidden.
+
+CHECKER VERDICT ON ASSEMBLY-1: the five owner gates PASS AS COMPUTED -- reproduction
+byte-identical, the computed objects are right -- but the review found THREE findings,
+two of them landmines that would have detonated at ASSEMBLY-2 if inherited literally:
+
+  F-A1-1 NORMALISATION (refutation of a stated claim): the Step-3 "NET FACTOR 1" is
+    WRONG -- the exact zero-dimensional Gaussian gives Sigma = (1/2) Gamma^2 G^2; with
+    the full d^4l integral the l <-> K-l exchange double-counts the pairing. Corrected
+    in place; ASSEMBLY-2 must carry the explicit 1/2. Support/placement/s-class
+    untouched; the eventual J(omega) MAGNITUDE comparison is not.
+  F-A1-2 SIGN PIN (label wrong, computation right): the numeric Gate 3 tested the
+    correct UNSIGNED row S++ - S+- (strict theta support, verified symbolically at
+    review via exact theta-algebra with the largest-time identity -- which also
+    confirms Ox's disclosed trace-annihilation fact). But applied to the instrument's
+    own SIGNED Step-3 components the label "Sigma++ - Sigma+-" yields a NON-retarded
+    object (2 Ftilde^2 at t < t', exhibited). THE FORM ASSEMBLY-2 MUST IMPLEMENT:
+    Sigma_R = Sigma++ + Sigma+- (signed) == S++ - S+- (unsigned). Corrected in place.
+  F-A1-3 BLIND HYGIENE (scope): six-channel closure at k = 0 is KINEMATICALLY
+    GUARANTEED -- in the rest frame u is parallel to K and the u-structures add nothing
+    (rank 6 -> 6); at k != 0 the {eta,K,u} span STRICTLY exceeds the six channels
+    (rank 6 -> 9, computed). The rest-frame closure must never be cited as Q1 placement
+    evidence; Q1's content lives at k != 0, where medium-frame structures appearing IS
+    the legitimate 'outside the 3D family' outcome.
+
+REVIEWER SELF-CATCH (disclosed): the review instrument's first E2 run failed on a sympy
+quirk -- subs(theta^2, theta) on a positive symbol also rewrites bare theta as
+sqrt(theta); caught by the gate itself, fixed with an exact-power replace.
+
+RULING REQUESTED FROM NO ONE -- per the logged acceptance gates this is the checker's
+call: ASSEMBLY-2 IS AUTHORISED, CONDITIONAL on its entry carrying (i) the explicit 1/2,
+(ii) the signed retarded rule Sigma_R = Sigma++ + Sigma+-, (iii) Q1 evaluation at
+k != 0 configurations. Both amendments are already in the ASSEMBLY-1 artifact; the
+amended instrument re-runs exit 0. Register untouched; W-0 throughout.
