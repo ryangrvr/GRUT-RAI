@@ -1,0 +1,35 @@
+{
+  "instrument": "second_author_kernel_gate.py",
+  "reviewed": [
+    "wall_a_kernel_gate.py",
+    "wall_a_kernel_gate_bruteforce.py",
+    "wall_a_boost_membership.py"
+  ],
+  "registered_expectations": "E1..E7 fixed before running",
+  "calibration": {
+    "commutant_knowns": true
+  },
+  "gates": {
+    "E1_independent_dims_21_11_6": true,
+    "E2_rows_match_countersigned_rules": true,
+    "E3_orthogonality_at_independent_k": true,
+    "E4_T_bijection_roundtrip": true,
+    "E5_slot_exchange_equals_transpose": true,
+    "E6_third_sample_full_run": true,
+    "E7_original_gate_agrees": true
+  },
+  "third_sample": {
+    "omega": 7,
+    "k": 3
+  },
+  "measured": {
+    "K_full": 21,
+    "K_Ward": 11,
+    "K_both": 6,
+    "intersection_at_third_sample": 2,
+    "boost_killed": 8,
+    "boost_killed_split": "2 vector (orthogonality) + 6 scalar (membership)"
+  },
+  "ward_identification": "CONFIRMED",
+  "verdict": "COUNTERSIGNED: all three kernel files pass second-author review. Independent equivariance construction reproduces 21/11/6 (E1); hand-coded orbit rules match the countersigned symbolic derivation (E2); flat orthogonality exact at an independent k (E3); T bijection round-trips (E4); slot convention coherent under slot exchange (E5); intersection=2 with 6 boost-killed scalars reproduced at a third sample (E6); original gate agrees and is hereby the derivation sketch (E7). The boost-license ruling may proceed on a fully computed, now countersigned list."
+}

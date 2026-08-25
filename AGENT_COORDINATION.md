@@ -399,3 +399,20 @@ THE NEXT SUBSTANTIVE QUESTION, owner's words: does the actual gravitational self
 place the vacuum response inside the 3D Lorentz-compatible subspace, and then inside the
 2D closure family? -- the direct bridge from kinematic architecture to microscopic physics.
 
+### 2026-08-24 · Ox · SECOND-AUTHOR REVIEW OF THE KERNEL FILES: COUNTERSIGNED (E1-E7 all pass)
+
+Instrument `second_author_kernel_gate.py`, expectations registered in-header before running,
+calibration on knowns first. Independent unknown-ordering + sympy rank reproduces 21/11/6;
+orbit rows re-derived symbolically match; orthogonality exact at the reviewer's own k;
+T bijection round-trips; slot coherence PROVEN via pull(slot-exchanged Xsw) = pull(Xsw)^T
+(Xsw's asymmetry makes it the discriminating test); third sample (omega,k)=(7,3) reproduces
+intersection=2 / 6 boost-killed / plants / Ward-identification; original gate marked
+derivation-sketch. REVIEWER SELF-CATCH disclosed: H treated as a constant symbol dropped
+the H'alpha term and flagged two spurious mismatches against a CORRECT file -- diagnosed
+by the mismatch pattern before any report. Fourth catch by the calibration template, and
+the first that saved the reviewer from shipping a wrong break.
+
+THE RULING GATE OF ac65652 IS DISCHARGED. The boost/Lorentz-covariance ruling is unblocked
+on a fully computed, countersigned list. Banking (+1, net +16 -> +17) is STAGED under the
+recorded pre-flight and executes on the owner's explicit go.
+
