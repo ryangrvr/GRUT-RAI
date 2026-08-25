@@ -1,0 +1,50 @@
+{
+  "instrument": "second_author_bardeen.py",
+  "reviewed": "wall_a_bardeen_basis.py",
+  "independent_path": "Christoffel + nabla-symmetrised generator (vs primary's direct Lie form)",
+  "calibration": {
+    "gate1_translation_kills": true,
+    "gate2_timetranslation_is_dg": true,
+    "gate3_rotation_kills": true
+  },
+  "derived_rules_match_knowns": {
+    "dphi": true,
+    "dB": true,
+    "dpsi": true,
+    "dE": true,
+    "dS": true,
+    "dF": true,
+    "dh": true
+  },
+  "bardeen": {
+    "delta_Psi_zero": true,
+    "delta_Phi_zero": true,
+    "plants_bare_psi_nonzero": true,
+    "plants_bare_E_nonzero": true,
+    "plants_bare_B_nonzero": true
+  },
+  "nullspace": {
+    "scalar_coords": 9,
+    "scalar_params": 6,
+    "scalar_rank": 6,
+    "scalar_invariants": 3,
+    "Psi_in_span": true,
+    "Phi_in_span": true,
+    "vector_invariants": 1,
+    "vector_invariant": "F_p - S",
+    "tensor_dh_zero": true
+  },
+  "cross_check_vs_primary": {
+    "scalar_count": true,
+    "vector_count": true,
+    "tensor_invariant": true,
+    "rules_and_plants": true
+  },
+  "sample_point": {
+    "a": "13/10",
+    "ap": "2/5",
+    "app": "9/10",
+    "k": 2
+  },
+  "verdict": "Bardeen basis CONFIRMED by independent reviewer: gauge orbit re-derived via Christoffel path; rules match knowns; delta[Psi]=delta[Phi]=0 computed; plants fail as required; null-space counts 3/1/1 reproduce the primary; Psi and Phi span-membership exact at a rational sample point."
+}

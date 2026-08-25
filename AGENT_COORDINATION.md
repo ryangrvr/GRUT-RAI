@@ -302,3 +302,32 @@ NEXT GATE: exact curved KERNEL basis on these blocks -> diagonal Ward (r-slot an
 the full orbit incl. xi^0) -> flat-limit regression to {P2, P0s, Xsw}. Start from the larger
 space; let the FRW gauge algebra reduce it. Second-author review owed (standing).
 
+### 2026-08-24 · Claude · KERNEL GATE run: 21 / 11 / 6 confirmed; the THIRD LICENSE is real, 8 structures wide
+
+`PHYSICS_LEDGER/wall_a_kernel_gate.py` (KERNEL-STRUCTURE COUNTS throughout):
+
+  (a) slice-level orbit ranks: scalar 4/4, vector 2/2 -- invariants require jets (exact)
+  (b) r-slot channels: delta(Psi)=delta(Phi)=delta(Psi')=0 exactly; third jet invariant is
+      in the derivative ideal -> scalar r-channels = 2 {Phi,Psi}; vector {V}; tensor {h}
+  (c) helicity-pair commutant COMPUTED: SO(2) -> 2 structures, parity kills eps -> 1
+  (d) K_full (no-Ward plant) = 21 ; K_Ward = 11 ; K_both (closure plant) = 6
+      -- pre-registered targets met by machinery whose plants return other counts
+  (e) H->0: anchor {P2,P0s,Xsw} embeds; BOOST-KILLED LIST = 2 vector + 6 scalar = 8;
+      11 - 8 = 3 = the countersigned anchor.
+
+THE RESULT: reaching GRUT's two-channel family from FRW requires THREE licenses:
+    diagonal Ward (booked) + closure premises (priced) +
+    BOOST/LOCAL-LORENTZ COVARIANCE OF THE VACUUM RESPONSE -- UNBOOKED, newly named,
+    and 8 structures wide.
+
+HONEST SCOPE: (d) is block arithmetic from computed ingredients ((a),(b),(c)) -- a
+structured derivation, not yet a brute-force enumeration over the explicit jet-kernel
+space; (e)'s embedding is a channel-identification argument, machine-checkable but not
+yet machine-checked. BOTH are the second-author review's targets. Same-author; review owed
+on wall_a_bardeen_basis.py consumers and this file.
+
+OWNER ADJUDICATION QUEUED: book the boost-covariance license (with scope and price), or
+accept that the FRW response family is 11-dimensional and GRUT's restriction to two is
+constitutive at a THIRD point. Note the convergence: 'is the vacuum response actually
+Lorentz/dS invariant' is rung3's own microscopic frontier arriving from the kinematic side.
+
