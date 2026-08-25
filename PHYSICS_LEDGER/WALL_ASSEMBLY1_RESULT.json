@@ -5,9 +5,9 @@
   "file_claim": "AGENT_COORDINATION.md, Ox, 2026-08-25 (this file + result json)",
   "gates": {
     "G1": "registry loaded first; barred-inputs guard LOAD/ECHO/SCAN/FAIL live+clean",
-    "G2": "Gamma_a -> Sigma_CTP -> Sigma_R explicit on face; Wick count printed",
+    "G2": "Gamma_a -> Sigma_CTP -> Sigma_R explicit on face; Wick net factor CORRECTED to 1/2 at second-author review (exact Gaussian, E1)",
     "G3": {
-      "rule": "Sigma_R = Sigma++ - Sigma+-",
+      "rule": "UNSIGNED: Sigma_R = S++ - S+- ; SIGNED (Step-3 components, the form ASSEMBLY-2 must implement): Sigma_R = Sigma++ + Sigma+- (second-author sign pin, E2)",
       "support": "strict theta(t-t') on grid; nonzero for t>t' (no trivial pass)",
       "trace_mix_annihilates_fish": true,
       "negative_control_time_ordered": "non-retarded support, detected"
