@@ -343,3 +343,31 @@ scalar exclusions have a FROZEN RECIPE (field<->h pullback of P0s/Xsw + rank mem
 and remain PENDING. Per the owner's refinement, the boost-covariance license ruling WAITS
 for that computed list. Same-author caveat stands; review owed on both kernel-gate files.
 
+### 2026-08-24 · Claude · SCALAR MEMBERSHIP RUN: boost-killed list COMPLETE, all 8 computed
+
+`wall_a_boost_membership.py`, two rational samples, exact:
+  rank(family)=2, rank(8 curved)=8, rank(union)=8 -> INTERSECTION = 2
+  => scalar boost-killed = 6 COMPUTED (invariant statement: the intersection dimension;
+     the 2 members are the theta-trace combinations = P0s, Xsw pullbacks -- the 8 bare
+     basis structures are individually outside, membership lives in combinations)
+  plants: P0s self-membership PASS; P1 rejected PASS
+  WARD-IDENTIFICATION CONFIRMED: the flat family lies inside the curved Ward span --
+  flat r-slot transversality and FRW orbit-annihilation agree at H=0 (also verified by
+  hand: theta-trace in span{psi, phi+sB-s^2E}; omega-longitudinal not).
+
+DEFECT (index/slot family, caught pre-report): the first run contracted h_a with slot 1,
+comparing the family with slots EXCHANGED -- Xsw failed membership as an artifact and
+'Ward MISMATCH' appeared. Diagnosed BY HAND against the flat r-covector before reporting
+the anomaly as a finding; fixed on the artifact face; corrected run clean at both samples.
+
+THE LICENSING HIERARCHY IS NOW COMPLETE AND FULLY COMPUTED:
+    21 --(gauge/orbit)--> 11 --(Lorentz/boost covariance: 8 structures, 2 vector
+    COMPUTED-BY-ORTHOGONALITY + 6 scalar COMPUTED-BY-MEMBERSHIP)--> 3
+    --(S7/closure, by regime)--> 2
+
+OWNER RULING NOW UNBLOCKED per the standing refinement: the boost-covariance license is
+priced against a COMPUTED list of 8. Book it with scope and price, or accept the
+11-dimensional FRW family with GRUT's restriction constitutive at a third point.
+After the ruling: closure-premise test on the actual 3D family, then the kinematic story
+closes and only Sigma_R^TT remains.
+
