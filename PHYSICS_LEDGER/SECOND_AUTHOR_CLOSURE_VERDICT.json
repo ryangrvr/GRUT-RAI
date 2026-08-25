@@ -1,0 +1,20 @@
+{
+  "instrument": "second_author_closure_premises.py",
+  "reviews": "wall_a_closure_premises.py",
+  "expectations": {
+    "E1_eps_cancellation": true,
+    "E2_evenness_wording_false": true,
+    "E3_nullspace_pattern": true,
+    "E4_partner_exclusion_and_reachability": true,
+    "E5_todd_plant_gated": true,
+    "E6_Q_reduction_exact": true,
+    "E7_variance_chain": true
+  },
+  "all_pass": true,
+  "corrections": [
+    "registry 'h_mn is T-even' FALSE for h_0i (T-odd); conclusion survives via the eps-k cancellation (E1), computed here",
+    "'structures even in k' FALSE componentwise (E2); the eps-weighted transpose is the mechanism",
+    "line-168 todd_antisym predicate inverted and ungated (E5); corrected+gated here",
+    "gyrotropic closure is PARTNER-EXCLUSION (Xws Ward-dead), not epsilon-mediation/no-T-odd-object; H is T-odd in FRW, so the file's registry line is scope-limited to the flat registered vacuum (E4)"
+  ]
+}

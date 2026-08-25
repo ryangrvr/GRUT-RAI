@@ -1,0 +1,56 @@
+{
+  "instrument": "wall_a_closure_premises.py",
+  "standing_state": "b0bdfb6, register 73 nodes, net +17, W-0: computed-and-reported not banked",
+  "structural_facts": {
+    "Xsw_T_equals_Xws": true,
+    "Xsw_ward_allowed": true,
+    "Xws_ward_forbidden": true,
+    "independent": true
+  },
+  "premises": {
+    "PA_reciprocity": {
+      "verdict": "c=0 DERIVED at equilibrium",
+      "mechanism": "reciprocity partner X_ws is Ward-forbidden; no slot-symmetric Ward-compatible completion with c!=0",
+      "samples": {
+        "3,2": {
+          "dim": 2,
+          "c_free": false
+        },
+        "5,2": {
+          "dim": 2,
+          "c_free": false
+        },
+        "7,3": {
+          "dim": 2,
+          "c_free": false
+        }
+      },
+      "holds": true
+    },
+    "PB_kms_fdt": {
+      "verdict": "c=0 COROLLARY",
+      "mechanism": "KMS + NAMED assumptions: T-even couplings / no T-odd background (KMS alone does not supply it -- Gibbs + a T-odd operator keeps the Hall branch) and state=f(H) across degeneracies (kills the static w=0 Hall line) => equilibrium reciprocity (P-A algebra); load-bearing identity chi''_BA(w) = -chi''_AB(-w) derived on a finite system",
+      "identity_exact": true,
+      "teven_bridge_gated": true,
+      "corollary": true
+    },
+    "PC_passivity": {
+      "verdict": "c UNCONSTRAINED on the conserved-source domain; c=0 only on the unphysical unconserved domain",
+      "mechanism": "omega-channel diagonal identically zero (P0w Ward-forbidden); lemma hypothesis fails; briefed inequality expectation NOT met -- reported as found, diagnosed before reporting",
+      "kills_c": false
+    },
+    "PD_both_slot": {
+      "verdict": "recorded as CONCLUSION, never a premise"
+    }
+  },
+  "plants": {
+    "kubo_symmetric_pass": true,
+    "c_nonzero_flagged": true,
+    "gyrotropic_retained_by_proper_test": true,
+    "gyrotropic_killed_by_naive_test": true,
+    "todd_plant_antisym_gated": true,
+    "assembled_kernels_ward_allowed": true,
+    "all_pass": true
+  },
+  "verdict": "CLOSURE-PREMISE TEST COMPLETE: c=0 is DERIVED at equilibrium (reciprocity mechanism, partner Ward-forbidden), COROLLARY in the registered FDT-locked family, and ABSENT in genuine non-equilibrium -- where the family stays 3D. The 3->2 step is therefore a REGIME-GATED equilibrium fact, never a symmetry-of-the-background fact, and never a single argument: 21->11 gauge, 11->3 Lorentz-covariant response (+1, booked), 3->2 equilibrium reciprocity/KMS. The wall question stands untouched: does Sigma_R^TT place the vacuum response in the 3D subspace, and then in the 2D family, WITHOUT imposing them?"
+}

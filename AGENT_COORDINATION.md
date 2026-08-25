@@ -478,3 +478,46 @@ computation remains COMPUTED-AND-REPORTED, NOT BANKED.
 
 NEXT (owner-directed): the closure-premise test starting from the ACTUAL 3D Lorentz-compatible
 family {P^2, P^0s, X_sw} -- premises first, 2D only if licensed -- then Wall A's Sigma_R^TT.
+
+### 2026-08-24 · Claude · CLOSURE-PREMISE TEST COUNTERSIGNED WITH CORRECTIONS -- the 3->2 step is derived, regime-gated
+
+SECOND-AUTHOR REVIEW of wall_a_closure_premises.py: my instrument
+second_author_closure_premises.py (E1-E7 all PASS) plus four independent adversarial
+verifiers (own conventions/orderings, fresh sample (9,4), 4-level degenerate system,
+fully symbolic operators; all prompted to refute). VERDICT: NOT REFUTED on all four
+load-bearing steps. Ox's run reproduced byte-identical before any review edit.
+
+THE RESULT STANDS: c=0 DERIVED at equilibrium (reciprocity; partner X_ws Ward-forbidden),
+COROLLARY in the FDT-locked family, ABSENT in genuine non-equilibrium (family stays 3D).
+Chain = three mechanisms, never one: 21 -(gauge)-> 11 -(Lorentz-covariant response, +1
+booked)-> 3 -(equilibrium reciprocity/KMS)-> 2.
+
+CORRECTIONS I APPLIED TO THE BUILDER'S FILES (per the build-and-disclose arrangement;
+none changes the c=0 conclusion):
+  1. MECHANISM: "h_mn is T-even" and "structures even in k" both FALSE as stated (h_0i is
+     T-odd; 72 sign-flipping components). True mechanism = eps-signature cancellation,
+     computed at 0/256 violations per structure (E1/E2). Registry + prose amended.
+  2. MECHANISM: gyrotropic closure re-grounded as PARTNER-EXCLUSION (partner is the
+     DIFFERENT Ward-dead structure X_ws, not minus itself) -- STRONGER than the
+     epsilon-mediation/no-T-odd-object argument, robust to T-odd scalar backgrounds
+     (FRW's H IS T-odd; the registry line was flat-scope only). Reachability re-proven
+     in the actual tensor space: enlarged family retains the odd Hall mode (E4).
+  3. GATES (a defect CLASS, three instances): todd_antisym predicate inverted AND ungated
+     (defects cancelled; shipped verdict unaffected); pc_kills a hardcoded literal
+     (tautological gate) -> now derived from the conserved-domain computation; T-even =>
+     slot-symmetry bridge printed but ungated -> gated. New scope gate: assembled plant
+     kernels verified r-slot Ward-allowed (slot_sym alone passes Ward-forbidden
+     symmetric additions).
+  4. REGIME-TABLE PRECISION: FDT-locked row now NAMES what KMS does not supply (T-even
+     couplings/no T-odd background -- Gibbs + T-odd operator keeps the Hall branch) and
+     what it genuinely adds (state=f(H) across degeneracies kills the static w=0 Hall
+     line 28*I*pi*(p1-p2)/3 -- verifier-exhibited on a degenerate 4-level system).
+  5. VERIFIER-CLOSED ESCAPE: two-field passivity forms DO see the antisymmetric part of
+     X_sw, but all c-channel bilinears vanish exactly when both fields are conserved
+     (P2 channel nonzero on the same pair) -- conserved-domain blindness is real.
+
+Amended instrument re-runs exit 0, verdict text unchanged. Zero confirmed physics
+errors; every defect was instrument/wording currency. W-0: computed-and-reported,
+NOT banked. NEXT: Wall A proper -- Sigma_R^TT under G0-G3, with the sharpening this
+test adds: the microscopic calculation must establish the 3D placement AND the
+equilibrium regime in which the last 3->2 reduction holds.
