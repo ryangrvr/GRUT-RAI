@@ -1,0 +1,53 @@
+{
+  "instrument": "wall_a_assembly2.py",
+  "stage": "WALL A / ASSEMBLY-2",
+  "standing_state": "5a7c8df; W-0 computed-and-reported, NOT banked; no register edits",
+  "file_claim": "AGENT_COORDINATION.md, Ox, 2026-08-25",
+  "invariants": {
+    "I1_bubble_half": "adjudicated by exact zero-d Gaussian: F = 1/2",
+    "I2_signed_rule": "Sigma_R(signed) = Sigma++ + Sigma+- == S++ - S+-(unsigned); theta-support re-verified before subtraction",
+    "I3_generic_k": "identification at rational generic k (K^2 != 0)"
+  },
+  "extraction_route": "Feynman parameter; method-of-regions draft DISCARDED with the scaleless-integral subtlety disclosed on the face",
+  "cross_checks": [
+    "x->1-x second route reproduces all components"
+  ],
+  "a_power_audit": {
+    "(0, 0, 0, 0)": "16*K0**2*K1**2/(15*eps_hat) + 32*K0**2*K1*K2/(15*eps_hat) + 32*K0**2*K1*K3/(15*eps_hat) + 16*K0**2*K2**2/(15*eps_hat) + 32*K0**2*K2*K3/(15*eps_hat) + 16*K0**2*K3**2/(15*eps_hat) - 32*K0*K1**2*K2/(15*eps_hat) - 32*K0*K1**2*K3/(15*eps_hat) - 32*K0*K1*K2**2/(15*eps_hat) - 32*K0*K1*K2*K3/(5*eps_hat) - 32*K0*K1*K3**2/(15*eps_hat) - 32*K0*K2**2*K3/(15*eps_hat) - 32*K0*K2*K3**2/(15*eps_hat) + 16*K1**2*K2**2/(15*eps_hat) + 32*K1**2*K2*K3/(15*eps_hat) + 16*K1**2*K3**2/(15*eps_hat) + 32*K1*K2**2*K3/(15*eps_hat) + 32*K1*K2*K3**2/(15*eps_hat) + 16*K2**2*K3**2/(15*eps_hat) + 4*(-2*K0**3*K1 - 2*K0*K1**3 - 2*K0*K1*K2**2 - 2*K0*K1*K3**2)/(15*eps_hat) + 4*(-2*K0**3*K1 - 2*K0*K1**3 + 2*K0*K1*K2**2 + 2*K0*K1*K3**2)/(15*eps_hat) + 4*(-2*K0**3*K1 + 2*K0*K1**3 - 2*K0*K1*K2**2 + 2*K0*K1*K3**2)/(15*eps_hat) + 4*(-2*K0**3*K1 + 2*K0*K1**3 + 2*K0*K1*K2**2 - 2*K0*K1*K3**2)/(15*eps_hat) + 4*(-2*K0**3*K2 - 2*K0*K1**2*K2 - 2*K0*K2**3 - 2*K0*K2*K3**2)/(15*eps_hat) + 4*(-2*K0**3*K2 - 2*K0*K1**2*K2 + 2*K0*K2**3 + 2*K0*K2*K3**2)/(15*eps_hat) + 4*(-2*K0**3*K2 + 2*K0*K1**2*K2 - 2*K0*K2**3 + 2*K0*K2*K3**2)/(15*eps_hat) + 4*(-2*K0**3*K2 + 2*K0*K1**2*K2 + 2*K0*K2**3 - 2*K0*K2*K3**2)/(15*eps_hat) + 4*(-2*K0**3*K3 - 2*K0*K1**2*K3 - 2*K0*K2**2*K3 - 2*K0*K3**3)/(15*eps_hat) + 4*(-2*K0**3*K3 - 2*K0*K1**2*K3 + 2*K0*K2**2*K3 + 2*K0*K3**3)/(15*eps_hat) + 4*(-2*K0**3*K3 + 2*K0*K1**2*K3 - 2*K0*K2**2*K3 + 2*K0*K3**3)/(15*eps_hat) + 4*(-2*K0**3*K3 + 2*K0*K1**2*K3 + 2*K0*K2**2*K3 - 2*K0*K3**3)/(15*eps_hat) + 4*(2*K0**2*K1*K2 - 2*K1**3*K2 - 2*K1*K2**3 + 2*K1*K2*K3**2)/(15*eps_hat) + 4*(2*K0**2*K1*K2 - 2*K1**3*K2 + 2*K1*K2**3 - 2*K1*K2*K3**2)/(15*eps_hat) + 4*(2*K0**2*K1*K2 + 2*K1**3*K2 - 2*K1*K2**3 - 2*K1*K2*K3**2)/(15*eps_hat) + 4*(2*K0**2*K1*K2 + 2*K1**3*K2 + 2*K1*K2**3 + 2*K1*K2*K3**2)/(15*eps_hat) + 4*(2*K0**2*K1*K3 - 2*K1**3*K3 - 2*K1*K2**2*K3 + 2*K1*K3**3)/(15*eps_hat) + 4*(2*K0**2*K1*K3 - 2*K1**3*K3 + 2*K1*K2**2*K3 - 2*K1*K3**3)/(15*eps_hat) + 4*(2*K0**2*K1*K3 + 2*K1**3*K3 - 2*K1*K2**2*K3 - 2*K1*K3**3)/(15*eps_hat) + 4*(2*K0**2*K1*K3 + 2*K1**3*K3 + 2*K1*K2**2*K3 + 2*K1*K3**3)/(15*eps_hat) + 4*(2*K0**2*K2*K3 - 2*K1**2*K2*K3 - 2*K2**3*K3 + 2*K2*K3**3)/(15*eps_hat) + 4*(2*K0**2*K2*K3 - 2*K1**2*K2*K3 + 2*K2**3*K3 - 2*K2*K3**3)/(15*eps_hat) + 4*(2*K0**2*K2*K3 + 2*K1**2*K2*K3 - 2*K2**3*K3 - 2*K2*K3**3)/(15*eps_hat) + 4*(2*K0**2*K2*K3 + 2*K1**2*K2*K3 + 2*K2**3*K3 + 2*K2*K3**3)/(15*eps_hat) + 2*(K0**4 - 2*K0**2*K1**2 + K1**4 - K2**4 + 2*K2**2*K3**2 - K3**4)/(15*eps_hat) + 2*(K0**4 + 2*K0**2*K1**2 + K1**4 - K2**4 - 2*K2**2*K3**2 - K3**4)/(15*eps_hat) + 2*(K0**4 - 2*K0**2*K2**2 - K1**4 + 2*K1**2*K3**2 + K2**4 - K3**4)/(15*eps_hat) + 2*(K0**4 + 2*K0**2*K2**2 - K1**4 - 2*K1**2*K3**2 + K2**4 - K3**4)/(15*eps_hat) + 2*(K0**4 - 2*K0**2*K3**2 - K1**4 + 2*K1**2*K2**2 - K2**4 + K3**4)/(15*eps_hat) + 2*(K0**4 + 2*K0**2*K3**2 - K1**4 - 2*K1**2*K2**2 - K2**4 + K3**4)/(15*eps_hat) + (K0**4 - 2*K0**2*K1**2 - 2*K0**2*K2**2 + 2*K0**2*K3**2 + K1**4 + 2*K1**2*K2**2 - 2*K1**2*K3**2 + K2**4 - 2*K2**2*K3**2 + K3**4)/(15*eps_hat) + (K0**4 - 2*K0**2*K1**2 + 2*K0**2*K2**2 - 2*K0**2*K3**2 + K1**4 - 2*K1**2*K2**2 + 2*K1**2*K3**2 + K2**4 - 2*K2**2*K3**2 + K3**4)/(15*eps_hat) + (K0**4 + 2*K0**2*K1**2 - 2*K0**2*K2**2 - 2*K0**2*K3**2 + K1**4 - 2*K1**2*K2**2 - 2*K1**2*K3**2 + K2**4 + 2*K2**2*K3**2 + K3**4)/(15*eps_hat) + (K0**4 + 2*K0**2*K1**2 + 2*K0**2*K2**2 + 2*K0**2*K3**2 + K1**4 + 2*K1**2*K2**2 + 2*K1**2*K3**2 + K2**4 + 2*K2**2*K3**2 + K3**4)/(15*eps_hat)",
+    "(0, 0, 0, 1)": "-16*K0*K1/(15*eps_hat) - 16*K0*K2/(15*eps_hat) - 16*K0*K3/(15*eps_hat) + 16*K1*K2/(15*eps_hat) + 16*K1*K3/(15*eps_hat) + 16*K2*K3/(15*eps_hat) + 2*(K0**2 - K1**2)/(15*eps_hat) + 2*(K0**2 - K2**2)/(15*eps_hat) + 2*(K0**2 - K3**2)/(15*eps_hat) + 2*(K1**2 + K2**2)/(15*eps_hat) + 2*(K1**2 + K3**2)/(15*eps_hat) + 2*(K2**2 + K3**2)/(15*eps_hat) + (-5*K0**2 - 3*K1**2 - 3*K2**2 - 3*K3**2)/(30*eps_hat) + (-K0**2 + K1**2 + 3*K2**2 + 3*K3**2)/(15*eps_hat) + (-K0**2 + 3*K1**2 + K2**2 + 3*K3**2)/(15*eps_hat) + (-K0**2 + 3*K1**2 + 3*K2**2 + K3**2)/(15*eps_hat) + (3*K0**2 - 3*K1**2 - 3*K2**2 + 5*K3**2)/(30*eps_hat) + (3*K0**2 - 3*K1**2 - K2**2 - K3**2)/(15*eps_hat) + (3*K0**2 - 3*K1**2 + 5*K2**2 - 3*K3**2)/(30*eps_hat) + (3*K0**2 - K1**2 - 3*K2**2 - K3**2)/(15*eps_hat) + (3*K0**2 - K1**2 - K2**2 - 3*K3**2)/(15*eps_hat) + (3*K0**2 + 5*K1**2 - 3*K2**2 - 3*K3**2)/(30*eps_hat)",
+    "(0, 0, 0, 2)": "2/(5*eps_hat)",
+    "(0, 0, 1, 0)": "16*K0*K1/(3*eps_hat) + 16*K0*K2/(3*eps_hat) + 16*K0*K3/(3*eps_hat) - 16*K1*K2/(3*eps_hat) - 16*K1*K3/(3*eps_hat) - 16*K2*K3/(3*eps_hat) + 4*(-K0**2 + K1**2)/(3*eps_hat) + 4*(-K0**2 + K2**2)/(3*eps_hat) + 4*(-K0**2 + K3**2)/(3*eps_hat) + 4*(-K1**2 - K2**2)/(3*eps_hat) + 4*(-K1**2 - K3**2)/(3*eps_hat) + 4*(-K2**2 - K3**2)/(3*eps_hat) + (-K0**2 - 3*K1**2 + K2**2 + K3**2)/(3*eps_hat) + (-K0**2 + K1**2 - 3*K2**2 + K3**2)/(3*eps_hat) + (-K0**2 + K1**2 + K2**2 - 3*K3**2)/(3*eps_hat) + 2*(-K0**2 + K1**2 + K2**2 + K3**2)/eps_hat + 2*(K0**2 - K1**2 - K2**2 - K3**2)/eps_hat + (3*K0**2 + K1**2 + K2**2 + K3**2)/(3*eps_hat)",
+    "(0, 0, 1, 1)": "-4/eps_hat",
+    "(0, 0, 2, 0)": "12/eps_hat",
+    "(0, 1, 1, 0)": "-8*K0*K1/(3*eps_hat) - 8*K0*K2/(3*eps_hat) - 8*K0*K3/(3*eps_hat) + 8*K1*K2/(3*eps_hat) + 8*K1*K3/(3*eps_hat) + 8*K2*K3/(3*eps_hat) + (-K0**2 - K1**2 - K2**2 - K3**2)/(3*eps_hat) + (-K0**2 - K1**2 + K2**2 + K3**2)/(3*eps_hat) + (-K0**2 + K1**2 - K2**2 + K3**2)/(3*eps_hat) + (-K0**2 + K1**2 + K2**2 - K3**2)/(3*eps_hat) + (K0**2 - K1**2 - K2**2 + K3**2)/eps_hat + (K0**2 - K1**2 + K2**2 - K3**2)/eps_hat + (K0**2 + K1**2 - K2**2 - K3**2)/eps_hat + (K0**2 + K1**2 + K2**2 + K3**2)/eps_hat",
+    "(0, 1, 1, 1)": "4/(3*eps_hat)",
+    "(0, 1, 2, 0)": "-8/eps_hat",
+    "(1, 0, 1, 0)": "-8*K0*K1/(3*eps_hat) - 8*K0*K2/(3*eps_hat) - 8*K0*K3/(3*eps_hat) + 8*K1*K2/(3*eps_hat) + 8*K1*K3/(3*eps_hat) + 8*K2*K3/(3*eps_hat) + (-K0**2 - K1**2 - K2**2 - K3**2)/(3*eps_hat) + (-K0**2 - K1**2 + K2**2 + K3**2)/(3*eps_hat) + (-K0**2 + K1**2 - K2**2 + K3**2)/(3*eps_hat) + (-K0**2 + K1**2 + K2**2 - K3**2)/(3*eps_hat) + (K0**2 - K1**2 - K2**2 + K3**2)/eps_hat + (K0**2 - K1**2 + K2**2 - K3**2)/eps_hat + (K0**2 + K1**2 - K2**2 - K3**2)/eps_hat + (K0**2 + K1**2 + K2**2 + K3**2)/eps_hat",
+    "(1, 0, 1, 1)": "4/(3*eps_hat)",
+    "(1, 0, 2, 0)": "-8/eps_hat",
+    "(1, 1, 2, 0)": "8/eps_hat"
+  },
+  "family_identification": {
+    "(0, 0)": "NO UNIQUE FIT -> FINDING (per frozen declaration)",
+    "(0, 1)": "NO UNIQUE FIT -> FINDING (per frozen declaration)",
+    "(0, 2)": "NO UNIQUE FIT -> FINDING (per frozen declaration)",
+    "(1, 0)": "NO UNIQUE FIT -> FINDING (per frozen declaration)",
+    "(1, 1)": "NO UNIQUE FIT -> FINDING (per frozen declaration)",
+    "(2, 0)": "NO UNIQUE FIT -> FINDING (per frozen declaration)"
+  },
+  "ms_subtraction": [],
+  "integrity_verdict": "PASS: Pi_nonlocal^after == Pi_nonlocal^before exactly (direct difference); remainder eps-free",
+  "findings": [
+    "CENTRAL FINDING: NO pole family achieves a unique fit onto the frozen six-operator basis at integrand level (consistent=False across all families, generic k != 0). Per the frozen declaration these poles are NOT absorbed. Candidate diagnoses for ASSEMBLY-2B adjudication: (a) off-shell gauge artifacts -- no gauge-fixing term was ever added to the h-action, so the bare off-shell kernel can carry gauge-dependent pole pieces outside the gauge-invariant basis; (b) on-shell/TT projection may be REQUIRED before basis closure is meaningful; (c) genuine new counterterm structure (would require basis amendment via superseding declaration).",
+    "Vertex-exchange asymmetry on 64/256 components (undiagnosed; data recorded).",
+    "Route decision disclosed: method-of-regions draft discarded (scaleless dimreg subtlety); quartic pole rule corrected from a factorized eps^-2 error to the single-order 6 Delta^2/(d(d+2)) master."
+  ],
+  "scope_stop": [
+    "no J(omega)",
+    "no Q1 placement",
+    "no Q2/Q3 conclusions",
+    "no PV rerun",
+    "no second-gauge response comparison"
+  ],
+  "verdict": "ASSEMBLY-2 PASS."
+}

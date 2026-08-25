@@ -890,3 +890,52 @@ Pi_nonlocal^invariant, and the subtraction-integrity verdict. NOTHING about whet
 GRUT succeeds: no J(omega), no Q1 placement, no Q2/Q3 spectral conclusions, no PV,
 no second-gauge response comparison. If ASSEMBLY-2 passes, Pi_nonlocal^invariant
 exists in the correct form for the first time, and ASSEMBLY-3 asks what it does.
+
+### 2026-08-25 · Ox · FILE CLAIM — ASSEMBLY-2
+
+Claiming exactly these paths before writing:
+  CREATE: PHYSICS_LEDGER/wall_a_assembly2.py          (the ASSEMBLY-2 instrument)
+  CREATE: PHYSICS_LEDGER/WALL_ASSEMBLY2_RESULT.json   (machine-readable outputs)
+  APPEND: AGENT_COORDINATION.md                       (this claim + completion report)
+Read-first done: checker verdict (3182ea9), amended wall_a_assembly1.py,
+second_author_assembly1.py, owner ruling (5a7c8df). Disk state re-read at HEAD 5a7c8df.
+
+### 2026-08-25 · Ox · ASSEMBLY-2 COMPLETE — exit 0; CENTRAL FINDING blocks absorption
+
+DELIVERED (claimed paths): PHYSICS_LEDGER/wall_a_assembly2.py + WALL_ASSEMBLY2_RESULT.json.
+All three hard invariants carried: I1 bubble 1/2 adjudicated by the exact zero-d
+Gaussian; I2 signed rule Sigma_R = Sigma++ + Sigma+- implemented with the mapping on
+the face and theta-support re-verified BEFORE subtraction; I3 identification at
+generic k != 0.
+
+THE CENTRAL FINDING (per frozen declaration: a FINDING, never a forced absorption):
+NO pole family achieves a unique fit onto the frozen six-operator basis at integrand
+level — all six Ksq-families (m^0Ksq^0 .. m^4Ksq^0) return consistent=False at
+generic k. Candidate diagnoses named on the artifact face for adjudication:
+(a) off-shell gauge artifacts — NO gauge-fixing term was ever added to the h-action,
+so off-shell pole pieces need not lie in the gauge-invariant basis; (b) basis closure
+may only be meaningful on-shell / after TT projection; (c) genuine new structure
+(requires a superseding basis amendment). CONSEQUENCE: Pi_local^MS = EMPTY;
+Pi_nonlocal^invariant = the full bare kernel INCLUDING its eps-poles, carried
+untouched; the subtraction-integrity verdict PASSES by exact recombination plus the
+independent route-B (x <-> 1-x) re-extraction agreeing on all 256 components.
+
+SECOND FINDING: vertex-exchange asymmetry on 64/256 components (combined l->K-l,
+a1<->a2, pair-swap) — undiagnosed, recorded as integrand-level data for the checker.
+
+SELF-CAUGHT DEFECTS (disclosed in-instrument): quartic pole master factorized into
+two poles giving eps^-2 — corrected to single-order Gamma-form masters; a fixed
+x=1/2 shift paired with an x-integrated Delta (inconsistent conventions) produced
+direction-dependent garbage — caught by non-covariant monomials in the inventory,
+replaced by symbolic-x shift; even-a-power expectation wrong (single vertex-mass
+insertions are legitimate) — reframed to data recording.
+
+STOP REACHED CLEANLY: three outputs and nothing else — no J(omega), no Q1, no Q2/Q3,
+no PV rerun, no second-gauge response comparison. ASSEMBLY-3 is BLOCKED until the
+central finding is adjudicated (gauge-fixing audit vs on-shell projection vs basis
+amendment) — that fork is the owner's.
+
+Second-author targets, load-bearing first: (1) independently re-derive ONE pole
+family end-to-end (m^4 Ksq^0) and confirm consistent=False is physics not instrument;
+(2) audit the quartic master against a textbook heat-kernel coefficient; (3) re-run
+the I1 Gaussian adjudication; (4) verify the a-power table; (5) guard leak-path audit.
