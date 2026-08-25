@@ -331,3 +331,15 @@ accept that the FRW response family is 11-dimensional and GRUT's restriction to 
 constitutive at a THIRD point. Note the convergence: 'is the vacuum response actually
 Lorentz/dS invariant' is rung3's own microscopic frontier arriving from the kinematic side.
 
+### 2026-08-24 · Claude · kernel gate SECOND ROUTE: 21/11/6 as equivariance nullities; boost list 2 computed + 6 pending
+
+`wall_a_kernel_gate_bruteforce.py`: (A) r-channels verified as EXACT orbit annihilators
+(Psi, Phi, Psi' all exact zeros at two rational samples; rank 6/9 both) BEFORE counting.
+(B) 21 / 11 / 6 computed as SOLUTION-SPACE DIMENSIONS of Ja^T K + K Jr = 0 with parity,
+over the explicit 10x10 / 10x6 / 6x6 product spaces -- a second method, not block
+arithmetic re-run. (C) boost-killed: the 2 vector structures COMPUTED outside the flat
+family by the countersigned orthogonality (family has zero helicity-1 component); the 6
+scalar exclusions have a FROZEN RECIPE (field<->h pullback of P0s/Xsw + rank membership)
+and remain PENDING. Per the owner's refinement, the boost-covariance license ruling WAITS
+for that computed list. Same-author caveat stands; review owed on both kernel-gate files.
+
