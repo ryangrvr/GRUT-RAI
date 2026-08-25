@@ -1,0 +1,29 @@
+{
+  "instrument": "wall_a_a4_dual_gauge.py",
+  "builder": "checker (Claude), build-and-disclose; Ox countersign slot OPEN",
+  "standing_state": "8347ac8; A3 frozen; W-0 computed-and-reported, not banked",
+  "guard": {
+    "clean": true,
+    "modules_scanned": 658,
+    "files_read": [
+      "/Users/mpg/Desktop/GRUT ResponsiveAI/PHYSICS_LEDGER/WALL_A_A3_REGISTRY.json",
+      "/Users/mpg/Desktop/GRUT ResponsiveAI/PHYSICS_LEDGER/wall_a_a4_dual_gauge.py"
+    ],
+    "barred_symbols": 8,
+    "barred_files": 12
+  },
+  "gates": {
+    "g0_guard_clean": true,
+    "g2_slice_equality": true,
+    "g3_transformation_and_residual": true,
+    "gE_euler_lagrange": true,
+    "g4_invariance_identity": true,
+    "g4t_constant_H_trap_detected": true,
+    "g5_TT_blindness": true,
+    "g5p_projector_nonvacuous": true,
+    "g6a_vertex_match": true,
+    "g6b_flat_plant": true,
+    "g6c_wrong_a_plant_detected": true
+  },
+  "verdict": "A4 PASS: the synchronous-gauge computation reproduces the gauge-invariant content of the gauge-unfixed computation. The transformation to synchronous exists; its residual family is zeta^0 = C(x)/a with zeta_i = C_i(x) - (d_i C) Ia (the frozen F3 product characterisation was REFUTED by the fleet, superseded by the v2 amendment; the asymptotic prescription still kills the C-sector); the difference of the two computations is the orbit variation, which reduces identically to bath-EoM (friction included) + total derivative; the spatial-TT content is orbit-blind; plants (constant-H trap, wrong-a, projector vacuity) all detected. The frozen barred-inputs guard ran live and clean. Sigma_R^TT assembly is UNBLOCKED under the frozen protocol. The response-level dual-gauge check (Pi_nonlocal equality) re-runs at assembly per Declaration 5."
+}

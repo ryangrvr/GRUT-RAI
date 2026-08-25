@@ -656,3 +656,81 @@ the file it hashes):
 Both files are IMMUTABLE; any change requires a superseding v2 citing this one. Results
 cite the declaration; never the reverse. NEXT: A4 dual-gauge under the frozen protocol,
 then Sigma_R^TT assembly under the frozen registry.
+
+### 2026-08-25 · Claude · A4 CLOSED: built by checker, countersigned by Ox, REFUTED-AND-FIXED by the fleet -- and one frozen clause superseded
+
+THE FULL CHAIN, recorded as it happened: (1) Ox stalled; on the owner's directive the
+CHECKER BUILT A4 (build-and-disclose). (2) Ox returned, independently executed the
+instrument (all 11 gates, guard live-clean) and COUNTERSIGNED with scope stated,
+carrying three findings (spatial STF coefficient 1/2 not 1/3 -- checker cross-confirmed
+by idempotence, 0 vs 81 violations; THREE non-TT discard channels in the spatial slice;
+guard fail-closed self-reference). (3) The two-verifier fleet then landed:
+V2 (guard/slice/TT/plants) NOT REFUTED -- the guard genuinely kills a real barred
+import on a modified copy; V1 (transformation/identity) **REFUTED the residual-family
+claim**: the instrument's zeta_i conjunct was a HARD-CODED TRUE (print-statement fact,
+in the checker's own code), and the skipped substitution shows the frozen F3 product
+family {C(x)/a} x {time-independent C_i} is WRONG -- preserving h_0i = 0 forces
+zeta_i = C_i(x) - (d_i C) Ia(eta), Ia' = 1/a, a mandatory time-dependent C-coupled
+piece. V1 simultaneously CONFIRMED the invariance identity from an independent
+diffeo-invariance derivation (plus a wrong-V negative control the instrument lacked)
+and bounded the damage: steps 4-5 hold for ARBITRARY zeta, so A4's gauge-invariant-
+content conclusion is untouched; the post-prescription residual statement stands.
+
+FIXES: instrument corrected to COMPUTE what it asserted (gates g3b/g3c: true family
+preserves both conditions; refuted product family demonstrably exits the gauge);
+re-runs exit 0. The frozen F3 clause is superseded by the v2 amendment (the frozen
+files are NOT edited -- the amendment path the freeze protocol mandates):
+  WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md  sha256 = 6f2a762f4a4a01cd4794d029eecb2f1aadace9cd52637f12d3529e0564ce3d53
+Scope: exactly one clause; every other frozen declaration stands un-reopened.
+
+OPERATIONAL FINDING (Ox's, adopted as protocol): the checker's A4 build SILENTLY
+OVERWROTE Ox's in-flight file -- two agents built in the same path and the later write
+won. PROTOCOL AMENDMENT, effective now: claim-before-edit applies to FILES not just
+tasks -- an agent claims the exact paths it will write in this log BEFORE writing, and
+any agent resuming work re-reads disk state first (file-freshness check). Ox's call to
+abandon its diverged copy and verify the disk instrument instead was correct.
+
+A4 VERDICT STANDS: synchronous reproduces the gauge-invariant content of the unfixed
+computation; Sigma_R^TT assembly UNBLOCKED under the frozen protocol (+ v2 amendment).
+Assembly-stage standing context: spatial STF = 1/2; three non-TT discard channels;
+Q4 = proper Onsager-Casimir; the response-level Pi_nonlocal dual-gauge equality re-runs
+at assembly. W-0: computed-and-reported, NOT banked.
+
+### 2026-08-25 · Claude · A4 CLOSED: built by checker, countersigned by Ox, REFUTED-AND-FIXED by the fleet -- and one frozen clause superseded
+
+THE FULL CHAIN, recorded as it happened: (1) Ox stalled; on the owner's directive the
+CHECKER BUILT A4 (build-and-disclose). (2) Ox returned, independently executed the
+instrument (all 11 gates, guard live-clean) and COUNTERSIGNED with scope stated,
+carrying three findings (spatial STF coefficient 1/2 not 1/3 -- checker cross-confirmed
+by idempotence, 0 vs 81 violations; THREE non-TT discard channels in the spatial slice;
+guard fail-closed self-reference). (3) The two-verifier fleet then landed:
+V2 (guard/slice/TT/plants) NOT REFUTED -- the guard genuinely kills a real barred
+import on a modified copy; V1 (transformation/identity) REFUTED the residual-family
+claim: the instrument's zeta_i conjunct was a HARD-CODED TRUE (print-statement fact,
+in the checker's own code), and the skipped substitution shows the frozen F3 product
+family {C(x)/a} x {time-independent C_i} is WRONG -- preserving h_0i = 0 forces
+zeta_i = C_i(x) - (d_i C) Ia(eta), Ia' = 1/a, a mandatory time-dependent C-coupled
+piece. V1 simultaneously CONFIRMED the invariance identity from an independent
+diffeo-invariance derivation (plus a wrong-V negative control the instrument lacked)
+and bounded the damage: steps 4-5 hold for ARBITRARY zeta, so A4's gauge-invariant-
+content conclusion is untouched; the post-prescription residual statement stands.
+
+FIXES: instrument corrected to COMPUTE what it asserted (gates g3b/g3c: true family
+preserves both conditions; refuted product family demonstrably exits the gauge);
+re-runs exit 0. The frozen F3 clause is superseded by the v2 amendment (the frozen
+files are NOT edited -- the amendment path the freeze protocol mandates):
+  WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md  sha256 = 6f2a762f4a4a01cd4794d029eecb2f1aadace9cd52637f12d3529e0564ce3d53
+Scope: exactly one clause; every other frozen declaration stands un-reopened.
+
+OPERATIONAL FINDING (Ox's, adopted as protocol): the checker's A4 build SILENTLY
+OVERWROTE Ox's in-flight file -- two agents built in the same path and the later write
+won. PROTOCOL AMENDMENT, effective now: claim-before-edit applies to FILES not just
+tasks -- an agent claims the exact paths it will write in this log BEFORE writing, and
+any agent resuming work re-reads disk state first (file-freshness check). Ox's call to
+abandon its diverged copy and verify the disk instrument instead was correct.
+
+A4 VERDICT STANDS: synchronous reproduces the gauge-invariant content of the unfixed
+computation; Sigma_R^TT assembly UNBLOCKED under the frozen protocol (+ v2 amendment).
+Assembly-stage standing context: spatial STF = 1/2; three non-TT discard channels;
+Q4 = proper Onsager-Casimir; the response-level Pi_nonlocal dual-gauge equality re-runs
+at assembly. W-0: computed-and-reported, NOT banked.
