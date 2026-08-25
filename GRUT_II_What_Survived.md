@@ -2,8 +2,8 @@
 
 *Companion to [`GRUT_I_What_Survived.md`](GRUT_I_What_Survived.md), same discipline: a **presentation layer over `provenance/claims.json`** — no new content, no new physics, one label per claim, checked against the machine register. V1 deposited the ontology and its first boundaries. **V2 deposits what the in-house program could still answer about itself.** The x-floor is closed with computed results on the routes the program could reach in-house; what remains is one external computation (dispatch-ready) plus one secondary open question — see the headline.*
 
-<!-- REGISTER-SYNC: 51 nodes, net +16 -->
-<!-- REGISTER-TOTAL: 72 = 51 grut + 21 vacuum-cluster; nets +16 grut, +0 cluster -->
+<!-- REGISTER-SYNC: 52 nodes, net +17 -->
+<!-- REGISTER-TOTAL: 73 = 52 grut + 21 vacuum-cluster; nets +17 grut, +0 cluster -->
 
 > **The honest headline.** GRUT is a **unifying ontology with derived boundaries whose entrance into observation now rests on one external computation and one secondary open question.** Zero novel positive predictions. Signature-null on positive signatures; **the falsifiable content is the no-go directions.** What V2 adds over V1 is not a prediction — it is that the program now knows *which* computation stands between it and a prediction, and knows it by having closed the routes it could reach.
 >

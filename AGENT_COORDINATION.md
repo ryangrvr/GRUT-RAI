@@ -416,3 +416,65 @@ THE RULING GATE OF ac65652 IS DISCHARGED. The boost/Lorentz-covariance ruling is
 on a fully computed, countersigned list. Banking (+1, net +16 -> +17) is STAGED under the
 recorded pre-flight and executes on the owner's explicit go.
 
+
+### 2026-08-24 · Claude · BANKING EXECUTED ON OWNER GO: boost/Lorentz-covariance +1, net +16 -> +17
+
+Owner's go received verbatim: "Go. Book the boost/Lorentz-covariance ruling at +1, taking the
+net from +16 to +17." Scope as ruled: the priced assumption is NOT "the background is Lorentz
+invariant" -- it is that the vacuum response kernel itself belongs to the Lorentz-covariant
+subspace identified by the flat-limit membership test. Discharge: retire the +1 only if the
+microscopic Sigma_R^TT calculation demonstrates the vacuum response lies in that 3-dimensional
+Lorentz-covariant subspace without imposing it as an input.
+
+ONE COMMIT, per the recorded pre-flight. Contents: claims.json node `response_lorentz_covariance`
+(tier assumed, +1; register 73 nodes = 52 grut + 21 vacuum-cluster, validator PASS); 8 standing
+docs' REGISTER-SYNC/TOTAL markers + STATE gloss + GLOSSARY denominator; emitters re-run
+(PUBLIC_NUMBERS --check clean; AUDIT_MATRIX leads with its honest ERROR 71 != 73 -- the reality
+audit predates the last two bookings and the mismatch stays visible until a re-run, by design);
+EMERGENCE_CHAIN regenerated after its coverage guard REFUSED the unplaced node (the guard
+working) -- placed OFF-CHAIN as a licensing fence on the kernel family, the genre of
+passivity_channel_diagonal / x_no_pin_theorem, not a story stage; WHERE_IT_STOPS re-rendered;
+figures rebuilt; doc_register_pins --accept run AFTER prose reconciliation (13 nodes, 5
+artifacts) and disclosed here as the human-act step, executed under the owner's explicit go;
+currency pins updated in test_resident / test_harness / test_auditor / test_physics_vocab with
+register numbers REMOVED from test identifiers (durable fix for the pin-name defect class).
+
+GATE VERDICT before commit: expected_red REAL_EXIT=0 -- "All 5 failing tests are declared, at
+21 declared cases, each citing an OPEN pass. No new red." The banking surfaced NINE undeclared
+reds along the way (three currency pins + six generated-artifact/pin tests); all were register
+currency, none physics. W-0 fence intact: this books the PRICE of the assumption; every Wall-A
+computation remains COMPUTED-AND-REPORTED, NOT BANKED.
+
+NEXT (owner-directed): the closure-premise test starting from the ACTUAL 3D Lorentz-compatible
+family {P^2, P^0s, X_sw} -- premises first, 2D only if licensed -- then Wall A's Sigma_R^TT.
+
+### 2026-08-24 · Claude · BANKING EXECUTED ON OWNER GO: boost/Lorentz-covariance +1, net +16 -> +17
+
+Owner's go received verbatim: "Go. Book the boost/Lorentz-covariance ruling at +1, taking the
+net from +16 to +17." Scope as ruled: the priced assumption is NOT "the background is Lorentz
+invariant" -- it is that the vacuum response kernel itself belongs to the Lorentz-covariant
+subspace identified by the flat-limit membership test. Discharge: retire the +1 only if the
+microscopic Sigma_R^TT calculation demonstrates the vacuum response lies in that 3-dimensional
+Lorentz-covariant subspace without imposing it as an input.
+
+ONE COMMIT, per the recorded pre-flight. Contents: claims.json node `response_lorentz_covariance`
+(tier assumed, +1; register 73 nodes = 52 grut + 21 vacuum-cluster, validator PASS); 8 standing
+docs REGISTER-SYNC/TOTAL markers + STATE gloss + GLOSSARY denominator; emitters re-run
+(PUBLIC_NUMBERS --check clean; AUDIT_MATRIX leads with its honest ERROR 71 != 73 -- the reality
+audit predates the last two bookings and the mismatch stays visible until a re-run, by design);
+EMERGENCE_CHAIN regenerated after its coverage guard REFUSED the unplaced node (the guard
+working) -- placed OFF-CHAIN as a licensing fence on the kernel family, the genre of
+passivity_channel_diagonal / x_no_pin_theorem, not a story stage; WHERE_IT_STOPS re-rendered;
+figures rebuilt; doc_register_pins --accept run AFTER prose reconciliation (13 nodes, 5
+artifacts) and disclosed here as the human-act step, executed under the owner's explicit go;
+currency pins updated in test_resident / test_harness / test_auditor / test_physics_vocab with
+register numbers REMOVED from test identifiers (durable fix for the pin-name defect class).
+
+GATE VERDICT before commit: expected_red REAL_EXIT=0 -- "All 5 failing tests are declared, at
+21 declared cases, each citing an OPEN pass. No new red." The banking surfaced NINE undeclared
+reds along the way (three currency pins + six generated-artifact/pin tests); all were register
+currency, none physics. W-0 fence intact: this books the PRICE of the assumption; every Wall-A
+computation remains COMPUTED-AND-REPORTED, NOT BANKED.
+
+NEXT (owner-directed): the closure-premise test starting from the ACTUAL 3D Lorentz-compatible
+family {P^2, P^0s, X_sw} -- premises first, 2D only if licensed -- then Wall A's Sigma_R^TT.

@@ -142,7 +142,7 @@ class TestScopeIsolation(unittest.TestCase):
         grut = [c for c in claims if scope_of(c) == "grut"]
         cluster = [c for c in claims if scope_of(c) == "vacuum-cluster"]
         self.assertTrue(cluster, "the cluster scope must be populated for this test to mean anything")
-        self.assertEqual(sum(c.get("ledger_delta", 0) or 0 for c in grut), 16,
+        self.assertEqual(sum(c.get("ledger_delta", 0) or 0 for c in grut), 17,
                          "GRUT's ledger must be exactly +16 regardless of what the cluster holds (Ruling B, 2026-08-23)")
         self.assertEqual(sum(c.get("ledger_delta", 0) or 0 for c in cluster), 0,
                          "every cluster node is Delta 0 in GRUT's ledger by construction")

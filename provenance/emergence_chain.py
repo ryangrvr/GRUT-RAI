@@ -179,6 +179,11 @@ OFF_CHAIN = {
  "kk_static_transfer": "the dissipative-to-static transfer question (answered 2026-08-09: "
                        "conditional at the class-level chi_inf >= 0, never unconditional) -- an instrument "
                        "pointed at the floor's reach, not a link",
+ "response_lorentz_covariance": "the boost/Lorentz-covariance pricing on the kernel family "
+                                "(booked 2026-08-24, +1): the vacuum response kernel is assumed to lie in the "
+                                "Lorentz-covariant subspace the flat-limit membership test identified -- a "
+                                "licensing fence on WHICH kernels may be written, discharged (or not) by the "
+                                "microscopic Sigma_R^TT at Wall A; a fence on the family, not a stage of the story",
 }
 OFF_CHAIN.pop("rung7_w1_wz_map")
 

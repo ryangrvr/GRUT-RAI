@@ -3,10 +3,10 @@
 
 | quantity | value |
 |---|---|
-| claims in `claims.json` (all scopes) | **72** |
-| — of those, GRUT-scope | **51** |
+| claims in `claims.json` (all scopes) | **73** |
+| — of those, GRUT-scope | **52** |
 | — of those, vacuum-cluster scope | **21** |
-| net underived-input ledger, GRUT scope | **+16** |
+| net underived-input ledger, GRUT scope | **+17** |
 | net underived-input ledger, vacuum-cluster scope | **+0** |
 | of the GRUT net, carried behind declared waivers | **+9** across 4 claims |
 | primary sources in `sources.json` | **85** |
@@ -17,14 +17,14 @@
 | cited calcs still owing a battery | **15** |
 | tests collected | **240** |
 
-### Tier histogram, GRUT scope (51 claims)
+### Tier histogram, GRUT scope (52 claims)
 
 | tier | count |
 |---|---|
 | `shown` | **10** |
 | `derived` | **0** |
 | `derived-pending` | **4** |
-| `assumed` | **17** |
+| `assumed` | **18** |
 | `to-derive` | **20** |
 
 ### Waiver itemization
@@ -41,7 +41,7 @@
 | quantity | value |
 |---|---|
 | occurrences of specialist/specialists/SPECIALIST in `claims.json` | **49** |
-| claims containing at least one | **18** of 72 |
+| claims containing at least one | **18** of 73 |
 | (same, counting the 2026-08-12 annotation blocks that document them) | **58** |
 | sense A — prospective/reserved (a future outside expert) | **17** |
 | sense B — a pass that RAN, banked in the voice of an authority | **28** |

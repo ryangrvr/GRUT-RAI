@@ -340,22 +340,22 @@ class TestResident(unittest.TestCase):
             self.assertTrue(_r._is_closed(cl), f"{cid} must be recognized closed via sub_status")
 
     # ---- live register regression: GREEN +16, tiers unchanged, graph valid ----
-    def test_live_register_green_plus16_tiers_unchanged(self):
+    def test_live_register_green_current_net_tiers_unchanged(self):  # renamed from ...plus16... 2026-08-24: the number leaves the identifier so the NAME can never go stale; the pin lives below
         # SCOPED 2026-08-04: these assertions are about GRUT'S register. The same file now also
         # carries the vacuum-cluster physics map under a different vocabulary and a separate
         # ledger (validate_scoped.py); it must not enter GRUT's count.
         grut = [c for c in self.claims if c.get("ledger_scope", "grut") == "grut"]
         r = audit(grut, self.src, DEFAULT_TIERS)
         self.assertTrue(r.ok, f"live register must audit clean; blocks={r.blocking}")
-        self.assertEqual(r.net, 16)
-        self.assertEqual(len(grut), 51)   # 50 + the Ruling-B split's second half (rung1_ontology_finite_memory, 2026-08-23); was 46 + the x-floor wave's three delta-0 nodes
+        self.assertEqual(r.net, 17)       # +17 since the 2026-08-24 boost/Lorentz-covariance booking (response_lorentz_covariance, owner go)
+        self.assertEqual(len(grut), 52)   # 51 + response_lorentz_covariance (2026-08-24); 50 + the Ruling-B split's second half (2026-08-23) before that
         # depends_on present on every claim; tiers are the banked ones
         for c in self.claims:
             self.assertIn("depends_on", c, f"{c['id']} missing depends_on metadata")
         graph, errors = dependency_graph(self.claims)
         self.assertEqual(errors, [])
 
-    def test_ledger_graph_reconciliation_net_plus16_no_double_count(self):
+    def test_ledger_graph_reconciliation_current_net_no_double_count(self):  # renamed from ...plus16... 2026-08-24, same reason
         # A3 RECONCILIATION: net = sum of ledger_delta over DISTINCT nodes (each id once) == +14 (post the 2026-08-02 rung7 booking and the 2026-08-17 rung1 bath-genuineness booking).
         # The blind-sum auditor cannot catch a double count, so this pins it structurally: the promoted
         # borrowed premises carry ZERO credit (their +1 stays inside the borrower), so growing the graph
@@ -365,7 +365,7 @@ class TestResident(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)), "duplicate claim ids -> a node counted twice")
         net = sum(c.get("ledger_delta", 0) for c in self.claims
                   if isinstance(c.get("ledger_delta"), int) and not isinstance(c.get("ledger_delta"), bool))
-        self.assertEqual(net, 16, "net over distinct nodes must be +16 (rung7 books 3 since 2026-08-02; rung1 formalism books 4 and ontology 1 since the Ruling-B split 2026-08-23)")
+        self.assertEqual(net, 17, "net over distinct nodes must be +17 (rung7 books 3; rung1 formalism 4 + ontology 1 since Ruling B 2026-08-23; response_lorentz_covariance 1 since the 2026-08-24 boost-covariance booking)")
         # the A3 promoted premises are zero-credit re-typings (borrowers keep their declared deltas)
         by_id = {c["id"]: c for c in self.claims}
         for cid in ("born_rule", "entropy_area_unruh", "past_hypothesis", "lambda_undetermined"):

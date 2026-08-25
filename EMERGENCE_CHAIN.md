@@ -239,6 +239,7 @@ field is missing (item 3).
 | `l0_r1_redundancy_exists` | frontier-3 generic half (its crux nodes sit at the structure link) |
 | `method_novelty` | the method's own gauntlet -- about the program, not the universe |
 | `passivity_channel_diagonal` | the general channel-diagonal passivity lemma -- frame-free linear-response mathematics, not a stage of the story |
+| `response_lorentz_covariance` | the boost/Lorentz-covariance pricing on the kernel family (booked 2026-08-24, +1): the vacuum response kernel is assumed to lie in the Lorentz-covariant subspace the flat-limit membership test identified -- a licensing fence on WHICH kernels may be written, discharged (or not) by the microscopic Sigma_R^TT at Wall A; a fence on the family, not a stage of the story |
 | `rung8_falsifier` | the tabletop discriminator -- an instrument pointed at the chain, not a link |
 | `u1_form_universality` | V2 universality entries: about the FRAMEWORK's form, not a story stage |
 | `u5_constitutive_phases` | V2 classification branch (see persistence link's u4) |

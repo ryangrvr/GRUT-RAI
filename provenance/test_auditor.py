@@ -148,8 +148,8 @@ class TestAuditor(unittest.TestCase):
         claims = [c for c in claims if c.get("ledger_scope", "grut") == "grut"]
         r = audit(claims, source_ids, DEFAULT_TIERS)
         self.assertTrue(r.ok, f"live register must audit clean; blocks={r.blocking}")
-        self.assertEqual(r.net, 16, "net ledger must be +16 (the 2026-08-02 restriction booking + the 2026-08-17 rung1 bath-genuineness booking + the 2026-08-23 Ruling-B ontology pricing)")
-        self.assertEqual(len(claims), 51, "GRUT scope holds 51 nodes (the 50 pre-split plus rung1_ontology_finite_memory from the Ruling-B split of 2026-08-23)")
+        self.assertEqual(r.net, 17, "net ledger must be +17 (2026-08-02 restriction + 2026-08-17 bath-genuineness + 2026-08-23 Ruling-B ontology + 2026-08-24 boost/Lorentz-covariance booking)")
+        self.assertEqual(len(claims), 52, "GRUT scope holds 52 nodes (the 50 pre-split, plus rung1_ontology_finite_memory from the Ruling-B split of 2026-08-23, plus response_lorentz_covariance booked 2026-08-24)")
 
 
 if __name__ == "__main__":

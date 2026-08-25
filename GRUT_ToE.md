@@ -2,8 +2,8 @@
 
 ### A research program with an audited-discipline method and a resident consistency-AI — physics as its one tested sector
 
-<!-- REGISTER-SYNC: 51 nodes, net +16 -->
-<!-- REGISTER-TOTAL: 72 = 51 grut + 21 vacuum-cluster; nets +16 grut, +0 cluster -->
+<!-- REGISTER-SYNC: 52 nodes, net +17 -->
+<!-- REGISTER-TOTAL: 73 = 52 grut + 21 vacuum-cluster; nets +17 grut, +0 cluster -->
 *Vocabulary gloss for outside readers (added 2026-08-10 after an external reviewer reasonably misread it): **net +13** is the blind SUM of the register's underived-input ledger — the standing price of every assumption, unchanged for weeks and meant to stay unchanged — not a count of new entries; **CLEAN** means the register is unmodified since the last accepted change. Neither is a progress metric.*
 
 *Living document — the canonical GRUT book. Compiled 2026-06-27, reframed 2026-06-28. Kept consistent, claim-by-claim, with the machine-checked register (`provenance/claims.json`, validator GREEN at net +13 GRUT; 49 GRUT-scope + 21 vacuum-cluster = 70 nodes). Of the **+13**, **+8 rides on four declared `laundering_ok` waivers** (`rung1_inin_action` +3, `rung5_gr_limit` +2, `rung6_qm_limit` +2, `p_tt_ansatz` +1), each carrying a written stance justification — `validate.py` prints the waived total on its own face. This is the program's working record and its eventual Zenodo deposit.*

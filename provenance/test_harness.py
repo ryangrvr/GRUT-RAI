@@ -320,7 +320,7 @@ class TestHarness(unittest.TestCase):
         self.assertFalse(r["admissible"])
 
     # ---- the harness writes no physics input; register stays GREEN +16 ----
-    def test_register_unchanged_green_plus16(self):
+    def test_register_unchanged_green_current_net(self):  # renamed from ...plus16 2026-08-24: number out of the identifier; pin below
         # sampling a whole family must not change the register
         before = [c["ledger_delta"] for c in load_claims()]
         harness.sample_family(self.claims, [harness.universe("z"), harness.universe("z2", second_scale=1e3)])
@@ -334,8 +334,8 @@ class TestHarness(unittest.TestCase):
         grut = [c for c in after if c.get("ledger_scope", "grut") == "grut"]
         r = audit(grut, source_ids, DEFAULT_TIERS)
         self.assertTrue(r.ok)
-        self.assertEqual(r.net, 16)
-        self.assertEqual(len(grut), 51)   # 50 + rung1_ontology_finite_memory (Ruling-B split, 2026-08-23)
+        self.assertEqual(r.net, 17)  # +17 since the 2026-08-24 boost-covariance booking
+        self.assertEqual(len(grut), 52)   # 51 + response_lorentz_covariance (2026-08-24); 50 + rung1_ontology_finite_memory (Ruling-B split, 2026-08-23) before that
 
 
 if __name__ == "__main__":

@@ -71,7 +71,7 @@ private language. **Rule: any banking that coins a term adds its line here in th
 > reader, and on this program's record that reading would be false.**
 
 **The audit.** `provenance/claims.json` contains **49 occurrences of "specialist"/"specialists"/
-"SPECIALIST" across 18 of 72 claims** — 58 if you also count the dated 2026-08-12 annotation blocks
+"SPECIALIST" across 18 of 73 claims** — 58 if you also count the dated 2026-08-12 annotation blocks
 that *document* these occurrences, which necessarily contain the words they annotate. The emitter
 reports both figures and excludes the annotation blocks from the headline, so the commentary cannot
 inflate the thing it comments on. (Noticed only because annotating broke the count's own test.) — all of them in GRUT-scope nodes, none in the vacuum
