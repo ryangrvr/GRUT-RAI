@@ -734,3 +734,25 @@ computation; Sigma_R^TT assembly UNBLOCKED under the frozen protocol (+ v2 amend
 Assembly-stage standing context: spatial STF = 1/2; three non-TT discard channels;
 Q4 = proper Onsager-Casimir; the response-level Pi_nonlocal dual-gauge equality re-runs
 at assembly. W-0: computed-and-reported, NOT banked.
+
+### 2026-08-25 · Owner ruling · ASSEMBLY-1 ACCEPTANCE GATES; nothing else moves
+
+Baseline confirmed: 73 nodes / net +17 after the Lorentz-covariance booking. The ONLY
+next action: file claim -> ASSEMBLY-1. No architecture changes, no phenomenology, no
+reopening of frozen declarations unless ASSEMBLY-1 exposes a defect genuinely requiring
+a superseding amendment.
+
+ASSEMBLY-1 must prove, in order, before ANYTHING downstream runs:
+  1. object registry loaded first; barred-inputs guard LIVE;
+  2. Gamma_a -> Sigma_CTP -> Sigma_R (the CTP-to-retarded assembly itself);
+  3. RETARDED CAUSALITY independently established;
+  4. H -> 0, a -> 1 FLAT-LOOP RECOVERY;
+  5. tensor decomposition preserves the FULL structure including non-TT pieces --
+     no silent projection.
+Only after these pass: renormalisation stage -> Q1-Q5 verdicts -> comparison with the
+registered J(omega), which remains STRICTLY DOWNSTREAM: microscopic result first,
+registered spectrum second.
+
+Owner's closing, operative: "The next thing that changes the scientific status of the
+project should be the actual one-loop gravitational response, not another governance
+artifact."
