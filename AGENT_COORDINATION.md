@@ -861,3 +861,32 @@ call: ASSEMBLY-2 IS AUTHORISED, CONDITIONAL on its entry carrying (i) the explic
 (ii) the signed retarded rule Sigma_R = Sigma++ + Sigma+-, (iii) Q1 evaluation at
 k != 0 configurations. Both amendments are already in the ASSEMBLY-1 artifact; the
 amended instrument re-runs exit 0. Register untouched; W-0 throughout.
+
+### 2026-08-25 · Owner ruling · ASSEMBLY-2 sharpened: hard invariants, pole identifiability, per-channel pole audit, three-output stop
+
+The three ASSEMBLY-1 entry conditions are HARD INVARIANTS: bubble factor = 1/2;
+Sigma_R = Sigma++ + Sigma+- (signed components, with the signed-to-unsigned mapping
+preserved EXPLICITLY in the implementation); k != 0 stays in the placement analysis.
+
+ASSEMBLY-2's one decisive purpose: Pi_ren = Pi_local^MS + Pi_nonlocal^invariant with
+the subtraction FORBIDDEN from altering the nonlocal physics. Sequence:
+Sigma_R -> Sigma_div -> Pi_local^MS, and independently Sigma_R -> Pi_nonlocal^invariant;
+then verify Pi_nonlocal^after == Pi_nonlocal^before in the declared sense -- the real
+protection against a scheme quietly deleting the low-frequency structure under test.
+
+POLE ACCEPTANCE SHARPENED (owner's words): "every pole is independently identifiable
+before absorption" -- NOT merely "all poles can be represented by the allowed
+counterterms". The dangerous failure mode is a plausible pole assigned to the WRONG
+operator and absorbed because the six-operator basis is permissive. Per the frozen
+declaration, a pole that genuinely does not fit is a FINDING, never a basis expansion.
+
+NEW REVIEW REQUIREMENT: inspect pole terms SEPARATELY for the kinetic (a^2) and
+mass/background (a^4) channels -- a common-looking counterterm coefficient must not
+obscure a wrong scale-factor structure. Independent consistency check before any
+Q1-Q5 interpretation.
+
+STOP POINT: ASSEMBLY-2 ends with exactly THREE things -- Pi_local^scheme,
+Pi_nonlocal^invariant, and the subtraction-integrity verdict. NOTHING about whether
+GRUT succeeds: no J(omega), no Q1 placement, no Q2/Q3 spectral conclusions, no PV,
+no second-gauge response comparison. If ASSEMBLY-2 passes, Pi_nonlocal^invariant
+exists in the correct form for the first time, and ASSEMBLY-3 asks what it does.
