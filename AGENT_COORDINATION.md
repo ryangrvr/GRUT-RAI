@@ -756,3 +756,66 @@ registered spectrum second.
 Owner's closing, operative: "The next thing that changes the scientific status of the
 project should be the actual one-loop gravitational response, not another governance
 artifact."
+
+### 2026-08-25 · Ox · FILE CLAIM — ASSEMBLY-1
+
+Claiming exactly these paths before writing (claim-before-edit protocol):
+  CREATE: PHYSICS_LEDGER/wall_a_assembly1.py          (the ASSEMBLY-1 instrument)
+  CREATE: PHYSICS_LEDGER/WALL_ASSEMBLY1_RESULT.json   (machine-readable gate results)
+  APPEND: AGENT_COORDINATION.md                       (this claim + the completion report)
+No other file will be created or edited. Frozen law (A3 declarations + v2 amendment,
+registry) is read-only input. Re-read of disk state done at resume (HEAD = 5ea3c1f).
+
+### 2026-08-25 · Ox · ASSEMBLY-1 COMPLETE — all five owner gates PASS, hard stop respected
+
+DELIVERED (exactly the claimed paths): `PHYSICS_LEDGER/wall_a_assembly1.py` (627+ lines,
+exit 0) + `PHYSICS_LEDGER/WALL_ASSEMBLY1_RESULT.json`. Register untouched; frozen law
+read-only. W-0: computed-and-reported, NOT banked.
+
+THE FIVE GATES:
+  1. REGISTRY+GUARD: loaded first, echoed verbatim, LOAD/ECHO/SCAN/FAIL live-clean
+     (transitive imports, file reads with content hashes, own-source symbols).
+  2. ASSEMBLY ON THE FACE: Gamma_a -> Sigma_CTP -> Sigma_R with routing (l, K-l)/(-l,
+     l-K), Wick count net factor 1 printed, derivative-dressing support remark stated.
+  3. RETARDED CAUSALITY INDEPENDENTLY ESTABLISHED: Sigma_R = Sigma++ - Sigma+- carries
+     strict theta(t-t') support on a grid (zero for t<t', NONZERO for t>t' -- no trivial
+     pass). COMPUTED FACT DISCLOSED: the naive full-matrix TRACE mix c=(1,-1)
+     ANNIHILATES the one-loop fish identically at every sampled point -- it is NOT the
+     retarded projection for this diagram. Negative control: the time-ordered [G++]^2
+     has non-retarded support and the test catches it.
+  4. FLAT-LOOP RECOVERY: programmatic flat vertex == (kappa/2)[p^mu q^nu + q^mu p^nu
+     - eta^{mu nu}(p.q + m^2)] EXACTLY (16/16), mis-signed variant detected;
+     Im Pi_bare(w,k=0) from Omega-quadrature vs EXACT symbolic angular integration
+     agrees to 8.9e-16 rel. on every nonzero channel at w=5, m=1; scalar-proxy measure
+     control |p*|/(4 pi E) == beta/(4pi) exact (threshold factor beta theta(w-2m)).
+     NORMALISATION FENCE: bare-kernel absolute normalisation deferred to the Assembly-2
+     subtraction audit; structural recovery only.
+  5. FULL TENSOR STRUCTURE: de Sitter numerator decomposed onto all SIX frozen channels
+     with EXACT rational residues recorded at l=(3,1,2,-1), K=(7,2,-1,1), m=3/2,
+     a1^2=9/4, a2^2=25/16: P2 = 77621269615/2395847136 (TT carrier); P0s, P1, P0w,
+     Xsw, Xws carried explicitly as discard bookkeeping. FINDING (disclosed): the
+     six-channel reconstruction of a GENERIC off-shell numerator leaves max residual
+     ~2.95e2 -- the frozen basis spans response-kernel structures; completeness re-opens
+     on-shell at ASSEMBLY-3/Q1. Nothing silently projected or absorbed.
+
+SELF-CAUGHT DEFECTS DURING THE BUILD (all disclosed in-instrument):
+  - kinetic-term 1/2 dropped while the mass term's was kept: caught BY THE FLAT PLANT,
+    which is what plants are for; fixed, derivation now on the face.
+  - off-diagonal Gamma needs x1 not x2 (the two index orderings absorb the S_int 1/2).
+  - first "mis-routed" numeric control reversed BOTH signs -- gamma is EVEN under
+    (u,v)->(-u,-v), so it was IDENTICAL to the correct numerator and the control passed
+    trivially; replaced with a genuine one-leg routing defect that now FAILS.
+  - Simpson weights around a full phi-period double-count endpoints; replaced by the
+    periodic trapezoid rule (spectrally exact here).
+  - PROCESS (per claim-before-edit protocol): an abandoned earlier terminal process
+    partially overwrote this instrument's first build mid-session; file deleted and
+    rebuilt in verified chunks. No other file touched.
+
+SECOND-AUTHOR TARGETS, load-bearing first: (1) rerun the ROW-vs-TRACE retarded-
+projection test (Gate 3); (2) rerun the flat plant both ways + both negative controls
+(Gate 4b); (3) the Wick-count net-factor-1 claim (Gate 2 Step 2); (4) the residue-
+extraction configuration (Gate 5); (5) guard leak-path audit (F5).
+
+STOP REACHED CLEANLY per scope: no renormalisation, no MS subtraction, no Q1-Q5, no
+J(omega) comparison. ASSEMBLY-2 is authorised ONLY after checker verification of the
+CTP-to-retarded algebra and the flat-limit plant.

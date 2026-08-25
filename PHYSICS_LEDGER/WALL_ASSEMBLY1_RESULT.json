@@ -1,0 +1,56 @@
+{
+  "instrument": "wall_a_assembly1.py",
+  "stage": "WALL A / ASSEMBLY-1",
+  "standing_state": "5ea3c1f; W-0 computed-and-reported, NOT banked; no register edits",
+  "file_claim": "AGENT_COORDINATION.md, Ox, 2026-08-25 (this file + result json)",
+  "gates": {
+    "G1": "registry loaded first; barred-inputs guard LOAD/ECHO/SCAN/FAIL live+clean",
+    "G2": "Gamma_a -> Sigma_CTP -> Sigma_R explicit on face; Wick count printed",
+    "G3": {
+      "rule": "Sigma_R = Sigma++ - Sigma+-",
+      "support": "strict theta(t-t') on grid; nonzero for t>t' (no trivial pass)",
+      "trace_mix_annihilates_fish": true,
+      "negative_control_time_ordered": "non-retarded support, detected"
+    },
+    "G4": {
+      "vertex_programmatic_match": true,
+      "mis_signed_variant_detected": true,
+      "two_way_im_agreement_worst_rel_dev": 8.935220833521648e-16,
+      "scalar_measure_control": "beta/(4pi) exact match",
+      "normalisation_fence": "structural recovery only; absolute normalisation deferred to Assembly-2 subtraction audit"
+    },
+    "G5": {
+      "channels": [
+        "P2",
+        "P1",
+        "P0s",
+        "P0w",
+        "Xsw",
+        "Xws"
+      ],
+      "residues_recorded_all_six": true,
+      "tt_carrier": "P2",
+      "reconstruction_max_residual": 294.7161585395861,
+      "configuration": "l=(3,1,2,-1), K=(7,2,-1,1), m=3/2, a1^2=9/4, a2^2=25/16"
+    }
+  },
+  "disclosed_findings": [
+    "TRACE mix c=(1,-1) annihilates the one-loop fish identically: the naive full-matrix combination is NOT the retarded projection for this diagram.",
+    "Normalisation fence: bare-kernel overall normalisation is convention-bound until the Assembly-2 subtraction audit; structural claims only.",
+    "Process defect (self-caught, disclosed): an earlier abandoned terminal process partially overwrote this instrument's first build mid-session; the file was deleted and rebuilt in verified chunks. Recorded per the claim-before-edit protocol."
+  ],
+  "scope_stop": [
+    "no renormalisation",
+    "no MS subtraction",
+    "no Q1-Q5 verdicts",
+    "no comparison with registered J(omega)"
+  ],
+  "second_author_targets_load_bearing_first": [
+    "the retarded-projection derivation (Gate 3): rerun ROW vs TRACE test",
+    "the flat plant (Gate 4b): rerun both ways + both negative controls",
+    "the Wick-count / net-factor-1 claim (Gate 2 Step 2)",
+    "the residue-extraction configuration (Gate 5)",
+    "the guard's leak-path audit (inherited F5 hardening)"
+  ],
+  "verdict": "ASSEMBLY-1 PASS: all five owner gates green; hard stop respected."
+}
