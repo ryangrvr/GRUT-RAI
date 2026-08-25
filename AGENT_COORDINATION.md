@@ -608,3 +608,51 @@ Owner ratifies the A3 brief with additions, verbatim principles:
 Status boxed by the owner: A1 COUNTERSIGNED; A2/Bardeen/kinematics COUNTERSIGNED;
 A5 FULL PASS; A3 NEXT; Sigma_R^TT untouched. The crisp target:
 Sigma_R^TT ?in K_3D^Lorentz ?in K_2D^closure, plus its IR analytic structure.
+
+### 2026-08-25 · Claude · A3 FREEZE-GATE REVIEW EXECUTED: SEVEN FINDINGS, ALL PATCHED, THEN FROZEN
+
+The two-step freeze ran as the owner mandated. The attack plan in the draft's own
+second_author_targets was executed; SEVEN findings, three load-bearing, all patched in
+place with CHECKER-AMENDED/-ADDED/-CORRECTED markers before hashing:
+
+  F1 (LOAD-BEARING) split predicate wrong VARIABLES: "polynomial in (w^2,k^2,m^2,H^2)"
+     would misclassify legitimate dimreg local coefficients carrying log(m^2/mu^2) as
+     nonlocal (and omitted mu entirely). Corrected: polynomial in (w^2,k^2) -- the
+     derivative structure -- with coefficients arbitrary FINITE functions of (m^2,H^2,mu).
+     Hostile cases (w^2 log k^2, w^4/k^2) stay nonlocal under the corrected predicate.
+  F2 (LOAD-BEARING) renormalisation CONDITIONS missing: D1 cited "conditions declared in
+     1b" but 1b held only the operator basis -- the finite parts of six coefficients were
+     an undeclared fork. MINIMAL SUBTRACTION declared (pole-only, mu symbolic, zero
+     finite-part discretion -- the unique choice completing the owner's critical
+     principle). DISCLOSED AS CHECKER-ADDED: owner may order a v2 before assembly.
+  F3 (LOAD-BEARING) A4 second-gauge spec internally inconsistent: the residual condition
+     d_0(h_0i/a^2)=0 conditioned a component synchronous gauge sets IDENTICALLY to zero.
+     Corrected to the genuine residual (xi^0 = C(x)/a + time-independent spatial reparam,
+     fixed asymptotically at eta -> -infty). Also corrected: A1 fixed NO gauge -- the A4
+     comparison is unfixed-vs-synchronous, not de Donder-vs-synchronous.
+  F4 blind gaps closed: Q5 (flat-limit reduction, per-channel, with IR-obstruction
+     branch) ADDED -- the +1's discharge condition is a flat-subspace statement and the
+     draft had no flat-limit quantity; Q1b X_sw parity sub-record; Q3 intermediate class
+     1<s<2; THE +1 DISCHARGE MAP pre-registered (dischargeable ONLY by Q1 INSIDE and Q5
+     INSIDE; Q3/Q4 do not vote; discharge itself stays an owner ruling).
+  F5 barred-guard leaks: wall_a_g1_ohmic_plant.py -- which carries the registered
+     J(omega) EXPLICITLY -- was absent from the barred list (also kk_dos_signchange_probe,
+     the G1/rung7/priority result JSONs, and MICROSCOPIC_TARGET_BENCHMARK.md, whose
+     construction-stage read would un-blind Q3). List extended to 9 entries; guard
+     hardened: TRANSITIVE import scan (sys.modules), CONTENT-HASH barring (12 files
+     sha256'd into the registry), NUMERIC-FINGERPRINT audit (no spectral-shape literals;
+     every constant cites a registry entry).
+  F6 Q4 predicate pinned to the PROPER Onsager-Casimir test of the countersigned closure
+     instrument (eps-signature-corrected, H T-odd) -- the naive slot-symmetry trap the
+     closure review exhibited is barred by name.
+  F7 scheme dS-invariance non-citation clause: the regulator's symmetry may not be cited
+     in the (i) placement verdict -- it avoids introducing breaking, it does not
+     demonstrate unimposed placement.
+
+FROZEN 2026-08-25. The freeze hashes (recorded here because a hash cannot live inside
+the file it hashes):
+  WALL_A_A3_DECLARATIONS.md  sha256 = 87e2d24d5be6d67970f4089a09aa61a28d4de8cf6471f987af3db1c2ac015f6e
+  WALL_A_A3_REGISTRY.json    sha256 = faa977d40f1ba31836e35b18223c1f573559b49649a84fad237a3809aae59b55
+Both files are IMMUTABLE; any change requires a superseding v2 citing this one. Results
+cite the declaration; never the reverse. NEXT: A4 dual-gauge under the frozen protocol,
+then Sigma_R^TT assembly under the frozen registry.

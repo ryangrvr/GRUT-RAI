@@ -1,0 +1,261 @@
+{
+  "status": "FROZEN 2026-08-25 -- checker-amended (F1-F7); immutable; superseding v2 required for any change",
+  "stage": "A3 DECLARATIONS",
+  "standing_commit": "372d02d",
+  "freeze_protocol": "two-step: checker reviews draft for hidden inputs BEFORE hash-freeze; results cite the frozen declaration, never the reverse",
+  "w0": "everything downstream is computed-and-reported, NOT banked",
+  "renormalisation": {
+    "primary_scheme": "de Sitter-invariant dimensional regularisation (d = 4 - eps), poles subtracted by the frozen counterterm basis",
+    "alternative_scheme": "Pauli-Villars (two regulator masses, taken to infinity post-loop)",
+    "selection_criteria": [
+      "de Sitter isometry invariance of regulated correlators",
+      "auditability of the local/nonlocal split"
+    ],
+    "split": "Pi_ren = Pi_local^scheme + Pi_nonlocal^invariant",
+    "split_audit": "CHECKER-AMENDED (F1): each subtraction term must be individually a polynomial in (omega^2, k^2) -- the derivative structure, which is what locality means -- with coefficients arbitrary FINITE functions of (m^2, H^2, mu), mu the regularisation scale the draft omitted; checked term-by-term in assembly code; anything not so expressible is nonlocal by declaration and may not be subtracted. The draft's predicate (polynomial in omega^2,k^2,m^2,H^2) would have misclassified legitimate log(m^2/mu^2) local coefficients as nonlocal.",
+    "counterterm_basis_frozen": [
+      "Lambda (cosmological constant)",
+      "G (EH term)",
+      "R^2",
+      "R_mn^2",
+      "R_mnrs^2",
+      "box R"
+    ],
+    "critical_principle": "No finite local counterterm may be selected because it produces a preferred spectral or memory behavior.",
+    "counterterm_selection_allowed": [
+      "absorbing eps-poles",
+      "MINIMAL SUBTRACTION renormalisation condition (F2, above)"
+    ],
+    "wall_sensitivity": {
+      "i_3D_placement": {
+        "local": "audit-only: local terms recorded per-term against frozen basis, excluded from placement verdicts",
+        "nonlocal": "PRIMARY -- tensor decomposition decides"
+      },
+      "ii_2D_closure": {
+        "local": "none -- scheme-independent",
+        "nonlocal": "indirect: reciprocity diagnostic runs on the computed kernel"
+      },
+      "iii_IR_analytic": {
+        "local": "none for the class: local terms analytic at omega=0 cannot change the nonlocal class; split auditability makes this checked",
+        "nonlocal": "ENTIRELY"
+      }
+    },
+    "robustness_test": "assembly must rerun with Pauli-Villars and require the nonlocal low-frequency analytic structure (branch-cut location, s-class) to agree; nonlocal disagreement is a FINDING, never averaged",
+    "renormalisation_condition": "MINIMAL SUBTRACTION (checker-added, F2, disclosed): pole terms only; finite parts of all six basis coefficients left exactly as the loop produces them; mu symbolic, its dependence recorded in Pi_local^scheme. Zero finite-part discretion. Deviation from pole-only subtraction at assembly is a FINDING, not a choice. Owner may order a v2 before assembly if different conditions are wanted.",
+    "scheme_symmetry_non_citation": "CHECKER-ADDED (F7): the scheme's de Sitter invariance may NOT be cited as evidence in the wall-question (i) placement verdict; placement is read off the computed nonlocal decomposition only."
+  },
+  "bath_state": {
+    "declared": "Bunch-Davies",
+    "status": "DECLARED-NOT-DERIVED (A1 registry)",
+    "distinction": "STATE SPECIFICATION != KMS/detailed-balance OF THE INTERACTING RESPONSE",
+    "bd_fixes_kinematically": [
+      "free-bath mode functions on the declared chart",
+      "UV behaviour of bath two-point functions",
+      "i\u03b5/Feynman prescription of the loop"
+    ],
+    "bd_fixes_spectrally": [
+      "Wightman functions entering the loop integrand (free level)"
+    ],
+    "bd_does_not_fix": "KMS/detailed-balance of the INTERACTING response; the equilibrium regime itself",
+    "horizon_thermality": "CLAIMED-NOT-COMPUTED for the interacting kernel; computing it IS wall question (ii)",
+    "alternatives": {
+      "alpha_vacuum": "alters Wightman functions; known pathologies; OUT unless a FINDING forces revisiting",
+      "excited_squeezed_nk": "genuine non-equilibrium: closure test predicts family stays 3D; declared sensitivity probe if (ii) answers negative",
+      "thermal_static_patch": "would ASSUME what (ii) must compute; PROHIBITED as primary input; permitted only as post-(ii) cross-check"
+    }
+  },
+  "g0_spectral_wiring": {
+    "forbidden_direction": "registered J(omega) -> Sigma_R construction",
+    "required_direction": "BD mode functions + declared interactions -> loop -> Sigma_R/K_R/Im chi -> compare AFTERWARD with registered J(omega)",
+    "registered_spectrum_role": "BENCHMARK UNDER TEST, not an ingredient",
+    "barred_inputs": [
+      {
+        "name": "registered Ohmic J(omega)",
+        "objects": [
+          "J_of_omega",
+          "J_omega",
+          "ohmic_spectral_density"
+        ]
+      },
+      {
+        "name": "registered (eps,tau2) family",
+        "objects": [
+          "eps_tau2",
+          "tau2_family",
+          "eps_tau2_family"
+        ]
+      },
+      {
+        "name": "DOS model mode-counting objects",
+        "files": [
+          "GENERIC_KERNEL_SUBSTITUTION.md"
+        ],
+        "sha256": {
+          "GENERIC_KERNEL_SUBSTITUTION.md": "05441f3e493c15a98c2cd3ec3f1c9504caa2092ec6de35f02baa7557f86706c4"
+        }
+      },
+      {
+        "name": "rung7 discriminator outputs",
+        "files": [
+          "rung7_discriminator.py"
+        ],
+        "objects": [
+          "wz_sign",
+          "rung7_wz"
+        ],
+        "sha256": {
+          "rung7_discriminator.py": "7fa5fef5ca80e62e1863119e6fe01f6e7ccde41b1b855ecec05512874c272d7e"
+        }
+      },
+      {
+        "name": "claims-derived spectral objects",
+        "files": [
+          "claims.json",
+          "DIFFERENTIATOR_TABLE.json",
+          "PRIORITY2_GRUT_KK_PROBE.json"
+        ],
+        "sha256": {
+          "claims.json": "a70a2ad1fd79cf3383b7bef14341a3722a261051937a48035f367d27c01f50ae",
+          "DIFFERENTIATOR_TABLE.json": "7ced2660efc859dd513c90bef698cb43d698901ffd2a19715cd79500690eabb2",
+          "PRIORITY2_GRUT_KK_PROBE.json": "c6c92e6c64a40ad256b986504d8b28cc26ffc6a4553e1389ba6aa708ab1298e4"
+        }
+      },
+      {
+        "name": "G1 Ohmic plant (carries registered J(omega) explicitly)",
+        "files": [
+          "wall_a_g1_ohmic_plant.py"
+        ],
+        "sha256": {
+          "wall_a_g1_ohmic_plant.py": "facacda5ef0da0d356fcc1ea01f5cb1cd2880e6a4f6c850af58a358a8f7e561b"
+        }
+      },
+      {
+        "name": "KK DOS sign-change probe",
+        "files": [
+          "kk_dos_signchange_probe.py"
+        ],
+        "sha256": {
+          "kk_dos_signchange_probe.py": "695e5d75cd76026b7b179333abe6ec2c62ab555642b6b32e05fe757e685711db"
+        }
+      },
+      {
+        "name": "G1/rung7/priority result artifacts (fitted spectral numbers)",
+        "files": [
+          "G1_DIAGNOSTIC_V2.json",
+          "WALL_A_G1_RESULT.json",
+          "RUNG7_TWO_POLE_COMPARISON.json",
+          "PRIORITY1B_RERUN.json"
+        ],
+        "sha256": {
+          "G1_DIAGNOSTIC_V2.json": "d516ee7aa68d9752fdcf8383b9789f597210a73acce87a7e867a83e0b8a36582",
+          "WALL_A_G1_RESULT.json": "744ef7993dae1b365585b8ee9938b4dd514bbaef0e1e1fe684638023200d03d9",
+          "RUNG7_TWO_POLE_COMPARISON.json": "3bd06d26e66965cdda867bb7edad0b46b0cea01b3f460d79ba402c733afc6d29",
+          "PRIORITY1B_RERUN.json": "fe45e5a7409af9ff0aa4302054d47adbdcd09983b5ca3eda08976827259e7474"
+        }
+      },
+      {
+        "name": "pre-registered Q3 comparator (post-assembly comparison artifact ONLY; construction-stage read would un-blind Q3)",
+        "files": [
+          "MICROSCOPIC_TARGET_BENCHMARK.md"
+        ],
+        "sha256": {
+          "MICROSCOPIC_TARGET_BENCHMARK.md": "f6513b1e551fd9cf19d9e5753a92ca12acfe58bcaccedd62a4f592a10495df04"
+        }
+      }
+    ],
+    "enforcement": [
+      "assembly instrument LOADS this registry at start and ECHOES it verbatim into its output",
+      "assembly instrument SCANS imports (TRANSITIVE: sys.modules at scan time, not import statements -- F5), file reads, and symbol table against barred_inputs before any loop quantity is computed",
+      "any match FAILS the run (non-zero exit): the run is void, not warned",
+      "CONTENT-HASH BARRING (F5): every file the instrument reads is sha256-hashed and compared against the barred entries' hashes -- a renamed copy is caught by content",
+      "NUMERIC-FINGERPRINT AUDIT (F5): assembly source may not contain numeric literals characterising the registered family's spectral shape; every numeric constant cites a registry entry or is a mathematical constant; source grep-audited against spectral_fingerprints; matches are FINDINGS",
+      "the comparison-to-J(omega) step lives in a SEPARATE post-assembly artifact; construction code is not linked to it"
+    ],
+    "spectral_fingerprints": {
+      "note": "numeric literals barred from assembly source (F5); values quoted here as strings so this registry itself is not an importable numeric source",
+      "barred_literals": [
+        "the register's spectral exponent s (see claims register)",
+        "the fitted (eps, tau2) family values (see register/G1 artifacts)"
+      ]
+    }
+  },
+  "blind_criteria": [
+    {
+      "id": "Q1",
+      "quantity": "nonlocal integrand tensor decomposition onto {P2, P0s, X_sw, residue}",
+      "inside": "every nonlocal coefficient multiplies only {P2, P0s, X_sw}; residue 0 or recorded FINDING",
+      "outside": "any nonlocal coefficient on a structure outside the 3D family (P1, P0w, Xws, or new), including on-shell-only vanishings",
+      "sub_record_Q1b": "mandatory if X_sw coefficient != 0: its (omega-parity, H-parity) decomposition and H -> 0 behaviour (closure-test interpretive frame)"
+    },
+    {
+      "id": "Q2",
+      "quantity": "a(eta)-weighted time integrals on the a^2 and a^4 channels",
+      "inside": "bookkeeping; per-channel convergence declared",
+      "outside": "ill-defined channel after declared regularisation -- FINDING, not ad-hoc regularised"
+    },
+    {
+      "id": "Q3",
+      "quantity": "convergence-boundary diagnostic Re chi(0) = (2/pi) int Im chi(w')/w' dw'; spectral class s",
+      "inside": "s >= 2 convergent",
+      "outside": "s <= 1 divergent -- reported as found; BLIND to register preference",
+      "intermediate": "1 < s < 2: INTERMEDIATE -- neither criterion covers it; reported as its own finding, never rounded"
+    },
+    {
+      "id": "Q4",
+      "quantity": "reciprocity/detailed-balance diagnostic on the COMPUTED kernel",
+      "inside": "holds => equilibrium regime established => 2D closure reduction licensed",
+      "outside": "fails => family stays honestly 3D for this state; (ii) answered NEGATIVE",
+      "predicate": "the PROPER Onsager-Casimir test of the countersigned closure instrument (eps-signature-corrected slot exchange; H treated as T-ODD) -- NOT naive slot symmetry; implementation cites wall_a_closure_premises.py / second_author_closure_premises.py (F6)"
+    },
+    {
+      "id": "Q5",
+      "quantity": "flat-limit reduction of Pi_nonlocal: H -> 0 per channel (CHECKER-ADDED F4)",
+      "inside": "limit exists per-channel and its decomposition onto the FLAT 3D family matches Q1",
+      "outside": "limit fails / does not commute with decomposition (IR obstruction) -- FINDING; the booked +1 UNDISCHARGEABLE via this route"
+    }
+  ],
+  "blind_rules": [
+    "local counterterm contributions listed per-term against frozen basis; EXCLUDED from placement verdicts",
+    "comparison with registered J(omega) only in the separate post-assembly artifact, after Q1-Q4 verdicts recorded",
+    "anomalies diagnosed before reported; defects disclosed on the artifact face"
+  ],
+  "a4_dual_gauge_protocol": {
+    "slot": "after A3 freeze, BEFORE Sigma_R^TT assembly",
+    "second_gauge": "synchronous: delta g_00 = delta g_0i = 0. CHECKER-CORRECTED (F3): the draft's residual condition d_0(h_0i/a^2)=0 conditioned a component synchronous gauge sets IDENTICALLY to zero (vacuous). Genuine residual freedom: xi^0 = C(x)/a(eta) plus time-independent spatial reparametrisations; fixed by requiring the synchronous coordinates coincide with the unfixed-computation coordinates asymptotically as eta -> -infty (BD asymptotic region)",
+    "compared": [
+      "Gamma^TT-level objects and discard bookkeeping (orbit-reconciled)",
+      "Pi_nonlocal^invariant (exact symbolic equality after transformation)",
+      "Q1 placement verdict and Q3 convergence class (identical verdict strings)"
+    ],
+    "not_required_equal": "local^scheme parts -- must differ only by the declared gauge transformation of the frozen counterterm basis (checked against the basis list)",
+    "failure_handling": "any mismatch is a FINDING blocking Sigma_R^TT assembly until resolved",
+    "first_computation": "CHECKER-CORRECTED (F3): gauge-UNFIXED (A1's full untruncated h, orbit-tracked) -- NOT de Donder; the comparison is unfixed vs synchronous, the stronger test"
+  },
+  "second_author_targets": [
+    "D1 local/nonlocal split auditability -- exact predicate of the term-by-term check",
+    "D2 BD != equilibrium fence -- no clause lets BD stand in for KMS response",
+    "D3 barred-inputs guard executability -- leak-path audit (indirect imports, renamed symbols, copied constants)",
+    "D4 blind criteria completeness -- any unregistered assembly quantity must be added BEFORE freeze",
+    "D5 A4 freeze completeness -- every gauge-dependent quantity classified local^scheme or required-equal",
+    "D1 prohibition teeth -- audit every selection-criterion sentence for spectral language"
+  ],
+  "plus_one_discharge_map": {
+    "node": "response_lorentz_covariance (+1, booked 2026-08-24)",
+    "dischargeable_only_by": "Q1 INSIDE and Q5 INSIDE",
+    "non_voters": "Q3 and Q4 answer (iii) and (ii); they do NOT vote on the +1",
+    "rule": "any discharge claim citing other evidence is invalid; discharge itself remains an owner ruling at the bank gate -- this map fixes what evidence could support one"
+  },
+  "checker_review": {
+    "date": "2026-08-25",
+    "verdict": "SEVEN FINDINGS, all patched in place, disclosed",
+    "findings": [
+      "F1 split-predicate variables wrong (would misclassify log(m/mu) local terms)",
+      "F2 renormalisation conditions missing (1b had only the basis) -> MINIMAL SUBTRACTION declared",
+      "F3 A4 synchronous-gauge spec internally inconsistent (vacuous residual condition; de Donder misdescription)",
+      "F4 blind gaps: Q5 flat limit + Q1b parity sub-record + Q3 intermediate class + the +1 discharge map",
+      "F5 barred-guard leaks: G1 Ohmic plant file absent from list; no transitive-import scan; no content-hash; no numeric-fingerprint audit",
+      "F6 Q4 predicate unpinned (naive-reciprocity trap the closure review exhibited)",
+      "F7 scheme dS-invariance could leak into the (i) verdict -- non-citation clause added"
+    ]
+  }
+}
