@@ -1550,3 +1550,25 @@ Fix identified but requires next session: numeric-only residual evaluation (no g
 symbolic simplify), substituting rational parameter values before differentiation.
 The approach avoids the sympy wall entirely while still measuring O((H/M)^4).
 No register edits. W-0 throughout. No result claimed beyond Parts A-B.
+
+### 2026-08-25 · Owner review · THREE CONCRETE BUGS — Parts A–C RECLASSIFIED AS UNVERIFIED
+
+Owner inspected wall_d2_phase2.py and found three bugs that would invalidate the
+numerical test even after the performance wall is bypassed:
+
+BUG 1 — W2 MISSING OMEGA FACTOR: code implements -Omega_ddot/(4*sqrt(Q)) but
+Riccati requires -Omega_ddot/(4*Q). Correct derived result:
+    W2 = H^2*P*(5P - 4Q) / (8 Q^(5/2))
+    equivalently -H^2*P/(2*Q^(3/2)) + 5*H^2*P^2/(8*Q^(5/2)).
+
+BUG 2 — RESIDUAL DERIVATIVES IGNORE W2 DERIVATIVES: numeric code differentiates
+only Omega after adding W2, so the residual does not test the corrected mode.
+
+BUG 3 — math imported after use in H-refinement loop.
+
+CONSEQUENCE: Parts A-C reclassified as UNVERIFIED. The sympy performance wall
+was real but masked these mathematical defects from surfacing as wrong numbers.
+
+NEXT SESSION: repair all three, re-derive from Riccati with executable algebra,
+verify symbolically, then measure residual scaling. Target unchanged: O((H/M)^4).
+W-0 throughout; register untouched.
