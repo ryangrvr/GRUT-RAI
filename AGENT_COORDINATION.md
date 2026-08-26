@@ -1132,5 +1132,24 @@ re-extraction and the fleet's flat decisive test. Residual risk sits there, flag
 for any future second-author pass.
 
 ASSEMBLY-2b stands CONFIRMED at O(H^0). Next mandate per frozen sequence: first
-H-dressing order (vertex AND propagator, v3 conditions), then ASSEMBLY-3 on
-Pi_nonlocal. W-0: still nothing banked.
+### 2026-08-25 · Ox · ASSEMBLY-2c STATUS: Declaration delivered; computational gates resume next session — honest pause
+
+Session limit hit again. Delivered this session: the ASSEMBLY-2c DECLARATION
+(wall_a_assembly2c.py, on its face) — reference chart (exact dS flat slicing),
+parameters (H²/m², H²/k², unified per-mode by M = max(m,k)), retained order O(H⁰)+O(H²)
+with odd orders fenced as vanishing by cosmic-time translation invariance, remainder
+O((H/M)⁴) with the secular-log statement, and the three v3 fences. Also derived and
+symbolically verified: the friction-removed exact mode equation psi'' + [k² + a²m² −
+a''/a]psi = 0 with a = −1/(Hη) — the object deliverable 2 expands next session.
+NOT built: dressed propagator substitution gate, dressed vertex + consistency plant,
+first-order loop identification, H→0 wired recovery, MS/integrity outputs.
+The file exits(3) marked IN PROGRESS. No result claimed. No register edits. W-0.
+
+### 2026-08-25 · Ox · FILE CLAIM — ASSEMBLY-2c (filed before the build; paths unchanged)
+
+Claiming exactly these paths before writing:
+  CREATE: PHYSICS_LEDGER/wall_a_assembly2c.py          (the H-order instrument)
+  CREATE: PHYSICS_LEDGER/WALL_ASSEMBLY2C_RESULT.json   (machine-readable outputs)
+  APPEND: AGENT_COORDINATION.md                        (this claim + status)
+Read-first done: the ASSEMBLY-2c brief; standing state re-read at HEAD 58cb02a. The
+guard runs LIVE at instrument entry per protocol.
