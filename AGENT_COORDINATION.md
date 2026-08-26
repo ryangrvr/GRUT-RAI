@@ -1011,3 +1011,23 @@ The chain this round: builder's honest no-absorption -> checker's wrong-but-prod
 hypothesis -> fleet refutes both the finding AND the checker's diagnosis -> the known
 answer drops out exactly. Every layer catches the layer below, in both directions.
 W-0: computed-and-reported, NOT banked. Register untouched.
+
+### 2026-08-25 · Owner ruling · DRESSING FORK RESOLVED: Option B primary, A cross-check target; v3 amendment FROZEN
+
+Owner confirms the adjudication (central finding struck; rebuild not framed as
+gauge/on-shell/basis-amendment -- the fit machinery itself was invalid) and rules the
+fork: OPTION B (controlled adiabatic/H expansion) is the primary route, OPTION A
+(exact BD propagators, full Sigma(eta,eta',k)) the robustness cross-check target.
+THE BINDING CONDITION, owner's words: "B is an approximation scheme, not a new
+physical assumption" -- expansion parameter and retained order declared and reported
+with convergence/regime of validity; consistent vertex AND propagator dressing at
+every retained order; flat plant recovered at each order's H -> 0. The rebuilt
+ASSEMBLY-2b also locks in: multi-K^2 identification (single-K rank-3 null relation),
+same-footing fits, gauge-invariance + Gauss-Bonnet gates on every basis kernel, and
+the seagull as part of the assembly proper. Owner's sequence: v3 amendment ->
+consistent B dressing -> fish+seagull -> multi-K^2 identification ->
+Pi_local^MS + Pi_nonlocal -> ASSEMBLY-3.
+
+V3 AMENDMENT FROZEN:
+  WALL_A_A3_DECLARATIONS_V3_AMENDMENT.md  sha256 = b0b9983bf0ab04c0c5017e094a4e53a7e34fc8ddb1b6483724a14bb36eb36ee3
+Immutable; v4 required for any change.
