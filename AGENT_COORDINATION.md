@@ -1572,3 +1572,13 @@ was real but masked these mathematical defects from surfacing as wrong numbers.
 NEXT SESSION: repair all three, re-derive from Riccati with executable algebra,
 verify symbolically, then measure residual scaling. Target unchanged: O((H/M)^4).
 W-0 throughout; register untouched.
+
+### 2026-08-25 · Owner · FULL D2-R1 FINAL PUSH DIRECTIVE RECEIVED AND PINNED
+
+The complete 14-step execution directive is preserved in the owner's message and
+pinned as binding for next session. Key structural changes from prior attempts:
+epsilon^2-cancellation test as fastest hard gate BEFORE numerical sweeps; W2
+derivatives of corrected W (not Omega alone); matched-order plant mechanically
+wired; formal adiabatic bookkeeping parameter epsilon for H-parity proof.
+No file created or edited beyond this log entry. Nothing banked. Next session
+opens at Step 0 (clean start / file claim).
