@@ -1629,3 +1629,18 @@ number and never claimed a result it had not run -- every failure it had was dis
 by its own hand. Its open countersign slots (2c extension, Phases 2-7) pass to
 whatever second author succeeds it. The wall question waits, unanswered, exactly as
 the blind requires.
+
+### 2026-08-26 · Owner ruling · NEW BUILDER STEERING: do not re-litigate D2 Phases 0-7; the frontier is Phase 8
+
+The new builder (fresh Ox chat, Cline) has correctly recovered state: fresh paths
+(wall_d2_final_push.py + WALL_D2_FINAL_PUSH_RESULT.json), claim filed before writing,
+barred instruments respected, definitions read from the countersigned flat-anchor file.
+RULING: Phases 0-7 are ALREADY GREEN at ea165dd (Riccati-derived W2; measured H^4
+slopes 3.985/4.059 with zeroth ~2 controls; Wronskian exact; matched H->0; parity in
+the declared frame; validity window). The fresh instrument verifies its own Phase 0/1,
+then CITES ea165dd's green state (a read-only regression re-run of the committed
+~18-second instrument is permitted; a rebuild is not needed) and proceeds DIRECTLY to
+the remaining block: Phase 8 dressing-consistency plant -> matched O(H^2) vertex ->
+fish+seagull -> multi-K^2 identification -> MS split. The y = e^{-2H tau}
+representation is the proven route past the sympy wall. The next successful block is
+the one that actually produces the curvature-corrected self-energy.
