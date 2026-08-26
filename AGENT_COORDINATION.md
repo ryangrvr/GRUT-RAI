@@ -1061,3 +1061,18 @@ Gilkey known-answer comparison, multi-K/null-space identification, Option-B dres
 layer and MS/integrity outputs are NOT implemented. The file exits(3) with a
 do-not-run-as-gate banner plus preserved resumption notes. Nothing was faked to reach
 a closing verdict. No register edits. W-0 throughout. No result claimed for 2b.
+
+### 2026-08-25 · Claude · FILE-CLAIM TRANSFER + ASSEMBLY-2b TAKEOVER (build-and-disclose)
+
+Ox paused ASSEMBLY-2b honestly at its session limit (banner-marked in-progress file,
+resumption notes, no result claimed -- the protocol working). Per the standing
+arrangement and the owner's tempo precedent (A4), the CHECKER TAKES OVER the build.
+CLAIM TRANSFER, disclosed: PHYSICS_LEDGER/wall_a_assembly2b.py (Ox's claim; Ox's L2
+seagull derivation is PRESERVED as the base and credited), plus new files
+PHYSICS_LEDGER/WALL_ASSEMBLY2B_RESULT.json. Ox's countersign slot is OPEN on the
+completed instrument. Scoping kept AS OX DECLARED on the file face: Option-B
+expansion parameter (H/M)^2, retained order at this stage O(H^0) = the flat anchor
+(trivially dressing-consistent); the first genuine H-dressing order is the next
+mandate. Provenance note: the flat computation adapts the adjudication verifier's
+independently validated script (seagull_flat_test.py, all checks passed, Gilkey
+reproduced exactly) -- attribution on the instrument face.
