@@ -48,6 +48,7 @@ DELIVERABLES 2-5 -- NOT YET BUILT (next session under this same file claim)
   HARD STOP after outputs: no Q1-Q5, no J(omega), no PV, no second-gauge comparison,
   no spectral interpretation of H-corrections.
 """
+
 import os
 import sys
 
@@ -63,10 +64,7 @@ def check(cond, msg):
         FAIL.append(msg)
     return ok
 
-# =====================================================================================
-# DELIVERABLE 1.5 -- THE H-PARITY GATE (owner-directed: PROVE odd orders vanish;
-# a symmetry label is not a derivation)
-# =====================================================================================
+
 Hh, et, kk, mm = sp.symbols('H eta k m', positive=True)
 aa = -1 / (Hh * et)
 
@@ -103,27 +101,65 @@ print("   |k| = m; the expansion is PER MODE WITHIN A REGIME (mass-controlled or
 print("   mode-controlled), NOT globally uniform in k. No cross-regime matching is")
 print("   claimed at this stage.")
 
-print("   M-FENCE AMENDED: M = max(m,|k|) is per-mode bookkeeping, NONANALYTIC across")
-# D2 CALIBRATION -- reference-time/parity toy test (owner-directed first D2 action)
-# Question: does the eta_0-expanded scheme produce odd-H pieces, or is that a
-# variable-choice artifact? Tested on omega^2 = k^2 + (m^2/H^2 - 2)/eta^2.
-# =====================================================================================
-d0 = sp.Symbol('delta', real=True)
-eta0 = sp.Symbol('eta0', positive=True)
-om2_exact_toy = kk**2 + (mm**2 / Hh**2 - 2) / et**2
 
-F_series = sp.expand(sp.series(om2_exact_toy.subs(et, eta0 + d0), d0, 0, 4).removeO())
-par_bad = sp.simplify(F_series.subs(Hh, -Hh) - F_series)
-check(par_bad == 0,
-      "TOY RESULT (1): the eta_0-Taylor series of omega^2 is EXACTLY EVEN in H "
-      "(fixed eta-geometry) -- every coefficient carries only 1/H^2-type factors")
-b1 = sp.simplify(sp.expand(F_series).coeff(d0, 1))
+
+print("\n=== D2-1a: SUBSTITUTED EOM RESIDUAL ===")
+tt = sp.Symbol('t', real=True)                      # cosmic time, dt = a d(eta)
+omm2 = kk**2 * sp.exp(-2 * Hh * tt) + mm**2 - sp.Rational(9, 4) * Hh**2
+omm = sp.sqrt(omm2)                                 # friction-free route u = a^{3/2} phi
+# WKB ansatz u = exp(i*int omm dt)/sqrt(omm). Logarithmic derivative:
+#   u'/u = i*omm - omm'/(2*omm)  =>  u''/u + omm^2 = -omm''/(2*omm) + 3 omm'^2/(4 omm^2)
+L = sp.I * omm - sp.diff(omm, tt) / (2 * omm)
+RR_per_u = sp.simplify(sp.diff(L, tt) + L**2 + omm2)
+RR_factored = sp.factor(sp.together(RR_per_u))
+print("   residual per unit u (EXACT):")
+print("     R/u =", RR_factored)
+
+# H-scaling measured numerically across the per-mode regime (k-dominated branch)
+print("   H-scaling measurement (k=10, m=1, t=0):")
+prev = None
+measured_ratios = []
+for hv in (sp.Rational(1, 2), sp.Rational(1, 4), sp.Rational(1, 8)):
+    subsd = {kk: 10, mm: 1, Hh: hv, tt: 0}
+    rnum = float(sp.N(RR_per_u.subs(subsd), 20))
+    rel = abs(rnum) / om2num if (om2num := float(sp.N(omm2.subs(subsd), 20))) else 0
+    if prev is not None:
+        measured_ratios.append(rel / prev)
+        print(f"      H={float(hv):.4f}: |R|/(w^2|u|) = {rel:.6e}   "
+              f"ratio vs previous H = {rel / prev:.4f}")
+    else:
+        print(f"      H={float(hv):.4f}: |R|/(w^2|u|) = {rel:.6e}")
+    prev = rel
+check(all(abs(rr - 0.25) < 0.05 for rr in measured_ratios),
+      f"H-scaling MEASURED: residual halves-quadratically (ratios "
+      f"{[round(r, 3) for r in measured_ratios]}) => relative residual is "
+      f"O((H/M)^2), NOT O((H/M)^4)")
+
+# =====================================================================================
+# VERDICT AGAINST THE DECLARATION -- computed result, reported as found
+# =====================================================================================
+print("\n=== D2-1a VERDICT AGAINST THE DECLARED REMAINDER ===")
+print("""   DECLARATION (this file's Deliverable 1) claimed remainder O((H/M)^4).
+   COMPUTED: the first-order WKB residual per unit u scales as O(H^2/M^2)
+   RELATIVE to omega^2 -- one power of H^2 BETTER than naive, but TWO powers
+   SHORT of the declared O((H/M)^4). Concretely (k-dominated branch):
+   |R|/(omega^2|u|) ~ (3/4)(H/k)^2, halving H quarters it -- measured above.
+   PER THE BRIEF'S OWN RULE ('report the symbolic residual... demonstrate the
+   claimed next-order remainder'), THIS IS A FAILURE OF THE DECLARATION, NOT A
+   PASS. Two honest repairs exist and neither may be chosen silently:
+     (R1) retain the SECOND-order WKB correction (chi_1 term), whose residual is
+          O(H^4)-relative -- the standard adiabatic improvement; or
+     (R2) amend the Declaration's remainder to O((H/M)^2) via a superseding
+          amendment, accepting first-order accuracy for the pole extraction.
+   Per the standing rule (STOP on any failure; forks are findings), D2-1 HALTS
+   HERE without certifying the dressed propagator.""")
 check(True,
-      f"TOY RESULT (2): the O(delta) coefficient {sp.factor(b1)} is H-EVEN; rewritten "
-      "via the cosmic increment dt0 = a0*delta it ACQUIRES an explicit 1/H -- the "
-      "apparent linear-in-H piece is a VARIABLE-CHOICE artifact (classification 1 of "
-      "the owner's hard-stop rule), not scheme physics")
-print("   CONSEQUENCE FOR D2: the declared expansion variable is delta = eta - eta_0")
-print("   at fixed eta-geometry; parity then holds ORDER BY ORDER, and the fifth gate")
-print("   tests exactly this on the assembled objects.")
-sys.exit(0 if not FAIL else 1)
+      "D2-1a FINDING (computed): residual is O((H/M)^2)-RELATIVE, refuting "
+      "Deliverable-1's declared O((H/M)^4) remainder -- per the brief's own rule "
+      "this is a failure of the declaration, not a pass; D2-1 HALTS here and the "
+      "repair fork (R1 second-order WKB vs R2 amended remainder) goes to the "
+      "checker/owner")
+
+print("\nD2-1 HALTED per the brief: computed residual refutes the declared "
+      "O((H/M)^4) remainder; fork R1/R2 goes to the checker/owner.")
+sys.exit(1)
