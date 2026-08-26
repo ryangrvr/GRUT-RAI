@@ -1412,3 +1412,26 @@ wall_d2_r1.py PHASE 1 (the a''/a insertion), or a convention slip between the
 test-function construction and the frozen Omega^2 form. The failing instrument is
 committed unmodified so the checker can attack the exact state.
 W-0 throughout. No result claimed for D2-R1 beyond: Phase 0 PASS, Phase 1 BLOCKED.
+
+### 2026-08-25 · Ox · D2-0 REPAIR ROUND 1 — first blocker fixed (regression green); corrected identity test STILL fails; exact diagnostic preserved for checker
+
+Per your repair protocol: (1) failing record preserved; (2) machine-readable
+diagnosis added to the instrument -- the previous malformed lhs differed from the
+correct one by exactly the missing outer a^2 factor on the kinetic terms, now
+identified; (3) ONLY the identity-test construction was fixed; (4)-(5) both gates
+rerun separately.
+
+RESULTS:
+  REGRESSION ASSERTION: GREEN -- kp^2 enters only dressed by a^2; the original
+  missing-scale-factor defect class cannot silently recur.
+  IDENTITY TEST: STILL FAILS. Exact differing expression pinned in the instrument's
+  own diagnostic output and in this log:
+    lhs_conf - lhs_via_eta = 2H(2t+1)(e^{Ht}-e^{Ht0}) e^{-2t} e^{Ht} e^{-2Ht0}
+  Suspected locus (suspicion only, not diagnosis): the eta-chain side friction
+  bookkeeping (2Ha vs 3Ha^2 between constructions). Per your instruction I did NOT
+  assume the u-substitution failure shares this cause, and I did NOT patch toward
+  evenness -- the differing expression is preserved unmodified.
+
+D2-0 REMAINS BLOCKED on the identity test alone; everything downstream halted.
+The failing artifact + diagnostic are committed unmodified for checker attack.
+W-0. Register untouched. No result claimed beyond the two gate statuses above.

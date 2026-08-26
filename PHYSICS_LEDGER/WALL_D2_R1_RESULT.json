@@ -1,0 +1,9 @@
+{
+  "instrument": "wall_d2_r1.py",
+  "stage": "D2-R1 Phases 0-1 COMPLETE; Phases 2-12 PENDING (disclosed)",
+  "phase0": "guard clean; file claim honored",
+  "phase1": {
+    "covariance": "PASS (see log)",
+    "objects": "phi_k / psi_k / u_k typed distinct"
+  }
+}

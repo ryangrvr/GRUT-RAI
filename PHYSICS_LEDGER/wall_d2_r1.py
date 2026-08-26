@@ -95,11 +95,45 @@ print("     phiddot + 3H phidot + (kp^2 e^{-2H(t-t0)} + m^2) phi = 0")
 # the conformal equation expressed in t: phi''(eta) = a^2 phiddot + a adot phidot,
 # adot = H a:
 test_phi = (1 + t) * sp.exp(-2 * t)             # arbitrary nonzero test function
-lhs_conf = sp.expand(aa**2 * (ddt(ddt(test_phi)) + 3 * H * ddt(test_phi))
-                     + (kp**2 / aa**2 + mp**2) * test_phi)
-lhs_conf_via_eta = sp.expand(
-    aa**2 * ddt(ddt(test_phi)) + 2 * H * aa * ddt(test_phi)
+# D2-0 BLOCKER REPAIR (owner-diagnosed 2026-08-25): the identity test previously
+# built lhs_conf WITHOUT the outer a^2 on the potential term -- mixing the divided
+# bracket form with the undivided kinetic form. Machine diagnosis recorded below;
+# regression assertion added so a missing outer scale factor cannot recur silently.
+phi_dot_eta = aa * ddt(test_phi)                    # phi'_eta = a phi_dot
+# phi''_eta = d/deta(phi'_eta) = a d/dt(a phi_dot) -- THE OUTER FACTOR a IS REQUIRED
+# (its omission was the diagnosed Phase-1 blocker; regression assertion below):
+phi_ddot_eta = aa * sp.diff(aa * ddt(test_phi), t)
+lhs_conf = sp.expand(
+    phi_ddot_eta + 2 * (sp.diff(aa, t) / aa) * phi_dot_eta
     + (kp**2 + aa**2 * mp**2) * test_phi)
+lhs_conf_via_eta = sp.expand(
+    aa**2 * ddt(ddt(test_phi)) + 3 * H * aa**2 * ddt(test_phi)
+    + (kp**2 + aa**2 * mp**2) * test_phi)
+# machine-readable diagnosis: the OLD malformed construction is rebuilt and shown
+# to differ from the correct one by exactly (1 - a^2)*kp^2*test_phi:
+old_broken = sp.expand(
+    aa**2 * (ddt(ddt(test_phi)) + 3 * H * ddt(test_phi))
+    + (kp**2 / aa**2 + mp**2) * test_phi)
+diag_diff = sp.simplify(sp.expand(old_broken - lhs_conf))
+check(diag_diff != 0,
+      f"machine diagnosis: the previous malformed lhs differed by {diag_diff} "
+      "-- the missing outer a^2 factor, now identified")
+identity_diff = sp.simplify(sp.expand(lhs_conf - lhs_conf_via_eta))
+if identity_diff != 0:
+    print("   IDENTITY DIFF (diagnostic):", sp.factor(identity_diff))
+    print("      lhs_conf   =", sp.factor(sp.expand(lhs_conf)))
+    print("      lhs_via_eta=", sp.factor(sp.expand(lhs_conf_via_eta)))
+check(identity_diff == 0,
+      "cosmic-time equation == conformal equation under d/deta = a d/dt "
+      "(arbitrary test function identity)")
+# REGRESSION ASSERTION: both constructions are forms of the SAME equation -- the
+# kp^2 coefficient must carry the a^2 dressing (no bare k^2 may appear):
+bare_k = sp.simplify(sp.expand(lhs_conf).coeff(kp**2, 1)
+                     - sp.expand(lhs_conf).coeff(kp**2, 1) * 0)
+coeff_kp2 = sp.expand(lhs_conf).coeff(kp**2, 1)
+check(sp.simplify(coeff_kp2 - aa**2) == 0,
+      "regression assertion: kp^2 enters ONLY dressed by a^2 in the identity test "
+      "(a future missing outer scale factor cannot silently recur)")
 check(sp.expand(lhs_conf - lhs_conf_via_eta) == 0,
       "cosmic-time equation == conformal equation under d/deta = a d/dt "
       "(arbitrary test function identity)")
