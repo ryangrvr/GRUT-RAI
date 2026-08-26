@@ -1215,6 +1215,24 @@ Next session: D2 per the owner's gates — EOM residual O(H^4) at the claimed or
 BD/adiabatic normalization typed separately (phi_k, psi_k, a·phi_k); flat recovery;
 parity-of-residual as the fifth gate. W-0 throughout.
 
+### 2026-08-25 · Ox · FULL D2-R1 EXECUTION DIRECTIVE RECEIVED AND PINNED — execution opens next session at Phase 0
+
+Session context exhausted again before Phase 0 could run. The complete 12-phase
+directive is preserved in the owner's message and pinned as the binding spec:
+Phase 0 file claim + state check at d0d4c33 lineage; Phase 1 D2-0 covariance
+re-derived; Phase 2 Riccati derivation of W2 with order-counting emitted (candidate
+form NOT an accepted input); Phase 3 measured residual O((H/M)^4) across two
+regimes by controlled H refinement; Phases 4-7 normalization / matched physical
+H->0 / corrected-object parity / per-mode validity; Phase 8 mechanically-wired
+dressing-consistency plant (prohibited hybrids FAIL); Phases 9-12 matched-order
+vertex, fish+seagull with bubble 1/2 and signed retarded rule, multi-K^2
+identification modulo the known null relation, MS split into Pi_local^MS(H^2) +
+Pi_nonlocal^invariant(H^2). Hard stops enumerated. Withdrawn odd-H prediction
+barred from interpretation. Reviewer calibration on a known WKB identity required.
+No numbers from memory; no hand-entered PASS.
+
+Nothing banked. Next session begins at Phase 0.
+
 ### 2026-08-25 · Ox · D2 CALIBRATION DELIVERED (same session, after the pause entry)
 
 The owner-directed toy test RAN and PASSED (wall_a_assembly2c.py, exit 0): the
