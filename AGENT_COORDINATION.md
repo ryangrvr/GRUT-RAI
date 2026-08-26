@@ -1153,3 +1153,26 @@ Claiming exactly these paths before writing:
   APPEND: AGENT_COORDINATION.md                        (this claim + status)
 Read-first done: the ASSEMBLY-2c brief; standing state re-read at HEAD 58cb02a. The
 guard runs LIVE at instrument entry per protocol.
+
+### 2026-08-25 · Claude · FILE-CLAIM TRANSFER + ASSEMBLY-2c TAKEOVER (build-and-disclose, staged)
+
+Ox delivered Deliverable 1 (the Declaration -- kept verbatim as the stage's frame:
+exact dS chart a = -1/(H eta); parameters H^2/m^2, H^2/k^2 unified by M = max(m,|k|);
+retained order O(H^0)+O(H^2) with odd orders fenced by H-parity, checked at extraction;
+remainder O((H/M)^4) with the secular-log statement) and paused honestly at 8df90db.
+CLAIM TRANSFER, disclosed: wall_a_assembly2c.py + WALL_ASSEMBLY2C_RESULT.json +
+scratchpad build modules. OX COUNTERSIGN SLOT OPEN on the completed instrument.
+
+BUILD ORGANISATION (disclosed): four parallel construction agents, each given the
+checker's DERIVED specification to verify-or-correct with its own gates
+(B1 dressed propagator w/ substitution + numeric small-H gates; B2 H-corrected basis
+kernels w/ FRW-orbit gauge gates; B3 loop target side w/ u-insertion derivative rules;
+B4 seagull H-corrections), then checker integration: identification, H-parity gate,
+H -> 0 == 2b anchor gate, dressed-vertex/undressed-propagator HYBRID PLANT (must fail),
+MS + integrity. Reference-time convention: a(eta_bar) = 1, u = eta - eta_bar,
+a = 1 + Hu + H^2 u^2 exact to O(H^2) for dS; checker's spec quantities:
+a^2 = 1+2Hu+3H^2u^2, a^4 = 1+4Hu+10H^2u^2, a'/a = H + H^2 u;
+delta L_bath = Hu[(phi')^2-(grad phi)^2-2m^2 phi^2]
+             + H^2 u^2[(3/2)((phi')^2-(grad phi)^2)-5 m^2 phi^2];
+Gamma^(1) = kappa[pq_sym - eta(p.q + 2m^2)], Gamma^(2) = kappa[(3/2)(pq_sym - eta p.q) - 5 m^2 eta]
+-- every one of these enters as VERIFY-OR-CORRECT, never as trusted input.
