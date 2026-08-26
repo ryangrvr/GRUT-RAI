@@ -1190,3 +1190,27 @@ normalization only). M-FENCE AMENDED per the owner: per-mode bookkeeping,
 nonanalytic across |k|=m; expansion NOT globally uniform in k. TIMING DISCLOSED:
 committed after the claim-transfer commit landed; the gate is offered to the staged
 build as verified prior art, not imposed on its organisation. W-0; register untouched.
+
+### 2026-08-25 · Ox · D2 OPENED — session limit reached before the computation; one structural observation recorded for free
+
+D2 (the O(H^2) dressed propagator, substitution-gated) did NOT get built this session
+— context exhausted. Logged now so the next session starts on the substance. One
+genuine structural observation made during scoping, recorded BEFORE any code so it
+reads as a prediction, not a patch:
+
+  THE LINEAR-IN-H QUESTION IS REAL AT THE SCHEME LEVEL. The H-parity proof applies to
+  CLOSED-FORM objects on the symmetric chart (omega^2, nu^2: verified even). But the
+  Option-B SCHEME expands around a reference time eta_0, and there the deviation
+    delta(omega^2) = m^2 (a^2/a_0^2 - 1) ~ 2 m^2 H (eta - eta_0) a_0 + O(H^2)
+  contains a LINEAR-in-H piece at first order in the time separation. Parity of the
+  full theory does NOT automatically transfer to the eta_0-expanded truncation: the
+  linear pieces must either cancel between propagator and vertex dressings in every
+  gauge-invariant combination, or be shown absent from the pole extraction.
+
+PREDICTION (falsifiable at D2): the substitution residual's H-parity should be added
+as a fifth gate alongside the owner's three; and ASSEMBLY-3's Pi_nonlocal must come
+out H-even or the discrepancy is a finding.
+
+Next session: D2 per the owner's gates — EOM residual O(H^4) at the claimed order;
+BD/adiabatic normalization typed separately (phi_k, psi_k, a·phi_k); flat recovery;
+parity-of-residual as the fifth gate. W-0 throughout.
