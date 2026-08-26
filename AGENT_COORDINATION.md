@@ -939,3 +939,75 @@ Second-author targets, load-bearing first: (1) independently re-derive ONE pole
 family end-to-end (m^4 Ksq^0) and confirm consistent=False is physics not instrument;
 (2) audit the quartic master against a textbook heat-kernel coefficient; (3) re-run
 the I1 Gaussian adjudication; (4) verify the a-power table; (5) guard leak-path audit.
+
+### 2026-08-25 · Claude · ADJUDICATION OF THE ASSEMBLY-2 CENTRAL FINDING: ARTIFACT -- struck; rebuild ordered; one genuine physics fork extracted for owner ruling
+
+Two independent verifiers (flat decisive test at high effort + full extraction audit),
+plus byte-level reproduction. THE RULING:
+
+1. THE CENTRAL FINDING ("no pole family fits the frozen basis") IS AN ARTIFACT of the
+   identification stage -- struck. Two independent, individually sufficient defects:
+   (A) CATEGORY ERROR: identify() compares a target carrying SYMBOLIC K0..K3/Ksq
+       against basis kernels evaluated at NUMERIC k -- proven fatal by a planted test:
+       the instrument's own EH kernel, built with symbolic K, is REJECTED by its own
+       fit. (B) FOUR OF FIVE basis kernels are corrupted (Lambda diagonal sign-flip in
+       quad_matrix; Euclidean plain-sum traces where eta-traces belong; missing eta
+       contractions in R_mn^2; only EH correct).
+2. THE EXTRACTION ARITHMETIC IS SOUND: pole masters verified single-order from Gamma
+   closed forms (the self-caught quartic fix 6*Delta^2/(d(d+2)) is CORRECT); an
+   independently written extractor reproduces all 256 components exactly.
+3. CORRECTED IDENTIFICATION, flat layer: the fish-only poles fit the frozen basis in
+   EVERY family -- m^0 -> (14/15)EH + (4/15)R^2 (mod null directions), m^2 -> (4/3)EH,
+   m^4 -> -8 Lambda: the heat-kernel operator pattern. None of the three candidate
+   diagnoses (gauge artifacts / on-shell projection / new counterterm structure) is
+   needed at the flat layer.
+4. THE CHECKER'S OWN HYPOTHESIS HALF-REFUTED (recorded against the checker): the
+   seagull (O(kappa^2) hh-phiphi tadpole) is real, K-independent, pure m^4 -- REQUIRED
+   for the Lambda-coefficient VALUE and Ward consistency -- but "only the SUM is
+   covariantly organisable" is FALSE at flat level: the flat seagull pole is itself
+   covariant, so fish-alone also fits (Lambda coefficient sign flips). CROWN RESULT of
+   the flat test: fish + seagull reproduces the Gilkey / 't Hooft-Veltman minimal-
+   scalar divergence EXACTLY -- {m^4/2, m^2 R/6, R^2/120, R_mn^2/60}/(16 pi^2 eps),
+   joint fit over two K^2 samples, zero residual on all 200 components, held-out third
+   K reproduced with no refit -- validating the ENTIRE vertex/normalisation chain
+   (A1 vertex, bubble 1/2, signed rule) against the known answer.
+5. THE 64/256 "VERTEX-EXCHANGE ASYMMETRY" IS A CHECK-CODE BUG: sympy dict .subs swaps
+   a1<->a2 SEQUENTIALLY and collapses both to one symbol; with a true simultaneous
+   xreplace, 0/256 violate and N(l -> K-l) == N(l) holds 256/256. The correct gate
+   exists in the file as routing_check() -- NEVER CALLED. The dead-gate class again.
+6. FIT-DESIGN LANDMINE (methodological, binding on the rebuild): at any single K the
+   basis kernels have rank 3, not 4 -- Gauss-Bonnet plus the single-mode identity
+   2 R_mn^2 - R^2 = -K^2 EH. "Unique fit with zero free parameters" is unsatisfiable
+   BY CONSTRUCTION at single K. Identification requires >= 2 distinct K^2 samples (or
+   the basis quotiented by the exact null relations), with uniqueness stated modulo
+   the null space. Also recorded: the (m^2, Ksq)-family split is scrambled by Ksq vs
+   K-components living as independent symbols; MS/integrity gates passed VACUOUSLY
+   (nothing was absorbable, so nothing was subtracted).
+7. THE RESIDUAL KERNEL OF TRUTH -- THE ONE GENUINE PHYSICS ITEM, extracted for OWNER
+   RULING: with ASSEMBLY-1's frozen a-DRESSED vertices (a1^2 = 9/4, a2^2 = 25/16)
+   against UNDRESSED flat propagators, the m^2/m^4 families genuinely do not close --
+   a property of the HYBRID object, which was never physical: FRW-dressed vertices
+   demand FRW-dressed propagators. The frozen D1 scheme ("de Sitter-invariant dimreg
+   ... preserving dS invariance of the regularised two-point functions") implies the
+   consistent object, but HOW to organise it is a fork the declarations do not fix:
+     OPTION A: full de Sitter propagators (exact BD mode functions; Sigma(eta,eta',k)
+               genuinely position-space in time; heavy, exact).
+     OPTION B: adiabatic expansion in H with order-by-order dressing consistency,
+               anchored at each order by the flat known-answer plant, with the exact-dS
+               route as the robustness target.
+   CHECKER RECOMMENDATION: Option B as primary, A as cross-check target. Per the
+   frozen rules the fork goes to the owner; a v3 amendment declaring the organisation
+   would freeze it.
+
+ASSEMBLY-2 IS NOT ACCEPTED. Rebuild ordered (ASSEMBLY-2b) with: same-footing K in the
+fit; correct basis kernels gated by gauge invariance + the GB identity; multi-K fit
+design modulo the null space; the seagull ADDED (L2 derived programmatically; flat
+plant = the full Gilkey coefficient set as a KNOWN-ANSWER gate); the exchange-check
+xreplace fix + routing_check wired; and the dressing fork resolved per owner ruling
+BEFORE any FRW pole identification. The verifiers' own audit-integrity disclosure is
+on record (their first curvature derivation failed GB and was re-derived).
+
+The chain this round: builder's honest no-absorption -> checker's wrong-but-productive
+hypothesis -> fleet refutes both the finding AND the checker's diagnosis -> the known
+answer drops out exactly. Every layer catches the layer below, in both directions.
+W-0: computed-and-reported, NOT banked. Register untouched.
