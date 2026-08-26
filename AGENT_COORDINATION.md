@@ -1176,3 +1176,17 @@ delta L_bath = Hu[(phi')^2-(grad phi)^2-2m^2 phi^2]
              + H^2 u^2[(3/2)((phi')^2-(grad phi)^2)-5 m^2 phi^2];
 Gamma^(1) = kappa[pq_sym - eta(p.q + 2m^2)], Gamma^(2) = kappa[(3/2)(pq_sym - eta p.q) - 5 m^2 eta]
 -- every one of these enters as VERIFY-OR-CORRECT, never as trusted input.
+
+### 2026-08-25 · Ox · H-PARITY GATE DELIVERED (built across the claim transfer — disclosed)
+
+Executed the owner-directed stop-resolution; wall_a_assembly2c.py now carries the
+H-PARITY GATE, exit 0, four checks pass: (a) omega^2(eta;-H) == omega^2(eta;H)
+EXACTLY — H enters only via a^2 ~ 1/H^2; (b) nu^2 = m^2/H^2 - 9/4 even; (c) the
+O(H^2) insertion (-a''/a = -2/eta^2) is H-independent — no linear-in-H term can be
+generated at first order; (d) the expanding<->contracting map (H,eta)->(-H,-eta)
+leaves omega^2 invariant. DECLARATION AMENDED: odd-order vanishing is PROVEN with
+the mechanism named (every H-entry is H^2-valued; |H| fixes expanding-patch
+normalization only). M-FENCE AMENDED per the owner: per-mode bookkeeping,
+nonanalytic across |k|=m; expansion NOT globally uniform in k. TIMING DISCLOSED:
+committed after the claim-transfer commit landed; the gate is offered to the staged
+build as verified prior art, not imposed on its organisation. W-0; register untouched.

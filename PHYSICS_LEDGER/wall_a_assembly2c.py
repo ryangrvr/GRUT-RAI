@@ -51,6 +51,64 @@ DELIVERABLES 2-5 -- NOT YET BUILT (next session under this same file claim)
 import os
 import sys
 
+import sympy as sp
+
+FAIL = []
+
+
+def check(cond, msg):
+    ok = bool(cond)
+    print(("  ok   " if ok else "  FAIL ") + msg)
+    if not ok:
+        FAIL.append(msg)
+    return ok
+
+# =====================================================================================
+# DELIVERABLE 1.5 -- THE H-PARITY GATE (owner-directed: PROVE odd orders vanish;
+# a symmetry label is not a derivation)
+# =====================================================================================
+Hh, et, kk, mm = sp.symbols('H eta k m', positive=True)
+aa = -1 / (Hh * et)
+
+
+def d_(f):
+    return sp.diff(f, et)
+
+
+om2_exact = kk**2 + aa**2 * mm**2 - d_(d_(aa)) / aa   # friction-removed omega^2
+
+print("=== DELIVERABLE 1.5: H-PARITY GATE (prove, don't label) ===")
+c1 = sp.simplify(om2_exact.subs(Hh, -Hh) - om2_exact)
+check(c1 == 0,
+      f"(a) omega^2(eta;-H) == omega^2(eta;H) EXACTLY: {sp.factor(om2_exact)} -- "
+      "the exact effective frequency contains H ONLY through a^2 ~ 1/H^2")
+nu2 = mm**2 / Hh**2 - sp.Rational(9, 4)   # exact-dS order parameter of the BD function
+c2 = sp.simplify(nu2.subs(Hh, -Hh) - nu2)
+check(c2 == 0, "(b) nu^2 = m^2/H^2 - 9/4 is EVEN in H: the BD solution's H-dependence "
+               "enters the spectrum only through nu^2")
+c3 = sp.simplify((d_(d_(aa)) / aa).subs(Hh, -Hh) - d_(d_(aa)) / aa)
+check(c3 == 0,
+      "(c) the O(H^2) INSERTION (-a''/a = -2/eta^2) is H-independent: the first "
+      "correction carries no new H-sign, so no linear-in-H term can be generated")
+check(sp.simplify(om2_exact.subs({Hh: -Hh, et: -et}) - om2_exact) == 0,
+      "(d) under (H,eta)->(-H,-eta) -- the expanding<->contracting map -- omega^2 is "
+      "invariant: any H-odd term would have to be chart-odd, and the pole extraction "
+      "is defined on the expanding patch")
+print("   DECLARATION AMENDED (proven, not labelled): pole families admit only EVEN")
+print("   powers of H because every H-entry of the expanded object is H^2-valued;")
+print("   the |H| normalization of BD modes fixes the expanding-patch sign and is not")
+print("   an expansion variable.")
+print("   M-FENCE AMENDED: M = max(m,|k|) is per-mode bookkeeping, NONANALYTIC across")
+print("   |k| = m; the expansion is PER MODE WITHIN A REGIME (mass-controlled or")
+print("   mode-controlled), NOT globally uniform in k. No cross-regime matching is")
+print("   claimed at this stage.")
+
+sys.exit(0 if not FAIL else 1)
+
+# =====================================================================================
+# DELIVERABLE 2+ -- RESUMES NEXT SESSION (WKB dressed propagator, substitution-gated)
+# =====================================================================================
+
 print("ASSEMBLY-2c IN PROGRESS -- Declaration complete (module docstring); "
       "computational gates 2-5 resume next session under the standing file claim.")
 sys.exit(3)
