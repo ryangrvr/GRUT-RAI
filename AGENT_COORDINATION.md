@@ -1031,3 +1031,33 @@ Pi_local^MS + Pi_nonlocal -> ASSEMBLY-3.
 V3 AMENDMENT FROZEN:
   WALL_A_A3_DECLARATIONS_V3_AMENDMENT.md  sha256 = b0b9983bf0ab04c0c5017e094a4e53a7e34fc8ddb1b6483724a14bb36eb36ee3
 Immutable; v4 required for any change.
+
+### 2026-08-25 · Ox · FILE CLAIM — ASSEMBLY-2b
+
+Claiming exactly these paths before writing:
+  CREATE: PHYSICS_LEDGER/wall_a_assembly2b.py          (the rebuild instrument)
+  CREATE: PHYSICS_LEDGER/WALL_ASSEMBLY2B_RESULT.json   (machine-readable outputs)
+  APPEND: AGENT_COORDINATION.md                        (claim + completion report)
+Read-first: v3 amendment + adjudication record (commit 7c6b473). Disk state re-read.
+
+### 2026-08-25 · Ox · ASSEMBLY-2b STATUS: session limit hit mid-build — honest pause, not a verdict
+
+The rebuild instrument (PHYSICS_LEDGER/wall_a_assembly2b.py) is IN PROGRESS and marked
+as such on its face: Gate 1 (seagull L2 derived programmatically from sqrt(-g) g^mn,
+expansion-verified) is complete in-file; Gate 2's fish-pole machinery is built but the
+seagull form assembly, Gilkey known-answer comparison, multi-K/null-space
+identification, Option-B dressing layer and MS/integrity outputs are NOT implemented.
+The file exits(3) with a DO-NOT-RUN-AS-A-GATE banner. Nothing was faked to reach a
+closing verdict; the stage resumes next session from this exact state under the
+standing file claim.
+No register edits. W-0 throughout. No result is claimed for ASSEMBLY-2b.
+
+### 2026-08-25 · Ox · ASSEMBLY-2b STATUS: session limit hit mid-build — honest pause, not a verdict
+
+The rebuild instrument (PHYSICS_LEDGER/wall_a_assembly2b.py) is IN PROGRESS and marked
+on its face: Gate 1 (seagull L2 derived programmatically from sqrt(-g) g^mn) is
+complete in-file; Gate 2's fish-pole machinery is built but the seagull form assembly,
+Gilkey known-answer comparison, multi-K/null-space identification, Option-B dressing
+layer and MS/integrity outputs are NOT implemented. The file exits(3) with a
+do-not-run-as-gate banner plus preserved resumption notes. Nothing was faked to reach
+a closing verdict. No register edits. W-0 throughout. No result claimed for 2b.
