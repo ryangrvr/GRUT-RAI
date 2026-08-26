@@ -1483,3 +1483,18 @@ order; the H^2 term must cancel after W2 inclusion (the decisive diagnostic);
 historical zeroth-order O((H/M)^2) control included for comparison; stop conditions
 as enumerated. Nothing banked; register untouched; W-0 throughout.
 Next session opens at Phase 2A (file claim + guard).
+
+### 2026-08-25 · Ox · PHASE 2 FULL BRIEF RECEIVED AND PINNED — execution next session at Phase 2A
+
+Session context exhausted again before Phase 2A could begin. The complete Phase 2
+brief (Phases 2A through 2L with stop rules and second-author targets) is preserved
+in the owner's message and pinned as binding. Key additions over the previous pin:
+second-author precheck on D2-0 object identity (u = a^{3/2} phi; the a^{1/2} divisor
+was intermediate algebra only, not a variable change); constant-Omega calibration
+before target derivation; adiabatic bookkeeping parameter visible; W2 derived not
+recalled; measured residual across two regimes with fitted convergence order; H^2
+cancellation required; parity tested on corrected approximation; dressing plant
+mechanically wired; hard stop after all D2 gates pass.
+
+No file created or edited beyond this entry. Nothing banked. Next session opens at
+Phase 2A with full context budget for the computation.
