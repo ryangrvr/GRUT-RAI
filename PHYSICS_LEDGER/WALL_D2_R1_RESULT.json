@@ -1,9 +1,23 @@
 {
   "instrument": "wall_d2_r1.py",
-  "stage": "D2-R1 Phases 0-1 COMPLETE; Phases 2-12 PENDING (disclosed)",
-  "phase0": "guard clean; file claim honored",
+  "stage": "D2-R1 Phases 0-7 COMPLETE; Phases 8-12 PENDING (disclosed)",
+  "builders": "Phases 0-1 Ox; Phases 2-7 checker continuation under standing claim (build-and-disclose; Ox countersign slot OPEN)",
   "phase1": {
-    "covariance": "PASS (see log)",
+    "covariance": "PASS",
     "objects": "phi_k / psi_k / u_k typed distinct"
-  }
+  },
+  "phase2": {
+    "riccati_identity": "derived in-code (calibration)",
+    "W2": "derived from 2 Omega W2 = Ricc(Omega); equals pinned candidate",
+    "order_chain": "Omega_dot O(H^1), Omega_ddot O(H^2), W2 O(H^2), Ricc(Omega+W2) O(H^4)"
+  },
+  "phase3": {
+    "corrected_slope_target": "~4 (measured, two regimes)",
+    "zeroth_slope": "~2 (the R1 provenance, reproduced)"
+  },
+  "phase4": "Wronskian == i exactly for real W (all orders)",
+  "phase5": "H->0 matched: Omega -> omega0, W2 -> 0",
+  "phase6": "parity EVEN order-by-order in the declared eta-geometry variable",
+  "phase7": "per-mode validity window computed; mode-controlled non-uniformity reported",
+  "all_pass_phases_1_7": true
 }

@@ -1498,3 +1498,39 @@ mechanically wired; hard stop after all D2 gates pass.
 
 No file created or edited beyond this entry. Nothing banked. Next session opens at
 Phase 2A with full context budget for the computation.
+
+### 2026-08-26 · Claude · D2-R1 PHASES 2-7 COMPLETE AND GREEN -- checker continuation under the standing claim
+
+Continuation disclosed (build-and-disclose; Ox countersign slot OPEN on the extension;
+Phases 0-1 remain Ox's verified work, untouched). The instrument now runs Phases 0-7
+end-to-end, EXIT 0, in ~18 seconds.
+
+METHOD DISCLOSURE: the tau-representation brute H-series timed out twice (two honest
+10-minute kills, recorded). The fix is a representation, not patience: y = e^{-2H tau}
+makes d/dtau the polynomial operator -2Hy d/dy; every object becomes rational in
+(y, sqrt(k^2 y + m^2 - 9H^2/4), H) -- and y IS the declared fixed-eta-geometry variable
+(y = s^2 from the owner's calibration map), so the parity fence is tested in its native
+frame. A REPRESENTATION GATE verifies -2Hy d/dy == d/dtau under y = e^{-2H tau} exactly.
+
+RESULTS (all derived, none recalled):
+  P2: the WKB/Riccati identity DERIVED from the ansatz in-code (the mandated reviewer
+      calibration); W2 derived from 2 Omega W2 = Ricc(Omega) and equal to the pinned
+      candidate -Omega_ddot/(4 Omega^2) + 3 Omega_dot^2/(8 Omega^3); order chain
+      emitted symbolically: Omega_dot ~ H, Omega_ddot ~ H^2, W2 ~ H^2,
+      Ricc(Omega+W2) ~ H^4 (coefficients H^0..H^3 vanish exactly).
+  P3: MEASURED residual slopes at 50-digit precision, controlled H refinement
+      (H = 1/20, 1/40, 1/80): corrected 3.985 / 4.059 (~4) in mass-/mode-controlled
+      regimes; zeroth-order 1.999 / 2.025 (~2) -- the R1 insufficiency REPRODUCED,
+      not asserted.
+  P4: Wronskian u u*_dot - u* u_dot == i EXACTLY for real W at all adiabatic orders.
+  P5: H -> 0 matched: Omega -> sqrt(k^2+m^2), W2 -> 0, flat mode recovered.
+  P6: PARITY exact per-object in the declared variable: Omega^2/Omega_ddot/W2/Ricc
+      EVEN, Omega_dot/W2_dot ODD -- the corrected residual is even order-by-order;
+      the withdrawn odd-H prediction stays barred.
+  P7: per-mode validity WINDOW computed: mass-controlled |W2/Omega| falls with tau;
+      mode-controlled GROWS (8.0e-5 -> 5.4e-4 by tau=20 at H=1/20) -- the
+      non-uniformity is real, reported, and bounds every downstream use.
+
+PHASES 8-12 (dressing plant, matched-order vertex, fish+seagull O(H^2), multi-K
+identification, MS split) remain the next block under this claim. W-0 throughout;
+register untouched; nothing banked.
