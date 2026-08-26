@@ -1663,3 +1663,42 @@ u-factors become omega-derivatives; internal insertion points carry their own we
 Pole masters generalized and DERIVED in-instrument from the trace relation
 (l^2 = (l^2 - Delta) + Delta) rather than recalled per-case. Performance rule honored:
 everything polynomial/rational in (omega, k, m, H) -- no nested radicals, no brute series.
+
+### 2026-08-26 · Claude · PHASES 8-12: ENGINES GREEN, ASSEMBLY BLOCKED BY A GATE-CAUGHT DEFECT (honest stop)
+
+Built under claim 8640ce5. ENGINE LAYERS COMPLETE AND GATED, each against an exact
+identity, not an assertion: general pole masters (formula DERIVED from the trace
+relation, gated against all five validated masters of the flat anchor); tensor moments
+(gated against the known rank-2/4 reductions); the Delta -> -i d/domega rule (gated on
+an exact Gaussian); the local-kernel delta-derivative transform; insertion
+normalisation (gated against the exact dm^2 and kinetic-rescaling identities); the
+matched-order vertex expansion (gated against the countersigned A1 form). The SEAGULL
+IDENTITY of the flat anchor was reproduced through the NEW engine, and both reality
+gates passed.
+
+THE GATE THAT EARNED ITS KEEP -- decomposition-independence (does an insertion's
+position decompose the same way from either end?): FAILED, twice, and the diagnosis is
+a two-level defect in FREQUENCY LOCALITY:
+  L1 (FIXED): for a u-weighted insertion the two segments carry different frequencies,
+     so the insertion vertex is two-sided (KV = A nu_L nu_R + B) and the t-weight
+     derivative must act on (nu-share x propagator). The naive KV(l) form leaves
+     route1 - route2 = i Int (dKV/dl0)/(D1^2 D2) -- derived analytically, matching the
+     gate's refusal.
+  L2 (OPEN, the current blocker): the h-VERTEX KERNEL at each endpoint also carries the
+     adjacent segment's frequency; with an insertion on line A the vertex at u1 must be
+     evaluated at nu_A1 and the vertex at u2 at nu_A2. Factoring both vertex kernels
+     outside the differentiated group leaves a residue proportional to
+     d(Mker Mker)/dl0 at fixed (K - l).
+  REPAIR SPEC (written for whoever executes it): fuse assemble() with the insertion
+  construction so the differentiated group is [adjacent Mker x nu-share x propagator],
+  far vertex outside; the same gate is the acceptance test.
+
+TWO EARLIER SELF-CATCHES this stage, both disclosed in-file: a transcription error in
+one of my OWN master gates (compared against Delta^2/2 instead of Delta^2/4 -- the gate
+caught its author, the engine was right), and a loop-routing orientation error
+(second line must be l - K, not l + K, under the declared phase conventions) -- also
+caught by the decomposition gate.
+
+STATE: PHYSICS_LEDGER/wall_d2_phases8_12.py is banner-marked DO NOT CITE AS A RESULT;
+no Phase 11/12 output is claimed; W-0 intact; register untouched. This is an honest
+stop at a diagnosed blocker, not a completed stage.
