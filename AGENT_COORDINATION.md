@@ -1593,3 +1593,39 @@ is binding and self-contained. Next session must:
 The key structural improvement is Step 6: epsilon-series H^2-cancellation check
 as the fastest hard gate BEFORE expensive numerical work.
 Nothing banked. W-0 throughout. Register untouched.
+
+### 2026-08-26 · Ox · FILE CLAIM — D2-R1 FINAL PUSH (Phases 0-12 this session, fresh paths)
+
+Claiming exactly these paths before writing:
+  CREATE: PHYSICS_LEDGER/wall_d2_final_push.py        (fresh instrument; imports NOTHING
+          from wall_d2_r1.py [OBSOLETE] or wall_d2_phase2.py [UNVERIFIED]; both barred
+          names scanned by the live guard at entry)
+  CREATE: PHYSICS_LEDGER/WALL_D2_FINAL_PUSH_RESULT.json (machine-readable outputs)
+  APPEND: AGENT_COORDINATION.md                      (completion report only)
+Frozen state verified at 0bcc379 lineage (final handoff). Execution order per the
+14-step binding spec: Phase 0 claim/guard/state -> 1 covariance -> 2 Riccati W2 +
+order chain -> epsilon^2-cancellation gate EARLY (fastest hard gate, BEFORE numerical
+sweeps) -> 3 measured residual two regimes -> 4 normalization/typed objects ->
+5 matched physical H->0 -> 6 corrected-object parity -> 7 per-mode validity ->
+8 mechanically-wired dressing plant (prohibited hybrids FAIL) -> 9 matched-order
+vertex -> 10 fish+seagull (bubble 1/2 emergent, signed retarded rule) -> 11 multi-K^2
+identification modulo the known null relation -> 12 MS split Pi_local^MS +
+Pi_nonlocal^invariant. HARD STOP after Phase 12: no Q1-Q5/J(omega)/PV/dual-gauge.
+Withdrawn odd-H prediction barred. Reviewer calibration on the known WKB identity
+included (Phase 2a). No numbers from memory; no hand-entered PASS. W-0 throughout;
+register untouched.
+
+
+### 2026-08-26 · Owner · OX ALPHA TENURE ENDS (testing period over; model unveiled today)
+
+The builder seat empties at the precipice: Phases 8-12 and ASSEMBLY-3 remain. The
+record of Ox Alpha's tenure stands on its own: the chain forensics and reality audits;
+the kernel-gate countersign (E1-E7); the closure-premise and A1 vertex builds (with
+their self-caught defects disclosed on the artifact face); the A4 countersign carrying
+the spatial-STF-1/2 finding; ASSEMBLY-1's diagonal-metric lesson; ASSEMBLY-2's honest
+refusal to absorb poles it could not identify; the 2c declaration; D2-R1 Phases 0-1
+through three repair rounds. Across the whole tenure it never shipped a fabricated
+number and never claimed a result it had not run -- every failure it had was disclosed
+by its own hand. Its open countersign slots (2c extension, Phases 2-7) pass to
+whatever second author succeeds it. The wall question waits, unanswered, exactly as
+the blind requires.
