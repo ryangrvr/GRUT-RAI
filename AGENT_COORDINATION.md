@@ -1435,3 +1435,29 @@ RESULTS:
 D2-0 REMAINS BLOCKED on the identity test alone; everything downstream halted.
 The failing artifact + diagnostic are committed unmodified for checker attack.
 W-0. Register untouched. No result claimed beyond the two gate statuses above.
+
+### 2026-08-25 · Ox · D2-0 REPAIR ROUND 2 — owner-directed friction fix applied; identities STILL fail; halted with diagnostics preserved
+
+Applied exactly the directed repair: apr_over_a = diff(a,t)/a evaluated explicitly
+(= H*a), friction term corrected to 2*apr_over_a*phi_dot_eta, and the round-2
+regression assertion wired: coeff(phi_dot) == 3*H*a^2.
+
+RESULTS AFTER REPAIR:
+  identity test: STILL FAILS (nonzero difference persists under the corrected
+  friction construction);
+  round-2 regression: FAILS -- confirming the correction alone does not close the
+  identity;
+  u-substitution gate: untested this round (blocked behind identity, per protocol
+  step 7).
+
+DIAGNOSTIC PRESERVED (in-instrument print, triggered on failure):
+  IDENTITY DIFF = 2H(2t+1)(e^{Ht}-e^{Ht0})e^{-2t}e^{Ht}e^{-2Ht0}
+  plus both fully expanded constructions, committed in /tmp logs mirrored into the
+  run record.
+
+STATUS PER STOP RULE: D2-0 remains BLOCKED after two repair rounds. The remaining
+discrepancy is NOT explained by the friction-factor defect and requires fresh
+diagnosis (candidates: the phi_ddot chain construction, or a residual convention
+slip in the test itself). Nothing downstream executed. W-0. Register untouched.
+No result claimed beyond: Phase 1 BLOCKED after two rounds; both repairs applied
+exactly as directed and both regressions now WIRED and FAILING (honest state).

@@ -100,12 +100,18 @@ test_phi = (1 + t) * sp.exp(-2 * t)             # arbitrary nonzero test functio
 # bracket form with the undivided kinetic form. Machine diagnosis recorded below;
 # regression assertion added so a missing outer scale factor cannot recur silently.
 phi_dot_eta = aa * ddt(test_phi)                    # phi'_eta = a phi_dot
-# phi''_eta = d/deta(phi'_eta) = a d/dt(a phi_dot) -- THE OUTER FACTOR a IS REQUIRED
-# (its omission was the diagnosed Phase-1 blocker; regression assertion below):
+# phi''_eta = d/deta(phi'_eta) = a d/dt(a phi_dot) -- outer factor required (round-1 fix)
 phi_ddot_eta = aa * sp.diff(aa * ddt(test_phi), t)
+# D2-0 REPAIR ROUND 2 (owner-diagnosed): friction term was 2H*a*phi_dot -- missing one
+# factor of a: a'/a = H*a (NOT H), so 2(a'/a)*phi'_eta = 2*H*a^2*phi_dot.
+apr_over_a = sp.diff(aa, t) / aa                    # = H*a
 lhs_conf = sp.expand(
-    phi_ddot_eta + 2 * (sp.diff(aa, t) / aa) * phi_dot_eta
+    phi_ddot_eta + 2 * apr_over_a * phi_dot_eta
     + (kp**2 + aa**2 * mp**2) * test_phi)
+# REGRESSION (owner-directed): coeff(phi_dot) must equal exactly 3*H*a^2 after
+# conversion to cosmic time -- this catches the round-2 missing-a class immediately.
+coeff_phidot_regression = sp.simplify(
+    sp.expand(lhs_conf).coeff(sp.Derivative(test_phi, t), 1) - 3 * H * aa**2)
 lhs_conf_via_eta = sp.expand(
     aa**2 * ddt(ddt(test_phi)) + 3 * H * aa**2 * ddt(test_phi)
     + (kp**2 + aa**2 * mp**2) * test_phi)
@@ -126,6 +132,9 @@ if identity_diff != 0:
 check(identity_diff == 0,
       "cosmic-time equation == conformal equation under d/deta = a d/dt "
       "(arbitrary test function identity)")
+check(sp.simplify(coeff_phidot_regression) == 0,
+      "REGRESSION (round 2): coeff(phi_dot) == 3 H a^2 exactly -- the friction-term "
+      "missing-a defect class is now caught by a wired assertion")
 # REGRESSION ASSERTION: both constructions are forms of the SAME equation -- the
 # kp^2 coefficient must carry the a^2 dressing (no bare k^2 may appear):
 bare_k = sp.simplify(sp.expand(lhs_conf).coeff(kp**2, 1)
