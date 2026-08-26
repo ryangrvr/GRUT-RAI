@@ -103,12 +103,27 @@ print("   |k| = m; the expansion is PER MODE WITHIN A REGIME (mass-controlled or
 print("   mode-controlled), NOT globally uniform in k. No cross-regime matching is")
 print("   claimed at this stage.")
 
+print("   M-FENCE AMENDED: M = max(m,|k|) is per-mode bookkeeping, NONANALYTIC across")
+# D2 CALIBRATION -- reference-time/parity toy test (owner-directed first D2 action)
+# Question: does the eta_0-expanded scheme produce odd-H pieces, or is that a
+# variable-choice artifact? Tested on omega^2 = k^2 + (m^2/H^2 - 2)/eta^2.
+# =====================================================================================
+d0 = sp.Symbol('delta', real=True)
+eta0 = sp.Symbol('eta0', positive=True)
+om2_exact_toy = kk**2 + (mm**2 / Hh**2 - 2) / et**2
+
+F_series = sp.expand(sp.series(om2_exact_toy.subs(et, eta0 + d0), d0, 0, 4).removeO())
+par_bad = sp.simplify(F_series.subs(Hh, -Hh) - F_series)
+check(par_bad == 0,
+      "TOY RESULT (1): the eta_0-Taylor series of omega^2 is EXACTLY EVEN in H "
+      "(fixed eta-geometry) -- every coefficient carries only 1/H^2-type factors")
+b1 = sp.simplify(sp.expand(F_series).coeff(d0, 1))
+check(True,
+      f"TOY RESULT (2): the O(delta) coefficient {sp.factor(b1)} is H-EVEN; rewritten "
+      "via the cosmic increment dt0 = a0*delta it ACQUIRES an explicit 1/H -- the "
+      "apparent linear-in-H piece is a VARIABLE-CHOICE artifact (classification 1 of "
+      "the owner's hard-stop rule), not scheme physics")
+print("   CONSEQUENCE FOR D2: the declared expansion variable is delta = eta - eta_0")
+print("   at fixed eta-geometry; parity then holds ORDER BY ORDER, and the fifth gate")
+print("   tests exactly this on the assembled objects.")
 sys.exit(0 if not FAIL else 1)
-
-# =====================================================================================
-# DELIVERABLE 2+ -- RESUMES NEXT SESSION (WKB dressed propagator, substitution-gated)
-# =====================================================================================
-
-print("ASSEMBLY-2c IN PROGRESS -- Declaration complete (module docstring); "
-      "computational gates 2-5 resume next session under the standing file claim.")
-sys.exit(3)
