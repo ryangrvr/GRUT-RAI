@@ -1214,3 +1214,19 @@ out H-even or the discrepancy is a finding.
 Next session: D2 per the owner's gates — EOM residual O(H^4) at the claimed order;
 BD/adiabatic normalization typed separately (phi_k, psi_k, a·phi_k); flat recovery;
 parity-of-residual as the fifth gate. W-0 throughout.
+
+### 2026-08-25 · Ox · D2 CALIBRATION DELIVERED (same session, after the pause entry)
+
+The owner-directed toy test RAN and PASSED (wall_a_assembly2c.py, exit 0): the
+eta_0-Taylor series of omega^2 = k^2 + (m^2/H^2 - 2)/eta^2 is EXACTLY EVEN in H at
+fixed eta-geometry — every Taylor coefficient carries only 1/H^2-type factors. The
+O(delta) coefficient is -2(m^2-2H^2)/(H^2 eta0^3): H-EVEN. Rewritten via the cosmic
+increment dt0 = a0*delta it acquires an explicit 1/H — demonstrating the
+linear-in-H piece in my scoping note was a VARIABLE-CHOICE artifact of mixing
+cosmic-time increments with conformal-chart objects: classification 1 of the
+owner's hard-stop rule, not scheme physics.
+
+CONSEQUENCE FOR D2: the declared expansion variable is delta = eta - eta_0 at fixed
+eta-geometry; parity holds ORDER BY ORDER under that declaration; the fifth gate
+tests exactly this on the assembled objects. Deliverable 2 unblocked. W-0; register
+untouched.
