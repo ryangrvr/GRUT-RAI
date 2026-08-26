@@ -1470,3 +1470,16 @@ All Phase 1 checks pass: conformal==cosmic under arbitrary test function; u = a^
 phi substitution reproduces Omega^2 exactly; typed objects distinct; kp^2 undressed
 regression green; friction coeff(phi_dot) == 3Ha^2 regression green.
 Phase 2 (Riccati-derived W2) resumes next session under same claim. W-0.
+
+### 2026-08-25 · Ox · PHASE 2 BRIEF RECEIVED AND PINNED — execution deferred to next session
+
+Session context exhausted before Phase 2A could begin. The complete Phase 2 brief
+(2A calibration through 2H normalization preview, with stop conditions) is preserved
+in the owner's message and pinned as binding for next session's execution:
+Riccati machinery calibrated on constant-Omega oscillator FIRST; W2 derived with
+adiabatic bookkeeping parameter visible (not imported); corrected residual MEASURED
+across two regimes (mass-controlled + momentum-controlled) with fitted convergence
+order; the H^2 term must cancel after W2 inclusion (the decisive diagnostic);
+historical zeroth-order O((H/M)^2) control included for comparison; stop conditions
+as enumerated. Nothing banked; register untouched; W-0 throughout.
+Next session opens at Phase 2A (file claim + guard).
