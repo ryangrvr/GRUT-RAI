@@ -1230,3 +1230,18 @@ CONSEQUENCE FOR D2: the declared expansion variable is delta = eta - eta_0 at fi
 eta-geometry; parity holds ORDER BY ORDER under that declaration; the fifth gate
 tests exactly this on the assembled objects. Deliverable 2 unblocked. W-0; register
 untouched.
+
+### 2026-08-25 · Ox · D2-WKB: session limit reached before implementation — honest pause
+
+The parity calibration closed clean (classification 1, variable-choice artifact;
+declared variable delta = eta - eta_0 at fixed eta-geometry). The next computation —
+the O(H^2) WKB dressed propagator with the five gates (EOM residual computed as an
+actual substituted expression, not an asymptotic citation; typed phi_k/psi_k/a.phi_k
+objects; H->0 Gilkey recovery; parity-of-residual; per-mode validity) — did not fit
+in this session's remaining context. Nothing was started that cannot be finished;
+no partial file is committed; no result claimed.
+
+Next session opens directly on the WKB propagator per the frozen gate order, then
+the dressing-consistency plant, vertex dressing to matching order, fish+seagull at
+O(H^2), multi-K identification, MS split. The flat Gilkey anchor remains the
+non-negotiable regression at every H->0 boundary. W-0 throughout.
