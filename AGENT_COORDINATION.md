@@ -1325,3 +1325,33 @@ fish+seagull at O(H^2) -> multi-K identification -> MS split.
 RECORD NOTE, binding: the withdrawn odd-(H) prediction does NOT survive as evidence
 anywhere -- it arose from the wrong variable/equation pairing and must not influence
 the fresh parity test. W-0 throughout; register untouched.
+
+### 2026-08-25 · Owner ruling R1 ACCEPTED into the record — second-order WKB correction mandated; provenance sentence preserved verbatim
+
+RULING: R1 — retain the SECOND-order WKB correction. Do not choose R2; do not weaken
+the declaration. R2 would weaken the preregistered accuracy after seeing the target
+fail. D2-1a's zeroth-order result stands permanently as computed:
+
+  "Zeroth-order WKB was insufficient for the declared O((H/M)^4) remainder. The
+   correction was selected because it is the unique next adiabatic order required
+   by the preregistered accuracy target, not because it improves agreement with a
+   desired physical result."
+
+IMPLEMENTATION SPEC (binding for the next execution):
+  Route: friction-free variable u = a^{3/2} phi;
+    u_ddot + Omega^2(t) u = 0,
+    Omega^2(t) = k^2 e^{-2H(t-t0)} + m^2 - (9/4) H^2.
+  Adiabatic form: u_WKB = exp(-i int W dt') / sqrt(2 W);
+    W = Omega - Omega_ddot/(4 Omega^2) + 3 Omega_dot^2/(8 Omega^3) + O(H^4/M^3),
+    i.e. W_2 = -Omega_ddot/(4 Omega^2) + 3 Omega_dot^2/(8 Omega^3), O(H^2/M).
+  DERIVATION REQUIREMENT: W_2 must come from the WKB/Riccati equation
+    W^2 = Omega^2 - W_ddot/(2W) + 3 W_dot^2/(4 W^2)
+  by order-by-order substitution -- a derivation, not a fitted correction.
+  Then INDEPENDENT SUBSTITUTION of the corrected W back into the original ODE:
+    target R/(Omega^2 u) = O((H/M)^4)  (vs current O((H/M)^2)).
+  Downstream rerun in order: substitution residual -> BD/adiabatic normalization ->
+  matched H->0 limit -> parity of the CORRECTED residual -> per-mode validity ->
+  dressing-consistency plant -> fish+seagull at O(H^2) -> identification -> MS split.
+
+Session context exhausted before implementation; the spec above is complete for a
+clean start. W-0 throughout; register untouched.
