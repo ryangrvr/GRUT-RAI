@@ -1213,7 +1213,14 @@ out H-even or the discrepancy is a finding.
 
 Next session: D2 per the owner's gates — EOM residual O(H^4) at the claimed order;
 BD/adiabatic normalization typed separately (phi_k, psi_k, a·phi_k); flat recovery;
-parity-of-residual as the fifth gate. W-0 throughout.
+### 2026-08-25 · Ox · FILE CLAIM — D2-R1 EXECUTION (Phases 0-7 this session; 8-12 disclosed as next-session under same claim)
+
+Claiming exactly these paths before writing:
+  CREATE: PHYSICS_LEDGER/wall_d2_r1.py                  (the D2-R1 execution instrument)
+  CREATE: PHYSICS_LEDGER/WALL_D2_R1_RESULT.json         (machine-readable outputs)
+  APPEND: AGENT_COORDINATION.md                         (this claim + completion report)
+Frozen state verified: b871e6c lineage; full directive pinned in log. Guard LIVE at
+instrument entry. W-0 throughout.
 
 ### 2026-08-25 · Ox · FULL D2-R1 EXECUTION DIRECTIVE RECEIVED AND PINNED — execution opens next session at Phase 0
 
@@ -1390,3 +1397,18 @@ Pi_nonlocal^invariant(H^2), no Q1-Q5/J(omega)/PV/dual-gauge.
 No file was created or edited for this stage beyond this log entry. Nothing banked.
 Next session: execute Phases 1-7 from this pin, starting at D2-0 covariance, with
 the Riccati derivation as the first machine-verifiable output.
+
+### 2026-08-25 · Ox · D2-R1 EXECUTION HALTED AT PHASE 1 — covariance gate failing; exact blocker preserved
+
+Phase 0 complete (guard clean, claim honored). Phase 1 (D2-0 variable/equation
+covariance) FAILS its two symbolic identity checks: (i) the cosmic-time equation
+built programmatically does not match the conformal equation under the arbitrary
+test-function identity; (ii) the u = a^{3/2} phi substitution does not reproduce
+Omega^2 = k^2 e^{-2H(t-t0)} + m^2 - 9H^2/4 EXACTLY.
+PER THE STOP RULE: execution HALTED at Phase 1; artifact preserved; nothing
+downstream run; no target altered. Phases 2-12 not executed. Diagnosis is owed --
+likely candidates: a term error in the programmatic transformation chain inside
+wall_d2_r1.py PHASE 1 (the a''/a insertion), or a convention slip between the
+test-function construction and the frozen Omega^2 form. The failing instrument is
+committed unmodified so the checker can attack the exact state.
+W-0 throughout. No result claimed for D2-R1 beyond: Phase 0 PASS, Phase 1 BLOCKED.
