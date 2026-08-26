@@ -1644,3 +1644,22 @@ the remaining block: Phase 8 dressing-consistency plant -> matched O(H^2) vertex
 fish+seagull -> multi-K^2 identification -> MS split. The y = e^{-2H tau}
 representation is the proven route past the sympy wall. The next successful block is
 the one that actually produces the curvature-corrected self-energy.
+
+### 2026-08-26 · Claude · FILE CLAIM: CHECKER TAKES BUILDER SEAT FOR PHASES 8-12
+
+Owner directive: the remaining block exceeds the current Cline/VS builder's reach; the
+checker builds. CLAIM (before any write): PHYSICS_LEDGER/wall_d2_phases8_12.py and
+PHYSICS_LEDGER/WALL_D2_PHASES8_12_RESULT.json (fresh paths; wall_d2_r1.py and
+wall_d2_phase2.py remain BARRED as edit targets, wall_d2_r1.py permitted read-only as a
+committed regression). Phases 0-7 CITED at ea165dd, not rebuilt, per the 5d6338e ruling.
+SECOND-AUTHOR SLOT OPEN on everything below.
+
+DECLARED FORMULATION (on the face before building): unrescaled field phi (the registry's
+declared bath object); conformal chart, reference eta_bar with a = 1, u = eta - eta_bar;
+exact dS gives a = 1/(1 - H u) so a^2 = 1 + 2Hu + 3H^2u^2, a^4 = 1 + 4Hu + 10H^2u^2
+(DERIVED in-instrument, not asserted). Centre-at-reference convention: the two h-vertices
+sit at u1 = +Delta/2, u2 = -Delta/2 with Delta conjugate to the external omega, so vertex
+u-factors become omega-derivatives; internal insertion points carry their own weights.
+Pole masters generalized and DERIVED in-instrument from the trace relation
+(l^2 = (l^2 - Delta) + Delta) rather than recalled per-case. Performance rule honored:
+everything polynomial/rational in (omega, k, m, H) -- no nested radicals, no brute series.
