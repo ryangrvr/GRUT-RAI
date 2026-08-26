@@ -552,7 +552,11 @@ def _seg(aP, nu_pow, nu_sym, nderiv):
 
 
 def single_insertion_line(Dpick, KVord, spow, route):
-    """ONE insertion of order KVord with position weight s^spow on line Dpick.
+    """
+    *** SUPERSEDED by fish_one_insertion (Level-2 repair): this form factors the
+    endpoint vertices outside the differentiated group and FAILS the decomposition
+    battery. Retained only as the broken_L2 reference; no live call sites.
+    ONE insertion of order KVord with position weight s^spow on line Dpick.
     route 1: s = u_start + t1 (t-weight on the LEFT segment)
     route 2: s = u_end   - t2 (t-weight on the RIGHT segment)
     line A runs v2 -> v1 (start u2 = -Delta/2, end u1 = +Delta/2); line B the reverse.
@@ -627,14 +631,15 @@ def fdiff(factors, ftag):
     return out
 
 
-def eval_factorlists(fls):
+def eval_factorlists(fls, coll=None):
     """multiply each factor-list out, COLLAPSE the typed frequencies, take the pole."""
+    coll = COLLAPSE if coll is None else coll
     tot = sp.Integer(0)
     for fl in fls:
         pcs = [(sp.Integer(1), 0, 0)]
         for f in fl:
             pcs = pieces_mult(pcs, [(f[1], 0, 0)] if f[0] == 'K' else f[1])
-        pcs = [(sp.expand(n.subs(COLLAPSE)), a, b) for (n, a, b) in pcs]
+        pcs = [(sp.expand(n.subs(coll)), a, b) for (n, a, b) in pcs]
         tot += pieces_pole(pcs)
     return tot
 
@@ -689,11 +694,81 @@ def fish_one_insertion(Dpick, KVord, spow, route, vn1, vn2, broken_L2=False):
     return terms
 
 
+def fish_two_same_line(Dpick, vn1, vn2):
+    """two order-1 insertions on ONE line: three segments (freqs f1,f2,f3 from start),
+    weights s1 = u_start + t1, s2 = u_start + t1 + t2. Frequency-local throughout: each
+    insertion vertex is two-sided across its own boundary, and the endpoint h-vertices
+    carry the frequencies of the segments adjacent to them."""
+    g1, g2, g3 = (sp.symbols('f_1 f_2 f_3', real=True))
+    if Dpick == 'A':
+        coll = {g1: l0, g2: l0, g3: l0, muB1: l0 - om}
+        aP = (1, 0); mom = list(LSY)
+        M1 = Mvert(e1m, vn1, g3, muB1)     # u1 touches the LAST segment (line A: u2->u1)
+        M2 = Mvert(e2m, vn2, g1, muB1)
+        other = [('P', [(sp.Integer(1), 0, 1)], muB1)]
+        ext = -sp.Rational(1, 2)
+    else:
+        coll = {g1: l0 - om, g2: l0 - om, g3: l0 - om, nuA1: l0}
+        aP = (0, 1); mom = list(Kminus)
+        M1 = Mvert(e1m, vn1, nuA1, g1)     # line B runs u1 -> u2: u1 touches the FIRST
+        M2 = Mvert(e2m, vn2, nuA1, g3)
+        other = [('P', [(sp.Integer(1), 1, 0)], nuA1)]
+        ext = +sp.Rational(1, 2)
+    A_, B_ = KV_split(1, mom)
+    segs = [('P', [(sp.Integer(1), aP[0], aP[1])], g) for g in (g1, g2, g3)]
+    ins1 = ('K', sp.expand(-(A_ * g1 * g2 + B_)), {g1, g2})
+    ins2 = ('K', sp.expand(-(A_ * g2 * g3 + B_)), {g2, g3})
+    base = [('K', sp.expand(M1), {g3, muB1} if Dpick == 'A' else {nuA1, g1}),
+            ('K', sp.expand(M2), {g1, muB1} if Dpick == 'A' else {nuA1, g3}),
+            ins1, ins2] + segs + other
+    # s1 s2 = ext^2 + ext(2 t1 + t2) + t1^2 + t1 t2 ; t1 -> d/d(f1), t2 -> d/d(f2)
+    monos = [((0, 0), ext**2, 2), ((1, 0), 2 * ext, 1), ((0, 1), ext, 1),
+             ((2, 0), sp.Integer(1), 0), ((1, 1), sp.Integer(1), 0)]
+    terms = []
+    for (r1, r2), coeff, extpow in monos:
+        fls = [base]
+        for _ in range(r1):
+            fls = [x for fl in fls for x in fdiff(fl, g1)]
+        for _ in range(r2):
+            fls = [x for fl in fls for x in fdiff(fl, g2)]
+        terms.append(([[(k, e, t) for (k, e, t) in fl] for fl in fls], extpow, coeff,
+                      coll))
+    return terms
+
+
+def fish_cross_insertions(vn1, vn2):
+    """one order-1 insertion on EACH line, each with weight s (own line's start route).
+    Both weight derivatives are frequency-local and the endpoint vertices sit in BOTH
+    differentiated groups where they belong."""
+    A_a, B_a = KV_split(1, list(LSY))
+    A_b, B_b = KV_split(1, list(Kminus))
+    M1 = Mvert(e1m, vn1, nuA1, muB1)       # u1: A end-segment, B start-segment
+    M2 = Mvert(e2m, vn2, nuA2, muB2)
+    base = [('K', sp.expand(M1), {nuA1, muB1}), ('K', sp.expand(M2), {nuA2, muB2}),
+            ('K', sp.expand(-(A_a * nuA1 * nuA2 + B_a)), {nuA1, nuA2}),
+            ('K', sp.expand(-(A_b * muB1 * muB2 + B_b)), {muB1, muB2}),
+            ('P', [(sp.Integer(1), 1, 0)], nuA1), ('P', [(sp.Integer(1), 1, 0)], nuA2),
+            ('P', [(sp.Integer(1), 0, 1)], muB1), ('P', [(sp.Integer(1), 0, 1)], muB2)]
+    terms = []
+    for (rA, eA, cA) in ((0, 1, -sp.Rational(1, 2)), (1, 0, sp.Integer(1))):
+        for (rB, eB, cB) in ((0, 1, +sp.Rational(1, 2)), (1, 0, sp.Integer(1))):
+            fls = [base]
+            for _ in range(rA):
+                fls = [x for fl in fls for x in fdiff(fl, nuA2)]
+            for _ in range(rB):
+                fls = [x for fl in fls for x in fdiff(fl, muB1)]
+            terms.append((fls, eA + eB, cA * cB, None))
+    return terms
+
+
 def assemble_fl(terms, vn1, vn2):
-    """apply external Delta-powers and the vertex u-powers to frequency-local terms."""
+    """apply external Delta-powers and the vertex u-powers to frequency-local terms.
+    Terms may carry a per-term collapse map (3-tuples use the default COLLAPSE)."""
     total = sp.Integer(0)
-    for (fls, extpow, coeff) in terms:
-        val = apply_Delta_power(eval_factorlists(fls), extpow) * coeff
+    for t in terms:
+        fls, extpow, coeff = t[0], t[1], t[2]
+        coll = t[3] if len(t) > 3 and t[3] else COLLAPSE
+        val = apply_Delta_power(eval_factorlists(fls, coll), extpow) * coeff
         val = apply_Delta_power(val, vn1 + vn2) \
             * sp.Rational(1, 2)**vn1 * sp.Rational(-1, 2)**vn2
         total += val
@@ -719,9 +794,34 @@ def assemble(vn1, vn2, lineA_terms, lineB_terms):
     return sp.expand(sp.Rational(1, 2) * total)
 
 
+# ---- ASSEMBLY CACHE (a downstream error must not discard a multi-hour assembly) ----
+# Keyed by a tag that changes whenever the assembly machinery changes; srepr round-trip.
+ASM_TAG = "L2repair-v1"
+CACHE_PATH = os.path.join(HERE, ".p10_assembly_cache.txt")
+CACHED = {}
+if os.path.exists(CACHE_PATH):
+    _raw = open(CACHE_PATH).read().split("\n\x00\n")
+    if _raw and _raw[0] == ASM_TAG:
+        for _blk in _raw[1:]:
+            if "\t" in _blk:
+                _k, _v = _blk.split("\t", 1)
+                CACHED[_k] = sp.sympify(_v)
+        print(f"   [cache] loaded {sorted(CACHED)} (tag {ASM_TAG})")
+
+
+def cache_save(d):
+    out = [ASM_TAG] + [f"{k}\t{sp.srepr(v)}" for k, v in sorted(d.items())]
+    open(CACHE_PATH, "w").write("\n\x00\n".join(out))
+    print(f"   [cache] saved {sorted(d)}")
+
+
 stamp("p10 machinery ready")
 # ---- H^0: the flat fish (anchor input) ----
-F_H0 = assemble(0, 0, [(plain_line('A'), 0, 1)], [(plain_line('B'), 0, 1)])
+if 'F_H0' in CACHED:
+    F_H0 = CACHED['F_H0']
+else:
+    F_H0 = assemble(0, 0, [(plain_line('A'), 0, 1)], [(plain_line('B'), 0, 1)])
+
 # epsilon^2 gate: pole expressions must be LINEAR in c (no c^2 anywhere):
 def eps2_gate(expr, name):
     return check(sp.degree(sp.Poly(expr, c), c) <= 1,
@@ -768,74 +868,73 @@ if 'l2gate' in sys.argv:
 stamp("p10 gates: decomposition independence done")
 
 # ---- O(H) sector (classification, not deliverable) ----
-H1_terms = {
-    'vtx(1,0)': assemble(1, 0, [(plain_line('A'), 0, 1)], [(plain_line('B'), 0, 1)]),
-    'vtx(0,1)': assemble(0, 1, [(plain_line('A'), 0, 1)], [(plain_line('B'), 0, 1)]),
-    'V1 on A':  assemble(0, 0, single_insertion_line('A', 1, 1, 1),
-                         [(plain_line('B'), 0, 1)]),
-    'V1 on B':  assemble(0, 0, [(plain_line('A'), 0, 1)],
-                         single_insertion_line('B', 1, 1, 1)),
-}
-H1_total = sp.expand(sum(H1_terms.values()))
+if 'H1_total' in CACHED:
+    H1_total = CACHED['H1_total']
+else:
+    H1_terms = {
+        'vtx(1,0)': assemble(1, 0, [(plain_line('A'), 0, 1)], [(plain_line('B'), 0, 1)]),
+        'vtx(0,1)': assemble(0, 1, [(plain_line('A'), 0, 1)], [(plain_line('B'), 0, 1)]),
+        'V1 on A':  assemble_fl(fish_one_insertion('A', 1, 1, 1, 0, 0), 0, 0),
+        'V1 on B':  assemble_fl(fish_one_insertion('B', 1, 1, 1, 0, 0), 0, 0),
+    }
+    H1_total = sp.expand(sum(H1_terms.values()))
+
 stamp("p10 O(H) assembled")
 
 # ---- O(H^2) sector: the deliverable ----
-H2 = {}
-H2['vtx(2,0)'] = assemble(2, 0, [(plain_line('A'), 0, 1)], [(plain_line('B'), 0, 1)])
-H2['vtx(0,2)'] = assemble(0, 2, [(plain_line('A'), 0, 1)], [(plain_line('B'), 0, 1)])
-H2['vtx(1,1)'] = assemble(1, 1, [(plain_line('A'), 0, 1)], [(plain_line('B'), 0, 1)])
-H2['vtx1xV1A'] = assemble(1, 0, single_insertion_line('A', 1, 1, 1),
-                          [(plain_line('B'), 0, 1)])
-H2['vtx1xV1B'] = assemble(1, 0, [(plain_line('A'), 0, 1)],
-                          single_insertion_line('B', 1, 1, 1))
-H2['vtx2xV1A'] = assemble(0, 1, single_insertion_line('A', 1, 1, 1),
-                          [(plain_line('B'), 0, 1)])
-H2['vtx2xV1B'] = assemble(0, 1, [(plain_line('A'), 0, 1)],
-                          single_insertion_line('B', 1, 1, 1))
-H2['V2 on A'] = assemble(0, 0, single_insertion_line('A', 2, 2, 1),
-                         [(plain_line('B'), 0, 1)])
-H2['V2 on B'] = assemble(0, 0, [(plain_line('A'), 0, 1)],
-                         single_insertion_line('B', 2, 2, 1))
-H2['V1AxV1B'] = assemble(0, 0, single_insertion_line('A', 1, 1, 1),
-                         single_insertion_line('B', 1, 1, 1))
-stamp("p10 O(H^2) single/vertex classes assembled")
+if 'F_H2' in CACHED:
+    F_H2 = CACHED['F_H2']
+else:
+    H2 = {}
+    H2['vtx(2,0)'] = assemble(2, 0, [(plain_line('A'), 0, 1)], [(plain_line('B'), 0, 1)])
+    H2['vtx(0,2)'] = assemble(0, 2, [(plain_line('A'), 0, 1)], [(plain_line('B'), 0, 1)])
+    H2['vtx(1,1)'] = assemble(1, 1, [(plain_line('A'), 0, 1)], [(plain_line('B'), 0, 1)])
+    H2['vtx1xV1A'] = assemble_fl(fish_one_insertion('A', 1, 1, 1, 1, 0), 1, 0)
+    H2['vtx1xV1B'] = assemble_fl(fish_one_insertion('B', 1, 1, 1, 1, 0), 1, 0)
+    H2['vtx2xV1A'] = assemble_fl(fish_one_insertion('A', 1, 1, 1, 0, 1), 0, 1)
+    H2['vtx2xV1B'] = assemble_fl(fish_one_insertion('B', 1, 1, 1, 0, 1), 0, 1)
+    H2['V2 on A'] = assemble_fl(fish_one_insertion('A', 2, 2, 1, 0, 0), 0, 0)
+    H2['V2 on B'] = assemble_fl(fish_one_insertion('B', 2, 2, 1, 0, 0), 0, 0)
+    H2['V1AxV1B'] = assemble_fl(fish_cross_insertions(0, 0), 0, 0)
+    stamp("p10 O(H^2) single/vertex classes assembled")
 
 
-def double_insertion_line(Dpick):
-    """two order-1 insertions on one line: segments (t1,t2,t3); s1 = u_start + t1,
-    s2 = u_start + t1 + t2. Two-sided vertices V1 = A nu1 nu2 + B (across the first
-    insertion), V2 = A nu2 nu3 + B (across the second); their product expands into
-    four segment-factor structures."""
-    mom = list(LSY) if Dpick == 'A' else list(Kminus)
-    aP = (1, 0) if Dpick == 'A' else (0, 1)
-    nu = mom[0]
-    A_, B_ = KV_split(1, mom)
-    ext = -sp.Rational(1, 2) if Dpick == 'A' else +sp.Rational(1, 2)
-    # s1*s2 = ext^2 + ext(2 t1 + t2) + t1^2 + t1 t2
-    monos = [((0, 0), ext**2, 2), ((1, 0), 2 * ext, 1), ((0, 1), ext, 1),
-             ((2, 0), sp.Integer(1), 0), ((1, 1), sp.Integer(1), 0)]
-    # vertex structures: (nu-power on seg1, seg2, seg3, coefficient)
-    vstruct = [(1, 2, 1, A_ * A_), (1, 1, 0, A_ * B_), (0, 1, 1, A_ * B_),
-               (0, 0, 0, B_ * B_)]
-    out = []
-    for (r1, r2), coeff, extpow in monos:
-        pieces = []
-        for (p1, p2, p3, vc) in vstruct:
-            seg1 = _seg(aP, p1, nu, r1)
-            seg2 = _seg(aP, p2, nu, r2)
-            seg3 = _seg(aP, p3, nu, 0)
-            block = pieces_mult(pieces_mult(seg1, seg2), seg3)
-            pieces += pieces_scale(block, vc)      # two (-KV) factors: (-1)^2 = +1
-        out.append((pieces, extpow, coeff))
-    return out
+    def double_insertion_line(Dpick):
+        """
+        *** SUPERSEDED by fish_two_same_line (Level-2 repair). No live call sites.
+        two order-1 insertions on one line: segments (t1,t2,t3); s1 = u_start + t1,
+        s2 = u_start + t1 + t2. Two-sided vertices V1 = A nu1 nu2 + B (across the first
+        insertion), V2 = A nu2 nu3 + B (across the second); their product expands into
+        four segment-factor structures."""
+        mom = list(LSY) if Dpick == 'A' else list(Kminus)
+        aP = (1, 0) if Dpick == 'A' else (0, 1)
+        nu = mom[0]
+        A_, B_ = KV_split(1, mom)
+        ext = -sp.Rational(1, 2) if Dpick == 'A' else +sp.Rational(1, 2)
+        # s1*s2 = ext^2 + ext(2 t1 + t2) + t1^2 + t1 t2
+        monos = [((0, 0), ext**2, 2), ((1, 0), 2 * ext, 1), ((0, 1), ext, 1),
+                 ((2, 0), sp.Integer(1), 0), ((1, 1), sp.Integer(1), 0)]
+        # vertex structures: (nu-power on seg1, seg2, seg3, coefficient)
+        vstruct = [(1, 2, 1, A_ * A_), (1, 1, 0, A_ * B_), (0, 1, 1, A_ * B_),
+                   (0, 0, 0, B_ * B_)]
+        out = []
+        for (r1, r2), coeff, extpow in monos:
+            pieces = []
+            for (p1, p2, p3, vc) in vstruct:
+                seg1 = _seg(aP, p1, nu, r1)
+                seg2 = _seg(aP, p2, nu, r2)
+                seg3 = _seg(aP, p3, nu, 0)
+                block = pieces_mult(pieces_mult(seg1, seg2), seg3)
+                pieces += pieces_scale(block, vc)      # two (-KV) factors: (-1)^2 = +1
+            out.append((pieces, extpow, coeff))
+        return out
 
 
-H2['V1V1 on A'] = assemble(0, 0, double_insertion_line('A'),
-                           [(plain_line('B'), 0, 1)])
-H2['V1V1 on B'] = assemble(0, 0, [(plain_line('A'), 0, 1)],
-                           double_insertion_line('B'))
-stamp("p10 O(H^2) doubles assembled")
-F_H2 = sp.expand(sum(H2.values()))
+    H2['V1V1 on A'] = assemble_fl(fish_two_same_line('A', 0, 0), 0, 0)
+    H2['V1V1 on B'] = assemble_fl(fish_two_same_line('B', 0, 0), 0, 0)
+    stamp("p10 O(H^2) doubles assembled")
+    F_H2 = sp.expand(sum(H2.values()))
+
 
 # ---- SEAGULL (closed tadpole line; vertex at the reference, u = 0) ----
 print("\n--- seagull sector ---")
@@ -869,7 +968,9 @@ check(sp.simplify(S_H0 - mm**4 / 2 * s2c) == 0,
 
 
 def seagull_closed_line(ins_spec):
-    """closed line at the reference vertex (u = 0): segments t1.. with s1 = t1,
+    """
+    *** SUPERSEDED by seagull_fl (Level-2 repair). No live call sites.
+    closed line at the reference vertex (u = 0): segments t1.. with s1 = t1,
     s2 = t1 + t2. Two-sided insertion vertices as in the fish."""
     A_, B_ = KV_split(1, list(LSY))
     A2_, B2_ = KV_split(2, list(LSY))
@@ -900,12 +1001,65 @@ def seagull_closed_line(ins_spec):
     return sp.expand(-sp.Rational(1, 2) * out)
 
 
-S_H1 = seagull_closed_line('V1')
-S_H2 = sp.expand(seagull_closed_line('V2') + seagull_closed_line('V1V1'))
-stamp("seagull sector assembled")
+def seagull_fl(spec):
+    """closed line at the seagull vertex (u = 0, so NO external ext-factor: s = t1).
+    Frequency-local: the seagull vertex contracts the FIRST and LAST segments, so it
+    carries both of their frequencies and sits inside the differentiated group when
+    either is differentiated (the Level-2 requirement, applied to the tadpole class)."""
+    if spec in ('V1', 'V2'):
+        g1, g2 = sp.symbols('h_1 h_2', real=True)
+        gs, coll = (g1, g2), {g1: l0, g2: l0}
+        A_, B_ = KV_split(1 if spec == 'V1' else 2, list(LSY))
+        ins = [('K', sp.expand(-(A_ * g1 * g2 + B_)), {g1, g2})]
+        spow = 1 if spec == 'V1' else 2
+        dseq = [g1] * spow
+    else:                                   # 'V1V1'
+        g1, g2, g3 = sp.symbols('h_1 h_2 h_3', real=True)
+        gs, coll = (g1, g2, g3), {g1: l0, g2: l0, g3: l0}
+        A_, B_ = KV_split(1, list(LSY))
+        ins = [('K', sp.expand(-(A_ * g1 * g2 + B_)), {g1, g2}),
+               ('K', sp.expand(-(A_ * g2 * g3 + B_)), {g2, g3})]
+        dseq = None
+    lo1 = [gs[0], -l1, -l2, -l3]
+    lo2 = [gs[-1], -l1, -l2, -l3]
+    vtx = sp.expand(sum(F2c[i, j] * lo1[i] * lo2[j] for i in range(4) for j in range(4))
+                    - s2c * mm**2)
+    base = [('K', vtx, {gs[0], gs[-1]})] + ins \
+        + [('P', [(sp.Integer(1), 1, 0)], g) for g in gs]
+    if dseq is not None:                    # s^spow = t1^spow -> spow derivatives on g1
+        fls = [base]
+        for g in dseq:
+            fls = [x for fl in fls for x in fdiff(fl, g)]
+        return sp.expand(-sp.Rational(1, 2) * eval_factorlists(fls, coll))
+    tot = sp.Integer(0)                     # s1 s2 = t1^2 + t1 t2
+    for (r1, r2) in ((2, 0), (1, 1)):
+        fls = [base]
+        for _ in range(r1):
+            fls = [x for fl in fls for x in fdiff(fl, g1)]
+        for _ in range(r2):
+            fls = [x for fl in fls for x in fdiff(fl, g2)]
+        tot += eval_factorlists(fls, coll)
+    return sp.expand(-sp.Rational(1, 2) * tot)
 
-# ---- sector totals (units: engine c-units; H-powers attached here) ----
-SIG0 = sp.expand(F_H0 + S_H0)
+
+# H^0 seagull gate: the frequency-local builder with NO insertion must reproduce S_H0
+_g0 = sp.symbols('h_0', real=True)
+_lo0 = [_g0, -l1, -l2, -l3]
+_v0 = sp.expand(sum(F2c[i, j] * _lo0[i] * _lo0[j] for i in range(4) for j in range(4))
+                - s2c * mm**2)
+check(sp.expand(eval_factorlists([[('K', _v0, {_g0}),
+                                   ('P', [(sp.Integer(1), 1, 0)], _g0)]], {_g0: l0})
+                - loop_pole_tad(L2ker, 1)) == 0,
+      "seagull frequency-local builder reproduces the H^0 tadpole EXACTLY (port gate)")
+if 'S_H1' in CACHED and 'S_H2' in CACHED:
+    S_H1, S_H2 = CACHED['S_H1'], CACHED['S_H2']
+else:
+    S_H1 = seagull_fl('V1')
+    S_H2 = sp.expand(seagull_fl('V2') + seagull_fl('V1V1'))
+
+cache_save({'F_H0': F_H0, 'H1_total': H1_total, 'F_H2': F_H2,
+            'S_H1': S_H1, 'S_H2': S_H2})
+SIG0 = sp.expand(F_H0 + S_H0)              # coefficient of H^0 (the flat anchor)
 SIG1 = sp.expand(H1_total + S_H1)          # coefficient of H^1
 SIG2 = sp.expand(F_H2 + S_H2)              # coefficient of H^2
 conj = lambda ex: ex.subs(sp.I, -sp.I)

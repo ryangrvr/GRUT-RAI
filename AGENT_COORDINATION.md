@@ -1702,3 +1702,41 @@ caught by the decomposition gate.
 STATE: PHYSICS_LEDGER/wall_d2_phases8_12.py is banner-marked DO NOT CITE AS A RESULT;
 no Phase 11/12 output is claimed; W-0 intact; register untouched. This is an honest
 stop at a diagnosed blocker, not a completed stage.
+
+### 2026-08-26 · Claude · LEVEL-2 REPAIR COMPLETE AND VERIFIED; PHASE 10 REASSEMBLED
+
+THE REPAIR (owner-directed, finished): a u-weighted insertion splits a line into
+segments with DIFFERENT frequencies, and the resulting frequency derivative is
+FREQUENCY-LOCAL -- it acts on every factor carrying the affected segment's frequency
+and nothing else. Three classes carry it: the segment propagator, the insertion's
+two-sided share (Level 1), and THE ADJACENT ENDPOINT h-VERTEX (Level 2). Because a
+collapsed l0-derivative would hit BOTH legs of a vertex kernel, the endpoint
+frequencies are now carried as EXPLICIT TYPED SYMBOLS (nu_A1, nu_A2, mu_B1, mu_B2)
+and collapsed only AFTER differentiation.
+
+ACCEPTANCE BATTERY -- ALL GREEN, on a fresh run:
+  decomposition-independence, line A weights s^1 and s^2      : PASS
+  decomposition-independence, line B weights s^1 and s^2      : PASS
+  decomposition-independence with a weighted endpoint vertex  : PASS
+  BROKEN-L2 CONTROL (vertices outside the group) FAILS it     : PASS (non-vacuous)
+Routing preserved as declared (l and l-K); bubble 1/2 and the signed retarded rule
+untouched; no route averaging, no gate weakening, no numerical patching.
+
+PHASE 10 REASSEMBLED on the repaired machinery: every insertion-bearing class ported
+(single insertions, weight-s^2 V2 classes, cross-line V1(A)xV1(B), same-line doubles
+via a new three-segment builder, and the SEAGULL -- which needed the same treatment
+because the closed line's two ends both touch the tadpole vertex). Pure vertex-weight
+classes have no frequency splitting and correctly keep the original assembly. The
+three superseded builders are marked dead on their face. A PORT GATE verifies the
+frequency-local seagull builder reproduces the H^0 tadpole exactly, and the flat
+seagull identity of the 2b anchor is reproduced by the new engine.
+
+DISCLOSED LOSS + FIX: the first repaired run completed the full 132-minute assembly
+and then died on a one-line NameError (SIG0 undefined -- my seagull port had dropped
+it), discarding everything. Restored, and an ASSEMBLY CACHE installed (tagged,
+srepr round-trip) so a downstream error can never again discard a multi-hour
+assembly. Re-running now.
+
+STATUS: no Phase 11/12 result exists yet; the O(H^1) purely-imaginary classification
+remains an INTERMEDIATE finding per the owner's instruction, not a physics result.
+W-0 intact; register untouched.
