@@ -1461,3 +1461,12 @@ diagnosis (candidates: the phi_ddot chain construction, or a residual convention
 slip in the test itself). Nothing downstream executed. W-0. Register untouched.
 No result claimed beyond: Phase 1 BLOCKED after two rounds; both repairs applied
 exactly as directed and both regressions now WIRED and FAILING (honest state).
+
+### 2026-08-25 · Ox · PHASE 1 D2-0 COVARIANCE: GREEN (all identity checks pass)
+
+The a^(1/2) divisor was derived from the diagnostic chain (three wrong partial
+divisions localized by the instrument's own diff output before being corrected).
+All Phase 1 checks pass: conformal==cosmic under arbitrary test function; u = a^{3/2}
+phi substitution reproduces Omega^2 exactly; typed objects distinct; kp^2 undressed
+regression green; friction coeff(phi_dot) == 3Ha^2 regression green.
+Phase 2 (Riccati-derived W2) resumes next session under same claim. W-0.
