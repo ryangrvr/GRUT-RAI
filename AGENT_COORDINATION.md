@@ -1740,3 +1740,28 @@ assembly. Re-running now.
 STATUS: no Phase 11/12 result exists yet; the O(H^1) purely-imaginary classification
 remains an INTERMEDIATE finding per the owner's instruction, not a physics result.
 W-0 intact; register untouched.
+
+### 2026-08-26 · Owner directive · ROLES SET; LET THE CACHED RUN FINISH
+
+Claude Code is now PRIMARY REPOSITORY BUILDER; ChatGPT is the independent
+second-author/reviewer; the owner adjudicates. Standing instruction at this instant:
+DO NOT optimize or restructure again. The frequency-local repair is paid for and its
+battery is green; the assembly cache exists precisely to stop a downstream one-line
+error from discarding another two-hour run. Let the current run finish unless it
+STALLS or FAILS. On completion report, in order: Phase-10 assembly status; the H^0
+anchor; the H^1 result CLEARLY MARKED INTERMEDIATE; the H^2 result; Phase-11 multi-K^2
+identification (>= 2 distinct K^2 + one held-out, never single-K, null relation /
+Gauss-Bonnet degeneracy handled explicitly, basis NOT restricted to the desired 3D
+family so an outside-family residue can be returned); Phase-12 MS split
+(Pi_local^MS(H^2) vs Pi_nonlocal^invariant(H^2), frozen locality predicate, a
+non-fitting divergence is a FINDING); every self-caught defect; the commit hash; and
+the next blocking item. STOP after Phase 12 -- no J(omega) comparison, no PV, no
+response-level dual-gauge, no Q1-Q5.
+
+INTERPRETATION FENCE RE-AFFIRMED: the O(H^1) purely-imaginary pole stays an
+INTERMEDIATE COMPUTED OBJECT until corrected assembly + Phase 11 + Phase 12 are all
+green. Do not reopen D2-0, do not resurrect wall_d2_r1.py or the unverified Phase-2
+implementation, do not redesign the Level-2 repair.
+
+BUILDER ACK: run alive at 100% CPU in the decomposition battery; no cache file yet
+(the save point is after the seagull sector, ~2.2h in). Standing by; not touching it.
