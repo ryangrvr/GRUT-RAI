@@ -1540,3 +1540,13 @@ register untouched; nothing banked.
 wall_d2_r1.py carries an uncommitted modification from the superseded diagnostic
 session. The new Phase-2 instrument is a FRESH file with its own claim.
 Do NOT resume, overwrite, or import from wall_d2_r1.py.
+
+### 2026-08-25 · Ox · PHASE 2 PARTIAL: Parts A-B complete; Parts C-E blocked by sympy performance wall
+
+wall_d2_phase2.py built: constant-Omega calibration PASS; compact Omega identities
+verified; W2 derived symbolically from order-counted Riccati expansion.
+BLOCKED at symbolic cross-check: sp.simplify hangs on exp(-2Ht) x sqrt(Q) products.
+Fix identified but requires next session: numeric-only residual evaluation (no global
+symbolic simplify), substituting rational parameter values before differentiation.
+The approach avoids the sympy wall entirely while still measuring O((H/M)^4).
+No register edits. W-0 throughout. No result claimed beyond Parts A-B.
