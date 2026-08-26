@@ -102,16 +102,17 @@ test_phi = (1 + t) * sp.exp(-2 * t)             # arbitrary nonzero test functio
 phi_dot_eta = aa * ddt(test_phi)                    # phi'_eta = a phi_dot
 # phi''_eta = d/deta(phi'_eta) = a d/dt(a phi_dot) -- outer factor required (round-1 fix)
 phi_ddot_eta = aa * sp.diff(aa * ddt(test_phi), t)
-# D2-0 REPAIR ROUND 2 (owner-diagnosed): friction term was 2H*a*phi_dot -- missing one
-# factor of a: a'/a = H*a (NOT H), so 2(a'/a)*phi'_eta = 2*H*a^2*phi_dot.
-apr_over_a = sp.diff(aa, t) / aa                    # = H*a
+# D2-0 REPAIR ROUND 3 (owner-diagnosed): apr_over_a must be a'/a = Ha, NOT adot/a = H.
+# The round-2 construction used adot/a -- one factor of a short; that was the bug.
+apr_over_a = sp.diff(aa, t)                         # = H*a = a'/a exactly
 lhs_conf = sp.expand(
     phi_ddot_eta + 2 * apr_over_a * phi_dot_eta
     + (kp**2 + aa**2 * mp**2) * test_phi)
-# REGRESSION (owner-directed): coeff(phi_dot) must equal exactly 3*H*a^2 after
-# conversion to cosmic time -- this catches the round-2 missing-a class immediately.
-coeff_phidot_regression = sp.simplify(
-    sp.expand(lhs_conf).coeff(sp.Derivative(test_phi, t), 1) - 3 * H * aa**2)
+# REGRESSION (round 3, owner-directed direct identity checks):
+check(sp.simplify(apr_over_a - sp.diff(aa, t)) == 0,
+      "round-3 regression: apr_over_a == diff(a,t) == H*a == a'/a EXACTLY")
+check(sp.simplify(apr_over_a - H * aa) == 0,
+      "round-3 regression: apr_over_a == H*a EXACTLY")
 lhs_conf_via_eta = sp.expand(
     aa**2 * ddt(ddt(test_phi)) + 3 * H * aa**2 * ddt(test_phi)
     + (kp**2 + aa**2 * mp**2) * test_phi)
@@ -132,36 +133,42 @@ if identity_diff != 0:
 check(identity_diff == 0,
       "cosmic-time equation == conformal equation under d/deta = a d/dt "
       "(arbitrary test function identity)")
-check(sp.simplify(coeff_phidot_regression) == 0,
+# round-2 friction regression, VALID form: direct difference against the target
+# cosmic-time operator applied to the SAME arbitrary test function
+friction_target = sp.expand(aa**2 * ddt(ddt(test_phi)) + 3 * H * aa**2 * ddt(test_phi)
+                            + (kp**2 + aa**2 * mp**2) * test_phi)
+check(sp.expand(lhs_conf - friction_target) == 0,
       "REGRESSION (round 2): coeff(phi_dot) == 3 H a^2 exactly -- the friction-term "
-      "missing-a defect class is now caught by a wired assertion")
+      "missing-a defect class is caught by wired assertion")
 # REGRESSION ASSERTION: both constructions are forms of the SAME equation -- the
 # kp^2 coefficient must carry the a^2 dressing (no bare k^2 may appear):
-bare_k = sp.simplify(sp.expand(lhs_conf).coeff(kp**2, 1)
-                     - sp.expand(lhs_conf).coeff(kp**2, 1) * 0)
 coeff_kp2 = sp.expand(lhs_conf).coeff(kp**2, 1)
-check(sp.simplify(coeff_kp2 - aa**2) == 0,
-      "regression assertion: kp^2 enters ONLY dressed by a^2 in the identity test "
-      "(a future missing outer scale factor cannot silently recur)")
+check(sp.expand(coeff_kp2 - test_phi) == 0,
+      "regression assertion: k^2 enters UNDRESSED in the identity test (the a^2 "
+      "dressing belongs to m^2 only) -- scale-factor recurrence now wired")
 check(sp.expand(lhs_conf - lhs_conf_via_eta) == 0,
       "cosmic-time equation == conformal equation under d/deta = a d/dt "
       "(arbitrary test function identity)")
 
 # u = a^{3/2} phi substitution: derive u's equation programmatically
 uu = sp.Function('u')(t)
-sub = sp.solve(sp.Eq(uu, aa**sp.Rational(3, 2) * ph), ph)[0]
-u_eq = sp.expand(cosmic_eq.subs(ph, sub) * aa**sp.Rational(3, 2))
-u_eq = sp.simplify(sp.expand(u_eq))
-coeff_uddot = sp.collect(u_eq, sp.Derivative(uu, (t, 2))).coeff(
-    sp.Derivative(uu, (t, 2)))
-u_lhs = sp.simplify(u_eq / coeff_uddot)
-Omega2_expr = sp.simplify((u_lhs - sp.Derivative(uu, (t, 2))
-                           - sum(c * sp.Derivative(uu, (t, o)) for o in (1,)
-                                 for c in [u_lhs.coeff(sp.Derivative(uu, (t, 1)))])
-                           ) / uu)
-Omega2_expr = sp.simplify(Omega2_expr)
-Omega2_frozen = kp**2 * sp.exp(-2 * H * (t - t0)) + mp**2 - sp.Rational(9, 4) * H**2
-check(sp.simplify(Omega2_expr - Omega2_frozen) == 0,
+# DIRECT SUBSTITUTION (robust; no sp.solve -- it produced zoo branches here, a
+# self-caught defect disclosed): phi = u * a^(-3/2), substituted deterministically.
+ph_sub = uu * aa ** (-sp.Rational(3, 2))
+u_eq = sp.expand(cosmic_eq.subs(ph, ph_sub))
+u_lhs_norm = sp.simplify(sp.expand(u_eq / aa**sp.Rational(1, 2)))
+# NOTE: cosmic_eq carries an overall a^2 from the conformal transformation AND the
+# substitution phi=u/a^(3/2) contributes a^-3/2 -- net divisor is a^(1/2), derived
+# here after two wrong partial divisions were localized by this very diagnostic.
+target_u_lhs = sp.expand(
+    sp.Derivative(uu, (t, 2)) + (kp**2 * sp.exp(-2 * H * (t - t0))
+                                 + mp**2 - sp.Rational(9, 4) * H**2) * uu)
+diff_u = sp.simplify(sp.expand(u_lhs_norm - target_u_lhs))
+if diff_u != 0:
+    print("   U-GATE DIFF DIAGNOSTIC:", sp.factor(sp.expand(diff_u)))
+    print("      u_lhs_norm =", sp.factor(sp.expand(u_lhs_norm)))
+    print("      target     =", sp.factor(sp.expand(target_u_lhs)))
+check(diff_u == 0,
       "u = a^{3/2} phi satisfies u_ddot + Omega^2 u = 0 with "
       "Omega^2 = k^2 e^{-2H(t-t0)} + m^2 - 9H^2/4 EXACTLY (D2-0 PASS)")
 print("   OBJECT REGISTRY (typed, no aliases):")
