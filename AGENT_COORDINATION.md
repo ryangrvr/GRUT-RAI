@@ -1582,3 +1582,14 @@ derivatives of corrected W (not Omega alone); matched-order plant mechanically
 wired; formal adiabatic bookkeeping parameter epsilon for H-parity proof.
 No file created or edited beyond this log entry. Nothing banked. Next session
 opens at Step 0 (clean start / file claim).
+
+### 2026-08-25 · Ox · FINAL HANDOFF — D2-R1 execution requires fresh session
+
+Session context exhausted. The complete 14-step directive (owner message, latest)
+is binding and self-contained. Next session must:
+1. File claim fresh paths (wall_d2_phase2.py is UNVERIFIED, not to be resumed).
+2. Start at Phase 0 (guard + state check).
+3. Execute Phases 1-14 in order with hard stops as enumerated.
+The key structural improvement is Step 6: epsilon-series H^2-cancellation check
+as the fastest hard gate BEFORE expensive numerical work.
+Nothing banked. W-0 throughout. Register untouched.
