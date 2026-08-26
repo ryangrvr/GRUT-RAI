@@ -1312,3 +1312,16 @@ my previous entry is WITHDRAWN as an artifact of the wrong pairing; parity gates
 re-main as specified and will adjudicate fresh.
 
 W-0 throughout; register untouched.
+
+### 2026-08-25 · Ox · SEQUENCE FROZEN for next execution
+
+D2-0 READY (derive/verify the variable equation: psi = a phi obeys
+psi_ddot + H psi_dot + [k^2 e^{-2H dt} + m^2 - 2H^2] psi = 0; route to u = a^{3/2} phi
+declared under the gate if chosen). Then D2-1 WKB residual on the CORRECTLY TYPED
+variable -> normalization -> H->0 recovery -> H-parity -> validity -> matched-order
+plant (Gamma^(H2) G^(H0) and Gamma^(0) G^(H2) combinations must FAIL) ->
+fish+seagull at O(H^2) -> multi-K identification -> MS split.
+
+RECORD NOTE, binding: the withdrawn odd-(H) prediction does NOT survive as evidence
+anywhere -- it arose from the wrong variable/equation pairing and must not influence
+the fresh parity test. W-0 throughout; register untouched.
