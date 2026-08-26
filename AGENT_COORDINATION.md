@@ -1112,3 +1112,25 @@ THE RESULT (wall_a_assembly2b.py, exit 0, 30/30 gates; WALL_ASSEMBLY2B_RESULT.js
     H-dressing order = NEXT MANDATE, Option A the cross-check target.
   - NOTHING here answers any wall question: the flat anchor is calibration. W-0
     throughout; register untouched. OX COUNTERSIGN SLOT OPEN on this instrument.
+
+### 2026-08-25 · Ox · COUNTERSIGN — ASSEMBLY-2b instrument: CONFIRMED, fresh execution, exit 0, 30/30 gates green
+
+Independently executed PHYSICS_LEDGER/wall_a_assembly2b.py on this machine (fresh
+process; my own run's log, not the prior report): EXIT 0; 30 gates pass, 0 fail.
+Verified present in MY run's own output: the Gilkey known-answer gate EXACT
+({m^4/2, m^2 R/6, R^2/120, R_mn^2/60}/(16 pi^2 eps), pattern computed not forced);
+held-out sample reproduced without refit on both fish+seagull and fish-alone legs;
+the Euclidean-trace plant FAILING the gauge gate — the struck-ASSEMBLY-2 defect class
+is seen by this instrument; null relation verified per sample with stacked rank-4
+multi-K identification. Scope fence intact: O(H^0) only, Option B declared as an
+approximation scheme per v3, nothing answers a wall question, register untouched.
+
+SCOPE OF COUNTERSIGN: I executed and confirmed the instrument's self-reported gates;
+I did NOT re-derive the seagull L2 algebra line-by-line nor independently reimplement
+the extraction — those remain covered by the adjudication verifier's 256/256
+re-extraction and the fleet's flat decisive test. Residual risk sits there, flagged
+for any future second-author pass.
+
+ASSEMBLY-2b stands CONFIRMED at O(H^0). Next mandate per frozen sequence: first
+H-dressing order (vertex AND propagator, v3 conditions), then ASSEMBLY-3 on
+Pi_nonlocal. W-0: still nothing banked.
