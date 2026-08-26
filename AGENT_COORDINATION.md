@@ -1534,3 +1534,9 @@ RESULTS (all derived, none recalled):
 PHASES 8-12 (dressing plant, matched-order vertex, fish+seagull O(H^2), multi-K
 identification, MS split) remain the next block under this claim. W-0 throughout;
 register untouched; nothing banked.
+
+### 2026-08-25 · Owner directive · housekeeping: wall_d2_r1.py is OBSOLETE — do not resume or overwrite
+
+wall_d2_r1.py carries an uncommitted modification from the superseded diagnostic
+session. The new Phase-2 instrument is a FRESH file with its own claim.
+Do NOT resume, overwrite, or import from wall_d2_r1.py.
