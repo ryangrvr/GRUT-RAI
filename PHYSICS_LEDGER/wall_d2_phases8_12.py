@@ -582,6 +582,124 @@ def plain_line(Dpick):
     return [(sp.Integer(1), 1, 0)] if Dpick == 'A' else [(sp.Integer(1), 0, 1)]
 
 
+# =====================================================================================
+# LEVEL-2 REPAIR: TYPED ENDPOINT FREQUENCIES + FREQUENCY-LOCAL DIFFERENTIATION
+# =====================================================================================
+# A u-weighted insertion splits a line into segments with DIFFERENT frequencies, and the
+# s-integral yields a frequency derivative instead of a delta-collapse. That derivative
+# is FREQUENCY-LOCAL: it acts on every factor carrying the affected segment's frequency
+# and on NOTHING else. Three factor classes carry it:
+#   (i)   the segment propagator itself,
+#   (ii)  the insertion vertex's share of that frequency (two-sided: A nu_L nu_R + B),
+#   (iii) THE ENDPOINT h-VERTEX adjacent to that segment            <-- the L2 defect.
+# The far endpoint vertex depends on the OTHER segment's frequency and must stay OUTSIDE
+# the differentiated group. Because a collapsed l0-derivative would hit BOTH legs of a
+# vertex kernel, the endpoint frequencies are carried as EXPLICIT TYPED SYMBOLS and
+# collapsed only after differentiation.
+nuA1, nuA2, muB1, muB2 = sp.symbols('nu_A1 nu_A2 mu_B1 mu_B2', real=True)
+COLLAPSE = {nuA1: l0, nuA2: l0, muB1: l0 - om, muB2: l0 - om}
+
+
+def Mvert(e, n, fa, fb):
+    """endpoint h-vertex with EXPLICIT adjacent-segment frequencies: leg A = (fa, lvec),
+    leg B = K - l whose frequency component is -fb (line B's segment frequency is
+    mu = l0 - omega). Collapses to Mker(e, n) under COLLAPSE."""
+    a2c, a4c = VTX_ORDERS[n]
+    return vertex_kernel(e, [fa, l1, l2, l3], [-fb, -l1, -l2, kk - l3], a2c, a4c)
+
+
+# factor kinds:  ('K', expr, tagset)  numerator-only, differentiated symbolically
+#                ('P', pieces, tag)   propagator, differentiated via pieces_diff_l0
+def fdiff(factors, ftag):
+    """-i d/d(frequency ftag) of the product, by the product rule over ONLY the factors
+    carrying ftag. Returns a LIST of factor-lists (a sum)."""
+    out = []
+    for i, f in enumerate(factors):
+        if f[0] == 'K' and ftag in f[2]:
+            d = sp.expand(sp.diff(f[1], ftag))
+            if d == 0:
+                continue
+            out.append(factors[:i] + [('K', -sp.I * d, f[2])] + factors[i + 1:])
+        elif f[0] == 'P' and f[2] == ftag:
+            out.append(factors[:i]
+                       + [('P', pieces_scale(pieces_diff_l0(f[1]), -sp.I), f[2])]
+                       + factors[i + 1:])
+    return out
+
+
+def eval_factorlists(fls):
+    """multiply each factor-list out, COLLAPSE the typed frequencies, take the pole."""
+    tot = sp.Integer(0)
+    for fl in fls:
+        pcs = [(sp.Integer(1), 0, 0)]
+        for f in fl:
+            pcs = pieces_mult(pcs, [(f[1], 0, 0)] if f[0] == 'K' else f[1])
+        pcs = [(sp.expand(n.subs(COLLAPSE)), a, b) for (n, a, b) in pcs]
+        tot += pieces_pole(pcs)
+    return tot
+
+
+def fish_one_insertion(Dpick, KVord, spow, route, vn1, vn2, broken_L2=False):
+    """complete fish integrand for ONE insertion (order KVord, weight s^spow) on line
+    Dpick, with the insertion position decomposed from the line's start (route 1) or end
+    (route 2). broken_L2=True reproduces the DEFECT (endpoint vertices factored outside
+    the differentiated group) and must FAIL the decomposition gate."""
+    if Dpick == 'A':                      # line A runs u2 -> u1
+        fs, fe, fB = nuA2, nuA1, muB1     # start-adjacent, end-adjacent, undivided B
+        aP, mom = (1, 0), list(LSY)
+        M1 = Mvert(e1m, vn1, nuA1, fB)    # vertex at u1 sees the END segment
+        M2 = Mvert(e2m, vn2, nuA2, fB)    # vertex at u2 sees the START segment
+        segs = [('P', [(sp.Integer(1), 1, 0)], fs), ('P', [(sp.Integer(1), 1, 0)], fe)]
+        other = [('P', [(sp.Integer(1), 0, 1)], fB)]
+        ext_start, ext_end = -sp.Rational(1, 2), +sp.Rational(1, 2)
+        tags_ins = {nuA1, nuA2}
+    else:                                 # line B runs u1 -> u2
+        fs, fe, fA = muB1, muB2, nuA1
+        aP, mom = (0, 1), list(Kminus)
+        M1 = Mvert(e1m, vn1, fA, muB1)
+        M2 = Mvert(e2m, vn2, fA, muB2)
+        segs = [('P', [(sp.Integer(1), 0, 1)], fs), ('P', [(sp.Integer(1), 0, 1)], fe)]
+        other = [('P', [(sp.Integer(1), 1, 0)], fA)]
+        ext_start, ext_end = +sp.Rational(1, 2), -sp.Rational(1, 2)
+        tags_ins = {muB1, muB2}
+    A_, B_ = KV_split(KVord, mom)
+    fL, fR = (fs, fe)
+    ins_expr = -(A_ * fL * fR + B_)       # two-sided insertion factor (Level-1 form)
+    mtags = set() if broken_L2 else None  # broken control: vertices carry NO frequency
+    if broken_L2:
+        M1 = M1.subs(COLLAPSE); M2 = M2.subs(COLLAPSE)
+        f1 = ('K', sp.expand(M1), set()); f2 = ('K', sp.expand(M2), set())
+    else:
+        f1 = ('K', sp.expand(M1), {nuA1, muB1} if Dpick == 'A' else {nuA1, muB1})
+        f2 = ('K', sp.expand(M2), {nuA2, muB1} if Dpick == 'A' else {nuA1, muB2})
+    base = [f1, f2, ('K', sp.expand(ins_expr), tags_ins)] + segs + other
+    dfreq = fs if route == 1 else fe
+    ext = ext_start if route == 1 else ext_end
+    tsign = 1 if route == 1 else -1
+    terms = []
+    for r in range(spow + 1):
+        coeff = sp.binomial(spow, r) * ext**(spow - r) * tsign**r
+        fls = [base]
+        for _ in range(r):
+            nxt = []
+            for fl in fls:
+                nxt += fdiff(fl, dfreq)
+            fls = nxt
+        terms.append((fls, spow - r, coeff))
+    return terms
+
+
+def assemble_fl(terms, vn1, vn2):
+    """apply external Delta-powers and the vertex u-powers to frequency-local terms."""
+    total = sp.Integer(0)
+    for (fls, extpow, coeff) in terms:
+        val = apply_Delta_power(eval_factorlists(fls), extpow) * coeff
+        val = apply_Delta_power(val, vn1 + vn2) \
+            * sp.Rational(1, 2)**vn1 * sp.Rational(-1, 2)**vn2
+        total += val
+    return sp.expand(sp.Rational(1, 2) * total)
+
+
 def assemble(vn1, vn2, lineA_terms, lineB_terms):
     """fish assembly: vertex orders (vn1, vn2) with u1^vn1 u2^vn2 external factors;
     line terms as lists of (pieces, ext_power, coeff). Returns the omega-space pole
@@ -618,30 +736,35 @@ print("   convention: engine returns poles in units of c; c is applied at report
       "(eps^2-cancellation is structural: no c enters the assembly at all)")
 
 # ---- decomposition-independence gate on ONE insertion diagram (route 1 vs 2) ----
-t_r1 = assemble(0, 0, single_insertion_line('A', 1, 1, 1), [(plain_line('B'), 0, 1)])
-t_r2 = assemble(0, 0, single_insertion_line('A', 1, 1, 2), [(plain_line('B'), 0, 1)])
-_rd = sp.expand(t_r1 - t_r2)
-if _rd != 0:
-    _e1 = sorted({q for q in _rd.free_symbols if str(q).startswith('E_')}, key=str)[0]
-    _p1 = sorted({q for q in _rd.free_symbols if str(q).startswith('P_')}, key=str)[0]
-    print("   DIAGNOSTIC route residual, one bilinear slot:",
-          sp.factor(sp.simplify(sp.expand(_rd).coeff(_e1, 1).coeff(_p1, 1))))
-    print("   residual free symbols:", sorted(map(str, _rd.free_symbols)))
-    # is the residual PURE type-A (nu-structure) or type-B (constant)?  Rebuild the
-    # two routes with a MASS-ONLY insertion (A -> 0) to separate the channels:
-    _sv = KV_split
-    KV_split = lambda o, mom: (sp.Integer(0), _sv(o, mom)[1])
-    _b1 = assemble(0, 0, single_insertion_line('A', 1, 1, 1), [(plain_line('B'), 0, 1)])
-    _b2 = assemble(0, 0, single_insertion_line('A', 1, 1, 2), [(plain_line('B'), 0, 1)])
-    print("   MASS-ONLY (type-B) channel route-independent:", sp.expand(_b1 - _b2) == 0)
-    KV_split = lambda o, mom: (_sv(o, mom)[0], sp.Integer(0))
-    _a1 = assemble(0, 0, single_insertion_line('A', 1, 1, 1), [(plain_line('B'), 0, 1)])
-    _a2 = assemble(0, 0, single_insertion_line('A', 1, 1, 2), [(plain_line('B'), 0, 1)])
-    print("   NU-ONLY (type-A) channel route-independent:", sp.expand(_a1 - _a2) == 0)
-    KV_split = _sv
-check(_rd == 0,
-      "DECOMPOSITION-INDEPENDENCE: V1 insertion via route s = u_start + t1 equals "
-      "route s = u_end - t2 EXACTLY (the u-rule wiring is self-consistent)")
+# ---- DECOMPOSITION-INDEPENDENCE BATTERY (the Level-2 acceptance test) ----
+_bat = []
+for _D in ('A', 'B'):
+    for _sp in (1, 2):
+        _r1 = assemble_fl(fish_one_insertion(_D, 1, _sp, 1, 0, 0), 0, 0)
+        _r2 = assemble_fl(fish_one_insertion(_D, 1, _sp, 2, 0, 0), 0, 0)
+        _d = sp.expand(_r1 - _r2)
+        _bat.append(_d == 0)
+        check(_d == 0, f"DECOMPOSITION-INDEPENDENCE line {_D}, weight s^{_sp}: route "
+              "s = u_start + t1 equals route s = u_end - t2 EXACTLY")
+        if _d != 0:
+            _e = sorted({q for q in _d.free_symbols if str(q).startswith('E_')}, key=str)
+            if _e:
+                print("   residual slot:", sp.factor(sp.simplify(_d.coeff(_e[0], 1))))
+# vertex-order dependence: the gate must hold with WEIGHTED endpoint vertices too
+_w1 = assemble_fl(fish_one_insertion('A', 1, 1, 1, 1, 0), 1, 0)
+_w2 = assemble_fl(fish_one_insertion('A', 1, 1, 2, 1, 0), 1, 0)
+check(sp.expand(_w1 - _w2) == 0,
+      "DECOMPOSITION-INDEPENDENCE with a weighted endpoint vertex (vn1 = 1)")
+# BROKEN-L2 CONTROL (requirement 6): endpoint vertices factored OUTSIDE the
+# differentiated group -- the pre-repair wiring -- must FAIL the same gate.
+_b1 = assemble_fl(fish_one_insertion('A', 1, 1, 1, 0, 0, broken_L2=True), 0, 0)
+_b2 = assemble_fl(fish_one_insertion('A', 1, 1, 2, 0, 0, broken_L2=True), 0, 0)
+check(sp.expand(_b1 - _b2) != 0,
+      "BROKEN-L2 CONTROL: endpoint vertices outside the differentiated group FAIL the "
+      "same gate (the repair is not vacuous)")
+if 'l2gate' in sys.argv:
+    print(f"\n[L2 GATE MODE] FAIL count = {len(FAIL)}")
+    sys.exit(0 if not FAIL else 1)
 stamp("p10 gates: decomposition independence done")
 
 # ---- O(H) sector (classification, not deliverable) ----
