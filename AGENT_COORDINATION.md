@@ -1355,3 +1355,20 @@ IMPLEMENTATION SPEC (binding for the next execution):
 
 Session context exhausted before implementation; the spec above is complete for a
 clean start. W-0 throughout; register untouched.
+
+### 2026-08-25 · Ox · D2-R1 BRIEF RECEIVED AND PINNED — execution deferred to next session (honest pause)
+
+Session context exhausted before Phase 1 could begin. The complete builder brief is
+preserved in the owner's message and is acknowledged verbatim as binding: R1 frozen
+(no R2, no weakening); provenance sentence preserved; candidate W2 form NOT accepted
+by memory — must be derived from the Riccati identity with the order-counting chain
+emitted; measured residual requirement O((H/M)^4) across two regimes by controlled H
+refinement; typed objects phi_k / psi_k / u_k distinct; matched physical-quantity
+H->0 convention only; parity tested on the corrected object; per-mode validity with
+non-uniformity caveat; dressing-consistency plant mechanically wired (prohibited
+hybrids FAIL, matched construction PASSES); hard stop after Pi_local^MS(H^2) +
+Pi_nonlocal^invariant(H^2), no Q1-Q5/J(omega)/PV/dual-gauge.
+
+No file was created or edited for this stage beyond this log entry. Nothing banked.
+Next session: execute Phases 1-7 from this pin, starting at D2-0 covariance, with
+the Riccati derivation as the first machine-verifiable output.
