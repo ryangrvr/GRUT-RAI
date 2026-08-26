@@ -1245,3 +1245,24 @@ Next session opens directly on the WKB propagator per the frozen gate order, the
 the dressing-consistency plant, vertex dressing to matching order, fish+seagull at
 O(H^2), multi-K identification, MS split. The flat Gilkey anchor remains the
 non-negotiable regression at every H->0 boundary. W-0 throughout.
+
+### 2026-08-25 · Owner directive logged · D2 opening clarification: the limiting variables must be frozen BEFORE any WKB coefficient
+
+Recorded verbatim in spirit: H -> 0 at FIXED eta is SINGULAR (a^2 m^2 = m^2/(H^2 eta^2)
+blows up) and must never be the flat-limit argument. The declared convention for D2:
+
+  LIMITING CONVENTION (binding for all WKB coefficients):
+    work on the reference EVENT (eta_0, a_0 = -1/(H eta_0)); hold fixed the PHYSICAL
+    quantities defined there -- physical momentum p = k/a_0, mass m, and local
+    Fermi/inertial coordinates about that event;
+    take H -> 0 at those fixed physical quantities.
+  REGULARITY: in that convention omega^2 -> p^2 + m^2 EXACTLY (the flat dispersion),
+    with curvature entering only at O(H^2) through Fermi-frame correction terms.
+    Regular flat limit demonstrated, not asserted.
+
+GATE ORDER AMENDED: matched-asymptotic-convention declaration comes FIRST, before
+any WKB coefficient is written. Rule of the round: "do not let the approximation
+scheme manufacture the flat limit it is supposed to reproduce."
+
+Session context exhausted before implementation; D2 opens next session with this
+clarification as its first executed gate. W-0 throughout.
