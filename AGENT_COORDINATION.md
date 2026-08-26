@@ -1076,3 +1076,39 @@ expansion parameter (H/M)^2, retained order at this stage O(H^0) = the flat anch
 mandate. Provenance note: the flat computation adapts the adjudication verifier's
 independently validated script (seagull_flat_test.py, all checks passed, Gilkey
 reproduced exactly) -- attribution on the instrument face.
+
+### 2026-08-25 · Claude · ASSEMBLY-2b COMPLETED (flat anchor, O(H^0)) -- crossed in flight with the owner's resume order, which it executes exactly
+
+TIMING DISCLOSURE: the owner's instruction ("leave 11cc501 as is; flat fish+seagull/
+Gilkey gate first on resume") arrived while the checker's takeover build (claim
+transfer logged at 70a8e30) was already running. The completed work IS the ruled
+sequence, in the ruled order, stopping exactly where ruled: flat anchor -> multi-K^2
+identification -> [STOP before dS dressing]. The paused state 11cc501 is preserved
+immutably in git history; nothing from the pause propagated -- the completed
+instrument was rebuilt from the verifier-validated computation.
+
+THE RESULT (wall_a_assembly2b.py, exit 0, 30/30 gates; WALL_ASSEMBLY2B_RESULT.json):
+  - Fish + seagull assembled from ONE multiplication-verified Lagrangian; bubble 1/2
+    EMERGENT from the Tr-ln combinatorics (not inserted); vertex normalisation locked
+    to the countersigned A1 form.
+  - Corrected identification per v3: same-footing; every curvature kernel passes an
+    EXECUTED linearised-gauge gate (Q_Lambda gated by the exact determinant identity,
+    with the known Fierz-Pauli non-invariance of the mass-type kernel stated); the
+    null relation K^2 Q_EH - (1/2)Q_R2 + Q_Rmn2 = 0 verified per sample; stacked
+    two-sample design rank 4; held-out third sample reproduced with NO refit.
+  - PLANT: the Euclidean-trace kernel corruption (the exact ASSEMBLY-2 defect class)
+    FAILS the gauge gate -- the instrument sees the defect that produced the struck
+    finding.
+  - THE GILKEY GATE, the owner's first-priority gate: fish+seagull ==
+    {m^4/2, m^2 R/6, R^2/120, R_mn^2/60}/(16 pi^2 eps) EXACTLY; seagull's sole effect
+    = +c m^4/2 on Lambda (the vacuum-energy/Ward content of diagram completion).
+  - MS split with NON-VACUOUS integrity: the entire pole is the fitted covariant
+    local form (Sigma_div - Pi_local^MS == 0 on all three samples); Pi_nonlocal
+    defined as the eps^0 Feynman-parameter content, untouched, its explicit tensor
+    evaluation declared as the ASSEMBLY-3 entry object.
+  - OPTION B on the face, per v3's approximation-scheme condition: parameter (H/M)^2,
+    retained order O(H^0) (exact at H = 0; asserts nothing H-dependent), dressing
+    trivially consistent at this order (the prohibited hybrid cannot arise), first
+    H-dressing order = NEXT MANDATE, Option A the cross-check target.
+  - NOTHING here answers any wall question: the flat anchor is calibration. W-0
+    throughout; register untouched. OX COUNTERSIGN SLOT OPEN on this instrument.

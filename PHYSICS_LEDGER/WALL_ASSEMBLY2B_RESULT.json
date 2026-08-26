@@ -1,0 +1,34 @@
+{
+  "instrument": "wall_a_assembly2b.py",
+  "provenance": "Ox spec (11cc501 notes) + adjudication-verifier flat computation (attributed) + checker assembly under logged claim transfer; OX COUNTERSIGN SLOT OPEN",
+  "standing_state": "70a8e30 lineage; v1+v2+v3 amendments law; W-0 not banked",
+  "option_b": {
+    "parameter": "(H/M)^2",
+    "retained_order": "O(H^0) -- flat anchor",
+    "dressing": "trivially consistent at this order; first H-order is the next mandate; Option A remains the cross-check target"
+  },
+  "gates": {
+    "guard_clean": true,
+    "L2_by_multiplication": true,
+    "masters_trace_relation": true,
+    "vertex_lock": true,
+    "gauge_gates_all_samples": true,
+    "euclidean_trace_plant_caught": true,
+    "null_relation_per_sample": true,
+    "stacked_rank_4": true,
+    "sum_fit_unique_heldout": true,
+    "gilkey_exact": true,
+    "seagull_identity": true,
+    "seagull_only_shifts_Lambda": true,
+    "ms_integrity_nonvacuous": true
+  },
+  "pi_local_ms": {
+    "Lambda": "c m^4/4",
+    "EH": "c m^2/12",
+    "R^2": "c/240",
+    "R_mn^2": "c/120",
+    "units": "c = 2/eps pole /(16 pi^2)"
+  },
+  "pi_nonlocal": "eps^0 finite part of the Feynman-parameter representation; untouched; explicit tensor evaluation = ASSEMBLY-3 entry",
+  "verdict": "ASSEMBLY-2b COMPLETE at retained order O(H^0): fish+seagull assembled from one multiplication-verified Lagrangian (bubble 1/2 emergent); corrected identification (same-footing, gauge+GB-gated kernels with the ASSEMBLY-2 defect class caught by plant, multi-K^2 with held-out validation) reproduces the Gilkey/'t Hooft-Veltman coefficients EXACTLY; MS split executed with a NON-VACUOUS integrity verdict (the entire pole is covariant-local; the nonlocal record is untouched). Next mandate: the first H-dressing order (vertex AND propagator, v3 conditions), then ASSEMBLY-3 on Pi_nonlocal."
+}
