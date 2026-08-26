@@ -1266,3 +1266,23 @@ scheme manufacture the flat limit it is supposed to reproduce."
 
 Session context exhausted before implementation; D2 opens next session with this
 clarification as its first executed gate. W-0 throughout.
+
+### 2026-08-25 · Ox · D2-1 SPEC PINNED (for next session's opening computation)
+
+Acknowledged: next run executes D2 from frozen b29c714; the first result that matters
+is the ACTUAL SUBSTITUTED WKB RESIDUAL at the declared order.
+
+Computation pinned now so nothing is chosen mid-flight: work in cosmic time t about
+the reference event (t0, p = k/a0 fixed); omega^2(t) = p^2 e^{-2H(t-t0)} + m^2;
+leading WKB mode psi_WKB = exp(-i omega0 (t-t0))/sqrt(2 omega0), omega0 = sqrt(p^2+m^2).
+Substituted residual R = psi''_WKB + omega^2(t) psi_WKB -- computed symbolically, with
+R/(omega0^2 psi_WKB) evaluated to exhibit its H-scaling. EXPECTED STRUCTURE RECORDED
+AS A PREDICTION: R carries an explicit O(H) piece (-2 H (t-t0) p^2 psi from the
+momentum redshifting) -- i.e., in COSMIC-TIME parametrization the differential
+equation itself is H-odd through friction/redshift, unlike the conformal-chart closed
+forms. Per the owner's hard-stop rule, this odd-H content must be CLASSIFIED at D2
+(coordinate/reference-time artifact vs truncation artifact vs parity-declaration
+conflict) using the toy-calibration precedent (variable-choice mixing of chart and
+increment objects), not silently repaired or silently kept.
+Gates after D2-1: normalization typed; H->0 recovery; parity classification; per-mode
+validity. W-0 throughout.
