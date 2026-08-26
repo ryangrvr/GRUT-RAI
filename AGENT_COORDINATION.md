@@ -1286,3 +1286,29 @@ conflict) using the toy-calibration precedent (variable-choice mixing of chart a
 increment objects), not silently repaired or silently kept.
 Gates after D2-1: normalization typed; H->0 recovery; parity classification; per-mode
 validity. W-0 throughout.
+
+### 2026-08-25 · Ox · D2-1 PIN ACCEPTED AS DEFECTIVE — owner's D2-0 gate adopted; spec superseded
+
+The owner is right, and the defect is mine: the pinned D2-1 moved from conformal to
+cosmic time WITHOUT transforming the equation. Explicit check (this time derived):
+psi'' = a^2 psi_ddot + H a^2 psi_dot; a''/a = H^2 a^2 (= 2/eta^2 consistently). So
+the COSMIC-TIME equation for the SAME object psi = a phi is
+
+  psi_ddot + H psi_dot + [ k^2 e^{-2H dt} + m^2 - 2H^2 ] psi = 0,
+
+exactly as the owner wrote -- friction RETAINED, minus-2H^2 present. My pinned
+omega^2(t) = p^2 e^{-2Hdt} + m^2 was a different equation, and its predicted O(H)
+"redshift" residual content was an artifact of that mismatch -- the earlier scoping
+"linear-in-H prediction" is likewise void in this variable.
+
+ADOPTED: the owner's D2-0 VARIABLE/EQUATION COVARIANCE GATE precedes everything:
+derive the cosmic-time equation by explicit differentiation from the frozen
+conformal-time equation and verify the declared WKB variable satisfies THAT exact
+transformed equation before any residual is constructed. Route choice recorded:
+the WKB object will be declared explicitly as either phi_k under its frictionful
+cosmic equation, or u = a^{3/2} phi under u_ddot + [k^2 e^{-2Hdt} + m^2 - 9H^2/4]u
+= 0 -- chosen at D2 execution, gated by D2-0 either way. The parity "prediction" in
+my previous entry is WITHDRAWN as an artifact of the wrong pairing; parity gates
+re-main as specified and will adjudicate fresh.
+
+W-0 throughout; register untouched.
