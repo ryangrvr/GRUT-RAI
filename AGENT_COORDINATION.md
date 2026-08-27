@@ -2063,3 +2063,40 @@ mechanically testable CASE A candidate outstanding. NEXT BLOCKING ITEM: test whe
 loop and basis sides use the SAME centre convention at O(H^2), i.e. whether a local
 operator's a(u)-dressing should contribute via Delta-derivatives (as the loop's vertex
 weights do) rather than vanishing at u -> 0. W-0; register untouched; nothing banked.
+
+### 2026-08-27 · Second-author ruling · ONE DIAGNOSTIC: REFERENCE-CENTRE CONSISTENCY AT H^2
+
+Reviewer accepts the rank result as ROBUST local-basis non-membership of the current
+computed H^2 target (rank 3 vs 4 at both fitting points AND the held-out point, two
+independent elimination routes, multiple masses), and notes the H^0 control staying
+INSIDE proves the test is capable of finding membership. Interpretation still withheld.
+
+REVIEWER'S NUANCE, ADOPTED AS A CORRECTION TO THE BUILDER'S FRAMING: the fact that
+sqrt(-g) is H-blind at the reference does NOT by itself prove that the loop-side H^2
+terms should disappear. That is precisely what this diagnostic exists to settle. The
+centre-mismatch explanation must NOT be promoted from CANDIDATE to ASSUMPTION. (The
+builder's previous report leaned toward "what I think this most likely is"; that lean
+is withdrawn from the record as unearned.)
+
+AUTHORIZED, EXACTLY ONE DIAGNOSTIC: independently determine whether the loop-side
+relative-time weighting and the basis-side local u -> 0 evaluation use the SAME
+reference-centre convention at O(H^2). Represent the SAME local operator two ways --
+(A) direct centred local expansion at u = 0; (B) centred-coordinate Delta representation
+followed by the independently derived Delta^n -> (-i d/domega)^n rule -- and compare.
+The calibration target must be SELF-CONTAINED and analytically known; the Phase-11
+residual may NOT be used as the target. Requirements: an operator with explicit a(u)
+dependence whose first nontrivial centre dependence occurs at H^2; independent
+verification of the centre shift u = u_c + Delta/2 and the endpoint relation; an
+explicit test of whether evaluating at u = 0 eliminates terms that SURVIVE in the loop
+representation after Delta differentiation; exact arithmetic where possible; a
+deliberately mismatched-centre control that MUST fail; and a repeat at a second centre
+u_c != 0 so the diagnosed dependence is verified rather than inferred from one
+coordinate choice.
+
+OUTCOMES: agreement => the CASE-A centre mismatch is ELIMINATED and the outside-span
+result becomes much more serious. Disagreement => STOP, identify the exact convention
+mismatch, and do NOT modify basis or target until the owner adjudicates. The H^2 span
+test is re-run ONLY after centre consistency is established.
+
+PROHIBITED: adding operators, refitting H^0 coefficients, changing A3 or the frozen
+locality criterion, Q1-Q5, J(omega). W-0; no register edits.
