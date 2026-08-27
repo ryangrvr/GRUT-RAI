@@ -1457,6 +1457,28 @@ for _n in (1, 2):
               "Gilkey-pinned basis prediction with ZERO free parameters")
         if nz:
             print(f"      FINDING -- first nonzero residual slot: {sp.factor(nz[0])}")
+            # DIAGNOSTIC (data, not interpretation): does the residual lie INSIDE the
+            # frozen span with different coefficients (a coefficient/convention issue)
+            # or OUTSIDE it (an outside-family residue -- wall question (i))?
+            Ad, bd = [], []
+            for ix in range(len(K_SAMPLES)):
+                for (r, t) in rows_for(ix, _n):
+                    Ad.append(r)
+                    bd.append(sp.expand(t - sum(PIN[o] * r[q]
+                                                for q, o in enumerate(OPS))))
+            Am, bm = sp.Matrix(Ad), sp.Matrix(bd)
+            rA, rAb = Am.rank(), Am.row_join(bm).rank()
+            print(f"      DIAGNOSTIC H^{_n}: rank(basis) = {rA}, "
+                  f"rank([basis | residual]) = {rAb}  ->  residual is "
+                  f"{'INSIDE the frozen span (coefficient/convention class)' if rAb == rA else 'OUTSIDE the frozen span (outside-family class)'}")
+            if rAb == rA:
+                sol_r = sp.solve(list(Am * sp.Matrix([uL, uE, uR, uM]) - bm),
+                                 [uL, uE, uR, uM], dict=True)
+                if sol_r:
+                    print(f"      residual expressed in the frozen basis: "
+                          f"{ {str(k_): sp.simplify(v_) for k_, v_ in sol_r[0].items()} }")
+            print(f"      residual at m -> 0 (first slot): "
+                  f"{sp.simplify(nz[0].subs(mm, 0))}")
 stamp("p11 identification done")
 
 # ================= PHASE 12: MS SPLIT =================

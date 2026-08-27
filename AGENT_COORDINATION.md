@@ -1870,3 +1870,49 @@ output; Phase 12 blocked on that residual. W-0 intact; register untouched; nothi
 banked. NEXT BLOCKING ITEM: adjudicate the H^2 residual -- specifically, an
 independent H^2 known-answer check on the LOOP side, which is the one leg that has
 never been validated the way H^0 now has.
+
+### 2026-08-27 · Second-author review · H^0 ACCEPTED PROVISIONALLY; H^2 NOT INTERPRETABLE; ATTACK THE LOOP SIDE
+
+Reviewer executed against the a445bb5 instrument and result package, not the report.
+VERDICT: H^0 anchor STRONG (different constructions on the two sides, multi-K^2 fit
+with held-out sample, metric/determinant gates, dual route). H^2 residual: a REAL
+COMPUTATION whose meaning is UNRESOLVED. NEW PHYSICS: NOT ESTABLISHED. The builder was
+correct to stop.
+
+REVIEWER'S SHARPENING, adopted verbatim into the record: 96/300 != 0 means only that
+the computed H^2 target does not equal the H^2 kernel predicted by the four frozen
+LOCAL operators with coefficients fixed at H^0. It does NOT mean the microscopic
+response lies outside the admissible 3D family -- Phase 11 tests LOCAL UV COUNTERTERM
+STRUCTURE, not the nonlocal response Q1 ultimately cares about. Further: the
+reference-centre / Delta-derivative correspondence first becomes ACTIVE at H^2 while
+H^0 is INSENSITIVE to it -- exactly the systematic that cancels at the anchor and
+fails one order up.
+
+RULINGS: (i) do NOT treat the Phase-12 red as a second finding -- it is downstream of
+the first and carries no independent information (the instrument says so itself, and
+it compares at only the first K sample); (ii) do NOT refit the H^0 coefficients to
+make H^2 pass -- the zero-free-parameter test is the correct test; (iii) attack the
+LOOP side, not the basis: the basis code is internally coherent enough that the
+mismatch cannot yet be assigned to it, while the loop H^2 sector has NO external
+known-answer anchor.
+
+ORDERED TASKS: (1) independent reference-centre / Delta-derivative calibration
+(u^n delta^(q), the (-i d/domega)^n factors and every centre factor from
+u1 = +Delta/2, u2 = -Delta/2), built WITHOUT importing the basis-side transform;
+(2) one analytically controlled curvature-dependent loop insertion with an
+independently derived UV pole, compared against the LOOP ENGINE ONLY, never against
+the Phase-11 basis; (3) classify the H^2 residual IN vs OUTSIDE the frozen span with
+ranks at multiple K^2 including held-out -- inside => coefficient/convention/assembly
+class, outside => a BASIS/UV finding (NOT to be called "GRUT falsified" or
+"Lorentz-family violation"); (4) verify the H^1 sector independently before any
+interpretation. Frozen basis unchanged, no operators added, no refit, no weakening of
+the zero-free-parameter test, no Q1-Q5.
+
+REVIEWER NOTE ON REPRODUCTION: their independent execution of the Phase-11 script did
+not finish inside a 700 s limit though the builder's completed run took ~460 s. Not
+evidence of failure (different environments) but it reinforces: rely on saved
+artifacts and BOUNDED diagnostics, not another monolithic rerun. Builder adopts this
+as the working rule for the remaining tasks.
+
+SCIENTIFIC HIERARCHY (binding): verify loop H^2 -> verify reference-centre transform
+-> classify residual -> only then decide physics vs apparatus. W-0; no register edits.
