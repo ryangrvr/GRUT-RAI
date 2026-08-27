@@ -2004,3 +2004,15 @@ broken controls. The 96/300 H^2 mismatch is NOT explained by the L2 implementati
 It remains COMPUTED AND UNINTERPRETED; the next step per the reviewer's ordering is
 the residual-span classification (T3) at multiple K^2 including held-out.
 W-0; no register edits; basis unchanged; no refit.
+
+### 2026-08-27 · Claude · FILE CLAIM — H^2 RESIDUAL-SPAN CLASSIFICATION (authorized 53e94c3)
+
+CLAIM: PHYSICS_LEDGER/wall_d2_span_test.py (new, standalone), and
+PHYSICS_LEDGER/WALL_D2_SPAN_TEST_RESULT.json (new). No edit to
+wall_d2_phases8_12.py, no edit to the Phase-10 cache, no register edits.
+Disk re-read after claim. The Phase-10 cache is validated before use and NOT
+regenerated. The H^2 target is treated as IMMUTABLE INPUT: not recomputed for a
+preferred representation, not refit, not renormalised, no slots dropped, not
+projected. ONE question only: is the computed H^2 residual representable in the
+frozen local basis? No basis amendment, no operator addition, no Q1-Q5, no J(omega),
+no PV, no dual-gauge. W-0.
