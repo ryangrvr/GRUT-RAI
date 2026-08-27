@@ -1916,3 +1916,38 @@ as the working rule for the remaining tasks.
 
 SCIENTIFIC HIERARCHY (binding): verify loop H^2 -> verify reference-centre transform
 -> classify residual -> only then decide physics vs apparatus. W-0; no register edits.
+
+### 2026-08-27 · Second-author ruling · EVEN-WEIGHT LEVEL-2 VERIFICATION IS THE NEW BLOCKING DIAGNOSTIC
+
+Reviewer's sharpened state: H^0 anchor STRONG; T1 reference-centre transform CONFIRMED;
+T2 controlled insertion CONFIRMED through H^0/H^1/H^2; T4 H^1 interpretation CORRECTED
+(the "purely imaginary = suspicious" reading is withdrawn -- some H^1 local kernels are
+genuinely ALLOWED by the covariant basis). BUT the L2 EVEN-WEIGHT IMPLEMENTATION
+REMAINS UNVERIFIED, so the 96/300 H^2 mismatch is STILL NOT PHYSICS.
+
+THE BLIND SPOT, stated by the reviewer: the existing Level-2 battery can PASS a broken
+implementation at even weight because route 2 differs from route 1 by (-1)^p, which
+vanishes as a discriminator for even p. The H^2 sector is dominated by exactly those
+even-weight and double-insertion structures, so the battery was structurally incapable
+of certifying the thing most in need of certification.
+
+MANDATED TASK: a standalone EVEN-WEIGHT L2 verification built on the already-validated
+T2 position-space anchor. Even weight (s^2); two GENUINELY independent routes (exact
+position-space vs the CURRENT frequency-local implementation); no Phase-11 basis code;
+the existing L2 battery may NOT serve as the reference answer; exact or high-precision
+agreement; an even-weight BROKEN-L2 control that MUST FAIL; one genuine double-insertion
+topology; and a full record (route A, route B, difference, broken control, tolerance,
+topology, weight). Pass + broken-control-fails => even-weight wiring validated. Fail =>
+STOP and diagnose the implementation, do NOT touch the H^2 interpretation.
+
+INDEPENDENCE CLAUSE (binding): do not construct both answers from the same
+differentiated expression and call that independent.
+
+AFTER PASS: rerun the T3 residual rank test at multiple K^2 including held-out.
+Interpretation only then -- inside span => convention/coefficient/assembly class;
+outside span => a BASIS/UV finding. Even the OUTSIDE case is NOT "GRUT falsified" and
+NOT a "Lorentz-family violation"; that belongs to the later response-level analysis.
+
+PROHIBITED: adding an operator, refitting H^0 coefficients, changing A3 or the frozen
+locality predicate, Q1-Q5, J(omega) comparison, declaring the H^2 residual physical.
+W-0; no register edits.
