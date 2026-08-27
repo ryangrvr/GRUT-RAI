@@ -2100,3 +2100,61 @@ test is re-run ONLY after centre consistency is established.
 
 PROHIBITED: adding operators, refitting H^0 coefficients, changing A3 or the frozen
 locality criterion, Q1-Q5, J(omega). W-0; no register edits.
+
+### 2026-08-27 · Claude · CENTRE-MISMATCH CONFIRMED AND EXACTLY CHARACTERISED -- the H^2 outside-span result is very likely a BASIS-SIDE ARTIFACT. STOPPING for owner adjudication.
+
+Diagnostic: centre_diag.py, 19/19 internal gates, exact arithmetic, 31.6 s, exit 0.
+VERDICT: CENTRE-MISMATCH (identified). The two constructions do NOT agree at O(H^2).
+
+THE MASTER IDENTITY (exact, gate-verified on four distinct local operators):
+    F_B(om, u_c) - F_A(om, u_c) = SUM_{r >= 1} K_r(om) * c^{(r)}(u_c)
+Route A (the BASIS side: local integrand, both fields at the same point, dressing
+evaluated at the centre) is EXACTLY the r = 0 term of Route B (the LOOP side: second
+functional derivative, centre-split, Fourier-transformed in Delta). Every DERIVATIVE of
+the dressing is discarded by the point evaluation u -> u_c.
+
+PER OPERATOR (c = a^p, a = 1 + Hu + H^2u^2, so c(0) = 1, c'(0) = pH, c''(0) = p(p+1)H^2):
+  OP1  c (phi')^2      : H^0, H^1 agree; H^2 differs by p(p+1)/2  -- ADDITIVE, om-INDEPENDENT
+  OP2  c (phi'')^2     : H^2 differs by p(p+1) om^2               -- om-DEPENDENT
+  OP3  c[phi' phi''' - M^2 phi^2] : routes AGREE at all orders (K_4 annihilates the
+       truncated dressing) -- so the mismatch is STRUCTURE-DEPENDENT, not a global
+       normalisation error
+  OP4  c phi' phi'' (odd total derivative order): mismatch already at H^1, and there the
+       discrepancy is itself centre-DEPENDENT
+ORDER THEOREM, derived and gate-verified (not assumed): for operators with an EVEN total
+number of derivatives only even r survives, so no c'(u_c) term exists and the FIRST
+discrepancy is K_2 c'' ~ H^2. That is exactly why H^0 and H^1 look clean and H^2 does not.
+
+THE POINT THAT SETTLES THE WITHHELD QUESTION: at the reference the dressing IS H-blind
+(c(0) = 1 exactly, no H^1/H^2 content) -- and Route B nevertheless carries H^2 content,
+because it is fed by c''(0) = p(p+1)H^2. So H-blindness of the basis-side dressing at the
+reference does NOT imply the loop side's H^2 terms vanish. The reviewer was right that
+this must be settled by computation rather than assumed; it now is, and it comes out
+AGAINST the naive reading.
+
+THE DECISIVE STRUCTURAL TEST -- INTEGRATION BY PARTS:
+  ROUTE B is INVARIANT under integration by parts: int c phi' phi'' and
+    int -(1/2) c' (phi')^2 give the IDENTICAL kernel. It is a functional of the ACTION.
+  ROUTE A is NOT invariant: the same action gives 0 vs -om^2 c'(u_c) depending on which
+    integrand representative is written down.
+A physical two-point kernel MUST be a functional of the action, not of an arbitrary
+integrand representative. This makes Route A's construction a DEFECT, not an equally
+valid convention -- and Route A is what the Phase-11 basis side does.
+
+CONSEQUENCE, stated without going further: the H^2 outside-span result (rank 3 vs 4,
+robust across samples, masses and two elimination routes) is VERY LIKELY AN ARTIFACT OF
+THE BASIS SIDE, which is missing the SUM_{r>=1} K_r c^{(r)} terms. The computation was
+real; the comparison was not apples-to-apples at H^2. The H^0 anchor is unaffected
+because the discrepancy is structurally absent at order 0 (already established: the
+transform is exactly centre-independent at weight order 0).
+
+BUILDER'S EARLIER LEAN, revisited honestly: my withdrawn "leading candidate" pointed at
+this same mechanism, and it turns out to be correct. It was still right to withdraw it --
+it was unearned when stated, and the reviewer's instruction to settle it by computation
+is what produced the exact identity, the IBP argument, and the order theorem, none of
+which I had.
+
+STOPPING HERE PER THE RULING. No basis modification, no target modification, no operator
+addition, no refit, no re-run of the span test. The owner adjudicates whether the
+Phase-11 basis side is rebuilt as an action-functional (IBP-invariant) construction.
+W-0; register untouched; nothing banked.
