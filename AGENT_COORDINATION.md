@@ -1807,3 +1807,66 @@ feeding it is infeasible.
 STATUS: no Phase 11/12 result exists. The O(H^1) purely-imaginary pole REMAINS AN
 INTERMEDIATE COMPUTED OBJECT per the standing fence. W-0 intact; register untouched;
 nothing banked. Next blocking item: the Phase-11 basis-side redesign above.
+
+### 2026-08-27 · Claude · PHASE 11 COMPLETE; H^0 ANCHOR PASSES THROUGH FULLY REBUILT MACHINERY; H^2 RESIDUAL IS A FINDING
+
+PHASE-11 BASIS REDESIGN v4 (phase-stripped sector algebra) SUCCEEDED. The v3 slowdown
+was diagnosed concretely: the plane-wave exponentials exp(+-i(om u - k z)) were carried
+in the algebra, expanded at every product and never cancelled, although they cancel
+EXACTLY in the eps1*eps2 bilinear. v4 strips them and encodes each sector's phase in
+the DERIVATIVE RULE instead (d/du on sector A adds -i om, on B adds +i om; d/dz adds
++-i k), leaving pure truncated polynomial arithmetic in (eps-sector, u, H) with numeric
+(omega, k). Measured effect, same machine, same target:
+     Ricci        182 min  ->     8.9 s
+     R_mn^2       4.5 h (killed) -> 26.1 s
+     whole basis  never completed -> ~47 s per K sample
+The owner's per-block wall-clock guard is wired and no block came near threshold.
+
+RESULTS, all gates green EXCEPT the H^2 item:
+  - g.ginv == 1 in every eps sector (multiplication-verified)          PASS
+  - sqrt(-g)^2 == a^8 (-det(eta+h)) in every eps sector, DIVISION-FREE PASS
+  - background curvature COMPUTED: R^(0) = -12 H^2, K-independent      PASS
+  - DUAL ROUTE: Route A (sector-graded early truncation) == Route B
+    (full eps polynomial, extraction only at the end) at ALL THREE
+    H orders for the EH kernel                                          PASS
+  - H^0 GILKEY REGRESSION: rank(basis) = rank([basis|target]) = 4 (the
+    target lies IN the frozen span, no outside-family residue at the
+    anchor); fitted c_Lam = m^4/4, c_EH = m^2/12, c_R2 = 1/240,
+    c_Rmn2 = 1/120 -- the doubly verified flat anchor EXACTLY           PASS
+  - H^0 HELD-OUT sample K=(7,3) reproduced with NO refit                PASS
+  THIS IS THE STRONGEST VALIDATION THE CALCULATION HAS HAD: the loop side
+  (frequency-local Level-2 repaired assembly) and the basis side (entirely
+  rebuilt, phase-stripped sector algebra) were reconstructed INDEPENDENTLY and
+  land on the known Gilkey answer exactly, with held-out validation.
+
+THE FINDING (reported, NOT interpreted):
+  H^2: 96 nonzero residual slots out of 300 against the Gilkey-pinned,
+       ZERO-free-parameter covariant prediction. First nonzero slot:
+       -(27 m^2 + 4)/24.
+  H^1: 60 nonzero slots out of 243 -- remains an INTERMEDIATE COMPUTED OBJECT
+       under the standing fence, not interpreted.
+  Per the frozen rules the anchor coefficients were NOT refitted and NO operator
+  was added to absorb the residual. Phase-12 MS integrity at H^2 fails purely
+  downstream of this and carries no independent information.
+
+CANDIDATE EXPLANATIONS, none yet tested, listed so the review is not steered:
+  (a) a genuine outside-family residue -- what wall question (i) exists to detect;
+  (b) a convention mismatch between loop and basis sides at O(H^2) (the reference-
+      centre / Delta-derivative correspondence is exercised for the first time at
+      this order);
+  (c) an error in the H^2 sector of the loop assembly, which -- unlike H^0 -- has
+      never been checked against an independent known answer;
+  (d) an incomplete frozen basis at O(H^2) (a genuinely required operator absent),
+      which the frozen declaration says is a FINDING, never a silent basis expansion.
+
+THIRD OCCURRENCE, DISCLOSED, of the .coeff-on-a-rational defect class, again in a
+GATE and not in the physics: the sqrt(-g) gate divided by a^4 before squaring and the
+H-truncation helper cannot extract H-coefficients from a rational function. Repaired
+division-free; it now passes. (Prior occurrences: ASSEMBLY-2 identification, and the
+first Phase-11 metric gates.)
+
+STATUS: Phase 10 complete and cached; Phase 11 complete with the H^2 residual as its
+output; Phase 12 blocked on that residual. W-0 intact; register untouched; nothing
+banked. NEXT BLOCKING ITEM: adjudicate the H^2 residual -- specifically, an
+independent H^2 known-answer check on the LOOP side, which is the one leg that has
+never been validated the way H^0 now has.

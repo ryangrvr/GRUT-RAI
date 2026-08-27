@@ -1,0 +1,24 @@
+{
+  "instrument": "wall_d2_phases8_12.py",
+  "phase10": "complete, cached (tag L2repair-v1)",
+  "phase11_basis": "redesign v2: numeric-K samples + eps-sector truncation",
+  "K_samples": [
+    [
+      "3",
+      "2"
+    ],
+    [
+      "5",
+      "2"
+    ],
+    [
+      "7",
+      "3"
+    ]
+  ],
+  "fail_count": 2,
+  "failures": [
+    "H^2 COVARIANCE PREDICTION: the curvature-corrected pole equals the Gilkey-pinned basis prediction with ZERO free parameters",
+    "P12 MS integrity at H^2: Sigma_div - Pi_local^MS == 0 (the entire pole is the covariant local form)"
+  ]
+}
