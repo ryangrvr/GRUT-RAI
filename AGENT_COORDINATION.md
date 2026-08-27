@@ -1951,3 +1951,56 @@ NOT a "Lorentz-family violation"; that belongs to the later response-level analy
 PROHIBITED: adding an operator, refitting H^0 coefficients, changing A3 or the frozen
 locality predicate, Q1-Q5, J(omega) comparison, declaring the H^2 residual physical.
 W-0; no register edits.
+
+### 2026-08-27 · Claude · EVEN-WEIGHT LEVEL-2 VERIFICATION: VALIDATED ON BOTH TOPOLOGIES
+
+Both independent anchors return VALIDATED. Route A is an exact POSITION-SPACE
+computation that never touches the frequency-local machinery; route B is the repo's
+implementation copied verbatim. The independence clause was honoured on both.
+
+E1 -- SINGLE INSERTION, even weight:
+  route A == route B at p = 2 EXACTLY (symbolic zero) on 3 independent parameter sets
+  x both decompositions = 6/6, corroborated at 60 dps over three omega values.
+  Contrast points p = 1, 3 also exact (6/6).
+  BROKEN-L2 CONTROL FAILS at p = 2 with errors 39.1% / 161.8% / 245.1% of route A --
+  the defect is O(1), not marginal.
+  THE BLIND SPOT REPRODUCED, NOT ASSERTED: for the SAME broken object,
+  broken_route1 - broken_route2 == 0 EXACTLY at p = 2 (old battery green) while both
+  differ from route A. Structural origin proven: freezing the endpoint vertices makes
+  the base integrand symmetric under nu_start <-> nu_end, so route 2 == (-1)^p route 1
+  -- identical at even p, sign-flipped at odd p. The old battery is NOT vacuous: it
+  does catch the broken object at p = 1 and p = 3.
+  MUTATION BATTERY at p = 2: 18/18 mutants killed (6 mutants x 3 parameter sets),
+  including route-A-side mutations (vertex-operator sign, centre convention) and
+  route-B-side mutations (fdiff sign, Level-1 defect, Level-2 defect, both). The NEW
+  gate is itself sensitive at even weight -- it is not another blind test.
+
+E2 -- DOUBLE INSERTION (a direct H^2 constituent):
+  route A == route B as RATIONAL FUNCTIONS in all eight model symbols at w = s1*s2,
+  s1^2 and s2^2, for both decompositions. Broken-L2 control caught at all three even
+  weights (50-100% errors). Level-1 half-fix caught at s1*s2 and s2^2 (up to 432%).
+  Route A independently anchored 5/5 against closed forms that are SEGMENT-RESOLVED.
+  The repo's hardcoded `monos` table for fish_two_same_line was REGENERATED FROM
+  SCRATCH and is element-for-element identical. Backend independence checked (pieces
+  channel vs plain symbolic propagator agree exactly).
+
+NEW FINDING, WORSE THAN DOCUMENTED: in the double-insertion topology the route1/route2
+battery is blind to the LEVEL-1 half-fix at EVERY weight tested, odd and even --
+route1 - route2 == 0 exactly for both half-fix variants at s1, s1*s2, s1^2, s2^2 while
+the answer is WRONG at s1*s2 and s2^2. Also structural: w = s1^2 cannot exercise
+insertion vertex 2 at all under route 1. Any acceptance argument resting on the
+two-route battery alone is therefore weaker than it appears, in BOTH weight parities
+for this topology. Recorded as a permanent reach limit of that gate.
+
+VERIFIER SELF-CATCHES, disclosed: E2's first two model anchors were wrong (a t_j weight
+maps to the frequency derivative of SEGMENT j's factor, not of the whole transform);
+its own anchors caught it and the corrected segment-resolved forms are strictly
+stronger.
+
+CONSEQUENCE FOR THE H^2 RESIDUAL: the leading apparatus candidate is now ELIMINATED.
+The Level-2 frequency-local wiring is verified at even weight and on the
+double-insertion topology against exact position-space anchors, with non-vacuous
+broken controls. The 96/300 H^2 mismatch is NOT explained by the L2 implementation.
+It remains COMPUTED AND UNINTERPRETED; the next step per the reviewer's ordering is
+the residual-span classification (T3) at multiple K^2 including held-out.
+W-0; no register edits; basis unchanged; no refit.
