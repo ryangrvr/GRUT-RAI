@@ -1,0 +1,88 @@
+{
+  "instrument": "wall_d2_span_test.py",
+  "question": "is the computed H^2 target representable in the frozen local basis?",
+  "slots": 100,
+  "E_syms": 10,
+  "P_syms": 10,
+  "ranks": {
+    "H^0 (anchor control)": [
+      {
+        "K": [
+          "3",
+          "2"
+        ],
+        "held_out": false,
+        "m": "2/3",
+        "rank_B": 3,
+        "rank_Bt": 3,
+        "nullity": 1,
+        "inside": true
+      },
+      {
+        "K": [
+          "5",
+          "2"
+        ],
+        "held_out": false,
+        "m": "2/3",
+        "rank_B": 3,
+        "rank_Bt": 3,
+        "nullity": 1,
+        "inside": true
+      },
+      {
+        "K": [
+          "7",
+          "3"
+        ],
+        "held_out": true,
+        "m": "2/3",
+        "rank_B": 3,
+        "rank_Bt": 3,
+        "nullity": 1,
+        "inside": true
+      }
+    ],
+    "H^2 (the question)": [
+      {
+        "K": [
+          "3",
+          "2"
+        ],
+        "held_out": false,
+        "m": "2/3",
+        "rank_B": 3,
+        "rank_Bt": 4,
+        "nullity": 1,
+        "inside": false
+      },
+      {
+        "K": [
+          "5",
+          "2"
+        ],
+        "held_out": false,
+        "m": "2/3",
+        "rank_B": 3,
+        "rank_Bt": 4,
+        "nullity": 1,
+        "inside": false
+      },
+      {
+        "K": [
+          "7",
+          "3"
+        ],
+        "held_out": true,
+        "m": "2/3",
+        "rank_B": 3,
+        "rank_Bt": 4,
+        "nullity": 1,
+        "inside": false
+      }
+    ]
+  },
+  "fail_count": 0,
+  "failures": [],
+  "fence": "LOCAL UV counterterm structure only; determines nothing about Q1, Im chi, convergence class, or relaxational/resonant character"
+}

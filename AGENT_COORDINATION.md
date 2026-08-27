@@ -2016,3 +2016,50 @@ preferred representation, not refit, not renormalised, no slots dropped, not
 projected. ONE question only: is the computed H^2 residual representable in the
 frozen local basis? No basis amendment, no operator addition, no Q1-Q5, no J(omega),
 no PV, no dual-gauge. W-0.
+
+### 2026-08-27 · Claude · H^2 RESIDUAL-SPAN CLASSIFICATION: OUTSIDE THE FROZEN LOCAL SPAN (robust) -- with a named, testable candidate that would make it CASE A
+
+Standalone instrument wall_d2_span_test.py, exit 0, ZERO failures, 490 s. Target loaded
+from the validated Phase-10 cache as IMMUTABLE input (not recomputed, not refit, not
+renormalised, no slots dropped, not projected). Component map built once and shared by
+target and basis. Basis = the frozen four operators, unchanged, no additions.
+
+THE RESULT, at every sample INCLUDING the held-out one:
+    rank(B) = 3,  rank([B | target]) = 4,  nullity(B) = 1   ->  OUTSIDE the span
+  - K=(3,2) fitting, K=(5,2) fitting, K=(7,3) HELD OUT: identical verdict.
+  - TWO INDEPENDENT RANK ROUTES AGREE at every sample: sympy rank on ascending
+    slot/column order vs a hand-rolled fraction-free Bareiss elimination on REVERSED
+    slot order and REVERSED column order (3/4 vs 3/4 throughout).
+  - GENERIC-RANK GUARD: identical at m = 2/3, 5/7, 11/3 -- not a special-value collapse.
+  - H^0 anchor control remains live and INSIDE with rank 4.
+
+THE NULL VECTOR IS THE DECISIVE DETAIL: [1, 0, 0, 0] over (Lam, EH, R^2, R_mn^2). The
+degeneracy is NOT a relation among operators -- it is that the Lam = sqrt(-g) column is
+IDENTICALLY ZERO at H^2. Independently corroborated: second-author T4 found sqrt(-g)
+"H-blind at the reference in ALL orders (H^1 and H^2 both zero)", by a separate
+construction. So the frozen basis offers only THREE usable directions at H^2, and the
+computed target does not lie in them.
+
+THE LEADING CANDIDATE, NAMED AND NOT YET TESTED -- and it is a CASE A (convention/
+assembly) candidate, not physics: the two sides may treat the reference centre
+ASYMMETRICALLY. The basis side evaluates LOCAL operators at u -> 0, where both fields
+sit at the same point, so the a(u)-dressing polynomial contributes nothing and sqrt(-g)
+loses all H-content. The loop side's vertex u-weights are RELATIVE-time weights that
+survive as Delta-powers -> omega-derivatives and do NOT vanish. Second-author T1 Stage 8
+established exactly the relevant fact: centre-fixing is a CHOICE, NOT AN IDENTITY -- the
+transform is exactly centre-independent at weight order 0 (which is why H^0 is blind to
+it) but genuinely centre-DEPENDENT at every order >= 1, with omega-dependent dependence
+from order 2. That is precisely the H^2 regime. An asymmetric centre treatment between a
+NONLOCAL loop kernel and a LOCAL basis operator would produce exactly this signature:
+H^0 perfect, H^2 outside the span.
+
+TERMINOLOGY FENCE (reviewer's, binding): this concerns LOCAL UV COUNTERTERM STRUCTURE
+only. It is NOT "GRUT falsified", NOT "Lorentz covariance violated", NOT "new physics",
+and it determines NOTHING about Q1 placement, Im chi, convergence class, or
+relaxational/resonant character. Those belong to the later response-level analysis.
+
+STATUS: CASE B as computed, robustly and reproducibly -- but with a specific,
+mechanically testable CASE A candidate outstanding. NEXT BLOCKING ITEM: test whether the
+loop and basis sides use the SAME centre convention at O(H^2), i.e. whether a local
+operator's a(u)-dressing should contribute via Delta-derivatives (as the loop's vertex
+weights do) rather than vanishing at u -> 0. W-0; register untouched; nothing banked.
