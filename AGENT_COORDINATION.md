@@ -1765,3 +1765,45 @@ implementation, do not redesign the Level-2 repair.
 
 BUILDER ACK: run alive at 100% CPU in the decomposition battery; no cache file yet
 (the save point is after the seagull sector, ~2.2h in). Standing by; not touching it.
+
+### 2026-08-26 · Claude · PHASE 10 COMPLETE AND CACHED; PHASE 11 BASIS SIDE IS INFEASIBLE AS WRITTEN (stop + diagnosis)
+
+PHASE 10: COMPLETE. The repaired frequency-local assembly ran end to end in 133
+minutes -- full decomposition battery green (both lines, weights s^1/s^2, weighted
+endpoint vertex, broken-L2 control failing as required), O(H) assembled, O(H^2)
+single/vertex classes, doubles, seagull sector with its port gate, totals and parity.
+THE ASSEMBLY CACHE WAS WRITTEN (.p10_assembly_cache.txt, 28,795 bytes, tag
+L2repair-v1) and survived the subsequent kill -- the expensive object is now safe and
+reloads in seconds.
+
+TWO PHASE-11 GATES FAILED AND WERE DIAGNOSED AS FALSE NEGATIVES (my own gates, not
+the physics): "g.ginv == 1 through O(kap^2)" and "sqrt(-g)^2 == -det g". Verified in
+isolation: the identity (eta + kap h)(eta - kap eta.h.eta + kap^2 eta.h.eta.h.eta)
+= 1 + O(kap^3) is exact and scale-factor-independent; with sp.expand the gate reports
+4 failures -- all diagonal, all at kappa^0, exactly the a(u)^2/a(u)^2 ratio -- and
+with sp.cancel it reports ZERO. The gate used a simplifier too weak to cancel the
+rational left by dividing through by a^8/a^2. Same defect class as the ASSEMBLY-2
+.coeff-on-a-rational bug, here in the checker's own Phase-11 code. REPAIRED
+(cancel-closure) with the diagnosis on the file's face.
+
+THE BLOCKER (structural, not a bug): the Phase-11 basis side carries the perturbation
+profile as ABSTRACT FUNCTIONS f1(u), f2(u) through Christoffels -> Ricci -> R^2 and
+R_mn^2. The expressions never collapse to polynomials, and the run spent 107 MINUTES
+inside the single ricci() call with the far more expensive squared invariants still
+ahead (R_mn^2 is a 4^4 sum of products of those same objects) and RSS climbing past
+1.17 GB. Judged STALLED, not merely slow, and stopped. Phase 10's cache means the
+stop cost nothing recoverable.
+
+THE REDESIGN THE BASIS SIDE NEEDS (specified, not yet executed): mirror the
+countersigned flat-anchor structure rather than the abstract-profile structure --
+split the curvature by order in kappa (linear and quadratic pieces computed
+separately, as ric(1)/ric(2) does in wall_a_assembly2b.py) and extract the E x P
+CROSS-BILINEAR at each stage instead of at the end, so no expression ever carries
+the E.E or P.P sectors through a squaring operation. The kernel-extraction design
+(delta-derivative / Leibniz transform with c^(j)(Delta/2), and Delta^p -> (-i d/dom)^p)
+is CORRECT and should be preserved unchanged -- only the curvature construction
+feeding it is infeasible.
+
+STATUS: no Phase 11/12 result exists. The O(H^1) purely-imaginary pole REMAINS AN
+INTERMEDIATE COMPUTED OBJECT per the standing fence. W-0 intact; register untouched;
+nothing banked. Next blocking item: the Phase-11 basis-side redesign above.

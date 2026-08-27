@@ -1102,10 +1102,17 @@ def metric_inverse_pert(g):
            + kap**2 * (etainv * hh * etainv * hh * etainv))
     ginv = (inv / a_bg**2).applyfunc(sp.expand)
     prod = (g * ginv).applyfunc(sp.expand)
-    ok0 = all(sp.expand(prod[i, j].coeff(kap, 0) - (1 if i == j else 0)) == 0
+    # GATE REPAIR (self-caught, disclosed): sp.expand CANNOT cancel the a(u)^2/a(u)^2
+    # ratio left by g x ginv, so the gate reported a FALSE NEGATIVE on a correct
+    # construction (4 diagonal kappa^0 slots). Verified in isolation: expand-only ->
+    # 4 failures, sp.cancel -> 0. Same defect class as the ASSEMBLY-2 .coeff-on-a-
+    # rational bug, here in the checker's own Phase-11 code. The identity itself
+    # (eta + kap h)(eta - kap eta.h.eta + kap^2 eta.h.eta.h.eta) = 1 + O(kap^3) is
+    # exact and a-independent; only the simplifier was too weak.
+    ok0 = all(sp.cancel(prod[i, j].coeff(kap, 0) - (1 if i == j else 0)) == 0
               for i in range(4) for j in range(4))
-    ok1 = all(sp.expand(prod[i, j].coeff(kap, 1)) == 0 for i in range(4) for j in range(4))
-    ok2 = all(sp.expand(prod[i, j].coeff(kap, 2)) == 0 for i in range(4) for j in range(4))
+    ok1 = all(sp.cancel(prod[i, j].coeff(kap, 1)) == 0 for i in range(4) for j in range(4))
+    ok2 = all(sp.cancel(prod[i, j].coeff(kap, 2)) == 0 for i in range(4) for j in range(4))
     check(ok0 and ok1 and ok2, "basis: g.ginv == 1 through O(kap^2) by multiplication")
     return ginv
 
@@ -1119,10 +1126,10 @@ d1f = sp.expand(detg.coeff(kap, 1) / a_bg**8)
 d2f = sp.expand(detg.coeff(kap, 2) / a_bg**8)
 s2f = sp.expand(d2f / 2 - d1f**2 / 8)
 sqrtg = a_bg**4 * (1 + kap * s1f + kap**2 * s2f)
-chk = sp.expand((sqrtg**2 - detg).coeff(kap, 0))
-check(sp.simplify(chk) == 0 and sp.simplify(sp.expand((sqrtg**2 - detg).coeff(kap, 1))) == 0
-      and sp.simplify(sp.expand((sqrtg**2 - detg).coeff(kap, 2))) == 0,
-      "basis: sqrt(-g)^2 == -det g through O(kap^2) by multiplication")
+# same repair: the a^8 divisions leave rational functions that expand/simplify do not
+# drive to zero; sp.cancel is the correct closure test for this identity.
+check(all(sp.cancel((sqrtg**2 - detg).coeff(kap, n)) == 0 for n in (0, 1, 2)),
+      "basis: sqrt(-g)^2 == -det g through O(kap^2) by multiplication (cancel-closed)")
 stamp("p11 sqrt(-g) verified")
 
 
