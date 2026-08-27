@@ -16,14 +16,20 @@ THE OPEN DEFECT (frequency-locality of the t-weight derivative):
       KV = A nu_L nu_R + Bconst, and the derivative acts on (nu-share x propagator),
       not the propagator alone. Analytically the naive form leaves
       route1 - route2 = i Int (dKV/dl0)/(D1^2 D2).
-    LEVEL 2 (NOT yet fixed -- the current blocker): the h-VERTEX KERNEL at each endpoint
-      also carries the adjacent segment's frequency. With an insertion on line A, the
-      vertex at u1 must be evaluated at nu_A1 and the vertex at u2 at nu_A2. This file
-      still factors both Mker's outside the differentiated group, leaving a residue
-      proportional to d(Mker Mker)/dl0 at fixed (K - l).
-  REPAIR SPEC: fuse assemble() with the insertion construction so the differentiated
-  group is [adjacent Mker x nu-share x propagator]; the far vertex stays outside. The
-  decomposition-independence gate is the acceptance test for the repair.
+    LEVEL 2 (FIXED at commit 195a481, battery green): the h-VERTEX KERNEL at each
+      endpoint also carries the adjacent segment's frequency. With an insertion on line
+      A, the vertex at u1 must be evaluated at nu_A1 and the vertex at u2 at nu_A2.
+      REPAIRED by carrying the endpoint frequencies as TYPED SYMBOLS (nu_A1, nu_A2,
+      mu_B1, mu_B2) and differentiating FREQUENCY-LOCALLY over the complete adjacent
+      structure -- segment propagator + two-sided insertion share + adjacent endpoint
+      vertex -- collapsing to l0 / l0-omega only AFTER differentiation. Acceptance
+      battery PASSES on all five cases (lines A/B, weights s^1/s^2, weighted endpoint
+      vertex) with the broken control FAILING, so the repair is non-vacuous.
+      *** STALE-HEADER DEFECT, DISCLOSED: this block previously read "NOT yet fixed --
+      the current blocker" and was left uncorrected after the repair landed. An
+      INDEPENDENT VERIFIER read it and named the already-repaired defect as a live
+      candidate cause of the H^2 residual. A stale header is a real defect: it
+      misinformed a reviewer. Corrected 2026-08-27. ***
 
 Original header follows.
 --------------------------------------------------------------------------------
@@ -838,6 +844,16 @@ print("   convention: engine returns poles in units of c; c is applied at report
 
 # ---- decomposition-independence gate on ONE insertion diagram (route 1 vs 2) ----
 # ---- DECOMPOSITION-INDEPENDENCE BATTERY (the Level-2 acceptance test) ----
+# *** REACH LIMIT, DISCLOSED (second-author T2, 2026-08-27): this battery is
+# STRUCTURALLY BLIND to the Level-2 defect at EVEN s-weight. Route 2's coefficient
+# vector is exactly (-1)^p times route 1's, so when the differentiated group is
+# nu1<->nu2 symmetric the two routes agree IDENTICALLY for even p -- freezing the
+# endpoint vertex out of the group still PASSES at s^2 while giving the WRONG answer.
+# The s^1 cases (and the broken control, itself s^1) therefore carry ALL of this
+# gate's L2 discriminating power. The repair is applied UNIFORMLY in code, but this
+# gate proves it only at ODD weight, and the H^2 sector is built from s^2 and double
+# insertions -- exactly the even-weight regime the gate cannot see. Independent
+# even-weight confirmation is the NEXT BLOCKING ITEM. ***
 # ITERATION TAX (disclosed): this battery re-verifies already-committed machinery and
 # costs ~23 min on EVERY launch. SKIPBAT=1 skips it while iterating on downstream
 # phases; it is NEVER skipped for a result run, and the skip is recorded in the log
@@ -1081,8 +1097,10 @@ h1_imag = sp.expand(SIG1 + conj(SIG1)) == 0
 print(f"   O(H^1) classification: identically zero: {h1_zero}; purely imaginary "
       f"(reference/phase artifact class): {h1_imag}")
 check(h1_zero or h1_imag,
-      "H-PARITY: the O(H^1) pole either vanishes or is purely imaginary "
-      "(no real odd-H pole survives at the reference -- classified, not forced)")
+      "H-PARITY: the O(H^1) pole either vanishes or is purely imaginary -- recorded as "
+      "a CONVENTION-CONSISTENCY check ONLY. Per second-author T4 this does NOT "
+      "discriminate artifact from genuine covariant odd-in-H structure: both are purely "
+      "imaginary in this centre-fixed convention")
 stamp("p10 totals + parity done")
 if PHASE == "p10":
     print(f"\n[p10 partial run: FAIL count = {len(FAIL)}]")
