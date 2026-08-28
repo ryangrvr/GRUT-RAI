@@ -2612,3 +2612,41 @@ independently validated?" W-0; register untouched; no frozen-file edits. This
 entry commits the authorization only; no A3-1 computation has begun in this
 session.
 
+2026-08-28 (owner execution order) — 1096c39 ACCEPTED AS STOPPING POINT; A3-1
+EXECUTION PROMPT ISSUED AND FROZEN FOR THE BUILDER SESSION.
+
+The owner accepted 1096c39 and confirmed A3-1 (finite master engine) as the only
+authorized computation; everything downstream stays barred. Two reviewer emphases
+recorded and carried into execution: (E1) the independent numerical route (Route
+B) must GENUINELY bypass the new analytic master implementation -- if both routes
+share the same formula generator, perfect agreement tells us much less than it
+appears; this is THE load-bearing check; (E2) after A3-1 is green there is an
+EXPLICIT HARD STOP before A3-2 so the owner/reviewer can inspect the finite-master
+formulas and branch structure before they propagate into the full tensor response.
+Rigid principle, owner verbatim: "the independent numerical integral is the
+referee of the analytic finite master."
+
+EXECUTION PROMPT: PHYSICS_LEDGER/WALL_A3_1_EXECUTION_PROMPT.md, sha256
+376fe982232ab74e7c06815f74282a0736bf9ee7d64dab96cff6a132fd455e3d (owner's
+Z.AI-builder order VERBATIM; document hierarchy brief fff07e51... > A3-1 prompt
+99a369b3... > this execution prompt, tighter rule governs, a genuine conflict is
+a STOP-and-report fork). Key tightenings beyond the parent prompt: do-not-modify
+list explicit (frozen declarations, registry, Phase-10 cache, Phase-11 AF cache,
+wall_d2_span_test.py; machinery read-only reuse only); minimal sufficient master
+set (do not reproduce the Phase-10 tensor engine); GOOD/BAD independence rule
+(formula A -> numerical evaluation of formula A is BAD; undemonstratable
+independence = UNVERIFIED = STOP); PASS/FAIL/UNVERIFIED trichotomy with explicit
+Boolean pass fields and no note-to-PASS conversion; normalization/mu negative
+controls (wrong factor of 2, wrong mu scale, wrong epsilon sign must each FAIL);
+deliverables wall_a3_1_finite_masters.py + WALL_A3_1_FINITE_MASTERS_RESULT.json +
+WALL_A3_1_FINITE_MASTERS_VERDICT.md; on green COMMIT + log + STOP; review
+priority ladder (1 bubble, 2 branch, 3 higher masters, 4 normalization, 5
+reproducibility -- #1 fail or #1-pass/#2-fail = immediate STOP).
+
+Build session entry: verify the execution-prompt hash against this entry; confirm
+HEAD 1096c39+ and frozen integrity; read the three parent contracts in full;
+claim file paths here BEFORE writing; then A3-1A..A3-1K. A3-2 unlock requires
+explicit owner/reviewer acceptance of the A3-1 result. W-0; register untouched;
+no frozen-file edits; nothing banked. No A3-1 computation has begun in this
+session.
+
