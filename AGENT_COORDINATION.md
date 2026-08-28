@@ -2528,3 +2528,42 @@ HARD STOP. The finite eps^0 nonlocal response is NOT COMPUTED. Next task (separa
 session/prompt, owner review first): ASSEMBLY-3. W-0; register untouched; nothing
 banked; tree clean after commit B.
 
+2026-08-28 (owner review) — PHASE 12 CLOSED BY OWNER; ASSEMBLY-3 AUTHORIZED AND
+BRIEFED; BUILDER CONTRACT FROZEN.
+
+The owner accepted the V4 amendment (f6127ca6...) and the 51/51 independent replay
+as complete, and independently verified the frozen files byte-identical. F1 is
+resolved by formal supersession. Recorded state: F1 corrected and superseded; UV
+pole sector frozen; Pi_local^MS frozen (e2f0bbfe6fd4c89d); finite eps^0 response
+NOT YET COMPUTED.
+
+ASSEMBLY-3 authorized AS BRIEFED with (i) the REVIEWER ADDENDUM — A3-1
+independence (at least one finite master from a separate route; comparison must
+cover real part, logarithmic dependence, branch/threshold location, normalization)
+and A3-3 freeze semantics (the immutable object is the COMPLETE pre-TT kernel
+Sigma_R^finite(mu nu,rho sigma;omega,k,H,m); the TT projection is a derived view;
+never hash only the TT projection) — and (ii) the owner's branch-structure guard
+(A3-1 reports the x-integral's analytic structure FROM the computed master; no
+pre-registered log/threshold/power-law form; the scalar bubble is a control, not a
+template). Design mandates M1 (reduce representation first), M2 (TT projection
+downstream), M3 (freeze bare finite response before any comparison) binding.
+
+BUILDER CONTRACT: PHYSICS_LEDGER/WALL_D2_ASSEMBLY3_BRIEF.md, sha256
+fff07e5172d1ee0ff9ba7c379cd5716b8c86c43688b89d74a22abbd898314bae (owner brief,
+reviewer addendum, and branch guard VERBATIM, in order of authority; M3/addendum
+freeze reconciliation noted as cross-reference only; owner/checker-side
+obligations; handshake protocol). The next builder session starts from the
+handshake: verify the contract hash, confirm standing state 7a19c2f + frozen
+integrity, read the entry object (419c455b...) in full, then A3-1.
+
+KEPT OWNER/CHECKER-SIDE (not the builder's): independent verification of the eps^0
+masters before anything is built on them; Q3 blindness (verdict computed and
+recorded before any comparator is opened); the +1 discharge ruling at the bank
+gate (Q1 INSIDE and Q5 INSIDE only; Q3/Q4 do not vote; nothing in the UV result
+votes).
+
+HARD STOPS unchanged: no J(omega) comparison, no PV rerun, no response-level
+dual-gauge until A3-4 verdicts are recorded and frozen; an uncovered convention is
+a STOP-and-amend fork. W-0; register untouched; nothing banked. This entry commits
+the handoff only; no ASSEMBLY-3 computation has begun in this session.
+
