@@ -2567,3 +2567,48 @@ dual-gauge until A3-4 verdicts are recorded and frozen; an uncovered convention 
 a STOP-and-amend fork. W-0; register untouched; nothing banked. This entry commits
 the handoff only; no ASSEMBLY-3 computation has begun in this session.
 
+2026-08-28 (owner authorization) — HANDOFF ACCEPTED; A3-1 AUTHORIZED; A3-1 BUILDER
+PROMPT FROZEN; TERMINOLOGY RULE ADOPTED.
+
+The owner accepted the c6cf253 handoff, approved the complete-kernel/TT split (Q1
+not baked into the tested object), and confirmed A3-1 as the first computation.
+Recorded state: Phase 12 CLOSED; UV/local sector FROZEN; F1 V4 amendment FROZEN;
+finite eps^0 response NOT YET DERIVED.
+
+TERMINOLOGY RULE (owner, binding on all future entries): "Phase 12's result is a
+UV renormalization result, not yet a computed nonlocal response." What was
+isolated is the ZERO NONLOCAL POLE RESIDUE (208 divergent terms local, removable
+by the frozen MS structure); the finite nonlocal kernel is still ahead. No
+summary, entry, or result file may say "the nonlocal response has been isolated"
+in the sense of having been evaluated.
+
+A3-1 AUTHORIZED with the order: derive -> independent scalar-bubble check (Route
+A analytic Feynman-parameter + Route B independent numerical/high-precision, the
+existing finite-master implementation barred from Route B) -> branch/threshold
+verification (structure FROM the derived expression; no pre-assumed log,
+threshold exponent, or low-frequency power law; spacelike region first, then one
+controlled timelike point) -> ONLY THEN assemble the finite loop, and only after
+owner/reviewer acceptance of A3-1. Nothing beyond A3-1 until the master checks
+are green. Performance rule binding: representation reduced before symbolic
+integration, ~10-minute stop per symbolic operation, elapsed time printed per
+master; deliberately slow conceptually, fast computationally -- a small trusted
+finite-master engine, not a heroic run.
+
+A3-1 BUILDER PROMPT: PHYSICS_LEDGER/WALL_A3_1_BUILDER_PROMPT.md, sha256
+99a369b3b9d83d79fde9b36a36e1c991348d37730ba79dd93af882e25817c218 (owner's
+A3-1A..A3-1K prompt VERBATIM; operates UNDER the ASSEMBLY-3 brief fff07e51... and
+entry object 419c455b..., tighter rule governs; negative controls mandatory --
+wrong logarithm branch, wrong imaginary-continuation sign, wrong mu
+normalization, wrong eps-expansion coefficient must each FAIL a machine check;
+outputs WALL_A3_1_FINITE_MASTERS_RESULT.json + WALL_A3_1_FINITE_MASTERS_VERDICT.md
+with explicit pass fields per gate; the validated pole coefficient is a
+regression check ONLY, never the source of the finite answer; nonlocality fence
+A3-1H: master-level analytic structure only, no tensor-level classification).
+
+HARD STOP after A3-1: no Sigma_R^finite assembly, no Pi_nonlocal, no TT
+projection, no Q1/Q3/Q4/Q5, no J(omega), no PV. The only question this stage
+answers: "Are the finite eps^0 master integrals correctly derived and
+independently validated?" W-0; register untouched; no frozen-file edits. This
+entry commits the authorization only; no A3-1 computation has begun in this
+session.
+
