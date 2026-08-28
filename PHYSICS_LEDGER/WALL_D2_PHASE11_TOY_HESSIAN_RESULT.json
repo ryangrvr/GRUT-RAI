@@ -1,0 +1,275 @@
+{
+  "instrument": "wall_d2_phase11_toy_hessian.py",
+  "verdict": "GREEN",
+  "question": "do the registered Phase-11 conventions (coefficient placement, (u_c,Delta) transform, Delta^r delta^(q) reduction, FT signs) reproduce the EXACT functional Hessian of S = (1/2) Int du C(u) (h'(u))^2, C = 1 + c1 u + c2 u^2, with both constructions agreeing exactly?",
+  "action": "S[h] = 1/2*Int du C(u)*h'(u)^2,  C(u) = 1 + c1*u + c2*u^2",
+  "pinned": {
+    "exact_kernel_u_c_Delta": "u2-order: C'(uc-Dl/2) dd' - C(uc-Dl/2) dd'' ; u1-order: -C'(uc+Dl/2) dd' - C(uc+Dl/2) dd'' ; equal after Dl^r dd^(q) reduction",
+    "transform": "d/du2 = 1/2 d/duc - d/dDl ; d/du1 = 1/2 d/duc + d/dDl ; u1 = uc + Dl/2, u2 = uc - Dl/2",
+    "r_slot_convention": "C(uc +- Dl/2) = sum_r C^{(r)}(uc) (+-1/2)^r / r! * Dl^r (u1_pow/u2_pow lever arms); Taylor terminates at r = 2",
+    "Delta_power_delta_reduction": "Dl^r dd^(q) = (-1)^r q!/(q-r)! dd^(q-r) if r<=q else 0; verified against delta-action and per-slot consistent with E_transform",
+    "FT_sign": "E_transform(p,q) == delta-action on e^{+i om Dl}, per term; conjugate fails on odd (p,q); summed-level global flip degenerate for this toy (kernel even in Dl) -- disclosed",
+    "kernel_tilde": "om^2 C(uc) + (1/4) C''(uc) = c1*om**2*uc + c2*om**2*uc**2 + c2/2 + om**2",
+    "kernel_tilde_at_reference": "c2/2 + om**2",
+    "reduced_kernel": "-C(uc) dd''(Dl) + (1/4) C''(uc) dd(Dl)",
+    "toy_master_identity": "F_B - F_A = (1/4) C''(uc) = c2/2 (additive, om-independent; structurally absent when C'' = 0)",
+    "plane_wave_matrix_element": "2 pi {(S^2/4 + c2/2) dd(Q) - i (c1 S^2/4) dd'(Q) - (c2 S^2/4) dd''(Q)}, S = o1+o2, Q = o1-o2",
+    "normalization_note": "prior centre-mismatch diagnostic OP1 (c (phi')^2) reported (1/2)c''(0) = p(p+1)/2 H^2, i.e. TWICE this toy's (1/4)C''; consistent iff that instrument's OP1 kernel carried no 1/2 (S = Int c (phi')^2); flagged for the owner"
+  },
+  "controls": {
+    "A_wrong_Delta_sign": "detected",
+    "B_wrong_lever_arm": "detected",
+    "C_frozen_centre_shortcut": "detected",
+    "Cp_freeze_at_centre": "detected",
+    "D_wrong_vertex_placement": "detected",
+    "E_conjugate_FT_sign": "detected per-term (odd (p,q)); summed-level global flip degenerate for this toy (exact kernel even in Dl)",
+    "flat_C_eq_1": "PASS (reduces exactly to -dd'' -> om^2; frozen shortcut exact at C''=0)"
+  },
+  "checks": [
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP1 sympy-differentiated kernels == explicit term lists (both orders): K = -C' dd' - C dd'' with the dressing on the DIFFERENTIATED vertex"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP2 Gaussian-moment helper validated against sympy's own integrate (exact)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP2 pair 1, u2-order: <hA,K,hB> == Int du C(u) hA' hB' (exact)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP2 pair 1, u1-order: <hA,K,hB> == Int du C(u) hA' hB' (exact)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP2 pair 2 (shifted centres), u2-order: <hA,K,hB> == Int du C(u) hA' hB' (exact)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP2 pair 2 (shifted centres), u1-order: <hA,K,hB> == Int du C(u) hA' hB' (exact)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP2 kernel symmetry: <hA,K,hB> == <hB,K,hA>"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP2 sympy-native DiracDelta double integral agrees (third route)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP3 operator-composition route == direct-substitution route (both orders)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP3 transformed kernels == hand-expected exact forms: u2-order C'(uc-Dl/2) dd' - C(uc-Dl/2) dd'';  u1-order -C'(uc+Dl/2) dd' - C(uc+Dl/2) dd''"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP4 u1-placement r-slots == C^{(r)}(uc) (1/2)^r / r! (u1_pow lever arms at general centre); Taylor terminates at r = 2"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP4 u2-placement r-slots == C^{(r)}(uc) (-1/2)^r / r! with OPPOSITE C'-sign pairing (u2_pow lever arms) -- the coefficient-placement pin"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP4 the two placements differ ONLY by the (-1)^r lever flip and the C' sign: placement and derivative-order pairing are locked together"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP5 reduction identity Dl^r dd^(q) = (-1)^r q!/(q-r)! dd^(q-r) (0 if r>q), verified by delta-action on a generic test function, all (r,q) in {0,1,2}^2"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP5 both differentiation orders reduce to the SAME manifestly centre-symmetric kernel -C(uc) dd'' + (1/4)C''(uc) dd (pre-registered)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP5 the UNREDUCED orders differ by exactly 2C'(uc) dd' + C'(uc) Dl dd'', which reduces to ZERO -- order-independence is a distributional identity, not an assumption"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP5/6 per-slot consistency: E_transform(slot) == FT of the REDUCED slot, every slot (reduce-then-FT == direct E_transform)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP6 K_tilde(uc,om) == om^2 C(uc) + (1/4) C''(uc)  (BOTH placements; pre-registered)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP6 FT-sign pin: E_transform(p,q) == delta-action on e^{+i om Dl} for every (p,q) in {0,1,2}^2 (the registered convention IS the e^{+i om Dl} kernel FT)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL E (negative): the conjugate action e^{-i om Dl} DIFFERS on every odd (p,q) term -- the registered FT sign is pinned per-term, non-degenerately"
+    },
+    {
+      "kind": "note",
+      "msg": "global-flip degeneracy of THIS toy: the exact kernel is distributionally EVEN in Dl (reduced form has Dl-free coefficients), so a consistent global conjugation (E_transform -> conjugate AND om -> -om) is unobservable at the summed level; the pin above is per-term, which is exactly the granularity at which engines 4-5 apply it"
+    },
+    {
+      "kind": "note",
+      "msg": "E_transform table: dd->1, dd'->-i om, dd''->-om^2, Dl dd'-> -1, Dl dd''-> 2 i om, Dl^2 dd''-> 2"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP7 K_tilde(0,om) == om^2 + c2/2  (pre-registered; u_c = 0 applied LAST)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP7 exact early-vs-late equivalence: substituting u_c = 0 in the FULL transformed kernel commutes with reduction+FT (the discipline 'LAST' protects the slot bookkeeping; the exact pipeline itself is order-independent)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP7 registered u2_pow / u1_pow rules (u^n -> (+-1/2)^n (-i d/dom)^n on the omega base) reproduce K_tilde(0,om) exactly -- the r-slot convention IS the registered vertex-placement rule"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP7 second centre u_c = 1/3: direct delta-action Dl-integral == pipeline K_tilde (centre dependence VERIFIED, not inferred from one coordinate choice)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP8 moment identity Int du e^{i Q u} u^m = 2 pi (-i)^m dd^(m)(Q) grounded: m=0 regulator limit == 2 pi dd acting on a generic test function; m>=1 follow exactly as (1/i)^m d^m/dQ^m of the m=0 regulator transform"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP8 pipeline-E_transform route == direct delta-action Dl-integral route (same M1)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP9 BOTH CONSTRUCTIONS AGREE EXACTLY: M1 (transform -> r-slots -> reduction -> E_transform) == M2 (direct operator action on plane waves), as distributions in Q = o1-o2, coefficient by coefficient"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP8/9 matrix element == pre-registered 2 pi {(S^2/4 + c2/2) dd(Q) - i (c1 S^2/4) dd'(Q) - (c2 S^2/4) dd''(Q)}"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP9 toy master identity: F_B - F_A = (1/4) C''(uc) = c2/2 (additive, om-independent)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "STEP9 order theorem: the frozen-centre discrepancy is structurally ABSENT when C'' = 0 (linear dressings are centre-blind); it first bites at C'' ~ H^2, exactly the regime where the Phase-11 span test flips"
+    },
+    {
+      "kind": "note",
+      "msg": "normalization correspondence (computed, flagged for the owner): with S = (1/2) Int C (h')^2 the exact frozen-centre discrepancy is (1/4)C''.  The 2026-08-27 centre-mismatch diagnostic reported p(p+1)/2 H^2 for OP1 = c (phi')^2, i.e. (1/2)c''(0) -- exactly TWICE this toy's coefficient; the two agree iff that instrument's OP1 kernel was normalised without the 1/2 (S = Int c (phi')^2 => discrepancy (1/2)c'').  This toy's spec pins the 1/2 explicitly; the general rebuild must carry this normalization table."
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL A (wrong d/dDl sign) detected: the two differentiation orders DISAGREE after reduction"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL A detected: K_tilde != om^2 C + (1/4)C'' (spurious i om C' term, wrong C'' sign)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL A detected: plane-wave matrix element != direct operator action"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL B (lever arm 1 instead of 1/2) detected: K_tilde != exact (half-weight om^2 C term + spurious (i/4) om C' term)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL B detected: plane-wave mismatch"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL C (frozen-centre / Route A) detected: om^2 C(uc) != om^2 C + (1/4)C'' -- the discarded derivative-of-C terms are exactly the (1/4)C'' master-identity residue"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL C detected: plane-wave mismatch"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL C' (freeze-at-centre variant) detected: spurious -i om C'(uc) term"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL D (wrong-vertex placement) detected: reduced kernel wrong (2C' dd' - C dd'' - (3/4)C'' dd)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL D detected: K_tilde != exact and plane-wave mismatch"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL D detected: kernel NOT symmetric under u1 <-> u2 (Dl -> -Dl)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "CONTROL D contrast: the EXACT reduced kernel IS symmetric under Dl -> -Dl (coefficient placement is pinned by symmetry itself)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "FLAT: reduced kernel == -dd''(Dl) exactly (the old r=0 structure), both orders"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "FLAT: K_tilde == om^2 exactly (old r=0 structure), both orders"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "FLAT: plane-wave check passes; M == 2 pi (S^2/4) dd(Q)"
+    },
+    {
+      "kind": "check",
+      "pass": true,
+      "msg": "FLAT: the frozen-centre shortcut is EXACT at C == 1 (documents why a flat/linear dressing is structurally blind to the centre defect -- computed structure, not interpretation)"
+    }
+  ],
+  "fail_count": 0,
+  "failures": [],
+  "fence": "toy calibration only; the 96/300 H^2 residual remains COMPUTED AND UNINTERPRETED; no basis change, no refit, no register edits, nothing banked"
+}

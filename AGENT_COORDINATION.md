@@ -2158,3 +2158,50 @@ STOPPING HERE PER THE RULING. No basis modification, no target modification, no 
 addition, no refit, no re-run of the span test. The owner adjudicates whether the
 Phase-11 basis side is rebuilt as an action-functional (IBP-invariant) construction.
 W-0; register untouched; nothing banked.
+
+### 2026-08-27 · Toy functional-Hessian calibration GREEN; reviewer AUTHORIZES the four-operator reconstruction
+
+BUILDER RESULT (wall_d2_phase11_toy_hessian.py, exit 0, 46/46 checks, ~13 s): the
+centre mismatch is converted from a story into a TESTED MECHANISM. Exact kernel for
+S = (1/2) Int C(u)(h')^2 :
+      Ktilde(u_c, om) = om^2 C(u_c) + (1/4) C''(u_c);   at u_c = 0: om^2 + c_2/2
+Reduced form: -C(u_c) delta'' + (1/4) C''(u_c) delta. Both differentiation orders agree
+after reduction (pre-reduction they differ by 2C'delta' + C'Dl delta'', which reduces to
+zero). Toy master identity: F_B - F_A = (1/4)C''(u_c) -- ADDITIVE, om-INDEPENDENT, and
+structurally absent when C'' = 0, which is the order theorem explaining why H^0/H^1 are
+blind and the defect first bites at H^2.
+CONTROLS ALL DETECTED (wrong d_Delta sign; lever arm 1 vs 1/2; frozen-centre/Route A;
+freeze-at-centre; wrong-vertex placement; conjugate FT per-term), and flat C == 1
+reduces EXACTLY to the old r = 0 structure -- so the calibration has genuine
+discriminatory power rather than merely reproducing an expected formula.
+
+CHECKER NOTE (artifact hygiene, minor but real): the result JSON mixes three
+kind = "note" records into the same `checks` array without a `pass` field, so a naive
+"all(c['pass'])" validation reports a FALSE NEGATIVE against a genuinely green run.
+Verified by inspection: 49 entries = 46 checks (all pass) + 3 notes; verdict GREEN and
+fail_count 0 are correct. Separate notes from checks in the next instrument.
+
+REVIEWER'S RULING, adopted:
+  (1) AUTHORIZE generalising the validated Hessian algorithm to the four frozen
+      operators as an action-functional (IBP-invariant) construction.
+  (2) DO NOT REWRITE wall_d2_span_test.py. Build a NEW basis-generation instrument that
+      emits corrected kernels in the EXACT representation the existing span test already
+      consumes, then feed them into the UNCHANGED span test. This preserves a clean
+      before/after: old basis -> 96/300 H^2 residual; corrected action-functional basis
+      -> new classification, with the downstream consumer held fixed.
+  (3) PRESERVE THE DISTRIBUTIONAL STRUCTURE EXPLICITLY. The effect is not "evaluate the
+      dressing at the right point": C(u1) delta''(u1-u2) becomes, after the centre/
+      relative transformation and reduction, -C(u_c) delta''(Dl) + (1/4) C''(u_c)
+      delta(Dl). The C'' term is exactly what the old coincident-density construction
+      could never see, and it must appear explicitly in the generalisation.
+  (4) NORMALISATION TABLE IS A HARD GATE. S = (1/2) Int C (h')^2 => Delta K = (1/4) C'';
+      S = Int C (h')^2 => Delta K = (1/2) C''. The 2026-08-27 OP1 figure p(p+1)/2 H^2
+      corresponds to the second convention. A factor of two here could masquerade as an
+      H^2 physics discrepancy, so the generalised instrument must gate its own action
+      normalisation explicitly rather than inherit it silently.
+
+STATUS: Phase-10 loop cached+complete; L2 insertion validated; toy functional Hessian
+46/46; the old H^2 outside-span reading RETRACTED AS INTERPRETATION (the computation
+stands, the comparison was not apples-to-apples); corrected four-operator basis is NEXT.
+NO PHYSICS RULING. The corrected basis must be generated and the original 96/300 target
+re-tested before anything is decided. W-0; register untouched; nothing banked.
