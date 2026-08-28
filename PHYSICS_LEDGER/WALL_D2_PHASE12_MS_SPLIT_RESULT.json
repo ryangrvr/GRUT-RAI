@@ -1,0 +1,844 @@
+{
+  "instrument": "wall_d2_phase12_ms_split.py",
+  "question": "WHAT SURVIVES AFTER THE FROZEN LOCAL UV PIECE IS REMOVED? (MS split of the Phase-10 pole sector under the frozen A3 scheme)",
+  "verdict": "GREEN -- the entire pole sector is F1-local; the MS split is exact with residual 0; the nonlocal pole content is 0; the frozen counterterm set {m^4/4, m^2/12, 1/240, 1/120} reproduces the H^0 and H^2 poles exactly (incl. held-out); the O(H) pole is the sign-flipped pinned prediction (T4 fence, recorded); the nonlocal object is defined, preserved, and emitted for the future PV comparison",
+  "scheme": "de Sitter-invariant dimensional regularisation (d = 4 - eps), MINIMAL SUBTRACTION, pole terms only, mu symbolic, zero finite-part discretion (A3 F2); locality predicate per A3 F1 (adjudication recorded in notes)",
+  "inputs_verified": {
+    ".p10_assembly_cache.txt": "3208492fcf01caad5b9d35c40a4379b056cd5ca8bc175d4ca2569a273561a0af",
+    ".p11_af_basis_cache.txt": "692039d8c2a9d462eb314557ddc78e00d68c73054aed7db2987671ad58f63fbb",
+    "wall_d2_span_test.py": "69fa98e4c92144dc0d1ab86c148e9ddf698952cb4b2d7b25ea6d14c109176dd8",
+    "wall_d2_phases8_12.py": "f48b2cc898017493a11f08c8b6bfcb1c2367a0f577b583f00d77d0bd8341c558",
+    "wall_d2_phase11_af_basis.py": "5dccac11a597582f19d632749b09b57c3e8d882a2de434c7da6e83f9d236be4b",
+    "WALL_A_A3_REGISTRY.json": "faa977d40f1ba31836e35b18223c1f573559b49649a84fad237a3809aae59b55"
+  },
+  "git_head_at_run_start": "a22b58765ce28bccb94b1595e25728cfb75ba9b9",
+  "pole_extraction": {
+    "convention": "engine poles in units of c = 2/eps (the measure pole); Pi_bare = (2/eps)(Sigma_0 + H Sigma_1 + H^2 Sigma_2)",
+    "census": {
+      "H^0": {
+        "terms": 112,
+        "deg_omega": 4,
+        "deg_k": 4,
+        "monomial_classes": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            0
+          ]
+        ]
+      },
+      "H^1": {
+        "terms": 40,
+        "deg_omega": 3,
+        "deg_k": 3,
+        "monomial_classes": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ]
+      },
+      "H^2": {
+        "terms": 56,
+        "deg_omega": 2,
+        "deg_k": 2,
+        "monomial_classes": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      }
+    },
+    "eps_linearity": "Pi_bare is degree 1 in 1/eps (no 1/eps^2 artifacts)",
+    "expression_fingerprints": {
+      "0": "dbb27b1936488963",
+      "1": "42865e970e9a7335",
+      "2": "98d5cbb7340c047a"
+    }
+  },
+  "locality_split": {
+    "predicate": "mechanical: sp.Poly(term, omega, k) succeeds <=> polynomial in the derivative variables (no logs/denominators/branches in (omega,k)); coefficients arbitrary finite functions of (m^2, H^2, mu) incl. coefficient logs (F1 amendment)",
+    "local_terms": {
+      "0": 112,
+      "1": 40,
+      "2": 56
+    },
+    "nonlocal_pole_terms": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    "mixed_odd_literal_census": {
+      "0": 28,
+      "1": 40,
+      "2": 8
+    },
+    "reflection_parity": "H^0/H^2: every term T-even and P_z-even; H^1: every term T-odd and P_z-even (0 violations each)"
+  },
+  "operator_mapping": {
+    "basis_frozen": [
+      "Lambda",
+      "G (EH)",
+      "R^2",
+      "R_mn^2",
+      "R_mnrs^2",
+      "box R"
+    ],
+    "kernels_used": [
+      "Lam",
+      "EH",
+      "R2",
+      "Rmn2"
+    ],
+    "riem2_boxr_status": "identity-derived records (K_Riem2 = 4 K_Rmn2 - K_R2 by the 4D Gauss-Bonnet total-derivative identity; K_boxR = 0 as an exact total derivative); non-load-bearing, not engine-verified here",
+    "H0": "Sigma_0 == +PIN*basis EXACT (all samples incl. held-out, m symbolic)",
+    "H1": "Sigma_1 == -PIN*basis EXACT (same scope) -- T4 fence: recorded, NOT interpreted; de-phased sector INSIDE the span at all samples",
+    "H2": "Sigma_2 == +PIN*basis EXACT (same scope); nullity 2 ([1,0,0,0], [0,0,-1/3,1]); coefficient family recorded, PIN canonical",
+    "counterterm_action": "Gamma_ct = Int du sqrt(-g)[m^4/4 + m^2 R/12 + R^2/240 + R_mn^2/120]"
+  },
+  "ms_split": {
+    "Pi_local_MS": "(2/eps)(Sigma_0 + H Sigma_1 + H^2 Sigma_2); fingerprint e2f0bbfe6fd4c89d",
+    "Pi_local_MS_mu_content": "none at pole order (mu^eps = 1 + eps log(mu): the pole of mu^eps(2/eps)P is mu-free; finite parts untouched)",
+    "Pi_nonlocal_invariant_pole_sector": "0",
+    "split_identity": "Pi_bare - Pi_local^MS - Pi_nonlocal - residual == 0 with residual = 0 (exact, term-by-term per H order)"
+  },
+  "planted_preservation": {
+    "nonlocal_preserved_bitexact": [
+      "log(-omega^2 + k^2 + m^2)  [branch cut]",
+      "omega * atan(k/m)  [threshold-type]",
+      "omega^2 log(omega^2 + m^2)",
+      "omega^4 / k^2"
+    ],
+    "local_removed_completely": [
+      "log(m^2/mu^2) * omega^2  [F1 coefficient log]",
+      "omega k m^2  [mixed-odd, reflection-covariant]",
+      "omega^2 m^2  [plain local]"
+    ],
+    "composite": "MS(Sigma_0 + omega^2 log(omega^2+m^2)) == omega^2 log(omega^2+m^2) exactly"
+  },
+  "regressions": {
+    "H0_gilkey_anchor": "exact at all samples incl. held-out, no refit",
+    "H2_covariance": "exact at all samples incl. held-out, zero free parameters",
+    "span_verdicts_rederived": {
+      "H^0 (anchor control)": [
+        {
+          "K": [
+            "3",
+            "2"
+          ],
+          "held_out": false,
+          "m": "2/3",
+          "rank_B": 3,
+          "rank_Bt": 3,
+          "nullity": 1,
+          "inside": true
+        },
+        {
+          "K": [
+            "5",
+            "2"
+          ],
+          "held_out": false,
+          "m": "2/3",
+          "rank_B": 3,
+          "rank_Bt": 3,
+          "nullity": 1,
+          "inside": true
+        },
+        {
+          "K": [
+            "7",
+            "3"
+          ],
+          "held_out": true,
+          "m": "2/3",
+          "rank_B": 3,
+          "rank_Bt": 3,
+          "nullity": 1,
+          "inside": true
+        }
+      ],
+      "H^2 (the question)": [
+        {
+          "K": [
+            "3",
+            "2"
+          ],
+          "held_out": false,
+          "m": "2/3",
+          "rank_B": 2,
+          "rank_Bt": 2,
+          "nullity": 2,
+          "inside": true
+        },
+        {
+          "K": [
+            "5",
+            "2"
+          ],
+          "held_out": false,
+          "m": "2/3",
+          "rank_B": 2,
+          "rank_Bt": 2,
+          "nullity": 2,
+          "inside": true
+        },
+        {
+          "K": [
+            "7",
+            "3"
+          ],
+          "held_out": true,
+          "m": "2/3",
+          "rank_B": 2,
+          "rank_Bt": 2,
+          "nullity": 2,
+          "inside": true
+        }
+      ],
+      "H^1 (de-phased)": [
+        {
+          "K": [
+            "3",
+            "2"
+          ],
+          "rank_B": 2,
+          "rank_Bt": 2,
+          "inside": true
+        },
+        {
+          "K": [
+            "5",
+            "2"
+          ],
+          "rank_B": 2,
+          "rank_Bt": 2,
+          "inside": true
+        },
+        {
+          "K": [
+            "7",
+            "3"
+          ],
+          "rank_B": 2,
+          "rank_Bt": 2,
+          "inside": true
+        }
+      ]
+    }
+  },
+  "nonlocal_spec": {
+    "object": "Pi_nonlocal^invariant",
+    "definition": "the non-F1-local (non-polynomial-in-(omega,k)) content of the retarded two-point kernel of the frozen Phase-10 assembly, at every order in eps; branch/threshold/log structures in (omega,k) with coefficients finite in (m^2, H^2, mu)",
+    "pole_sector_value": "0 (mechanical: 208/208 enumerated divergent terms are F1-local; gated in STEP 2/STEP 5)",
+    "finite_sector": "NOT COMPUTED in this instrument (the eps^0 masters are not part of the frozen engine); its explicit evaluation is the ASSEMBLY-3 entry object, downstream",
+    "preservation_certificate": "planted-structure battery (STEP 6): the MS operator leaves omega^2 log(omega^2+m^2), omega^4/k^2, log(-omega^2+k^2+m^2) and atan-type structures bit-exact while removing every local class",
+    "source_kernel": "the frozen Phase-10 assembly (.p10_assembly_cache.txt, tag L2repair-v1, sha256 3208492f...) -- the object any alternative scheme must reproduce",
+    "subtracted_local_part": "Pi_local^MS = (2/eps)[Sigma_0 + H Sigma_1 + H^2 Sigma_2], operator-attributed to the frozen six-operator basis with {m^4/4, m^2/12, 1/240, 1/120} at H^0/H^2 (exact, held-out verified); fingerprint e2f0bbfe6fd4c89d",
+    "pv_protocol": "per the A3 registry robustness_test: the assembly must rerun with Pauli-Villars (two regulator masses, taken to infinity post-loop) and the NONLOCAL low-frequency analytic structure (branch-cut location, s-class) must AGREE; nonlocal disagreement is a FINDING, never averaged; local pole content is scheme-side and excluded from the comparison; no scheme averaging",
+    "status": "PREPARATION ONLY -- the PV rerun is a later mandated stage and is NOT performed here"
+  },
+  "checks": [
+    {
+      "kind": "check",
+      "gate": "S0",
+      "pass": true,
+      "msg": "A3 law: the counterterm basis is the frozen SIX-operator set {Lambda, G(EH), R^2, R_mn^2, R_mnrs^2, box R}"
+    },
+    {
+      "kind": "check",
+      "gate": "S0",
+      "pass": true,
+      "msg": "A3 law: primary scheme is de Sitter-invariant dimensional regularisation at d = 4 - eps"
+    },
+    {
+      "kind": "check",
+      "gate": "S0",
+      "pass": true,
+      "msg": "A3 law (F2): renormalisation condition is MINIMAL SUBTRACTION, pole terms only, mu symbolic, zero finite-part discretion"
+    },
+    {
+      "kind": "check",
+      "gate": "S0",
+      "pass": true,
+      "msg": "A3 law (F1): split-audit predicate is polynomial in (omega^2, k^2) with coefficients arbitrary finite functions of (m^2, H^2, mu)"
+    },
+    {
+      "kind": "check",
+      "gate": "S0",
+      "pass": true,
+      "msg": "A3 law: split convention Pi_ren = Pi_local^scheme + Pi_nonlocal^invariant"
+    },
+    {
+      "kind": "check",
+      "gate": "S0",
+      "pass": true,
+      "msg": "corrected AF-basis cache: 3 K-samples x 4 operators x H-orders {0,1,2} + R0s (the span-test QS representation)"
+    },
+    {
+      "kind": "check",
+      "gate": "S0",
+      "pass": true,
+      "msg": "all load-bearing inputs match the recorded manifest (a22b587) -- NO DRIFT"
+    },
+    {
+      "kind": "check",
+      "gate": "S0",
+      "pass": true,
+      "msg": "Phase-10 cache byte-stable across the machinery load (cache_save rewrite is a no-op; the loop target is immutable in fact)"
+    },
+    {
+      "kind": "check",
+      "gate": "S1",
+      "pass": true,
+      "msg": "cached assemblies are c-free (poles in units of c; no c enters the assembly -- the eps^2-cancellation is structural)"
+    },
+    {
+      "kind": "check",
+      "gate": "S1",
+      "pass": true,
+      "msg": "Pi_bare is exactly LINEAR in 1/eps (degree 1, no 1/eps^2 artifacts; the eps^2 gate re-run on the d = 4 - eps substitution)"
+    },
+    {
+      "kind": "check",
+      "gate": "S1",
+      "pass": true,
+      "msg": "every divergent term separated INDIVIDUALLY: the Add-args enumeration reconstructs each H-order exactly (nothing dropped, nothing aggregated)"
+    },
+    {
+      "kind": "check",
+      "gate": "S2",
+      "pass": true,
+      "msg": "pole-sector locality: EVERY divergent term at every H order passes the frozen F1 predicate -- nonlocal pole count = 0 (no IR/threshold/branch pole residue)"
+    },
+    {
+      "kind": "check",
+      "gate": "S2",
+      "pass": true,
+      "msg": "reflection covariance: every H^0/H^2 pole term is T-even and P_z-even -- each odd omega/k power is contracted into the tensor slot structure (covariant local derivative terms, not orientation structures)"
+    },
+    {
+      "kind": "check",
+      "gate": "S2",
+      "pass": true,
+      "msg": "reflection covariance: every H^1 pole term is T-odd (single a(u) dressing) and P_z-even -- the purely-imaginary convention class of the standing fence"
+    },
+    {
+      "kind": "check",
+      "gate": "S2",
+      "pass": true,
+      "msg": "local-kernel structure demo: the validated E-transform of Delta^0 delta^(q)(Delta) is (-i omega)^q for ANY q (engine 5) -- odd omega powers per se are LOCAL kernel structures, generated by the frozen basis construction itself"
+    },
+    {
+      "kind": "check",
+      "gate": "S3",
+      "pass": true,
+      "msg": "H^0 mapping K=(3,2) [fitting], m symbolic: Sigma_0 == + PIN*basis EXACTLY (zero free parameters)"
+    },
+    {
+      "kind": "check",
+      "gate": "S3",
+      "pass": true,
+      "msg": "H^0 mapping K=(5,2) [fitting], m symbolic: Sigma_0 == + PIN*basis EXACTLY (zero free parameters)"
+    },
+    {
+      "kind": "check",
+      "gate": "S3",
+      "pass": true,
+      "msg": "H^0 mapping K=(7,3) [HELD-OUT], m symbolic: Sigma_0 == + PIN*basis EXACTLY (zero free parameters)"
+    },
+    {
+      "kind": "check",
+      "gate": "S3",
+      "pass": true,
+      "msg": "H^1 mapping K=(3,2) [fitting], m symbolic: Sigma_1 == - PIN*basis EXACTLY (zero free parameters)"
+    },
+    {
+      "kind": "check",
+      "gate": "S3",
+      "pass": true,
+      "msg": "H^1 mapping K=(5,2) [fitting], m symbolic: Sigma_1 == - PIN*basis EXACTLY (zero free parameters)"
+    },
+    {
+      "kind": "check",
+      "gate": "S3",
+      "pass": true,
+      "msg": "H^1 mapping K=(7,3) [HELD-OUT], m symbolic: Sigma_1 == - PIN*basis EXACTLY (zero free parameters)"
+    },
+    {
+      "kind": "check",
+      "gate": "S3",
+      "pass": true,
+      "msg": "H^2 mapping K=(3,2) [fitting], m symbolic: Sigma_2 == + PIN*basis EXACTLY (zero free parameters)"
+    },
+    {
+      "kind": "check",
+      "gate": "S3",
+      "pass": true,
+      "msg": "H^2 mapping K=(5,2) [fitting], m symbolic: Sigma_2 == + PIN*basis EXACTLY (zero free parameters)"
+    },
+    {
+      "kind": "check",
+      "gate": "S3",
+      "pass": true,
+      "msg": "H^2 mapping K=(7,3) [HELD-OUT], m symbolic: Sigma_2 == + PIN*basis EXACTLY (zero free parameters)"
+    },
+    {
+      "kind": "check",
+      "gate": "S3",
+      "pass": true,
+      "msg": "H^0 null structure re-derived: nullity 1, the recorded relation 5*K_EH - (1/2) K_R2 + K_Rmn2 = 0"
+    },
+    {
+      "kind": "check",
+      "gate": "S3",
+      "pass": true,
+      "msg": "H^1/H^2 null structure re-derived: nullity 2 at both orders, the recorded relations K_Lam = 0 and K_Rmn2 = (1/3) K_R2"
+    },
+    {
+      "kind": "check",
+      "gate": "S3",
+      "pass": true,
+      "msg": "representation non-uniqueness recorded: at H^1/H^2 the four-operator attribution is a FAMILY (nullity 2), not unique coefficients; the pinned Gilkey point is the canonical member (exact mappings above)"
+    },
+    {
+      "kind": "check",
+      "gate": "S4",
+      "pass": true,
+      "msg": "mu bookkeeping: mu^eps = 1 + eps log(mu) + O(eps^2) EXACTLY, so the POLE of mu^eps (2/eps) P is (2/eps) P -- the MS counterterm is mu-free at pole order; mu enters only finite parts, which MINIMAL SUBTRACTION leaves untouched"
+    },
+    {
+      "kind": "check",
+      "gate": "S4",
+      "pass": true,
+      "msg": "mu bookkeeping (demonstrated on a test polynomial): mu^eps (2/eps) P = (2/eps) P + 2 log(mu) P -- the log(mu) piece is FINITE, never subtracted in MS"
+    },
+    {
+      "kind": "check",
+      "gate": "S4",
+      "pass": true,
+      "msg": "Pi_local^MS carries NO mu dependence at pole order (pure MS; no subtraction point, no MS-bar constants, no scale chosen)"
+    },
+    {
+      "kind": "check",
+      "gate": "S4",
+      "pass": true,
+      "msg": "zero finite-part discretion: Pi_local^MS is exactly degree 1 in 1/eps with NO 1/eps^0 part -- no finite term, no finite frequency-dependent piece, no tuned coefficient is subtracted"
+    },
+    {
+      "kind": "check",
+      "gate": "S4",
+      "pass": true,
+      "msg": "the MS subtraction removes the ENTIRE pole sector (every divergent term is F1-local; the subtraction is the pole object itself, mapped onto the frozen operator basis by the exact PIN relations of STEP 3)"
+    },
+    {
+      "kind": "check",
+      "gate": "S5",
+      "pass": true,
+      "msg": "split integrity: Pi_bare = Pi_local^MS + Pi_nonlocal^invariant + residual with residual = 0 EXACTLY (symbolic identity, all H orders together)"
+    },
+    {
+      "kind": "check",
+      "gate": "S5",
+      "pass": true,
+      "msg": "term-by-term at H^0: Sigma_0 = local + nonlocal EXACTLY (disjoint complete partition of the enumerated terms) and the nonlocal part is 0 -- every removed pole piece is accounted for, none survives in the nonlocal object"
+    },
+    {
+      "kind": "check",
+      "gate": "S5",
+      "pass": true,
+      "msg": "term-by-term at H^1: Sigma_1 = local + nonlocal EXACTLY (disjoint complete partition of the enumerated terms) and the nonlocal part is 0 -- every removed pole piece is accounted for, none survives in the nonlocal object"
+    },
+    {
+      "kind": "check",
+      "gate": "S5",
+      "pass": true,
+      "msg": "term-by-term at H^2: Sigma_2 = local + nonlocal EXACTLY (disjoint complete partition of the enumerated terms) and the nonlocal part is 0 -- every removed pole piece is accounted for, none survives in the nonlocal object"
+    },
+    {
+      "kind": "check",
+      "gate": "S5",
+      "pass": true,
+      "msg": "Pi_nonlocal^invariant contains NONE of the removed local pole pieces (its pole sector is empty; the non-vacuous preservation certificate is the planted-structure battery of STEP 6)"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "planted NONLOCAL correctly REJECTED by the classifier (not subtractable): omega^2 log(omega^2 + m^2)"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "planted NONLOCAL correctly REJECTED by the classifier (not subtractable): omega^4 / k^2"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "planted NONLOCAL correctly REJECTED by the classifier (not subtractable): log(-omega^2 + k^2 + m^2)  [branch cut]"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "planted NONLOCAL correctly REJECTED by the classifier (not subtractable): omega * atan(k/m)  [threshold-type]"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "planted LOCAL correctly ACCEPTED by the classifier (subtractable): omega^2 m^2  [plain local]"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "planted LOCAL correctly ACCEPTED by the classifier (subtractable): omega k m^2  [mixed-odd, reflection-covariant]"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "planted LOCAL correctly ACCEPTED by the classifier (subtractable): log(m^2/mu^2) * omega^2  [F1 coefficient log]"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "MS operator leaves the planted nonlocal structure UNTOUCHED (bit-exact): omega^2 log(omega^2 + m^2)"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "MS operator leaves the planted nonlocal structure UNTOUCHED (bit-exact): omega^4 / k^2"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "MS operator leaves the planted nonlocal structure UNTOUCHED (bit-exact): log(-omega^2 + k^2 + m^2)  [branch cut]"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "MS operator leaves the planted nonlocal structure UNTOUCHED (bit-exact): omega * atan(k/m)  [threshold-type]"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "MS operator removes the planted local structure COMPLETELY: omega^2 m^2  [plain local]"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "MS operator removes the planted local structure COMPLETELY: omega k m^2  [mixed-odd, reflection-covariant]"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "MS operator removes the planted local structure COMPLETELY: log(m^2/mu^2) * omega^2  [F1 coefficient log]"
+    },
+    {
+      "kind": "check",
+      "gate": "S6",
+      "pass": true,
+      "msg": "composite preservation: MS(Sigma_0 + omega^2 log(omega^2+m^2)) == omega^2 log(omega^2+m^2) EXACTLY -- the subtraction removes the real pole and cannot touch nonlocal content in the same expression"
+    },
+    {
+      "kind": "check",
+      "gate": "S7",
+      "pass": true,
+      "msg": "the H^0 sector is the flat limit (H-free by construction of the H grading)"
+    },
+    {
+      "kind": "check",
+      "gate": "S7",
+      "pass": true,
+      "msg": "H^0 anchor regression: Sigma_0 == PIN*basis EXACTLY with the frozen {m^4/4, m^2/12, 1/240, 1/120} (the doubly verified Gilkey / 't Hooft-Veltman flat anchor) at BOTH fitting samples AND the held-out K=(7,3), m symbolic, NO REFIT"
+    },
+    {
+      "kind": "check",
+      "gate": "S7",
+      "pass": true,
+      "msg": "H^2 covariance regression: Sigma_2 == PIN*basis EXACTLY at both fitting samples and the held-out sample, m symbolic, zero free parameters -- the prediction whose failure was the old 96/300 outside-span result now holds through the corrected action-functional basis"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^0 (anchor control) K=(3,2) [fitting]: two independent rank routes AGREE (sympy 3/3 vs Bareiss 3/3)"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^0 (anchor control) K=(3,2) [fitting]: rank(B) = 3, rank([B|t]) = 3 -> INSIDE the frozen span"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^0 (anchor control) K=(5,2) [fitting]: two independent rank routes AGREE (sympy 3/3 vs Bareiss 3/3)"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^0 (anchor control) K=(5,2) [fitting]: rank(B) = 3, rank([B|t]) = 3 -> INSIDE the frozen span"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^0 (anchor control) K=(7,3) [HELD-OUT]: two independent rank routes AGREE (sympy 3/3 vs Bareiss 3/3)"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^0 (anchor control) K=(7,3) [HELD-OUT]: rank(B) = 3, rank([B|t]) = 3 -> INSIDE the frozen span"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^2 (the question) K=(3,2) [fitting]: two independent rank routes AGREE (sympy 2/2 vs Bareiss 2/2)"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^2 (the question) K=(3,2) [fitting]: rank(B) = 2, rank([B|t]) = 2 -> INSIDE the frozen span"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^2 (the question) K=(5,2) [fitting]: two independent rank routes AGREE (sympy 2/2 vs Bareiss 2/2)"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^2 (the question) K=(5,2) [fitting]: rank(B) = 2, rank([B|t]) = 2 -> INSIDE the frozen span"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^2 (the question) K=(7,3) [HELD-OUT]: two independent rank routes AGREE (sympy 2/2 vs Bareiss 2/2)"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^2 (the question) K=(7,3) [HELD-OUT]: rank(B) = 2, rank([B|t]) = 2 -> INSIDE the frozen span"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^1 de-phased K=(3,2): two rank routes AGREE and the (real) de-phased O(H) pole is INSIDE the frozen span (rank 2/2) -- the sector is local and in-span; interpretation fenced (T4)"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^1 de-phased K=(5,2): two rank routes AGREE and the (real) de-phased O(H) pole is INSIDE the frozen span (rank 2/2) -- the sector is local and in-span; interpretation fenced (T4)"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^1 de-phased K=(7,3): two rank routes AGREE and the (real) de-phased O(H) pole is INSIDE the frozen span (rank 2/2) -- the sector is local and in-span; interpretation fenced (T4)"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^2 m-guard at m = 2/3: routes agree, INSIDE (generic-rank, not an m-accident)"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^2 m-guard at m = 5/7: routes agree, INSIDE (generic-rank, not an m-accident)"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "H^2 m-guard at m = 11/3: routes agree, INSIDE (generic-rank, not an m-accident)"
+    },
+    {
+      "kind": "check",
+      "gate": "S8",
+      "pass": true,
+      "msg": "the H^2 span result is UNCHANGED by the MS splitting: the loaded target is unmutated (H^2 sector of Pi_bare == (2/eps) Sigma_2 exactly) and the split leaves no surviving H^2 pole content (nonlocal H^2 pole = 0), so the INSIDE verdict re-derived above is the verdict of the same object the span test adjudicated"
+    },
+    {
+      "kind": "check",
+      "gate": "S9",
+      "pass": true,
+      "msg": "PV robustness rerun NOT performed (downstream, mandated later); the exact nonlocal object and comparison protocol are emitted; no averaging between schemes"
+    },
+    {
+      "kind": "check",
+      "gate": "S10",
+      "pass": true,
+      "msg": "every pole accounted for: 208/208 divergent terms classified, 0 nonlocal pole terms (zero unaccounted)"
+    },
+    {
+      "kind": "check",
+      "gate": "S10",
+      "pass": true,
+      "msg": "every subtraction mapped: all 9 H-order x K-sample mappings onto the frozen six-operator basis are EXACT (H^0 +, H^1 - [T4 fence], H^2 +; held-out included; zero free parameters)"
+    },
+    {
+      "kind": "check",
+      "gate": "S10",
+      "pass": true,
+      "msg": "no finite subtraction introduced: degree-1 in 1/eps only, no mu-scale choice, no finite frequency-dependent piece"
+    },
+    {
+      "kind": "check",
+      "gate": "S10",
+      "pass": true,
+      "msg": "nonlocal terms preserved (planted battery: 4 nonlocal structures bit-exact preserved, 3 local structures fully removed -- the gates are non-vacuous)"
+    },
+    {
+      "kind": "check",
+      "gate": "S10",
+      "pass": true,
+      "msg": "no basis expansion: only the four cached corrected kernels are consumed; the R_mnrs^2 and box R columns are identity-derived records (flagged, non-load-bearing), no operator kernels were computed"
+    },
+    {
+      "kind": "check",
+      "gate": "S10",
+      "pass": true,
+      "msg": "H^0 anchor intact: exact mapping + INSIDE at all samples (incl. held-out), no refit"
+    },
+    {
+      "kind": "check",
+      "gate": "S10",
+      "pass": true,
+      "msg": "H^2 corrected-basis result intact: exact mapping + INSIDE at all samples (incl. held-out), both rank routes, m-guard green"
+    }
+  ],
+  "notes": [
+    {
+      "kind": "note",
+      "msg": "git HEAD at run start: a22b58765ce28bccb94b1595e25728cfb75ba9b9"
+    },
+    {
+      "kind": "note",
+      "msg": "pole-sector census: 112 + 40 + 56 = 208 divergent terms at H^0/H^1/H^2 (fingerprints: {0: 'dbb27b1936488963', 1: '42865e970e9a7335', 2: '98d5cbb7340c047a'})"
+    },
+    {
+      "kind": "note",
+      "msg": "F1 PREDICATE ADJUDICATION (recorded, not silent): the frozen text reads 'polynomial in (omega^2, k^2)'. The computed pole contains mixed-odd monomials (omega*k, omega*k^3, omega^3*k): 28 terms at H^0, 8 at H^2. These are NOT polynomials in (omega^2, k^2) LITERALLY, but they are (i) polynomial in the derivative variables (omega, k) -- finite-derivative delta-kernels in position space, which is the locality content F1 names ('the derivative structure, which is what locality means'); (ii) reflection-covariant term by term (0 violations, gated above): each odd power is contracted into the tensor slot structure; (iii) generated by the validated local-kernel E-transform ((-i omega)^q, any q). The literal scalar reading would exclude the frozen basis's OWN local kernel structures. The predicate is therefore ENFORCED on the derivative structure; the literal-even census is recorded alongside (28/40/8 mixed-odd terms at H^0/H^1/H^2)."
+    },
+    {
+      "kind": "note",
+      "msg": "frozen six-operator basis (A3): Lambda, G(EH), R^2, R_mn^2, R_mnrs^2, box R. The GREEN kernel cache covers {Lam, EH, R2, Rmn2} (the corrected action-functional basis). The two remaining columns carry NO kernel content beyond these:"
+    },
+    {
+      "kind": "note",
+      "msg": "R_mnrs^2 kernel: by the exact 4D identity sqrt(-g)G = sqrt(-g)(R^2 - 4 R_mn^2 + R_mnrs^2) with sqrt(-g)G an exact total derivative (zero bilinear kernel for the plane-wave pair), K_Riem2 = 4*K_Rmn2 - K_R2 -- DERIVED BY EXACT IDENTITY, not engine-verified in this instrument, and NOT load-bearing: the pole is inside the four-operator sub-basis, proven below."
+    },
+    {
+      "kind": "note",
+      "msg": "box R kernel: sqrt(-g) box R = d_mu(sqrt(-g) g^mu nu d_nu R) is an exact total derivative, so its bilinear kernel vanishes identically -- same status as above."
+    },
+    {
+      "kind": "note",
+      "msg": "the single frozen counterterm set {m^4/4, m^2/12, 1/240, 1/120} reproduces the H^0 pole (+) and the H^2 pole (+) exactly, at all K samples including held-out, with m symbolic. The O(H) pole is the SIGN-FLIPPED pinned prediction (-): recorded as the standing T4 fence object (purely imaginary, centre-fixed convention class; recorded, NOT interpreted)."
+    },
+    {
+      "kind": "note",
+      "msg": "DISTINCTION HELD EXPLICIT: the de Sitter BACKGROUND scalar-invariant identity R_mn R^mn = R^2/4 (a statement about background values; R^(0) = -12H^2 here) is NOT the same statement as the H^2 BILINEAR-KERNEL null relation K_Rmn2[2] = (1/3) K_R2[2] (a statement about second variations on this background). Different objects, different coefficients; neither is interpreted here."
+    },
+    {
+      "kind": "note",
+      "msg": "Pi_local^MS = (2/eps) [Sigma_0 + H Sigma_1 + H^2 Sigma_2]; its operator attribution is the frozen counterterm set Gamma_ct = Int du sqrt(-g) [m^4/4 + m^2 R/12 + R^2/240 + R_mn^2/120] (H^0 and H^2 exact; the O(H) pole is the sign-flipped pinned prediction, recorded under the T4 fence). Expression fingerprint: e2f0bbfe6fd4c89d"
+    },
+    {
+      "kind": "note",
+      "msg": "Pi_nonlocal^invariant at pole order: 0 (the nonlocal pole sector is EMPTY; the nonlocal object itself is the eps^0 non-polynomial sector of the retarded kernel -- DEFINED and UNTOUCHED here, its explicit evaluation is the ASSEMBLY-3 entry object, downstream)"
+    }
+  ],
+  "fail_count": 0,
+  "failures": [],
+  "fence": "LOCAL UV counterterm structure and its MS subtraction only. Determines nothing about Q1 placement, Im chi, convergence class, relaxation/resonance, spectral exponent, equilibrium, or Lorentz-family placement. The O(H) sign class and the null relations are recorded, not interpreted. Still a local UV statement only. HARD STOP downstream: no Q1/Q3/Q4/Q5, no J(omega) comparison, no PV rerun, no response-level dual-gauge comparison. W-0."
+}
