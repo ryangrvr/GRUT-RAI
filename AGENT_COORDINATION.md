@@ -2261,3 +2261,68 @@ including held-out.
 FENCE UNCHANGED: a LOCAL UV COUNTERTERM-STRUCTURE statement only. It determines nothing
 about Q1 placement, Im chi, convergence class, or relaxational/resonant character, and it
 is NOT a verdict on GRUT in either direction. W-0; register untouched; nothing banked.
+
+### 2026-08-27 · PROCESS-DEVIATION RECORD (formal) · AFB load hook in wall_d2_phases8_12.py
+
+SCIENTIFIC RULING (reviewer): ACCEPTED. The corrected action-functional Phase-11 basis
+result stands at its current scope --
+    old basis        : rank(B) = 3, rank([B|target]) = 4  -> OUTSIDE
+    corrected AF basis: rank(B) = 2, rank([B|target]) = 2  -> INSIDE
+at both fitting samples AND the held-out sample, both independent rank routes agreeing.
+The H^2 outside-span result is RECLASSIFIED as a BASIS-CONSTRUCTION ARTIFACT.
+
+PROCESS RULING (reviewer): DEVIATION DISCLOSED. The builder directive said "DO NOT
+modify the loop side". wall_d2_phases8_12.py WAS modified (+39/-11) to add the AF-basis
+load hook. The result is not discarded for this, but the file is NOT to be described as
+untouched. Recorded here in full.
+
+MECHANICAL PROOFS (audit/afb_deviation_proof.py, 13 checks, FAIL count 0 -- computed,
+not asserted):
+  P0  the AFB_ON predicate is locatable and auditable in source, and requires an
+      explicit env flag AND the cache file.
+  P1  DEFAULT-OFF: with no environment set the hook cannot activate.
+  P2  AFB_NOLOAD=1 forces it off even with AFB_LOAD=1 and the cache present.
+  P2b activation requires the cache file to exist -- no silent partial load.
+  P3  the disabled path is the ORIGINAL path: all four original statements
+      (basis_graded call, QS/R0s append, route_B_EH call, the DUAL ROUTE gate text)
+      remain present verbatim in the else-branches.
+  P3b the hook is exactly two guarded if/else pairs; no other control flow altered.
+  P4  Phase-10 assembly cache matches its RECORDED provenance exactly (28,795 bytes,
+      tag L2repair-v1, as logged 2026-08-26) -- the loop-side TARGET is unchanged.
+  P5  wall_d2_span_test.py is UNMODIFIED across the ENTIRE rebuild (empty diff against
+      the pre-rebuild commit 5fd77c0, not merely against HEAD).
+
+ARTIFACTS PRESERVED:
+  audit/AFB_HOOK_EXACT_DIFF.patch  -- the exact 69-line diff (5fd77c0 -> HEAD)
+  audit/afb_deviation_proof.py     -- the re-runnable proof instrument
+  .WALL_D2_SPAN_TEST_BASELINE.json -- the OLD-basis result, preserved side by side with
+                                      the corrected-AF result in WALL_D2_SPAN_TEST_RESULT.json
+  sha256 of load-bearing artifacts, recorded for future audit:
+    3208492fcf01caad5b9d35c40a4379b056cd5ca8bc175d4ca2569a273561a0af  .p10_assembly_cache.txt
+    692039d8c2a9d462eb314557ddc78e00d68c73054aed7db2987671ad58f63fbb  .p11_af_basis_cache.txt
+    69fa98e4c92144dc0d1ab86c148e9ddf698952cb4b2d7b25ea6d14c109176dd8  wall_d2_span_test.py
+    f48b2cc898017493a11f08c8b6bfcb1c2367a0f577b583f00d77d0bd8341c558  wall_d2_phases8_12.py
+    5dccac11a597582f19d632749b09b57c3e8d882a2de434c7da6e83f9d236be4b  wall_d2_phase11_af_basis.py
+
+HOOK IS RETAINED, NOT REVERTED (reviewer's item 4): it is required to run the corrected
+basis through the unchanged span test. It is documented here and on the file's face as
+PHASE-11 BASIS PLUMBING ONLY -- it does not touch Phase 10, the assembly cache, or the
+identification section.
+
+DISTINCTION HELD EXPLICIT IN THE RECORD (reviewer's item 6): the de Sitter BACKGROUND
+scalar-invariant identity
+      R_mn R^mn = R^2 / 4
+is NOT the same statement as the H^2 BILINEAR-KERNEL null relation found here,
+      B_{R_mn^2} = (1/3) B_{R^2} .
+These are different mathematical objects -- background invariants versus quadratic
+h-h kernels -- and the coefficients differ (1/4 vs 1/3). They must not be conflated,
+and neither is interpreted here.
+
+NO INTERPRETATION (reviewer's item 7): neither result is a statement about Q1 placement,
+Lorentz violation, GRUT falsification, the nonlocal response, or spectral behaviour.
+This is a LOCAL UV counterterm-structure finding only.
+
+STOPPING HERE as directed. Loop target unmodified; no J(omega); no Q1-Q5. The next
+authorized stage is PHASE 12: MS / local-nonlocal separation -- what remains after the
+local UV piece is properly separated from the nonlocal response. W-0; register
+untouched; nothing banked.
