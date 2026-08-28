@@ -2650,3 +2650,20 @@ explicit owner/reviewer acceptance of the A3-1 result. W-0; register untouched;
 no frozen-file edits; nothing banked. No A3-1 computation has begun in this
 session.
 
+2026-08-28 (final pre-build note) — COMPACT REVIEWER GUIDANCE ISSUED; NO FURTHER
+PLANNING. af61532 confirmed as the execution boundary. Guidance for the builder
+frozen VERBATIM at PHYSICS_LEDGER/WALL_A3_1_REVIEWER_GUIDANCE.md, sha256
+498731aa7c7c16aee9b51b12ea8005afc5fc6789234c49ef551e5c6b603f2207 (operates under
+the frozen chain; adds no layer). Governing discipline, owner verbatim: "COMPUTE
+FIRST. VALIDATE SECOND. INTERPRET THIRD." and the milestone expectation: this is
+the first stage in the Wall-A chain where an elaborate diagnostic invented BEFORE
+the requested calculation would be a defect, not diligence. Desired sequence:
+handshake -> finite scalar bubble -> independent numerical check (I_0^analytic vs
+I_0^independent numeric, >=3 non-special spacelike points, declared tolerance;
+Route B must receive the ORIGINAL integrand and must not touch Route A's
+expression; mismatch = STOP, preserve both, diagnose only) -> branch/threshold ->
+higher masters -> A3-1 GREEN -> commit/log/STOP. First-thing-back: the scalar
+bubble finite formula + its independent numerical comparison. A3-2 remains gated
+on owner inspection of the finite formulas and branch structure. W-0; register
+untouched; no frozen-file edits; nothing banked.
+
