@@ -1,0 +1,54 @@
+{
+  "record": "WALL D2 -- UV FREEZE (local MS pole sector), governance-sealed",
+  "date": "2026-08-28",
+  "kind": "freeze of a COMPLETED result (owner-directed); NOT a new computation",
+  "Pi_local_MS": {
+    "expression": "(2/eps)(Sigma_0 + H Sigma_1 + H^2 Sigma_2)",
+    "fingerprint": "e2f0bbfe6fd4c89d",
+    "identity": "fingerprint-identical to the Phase-12 record at 94cfffc and re-derived in this replay from the cache-backed pole object under the V4-corrected predicate (independent classifier)",
+    "degree_in_1_over_eps": 1,
+    "finite_part": "none (zero finite-part discretion)",
+    "mu_content": "none at pole order (pure MS)"
+  },
+  "counterterm_action": "Gamma_ct = Int du sqrt(-g)[m^4/4 + m^2 R/12 + R^2/240 + R_mn^2/120]",
+  "operator_attribution": {
+    "H0": "Sigma_0 == +PIN*basis EXACT (all samples incl. held-out, m symbolic) -- the doubly verified Gilkey / 't Hooft-Veltman flat anchor {m^4/4, m^2/12, 1/240, 1/120}",
+    "H1": "Sigma_1 == -PIN*basis EXACT (same scope) -- sign-flipped pinned prediction; T4 fence: recorded, NOT interpreted",
+    "H2": "Sigma_2 == +PIN*basis EXACT (same scope)"
+  },
+  "nonlocal": {
+    "pole_sector": "0 -- no nonlocal UV-pole residue; established at 94cfffc (implemented derivative-structure predicate) and RE-ESTABLISHED here under the V4-corrected predicate by the independent-classifier replay (208/208 local)",
+    "finite_eps0_sector": "NOT YET COMPUTED -- TO_BE_DERIVED by ASSEMBLY-3. Pi_nonlocal^invariant is NOT to be described as evaluated until that task completes and is owner-reviewed."
+  },
+  "split_audit": "Pi_bare - Pi_local^MS - Pi_nonlocal(pole=0) = 0, residual 0, exact (re-derived in this replay)",
+  "provenance": {
+    "phase12_result_commit": "94cfffc",
+    "phase12_result_sha256": "185e1bf5330ad9b6a9eacca5c236b234d4d924a3e980ab88e0cad2a58814ce1f",
+    "phase12_instrument_sha256": "a9850cd5d8ce5d61e1eb9574c9aaeed2a412db4a833f851e447b36b5955c83a2",
+    "v4_amendment": {
+      "document": "WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md",
+      "sha256": "f6127ca65ad6636be432b6d6c6fb6d30bb0b9f0c8912df4a9a1054e54919dd56",
+      "record": "WALL_A_A3_V4_AMENDMENT_RECORD.json"
+    },
+    "replay_instrument": "wall_d2_f1_replay_uv_locality.py",
+    "replay_result": "WALL_D2_F1_REPLAY_UV_LOCALITY_RESULT.json",
+    "inputs": {
+      ".p10_assembly_cache.txt": "3208492fcf01caad5b9d35c40a4379b056cd5ca8bc175d4ca2569a273561a0af",
+      ".p11_af_basis_cache.txt": "692039d8c2a9d462eb314557ddc78e00d68c73054aed7db2987671ad58f63fbb",
+      "wall_d2_span_test.py": "69fa98e4c92144dc0d1ab86c148e9ddf698952cb4b2d7b25ea6d14c109176dd8",
+      "wall_d2_phases8_12.py": "f48b2cc898017493a11f08c8b6bfcb1c2367a0f577b583f00d77d0bd8341c558",
+      "wall_d2_phase11_af_basis.py": "5dccac11a597582f19d632749b09b57c3e8d882a2de434c7da6e83f9d236be4b",
+      "WALL_A_A3_REGISTRY.json": "faa977d40f1ba31836e35b18223c1f573559b49649a84fad237a3809aae59b55",
+      "wall_d2_phase12_ms_split.py": "a9850cd5d8ce5d61e1eb9574c9aaeed2a412db4a833f851e447b36b5955c83a2",
+      "WALL_D2_PHASE12_MS_SPLIT_RESULT.json": "185e1bf5330ad9b6a9eacca5c236b234d4d924a3e980ab88e0cad2a58814ce1f"
+    },
+    "frozen_unedited": {
+      "WALL_A_A3_DECLARATIONS.md": "87e2d24d5be6d67970f4089a09aa61a28d4de8cf6471f987af3db1c2ac015f6e",
+      "WALL_A_A3_REGISTRY.json": "faa977d40f1ba31836e35b18223c1f573559b49649a84fad237a3809aae59b55",
+      "WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md": "6f2a762f4a4a01cd4794d029eecb2f1aadace9cd52637f12d3529e0564ce3d53",
+      "WALL_A_A3_DECLARATIONS_V3_AMENDMENT.md": "b0b9983bf0ab04c0c5017e094a4e53a7e34fc8ddb1b6483724a14bb36eb36ee3"
+    },
+    "git_head_at_run_start": "19bb58396625be803f76efde6358059bfa415a45"
+  },
+  "fence": "UV/local sector closed and sealed. NOTHING about the finite eps^0 nonlocal response, Q1-Q5, J(omega), PV robustness, or spectral behaviour is determined or implied by this freeze. W-0; register untouched; nothing banked."
+}

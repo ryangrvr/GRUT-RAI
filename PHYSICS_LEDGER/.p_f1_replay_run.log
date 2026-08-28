@@ -1,0 +1,160 @@
+=== R0: INPUT INTEGRITY + NO-FROZEN-FILE-EDITED ===
+   3208492fcf01caad5b9d35c40a4379b056cd5ca8bc175d4ca2569a273561a0af  .p10_assembly_cache.txt
+   692039d8c2a9d462eb314557ddc78e00d68c73054aed7db2987671ad58f63fbb  .p11_af_basis_cache.txt
+   69fa98e4c92144dc0d1ab86c148e9ddf698952cb4b2d7b25ea6d14c109176dd8  wall_d2_span_test.py
+   f48b2cc898017493a11f08c8b6bfcb1c2367a0f577b583f00d77d0bd8341c558  wall_d2_phases8_12.py
+   5dccac11a597582f19d632749b09b57c3e8d882a2de434c7da6e83f9d236be4b  wall_d2_phase11_af_basis.py
+   faa977d40f1ba31836e35b18223c1f573559b49649a84fad237a3809aae59b55  WALL_A_A3_REGISTRY.json
+   a9850cd5d8ce5d61e1eb9574c9aaeed2a412db4a833f851e447b36b5955c83a2  wall_d2_phase12_ms_split.py
+   185e1bf5330ad9b6a9eacca5c236b234d4d924a3e980ab88e0cad2a58814ce1f  WALL_D2_PHASE12_MS_SPLIT_RESULT.json
+  ok   [R0] all replay inputs match their recorded sha256 (a22b587 manifest + 94cfffc Phase-12 record/instrument) -- NO DRIFT
+  ok   [R0] NO FROZEN FILE EDITED by the V4 amendment: v1 declarations, registry, v2, v3 all stand at their frozen sha256s; the correction lives in WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md (sha256 f6127ca65ad6636b...)
+  --   git HEAD at run start: 19bb58396625be803f76efde6358059bfa415a45
+  --   V4 amendment cited by this replay: WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md sha256 f6127ca65ad6636be432b6d6c6fb6d30bb0b9f0c8912df4a9a1054e54919dd56
+  ok   [R0] A3 law: the counterterm basis is the frozen SIX-operator set
+  ok   [R0] A3 law: primary scheme is de Sitter-invariant dim-reg at d = 4 - eps
+  ok   [R0] A3 law (F2): MINIMAL SUBTRACTION, pole terms only, mu symbolic (unchanged by V4)
+  ok   [R0] A3 law: split convention Pi_ren = Pi_local^scheme + Pi_nonlocal^invariant
+  ok   [R0] registry UNEDITED: the superseded F1 mirror wording is STILL on disk -- the correction lives in the V4 amendment document, not in a registry edit (W-0)
+  ok   [R0] V4 record carries the corrected predicate: finite polynomial in (omega, k), coefficients finite in (m^2, H^2, mu)
+  ok   [R0] corrected AF-basis cache structure intact (3 K-samples x 4 operators x H-orders {0,1,2} + R0s)
+[    0.1s] R0 done
+
+=== R1: POLE-OBJECT RE-MATERIALISATION (fingerprint identity with 94cfffc) ===
+=== GUARD (LOAD/ECHO/SCAN/FAIL; frozen registry is law) ===
+   GUARD CLEAN (8 symbols, 12 files)
+
+=== SECTION D: FORMULATION DERIVED (a-expansions from the exact chart) ===
+  ok   a^2 = 1 + 2Hu + 3H^2u^2 + O(H^3)  (DERIVED from the exact chart)
+  ok   a^4 = 1 + 4Hu + 10H^2u^2 + O(H^3)  (DERIVED)
+
+=== ENGINE 1: GENERAL POLE MASTERS ===
+  ok   master gate: Ipole[1/(l^2-m^2)] = c Delta  (Delta=m^2)
+  ok   master gate: Ipole[1/D^2] = c
+  ok   master gate: Ipole[l_a l_b/(l^2-m^2)] = c eta_ab m^4/4 (moment 1/4 x Ipole[(l^2)/D^1] = Delta^2/4, Delta = m^2)
+  ok   master gate: Ipole[(l^2)/(l^2-m^2)] = c Delta^2
+  ok   master gate: Ipole[l_a l_b/D^2] = c eta_ab Delta/2 (moment 1/4 x 2 Delta)
+  ok   master gate: Ipole[llll/D^2] = c (3-perm) Delta^2/8 (moment 1/24 x 3 Delta^2)
+  ok   master gate: 1/D^3, 1/D^4 are UV finite (pole 0)
+[    0.2s] engine 1 gated
+
+=== ENGINE 2: TENSOR MOMENTS ===
+  ok   moment gate rank 2: <l0^2> = +l^2/4, <l1^2> = -l^2/4  (eta^{aa}/4)
+  ok   moment gate rank 4: <l0^4> = (l^2)^2/8  (3(eta^{00})^2/24)
+  ok   moment gate rank 4: <l0^2 l1^2> = -(l^2)^2/24  (eta^{00}eta^{11}/24)
+  ok   moment rank 6 computed (self-consistency placeholder)
+[    0.2s] engine 2 gated
+
+=== ENGINE 3: LOOP-POLE INTEGRATOR (two-denominator, general powers) ===
+  ok   engine 3 gate: Ipole[1/(D1 D2)] = c (the classic bubble pole, x-integral of 1)
+  ok   engine 3 gate: d/dm^2 of the tadpole pole == the double-denominator tadpole pole (the trace relation closed on the engine itself)
+[    0.3s] engine 3 gated
+
+=== ENGINE 4: THE u-RULE ===
+  ok   u-rule gate: FT[Delta f(Delta)] == -i d/domega FT[f]  (exact Gaussian, sign pinned)
+
+=== ENGINE 5: LOCAL-KERNEL TRANSFORM (basis side) ===
+  ok   E-transform gate: FT[delta'(Delta)] == -i omega (sympy DiracDelta, exact)
+  ok   E-transform self-consistency: Delta * delta'(Delta) -> -i d/dom(-i om) = -1... wired
+[    2.0s] engines 4-5 gated
+
+=== ENGINE 6: INSERTION KERNEL (the dm^2 exact gate) ===
+  ok   insertion gate: G (i KV) G with KV = -dm2 == dm2 * dG/dm^2 EXACTLY (all i/sign/factor conventions of insertions pinned)
+  ok   insertion gate: kinetic KV = z l^2 reproduces the exact first-order propagator shift of i/((1+z)l^2 - m^2)
+   KV1 = Hu (2 l^2 - 4 m^2);  KV2 = H^2u^2 (3 l^2 - 10 m^2)  [derived from a^2/a^4]
+[    2.0s] engine 6 gated
+
+=== PHASE 9: VERTEX EXPANSION (from the exact A1 form) ===
+  ok   P9 gate: flat vertex kernel == countersigned A1 form contracted with e
+   vertex u-orders: n=0 -> (1,1); n=1 -> (2,4) x Hu; n=2 -> (3,10) x H^2u^2 (DERIVED in Section D)
+[    2.1s] phase 9 done
+
+=== PHASE 10: TARGET ASSEMBLY (fish + seagull, O(H^0..H^2)) ===
+  ok   stripped-units insertion rule: 1/(D+KV) - [1/D - KV/D^2] == KV^2/(D^2(D+KV)) EXACTLY (i.e. the -KV/D^2 insertion is the exact first order)
+   [cache] loaded ['F_H0', 'F_H2', 'H1_total', 'S_H1', 'S_H2'] (tag L2repair-v1)
+[    2.5s] p10 machinery ready
+   convention: engine returns poles in units of c; c is applied at report time (eps^2-cancellation is structural: no c enters the assembly at all)
+   [BATTERY SKIPPED -- SKIPBAT=1, iteration mode. NOT a result run; the Level-2 acceptance battery last PASSED at commit 195a481 on all five cases with the broken control failing.]
+[    2.5s] p10 gates: decomposition independence done
+[    2.5s] p10 O(H) assembled
+
+--- seagull sector ---
+  ok   seagull H^0 assembled (bookkeeping)
+  ok   SEAGULL IDENTITY (flat): seagull pole == (m^4/2) [sqrt(-g)]_{h^2}  (the 2b anchor identity, reproduced by the NEW engine)
+  ok   seagull frequency-local builder reproduces the H^0 tadpole EXACTLY (port gate)
+   [cache] saved ['F_H0', 'F_H2', 'H1_total', 'S_H1', 'S_H2']
+  ok   reality: SIG(H^0) real
+  ok   reality: SIG(H^2) real (i-pairs closed)
+   O(H^1) classification: identically zero: False; purely imaginary (reference/phase artifact class): True
+  ok   H-PARITY: the O(H^1) pole either vanishes or is purely imaginary -- recorded as a CONVENTION-CONSISTENCY check ONLY. Per second-author T4 this does NOT discriminate artifact from genuine covariant odd-in-H structure: both are purely imaginary in this centre-fixed convention
+[    5.8s] p10 totals + parity done
+
+=== PHASE 11: BASIS KERNELS ON THE DRESSED BACKGROUND + IDENTIFICATION ===
+   [af-basis] CORRECTED action-functional kernels loaded from .p11_af_basis_cache.txt (AFB_LOAD=1); old-basis computation SKIPPED
+  ok   af-basis cache: one four-operator kernel set per K sample (the span-test QS representation is preserved)
+   background curvature at the reference (computed, sign as found): R^(0) = -12*H**2
+  ok   P11: background curvature R^(0) is K-independent (as it must be)
+   [af-basis] old-basis dual route SKIPPED (corrected kernels active; the route-B gate validates the OLD construction this hook replaces)
+  ok   [R1] Phase-10 cache byte-stable across the machinery load (the loop target is immutable in fact; NO loop regeneration)
+  ok   [R1] Sigma_0 re-materialised from the frozen caches is FINGERPRINT-IDENTICAL to the recorded pole object (dbb27b1936488963 == dbb27b1936488963): the SAME object the Phase-12 verdict was issued on
+  ok   [R1] Sigma_1 re-materialised from the frozen caches is FINGERPRINT-IDENTICAL to the recorded pole object (42865e970e9a7335 == 42865e970e9a7335): the SAME object the Phase-12 verdict was issued on
+  ok   [R1] Sigma_2 re-materialised from the frozen caches is FINGERPRINT-IDENTICAL to the recorded pole object (98d5cbb7340c047a == 98d5cbb7340c047a): the SAME object the Phase-12 verdict was issued on
+  ok   [R1] cached assemblies c-free (engine poles in units of c = 2/eps, applied at report time)
+  ok   [R1] Add-args enumeration reconstructs each H order exactly (nothing dropped, nothing aggregated)
+  ok   [R1] Pi_bare exactly LINEAR in 1/eps (degree 1, no 1/eps^2 artifacts) -- the pole object identity re-verified
+  ok   [R1] term census identical to the Phase-12 record at H^0: 112 terms
+  ok   [R1] term census identical to the Phase-12 record at H^1: 40 terms
+  ok   [R1] term census identical to the Phase-12 record at H^2: 56 terms
+  --   the replay reuses the recorded pole object MECHANICALLY: same caches, same validated machinery load, fingerprint equality. What changes is ONLY the classifier (R2) -- independently implemented per the owner's authorization condition, so the superseded wording's defect cannot be inherited by copy.
+[    7.6s] R1 done
+
+=== R2: LOCALITY UNDER THE V4-CORRECTED PREDICATE (independent classifier) ===
+  ok   [R2] classifier INDEPENDENCE (mechanical, bytecode-level): the replay's classification/census code objects reference NO Poly symbol anywhere -- no inherited Phase-12 S2 code path (the owner's authorization condition, verified on compiled code, not asserted)
+  ok   [R2] nonlocal witness REJECTED by BOTH independent routes (not subtractable): omega^2 log(omega^2+m^2)
+  ok   [R2] nonlocal witness REJECTED by BOTH independent routes (not subtractable): omega^4 / k^2
+  ok   [R2] nonlocal witness REJECTED by BOTH independent routes (not subtractable): log(-omega^2+k^2+m^2) [branch cut]
+  ok   [R2] nonlocal witness REJECTED by BOTH independent routes (not subtractable): omega*atan(k/m) [threshold-type]
+  ok   [R2] nonlocal witness REJECTED by BOTH independent routes (not subtractable): omega^2 log(k^2) [hostile case named in v1]
+  ok   [R2] local structure ACCEPTED by BOTH independent routes (the class the literal wording falsely excluded): omega k m^2 [local mixed-odd -- the false-negative class]
+  ok   [R2] local structure ACCEPTED by BOTH independent routes (the class the literal wording falsely excluded): omega m^2 [local single-odd]
+  ok   [R2] local structure ACCEPTED by BOTH independent routes (the class the literal wording falsely excluded): omega^2 + k^2 [local even]
+  ok   [R2] local structure ACCEPTED by BOTH independent routes (the class the literal wording falsely excluded): log(m^2/mu^2)*omega^2 [F1 coefficient log -- local]
+   H^0: 112/112 terms LOCAL under V4 (both independent routes); 0 nonlocal
+   H^1: 40/40 terms LOCAL under V4 (both independent routes); 0 nonlocal
+   H^2: 56/56 terms LOCAL under V4 (both independent routes); 0 nonlocal
+  ok   [R2] dual independent routes AGREE on all 208 pole terms (no classification ambiguity between the tree walk and is_polynomial)
+  ok   [R2] V4 REPLAY VERDICT: every pole term at every H order is LOCAL (finite polynomial in (omega, k), coefficients finite in (m^2, H^2, mu)) -- nonlocal pole count 0, re-established under the corrected predicate with the independent classifier
+  ok   [R2] classification census identical to the Phase-12 record: 112/40/56 = 208 terms, all local (same verdict, independently derived)
+  ok   [R2] literal-wording census reproduced at H^0: 28 local terms carry mixed-odd monomials the SUPERSEDED wording would have excluded (all LOCAL under V4) -- the one-sided false-negative defect, live
+  ok   [R2] literal-wording census reproduced at H^1: 40 local terms carry mixed-odd monomials the SUPERSEDED wording would have excluded (all LOCAL under V4) -- the one-sided false-negative defect, live
+  ok   [R2] literal-wording census reproduced at H^2: 8 local terms carry mixed-odd monomials the SUPERSEDED wording would have excluded (all LOCAL under V4) -- the one-sided false-negative defect, live
+  --   the corrected predicate is NOT permissive (non-absorption, live): all five nonlocal witnesses above -- including v1's own named hostile cases omega^2 log(k^2) and omega^4/k^2 -- are rejected by both independent routes; only derivative structures (finite-derivative delta kernels) gain or hold local status
+[    7.8s] R2 done
+
+=== R3: SUBTRACTION UNCHANGED (fingerprint equality + exact identities) ===
+  ok   [R3] under V4 every pole term is subtractable: local sum == Sigma at every H order (the subtraction object is the pole object itself -- unchanged)
+  ok   [R3] Pi_local^MS FINGERPRINT-IDENTICAL to the frozen Phase-12 value (e2f0bbfe6fd4c89d == e2f0bbfe6fd4c89d): NO subtraction term has changed
+  ok   [R3] split integrity re-derived: Pi_bare - Pi_local^MS = 0 with ZERO nonlocal pole residue (residual 0, exact)
+  ok   [R3] Pi_local^MS exactly degree 1 in 1/eps, no finite part (zero finite-part discretion unchanged)
+  ok   [R3] Pi_local^MS mu-free at pole order (pure MS, unchanged)
+  ok   [R3] H^0 K=(3,2) [fitting]: Sigma_0 == + PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged
+  ok   [R3] H^0 K=(5,2) [fitting]: Sigma_0 == + PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged
+  ok   [R3] H^0 K=(7,3) [HELD-OUT]: Sigma_0 == + PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged
+  ok   [R3] H^1 K=(3,2) [fitting]: Sigma_1 == - PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged
+  ok   [R3] H^1 K=(5,2) [fitting]: Sigma_1 == - PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged
+  ok   [R3] H^1 K=(7,3) [HELD-OUT]: Sigma_1 == - PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged
+  ok   [R3] H^2 K=(3,2) [fitting]: Sigma_2 == + PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged
+  ok   [R3] H^2 K=(5,2) [fitting]: Sigma_2 == + PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged
+  ok   [R3] H^2 K=(7,3) [HELD-OUT]: Sigma_2 == + PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged
+  ok   [R3] counterterm action carried VERBATIM from the Phase-12 record into the freeze (mechanical read-back, no retyping): Gamma_ct = Int du sqrt(-g)[m^4/4 + m^2 R/12 + R^2/240 + R_mn^2/120]
+[    9.9s] R3 done
+
+=== R4: EMISSIONS (replay result / UV freeze / ASSEMBLY-3 entry object) ===
+  ok   [R4] tensor slot map complete: 10 E-symbols x 10 P-symbols = 100 slots covers every E/P symbol of the pole object at every K sample (span-test representation, re-materialised from the frozen cache)
+  ok   [R4] replay result written and parses back: WALL_D2_F1_REPLAY_UV_LOCALITY_RESULT.json
+  ok   [R4] UV FREEZE written and parses back: WALL_D2_UV_FREEZE_RESULT.json (Pi_local^MS frozen at fingerprint e2f0bbfe6fd4c89d; finite eps^0 sector NOT YET COMPUTED)
+  ok   [R4] ASSEMBLY-3 ENTRY OBJECT written and parses back: WALL_D2_ASSEMBLY3_ENTRY_OBJECT.json (status TO_BE_DERIVED; Q1-Q5 echoed verbatim; slot map 100 slots; corrected F1 cited; frozen subtraction cited; PV ordering recorded as NOT RUN)
+[   10.2s] R4 done
+
+verdict: GREEN
+  --   HARD STOP after R4: the finite eps^0 nonlocal response is NOT YET COMPUTED; ASSEMBLY-3 is a separate task and requires owner review before it begins

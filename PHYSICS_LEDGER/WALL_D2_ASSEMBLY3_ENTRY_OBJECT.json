@@ -1,0 +1,171 @@
+{
+  "object": "Pi_nonlocal^invariant -- the finite (eps^0) retarded nonlocal kernel of the frozen Phase-10 assembly",
+  "status": "TO_BE_DERIVED -- not computed, not evaluated, no property assumed; nothing in this object may be read as a prediction about it",
+  "authority": {
+    "owner_task": "F1 GOVERNANCE AMENDMENT + UV REPLAY + ASSEMBLY-3 PREPARATION (2026-08-28)",
+    "declarations": {
+      "v1": "87e2d24d5be6d67970f4089a09aa61a28d4de8cf6471f987af3db1c2ac015f6e",
+      "v2": "6f2a762f4a4a01cd4794d029eecb2f1aadace9cd52637f12d3529e0564ce3d53",
+      "v3": "b0b9983bf0ab04c0c5017e094a4e53a7e34fc8ddb1b6483724a14bb36eb36ee3",
+      "v4": "f6127ca65ad6636be432b6d6c6fb6d30bb0b9f0c8912df4a9a1054e54919dd56"
+    },
+    "hard_stop": "no finite-response computation, no Q1-Q5, no J(omega) comparison, no PV run, no spectral classification, no basis alteration, no refits, no operators added"
+  },
+  "tensor_slot_map": {
+    "convention": "E_ab (ket slot) x P_cd (bra slot) coefficient symbols of the bilinear kernel",
+    "E_symbols": [
+      "E_00",
+      "E_01",
+      "E_02",
+      "E_03",
+      "E_11",
+      "E_12",
+      "E_13",
+      "E_22",
+      "E_23",
+      "E_33"
+    ],
+    "P_symbols": [
+      "P_00",
+      "P_01",
+      "P_02",
+      "P_03",
+      "P_11",
+      "P_12",
+      "P_13",
+      "P_22",
+      "P_23",
+      "P_33"
+    ],
+    "slots": 100,
+    "source": "re-materialised from the frozen caches (AF-BASIS-v1) by the governance replay; identical to the span-test representation"
+  },
+  "h_grading": {
+    "pole_sector": "Pi_bare = (2/eps)(Sigma_0 + H Sigma_1 + H^2 Sigma_2) [fingerprint-recorded, frozen]",
+    "finite_sector": "graded by the same H orders; to be derived at eps^0"
+  },
+  "conventions": {
+    "omega_k": "d_t -> -i*omega, d_z -> -i*k (the machinery E-transform; the validated local-kernel transform (-i omega)^q for any q)",
+    "poles": "engine poles in units of c = 2/eps (the measure pole), c applied at report time; cached assemblies c-free",
+    "reference_centre": "centre-at-reference (machinery wall_d2_phases8_12.py: conformal chart, reference eta_bar with a(eta_bar)=1, u = eta - eta_bar; vertices at u1=+Delta/2, u2=-Delta/2; reference-centre evaluation u -> 0 taken ONLY AFTER all derivatives so the centre convention matches the loop side's -- the adjudicated consistent-centre class)",
+    "split": "Pi_ren = Pi_local^scheme + Pi_nonlocal^invariant (A3 registry, unchanged)"
+  },
+  "locality_predicate": {
+    "id": "F1 (V4-corrected)",
+    "statement": "finite polynomial in (omega, k), coefficients finite in (m^2, H^2, mu); equivalently position-space finite sums of derivatives of delta functions",
+    "amendment": "WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md sha256 f6127ca65ad6636be432b6d6c6fb6d30bb0b9f0c8912df4a9a1054e54919dd56",
+    "superseded_wording": "polynomial in (omega^2, k^2)"
+  },
+  "subtraction": {
+    "status": "COMPLETED AND FROZEN (see WALL_D2_UV_FREEZE_RESULT.json)",
+    "Pi_local_MS": "(2/eps)(Sigma_0 + H Sigma_1 + H^2 Sigma_2)",
+    "fingerprint": "e2f0bbfe6fd4c89d",
+    "counterterm_action": "Gamma_ct = Int du sqrt(-g)[m^4/4 + m^2 R/12 + R^2/240 + R_mn^2/120]",
+    "replay": "fingerprint-identical under the governance replay; zero nonlocal pole residue (208/208 local, independent classifier)"
+  },
+  "input_identities": {
+    "p10_cache": {
+      "file": ".p10_assembly_cache.txt",
+      "sha256": "3208492fcf01caad5b9d35c40a4379b056cd5ca8bc175d4ca2569a273561a0af",
+      "tag": "L2repair-v1",
+      "bytes": 28795
+    },
+    "p11_cache": {
+      "file": ".p11_af_basis_cache.txt",
+      "sha256": "692039d8c2a9d462eb314557ddc78e00d68c73054aed7db2987671ad58f63fbb",
+      "tag": "AF-BASIS-v1"
+    },
+    "machinery": {
+      "file": "wall_d2_phases8_12.py",
+      "sha256": "f48b2cc898017493a11f08c8b6bfcb1c2367a0f577b583f00d77d0bd8341c558"
+    },
+    "span_test": {
+      "file": "wall_d2_span_test.py",
+      "sha256": "69fa98e4c92144dc0d1ab86c148e9ddf698952cb4b2d7b25ea6d14c109176dd8"
+    },
+    "phase11_instrument": {
+      "file": "wall_d2_phase11_af_basis.py",
+      "sha256": "5dccac11a597582f19d632749b09b57c3e8d882a2de434c7da6e83f9d236be4b"
+    },
+    "registry": {
+      "file": "WALL_A_A3_REGISTRY.json",
+      "sha256": "faa977d40f1ba31836e35b18223c1f573559b49649a84fad237a3809aae59b55"
+    },
+    "phase12": {
+      "result": "WALL_D2_PHASE12_MS_SPLIT_RESULT.json",
+      "sha256": "185e1bf5330ad9b6a9eacca5c236b234d4d924a3e980ab88e0cad2a58814ce1f",
+      "commit": "94cfffc"
+    }
+  },
+  "basis_labeling": {
+    "frozen_six": [
+      "Lambda (cosmological constant)",
+      "G (EH term)",
+      "R^2",
+      "R_mn^2",
+      "R_mnrs^2",
+      "box R"
+    ],
+    "computed_kernels": [
+      "Lam",
+      "EH",
+      "R2",
+      "Rmn2"
+    ],
+    "riem2_boxr": "IDENTITY-DERIVED (K_Riem2 = 4 K_Rmn2 - K_R2 by the 4D Gauss-Bonnet total-derivative identity; K_boxR = 0 as an exact total derivative); NOT engine-verified; NON-LOAD-BEARING: the UV pole closes inside the computed four-operator sub-basis. This labeling MUST remain explicit through ASSEMBLY-3 (owner watch item, 2026-08-28)."
+  },
+  "pre_registered_questions": {
+    "source": "WALL_A_A3_DECLARATIONS.md DECLARATION 4 (sha256 87e2d24d5be6d67970f4089a09aa61a28d4de8cf6471f987af3db1c2ac015f6e), echoed verbatim, unchanged",
+    "table": [
+      {
+        "id": "Q1",
+        "quantity": "Tensor decomposition of the loop integrand's nonlocal part onto the countersigned channel basis {P\u00b2, P\u2070\u02e2, X_sw, residue}",
+        "inside": "Every nonlocal coefficient function multiplies ONLY structures in {P\u00b2, P\u2070\u02e2, X_sw}; residue = 0 or a recorded FINDING",
+        "outside": "Any nonlocal coefficient multiplying a structure OUTSIDE the 3D family (P1, P0w, Xws, or a genuinely new structure) -- including coefficient functions that vanish only on-shell"
+      },
+      {
+        "id": "Q2",
+        "quantity": "a(\u03b7)-weighted time integrals acting on the a\u00b2 and a\u2074 vertex channels",
+        "inside": "Bookkeeping only: convergence status of each channel declared per-channel; no placement verdict",
+        "outside": "An ill-defined channel (non-convergent after the declared regularisation) -- reported as FINDING, not regularised ad hoc"
+      },
+      {
+        "id": "Q3",
+        "quantity": "Convergence-boundary diagnostic: Re \u03c7(0) = (2/\u03c0) \u222b Im \u03c7(\u03c9\u2032)/\u03c9\u2032 d\u03c9\u2032; spectral class s",
+        "inside": "s \u2265 2: convergent (the registered benchmark's class)",
+        "outside": "s \u2264 1: divergent -- reported as found; BLIND to which outcome favours the register"
+      },
+      {
+        "id": "Q4",
+        "quantity": "Reciprocity / detailed-balance diagnostic on the COMPUTED kernel (the closure test's mechanism, run on \u03a3_R^TT)",
+        "inside": "Holds \u21d2 the equilibrium regime is established \u21d2 the 2D closure reduction is licensed for the computed response",
+        "outside": "Fails \u21d2 the response family stays honestly 3D for this state; question (ii) answered NEGATIVE"
+      },
+      {
+        "id": "Q5",
+        "quantity": "Flat-limit reduction of \u03a0_nonlocal: the H \u2192 0 limit, per channel",
+        "inside": "The limit exists per-channel and its decomposition onto the FLAT 3D family {P\u00b2, P\u2070\u02e2, X_sw} matches Q1's placement",
+        "outside": "The limit fails to exist / does not commute with the decomposition (IR obstruction) -- a FINDING; the booked +1 is then UNDISCHARGEABLE via this route"
+      }
+    ],
+    "addenda": {
+      "Q1b_subrecord": "Q1b (sub-record, mandatory if Q1's X_sw coefficient \u2260 0): record the coefficient's (\u03c9-parity, H-parity) decomposition and its H \u2192 0 behaviour -- the closure test's interpretive frame (an X_sw piece odd in H and vanishing at H \u2192 0 is flat-limit-compatible; one surviving H \u2192 0 is a flat placement failure).",
+      "Q3_gap_closed": "Q3 gap closed: 1 < s < 2 is INTERMEDIATE -- neither criterion covers it; reported as its own finding, never rounded to either side.",
+      "Q4_predicate_pinned": "Q4 predicate pinned: the reciprocity diagnostic is the PROPER Onsager-Casimir test of the countersigned closure instrument (\u03b5-signature-corrected slot exchange; H treated as T-ODD) -- NOT the naive slot-symmetry test, which the closure review exhibited killing a legitimate Hall term. The implementation must cite wall_a_closure_premises.py / second_author_closure_premises.py.",
+      "discharge_map": "THE +1 DISCHARGE MAP (pre-registered so no post-hoc interpretation is possible): the booked response_lorentz_covariance +1 is dischargeable ONLY by Q1 INSIDE and Q5 INSIDE, per the owner's discharge condition. Q3 and Q4 do NOT vote on the +1 -- they answer questions (iii) and (ii) respectively. Any discharge claim citing other evidence is invalid. (Discharge itself remains an owner ruling at the bank gate; this map only fixes what evidence could support one.)",
+      "blind_rule_uv_neutrality": "Local counterterm contributions are listed per-term against the frozen basis and are EXCLUDED from all placement verdicts (they cannot vote on (i) or (iii)). No outcome may be inferred from the UV pole result.",
+      "blind_rule_jomega": "The comparison with the registered J(\u03c9) happens ONLY in the separate post-assembly comparison stage (not inside ASSEMBLY-3)."
+    }
+  },
+  "pv_ordering": {
+    "status": "NOT RUN -- and NOT to be run before the finite nonlocal object exists in the primary scheme",
+    "rule": "PV enters only at the frozen robustness stage, and only if the frozen ASSEMBLY-3 ordering explicitly places it before the first response verdict (owner adjudication required otherwise)",
+    "protocol": "nonlocal low-frequency analytic structure must AGREE across schemes; disagreement is a recorded FINDING, never averaged; local pole content excluded from the comparison; no scheme averaging"
+  },
+  "next_task": "ASSEMBLY-3: derive the finite eps^0 nonlocal response of the frozen Phase-10 assembly and adjudicate Q1/Q2/Q3/Q4/Q5 exactly as pre-registered (owner review required before finite-response assembly begins)",
+  "provenance": {
+    "entry_object_emitted_by": "wall_d2_f1_replay_uv_locality.py",
+    "git_head_at_run_start": "19bb58396625be803f76efde6358059bfa415a45",
+    "date": "2026-08-28"
+  }
+}

@@ -1,0 +1,429 @@
+{
+  "instrument": "wall_d2_f1_replay_uv_locality.py",
+  "kind": "F1 GOVERNANCE REPLAY (owner-directed; V4 amendment enforcement)",
+  "date": "2026-08-28",
+  "git_head_at_run_start": "19bb58396625be803f76efde6358059bfa415a45",
+  "amendment_cited": {
+    "document": "WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md",
+    "sha256": "f6127ca65ad6636be432b6d6c6fb6d30bb0b9f0c8912df4a9a1054e54919dd56",
+    "record": "WALL_A_A3_V4_AMENDMENT_RECORD.json",
+    "record_cited_sha256": "f6127ca65ad6636be432b6d6c6fb6d30bb0b9f0c8912df4a9a1054e54919dd56"
+  },
+  "classifier": {
+    "requirement": "owner authorization condition: independently implemented -- no verbatim S0/S1 copy that could reproduce the same defect",
+    "route_1": "expression-tree analysis of the expanded term (T1 function args, T2 denominators/negative exponents, T3 non-negative integer exponents)",
+    "route_2": "sympy Expr.is_polynomial(omega, k) (assumptions query, NOT Poly construction)",
+    "phase12_route_NOT_used": "sp.Poly(term, omega, k) construction success (the Phase-12 S2 path)",
+    "literal_census_route": "monomial exponent parity (distinct from the a1282af substitution route and Phase-12 literal_even)",
+    "independence_guarantee": "no Poly call anywhere in the classifier/census routes (gated by source inspection, check gate R2)",
+    "route_agreement": "perfect on all 208 pole terms + all controls"
+  },
+  "pole_object_identity": {
+    "fingerprints": {
+      "0": "dbb27b1936488963",
+      "1": "42865e970e9a7335",
+      "2": "98d5cbb7340c047a"
+    },
+    "recorded_fingerprints": {
+      "0": "dbb27b1936488963",
+      "1": "42865e970e9a7335",
+      "2": "98d5cbb7340c047a"
+    },
+    "identical": true,
+    "term_census": {
+      "H^0": 112,
+      "H^1": 40,
+      "H^2": 56
+    },
+    "loop_regeneration": "NONE (cache-backed machinery load; Phase-10 cache byte-stable)"
+  },
+  "replay_verdict": {
+    "local_terms": {
+      "0": 112,
+      "1": 40,
+      "2": 56
+    },
+    "nonlocal_pole_terms": {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    "mixed_odd_literal_census": {
+      "0": 28,
+      "1": 40,
+      "2": 8
+    },
+    "statement": "208/208 pole terms LOCAL under the V4-corrected predicate; zero nonlocal UV-pole residue; the superseded wording would have falsely excluded 28/40/8 of them (census reproduced)",
+    "nonlocal_witnesses_rejected": [
+      "log(-omega^2+k^2+m^2) [branch cut]",
+      "omega*atan(k/m) [threshold-type]",
+      "omega^2 log(k^2) [hostile case named in v1]",
+      "omega^2 log(omega^2+m^2)",
+      "omega^4 / k^2"
+    ],
+    "local_structures_accepted": [
+      "log(m^2/mu^2)*omega^2 [F1 coefficient log -- local]",
+      "omega k m^2 [local mixed-odd -- the false-negative class]",
+      "omega m^2 [local single-odd]",
+      "omega^2 + k^2 [local even]"
+    ]
+  },
+  "unchanged": {
+    "Pi_local_MS_fingerprint": "e2f0bbfe6fd4c89d",
+    "recorded_fingerprint": "e2f0bbfe6fd4c89d",
+    "split_residual": 0,
+    "operator_mapping": "Sigma_n == +/-PIN*basis EXACT at all K samples incl. held-out, m symbolic, no refit (9 identities re-derived)",
+    "counterterm_action": "Gamma_ct = Int du sqrt(-g)[m^4/4 + m^2 R/12 + R^2/240 + R_mn^2/120]"
+  },
+  "emissions": [
+    "WALL_D2_F1_REPLAY_UV_LOCALITY_RESULT.json",
+    "WALL_D2_UV_FREEZE_RESULT.json",
+    "WALL_D2_ASSEMBLY3_ENTRY_OBJECT.json"
+  ],
+  "inputs_verified": {
+    ".p10_assembly_cache.txt": "3208492fcf01caad5b9d35c40a4379b056cd5ca8bc175d4ca2569a273561a0af",
+    ".p11_af_basis_cache.txt": "692039d8c2a9d462eb314557ddc78e00d68c73054aed7db2987671ad58f63fbb",
+    "wall_d2_span_test.py": "69fa98e4c92144dc0d1ab86c148e9ddf698952cb4b2d7b25ea6d14c109176dd8",
+    "wall_d2_phases8_12.py": "f48b2cc898017493a11f08c8b6bfcb1c2367a0f577b583f00d77d0bd8341c558",
+    "wall_d2_phase11_af_basis.py": "5dccac11a597582f19d632749b09b57c3e8d882a2de434c7da6e83f9d236be4b",
+    "WALL_A_A3_REGISTRY.json": "faa977d40f1ba31836e35b18223c1f573559b49649a84fad237a3809aae59b55",
+    "wall_d2_phase12_ms_split.py": "a9850cd5d8ce5d61e1eb9574c9aaeed2a412db4a833f851e447b36b5955c83a2",
+    "WALL_D2_PHASE12_MS_SPLIT_RESULT.json": "185e1bf5330ad9b6a9eacca5c236b234d4d924a3e980ab88e0cad2a58814ce1f"
+  },
+  "frozen_unedited": {
+    "WALL_A_A3_DECLARATIONS.md": "87e2d24d5be6d67970f4089a09aa61a28d4de8cf6471f987af3db1c2ac015f6e",
+    "WALL_A_A3_REGISTRY.json": "faa977d40f1ba31836e35b18223c1f573559b49649a84fad237a3809aae59b55",
+    "WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md": "6f2a762f4a4a01cd4794d029eecb2f1aadace9cd52637f12d3529e0564ce3d53",
+    "WALL_A_A3_DECLARATIONS_V3_AMENDMENT.md": "b0b9983bf0ab04c0c5017e094a4e53a7e34fc8ddb1b6483724a14bb36eb36ee3"
+  },
+  "verdict": "GREEN -- V4 replay confirms the Phase-12 UV verdict under the corrected predicate with an independent classifier; subtraction unchanged",
+  "checks": [
+    {
+      "kind": "check",
+      "gate": "R0",
+      "pass": true,
+      "msg": "all replay inputs match their recorded sha256 (a22b587 manifest + 94cfffc Phase-12 record/instrument) -- NO DRIFT"
+    },
+    {
+      "kind": "check",
+      "gate": "R0",
+      "pass": true,
+      "msg": "NO FROZEN FILE EDITED by the V4 amendment: v1 declarations, registry, v2, v3 all stand at their frozen sha256s; the correction lives in WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md (sha256 f6127ca65ad6636b...)"
+    },
+    {
+      "kind": "check",
+      "gate": "R0",
+      "pass": true,
+      "msg": "A3 law: the counterterm basis is the frozen SIX-operator set"
+    },
+    {
+      "kind": "check",
+      "gate": "R0",
+      "pass": true,
+      "msg": "A3 law: primary scheme is de Sitter-invariant dim-reg at d = 4 - eps"
+    },
+    {
+      "kind": "check",
+      "gate": "R0",
+      "pass": true,
+      "msg": "A3 law (F2): MINIMAL SUBTRACTION, pole terms only, mu symbolic (unchanged by V4)"
+    },
+    {
+      "kind": "check",
+      "gate": "R0",
+      "pass": true,
+      "msg": "A3 law: split convention Pi_ren = Pi_local^scheme + Pi_nonlocal^invariant"
+    },
+    {
+      "kind": "check",
+      "gate": "R0",
+      "pass": true,
+      "msg": "registry UNEDITED: the superseded F1 mirror wording is STILL on disk -- the correction lives in the V4 amendment document, not in a registry edit (W-0)"
+    },
+    {
+      "kind": "check",
+      "gate": "R0",
+      "pass": true,
+      "msg": "V4 record carries the corrected predicate: finite polynomial in (omega, k), coefficients finite in (m^2, H^2, mu)"
+    },
+    {
+      "kind": "check",
+      "gate": "R0",
+      "pass": true,
+      "msg": "corrected AF-basis cache structure intact (3 K-samples x 4 operators x H-orders {0,1,2} + R0s)"
+    },
+    {
+      "kind": "check",
+      "gate": "R1",
+      "pass": true,
+      "msg": "Phase-10 cache byte-stable across the machinery load (the loop target is immutable in fact; NO loop regeneration)"
+    },
+    {
+      "kind": "check",
+      "gate": "R1",
+      "pass": true,
+      "msg": "Sigma_0 re-materialised from the frozen caches is FINGERPRINT-IDENTICAL to the recorded pole object (dbb27b1936488963 == dbb27b1936488963): the SAME object the Phase-12 verdict was issued on"
+    },
+    {
+      "kind": "check",
+      "gate": "R1",
+      "pass": true,
+      "msg": "Sigma_1 re-materialised from the frozen caches is FINGERPRINT-IDENTICAL to the recorded pole object (42865e970e9a7335 == 42865e970e9a7335): the SAME object the Phase-12 verdict was issued on"
+    },
+    {
+      "kind": "check",
+      "gate": "R1",
+      "pass": true,
+      "msg": "Sigma_2 re-materialised from the frozen caches is FINGERPRINT-IDENTICAL to the recorded pole object (98d5cbb7340c047a == 98d5cbb7340c047a): the SAME object the Phase-12 verdict was issued on"
+    },
+    {
+      "kind": "check",
+      "gate": "R1",
+      "pass": true,
+      "msg": "cached assemblies c-free (engine poles in units of c = 2/eps, applied at report time)"
+    },
+    {
+      "kind": "check",
+      "gate": "R1",
+      "pass": true,
+      "msg": "Add-args enumeration reconstructs each H order exactly (nothing dropped, nothing aggregated)"
+    },
+    {
+      "kind": "check",
+      "gate": "R1",
+      "pass": true,
+      "msg": "Pi_bare exactly LINEAR in 1/eps (degree 1, no 1/eps^2 artifacts) -- the pole object identity re-verified"
+    },
+    {
+      "kind": "check",
+      "gate": "R1",
+      "pass": true,
+      "msg": "term census identical to the Phase-12 record at H^0: 112 terms"
+    },
+    {
+      "kind": "check",
+      "gate": "R1",
+      "pass": true,
+      "msg": "term census identical to the Phase-12 record at H^1: 40 terms"
+    },
+    {
+      "kind": "check",
+      "gate": "R1",
+      "pass": true,
+      "msg": "term census identical to the Phase-12 record at H^2: 56 terms"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "classifier INDEPENDENCE (mechanical, bytecode-level): the replay's classification/census code objects reference NO Poly symbol anywhere -- no inherited Phase-12 S2 code path (the owner's authorization condition, verified on compiled code, not asserted)"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "nonlocal witness REJECTED by BOTH independent routes (not subtractable): omega^2 log(omega^2+m^2)"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "nonlocal witness REJECTED by BOTH independent routes (not subtractable): omega^4 / k^2"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "nonlocal witness REJECTED by BOTH independent routes (not subtractable): log(-omega^2+k^2+m^2) [branch cut]"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "nonlocal witness REJECTED by BOTH independent routes (not subtractable): omega*atan(k/m) [threshold-type]"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "nonlocal witness REJECTED by BOTH independent routes (not subtractable): omega^2 log(k^2) [hostile case named in v1]"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "local structure ACCEPTED by BOTH independent routes (the class the literal wording falsely excluded): omega k m^2 [local mixed-odd -- the false-negative class]"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "local structure ACCEPTED by BOTH independent routes (the class the literal wording falsely excluded): omega m^2 [local single-odd]"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "local structure ACCEPTED by BOTH independent routes (the class the literal wording falsely excluded): omega^2 + k^2 [local even]"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "local structure ACCEPTED by BOTH independent routes (the class the literal wording falsely excluded): log(m^2/mu^2)*omega^2 [F1 coefficient log -- local]"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "dual independent routes AGREE on all 208 pole terms (no classification ambiguity between the tree walk and is_polynomial)"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "V4 REPLAY VERDICT: every pole term at every H order is LOCAL (finite polynomial in (omega, k), coefficients finite in (m^2, H^2, mu)) -- nonlocal pole count 0, re-established under the corrected predicate with the independent classifier"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "classification census identical to the Phase-12 record: 112/40/56 = 208 terms, all local (same verdict, independently derived)"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "literal-wording census reproduced at H^0: 28 local terms carry mixed-odd monomials the SUPERSEDED wording would have excluded (all LOCAL under V4) -- the one-sided false-negative defect, live"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "literal-wording census reproduced at H^1: 40 local terms carry mixed-odd monomials the SUPERSEDED wording would have excluded (all LOCAL under V4) -- the one-sided false-negative defect, live"
+    },
+    {
+      "kind": "check",
+      "gate": "R2",
+      "pass": true,
+      "msg": "literal-wording census reproduced at H^2: 8 local terms carry mixed-odd monomials the SUPERSEDED wording would have excluded (all LOCAL under V4) -- the one-sided false-negative defect, live"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "under V4 every pole term is subtractable: local sum == Sigma at every H order (the subtraction object is the pole object itself -- unchanged)"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "Pi_local^MS FINGERPRINT-IDENTICAL to the frozen Phase-12 value (e2f0bbfe6fd4c89d == e2f0bbfe6fd4c89d): NO subtraction term has changed"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "split integrity re-derived: Pi_bare - Pi_local^MS = 0 with ZERO nonlocal pole residue (residual 0, exact)"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "Pi_local^MS exactly degree 1 in 1/eps, no finite part (zero finite-part discretion unchanged)"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "Pi_local^MS mu-free at pole order (pure MS, unchanged)"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "H^0 K=(3,2) [fitting]: Sigma_0 == + PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "H^0 K=(5,2) [fitting]: Sigma_0 == + PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "H^0 K=(7,3) [HELD-OUT]: Sigma_0 == + PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "H^1 K=(3,2) [fitting]: Sigma_1 == - PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "H^1 K=(5,2) [fitting]: Sigma_1 == - PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "H^1 K=(7,3) [HELD-OUT]: Sigma_1 == - PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "H^2 K=(3,2) [fitting]: Sigma_2 == + PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "H^2 K=(5,2) [fitting]: Sigma_2 == + PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "H^2 K=(7,3) [HELD-OUT]: Sigma_2 == + PIN*basis EXACTLY (m symbolic, frozen {m^4/4, m^2/12, 1/240, 1/120}, NO refit) -- the counterterm mapping is unchanged"
+    },
+    {
+      "kind": "check",
+      "gate": "R3",
+      "pass": true,
+      "msg": "counterterm action carried VERBATIM from the Phase-12 record into the freeze (mechanical read-back, no retyping): Gamma_ct = Int du sqrt(-g)[m^4/4 + m^2 R/12 + R^2/240 + R_mn^2/120]"
+    },
+    {
+      "kind": "check",
+      "gate": "R4",
+      "pass": true,
+      "msg": "tensor slot map complete: 10 E-symbols x 10 P-symbols = 100 slots covers every E/P symbol of the pole object at every K sample (span-test representation, re-materialised from the frozen cache)"
+    }
+  ],
+  "notes": [
+    {
+      "kind": "note",
+      "msg": "git HEAD at run start: 19bb58396625be803f76efde6358059bfa415a45"
+    },
+    {
+      "kind": "note",
+      "msg": "V4 amendment cited by this replay: WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md sha256 f6127ca65ad6636be432b6d6c6fb6d30bb0b9f0c8912df4a9a1054e54919dd56"
+    },
+    {
+      "kind": "note",
+      "msg": "the replay reuses the recorded pole object MECHANICALLY: same caches, same validated machinery load, fingerprint equality. What changes is ONLY the classifier (R2) -- independently implemented per the owner's authorization condition, so the superseded wording's defect cannot be inherited by copy."
+    },
+    {
+      "kind": "note",
+      "msg": "the corrected predicate is NOT permissive (non-absorption, live): all five nonlocal witnesses above -- including v1's own named hostile cases omega^2 log(k^2) and omega^4/k^2 -- are rejected by both independent routes; only derivative structures (finite-derivative delta kernels) gain or hold local status"
+    }
+  ],
+  "fail_count": 0,
+  "failures": [],
+  "fence": "GOVERNANCE ONLY: no loop regeneration, no finite eps^0 response computed, no Q1-Q5, no J(omega) comparison, no PV, no spectral classification. The finite nonlocal sector is NOT YET COMPUTED / TO_BE_DERIVED (ASSEMBLY-3, a separate task; owner review required before it begins). W-0; register untouched; nothing banked."
+}

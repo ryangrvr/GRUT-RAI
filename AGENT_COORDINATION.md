@@ -2471,3 +2471,60 @@ STOPPED. No A3 amendment. No Q1-Q5. No J(omega). No PV rerun. No response-level
 dual-gauge. All caches and results IMMUTABLE (the a22b587 sha256 manifest stands; the
 Phase-12 run re-verified all six load-bearing inputs identical to it, zero drift).
 W-0; register untouched; nothing banked.
+
+2026-08-28 (later) — F1 GOVERNANCE EXECUTED: V4 AMENDMENT + UV REPLAY + UV FREEZE +
+ASSEMBLY-3 ENTRY OBJECT (owner-authorized task; plan approved with ONE reviewer
+correction — the replay's locality classifier must be INDEPENDENTLY implemented, no
+verbatim S0/S1 copy that could reproduce the same defect — SATISFIED and machine-gated).
+
+AMENDMENT (commit A, 19bb583): WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md, sha256
+f6127ca65ad6636be432b6d6c6fb6d30bb0b9f0c8912df4a9a1054e54919dd56, plus machine record
+WALL_A_A3_V4_AMENDMENT_RECORD.json. Supersedes exactly the F1 clause: "polynomial in
+(omega^2, k^2)" -> "finite polynomial in (omega, k), coefficients finite in (m^2,H^2,mu)"
+(equivalently, finite sums of derivatives of delta in position space). NO FROZEN FILE
+EDITED: v1 (87e2d24d...), registry (faa977d4...), v2 (6f2a762f...), v3 (b0b9983b...)
+all re-verified byte-identical BY THE REPLAY ITSELF (gate R0). Prospective; the
+Phase-12 run at 94cfffc retained unchanged as historical evidence; the timing risk
+stands recorded inside the amendment.
+
+REPLAY (wall_d2_f1_replay_uv_locality.py; log .p_f1_replay_run.log; result
+WALL_D2_F1_REPLAY_UV_LOCALITY_RESULT.json; 51 checks, 0 failures, exit 0):
+  R0 inputs: a22b587 manifest + Phase-12 record/instrument hashes + frozen-unedited proof;
+  R1 pole object re-materialised from the frozen caches (NO loop regeneration; Phase-10
+     cache byte-stable) — Sigma_0/1/2 FINGERPRINT-IDENTICAL to the recorded values
+     (dbb27b1936488963 / 42865e970e9a7335 / 98d5cbb7340c047a), census 112/40/56 = 208;
+  R2 classifier INDEPENDENT (reviewer condition): route 1 = expression-tree analysis
+     (T1 function arguments, T2 denominators/negative exponents, T3 non-negative integer
+     exponents); route 2 = sympy Expr.is_polynomial(omega,k). NEITHER is the Phase-12
+     sp.Poly route; independence verified BYTECODE-LEVEL (no Poly symbol in any
+     classifier code object, nested included). Verdict: 208/208 LOCAL, 0 nonlocal;
+     both routes agree on all 208 terms + all controls; literal-wording census
+     reproduced (28/40/8 mixed-odd = the false-negative class, live); all five nonlocal
+     witnesses (incl. v1's own hostile cases omega^2 log k^2 and omega^4/k^2) rejected
+     by both routes — non-absorption demonstrated, not argued;
+  R3 subtraction UNCHANGED: Pi_local^MS fingerprint e2f0bbfe6fd4c89d == recorded;
+     residual 0; mu-free; degree 1 in 1/eps; Sigma_n == +/-PIN*basis EXACT at all K
+     samples incl. held-out, m symbolic, NO refit (9 identities); counterterm action
+     carried VERBATIM by mechanical read-back.
+
+UV FREEZE (WALL_D2_UV_FREEZE_RESULT.json): Pi_local^MS frozen at e2f0bbfe6fd4c89d,
+counterterm action Gamma_ct = Int du sqrt(-g)[m^4/4 + m^2 R/12 + R^2/240 + R_mn^2/120];
+nonlocal pole sector 0 (re-established under V4 by the independent classifier); finite
+eps^0 sector "NOT YET COMPUTED — TO_BE_DERIVED". Pi_nonlocal^invariant is NOT evaluated
+and must never be so described until ASSEMBLY-3 completes and is owner-reviewed.
+
+ASSEMBLY-3 ENTRY OBJECT (WALL_D2_ASSEMBLY3_ENTRY_OBJECT.json): status TO_BE_DERIVED;
+tensor slot map 10 E x 10 P = 100 slots (re-materialised, cache-backed); H grading;
+omega/k, pole-unit, and centre-at-reference conventions quoted from frozen artifacts;
+corrected F1 cited by sha; frozen subtraction cited; full input identities (P10
+3208492f..., P11 692039d8..., machinery f48b2cc8..., span test, registry, Phase-12
+result 185e1bf5...); six-operator basis with the 4 computed kernels and Riem^2/boxR
+IDENTITY-DERIVED, NON-LOAD-BEARING labeling kept explicit (owner watch item); Q1-Q5 +
+Q1b / Q3-gap / Q4-pin + the +1 DISCHARGE MAP (Q1 INSIDE and Q5 INSIDE only) echoed
+VERBATIM from frozen DECLARATION 4; PV ordering recorded as NOT RUN with the
+no-scheme-averaging rule.
+
+HARD STOP. The finite eps^0 nonlocal response is NOT COMPUTED. Next task (separate
+session/prompt, owner review first): ASSEMBLY-3. W-0; register untouched; nothing
+banked; tree clean after commit B.
+
