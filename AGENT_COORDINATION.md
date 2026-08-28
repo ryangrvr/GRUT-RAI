@@ -2404,3 +2404,70 @@ STOPPING HERE as directed. Loop target unmodified; span test untouched; no J(ome
 no Q1-Q5; no PV rerun; no response-level dual-gauge comparison. Downstream next:
 the eps^0 nonlocal sector (ASSEMBLY-3 entry) and the PV robustness stage. W-0;
 register untouched; nothing banked.
+
+### 2026-08-27 · Reviewer ruling on Phase 12 + F1 SCOPE CONFLICT: STOPPED FOR OWNER ADJUDICATION
+
+REVIEWER'S VERDICT, adopted verbatim into the record:
+    PHASE 12 POLE/MS CALCULATION : ACCEPTED (provisionally, at its declared scope)
+    F1 LOCALITY PREDICATE        : OWNER ADJUDICATION REQUIRED
+    Pi_nonlocal^finite           : NOT YET COMPUTED
+    Q1/Q3/Q4/Q5                  : STILL OPEN
+
+TERMINOLOGY CORRECTION, binding on all future reports: Phase 12 computed the UV POLE
+SECTOR and established ZERO NONLOCAL UV-POLE RESIDUE. It did NOT compute the finite
+eps^0 nonlocal response. Pi_nonlocal^invariant may NOT be described as numerically or
+analytically evaluated until ASSEMBLY-3 computes the finite sector. The result JSON's
+own statement that the finite eps^0 masters are not part of the instrument is the
+governing scope.
+
+THE F1 SCOPE CONFLICT (the reason for the stop):
+    FROZEN A3        : local <=> polynomial in (omega^2, k^2)
+    PHASE-12 CODE    : local <=> polynomial in (omega, k), because the corrected
+                       action-functional Hessians contain mixed-odd structures (omega*k)
+This is a SUBSTANTIVE predicate change made AFTER seeing the pole output -- precisely
+the move preregistration exists to prevent. A3 is NOT amended here.
+
+PROVENANCE, OWNED: the frozen (omega^2, k^2) form was written by the CHECKER at the A3
+freeze gate (F1, 2026-08-25). If it is too narrow, that is a CHECKER DEFECT in the
+frozen declaration, not a builder liberty taken after the fact. Both things are true at
+once and both are recorded.
+
+DIAGNOSTIC BUILT AND RUN (audit/f1_locality_predicate_diagnostic.py, 4 checks, FAIL 0;
+result in audit/F1_LOCALITY_DIAGNOSTIC_RESULT.json). It makes NO amendment; it exhibits
+the mathematics for the ruling. Definition used: a momentum-space kernel is LOCAL iff
+its position-space preimage is a FINITE SUM OF DERIVATIVES OF delta (support at
+coincidence). Fourier fact: that class is EXACTLY the polynomials in the momentum
+COMPONENTS -- om^a k^b is the transform of (i d_t)^a (i d_z)^b delta, with NO parity
+restriction anywhere.
+
+CENSUS (7 structures, computed):
+    local, mixed-odd (om*k) : truly local YES | literal F1 NO  | broadened YES
+    local, even only        : truly local YES | literal F1 YES | broadened YES
+    local, odd single (om)  : truly local YES | literal F1 NO  | broadened YES
+    log branch cut          : truly local NO  | literal F1 NO  | broadened NO
+    inverse power om^4/k^2  : truly local NO  | literal F1 NO  | broadened NO
+    arctan                  : truly local NO  | literal F1 NO  | broadened NO
+    mixed log om k log(...) : truly local NO  | literal F1 NO  | broadened NO
+
+FINDINGS, stated but NOT adjudicated:
+  - the LITERAL predicate has FALSE NEGATIVES: it calls two genuinely LOCAL kernels
+    nonlocal (mixed-odd om*k, and single-odd om);
+  - the BROADENED predicate has NEITHER false negatives NOR false positives on this
+    census -- it coincides with mathematical locality;
+  - the literal predicate admits NO nonlocal structure: its defect is ONE-SIDED, too
+    narrow and never too permissive. Every nonlocal structure fails BOTH predicates, so
+    broadening does not weaken the nonlocal side;
+  - WHY the narrow form was written: on a parity-even Lorentz-invariant FLAT background
+    only even powers arise, so (om^2,k^2) suffices THERE. A background with a preferred
+    time direction and a reference slice admits d_t d_z structures, so the restriction
+    is not general.
+  - THE RISK THE OWNER MUST WEIGH: the mathematics above is independent of the Phase-12
+    output, but the TIMING is not. A criterion broadened after seeing results could, in
+    a future stage, admit a nonlocal structure under an interpretation adopted for
+    convenience. That is the governance question, and it is not the builder's or the
+    checker's to settle.
+
+STOPPED. No A3 amendment. No Q1-Q5. No J(omega). No PV rerun. No response-level
+dual-gauge. All caches and results IMMUTABLE (the a22b587 sha256 manifest stands; the
+Phase-12 run re-verified all six load-bearing inputs identical to it, zero drift).
+W-0; register untouched; nothing banked.

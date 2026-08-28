@@ -1,0 +1,59 @@
+{
+  "instrument": "f1_locality_predicate_diagnostic.py",
+  "status": "FOR OWNER ADJUDICATION -- no amendment made",
+  "frozen_F1": "polynomial in (omega^2, k^2)",
+  "implemented": "polynomial in (omega, k)",
+  "census": [
+    {
+      "structure": "local, mixed-odd (om*k)",
+      "truly_local": true,
+      "literal_F1": false,
+      "broadened": true
+    },
+    {
+      "structure": "local, even only",
+      "truly_local": true,
+      "literal_F1": true,
+      "broadened": true
+    },
+    {
+      "structure": "local, odd single (om)",
+      "truly_local": true,
+      "literal_F1": false,
+      "broadened": true
+    },
+    {
+      "structure": "NONLOCAL: log branch cut",
+      "truly_local": false,
+      "literal_F1": false,
+      "broadened": false
+    },
+    {
+      "structure": "NONLOCAL: inverse power",
+      "truly_local": false,
+      "literal_F1": false,
+      "broadened": false
+    },
+    {
+      "structure": "NONLOCAL: arctan",
+      "truly_local": false,
+      "literal_F1": false,
+      "broadened": false
+    },
+    {
+      "structure": "NONLOCAL: mixed log",
+      "truly_local": false,
+      "literal_F1": false,
+      "broadened": false
+    }
+  ],
+  "literal_false_negatives": [
+    "local, mixed-odd (om*k)",
+    "local, odd single (om)"
+  ],
+  "literal_false_positives": [],
+  "broadened_false_negatives": [],
+  "broadened_false_positives": [],
+  "provenance": "the frozen (omega^2,k^2) form was written by the CHECKER at the A3 freeze gate; if too narrow that is a checker defect",
+  "fail_count": 0
+}
