@@ -1,0 +1,123 @@
+=== STEP 0: executing validated construction (cache-backed) ===
+=== GUARD (LOAD/ECHO/SCAN/FAIL; frozen registry is law) ===
+   GUARD CLEAN (8 symbols, 12 files)
+
+=== SECTION D: FORMULATION DERIVED (a-expansions from the exact chart) ===
+  ok   a^2 = 1 + 2Hu + 3H^2u^2 + O(H^3)  (DERIVED from the exact chart)
+  ok   a^4 = 1 + 4Hu + 10H^2u^2 + O(H^3)  (DERIVED)
+
+=== ENGINE 1: GENERAL POLE MASTERS ===
+  ok   master gate: Ipole[1/(l^2-m^2)] = c Delta  (Delta=m^2)
+  ok   master gate: Ipole[1/D^2] = c
+  ok   master gate: Ipole[l_a l_b/(l^2-m^2)] = c eta_ab m^4/4 (moment 1/4 x Ipole[(l^2)/D^1] = Delta^2/4, Delta = m^2)
+  ok   master gate: Ipole[(l^2)/(l^2-m^2)] = c Delta^2
+  ok   master gate: Ipole[l_a l_b/D^2] = c eta_ab Delta/2 (moment 1/4 x 2 Delta)
+  ok   master gate: Ipole[llll/D^2] = c (3-perm) Delta^2/8 (moment 1/24 x 3 Delta^2)
+  ok   master gate: 1/D^3, 1/D^4 are UV finite (pole 0)
+[    0.2s] engine 1 gated
+
+=== ENGINE 2: TENSOR MOMENTS ===
+  ok   moment gate rank 2: <l0^2> = +l^2/4, <l1^2> = -l^2/4  (eta^{aa}/4)
+  ok   moment gate rank 4: <l0^4> = (l^2)^2/8  (3(eta^{00})^2/24)
+  ok   moment gate rank 4: <l0^2 l1^2> = -(l^2)^2/24  (eta^{00}eta^{11}/24)
+  ok   moment rank 6 computed (self-consistency placeholder)
+[    0.2s] engine 2 gated
+
+=== ENGINE 3: LOOP-POLE INTEGRATOR (two-denominator, general powers) ===
+  ok   engine 3 gate: Ipole[1/(D1 D2)] = c (the classic bubble pole, x-integral of 1)
+  ok   engine 3 gate: d/dm^2 of the tadpole pole == the double-denominator tadpole pole (the trace relation closed on the engine itself)
+[    0.2s] engine 3 gated
+
+=== ENGINE 4: THE u-RULE ===
+  ok   u-rule gate: FT[Delta f(Delta)] == -i d/domega FT[f]  (exact Gaussian, sign pinned)
+
+=== ENGINE 5: LOCAL-KERNEL TRANSFORM (basis side) ===
+  ok   E-transform gate: FT[delta'(Delta)] == -i omega (sympy DiracDelta, exact)
+  ok   E-transform self-consistency: Delta * delta'(Delta) -> -i d/dom(-i om) = -1... wired
+[    1.9s] engines 4-5 gated
+
+=== ENGINE 6: INSERTION KERNEL (the dm^2 exact gate) ===
+  ok   insertion gate: G (i KV) G with KV = -dm2 == dm2 * dG/dm^2 EXACTLY (all i/sign/factor conventions of insertions pinned)
+  ok   insertion gate: kinetic KV = z l^2 reproduces the exact first-order propagator shift of i/((1+z)l^2 - m^2)
+   KV1 = Hu (2 l^2 - 4 m^2);  KV2 = H^2u^2 (3 l^2 - 10 m^2)  [derived from a^2/a^4]
+[    1.9s] engine 6 gated
+
+=== PHASE 9: VERTEX EXPANSION (from the exact A1 form) ===
+  ok   P9 gate: flat vertex kernel == countersigned A1 form contracted with e
+   vertex u-orders: n=0 -> (1,1); n=1 -> (2,4) x Hu; n=2 -> (3,10) x H^2u^2 (DERIVED in Section D)
+[    2.0s] phase 9 done
+
+=== PHASE 10: TARGET ASSEMBLY (fish + seagull, O(H^0..H^2)) ===
+  ok   stripped-units insertion rule: 1/(D+KV) - [1/D - KV/D^2] == KV^2/(D^2(D+KV)) EXACTLY (i.e. the -KV/D^2 insertion is the exact first order)
+   [cache] loaded ['F_H0', 'F_H2', 'H1_total', 'S_H1', 'S_H2'] (tag L2repair-v1)
+[    2.4s] p10 machinery ready
+   convention: engine returns poles in units of c; c is applied at report time (eps^2-cancellation is structural: no c enters the assembly at all)
+   [BATTERY SKIPPED -- SKIPBAT=1, iteration mode. NOT a result run; the Level-2 acceptance battery last PASSED at commit 195a481 on all five cases with the broken control failing.]
+[    2.4s] p10 gates: decomposition independence done
+[    2.4s] p10 O(H) assembled
+
+--- seagull sector ---
+  ok   seagull H^0 assembled (bookkeeping)
+  ok   SEAGULL IDENTITY (flat): seagull pole == (m^4/2) [sqrt(-g)]_{h^2}  (the 2b anchor identity, reproduced by the NEW engine)
+  ok   seagull frequency-local builder reproduces the H^0 tadpole EXACTLY (port gate)
+   [cache] saved ['F_H0', 'F_H2', 'H1_total', 'S_H1', 'S_H2']
+  ok   reality: SIG(H^0) real
+  ok   reality: SIG(H^2) real (i-pairs closed)
+   O(H^1) classification: identically zero: False; purely imaginary (reference/phase artifact class): True
+  ok   H-PARITY: the O(H^1) pole either vanishes or is purely imaginary -- recorded as a CONVENTION-CONSISTENCY check ONLY. Per second-author T4 this does NOT discriminate artifact from genuine covariant odd-in-H structure: both are purely imaginary in this centre-fixed convention
+[    5.6s] p10 totals + parity done
+
+=== PHASE 11: BASIS KERNELS ON THE DRESSED BACKGROUND + IDENTIFICATION ===
+   [af-basis] CORRECTED action-functional kernels loaded from .p11_af_basis_cache.txt (AFB_LOAD=1); old-basis computation SKIPPED
+  ok   af-basis cache: one four-operator kernel set per K sample (the span-test QS representation is preserved)
+   background curvature at the reference (computed, sign as found): R^(0) = -12*H**2
+  ok   P11: background curvature R^(0) is K-independent (as it must be)
+   [af-basis] old-basis dual route SKIPPED (corrected kernels active; the route-B gate validates the OLD construction this hook replaces)
+[    5.9s] construction done
+  ok   three K samples available: [('3', '2'), ('5', '2'), ('7', '3')]
+
+=== STEP 3: same-footing component map ===
+   component map: 10 E-symbols x 10 P-symbols = 100 slots
+   E order: ['E_00', 'E_01', 'E_02', 'E_03'] ...   P order: ['P_00', 'P_01', 'P_02', 'P_03'] ...
+  ok   same-footing map is non-empty and shared by target and basis
+
+=== STEP 4: multi-K^2 rank test (K1,K2 fitting; K3 HELD OUT) ===
+
+--- H^0 (anchor control) ---
+  ok   H^0 (anchor control) K=(3,2) [fitting]: two independent rank routes AGREE (sympy 3/3 vs Bareiss 3/3)
+   K=(3,2) [fitting] m=2/3: rank(B) = 3, rank([B|t]) = 3, nullity(B) = 1  -> INSIDE span
+  ok   H^0 (anchor control) K=(5,2) [fitting]: two independent rank routes AGREE (sympy 3/3 vs Bareiss 3/3)
+   K=(5,2) [fitting] m=2/3: rank(B) = 3, rank([B|t]) = 3, nullity(B) = 1  -> INSIDE span
+  ok   H^0 (anchor control) K=(7,3) [HELD-OUT]: two independent rank routes AGREE (sympy 3/3 vs Bareiss 3/3)
+   K=(7,3) [HELD-OUT] m=2/3: rank(B) = 3, rank([B|t]) = 3, nullity(B) = 1  -> INSIDE span
+
+--- H^2 (the question) ---
+  ok   H^2 (the question) K=(3,2) [fitting]: two independent rank routes AGREE (sympy 2/2 vs Bareiss 2/2)
+   K=(3,2) [fitting] m=2/3: rank(B) = 2, rank([B|t]) = 2, nullity(B) = 2  -> INSIDE span
+  ok   H^2 (the question) K=(5,2) [fitting]: two independent rank routes AGREE (sympy 2/2 vs Bareiss 2/2)
+   K=(5,2) [fitting] m=2/3: rank(B) = 2, rank([B|t]) = 2, nullity(B) = 2  -> INSIDE span
+  ok   H^2 (the question) K=(7,3) [HELD-OUT]: two independent rank routes AGREE (sympy 2/2 vs Bareiss 2/2)
+   K=(7,3) [HELD-OUT] m=2/3: rank(B) = 2, rank([B|t]) = 2, nullity(B) = 2  -> INSIDE span
+
+=== STEP 4b: m-dependence of the rank verdict (generic-rank guard) ===
+   H^2 K1, m = 2/3: rank(B) = 2, rank([B|t]) = 2 -> INSIDE  (Bareiss 2/2)
+  ok   rank routes agree at m = 2/3
+   H^2 K1, m = 5/7: rank(B) = 2, rank([B|t]) = 2 -> INSIDE  (Bareiss 2/2)
+  ok   rank routes agree at m = 5/7
+   H^2 K1, m = 11/3: rank(B) = 2, rank([B|t]) = 2 -> INSIDE  (Bareiss 2/2)
+  ok   rank routes agree at m = 11/3
+
+=== STEP 4c: NULL-SPACE STRUCTURE of the H^2 basis ===
+   nullity = 2
+   null vector over (Lam, EH, R2, Rmn2): [1, 0, 0, 0]
+   null vector over (Lam, EH, R2, Rmn2): [0, 0, -1/3, 1]
+  ok   H^2 basis null space recorded (2 vector(s))
+
+=== STEP 9: self-checks ===
+  ok   target unchanged since load (no mutation)
+  ok   slot count consistent with the component map
+  ok   exactly 4 basis columns at every sample (no column silently removed/added)
+  ok   H^0 target nonzero (anchor control is live)
+
+[FAIL count = 0]  elapsed 9.4s
+result written: WALL_D2_SPAN_TEST_RESULT.json

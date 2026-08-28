@@ -2205,3 +2205,59 @@ STATUS: Phase-10 loop cached+complete; L2 insertion validated; toy functional He
 stands, the comparison was not apples-to-apples); corrected four-operator basis is NEXT.
 NO PHYSICS RULING. The corrected basis must be generated and the original 96/300 target
 re-tested before anything is decided. W-0; register untouched; nothing banked.
+
+### 2026-08-27 · Claude · CHECKER VERIFICATION OF THE CORRECTED AF BASIS: the 96/300 H^2 outside-span result is RETRACTED as a basis-construction artifact
+
+Builder (z.ai) completed the four-operator action-functional reconstruction. CHECKER
+VERIFIED INDEPENDENTLY on disk, not from the report:
+
+  1. wall_d2_span_test.py UNTOUCHED (git diff empty) -- the downstream consumer was
+     genuinely held fixed, so old vs new is a clean comparison.
+  2. .p10_assembly_cache.txt BYTE-IDENTICAL (28,795 bytes, tag L2repair-v1). The loop
+     side and therefore the H^2 TARGET are unchanged. The target is immutable in fact,
+     not merely by assertion.
+  3. Baseline preserved and re-read: old basis gives H^2 rank_B 3 / rank_Bt 4 / OUTSIDE
+     at all three samples -- the 96/300 result reproduces.
+  4. Corrected basis: H^2 rank_B 2 / rank_Bt 2 / nullity 2 / INSIDE at K=(3,2), (5,2)
+     AND the held-out K=(7,3), both rank routes (sympy and Bareiss), at m = 2/3, 5/7,
+     11/3.
+  5. H^0 anchor UNCHANGED between old and corrected basis (rank 3/3, nullity 1, INSIDE
+     at all three samples) -- exactly as required, since the corrections are structurally
+     absent at weight order 0. This is the internal-consistency check that the rebuild
+     did not disturb the validated anchor.
+  6. Gate record: 103 checks, fail_count 0, every entry carrying an explicit pass field
+     (G0 5, G1 16, G2 50, G3 4, G4 1, G5 14, G6 7, C 3, E 1, M 2). The artifact-hygiene
+     defect the checker flagged in the toy JSON (notes mixed into `checks` without a pass
+     field) was FIXED in this instrument: 0 entries lack the field.
+
+DISCLOSURE THE BUILDER UNDER-FLAGGED, recorded here: wall_d2_phases8_12.py WAS modified
+(+39/-11) to add an AF-BASIS LOAD HOOK. Checker inspected the diff: it is DEFAULT-OFF
+(requires AFB_LOAD=1 and the cache file, and honours AFB_NOLOAD=1), the original code
+path runs verbatim when off, and it is confined to the Phase-11 BASIS section -- Phase
+10, the assembly cache, and the identification section are untouched. Defensible reading
+of "do not modify the loop side", and the hook is inert by construction; but it is an
+edit to a file the brief listed as off-limits and belonged in the report as a named
+deviation rather than a passing clause.
+
+WHY "INSIDE" IS STRONG EVIDENCE RATHER THAN A CONVENIENT OUTCOME: at H^2 the corrected
+basis spans only 2 dimensions (nullity 2) inside a 100-slot bilinear space. A target
+landing exactly in a 2-of-100 subspace is a needle-thin coincidence unless the kernels
+are right; wrong or arbitrary kernels would essentially never capture it. The membership
+result is therefore itself a check on the reconstruction, not merely a verdict.
+
+NULL SPACE AT H^2 (recorded, not interpreted): [1,0,0,0] -- sqrt(-g) carries no H^2
+kernel; and [0,0,-1/3,1] -- R_mn^2 = (1/3) R^2 at H^2 in the corrected basis. The second
+relation is a structural statement about the bilinear kernels on this background and is
+NOT the background identity R_mn R^mn = R^2/4; it should not be conflated with it.
+
+RULING (checker, subject to owner/reviewer confirmation): THE 96/300 H^2 OUTSIDE-SPAN
+RESULT IS RETRACTED AS A BASIS-CONSTRUCTION ARTIFACT. The old coincident-density basis
+omitted the distributional corrections -- including EH's genuine O(H^1) Hessian
+correction, which the builder traced to structures whose O(H) coefficients are
+u-dependent and whose E<->P mirror pairing fails to cancel. With those terms restored,
+the computed H^2 target IS representable in the frozen local basis at every sample
+including held-out.
+
+FENCE UNCHANGED: a LOCAL UV COUNTERTERM-STRUCTURE statement only. It determines nothing
+about Q1 placement, Im chi, convergence class, or relaxational/resonant character, and it
+is NOT a verdict on GRUT in either direction. W-0; register untouched; nothing banked.

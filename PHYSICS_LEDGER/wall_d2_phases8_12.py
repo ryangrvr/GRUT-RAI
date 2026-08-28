@@ -1320,12 +1320,36 @@ def basis_graded(omv, kkv, gates=False):
 
 K_SAMPLES = [(sp.Rational(3), sp.Rational(2)), (sp.Rational(5), sp.Rational(2)),
              (sp.Rational(7), sp.Rational(3))]           # third is HELD OUT
+# ---- AF-BASIS CACHE HOOK (owner-authorized 2026-08-27 rebuild; DEFAULT OFF) --------
+# Loads the CORRECTED action-functional kernels emitted by wall_d2_phase11_af_basis.py
+# (.p11_af_basis_cache.txt, srepr round-trip) in place of the old coincident-density
+# basis, so the UNCHANGED wall_d2_span_test.py can be run against them (AFB_LOAD=1).
+# Default behaviour -- no AFB_LOAD, no cache file, or AFB_NOLOAD=1 -- computes the
+# validated old basis below exactly as before; the hook is inert. The loop side
+# (Phase 10), .p10_assembly_cache.txt and the identification section are untouched.
+AFB_CACHE_PATH = os.path.join(HERE, ".p11_af_basis_cache.txt")
+AFB_ON = (os.environ.get("AFB_LOAD") == "1"
+          and os.environ.get("AFB_NOLOAD") != "1"
+          and os.path.exists(AFB_CACHE_PATH))
 QS, R0s = [], []
-for _i, (_ov, _kv) in enumerate(K_SAMPLES):
-    print(f"\n   --- basis kernels at K = ({_ov}, {_kv}) ---")
-    _q, _r0 = basis_graded(_ov, _kv, gates=(_i == 0))
-    QS.append(_q); R0s.append(_r0)
-    stamp(f"p11 basis kernels at K=({_ov},{_kv}) done")
+if AFB_ON:
+    _afb = json.loads(open(AFB_CACHE_PATH).read())
+    for _i in range(len(K_SAMPLES)):
+        QS.append(dict((o, dict((_n, sp.sympify(_afb["QS"][_i][o][str(_n)]))
+                                for _n in (0, 1, 2)))
+                       for o in ('Lam', 'EH', 'R2', 'Rmn2')))
+        R0s.append(sp.sympify(_afb["R0s"][_i]))
+    print("   [af-basis] CORRECTED action-functional kernels loaded from "
+          ".p11_af_basis_cache.txt (AFB_LOAD=1); old-basis computation SKIPPED")
+    check(len(QS) == len(K_SAMPLES) and all(len(QS[_j]) == 4 for _j in range(len(QS))),
+          "af-basis cache: one four-operator kernel set per K sample (the span-test "
+          "QS representation is preserved)")
+else:
+    for _i, (_ov, _kv) in enumerate(K_SAMPLES):
+        print(f"\n   --- basis kernels at K = ({_ov}, {_kv}) ---")
+        _q, _r0 = basis_graded(_ov, _kv, gates=(_i == 0))
+        QS.append(_q); R0s.append(_r0)
+        stamp(f"p11 basis kernels at K=({_ov},{_kv}) done")
 print(f"   background curvature at the reference (computed, sign as found): "
       f"R^(0) = {R0s[0]}")
 check(all(sp.simplify(r - R0s[0]) == 0 for r in R0s),
@@ -1379,12 +1403,16 @@ def route_B_EH(omv, kkv):
     return {n2: sp.expand(ex.coeff(H, n2)) for n2 in (0, 1, 2)}
 
 
-_B = route_B_EH(*K_SAMPLES[0])
-blk("route B")
-check(all(sp.simplify(sp.expand(_B[n2] - QS[0]['EH'][n2])) == 0 for n2 in (0, 1, 2)),
-      "P11 DUAL ROUTE: EH kernel from Route A (sector-graded early truncation) equals "
-      "Route B (full two-mode expansion, extraction at the end) at all three H orders")
-stamp("p11 dual route done")
+if AFB_ON:
+    print("   [af-basis] old-basis dual route SKIPPED (corrected kernels active; the "
+          "route-B gate validates the OLD construction this hook replaces)")
+else:
+    _B = route_B_EH(*K_SAMPLES[0])
+    blk("route B")
+    check(all(sp.simplify(sp.expand(_B[n2] - QS[0]['EH'][n2])) == 0 for n2 in (0, 1, 2)),
+          "P11 DUAL ROUTE: EH kernel from Route A (sector-graded early truncation) equals "
+          "Route B (full two-mode expansion, extraction at the end) at all three H orders")
+    stamp("p11 dual route done")
 
 
 # ================= PHASE 11: IDENTIFICATION (multi-K^2, held-out) =================

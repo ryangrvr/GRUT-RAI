@@ -1,0 +1,303 @@
+
+=== G0: NORMALISATION TABLE (gated explicitly, not inherited) ===
+  ok   [G0] G0 row 1: S = (1/2) Int C (h')^2 through the engine: K~ = om^2 C(0) + (1/4)C''(0) = om^2 + c2/2 (both placements); the correction alone is (1/4)C'' = c2/2
+  ok   [G0] G0 row 2: S = Int C (h')^2 through the engine: K~ = 2 om^2 C(0) + (1/2)C''(0) = 2 om^2 + c2; the correction alone is (1/2)C'' = c2 -- EXACTLY TWICE row 1
+  ok   [G0] G0 OP1 correspondence: S = Int a^2 (phi')^2 -> correction = 2*2/2 H^2 (the 2026-08-27 diagnostic's OP1 figure, no-1/2 row, through the engine)
+  ok   [G0] G0 OP1 correspondence: S = Int a^3 (phi')^2 -> correction = 3*3/2 H^2 (the 2026-08-27 diagnostic's OP1 figure, no-1/2 row, through the engine)
+  ok   [G0] G0 assertion wired: all four operators' actions carry the Int-row (no 1/2); the engine is linear in the action normalisation (factor 2 end-to-end)
+
+=== G3: TOY AGREEMENT (the generalised machinery restricted to the toy) ===
+  ok   [G3] G3: toy master identity F_B - F_A = (1/4)C''(0) = c2/2 (additive, om-independent)
+  ok   [G3] G3: the engine's r-slot lever structure == the toy's registered slots C^{(r)}(0)(1/2)^r/r! (u1_pow lever arms; the C'-pairing on the l=1 slots)
+  ok   [G3] G3: second centre u_c = 1/3: K~ = om^2 C(1/3) + (1/4)C''(1/3), both placements (centre dependence verified, not inferred)
+  ok   [G3] G3: the Delta-space slots are -C(0) dd''(Delta) [slot (0,0,2)] and C''(0)/8 dd [slot (0,2,2)] -- the distributional structure -C dd'' + (1/4)C'' dd is preserved EXPLICITLY
+
+=== G1 (scalar part): IBP INVARIANCE AT THE ACTION LEVEL ===
+  ok   [G1] G1: Int C h h' and -(1/2) Int C' h^2 (differing by a total derivative) give the IDENTICAL action-functional kernel, both placements -- IBP invariance at the Hessian/distribution level, BEFORE any omega/K evaluation
+  ok   [G1] G1: the total-derivative density d/du[C h1 h2] gives the IDENTICALLY ZERO kernel (both placements) -- the Hessian of a boundary term vanishes
+  ok   [G1] G1 contrast (computed, not asserted): the OLD coincident-density construction is NOT IBP-invariant on the same pair (Int C hh' -> 0 vs -(1/2)Int C'h^2 -> -C'(0)) -- the defect the rebuild removes
+
+=== STEP M: the validated construction executed (cache-backed; loop side frozen) ===
+=== GUARD (LOAD/ECHO/SCAN/FAIL; frozen registry is law) ===
+   GUARD CLEAN (8 symbols, 12 files)
+
+=== SECTION D: FORMULATION DERIVED (a-expansions from the exact chart) ===
+  ok   a^2 = 1 + 2Hu + 3H^2u^2 + O(H^3)  (DERIVED from the exact chart)
+  ok   a^4 = 1 + 4Hu + 10H^2u^2 + O(H^3)  (DERIVED)
+
+=== ENGINE 1: GENERAL POLE MASTERS ===
+  ok   master gate: Ipole[1/(l^2-m^2)] = c Delta  (Delta=m^2)
+  ok   master gate: Ipole[1/D^2] = c
+  ok   master gate: Ipole[l_a l_b/(l^2-m^2)] = c eta_ab m^4/4 (moment 1/4 x Ipole[(l^2)/D^1] = Delta^2/4, Delta = m^2)
+  ok   master gate: Ipole[(l^2)/(l^2-m^2)] = c Delta^2
+  ok   master gate: Ipole[l_a l_b/D^2] = c eta_ab Delta/2 (moment 1/4 x 2 Delta)
+  ok   master gate: Ipole[llll/D^2] = c (3-perm) Delta^2/8 (moment 1/24 x 3 Delta^2)
+  ok   master gate: 1/D^3, 1/D^4 are UV finite (pole 0)
+[    0.1s] engine 1 gated
+
+=== ENGINE 2: TENSOR MOMENTS ===
+  ok   moment gate rank 2: <l0^2> = +l^2/4, <l1^2> = -l^2/4  (eta^{aa}/4)
+  ok   moment gate rank 4: <l0^4> = (l^2)^2/8  (3(eta^{00})^2/24)
+  ok   moment gate rank 4: <l0^2 l1^2> = -(l^2)^2/24  (eta^{00}eta^{11}/24)
+  ok   moment rank 6 computed (self-consistency placeholder)
+[    0.1s] engine 2 gated
+
+=== ENGINE 3: LOOP-POLE INTEGRATOR (two-denominator, general powers) ===
+  ok   engine 3 gate: Ipole[1/(D1 D2)] = c (the classic bubble pole, x-integral of 1)
+  ok   engine 3 gate: d/dm^2 of the tadpole pole == the double-denominator tadpole pole (the trace relation closed on the engine itself)
+[    0.2s] engine 3 gated
+
+=== ENGINE 4: THE u-RULE ===
+  ok   u-rule gate: FT[Delta f(Delta)] == -i d/domega FT[f]  (exact Gaussian, sign pinned)
+
+=== ENGINE 5: LOCAL-KERNEL TRANSFORM (basis side) ===
+  ok   E-transform gate: FT[delta'(Delta)] == -i omega (sympy DiracDelta, exact)
+  ok   E-transform self-consistency: Delta * delta'(Delta) -> -i d/dom(-i om) = -1... wired
+[    2.0s] engines 4-5 gated
+
+=== ENGINE 6: INSERTION KERNEL (the dm^2 exact gate) ===
+  ok   insertion gate: G (i KV) G with KV = -dm2 == dm2 * dG/dm^2 EXACTLY (all i/sign/factor conventions of insertions pinned)
+  ok   insertion gate: kinetic KV = z l^2 reproduces the exact first-order propagator shift of i/((1+z)l^2 - m^2)
+   KV1 = Hu (2 l^2 - 4 m^2);  KV2 = H^2u^2 (3 l^2 - 10 m^2)  [derived from a^2/a^4]
+[    2.0s] engine 6 gated
+
+=== PHASE 9: VERTEX EXPANSION (from the exact A1 form) ===
+  ok   P9 gate: flat vertex kernel == countersigned A1 form contracted with e
+   vertex u-orders: n=0 -> (1,1); n=1 -> (2,4) x Hu; n=2 -> (3,10) x H^2u^2 (DERIVED in Section D)
+[    2.1s] phase 9 done
+
+=== PHASE 10: TARGET ASSEMBLY (fish + seagull, O(H^0..H^2)) ===
+  ok   stripped-units insertion rule: 1/(D+KV) - [1/D - KV/D^2] == KV^2/(D^2(D+KV)) EXACTLY (i.e. the -KV/D^2 insertion is the exact first order)
+   [cache] loaded ['F_H0', 'F_H2', 'H1_total', 'S_H1', 'S_H2'] (tag L2repair-v1)
+[    2.6s] p10 machinery ready
+   convention: engine returns poles in units of c; c is applied at report time (eps^2-cancellation is structural: no c enters the assembly at all)
+   [BATTERY SKIPPED -- SKIPBAT=1, iteration mode. NOT a result run; the Level-2 acceptance battery last PASSED at commit 195a481 on all five cases with the broken control failing.]
+[    2.6s] p10 gates: decomposition independence done
+[    2.6s] p10 O(H) assembled
+
+--- seagull sector ---
+  ok   seagull H^0 assembled (bookkeeping)
+  ok   SEAGULL IDENTITY (flat): seagull pole == (m^4/2) [sqrt(-g)]_{h^2}  (the 2b anchor identity, reproduced by the NEW engine)
+  ok   seagull frequency-local builder reproduces the H^0 tadpole EXACTLY (port gate)
+   [cache] saved ['F_H0', 'F_H2', 'H1_total', 'S_H1', 'S_H2']
+  ok   reality: SIG(H^0) real
+  ok   reality: SIG(H^2) real (i-pairs closed)
+   O(H^1) classification: identically zero: False; purely imaginary (reference/phase artifact class): True
+  ok   H-PARITY: the O(H^1) pole either vanishes or is purely imaginary -- recorded as a CONVENTION-CONSISTENCY check ONLY. Per second-author T4 this does NOT discriminate artifact from genuine covariant odd-in-H structure: both are purely imaginary in this centre-fixed convention
+[    5.9s] p10 totals + parity done
+
+=== PHASE 11: BASIS KERNELS ON THE DRESSED BACKGROUND + IDENTIFICATION ===
+
+   --- basis kernels at K = (3, 2) ---
+  ok   P11 basis: g.ginv == 1 in every eps sector through O(kap^2) (phase-stripped sector algebra, multiplication-verified)
+   [block] metric+inverse:     2.0s
+  ok   P11 basis: sqrt(-g)^2 == a^8 * (-det(eta+h)) in every eps sector (division-free, so no rational-truncation artifact)
+   [block] sqrt(-g):     1.6s
+   [block] christoffels:     6.9s
+   [block] ricci:     9.6s
+   [block] scalar curvature:     4.1s
+   [block] Lam/EH/R2 densities:     2.9s
+   [block] Rmn2 density:    27.3s
+   [block] kernel extraction:     0.2s
+[   60.5s] p11 basis kernels at K=(3,2) done
+
+   --- basis kernels at K = (5, 2) ---
+   [block] metric+inverse:     0.5s
+   [block] sqrt(-g):     1.1s
+   [block] christoffels:     6.3s
+   [block] ricci:     9.1s
+   [block] scalar curvature:     3.1s
+   [block] Lam/EH/R2 densities:     2.1s
+   [block] Rmn2 density:    27.1s
+   [block] kernel extraction:     0.2s
+[  109.9s] p11 basis kernels at K=(5,2) done
+
+   --- basis kernels at K = (7, 3) ---
+   [block] metric+inverse:     0.5s
+   [block] sqrt(-g):     1.1s
+   [block] christoffels:     5.8s
+   [block] ricci:     9.6s
+   [block] scalar curvature:     3.1s
+   [block] Lam/EH/R2 densities:     2.1s
+   [block] Rmn2 density:    30.9s
+   [block] kernel extraction:     0.2s
+[  163.3s] p11 basis kernels at K=(7,3) done
+   background curvature at the reference (computed, sign as found): R^(0) = -12*H**2
+  ok   P11: background curvature R^(0) is K-independent (as it must be)
+   [block] route B:   332.4s
+  ok   P11 DUAL ROUTE: EH kernel from Route A (sector-graded early truncation) equals Route B (full two-mode expansion, extraction at the end) at all three H orders
+[  495.8s] p11 dual route done
+   [block] machinery exec (engines + cached assembly + old basis):   496.7s
+  ok   [M] M: the machinery prefix's own gates all pass (the loop side and the old basis are exactly as validated)
+  ok   [M] M: .p10_assembly_cache.txt byte-identical across the exec (loaded and round-tripped, never regenerated)
+[  496.7s] G0 + G3 + G1(scalar) done
+
+=== STEP C: SPLIT-FREQUENCY SECTOR-GRADED CASCADE (the B-table machinery) ===
+
+=== STEP K: TABLES -> CORRECTED KERNELS (both placements; corrections explicit) ===
+
+   --- split cascade at K = (3, 2) ---
+  ok   [C] C: g.ginv == 1 in every eps sector (split-frequency sector algebra)
+   [block] metric+inverse:     1.8s
+  ok   [C] C: sqrt(-g)^2 == a^8 (-det(eta+h)) in every eps sector (division-free)
+   [block] sqrt(-g):     1.5s
+   [block] christoffels:     5.9s
+   [block] ricci:    11.5s
+   [block] scalar curvature:     5.1s
+   [block] Lam/EH/R2 densities:     5.1s
+   [block] Rmn2 density:    50.2s
+[  577.8s] cascade at K=(3,2) done
+  ok   [G1] G1 order-independence at K=(3,2), Lam: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel
+  ok   [G2] G2 mirror at K=(3,2), Lam, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(3,2), Lam, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(3,2), Lam, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 at K=(3,2), Lam: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))
+  ok   [G1] G1 order-independence at K=(3,2), EH: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel
+  ok   [G2] G2 mirror at K=(3,2), EH, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(3,2), EH, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(3,2), EH, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 at K=(3,2), EH: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))
+  ok   [G1] G1 order-independence at K=(3,2), R2: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel
+  ok   [G2] G2 mirror at K=(3,2), R2, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(3,2), R2, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(3,2), R2, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 at K=(3,2), R2: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))
+  ok   [G1] G1 order-independence at K=(3,2), Rmn2: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel
+  ok   [G2] G2 mirror at K=(3,2), Rmn2, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(3,2), Rmn2, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(3,2), Rmn2, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 at K=(3,2), Rmn2: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))
+   [block] kernels+gates at K=(3,2):     9.0s
+
+   --- split cascade at K = (5, 2) ---
+   [block] metric+inverse:     0.5s
+   [block] sqrt(-g):     1.1s
+   [block] christoffels:     5.9s
+   [block] ricci:    11.8s
+   [block] scalar curvature:     5.1s
+   [block] Lam/EH/R2 densities:     5.2s
+   [block] Rmn2 density:    50.1s
+[  666.7s] cascade at K=(5,2) done
+  ok   [G1] G1 order-independence at K=(5,2), Lam: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel
+  ok   [G2] G2 mirror at K=(5,2), Lam, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(5,2), Lam, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(5,2), Lam, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 at K=(5,2), Lam: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))
+  ok   [G1] G1 order-independence at K=(5,2), EH: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel
+  ok   [G2] G2 mirror at K=(5,2), EH, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(5,2), EH, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(5,2), EH, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 at K=(5,2), EH: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))
+  ok   [G1] G1 order-independence at K=(5,2), R2: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel
+  ok   [G2] G2 mirror at K=(5,2), R2, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(5,2), R2, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(5,2), R2, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 at K=(5,2), R2: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))
+  ok   [G1] G1 order-independence at K=(5,2), Rmn2: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel
+  ok   [G2] G2 mirror at K=(5,2), Rmn2, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(5,2), Rmn2, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(5,2), Rmn2, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 at K=(5,2), Rmn2: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))
+   [block] kernels+gates at K=(5,2):     8.0s
+
+   --- split cascade at K = (7, 3) ---
+   [block] metric+inverse:     0.5s
+   [block] sqrt(-g):     1.1s
+   [block] christoffels:     6.0s
+   [block] ricci:    13.0s
+   [block] scalar curvature:     5.4s
+   [block] Lam/EH/R2 densities:     5.4s
+   [block] Rmn2 density:    51.0s
+[  757.0s] cascade at K=(7,3) done
+  ok   [G1] G1 order-independence at K=(7,3), Lam: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel
+  ok   [G2] G2 mirror at K=(7,3), Lam, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(7,3), Lam, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(7,3), Lam, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 at K=(7,3), Lam: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))
+  ok   [G1] G1 order-independence at K=(7,3), EH: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel
+  ok   [G2] G2 mirror at K=(7,3), EH, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(7,3), EH, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(7,3), EH, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 at K=(7,3), EH: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))
+  ok   [G1] G1 order-independence at K=(7,3), R2: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel
+  ok   [G2] G2 mirror at K=(7,3), R2, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(7,3), R2, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(7,3), R2, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 at K=(7,3), R2: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))
+  ok   [G1] G1 order-independence at K=(7,3), Rmn2: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel
+  ok   [G2] G2 mirror at K=(7,3), Rmn2, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(7,3), Rmn2, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 mirror at K=(7,3), Rmn2, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel
+  ok   [G2] G2 at K=(7,3), Rmn2: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))
+   [block] kernels+gates at K=(7,3):     8.6s
+  ok   [C] C: background curvature R^(0) is K-independent (as it must be); R^(0) = -12*H**2
+
+=== G1 (tensor part): IBP ON THE REAL OPERATOR TABLES (action level) ===
+  ok   [G1] G1: adding d/du[F(u) X_pq] total-derivative structures (3 dressings x 4 rich (p,q)-structures x 4 operators) leaves every REAL kernel UNCHANGED -- symbolic identity at the Hessian/distribution level, before any omega/K evaluation
+
+=== G2: H^0 GILKEY REGRESSION ON THE CORRECTED KERNELS (no refit) ===
+  ok   [G2] G2: H^0 Gilkey regression on the CORRECTED kernels: target IN span (rank 4/4); fitted coefficients == {m^4/4, m^2/12, 1/240, 1/120} EXACTLY (samples 0,1 fit)
+  ok   [G2] G2: HELD-OUT sample K=(7,3) reproduced EXACTLY by the fitted coefficients (NO refit)
+[  816.4s] G2 Gilkey regression done
+
+=== G4: DUAL ROUTE (full-eps split construction; independent of the sector algebra) ===
+   [block] route B (full-eps split EH):   506.6s
+  ok   [G4] G4: the EH kernel from the FULL-EPS split route (no sector grading) == the sector-graded kernel, both placements, at K=(3,2) -- the B-table extraction is validated by a method independent of the sector algebra
+[ 1283.0s] G4 dual route done
+
+=== G5: ODD-STRUCTURE FUNCTIONAL-HESSIAN TEST + ATTRIBUTION + NON-VACUITY ===
+  ok   [G5] G5 route 1 (direct functional Hessian): the Euler-Lagrange second variation of S_B is K(u1,u2) = -B'(u1) dd(u1-u2) EXACTLY -- the dd' pieces generated by the two density terms cancel inside the computation itself
+  ok   [G5] G5 distributional identities (sympy DiracDelta, exact): Int f dd = f(0); Int f dd' = -f'(0); Int x dd' = -1 (x dd' = -dd); Int x^2 dd' = 0 -- the identities behind the centre collapse and the slot reductions
+  ok   [G5] G5 route 1 validation: the bilinear form of -B'(u) dd(u1-u2) == the plain second variation of S_B on Gaussian test pairs (sympy, exact) -- the kernel really is delta^2 S_B, computed, not transcribed
+  ok   [G5] G5 route 2 collapses: the dd' shift integrals equal their analytic values EXACTLY -- Int f(x) dd'(x-y) dx = -f'(y) for BOTH raw-kernel terms (f = phi*B on the A leg, f = B*psi on the B leg; canonical orientation)
+  ok   [G5] G5 route 2 validation: the RAW kernel B(u1) dd'(u1-u2) + B(u2) dd'(u2-u1) (the second functional derivative of the density, before any EL/IBP rearrangement) has the SAME bilinear form as the second variation (the two dd' collapses above + plain Gaussian integrals, exact) -- both raw terms are the true delta^2 S_B
+  ok   [G5] G5 route 2 (independent distributional/Fourier): the raw kernel centred is [B(u1)-B(u2)] dd'(Delta) (ODD in Delta, computed); decomposed into Delta^j dd'(Delta) slots and E-transformed with the registered convention, only j=1 survives (Etr(1,1) = -1; Etr(j,1) = 0 for j >= 2): K~ = -B'(u_c) = -H b1 - 2 H^2 b2 u_c
+  ok   [G5] G5 route 3 (generalised master kernel): master(TAB_B) = -B'(0) = -H b1, BOTH placements (order-independence on the odd pair), while the OLD coincident-density kernel is IDENTICALLY ZERO on this pair at EVERY H order -- the master formula reproduces the exact functional Hessian; the old construction is blind to it
+  ok   [G5] G5 THREE-ROUTE AGREEMENT: direct functional Hessian (EL), raw-kernel centred slot route, and the generalised master formula ALL give K~ = -B'(u_c) = -H b1 at the reference centre -- the H^1 correction is a property of the action-functional Hessian, not of any one construction
+  ok   [G5] G5 B=constant control: B' = 0 -> corrected == old == 0 (NO correction at ANY order on the pair) -- the H^1 correction is exactly the B' mechanism, not an implementation artefact
+  ok   [G5] G5 B'!=0 statement (H-graded): with B = b0 + H b1 u + H^2 b2 u^2 the corrected kernel is -H b1 + O(H^2): H^0 part 0 (== old H^0 part), H^1 part -b1 while the old H^1 part is 0 -- a GENUINE O(H^1) correction from an odd-derivative structure whose coefficient acquires u-dependence at O(H)
+  ok   [G5] G5 second centre u_c = 1/3: K~ = -B'(1/3) (the centre dependence of the H^1 correction is verified, not inferred)
+  ok   [G5] G5: correction == corrected - old, IDENTICALLY (every operator, sample, H order) -- the decomposition 'old (r=0 term) + explicit distributional corrections' is exact
+  ok   [G5] G5 H^1 ATTRIBUTION (computed, every operator and sample): the H^1 correction is generated EXCLUSIVELY by structures whose O(H) coefficients are u-dependent (B'(u_c) ~ O(H) -- exactly the -B' mechanism gated above on the independent model); structures with u-independent O(H) coefficients contribute ZERO at H^1
+  ok   [G5] G5 NON-VACUITY: the (l,r)!=(0,0) terms are NONZERO at H^2 for EH, R2, Rmn2 -- the rebuild is not a no-op (sqrt(-g), if absent, is CORRECT: its only structure is B_00 and Etr(r,0)=0 for r>=1, so it carries no corrections at any order)
+  --   H^2 correction, Lam: zero; the symbolic correction is omega-free (additive master identity, as in the toy)
+  --   H^1 correction, Lam: zero; structures with u-dependent O(H) coefficients: (0,0)
+  --   H^2 correction, EH: NONZERO; the symbolic correction is omega-DEPENDENT (the generalised (p,q)-resolved corrections carry per-leg structure the toy's single B_11 could not exhibit)
+  --   H^1 correction, EH: NONZERO; structures with u-dependent O(H) coefficients: (0,0), (0,1), (0,2), (1,0), (1,1), (2,0)
+  --   H^2 correction, R2: NONZERO; the symbolic correction is omega-DEPENDENT (the generalised (p,q)-resolved corrections carry per-leg structure the toy's single B_11 could not exhibit)
+  --   H^1 correction, R2: zero; structures with u-dependent O(H) coefficients: none
+  --   H^2 correction, Rmn2: NONZERO; the symbolic correction is omega-DEPENDENT (the generalised (p,q)-resolved corrections carry per-leg structure the toy's single B_11 could not exhibit)
+  --   H^1 correction, Rmn2: zero; structures with u-dependent O(H) coefficients: none
+  --   COMPUTED ORDER STATEMENT -- H^0: corrected kernel == coincident-density kernel (gated, G2); H^1: corrections OCCUR for EH, generated exclusively by u-dependent O(H) coefficients via the gated -B' mechanism (all other operators' H^1 kernels are unchanged); H^2: corrections occur for EH, R2, Rmn2 (non-vacuity gated). No universal first-nonzero correction order is claimed beyond these computed statements.
+[ 1508.5s] G5 done
+
+=== G6: BROKEN CONTROLS (the toy's failed conventions, ported; each must FAIL) ===
+  ok   [G6] G6 control 'A' (r>=1-only corruption): reproduces the corrected kernel EXACTLY at H^0 (the Gilkey level untouched) but FAILS to reproduce it at H^1/H^2 (H^1 differs for: EH; H^2 differs for: EH, R2, Rmn2) -- caught at the order it corrupts, against the independently computed corrected kernel
+  ok   [G6] G6 control 'B' (r>=1-only corruption): reproduces the corrected kernel EXACTLY at H^0 (the Gilkey level untouched) but FAILS to reproduce it at H^1/H^2 (H^1 differs for: EH; H^2 differs for: EH, R2, Rmn2) -- caught at the order it corrupts, against the independently computed corrected kernel
+  ok   [G6] G6 control 'C' (r>=1-only corruption): reproduces the corrected kernel EXACTLY at H^0 (the Gilkey level untouched) but FAILS to reproduce it at H^1/H^2 (H^1 differs for: EH; H^2 differs for: EH, R2, Rmn2) -- caught at the order it corrupts, against the independently computed corrected kernel
+  ok   [G6] G6 control 'Cp' (r>=1-only corruption): reproduces the corrected kernel EXACTLY at H^0 (the Gilkey level untouched) but FAILS to reproduce it at H^1/H^2 (H^1 differs for: EH; H^2 differs for: EH, R2, Rmn2) -- caught at the order it corrupts, against the independently computed corrected kernel
+  ok   [G6] G6 control 'D' (wrong-vertex placement sign): FAILS to reproduce the corrected kernel at H^1/H^2 (H^1 differs for: EH, R2, Rmn2; H^2 differs for: EH, R2, Rmn2) and additionally breaks H^0 itself for EH, R2, Rmn2 -- the placement convention is load-bearing at every order (H^0-sameness is not required here: this control corrupts orders its convention cannot spare)
+  ok   [G6] G6: control 'C' (frozen centre) IS the old coincident-density kernel, IDENTICALLY (all four operators, symbolic omega) -- the old basis is literally the (l,r)=(0,0) term of this construction, now a checked identity rather than a claim
+  ok   [G6] G6 control 'conj' (per-term conjugate Fourier transform): FAILS to reproduce the corrected kernel at H^1/H^2 (H^1 differs for: EH, R2, Rmn2; H^2 differs for: R2, Rmn2), and additionally breaks H^0 for EH, R2, Rmn2 -- the E-transform sign convention is load-bearing at every order
+[ 1520.7s] G6 done
+
+=== EMISSION: corrected kernels in the span-test representation (green-gated) ===
+  ok   [E] E: srepr round-trip of every emitted kernel is EXACT (sympify(srepr(x)) == x)
+  --   cache written: .p11_af_basis_cache.txt (39265 bytes); run the UNCHANGED span test against the corrected kernels with:  AFB_LOAD=1 python3 wall_d2_span_test.py
+[ 1521.5s] emission done
+
+=== SUMMARY ===
+  --   gate C  :   3 checks, 0 failed
+  --   gate E  :   1 checks, 0 failed
+  --   gate G0 :   5 checks, 0 failed
+  --   gate G1 :  16 checks, 0 failed
+  --   gate G2 :  50 checks, 0 failed
+  --   gate G3 :   4 checks, 0 failed
+  --   gate G4 :   1 checks, 0 failed
+  --   gate G5 :  14 checks, 0 failed
+  --   gate G6 :   7 checks, 0 failed
+  --   gate M  :   2 checks, 0 failed
+result written: WALL_D2_PHASE11_AF_BASIS_RESULT.json
+verdict written: WALL_D2_PHASE11_AF_BASIS_VERDICT.md
+
+[FAIL count = 0]  elapsed 1521.6s

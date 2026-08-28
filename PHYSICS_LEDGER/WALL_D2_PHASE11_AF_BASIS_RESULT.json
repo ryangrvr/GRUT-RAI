@@ -1,0 +1,762 @@
+{
+  "instrument": "wall_d2_phase11_af_basis.py",
+  "question": "was the old 96/300 H^2 outside-span result a basis-construction artifact (coincident-density basis, IBP-non-invariant)?",
+  "verdict": "GREEN -- corrected action-functional basis emitted; reclassify with: AFB_LOAD=1 python3 wall_d2_span_test.py",
+  "gates": {
+    "C": {
+      "checks": 3,
+      "failed": 0
+    },
+    "E": {
+      "checks": 1,
+      "failed": 0
+    },
+    "G0": {
+      "checks": 5,
+      "failed": 0
+    },
+    "G1": {
+      "checks": 16,
+      "failed": 0
+    },
+    "G2": {
+      "checks": 50,
+      "failed": 0
+    },
+    "G3": {
+      "checks": 4,
+      "failed": 0
+    },
+    "G4": {
+      "checks": 1,
+      "failed": 0
+    },
+    "G5": {
+      "checks": 14,
+      "failed": 0
+    },
+    "G6": {
+      "checks": 7,
+      "failed": 0
+    },
+    "M": {
+      "checks": 2,
+      "failed": 0
+    }
+  },
+  "corrections_H1_nonzero_for": [
+    "EH"
+  ],
+  "corrections_H2_nonzero_for": [
+    "EH",
+    "R2",
+    "Rmn2"
+  ],
+  "order_statement": "H^0: corrected == old (gated). H^1: corrections occur exactly via u-dependent O(H) coefficients (the -B' mechanism, gated on the independent odd-pair model S=Int B(hA'hB+hA hB') whose exact Hessian is -B'(u_c)). H^2: corrections occur (non-vacuity gated). The old 'exactly O(H^2)' order theorem is retired as toy-only.",
+  "old_basis_is_r0_term": "checked identity (G6 control 'C' == old_kernel_of)",
+  "checks": [
+    {
+      "kind": "check",
+      "gate": "G0",
+      "pass": true,
+      "msg": "G0 row 1: S = (1/2) Int C (h')^2 through the engine: K~ = om^2 C(0) + (1/4)C''(0) = om^2 + c2/2 (both placements); the correction alone is (1/4)C'' = c2/2"
+    },
+    {
+      "kind": "check",
+      "gate": "G0",
+      "pass": true,
+      "msg": "G0 row 2: S = Int C (h')^2 through the engine: K~ = 2 om^2 C(0) + (1/2)C''(0) = 2 om^2 + c2; the correction alone is (1/2)C'' = c2 -- EXACTLY TWICE row 1"
+    },
+    {
+      "kind": "check",
+      "gate": "G0",
+      "pass": true,
+      "msg": "G0 OP1 correspondence: S = Int a^2 (phi')^2 -> correction = 2*2/2 H^2 (the 2026-08-27 diagnostic's OP1 figure, no-1/2 row, through the engine)"
+    },
+    {
+      "kind": "check",
+      "gate": "G0",
+      "pass": true,
+      "msg": "G0 OP1 correspondence: S = Int a^3 (phi')^2 -> correction = 3*3/2 H^2 (the 2026-08-27 diagnostic's OP1 figure, no-1/2 row, through the engine)"
+    },
+    {
+      "kind": "check",
+      "gate": "G0",
+      "pass": true,
+      "msg": "G0 assertion wired: all four operators' actions carry the Int-row (no 1/2); the engine is linear in the action normalisation (factor 2 end-to-end)"
+    },
+    {
+      "kind": "check",
+      "gate": "G3",
+      "pass": true,
+      "msg": "G3: toy master identity F_B - F_A = (1/4)C''(0) = c2/2 (additive, om-independent)"
+    },
+    {
+      "kind": "check",
+      "gate": "G3",
+      "pass": true,
+      "msg": "G3: the engine's r-slot lever structure == the toy's registered slots C^{(r)}(0)(1/2)^r/r! (u1_pow lever arms; the C'-pairing on the l=1 slots)"
+    },
+    {
+      "kind": "check",
+      "gate": "G3",
+      "pass": true,
+      "msg": "G3: second centre u_c = 1/3: K~ = om^2 C(1/3) + (1/4)C''(1/3), both placements (centre dependence verified, not inferred)"
+    },
+    {
+      "kind": "check",
+      "gate": "G3",
+      "pass": true,
+      "msg": "G3: the Delta-space slots are -C(0) dd''(Delta) [slot (0,0,2)] and C''(0)/8 dd [slot (0,2,2)] -- the distributional structure -C dd'' + (1/4)C'' dd is preserved EXPLICITLY"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1: Int C h h' and -(1/2) Int C' h^2 (differing by a total derivative) give the IDENTICAL action-functional kernel, both placements -- IBP invariance at the Hessian/distribution level, BEFORE any omega/K evaluation"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1: the total-derivative density d/du[C h1 h2] gives the IDENTICALLY ZERO kernel (both placements) -- the Hessian of a boundary term vanishes"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 contrast (computed, not asserted): the OLD coincident-density construction is NOT IBP-invariant on the same pair (Int C hh' -> 0 vs -(1/2)Int C'h^2 -> -C'(0)) -- the defect the rebuild removes"
+    },
+    {
+      "kind": "check",
+      "gate": "M",
+      "pass": true,
+      "msg": "M: the machinery prefix's own gates all pass (the loop side and the old basis are exactly as validated)"
+    },
+    {
+      "kind": "check",
+      "gate": "M",
+      "pass": true,
+      "msg": "M: .p10_assembly_cache.txt byte-identical across the exec (loaded and round-tripped, never regenerated)"
+    },
+    {
+      "kind": "check",
+      "gate": "C",
+      "pass": true,
+      "msg": "C: g.ginv == 1 in every eps sector (split-frequency sector algebra)"
+    },
+    {
+      "kind": "check",
+      "gate": "C",
+      "pass": true,
+      "msg": "C: sqrt(-g)^2 == a^8 (-det(eta+h)) in every eps sector (division-free)"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 order-independence at K=(3,2), Lam: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(3,2), Lam, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(3,2), Lam, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(3,2), Lam, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 at K=(3,2), Lam: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 order-independence at K=(3,2), EH: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(3,2), EH, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(3,2), EH, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(3,2), EH, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 at K=(3,2), EH: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 order-independence at K=(3,2), R2: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(3,2), R2, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(3,2), R2, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(3,2), R2, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 at K=(3,2), R2: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 order-independence at K=(3,2), Rmn2: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(3,2), Rmn2, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(3,2), Rmn2, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(3,2), Rmn2, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 at K=(3,2), Rmn2: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 order-independence at K=(5,2), Lam: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(5,2), Lam, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(5,2), Lam, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(5,2), Lam, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 at K=(5,2), Lam: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 order-independence at K=(5,2), EH: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(5,2), EH, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(5,2), EH, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(5,2), EH, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 at K=(5,2), EH: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 order-independence at K=(5,2), R2: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(5,2), R2, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(5,2), R2, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(5,2), R2, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 at K=(5,2), R2: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 order-independence at K=(5,2), Rmn2: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(5,2), Rmn2, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(5,2), Rmn2, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(5,2), Rmn2, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 at K=(5,2), Rmn2: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 order-independence at K=(7,3), Lam: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(7,3), Lam, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(7,3), Lam, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(7,3), Lam, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 at K=(7,3), Lam: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 order-independence at K=(7,3), EH: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(7,3), EH, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(7,3), EH, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(7,3), EH, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 at K=(7,3), EH: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 order-independence at K=(7,3), R2: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(7,3), R2, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(7,3), R2, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(7,3), R2, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 at K=(7,3), R2: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1 order-independence at K=(7,3), Rmn2: the two Hessian placements (dressings at u_P vs u_E) give the IDENTICAL kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(7,3), Rmn2, H^0: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(7,3), Rmn2, H^1: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 mirror at K=(7,3), Rmn2, H^2: the split-cascade's (l,r)=(0,0) assembly == the ORIGINAL machinery's kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2 at K=(7,3), Rmn2: the corrected kernel's H^0 part == the old kernel's H^0 part EXACTLY (all corrections are >= O(H))"
+    },
+    {
+      "kind": "check",
+      "gate": "C",
+      "pass": true,
+      "msg": "C: background curvature R^(0) is K-independent (as it must be); R^(0) = -12*H**2"
+    },
+    {
+      "kind": "check",
+      "gate": "G1",
+      "pass": true,
+      "msg": "G1: adding d/du[F(u) X_pq] total-derivative structures (3 dressings x 4 rich (p,q)-structures x 4 operators) leaves every REAL kernel UNCHANGED -- symbolic identity at the Hessian/distribution level, before any omega/K evaluation"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2: H^0 Gilkey regression on the CORRECTED kernels: target IN span (rank 4/4); fitted coefficients == {m^4/4, m^2/12, 1/240, 1/120} EXACTLY (samples 0,1 fit)"
+    },
+    {
+      "kind": "check",
+      "gate": "G2",
+      "pass": true,
+      "msg": "G2: HELD-OUT sample K=(7,3) reproduced EXACTLY by the fitted coefficients (NO refit)"
+    },
+    {
+      "kind": "check",
+      "gate": "G4",
+      "pass": true,
+      "msg": "G4: the EH kernel from the FULL-EPS split route (no sector grading) == the sector-graded kernel, both placements, at K=(3,2) -- the B-table extraction is validated by a method independent of the sector algebra"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 route 1 (direct functional Hessian): the Euler-Lagrange second variation of S_B is K(u1,u2) = -B'(u1) dd(u1-u2) EXACTLY -- the dd' pieces generated by the two density terms cancel inside the computation itself"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 distributional identities (sympy DiracDelta, exact): Int f dd = f(0); Int f dd' = -f'(0); Int x dd' = -1 (x dd' = -dd); Int x^2 dd' = 0 -- the identities behind the centre collapse and the slot reductions"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 route 1 validation: the bilinear form of -B'(u) dd(u1-u2) == the plain second variation of S_B on Gaussian test pairs (sympy, exact) -- the kernel really is delta^2 S_B, computed, not transcribed"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 route 2 collapses: the dd' shift integrals equal their analytic values EXACTLY -- Int f(x) dd'(x-y) dx = -f'(y) for BOTH raw-kernel terms (f = phi*B on the A leg, f = B*psi on the B leg; canonical orientation)"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 route 2 validation: the RAW kernel B(u1) dd'(u1-u2) + B(u2) dd'(u2-u1) (the second functional derivative of the density, before any EL/IBP rearrangement) has the SAME bilinear form as the second variation (the two dd' collapses above + plain Gaussian integrals, exact) -- both raw terms are the true delta^2 S_B"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 route 2 (independent distributional/Fourier): the raw kernel centred is [B(u1)-B(u2)] dd'(Delta) (ODD in Delta, computed); decomposed into Delta^j dd'(Delta) slots and E-transformed with the registered convention, only j=1 survives (Etr(1,1) = -1; Etr(j,1) = 0 for j >= 2): K~ = -B'(u_c) = -H b1 - 2 H^2 b2 u_c"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 route 3 (generalised master kernel): master(TAB_B) = -B'(0) = -H b1, BOTH placements (order-independence on the odd pair), while the OLD coincident-density kernel is IDENTICALLY ZERO on this pair at EVERY H order -- the master formula reproduces the exact functional Hessian; the old construction is blind to it"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 THREE-ROUTE AGREEMENT: direct functional Hessian (EL), raw-kernel centred slot route, and the generalised master formula ALL give K~ = -B'(u_c) = -H b1 at the reference centre -- the H^1 correction is a property of the action-functional Hessian, not of any one construction"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 B=constant control: B' = 0 -> corrected == old == 0 (NO correction at ANY order on the pair) -- the H^1 correction is exactly the B' mechanism, not an implementation artefact"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 B'!=0 statement (H-graded): with B = b0 + H b1 u + H^2 b2 u^2 the corrected kernel is -H b1 + O(H^2): H^0 part 0 (== old H^0 part), H^1 part -b1 while the old H^1 part is 0 -- a GENUINE O(H^1) correction from an odd-derivative structure whose coefficient acquires u-dependence at O(H)"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 second centre u_c = 1/3: K~ = -B'(1/3) (the centre dependence of the H^1 correction is verified, not inferred)"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5: correction == corrected - old, IDENTICALLY (every operator, sample, H order) -- the decomposition 'old (r=0 term) + explicit distributional corrections' is exact"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 H^1 ATTRIBUTION (computed, every operator and sample): the H^1 correction is generated EXCLUSIVELY by structures whose O(H) coefficients are u-dependent (B'(u_c) ~ O(H) -- exactly the -B' mechanism gated above on the independent model); structures with u-independent O(H) coefficients contribute ZERO at H^1"
+    },
+    {
+      "kind": "check",
+      "gate": "G5",
+      "pass": true,
+      "msg": "G5 NON-VACUITY: the (l,r)!=(0,0) terms are NONZERO at H^2 for EH, R2, Rmn2 -- the rebuild is not a no-op (sqrt(-g), if absent, is CORRECT: its only structure is B_00 and Etr(r,0)=0 for r>=1, so it carries no corrections at any order)"
+    },
+    {
+      "kind": "check",
+      "gate": "G6",
+      "pass": true,
+      "msg": "G6 control 'A' (r>=1-only corruption): reproduces the corrected kernel EXACTLY at H^0 (the Gilkey level untouched) but FAILS to reproduce it at H^1/H^2 (H^1 differs for: EH; H^2 differs for: EH, R2, Rmn2) -- caught at the order it corrupts, against the independently computed corrected kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G6",
+      "pass": true,
+      "msg": "G6 control 'B' (r>=1-only corruption): reproduces the corrected kernel EXACTLY at H^0 (the Gilkey level untouched) but FAILS to reproduce it at H^1/H^2 (H^1 differs for: EH; H^2 differs for: EH, R2, Rmn2) -- caught at the order it corrupts, against the independently computed corrected kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G6",
+      "pass": true,
+      "msg": "G6 control 'C' (r>=1-only corruption): reproduces the corrected kernel EXACTLY at H^0 (the Gilkey level untouched) but FAILS to reproduce it at H^1/H^2 (H^1 differs for: EH; H^2 differs for: EH, R2, Rmn2) -- caught at the order it corrupts, against the independently computed corrected kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G6",
+      "pass": true,
+      "msg": "G6 control 'Cp' (r>=1-only corruption): reproduces the corrected kernel EXACTLY at H^0 (the Gilkey level untouched) but FAILS to reproduce it at H^1/H^2 (H^1 differs for: EH; H^2 differs for: EH, R2, Rmn2) -- caught at the order it corrupts, against the independently computed corrected kernel"
+    },
+    {
+      "kind": "check",
+      "gate": "G6",
+      "pass": true,
+      "msg": "G6 control 'D' (wrong-vertex placement sign): FAILS to reproduce the corrected kernel at H^1/H^2 (H^1 differs for: EH, R2, Rmn2; H^2 differs for: EH, R2, Rmn2) and additionally breaks H^0 itself for EH, R2, Rmn2 -- the placement convention is load-bearing at every order (H^0-sameness is not required here: this control corrupts orders its convention cannot spare)"
+    },
+    {
+      "kind": "check",
+      "gate": "G6",
+      "pass": true,
+      "msg": "G6: control 'C' (frozen centre) IS the old coincident-density kernel, IDENTICALLY (all four operators, symbolic omega) -- the old basis is literally the (l,r)=(0,0) term of this construction, now a checked identity rather than a claim"
+    },
+    {
+      "kind": "check",
+      "gate": "G6",
+      "pass": true,
+      "msg": "G6 control 'conj' (per-term conjugate Fourier transform): FAILS to reproduce the corrected kernel at H^1/H^2 (H^1 differs for: EH, R2, Rmn2; H^2 differs for: R2, Rmn2), and additionally breaks H^0 for EH, R2, Rmn2 -- the E-transform sign convention is load-bearing at every order"
+    },
+    {
+      "kind": "check",
+      "gate": "E",
+      "pass": true,
+      "msg": "E: srepr round-trip of every emitted kernel is EXACT (sympify(srepr(x)) == x)"
+    }
+  ],
+  "notes": [
+    {
+      "kind": "note",
+      "msg": "H^2 correction, Lam: zero; the symbolic correction is omega-free (additive master identity, as in the toy)"
+    },
+    {
+      "kind": "note",
+      "msg": "H^1 correction, Lam: zero; structures with u-dependent O(H) coefficients: (0,0)"
+    },
+    {
+      "kind": "note",
+      "msg": "H^2 correction, EH: NONZERO; the symbolic correction is omega-DEPENDENT (the generalised (p,q)-resolved corrections carry per-leg structure the toy's single B_11 could not exhibit)"
+    },
+    {
+      "kind": "note",
+      "msg": "H^1 correction, EH: NONZERO; structures with u-dependent O(H) coefficients: (0,0), (0,1), (0,2), (1,0), (1,1), (2,0)"
+    },
+    {
+      "kind": "note",
+      "msg": "H^2 correction, R2: NONZERO; the symbolic correction is omega-DEPENDENT (the generalised (p,q)-resolved corrections carry per-leg structure the toy's single B_11 could not exhibit)"
+    },
+    {
+      "kind": "note",
+      "msg": "H^1 correction, R2: zero; structures with u-dependent O(H) coefficients: none"
+    },
+    {
+      "kind": "note",
+      "msg": "H^2 correction, Rmn2: NONZERO; the symbolic correction is omega-DEPENDENT (the generalised (p,q)-resolved corrections carry per-leg structure the toy's single B_11 could not exhibit)"
+    },
+    {
+      "kind": "note",
+      "msg": "H^1 correction, Rmn2: zero; structures with u-dependent O(H) coefficients: none"
+    },
+    {
+      "kind": "note",
+      "msg": "COMPUTED ORDER STATEMENT -- H^0: corrected kernel == coincident-density kernel (gated, G2); H^1: corrections OCCUR for EH, generated exclusively by u-dependent O(H) coefficients via the gated -B' mechanism (all other operators' H^1 kernels are unchanged); H^2: corrections occur for EH, R2, Rmn2 (non-vacuity gated). No universal first-nonzero correction order is claimed beyond these computed statements."
+    },
+    {
+      "kind": "note",
+      "msg": "cache written: .p11_af_basis_cache.txt (39265 bytes); run the UNCHANGED span test against the corrected kernels with:  AFB_LOAD=1 python3 wall_d2_span_test.py"
+    },
+    {
+      "kind": "note",
+      "msg": "gate C  :   3 checks, 0 failed"
+    },
+    {
+      "kind": "note",
+      "msg": "gate E  :   1 checks, 0 failed"
+    },
+    {
+      "kind": "note",
+      "msg": "gate G0 :   5 checks, 0 failed"
+    },
+    {
+      "kind": "note",
+      "msg": "gate G1 :  16 checks, 0 failed"
+    },
+    {
+      "kind": "note",
+      "msg": "gate G2 :  50 checks, 0 failed"
+    },
+    {
+      "kind": "note",
+      "msg": "gate G3 :   4 checks, 0 failed"
+    },
+    {
+      "kind": "note",
+      "msg": "gate G4 :   1 checks, 0 failed"
+    },
+    {
+      "kind": "note",
+      "msg": "gate G5 :  14 checks, 0 failed"
+    },
+    {
+      "kind": "note",
+      "msg": "gate G6 :   7 checks, 0 failed"
+    },
+    {
+      "kind": "note",
+      "msg": "gate M  :   2 checks, 0 failed"
+    }
+  ],
+  "fail_count": 0,
+  "failures": [],
+  "fence": "W-0: computed and reported only. No register edits, no operator additions, no refit, no edits to the loop side, the assembly cache, or wall_d2_span_test.py. The span-test reclassification concerns LOCAL UV COUNTERTERM STRUCTURE only and determines nothing about Q1 placement, Im chi, convergence class, or relaxational/resonant character."
+}
