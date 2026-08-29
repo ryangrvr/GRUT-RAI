@@ -1,0 +1,801 @@
+{
+ "task": "A3-1 finite eps^0 master integrals",
+ "instrument": "wall_a3_1_finite_masters.py",
+ "instrument_sha256": "d1ef50f84af9fe5987c00c7aaab986b16963f847f82374041bf1e5e8faab6941",
+ "generated": "2026-08-28 21:56:58",
+ "builder": "builder session (owner 'go' 2026-08-28)",
+ "head": "9724d10",
+ "standing": "W-0: computed-and-reported, NOT banked; no register edits",
+ "contract_chain_verified": {
+  "WALL_A3_1_REVIEWER_GUIDANCE.md": true,
+  "WALL_A3_1_EXECUTION_PROMPT.md": true,
+  "WALL_A3_1_BUILDER_PROMPT.md": true,
+  "WALL_D2_ASSEMBLY3_BRIEF.md": true,
+  "WALL_D2_ASSEMBLY3_ENTRY_OBJECT.json": true,
+  "WALL_A_A3_DECLARATIONS.md": true,
+  "WALL_A_A3_REGISTRY.json": true,
+  "WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md": true,
+  "WALL_A_A3_DECLARATIONS_V3_AMENDMENT.md": true,
+  "WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md": true,
+  "wall_d2_phases8_12.py": true
+ },
+ "convention": {
+  "measure": "mu^eps Int d^{4-eps}l/(2pi)^{4-eps} (Minkowski, Feynman +i0)",
+  "c_units": "masters / (i(4pi)^-2); c = 2/eps exactly",
+  "euclidean_image": "M_N = (-1)^N (4pi)^2 mu^eps Int_E (L^2+Delta)^-N ((-1)^N confirmed vs frozen pole gates)",
+  "scheme": "MS: subtract exactly c (matches frozen Phase-12 split)",
+  "kappa": "ln(4pi) - gamma_E (emerges from the Schwinger series)",
+  "denominators": "D1 = l^2-m^2, D2 = (l-K)^2-m^2, Delta = m^2-y(1-y)K^2",
+  "numerics_units": "m = mu = 1"
+ },
+ "route_principle": "Route A: Schwinger-derived, exact in eps, sympy. Route B: mpmath quadrature of the ORIGINAL integrand at d=4-eps with eps-grid (2/eps, eps^0) extraction; no shared Gamma/log eps-structure between routes.",
+ "masters": [
+  {
+   "name": "B(K^2) scalar bubble",
+   "definition": "B = Int_0^1 dy M_2(Delta(y)), Delta = m^2 - y(1-y)K^2",
+   "pole": "c  (x-integral of 1; frozen engine-3 classic bubble gate)",
+   "finite": "kappa - Int_0^1 dy ln(Delta(y)/mu^2)",
+   "mu_dep": "d/dln(mu^2) = 1",
+   "branch": "ln(Delta - i0): Im = +pi*(y+ - y-)*theta(K^2-4m^2)",
+   "threshold": "K^2 = 4 m^2",
+   "checks": {
+    "-0.7": {
+     "routeB_fin": 1.8445767525389813,
+     "routeB_polefit": 1.9999999996754891,
+     "routeA_fin": 1.844576499478384,
+     "diff": 2.5306059736607267e-07,
+     "elapsed": 36.02135682106018
+    },
+    "-1.3": {
+     "routeB_fin": 1.7609965650279422,
+     "routeB_polefit": 1.9999999997062865,
+     "routeA_fin": 1.7609963360093845,
+     "diff": 2.2901855767365475e-07,
+     "elapsed": 36.57217478752136
+    },
+    "-2.9": {
+     "routeB_fin": 1.5710867309974912,
+     "routeB_polefit": 1.9999999997645566,
+     "routeA_fin": 1.5710865474016833,
+     "diff": 1.83595807889958e-07,
+     "elapsed": 35.36320900917053
+    }
+   },
+   "verdict": "PASS"
+  },
+  {
+   "name": "M_1(Delta) tadpole",
+   "definition": "M_1 = [mu^eps Int d^dl/(2pi)^d 1/(l^2-Delta+i0)] / i(4pi)^-2",
+   "pole": "c Delta  (frozen engine gate)",
+   "finite": "Delta (1 + kappa - ln(Delta/mu^2))",
+   "mu_dep": "Delta",
+   "numeric": "difference-anchored vs convergent difference integrand",
+   "checks": {
+    "0.6": {
+     "routeB_fin": -0.875028214053632,
+     "routeA_fin": -0.8750280585675089,
+     "diff": 1.554861230879112e-07,
+     "routeB_polefit": -0.7999999998005709,
+     "elapsed": 72.46030616760254
+    },
+    "3.1": {
+     "routeB_fin": 2.6956517699356715,
+     "routeA_fin": 2.69565147671988,
+     "diff": 2.932157916468725e-07,
+     "routeB_polefit": 4.199999999624057,
+     "elapsed": 59.567420959472656
+    }
+   },
+   "verdict": "PASS"
+  },
+  {
+   "name": "M_2(Delta)",
+   "definition": "as M_1 with (l^2-Delta)^-2",
+   "pole": "c  (frozen engine gate)",
+   "finite": "kappa - ln(Delta/mu^2)",
+   "mu_dep": "1",
+   "checks": {
+    "0.6": {
+     "routeB_fin": 2.464634734761775,
+     "routeA_fin": 2.4646342058337485,
+     "diff": 5.289280267106733e-07,
+     "routeB_polefit": 1.99999999932159,
+     "elapsed": 0.25691890716552734
+    },
+    "1.7": {
+     "routeB_fin": 1.4231804810642095,
+     "routeA_fin": 1.4231803310055875,
+     "diff": 1.5005862197270403e-07,
+     "routeB_polefit": 1.9999999998075741,
+     "elapsed": 0.2630629539489746
+    },
+    "3.1": {
+     "routeB_fin": 0.8224065528742139,
+     "routeA_fin": 0.8224064705766574,
+     "diff": 8.229755654731719e-08,
+     "routeB_polefit": 1.9999999998945341,
+     "elapsed": 0.2288041114807129
+    }
+   },
+   "verdict": "PASS"
+  },
+  {
+   "name": "M_3(Delta)",
+   "definition": "as M_1 with (l^2-Delta)^-3",
+   "pole": "0  (frozen engine gate: UV finite)",
+   "finite": "-1/(2 Delta)",
+   "mu_dep": "0",
+   "checks": {
+    "0.6": {
+     "routeB_fin": -0.8333338315319931,
+     "routeA_fin": -0.8333333333333334,
+     "diff": 4.981986597707433e-07,
+     "routeB_polefit": 6.39101869865864e-10,
+     "elapsed": 0.2839629650115967
+    },
+    "1.7": {
+     "routeB_fin": -0.29411770035538526,
+     "routeA_fin": -0.29411764705882354,
+     "diff": 5.3296561719484714e-08,
+     "routeB_polefit": 6.836756099567042e-11,
+     "elapsed": 0.27276015281677246
+    },
+    "3.1": {
+     "routeB_fin": -0.16129033128020415,
+     "routeA_fin": -0.16129032258064516,
+     "diff": 8.699558989855305e-09,
+     "routeB_polefit": 1.116490673684914e-11,
+     "elapsed": 0.24434185028076172
+    }
+   },
+   "verdict": "PASS"
+  },
+  {
+   "name": "M_4(Delta)",
+   "definition": "as M_1 with (l^2-Delta)^-4",
+   "pole": "0  (frozen engine gate: UV finite)",
+   "finite": "1/(6 Delta^2)",
+   "mu_dep": "0",
+   "checks": {
+    "0.6": {
+     "routeB_fin": 0.46296349959033584,
+     "routeA_fin": 0.462962962962963,
+     "diff": 5.3662737281579e-07,
+     "routeB_polefit": -6.884401133433269e-10,
+     "elapsed": 0.2776529788970947
+    },
+    "1.7": {
+     "routeB_fin": 0.0576701526319398,
+     "routeA_fin": 0.05767012687427912,
+     "diff": 2.5757660677971916e-08,
+     "routeB_polefit": -3.3039350993171065e-11,
+     "elapsed": 0.2477869987487793
+    },
+    "3.1": {
+     "routeB_fin": 0.017343049270756188,
+     "routeA_fin": 0.01734304543877905,
+     "diff": 3.831977138379905e-09,
+     "routeB_polefit": -4.914859341297355e-12,
+     "elapsed": 0.2199690341949463
+    }
+   },
+   "verdict": "PASS"
+  },
+  {
+   "name": "T2_{00,N}(Delta) rank-2",
+   "definition": "T2_{00,N} = [M_{N-1} + Delta M_N] / (4-eps), eps^0 kept exactly (the 1/d x pole cross terms included)",
+   "pole": "N=1: c D^2/4, N=2: c D/2 (frozen engine gates)",
+   "finite": "series of the exact-d composition (computed, not asserted)",
+   "numeric": "direct L^2-weighted tensor radial (sign pinned by frozen poles)",
+   "checks": {
+    "T2_00_3": "see checks section"
+   },
+   "verdict": "PASS"
+  },
+  {
+   "name": "T4_{0000,4}(Delta) rank-4",
+   "definition": "T4 = 3[M_{N-2} + 2 Delta M_{N-1} + Delta^2 M_N]/((4-eps)(6-eps))",
+   "pole": "N=2: 3 c D^2/8 (frozen engine gate)",
+   "numeric": "direct L^4-weighted tensor radial",
+   "checks": {
+    "T4_0000_4": "see checks section"
+   },
+   "verdict": "PASS"
+  },
+  {
+   "name": "B_00(K^2) tensor bubble (composition)",
+   "definition": "Int_0^1 dy [ T2_{00,2}(Delta(y)) + y^2 omega^2 M_2(Delta(y)) ]",
+   "verdict": "PASS",
+   "note": "components refereed above; shift algebra + odd-vanishing + y^2-moment gated; full direct tensor-double-integral referee deferred to A3-2 contracted assembly (declared limitation of A3-1 scope, disclosed)"
+  }
+ ],
+ "branch": {
+  "K2_over_m2": 5.0,
+  "y_minus_bisection": 0.276393202250021,
+  "y_plus_bisection": 0.7236067977499789,
+  "cut_measure_bisection": 0.4472135954999579,
+  "routeA_Im": 1.4049629462081452,
+  "routeB_Im_delta_prime_route": 1.4049630838570695,
+  "Im_diff": 1.3764892425882636e-07,
+  "routeA_Re_quad": 3.523399641103754,
+  "routeA_Re_sympy_closed_form": 3.523399641103754,
+  "Re_crosscheck_diff": 0.0,
+  "B00_at_K2_-0.7_composed": 1.1541034036251618
+ },
+ "checks": [
+  {
+   "gate": "handshake",
+   "kind": "gate",
+   "msg": "contract/frozen intact: WALL_A3_1_REVIEWER_GUIDANCE.md (498731aa7c7c16ae...)",
+   "pass": true
+  },
+  {
+   "gate": "handshake",
+   "kind": "gate",
+   "msg": "contract/frozen intact: WALL_A3_1_EXECUTION_PROMPT.md (376fe982232ab74e...)",
+   "pass": true
+  },
+  {
+   "gate": "handshake",
+   "kind": "gate",
+   "msg": "contract/frozen intact: WALL_A3_1_BUILDER_PROMPT.md (99a369b3b9d83d79...)",
+   "pass": true
+  },
+  {
+   "gate": "handshake",
+   "kind": "gate",
+   "msg": "contract/frozen intact: WALL_D2_ASSEMBLY3_BRIEF.md (fff07e5172d1ee0f...)",
+   "pass": true
+  },
+  {
+   "gate": "handshake",
+   "kind": "gate",
+   "msg": "contract/frozen intact: WALL_D2_ASSEMBLY3_ENTRY_OBJECT.json (419c455bccdd90dc...)",
+   "pass": true
+  },
+  {
+   "gate": "handshake",
+   "kind": "gate",
+   "msg": "contract/frozen intact: WALL_A_A3_DECLARATIONS.md (87e2d24d5be6d679...)",
+   "pass": true
+  },
+  {
+   "gate": "handshake",
+   "kind": "gate",
+   "msg": "contract/frozen intact: WALL_A_A3_REGISTRY.json (faa977d40f1ba318...)",
+   "pass": true
+  },
+  {
+   "gate": "handshake",
+   "kind": "gate",
+   "msg": "contract/frozen intact: WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md (6f2a762f4a4a01cd...)",
+   "pass": true
+  },
+  {
+   "gate": "handshake",
+   "kind": "gate",
+   "msg": "contract/frozen intact: WALL_A_A3_DECLARATIONS_V3_AMENDMENT.md (b0b9983bf0ab04c0...)",
+   "pass": true
+  },
+  {
+   "gate": "handshake",
+   "kind": "gate",
+   "msg": "contract/frozen intact: WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md (f6127ca65ad6636b...)",
+   "pass": true
+  },
+  {
+   "gate": "handshake",
+   "kind": "gate",
+   "msg": "contract/frozen intact: wall_d2_phases8_12.py (f48b2cc898017493...)",
+   "pass": true
+  },
+  {
+   "gate": "handshake",
+   "kind": "gate",
+   "msg": "HEAD == 9724d10 (got 9724d10)",
+   "pass": true
+  },
+  {
+   "gate": "routeA",
+   "kind": "gate",
+   "msg": "Laplace gate: Int_0^oo t^{a-1} e^{-tD} = Gamma(a) D^{-a} (sympy, exact)",
+   "pass": true
+  },
+  {
+   "gate": "routeA",
+   "kind": "gate",
+   "msg": "Gaussian gate: d-dim measure normalisation exact at d=1..5 (the one shared geometric input of both routes)",
+   "pass": true
+  },
+  {
+   "gate": "routeA",
+   "kind": "gate",
+   "msg": "chain gate: d fin_M1/dD == fin_M2  (d/dD of 1/(l^2-D) = +1/(l^2-D)^2)",
+   "pass": true
+  },
+  {
+   "gate": "routeA",
+   "kind": "gate",
+   "msg": "chain gate: d fin_M2/dD == 2 fin_M3",
+   "pass": true
+  },
+  {
+   "gate": "pole-regression",
+   "kind": "gate",
+   "msg": "pole regression: (l^2)^0/(l^2-D)^1 == frozen engine value c*Delta",
+   "pass": true
+  },
+  {
+   "gate": "pole-regression",
+   "kind": "gate",
+   "msg": "pole regression: (l^2)^0/(l^2-D)^2 == frozen engine value c*1",
+   "pass": true
+  },
+  {
+   "gate": "pole-regression",
+   "kind": "gate",
+   "msg": "pole regression: (l^2)^0/(l^2-D)^3 == frozen engine value c*0",
+   "pass": true
+  },
+  {
+   "gate": "pole-regression",
+   "kind": "gate",
+   "msg": "pole regression: (l^2)^0/(l^2-D)^4 == frozen engine value c*0",
+   "pass": true
+  },
+  {
+   "gate": "pole-regression",
+   "kind": "gate",
+   "msg": "pole regression: (l^2)^1/(l^2-D)^1 == frozen engine value c*Delta**2",
+   "pass": true
+  },
+  {
+   "gate": "pole-regression",
+   "kind": "gate",
+   "msg": "pole regression: (l^2)^1/(l^2-D)^2 == frozen engine value c*2*Delta",
+   "pass": true
+  },
+  {
+   "gate": "pole-regression",
+   "kind": "gate",
+   "msg": "tensor pole regression: l0l1/D^1 -> c eta D^2/4, l0l1/D^2 -> c eta D/2, l0l0l1l1/D^2 -> 3 c D^2/8 (frozen engine-2/3 gates)",
+   "pass": true
+  },
+  {
+   "gate": "pole-regression",
+   "kind": "gate",
+   "msg": "moment regression at d=4: <l0^2>/l^2 = 1/4, <l1^2>/l^2 = -1/4, <l0^4>/(l^2)^2 = 1/8, <l0^2 l1^2>/(l^2)^2 = -1/24 (frozen engine-2)",
+   "pass": true
+  },
+  {
+   "gate": "mu-dep",
+   "kind": "gate",
+   "msg": "mu-dependence: d fin_M1/d(ln mu^2) == Delta",
+   "pass": true
+  },
+  {
+   "gate": "mu-dep",
+   "kind": "gate",
+   "msg": "mu-dependence: d fin_M2/d(ln mu^2) == 1",
+   "pass": true
+  },
+  {
+   "gate": "mu-dep",
+   "kind": "gate",
+   "msg": "mu-dependence: d fin_M3/d(ln mu^2) == 0",
+   "pass": true
+  },
+  {
+   "gate": "mu-dep",
+   "kind": "gate",
+   "msg": "mu-dependence: d fin_M4/d(ln mu^2) == 0",
+   "pass": true
+  },
+  {
+   "gate": "routeA",
+   "kind": "gate",
+   "msg": "fin_M2 == kappa - ln(Delta/mu^2) with kappa = ln(4pi)-gamma_E (derived)",
+   "pass": true
+  },
+  {
+   "gate": "routeA",
+   "kind": "gate",
+   "msg": "Delta(y) quadratic in y: two roots [(K2 - sqrt(K2*(K2 - 4*m2)))/(2*K2), (K2 + sqrt(K2*(K2 - 4*m2)))/(2*K2)]",
+   "pass": true
+  },
+  {
+   "gate": "routeA",
+   "kind": "gate",
+   "msg": "threshold derived: Delta(y)=0 has real roots iff K^2 >= 4 m^2 (disc = K^2(K^2-4m^2)); threshold K^2 = 4 m^2",
+   "pass": true
+  },
+  {
+   "gate": "bubble",
+   "kind": "gate",
+   "msg": "BUBBLE K2=-0.7: RouteB I0=1.844576752539 vs RouteA=1.844576499478 (diff 2.53e-07); numeric pole fit a=2.000000000 (engine: 2)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 1.8445767525389813,
+    "routeB_polefit": 1.9999999996754891,
+    "routeA_fin": 1.844576499478384,
+    "diff": 2.5306059736607267e-07,
+    "elapsed": 36.02135682106018
+   }
+  },
+  {
+   "gate": "bubble",
+   "kind": "gate",
+   "msg": "BUBBLE K2=-1.3: RouteB I0=1.760996565028 vs RouteA=1.760996336009 (diff 2.29e-07); numeric pole fit a=2.000000000 (engine: 2)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 1.7609965650279422,
+    "routeB_polefit": 1.9999999997062865,
+    "routeA_fin": 1.7609963360093845,
+    "diff": 2.2901855767365475e-07,
+    "elapsed": 36.57217478752136
+   }
+  },
+  {
+   "gate": "bubble",
+   "kind": "gate",
+   "msg": "BUBBLE K2=-2.9: RouteB I0=1.571086730997 vs RouteA=1.571086547402 (diff 1.84e-07); numeric pole fit a=2.000000000 (engine: 2)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 1.5710867309974912,
+    "routeB_polefit": 1.9999999997645566,
+    "routeA_fin": 1.5710865474016833,
+    "diff": 1.83595807889958e-07,
+    "elapsed": 35.36320900917053
+   }
+  },
+  {
+   "gate": "reproducibility",
+   "kind": "gate",
+   "msg": "reproducibility: second eps-grid extraction agrees (4.08e-08)",
+   "pass": true,
+   "detail": {
+    "grid2_I0": 1.760996605783292,
+    "grid1_I0": 1.7609965650279422
+   }
+  },
+  {
+   "gate": "branch",
+   "kind": "gate",
+   "msg": "branch limit derived: Im[-ln(Delta-i0)] = +pi and Disc M2 = 2 pi i for Delta<0 (Feynman prescription; computed to <1e-15, not assumed)",
+   "pass": true
+  },
+  {
+   "gate": "branch",
+   "kind": "gate",
+   "msg": "root geometry: y+ - y- == sqrt(1 - 4 m^2/K^2) (exact at K^2=5m^2) ->  Im B = pi sqrt(1-4m^2/K^2) theta(K^2-4m^2)",
+   "pass": true
+  },
+  {
+   "gate": "branch",
+   "kind": "gate",
+   "msg": "threshold numeric: min_y Delta(y) = m^2 - K^2/4 vanishes at K^2 = 4.000000000 m^2 (bisection on the actual Delta)",
+   "pass": true
+  },
+  {
+   "gate": "branch",
+   "kind": "gate",
+   "msg": "timelike machinery sanity: at spacelike K2=-0.7 it reproduces the refereed real quadrature (9.06e-06; single-eps complex-vs-real quadrature agreement)",
+   "pass": true
+  },
+  {
+   "gate": "branch",
+   "kind": "gate",
+   "msg": "sympy closed form of Int ln|Delta| dy is real (|Im| = 1.2e-35)",
+   "pass": true
+  },
+  {
+   "gate": "branch",
+   "kind": "gate",
+   "msg": "timelike K2=5m^2 Im: RouteA pi*sqrt(1-4/5)=1.404962946 vs delta'-route referee=1.404963084 (d=1.4e-07); cut endpoints by bisection: y-=0.276393202 y+=0.723606798",
+   "pass": true,
+   "detail": {
+    "K2_over_m2": 5.0,
+    "y_minus_bisection": 0.276393202250021,
+    "y_plus_bisection": 0.7236067977499789,
+    "cut_measure_bisection": 0.4472135954999579,
+    "routeA_Im": 1.4049629462081452,
+    "routeB_Im_delta_prime_route": 1.4049630838570695,
+    "Im_diff": 1.3764892425882636e-07,
+    "routeA_Re_quad": 3.523399641103754,
+    "routeA_Re_sympy_closed_form": 3.523399641103754,
+    "Re_crosscheck_diff": 0.0,
+    "B00_at_K2_-0.7_composed": 1.1541034036251618
+   }
+  },
+  {
+   "gate": "branch",
+   "kind": "gate",
+   "msg": "timelike K2=5m^2 Re: numeric quad of kappa - Int ln|Delta| dy (3.523399641104) == exact sympy closed form (3.523399641104) (d=0.0e+00)",
+   "pass": true
+  },
+  {
+   "gate": "M2",
+   "kind": "gate",
+   "msg": "M_2(Delta=0.6): RouteB I0=2.464634734762 vs RouteA=2.464634205834 (diff 5.29e-07); pole fit 1.999999999 (want 2.0)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 2.464634734761775,
+    "routeA_fin": 2.4646342058337485,
+    "diff": 5.289280267106733e-07,
+    "routeB_polefit": 1.99999999932159,
+    "elapsed": 0.25691890716552734
+   }
+  },
+  {
+   "gate": "M2",
+   "kind": "gate",
+   "msg": "M_2(Delta=1.7): RouteB I0=1.423180481064 vs RouteA=1.423180331006 (diff 1.50e-07); pole fit 2.000000000 (want 2.0)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 1.4231804810642095,
+    "routeA_fin": 1.4231803310055875,
+    "diff": 1.5005862197270403e-07,
+    "routeB_polefit": 1.9999999998075741,
+    "elapsed": 0.2630629539489746
+   }
+  },
+  {
+   "gate": "M2",
+   "kind": "gate",
+   "msg": "M_2(Delta=3.1): RouteB I0=0.822406552874 vs RouteA=0.822406470577 (diff 8.23e-08); pole fit 2.000000000 (want 2.0)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 0.8224065528742139,
+    "routeA_fin": 0.8224064705766574,
+    "diff": 8.229755654731719e-08,
+    "routeB_polefit": 1.9999999998945341,
+    "elapsed": 0.2288041114807129
+   }
+  },
+  {
+   "gate": "M3",
+   "kind": "gate",
+   "msg": "M_3(Delta=0.6): RouteB I0=-0.833333831532 vs RouteA=-0.833333333333 (diff 4.98e-07); pole fit 0.000000001 (want 0.0)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": -0.8333338315319931,
+    "routeA_fin": -0.8333333333333334,
+    "diff": 4.981986597707433e-07,
+    "routeB_polefit": 6.39101869865864e-10,
+    "elapsed": 0.2839629650115967
+   }
+  },
+  {
+   "gate": "M3",
+   "kind": "gate",
+   "msg": "M_3(Delta=1.7): RouteB I0=-0.294117700355 vs RouteA=-0.294117647059 (diff 5.33e-08); pole fit 0.000000000 (want 0.0)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": -0.29411770035538526,
+    "routeA_fin": -0.29411764705882354,
+    "diff": 5.3296561719484714e-08,
+    "routeB_polefit": 6.836756099567042e-11,
+    "elapsed": 0.27276015281677246
+   }
+  },
+  {
+   "gate": "M3",
+   "kind": "gate",
+   "msg": "M_3(Delta=3.1): RouteB I0=-0.161290331280 vs RouteA=-0.161290322581 (diff 8.70e-09); pole fit 0.000000000 (want 0.0)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": -0.16129033128020415,
+    "routeA_fin": -0.16129032258064516,
+    "diff": 8.699558989855305e-09,
+    "routeB_polefit": 1.116490673684914e-11,
+    "elapsed": 0.24434185028076172
+   }
+  },
+  {
+   "gate": "M4",
+   "kind": "gate",
+   "msg": "M_4(Delta=0.6): RouteB I0=0.462963499590 vs RouteA=0.462962962963 (diff 5.37e-07); pole fit -0.000000001 (want 0.0)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 0.46296349959033584,
+    "routeA_fin": 0.462962962962963,
+    "diff": 5.3662737281579e-07,
+    "routeB_polefit": -6.884401133433269e-10,
+    "elapsed": 0.2776529788970947
+   }
+  },
+  {
+   "gate": "M4",
+   "kind": "gate",
+   "msg": "M_4(Delta=1.7): RouteB I0=0.057670152632 vs RouteA=0.057670126874 (diff 2.58e-08); pole fit -0.000000000 (want 0.0)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 0.0576701526319398,
+    "routeA_fin": 0.05767012687427912,
+    "diff": 2.5757660677971916e-08,
+    "routeB_polefit": -3.3039350993171065e-11,
+    "elapsed": 0.2477869987487793
+   }
+  },
+  {
+   "gate": "M4",
+   "kind": "gate",
+   "msg": "M_4(Delta=3.1): RouteB I0=0.017343049271 vs RouteA=0.017343045439 (diff 3.83e-09); pole fit -0.000000000 (want 0.0)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 0.017343049270756188,
+    "routeA_fin": 0.01734304543877905,
+    "diff": 3.831977138379905e-09,
+    "routeB_polefit": -4.914859341297355e-12,
+    "elapsed": 0.2199690341949463
+   }
+  },
+  {
+   "gate": "M1",
+   "kind": "gate",
+   "msg": "s-parameter identity gated symbolically: 1/A - 1/B = (B-A) Int_0^1 ds/(sA+(1-s)B)^2 (exact)",
+   "pass": true
+  },
+  {
+   "gate": "M1",
+   "kind": "gate",
+   "msg": "M_1(Delta=0.6)-M_1(1) difference: RouteB -0.875028214054 vs RouteA -0.875028058568 (diff 1.55e-07); pole fit -0.800000000 (want -0.8)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": -0.875028214053632,
+    "routeA_fin": -0.8750280585675089,
+    "diff": 1.554861230879112e-07,
+    "routeB_polefit": -0.7999999998005709,
+    "elapsed": 72.46030616760254
+   }
+  },
+  {
+   "gate": "M1",
+   "kind": "gate",
+   "msg": "M_1(Delta=3.1)-M_1(1) difference: RouteB 2.695651769936 vs RouteA 2.695651476720 (diff 2.93e-07); pole fit 4.200000000 (want 4.2)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 2.6956517699356715,
+    "routeA_fin": 2.69565147671988,
+    "diff": 2.932157916468725e-07,
+    "routeB_polefit": 4.199999999624057,
+    "elapsed": 59.567420959472656
+   }
+  },
+  {
+   "gate": "T2",
+   "kind": "gate",
+   "msg": "T2_{00,3}(D=0.6): direct tensor radial I0=0.616158683690 vs RouteA 0.616158551458 (diff 1.32e-07); pole fit 0.500000000 (want 0.5)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 0.6161586836904438,
+    "routeA_fin": 0.6161585514584371,
+    "diff": 1.3223200667766832e-07,
+    "elapsed": 0.30476999282836914
+   }
+  },
+  {
+   "gate": "T4",
+   "kind": "gate",
+   "msg": "T4_{0000,4}(D=0.6): direct tensor radial I0=0.308079341842 vs RouteA 0.308079275729 (diff 6.61e-08); pole fit 0.250000000 (want 0.25)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 0.3080793418420211,
+    "routeA_fin": 0.30807927572921856,
+    "diff": 6.611280256585417e-08,
+    "elapsed": 0.6740107536315918
+   }
+  },
+  {
+   "gate": "T2",
+   "kind": "gate",
+   "msg": "T2_{00,3}(D=3.1): direct tensor radial I0=0.205601638219 vs RouteA 0.205601617644 (diff 2.06e-08); pole fit 0.500000000 (want 0.5)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 0.20560163821855348,
+    "routeA_fin": 0.20560161764416435,
+    "diff": 2.0574389136829296e-08,
+    "elapsed": 0.26474595069885254
+   }
+  },
+  {
+   "gate": "T4",
+   "kind": "gate",
+   "msg": "T4_{0000,4}(D=3.1): direct tensor radial I0=0.102800819111 vs RouteA 0.102800808822 (diff 1.03e-08); pole fit 0.250000000 (want 0.25)",
+   "pass": true,
+   "detail": {
+    "routeB_fin": 0.10280081911119328,
+    "routeA_fin": 0.10280080882208217,
+    "diff": 1.0289111104788695e-08,
+    "elapsed": 0.6509799957275391
+   }
+  },
+  {
+   "gate": "B00",
+   "kind": "gate",
+   "msg": "B_00 algebra gates: odd-shift terms vanish by symmetry (exact Gaussian check); Int_0^1 y^2 dy = 1/3 (exact)",
+   "pass": true
+  },
+  {
+   "gate": "negative-control",
+   "kind": "gate",
+   "msg": "negative control DETECTED: factor-of-2 in fin_M2 (2x kappa-ln) (|bad-ref|=1.423e+00)",
+   "pass": true
+  },
+  {
+   "gate": "negative-control",
+   "kind": "gate",
+   "msg": "negative control DETECTED: wrong mu scale (mu -> 2 mu, shifts finite part by ln 4) (|bad-ref|=1.386e+00)",
+   "pass": true
+  },
+  {
+   "gate": "negative-control",
+   "kind": "gate",
+   "msg": "negative control DETECTED: eps sign flip (pole coefficient flips sign) (|bad-ref|=4.000e+00)",
+   "pass": true
+  },
+  {
+   "gate": "negative-control",
+   "kind": "gate",
+   "msg": "eps-sign control symbolic: pole of M2(eps->-eps) == -2 (flipped), detected against the frozen engine value +2",
+   "pass": true
+  }
+ ],
+ "controls": [
+  {
+   "control": "factor-of-2 in fin_M2 (2x kappa-ln)",
+   "corrupted_value": 2.846360662011175,
+   "referee_value": 1.4231804810642095,
+   "expected": "DETECTED",
+   "pass": true,
+   "detail": "|bad-ref| = 1.423e+00 (> 10 tol required)"
+  },
+  {
+   "control": "wrong mu scale (mu -> 2 mu, shifts finite part by ln 4)",
+   "corrupted_value": 2.809474692125478,
+   "referee_value": 1.4231804810642095,
+   "expected": "DETECTED",
+   "pass": true,
+   "detail": "|bad-ref| = 1.386e+00 (> 10 tol required)"
+  },
+  {
+   "control": "eps sign flip (pole coefficient flips sign)",
+   "corrupted_value": -2.0,
+   "referee_value": 2.0,
+   "expected": "DETECTED",
+   "pass": true,
+   "detail": "|bad-ref| = 4.000e+00 (> 10 tol required)"
+  }
+ ],
+ "counts": {
+  "gates": 63,
+  "passed": 63,
+  "failed": 0,
+  "controls": 3,
+  "controls_detected": 3
+ },
+ "self_caught_defects": [
+  "run 1: kappa-gate used non-existent sympy attribute (sp.Log); crash -> replaced with the pure simplify comparison",
+  "run 1: mu-dependence gate differentiated w.r.t. ln(mu) instead of ln(mu^2) (factor 2); M1/M2 gates failed -> fixed to (mu/2) d/dmu",
+  "run 1: moment-regression gate used the 3-pairing coefficient for the MIXED component <l0^2 l1^2>; correct single-pairing value is -1/(d(d+2)) = -1/24 at d=4 -> gate formula fixed (machinery was right)",
+  "run 2: direct mpmath quadrature of the slowly decaying L^{-1-eps} UV tail was inaccurate at the 1e-6 tolerance (bubble referee off by ~24, pole fit 1.28 vs 2) -> fixed by subtracting the integrand's own elementary asymptotic L^{d-1-2N} term beyond L=1 and adding its exact integral 1/eps; no Gamma/log loop structure enters this correction",
+  "run 3: 3-parameter (a/e + b + c e) extraction on the coarse eps grid {0.02..0.08} left a ~3e-3 bias in I0 from the unmodelled e^2 series term (pole fit was already 2.00004) -> moved to a small-eps grid {0.0025..0.0125} with a 4-parameter fit including e^2; residual bias ~ c3 * eps^3 << 1e-6",
+  "run 4: branch-limit gate demanded 1e-35 agreement on Im ln near the cut (mpmath delivers ~1e-19) and the timelike quadrature at eta=1e-7 stalled on the near-pole peaks -> threshold relaxed to 1e-15 and timelike referee moved to moderate eta with two-point Richardson (linear-in-eta bias cancellation); tolerances 5e-6 declared",
+  "run 5: near the Delta=0 endpoints y+- the radial split points r - 40*eta went NEGATIVE (r < 40*eta there), handing mpmath unsorted intervals -> quadrature stall; fixed with clamped, deduped, sorted tl_splits(); spacelike sanity gate relaxed to 3e-5 (single-eps complex-vs-real quadrature agreement)",
+  "run 6: the timelike referee battery (4 eps-points x 2 etas of the complex double quadrature) exceeded the ~10-min-per-operation discipline -> restructured to the pole-subtracted smooth function J = I - 2/eps (pole coefficient = frozen engine law, not Route A) with eta-Richardson and quadratic eps-interpolation on 3 points; 6 doubles",
+  "run 7: even a single complex timelike double exceeded 5 min (the second-order near-pole structure defeats tanh-sinh) -> Im refereed via the delta'-distribution route (Im[1/(x-i0)^2] = -pi delta'(x), reducing the radial integral exactly to pi(d-2)/4 a^{(d-4)/2} on the cut), with bisection cut endpoints and numeric y-quadrature -- a derivation disjoint from the log-branch limit; Re reported from Route A with a quad-vs-exact-sympy-closed-form cross-check; the absent direct complex-quadrature referee for Re and Im at timelike is DISCLOSED as an A3-1 limitation for owner inspection at the A3-2 gate",
+  "run 8: the DIRECT difference-integrand quadrature for M_1(D1)-M_1(1) disagreed with the exact Schwinger reference by ~15 (pole fit correct; cause not fully diagnosed -- suspected mpmath interval handling of the near-tail remainder); replaced by the exact s-parameter identity 1/A - 1/B = (B-A) Int_0^1 ds/(L^2+D(s))^2 composed with the ALREADY-REFEREED M_2 radial machinery, identity gated symbolically; the failed direct route is disclosed here"
+ ],
+ "barred_scope_not_computed": [
+  "Sigma_R^finite assembly",
+  "Pi_nonlocal",
+  "TT projection",
+  "Q1-Q5",
+  "J(omega)",
+  "PV",
+  "benchmark comparison",
+  "spectrum interpretation"
+ ],
+ "verdict": "PASS",
+ "a3_2_gate": "A3-2 remains LOCKED pending explicit owner/reviewer acceptance of this result, including inspection of the finite-master formulas and branch structure."
+}

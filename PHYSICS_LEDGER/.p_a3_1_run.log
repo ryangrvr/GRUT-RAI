@@ -1,0 +1,95 @@
+=== HANDSHAKE: contract chain, frozen integrity, HEAD ===
+  ok   contract/frozen intact: WALL_A3_1_REVIEWER_GUIDANCE.md (498731aa7c7c16ae...)
+  ok   contract/frozen intact: WALL_A3_1_EXECUTION_PROMPT.md (376fe982232ab74e...)
+  ok   contract/frozen intact: WALL_A3_1_BUILDER_PROMPT.md (99a369b3b9d83d79...)
+  ok   contract/frozen intact: WALL_D2_ASSEMBLY3_BRIEF.md (fff07e5172d1ee0f...)
+  ok   contract/frozen intact: WALL_D2_ASSEMBLY3_ENTRY_OBJECT.json (419c455bccdd90dc...)
+  ok   contract/frozen intact: WALL_A_A3_DECLARATIONS.md (87e2d24d5be6d679...)
+  ok   contract/frozen intact: WALL_A_A3_REGISTRY.json (faa977d40f1ba318...)
+  ok   contract/frozen intact: WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md (6f2a762f4a4a01cd...)
+  ok   contract/frozen intact: WALL_A_A3_DECLARATIONS_V3_AMENDMENT.md (b0b9983bf0ab04c0...)
+  ok   contract/frozen intact: WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md (f6127ca65ad6636b...)
+  ok   contract/frozen intact: wall_d2_phases8_12.py (f48b2cc898017493...)
+  ok   HEAD == 9724d10 (got 9724d10)
+
+=== ROUTE A: exact-in-eps masters from the Schwinger representation ===
+  ok   Laplace gate: Int_0^oo t^{a-1} e^{-tD} = Gamma(a) D^{-a} (sympy, exact)
+  ok   Gaussian gate: d-dim measure normalisation exact at d=1..5 (the one shared geometric input of both routes)
+[    1.8s] Route A: M_1..M_4 series derived in 0.5s
+   M1: pole = 2*Delta |  fin = Delta*(log(4*pi*mu**2/Delta) - EulerGamma + 1)
+   M2: pole = 2 |  fin = log(4*pi*mu**2/Delta) - EulerGamma
+   M3: pole = 0 |  fin = -1/(2*Delta)
+   M4: pole = 0 |  fin = 1/(6*Delta**2)
+  ok   chain gate: d fin_M1/dD == fin_M2  (d/dD of 1/(l^2-D) = +1/(l^2-D)^2)
+  ok   chain gate: d fin_M2/dD == 2 fin_M3
+  ok   pole regression: (l^2)^0/(l^2-D)^1 == frozen engine value c*Delta
+  ok   pole regression: (l^2)^0/(l^2-D)^2 == frozen engine value c*1
+  ok   pole regression: (l^2)^0/(l^2-D)^3 == frozen engine value c*0
+  ok   pole regression: (l^2)^0/(l^2-D)^4 == frozen engine value c*0
+  ok   pole regression: (l^2)^1/(l^2-D)^1 == frozen engine value c*Delta**2
+  ok   pole regression: (l^2)^1/(l^2-D)^2 == frozen engine value c*2*Delta
+  ok   tensor pole regression: l0l1/D^1 -> c eta D^2/4, l0l1/D^2 -> c eta D/2, l0l0l1l1/D^2 -> 3 c D^2/8 (frozen engine-2/3 gates)
+  ok   moment regression at d=4: <l0^2>/l^2 = 1/4, <l1^2>/l^2 = -1/4, <l0^4>/(l^2)^2 = 1/8, <l0^2 l1^2>/(l^2)^2 = -1/24 (frozen engine-2)
+  ok   mu-dependence: d fin_M1/d(ln mu^2) == Delta
+  ok   mu-dependence: d fin_M2/d(ln mu^2) == 1
+  ok   mu-dependence: d fin_M3/d(ln mu^2) == 0
+  ok   mu-dependence: d fin_M4/d(ln mu^2) == 0
+  ok   fin_M2 == kappa - ln(Delta/mu^2) with kappa = ln(4pi)-gamma_E (derived)
+  ok   Delta(y) quadratic in y: two roots [(K2 - sqrt(K2*(K2 - 4*m2)))/(2*K2), (K2 + sqrt(K2*(K2 - 4*m2)))/(2*K2)]
+  ok   threshold derived: Delta(y)=0 has real roots iff K^2 >= 4 m^2 (disc = K^2(K^2-4m^2)); threshold K^2 = 4 m^2
+
+=== ROUTE B: original-integrand quadrature at d = 4-eps ===
+
+--- PRIORITY 1: independent scalar bubble (3 spacelike points) ---
+  ok   BUBBLE K2=-0.7: RouteB I0=1.844576752539 vs RouteA=1.844576499478 (diff 2.53e-07); numeric pole fit a=2.000000000 (engine: 2)
+[   40.5s] bubble K2=-0.7 checked (36.0s)
+  ok   BUBBLE K2=-1.3: RouteB I0=1.760996565028 vs RouteA=1.760996336009 (diff 2.29e-07); numeric pole fit a=2.000000000 (engine: 2)
+[   77.0s] bubble K2=-1.3 checked (36.6s)
+  ok   BUBBLE K2=-2.9: RouteB I0=1.571086730997 vs RouteA=1.571086547402 (diff 1.84e-07); numeric pole fit a=2.000000000 (engine: 2)
+[  112.4s] bubble K2=-2.9 checked (35.4s)
+  ok   reproducibility: second eps-grid extraction agrees (4.08e-08)
+
+--- PRIORITY 2: branch, threshold, one controlled timelike point ---
+  ok   branch limit derived: Im[-ln(Delta-i0)] = +pi and Disc M2 = 2 pi i for Delta<0 (Feynman prescription; computed to <1e-15, not assumed)
+  ok   root geometry: y+ - y- == sqrt(1 - 4 m^2/K^2) (exact at K^2=5m^2) ->  Im B = pi sqrt(1-4m^2/K^2) theta(K^2-4m^2)
+  ok   threshold numeric: min_y Delta(y) = m^2 - K^2/4 vanishes at K^2 = 4.000000000 m^2 (bisection on the actual Delta)
+  ok   timelike machinery sanity: at spacelike K2=-0.7 it reproduces the refereed real quadrature (9.06e-06; single-eps complex-vs-real quadrature agreement)
+  ok   sympy closed form of Int ln|Delta| dy is real (|Im| = 1.2e-35)
+  ok   timelike K2=5m^2 Im: RouteA pi*sqrt(1-4/5)=1.404962946 vs delta'-route referee=1.404963084 (d=1.4e-07); cut endpoints by bisection: y-=0.276393202 y+=0.723606798
+  ok   timelike K2=5m^2 Re: numeric quad of kappa - Int ln|Delta| dy (3.523399641104) == exact sympy closed form (3.523399641104) (d=0.0e+00)
+[  163.0s] branch + timelike point checked (Im by delta'-route referee; Re by quad-vs-closed-form cross-check)
+
+--- PRIORITY 3: M_2, M_3, M_4, M_1-difference, T2, T4 ---
+  ok   M_2(Delta=0.6): RouteB I0=2.464634734762 vs RouteA=2.464634205834 (diff 5.29e-07); pole fit 1.999999999 (want 2.0)
+  ok   M_2(Delta=1.7): RouteB I0=1.423180481064 vs RouteA=1.423180331006 (diff 1.50e-07); pole fit 2.000000000 (want 2.0)
+  ok   M_2(Delta=3.1): RouteB I0=0.822406552874 vs RouteA=0.822406470577 (diff 8.23e-08); pole fit 2.000000000 (want 2.0)
+[  163.7s] M_2 checked at 3 Deltas
+  ok   M_3(Delta=0.6): RouteB I0=-0.833333831532 vs RouteA=-0.833333333333 (diff 4.98e-07); pole fit 0.000000001 (want 0.0)
+  ok   M_3(Delta=1.7): RouteB I0=-0.294117700355 vs RouteA=-0.294117647059 (diff 5.33e-08); pole fit 0.000000000 (want 0.0)
+  ok   M_3(Delta=3.1): RouteB I0=-0.161290331280 vs RouteA=-0.161290322581 (diff 8.70e-09); pole fit 0.000000000 (want 0.0)
+[  164.5s] M_3 checked at 3 Deltas
+  ok   M_4(Delta=0.6): RouteB I0=0.462963499590 vs RouteA=0.462962962963 (diff 5.37e-07); pole fit -0.000000001 (want 0.0)
+  ok   M_4(Delta=1.7): RouteB I0=0.057670152632 vs RouteA=0.057670126874 (diff 2.58e-08); pole fit -0.000000000 (want 0.0)
+  ok   M_4(Delta=3.1): RouteB I0=0.017343049271 vs RouteA=0.017343045439 (diff 3.83e-09); pole fit -0.000000000 (want 0.0)
+[  165.3s] M_4 checked at 3 Deltas
+  ok   s-parameter identity gated symbolically: 1/A - 1/B = (B-A) Int_0^1 ds/(sA+(1-s)B)^2 (exact)
+  ok   M_1(Delta=0.6)-M_1(1) difference: RouteB -0.875028214054 vs RouteA -0.875028058568 (diff 1.55e-07); pole fit -0.800000000 (want -0.8)
+  ok   M_1(Delta=3.1)-M_1(1) difference: RouteB 2.695651769936 vs RouteA 2.695651476720 (diff 2.93e-07); pole fit 4.200000000 (want 4.2)
+[  297.8s] M_1 difference-anchored checked
+  ok   T2_{00,3}(D=0.6): direct tensor radial I0=0.616158683690 vs RouteA 0.616158551458 (diff 1.32e-07); pole fit 0.500000000 (want 0.5)
+  ok   T4_{0000,4}(D=0.6): direct tensor radial I0=0.308079341842 vs RouteA 0.308079275729 (diff 6.61e-08); pole fit 0.250000000 (want 0.25)
+  ok   T2_{00,3}(D=3.1): direct tensor radial I0=0.205601638219 vs RouteA 0.205601617644 (diff 2.06e-08); pole fit 0.500000000 (want 0.5)
+  ok   T4_{0000,4}(D=3.1): direct tensor radial I0=0.102800819111 vs RouteA 0.102800808822 (diff 1.03e-08); pole fit 0.250000000 (want 0.25)
+[  299.4s] T2/T4 direct tensor radials checked
+  ok   B_00 algebra gates: odd-shift terms vanish by symmetry (exact Gaussian check); Int_0^1 y^2 dy = 1/3 (exact)
+
+--- NEGATIVE CONTROLS: corrupted formulas must FAIL the referee ---
+  ok   negative control DETECTED: factor-of-2 in fin_M2 (2x kappa-ln) (|bad-ref|=1.423e+00)
+  ok   negative control DETECTED: wrong mu scale (mu -> 2 mu, shifts finite part by ln 4) (|bad-ref|=1.386e+00)
+  ok   negative control DETECTED: eps sign flip (pole coefficient flips sign) (|bad-ref|=4.000e+00)
+  ok   eps-sign control symbolic: pole of M2(eps->-eps) == -2 (flipped), detected against the frozen engine value +2
+
+================ SUMMARY ================
+gates: 63/63 pass | controls detected: 3/3 | verdict: PASS
+outputs written: WALL_A3_1_FINITE_MASTERS_RESULT.json, WALL_A3_1_FINITE_MASTERS_VERDICT.md
+[  299.9s] done

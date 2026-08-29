@@ -2667,3 +2667,80 @@ bubble finite formula + its independent numerical comparison. A3-2 remains gated
 on owner inspection of the finite formulas and branch structure. W-0; register
 untouched; no frozen-file edits; nothing banked.
 
+2026-08-28 (builder session, owner 'go') — A3-1 EXECUTION CLAIMED (A3-1A) AND
+CONVENTION PINNED FOR REVIEW.
+
+Builder: this session, executing under guidance 498731aa... / execution prompt
+376fe982... / A3-1 prompt 99a369b3... / brief fff07e51..., at HEAD 9724d10.
+Handshake done: chain hashes re-verified, frozen v1/registry/v2/v3/v4
+byte-identical, tree clean. Paths claimed BEFORE writing:
+PHYSICS_LEDGER/wall_a3_1_finite_masters.py,
+PHYSICS_LEDGER/WALL_A3_1_FINITE_MASTERS_RESULT.json,
+PHYSICS_LEDGER/WALL_A3_1_FINITE_MASTERS_VERDICT.md,
+PHYSICS_LEDGER/.p_a3_1_run.log.
+
+Convention to be pinned IN the instrument (flagged for owner inspection at the
+A3-2 gate): measure mu^eps Int d^{4-eps}l/(2pi)^{4-eps}; masters in c-units
+(c = 2/eps pole, normalised by i(4pi)^{-2}; Euclidean image M_N = (-1)^N
+(4pi)^2 mu^eps Int_E (L^2+Delta)^{-N}, with the (-1)^N confirmed against the
+frozen pole gates M1 -> c Delta, M2 -> c, not assumed); MS subtraction of
+exactly c (matches the frozen Phase-12 split Pi_local^MS = (2/eps)[...]);
+finite parts carry kappa = ln(4pi) - gamma_E; Delta = m^2 - y(1-y)K^2;
+D1 = l^2 - m^2, D2 = (l-K)^2 - m^2, K = (omega,0,0,k), eta = diag(1,-1,-1,-1)
+-- identical to the validated pole engine conventions. Execution order: scalar
+bubble Route A (Schwinger-derived, sympy) vs Route B (mpmath quadrature of the
+ORIGINAL integrand at d=4-eps, eps-grid extraction) FIRST with STOP on fail;
+then branch/threshold; then higher masters; negative controls (factor 2 / mu
+scale / eps sign) must each be DETECTED. No register edits. No frozen-file
+edits (frozen files read for hash verification only). Nothing downstream of
+A3-1 will be computed in this session.
+
+2026-08-28 (builder session, owner 'go') — A3-1 EXECUTED: FINITE eps^0
+MASTERS, VERDICT PASS (63/63 gates; 3/3 negative controls DETECTED).
+
+Instrument PHYSICS_LEDGER/wall_a3_1_finite_masters.py (run log
+.p_a3_1_run.log, 167s; result WALL_A3_1_FINITE_MASTERS_RESULT.json; verdict
+WALL_A3_1_FINITE_MASTERS_VERDICT.md). HEAD at execution 9724d10; the
+instrument re-verified the full contract chain + all five frozen files +
+the pole engine byte-identical before computing (11 pinned sha256s).
+
+RESULT (c-units, MS, kappa = ln(4pi) - gamma_E, Delta = m^2 - y(1-y)K^2):
+- M_1: pole c-Delta | fin Delta(1 + kappa - ln(Delta/mu^2)) | d/dln(mu^2)=Delta
+- M_2: pole c | fin kappa - ln(Delta/mu^2) | 1
+- M_3: pole 0 | fin -1/(2Delta) | 0 ; M_4: pole 0 | fin 1/(6Delta^2) | 0
+- B(K^2)=Int dy M_2(Delta(y)): pole c | fin kappa - Int dy ln(Delta/mu^2)
+- T2_{00,N} = [M_{N-1} + Delta M_N]/(4-eps) at eps^0 (1/d x pole cross terms
+  kept); T4 = 3[M_{N-2} + 2Delta M_{N-1} + Delta^2 M_N]/((4-eps)(6-eps))
+- branch: Disc M_2 = 2 pi i theta(-Delta) (limit-derived); threshold
+  K^2 = 4m^2 (root geometry + numeric bisection 4.000000000); Im B =
+  pi sqrt(1-4m^2/K^2) theta(K^2-4m^2).
+
+REFEREE: Route B = mpmath quadrature of the ORIGINAL integrand at d=4-eps,
+small-eps grid {0.0025..0.0125}, 4-param (a/e + b + c e + d e^2) extraction:
+bubble at 3 spacelike K2 diffs 1.8-2.5e-7 with numeric pole fit 2.000000000
+(the engine's c); M_2/M_3/M_4 at 3 Deltas each; M_1 via the exact
+s-parameter identity composed with the refereed M_2 radial; T2/T4 direct
+tensor radials (sign pinned by frozen pole gates); second-eps-grid
+reproducibility 4.1e-8; timelike K^2=5m^2 Im by delta'-route referee
+(diff 1.4e-7), Re quad-vs-exact-closed-form; controls (factor 2 / mu scale /
+eps sign) all DETECTED. Pole regressions vs the frozen engine: 7 scalar +
+tensor + engine-2 d=4 moment gates, all consistent.
+
+Self-caught during build: 10 items (full list in the result JSON), including
+the slow-tail quadrature fix (exact elementary L^{d-1-2N} subtraction), the
+small-eps-grid fit upgrade, the unsorted-split stall, and the replacement of
+the direct M_1 difference quadrature by the gated exact s-identity.
+
+DISCLOSED LIMITATIONS for owner inspection at the A3-2 gate: (i) no direct
+complex-quadrature referee at timelike (Im refereed via the independent
+delta'-distribution route; Re via quad-vs-sympy-closed-form); (ii) B_00 is a
+component-refereed, algebra-gated composition (direct tensor-double referee
+deferred to the A3-2 contracted assembly); (iii) the kappa = ln(4pi)-gamma_E
+MS convention pinned here is the choice making the finite masters consistent
+with the frozen Phase-12 subtraction of exactly c = 2/eps.
+
+W-0: computed-and-reported, NOT banked. Register untouched. No frozen-file
+edits (post-run hash verification below). HARD STOP before A3-2: A3-2 stays
+LOCKED pending explicit owner/reviewer acceptance of this result, including
+inspection of the finite-master formulas and branch structure.
+
