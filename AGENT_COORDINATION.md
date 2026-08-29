@@ -2744,3 +2744,46 @@ edits (post-run hash verification below). HARD STOP before A3-2: A3-2 stays
 LOCKED pending explicit owner/reviewer acceptance of this result, including
 inspection of the finite-master formulas and branch structure.
 
+
+### 2026-08-27 · Claude · A3-1 FINITE MASTERS: CHECKER-VERIFIED AND ACCEPTED (with a checker self-catch)
+
+A3-1 delivered at 550f22f on 9724d10 (63/63 gates, 3/3 negative controls, tree clean).
+CHECKER VERIFIED INDEPENDENTLY -- by deriving the masters from Gamma-function
+asymptotics rather than reading the builder's, and by an independent numerical check of
+the branch structure. This is the engine every downstream physics result rests on, so
+acceptance is on my own derivation, not on the gate count.
+
+INDEPENDENT DERIVATION (checker, from (4pi)^{eps/2} Gamma(.) (Delta/mu^2)^{-eps/2}, with
+d = 4 - eps so the pole constant is c = 2/eps):
+    M2 finite = kappa - ln(Delta/mu^2)                 -- MATCHES the builder EXACTLY
+    M1 finite = Delta (1 + kappa - ln(Delta/mu^2))     -- MATCHES the builder EXACTLY
+with kappa = ln(4 pi) - gamma_E, the pinned convention.
+
+INDEPENDENT BRANCH-STRUCTURE CHECK (numeric, mpmath 30 dps, checker's own construction):
+    Im B(K^2) = pi * sqrt(1 - 4m^2/K^2) reproduced to < 1e-12 at K^2/m^2 = 5, 8, 20;
+    threshold derived independently: Delta = m^2 - y(1-y)K^2 first goes negative at
+    y = 1/2, giving K^2 = 4 m^2 -- MATCHES the builder's roots+bisection value
+    4.000000000. This is the load-bearing item: the branch cut is where ALL the
+    frequency dependence the physics questions care about actually lives.
+
+CHECKER SELF-CATCH, DISCLOSED: my FIRST verification reported MATCH: False on both
+masters. The defect was mine -- I omitted the (4 pi)^{eps/2} measure factor, which is
+exactly what converts -gamma_E into kappa. With the factor restored both masters match
+identically. The builder was right and my check was incomplete; recorded because a
+checker's false alarm is a defect of the same class as a builder's, and this campaign's
+record is only worth what its disclosures are worth.
+
+ARTIFACT INTEGRITY re-verified at this commit: WALL_A_A3_DECLARATIONS.md, the A3
+registry, and the pole engine wall_d2_phases8_12.py all byte-identical to the standing
+manifest. Frozen files untouched by A3-1.
+
+ACCEPTED: A3-1 masters are correct at the stated scope. The disclosed limitations stand
+as stated (no direct complex-quadrature referee at timelike -- Im refereed via the
+independent delta'-distribution route; B00 component-refereed by composition; the kappa
+convention pinned to Phase-12's subtraction of exactly c = 2/eps).
+
+A3-2 REMAINS LOCKED pending owner acceptance. Design mandates unchanged: reduce
+representation first; TT projection strictly downstream of the full non-TT assembly;
+FREEZE the bare finite response before any comparator is opened; J(omega) remains a
+COMPARATOR, NEVER AN INGREDIENT, with the barred-inputs guard live. W-0; register
+untouched; nothing banked.
