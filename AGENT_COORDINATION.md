@@ -2745,6 +2745,32 @@ LOCKED pending explicit owner/reviewer acceptance of this result, including
 inspection of the finite-master formulas and branch structure.
 
 
+### 2026-08-28 · builder (owner 'go') · A3-2 GOVERNANCE FREEZE — Option-1 ruling applied
+
+WALL_A3_2_EXECUTION_PROMPT.md frozen by the BUILDER per the owner's explicit
+Option-1 ruling (in-channel, this date). Source: the owner's A3-2
+authorization text as issued in-channel, copied VERBATIM (no paraphrase,
+edit, reorder, tightening, or reinterpretation).
+  sha256: 8dc3226669b3f9e12a099e227009d28b7fa50dc64b8e08aabbebba153f5b1167
+  parent HEAD at freeze: efb6e73
+  commit: separate governance commit preceding all calculation artifacts.
+Immutability: the prompt is immutable for this execution; any substantive
+change requires a new owner amendment, not an in-place edit.
+Conflict rule: any conflict discovered between the frozen prompt and an
+earlier contract (brief fff07e51, entry object 419c455b, declarations
+v1-v4, registry faa977d4) is a STOP-and-report; no silent reconciliation.
+No calculation begins before this artifact is hashed and committed. This is
+a provenance action only; no physics changed, no frozen scientific object
+touched.
+
+A3-2 output paths CLAIMED before writing (per prompt A3-2A):
+  PHYSICS_LEDGER/wall_a3_2_finite_response.py        (instrument)
+  PHYSICS_LEDGER/WALL_A3_2_FINITE_RESPONSE_RESULT.json
+  PHYSICS_LEDGER/WALL_A3_2_FINITE_RESPONSE_VERDICT.md
+  PHYSICS_LEDGER/Sigma_R_finite_full.json            (A3-3 primary freeze)
+  PHYSICS_LEDGER/Sigma_R_finite_full.verdict.md
+  PHYSICS_LEDGER/.p_a3_2_run.log                     (run log)
+
 ### 2026-08-27 · Claude · A3-1 FINITE MASTERS: CHECKER-VERIFIED AND ACCEPTED (with a checker self-catch)
 
 A3-1 delivered at 550f22f on 9724d10 (63/63 gates, 3/3 negative controls, tree clean).
