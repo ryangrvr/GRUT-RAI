@@ -1,0 +1,89 @@
+{
+ "stage": "K_R^(matter) sign adjudication",
+ "frozen_kernel_sha256": "dd77b1943e2068c643f4181438814a378c26bc8693b616be812fa5f5888c4ae1",
+ "instrument_sha256": "0725f6a678c6ab1b111d68414e33f9a353d5a8869a2a8594be6f5f02bbdae6de",
+ "status": "PHYSICALLY FIXED: g < 0 (the pole-bearing branch is the physical one)",
+ "route1": "exact linear-response oracle: Sigma_R = c^2 G_bath, Im Sigma_R(x+i0) <= 0 for any passive bath (derived symbolically); with frozen Im chi > 0 => g < 0",
+ "route2": "dressed spectral positivity: rho >= 0 admits ONLY g < 0 at every tested cut point (numeric, both signs)",
+ "convention_invariant": "sgn(Im[G_R^-1](x+i0)) -- metric/Fourier/Sigma-sign relabelings cannot touch it",
+ "redefinition": "h -> -h leaves Sigma invariant (quadratic); no allowed transformation flips g: PHYSICAL, not conventional",
+ "consequence": "The certified matter-scope results on the g < 0 branch -- the first-sheet poles x_p(g) and the refereed sheet-II zeros -- are the PHYSICAL-branch results at matter scope. TWO BOUNDS REMAIN: (i) the MAGNITUDE |g| is dimensionful (kappa^2 x measure factors) and NOT fixed here -- pole existence in the tested window depends on |g| (none appeared for |g| <= 0.5), so no statement 'a pole exists' is made, only 'the physical branch is the pole-capable one'; (ii) matter scope only -- NOT the registered single pole, NOT K_R^(contract), NOT a GRUT-level prediction.",
+ "kr_contract": "REMAINS OPEN / UNCOMPUTED (explicit)",
+ "checks": [
+  {
+   "pass": true,
+   "msg": "EXACT ORACLE: the dressed system inverse is (x - w0^2 - Sigma) with Sigma(x) = +c^2/(x - wb^2) == c^2 * G_bath(x) -- DERIVED from the coupled linear system, no i-counting, no loop",
+   "gate": "R1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "EXACT ORACLE: Im Sigma_R(x + i0) = -c^2 ep/|x - wb^2 + i ep|^2 -- the coefficient is EXACTLY -1: negative-definite",
+   "gate": "R1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "frozen kernel sha ok (read-only)",
+   "gate": "R2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "frozen fact re-verified: Im chi(x=5.0 + i0) = 0.00585401 > 0",
+   "gate": "R2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "frozen fact re-verified: Im chi(x=8.0 + i0) = 0.148096 > 0",
+   "gate": "R2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "frozen fact re-verified: Im chi(x=14.0 + i0) = 1.1063 > 0",
+   "gate": "R2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "ROUTE 2: at every tested cut point, g < 0 gives rho >= 0 (admissible) and g > 0 gives rho < 0 (negative spectral weight -- EXCLUDED by unitarity/passivity of the dressed propagator). INDEPENDENT confirmation of Route 1",
+   "gate": "R2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "the adjudication rests on the convention-INVARIANT statement Im[G_R^{-1}](x + i0) >= 0 (equivalently rho >= 0), evaluated with frozen quantities only",
+   "gate": "conv",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "redefinition analysis: no allowed transformation flips g",
+   "gate": "conv",
+   "detail": null
+  }
+ ],
+ "notes": [
+  "metric: mostly-minus diag(1,-1,-1,-1) (closure registry REG, countersigned files)",
+  "Fourier/phase: e^{-i omega t} on the A-sector (the engine's derivative rule: d_u adds -i omega -- frozen)",
+  "retarded rule: Sigma_R = Sigma++ + Sigma+- (signed), the engine's hard invariant; retarded boundary values = the -i0-in-D = +i0-in-x branch",
+  "FROZEN COMPUTED FACT consumed: Im chi(x + i0) > 0 on the cut -- the +pi branch law (A3-1), E3 (corrected form), verified against independent phase space at 7.02e-17 (PV row 1)",
+  "A1 vertex countersigned; Sigma has TWO vertex insertions (quadratic)",
+  "retarded boundary: Im Sigma_R = -c^2 * ep / ((xr - wb^2)^2 + ep^2) < 0 -- STRICTLY NEGATIVE for every xr, ep > 0; in the distributional limit Im Sigma_R = -pi c^2 delta(x - wb^2) <= 0",
+  "GENERALIZATION (spectral form, same derivation summed over bath modes): Sigma_R(x) = Int ds |c(s)|^2 rho_bath(s)/(x - s + i0)  =>  Im Sigma_R(x+i0) = -pi |c(x)|^2 rho_bath(x) <= 0 for ANY passive bath. THEOREM at this scope.",
+  "CHAIN: G0^-1 = +x (TT graviton kinetic term carries the SAME sign as a scalar for transverse-traceless modes -- the frozen record works throughout in the TT sector); D = x - Sigma_R; Im Sigma_R <= 0; the frozen chi has Im chi > 0; therefore Sigma_R = -(positive) * chi and in the experiment's parametrization D = x - g*chi:  g = -(positive) < 0. The engine's chi is the FRICTION-POSITIVE response object (Im chi = J/omega >= 0, the registered convention) = MINUS the standard self-energy, up to the positive coupling magnitude.",
+  "x = 5.0, g = +2: Im G_R = 0.0002938  =>  rho = -9.351e-5  (EXCLUDED (negative spectral weight))",
+  "x = 5.0, g = -2: Im G_R = -0.0008612  =>  rho = 0.0002741  (ADMISSIBLE (rho >= 0))",
+  "x = 8.0, g = +2: Im G_R = 0.003613  =>  rho = -0.00115  (EXCLUDED (negative spectral weight))",
+  "x = 8.0, g = -2: Im G_R = -0.006119  =>  rho = 0.001948  (ADMISSIBLE (rho >= 0))",
+  "x = 14.0, g = +2: Im G_R = 0.0118  =>  rho = -0.003755  (EXCLUDED (negative spectral weight))",
+  "x = 14.0, g = -2: Im G_R = -0.01031  =>  rho = 0.003281  (ADMISSIBLE (rho >= 0))",
+  "metric flip (mostly-plus): x -> -x AND Sigma -> -Sigma simultaneously; the INVARIANT sgn(Im[G_R^{-1}]) on the cut is unchanged. Fourier flip (e^{+i omega t}): conjugates both Im chi and the retarded side (+i0 -> -i0); the product constraint -g*Im chi >= 0 is unchanged. Sigma-vs-minus-Sigma bookkeeping: absorbed by stating the invariant on G_R^{-1} directly, which no relabeling touches. Euclidean continuation: not used anywhere in the frozen chain (CTP throughout).",
+  "REDEFINITION TEST: h -> -h flips the A1 vertex sign but Sigma carries TWO vertex insertions -- Sigma is invariant; chi -> -chi would require flipping the frozen +pi branch law, which is not a redefinition but a change of the frozen record. NO transformation in the frozen theory flips g: the sign is PHYSICAL, not conventional.",
+  "CONSEQUENCE: The certified matter-scope results on the g < 0 branch -- the first-sheet poles x_p(g) and the refereed sheet-II zeros -- are the PHYSICAL-branch results at matter scope. TWO BOUNDS REMAIN: (i) the MAGNITUDE |g| is dimensionful (kappa^2 x measure factors) and NOT fixed here -- pole existence in the tested window depends on |g| (none appeared for |g| <= 0.5), so no statement 'a pole exists' is made, only 'the physical branch is the pole-capable one'; (ii) matter scope only -- NOT the registered single pole, NOT K_R^(contract), NOT a GRUT-level prediction."
+ ],
+ "failures": [],
+ "elapsed_s": 1.6
+}

@@ -4117,3 +4117,42 @@ PV-verified) and the countersigned conventions. REDEFINITION TEST included:
 h -> -h leaves Sigma invariant (two vertices), so no field redefinition can
 flip g -- if the trace fixes the sign it is PHYSICAL, not conventional. The
 invariant, convention-proof formulation: sgn(Im[G_R^-1]) on the cut.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- SIGN ADJUDICATION COMPLETE: PHYSICALLY FIXED,
+g < 0. 9/9 gates. HARD STOP.
+================================================================================
+
+Deliverables: KR_MATTER_SIGN_ADJUDICATION.md/.json + wall_kr_sign_adjudication
+.py (the executed derivation). VERDICT: **PHYSICALLY FIXED: g < 0 -- the
+pole-bearing branch is the physical one.**
+
+ROUTE 1 (exact oracle, no i-counting): a system oscillator linearly coupled
+to a passive bath, solved EXACTLY in the frozen conventions, gives
+Sigma_R = c^2 G_bath with Im Sigma_R(x+i0) = -c^2 ep/|..|^2 (coefficient
+EXACTLY -1, symbolic) -> spectral form -pi|c|^2 rho <= 0 for ANY passive
+bath. With the frozen fact Im chi(x+i0) > 0 (the +pi law, PV-verified
+7e-17): D = x + |g| chi, i.e. g < 0. The engine's chi is the
+friction-positive response object (Im chi = J/omega >= 0, the registered
+convention) = MINUS the standard self-energy up to positive magnitude.
+
+ROUTE 2 (independent object): dressed spectral positivity at three cut
+points, both signs: g < 0 -> rho >= 0 admissible everywhere; g > 0 -> rho <
+0 (negative spectral weight) EXCLUDED everywhere.
+
+CONVENTION SWEEP: the verdict rests on the invariant sgn(Im[G_R^-1](x+i0));
+metric, Fourier, retarded, and Sigma-sign relabelings cannot touch it.
+REDEFINITION TEST: h -> -h leaves Sigma invariant (quadratic in the vertex);
+NO allowed transformation flips g. PHYSICAL, not conventional. The sign was
+NOT chosen from the pole result: both routes are pole-blind.
+
+CONSEQUENCE (bounded): the certified g<0-branch results -- first-sheet poles
+x_p = 0.3486/0.5595/0.7995/1.3810/2.9466 and refereed sheet-II zeros
+1.614-0.296i / 1.874-0.199i -- are the PHYSICAL-BRANCH results at matter
+scope. The MAGNITUDE |g| remains unfixed (dimensionful kappa^2 x measure),
+and no pole appeared for |g| <= 0.5, so the statement is "the physical
+branch is the pole-CAPABLE one," never "a pole exists." NOT the registered
+single pole; NOT K_R^(contract) (REMAINS OPEN); NOT a GRUT-level prediction.
+
+HARD STOP: no K_R^(matter) rerun, no contract build, no pole-result changes,
+no Ward repair, no J(omega), no Q or +1 modification. W-0; register untouched.
