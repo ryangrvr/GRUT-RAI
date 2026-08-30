@@ -3840,3 +3840,29 @@ THE TWO CLAIMS, KEPT IMPOSSIBLE TO CONFUSE (per the brief):
 HARD STOP: response untouched; no refits; no s-reclassification; no +1
 discharge (the "partially discharges" cell is the OWNER's action at the bank
 gate); Ward finding untouched; no repairs. W-0; register untouched.
+
+================================================================================
+OWNER ADJUDICATION RECORDED -- 2026-08-30 -- WALL-A RESPONSE-STAGE CLOSED
+================================================================================
+
+The five rulings are recorded in OWNER_ADJUDICATION_WALL_A_CLOSURE.md:
+  1. THE +1 IS DISCHARGED -- solely on Q1^TT INSIDE and Q5^TT INSIDE, per the
+     frozen Declaration-4 map; Q3/Q4/J(omega)/PV/Ward explicitly played no
+     role in the discharge condition. Register-file application awaits the
+     owner's explicit register-edit go (matching the 2026-08-24 booking
+     practice); the ruling itself is effective and on the record.
+  2. K_R = OPEN / UNCOMPUTED -- distinct from Sigma_R^finite; nothing
+     requiring it is promoted; the benchmark's K_R-scope cell stays open
+     unless chartered.
+  3. SINGLE-POLE: not derived (and not "disproved") -- the register's stance
+     (tier assumed) and the computed gapped branch-cut result are two
+     separate records; the excess strength is now quantified.
+  4. WARD: CLASS B, UNRESOLVED, RETAINED -- TT robust / non-TT completion
+     unresolved, kept strictly separate.
+  5. The stage-level scientific statement recorded verbatim; explicitly NOT
+     proof of GRUT, NOT disproof, NOT complete benchmark closure.
+
+Integrity at closure: registry faa977d4... intact; declarations 87e2d24d...
+intact; register a70a2ad1... READ-ONLY throughout the entire campaign day.
+W-0 held from first commit to last. HARD STOP: no further scientific
+computation until a new owner charter names the next question.
