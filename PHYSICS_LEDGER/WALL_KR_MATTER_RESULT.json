@@ -1,0 +1,289 @@
+{
+ "stage": "K_R^(matter) bounded Dyson experiment",
+ "frozen_kernel_sha256": "dd77b1943e2068c643f4181438814a378c26bc8693b616be812fa5f5888c4ae1",
+ "instrument_sha256": "4d1353ea5c8cfc14586d45dd9ec6426f74ec743bee127dd9b513003d450e8e99",
+ "kinematics": "controlled k->0 (symbolic limit, VALIDATED by path gates + isotropy gate + tiny-k spot check)",
+ "coupling": "g scanned, both signs; nothing fitted",
+ "results": {
+  "chi0_below_threshold": {
+   "0.2": [
+    -0.3310131016122102,
+    0.0
+   ],
+   "0.4": [
+    -0.3546341896960659,
+    0.0
+   ],
+   "0.6": [
+    -0.37757402018012076,
+    0.0
+   ],
+   "0.8": [
+    -0.39981650565579635,
+    0.0
+   ],
+   "1.0": [
+    -0.4213447040781272,
+    0.0
+   ],
+   "1.2": [
+    -0.44214071984280223,
+    0.0
+   ],
+   "1.4": [
+    -0.46218558620861694,
+    0.0
+   ],
+   "1.6": [
+    -0.48145912396750923,
+    0.0
+   ],
+   "1.8": [
+    -0.49993976936598394,
+    0.0
+   ],
+   "2.0": [
+    -0.517604361454013,
+    0.0
+   ],
+   "2.2": [
+    -0.53442787469499,
+    0.0
+   ],
+   "2.4": [
+    -0.5503830757586048,
+    0.0
+   ],
+   "2.6": [
+    -0.5654400719384746,
+    0.0
+   ],
+   "2.8": [
+    -0.5795656985561376,
+    0.0
+   ],
+   "3.0": [
+    -0.5927226552567159,
+    0.0
+   ],
+   "3.2": [
+    -0.6048682252245084,
+    0.0
+   ],
+   "3.4": [
+    -0.6159522396663548,
+    0.0
+   ],
+   "3.6": [
+    -0.6259134947580404,
+    0.0
+   ],
+   "3.8": [
+    -0.6346722693654194,
+    0.0
+   ],
+   "3.9": [
+    -0.6385661904170347,
+    0.0
+   ],
+   "3.97": [
+    -0.6410839529477127,
+    0.0
+   ]
+  },
+  "dyson_scan": {
+   "0.1": {
+    "first_sheet_zeros": [],
+    "sheet_II_resonance": null
+   },
+   "0.5": {
+    "first_sheet_zeros": [],
+    "sheet_II_resonance": null
+   },
+   "1.0": {
+    "first_sheet_zeros": [],
+    "sheet_II_resonance": null
+   },
+   "2.0": {
+    "first_sheet_zeros": [],
+    "sheet_II_resonance": null
+   },
+   "5.0": {
+    "first_sheet_zeros": [],
+    "sheet_II_resonance": null
+   },
+   "20.0": {
+    "first_sheet_zeros": [],
+    "sheet_II_resonance": null
+   },
+   "-0.1": {
+    "first_sheet_zeros": [],
+    "sheet_II_resonance": null
+   },
+   "-0.5": {
+    "first_sheet_zeros": [],
+    "sheet_II_resonance": null
+   },
+   "-1.0": {
+    "first_sheet_zeros": [
+     {
+      "x": 0.34863170671665744,
+      "simple": true,
+      "moves_with_g": true,
+      "class": "ISOLATED POLE (first sheet, real, below threshold)"
+     }
+    ],
+    "sheet_II_resonance": {
+     "z": [
+      0.11637035542731539,
+      -0.9450524901395586
+     ],
+     "simple": true,
+     "class": "RESONANCE POLE (sheet II)"
+    }
+   },
+   "-2.0": {
+    "first_sheet_zeros": [
+     {
+      "x": 0.7995301698018512,
+      "simple": true,
+      "moves_with_g": true,
+      "class": "ISOLATED POLE (first sheet, real, below threshold)"
+     }
+    ],
+    "sheet_II_resonance": {
+     "z": [
+      0.7110448427696676,
+      -1.296433883875519
+     ],
+     "simple": true,
+     "class": "RESONANCE POLE (sheet II)"
+    }
+   },
+   "-5.0": {
+    "first_sheet_zeros": [
+     {
+      "x": 2.9465027729268285,
+      "simple": true,
+      "moves_with_g": true,
+      "class": "ISOLATED POLE (first sheet, real, below threshold)"
+     }
+    ],
+    "sheet_II_resonance": null
+   },
+   "-20.0": {
+    "first_sheet_zeros": [],
+    "sheet_II_resonance": null
+   }
+  }
+ },
+ "interpretation_fence": "NEITHER outcome is evidence for or against K_R^(contract); no inference to the massless-graviton scope or the registered single-pole stance (owner fence, verbatim class). K_R^(contract) remains separately required for the benchmark cell.",
+ "checks": [
+  {
+   "pass": true,
+   "msg": "frozen kernel sha dd77b194... (IMMUTABLE input)",
+   "gate": "0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "H^0 round-trip sha ok",
+   "gate": "0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "controlled limit at omega=0.7: k-sequence (1/2,1/4,1/8) Richardson == symbolic k->0 (rel 2.29e-05); the limit is CHECKED, not assumed",
+   "gate": "1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "controlled limit at omega=1.5: k-sequence (1/2,1/4,1/8) Richardson == symbolic k->0 (rel 1.98e-05); the limit is CHECKED, not assumed",
+   "gate": "1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "tiny-k spot check (k = 1/32) agrees with the symbolic limit (rel 2.25e-04)",
+   "gate": "1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "ISOTROPY GATE at k->0: the + and x polarisation routes give the same chi0 (|diff| = 0.00e+00) -- the transverse projection is well-defined in the limit",
+   "gate": "1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "DISC GATE: every atom class's exact disc formula matches 2i*Im on the cut at two points (worst rel 3.27e-17) -- sheet II is built on gated algebra, not assumption",
+   "gate": "2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTINUITY GATE: chi_I(x + i eps) == chi_II(x - i eps) across the cut at x = 6 (rel 1.50e-05) -- the two sheets glue correctly",
+   "gate": "2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "chi0 is real below the k->0 threshold x = 4m^2 (max |Im| 0.0e+00); the threshold scales to omega_th = 2m exactly",
+   "gate": "3",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pole hunt complete over the two-sign g-scan; classifications recorded per the mandated taxonomy",
+   "gate": "3",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "INDEPENDENCE (dd3 form): third divided difference of Re chi0 == dispersion of its own cut (rel 1.98e-04) -- two independent evaluations of the denominator's chi, modulo the degree-2 local ambiguity the dd3 annihilates",
+   "gate": "4",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: first-order-only control: G0 + g G0 chi G0 has poles ONLY at x = 0 (double) by construction -- any additional structure in the resummed object is resummation-generated, not inherited",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: sign-flipped Sigma control: the pole structure changes under g -> -g (0 vs 1 first-sheet zeros)",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: branch-incorrect control: treating sheet I as single-valued across the cut leaves a mismatch (rel 9.47e-02) that the sheet-II gluing removed -- the continuation is load-bearing",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: normalization-perturbation control: vacuous at this g (no first-sheet zero); the g-scan covers the classifier",
+   "gate": "control"
+  }
+ ],
+ "notes": [
+  "charter sha K_R_OWNER_CHARTER.md = 49f94a7ca4304e70...",
+  "charter sha K_R_CHARTER_AUDIT.md = 8dec81238388e85b...",
+  "chi0(omega) = symbolic k->0 of the frozen TT_++/P2 bilinear; 1 atom instances; K^2 -> omega^2 exactly",
+  "g is a SCANNED parameter of both signs (the frozen record fixes no dimensionless coupling; nothing is fitted; every result below is a function of g). First-order object (A): G0 + g*G0*chi0*G0 -- no new poles by construction; it is the control the resummed object is read against.",
+  "g = +0.1: first-sheet zeros: NONE ; sheet-II resonance: none found",
+  "g = +0.5: first-sheet zeros: NONE ; sheet-II resonance: none found",
+  "g = +1.0: first-sheet zeros: NONE ; sheet-II resonance: none found",
+  "g = +2.0: first-sheet zeros: NONE ; sheet-II resonance: none found",
+  "g = +5.0: first-sheet zeros: NONE ; sheet-II resonance: none found",
+  "g = +20.0: first-sheet zeros: NONE ; sheet-II resonance: none found",
+  "g = -0.1: first-sheet zeros: NONE ; sheet-II resonance: none found",
+  "g = -0.5: first-sheet zeros: NONE ; sheet-II resonance: none found",
+  "g = -1.0: first-sheet zeros: ['0.3486(POLE)'] ; sheet-II resonance: z = 0.116-0.945i (POLE)",
+  "g = -2.0: first-sheet zeros: ['0.7995(POLE)'] ; sheet-II resonance: z = 0.711-1.296i (POLE)",
+  "g = -5.0: first-sheet zeros: ['2.9465(POLE)'] ; sheet-II resonance: none found",
+  "g = -20.0: first-sheet zeros: NONE ; sheet-II resonance: none found"
+ ],
+ "failures": [],
+ "elapsed_s": 120.4
+}

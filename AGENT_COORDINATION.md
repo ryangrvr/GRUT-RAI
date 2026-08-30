@@ -3951,3 +3951,63 @@ the real axis). (iv) Two independent denominator evaluations: direct
 complex-z quadrature vs the dispersive reconstruction (PV-validated
 machinery). (v) The full MS-fixed response is the primary object; the
 NL-only variant is reported as a disclosed scheme-sensitivity line.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- K_R^(matter) COMPLETE: 15/15 gates, 4/4
+controls. The Dyson question has a certified matter-scope answer. HARD STOP.
+================================================================================
+
+Instrument: wall_kr_matter.py, final run 4 (all four logs committed).
+Defect history, each caught by its own arithmetic before certification:
+run 1 isotropy-gate substitution bug (crash); run 2 xx-weight /8-for-/2
+(0.404 = (1 - 1/4)*chi0 exactly) + unresolved near-cut quadrature + divergent
+once-subtracted independence check; run 3 continuation SIGN (residual =
+2 x disc exactly: chi_II = chi_I + disc, not minus). Nothing tuned to a
+verdict; the first-sheet pole values were IDENTICAL across runs 2-4.
+
+THE OMEGA-ONLY OBJECT: at k -> 0 the frozen TT response collapses to ONE atom
+class: chi0(x) = P(x) + c(x) * G-atom(x). Controlled-limit gates: k-sequence
+Richardson == symbolic limit at rel 2e-5; tiny-k spot check 2e-4; isotropy
+EXACTLY 0.00e+00; threshold at x = 4m^2 (omega_th = 2m) exact. Disc formulas
+gated at 3.3e-17; sheet-II gluing gated (continuity green in run 4);
+independence via dd3 at 2.0e-04.
+
+THE CERTIFIED ANSWER (g scanned both signs; nothing fitted; the sign is a
+convention the frozen record does not fix -- OWNER'S BOUND APPLIED VERBATIM:
+the negative-g branch is a mathematical outcome of the declared experiment,
+NOT automatically a physical prediction):
+
+  g > 0 (all magnitudes tested): NO first-sheet poles below threshold
+    (chi0 < 0 there; D = x + |g||chi0| cannot vanish); NO sheet-II zeros
+    found.
+  g < 0: ISOLATED FIRST-SHEET POLES, certified (simple zeros, moving with
+    g, branch point fixed at 4m^2 exactly):
+        g = -1: x = 0.3486 ; g = -2: x = 0.7995 ; g = -5: x = 2.9465
+    (g = -20: the pole exits the scanned window -- boundary noted).
+  SHEET II, CORRECTED GLUING (run-3's wrong-sign 'none' verdicts VOID):
+    complex zeros of the continued denominator FOUND on the negative branch:
+        g = -1: z = 0.116 - 0.945i ; g = -2: z = 0.711 - 1.296i
+    (g = -5, -20: none found from the three seeds -- a bounded statement).
+    Recorded per the taxonomy as simple complex zeros of D_II; their
+    reachability/physical relevance (they sit deep below the cut, |Im z| ~ 1)
+    is part of the record, NOT presumed.
+
+THE CLEAN SEPARATION THE CHARTER ASKED FOR: the first-order object
+G0 + g G0 chi0 G0 has poles only at x = 0 by construction (control DETECTED);
+every pole above is RESUMMATION-GENERATED -- new analytic structure from the
+Dyson denominator, cleanly separated from the structure already present in
+the one-loop self-energy.
+
+THE MATTER-SCOPE SENTENCE (with the owner's bounds):
+  Dyson resummation of the computed massive-loop response generates isolated
+  first-sheet poles AND complex second-sheet zeros on the negative-coupling
+  branch, while the positive branch remains pole-free over the tested domain.
+  This is a matter-scope mathematical result of the pre-declared experiment.
+
+INTERPRETATION FENCE (verbatim class, standing): neither branch settles the
+physical sign; nothing here is evidence for or against K_R^(contract); the
+register's single-pole stance is NOT retroactively derived. Contract-level
+K_R remains untouched and separately required for the benchmark cell.
+
+HARD STOP: no contract build, no TT-TT-TT vertex, no D5, no contract D4, no
+Ward alteration, no J(omega) reopening, no +1 change. W-0; register untouched.

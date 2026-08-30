@@ -1,0 +1,66 @@
+=== STEP 0: GUARD + PINS ===
+   GUARD CLEAN (J(omega)/plant content nowhere in this construction)
+  ok   frozen kernel sha dd77b194... (IMMUTABLE input)
+  note charter sha K_R_OWNER_CHARTER.md = 49f94a7ca4304e70...
+  note charter sha K_R_CHARTER_AUDIT.md = 8dec81238388e85b...
+  ok   H^0 round-trip sha ok
+[    2.6s] frozen chi built (full MS-fixed response; master units)
+
+=== STEP 1: THE OMEGA-ONLY OBJECT (controlled k -> 0) ===
+  note chi0(omega) = symbolic k->0 of the frozen TT_++/P2 bilinear; 1 atom instances; K^2 -> omega^2 exactly
+  ok   controlled limit at omega=0.7: k-sequence (1/2,1/4,1/8) Richardson == symbolic k->0 (rel 2.29e-05); the limit is CHECKED, not assumed
+  ok   controlled limit at omega=1.5: k-sequence (1/2,1/4,1/8) Richardson == symbolic k->0 (rel 1.98e-05); the limit is CHECKED, not assumed
+  ok   tiny-k spot check (k = 1/32) agrees with the symbolic limit (rel 2.25e-04)
+  ok   ISOTROPY GATE at k->0: the + and x polarisation routes give the same chi0 (|diff| = 0.00e+00) -- the transverse projection is well-defined in the limit
+[    3.1s] omega-only object validated
+
+=== STEP 2: THE SECOND SHEET ===
+[    3.8s] per-atom disc formulas derived (1 classes)
+  ok   DISC GATE: every atom class's exact disc formula matches 2i*Im on the cut at two points (worst rel 3.27e-17) -- sheet II is built on gated algebra, not assumption
+  ok   CONTINUITY GATE: chi_I(x + i eps) == chi_II(x - i eps) across the cut at x = 6 (rel 1.50e-05) -- the two sheets glue correctly
+[    4.2s] sheet II constructed and gated
+
+=== STEP 3: D(x) = x - g*chi0(x) -- BOTH ORDERS, g SCANNED ===
+  note g is a SCANNED parameter of both signs (the frozen record fixes no dimensionless coupling; nothing is fitted; every result below is a function of g). First-order object (A): G0 + g*G0*chi0*G0 -- no new poles by construction; it is the control the resummed object is read against.
+  ok   chi0 is real below the k->0 threshold x = 4m^2 (max |Im| 0.0e+00); the threshold scales to omega_th = 2m exactly
+  note g = +0.1: first-sheet zeros: NONE ; sheet-II resonance: none found
+  note g = +0.5: first-sheet zeros: NONE ; sheet-II resonance: none found
+  note g = +1.0: first-sheet zeros: NONE ; sheet-II resonance: none found
+  note g = +2.0: first-sheet zeros: NONE ; sheet-II resonance: none found
+  note g = +5.0: first-sheet zeros: NONE ; sheet-II resonance: none found
+  note g = +20.0: first-sheet zeros: NONE ; sheet-II resonance: none found
+  note g = -0.1: first-sheet zeros: NONE ; sheet-II resonance: none found
+  note g = -0.5: first-sheet zeros: NONE ; sheet-II resonance: none found
+  note g = -1.0: first-sheet zeros: ['0.3486(POLE)'] ; sheet-II resonance: z = 0.116-0.945i (POLE)
+  note g = -2.0: first-sheet zeros: ['0.7995(POLE)'] ; sheet-II resonance: z = 0.711-1.296i (POLE)
+  note g = -5.0: first-sheet zeros: ['2.9465(POLE)'] ; sheet-II resonance: none found
+  note g = -20.0: first-sheet zeros: NONE ; sheet-II resonance: none found
+  ok   pole hunt complete over the two-sign g-scan; classifications recorded per the mandated taxonomy
+[   82.4s] Dyson scan done
+
+=== STEP 4: INDEPENDENCE ===
+  ok   INDEPENDENCE (dd3 form): third divided difference of Re chi0 == dispersion of its own cut (rel 1.98e-04) -- two independent evaluations of the denominator's chi, modulo the degree-2 local ambiguity the dd3 annihilates
+
+=== STEP 5: CONTROLS ===
+  ctrl-DETECTED   first-order-only control: G0 + g G0 chi G0 has poles ONLY at x = 0 (double) by construction -- any additional structure in the resummed object is resummation-generated, not inherited
+  ctrl-DETECTED   sign-flipped Sigma control: the pole structure changes under g -> -g (0 vs 1 first-sheet zeros)
+  ctrl-DETECTED   branch-incorrect control: treating sheet I as single-valued across the cut leaves a mismatch (rel 9.47e-02) that the sheet-II gluing removed -- the continuation is load-bearing
+  ctrl-DETECTED   normalization-perturbation control: vacuous at this g (no first-sheet zero); the g-scan covers the classifier
+
+=== STEP 6: OUTPUT ===
+
+================ SUMMARY (K_R^matter) ================
+  g =      0.1: first-sheet none | sheet-II none
+  g =      0.5: first-sheet none | sheet-II none
+  g =      1.0: first-sheet none | sheet-II none
+  g =      2.0: first-sheet none | sheet-II none
+  g =      5.0: first-sheet none | sheet-II none
+  g =     20.0: first-sheet none | sheet-II none
+  g =     -0.1: first-sheet none | sheet-II none
+  g =     -0.5: first-sheet none | sheet-II none
+  g =     -1.0: first-sheet ['0.3486'] | sheet-II 0.116-0.945i
+  g =     -2.0: first-sheet ['0.7995'] | sheet-II 0.711-1.296i
+  g =     -5.0: first-sheet ['2.9465'] | sheet-II none
+  g =    -20.0: first-sheet none | sheet-II none
+gates: 15/15 passed; failures: 0
+elapsed: 120.4s
