@@ -4092,3 +4092,28 @@ A zero of a continuation is only as good as the continuation.
 
 HARD STOP: no contract-level K_R, no TT-TT-TT vertex, no D4/D5, no Ward
 repair, no J(omega), no +1 modification. W-0; register untouched.
+
+================================================================================
+OWNER RULING -- 2026-08-30 -- K_R^(matter) SIGN ADJUDICATION (document stage)
+================================================================================
+
+Recorded: trace the physical sign of g mechanically from the frozen record
+(action -> quadratic operator -> propagator -> A1 vertex -> Sigma_R -> Dyson
+denominator); distinguish {physical / pure convention / underdetermined};
+verify against metric/Fourier/retarded/Sigma-vs-minus-Sigma conventions; an
+INDEPENDENT second route required; the sign may NOT be chosen from the pole
+result or because it gives a pole; no single-pole inference; no contract-level
+work. Deliverables KR_MATTER_SIGN_ADJUDICATION.md/.json. HARD STOP after.
+
+BUILDER DESIGN (disclosed before executing): ROUTE 1 = the exactly solvable
+linear-response trace: a system oscillator linearly coupled to a passive bath
+in the frozen conventions (mostly-minus, e^{-i omega t}, retarded) yields
+Sigma_R = |c|^2 G_R^bath EXACTLY, hence Im Sigma_R(x + i0) <= 0 for ANY
+passive bath -- a theorem, not an i-counting exercise. ROUTE 2 (independent
+object) = spectral positivity of the DRESSED propagator: rho >= 0 forces
+Im G_R(x+i0) <= 0, i.e. -g * Im chi >= 0 on the cut, tested numerically both
+signs. The frozen facts consumed: Im chi(x+i0) > 0 (the +pi branch law, E3,
+PV-verified) and the countersigned conventions. REDEFINITION TEST included:
+h -> -h leaves Sigma invariant (two vertices), so no field redefinition can
+flip g -- if the trace fixes the sign it is PHYSICAL, not conventional. The
+invariant, convention-proof formulation: sgn(Im[G_R^-1]) on the cut.
