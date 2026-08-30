@@ -347,7 +347,7 @@ class TestResident(unittest.TestCase):
         grut = [c for c in self.claims if c.get("ledger_scope", "grut") == "grut"]
         r = audit(grut, self.src, DEFAULT_TIERS)
         self.assertTrue(r.ok, f"live register must audit clean; blocks={r.blocking}")
-        self.assertEqual(r.net, 17)       # +17 since the 2026-08-24 boost/Lorentz-covariance booking (response_lorentz_covariance, owner go)
+        self.assertEqual(r.net, 16)       # +16: the response_lorentz_covariance +1 (booked 2026-08-24) was RETIRED 2026-08-30 by the owner-adjudicated Q1^TT-and-Q5^TT discharge, per the node's own retire clause
         self.assertEqual(len(grut), 52)   # 51 + response_lorentz_covariance (2026-08-24); 50 + the Ruling-B split's second half (2026-08-23) before that
         # depends_on present on every claim; tiers are the banked ones
         for c in self.claims:
@@ -365,7 +365,7 @@ class TestResident(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)), "duplicate claim ids -> a node counted twice")
         net = sum(c.get("ledger_delta", 0) for c in self.claims
                   if isinstance(c.get("ledger_delta"), int) and not isinstance(c.get("ledger_delta"), bool))
-        self.assertEqual(net, 17, "net over distinct nodes must be +17 (rung7 books 3; rung1 formalism 4 + ontology 1 since Ruling B 2026-08-23; response_lorentz_covariance 1 since the 2026-08-24 boost-covariance booking)")
+        self.assertEqual(net, 16, "net over distinct nodes must be +16 (rung7 books 3; rung1 formalism 4 + ontology 1 since Ruling B 2026-08-23; response_lorentz_covariance RETIRED 2026-08-30 by the owner-adjudicated discharge)")
         # the A3 promoted premises are zero-credit re-typings (borrowers keep their declared deltas)
         by_id = {c["id"]: c for c in self.claims}
         for cid in ("born_rule", "entropy_area_unruh", "past_hypothesis", "lambda_undetermined"):

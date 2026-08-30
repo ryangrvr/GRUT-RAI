@@ -4194,3 +4194,39 @@ STATE AT MATTER-SECTOR CLOSURE:
 
 HARD STOP. W-0; register untouched; no computation authorized until a new
 owner charter names the next question.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- (1) THE +1 REGISTER TRANSITION APPLIED;
+(2) K_R^(contract) EXECUTION CHARTER COMMITTED. HARD STOP.
+================================================================================
+
+(1) REGISTER: on the owner's explicit go, response_lorentz_covariance:
+tier assumed -> shown; ledger_delta 1 -> 0 PER THE NODE'S OWN frozen clause
+("DISCHARGE (retire the +1)"); NET +17 -> +16. The node's binding condition
+("an assembly that inserts Lorentz covariance cannot discharge this node")
+is satisfied: P2 nowhere imposed, guard live, predicates frozen pre-numbers.
+Backup: provenance/claims.json.pre-discharge.bak. Validation: auditor suite
+16/16 GREEN with the updated pins; resident suite 53 pass with ONLY the two
+PRE-EXISTING failures (stash-test proven identical on the pre-edit register:
+the clean-annotation/tier-contradiction pair -- rung1_inin_formalism, tier
+'shown', rests on 'assumed' background_time_translation_flow, tripping the
+shown-on-assumed rule; PRE-DATES today entirely; REPORTED to the owner, not
+silently patched -- it is a standing register-discipline question).
+
+(2) K_R_CONTRACT_EXECUTION_CHARTER.md + K_R_CONTRACT_DEPENDENCY_MAP.json:
+the mountain mapped -- object defined from frozen text; full dependency
+graph; unblock list classified; validation architecture per component
+(flat known-answer, symmetry/Ward, KMS, D5 pole reproduction, D4, FDT,
+both Dyson orders); binding representation rules (the campaign's paid-for
+lessons incl. the 20-minute stop-and-re-represent rule); acceptance criteria
+fixed BEFORE computation; costed tiers 0-7; bridge SUBSUMED; Ward boundary
+(bypasses the Class-B residual; the graviton loop's OWN Ward structure = a
+new Tier-3 classification question); matter-result boundary BINDING (only
+machinery and the sign dictionary transfer). THREE OWNER DECLARATIONS
+required before Tier 1: probe kinematics at contract scope; graviton-loop
+working gauge; the graviton-bath state prescription (incl. the IR treatment
+-- the gap CLOSES for a massless bath and the Q3-class question changes
+character; declared before computing, per pre-registration discipline).
+
+HARD STOP. Nothing built. Next session = TIER 1 ONLY, on the owner's
+acceptance + the three declarations. W-0 for all charter content.

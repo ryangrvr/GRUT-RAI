@@ -148,7 +148,7 @@ class TestAuditor(unittest.TestCase):
         claims = [c for c in claims if c.get("ledger_scope", "grut") == "grut"]
         r = audit(claims, source_ids, DEFAULT_TIERS)
         self.assertTrue(r.ok, f"live register must audit clean; blocks={r.blocking}")
-        self.assertEqual(r.net, 17, "net ledger must be +17 (2026-08-02 restriction + 2026-08-17 bath-genuineness + 2026-08-23 Ruling-B ontology + 2026-08-24 boost/Lorentz-covariance booking)")
+        self.assertEqual(r.net, 16, "net ledger must be +16 (2026-08-02 restriction + 2026-08-17 bath-genuineness + 2026-08-23 Ruling-B ontology + 2026-08-24 boost/Lorentz-covariance booking, RETIRED 2026-08-30 by the owner-adjudicated Q1^TT-and-Q5^TT discharge per the node's own retire clause)")
         self.assertEqual(len(claims), 52, "GRUT scope holds 52 nodes (the 50 pre-split, plus rung1_ontology_finite_memory from the Ruling-B split of 2026-08-23, plus response_lorentz_covariance booked 2026-08-24)")
 
 
