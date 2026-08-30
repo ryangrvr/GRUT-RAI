@@ -3587,3 +3587,49 @@ W7 -- VERDICT: C (UNRESOLVED), per the owner's classes, not collapsed:
 STANDING AFTER HARD STOP: PV sealed; J(omega) sealed; spectral fits sealed;
 +1 NOT discharged; kernel and Q1/Q4/Q5 untouched; W-0; register untouched.
 The C-residual is the owner's adjudication item.
+
+================================================================================
+OWNER AUTHORIZATION -- 2026-08-30 -- PV ROBUSTNESS (the pre-registered stage)
+================================================================================
+
+Recorded: the full PV brief (verbatim in the owner's message). Operative: the
+primary result is immutable comparator A; PV is independently constructed
+comparator B; comparison matrix = {TT kernel, Q1^TT, Q4^TT, Q5^TT, Q3
+gap/threshold, Ward contraction, vector-channel residual}; every disagreement
+classified {numerical, normalization, local/contact, nonlocal, gauge/orbit,
+scheme, unresolved}; the Ward residual is a FINDING not a target (neither
+forced to reproduce nor to vanish); no scheme averaging; controls (wrong PV
+sign, altered regulator, altered physical response) must detect; HARD STOP
+before J(omega), s=3 comparison, +1, or any Bardeen invention.
+
+THE FROZEN PV PROTOCOL (WALL_A_A3_DECLARATIONS.md, Scheme section + Robustness
+test, quoted): "Pauli-Villars regularization with two regulator fields of mass
+M1, M2 taken to infinity after the loop" ... "the assembly stage MUST
+additionally run the primary scheme against the Pauli-Villars alternative and
+require: the nonlocal low-frequency analytic structure (branch-cut location,
+s-class at the convergence boundary) agrees. Disagreement in the nonlocal part
+is a FINDING (scheme-sensitivity of question (iii)), reported as such --
+never averaged away." Doctrine: two admissible schemes differ only by local
+polynomial terms.
+
+BUILDER DESIGN OF RECORD (disclosed before computing):
+  * Comparator B's ABSORPTIVE side is constructed from ON-SHELL TWO-BODY
+    PHASE SPACE (CM parametrization + boost, numeric angular quadrature,
+    the corrected A1 vertex algebra) -- sharing NO code and NO masters with
+    the frozen kernel; its normalization is DERIVED, not fitted, by a
+    theorem gate (unit-vertex phase space vs the A3-1 Im law
+    pi*sqrt(1-4m^2/K^2), required CONSTANT across kinematics).
+  * Comparator B's REAL side: once-subtracted PV dispersion with the
+    two-regulator combination (conditions Sum c = -1 on the physical+
+    regulator set killing the leading growth; finite numeric M1^2, M2^2 with
+    an M-doubling invariance demonstration standing in for M -> infinity).
+  * The unitarity cut fixes the vertex pairing unambiguously (both cut
+    momenta on-shell, K = p + q): the phase-space Ward contraction therefore
+    carries the DERIVED covariant prediction Im W = 0 -- and the literal-
+    pairing alternative -2m^2(K.X) x Im-bubble is also computed. The frozen
+    kernel's Im W (nonzero, transverse-X-carrying) is compared against BOTH,
+    and the verdict row is classified, not repaired.
+  * SCOPE: the phase-space comparison runs at the FLAT (H^0) order where the
+    unitarity construction is unambiguous; H^1/H^2 rows are compared through
+    the master-level PV structure (nonlocal atom identity + threshold +
+    s-class, the declared criterion). Disclosed as the stage boundary.
