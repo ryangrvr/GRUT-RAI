@@ -1,0 +1,244 @@
+{
+ "stage": "A3-4 layer 2 (TT)",
+ "frozen_kernel_sha256": "dd77b1943e2068c643f4181438814a378c26bc8693b616be812fa5f5888c4ae1",
+ "instrument_sha256": "50cfa2b5f295d19b857fafe1baf70612e0f4ee992b5313eb883d741040d0eecf",
+ "verdicts": {
+  "layer": "(2) preregistered verdicts on the DECLARED TT object -- separate from the raw full non-TT findings of layer (1)",
+  "Q1_TT": {
+   "verdict": "INSIDE",
+   "per_sector": {
+    "0": {
+     "inside": true,
+     "isotropy_holds": true,
+     "sym_offdiag_zero": true,
+     "antisym_offdiag_zero": true,
+     "hall_class_only": false
+    },
+    "1": {
+     "inside": true,
+     "isotropy_holds": true,
+     "sym_offdiag_zero": true,
+     "antisym_offdiag_zero": true,
+     "hall_class_only": false
+    },
+    "2": {
+     "inside": true,
+     "isotropy_holds": true,
+     "sym_offdiag_zero": true,
+     "antisym_offdiag_zero": true,
+     "hall_class_only": false
+    }
+   }
+  },
+  "Q4_TT": {
+   "verdict": "HOLDS -- equilibrium regime established; the 2D closure reduction is licensed for the computed response",
+   "per_sector": {
+    "0": true,
+    "1": true,
+    "2": true
+   }
+  },
+  "Q5_TT": {
+   "verdict": "INSIDE"
+  },
+  "Q3_TT": {
+   "verdict": "INSIDE (s >= 2: convergent) -- mechanism: GAPPED spectrum; rigorous, not rounded",
+   "uv_growth_power": 4.049342782999734
+  },
+  "discharge_map": "Q1 INSIDE and Q5 INSIDE are the ONLY admissible evidence for the +1; Q3/Q4 do not vote; discharge is an owner ruling at the bank gate -- NOT executed here",
+  "scope": "validated to the declared computational standard; W-0: computed-and-reported, NOT banked; the non-TT gauge-invariant content (Bardeen scalars) needs the A4 orbit apparatus and is NOT adjudicated here"
+ },
+ "checks": [
+  {
+   "pass": true,
+   "msg": "pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...",
+   "gate": "pins",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md == f6127ca65ad6636b...",
+   "gate": "pins",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...",
+   "gate": "pins",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin wall_a_closure_premises.py == b7408f2a5e8b702c...",
+   "gate": "pins",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin second_author_closure_premises.py == 56c7b7ae500eda86...",
+   "gate": "pins",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "frozen kernel manifest sha == dd77b194... (the accepted A3-3 freeze)",
+   "gate": "pins",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "TT view srepr round-trip: recomputed sha == frozen manifest (e242ab76...)",
+   "gate": "load",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "TT reduction gate: P0s vanishes on ALL four TT polarisation pairs (the 3-family's TT content is P2 alone)",
+   "gate": "basis",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "TT reduction gate: Xsw vanishes on ALL four TT polarisation pairs (the 3-family's TT content is P2 alone)",
+   "gate": "basis",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "TT reduction gate: Xws vanishes on ALL four TT polarisation pairs (the 3-family's TT content is P2 alone)",
+   "gate": "basis",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "TT reduction gate: P0w vanishes on ALL four TT polarisation pairs (the 3-family's TT content is P2 alone)",
+   "gate": "basis",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "TT reduction gate: P1 vanishes on ALL four TT polarisation pairs (the 3-family's TT content is P2 alone)",
+   "gate": "basis",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "TT reduction gate: P2 is polarisation-isotropic and diagonal on TT (P2(+,+) == P2(x,x) = 2, P2(+,x) == 0)",
+   "gate": "basis",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONVENTION-WEIGHT GATE (kernel-free): P2 through the freeze formula gives TT_++ = 2 (weight 1) and TT_xx = 8 (weight 4 x direct 2) -- the isotropy predicate below therefore reads 4*NL[++] == NL[xx]",
+   "gate": "basis",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: convention control: P2 itself FAILS the naive equal-weight isotropy comparison on freeze-formula components (the first run's defect, reproduced as a permanent control)",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "Q1^TT H^0: nonlocal TT block == a(omega,k) * P2^TT EXACTLY (isotropic, zero off-diagonals) -- INSIDE",
+   "gate": "Q1TT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Q1^TT H^1: nonlocal TT block == a(omega,k) * P2^TT EXACTLY (isotropic, zero off-diagonals) -- INSIDE",
+   "gate": "Q1TT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Q1^TT H^2: nonlocal TT block == a(omega,k) * P2^TT EXACTLY (isotropic, zero off-diagonals) -- INSIDE",
+   "gate": "Q1TT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: Q1^TT control: injected anisotropy breaks isotropy",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: Q1^TT control: injected symmetric off-diagonal detected",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "Q5^TT structural gate: the freeze's H-grading is external (sectors H-free), so the H->0 limit of the TT response exists per channel and equals the H^0 TT block exactly",
+   "gate": "Q5TT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Q5^TT: flat-limit placement MATCHES Q1^TT's flat placement (same computed object; the limit commutes by the grading)",
+   "gate": "Q5TT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Q4^TT H^0: TT_+x == (-1)^0 * TT_x+ is True (eps-corrected slot exchange on the TT block; H T-ODD; full component, local + nonlocal)",
+   "gate": "Q4TT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Q4^TT H^1: TT_+x == (-1)^1 * TT_x+ is True (eps-corrected slot exchange on the TT block; H T-ODD; full component, local + nonlocal)",
+   "gate": "Q4TT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Q4^TT H^2: TT_+x == (-1)^2 * TT_x+ is True (eps-corrected slot exchange on the TT block; H T-ODD; full component, local + nonlocal)",
+   "gate": "Q4TT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: Q4^TT control: injected exchange-asymmetric term shifts the predicate residual",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "Q3^TT: the flat TT channel is nonzero",
+   "gate": "Q3TT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Q3^TT gap: Im chi == 0 below omega_th (numeric 0.0e+00; structural: every atom real off the cut)",
+   "gate": "Q3TT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Q3^TT cut opens above threshold (1.110e-01)",
+   "gate": "Q3TT",
+   "detail": null
+  },
+  {
+   "pass": false,
+   "msg": "Q3^TT dispersion: twice-subtracted KK sum rule closes at omega0 = 1 (lhs -0.010290 vs nan, rel nan)",
+   "gate": "Q3TT",
+   "detail": null
+  },
+  {
+   "pass": false,
+   "msg": "CONTROL: Q3^TT control: wrong-branch (+i0) Im breaks the sum rule (nan vs nan)",
+   "gate": "control"
+  }
+ ],
+ "notes": [
+  "Q1^TT declared verdict (flat sector H^0): INSIDE",
+  "Q3^TT spectral class as COMPUTED: GAPPED -- Im chi == 0 identically below omega_th = sqrt(k^2 + 4m^2); the frozen criterion 's >= 2: convergent' is satisfied RIGOROUSLY (Im = O(omega^s) for every s as omega -> 0+). Mechanism: the loop mass gap. The massless limit is a separate declared robustness question, not computed uninvited.",
+  "Q3^TT UV bookkeeping: |Im chi| ~ omega^4.05 at large omega; the unsubtracted KK integral needs 3 subtractions at the high end; the criterion reads on the low-frequency class only."
+ ],
+ "failures": [
+  "Q3^TT dispersion: twice-subtracted KK sum rule closes at omega0 = 1 (lhs -0.010290 vs nan, rel nan)",
+  "CONTROL MISSED: Q3^TT control: wrong-branch (+i0) Im breaks the sum rule (nan vs nan)"
+ ],
+ "elapsed_s": 395.7
+}

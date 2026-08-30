@@ -1,0 +1,82 @@
+=== GUARD (LOAD/ECHO/SCAN/FAIL; frozen registry is law) ===
+   GUARD CLEAN at load (8 symbols, 12 files); file reads re-scanned at exit
+
+=== STEP 0: FROZEN-ARTIFACT PINS ===
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  ok   pin WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md == 6f2a762f4a4a01cd...
+  ok   pin WALL_A_A3_DECLARATIONS_V3_AMENDMENT.md == b0b9983bf0ab04c0...
+  ok   pin WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md == f6127ca65ad6636b...
+  ok   pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...
+  ok   pin wall_a_closure_premises.py == b7408f2a5e8b702c...
+  ok   pin second_author_closure_premises.py == 56c7b7ae500eda86...
+  ok   frozen kernel manifest sha == dd77b194... (the accepted A3-3 freeze)
+
+=== STEP 1: LOAD THE FROZEN KERNEL ===
+  ok   sector H^0 srepr round-trip: recomputed sha == frozen (0512f44138923976...)
+[    2.3s]   (peak RSS 119 MB after H^0)
+  ok   sector H^1 srepr round-trip: recomputed sha == frozen (cae4501341b724b9...)
+[   20.9s]   (peak RSS 464 MB after H^1)
+  ok   sector H^2 srepr round-trip: recomputed sha == frozen (474d684f557b4093...)
+[   83.9s]   (peak RSS 1656 MB after H^2)
+[   84.2s] frozen kernel loaded (3 sectors + TT view)
+
+=== STEP 2: SLOT TABLES ===
+  ok   H^0: every term is exactly bilinear E x P (0 violations in 833 terms)
+  ok   H^0: every nonlocal term carries exactly one atom class (0 multi-atom slots)
+  ok   H^1: every term is exactly bilinear E x P (0 violations in 4978 terms)
+  ok   H^1: every nonlocal term carries exactly one atom class (0 multi-atom slots)
+  ok   H^2: every term is exactly bilinear E x P (0 violations in 18149 terms)
+  ok   H^2: every nonlocal term carries exactly one atom class (0 multi-atom slots)
+[   91.9s] slot tables built
+  ctrl-DETECTED   extraction control: synthetic bilinear reconstructs exactly
+
+=== STEP 3: CHANNEL BASIS (wall_a_closure_premises.py conventions) ===
+  ok   basis gate: k_m X_sw^{mnrs} == 0 (r-slot Ward, the premises' (1b); E-slot = R-slot convention DISCLOSED)
+  ok   basis gate: tr theta == 3
+  ok   basis gate: P2(e+, eX) == 0 (TT channel diagonality)
+[   94.8s] channel basis built and gated
+
+=== STEP 4: Q1 PLACEMENT + Q4 RECIPROCITY (per sector) ===
+  ok   Q1 H^0: 0/9 atom classes INSIDE; 9 land on OUTSIDE structures ['P0w', 'P1', 'Xws'] (recorded as computed; the blind criterion calls this OUTSIDE)
+[  142.9s] Q1 H^0: 9 atom classes fitted (peak RSS 1656 MB)
+  ok   Q4 H^0: T_n == (-1)^n * swap(T_n) is True (exact symbolic; H treated as T-ODD; E1 mechanism of the pinned premises files)
+[  143.3s] Q4 H^0 done; sector freed (peak RSS 1656 MB)
+  ok   Q1 H^1: 0/56 INSIDE, 18 OUTSIDE (['P0w', 'P1', 'Xws']), 38 atom classes carry frame/u-structure content beyond the covariant 6-family -- FINDING per Declaration 4
+[ 1038.1s] Q1 H^1: 56 atom classes fitted (peak RSS 1656 MB)
+  ok   Q4 H^1: T_n == (-1)^n * swap(T_n) is False (exact symbolic; H treated as T-ODD; E1 mechanism of the pinned premises files)
+[ 1047.1s] Q4 H^1 done; sector freed (peak RSS 1656 MB)
+  ok   Q1 H^2: 0/157 INSIDE, 22 OUTSIDE (['P0w', 'P1', 'Xws']), 135 atom classes carry frame/u-structure content beyond the covariant 6-family -- FINDING per Declaration 4
+[ 4237.2s] Q1 H^2: 157 atom classes fitted (peak RSS 1656 MB)
+  ok   Q4 H^2: T_n == (-1)^n * swap(T_n) is False (exact symbolic; H treated as T-ODD; E1 mechanism of the pinned premises files)
+[ 4250.6s] Q4 H^2 done; sector freed (peak RSS 1656 MB)
+  note Q1 verdict (flat sector, the covariance-bearing content): OUTSIDE. H^1/H^2 placements recorded above as computed.
+  ctrl-DETECTED   Q1 control: injected X_ws contamination lands OUTSIDE (3-family residue != 0, 6-family fit recovers it on X_ws)
+  ctrl-DETECTED   Q1 control: injected frame (u-structure) contamination escapes even the 6-family (residue != 0)
+
+=== STEP 5: Q5 FLAT LIMIT + Q1b ===
+  ok   Q5 structural gate: every sector is H-free (the freeze carries H externally: Sigma = S0 + H S1 + H^2 S2), so the H->0 limit exists per channel and equals sector 0 exactly
+  ok   Q5: the flat-limit decomposition onto {P2, P0s, X_sw} MATCHES Q1's flat placement (same computed object; the limit commutes by the structural grading)
+  note Q1b: not triggered (X_sw coefficient == 0 in every sector)
+
+=== STEP 6: Q4 VERDICT ===
+  ok   Q4 TT H^0: TT_+x == (-1)^0 TT_x+ is True (the derived TT view corroborates)
+  ok   Q4 TT H^1: TT_+x == (-1)^1 TT_x+ is True (the derived TT view corroborates)
+  ok   Q4 TT H^2: TT_+x == (-1)^2 TT_x+ is True (the derived TT view corroborates)
+  ctrl-DETECTED   Q4 control: injected slot-asymmetric term breaks the exchange identity
+[ 4256.5s] Q4 done
+
+=== STEP 7: Q3 SPECTRAL CLASS (P2 channel, flat sector) ===
+  note channel-coefficient normalization: c_nm = Cramer_sol * K2^2 / det (the K2^2 clears the theta-projector denominators; membership is normalization-independent, reported coefficients carry the true factor)
+  FAIL Q3: the flat P2-channel coefficient is nonzero (the TT response exists)
+  ok   Q3 gap: Im a_P2 == 0 below omega_th = sqrt(k^2+4m^2) (numeric 0.0e+00; structural: every atom is real off the cut)
+  FAIL Q3 cut opens: Im a_P2 != 0 above threshold (0.000e+00 at 1.2*omega_th)
+  note Q3 spectral class as COMPUTED: the response is GAPPED -- Im chi(omega) vanishes IDENTICALLY for omega < omega_th (mass gap 2m at k=0). In the omega->0+ sense Im chi = O(omega^s) holds for EVERY s, so the frozen criterion 's >= 2: convergent' is satisfied RIGOROUSLY. Mechanism named: the loop mass gap, not a power law. The massless limit is a separate declared robustness question, NOT computed here uninvited.
+Traceback (most recent call last):
+  File "/Users/mpg/Desktop/GRUT ResponsiveAI/PHYSICS_LEDGER/wall_a3_4_adjudication.py", line 645, in <module>
+    p_uv = mp.log(g2 / g1) / mp.log(2)
+                  ~~~^~~~
+  File "<string>", line 7, in __div__
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/site-packages/mpmath/libmp/libmpf.py", line 956, in mpf_div
+    if t == fzero: raise ZeroDivisionError
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+ZeroDivisionError

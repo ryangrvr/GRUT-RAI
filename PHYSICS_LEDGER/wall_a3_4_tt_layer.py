@@ -27,6 +27,18 @@ predicate rules on. The reciprocity predicate is UNCHANGED from the frozen
 pre-registration: eps-signature-corrected slot exchange, H treated as T-ODD
 (E1 mechanism of the pinned closure-premises files).
 
+DISCLOSED DEFECT (first run, 2026-08-30): the isotropy predicate compared
+NL[TT_++] against NL[TT_xx] at equal weight, but the FREEZE's _tt_view formula
+weights the components unequally -- through it, P2 ITSELF gives TT_++ = 2,
+TT_xx = 8 (proven kernel-free: the xx combination sums four index orderings of
+the SAME symmetric-slot coefficient, weight 4; the +x/x+ rows weight 2; ++
+weight 1). The first run's Q1^TT OUTSIDE-by-anisotropy verdict tested the
+formula's weighting, not the kernel. THE CONVENTION-WEIGHT GATE BELOW (STEP 2b)
+now proves the weights in-instrument, and the isotropy predicate reads
+4*NL[TT_++] == NL[TT_xx]. Off-diagonal comparisons (+x vs x+, both weight 2)
+and Q3's chi (built from ++, weight 1, normalized by the DIRECT P2(+,+)) were
+convention-consistent already and are unchanged. Q4 is unaffected.
+
 W-0: computed-and-reported, NOT banked. No J(omega), no PV, no benchmark.
 Exit 0 iff every gate passes and every control detects; the Q verdicts are
 findings, not gate outcomes.
@@ -214,13 +226,47 @@ P2px = tt_val("P2", EPLUS, ECROSS)
 check(sp.simplify(P2pp - P2xx) == 0 and P2px == 0 and P2pp != 0,
       "TT reduction gate: P2 is polarisation-isotropic and diagonal on TT "
       "(P2(+,+) == P2(x,x) = %s, P2(+,x) == 0)" % P2pp, gate="basis")
+# STEP 2b: THE CONVENTION-WEIGHT GATE (kernel-free): P2 pushed through the
+# freeze's cc-formula must show weights (++ : +x : xx) = (1 : 2 : 4).
+def Es(i, j):
+    return sp.Symbol("E_%d%d" % (min(i, j), max(i, j)))
+
+
+def Ps(i, j):
+    return sp.Symbol("P_%d%d" % (min(i, j), max(i, j)))
+
+
+_P2c = sp.expand(sum(STRUCT["P2"](a, b, c, d) * Es(a, b) * Ps(c, d)
+                     for a in range(4) for b in range(4)
+                     for c in range(4) for d in range(4)))
+
+
+def _cc(a, b, c, d):
+    return _P2c.coeff(Es(a, b), 1).coeff(Ps(c, d), 1)
+
+
+_frz_pp = sp.simplify(_cc(1, 1, 1, 1) - _cc(1, 1, 2, 2)
+                      - _cc(2, 2, 1, 1) + _cc(2, 2, 2, 2))
+_frz_xx = sp.simplify(_cc(1, 2, 1, 2) + _cc(1, 2, 2, 1)
+                      + _cc(2, 1, 1, 2) + _cc(2, 1, 2, 1))
+_frz_px = sp.simplify(_cc(1, 1, 1, 2) + _cc(1, 1, 2, 1)
+                      - _cc(2, 2, 1, 2) - _cc(2, 2, 2, 1))
+check(_frz_pp == P2pp and sp.simplify(_frz_xx - 4 * P2xx) == 0,
+      "CONVENTION-WEIGHT GATE (kernel-free): P2 through the freeze formula "
+      "gives TT_++ = %s (weight 1) and TT_xx = %s (weight 4 x direct %s) -- "
+      "the isotropy predicate below therefore reads 4*NL[++] == NL[xx]"
+      % (_frz_pp, _frz_xx, P2xx), gate="basis")
+control(sp.simplify(_frz_pp - _frz_xx) != 0,
+        "convention control: P2 itself FAILS the naive equal-weight isotropy "
+        "comparison on freeze-formula components (the first run's defect, "
+        "reproduced as a permanent control)")
 stamp("basis TT-reduction proven")
 
 # ================= STEP 3: Q1^TT -- THE DECLARED PLACEMENT =================
 print("\n=== STEP 3: Q1^TT (declared criterion; per H-order) ===")
 Q1TT = {}
 for n in sorted(NL):
-    iso = sp.expand(NL[n]["TT_plus_plus"] - NL[n]["TT_cross_cross"])
+    iso = sp.expand(4 * NL[n]["TT_plus_plus"] - NL[n]["TT_cross_cross"])  # convention-weight corrected (gate 2b)
     sym_off = sp.expand(NL[n]["TT_plus_cross"] + NL[n]["TT_cross_plus"])
     asym_off = sp.expand(NL[n]["TT_plus_cross"] - NL[n]["TT_cross_plus"])
     inside = (iso == 0 and sym_off == 0 and asym_off == 0)
