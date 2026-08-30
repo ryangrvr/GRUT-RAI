@@ -3747,3 +3747,31 @@ vector Ward problem -- TWO SEPARATE FINDINGS, kept separate, per directive.
 HARD STOP: no J(omega), no s=3 comparison, no +1 discharge, no
 relaxation/resonance classification, no Bardeen invention. W-0; register
 untouched. Owner adjudication required.
+
+================================================================================
+OWNER AUTHORIZATION -- 2026-08-30 -- J(omega) BENCHMARK COMPARISON (J0-J9)
+THE SEAL IS OPENED. This entry marks the first read of the registered
+comparator in the entire Wall-A campaign.
+================================================================================
+
+Recorded: the full J0-J9 brief (verbatim in the owner's message). PRIMARY
+RULE: THE FROZEN RESPONSE IS THE INPUT; J(omega) IS ONLY THE COMPARATOR.
+Never refit/alter the response, masters, verdicts, or basis; never choose
+normalization or windows by agreement; disagreement is REPORTED. The s>=2
+gapped result must NOT be massaged toward s=3: the s=3 gate has four verdicts
+(CONFIRMED / NOT CONFIRMED / INAPPLICABLE-GAP-OBSCURES / STRUCTURAL MISMATCH)
+and the instrument must not silently convert s>=2 into s=3. J4 distinguishes
+same-asymptotic-class vs same-exact-function vs numerically-similar-window.
+Four blind controls (sign, frequency-axis, threshold, normalization
+corruption) must detect. J9 keeps the four questions separate; question D
+(what a mismatch means) is NOT answered here. HARD STOP after the report.
+The closing rule, verbatim: "COMPUTE THE COMPARISON. DO NOT CHANGE THE OBJECT
+BEING COMPARED. REPORT WHAT IT SAYS."
+
+GOVERNANCE NOTE ON THE GUARD: per Declaration 4 (frozen), "the comparison
+with the registered J(omega) happens ONLY in the separate post-assembly
+artifact, after Q1-Q5 verdicts are recorded" -- that condition is now met
+(A3-4 + A4 + PV all recorded and committed). The comparison instrument reads
+the registered family AS COMPARATOR ONLY; the response-side inputs remain
+hash-pinned and untouched, and the barred-inputs discipline survives in the
+form: no benchmark quantity flows into any response-side construction.
