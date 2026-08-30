@@ -1,0 +1,6 @@
+{
+ "verdict": "MAPPING CERTIFIED, READING-INDEPENDENT: Sigma_R = -(positive) x chi^(frozen); D = x + |g| chi; g < 0 stands. The distinction 'friction-positive response' vs 'standard self-energy' is an exact dictionary (chi = -G), not an ambiguity; the frozen record's own FDT and friction conventions pin which object was frozen.",
+ "gates_passed": 5,
+ "gates": 5,
+ "instrument_sha256": "fa4ff0e1ec264c297d916222810b6db07a10d4c745ac51f37a50c9c0b095f57a"
+}

@@ -4156,3 +4156,41 @@ single pole; NOT K_R^(contract) (REMAINS OPEN); NOT a GRUT-level prediction.
 
 HARD STOP: no K_R^(matter) rerun, no contract build, no pole-result changes,
 no Ward repair, no J(omega), no Q or +1 modification. W-0; register untouched.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- SIGN-MAPPING AUDIT COMPLETE (5/5). The g < 0
+verdict is READING-INDEPENDENT. Matter sector CLOSED. HARD STOP.
+================================================================================
+
+The owner's final scrutiny target -- the mapping Im chi > 0 => Dyson sign --
+audited in three legs (wall_kr_sign_mapping_audit.py, KR_SIGN_MAPPING_AUDIT
+.json):
+  LEG 1, THE DICTIONARY (derived symbolically): chi^(FDT) == -G_bath EXACTLY
+    (response function = minus the propagator-normalized Green's function,
+    both retarded); hence Sigma_R = +c^2 G_b == -c^2 chi^(FDT) and
+    D = x + c^2 chi: the coefficient of the FDT-positive chi is
+    NEGATIVE-DEFINITE. The 'friction vs self-energy' distinction is an exact
+    two-convention dictionary, not an ambiguity.
+  LEG 2, WHICH OBJECT WAS FROZEN (register's own anchors): rung2's FDT lock
+    (N = coth x Im chi, N >= 0 => Im chi >= 0) + the registered friction
+    convention (Im chi = J/omega >= 0) + the computed +pi branch law -- three
+    frozen anchors agree: the engine froze the FDT/friction-positive chi, in
+    THE REGISTER'S OWN CONVENTION, not a label this campaign chose.
+  LEG 3, EXCLUSION: the only g-flipping reading (frozen object = +Sigma_R
+    with Im > 0) would make the matter loop an ACTIVE medium, contradicting
+    the passivity theorem and the independently verified positive spectral
+    weight (7e-17). Not an available semantics.
+
+VERDICT: MAPPING CERTIFIED, READING-INDEPENDENT. g < 0 stands.
+
+STATE AT MATTER-SECTOR CLOSURE:
+  Wall A: CLOSED. K_R^(matter): CLOSED. Physical branch: g < 0 (certified,
+  pole-blind, reading-independent). Matter pole structure: certified on the
+  physical branch (x_p family + refereed sheet-II zeros), |g| magnitude
+  unfixed ('pole-capable', never 'pole exists'). K_R^(contract): THE NEXT
+  MAJOR FRONTIER (fresh charter required). Ward Class-B: separate,
+  unresolved. Register +1 tier-flip: adjudicated, application awaiting the
+  owner's explicit go.
+
+HARD STOP. W-0; register untouched; no computation authorized until a new
+owner charter names the next question.
