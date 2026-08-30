@@ -3524,3 +3524,66 @@ Ward identities are DERIVED IN-INSTRUMENT as executed gates (from the A1 form,
 not assumed), and the factorization verdict + the cut-Im test decide between
 the owner's outcome classes without any repair. This note is written before
 the first contraction of this diagnostic is run.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- WARD/BARDEEN DIAGNOSTIC COMPLETE (W0-W7).
+VERDICT: C (UNRESOLVED) -- the residual is EXACTLY LOCATED. HARD STOP.
+================================================================================
+
+Instrument: wall_a4_ward_diag.py. Final run: 28/28 gates, 0 failures, all four
+controls behaved. Three runs; the first two were stopped by the instrument's
+OWN derivation gates refusing my mis-implemented algebra (run 1: spurious
+metric factors + a K.X sign error; run 2: the residue coefficient -i m^2 vs
+the true -2i m^2). Both defects disclosed in-file; all three logs committed.
+The gates never certified a wrong identity -- the discipline held.
+
+W1 -- REPRODUCED. The A4 nonzero W confirmed by an INDEPENDENT contraction
+  path (per-term slot split vs xreplace; byte-identical), at H^0, H^1,
+  H^2(u-free).
+
+THE DERIVED WARD ALGEBRA of the countersigned A1 vertex (executed gates):
+  covariant pairing (K = p + q):   Gamma_de = i[D_p (X.q) + D_q (X.p)]
+                                   -- pure EoM: nonlocal W would be ZERO.
+  literal pairing ((p,q)=(l,l-K)): Gamma_de = i[D_p(X.q) - D_q(X.p)]
+                                   - 2i m^2 (K.X)
+                                   -- EoM + a residue that is PURELY
+                                   LONGITUDINAL and proportional to m^2.
+
+W2 -- DECOMPOSITION. The computed nonlocal W lies OUTSIDE BOTH derived
+  classes at every order: transverse-X components are PRESENT (H^0: 14/14
+  terms; H^1: 194/194; H^2: 756/756) where both predictions require NONE,
+  and W does not factor as (K.X) x F. LOCALIZATION: the transverse-X content
+  enters only through the de_01/de_31 slots => the residual lives in the
+  VECTOR CHANNEL (0i/3i slots) of the nonlocal non-TT sector -- the same
+  channel as layer-1's P1-structure content. Atom-class census per order:
+  4 / 33 / 105 classes (recorded in the result JSON).
+
+W3 -- V4 BOUNDARY, MECHANICAL. |Im W| on the cut = 1.3e+01 / 1.0e-01 /
+  1.5e+02 at the three orders: the residual is GENUINELY NONLOCAL. It is not
+  "contact because gauge-related" -- it is cut-carrying, hence not
+  polynomial, hence outside every permitted local completion.
+
+W4 -- PERMITTED COMPLETION. The frozen framework's completion (countersigned
+  invariance identity: orbit variation = EoM + total derivative; EoM
+  insertions collapse to tadpole class, LOCAL per V4) can account for AT MOST
+  the cut-free part of W. It cannot absorb the cut-carrying vector-channel
+  residual. No completion was invented; nothing was refitted; the kernel was
+  not touched.
+
+W5 -- TT INVARIANCE: EXACT. The completion class has zero TT projection by
+  executed trace-cancellation gates; TT(completed) == TT(frozen) through
+  O(H^2). OUTCOME D IS EXCLUDED: the physical TT response is untouched.
+
+W6 -- CONTROLS: 4/4. No-completion baseline reproduced; wrong-class ansatz
+  refused; pure-gauge TT injection changed nothing; the finite-difference
+  absorber control proved a polynomial cannot fake away a G-atom.
+
+W7 -- VERDICT: C (UNRESOLVED), per the owner's classes, not collapsed:
+  a genuinely nonlocal Ward residual, EXACTLY LOCATED in the vector channel
+  of the non-TT sector, lying outside both derived vertex-pairing classes and
+  outside every permitted local completion -- while the physical TT response
+  is provably untouched by the entire question.
+
+STANDING AFTER HARD STOP: PV sealed; J(omega) sealed; spectral fits sealed;
++1 NOT discharged; kernel and Q1/Q4/Q5 untouched; W-0; register untouched.
+The C-residual is the owner's adjudication item.

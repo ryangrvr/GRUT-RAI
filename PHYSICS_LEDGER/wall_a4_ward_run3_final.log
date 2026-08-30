@@ -1,0 +1,69 @@
+=== W0: GUARD + IMMUTABLE INPUTS ===
+   GUARD CLEAN at load
+  ok   pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  ok   pin WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md == f6127ca65ad6636b...
+  ok   pin wall_a_a4_dual_gauge.py == 03cc6bcc0fec0c13...
+  ok   frozen kernel sha == dd77b194... (NO regeneration)
+  note input sha WALL_A3_4_TT_RESULT.json = 8c27eeb3ecd235bc...
+  note input sha WALL_A4_RESPONSE_FLAT_RESULT.json = 10994b43326b6d5e...
+  note input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...
+  ok   H^0 round-trip sha ok
+  ok   H^1 round-trip sha ok
+  ok   H^2 round-trip sha ok
+[   87.2s] inputs frozen and loaded
+
+=== PRE-STATED DERIVATION: THE A1 VERTEX WARD ALGEBRA ===
+  ok   WARD ALGEBRA (K = p + q): Gamma_de == i[D_p (X.q) + D_q (X.p)] -- PURE EoM, derived from the countersigned A1 form
+  ok   WARD ALGEBRA ((p,q) = (l, l-K)): Gamma_de == i[D_p(X.q) - D_q(X.p)] - 2i m^2 (K.X) -- EoM PLUS the m^2 TRACE RESIDUE, derived
+  note PREDICTION (pre-stated): if the assembly's effective pairing is the (l, l-K) form, the NONLOCAL Ward contraction factors as m^2 (K.X) x F(p-slot; omega, k), with NO transverse-X components and F = the one-vertex bubble (nonlocal, cut-carrying). If the covariant K = p + q pairing governs, the nonlocal W is ZERO (pure EoM collapse).
+[   87.4s] vertex Ward algebra derived
+
+=== W1: REPRODUCE THE WARD CONTRACTION (independent path) ===
+  ok   W1: flat Ward contraction reproduced by the INDEPENDENT slot-path (xreplace vs per-term split: byte-identical result)
+  ok   W1: the A4 headline REPRODUCED: flat nonlocal Ward contraction != 0 (190 terms)
+  ok   W1: H^1 and H^2(u-free) nonlocal contractions reproduced nonzero (2487 / 8675 terms)
+[  153.8s] W reproduced at all orders
+
+=== W2: DECOMPOSITION (the pre-stated factorization test) ===
+  note W2 H0 localization: the transverse-X1 coefficient (the VECTOR-channel 0i/3i-slot content: X1 enters only through de_01 = i*omega*X1 and de_31 = -i*k*X1) carries 4 atom classes: [('G', 0, 0, 1), ('G', 0, 0, 2), ('G', 1, 0, 1), ('G', 2, 0, 1)]
+  ok   W2 H0: transverse-X components PRESENT (14/14 terms) -- OUTSIDE the predicted class; W_nl does NOT factor as (K.X) x F
+  note W2 H1 localization: the transverse-X1 coefficient (the VECTOR-channel 0i/3i-slot content: X1 enters only through de_01 = i*omega*X1 and de_31 = -i*k*X1) carries 33 atom classes: [('G', 0, 1, 0), ('G', 0, 1, 1), ('G', 0, 2, 0), ('G', 0, 2, 1), ('G', 1, 0, 0), ('G', 1, 0, 1), ('G', 1, 1, 0), ('G', 1, 1, 1)]
+  ok   W2 H1: transverse-X components PRESENT (194/194 terms) -- OUTSIDE the predicted class; W_nl does NOT factor as (K.X) x F
+  note W2 H2ufree localization: the transverse-X1 coefficient (the VECTOR-channel 0i/3i-slot content: X1 enters only through de_01 = i*omega*X1 and de_31 = -i*k*X1) carries 105 atom classes: [('G', 0, 0, 1), ('G', 0, 1, 0), ('G', 0, 1, 1), ('G', 0, 2, 0), ('G', 0, 2, 1), ('G', 0, 3, 0), ('G', 0, 3, 1), ('G', 0, 4, 0)]
+  ok   W2 H2ufree: transverse-X components PRESENT (756/756 terms) -- OUTSIDE the predicted class; W_nl does NOT factor as (K.X) x F
+[  184.7s] factorization decomposition done
+
+=== W3: THE V4 BOUNDARY -- ABSORPTIVE TEST + POLYNOMIALITY ===
+  ok   W3 H0: |Im W_nl| on the cut = 1.312e+01 => the nonlocal Ward piece is GENUINELY NONLOCAL (V4 boundary applied mechanically: a cut-carrying object is NOT polynomial, hence NOT contact)
+  ok   W3 H1: |Im W_nl| on the cut = 1.041e-01 => the nonlocal Ward piece is GENUINELY NONLOCAL (V4 boundary applied mechanically: a cut-carrying object is NOT polynomial, hence NOT contact)
+  ok   W3 H2ufree: |Im W_nl| on the cut = 1.542e+02 => the nonlocal Ward piece is GENUINELY NONLOCAL (V4 boundary applied mechanically: a cut-carrying object is NOT polynomial, hence NOT contact)
+[  961.9s] V4 boundary applied
+
+=== W4: THE PERMITTED BARDEEN/ORBIT COMPLETION ===
+  note The frozen framework's permitted completion structure (countersigned invariance identity, wall_a_a4_dual_gauge.py fact (4)): the orbit variation of L1 is EoM terms + a total derivative. At loop level the EoM insertions collapse a propagator: tadpole class, Delta = m^2, LOCAL per V4 (coefficient logs only). The permitted completion can therefore account for AT MOST the cut-free part of W. The factorized residue m^2 (K.X) x F with F cut-carrying (W2/W3 above) is EXACTLY the vertex-pairing trace residue derived in the algebra gates -- a STRUCTURAL property of the assembled pairing, not removable by any permitted local completion, and not touched here (no repair).
+  ok   W4 H0: nonlocal W is NOT fully within the predicted class -- residual recorded UNRESOLVED; permitted local completion accounts for the collapsed-EoM (local) sector; the identified residue is cut-carrying (genuinely nonlocal) -- it is NOT contact and is NOT absorbed
+  ok   W4 H1: nonlocal W is NOT fully within the predicted class -- residual recorded UNRESOLVED; permitted local completion accounts for the collapsed-EoM (local) sector; the identified residue is cut-carrying (genuinely nonlocal) -- it is NOT contact and is NOT absorbed
+  ok   W4 H2ufree: nonlocal W is NOT fully within the predicted class -- residual recorded UNRESOLVED; permitted local completion accounts for the collapsed-EoM (local) sector; the identified residue is cut-carrying (genuinely nonlocal) -- it is NOT contact and is NOT absorbed
+
+=== W5: TT INVARIANCE OF THE COMPLETION CLASS ===
+  ok   W5: the completion class (K/eta-built E-slot structures) has ZERO TT projection -- TT(completed) == TT(frozen) EXACTLY, through O(H^2), by the executed trace-cancellation gates; the frozen TT response is untouched (outcome class D is EXCLUDED)
+
+=== W6: CONTROLS ===
+  ctrl-DETECTED   W6-1: with NO completion applied the nonzero W is reproduced (this diagnostic hid nothing)
+  ctrl-DETECTED   W6-2: a wrong completion ansatz ((K.X)^2 class) leaves a nonzero remainder -- REFUSED (structural: W is degree 1 in X)
+  ok   W6-2b: the (K.X)^1 longitudinal reconstruction leaves remainder NONZERO (an EXACT-zero remainder holds only if the residue is purely longitudinal -- reported, not presumed)
+  ctrl-DETECTED   W6-3: pure-gauge injection leaves the TT nonlocal response unchanged EXACTLY
+  ctrl-DETECTED   W6-4: 8th-order finite differences do NOT annihilate a G-atom (max |Delta^8| = 3.74e-06) -- a polynomial/contact absorber CANNOT fake away genuinely nonlocal content
+
+=== W7: VERDICT (owner's classes; not collapsed) ===
+  VERDICT: C (UNRESOLVED): parts of W lie outside the predicted trace-residue class -- residual recorded, not repaired
+   GUARD CLEAN at exit (4 files read)
+
+================ SUMMARY (WARD DIAGNOSTIC) ================
+  verdict: C (UNRESOLVED)
+  H0: KX-factor False, transverse-free False, m0-vanishing None, cut-carrying True
+  H1: KX-factor False, transverse-free False, m0-vanishing None, cut-carrying True
+  H2ufree: KX-factor False, transverse-free False, m0-vanishing None, cut-carrying True
+gates: 28/28 passed; failures: 0
+elapsed: 962.9s
