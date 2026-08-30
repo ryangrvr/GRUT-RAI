@@ -1,0 +1,44 @@
+{
+ "stage": "K_R charter audit (document work only; nothing computed)",
+ "date": "2026-08-30",
+ "baseline_commit": "c1c3f51",
+ "K_R_definition": {
+  "source": "rung1_inin_formalism (tier shown)",
+  "text": "retarded dissipation kernel of the SK influence action S_IF (doubled x_r/x_a fields), paired with noise kernel N, KMS-constrained (rung2)",
+  "structural_form": "K^R = alpha*chi(omega)*P^TT (p_tt_ansatz; projector CHOSEN not derived)",
+  "pipeline": "Sigma -> G_R^TT -> K_R -> J(omega)",
+  "dressing": "G_R = 1/(G0^-1 - Sigma) (rung3 frontier note, verbatim)",
+  "friction_convention": "Im chi = J/omega"
+ },
+ "underdefined": [
+  "probe kinematic configuration (which k defines the omega-only K_R)",
+  "Dyson truncation order (first-order insertion vs resummation -- decides pole-vs-cut meaning)",
+  "probe-graviton coupling normalization"
+ ],
+ "frozen_unblock_list": [
+  "dS TT-TT-TT vertex (Tsamis-Woodard class)",
+  "renormalization under the frozen D5 contract",
+  "dual-gauge verification per D4",
+  "frozen wording: not approximable, not substitutable, not bypassable"
+ ],
+ "depends_on_K_R": [
+  "benchmark ledger-consequence cell at contract scope",
+  "rung3_single_pole pole-vs-branch-cut anchor question",
+  "rung7 microscopic consumption"
+ ],
+ "does_NOT_depend_on_K_R": [
+  "Q1_TT",
+  "Q4_TT",
+  "Q5_TT",
+  "Q3",
+  "J5 record",
+  "PV robustness",
+  "A4 gauge robustness",
+  "+1 discharge (completed owner ruling; frozen map = Q1 AND Q5 only; K_R cannot reopen it)"
+ ],
+ "massive_massless_bridge": "SEPARATE OPEN QUESTION (not required to construct K_R from the frozen Sigma; matters for interpretation vs the massless-derived s=3)",
+ "ward_class_B_relation": "BYPASSES at TT scope (residual has zero TT projection by executed A4/W5 gates); does NOT resolve; Bardeen completion remains its discharge path",
+ "new_physics_criterion": "K_R analytic structure differs from chi_Sigma under declared dressing (e.g. Dyson pole from cut) = genuine result on rung3; same analytic content up to normalization = bookkeeping (still required for the cell)",
+ "computation_performed": "NONE",
+ "owner_decision_pending": "declare the three underdefined items + rule on the unblock list, or decline the K_R charter and declare current scope complete"
+}

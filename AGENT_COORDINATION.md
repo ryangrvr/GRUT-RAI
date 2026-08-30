@@ -3866,3 +3866,27 @@ Integrity at closure: registry faa977d4... intact; declarations 87e2d24d...
 intact; register a70a2ad1... READ-ONLY throughout the entire campaign day.
 W-0 held from first commit to last. HARD STOP: no further scientific
 computation until a new owner charter names the next question.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- K_R CHARTER AUDIT COMPLETE (document work only)
+================================================================================
+
+Deliverables: K_R_CHARTER_AUDIT.md + K_R_DEPENDENCY_MAP.json. Nothing computed;
+no frozen artifact modified; the +1 ruling untouched.
+
+THE SHORT ANSWER: K_R = the retarded dissipation kernel of the SK influence
+action (rung1_inin_formalism, verbatim), reached from the frozen Sigma by the
+Dyson dressing G_R = 1/(G0^-1 - Sigma) (rung3, verbatim) followed by the
+graviton-probe influence-functional reduction; structural form K^R =
+alpha*chi(omega)*P^TT (p_tt_ansatz). REQUIRES K_R: the benchmark consequence
+cell at contract scope, rung3's pole-vs-cut anchor, rung7's consumption. DOES
+NOT REQUIRE K_R: Q1/Q4/Q5/Q3, J5, PV, A4, and the +1 (completed ruling;
+CONFIRMED not reopenable by K_R). UNDERDEFINED in the frozen record, needing
+owner declaration BEFORE any build: probe kinematics, Dyson truncation order,
+coupling normalization. The frozen unblock list (TT-TT-TT vertex + D5 renorm +
+D4 dual-gauge, "not bypassable") stands; any minimal spec skipping a component
+needs an owner ruling first. Bridge: SEPARATE OPEN QUESTION. Ward Class B:
+BYPASSED at TT scope by executed gates, NOT resolved. New-physics criterion
+pre-stated: a Dyson-generated pole-from-cut would be a genuine rung3 result;
+same-analytic-content is bookkeeping. HARD STOP: awaiting the owner's charter
+decision (declare the three items, or decline and close scope).
