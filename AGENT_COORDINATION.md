@@ -3449,3 +3449,50 @@ PHASE II (owed): the H^1/H^2 dressed orbit -- chart-derived (a'/a) terms on
   demand. Not started in this entry.
 
 STANDING: W-0; register untouched; J(omega)/PV/+1/spectral-fit sealed.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- A4 COMPLETE (Phases I + II). HARD STOP.
+================================================================================
+
+PRIMARY QUESTION (owner's brief): "Does the Q1/Q4/Q5 result survive an
+independent gauge/orbit construction?"
+
+ANSWER, AS COMPUTED: YES -- and the agreement holds as an OPERATOR IDENTITY,
+not a numerical coincidence.
+
+  * Phase I (flat): 35/35 gates. Route B (synchronous representative +
+    spatial TT) reproduces route A's verdicts: Q1^TT INSIDE, Q4^TT HOLDS.
+    Solver unique at generic (omega,k); the orbit cannot reach the
+    transverse block (executed on general symbols).
+  * Phase II (dressed): 18/18 gates. The chart gates derive a'/a = H + H^2u
+    from the engine's own Section-D expansion; the TRACE-CANCELLATION THEOREM
+    executed: BOTH orbit directions (K-direction de^0 and eta-direction de^1)
+    have identically zero TT amplitudes for general X. Therefore the orbit
+    moves no TT amplitude at ANY adjudicated order, and the A3-4 TT verdicts
+    (Q1 INSIDE / Q4 HOLDS / Q5 INSIDE) are GAUGE-ROBUST through O(H^2) by
+    proof. The dressed synchronous solver is unique order-by-order.
+  * Controls (all behaved): broken orbit detected (Phase I); broken dressing
+    coefficient detected (Phase II -- the a'/a term is load-bearing); pure-
+    gauge injections, flat and dressed, move the TT content by EXACTLY zero.
+
+THE PERSISTENT FINDING (recorded at every order, NOT repaired):
+  the NONLOCAL orbit contraction of the frozen kernel is NONZERO --
+  flat (Phase I), O(H) (2487 terms), O(H^2) u-free (8675 terms) -- and at
+  every order it FAILS TO REACH the TT channel (executed, all zero). The
+  kernel's nonlocal non-TT sector is not transverse; the scalar/Bardeen
+  response is orbit-sensitive (Phase I, invariants derived in-instrument).
+  This is the response-level face of the register's OPEN rung1 4th input
+  ("4d-covariant gauge-orbit Ward zero ... discharge = Bardeen completion")
+  and is handed to the owner as A4's FINDING.
+
+DECLARED SCOPE BOUNDARY: the u-carrying O(H^2) orbit term (2u X_0 eta, pure
+trace) demands a loop u-moment the frozen kernel does not contain. It is
+TT-IRRELEVANT by the trace-cancellation theorem; the gap touches only the
+non-TT Ward bookkeeping at O(H^2). Quantified, recorded, not computed.
+
+OUTPUTS: WALL_A4_RESPONSE_FLAT_RESULT.json, WALL_A4_RESPONSE_DRESSED_RESULT
+.json, both logs committed. Guard clean (load + exit) on both instruments.
+
+HARD STOP, per the brief: J(omega), PV, spectral-fit machinery,
+relaxational/resonant classification, +1 discharge -- ALL SEALED.
+Owner/reviewer adjudication required. W-0; register untouched.

@@ -1,0 +1,129 @@
+{
+ "stage": "A4 response-level dual-gauge, PHASE II (dressed H^1/H^2)",
+ "frozen_kernel_sha256": "dd77b1943e2068c643f4181438814a378c26bc8693b616be812fa5f5888c4ae1",
+ "instrument_sha256": "639092b99d6c0719a8eeed929c4ac19f757f53e7b1e1b578614407376a804dc9",
+ "tt_robustness": "OPERATOR IDENTITY through O(H^2): the orbit moves no TT amplitude at any order (K-terms + trace cancellation); A3-4's Q1/Q4/Q5 TT verdicts are gauge-robust at every adjudicated order",
+ "ward_orbit": {
+  "O(H)_nonlocal_zero": false,
+  "O(H)_reaches_TT": [],
+  "O(H2)_ufree_nonlocal_terms": 8675,
+  "O(H2)_ufree_reaches_TT": [],
+  "scope_boundary": "the u-carrying 2uX_0*eta orbit term (pure trace) needs a loop u-moment; non-TT bookkeeping only"
+ },
+ "checks": [
+  {
+   "pass": true,
+   "msg": "pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin wall_a_a4_dual_gauge.py == 03cc6bcc0fec0c13...",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "frozen kernel sha == dd77b194...",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Phase I result loaded: same kernel, 0 failures (route-B flat Q1 INSIDE)",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "H^0 round-trip sha ok (0512f44138923976...)",
+   "gate": "load",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "H^1 round-trip sha ok (cae4501341b724b9...)",
+   "gate": "load",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "H^2 round-trip sha ok (474d684f557b4093...)",
+   "gate": "load",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "chart gate: a = 1 + Hu + H^2u^2 reproduces the engine's Section-D a^2 = 1 + 2Hu + 3H^2u^2 through O(H^2)",
+   "gate": "orbit",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "orbit gate: a'/a = H + H^2 u + O(H^3) (DERIVED from the chart)",
+   "gate": "orbit",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "theorem gate: K-direction de^0 has ZERO TT amplitudes ((e11-e22)/2 and e12) for GENERAL X",
+   "gate": "theorem",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "theorem gate: eta-direction de^1 has ZERO TT amplitudes ((e11-e22)/2 and e12) for GENERAL X",
+   "gate": "theorem",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "dressed solver: the synchronous conditions determine X order-by-order in H uniquely at generic (omega,k) (O(H^0) and O(H^1) solved; the residual family remains zero-frequency, empty here)",
+   "gate": "A4-1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "W1 nonlocal orbit contraction at O(H): NONZERO (2487 terms) -- same class as the flat Finding 1; classified below, NOT repaired",
+   "gate": "A4-3W",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "W1: orbit-sensitive nonlocal content does NOT reach the TT channel at O(H) (TT contractions: all zero)",
+   "gate": "A4-3W",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "W2 (u-free): orbit-sensitive nonlocal content does NOT reach the TT channel at O(H^2) (TT contractions: all zero)",
+   "gate": "A4-3W",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "W2 (u-free) nonlocal orbit contraction at O(H^2): NONZERO (8675 terms), non-TT only; the u-CARRYING remainder (2u X_0 eta) is pure trace, TT-irrelevant, and requires a loop u-moment -- RECORDED as the declared scope boundary of the non-TT Ward bookkeeping",
+   "gate": "A4-3W",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: broken dressing (2 -> 3 in de^1) CHANGES the orbit contraction (the a'/a coefficient is load-bearing, not decorative)",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: dressed pure-gauge injection moves NO TT amplitude (trace-cancellation holds on the numeric injection too)",
+   "gate": "control"
+  }
+ ],
+ "notes": [
+  "recorded sha wall_a4_response_flat.py = 9842507e06b560cc...",
+  "orbit split through O(H^2): de^0 = i(KX + XK); de^1 = 2 X_0 eta [u-free]; de^2u = 2 u X_0 eta [u-CARRYING -- pure trace; demands a loop u-moment; TT-irrelevant by the trace-cancellation theorem below; recorded as the single non-TT O(H^2) scope boundary]",
+  "=> the orbit cannot move ANY TT amplitude at ANY order in H (K-terms cannot reach the transverse block; eta-terms shift e11 and e22 equally and cancel in the traceless combination; the u-carrying term is eta-direction too). Route-B TT == route-A TT as an OPERATOR IDENTITY through O(H^2); the A3-4 TT verdicts (Q1 INSIDE / Q4 HOLDS / Q5 INSIDE) are therefore GAUGE-ROBUST at every adjudicated order, by proof rather than re-evaluation. Comparison evidence, not imposition: the identity was derived from the countersigned orbit, not from A3-4."
+ ],
+ "failures": [],
+ "elapsed_s": 151.7,
+ "hard_stop": "A4 COMPLETE at declared scope. J(omega)/PV/spectral-fit/+1 remain sealed. Owner adjudication required."
+}

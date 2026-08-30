@@ -1,0 +1,69 @@
+=== A4-0: GUARD + INPUT PINS (registry is law; new A4 paths only) ===
+   GUARD CLEAN at load (8 symbols, 12 files)
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  ok   pin WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md == 6f2a762f4a4a01cd...
+  ok   pin WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md == f6127ca65ad6636b...
+  ok   pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...
+  ok   pin wall_a_a4_dual_gauge.py == 03cc6bcc0fec0c13...
+  ok   pin wall_a_closure_premises.py == b7408f2a5e8b702c...
+  ok   pin second_author_closure_premises.py == 56c7b7ae500eda86...
+  ok   frozen kernel manifest sha == dd77b194... (accepted A3-3 freeze)
+  ok   A3-4 layer-2 result cites the same frozen kernel (comparison evidence loaded, sha 8c27eeb3ecd235bc...)
+
+=== LOAD: frozen flat sector H^0 ===
+  ok   H^0 srepr round-trip sha == frozen (0512f44138923976...)
+[    2.3s] flat sector loaded (833 terms)
+
+=== A4-1: FLAT ORBIT + SYNCHRONOUS REPRESENTATIVE ===
+  ok   A4-1 solver: the synchronous conditions determine X UNIQUELY at generic (omega, k) -- consistent with Declaration 5's residual family (zeta^0 = C(x)/a + static spatial maps) being zero-frequency only, hence empty at omega != 0
+  ok   A4-1: synchronous representative has e_s[0,0] == 0 identically
+  ok   A4-1: synchronous representative has e_s[0,1] == 0 identically
+  ok   A4-1: synchronous representative has e_s[0,2] == 0 identically
+  ok   A4-1: synchronous representative has e_s[0,3] == 0 identically
+  ok   A4-1: P-leg synchronous representative exact (momentum -K route)
+[    2.8s] synchronous representatives constructed
+
+=== A4-3W: WARD/ORBIT CONTRACTION OF THE FROZEN KERNEL ===
+  ok   A4-3W E-leg: NONLOCAL orbit contraction != 0 -- orbit-sensitive nonlocal content, classified below (local part: 126 terms, recorded as contact/scheme content)
+  ok   A4-3W E-leg: orbit-sensitive nonlocal content does NOT reach the TT channel (TT contractions of the orbit leg: all zero)
+  ok   A4-3W P-leg: NONLOCAL orbit contraction != 0 -- orbit-sensitive nonlocal content, classified below (local part: 126 terms, recorded as contact/scheme content)
+  ok   A4-3W P-leg: orbit-sensitive nonlocal content does NOT reach the TT channel (TT contractions of the orbit leg: all zero)
+[    5.0s] Ward/orbit contraction done
+
+=== A4-3: TT ROBUSTNESS (route B = synchronous-spatial TT) ===
+  ok   A4-3 structural: synchronous representative leaves e_11 untouched (the orbit cannot reach the transverse block)
+  ok   A4-3 structural: synchronous representative leaves e_12 untouched (the orbit cannot reach the transverse block)
+  ok   A4-3 structural: synchronous representative leaves e_22 untouched (the orbit cannot reach the transverse block)
+  ok   A4-3: route-B TT extraction of a general input == route-A's (+ and x amplitudes agree as OPERATIONS, proven on general symbols)
+  ok   A4-3: the synchronous representative of e_++ is ITSELF (X == 0)
+  ok   A4-3 route-B Q1^TT (flat): nonlocal TT block isotropic True, sym-offdiag zero True, antisym zero True -> verdict INSIDE
+  ok   A4-3 route-B Q4^TT (flat): TT_+x == TT_x+ is True
+  ok   A4-3 COMPARISON: route-B flat Q1^TT verdict (INSIDE) == A3-4's (INSIDE) -- agreement, not imposition
+[    5.3s] TT robustness done
+
+=== A4-2: SCALAR SECTOR (adjudicated directly, never inferred) ===
+  ok   A4-2: second flat scalar invariant DERIVED and verified: J = A*k**2/omega**2 + B*k/omega + Etld (C is the first)
+  ok   A4-2: nonlocal scalar-sector response is NOT invariant under the scalar orbit (X0, X3 symbolic) -- orbit-sensitive scalar content, classified as FINDING; NOT repaired
+[    7.0s] scalar sector done
+
+=== A4-5: DIFFERENCE LOCALIZATION ===
+  ok   A4-5: Sigma_B - Sigma_A carries 411 NONLOCAL terms -- decomposed: TT-physical ZERO (proven), scalar NONZERO, remainder recorded as orbit-equivalent/unresolved for the owner
+[   11.0s] difference localization done
+
+=== A4-6: BOUNDARY CONDITIONS ===
+  ok   A4-6: both routes evaluate the SAME frozen atom objects (Gfun/Rfun with the -i0 branch law, sha-pinned kernel) -- the retarded prescription is shared by construction, and the synchronous residual freedom is fixed by Declaration 5's eta -> -infinity asymptotic-coincidence prescription (zero-frequency family, empty at the omega != 0 kinematics used here)
+
+=== A4-7: CONTROLS ===
+  ctrl-DETECTED   A4-7(i): broken orbit (unsymmetrized) is DETECTED (loses symmetry / touches the transverse block / breaks solvability)
+  ctrl-DETECTED   A4-7(ii): pure-gauge injection on the + leg changes the TT_+x NONLOCAL value by ZERO -- verdict-bearing TT content unchanged
+  ok   A4-7(ii) gate: the physical TT verdict is UNTOUCHED by discarded gauge content (nonlocal shift == 0 exactly)
+
+=== A4-8: OUTPUT ===
+   GUARD CLEAN at exit (4 files read)
+
+================ SUMMARY (A4 PHASE I, FLAT) ================
+  route-B Q1^TT (flat): INSIDE   [A3-4 said: INSIDE]
+  route-B Q4^TT (flat): HOLDS
+  difference localization: {'TT_physical': 'ZERO (proven: the orbit cannot reach the transverse block; route TT ops identical)', 'scalar_Bardeen': 'NONZERO -- see A4-2 FINDING', 'unresolved': '411 nonlocal difference terms'}
+gates: 35/35 passed; failures: 0
+elapsed: 11.3s
