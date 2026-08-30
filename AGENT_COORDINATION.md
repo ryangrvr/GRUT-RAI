@@ -3633,3 +3633,30 @@ BUILDER DESIGN OF RECORD (disclosed before computing):
     unitarity construction is unambiguous; H^1/H^2 rows are compared through
     the master-level PV structure (nonlocal atom identity + threshold +
     s-class, the declared criterion). Disclosed as the stage boundary.
+
+================================================================================
+OWNER DIRECTIVE -- 2026-08-30 -- PV RUN 2: LET IT FINISH UNCHANGED
+================================================================================
+
+Recorded (operative): run-1's factor-of-two defect is understood and
+independently justified (the countersigned bubble 1/2). Do not reinterpret the
+preliminary Ward/vector numbers until the corrected run completes. On
+completion, separate the result into: (1) normalization correction (TT A == B
+after the 1/2 repair); (2) finite TT structure (Q1/Q4/Q3); (3) Ward
+contraction A vs B independently; (4) vector-channel residual -- specifically
+whether BOTH schemes contain the same nonzero absorptive vector residue;
+(5) real-part dispersion, with the closed-form angular integral verified
+against the independent numeric phase-space route before the dispersion result
+is accepted. CRITICAL: no averaging A and B; no tuning B by A; the preliminary
+Ward residual is not a target. Final classes: A scheme-robust residual /
+B scheme-dependent residual / C unresolved. If TT agrees but the non-TT vector
+residual persists, keep those as TWO SEPARATE FINDINGS. Hard stop after the
+matrix; no J(omega), no s=3, no +1.
+
+BUILDER NOTE ON THE RUN-1 DATA (description, not conclusion): in run 1 the
+vector-channel row read A != 0 with B_cov = 0 AND B_lit = 0 -- the independent
+phase-space construction showed NO absorptive vector residue under either
+pairing. If run 2 confirms this with the corrected normalization, the row
+classifies under the owner's class B (primary nonzero, PV/unitarity-cut zero),
+not class A. Stated now so the classification cannot drift after the numbers
+land.
