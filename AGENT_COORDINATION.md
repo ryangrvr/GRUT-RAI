@@ -2813,3 +2813,114 @@ representation first; TT projection strictly downstream of the full non-TT assem
 FREEZE the bare finite response before any comparator is opened; J(omega) remains a
 COMPARATOR, NEVER AN INGREDIENT, with the barred-inputs guard live. W-0; register
 untouched; nothing banked.
+
+================================================================================
+CHECKER ENTRY -- 2026-08-30 -- A3-2 run PID 22256 CRASHED; four defects fixed,
+one still open and re-localised against independent ground truth
+================================================================================
+
+TO THE BUILDER (z.ai). Read this before the next A3-2 run.
+
+WHAT HAPPENED. The full A3-2 run (`/tmp/a3_2_stage/final_run_stdout.log`) reached
+STEP 7 at 4062.7 s and then DIED:
+
+    File "wall_a3_2_finite_response.py", line 1791, in cc
+        .coeff(_smap["P_%d%d" % (c, d)], 1))
+    KeyError: 'P_21'
+
+No freeze, no manifest, no result JSON. 68 minutes of assembly produced no
+artifact. The assembly itself was fine; the run was killed by a DERIVED view that
+its own docstring describes as "used in NO gate".
+
+--------------------------------------------------------------------------------
+FIXED BY THE CHECKER (instrument only; register untouched, nothing banked, W-0)
+--------------------------------------------------------------------------------
+
+FIX 1 -- the crash. `_smap` holds each polarisation slot in ONE index ordering
+(the tensors are symmetric: 10 E-symbols, 10 P-symbols), but `_tt_view()` asks
+for both `P_12` and `P_21`. `cc()` now resolves either ordering and returns an
+exact zero for a slot absent from the assembled object. VERIFIED: all 16 `cc()`
+calls in `_tt_view` resolve; `cc(1,1,2,1) -> (E_11, P_12)`.
+
+FIX 2 -- the blast radius. `TT = _tt_view()` is now wrapped: on any exception the
+run records a note, sets TT_HASH = "not-derived", and PROCEEDS to write the
+freeze and manifest. A derived view must never be able to destroy a completed
+run's artifacts. `FREEZE["tt_view_derived"]["components_srepr"]` tolerates
+TT = None.
+
+FIX 3 -- the mu-bookkeeping gate was WRONG, not the twin law. The gate computed
+
+    _mud = sp.expand(muS**2 * sp.diff(_f, muS))          # mu^2 d/dmu
+
+but d/dln(mu^2) = (mu/2) d/dmu. The old operator overstates the derivative by a
+factor 2*mu, so it failed on every class where P*Delta^s is nonzero (s >= 0) and
+passed trivially on s < 0 where BOTH sides are identically zero. That is exactly
+the 8-fail / 3-pass split in the log. Now `muS * sp.diff(_f, muS) / 2`.
+VERIFIED standalone on all 11 census classes: OLD 3/11, NEW 11/11.
+**The twin law was correct all along. The gate was the defect.**
+
+FIX 4 -- the two STEP-5 closed-form failures are a sympy artifact, not physics.
+With the K2 symbol carrying an assumption (`K2t` is declared `real=True` at module
+scope), sympy returns
+
+    integrate(-log(m2t - y*(1-y)*K2t), (y,0,1))  ->  2 - log(m2t)
+
+DROPPING K2 entirely -- the closed form evaluates to the constant 2.0 at every
+kinematic point, which is why the reported diffs were exactly `2 - G_ref`
+(-3: 2.393325, -0.75: 2.116519, 3: 1.209200; reproduced outside the instrument to
+the last digit). The closed forms are now derived on assumption-free symbols.
+VERIFIED: both agree with the referee quadrature to 2.4e-35 and 1.2e-35 against a
+5e-6 tolerance -- and the corrected form carries the sqrt(K2*(K2-4*m2)) threshold
+explicitly, so it is a strictly better artifact than the one that was failing.
+
+--------------------------------------------------------------------------------
+STILL OPEN -- E1 referee, 14 failures -- AND THE SUSPICION HAS FLIPPED
+--------------------------------------------------------------------------------
+
+Every E1 failure satisfies s = j - N + 2 >= 0; every s < 0 case passes to machine
+precision (1e-33 .. 1e-38). Do NOT read that as a prescription mismatch -- exact
+agreement in the passing cases rules that out. It is a discrete structural defect.
+
+I built an INDEPENDENT ground truth -- the exact Gamma-function eps-expansion of
+J(j,N) = Int d^dl (l^2)^j/(l^2-Delta+i0)^N, d = 4-eps, normalised by
+J(0,2) = c + kappa - ln(Delta/mu^2) -- and checked all 25 (j,N) classes. Results:
+
+  * the twin pole law P = C(j,N-1) + C(j,N-2)  ..... EXACT on all 25
+  * twin_fin(j,N) - plain_master(j,N) == `_cross`  . EXACT on all 25
+  * `_Mform` (n=1..4) and `_Fform` .................. EXACT (= the plain masters)
+
+So the masters, the pole law, and the s_j cross-term are ALL correct, on both
+sides. `_Ffull` and the twin master are the same object at master level. THE E1
+DISCREPANCY IS NOT IN THE MASTERS -- disregard my earlier note pointing at `_sj`.
+
+Where to look instead. In `_fin_mono_2den` the G-atom path is populated ONLY in
+the `s >= 0` branch:
+
+    if s < 0:   rsum += _atomize(base * Q,  aP, bP, s, Rfun)     # passes
+    else:       cint += ... ;  gsum += _atomize(base * P, aP, bP, s, Gfun)
+
+"s >= 0" is therefore co-extensive with "the G-atom path is exercised" -- the same
+predicate as the failure set. Prime suspects, in order:
+
+  1. `_atomize(..., Gfun)` -- the y-power bookkeeping folding `base`'s xf^m into
+     the atom indices (n, np) for the G family.
+  2. `_my_mono_val`'s evaluator takes `A0 = next(iter(ats))` and divides by that
+     ONE atom. Your own `debug_map2.py` uses the correct all-atom `rep`-dict
+     substitution; the instrument uses the fragile single-atom form. Multi-atom
+     terms demonstrably occur (`map_struct.log`: "multi-atom terms: A=True B=True").
+  3. the symbolic y-integration of `closed` vs the referee's numeric quadrature.
+
+Test this at master level in a standalone harness -- seconds, no assembly. Do NOT
+re-run the 68-minute pipeline to probe it.
+
+--------------------------------------------------------------------------------
+STANDING
+--------------------------------------------------------------------------------
+No Q1/Q5/Q4/Q3 verdict until E1 is green: it gates the twin-master law, which sits
+under every block in the object, H^2 included. The loop-flip work is ACCEPTED as
+sound -- `H2_V1V1onB := H2_V1V1onA` at 826.7 s, correctly excluded from the finite
+cache, with the timelike battery (map3.log) closing the on-cut gap at 0.000e+00
+and `max|Im|` reported to prove non-vacuity. E3 retarded sign, the E5 wrong-branch
+control (|d| = 3.54) and the cache-off byte-exact replay all hold.
+
+Register untouched. Nothing banked. W-0 intact.
