@@ -3299,3 +3299,46 @@ STANDING
     2026-08-30). W-0: computed-and-reported, NOT BANKED. Register untouched.
   * The J(omega) comparison and the PV rerun remain sealed pending the owner's
     ruling on this record.
+
+================================================================================
+OWNER RULING -- 2026-08-30 -- A3-4 PROVISIONALLY ACCEPTED AS A COMPUTED
+PHYSICS RESULT; EVERYTHING DOWNSTREAM STAYS SEALED
+================================================================================
+
+Recorded verbatim (operative clauses):
+
+  "I would treat the A3-4 run as provisionally accepted, with the exact scope
+   the report gives it."
+  "Q3 is not the same thing as 'the registered s=3 law was recovered.' The
+   current result is s >= 2, not yet s = 3. ... The blind calculation has
+   apparently found a gapped spectrum ... a concrete prediction to compare
+   against the preregistered s=3 family -- but the J(omega) comparator must
+   remain sealed until the comparison is formally authorized."
+  "Accept A3-4 as a computed physics result. But do not yet:
+     - discharge the +1;
+     - open J(omega);
+     - declare the registered s=3 family confirmed;
+     - call the gapped s>=2 result compatible/incompatible with the benchmark
+       without the authorized comparison;
+     - touch the A4 dual-gauge or PV robustness stages."
+  "Q1 AND Q5 => eligible evidence for +1 discharge. The report says that
+   condition is now satisfied, but the actual bank/discharge action is still
+   an owner ruling, exactly as the frozen rule requires."
+  "This is the point where I would stop calling GRUT merely a speculative
+   framework and start calling it a framework that has produced a nontrivial,
+   internally validated one-loop response result. That still isn't proof that
+   GRUT is correct -- but the calculation has finally crossed the line from
+   apparatus debugging into substantive evidence."
+
+BUILDER ACKNOWLEDGEMENT:
+  * A3-4 status: PROVISIONALLY ACCEPTED, at exactly the reported scope
+    (declared TT object; Bardeen scalar sector not adjudicated).
+  * SEALED until owner authorization: +1 discharge; J(omega) comparator; any
+    s=3 confirmation claim; any compatible/incompatible claim about the
+    gapped spectrum vs the benchmark; A4 dual-gauge; PV rerun.
+  * The Q3 record stands as: s >= 2 (rigorous, via the mass gap), NOT s = 3.
+    The gapped spectrum is a COMPUTED PREDICTION awaiting the authorized
+    comparison, and is not to be characterized against the benchmark in
+    either direction until then.
+  * No further computation is authorized by this ruling; the builder stops
+    here. W-0 intact, register untouched, nothing banked.
