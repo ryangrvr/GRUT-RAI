@@ -3775,3 +3775,68 @@ artifact, after Q1-Q5 verdicts are recorded" -- that condition is now met
 the registered family AS COMPARATOR ONLY; the response-side inputs remain
 hash-pinned and untouched, and the barred-inputs discipline survives in the
 form: no benchmark quantity flows into any response-side construction.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- J(omega) COMPARISON COMPLETE (J0-J9).
+The benchmark's own pre-registered two-axis table is FILLED IN. HARD STOP.
+================================================================================
+
+Instrument: wall_j_omega_comparison.py, final run 19/19 gates, 4/4 controls.
+Run-1 artifacts preserved (RESONANT was an artifact of testing the nonlocal
+part alone; the diagnosis and correction are disclosed in-file).
+
+THE BENCHMARK AS FROZEN (first read this campaign): J(w) = w^3 exp(-w/20),
+Im chi = J/w ~ w^2, GAPLESS, no mass/H/threshold parameters; pre-registered
+decision variable = the two-axis adjudication with the live conflict
+(register s=3, convergent) vs (class-A white floor s_eff -> 0, divergent).
+
+THE FILLED TABLE:
+  J5 (s=3 gate):  S3 INAPPLICABLE / GAP OBSCURES REGISTERED IR LIMIT --
+    the computed response has NO support on the registered IR domain (every
+    registered probe point sits below omega_th = sqrt(k^2+4m^2)); s=3 is
+    neither confirmed nor refuted; s >= 2 is NOT converted to s = 3.
+  AXIS 1 (convergence boundary, THE pre-registered decision variable):
+    GAPPED, IR-CONVERGENT RIGOROUSLY -- the computed response lands on the
+    CONVERGENT side: the REGISTER'S side of the live conflict, AGAINST the
+    class-A white floor (refuted at this scope). Class label: NOT-A-POWER-LAW.
+  AXIS 2: PURELY-RELAXATIONAL -- the full MS-fixed frozen response has ZERO
+    Re-chi crossings on the declared domain. (Run-1's RESONANT tested the
+    nonlocal part alone; its single crossing TRACKS THE LIGHT CONE omega = k
+    at every momentum -- the spacelike/timelike boundary, not a resonance --
+    and exits the domain as k -> 0. Caveats recorded: axis 2 inherits the
+    local sector's scheme freedom (MS frozen blind; nothing selected); the
+    benchmark's true pipeline object K_R remains unbuilt.)
+  J4: DIFFERENT ANALYTIC CLASSES -- gapped two-particle square-root cut with
+    logs vs gapless entire-function power law. Not the same function; not
+    the same asymptotic class; no window similarity claimed.
+  J3/J8: on every registered probe point the computed Im chi is IDENTICALLY
+    ZERO while the registered family is strictly positive; resolution-
+    independent; threshold scales exactly as sqrt(k^2+4m^2) at two masses
+    and two momenta; the registered family has no such scale. The
+    discrepancy vanishes in NO declared limit (the massless limit is
+    undeclared and NOT computed).
+  J6: raw magnitude ratio at 1.5*omega_th reported as a factor (0.042,
+    master units vs plant units); absorbed into NOTHING.
+  J9-C: DOES THE COMPUTED RESPONSE MATCH THE REGISTERED J(omega)?
+    **NO at the frozen masses** -- reported as found.
+  J9-D: what the mismatch MEANS is NOT answered here. The benchmark's own
+    ledger-consequence table assigns the outcome (axis 2 = purely
+    relaxational, axis 1 = convergent -> "derives what rung7 needs;
+    relaxational content becomes derived; single-pole specifically does
+    NOT; +1 partially discharges; excess strength of single-pole becomes
+    explicit") -- THE OWNER's adjudication, not this instrument's.
+
+CONTROLS: benchmark sign reversal, frequency-axis corruption, threshold
+corruption, normalization corruption -- 4/4 DETECTED, all defined from the
+benchmark side only.
+
+THE TWO CLAIMS, KEPT IMPOSSIBLE TO CONFUSE (per the brief):
+  "GRUT's response is internally robust"  -- TRUE (A3-4 + A4 + PV).
+  "GRUT matches J(omega)"                 -- FALSE at the frozen masses, in
+    the direct-curve sense; while on the benchmark's own PRE-REGISTERED
+    decision axes the response lands convergent + purely relaxational --
+    the cell the benchmark's table marks favorably.
+
+HARD STOP: response untouched; no refits; no s-reclassification; no +1
+discharge (the "partially discharges" cell is the OWNER's action at the bank
+gate); Ward finding untouched; no repairs. W-0; register untouched.

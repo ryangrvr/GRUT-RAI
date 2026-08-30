@@ -1,0 +1,81 @@
+=== J0: INPUT INTEGRITY ===
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  ok   pin WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md == f6127ca65ad6636b...
+  ok   pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...
+  ok   pin wall_a_g1_ohmic_plant.py == facacda5ef0da0d3...
+  ok   pin MICROSCOPIC_TARGET_BENCHMARK.md == f6513b1e551fd9cf...
+  ok   frozen kernel sha dd77b194... (THE INPUT; untouched)
+  note input sha WALL_A3_4_TT_RESULT.json = 8c27eeb3ecd235bc...
+  note input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...
+  note input sha WALL_PV_ROBUSTNESS_RESULT.json = 71dc569cd18dcf3d...
+
+=== J1: THE REGISTERED BENCHMARK, AS FROZEN ===
+  note J1 family: J(w) = w^3 * exp(-w / 20)  [PLANT-SUPEROHMIC, s_J = 3]
+  note J1 convention: Im chi = J(w)/w = w^2 exp(-w/20) (registered friction convention; response exponent s_resp = s_J - 1 = 2)
+  note J1 independent_variable: omega in plant units, validity scale WC = 1.0
+  note J1 mass_conventions: NONE -- the registered family is GAPLESS (no mass parameter; flat-space DOS ~ w^2 => super-Ohmic)
+  note J1 H_dependence: NONE declared
+  note J1 low_frequency_domain: probe points (0.3, 0.45, 0.6, 0.75, 0.9) * WC; slope tolerance TOL_S = 0.30; convergence integral from w_lo = 0.15
+  note J1 asymptotic_law: Im chi ~ w^2 as w -> 0 (registered s=3 row of the convergence table: CONVERGES)
+  note J1 threshold_assumptions: NONE -- no gap anywhere in the family
+  note J1 decision_variable: PRE-REGISTERED TWO-AXIS ADJUDICATION: axis 1 = low-w spectral class {s>=2, s<=1, NOT-A-POWER-LAW, UNRESOLVED} + Re chi(0) convergence; axis 2 = {PURELY-RELAXATIONAL, RESONANT, INDETERMINATE} on the declared domain
+  note J1 live_conflict: register s=3 (convergent) vs class-A white floor s_eff -> 0 (power divergent) -- opposite sides of the boundary; this comparison ADJUDICATES
+  ok   H^0 round-trip sha ok
+[    2.3s] frozen TT response loaded (chi = NL(TT_++)/P2(+,+), master units)
+
+=== J2: COORDINATE MAPPING ===
+  note J2 mapping: computed object = Im chi_TT(omega, k, m) in MASTER UNITS (the frozen engine's convention, = 16 pi^2 x standard loop measure), chi = NL(TT_++)/P2(+,+). Registered object = Im chi = J/w in plant units (WC = 1). NO amplitude fit is performed anywhere: magnitudes are reported as raw values in each side's own units and every ratio is reported as a raw factor. Frequency axes are both 'omega'; the registered family carries no k, no m, no H -- the computed response's k/m dependence is REPORTED, not projected away.
+
+=== J3 + J5: LOW-FREQUENCY COMPARISON AND THE s=3 GATE ===
+  note computed threshold at (k, m) = (1, 1): omega_th = sqrt(k^2 + 4m^2) = 2.236068 (plant-units comparison is structural, not rescaled)
+  note J3 probe w = 0.3: computed Im chi = 0.0 ; registered Im chi = 0.0886601
+  note J3 probe w = 0.45: computed Im chi = 0.0 ; registered Im chi = 0.197995
+  note J3 probe w = 0.6: computed Im chi = 0.0 ; registered Im chi = 0.34936
+  note J3 probe w = 0.75: computed Im chi = 0.0 ; registered Im chi = 0.541797
+  note J3 probe w = 0.9: computed Im chi = 0.0 ; registered Im chi = 0.774358
+  ok   J3: on EVERY registered probe point the computed Im chi is IDENTICALLY ZERO (gap: all probes < omega_th = 2.23607) while the registered family is strictly positive -- the registered low-frequency interval is NOT ACCESSIBLE to the computed response at the frozen masses; the discrepancy vanishes in NO declared limit (the massless limit is undeclared and NOT computed)
+  note J5: the plant's own slope classifier (probes 0.3-0.9 WC, TOL_S = 0.30) receives an identically-zero spectrum on its entire probe grid: the slope is UNDEFINED there -- no s can be measured in the registered IR domain, and no fit above threshold is permitted to stand in for it.
+  ok   J5 verdict: S3 INAPPLICABLE / GAP OBSCURES REGISTERED IR LIMIT: the computed response has NO support on the registered low-frequency domain (Im chi == 0 identically below omega_th = sqrt(k^2+4m^2)); the registered s_J = 3 power law is GAPLESS and cannot be confirmed or refuted from the computed IR, which is empty. NOT converted to s = 3; NOT converted to a refutation.
+  note AXIS 1 (the pre-registered decision variable): the computed spectral class is GAPPED -- Im chi = O(w^s) holds for EVERY s as w -> 0+, so the static integral (2/pi) Int Im chi / w' dw' is IR-CONVERGENT RIGOROUSLY. On the benchmark's own convergence table the computed response lands on the CONVERGENT side -- the REGISTER'S side of the live conflict -- and AGAINST the class-A white floor (s_eff -> 0, divergent). Class label in the benchmark's own vocabulary: NOT-A-POWER-LAW (gapped), convergent. The UV end of the literal integral requires the subtracted representation (n_sub = 3, established at A3-4); the boundary being adjudicated is the IR one.
+
+=== AXIS 2: Re chi crossing test (full response + nonlocal) ===
+  ok   AXIS 2 diagnosis: the NONLOCAL sign change TRACKS THE LIGHT CONE (brackets omega = k at k = 1/2 and k = 2) -- it is the spacelike/timelike boundary, not a dynamical resonance, and exits the domain as k -> 0
+  ok   AXIS 2 verdict (full frozen response, scheme caveat recorded): PURELY-RELAXATIONAL (full MS-fixed response: 0 crossings on the declared domain; the nonlocal part's single crossing is the light cone, k-tracking, domain-exiting as k -> 0)
+[    3.1s] axes adjudicated
+
+=== J4: ANALYTIC STRUCTURE ===
+  note J4 branch_point: computed: omega_th = sqrt(k^2 + 4m^2), square-root cut opening (beta = sqrt(1-4m^2/K^2)); registered: NONE (entire function x exponential cutoff)
+  note J4 threshold: computed: hard two-particle threshold; registered: none
+  note J4 gap: computed: YES (mass gap 2m at k = 0); registered: GAPLESS
+  note J4 logarithms: computed: yes (bubble logs, from the frozen atoms); registered: none
+  note J4 low_frequency_expansion: computed: identically zero below threshold (no expansion exists); registered: w^2 - w^3/20 + ...
+  note J4 verdict: DIFFERENT ANALYTIC CLASSES. Not the same exact function; not the same asymptotic class; any numerical similarity could exist only on a finite window above threshold and would carry no structural weight (none is claimed).
+  ok   J4: analytic-structure comparison recorded -- DIFFERENT ANALYTIC CLASSES (structural, not a curve comparison)
+
+=== J6 + J8: NORMALIZATION / SCALING / ROBUSTNESS ===
+  note J6 reference magnitudes at w = 1.5*omega_th: computed = 0.399279 (master units); registered = 9.51304 (plant units); RAW ratio = 0.0419718 -- reported as a factor, NOT absorbed anywhere (no fitted coupling is authorized by the frozen benchmark)
+  ok   J6/J8 threshold scaling at (k, m) = (1, 1/2): gap edge tracks sqrt(k^2 + 4m^2) = 1.41421 exactly (Im: 0.0e+00 below, 6.935e-03 above) -- the computed threshold scales with m and k as the two-particle cut demands; the registered family has no such scale
+  ok   J6/J8 threshold scaling at (k, m) = (2, 1): gap edge tracks sqrt(k^2 + 4m^2) = 2.82843 exactly (Im: 0.0e+00 below, 1.110e-01 above) -- the computed threshold scales with m and k as the two-particle cut demands; the registered family has no such scale
+  ok   J8: doubling the low-frequency grid resolution changes nothing (Im chi == 0 at every sub-threshold point) -- the J3 conclusion is resolution-independent
+  note J8 H-dependence: the registered family declares NONE; the computed response carries frozen H^1 (imaginary class, T4-fenced) and H^2 sectors -- REPORTED as computed, not compared (no registered counterpart exists).
+
+=== J7: CONTROLS (defined from the benchmark side only) ===
+  ctrl-DETECTED   benchmark sign reversal flips the registered Im chi negative -- a passivity-violating comparator is DETECTABLE
+  ctrl-DETECTED   frequency-axis corruption (w -> 2w) shifts the registered values by O(1) -- DETECTED
+  ctrl-DETECTED   threshold corruption: a claimed threshold at 0.7*omega_th would predict nonzero Im at 0.735*omega_th; the computed response is ZERO there -- a wrong threshold CANNOT be slipped past the gap edge
+  ctrl-DETECTED   normalization corruption (x10) appears as exactly the factor 10 in the raw ratio -- nothing absorbs it
+
+=== J9: THE FOUR QUESTIONS, KEPT SEPARATE ===
+  note J9 A_internally_robust: YES -- established (A3-4 + A4 + PV), not re-adjudicated here
+  note J9 B_Q1_Q4_Q5: YES -- established, untouched
+  note J9 C_matches_registered_J: NO -- at the frozen masses the computed response and the registered family are in DIFFERENT ANALYTIC CLASSES (gapped two-particle cut vs gapless power law); the registered IR domain is empty of computed support. SEPARATELY: on the benchmark's own PRE-REGISTERED decision variable (the convergence boundary) the computed response lands on the CONVERGENT side -- the register's side of the live conflict, against the class-A white floor -- and axis 2 returned PURELY-RELAXATIONAL.
+  note J9 D_meaning: NOT ANSWERED HERE -- the preregistered protocol assigns the ledger consequences (the benchmark's axis table) to the OWNER's adjudication; this instrument only fills the table in.
+
+================ SUMMARY (J COMPARISON) ================
+  J5 (s=3 gate): S3 INAPPLICABLE / GAP OBSCURES REGISTERED IR LIMIT
+  AXIS 1: GAPPED, IR-CONVERGENT -- the register's side of the pre-registered boundary; white floor refuted at this scope
+  AXIS 2: PURELY-RELAXATIONAL (full MS-fixed response: 0 crossings on the declared domain; the nonlocal part's single crossing is the light cone, k-tracking, domain-exiting as k -> 0)
+  J4: DIFFERENT ANALYTIC CLASSES (gapped cut vs gapless power law)
+  J9-C: does the computed response match the registered J(omega)? NO at the frozen masses -- reported as found
+gates: 19/19 passed; failures: 0
+elapsed: 3.4s
