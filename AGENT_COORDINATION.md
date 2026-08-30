@@ -3394,3 +3394,58 @@ BUILDER PLAN OF RECORD (phased, disclosed before computing):
     informativeness is genuine: the kernel was assembled with NO Ward input,
     so orbit-blindness of its nonlocal sector is a computable, falsifiable
     claim, not a tautology.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- A4 PHASE I (FLAT, RESPONSE LEVEL) COMPLETE:
+35/35 gates, both controls behaved. TT ROBUST; two non-TT FINDINGS recorded,
+NOT repaired.
+================================================================================
+
+Instrument: wall_a4_response_flat.py (pins: kernel dd77b194..., countersigned
+vertex-A4 03cc6bcc..., declarations, premises; guard clean load + exit).
+Result: WALL_A4_RESPONSE_FLAT_RESULT.json. Runtime 11.3 s.
+
+THE ROBUSTNESS ANSWER (the primary question, flat sector):
+  * Route B (synchronous representative + spatial-TT) reproduces route A's
+    verdicts: Q1^TT INSIDE, Q4^TT HOLDS -- and the agreement is PROVEN AS AN
+    OPERATOR IDENTITY, not a numerical coincidence: the synchronous solver is
+    unique at generic (omega,k) (Declaration 5's residual family is
+    zero-frequency, hence empty here), and the orbit CANNOT REACH the
+    transverse block (e_11, e_12, e_22 untouched -- executed gates), so both
+    routes' TT extractions coincide on GENERAL inputs.
+  * Controls: a broken (unsymmetrized) orbit is DETECTED; a pure-gauge
+    injection changes the TT nonlocal value by EXACTLY ZERO.
+  * Boundary/retarded: shared by construction (same frozen atoms, same -i0).
+
+FINDING 1 (A4-3W) -- THE NONLOCAL ORBIT CONTRACTION IS NONZERO (both legs).
+  Sigma(delta_e(X), p) has nonzero NONLOCAL content (local part: 126 contact
+  terms, recorded). It does NOT reach the TT channel (TT contractions of the
+  orbit leg: all zero, executed). This is the same fact as layer-1's raw Q1
+  OUTSIDE (the nonlocal non-TT sector carries P0w/P1/Xws, all
+  K-longitudinal), now expressed as Ward language: the frozen kernel's
+  nonlocal sector is NOT transverse. For a conserved-T two-point function the
+  nonlocal Ward contraction should collapse to contact terms; it does not,
+  for this object as assembled. This is precisely the territory of the
+  register's OPEN rung1 4th input ("4d-covariant gauge-orbit Ward zero...
+  discharge = Bardeen completion") -- recorded as the A4 FINDING for owner
+  adjudication, per the brief: NOT repaired, NOT reinterpreted.
+
+FINDING 2 (A4-2) -- THE SCALAR/BARDEEN-SECTOR NONLOCAL RESPONSE IS
+  ORBIT-SENSITIVE. The flat scalar invariants were DERIVED in-instrument
+  (C, and J = A k^2/omega^2 + B k/omega + Etld; invariance verified
+  symbolically); the kernel's nonlocal scalar response is NOT a function of
+  the invariants alone. Adjudicated directly, never inferred from TT, per
+  the brief. Same root as Finding 1.
+
+A4-5 DIFFERENCE LOCALIZATION: Sigma_B - Sigma_A = 411 nonlocal terms +
+  local contact content; decomposition: TT-physical ZERO (proven);
+  scalar/Bardeen NONZERO (Finding 2); remainder = orbit-equivalent/
+  unresolved, held for the owner. A difference in discarded non-TT content
+  is NOT a Q1 failure (brief, verbatim).
+
+PHASE II (owed): the H^1/H^2 dressed orbit -- chart-derived (a'/a) terms on
+  the countersigned formula, centre parts against frozen sectors with
+  H-grading mixing; u-carrying orbit terms and any loop u-moments they
+  demand. Not started in this entry.
+
+STANDING: W-0; register untouched; J(omega)/PV/+1/spectral-fit sealed.

@@ -1,0 +1,247 @@
+{
+ "stage": "A4 response-level dual-gauge, PHASE I (flat H^0)",
+ "frozen_kernel_sha256": "dd77b1943e2068c643f4181438814a378c26bc8693b616be812fa5f5888c4ae1",
+ "instrument_sha256": "9842507e06b560cc6022038d1a01d9af95e18b2f3020b62ee62c6478cc8eda55",
+ "pins": {
+  "WALL_A_A3_DECLARATIONS.md": "87e2d24d5be6d679",
+  "WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md": "6f2a762f4a4a01cd",
+  "WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md": "f6127ca65ad6636b",
+  "WALL_A_A3_REGISTRY.json": "faa977d40f1ba318",
+  "wall_a_a4_dual_gauge.py": "03cc6bcc0fec0c13",
+  "wall_a_closure_premises.py": "b7408f2a5e8b702c",
+  "second_author_closure_premises.py": "56c7b7ae500eda86"
+ },
+ "route_B_verdicts": {
+  "Q1_TT_flat": "INSIDE",
+  "Q4_TT_flat": "HOLDS"
+ },
+ "comparison_to_A3_4": {
+  "Q1_agrees": true
+ },
+ "difference_localization": {
+  "pure_gauge_local": null,
+  "TT_physical": "ZERO (proven: the orbit cannot reach the transverse block; route TT ops identical)",
+  "scalar_Bardeen": "NONZERO -- see A4-2 FINDING",
+  "unresolved": "411 nonlocal difference terms"
+ },
+ "checks": [
+  {
+   "pass": true,
+   "msg": "pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md == 6f2a762f4a4a01cd...",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md == f6127ca65ad6636b...",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin wall_a_a4_dual_gauge.py == 03cc6bcc0fec0c13...",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin wall_a_closure_premises.py == b7408f2a5e8b702c...",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin second_author_closure_premises.py == 56c7b7ae500eda86...",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "frozen kernel manifest sha == dd77b194... (accepted A3-3 freeze)",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A3-4 layer-2 result cites the same frozen kernel (comparison evidence loaded, sha 8c27eeb3ecd235bc...)",
+   "gate": "A4-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "H^0 srepr round-trip sha == frozen (0512f44138923976...)",
+   "gate": "load",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-1 solver: the synchronous conditions determine X UNIQUELY at generic (omega, k) -- consistent with Declaration 5's residual family (zeta^0 = C(x)/a + static spatial maps) being zero-frequency only, hence empty at omega != 0",
+   "gate": "A4-1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-1: synchronous representative has e_s[0,0] == 0 identically",
+   "gate": "A4-1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-1: synchronous representative has e_s[0,1] == 0 identically",
+   "gate": "A4-1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-1: synchronous representative has e_s[0,2] == 0 identically",
+   "gate": "A4-1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-1: synchronous representative has e_s[0,3] == 0 identically",
+   "gate": "A4-1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-1: P-leg synchronous representative exact (momentum -K route)",
+   "gate": "A4-1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-3W E-leg: NONLOCAL orbit contraction != 0 -- orbit-sensitive nonlocal content, classified below (local part: 126 terms, recorded as contact/scheme content)",
+   "gate": "A4-3W",
+   "detail": {
+    "nonlocal_zero": false
+   }
+  },
+  {
+   "pass": true,
+   "msg": "A4-3W E-leg: orbit-sensitive nonlocal content does NOT reach the TT channel (TT contractions of the orbit leg: all zero)",
+   "gate": "A4-3W",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-3W P-leg: NONLOCAL orbit contraction != 0 -- orbit-sensitive nonlocal content, classified below (local part: 126 terms, recorded as contact/scheme content)",
+   "gate": "A4-3W",
+   "detail": {
+    "nonlocal_zero": false
+   }
+  },
+  {
+   "pass": true,
+   "msg": "A4-3W P-leg: orbit-sensitive nonlocal content does NOT reach the TT channel (TT contractions of the orbit leg: all zero)",
+   "gate": "A4-3W",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-3 structural: synchronous representative leaves e_11 untouched (the orbit cannot reach the transverse block)",
+   "gate": "A4-3",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-3 structural: synchronous representative leaves e_12 untouched (the orbit cannot reach the transverse block)",
+   "gate": "A4-3",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-3 structural: synchronous representative leaves e_22 untouched (the orbit cannot reach the transverse block)",
+   "gate": "A4-3",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-3: route-B TT extraction of a general input == route-A's (+ and x amplitudes agree as OPERATIONS, proven on general symbols)",
+   "gate": "A4-3",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-3: the synchronous representative of e_++ is ITSELF (X == 0)",
+   "gate": "A4-3",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-3 route-B Q1^TT (flat): nonlocal TT block isotropic True, sym-offdiag zero True, antisym zero True -> verdict INSIDE",
+   "gate": "A4-3",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-3 route-B Q4^TT (flat): TT_+x == TT_x+ is True",
+   "gate": "A4-3",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-3 COMPARISON: route-B flat Q1^TT verdict (INSIDE) == A3-4's (INSIDE) -- agreement, not imposition",
+   "gate": "A4-3",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-2: second flat scalar invariant DERIVED and verified: J = A*k**2/omega**2 + B*k/omega + Etld (C is the first)",
+   "gate": "A4-2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-2: nonlocal scalar-sector response is NOT invariant under the scalar orbit (X0, X3 symbolic) -- orbit-sensitive scalar content, classified as FINDING; NOT repaired",
+   "gate": "A4-2",
+   "detail": {
+    "scalar_orbit_invariant": false
+   }
+  },
+  {
+   "pass": true,
+   "msg": "A4-5: Sigma_B - Sigma_A carries 411 NONLOCAL terms -- decomposed: TT-physical ZERO (proven), scalar NONZERO, remainder recorded as orbit-equivalent/unresolved for the owner",
+   "gate": "A4-5",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "A4-6: both routes evaluate the SAME frozen atom objects (Gfun/Rfun with the -i0 branch law, sha-pinned kernel) -- the retarded prescription is shared by construction, and the synchronous residual freedom is fixed by Declaration 5's eta -> -infinity asymptotic-coincidence prescription (zero-frequency family, empty at the omega != 0 kinematics used here)",
+   "gate": "A4-6",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: A4-7(i): broken orbit (unsymmetrized) is DETECTED (loses symmetry / touches the transverse block / breaks solvability)",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: A4-7(ii): pure-gauge injection on the + leg changes the TT_+x NONLOCAL value by ZERO -- verdict-bearing TT content unchanged",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "A4-7(ii) gate: the physical TT verdict is UNTOUCHED by discarded gauge content (nonlocal shift == 0 exactly)",
+   "gate": "A4-7",
+   "detail": null
+  }
+ ],
+ "notes": [],
+ "failures": [],
+ "elapsed_s": 11.3,
+ "hard_stop": "A4 Phase II (H^1/H^2 dressed orbit) is the remaining A4 content; J(omega)/PV/spectral-fit/+1 all remain sealed"
+}
