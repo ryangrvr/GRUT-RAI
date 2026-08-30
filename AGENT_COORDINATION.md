@@ -3496,3 +3496,31 @@ OUTPUTS: WALL_A4_RESPONSE_FLAT_RESULT.json, WALL_A4_RESPONSE_DRESSED_RESULT
 HARD STOP, per the brief: J(omega), PV, spectral-fit machinery,
 relaxational/resonant classification, +1 discharge -- ALL SEALED.
 Owner/reviewer adjudication required. W-0; register untouched.
+
+================================================================================
+OWNER AUTHORIZATION -- 2026-08-30 -- WARD/BARDEEN COMPLETION DIAGNOSTIC (W0-W7)
+================================================================================
+
+Recorded: the full W0-W7 brief (verbatim in the owner's message). Operative:
+bounded DIAGNOSTIC, not repair; frozen kernel immutable; do not force W to
+zero; verdict classes A (COMPLETE) / B (PARTIAL) / C (UNRESOLVED) /
+D (PHYSICAL-TT FAILURE), never collapsed into PASS; PV and J(omega) stay
+sealed; +1 not discharged; HARD STOP after the report.
+
+BUILDER DESIGN NOTE (disclosed BEFORE computing): the countersigned A1 vertex
+admits an EXACT Ward algebra, derivable symbolically. Contracting the vertex
+with the orbit polarisation delta_e = i(KX + XK) and eliminating K.p, K.q in
+favour of the propagator denominators D_p, D_q yields, mechanically:
+    momentum pairing K = p + q  (both phi-momenta incoming):
+        Gamma_delta_e = i[D_p (X.q) + D_q (X.p)]          -- PURE EoM
+    momentum pairing (p, q) = (l, l-K) as literal arguments:
+        Gamma_delta_e = [EoM terms] - i m^2 (K.X)         -- EoM + TRACE RESIDUE
+The EoM terms collapse propagators (tadpole-class => LOCAL per V4); the trace
+residue multiplies the FULL bubble => a NONLOCAL Ward contraction of the exact
+form  m^2 (K.X) x [one-vertex bubble]. The instrument therefore has a sharp,
+pre-stated factorization test: does the computed nonlocal W factor as
+m^2 (K.X) x F(p-slot; omega, k) with NO transverse-X components? Both vertex
+Ward identities are DERIVED IN-INSTRUMENT as executed gates (from the A1 form,
+not assumed), and the factorization verdict + the cut-Im test decide between
+the owner's outcome classes without any repair. This note is written before
+the first contraction of this diagnostic is run.
