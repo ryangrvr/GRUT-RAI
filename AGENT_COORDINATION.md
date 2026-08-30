@@ -3207,3 +3207,95 @@ BUILDER ACKNOWLEDGEMENT (the checker-turned-builder is bound by this):
     slot exchange, H T-ODD, E1 mechanism of the pinned premises files). The
     raw H^1 failure does not touch it.
   * Both layers will be reported side by side, findings before interpretation.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- A3-4 COMPLETE: THE TWO-LAYER RECORD
+(findings first, per the owner's directive; interpretation left to the owner)
+================================================================================
+
+FROZEN INPUT: Sigma_R^finite, kernel sha dd77b194...888c4ae1 (accepted A3-3
+freeze). All declaration/registry/premises pins verified on every run. The
+barred-inputs guard ran clean (load + exit, name and content-hash) on every
+run. J(omega) was never touched.
+
+--------------------------------------------------------------------------------
+LAYER (1) -- RAW FULL NON-TT KERNEL (wall_a3_4_adjudication.py; structural
+findings, NOT the preregistered verdicts)
+--------------------------------------------------------------------------------
+  Q1 raw placement:  H^0: 0/9 atom classes in the 3-family; all 9 on
+                          {P0w, P1, Xws}
+                     H^1: 0/56; 18 OUTSIDE + 38 frame/u-content beyond the
+                          covariant 6-family
+                     H^2: 0/157; 22 OUTSIDE + 135 frame/u-content
+  Q4 raw exchange:   H^0 HOLDS exactly; H^1 FAILS; H^2 FAILS
+  Q1b:               not triggered (X_sw coefficient zero in every sector)
+  Controls:          4/4 DETECTED
+  DEFECT (disclosed): the layer-1 Q3 constructor assembled the P2 channel only
+  from 3-family-pure atoms (there were none) -> chi = 0 -> log(0/0) crash at
+  the very end. No raw-kernel Q3 record exists; everything upstream was
+  complete. The declared Q3 lives in layer 2.
+
+--------------------------------------------------------------------------------
+LAYER (2) -- THE PREREGISTERED VERDICTS ON THE DECLARED TT OBJECT
+(wall_a3_4_tt_layer.py; final run: 31/31 gates, 0 failures, all controls)
+--------------------------------------------------------------------------------
+  Q1^TT:  INSIDE -- the nonlocal TT block == a(omega,k) * P2^TT EXACTLY
+          (symbolic identity), at H^0 AND H^1 AND H^2. Verdict carried by the
+          flat sector per the criterion.
+  Q5^TT:  INSIDE -- the H->0 limit exists per channel (structural grading) and
+          matches Q1's flat placement.
+  Q4^TT:  HOLDS at every order (predicate byte-unchanged from the
+          pre-registration; corroborated independently by layer 1's STEP 6).
+  Q3^TT:  INSIDE (s >= 2, convergent) -- the spectrum is GAPPED: Im chi == 0
+          identically below omega_th = sqrt(k^2+4m^2); rigorous, not rounded;
+          mechanism = the loop mass gap. UV: |Im chi| ~ omega^4.05, n_sub = 3.
+          THRICE-subtracted KK sum rule closes at rel 6.6e-03 (tol 8e-02) with
+          the wrong-branch control flipping the sign exactly.
+
+  THE RECONCILIATION OF THE LAYERS: every raw-OUTSIDE structure
+  ({P0w, P1, Xws}) and all frame/u-content vanishes identically on TT slots
+  (proven as executed basis gates). The raw OUTSIDE was non-TT structure in
+  its entirety; the declared object lands in the family without the family
+  being imposed. The raw Q4 failures at H^1/H^2 likewise live entirely in the
+  non-TT content -- on the TT block reciprocity holds at all orders.
+
+--------------------------------------------------------------------------------
+DEFECT/REPAIR HISTORY OF LAYER 2 (all runs preserved; nothing overwritten)
+--------------------------------------------------------------------------------
+  run 1 (defective, artifacts kept as *_run1_defective): isotropy compared
+    NL[++] vs NL[xx] at equal weight. KERNEL-FREE refutation: P2 ITSELF fails
+    that comparison through the freeze's _tt_view formula (TT_++ = 2,
+    TT_xx = 8; weights ++:+x:xx = 1:2:4 from symmetric-slot multiplicity).
+    Amended predicate: 4*NL[++] == NL[xx]; the weight pattern is now PROVEN
+    in-instrument (STEP 2b) and the naive comparison is kept as a PERMANENT
+    CONTROL that must keep failing on P2.
+  run 2: dispersion integral nan -- eta-Richardson R-atom evaluator exhausts
+    precision in a shrinking threshold neighbourhood. Repair: threshold sliver
+    in closed form from the branch law's sqrt vanishing + counted nan-guard.
+  run 3: sum rule diverged (rel 3.96) -- the check was wired TWICE-subtracted
+    against the instrument's OWN printed n_sub = 3. Repair: thrice-subtracted
+    relation, integrand ~ omega'^{-2.95}, measured-power tail.
+  run 4: rel 0.33 -- at omega0 = 1 the residue is 4th-order small (2.4e-4) and
+    the O(h) chi''(0) stencil polluted it at its own size. Repair: omega0 =
+    2.5 (below threshold; ~200x signal, stated in advance) + O(h^2) stencils.
+  run 5: GREEN. 31/31, rel 6.6e-03, all controls detected.
+  Cosmetic: the passing check message prints "omega0 = 1" from a stale format
+  string; the computation used omega0 = 2.5. Disclosed here, not re-run.
+  Every repair was convicted by the instrument's own output (the guard count,
+  the printed n_sub, the residue magnitude), never by the desired verdict; the
+  relation and the 8% tolerance were never touched.
+
+--------------------------------------------------------------------------------
+STANDING
+--------------------------------------------------------------------------------
+  * THE DISCHARGE MAP (pre-registered): Q1 INSIDE and Q5 INSIDE -- now both
+    recorded -- are the only admissible evidence for the
+    response_lorentz_covariance +1. Q3/Q4 do not vote. Discharge itself is an
+    OWNER RULING at the bank gate; it is NOT executed here.
+  * Scope: the TT gauge-invariant content is adjudicated. The non-TT
+    gauge-invariant content (Bardeen scalars) requires the A4 orbit apparatus
+    -- the declared dual-gauge robustness stage -- and is NOT adjudicated.
+  * Wording: validated to the declared computational standard (owner,
+    2026-08-30). W-0: computed-and-reported, NOT BANKED. Register untouched.
+  * The J(omega) comparison and the PV rerun remain sealed pending the owner's
+    ruling on this record.

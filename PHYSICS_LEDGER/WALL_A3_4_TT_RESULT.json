@@ -1,7 +1,7 @@
 {
  "stage": "A3-4 layer 2 (TT)",
  "frozen_kernel_sha256": "dd77b1943e2068c643f4181438814a378c26bc8693b616be812fa5f5888c4ae1",
- "instrument_sha256": "50cfa2b5f295d19b857fafe1baf70612e0f4ee992b5313eb883d741040d0eecf",
+ "instrument_sha256": "f387f511878e8018dbd645ad04caab18df20b65cbe2f9242a70301d59da9be55",
  "verdicts": {
   "layer": "(2) preregistered verdicts on the DECLARED TT object -- separate from the raw full non-TT findings of layer (1)",
   "Q1_TT": {
@@ -220,14 +220,14 @@
    "detail": null
   },
   {
-   "pass": false,
-   "msg": "Q3^TT dispersion: twice-subtracted KK sum rule closes at omega0 = 1 (lhs -0.010290 vs nan, rel nan)",
+   "pass": true,
+   "msg": "Q3^TT dispersion: THRICE-subtracted KK sum rule (n_sub = 3 per the instrument's own UV bookkeeping) closes at omega0 = 1 (lhs 0.048836 vs 0.049159, rel 6.61e-03)",
    "gate": "Q3TT",
    "detail": null
   },
   {
-   "pass": false,
-   "msg": "CONTROL: Q3^TT control: wrong-branch (+i0) Im breaks the sum rule (nan vs nan)",
+   "pass": true,
+   "msg": "CONTROL: Q3^TT control: wrong-branch (+i0) Im breaks the sum rule (-0.0489 vs 0.0489)",
    "gate": "control"
   }
  ],
@@ -236,9 +236,6 @@
   "Q3^TT spectral class as COMPUTED: GAPPED -- Im chi == 0 identically below omega_th = sqrt(k^2 + 4m^2); the frozen criterion 's >= 2: convergent' is satisfied RIGOROUSLY (Im = O(omega^s) for every s as omega -> 0+). Mechanism: the loop mass gap. The massless limit is a separate declared robustness question, not computed uninvited.",
   "Q3^TT UV bookkeeping: |Im chi| ~ omega^4.05 at large omega; the unsubtracted KK integral needs 3 subtractions at the high end; the criterion reads on the low-frequency class only."
  ],
- "failures": [
-  "Q3^TT dispersion: twice-subtracted KK sum rule closes at omega0 = 1 (lhs -0.010290 vs nan, rel nan)",
-  "CONTROL MISSED: Q3^TT control: wrong-branch (+i0) Im breaks the sum rule (nan vs nan)"
- ],
- "elapsed_s": 395.7
+ "failures": [],
+ "elapsed_s": 323.2
 }

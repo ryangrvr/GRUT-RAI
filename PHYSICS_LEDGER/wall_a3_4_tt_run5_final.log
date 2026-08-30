@@ -1,0 +1,62 @@
+=== GUARD (LOAD/ECHO/SCAN/FAIL; frozen registry is law) ===
+   GUARD CLEAN at load (8 symbols, 12 files)
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  ok   pin WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md == f6127ca65ad6636b...
+  ok   pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...
+  ok   pin wall_a_closure_premises.py == b7408f2a5e8b702c...
+  ok   pin second_author_closure_premises.py == 56c7b7ae500eda86...
+  ok   frozen kernel manifest sha == dd77b194... (the accepted A3-3 freeze)
+
+=== STEP 1: LOAD THE TT VIEW (the declared object) ===
+  ok   TT view srepr round-trip: recomputed sha == frozen manifest (e242ab76...)
+[    0.7s] TT view loaded and split local/nonlocal
+
+=== STEP 2: BASIS TT-REDUCTION GATES (contract-derived, executed) ===
+  ok   TT reduction gate: P0s vanishes on ALL four TT polarisation pairs (the 3-family's TT content is P2 alone)
+  ok   TT reduction gate: Xsw vanishes on ALL four TT polarisation pairs (the 3-family's TT content is P2 alone)
+  ok   TT reduction gate: Xws vanishes on ALL four TT polarisation pairs (the 3-family's TT content is P2 alone)
+  ok   TT reduction gate: P0w vanishes on ALL four TT polarisation pairs (the 3-family's TT content is P2 alone)
+  ok   TT reduction gate: P1 vanishes on ALL four TT polarisation pairs (the 3-family's TT content is P2 alone)
+  ok   TT reduction gate: P2 is polarisation-isotropic and diagonal on TT (P2(+,+) == P2(x,x) = 2, P2(+,x) == 0)
+  ok   CONVENTION-WEIGHT GATE (kernel-free): P2 through the freeze formula gives TT_++ = 2 (weight 1) and TT_xx = 8 (weight 4 x direct 2) -- the isotropy predicate below therefore reads 4*NL[++] == NL[xx]
+  ctrl-DETECTED   convention control: P2 itself FAILS the naive equal-weight isotropy comparison on freeze-formula components (the first run's defect, reproduced as a permanent control)
+[    1.1s] basis TT-reduction proven
+
+=== STEP 3: Q1^TT (declared criterion; per H-order) ===
+  ok   Q1^TT H^0: nonlocal TT block == a(omega,k) * P2^TT EXACTLY (isotropic, zero off-diagonals) -- INSIDE
+  ok   Q1^TT H^1: nonlocal TT block == a(omega,k) * P2^TT EXACTLY (isotropic, zero off-diagonals) -- INSIDE
+  ok   Q1^TT H^2: nonlocal TT block == a(omega,k) * P2^TT EXACTLY (isotropic, zero off-diagonals) -- INSIDE
+  note Q1^TT declared verdict (flat sector H^0): INSIDE
+  ctrl-DETECTED   Q1^TT control: injected anisotropy breaks isotropy
+  ctrl-DETECTED   Q1^TT control: injected symmetric off-diagonal detected
+
+=== STEP 4: Q5^TT ===
+  ok   Q5^TT structural gate: the freeze's H-grading is external (sectors H-free), so the H->0 limit of the TT response exists per channel and equals the H^0 TT block exactly
+  ok   Q5^TT: flat-limit placement MATCHES Q1^TT's flat placement (same computed object; the limit commutes by the grading)
+
+=== STEP 5: Q4^TT (predicate UNCHANGED from the pre-registration) ===
+  ok   Q4^TT H^0: TT_+x == (-1)^0 * TT_x+ is True (eps-corrected slot exchange on the TT block; H T-ODD; full component, local + nonlocal)
+  ok   Q4^TT H^1: TT_+x == (-1)^1 * TT_x+ is True (eps-corrected slot exchange on the TT block; H T-ODD; full component, local + nonlocal)
+  ok   Q4^TT H^2: TT_+x == (-1)^2 * TT_x+ is True (eps-corrected slot exchange on the TT block; H T-ODD; full component, local + nonlocal)
+  ctrl-DETECTED   Q4^TT control: injected exchange-asymmetric term shifts the predicate residual
+
+=== STEP 6: Q3^TT (chi = nonlocal TT_++ / P2(+,+)) ===
+  ok   Q3^TT: the flat TT channel is nonzero
+  ok   Q3^TT gap: Im chi == 0 below omega_th (numeric 0.0e+00; structural: every atom real off the cut)
+  ok   Q3^TT cut opens above threshold (1.110e-01)
+  note Q3^TT spectral class as COMPUTED: GAPPED -- Im chi == 0 identically below omega_th = sqrt(k^2 + 4m^2); the frozen criterion 's >= 2: convergent' is satisfied RIGOROUSLY (Im = O(omega^s) for every s as omega -> 0+). Mechanism: the loop mass gap. The massless limit is a separate declared robustness question, not computed uninvited.
+  note Q3^TT UV bookkeeping: |Im chi| ~ omega^4.05 at large omega; the unsubtracted KK integral needs 3 subtractions at the high end; the criterion reads on the low-frequency class only.
+  ok   Q3^TT dispersion: THRICE-subtracted KK sum rule (n_sub = 3 per the instrument's own UV bookkeeping) closes at omega0 = 1 (lhs 0.048836 vs 0.049159, rel 6.61e-03)
+  ctrl-DETECTED   Q3^TT control: wrong-branch (+i0) Im breaks the sum rule (-0.0489 vs 0.0489)
+[  323.2s] Q3^TT done
+
+=== STEP 7: LAYER-2 VERDICTS ===
+   GUARD CLEAN at exit (3 files read)
+
+================ SUMMARY (LAYER 2) ================
+  Q1_TT: INSIDE
+  Q4_TT: HOLDS -- equilibrium regime established; the 2D closure reduction is licensed for the computed response
+  Q5_TT: INSIDE
+  Q3_TT: INSIDE (s >= 2: convergent) -- mechanism: GAPPED spectrum; rigorous, not rounded
+gates: 31/31 passed; failures: 0
+elapsed: 323.2s

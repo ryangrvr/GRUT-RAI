@@ -11,4 +11,4 @@ Q1 INSIDE and Q5 INSIDE are the ONLY admissible evidence for the +1; Q3/Q4 do no
 
 validated to the declared computational standard; W-0: computed-and-reported, NOT banked; the non-TT gauge-invariant content (Bardeen scalars) needs the A4 orbit apparatus and is NOT adjudicated here
 
-gates: 29/31 passed; failures: 2
+gates: 31/31 passed; failures: 0
