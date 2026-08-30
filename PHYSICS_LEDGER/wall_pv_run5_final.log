@@ -1,0 +1,63 @@
+=== STEP 0: GUARD + COMPARATOR A (immutable) ===
+   GUARD CLEAN at load
+  ok   pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  note input sha wall_a4_ward_diag.py = ec16f87bd4dc9302...
+  ok   comparator A: frozen kernel sha dd77b194... (IMMUTABLE)
+  ok   H^0 round-trip sha ok
+[    2.3s] comparator A loaded (flat sector)
+
+=== STEP 1: COMPARATOR B -- ON-SHELL PHASE SPACE (independent) ===
+  ok   NORMALIZATION THEOREM: Im G[0,0,0](K2=8) == pi*sqrt(1-4m^2/K^2) (2.221441469079 vs 2.221441469079) -- the A3-1 Im law anchors the phase-space measure: Im[master-unit bubble] = pi*beta*<...>_Omega
+[   21.1s] comparator B (phase space) constructed
+
+=== STEP 2: COMPARISON MATRIX (H^0) ===
+  ok   ROW 1 TT kernel: A's Im TT_++ matches B's INDEPENDENT phase-space value at all 3 kinematics under the 'lit' pairing (worst rel 7.02e-17; other pairing worst rel 7.02e-17) -- the assembled kernel's absorptive TT content is SCHEME-ROBUST and the effective pairing is IDENTIFIED
+  ok   ROW 2 Q1^TT (absorptive): BOTH comparators are polarisation-isotropic (worst rel 0.00e+00) with zero off-diagonals (worst 5.57e-43) -- INSIDE on both schemes
+  ok   ROW 3 Q4^TT (absorptive): exchange symmetry holds on BOTH comparators (worst |diff| 0.00e+00) -- HOLDS on both schemes
+  ok   ROW 5 Q3: below threshold (K2=3 < 4) comparator A's Im == 0 (0.0e+00); comparator B's phase space is EMPTY there (sqrt(s/4 - m^2) imaginary -- structural); regulator cuts open only at 4*M_i^2. Branch-cut location and GAPPED s-class AGREE: the DECLARED criterion is met
+[  275.2s] TT/Q rows done
+
+=== STEP 3: WARD ROW ===
+  note WARD at (w,k)=(3,1): A's Im W = 0.379989 ; B covariant-pairing = (0.0 + 2.0748068e-30j) ; B literal-pairing = (0.0 + 25.875176j)
+  note WARD at (w,k)=(4,1): A's Im W = -2.376651 ; B covariant-pairing = (0.0 + 3.6588626e-30j) ; B literal-pairing = (0.0 + 86.32003j)
+  ok   ROW 6 Ward: recorded as a FINDING (neither forced): comparator A's absorptive Ward contraction vs B's two pairing constructions -- classification in the verdict block
+  note VECTOR residual at (w,k)=(3,1): A = -0.309091 ; B_cov = 0.000000 ; B_lit = 0.000000
+  note VECTOR residual at (w,k)=(4,1): A = 1.761364 ; B_cov = 0.000000 ; B_lit = 0.000000
+  ok   ROW 7 vector-channel residual: recorded (classification below)
+[  355.7s] Ward rows done
+
+=== STEP 4: PV DISPERSION (two regulators; M-doubling) ===
+  note dd3[Re TT_++]: A = 0.0006689096891 ; B_phys = 0.0006689073743 ; B_reg(M^2=400/900) = -2.1460658e-6 ; B_reg(M-doubled) = -1.0733055e-6
+  ok   STEP 4: regulator content scales as 1/M^2 (doubling ratio 0.500127) -- it VANISHES in the declared M -> infinity limit; the finite-M remainder is classified LOCAL/SCHEME content
+  ok   STEP 4: Re agreement A vs B on dd3, regulator content accounted: dd3[A] == dispersion of A's own physical cut at rel 3.46e-06 -- the schemes agree EXACTLY modulo the declared degree-2 local polynomial (annihilated) plus the vanishing 1/M^2 regulator term
+[  356.6s] PV dispersion (dd3, corrected quadrature) done
+
+=== STEP 5: CONTROLS ===
+  ctrl-DETECTED   wrong-PV-sign control: flipping regulator-1's spectral sign shifts dd3 by 5.347e-06 -- DETECTED
+  ctrl-DETECTED   altered-regulator control: M^2 400/900 -> 100/225 moves dd3 by rel 9.65e-03 only -- the PHYSICAL content is regulator-independent while run-2 showed the un-subtracted local content moves by O(10^2): the scheme dependence is confined to the annihilated polynomial, EXACTLY the doctrine
+  ctrl-DETECTED   altered-physical-response control: a 5% perturbation of one comparator-A point shifts dd3 by rel 6.59e-01 -- DETECTED
+
+=== STEP 6: VERDICT ===
+  SCHEME-ROBUST (TT + Q1 + Q4 + Q3 + Re): True
+  WARD row: see WARD/VECTOR rows: classified against both derived pairings
+   GUARD CLEAN at exit (3 files read)
+Traceback (most recent call last):
+  File "/Users/mpg/Desktop/GRUT ResponsiveAI/PHYSICS_LEDGER/wall_pv_robustness.py", line 604, in <module>
+    json.dump(RESULT, f, indent=1, default=str)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/json/__init__.py", line 180, in dump
+    for chunk in iterable:
+                 ^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/json/encoder.py", line 444, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/json/encoder.py", line 413, in _iterencode_dict
+    yield from chunks
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/json/encoder.py", line 413, in _iterencode_dict
+    yield from chunks
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/json/encoder.py", line 381, in _iterencode_dict
+    raise TypeError(f'keys must be str, int, float, bool or None, '
+                    f'not {key.__class__.__name__}')
+TypeError: keys must be str, int, float, bool or None, not tuple
+when serializing dict item 'Ward'
+when serializing dict item 'matrix'

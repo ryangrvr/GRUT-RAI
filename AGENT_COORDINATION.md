@@ -3680,3 +3680,70 @@ content would make THAT DISCREPANCY ITSELF the object to understand -- the
 primary kernel's vector-channel cut has no counterpart in the independent
 two-body unitarity construction. The dd3 strategy is endorsed (annihilates
 exactly the doctrine's degree-2 polynomial ambiguity, nothing more).
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- PV ROBUSTNESS COMPLETE. SCHEME-ROBUST: TRUE.
+The five-bucket report (owner's directive), then HARD STOP.
+================================================================================
+
+Instrument: wall_pv_robustness.py, final run (5). Comparator A = the frozen
+kernel, untouched throughout. Comparator B = independent: absorptive side from
+ON-SHELL TWO-BODY PHASE SPACE (no shared code/masters; normalization DERIVED
+by theorem gate); real side from the PV two-regulator dispersion per the
+frozen protocol.
+
+BUCKET 1 -- NORMALIZATION: A == B at rel 7.02e-17, all 3 kinematics, after
+  the derived bubble-1/2 repair. (Run-1's rel = 1.00 exactly was its absence.)
+
+BUCKET 2 -- FINITE TT STRUCTURE: Q1^TT isotropic/INSIDE on BOTH comparators
+  (off-diagonals < 6e-43); Q4^TT exchange HOLDS on both (0.00e+00); Q3
+  branch-cut location and GAPPED s-class AGREE -- the frozen protocol's
+  declared criterion met verbatim. s = 3 asserted NOWHERE.
+
+BUCKET 3 -- WARD CONTRACTION (finding, not target): A's absorptive Ward
+  values (0.380 / -2.377 at the two kinematics) match NEITHER derived pairing
+  construction (covariant: 0; literal: 25.9 / 86.3). The primary kernel's
+  absorptive Ward content is not reproduced by either continuum pairing of
+  the A1 vertex on the two-body cut.
+
+BUCKET 4 -- VECTOR-CHANNEL RESIDUAL: A != 0 (-0.309 / +1.761); B == 0 under
+  BOTH pairings. CLASS B, in the owner's pinned wording: "the nonzero vector
+  Ward residual occurs in the assembled non-TT kernel but is absent from the
+  independently constructed absorptive two-body cut." Per the owner's bound
+  (ea04d7d): this does NOT establish the residual is unphysical; what remains
+  undetermined is whether it is a real/analytic non-TT artifact, a contact
+  term, a missing cancellation, or something else. Since the Ward diagnostic
+  proved the primary residual is CUT-CARRYING, the discrepancy itself -- a
+  cut with no two-body counterpart -- is now the object for adjudication.
+
+BUCKET 5 -- REAL-PART DISPERSION: dd3[Re TT_++] (annihilates the doctrine's
+  degree-2 local ambiguity, nothing more): A = 6.6891e-4 vs the dispersion of
+  A's OWN physical cut = 6.6891e-4, rel 3.46e-06; the regulator content
+  isolated at -2.15e-6 and 1/M^2-scaling-verified (doubling ratio 0.5001) --
+  it vanishes in the declared M -> infinity limit. The closed-form angular
+  integral was verified against the numeric phase space (12 digits) BEFORE
+  the dispersion result was accepted, per the directive. Controls 3/3.
+
+DEFECT HISTORY (all disclosed in-file; all runs' logs committed): run 1
+  missing bubble 1/2 (signature: rel = 1.00 exactly); run 2 once-subtracted
+  comparison blind to the degree-2 scheme polynomial + regulator m^4 tail
+  (M-doubling caught it); run 3 dd3 quadrature missing regulator-threshold
+  breakpoints (and its M-doubling gate FOOLED -- disclosed); run 4 kinematic
+  shift K^2 = x' instead of x' - k^2 (caught by the independent probe, which
+  pinned dd3[A] == physical dispersion at 4.2e-9 before the fix). Every
+  repair was derived or externally validated, never tuned to the verdict.
+
+THE FINAL MATRIX (primary vs PV):
+  TT absorptive        AGREEMENT (7e-17)
+  Q1/Q4/Q3             AGREEMENT (both schemes, same verdicts)
+  TT real              AGREEMENT modulo the declared local polynomial (3.5e-6)
+  vector Ward residue  PRIMARY-ONLY (class B; owner's bound applies)
+  scheme dependence    confined to the annihilated polynomial + 1/M^2 term
+
+SCHEME-ROBUST (TT + Q1 + Q4 + Q3 + Re): TRUE. The TT physical response is
+scheme-robust even though the full non-TT kernel carries the unresolved
+vector Ward problem -- TWO SEPARATE FINDINGS, kept separate, per directive.
+
+HARD STOP: no J(omega), no s=3 comparison, no +1 discharge, no
+relaxation/resonance classification, no Bardeen invention. W-0; register
+untouched. Owner adjudication required.

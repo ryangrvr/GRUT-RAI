@@ -1,0 +1,28 @@
+=== STEP 0: GUARD + COMPARATOR A (immutable) ===
+   GUARD CLEAN at load
+  ok   pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  note input sha wall_a4_ward_diag.py = ec16f87bd4dc9302...
+  ok   comparator A: frozen kernel sha dd77b194... (IMMUTABLE)
+  ok   H^0 round-trip sha ok
+[    2.2s] comparator A loaded (flat sector)
+
+=== STEP 1: COMPARATOR B -- ON-SHELL PHASE SPACE (independent) ===
+  ok   NORMALIZATION THEOREM: Im G[0,0,0](K2=8) == pi*sqrt(1-4m^2/K^2) (2.221441469079 vs 2.221441469079) -- the A3-1 Im law anchors the phase-space measure: Im[master-unit bubble] = pi*beta*<...>_Omega
+[   20.5s] comparator B (phase space) constructed
+
+=== STEP 2: COMPARISON MATRIX (H^0) ===
+  FAIL ROW 1 TT kernel: A's Im TT_++ matches B's INDEPENDENT phase-space value at all 3 kinematics under the 'lit' pairing (worst rel 1.00e+00; other pairing worst rel 1.00e+00) -- the assembled kernel's absorptive TT content is SCHEME-ROBUST and the effective pairing is IDENTIFIED
+  ok   ROW 2 Q1^TT (absorptive): BOTH comparators are polarisation-isotropic (worst rel 0.00e+00) with zero off-diagonals (worst 1.11e-42) -- INSIDE on both schemes
+  ok   ROW 3 Q4^TT (absorptive): exchange symmetry holds on BOTH comparators (worst |diff| 0.00e+00) -- HOLDS on both schemes
+  ok   ROW 5 Q3: below threshold (K2=3 < 4) comparator A's Im == 0 (0.0e+00); comparator B's phase space is EMPTY there (sqrt(s/4 - m^2) imaginary -- structural); regulator cuts open only at 4*M_i^2. Branch-cut location and GAPPED s-class AGREE: the DECLARED criterion is met
+[  274.2s] TT/Q rows done
+
+=== STEP 3: WARD ROW ===
+  note WARD at (w,k)=(3,1): A's Im W = 0.379989 ; B covariant-pairing = (0.0 + 4.1496135e-30j) ; B literal-pairing = (0.0 + 51.750352j)
+  note WARD at (w,k)=(4,1): A's Im W = -2.376651 ; B covariant-pairing = (0.0 + 7.3177252e-30j) ; B literal-pairing = (0.0 + 172.64006j)
+  ok   ROW 6 Ward: recorded as a FINDING (neither forced): comparator A's absorptive Ward contraction vs B's two pairing constructions -- classification in the verdict block
+  note VECTOR residual at (w,k)=(3,1): A = -0.309091 ; B_cov = 0.000000 ; B_lit = 0.000000
+  note VECTOR residual at (w,k)=(4,1): A = 1.761364 ; B_cov = 0.000000 ; B_lit = 0.000000
+  ok   ROW 7 vector-channel residual: recorded (classification below)
+[  354.9s] Ward rows done

@@ -1,0 +1,27 @@
+{
+ "stage": "PV robustness (pre-registered scheme test)",
+ "frozen_kernel_sha256": "dd77b1943e2068c643f4181438814a378c26bc8693b616be812fa5f5888c4ae1",
+ "instrument_sha256": "5067cb9e83e5fb61991f9ac1d21e74f0ec32257e6251930b11087fdb6d19819b",
+ "matrix": {
+  "TT_kernel": {
+   "agrees": true,
+   "identified_pairing": "lit",
+   "worst_rel": 7.01708442819363e-17
+  },
+  "Q1_TT": {
+   "agrees": true,
+   "verdict_both": "INSIDE"
+  },
+  "Q4_TT": {
+   "agrees": true,
+   "verdict_both": "HOLDS"
+  },
+  "Q5_TT": {
+   "agrees": true,
+   "note": "flat order IS the Q5 object; rows 1-2 are the Q5 comparison"
+  },
+  "Q3": {
+   "agrees": true,
+   "both": "GAPPED at K2 = 4m^2; s >= 2 rigorous; s=3 NOT asserted on either side"
+  },
+  "Ward": {
