@@ -1,0 +1,1817 @@
+{
+ "instrument": "wall_a3_2_finite_response.py",
+ "task": "WALL A3-2 (Phase G): the finite eps^0 master computation for the D2 assembly",
+ "builder": "builder session (owner 'go' 2026-08-28), HEAD 5eb233d82542b15be1d60f9a1b07fed9f634fee6",
+ "smoke_run": false,
+ "verdict": "PASS",
+ "w0_status": "computed-and-reported, NOT banked; no register edits",
+ "counts": {
+  "gates_total": 204,
+  "gates_passed": 204,
+  "controls_total": 3,
+  "controls_detected": 3,
+  "failures": 0
+ },
+ "checks": [
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "input integrity: .p10_assembly_cache.txt sha256 == pinned",
+   "pass": true,
+   "detail": {
+    "want": "3208492fcf01caad5b9d35c40a4379b056cd5ca8bc175d4ca2569a273561a0af",
+    "got": "3208492fcf01caad5b9d35c40a4379b056cd5ca8bc175d4ca2569a273561a0af"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "input integrity: .p11_af_basis_cache.txt sha256 == pinned",
+   "pass": true,
+   "detail": {
+    "want": "692039d8c2a9d462eb314557ddc78e00d68c73054aed7db2987671ad58f63fbb",
+    "got": "692039d8c2a9d462eb314557ddc78e00d68c73054aed7db2987671ad58f63fbb"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "input integrity: WALL_A3_1_FINITE_MASTERS_RESULT.json sha256 == pinned",
+   "pass": true,
+   "detail": {
+    "want": "abe50eff489d409a903639d8a37384a41191f096bf77ea3eb38ebe7d6aedd5fd",
+    "got": "abe50eff489d409a903639d8a37384a41191f096bf77ea3eb38ebe7d6aedd5fd"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "input integrity: WALL_A3_1_FINITE_MASTERS_VERDICT.md sha256 == pinned",
+   "pass": true,
+   "detail": {
+    "want": "254ed68b38f2d604f6d222d3d6d3d424a55d326cb5410c4182e5d0166054ab81",
+    "got": "254ed68b38f2d604f6d222d3d6d3d424a55d326cb5410c4182e5d0166054ab81"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "input integrity: WALL_A3_2_EXECUTION_PROMPT.md sha256 == pinned",
+   "pass": true,
+   "detail": {
+    "want": "8dc3226669b3f9e12a099e227009d28b7fa50dc64b8e08aabbebba153f5b1167",
+    "got": "8dc3226669b3f9e12a099e227009d28b7fa50dc64b8e08aabbebba153f5b1167"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "input integrity: WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md sha256 == pinned",
+   "pass": true,
+   "detail": {
+    "want": "f6127ca65ad6636be432b6d6c6fb6d30bb0b9f0c8912df4a9a1054e54919dd56",
+    "got": "f6127ca65ad6636be432b6d6c6fb6d30bb0b9f0c8912df4a9a1054e54919dd56"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "input integrity: WALL_A_A3_REGISTRY.json sha256 == pinned",
+   "pass": true,
+   "detail": {
+    "want": "faa977d40f1ba31836e35b18223c1f573559b49649a84fad237a3809aae59b55",
+    "got": "faa977d40f1ba31836e35b18223c1f573559b49649a84fad237a3809aae59b55"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "input integrity: WALL_D2_ASSEMBLY3_ENTRY_OBJECT.json sha256 == pinned",
+   "pass": true,
+   "detail": {
+    "want": "419c455bccdd90dcbef708698e5339b7a2d32f0c8b07c49af9de6ab099316ccb",
+    "got": "419c455bccdd90dcbef708698e5339b7a2d32f0c8b07c49af9de6ab099316ccb"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "input integrity: WALL_D2_UV_FREEZE_RESULT.json sha256 == pinned",
+   "pass": true,
+   "detail": {
+    "want": "9ced0c68f46554778c2648602b5537aca027b2dd40bf5b155f74731cb6cb2706",
+    "got": "9ced0c68f46554778c2648602b5537aca027b2dd40bf5b155f74731cb6cb2706"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "input integrity: wall_a3_1_finite_masters.py sha256 == pinned",
+   "pass": true,
+   "detail": {
+    "want": "d1ef50f84af9fe5987c00c7aaab986b16963f847f82374041bf1e5e8faab6941",
+    "got": "d1ef50f84af9fe5987c00c7aaab986b16963f847f82374041bf1e5e8faab6941"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "input integrity: wall_d2_phase12_ms_split.py sha256 == pinned",
+   "pass": true,
+   "detail": {
+    "want": "a9850cd5d8ce5d61e1eb9574c9aaeed2a412db4a833f851e447b36b5955c83a2",
+    "got": "a9850cd5d8ce5d61e1eb9574c9aaeed2a412db4a833f851e447b36b5955c83a2"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "input integrity: wall_d2_phases8_12.py sha256 == pinned",
+   "pass": true,
+   "detail": {
+    "want": "f48b2cc898017493a11f08c8b6bfcb1c2367a0f577b583f00d77d0bd8341c558",
+    "got": "f48b2cc898017493a11f08c8b6bfcb1c2367a0f577b583f00d77d0bd8341c558"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "git HEAD == 5eb233d82542b15be1d60f9a1b07fed9f634fee6 (the A3-2 entry pin)",
+   "pass": true,
+   "detail": {
+    "head": "5eb233d82542b15be1d60f9a1b07fed9f634fee6"
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "worktree clean apart from this instrument's own claimed outputs",
+   "pass": true,
+   "detail": {
+    "unexpected": []
+   }
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "output path pre-registered in AGENT_COORDINATION.md: wall_a3_2_finite_response.py",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "output path pre-registered in AGENT_COORDINATION.md: WALL_A3_2_FINITE_RESPONSE_RESULT.json",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "output path pre-registered in AGENT_COORDINATION.md: WALL_A3_2_FINITE_RESPONSE_VERDICT.md",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "output path pre-registered in AGENT_COORDINATION.md: Sigma_R_finite_full.json",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "output path pre-registered in AGENT_COORDINATION.md: Sigma_R_finite_full.verdict.md",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "output path pre-registered in AGENT_COORDINATION.md: .p_a3_2_run.log",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "guard-lite: instrument free of barred construct 'chi_integral('",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "guard-lite: instrument free of barred construct 'pv_average('",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "guard-lite: instrument free of barred construct 'spectral_class('",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "guard-lite: instrument free of barred construct 'relaxation_fit('",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "guard-lite: instrument free of barred construct 'power_law_fit('",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "guard-lite: instrument free of barred construct 'resonance_fit('",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "guard-lite: instrument free of barred construct 'J_of_omega('",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "guard-lite: instrument free of barred construct 'import numpy'",
+   "pass": true
+  },
+  {
+   "gate": "A3-2A",
+   "kind": "gate",
+   "msg": "guard-lite: instrument free of barred construct 'mp.findroot'",
+   "pass": true
+  },
+  {
+   "gate": "load",
+   "kind": "gate",
+   "msg": "engine machinery marker found (refusing to guess the split)",
+   "pass": true
+  },
+  {
+   "gate": "load",
+   "kind": "gate",
+   "msg": "engine internal gates all pass on load (exit 0, FAIL empty)",
+   "pass": true,
+   "detail": {
+    "exit": 0,
+    "engine_FAIL": 0
+   }
+  },
+  {
+   "gate": "load",
+   "kind": "gate",
+   "msg": "frozen Phase-10 cache loaded: the five cached sectors",
+   "pass": true
+  },
+  {
+   "gate": "load",
+   "kind": "gate",
+   "msg": "Phase-10 cache byte-stable across the machinery load (cache_save rewrite is a no-op; the loop target is immutable in fact)",
+   "pass": true
+  },
+  {
+   "gate": "load",
+   "kind": "gate",
+   "msg": "cached assemblies are c-free (poles in units of c; c applied at report time)",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=0,N=1) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=0,N=2) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=0,N=3) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=0,N=4) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=0,N=5) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=1,N=1) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=1,N=2) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=1,N=3) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=1,N=4) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=1,N=5) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=2,N=1) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=2,N=2) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=2,N=3) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=2,N=4) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=2,N=5) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=3,N=1) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=3,N=2) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=3,N=3) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=3,N=4) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=3,N=5) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=4,N=1) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=4,N=2) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=4,N=3) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=4,N=4) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin pole sector == engine Ipole_scalar(j=4,N=5) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "twin-pole",
+   "kind": "gate",
+   "msg": "twin law pole sector: 25/25 (j,N) classes byte-identical to the engine's validated pole law (the replay is structural, not incidental)",
+   "pass": true
+  },
+  {
+   "gate": "twin-M",
+   "kind": "gate",
+   "msg": "M_1 twin == A3-1: Delta*(1 + kappa - ln(Delta/mu^2))",
+   "pass": true
+  },
+  {
+   "gate": "twin-M",
+   "kind": "gate",
+   "msg": "M_2 twin == A3-1: kappa - ln(Delta/mu^2)",
+   "pass": true
+  },
+  {
+   "gate": "twin-M",
+   "kind": "gate",
+   "msg": "M_3 twin == A3-1: -1/(2 Delta)",
+   "pass": true
+  },
+  {
+   "gate": "twin-M",
+   "kind": "gate",
+   "msg": "M_4 twin == A3-1: 1/(6 Delta^2)",
+   "pass": true
+  },
+  {
+   "gate": "twin-T",
+   "kind": "gate",
+   "msg": "T2 twin == A3-1 exact-d composition /(4-eps) at N=2 (the s_j cross-term is the (eps/4)x(2/eps) pole cross -- EXACT)",
+   "pass": true
+  },
+  {
+   "gate": "twin-T",
+   "kind": "gate",
+   "msg": "T4 twin == A3-1 exact-d composition 3/((4-eps)(6-eps)) at N=2 (s_2 = psi(4)-psi(2) = 5/6 exactly)",
+   "pass": true
+  },
+  {
+   "gate": "twin-T",
+   "kind": "gate",
+   "msg": "T2 twin == A3-1 exact-d composition /(4-eps) at N=3 (the s_j cross-term is the (eps/4)x(2/eps) pole cross -- EXACT)",
+   "pass": true
+  },
+  {
+   "gate": "twin-T",
+   "kind": "gate",
+   "msg": "T4 twin == A3-1 exact-d composition 3/((4-eps)(6-eps)) at N=3 (s_2 = psi(4)-psi(2) = 5/6 exactly)",
+   "pass": true
+  },
+  {
+   "gate": "twin-T",
+   "kind": "gate",
+   "msg": "T2 twin == A3-1 exact-d composition /(4-eps) at N=4 (the s_j cross-term is the (eps/4)x(2/eps) pole cross -- EXACT)",
+   "pass": true
+  },
+  {
+   "gate": "twin-T",
+   "kind": "gate",
+   "msg": "T4 twin == A3-1 exact-d composition 3/((4-eps)(6-eps)) at N=4 (s_2 = psi(4)-psi(2) = 5/6 exactly)",
+   "pass": true
+  },
+  {
+   "gate": "atom-fdiff",
+   "kind": "gate",
+   "msg": "fdiff gate dG/dK2 (n=0,np=0,e=0): recurrence == Richardson derivative of the quadrature (d=5.28e-14)",
+   "pass": true,
+   "detail": {
+    "diff": 5.283840811123944e-14
+   }
+  },
+  {
+   "gate": "atom-fdiff",
+   "kind": "gate",
+   "msg": "fdiff gate dG/dm2 (n=0,np=0,e=0): recurrence == Richardson derivative (d=1.16e-11)",
+   "pass": true,
+   "detail": {
+    "diff": 1.1634549965874543e-11
+   }
+  },
+  {
+   "gate": "atom-fdiff",
+   "kind": "gate",
+   "msg": "fdiff gate dG/dK2 (n=1,np=0,e=1): recurrence == Richardson derivative of the quadrature (d=2.17e-14)",
+   "pass": true,
+   "detail": {
+    "diff": 2.1702400055278868e-14
+   }
+  },
+  {
+   "gate": "atom-fdiff",
+   "kind": "gate",
+   "msg": "fdiff gate dG/dm2 (n=1,np=0,e=1): recurrence == Richardson derivative (d=4.01e-12)",
+   "pass": true,
+   "detail": {
+    "diff": 4.009019374675354e-12
+   }
+  },
+  {
+   "gate": "atom-fdiff",
+   "kind": "gate",
+   "msg": "fdiff gate dG/dK2 (n=0,np=1,e=2): recurrence == Richardson derivative of the quadrature (d=7.17e-14)",
+   "pass": true,
+   "detail": {
+    "diff": 7.173906387897081e-14
+   }
+  },
+  {
+   "gate": "atom-fdiff",
+   "kind": "gate",
+   "msg": "fdiff gate dG/dm2 (n=0,np=1,e=2): recurrence == Richardson derivative (d=1.14e-11)",
+   "pass": true,
+   "detail": {
+    "diff": 1.1396856625888802e-11
+   }
+  },
+  {
+   "gate": "atom-fdiff",
+   "kind": "gate",
+   "msg": "fdiff gate dG/dK2 (n=2,np=1,e=0): recurrence == Richardson derivative of the quadrature (d=5.66e-15)",
+   "pass": true,
+   "detail": {
+    "diff": 5.664257319662922e-15
+   }
+  },
+  {
+   "gate": "atom-fdiff",
+   "kind": "gate",
+   "msg": "fdiff gate dG/dm2 (n=2,np=1,e=0): recurrence == Richardson derivative (d=7.34e-13)",
+   "pass": true,
+   "detail": {
+    "diff": 7.336090044415266e-13
+   }
+  },
+  {
+   "gate": "atom-fdiff",
+   "kind": "gate",
+   "msg": "fdiff gate dR/dK2 (n=0,np=0,e=-1): recurrence == Richardson derivative (d=9.71e-14)",
+   "pass": true,
+   "detail": {
+    "diff": 9.70714550912465e-14
+   }
+  },
+  {
+   "gate": "atom-fdiff",
+   "kind": "gate",
+   "msg": "fdiff gate dR/dK2 (n=1,np=0,e=-2): recurrence == Richardson derivative (d=1.20e-13)",
+   "pass": true,
+   "detail": {
+    "diff": 1.1972226363090995e-13
+   }
+  },
+  {
+   "gate": "atom-eval",
+   "kind": "gate",
+   "msg": "R-atom auto-evaluation at e>=0: closed polynomial (Int y (m2-y(1-y)K2)^2)",
+   "pass": true
+  },
+  {
+   "gate": "atom-eval",
+   "kind": "gate",
+   "msg": "R-atom at e<=-1 stays symbolic (the threshold/rational class)",
+   "pass": true
+  },
+  {
+   "gate": "anchor",
+   "kind": "gate",
+   "msg": "scalar-bubble anchor B(K2=-0.7): kappa + G[0,0,0]-referee == A3-1 route-A finite (d=1.10e-16 < 5e-6)",
+   "pass": true,
+   "detail": {
+    "got": "(1.8445764994783839 + 0.0j)",
+    "want": "1.844576499478384",
+    "diff": 1.0998326646740698e-16
+   }
+  },
+  {
+   "gate": "anchor",
+   "kind": "gate",
+   "msg": "scalar-bubble anchor B(K2=-1.3): kappa + G[0,0,0]-referee == A3-1 route-A finite (d=1.50e-16 < 5e-6)",
+   "pass": true,
+   "detail": {
+    "got": "(1.7609963360093847 + 0.0j)",
+    "want": "1.7609963360093845",
+    "diff": 1.5003927813709859e-16
+   }
+  },
+  {
+   "gate": "anchor",
+   "kind": "gate",
+   "msg": "scalar-bubble anchor B(K2=-2.9): kappa + G[0,0,0]-referee == A3-1 route-A finite (d=1.01e-16 < 5e-6)",
+   "pass": true,
+   "detail": {
+    "got": "(1.5710865474016834 + 0.0j)",
+    "want": "1.5710865474016833",
+    "diff": 1.0056937853398772e-16
+   }
+  },
+  {
+   "gate": "anchor",
+   "kind": "gate",
+   "msg": "scalar-bubble anchor Im at K2=5m^2: +pi*sqrt(1-4/5) (the frozen branch law; d=2.30e-41)",
+   "pass": true,
+   "detail": {
+    "got": "1.4049629462081453",
+    "want": "1.4049629462081452"
+   }
+  },
+  {
+   "gate": "regression",
+   "kind": "gate",
+   "msg": "E1 settlement defect-A regression: the odd-e on-cut G-atom (n=0,np=1,e=1) at K2=8 DISAGREES with the abs(D)^e misreading (d=1.487; the signed-D^e law is load-bearing)",
+   "pass": true,
+   "detail": {
+    "signed": [
+     -0.028960951017624102,
+     -0.740480489693061
+    ]
+   }
+  },
+  {
+   "gate": "regression",
+   "kind": "gate",
+   "msg": "E1 settlement defect-B regression: R[n=0,np=2,e=-2] at K2=8 == the external partial-fraction closed form (d=3.09e-16 < 1e-12; without cut breakpoints this atom is off by up to 3.1e+06)",
+   "pass": true,
+   "detail": {
+    "got": [
+     -0.14854842249123532,
+     -0.06942004590872435
+    ]
+   }
+  },
+  {
+   "gate": "regression",
+   "kind": "gate",
+   "msg": "E1 settlement defect-B regression: R[n=1,np=0,e=-1] at K2=8 == the external partial-fraction closed form (d=1.78e-16 < 1e-12; without cut breakpoints this atom is off by up to 3.1e+06)",
+   "pass": true,
+   "detail": {
+    "got": [
+     -0.3116126200701154,
+     0.5553603672697959
+    ]
+   }
+  },
+  {
+   "gate": "regression",
+   "kind": "gate",
+   "msg": "E1 settlement defect-B regression: R[n=1,np=3,e=-3] at K2=8 == the external partial-fraction closed form (d=1.69e-16 < 1e-12; without cut breakpoints this atom is off by up to 3.1e+06)",
+   "pass": true,
+   "detail": {
+    "got": [
+     0.010529243825659841,
+     0.01952438791182875
+    ]
+   }
+  },
+  {
+   "gate": "k0-cross",
+   "kind": "gate",
+   "msg": "K=0 cross-route: 2den master (aP=1,bP=1) == tadpole master N=2 EXACTLY (two independent code paths of the twin law)",
+   "pass": true
+  },
+  {
+   "gate": "k0-cross",
+   "kind": "gate",
+   "msg": "K=0 cross-route: 2den master (aP=1,bP=2) == tadpole master N=3 EXACTLY (two independent code paths of the twin law)",
+   "pass": true
+  },
+  {
+   "gate": "k0-cross",
+   "kind": "gate",
+   "msg": "K=0 cross-route: 2den master (aP=2,bP=1) == tadpole master N=3 EXACTLY (two independent code paths of the twin law)",
+   "pass": true
+  },
+  {
+   "gate": "k0-cross",
+   "kind": "gate",
+   "msg": "K=0 cross-route: 2den master (aP=1,bP=1) == tadpole master N=2 EXACTLY (two independent code paths of the twin law)",
+   "pass": true
+  },
+  {
+   "gate": "k0-cross",
+   "kind": "gate",
+   "msg": "K=0 cross-route: 2den master (aP=2,bP=2) == tadpole master N=4 EXACTLY (two independent code paths of the twin law)",
+   "pass": true
+  },
+  {
+   "gate": "k0-cross",
+   "kind": "gate",
+   "msg": "K=0 cross-route: 2den master (aP=3,bP=1) == tadpole master N=4 EXACTLY (two independent code paths of the twin law)",
+   "pass": true
+  },
+  {
+   "gate": "k0-cross",
+   "kind": "gate",
+   "msg": "K=0 cross-route: 2den master (aP=2,bP=2) == tadpole master N=4 EXACTLY (two independent code paths of the twin law)",
+   "pass": true
+  },
+  {
+   "gate": "k0-cross",
+   "kind": "gate",
+   "msg": "K=0 cross-route: 2den master (aP=2,bP=2) == tadpole master N=4 EXACTLY (two independent code paths of the twin law)",
+   "pass": true
+  },
+  {
+   "gate": "k0-cross",
+   "kind": "gate",
+   "msg": "K=0 cross-route: 2den master (aP=1,bP=3) == tadpole master N=4 EXACTLY (two independent code paths of the twin law)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block F_H0_fin: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H1_vtx10: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H1_vtx01: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H1_V1onA: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H1_V1onB: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H2_vtx20: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H2_vtx02: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H2_vtx11: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H2_vtx1xV1A: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H2_vtx1xV1B: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H2_vtx2xV1A: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H2_vtx2xV1B: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H2_V2onA: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H2_V2onB: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H2_V1AxV1B: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H2_V1V1onA: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block H2_V1V1onB: LOOP-FLIP IDENTITY applied -- value := H2_V1V1onA EXACTLY (owner-endorsed route 2026-08-29; proven: exact symbolic A-B == 0 at full block level from the pristine engine, and numeric 0.000e+00 on and off the cut)",
+   "pass": true,
+   "detail": {
+    "identity": "H2_V1V1onB == H2_V1V1onA",
+    "proof_exact_symbolic": "assemble_fl(fish_two_same_line('A',0,0),0,0) - assemble_fl(fish_two_same_line('B',0,0),0,0) == 0 exactly (debug_pole_flip.py, 2026-08-29; pristine engine, .p10 byte-stable, FAIL count 0)",
+    "proof_numeric": "max rel diff 0.000e+00 on all four A/B pairs, spacelike + timelike incl. the cut-open K^2=8 point (debug_map2.py, debug_map3.py)",
+    "direct_B_assembly": "exceeded the 3600s stop-rule budget in the 2026-08-29 recovery run (A: 1900s)"
+   }
+  },
+  {
+   "gate": "eps2",
+   "kind": "gate",
+   "msg": "block H2_V1V1onB: exactly linear in c (pole c^1 + finite c^0; no eps^2 sector -- the structural cancellation)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block S_H0_fin: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block S_H1_fin: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block S_H2a_fin: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block S_H2b_fin: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block L2A_s1_r2: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block L2A_s1_broken1: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block L2A_s1_broken2: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "replay",
+   "kind": "gate",
+   "msg": "POLE REPLAY (built in): c-sector of F_H0_fin == frozen cache F_H0 EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "replay",
+   "kind": "gate",
+   "msg": "POLE REPLAY (built in): c-sector of H1_fin (4 classes summed) == frozen cache H1_total EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "replay",
+   "kind": "gate",
+   "msg": "POLE REPLAY (built in): c-sector of F_H2_fin (12 classes summed) == frozen cache F_H2 EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "replay",
+   "kind": "gate",
+   "msg": "POLE REPLAY (built in): c-sector of S_H0_fin == the engine's inline S_H0 (seagull H^0 pole) EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "replay",
+   "kind": "gate",
+   "msg": "POLE REPLAY (built in): c-sector of S_H1_fin == frozen cache S_H1 EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "replay",
+   "kind": "gate",
+   "msg": "POLE REPLAY (built in): c-sector of S_H2_fin (V2 + V1V1) == frozen cache S_H2 EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "L2fin",
+   "kind": "gate",
+   "msg": "DECOMPOSITION-INDEPENDENCE (finite) 1/4: every atom in both routes carries canonical kinematics (K2 = om^2-k^2, m2 = m^2) -- the numeric battery is well-posed",
+   "pass": true
+  },
+  {
+   "gate": "L2fin",
+   "kind": "gate",
+   "msg": "DECOMPOSITION-INDEPENDENCE (finite) 2/4 (c-sector): route s = u_start + t1 equals route s = u_end - t2 EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "L2fin",
+   "kind": "gate",
+   "msg": "DECOMPOSITION-INDEPENDENCE (finite) 3/4 (local finite, closed sector): the two routes agree EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "L2fin",
+   "kind": "gate",
+   "msg": "DECOMPOSITION-INDEPENDENCE (finite) 4/4 (atom sector): the two routes are the SAME finite object -- numeric identity at 4 spacelike kinematics x 2 structure-symbol seeds (worst rel d=0.00e+00 < 1e-10; atoms carry no canonical form; the per-master twin law is referee-validated separately)",
+   "pass": true,
+   "detail": {
+    "worst_rel": "0.0"
+   }
+  },
+  {
+   "gate": "parity",
+   "kind": "gate",
+   "msg": "reality: SIG_fin(H^0) real (i-pairs closed in the finite sector)",
+   "pass": true
+  },
+  {
+   "gate": "parity",
+   "kind": "gate",
+   "msg": "reality: SIG_fin(H^2) real (i-pairs closed in the finite sector)",
+   "pass": true
+  },
+  {
+   "gate": "parity",
+   "kind": "gate",
+   "msg": "H-PARITY (finite sector): the O(H^1) finite part either vanishes or is purely imaginary -- recorded as a CONVENTION-CONSISTENCY check ONLY (the standing T4 fence; zero or purely imaginary are both consistent in this centre-fixed convention)",
+   "pass": true,
+   "detail": {
+    "identically_zero": false,
+    "purely_imaginary": true
+   }
+  },
+  {
+   "gate": "no-Li2",
+   "kind": "gate",
+   "msg": "NO Li_2/Clausen CLASS: every G-atom has e >= 0 and every R-atom e <= -1 in the assembled finite object (the census conclusion, now PROVEN on the assembled object: the log sector exists only at s >= 0 and the fdiff recurrence kills the e -> -1 G-descent at e = 0)",
+   "pass": true,
+   "detail": {
+    "violations": []
+   }
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "Pi_local^MS reconstructed from the frozen cache via the engine's own SIG totals: fingerprint == the frozen e2f0bbfe6fd4c89d (entry object subtraction block + Phase-12 + UV freeze) -- symbol conventions byte-exact",
+   "pass": true,
+   "detail": {
+    "got": "e2f0bbfe6fd4c89d",
+    "want": "e2f0bbfe6fd4c89d"
+   }
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "frozen pole sector H^0: 112/112 terms F1-LOCAL (independent classifier port; Phase-12 S2 reproduced)",
+   "pass": true,
+   "detail": {
+    "nonlocal": []
+   }
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "frozen pole sector H^0: reflection parity T=0, 0 violations (Phase-12 S2 reproduced)",
+   "pass": true
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "frozen pole sector H^1: 40/40 terms F1-LOCAL (independent classifier port; Phase-12 S2 reproduced)",
+   "pass": true,
+   "detail": {
+    "nonlocal": []
+   }
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "frozen pole sector H^1: reflection parity T=1, 0 violations (Phase-12 S2 reproduced)",
+   "pass": true
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "frozen pole sector H^2: 56/56 terms F1-LOCAL (independent classifier port; Phase-12 S2 reproduced)",
+   "pass": true,
+   "detail": {
+    "nonlocal": []
+   }
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "frozen pole sector H^2: reflection parity T=0, 0 violations (Phase-12 S2 reproduced)",
+   "pass": true
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "H^0 pole sector of MY finite assembly == the engine's frozen SIG_0 byte-exact (the subtraction content is the frozen pole object)",
+   "pass": true
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "H^1 pole sector of MY finite assembly == the engine's frozen SIG_1 byte-exact (the subtraction content is the frozen pole object)",
+   "pass": true
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "H^2 pole sector of MY finite assembly == the engine's frozen SIG_2 byte-exact (the subtraction content is the frozen pole object)",
+   "pass": true
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "Pi_local^MS reconstructed from MY OWN assembly's c-sectors: fingerprint == e2f0bbfe6fd4c89d (the subtraction is the frozen object, derived independently inside this instrument)",
+   "pass": true,
+   "detail": {
+    "got": "e2f0bbfe6fd4c89d"
+   }
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "H^0: bare finite-order object = local subtraction contribution (c*[pole], the entire pole, mapped onto Pi_local^MS) + remaining finite response, and the subtraction modifies NOTHING in the finite sector (byte-exact; zero finite discretion)",
+   "pass": true
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "H^1: bare finite-order object = local subtraction contribution (c*[pole], the entire pole, mapped onto Pi_local^MS) + remaining finite response, and the subtraction modifies NOTHING in the finite sector (byte-exact; zero finite discretion)",
+   "pass": true
+  },
+  {
+   "gate": "A3-2C",
+   "kind": "gate",
+   "msg": "H^2: bare finite-order object = local subtraction contribution (c*[pole], the entire pole, mapped onto Pi_local^MS) + remaining finite response, and the subtraction modifies NOTHING in the finite sector (byte-exact; zero finite discretion)",
+   "pass": true
+  },
+  {
+   "gate": "A3-2D",
+   "kind": "gate",
+   "msg": "H^0 census complete: 945 terms = 522 local-finite + 423 nonlocal-finite",
+   "pass": true
+  },
+  {
+   "gate": "A3-2D",
+   "kind": "gate",
+   "msg": "H^1 census complete: 5018 terms = 174 local-finite + 4844 nonlocal-finite",
+   "pass": true
+  },
+  {
+   "gate": "A3-2D",
+   "kind": "gate",
+   "msg": "H^2 census complete: 18205 terms = 256 local-finite + 17949 nonlocal-finite",
+   "pass": true
+  },
+  {
+   "gate": "A3-2D",
+   "kind": "gate",
+   "msg": "seagull block S_H0_fin: finite sector entirely F1-LOCAL (88 terms; the tadpole masters close at Delta = m^2 -- logs of (m^2, mu) are coefficient logs, LOCAL per V4)",
+   "pass": true,
+   "detail": {
+    "nonlocal": []
+   }
+  },
+  {
+   "gate": "A3-2D",
+   "kind": "gate",
+   "msg": "seagull block S_H1_fin: finite sector entirely F1-LOCAL (1 terms; the tadpole masters close at Delta = m^2 -- logs of (m^2, mu) are coefficient logs, LOCAL per V4)",
+   "pass": true,
+   "detail": {
+    "nonlocal": []
+   }
+  },
+  {
+   "gate": "A3-2D",
+   "kind": "gate",
+   "msg": "seagull block S_H2a_fin: finite sector entirely F1-LOCAL (88 terms; the tadpole masters close at Delta = m^2 -- logs of (m^2, mu) are coefficient logs, LOCAL per V4)",
+   "pass": true,
+   "detail": {
+    "nonlocal": []
+   }
+  },
+  {
+   "gate": "A3-2D",
+   "kind": "gate",
+   "msg": "seagull block S_H2b_fin: finite sector entirely F1-LOCAL (88 terms; the tadpole masters close at Delta = m^2 -- logs of (m^2, mu) are coefficient logs, LOCAL per V4)",
+   "pass": true,
+   "detail": {
+    "nonlocal": []
+   }
+  },
+  {
+   "gate": "A3-2D",
+   "kind": "gate",
+   "msg": "closed form of G[0,0,0] (sympy) == referee quadrature at spacelike/subthreshold samples {'-3': 2.407412430484045e-35, '-0.75': 1.88079096131566e-37, '3': 1.2037062152420224e-35} (the referee is the authority)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "-3": 2.407412430484045e-35,
+     "-0.75": 1.88079096131566e-37,
+     "3": 1.2037062152420224e-35
+    }
+   }
+  },
+  {
+   "gate": "A3-2D",
+   "kind": "gate",
+   "msg": "closed form of R[0,0,-1] (sympy) == referee quadrature at spacelike/subthreshold samples {'-3': 6.018531076210112e-36, '-0.75': 1.2037062152420224e-35, '3': 3.009265538105056e-36} (the referee is the authority)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "-3": 6.018531076210112e-36,
+     "-0.75": 1.2037062152420224e-35,
+     "3": 3.009265538105056e-36
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^0 (aP=1,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=4.94e-17)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 4.943249987045119e-17,
+     "spacelike_K2=-3": 4.943249987045119e-17,
+     "subthreshold_K2=3": 4.943249987045119e-17,
+     "timelike_K2=8": 4.943249987045238e-17
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^0 (aP=1,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=0.00e+00)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 0.0,
+     "spacelike_K2=-3": 0.0,
+     "subthreshold_K2=3": 0.0,
+     "timelike_K2=8": 0.0
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^0 (aP=2,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=0.00e+00)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 0.0,
+     "spacelike_K2=-3": 0.0,
+     "subthreshold_K2=3": 0.0,
+     "timelike_K2=8": 0.0
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^0 (aP=3,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=2.15e-42)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 0.0,
+     "spacelike_K2=-3": 0.0,
+     "subthreshold_K2=3": 0.0,
+     "timelike_K2=8": 2.152394441202919e-42
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^0 (aP=2,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=0.00e+00)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 0.0,
+     "spacelike_K2=-3": 0.0,
+     "subthreshold_K2=3": 0.0,
+     "timelike_K2=8": 0.0
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^2 (aP=1,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.45e-16)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 3.7707567752922415e-17,
+     "spacelike_K2=-3": 7.668152120601289e-17,
+     "subthreshold_K2=3": 1.0139777114123848e-16,
+     "timelike_K2=8": 1.4468467890221943e-16
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^2 (aP=1,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.24e-17)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 1.2358124967612797e-17,
+     "spacelike_K2=-3": 1.2358124967612797e-17,
+     "subthreshold_K2=3": 1.2358124967612797e-17,
+     "timelike_K2=8": 1.2358124967613094e-17
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^2 (aP=2,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.24e-17)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 1.2358124967612797e-17,
+     "spacelike_K2=-3": 1.2358124967612797e-17,
+     "subthreshold_K2=3": 1.2358124967612797e-17,
+     "timelike_K2=8": 1.2358124967613094e-17
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^2 (aP=3,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.18e-41)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 0.0,
+     "spacelike_K2=-3": 0.0,
+     "subthreshold_K2=3": 0.0,
+     "timelike_K2=8": 1.1832732838762582e-41
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^2 (aP=2,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=2.31e-41)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 1.4349296274686127e-42,
+     "spacelike_K2=-3": 7.174648137343064e-43,
+     "subthreshold_K2=3": 0.0,
+     "timelike_K2=8": 2.3059546808036955e-41
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^4 (aP=1,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=3.04e-16)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 3.545676398747045e-17,
+     "spacelike_K2=-3": 8.534135006262814e-17,
+     "subthreshold_K2=3": 1.9200548625053834e-16,
+     "timelike_K2=8": 3.0370205460487467e-16
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^4 (aP=1,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=7.72e-16)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 3.012292960855619e-17,
+     "spacelike_K2=-3": 6.488015607996719e-17,
+     "subthreshold_K2=3": 1.5756609333706317e-16,
+     "timelike_K2=8": 7.71579521491811e-16
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^4 (aP=2,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.05e-16)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 2.3943867124749795e-17,
+     "spacelike_K2=-3": 4.0163906144741594e-17,
+     "subthreshold_K2=3": 5.870109359616079e-17,
+     "timelike_K2=8": 1.0504406222470995e-16
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^4 (aP=3,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=6.18e-18)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 6.1790624838063985e-18,
+     "spacelike_K2=-3": 6.1790624838063985e-18,
+     "subthreshold_K2=3": 6.1790624838063985e-18,
+     "timelike_K2=8": 6.1790624838065664e-18
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^4 (aP=2,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=6.18e-18)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 6.1790624838063985e-18,
+     "spacelike_K2=-3": 6.1790624838063985e-18,
+     "subthreshold_K2=3": 6.1790624838063985e-18,
+     "timelike_K2=8": 6.17906248380651e-18
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^6 (aP=1,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=3.62e-15)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 9.043638759501168e-18,
+     "spacelike_K2=-3": 2.3341400386751223e-17,
+     "subthreshold_K2=3": 1.3352644422715241e-15,
+     "timelike_K2=8": 3.616280661915144e-15
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^6 (aP=2,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.57e-15)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 4.349480701491848e-17,
+     "spacelike_K2=-3": 1.3980128869611978e-16,
+     "subthreshold_K2=3": 2.7883019458176375e-16,
+     "timelike_K2=8": 1.5698989005836872e-15
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^6 (aP=3,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=4.56e-17)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 1.9502665964513947e-17,
+     "spacelike_K2=-3": 3.1667695229507797e-17,
+     "subthreshold_K2=3": 4.557058581807219e-17,
+     "timelike_K2=8": 3.069449017303214e-17
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^6 (aP=2,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=2.41e-16)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 2.4716249935225594e-17,
+     "spacelike_K2=-3": 5.252203111235439e-17,
+     "subthreshold_K2=3": 1.1740218719232159e-16,
+     "timelike_K2=8": 2.409834368684543e-16
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^2 (aP=1,bP=1,d_om=1) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=7.41e-17)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 1.2358124967612797e-17,
+     "spacelike_K2=-3": 2.4716249935225594e-17,
+     "subthreshold_K2=3": 4.943249987045119e-17,
+     "timelike_K2=8": 7.414874980567902e-17
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^2 (aP=2,bP=1,d_om=1) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=6.98e-41)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 7.174648137343064e-43,
+     "spacelike_K2=-3": 0.0,
+     "subthreshold_K2=3": 0.0,
+     "timelike_K2=8": 6.982668937264688e-41
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^0 (aP=3,bP=1,d_om=1) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.27e-37)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 0.0,
+     "spacelike_K2=-3": 0.0,
+     "subthreshold_K2=3": 0.0,
+     "timelike_K2=8": 1.2739000310511958e-37
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^0 (aP=2,bP=2,d_om=1) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=3.71e-38)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 0.0,
+     "spacelike_K2=-3": 0.0,
+     "subthreshold_K2=3": 0.0,
+     "timelike_K2=8": 3.7056231250718993e-38
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E1 referee: twin master l0^2 (aP=1,bP=2,d_om=2) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.07e-36)",
+   "pass": true,
+   "detail": {
+    "diffs": {
+     "spacelike_K2=-3/4": 0.0,
+     "spacelike_K2=-3": 1.1479437019748901e-41,
+     "subthreshold_K2=3": 0.0,
+     "timelike_K2=8": 1.0697433429040541e-36
+    }
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E2 flat limit: the FINITE seagull == (m^4/2)[sqrt(-g)]_{h^2-cross} x (1 + kappa - ln(m^2/mu^2)) -- the frozen 2b anchor identity times the M_1 finite factor, EXACTLY",
+   "pass": true
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E3 retarded support: below threshold (K2 < 4m^2: spacelike AND subthreshold timelike) the Im part of EVERY H^0/H^2 slot vanishes (204 slot values checked) -- the branch cut opens only at K2 = 4m^2",
+   "pass": true,
+   "detail": {
+    "violations": []
+   }
+  },
+  {
+   "gate": "A3-2E",
+   "kind": "gate",
+   "msg": "E3 retarded sign: at K2=8 > 4m^2 every G-atom carries Im = +pi*Int_{cut} y^n(1-y)^np D^e dy -- POSITIVE for even e, NEGATIVE for odd e (D < 0 on the cut; the signed-D^e law of the E1 settlement, sign-consistent with the validated pole assembly's retarded rule)",
+   "pass": true,
+   "detail": {
+    "wrong_sign": []
+   }
+  },
+  {
+   "gate": "mu",
+   "kind": "gate",
+   "msg": "mu bookkeeping: d/dln(mu^2) fin(j=0,N=2) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)",
+   "pass": true
+  },
+  {
+   "gate": "mu",
+   "kind": "gate",
+   "msg": "mu bookkeeping: d/dln(mu^2) fin(j=0,N=3) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)",
+   "pass": true
+  },
+  {
+   "gate": "mu",
+   "kind": "gate",
+   "msg": "mu bookkeeping: d/dln(mu^2) fin(j=0,N=4) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)",
+   "pass": true
+  },
+  {
+   "gate": "mu",
+   "kind": "gate",
+   "msg": "mu bookkeeping: d/dln(mu^2) fin(j=1,N=2) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)",
+   "pass": true
+  },
+  {
+   "gate": "mu",
+   "kind": "gate",
+   "msg": "mu bookkeeping: d/dln(mu^2) fin(j=1,N=3) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)",
+   "pass": true
+  },
+  {
+   "gate": "mu",
+   "kind": "gate",
+   "msg": "mu bookkeeping: d/dln(mu^2) fin(j=1,N=4) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)",
+   "pass": true
+  },
+  {
+   "gate": "mu",
+   "kind": "gate",
+   "msg": "mu bookkeeping: d/dln(mu^2) fin(j=2,N=2) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)",
+   "pass": true
+  },
+  {
+   "gate": "mu",
+   "kind": "gate",
+   "msg": "mu bookkeeping: d/dln(mu^2) fin(j=2,N=3) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)",
+   "pass": true
+  },
+  {
+   "gate": "mu",
+   "kind": "gate",
+   "msg": "mu bookkeeping: d/dln(mu^2) fin(j=2,N=4) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)",
+   "pass": true
+  },
+  {
+   "gate": "mu",
+   "kind": "gate",
+   "msg": "mu bookkeeping: d/dln(mu^2) fin(j=3,N=3) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)",
+   "pass": true
+  },
+  {
+   "gate": "mu",
+   "kind": "gate",
+   "msg": "mu bookkeeping: d/dln(mu^2) fin(j=3,N=4) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)",
+   "pass": true
+  },
+  {
+   "gate": "fin-asm",
+   "kind": "gate",
+   "msg": "block F_H0_fin_REPLAY: loaded from finite cache (srepr round-trip + fingerprint verified)",
+   "pass": true
+  },
+  {
+   "gate": "cache",
+   "kind": "gate",
+   "msg": "cache-off replay: F_H0_fin re-assembled FRESH == the cached value byte-exact (the finite cache introduced no drift)",
+   "pass": true
+  },
+  {
+   "gate": "A3-3",
+   "kind": "gate",
+   "msg": "freeze written: Sigma_R_finite_full.json",
+   "pass": true
+  },
+  {
+   "gate": "A3-3",
+   "kind": "gate",
+   "msg": "manifest self-consistency: the complete-kernel sha256 recomputes",
+   "pass": true
+  },
+  {
+   "gate": "A3-3",
+   "kind": "gate",
+   "msg": "freeze round-trip: the frozen sector-0 srepr reconstructs the object exactly (Gfun/Rfun locals)",
+   "pass": true
+  }
+ ],
+ "controls": [
+  {
+   "gate": "anchor-wrong-branch",
+   "kind": "control",
+   "msg": "wrong-branch control at master level: Im(G, +i0) = -pi*sqrt(1-4/5) DISAGREES with the frozen +pi law (d=2.810)",
+   "detected": true,
+   "pass": true
+  },
+  {
+   "gate": "L2-broken-finite",
+   "kind": "control",
+   "msg": "BROKEN-L2 CONTROL (finite mode): endpoint vertices outside the differentiated group FAIL the same gate (the repair is not vacuous in the finite sector either)",
+   "detected": true,
+   "pass": true
+  },
+  {
+   "gate": "slot-wrong-branch",
+   "kind": "control",
+   "msg": "E5 wrong-branch control at component level: the E_33*P_33 slot of the assembled H^0 finite object at (om,k)=(3,1) re-evaluated with the WRONG branch (+i0) DISAGREES (|d| = 8.060e+00; the branch is load-bearing)",
+   "detected": true,
+   "pass": true,
+   "detail": {
+    "right": [
+     3.518347808361798,
+     4.029833665001456
+    ],
+    "wrong": [
+     3.518347808361798,
+     -4.029833665001456
+    ]
+   }
+  }
+ ],
+ "notes": [
+  "SKIPBAT=1: the Level-2 battery is NOT re-run here; it last PASSED at 195a481 (all five cases, broken control failing). A finite-mode decomposition-independence check on the L2-discriminating s^1 class IS run in STEP 3, with its own broken control.",
+  "finite mode ACTIVE: _mono_pole_2den/_mono_pole_tad replaced by the twin law; all engine routing (assemble, assemble_fl, seagull_fl, eval_factorlists -> pieces_pole) flows through them unchanged.",
+  "LOOP-FLIP IDENTITY: H2_V1V1onB := H2_V1V1onA (exact; evidence chain on the fin-asm gate). Deliberately NOT written to the finite cache -- the cache holds independent assemblies only; every run re-derives this entry through this disclosed path.",
+  "A3-2C identity: bare_n = c*SIG_pole_n + SIG_fin_n with c*SIG_pole_n == Pi_local^MS (frozen fingerprint) and SIG_fin_n untouched. MS removes ONLY the pole: the finite local AND nonlocal parts survive intact.",
+  "STRUCTURE (A3-2D): the nonlocal finite sector is EXACTLY the atom-carrying sector -- 1-D parameter integrals of D(y) = m^2 - y(1-y)K^2 with the -i0 branch; threshold at K^2 = 4m^2 (y+- = (1 +- sqrt(1-4m^2/K^2))/2); G-atoms carry Im = +pi*Int_{cut} (the frozen A3-1 branch law), R-atoms the residue Im parts. No power law fitted, no spectral class assigned, no low-frequency behaviour classified.",
+  "E1 scope (settlement W3, e1_settle_report.txt): E1 is a TWO-PATH agreement test and cannot by itself certify the atom quadrature -- defect B (missing cut breakpoints) survived it at 3.1e+06 for exactly that reason (both paths shared the [0,1] eta-Richardson, so the s<0 cases agreed VACUOUSLY). The quadrature authority is the EXTERNAL analytic settlement: partial-fraction closed forms for all 28 R-atoms and dual-rule dps-60 values for all 24 G-atoms at the cut sample, cross-validated numerically; the defect-A/B regression gates in STEP 2 embed that settlement's externally derived constants and re-derive defect A's misreading independently.",
+  "E2 flat limit: (i) the finite seagull identity above; (ii) the K=0 cross-route gate (STEP 2): the fish masters reduce to tadpole masters; (iii) the H-grading is structural: Sigma_R^fin = SIG_fin[0] + H SIG_fin[1] + H^2 SIG_fin[2], so H -> 0 is SIG_fin[0] exactly; (iv) the flat bubble finite is anchored by E1 (B(K2) anchors).",
+  "slot battery: 640 atom quadratures total (values shared across slots); all recorded in the freeze JSON as the numeric table",
+  "E4 subtraction: verified in STEP 4 (frozen fingerprint e2f0bbfe6fd4c89d reproduced from this assembly's own c-sector; 100%% of pole terms F1-local under the independent classifier port; reflection parity 0 violations; the finite sector byte-untouched -- zero finite discretion)."
+ ],
+ "self_caught_defects": [
+  {
+   "id": "A3-2-guard-lite-self-match",
+   "what": "the guard-lite barred-construct literals appeared contiguously in the check's own list, so the source scan matched the instrument itself and all 9 guard gates failed on every run regardless of content",
+   "fix": "literals built by string concatenation (never contiguous in the source); the full source is still scanned",
+   "evidence": "three smoke runs all showed the same 9 guard failures; post-fix the scan finds zero barred constructs in the instrument"
+  },
+  {
+   "id": "A3-2-head-pin-typo",
+   "what": "HEAD_EXPECT was transcribed with one wrong hex character at position 26 (3633... for 3673...), so the entry-pin gate failed although the repo sat at the correct commit 50e82f9",
+   "fix": "pin corrected to the repo's actual full HEAD, verified byte-for-byte against git rev-parse HEAD before the edit",
+   "evidence": "git rev-parse HEAD == 50e82f9160f91397b5076edf367327f78e7c346c; diff vs old pin is exactly one character (index 26)"
+  },
+  {
+   "id": "A3-2-L2-gate-semantics",
+   "what": "the L2 decomposition-independence gate demanded raw-srepr equality of the two routes' finite sectors; the finite OBJECT is route-independent but its atom decomposition is not (the routes distribute y-weights differently and the atoms obey linear identities), so the gate as originally written could never pass",
+   "fix": "three-part gate (exact c-sector; exact closed local-finite sector; numeric atom-sector identity at 4 spacelike kinematics x 2 structure seeds, worst rel d=0.0)",
+   "evidence": "debug battery /tmp/a3_2_stage/debug_num.py: routes agree to ~1e-14 at 8 evaluations across two independent structure-symbol seeds; broken-pair control still detected (numeric rel diff 2.0, opposite signs)"
+  },
+  {
+   "id": "A3-2-composite-arg-derivative",
+   "what": "sp.diff on atoms with COMPOSITE arguments (K2 = om^2 - k^2) wrapped the result in unevaluated Subs(Derivative(...)) and bypassed the exact fdiff recurrences, corrupting every atom-derivative in the assembled finite sector (the pole sector, being polynomial, was unaffected)",
+   "fix": "_eval_derivative chain-rule overrides on Gfun/Rfun firing the fdiff recurrences exactly",
+   "evidence": "test_diff.py: composite 2nd omega-derivative of G[0,0,0] lands on 2*(2*om^2*R[2,2,-2] + R[1,1,-1]), no unevaluated Subs; referee battery 64/64 at ~1e-17 after the fix"
+  },
+  {
+   "id": "A3-2-referee-sj-cross-term",
+   "what": "the direct referee (Route B) omitted the exact-d moment cross-term s_j x Ipole, s_j = 2*sum_i 1/(4+2i), that the twin law carries (from A3-1's recorded exact-d compositions T2 = /(4-eps), T4 = 3/((4-eps)(6-eps)))",
+   "fix": "independent sj_of(j) formula in the referee and the _cross family added to every referee evaluation path (_Ffull)",
+   "evidence": "debug_ref.py: 64/64 cases at ~1e-17 after the fix (48 monomial cases incl. omega-derivative depths 1-4); the twin law itself was exact throughout"
+  },
+  {
+   "id": "A3-2-E1-defect-A-absD-sign",
+   "what": "_quad_atom's G-branch used abs(D)**e in BOTH the Re and Im integrands; on the cut D < 0, so every odd-e G-atom was wrong (8 census atoms off by 0.33-2.97 at K2=8m^2) and E3's sign gate inherited the same misreading",
+   "fix": "signed D**e in both integrands (abs() survives only inside the log); E3's law restated as Im = +pi*Int_cut w*D^e (positive even e, negative odd e)",
+   "evidence": "e1_settle_report.txt S1: all 24 G-atoms vs dual-rule dps-60 analytic (even-e exact <= 4.7e-41, odd-e 0.33-2.97 off pre-fix); S2 re-gate 24/24 at 5e-6 with the analytic/eta-truth triangle closing at ~1e-14"
+  },
+  {
+   "id": "A3-2-E1-defect-B-missing-cut-breakpoints",
+   "what": "the eta-Richardson quadratures (the _quad_atom R-branch and direct_mono_l0's cut path) integrated over [0,1] without the cut points as breakpoints: tanh-sinh never resolved the pole plateaus, wrong by 5.5/1.1e4/3.1e6 at e=-1/-2/-3; the s<0 E1 cases agreed VACUOUSLY (both paths shared the defect -- a two-path comparison cannot see it)",
+   "fix": "cut breakpoints [0, ym, yp, 1] in both eta-Richardsons; R-branch scheme 3-point @ eta=2e-5; direct_mono_l0 replaced by the v2 SECTOR split (pole-free z^{s-k} at the exact boundary value z = D - i*1e-30, cf-INCLUSIVE; pole terms by the breakpoint Richardson)",
+   "evidence": "e1_settle_report.txt S1: all 28 R-atoms vs partial-fraction closed forms (pre-fix off by 5.54..3.11e+06; 3@2e-5 post-fix max err 3.27e-16); verify_spike.py isolated the PV-sign error in the earlier analytic reference (the breakpoint-Richardson numerics were correct all along); S2 re-gate 24/24"
+  }
+ ],
+ "block_timing": {
+  "F_H0_fin": {
+   "cached": true
+  },
+  "H1_vtx10": {
+   "cached": true
+  },
+  "H1_vtx01": {
+   "cached": true
+  },
+  "H1_V1onA": {
+   "cached": true
+  },
+  "H1_V1onB": {
+   "cached": true
+  },
+  "H2_vtx20": {
+   "cached": true
+  },
+  "H2_vtx02": {
+   "cached": true
+  },
+  "H2_vtx11": {
+   "cached": true
+  },
+  "H2_vtx1xV1A": {
+   "cached": true
+  },
+  "H2_vtx1xV1B": {
+   "cached": true
+  },
+  "H2_vtx2xV1A": {
+   "cached": true
+  },
+  "H2_vtx2xV1B": {
+   "cached": true
+  },
+  "H2_V2onA": {
+   "cached": true
+  },
+  "H2_V2onB": {
+   "cached": true
+  },
+  "H2_V1AxV1B": {
+   "cached": true
+  },
+  "H2_V1V1onA": {
+   "cached": true
+  },
+  "H2_V1V1onB": {
+   "loop_flip_identity": true,
+   "source": "H2_V1V1onA"
+  },
+  "S_H0_fin": {
+   "cached": true
+  },
+  "S_H1_fin": {
+   "cached": true
+  },
+  "S_H2a_fin": {
+   "cached": true
+  },
+  "S_H2b_fin": {
+   "cached": true
+  },
+  "L2A_s1_r2": {
+   "cached": true
+  },
+  "L2A_s1_broken1": {
+   "cached": true
+  },
+  "L2A_s1_broken2": {
+   "cached": true
+  },
+  "F_H0_fin_REPLAY": {
+   "cached": true
+  }
+ },
+ "block_budget_s": 1200,
+ "block_budget_override": false,
+ "blocks_stopped": [],
+ "limitations": [
+  "SKIPBAT=1 construction load: the 23-min Level-2 battery is NOT re-run (last PASSED at 195a481, all five cases with the broken control failing); the L2-discriminating s^1 case IS gated here in finite mode with its own broken control",
+  "referee independence scope: atom values are direct mpmath quadratures of their DEFINITIONS (no analytic primitive); the composition coefficients are the validated engine routing (shared lineage, byte-replayed against the frozen cache); the master law itself is refereed at monomial level against A3-1's own trace composition (E1), including omega-derivative depths through the fdiff tower",
+  "E1 is a TWO-PATH agreement test and cannot by itself certify the atom quadrature (the missing-cut-breakpoints defect survived it at 3.1e+06 with BOTH paths sharing it); the quadrature authority is the EXTERNAL analytic settlement (e1_settle_report.txt: partial-fraction closed forms for all 28 R-atoms, dual-rule dps-60 values for all 24 G-atoms at the cut sample, out-of-sample-validated at K^2=24), embedded as STEP-2 regression gates against externally derived constants",
+  "the K^2 = 4m^2 threshold point itself is excluded from the battery (the A3-1 bisection boundary); the timelike R-atom referee uses complex-eps Richardson WITH THE CUT POINTS AS BREAKPOINTS (3-point @ eta = 2e-5, the settlement-validated scheme); the timelike composition referee takes the -i0 by SECTOR (pole-free z^{s-k} terms at the exact boundary value z = D - i*1e-30, pole terms by the breakpoint Richardson)",
+  "sympy closed forms are EXPOSITORY, gated against the referee (never the reverse); where not obtained within 300s this is recorded and the referee remains the authority",
+  "the O(H) finite sector parity class is recorded under the standing T4 fence, NOT interpreted",
+  "the TT view is derived-only (post-freeze, used in no gate); the assembly carries all E/P slots (no early projection)",
+  "the finite block cache is a staging artifact (tag A32fin-v1, A32_CACHE_DIR); the frozen object is complete in the claimed outputs; a cache-off replay gate proves no cache drift"
+ ],
+ "outputs": {
+  "instrument": "PHYSICS_LEDGER/wall_a3_2_finite_response.py",
+  "result_json": "PHYSICS_LEDGER/WALL_A3_2_FINITE_RESPONSE_RESULT.json",
+  "verdict_md": "PHYSICS_LEDGER/WALL_A3_2_FINITE_RESPONSE_VERDICT.md",
+  "freeze_json": "PHYSICS_LEDGER/Sigma_R_finite_full.json",
+  "freeze_verdict_md": "PHYSICS_LEDGER/Sigma_R_finite_full.verdict.md",
+  "run_log": "PHYSICS_LEDGER/.p_a3_2_run.log"
+ },
+ "next_stage_gate": "A3-3 freeze complete. HARD STOP: Q1-Q5, J(omega), PV, spectral classification, basis work and register edits remain LOCKED; the next stage begins only after owner/reviewer inspection of this record.",
+ "elapsed_s": 4712.0
+}

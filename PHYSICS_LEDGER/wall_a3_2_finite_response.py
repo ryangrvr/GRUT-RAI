@@ -56,10 +56,14 @@ REPRESENTATION (A3-2F):
     frozen Phase-10 cache -- the pole replay gate is built into every block.
 
 INDEPENDENT REFEREE (Route B): high-precision mpmath quadrature of the ORIGINAL
-parameter integrals (the atoms' own definitions; G split Re/Im at the cut,
-R by complex-eps Richardson). Route B never calls an analytic primitive; the
-sympy closed forms of leading atoms are gated AGAINST it, never the reverse.
-Negative control: the wrong branch (+i0) must be DETECTED.
+parameter integrals (the atoms' own definitions; G split Re/Im at the cut with
+SIGNED D^e, R by complex-eps Richardson WITH the cut points as breakpoints --
+the E1 settlement, e1_settle_report.txt). Route B never calls an analytic
+primitive; the sympy closed forms of leading atoms are gated AGAINST it, never
+the reverse. Negative control: the wrong branch (+i0) must be DETECTED.
+Regression: the STEP-2 defect gates anchor to the settlement's EXTERNALLY
+derived constants -- two-path agreement alone certified nothing (defect B
+survived it at 3.1e+06).
 
 Run:   python3 wall_a3_2_finite_response.py        (no arguments)
 Env:   A32_LEDGER   ledger dir (default: this file's dir)
@@ -227,7 +231,14 @@ for name, want in sorted(PIN.items()):
         _logf.close()
         sys.exit(2)
 
-HEAD_EXPECT = "50e82f9160f91397b5076edf367327f78e7c346c"
+# Re-pinned 2026-08-30 for the E1-settlement application run directed by the
+# checker (5eb233d, "apply spec, sweep, four watch-outs").  The ENTRY
+# authorization remains the 50e82f9 contract named in the header; HEAD moved
+# past it via 6b3219f (crash fix + E1 defect localisation) and 5eb233d.
+# Verified byte-for-byte against `git rev-parse HEAD` before the edit (same
+# convention as the pin-typo self-catch below).  master_engine_sha256 in the
+# freeze manifest is the hard per-run provenance anchor.
+HEAD_EXPECT = "5eb233d82542b15be1d60f9a1b07fed9f634fee6"
 # SELF-CAUGHT: the pin was originally transcribed with a typo at hex position
 # 26 ('33' for '73'); the repo's actual HEAD (short form 50e82f9, unchanged
 # across all A3-2 runs) is authoritative -- verified byte-for-byte against
@@ -547,20 +558,25 @@ def _cut_pts(K2, m2):
 def _quad_atom(fam, n, np_, e, K2, m2, branch=1):
     """ROUTE B (independent referee): direct mpmath quadrature of the atom's
     DEFINITION -- never an analytic primitive.
-      G: Re = Int y^n(1-y)^np |D|^e (-ln|D|) dy;  Im = branch*pi*Int_{cut} ... dy
-         (branch=+1: the frozen -i0 law, masters' Im = +pi on the cut;
-          branch=-1: the WRONG branch, negative control only).
+      G: Re = Int y^n(1-y)^np D^e (-ln|D|) dy with SIGNED D^e (E1 settlement
+         defect A: D < 0 on the cut, so odd-e atoms carry a sign; abs()
+         survives ONLY inside the log);  Im = branch*pi*Int_{cut} ... D^e dy
+         (sign (-1)^e; branch=+1: the frozen -i0 law; branch=-1: the WRONG
+         branch, negative control only).
       R (e<=-1): no cut: real quadrature; with cut: complex-eps Richardson
-         I(eta) = Int w (D - i*branch*eta)^e dy,  3-point extrapolation."""
+         I(eta) = Int w (D - i*branch*eta)^e dy WITH THE CUT POINTS AS
+         BREAKPOINTS (settlement defect B: without them tanh-sinh misses the
+         pole plateaus -- wrong by up to 3.1e+06), 3-point @ eta=2e-5 (the
+         S1-validated scheme; e1_settle_report.txt)."""
     K2, m2 = mp.mpf(K2), mp.mpf(m2)
     pts = _cut_pts(K2, m2)
     if fam == "G":
-        f = lambda y: y**n * (1 - y)**np_ * abs(_Dfun(y, K2, m2))**e \
+        f = lambda y: y**n * (1 - y)**np_ * _Dfun(y, K2, m2)**e \
             * (-mp.log(abs(_Dfun(y, K2, m2))))
         re = mp.quad(f, [0, pts[0], pts[1], 1] if pts else [0, 1])
         im = mp.mpf(0)
         if pts:
-            g = lambda y: y**n * (1 - y)**np_ * abs(_Dfun(y, K2, m2))**e
+            g = lambda y: y**n * (1 - y)**np_ * _Dfun(y, K2, m2)**e
             im = branch * mp.pi * mp.quad(g, [pts[0], pts[1]])
         return re + mp.mpc(0, 1) * im
     assert fam == "R" and e <= -1
@@ -570,8 +586,9 @@ def _quad_atom(fam, n, np_, e, K2, m2, branch=1):
 
     def I(eta):
         return mp.quad(lambda y: w(y) * mp.power(
-            mp.mpc(_Dfun(y, K2, m2), -branch * eta), e), [0, 1])
-    eta = mp.mpf("2e-3")
+            mp.mpc(_Dfun(y, K2, m2), -branch * eta), e),
+            [0, pts[0], pts[1], 1])
+    eta = mp.mpf("2e-5")
     return (8 * I(eta / 4) - 6 * I(eta / 2) + I(eta)) / 3
 
 
@@ -656,6 +673,49 @@ _got_w = mp.im(_quad_atom("G", 0, 0, 0, 5, 1, branch=-1))
 control("anchor-wrong-branch", abs(_got_w - _want_im) > mp.mpf("1e-2"),
         "wrong-branch control at master level: Im(G, +i0) = -pi*sqrt(1-4/5) "
         "DISAGREES with the frozen +pi law (d=%.3f)" % abs(_got_w - _want_im))
+# --- E1-settlement regression gates (W4; e1_settle_report.txt) ---
+# defect A: the abs(D)**e misreading of odd-e on-cut G-atoms, re-derived here
+# independently.  Two-path gate (owner-blessed for A: the routes genuinely
+# differ): the signed law must DISAGREE with the misreading; if abs(D)**e is
+# ever restored in _quad_atom the two paths coincide, the difference
+# collapses to 0 and this gate FAILS.
+_gA = _quad_atom("G", 0, 1, 1, 8, 1)
+_D8 = lambda y: _Dfun(y, mp.mpf(8), mp.mpf(1))
+_ym8, _yp8 = _cut_pts(mp.mpf(8), mp.mpf(1))
+_gA_abs = (mp.quad(lambda y: (1 - y) * abs(_D8(y)) * (-mp.log(abs(_D8(y)))),
+                   [0, _ym8, _yp8, 1])
+           + mp.mpc(0, 1) * mp.pi * mp.quad(
+               lambda y: (1 - y) * abs(_D8(y)), [_ym8, _yp8]))
+check(abs(_gA - _gA_abs) > mp.mpf("0.1"),
+      "E1 settlement defect-A regression: the odd-e on-cut G-atom (n=0,np=1,"
+      "e=1) at K2=8 DISAGREES with the abs(D)^e misreading (d=%.3f; the "
+      "signed-D^e law is load-bearing)" % abs(_gA - _gA_abs),
+      gate="regression",
+      detail={"signed": [float(mp.re(_gA)), float(mp.im(_gA))]})
+# defect B: missing cut breakpoints in the eta-Richardsons.  A two-path
+# comparison provably CANNOT see this defect (it survived E1 at 3.1e+06) --
+# so anchor to EXTERNALLY derived constants: the settlement's independently
+# derived partial-fraction closed forms at (K2=8, m2=1), 30 digits
+# (cross-validated against the breakpoint Richardson at 1.8e-16; derived and
+# recorded in e1_settle_report.txt / make_constants.py).
+_EXT_R = {
+    (1, 0, -1): ("-0.311612620070115256697010040125",
+                 "0.555360367269795780876985123758"),
+    (0, 2, -2): ("-0.148548422491235592912873744984",
+                 "-0.0694200459087244726096231404697"),
+    (1, 3, -3): ("0.0105292438256600105067457407768",
+                 "0.0195243879118287579214565082571"),
+}
+for _k in sorted(_EXT_R):
+    _rs, _is = _EXT_R[_k]
+    _got = _quad_atom("R", _k[0], _k[1], _k[2], 8, 1)
+    _want = mp.mpf(_rs) + mp.mpc(0, 1) * mp.mpf(_is)
+    check(abs(_got - _want) < mp.mpf("1e-12"),
+          "E1 settlement defect-B regression: R[n=%d,np=%d,e=%d] at K2=8 == "
+          "the external partial-fraction closed form (d=%.2e < 1e-12; without "
+          "cut breakpoints this atom is off by up to 3.1e+06)"
+          % (_k[0], _k[1], _k[2], abs(_got - _want)), gate="regression",
+          detail={"got": [float(mp.re(_got)), float(mp.im(_got))]})
 stamp("scalar-bubble anchor gated (3 spacelike Re + timelike Im + wrong-branch ctrl)")
 
 # ---------------------------------------------------------------- the twins ----
@@ -1512,8 +1572,14 @@ if HAVE_FULL:
         """mpmath referee of the ORIGINAL parameter integral for the monomial
         l0^{expo0} (expo0 even):  wt * Int_0^1 dy y^{b-1}(1-y)^{a-1}
         * Sum_{m even} C(e0,m)(y om)^m moment(j-m/2) F_{j-m/2,N}(D(y)-i0).
-        d_om analytic omega-derivatives act inside the integrand. At cut samples
-        the -i0 is the complex-eps boundary value with 3-point Richardson."""
+        d_om analytic omega-derivatives act inside the integrand. At cut
+        samples the -i0 is taken BY SECTOR (the E1 settlement v2 referee,
+        e1_settle_report.txt): pole-free z^{s-k} terms (k <= s = jp-N+2,
+        cf-INCLUSIVE) at the exact boundary value z = D - i*1e-30; pole terms
+        (k > s) by complex-eps Richardson, 3-point @ eta=2e-5; BOTH sectors
+        integrate with the cut points as breakpoints (settlement defect B:
+        the uniform [0,1] eta-Richardson missed the cut plateaus entirely --
+        R-atoms wrong by up to 3.1e+06)."""
         N = aP + bP
         wt = mp.factorial(N - 1) / (mp.factorial(aP - 1) * mp.factorial(bP - 1))
         K2v = omv**2 - kkv**2
@@ -1550,11 +1616,61 @@ if HAVE_FULL:
             zreal = lambda y: m2v - y * (1 - y) * K2v
             return mp.quad(lambda y: integrand(y, zreal(y)), [0, 1])
 
-        def I(eta):
-            return mp.quad(lambda y: integrand(
-                y, mp.mpc(m2v - y * (1 - y) * K2v, -eta)), [0, 1])
-        eta = mp.mpf("2e-3")
-        return (8 * I(eta / 4) - 6 * I(eta / 2) + I(eta)) / 3
+        # ---- the v2 sector split at the cut (E1 settlement) ----
+        ym, yp = pts
+        TINY = mp.mpf("1e-30")
+
+        def route(jp, k):
+            return k <= jp - N + 2          # z^{s-k}, s = jp-N+2: pole-free
+
+        _FD = (_Ffull, _Ffull_dz, _Ffull_dz2)
+
+        def mk(bv):
+            """sector integrand: only the route(jp,k)==bv terms of F's
+            derivative tower are kept (the others are exactly zeroed)."""
+            def integrand_sector(y, z):
+                tot = mp.mpc(0)
+                for m in range(0, expo0 + 1, 2):
+                    jp = (expo0 - m) // 2
+                    cf = mp.binomial(expo0, m) * (y * omv)**m
+                    dcf = (mp.binomial(expo0, m) * m * y**m * omv**(m - 1)
+                           if m >= 1 else mp.mpc(0))
+                    d2cf = (mp.binomial(expo0, m) * m * (m - 1) * y**m
+                            * omv**(m - 2) if m >= 2 else mp.mpc(0))
+                    dzdom = -2 * omv * y * (1 - y)
+                    d2z = -2 * y * (1 - y)
+
+                    def Fk(k):
+                        if route(jp, k) == bv:
+                            return _FD[k](jp, N, z, mu2v)
+                        return mp.mpc(0)
+
+                    if d_om == 0:
+                        term = cf * Fk(0)
+                    elif d_om == 1:
+                        term = dcf * Fk(0) + cf * Fk(1) * dzdom
+                    else:
+                        term = d2cf * Fk(0) + 2 * dcf * Fk(1) * dzdom \
+                            + cf * (Fk(1) * d2z + Fk(2) * dzdom**2)
+                    tot += term * _momnum(jp)
+                return wt * y**(bP - 1) * (1 - y)**(aP - 1) * tot
+            return integrand_sector
+
+        f_bv = mk(True)
+        f_ra = mk(False)
+        bv = mp.quad(lambda y: f_bv(
+            y, mp.mpc(_Dfun(y, K2v, m2v), -TINY)), [0, ym, yp, 1])
+        has_ra = any(not route((expo0 - m) // 2, k)
+                     for m in range(0, expo0 + 1, 2)
+                     for k in range(0, d_om + 1))
+        if not has_ra:
+            return bv
+
+        def I(h):
+            return mp.quad(lambda y: f_ra(
+                y, mp.mpc(m2v - y * (1 - y) * K2v, -h)), [0, ym, yp, 1])
+        eta = mp.mpf("2e-5")
+        return bv + (8 * I(eta / 4) - 6 * I(eta / 2) + I(eta)) / 3
 
     def _mpq(x):
         q = sp.Rational(x)
@@ -1596,6 +1712,50 @@ if HAVE_FULL:
                 _e1_cases.append((2 * _jj, _aP, _bP, 0))
     _e1_cases += [(2, 1, 1, 1), (2, 2, 1, 1), (0, 3, 1, 1), (0, 2, 2, 1),
                   (2, 1, 2, 2)]
+    note("E1 scope (settlement W3, e1_settle_report.txt): E1 is a TWO-PATH "
+         "agreement test and cannot by itself certify the atom quadrature -- "
+         "defect B (missing cut breakpoints) survived it at 3.1e+06 for "
+         "exactly that reason (both paths shared the [0,1] eta-Richardson, so "
+         "the s<0 cases agreed VACUOUSLY). The quadrature authority is the "
+         "EXTERNAL analytic settlement: partial-fraction closed forms for all "
+         "28 R-atoms and dual-rule dps-60 values for all 24 G-atoms at the "
+         "cut sample, cross-validated numerically; the defect-A/B regression "
+         "gates in STEP 2 embed that settlement's externally derived "
+         "constants and re-derive defect A's misreading independently.")
+    SELF_CAUGHT.append({
+        "id": "A3-2-E1-defect-A-absD-sign",
+        "what": "_quad_atom's G-branch used abs(D)**e in BOTH the Re and Im "
+                "integrands; on the cut D < 0, so every odd-e G-atom was "
+                "wrong (8 census atoms off by 0.33-2.97 at K2=8m^2) and E3's "
+                "sign gate inherited the same misreading",
+        "fix": "signed D**e in both integrands (abs() survives only inside "
+               "the log); E3's law restated as Im = +pi*Int_cut w*D^e "
+               "(positive even e, negative odd e)",
+        "evidence": "e1_settle_report.txt S1: all 24 G-atoms vs dual-rule "
+                    "dps-60 analytic (even-e exact <= 4.7e-41, odd-e "
+                    "0.33-2.97 off pre-fix); S2 re-gate 24/24 at 5e-6 with "
+                    "the analytic/eta-truth triangle closing at ~1e-14",
+    })
+    SELF_CAUGHT.append({
+        "id": "A3-2-E1-defect-B-missing-cut-breakpoints",
+        "what": "the eta-Richardson quadratures (the _quad_atom R-branch and "
+                "direct_mono_l0's cut path) integrated over [0,1] without "
+                "the cut points as breakpoints: tanh-sinh never resolved the "
+                "pole plateaus, wrong by 5.5/1.1e4/3.1e6 at e=-1/-2/-3; the "
+                "s<0 E1 cases agreed VACUOUSLY (both paths shared the "
+                "defect -- a two-path comparison cannot see it)",
+        "fix": "cut breakpoints [0, ym, yp, 1] in both eta-Richardsons; "
+               "R-branch scheme 3-point @ eta=2e-5; direct_mono_l0 replaced "
+               "by the v2 SECTOR split (pole-free z^{s-k} at the exact "
+               "boundary value z = D - i*1e-30, cf-INCLUSIVE; pole terms by "
+               "the breakpoint Richardson)",
+        "evidence": "e1_settle_report.txt S1: all 28 R-atoms vs "
+                    "partial-fraction closed forms (pre-fix off by "
+                    "5.54..3.11e+06; 3@2e-5 post-fix max err 3.27e-16); "
+                    "verify_spike.py isolated the PV-sign error in the "
+                    "earlier analytic reference (the breakpoint-Richardson "
+                    "numerics were correct all along); S2 re-gate 24/24",
+    })
     E1_REFS = []
     for (_e0, _aP, _bP, _d) in _e1_cases:
         _diffs = {}
@@ -1712,13 +1872,19 @@ if HAVE_FULL:
           gate="A3-2E", detail={"violations": _e3_bad[:5]})
     _pos_bad = []
     for _k, _v in _av.items():
-        if _k[0] == "G" and _k[4] == "8" and mp.im(_v) <= 0:
-            _pos_bad.append(str(_k))
+        if _k[0] == "G" and _k[4] == "8":
+            # signed-D^e branch law: Im = +pi*Int_{cut} y^n(1-y)^np D^e dy,
+            # D < 0 on the cut -> POSITIVE for even e, NEGATIVE for odd e
+            _sgn = 1 if _k[3] % 2 == 0 else -1
+            if _sgn * mp.im(_v) <= 0:
+                _pos_bad.append(str(_k))
     check(not _pos_bad,
           "E3 retarded sign: at K2=8 > 4m^2 every G-atom carries Im = "
-          "+pi*Int_{cut} > 0 (the frozen A3-1 branch law, sign-consistent with "
-          "the validated pole assembly's retarded rule)", gate="A3-2E",
-          detail={"nonpositive": _pos_bad[:5]})
+          "+pi*Int_{cut} y^n(1-y)^np D^e dy -- POSITIVE for even e, NEGATIVE "
+          "for odd e (D < 0 on the cut; the signed-D^e law of the E1 "
+          "settlement, sign-consistent with the validated pole assembly's "
+          "retarded rule)", gate="A3-2E",
+          detail={"wrong_sign": _pos_bad[:5]})
 
     # ---------- E5: the wrong-branch negative control at slot level ----------
     _lblT, _ovT, _kvT = SAMPLES[3]
@@ -1855,8 +2021,9 @@ if HAVE_FULL and not INCOMPLETE:
         "atom_definitions": {
             "Gfun": "G[n,np,e](K2,m2) = Int_0^1 dy y^n (1-y)^np (D(y)-i0)^e "
                     "(-ln(D(y)-i0)),  D(y) = m^2 - y(1-y) K^2, K^2 = omega^2-k^2; "
-                    "branch -i0 (A3-1 frozen law: Im = +pi*Int_{cut}, cut = "
-                    "(y-,y+) iff K^2 > 4m^2)",
+                    "branch -i0 (A3-1 frozen law: Im = +pi*Int_{cut} "
+                    "y^n(1-y)^np D^e, sign-carrying -- negative for odd e "
+                    "since D<0 on the cut; cut = (y-,y+) iff K^2 > 4m^2)",
             "Rfun": "R[n,np,e](K2,m2) = Int_0^1 dy y^n (1-y)^np (D(y)-i0)^e "
                     "(e <= -1 symbolic; e >= 0 auto-evaluated closed polynomial)",
             "fdiff": "dG/dK2 = -e*G[n+1,np+1,e-1] + R[n+1,np+1,e-1]; "
@@ -1914,9 +2081,21 @@ if HAVE_FULL and not INCOMPLETE:
             "itself is refereed at monomial level against A3-1's own trace "
             "composition (E1), including omega-derivative depths through the "
             "fdiff tower",
+            "E1 is a TWO-PATH agreement test and cannot by itself certify the "
+            "atom quadrature (the missing-cut-breakpoints defect survived it "
+            "at 3.1e+06 with BOTH paths sharing it); the quadrature authority "
+            "is the EXTERNAL analytic settlement (e1_settle_report.txt: "
+            "partial-fraction closed forms for all 28 R-atoms, dual-rule "
+            "dps-60 values for all 24 G-atoms at the cut sample, "
+            "out-of-sample-validated at K^2=24), embedded as STEP-2 "
+            "regression gates against externally derived constants",
             "the K^2 = 4m^2 threshold point itself is excluded from the battery "
-            "(the A3-1 bisection boundary); timelike R-atom referee uses "
-            "complex-eps Richardson (eta = 2e-3, 3-point extrapolation)",
+            "(the A3-1 bisection boundary); the timelike R-atom referee uses "
+            "complex-eps Richardson WITH THE CUT POINTS AS BREAKPOINTS "
+            "(3-point @ eta = 2e-5, the settlement-validated scheme); the "
+            "timelike composition referee takes the -i0 by SECTOR (pole-free "
+            "z^{s-k} terms at the exact boundary value z = D - i*1e-30, pole "
+            "terms by the breakpoint Richardson)",
             "sympy closed forms are EXPOSITORY, gated against the referee "
             "(never the reverse); where not obtained within 300s this is "
             "recorded and the referee remains the authority",
@@ -2008,8 +2187,9 @@ _verdict_lines = [
     "2. H^0 flat limit: the finite seagull identity (m^4/2)[sqrt(-g)]_{h^2} x "
     "(1+kappa-ln(m^2/mu^2)) exact; the K=0 cross-route; structural H-grading.",
     "3. Retarded support/sign: Im == 0 below K^2 = 4m^2 (all H^0/H^2 slots, all "
-    "no-cut samples); the +pi*Int_{cut} sign law on every G-atom above "
-    "threshold.",
+    "no-cut samples); the +pi*Int_{cut} y^n(1-y)^np D^e sign law on every "
+    "G-atom above threshold (sign-carrying: negative for odd e, since D < 0 "
+    "on the cut).",
     "4. Subtraction locality: Pi_local^MS fingerprint e2f0bbfe6fd4c89d "
     "reproduced from THIS assembly's own c-sector; 100% of pole terms F1-local "
     "under the independent classifier port; the finite sector byte-untouched.",

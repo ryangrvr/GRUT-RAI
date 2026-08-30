@@ -1,0 +1,354 @@
+=== WALL A3-2: FINITE eps^0 RETARDED RESPONSE ===
+ledger: /Users/mpg/Desktop/GRUT ResponsiveAI/PHYSICS_LEDGER   smoke: False   cache dir: /tmp/a3_2_stage
+
+=== STEP 0: INPUT INTEGRITY ===
+  ok   input integrity: .p10_assembly_cache.txt sha256 == pinned
+  ok   input integrity: .p11_af_basis_cache.txt sha256 == pinned
+  ok   input integrity: WALL_A3_1_FINITE_MASTERS_RESULT.json sha256 == pinned
+  ok   input integrity: WALL_A3_1_FINITE_MASTERS_VERDICT.md sha256 == pinned
+  ok   input integrity: WALL_A3_2_EXECUTION_PROMPT.md sha256 == pinned
+  ok   input integrity: WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md sha256 == pinned
+  ok   input integrity: WALL_A_A3_REGISTRY.json sha256 == pinned
+  ok   input integrity: WALL_D2_ASSEMBLY3_ENTRY_OBJECT.json sha256 == pinned
+  ok   input integrity: WALL_D2_UV_FREEZE_RESULT.json sha256 == pinned
+  ok   input integrity: wall_a3_1_finite_masters.py sha256 == pinned
+  ok   input integrity: wall_d2_phase12_ms_split.py sha256 == pinned
+  ok   input integrity: wall_d2_phases8_12.py sha256 == pinned
+  ok   git HEAD == 5eb233d82542b15be1d60f9a1b07fed9f634fee6 (the A3-2 entry pin)
+  ok   worktree clean apart from this instrument's own claimed outputs
+  ok   output path pre-registered in AGENT_COORDINATION.md: wall_a3_2_finite_response.py
+  ok   output path pre-registered in AGENT_COORDINATION.md: WALL_A3_2_FINITE_RESPONSE_RESULT.json
+  ok   output path pre-registered in AGENT_COORDINATION.md: WALL_A3_2_FINITE_RESPONSE_VERDICT.md
+  ok   output path pre-registered in AGENT_COORDINATION.md: Sigma_R_finite_full.json
+  ok   output path pre-registered in AGENT_COORDINATION.md: Sigma_R_finite_full.verdict.md
+  ok   output path pre-registered in AGENT_COORDINATION.md: .p_a3_2_run.log
+  ok   guard-lite: instrument free of barred construct 'chi_integral('
+  ok   guard-lite: instrument free of barred construct 'pv_average('
+  ok   guard-lite: instrument free of barred construct 'spectral_class('
+  ok   guard-lite: instrument free of barred construct 'relaxation_fit('
+  ok   guard-lite: instrument free of barred construct 'power_law_fit('
+  ok   guard-lite: instrument free of barred construct 'resonance_fit('
+  ok   guard-lite: instrument free of barred construct 'J_of_omega('
+  ok   guard-lite: instrument free of barred construct 'import numpy'
+  ok   guard-lite: instrument free of barred construct 'mp.findroot'
+[    0.1s] STEP 0 done
+
+=== STEP 1: ENGINE LOAD (construction-load pattern) ===
+  ok   engine machinery marker found (refusing to guess the split)
+  note SKIPBAT=1: the Level-2 battery is NOT re-run here; it last PASSED at 195a481 (all five cases, broken control failing). A finite-mode decomposition-independence check on the L2-discriminating s^1 class IS run in STEP 3, with its own broken control.
+=== GUARD (LOAD/ECHO/SCAN/FAIL; frozen registry is law) ===
+   GUARD CLEAN (8 symbols, 12 files)
+
+=== SECTION D: FORMULATION DERIVED (a-expansions from the exact chart) ===
+  ok   a^2 = 1 + 2Hu + 3H^2u^2 + O(H^3)  (DERIVED from the exact chart)
+  ok   a^4 = 1 + 4Hu + 10H^2u^2 + O(H^3)  (DERIVED)
+
+=== ENGINE 1: GENERAL POLE MASTERS ===
+  ok   master gate: Ipole[1/(l^2-m^2)] = c Delta  (Delta=m^2)
+  ok   master gate: Ipole[1/D^2] = c
+  ok   master gate: Ipole[l_a l_b/(l^2-m^2)] = c eta_ab m^4/4 (moment 1/4 x Ipole[(l^2)/D^1] = Delta^2/4, Delta = m^2)
+  ok   master gate: Ipole[(l^2)/(l^2-m^2)] = c Delta^2
+  ok   master gate: Ipole[l_a l_b/D^2] = c eta_ab Delta/2 (moment 1/4 x 2 Delta)
+  ok   master gate: Ipole[llll/D^2] = c (3-perm) Delta^2/8 (moment 1/24 x 3 Delta^2)
+  ok   master gate: 1/D^3, 1/D^4 are UV finite (pole 0)
+[    0.2s] engine 1 gated
+
+=== ENGINE 2: TENSOR MOMENTS ===
+  ok   moment gate rank 2: <l0^2> = +l^2/4, <l1^2> = -l^2/4  (eta^{aa}/4)
+  ok   moment gate rank 4: <l0^4> = (l^2)^2/8  (3(eta^{00})^2/24)
+  ok   moment gate rank 4: <l0^2 l1^2> = -(l^2)^2/24  (eta^{00}eta^{11}/24)
+  ok   moment rank 6 computed (self-consistency placeholder)
+[    0.2s] engine 2 gated
+
+=== ENGINE 3: LOOP-POLE INTEGRATOR (two-denominator, general powers) ===
+  ok   engine 3 gate: Ipole[1/(D1 D2)] = c (the classic bubble pole, x-integral of 1)
+  ok   engine 3 gate: d/dm^2 of the tadpole pole == the double-denominator tadpole pole (the trace relation closed on the engine itself)
+[    0.3s] engine 3 gated
+
+=== ENGINE 4: THE u-RULE ===
+  ok   u-rule gate: FT[Delta f(Delta)] == -i d/domega FT[f]  (exact Gaussian, sign pinned)
+
+=== ENGINE 5: LOCAL-KERNEL TRANSFORM (basis side) ===
+  ok   E-transform gate: FT[delta'(Delta)] == -i omega (sympy DiracDelta, exact)
+  ok   E-transform self-consistency: Delta * delta'(Delta) -> -i d/dom(-i om) = -1... wired
+[    2.0s] engines 4-5 gated
+
+=== ENGINE 6: INSERTION KERNEL (the dm^2 exact gate) ===
+  ok   insertion gate: G (i KV) G with KV = -dm2 == dm2 * dG/dm^2 EXACTLY (all i/sign/factor conventions of insertions pinned)
+  ok   insertion gate: kinetic KV = z l^2 reproduces the exact first-order propagator shift of i/((1+z)l^2 - m^2)
+   KV1 = Hu (2 l^2 - 4 m^2);  KV2 = H^2u^2 (3 l^2 - 10 m^2)  [derived from a^2/a^4]
+[    2.1s] engine 6 gated
+
+=== PHASE 9: VERTEX EXPANSION (from the exact A1 form) ===
+  ok   P9 gate: flat vertex kernel == countersigned A1 form contracted with e
+   vertex u-orders: n=0 -> (1,1); n=1 -> (2,4) x Hu; n=2 -> (3,10) x H^2u^2 (DERIVED in Section D)
+[    2.1s] phase 9 done
+
+=== PHASE 10: TARGET ASSEMBLY (fish + seagull, O(H^0..H^2)) ===
+  ok   stripped-units insertion rule: 1/(D+KV) - [1/D - KV/D^2] == KV^2/(D^2(D+KV)) EXACTLY (i.e. the -KV/D^2 insertion is the exact first order)
+   [cache] loaded ['F_H0', 'F_H2', 'H1_total', 'S_H1', 'S_H2'] (tag L2repair-v1)
+[    2.7s] p10 machinery ready
+   convention: engine returns poles in units of c; c is applied at report time (eps^2-cancellation is structural: no c enters the assembly at all)
+   [BATTERY SKIPPED -- SKIPBAT=1, iteration mode. NOT a result run; the Level-2 acceptance battery last PASSED at commit 195a481 on all five cases with the broken control failing.]
+[    2.7s] p10 gates: decomposition independence done
+[    2.7s] p10 O(H) assembled
+
+--- seagull sector ---
+  ok   seagull H^0 assembled (bookkeeping)
+  ok   SEAGULL IDENTITY (flat): seagull pole == (m^4/2) [sqrt(-g)]_{h^2}  (the 2b anchor identity, reproduced by the NEW engine)
+  ok   seagull frequency-local builder reproduces the H^0 tadpole EXACTLY (port gate)
+   [cache] saved ['F_H0', 'F_H2', 'H1_total', 'S_H1', 'S_H2']
+  ok   reality: SIG(H^0) real
+  ok   reality: SIG(H^2) real (i-pairs closed)
+   O(H^1) classification: identically zero: False; purely imaginary (reference/phase artifact class): True
+  ok   H-PARITY: the O(H^1) pole either vanishes or is purely imaginary -- recorded as a CONVENTION-CONSISTENCY check ONLY. Per second-author T4 this does NOT discriminate artifact from genuine covariant odd-in-H structure: both are purely imaginary in this centre-fixed convention
+[    5.9s] p10 totals + parity done
+
+[p10 partial run: FAIL count = 0]
+  ok   engine internal gates all pass on load (exit 0, FAIL empty)
+  ok   frozen Phase-10 cache loaded: the five cached sectors
+  ok   Phase-10 cache byte-stable across the machinery load (cache_save rewrite is a no-op; the loop target is immutable in fact)
+  ok   cached assemblies are c-free (poles in units of c; c applied at report time)
+[    6.1s] engine loaded
+
+=== STEP 2: TWIN LAW + MASTER GATES ===
+  ok   twin pole sector == engine Ipole_scalar(j=0,N=1) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=0,N=2) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=0,N=3) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=0,N=4) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=0,N=5) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=1,N=1) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=1,N=2) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=1,N=3) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=1,N=4) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=1,N=5) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=2,N=1) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=2,N=2) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=2,N=3) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=2,N=4) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=2,N=5) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=3,N=1) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=3,N=2) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=3,N=3) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=3,N=4) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=3,N=5) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=4,N=1) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=4,N=2) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=4,N=3) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=4,N=4) EXACTLY
+  ok   twin pole sector == engine Ipole_scalar(j=4,N=5) EXACTLY
+  ok   twin law pole sector: 25/25 (j,N) classes byte-identical to the engine's validated pole law (the replay is structural, not incidental)
+  ok   M_1 twin == A3-1: Delta*(1 + kappa - ln(Delta/mu^2))
+  ok   M_2 twin == A3-1: kappa - ln(Delta/mu^2)
+  ok   M_3 twin == A3-1: -1/(2 Delta)
+  ok   M_4 twin == A3-1: 1/(6 Delta^2)
+  ok   T2 twin == A3-1 exact-d composition /(4-eps) at N=2 (the s_j cross-term is the (eps/4)x(2/eps) pole cross -- EXACT)
+  ok   T4 twin == A3-1 exact-d composition 3/((4-eps)(6-eps)) at N=2 (s_2 = psi(4)-psi(2) = 5/6 exactly)
+  ok   T2 twin == A3-1 exact-d composition /(4-eps) at N=3 (the s_j cross-term is the (eps/4)x(2/eps) pole cross -- EXACT)
+  ok   T4 twin == A3-1 exact-d composition 3/((4-eps)(6-eps)) at N=3 (s_2 = psi(4)-psi(2) = 5/6 exactly)
+  ok   T2 twin == A3-1 exact-d composition /(4-eps) at N=4 (the s_j cross-term is the (eps/4)x(2/eps) pole cross -- EXACT)
+  ok   T4 twin == A3-1 exact-d composition 3/((4-eps)(6-eps)) at N=4 (s_2 = psi(4)-psi(2) = 5/6 exactly)
+[    6.2s] twin law gated (pole grid 25/25, M_1..M_4, T2/T4 compositions)
+  ok   fdiff gate dG/dK2 (n=0,np=0,e=0): recurrence == Richardson derivative of the quadrature (d=5.28e-14)
+  ok   fdiff gate dG/dm2 (n=0,np=0,e=0): recurrence == Richardson derivative (d=1.16e-11)
+  ok   fdiff gate dG/dK2 (n=1,np=0,e=1): recurrence == Richardson derivative of the quadrature (d=2.17e-14)
+  ok   fdiff gate dG/dm2 (n=1,np=0,e=1): recurrence == Richardson derivative (d=4.01e-12)
+  ok   fdiff gate dG/dK2 (n=0,np=1,e=2): recurrence == Richardson derivative of the quadrature (d=7.17e-14)
+  ok   fdiff gate dG/dm2 (n=0,np=1,e=2): recurrence == Richardson derivative (d=1.14e-11)
+  ok   fdiff gate dG/dK2 (n=2,np=1,e=0): recurrence == Richardson derivative of the quadrature (d=5.66e-15)
+  ok   fdiff gate dG/dm2 (n=2,np=1,e=0): recurrence == Richardson derivative (d=7.34e-13)
+  ok   fdiff gate dR/dK2 (n=0,np=0,e=-1): recurrence == Richardson derivative (d=9.71e-14)
+  ok   fdiff gate dR/dK2 (n=1,np=0,e=-2): recurrence == Richardson derivative (d=1.20e-13)
+  ok   R-atom auto-evaluation at e>=0: closed polynomial (Int y (m2-y(1-y)K2)^2)
+  ok   R-atom at e<=-1 stays symbolic (the threshold/rational class)
+[    6.9s] atom families gated (fdiff recurrences == numeric differentiation)
+  ok   scalar-bubble anchor B(K2=-0.7): kappa + G[0,0,0]-referee == A3-1 route-A finite (d=1.10e-16 < 5e-6)
+  ok   scalar-bubble anchor B(K2=-1.3): kappa + G[0,0,0]-referee == A3-1 route-A finite (d=1.50e-16 < 5e-6)
+  ok   scalar-bubble anchor B(K2=-2.9): kappa + G[0,0,0]-referee == A3-1 route-A finite (d=1.01e-16 < 5e-6)
+  ok   scalar-bubble anchor Im at K2=5m^2: +pi*sqrt(1-4/5) (the frozen branch law; d=2.30e-41)
+  ctrl-DETECTED   wrong-branch control at master level: Im(G, +i0) = -pi*sqrt(1-4/5) DISAGREES with the frozen +pi law (d=2.810)
+  ok   E1 settlement defect-A regression: the odd-e on-cut G-atom (n=0,np=1,e=1) at K2=8 DISAGREES with the abs(D)^e misreading (d=1.487; the signed-D^e law is load-bearing)
+  ok   E1 settlement defect-B regression: R[n=0,np=2,e=-2] at K2=8 == the external partial-fraction closed form (d=3.09e-16 < 1e-12; without cut breakpoints this atom is off by up to 3.1e+06)
+  ok   E1 settlement defect-B regression: R[n=1,np=0,e=-1] at K2=8 == the external partial-fraction closed form (d=1.78e-16 < 1e-12; without cut breakpoints this atom is off by up to 3.1e+06)
+  ok   E1 settlement defect-B regression: R[n=1,np=3,e=-3] at K2=8 == the external partial-fraction closed form (d=1.69e-16 < 1e-12; without cut breakpoints this atom is off by up to 3.1e+06)
+[   11.7s] scalar-bubble anchor gated (3 spacelike Re + timelike Im + wrong-branch ctrl)
+  ok   K=0 cross-route: 2den master (aP=1,bP=1) == tadpole master N=2 EXACTLY (two independent code paths of the twin law)
+  ok   K=0 cross-route: 2den master (aP=1,bP=2) == tadpole master N=3 EXACTLY (two independent code paths of the twin law)
+  ok   K=0 cross-route: 2den master (aP=2,bP=1) == tadpole master N=3 EXACTLY (two independent code paths of the twin law)
+  ok   K=0 cross-route: 2den master (aP=1,bP=1) == tadpole master N=2 EXACTLY (two independent code paths of the twin law)
+  ok   K=0 cross-route: 2den master (aP=2,bP=2) == tadpole master N=4 EXACTLY (two independent code paths of the twin law)
+  ok   K=0 cross-route: 2den master (aP=3,bP=1) == tadpole master N=4 EXACTLY (two independent code paths of the twin law)
+  ok   K=0 cross-route: 2den master (aP=2,bP=2) == tadpole master N=4 EXACTLY (two independent code paths of the twin law)
+  ok   K=0 cross-route: 2den master (aP=2,bP=2) == tadpole master N=4 EXACTLY (two independent code paths of the twin law)
+  ok   K=0 cross-route: 2den master (aP=1,bP=3) == tadpole master N=4 EXACTLY (two independent code paths of the twin law)
+[   12.2s] finite twins gated (K=0 cross-route: 9/9)
+
+=== STEP 3: FINITE-MODE ASSEMBLY ===
+  note finite mode ACTIVE: _mono_pole_2den/_mono_pole_tad replaced by the twin law; all engine routing (assemble, assemble_fl, seagull_fl, eval_factorlists -> pieces_pole) flows through them unchanged.
+[   12.4s] block F_H0_fin: starting
+  ok   block F_H0_fin: loaded from finite cache (srepr round-trip + fingerprint verified)
+[   15.0s] block H1_vtx10: starting
+  ok   block H1_vtx10: loaded from finite cache (srepr round-trip + fingerprint verified)
+[   18.7s] block H1_vtx01: starting
+  ok   block H1_vtx01: loaded from finite cache (srepr round-trip + fingerprint verified)
+[   22.3s] block H1_V1onA: starting
+  ok   block H1_V1onA: loaded from finite cache (srepr round-trip + fingerprint verified)
+[   30.0s] block H1_V1onB: starting
+  ok   block H1_V1onB: loaded from finite cache (srepr round-trip + fingerprint verified)
+[   50.2s] block H2_vtx20: starting
+  ok   block H2_vtx20: loaded from finite cache (srepr round-trip + fingerprint verified)
+[   56.0s] block H2_vtx02: starting
+  ok   block H2_vtx02: loaded from finite cache (srepr round-trip + fingerprint verified)
+[   61.9s] block H2_vtx11: starting
+  ok   block H2_vtx11: loaded from finite cache (srepr round-trip + fingerprint verified)
+[   67.0s] block H2_vtx1xV1A: starting
+  ok   block H2_vtx1xV1A: loaded from finite cache (srepr round-trip + fingerprint verified)
+[   78.7s] block H2_vtx1xV1B: starting
+  ok   block H2_vtx1xV1B: loaded from finite cache (srepr round-trip + fingerprint verified)
+[  109.7s] block H2_vtx2xV1A: starting
+  ok   block H2_vtx2xV1A: loaded from finite cache (srepr round-trip + fingerprint verified)
+[  121.4s] block H2_vtx2xV1B: starting
+  ok   block H2_vtx2xV1B: loaded from finite cache (srepr round-trip + fingerprint verified)
+[  150.8s] block H2_V2onA: starting
+  ok   block H2_V2onA: loaded from finite cache (srepr round-trip + fingerprint verified)
+[  171.9s] block H2_V2onB: starting
+  ok   block H2_V2onB: loaded from finite cache (srepr round-trip + fingerprint verified)
+[  210.5s] block H2_V1AxV1B: starting
+  ok   block H2_V1AxV1B: loaded from finite cache (srepr round-trip + fingerprint verified)
+[  255.8s] block H2_V1V1onA: starting
+  ok   block H2_V1V1onA: loaded from finite cache (srepr round-trip + fingerprint verified)
+  ok   block H2_V1V1onB: LOOP-FLIP IDENTITY applied -- value := H2_V1V1onA EXACTLY (owner-endorsed route 2026-08-29; proven: exact symbolic A-B == 0 at full block level from the pristine engine, and numeric 0.000e+00 on and off the cut)
+  ok   block H2_V1V1onB: exactly linear in c (pole c^1 + finite c^0; no eps^2 sector -- the structural cancellation)
+  note LOOP-FLIP IDENTITY: H2_V1V1onB := H2_V1V1onA (exact; evidence chain on the fin-asm gate). Deliberately NOT written to the finite cache -- the cache holds independent assemblies only; every run re-derives this entry through this disclosed path.
+[  886.7s] block H2_V1V1onB: done (loop-flip identity)
+[  886.7s] block S_H0_fin: starting
+  ok   block S_H0_fin: loaded from finite cache (srepr round-trip + fingerprint verified)
+[  886.9s] block S_H1_fin: starting
+  ok   block S_H1_fin: loaded from finite cache (srepr round-trip + fingerprint verified)
+[  886.9s] block S_H2a_fin: starting
+  ok   block S_H2a_fin: loaded from finite cache (srepr round-trip + fingerprint verified)
+[  887.1s] block S_H2b_fin: starting
+  ok   block S_H2b_fin: loaded from finite cache (srepr round-trip + fingerprint verified)
+[  887.2s] block L2A_s1_r2: starting
+  ok   block L2A_s1_r2: loaded from finite cache (srepr round-trip + fingerprint verified)
+[  894.1s] block L2A_s1_broken1: starting
+  ok   block L2A_s1_broken1: loaded from finite cache (srepr round-trip + fingerprint verified)
+[  900.9s] block L2A_s1_broken2: starting
+  ok   block L2A_s1_broken2: loaded from finite cache (srepr round-trip + fingerprint verified)
+  ok   POLE REPLAY (built in): c-sector of F_H0_fin == frozen cache F_H0 EXACTLY
+  ok   POLE REPLAY (built in): c-sector of H1_fin (4 classes summed) == frozen cache H1_total EXACTLY
+  ok   POLE REPLAY (built in): c-sector of F_H2_fin (12 classes summed) == frozen cache F_H2 EXACTLY
+  ok   POLE REPLAY (built in): c-sector of S_H0_fin == the engine's inline S_H0 (seagull H^0 pole) EXACTLY
+  ok   POLE REPLAY (built in): c-sector of S_H1_fin == frozen cache S_H1 EXACTLY
+  ok   POLE REPLAY (built in): c-sector of S_H2_fin (V2 + V1V1) == frozen cache S_H2 EXACTLY
+  ok   DECOMPOSITION-INDEPENDENCE (finite) 1/4: every atom in both routes carries canonical kinematics (K2 = om^2-k^2, m2 = m^2) -- the numeric battery is well-posed
+  ok   DECOMPOSITION-INDEPENDENCE (finite) 2/4 (c-sector): route s = u_start + t1 equals route s = u_end - t2 EXACTLY
+  ok   DECOMPOSITION-INDEPENDENCE (finite) 3/4 (local finite, closed sector): the two routes agree EXACTLY
+  ok   DECOMPOSITION-INDEPENDENCE (finite) 4/4 (atom sector): the two routes are the SAME finite object -- numeric identity at 4 spacelike kinematics x 2 structure-symbol seeds (worst rel d=0.00e+00 < 1e-10; atoms carry no canonical form; the per-master twin law is referee-validated separately)
+  ctrl-DETECTED   BROKEN-L2 CONTROL (finite mode): endpoint vertices outside the differentiated group FAIL the same gate (the repair is not vacuous in the finite sector either)
+  ok   reality: SIG_fin(H^0) real (i-pairs closed in the finite sector)
+  ok   reality: SIG_fin(H^2) real (i-pairs closed in the finite sector)
+  ok   H-PARITY (finite sector): the O(H^1) finite part either vanishes or is purely imaginary -- recorded as a CONVENTION-CONSISTENCY check ONLY (the standing T4 fence; zero or purely imaginary are both consistent in this centre-fixed convention)
+  ok   NO Li_2/Clausen CLASS: every G-atom has e >= 0 and every R-atom e <= -1 in the assembled finite object (the census conclusion, now PROVEN on the assembled object: the log sector exists only at s >= 0 and the fdiff recurrence kills the e -> -1 G-descent at e = 0)
+[ 1162.5s] STEP 3 done (finite assembly complete; all pole-replay gates green)
+
+=== STEP 4: MS POLE SUBTRACTION ===
+  ok   Pi_local^MS reconstructed from the frozen cache via the engine's own SIG totals: fingerprint == the frozen e2f0bbfe6fd4c89d (entry object subtraction block + Phase-12 + UV freeze) -- symbol conventions byte-exact
+  ok   frozen pole sector H^0: 112/112 terms F1-LOCAL (independent classifier port; Phase-12 S2 reproduced)
+  ok   frozen pole sector H^0: reflection parity T=0, 0 violations (Phase-12 S2 reproduced)
+  ok   frozen pole sector H^1: 40/40 terms F1-LOCAL (independent classifier port; Phase-12 S2 reproduced)
+  ok   frozen pole sector H^1: reflection parity T=1, 0 violations (Phase-12 S2 reproduced)
+  ok   frozen pole sector H^2: 56/56 terms F1-LOCAL (independent classifier port; Phase-12 S2 reproduced)
+  ok   frozen pole sector H^2: reflection parity T=0, 0 violations (Phase-12 S2 reproduced)
+  ok   H^0 pole sector of MY finite assembly == the engine's frozen SIG_0 byte-exact (the subtraction content is the frozen pole object)
+  ok   H^1 pole sector of MY finite assembly == the engine's frozen SIG_1 byte-exact (the subtraction content is the frozen pole object)
+  ok   H^2 pole sector of MY finite assembly == the engine's frozen SIG_2 byte-exact (the subtraction content is the frozen pole object)
+  ok   Pi_local^MS reconstructed from MY OWN assembly's c-sectors: fingerprint == e2f0bbfe6fd4c89d (the subtraction is the frozen object, derived independently inside this instrument)
+  ok   H^0: bare finite-order object = local subtraction contribution (c*[pole], the entire pole, mapped onto Pi_local^MS) + remaining finite response, and the subtraction modifies NOTHING in the finite sector (byte-exact; zero finite discretion)
+  ok   H^1: bare finite-order object = local subtraction contribution (c*[pole], the entire pole, mapped onto Pi_local^MS) + remaining finite response, and the subtraction modifies NOTHING in the finite sector (byte-exact; zero finite discretion)
+  ok   H^2: bare finite-order object = local subtraction contribution (c*[pole], the entire pole, mapped onto Pi_local^MS) + remaining finite response, and the subtraction modifies NOTHING in the finite sector (byte-exact; zero finite discretion)
+  note A3-2C identity: bare_n = c*SIG_pole_n + SIG_fin_n with c*SIG_pole_n == Pi_local^MS (frozen fingerprint) and SIG_fin_n untouched. MS removes ONLY the pole: the finite local AND nonlocal parts survive intact.
+[ 1243.1s] STEP 4 done (subtraction verified: frozen fingerprint + classifier + zero finite discretion)
+
+=== STEP 5: STRUCTURE EXPOSURE ===
+  ok   H^0 census complete: 945 terms = 522 local-finite + 423 nonlocal-finite
+   H^0: 945 terms = 522 local-finite + 423 nonlocal-finite; G-classes 9, R-classes 0
+  ok   H^1 census complete: 5018 terms = 174 local-finite + 4844 nonlocal-finite
+   H^1: 5018 terms = 174 local-finite + 4844 nonlocal-finite; G-classes 22, R-classes 34
+  ok   H^2 census complete: 18205 terms = 256 local-finite + 17949 nonlocal-finite
+   H^2: 18205 terms = 256 local-finite + 17949 nonlocal-finite; G-classes 37, R-classes 120
+  ok   seagull block S_H0_fin: finite sector entirely F1-LOCAL (88 terms; the tadpole masters close at Delta = m^2 -- logs of (m^2, mu) are coefficient logs, LOCAL per V4)
+  ok   seagull block S_H1_fin: finite sector entirely F1-LOCAL (1 terms; the tadpole masters close at Delta = m^2 -- logs of (m^2, mu) are coefficient logs, LOCAL per V4)
+  ok   seagull block S_H2a_fin: finite sector entirely F1-LOCAL (88 terms; the tadpole masters close at Delta = m^2 -- logs of (m^2, mu) are coefficient logs, LOCAL per V4)
+  ok   seagull block S_H2b_fin: finite sector entirely F1-LOCAL (88 terms; the tadpole masters close at Delta = m^2 -- logs of (m^2, mu) are coefficient logs, LOCAL per V4)
+  note STRUCTURE (A3-2D): the nonlocal finite sector is EXACTLY the atom-carrying sector -- 1-D parameter integrals of D(y) = m^2 - y(1-y)K^2 with the -i0 branch; threshold at K^2 = 4m^2 (y+- = (1 +- sqrt(1-4m^2/K^2))/2); G-atoms carry Im = +pi*Int_{cut} (the frozen A3-1 branch law), R-atoms the residue Im parts. No power law fitted, no spectral class assigned, no low-frequency behaviour classified.
+  ok   closed form of G[0,0,0] (sympy) == referee quadrature at spacelike/subthreshold samples {'-3': 2.407412430484045e-35, '-0.75': 1.88079096131566e-37, '3': 1.2037062152420224e-35} (the referee is the authority)
+  ok   closed form of R[0,0,-1] (sympy) == referee quadrature at spacelike/subthreshold samples {'-3': 6.018531076210112e-36, '-0.75': 1.2037062152420224e-35, '3': 3.009265538105056e-36} (the referee is the authority)
+[ 1388.2s] STEP 5 done (structure census + leading closed forms)
+
+=== STEP 6: REFEREE BATTERY ===
+  note E1 scope (settlement W3, e1_settle_report.txt): E1 is a TWO-PATH agreement test and cannot by itself certify the atom quadrature -- defect B (missing cut breakpoints) survived it at 3.1e+06 for exactly that reason (both paths shared the [0,1] eta-Richardson, so the s<0 cases agreed VACUOUSLY). The quadrature authority is the EXTERNAL analytic settlement: partial-fraction closed forms for all 28 R-atoms and dual-rule dps-60 values for all 24 G-atoms at the cut sample, cross-validated numerically; the defect-A/B regression gates in STEP 2 embed that settlement's externally derived constants and re-derive defect A's misreading independently.
+  ok   E1 referee: twin master l0^0 (aP=1,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=4.94e-17)
+  ok   E1 referee: twin master l0^0 (aP=1,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=0.00e+00)
+  ok   E1 referee: twin master l0^0 (aP=2,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=0.00e+00)
+  ok   E1 referee: twin master l0^0 (aP=3,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=2.15e-42)
+  ok   E1 referee: twin master l0^0 (aP=2,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=0.00e+00)
+  ok   E1 referee: twin master l0^2 (aP=1,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.45e-16)
+  ok   E1 referee: twin master l0^2 (aP=1,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.24e-17)
+  ok   E1 referee: twin master l0^2 (aP=2,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.24e-17)
+  ok   E1 referee: twin master l0^2 (aP=3,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.18e-41)
+  ok   E1 referee: twin master l0^2 (aP=2,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=2.31e-41)
+  ok   E1 referee: twin master l0^4 (aP=1,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=3.04e-16)
+  ok   E1 referee: twin master l0^4 (aP=1,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=7.72e-16)
+  ok   E1 referee: twin master l0^4 (aP=2,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.05e-16)
+  ok   E1 referee: twin master l0^4 (aP=3,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=6.18e-18)
+  ok   E1 referee: twin master l0^4 (aP=2,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=6.18e-18)
+  ok   E1 referee: twin master l0^6 (aP=1,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=3.62e-15)
+  ok   E1 referee: twin master l0^6 (aP=2,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.57e-15)
+  ok   E1 referee: twin master l0^6 (aP=3,bP=1,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=4.56e-17)
+  ok   E1 referee: twin master l0^6 (aP=2,bP=2,d_om=0) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=2.41e-16)
+  ok   E1 referee: twin master l0^2 (aP=1,bP=1,d_om=1) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=7.41e-17)
+  ok   E1 referee: twin master l0^2 (aP=2,bP=1,d_om=1) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=6.98e-41)
+  ok   E1 referee: twin master l0^0 (aP=3,bP=1,d_om=1) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.27e-37)
+  ok   E1 referee: twin master l0^0 (aP=2,bP=2,d_om=1) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=3.71e-38)
+  ok   E1 referee: twin master l0^2 (aP=1,bP=2,d_om=2) == the DIRECT A3-1 trace-composition quadrature at all 4 samples (max d=1.07e-36)
+[ 1818.8s] E1 referee done: 24 master/derivative cases x 4 samples
+  ok   E2 flat limit: the FINITE seagull == (m^4/2)[sqrt(-g)]_{h^2-cross} x (1 + kappa - ln(m^2/mu^2)) -- the frozen 2b anchor identity times the M_1 finite factor, EXACTLY
+  note E2 flat limit: (i) the finite seagull identity above; (ii) the K=0 cross-route gate (STEP 2): the fish masters reduce to tadpole masters; (iii) the H-grading is structural: Sigma_R^fin = SIG_fin[0] + H SIG_fin[1] + H^2 SIG_fin[2], so H -> 0 is SIG_fin[0] exactly; (iv) the flat bubble finite is anchored by E1 (B(K2) anchors).
+   slot map: 10 E-symbols x 10 P-symbols = 100 slots
+[ 2448.5s] slot battery spacelike_K2=-3/4: 102 nonzero slot values (atom quads: 160)
+[ 3023.4s] slot battery spacelike_K2=-3: 102 nonzero slot values (atom quads: 160)
+[ 3582.4s] slot battery subthreshold_K2=3: 102 nonzero slot values (atom quads: 160)
+[ 4283.1s] slot battery timelike_K2=8: 102 nonzero slot values (atom quads: 160)
+  note slot battery: 640 atom quadratures total (values shared across slots); all recorded in the freeze JSON as the numeric table
+  ok   E3 retarded support: below threshold (K2 < 4m^2: spacelike AND subthreshold timelike) the Im part of EVERY H^0/H^2 slot vanishes (204 slot values checked) -- the branch cut opens only at K2 = 4m^2
+  ok   E3 retarded sign: at K2=8 > 4m^2 every G-atom carries Im = +pi*Int_{cut} y^n(1-y)^np D^e dy -- POSITIVE for even e, NEGATIVE for odd e (D < 0 on the cut; the signed-D^e law of the E1 settlement, sign-consistent with the validated pole assembly's retarded rule)
+  ctrl-DETECTED   E5 wrong-branch control at component level: the E_33*P_33 slot of the assembled H^0 finite object at (om,k)=(3,1) re-evaluated with the WRONG branch (+i0) DISAGREES (|d| = 8.060e+00; the branch is load-bearing)
+  note E4 subtraction: verified in STEP 4 (frozen fingerprint e2f0bbfe6fd4c89d reproduced from this assembly's own c-sector; 100%% of pole terms F1-local under the independent classifier port; reflection parity 0 violations; the finite sector byte-untouched -- zero finite discretion).
+[ 4457.1s] STEP 6 done (E1..E5 + full-slot battery)
+  ok   mu bookkeeping: d/dln(mu^2) fin(j=0,N=2) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)
+  ok   mu bookkeeping: d/dln(mu^2) fin(j=0,N=3) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)
+  ok   mu bookkeeping: d/dln(mu^2) fin(j=0,N=4) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)
+  ok   mu bookkeeping: d/dln(mu^2) fin(j=1,N=2) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)
+  ok   mu bookkeeping: d/dln(mu^2) fin(j=1,N=3) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)
+  ok   mu bookkeeping: d/dln(mu^2) fin(j=1,N=4) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)
+  ok   mu bookkeeping: d/dln(mu^2) fin(j=2,N=2) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)
+  ok   mu bookkeeping: d/dln(mu^2) fin(j=2,N=3) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)
+  ok   mu bookkeeping: d/dln(mu^2) fin(j=2,N=4) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)
+  ok   mu bookkeeping: d/dln(mu^2) fin(j=3,N=3) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)
+  ok   mu bookkeeping: d/dln(mu^2) fin(j=3,N=4) = P*Delta^s (the entire mu-dependence sits in the +ln(mu^2) of the log sector; MS leaves it untouched)
+  ok   block F_H0_fin_REPLAY: loaded from finite cache (srepr round-trip + fingerprint verified)
+  ok   cache-off replay: F_H0_fin re-assembled FRESH == the cached value byte-exact (the finite cache introduced no drift)
+
+=== STEP 7: FREEZE + MANIFEST ===
+  ok   freeze written: Sigma_R_finite_full.json
+  ok   manifest self-consistency: the complete-kernel sha256 recomputes
+  ok   freeze round-trip: the frozen sector-0 srepr reconstructs the object exactly (Gfun/Rfun locals)
+[ 4712.0s] freeze written (Sigma_R_finite_full.json + manifest)
+[ 4712.0s] result JSON written
+
+================ SUMMARY ================
+verdict: PASS
+gates: 204/204 passed; controls: 3/3 detected; failures: 0
+outputs: .p_a3_2_run.log, Sigma_R_finite_full.json, Sigma_R_finite_full.verdict.md, WALL_A3_2_FINITE_RESPONSE_RESULT.json, WALL_A3_2_FINITE_RESPONSE_VERDICT.md
+elapsed: 4712.0s

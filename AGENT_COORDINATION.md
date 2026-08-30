@@ -3026,3 +3026,101 @@ reported what moved. "24/24 at master level" is not "the object is right at
 timelike kinematics" -- the sweep is what converts one into the other.
 
 Register untouched. Nothing banked. W-0 intact.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- A3-2 COMPLETE: VERDICT PASS. Contamination sweep
+reported. One gate is now known to have PASSED on a FALSE statement.
+================================================================================
+
+Checker took over as builder at the owner's instruction; z.ai's run had already
+completed. This entry verifies it, records the sweep, and stops at the W-0 fence.
+
+--------------------------------------------------------------------------------
+RESULT
+--------------------------------------------------------------------------------
+    verdict: PASS
+    gates: 204/204 passed; controls: 3/3 detected; failures: 0
+    elapsed: 4712.0s
+    complete kernel sha256: dd77b1943e2068c643f4181438814a37
+                            8c26bc8693b616be812fa5f5888c4ae1
+
+STEP 7 reached the freeze and wrote Sigma_R_finite_full.json (8.4 MB) + manifest --
+the step that the 2026-08-30 crash destroyed. Outputs committed with this entry.
+
+VERIFIED BY THE BUILDER, not merely reported:
+  * DETERMINISM -- two independent completed runs (06:31 and 07:56) are BYTE-
+    IDENTICAL once timing stamps are stripped; the only residual difference is the
+    `elapsed:` line (4599.8s vs 4712.0s).
+  * ARTIFACT WELL-FORMED -- all three sector sha256s are full 64-char digests,
+    manifest.per_sector_sha256 matches the sectors block, the complete-kernel
+    sha256 recomputes, the TT view IS derived this time (e242ab76...), and 8
+    limitations are recorded on the artifact's face.
+  * CHECKER SELF-CATCH, DISCLOSED: I first read the sector `fingerprint` and
+    `sha256` fields as duplicates. They are not -- expr_fp is expr_sha[:16] BY
+    CONSTRUCTION, and the apparent collision was my own print truncation. No
+    defect. Recorded because a checker's false alarm is a defect of the same class
+    as a builder's.
+
+--------------------------------------------------------------------------------
+CONTAMINATION SWEEP -- what moved when defect B was fixed
+--------------------------------------------------------------------------------
+Defect B (missing cut breakpoints) was invisible to E1 because it was perfectly
+common-mode there. It was NOT common-mode in absolute timelike numbers. Diffing
+pre-patch against post-patch:
+
+  E5 wrong-branch control, |d| at (om,k)=(3,1):   3.543e+00  ->  8.060e+00
+  map3 max|Im v_B| at K^2 = 8, above threshold:
+      H1_V1on                                      6.070e+01  ->  8.777e+01
+      H2_V2on                                      1.763e+10  ->  6.889e+02
+      H2_vtx1xV1                                   1.961e+06  ->  1.784e+02
+      H2_vtx2xV1                                   2.233e+06  ->  3.236e+02
+
+The H2_V2on magnitude moved by EIGHT ORDERS. Every pre-patch absolute timelike
+magnitude in this campaign's logs is to be treated as void.
+
+THE LOOP-FLIP CONCLUSION SURVIVES INTACT. Every identity is still rel 0.000e+00
+post-patch, on and off the cut, exactly as predicted: A - B runs through the same
+evaluator, so the common-mode error cancels in the comparison even when it wrecks
+the magnitudes. The identity was always the claim; the |Im| figures printed beside
+it never were, and they are now corrected.
+
+--------------------------------------------------------------------------------
+THE FINDING THAT MATTERS MOST -- a gate that PASSED on a false statement
+--------------------------------------------------------------------------------
+Pre-patch E3 asserted, and PASSED:
+
+    "at K2=8 > 4m^2 every G-atom carries Im = +pi*Int_{cut} > 0"
+
+Post-patch E3 asserts, and passes:
+
+    "... POSITIVE for even e, NEGATIVE for odd e (D < 0 on the cut)"
+
+The pre-patch statement was FALSE for every odd-e atom. It passed because the gate
+evaluated through the very `abs(D)**e` that defect A consisted of: the gate and the
+defect agreed with each other, so the check confirmed the error instead of
+catching it. This is the campaign's standing self-certification pattern -- the
+thing that certifies sitting inside the thing being certified -- recurring in a
+new place. It is the fourth instance and should be added to that register.
+
+Operational consequence, already recorded as limitation 3 on the artifact: a
+two-path agreement test cannot certify the quadrature underneath it. Any future
+numeric claim needs an EXTERNAL anchor.
+
+--------------------------------------------------------------------------------
+STALE ARTIFACT, DISCLOSED
+--------------------------------------------------------------------------------
+/tmp/a3_2_stage/validate_patch.log (04:56) ends "VERDICT: FAILURES (2 checks
+failed)" on numbers that are clean passes (1.8e-17, 1.3e-18 against a 1e-15
+predicate). That log is STALE: validate_patch.py was corrected at 05:00, AFTER the
+log was written, and w2_r_check.py (05:02) confirmed the same atoms independently
+at worst 4.17e-17, PASS. The log is left unedited as evidence; this note is the
+reconciliation. Do not quote that verdict line.
+
+--------------------------------------------------------------------------------
+STANDING -- HARD STOP
+--------------------------------------------------------------------------------
+The freeze verdict carries its own fence: "W-0: computed-and-reported, NOT banked.
+HARD STOP before A3-3+ adjudication: the next stage begins only after owner/
+reviewer inspection." Honoured. A3-4 (Q1/Q5/Q4/Q3) NOT started. No J(omega)
+comparison. No PV rerun. No response-level dual-gauge. Register untouched,
+nothing banked, W-0 intact. Awaiting the owner's ruling.
