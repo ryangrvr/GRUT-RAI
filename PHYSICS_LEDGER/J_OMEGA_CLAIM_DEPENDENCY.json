@@ -1,0 +1,84 @@
+{
+ "stage": "J(omega) adjudication / K_R dependency determination",
+ "date": "2026-08-30",
+ "frozen_kernel_sha256": "dd77b1943e2068c643f4181438814a378c26bc8693b616be812fa5f5888c4ae1",
+ "K_R": {
+  "definition": "retarded dissipation kernel of the SK influence action S_IF (rung1_inin_formalism, tier shown)",
+  "distinct_from_Sigma": true,
+  "pipeline": "Sigma -> G_R^TT -> K_R -> J(omega); benchmark's own status: OBSTRUCTED AT WALL A (graviton-probe influence functional unbuilt)",
+  "required_for": [
+   "benchmark ledger-consequence cell at contract scope (rung7-side partial discharge)",
+   "rung3_single_pole pole-vs-branch-cut anchor question",
+   "any claim about the vacuum bath kernel's analytic structure"
+  ],
+  "NOT_required_for": [
+   "Q1/Q4/Q5/Q3 (Declaration-4 Sigma-level objects)",
+   "response_lorentz_covariance +1 (frozen map = Q1 AND Q5 ONLY; other evidence INVALID by the rule)",
+   "the J5 record"
+  ]
+ },
+ "claims": {
+  "Q1_TT": {
+   "required_object": "Sigma-level TT",
+   "available": "A3-4 exact all orders + A4 operator identity + PV 7e-17",
+   "missing": null,
+   "status": "COMPLETE"
+  },
+  "Q5_TT": {
+   "required_object": "Sigma-level flat limit",
+   "available": "same chain",
+   "missing": null,
+   "status": "COMPLETE"
+  },
+  "Q4_TT": {
+   "required_object": "Sigma_R^TT",
+   "available": "A3-4 + A4 + PV",
+   "missing": null,
+   "status": "COMPLETE"
+  },
+  "Q3": {
+   "required_object": "Sigma-level nonlocal TT",
+   "available": "gapped, s>=2 rigorous, PV-robust",
+   "missing": null,
+   "status": "COMPLETE (class settled; NOT an s=3 claim)"
+  },
+  "J5_s3": {
+   "required_object": "gapless IR access",
+   "available": "INAPPLICABLE / GAP OBSCURES REGISTERED IR LIMIT",
+   "missing": "registered IR limit itself (massless limit undeclared, uncomputed)",
+   "status": "RECORDED -- not convertible to CONFIRMED or REFUTED"
+  },
+  "benchmark_convergence_axis": {
+   "required_object": "pipeline output (contract) / chi_Sigma (as run)",
+   "available": "chi_Sigma IR-CONVERGENT rigorously",
+   "missing": "K_R-level confirmation OR owner scope ruling",
+   "status": "SCOPED EVIDENCE"
+  },
+  "benchmark_relaxational_axis": {
+   "required_object": "pipeline output (contract) / chi_Sigma (as run)",
+   "available": "full response 0 crossings; light-cone diagnosis; scheme caveat",
+   "missing": "K_R-level confirmation OR owner scope ruling",
+   "status": "SCOPED EVIDENCE"
+  },
+  "single_pole": {
+   "required_object": "K_R analytic structure",
+   "available": "Sigma-level: branch cut, NOT single-pole; G3 rider pre-declared the class",
+   "missing": "K_R",
+   "status": "UNDERIVED -- excess strength explicit per the benchmark's own row-1 wording"
+  },
+  "plus1_discharge": {
+   "required_object": "Q1 AND Q5 only (frozen map)",
+   "available": "both INSIDE, preregistered, three-way robust",
+   "missing": "OWNER RULING ONLY",
+   "status": "READY FOR ADJUDICATION -- NOT DISCHARGED"
+  },
+  "ward_bardeen": {
+   "required_object": "separate track",
+   "available": "class B, vector-channel, cut-carrying, primary-only",
+   "missing": "Bardeen completion / owner charter",
+   "status": "UNRESOLVED -- SEPARATE"
+  }
+ },
+ "next_stage": "owner adjudication of: +1; benchmark scope ruling; Ward disposition; whether to charter K_R (spec in report section 3) and/or the massless-limit bridge",
+ "hard_stop": "nothing further computed; no result modified"
+}
