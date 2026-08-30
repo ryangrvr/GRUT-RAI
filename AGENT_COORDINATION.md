@@ -3342,3 +3342,55 @@ BUILDER ACKNOWLEDGEMENT:
     either direction until then.
   * No further computation is authorized by this ruling; the builder stops
     here. W-0 intact, register untouched, nothing banked.
+
+================================================================================
+OWNER AUTHORIZATION -- 2026-08-30 -- A4 DUAL-GAUGE ROBUSTNESS (response level)
+================================================================================
+
+Recorded: the full A4-0..A4-8 brief (verbatim in the owner's message of this
+date; operative constraints repeated here):
+  * OBJECTIVE: does the Q1/Q4/Q5 result survive an independent gauge/orbit
+    construction?
+  * DO NOT: reopen A3-4; recompute the finite loop unless the independent
+    construction demands a new gauge representation; open J(omega); perform
+    PV; discharge +1.
+  * A4-1: second gauge representation per the FROZEN A4 declaration
+    (Declaration 5: synchronous gauge vs the gauge-UNFIXED computation);
+    "do not compare two copies of the same algebra"; emit the full object
+    before any TT projection.
+  * A4-2: orbit/Bardeen reconciliation; TT, scalar/Bardeen, pure-gauge kept
+    separate; no inferring scalar agreement from TT agreement.
+  * A4-3/A4-4: Q1^TT, Q4^TT, Q5 re-derived on the second route; A3-4's answer
+    is comparison evidence, never an imposed target.
+  * A4-5: difference localization {pure gauge, orbit-equivalent, TT-physical,
+    scalar/Bardeen, unresolved}; a TT-physical difference is a FINDING --
+    do not repair it.
+  * A4-6: identical retarded/boundary prescriptions both routes.
+  * A4-7: one gauge-breaking control (must detect) + one discarded-content
+    control (must NOT change the physical TT verdict).
+  * A4-8 then HARD STOP; owner adjudication required.
+
+BUILDER PLAN OF RECORD (phased, disclosed before computing):
+  * Declaration 5's quantity (1) -- the Gamma^TT-level vertex comparison with
+    orbit-reconciled discards -- was adjudicated in the COUNTERSIGNED
+    vertex-level A4 stage (wall_a_a4_dual_gauge.py). This authorization
+    unlocks the RESPONSE-LEVEL quantities (2) and (3), fenced until now.
+  * PHASE I (first strike): the FLAT (H^0) response-level dual-gauge test in
+    full -- the exact gauge orbit delta-e = i(K x + x K), the synchronous
+    slice solver with Declaration 5's residual-freedom accounting, the
+    Ward/orbit contraction of the frozen kernel's nonlocal sector (NEVER
+    tested -- the assembly imposed no Ward identity), route-B TT re-verdicts,
+    difference localization, both controls. The flat sector carries the
+    discharge-relevant weight (Q5's flat limit).
+  * PHASE II: the H^1/H^2 dressed orbit (chart-derived Christoffel terms),
+    centre (u^0) parts contracted against the frozen sectors with H-grading
+    sector-mixing; u-carrying orbit terms need new loop u-moments -- exactly
+    the case the owner's "unless the independent construction demands" clause
+    anticipates; the need will be demonstrated, quantified, and executed with
+    the pinned engine, or the precise boundary recorded.
+  * The frozen kernel is used as the shared physical input to both routes;
+    the routes differ in the gauge/orbit construction layer (unfixed vs
+    synchronous-slice representatives + orbit reconciliation). The
+    informativeness is genuine: the kernel was assembled with NO Ward input,
+    so orbit-blindness of its nonlocal sector is a computable, falsifiable
+    claim, not a tautology.
