@@ -3124,3 +3124,39 @@ HARD STOP before A3-3+ adjudication: the next stage begins only after owner/
 reviewer inspection." Honoured. A3-4 (Q1/Q5/Q4/Q3) NOT started. No J(omega)
 comparison. No PV rerun. No response-level dual-gauge. Register untouched,
 nothing banked, W-0 intact. Awaiting the owner's ruling.
+
+================================================================================
+OWNER RULING -- 2026-08-30 -- A3-2 ACCEPTED; A3-4 (Q-ADJUDICATION) AUTHORIZED
+================================================================================
+
+Recorded verbatim (operative clauses):
+
+  "A3-2 finite response assembly: ACCEPTED"
+  "complete pre-TT finite kernel: FROZEN"
+  "TT projection: derived view only"
+  "Q1/Q3/Q4/Q5: NOT YET ADJUDICATED"
+  "Sigma_R^finite has now been computed on the corrected construction -- at the
+   current declared scope."
+  "I would not say 'the finite nonlocal response is fully independently proven'
+   ... validated to the declared computational standard, not mathematically
+   certified by an entirely separate implementation of the whole tensor response."
+  "Terminology: since the complete kernel and manifest have already been written,
+   the A3-3 freeze has effectively occurred. What remains locked is the
+   response-level adjudication, not the freeze itself."
+  "Q1/Q5/Q4/Q3 can finally be run against a frozen object."
+  "Keep one firewall extremely strict: nobody gets to look at J(omega) or use it
+   to motivate the answer before the primary Q1/Q5/Q4/Q3 results are recorded."
+  "At this point, I would authorize the next stage."
+
+BUILDER ACKNOWLEDGEMENT:
+  * Terminology adopted: A3-3 freeze = OCCURRED (the 2026-08-30 PASS freeze).
+    The stage now beginning is A3-4: response-level adjudication of the
+    pre-registered questions against the frozen kernel (sha dd77b194...).
+  * Wording adopted: "validated to the declared computational standard" -- the
+    stronger claim is not made anywhere in the A3-4 artifacts.
+  * J(omega) firewall: the barred-inputs guard runs live in the A3-4 instrument
+    (LOAD/ECHO/SCAN/FAIL, frozen registry law). The J(omega) comparison happens
+    ONLY in the separate post-adjudication artifact, per Declaration 4.
+  * The +1 discharge map is pre-registered: Q1 INSIDE and Q5 INSIDE are the ONLY
+    admissible evidence; Q3/Q4 do not vote; discharge itself remains an owner
+    ruling at the bank gate. A3-4 records evidence, executes no discharge.
