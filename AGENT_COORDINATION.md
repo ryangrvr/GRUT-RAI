@@ -3660,3 +3660,23 @@ pairing. If run 2 confirms this with the corrected normalization, the row
 classifies under the owner's class B (primary nonzero, PV/unitarity-cut zero),
 not class A. Stated now so the classification cannot drift after the numbers
 land.
+
+================================================================================
+OWNER GUIDANCE -- 2026-08-30 -- INTERPRETIVE BOUND ON THE VECTOR ROW (binding)
+================================================================================
+
+Recorded (operative): if run 3 confirms A != 0 with B_cut = 0 after the 1/2
+repair, the vector row is reported as class B with EXACTLY this scope:
+
+  "the nonzero vector Ward residual occurs in the assembled non-TT kernel but
+   is absent from the independently constructed absorptive two-body cut."
+
+It is NOT to be reported as proof that the entire vector residual is
+unphysical. What remains undetermined: whether the residual is a real/analytic
+non-TT artifact, a contact/local term, a missing cancellation in the full
+construction, or something else. The Ward diagnostic already established the
+primary assembly's residual is CUT-CARRYING; PV's zero absorptive vector
+content would make THAT DISCREPANCY ITSELF the object to understand -- the
+primary kernel's vector-channel cut has no counterpart in the independent
+two-body unitarity construction. The dd3 strategy is endorsed (annihilates
+exactly the doctrine's degree-2 polynomial ambiguity, nothing more).
