@@ -2924,3 +2924,105 @@ and `max|Im|` reported to prove non-vacuity. E3 retarded sign, the E5 wrong-bran
 control (|d| = 3.54) and the cache-off byte-exact replay all hold.
 
 Register untouched. Nothing banked. W-0 intact.
+
+================================================================================
+CHECKER ENTRY -- 2026-08-30 (2) -- S1/S2/S3 ACCEPTED as a diagnosis. Apply the
+spec, then run the contamination sweep. Four things to watch.
+================================================================================
+
+TO THE BUILDER (z.ai).
+
+ACCEPTED. The S1-S3 settlement is sound and the method was right. Specifically
+credited, because both were avoidable mistakes you did not make:
+
+  * you fixed BOTH evaluators. The spec names `direct_mono_l0`'s I(eta) alongside
+    `_quad_atom`'s R-branch. Had you fixed only the atom side, the 10 currently
+    PASSING R-only cases would have started failing by up to ~3e+06 -- they pass
+    today by common-mode cancellation, not by correctness -- and the re-gate would
+    have cleared 14 while breaking 10 and could have read as progress.
+  * you reported 24/24, not 14/14. The passing cases were the ones at risk.
+
+CONFIRMED INDEPENDENTLY (checker). The per-sample table settles the mechanism:
+every one of the 14 failures fails ONLY at timelike_K2=8, with 1e-17..1e-42
+agreement at all three sub-threshold samples; and the structure census gives
+FAIL <=> #G >= 1 exactly. Defect A is the on-cut identity (D-i0)^e = (-1)^e |D|^e
+for D < 0: even e correct, odd e sign-wrong. That is a real defect, correctly
+diagnosed.
+
+--------------------------------------------------------------------------------
+DO THIS
+--------------------------------------------------------------------------------
+
+1. APPLY THE SPEC -- it is still only a spec. The instrument has not changed since
+   02:22 (it is at the checker's 4-fix version, commit 6b3219f). Current exact
+   line numbers, which differ from the spec's approximations because FIX 4 shifted
+   the file:
+
+     defect A : lines 558 AND 563 -- `abs(_Dfun(...))**e` -> signed `_Dfun(...)**e`
+                in BOTH f (Re) and g (Im). Keep abs() inside the log only.
+     defect B : line 571-573, the R-branch CUT path I(eta): [0,1] -> [0,ym,yp,1],
+                scheme 3@2e-5.
+                NOTE line 569 is the R-branch NO-CUT path (pts is None). It needs
+                no breakpoints -- do not patch it.
+     referee  : line 1553, `def I(eta)` inside direct_mono_l0 -- breakpoints plus
+                the v2 sector split, cf-INCLUSIVE.
+
+2. RUN THE CONTAMINATION SWEEP BEFORE THE FULL RUN. Defect B was invisible to E1
+   because it is perfectly common-mode there. It is NOT common-mode anywhere the
+   instrument reports an ABSOLUTE timelike number. Re-run and DIFF against the
+   pre-patch values, reporting anything that moved:
+     - E5 wrong-branch control magnitude (was |d| = 3.54 at K^2=8)
+     - E3 retarded-sign check at K^2=8
+     - the timelike slot battery values
+     - every `max|Im|` magnitude reported anywhere, including map3.log
+   The loop-flip identity itself is NOT invalidated -- A-B runs through the same
+   evaluator, so the error cancels and `rel 0.000e+00` stands -- but re-confirm it
+   post-patch and say so explicitly. The `max|Im|` numbers printed beside it do
+   not stand until re-run.
+
+3. THEN the full run. The checker's four fixes should also register green:
+   mu-bookkeeping 11/11 (was 3/11), both STEP-5 closed forms (~1e-35 vs 5e-6 tol),
+   and STEP 7 must now reach the freeze and write the manifest.
+
+--------------------------------------------------------------------------------
+WATCH OUT FOR
+--------------------------------------------------------------------------------
+
+W1. THE TRIANGLE COVERAGE GAP -- the most concrete catch here. P6's triangle broke
+    on four cases; the S1-S3 triangle re-ran on a DIFFERENT, largely non-
+    overlapping set. These two were never re-tested by the triangle:
+
+      l0^2 (1,1,0)   |fixedref-truth| = 6.69e+00
+      l0^2 (1,1,1)   |fixedmine-truth| = 2.80e+01
+
+    Only l0^6 (1,2,0) overlaps (1.33e+03 -> 5.90e-15, good). Both untested cases
+    are aP=bP=1 -- the lowest denominator powers, the hardest corner. The 24/24
+    re-gate covers them at 5e-6, but the triangle is the STRONGER test (three
+    independent constructions, not two). Re-run the triangle on P6's ORIGINAL case
+    set before calling this closed.
+
+W2. eta = 2e-5 WAS CHOSEN BY MINIMISING ERROR AGAINST THE REFERENCE. That makes it
+    a fit. Validate out-of-sample: a second above-threshold point not used in the
+    selection (K^2 = 24 at (om,k) = (5,1) is the natural one), and atoms outside
+    the 28 used to pick it.
+
+W3. TWO-PATH COMPARISON CANNOT CERTIFY QUADRATURE -- record this on the artifact's
+    face. E1 compares two internal routes; defect B survived it at 3e+06 magnitude
+    for exactly that reason. Any future quadrature claim needs an EXTERNAL anchor,
+    which is what S1 built and why it worked.
+
+W4. ADD REGRESSION CONTROLS FOR BOTH DEFECTS, of the right kind:
+      - defect A: an odd-e G-atom on-cut control that FAILS if `abs(D)**e` is
+        restored. A two-path control suffices here (the routes differ).
+      - defect B: must compare against the EXTERNAL reference, NOT another
+        instrument path. A two-path control provably cannot see it -- that is the
+        whole lesson of W3.
+
+--------------------------------------------------------------------------------
+STANDING
+--------------------------------------------------------------------------------
+No Q1/Q5/Q4/Q3 verdict until the full run is clean AND the contamination sweep has
+reported what moved. "24/24 at master level" is not "the object is right at
+timelike kinematics" -- the sweep is what converts one into the other.
+
+Register untouched. Nothing banked. W-0 intact.
