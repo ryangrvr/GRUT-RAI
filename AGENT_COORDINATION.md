@@ -3916,3 +3916,38 @@ Tiers 0-3 defined with costs; Ward EXCLUDED-not-resolved (TT scoping, executed
 gates); bridge NOT REQUIRED (matter) / SUBSUMED (contract) / SEPARATE
 (interpretive). HARD STOP: awaiting the owner's two confirmations
 (probe-limit prescription; scope 2a/2b/both/decline).
+
+================================================================================
+OWNER RULING -- 2026-08-30 -- K_R^(matter) CHARTERED (bounded experiment)
+================================================================================
+
+Recorded: authorize ONLY the matter-level K_R path. Kinematic ruling: the
+controlled k -> 0 limit + explicit isotropy gate (literal k = 0 not silently
+substituted). Both Dyson orders computed (first-order insertion AND resummed),
+neither pre-decided. THE CENTRAL QUESTION: can Dyson resummation of the
+computed matter-induced Sigma_R generate a pole from the branch cut? A
+candidate pole must be demonstrated by actual analytic continuation or an
+independently justified complex-root procedure -- not every denominator
+crossing is a pole; the taxonomy {branch point, threshold, resonance-like
+zero, isolated pole, numerical artifact} is mandatory. Controls must
+distinguish cuts from genuine poles. INTERPRETATION FENCE: neither outcome is
+evidence for or against K_R^(contract); no inference from matter scope to the
+massless-graviton contract scope or to the registered single-pole stance.
+HARD STOP after the matter object. No contract build, no TT-TT-TT vertex, no
+D5, no contract D4, no Ward alteration, no J(omega) reopening, no +1 change.
+
+BUILDER DESIGN NOTE (disclosed before computing): (i) the omega-only object
+is built by the SYMBOLIC k -> 0 limit of the frozen TT bilinear (exact), then
+VALIDATED by the controlled-limit gates (k-sequence extrapolation at fixed
+omega along multiple paths + polarisation isotropy + tiny-k spot check) --
+the limit is checked, not assumed. (ii) The coupling enters as a SCANNED
+PARAMETER g of both signs (the frozen record fixes no dimensionless g;
+nothing is fitted; results reported as functions of g -- disclosed). (iii)
+Sheet II is constructed per atom class: G-atoms' discontinuity = exact
+polynomial antiderivatives between the algebraic endpoints y+-(z); R-atoms'
+= residue formulas; both gated numerically against the on-cut Im law before
+use. Sheet-I complex evaluation by direct quadrature (D never vanishes off
+the real axis). (iv) Two independent denominator evaluations: direct
+complex-z quadrature vs the dispersive reconstruction (PV-validated
+machinery). (v) The full MS-fixed response is the primary object; the
+NL-only variant is reported as a disclosed scheme-sensitivity line.
