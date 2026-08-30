@@ -4011,3 +4011,28 @@ K_R remains untouched and separately required for the benchmark cell.
 
 HARD STOP: no contract build, no TT-TT-TT vertex, no D5, no contract D4, no
 Ward alteration, no J(omega) reopening, no +1 change. W-0; register untouched.
+
+================================================================================
+OWNER RULING -- 2026-08-30 -- MATTER-SCOPE K_R CLOSURE (review only)
+================================================================================
+
+Recorded: bounded closure audit of the certified K_R^(matter) result. No
+contract-level build, no TT-TT-TT vertex, no D4/D5, no Ward repair, no
+J(omega), no +1 modification, no physical-sign selection. The verdict template
+is fixed in advance: "resummation-generated pole structure: branch-dependent,
+certified at the tested scope." The owner's scientific statement adopted
+verbatim as the ceiling: coupling-dependent isolated first-sheet poles on the
+negative-g branch + complex second-sheet zeros at the tested negative-g
+values; positive branch pole-free over the declared domain; NOT "GRUT
+predicts a pole"; K_R^(matter) != K_R^(contract) everywhere.
+
+BUILDER DESIGN (disclosed before running): independence implemented on BOTH
+axes the brief names -- (i) first-sheet poles re-found by BISECTION (not the
+production Newton/findroot) on chi0 evaluated via the K-RICHARDSON ROUTE
+(chi at k = 1/4, 1/8 extrapolated -- a different expression path with a
+different atom set from the production symbolic-k->0 evaluator); (ii) the
+sheet-II zeros re-tested by STEPWISE TAYLOR CONTINUATION along a path
+crossing the cut (Cauchy-integral derivatives at anchors, polynomial
+re-expansion, no use of the production disc formulas), with roots re-found
+by the SECANT method. The shared ground truth is only the gated sheet-I
+evaluator itself. Search-domain limitations recorded exhaustively.
