@@ -1,0 +1,34 @@
+  ok   frozen kernel sha ok (IMMUTABLE)
+  note production result sha = ddc16267bacda067...
+=== 1+2: FIRST-SHEET POLES (bisection + k-Richardson route) ===
+  ok   pole at g=-1.0 REPRODUCED by bisection + k-Richardson: x = 0.348641 (production 0.3486, |d| = 4.1e-05)
+  ok   pole at g=-2.0 REPRODUCED by bisection + k-Richardson: x = 0.799552 (production 0.7995, |d| = 5.2e-05)
+  ok   pole at g=-5.0 REPRODUCED by bisection + k-Richardson: x = 2.94659 (production 2.9465, |d| = 9.2e-05)
+  ok   pole MOTION x_p(g) independently confirmed MONOTONE toward threshold: ['0.3486', '0.5595', '0.7996', '1.3810', '2.9466']
+  ok   branch point FIXED at x = 4m^2 on the independent route (Im: 0.0e+00 below, 3.05e-04 above) -- unmoved by g by construction and verified
+[   16.8s] first sheet audited
+
+=== 3: SHEET-II ZEROS (stepwise Taylor continuation + secant) ===
+  ok   Taylor anchor 0 validated inside its disc (rel 5.1e-15 vs direct sheet-I)
+  ok   INDEPENDENT GLUING CHECK: the Taylor-continued value just below the cut == sheet-I just above (rel 3.0e-03) -- continuation crossed the cut correctly, no disc formula used
+  FAIL sheet-II zero at g=-1.0 REPRODUCED by Taylor continuation + secant: z = (1.07859 - 0.109825j) (production (0.116 - 0.945j); |d| = 1.27e+00; |D| = 8.4e-14)
+  FAIL sheet-II zero at g=-2.0 REPRODUCED by Taylor continuation + secant: z = (1.44724 - 0.022058j) (production (0.711 - 1.296j); |d| = 1.47e+00; |D| = 2.2e-15)
+[   25.6s] sheet II audited
+
+=== 4: FIRST-ORDER vs RESUMMED ===
+  ok   at the certified pole x_p(g=-2): the FIRST-ORDER object is FINITE (G1 = 2.5014) while the resummed denominator VANISHES (|D| = 8.5e-14) -- the pole is resummation-generated, verified on the independent route
+
+=== 5-9: DOMAIN, VERDICT, FREEZE ===
+  note DOMAIN first_sheet_search: x in (0.2, 3.97), grid step 0.2 + edge points; bisection bracket +-0.15 around production values; poles outside (e.g. the g=-20 exit) NOT excluded beyond the window
+  note DOMAIN sheet_II_search: three production seeds + audit path terminating near 1 - 1i; additional roots outside the searched neighbourhoods are NOT excluded
+  note DOMAIN tolerances: atom quadrature ~1e-20; Taylor continuation validated at 1e-6 (disc) and 5e-3 (gluing); root reproduction tolerances 2e-3 (sheet I) / 5e-2 (sheet II)
+  note DOMAIN g_scan: +-{0.1, 0.5, 1, 2, 5, 20} + audit points -1.5, -3; the sign of g remains UNFIXED -- branches reported separately, no physical sign selected
+  VERDICT: resummation-generated pole structure: branch-dependent, certified at the tested scope.
+
+================ SUMMARY (CLOSURE AUDIT) ================
+  first sheet (independent): {'-1.0': 0.3486410438181916, '-2.0': 0.7995524213726294, '-5.0': 2.9465923347805383, '-1.5': 0.5594872071416376, '-3.0': 1.380958147141655}
+  sheet II (independent): {'-1.0': [1.0785930985862024, -0.10982456532873121], '-2.0': [1.4472370914461863, -0.022057951172950712]}
+gates: 9/11 passed; failures: 2
+  FAILURE: sheet-II zero at g=-1.0 REPRODUCED by Taylor continuation + secant: z = (1.07859 - 0.109825j) (production (0.116 - 0.945j); |d| = 1.27e+00; |D| = 8.4e-14)
+  FAILURE: sheet-II zero at g=-2.0 REPRODUCED by Taylor continuation + secant: z = (1.44724 - 0.022058j) (production (0.711 - 1.296j); |d| = 1.47e+00; |D| = 2.2e-15)
+elapsed: 25.7s

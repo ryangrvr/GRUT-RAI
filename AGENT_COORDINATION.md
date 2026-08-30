@@ -4036,3 +4036,59 @@ crossing the cut (Cauchy-integral derivatives at anchors, polynomial
 re-expansion, no use of the production disc formulas), with roots re-found
 by the SECANT method. The shared ground truth is only the gated sheet-I
 evaluator itself. Search-domain limitations recorded exhaustively.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- MATTER-SCOPE K_R CLOSURE COMPLETE. The sheet-II
+story is a three-act methodology lesson; the certified record follows. HARD STOP.
+================================================================================
+
+FIRST SHEET -- CERTIFIED, INDEPENDENTLY REPRODUCED (closure audit, 9/11 gates
+before the sheet-II referee): all three poles re-found by BISECTION on the
+k-RICHARDSON route (different atom set) to |d| < 2e-3; motion curve monotone
+toward threshold: x_p = 0.3486 / 0.5595 / 0.7995 / 1.3810 / 2.9466 at
+g = -1 / -1.5 / -2 / -3 / -5; branch point FIXED at 4m^2; at the pole the
+first-order object is FINITE (2.50) while the resummed denominator vanishes
+(8.5e-14): RESUMMATION-GENERATED, verified on the independent route.
+
+SHEET II -- THREE ACTS, FULLY DIAGNOSED, REFEREED:
+  Act 1 (production, run 4): zeros at 0.116-0.945i / 0.711-1.296i via
+    chi_II = chi_I + disc. DEFECT FOUND POST-HOC: the disc formula's
+    principal sqrt(1 - 4/z) carries ITS OWN branch cut along z in (0,4) --
+    exactly where those zeros sat. REFUTED by the referee: |D| = 145.2 and
+    100.5 there. NOT zeros.
+  Act 2 (closure audit): zeros at 1.079-0.110i / 1.447-0.022i via Taylor
+    continuation. DEFECT: one path step (5-1i -> 3.5-1.2i, length 1.51)
+    EXCEEDED the radius of convergence (1.41 to the branch point) -- garbage
+    polynomial downstream. REFUTED by the referee: |D| = 4.7 and 2.7. NOT
+    zeros.
+  Act 3 (REFEREE, wall_kr_sheet2_referee.py): radius-VERIFIED continuation
+    (every step < 0.62 x distance to z = 4, asserted), TWO independent paths
+    agreeing to rel ~1e-31 (the certificate), secant from ALL candidate
+    neighbourhoods. THE CERTIFIED SHEET-II ZEROS:
+        g = -1: z = 1.61397 - 0.295501i
+        g = -2: z = 1.87417 - 0.199099i
+    (|D| < 1e-10; near-cut, small |Im| -- resonance-class profile; recorded,
+    not interpreted.)
+
+THE CLOSURE VERDICT (owner's template, now on fully certified numbers):
+  "resummation-generated pole structure: branch-dependent, certified at the
+  tested scope." Negative-g branch: isolated first-sheet poles AND
+  referee-certified sheet-II complex zeros. Positive branch: pole-free over
+  the declared domain. The g-sign remains an UNFIXED convention; branches
+  reported separately; no physical sign selected.
+
+DOMAIN LIMITATIONS (recorded): first-sheet window (0.2, 3.97) -- the g = -20
+pole exit not pursued; sheet-II search = candidate neighbourhoods + the
+referee's terminal region; additional roots outside are NOT excluded;
+tolerances in the result JSONs.
+
+NON-INFERENCES (owner rule, verbatim): no K_R^(contract); no registered
+single-pole derivation; no physical pole existence; no GRUT-level conclusion.
+
+THE METHODOLOGY SENTENCE, EARNED THREE TIMES TODAY: two plausible,
+numerically-clean answers (|D| ~ 1e-14 zeros of the WRONG functions) were
+each refuted by an independent construction with an internal certificate.
+A zero of a continuation is only as good as the continuation.
+
+HARD STOP: no contract-level K_R, no TT-TT-TT vertex, no D4/D5, no Ward
+repair, no J(omega), no +1 modification. W-0; register untouched.
