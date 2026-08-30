@@ -3890,3 +3890,29 @@ BYPASSED at TT scope by executed gates, NOT resolved. New-physics criterion
 pre-stated: a Dyson-generated pole-from-cut would be a genuine rung3 result;
 same-analytic-content is bookkeeping. HARD STOP: awaiting the owner's charter
 decision (declare the three items, or decline and close scope).
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- K_R OWNER CHARTER RECORDED (definition only)
+================================================================================
+
+Deliverables: K_R_OWNER_CHARTER.md + .json. NO K_R computation occurred.
+
+CENTRAL FINDING: the frozen record holds TWO K_R-scope objects -- K_R^matter
+(dress the frozen Sigma; A1 coupling exists; unblock list inapplicable; hours)
+and K_R^contract (the vacuum's kernel; massless graviton bath; unblock list
+REQUIRED verbatim; multi-session). The benchmark cell and rung3's anchor bind
+to CONTRACT scope unless the owner rules otherwise.
+
+THE THREE INPUTS: (1) probe kinematics -- determined in part (omega-only =
+probe k->0); literal-vs-controlled-limit residual UNDERDEFINED, awaiting owner
+(observation recorded: only the controlled limit with an executed isotropy
+gate is self-verifying). (2) Dyson truncation -- FORM DETERMINED by rung3's
+verbatim G_R = 1/(G0^-1 - Sigma): RESUMMED; pole-from-cut recorded as an OPEN
+OUTCOME; first-order cross-check mandatory; validity statement on every
+artifact. (3) normalization -- determined by derivation (A1 + master units +
+Im chi = J/omega); theorem gate owed; fitting to J barred.
+
+Tiers 0-3 defined with costs; Ward EXCLUDED-not-resolved (TT scoping, executed
+gates); bridge NOT REQUIRED (matter) / SUBSUMED (contract) / SEPARATE
+(interpretive). HARD STOP: awaiting the owner's two confirmations
+(probe-limit prescription; scope 2a/2b/both/decline).

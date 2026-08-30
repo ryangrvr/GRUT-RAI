@@ -1,0 +1,58 @@
+{
+ "stage": "K_R owner charter (definition only; NO K_R COMPUTATION OCCURRED)",
+ "date": "2026-08-30",
+ "baseline_commit": "f5c674e",
+ "central_finding": "TWO distinct K_R-scope objects in the frozen record: K_R^matter (frozen massive-scalar Sigma dressed; A1 coupling exists; unblock list does NOT apply; cheap) vs K_R^contract (vacuum's own kernel, massless graviton bath; unblock list REQUIRED; multi-session)",
+ "rulings": {
+  "probe_kinematics": {
+   "status": "DETERMINED IN PART / residual UNDERDEFINED",
+   "determined": "omega-only object = probe k -> 0 of a long-wavelength TT mode (gw_tensor_friction naming + Im chi = J/omega convention); bath modes already integrated inside the frozen loop",
+   "residual": "literal k=0 vs controlled k->0 limit -- AWAITING OWNER CONFIRMATION; recorded observation: only the controlled limit with an executed two-axis isotropy gate is self-verifying"
+  },
+  "dyson_truncation": {
+   "status": "FORM DETERMINED BY FROZEN TEXT: RESUMMED",
+   "source": "rung3 verbatim: G_R = 1/(G0^-1 - Sigma); the single-pole question is about THAT object's poles",
+   "mandatory_disclosures": [
+    "pole-from-cut is an OPEN OUTCOME, not expected",
+    "one-loop-Sigma-resummed is a declared scheme; O(Sigma^2) beyond controlled accuracy; validity statement on every artifact",
+    "first-order insertion REQUIRED as cross-check; divergence region reported"
+   ]
+  },
+  "coupling_normalization": {
+   "status": "DETERMINED BY DERIVATION; gate NOT YET EXECUTED",
+   "chain": "countersigned A1 kappa-normalization + master-unit convention (A3-1 Im-law anchor) + Im chi = J/omega; fitting to J(omega) BARRED"
+  },
+  "unblock_list": {
+   "TT_TT_TT_vertex": {
+    "matter": "CAN BE OMITTED ONLY BY OWNER RULING (= the scope ruling)",
+    "contract": "REQUIRED"
+   },
+   "D5_renormalization": {
+    "matter": "DEFINED AND ALREADY EXECUTED (no new loops)",
+    "contract": "REQUIRED, NOT YET EXECUTED"
+   },
+   "D4_dual_gauge": {
+    "matter": "EXECUTED at Sigma level (A4); dressing carry-through = Tier-1 gate",
+    "contract": "REQUIRED, NOT YET EXECUTED"
+   }
+  }
+ },
+ "tiers": {
+  "0": "definitions/conventions (this stage; cost none)",
+  "1": "validated components: normalization gate (min), k->0 isotropy gate (min), Dyson algebra + KMS/passivity gates + controls (hours), [contract only] TT-TT-TT vertex under D5/D4 (multi-session)",
+  "2a": "matter-scope K_R: dress frozen Sigma, probe reduction; no new loop integrals; hours",
+  "2b": "contract-scope K_R: graviton-loop assembly; multi-session campaign",
+  "3": "benchmark two-axis evaluation on K_R; cheap once 2 exists; 2a adjudicates matter-sector + Dyson pole question; contract cell binds to 2b unless owner rules otherwise"
+ },
+ "ward": "K_R is TT-scoped by definition; Class-B residual EXCLUDED by construction (zero TT projection, executed gates); NOT resolved; separate record",
+ "bridge": {
+  "matter": "NOT REQUIRED",
+  "contract": "SUBSUMED (bath is massless)",
+  "interpretive": "SEPARATE OPEN QUESTION"
+ },
+ "computation_performed": "NONE",
+ "awaiting_owner": [
+  "probe-limit prescription confirmation",
+  "scope: Tier 2a / 2b / 2a-then-2b / decline"
+ ]
+}
