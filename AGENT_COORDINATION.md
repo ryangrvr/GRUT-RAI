@@ -4230,3 +4230,23 @@ character; declared before computing, per pre-registration discipline).
 
 HARD STOP. Nothing built. Next session = TIER 1 ONLY, on the owner's
 acceptance + the three declarations. W-0 for all charter content.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- OWNER DECISION SHEET FOR (D1, D2, D3) COMMITTED
+================================================================================
+
+K_R_CONTRACT_DECLARATION_SHEET.md: the three pre-Tier-1 declarations laid out
+with frozen-record quotes, per-option downstream consequences, and an explicit
+CONVENIENCE PROFILE per option so the welded rule ("the massless-bath IR
+prescription may not be chosen for computational convenience") is enforceable
+by inspection. Key structural points: D1 and D3 interlock through the ORDER
+OF LIMITS (harmless for the massive bath, class-determining for the massless
+one); D2's cheap option (fixed working gauge) is purchasable ONLY with a
+V-series amendment to Declaration 5's "imposed none" asymmetry, before
+Tier 1; D3's IR sub-choice defaults to dimensional continuation with NO
+explicit IR scale -- any needed IR scale triggers the benchmark's fork (ii)
+verbatim: "named and priced (a new register input)". The benchmark's
+pre-existing outcome classes (convergent = register's side / divergent =
+"class-A was right" / cutoff-dependent = fork ii) are restated so the
+adjudication table exists before Tier 2 computes anything. No choice is made
+by the sheet. HARD STOP: awaiting (D1, D2, D3) + Tier-1 acceptance.
