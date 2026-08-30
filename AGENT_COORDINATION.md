@@ -3160,3 +3160,50 @@ BUILDER ACKNOWLEDGEMENT:
   * The +1 discharge map is pre-registered: Q1 INSIDE and Q5 INSIDE are the ONLY
     admissible evidence; Q3/Q4 do not vote; discharge itself remains an owner
     ruling at the bank gate. A3-4 records evidence, executes no discharge.
+
+================================================================================
+OWNER DIRECTIVE -- 2026-08-30 -- TWO-LAYER REPORTING RULE FOR A3-4 (rigid)
+================================================================================
+
+Recorded verbatim (operative block):
+
+  "CONTINUE THE CURRENT RUN UNCHANGED.
+   Do not interpret or relabel the provisional raw-kernel Q1/Q4 findings.
+   Finish: H2 assembly / TT projection / declared Q1 object / declared Q4
+   object / Q5 / Q3.
+   Maintain separate records for:
+       (1) raw full non-TT findings
+       (2) actual preregistered TT verdicts.
+   Do not use the raw-kernel OUTSIDE result to modify Q1.
+   Do not use the raw H1 Q4 failure to modify the reciprocity predicate.
+   When the run completes, report both layers separately before any
+   interpretation.
+   No J(omega), PV, or benchmark until all preregistered verdicts are
+   recorded."
+
+And: "raw full kernel OUTSIDE does NOT imply Q1 OUTSIDE. That distinction is
+absolutely critical." ... "Do not allow the builder to reinterpret Q1 after
+seeing the raw result."
+
+BUILDER ACKNOWLEDGEMENT (the checker-turned-builder is bound by this):
+  * The running instrument (wall_a3_4_adjudication.py, PID 34401) is NOT
+    modified. Its outputs are LAYER (1): raw full non-TT structural findings.
+  * LAYER (2) -- the preregistered verdicts on the declared TT object -- is
+    computed by a SEPARATE instrument (wall_a3_4_tt_layer.py) whose predicates
+    are derived from the FROZEN declarations and the countersigned basis, and
+    are being written BEFORE the TT numbers exist (the current run has not
+    reached the TT stage; the instrument computes them itself at runtime).
+    Its Q1^TT criterion is a structural consequence of the frozen contract:
+    on TT polarisation slots every structure of the covariant 6-family except
+    P2 vanishes identically (each carries at least one K- or trace-
+    contraction into a transverse-traceless polarisation), so the declared
+    3-family placement on the TT object reads: the nonlocal TT block equals
+    a(omega,k) * P2^TT exactly -- polarisation-isotropic (TT_++ == TT_xx) with
+    zero symmetric off-diagonal residue; the antisymmetric off-diagonal
+    (TT_+x = -TT_x+) is the 2d Hall class, recorded, and is exactly what the
+    declared Q4 (TT) predicate rules on. This derivation cites the basis
+    gates, not the raw-kernel findings.
+  * The reciprocity predicate stays EXACTLY as pre-registered (eps-corrected
+    slot exchange, H T-ODD, E1 mechanism of the pinned premises files). The
+    raw H^1 failure does not touch it.
+  * Both layers will be reported side by side, findings before interpretation.
