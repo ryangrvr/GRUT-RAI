@@ -4380,3 +4380,66 @@ TIER-1 HARD STOP (owner countersign terms): no Tier-2 mode integration, no
 K_R assembly, no benchmark consequence, no bridge, no Ward/Bardeen
 reinterpretation. The artifact awaits owner/reviewer inspection before
 Tier 2 is authorized. W-0; register untouched (net +16 stands).
+
+================================================================================
+2026-08-31 -- TIER 2 SHIPPED: THE MASSLESS GRAVITON BATH (builder: Claude)
+================================================================================
+
+OWNER AUTHORIZATION (2026-08-31, verbatim scope): "TIER 2 AUTHORIZATION --
+MASSLESS GRAVITON BATH ONLY ... Do NOT assemble the contract-level loop yet.
+Do NOT construct K_R^(contract). Do NOT perform D5. Do NOT perform the full
+D4 response comparison." Primary question: "Is the massless graviton bath,
+including its IR prescription, a validated input for the contract-level K_R
+calculation?"
+
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_tier2_massless_bath.py (sha 546df0d9...)
+ARTIFACT:   PHYSICS_LEDGER/WALL_KR_TIER2_MASSLESS_BATH.json (sha c5d399f5...)
+VERDICT:    PHYSICS_LEDGER/WALL_KR_TIER2_MASSLESS_BATH_VERDICT.md
+BATTERY: 39/39, zero failures, every control detecting; mutation battery
+4/4 killed (wrong-Lambda / corrupted-mode / wrong-norm / wrong-response-sign).
+
+ANSWER: YES with two fences. (1) fork-(ii) ARMED not fired: the equal-time/
+secular class carries a scaleless 1/(d-3) pole at O(H^2); if a downstream
+loop samples that class, the fork fires THERE, named and priced. (2) graded
+omega-domain validity omega >> H; the omega->0 class is NOT adjudicated.
+
+THE STRUCTURAL RESULTS:
+  * the BD massless TT mode of the frozen chart is POLYNOMIAL in H:
+    h_k = e^{-iku}[(1-Hu) + iH/k] EXACTLY -- per-mode kernels terminate at
+    O(H^2); Option A ran as a live cross-check (V3 cond 4 concrete).
+  * kinetic weight P = -a^2 EXACTLY: the pipeline Ricci orientation
+    (R_dS = -12H^2, G3 = +p1.p2) carries into the quadratic action; the
+    independent quadratic build ties to the FROZEN Tier-1 cached {1,2}
+    sector POINTWISE through O(H^2) (consistent dressing = a gate).
+  * normalization chain closed with NO textbook import; the Kubo formula
+    G_R = -i theta <[psi,psi*]> emerged DERIVED. Flat anchor
+    -2 kappa^2 theta sin(k Delta)/k (sign = derived orientation).
+  * IR: dissipation IR-SOFT (the 1/k, 1/k^3 enhancements CANCEL in the
+    commutator; limit -2kappa^2(Delta + H^2 Delta^3/12)); the k^{-3}
+    superhorizon enhancement is confined to the NOISE half and is EXACT
+    in BD. Fixed-omega objects finite per order, analytic at d = 3.
+  * TT-traced fixed-omega density at d=3: rho_bar = (2 kappa^2/pi) *
+    (omega + H^2/omega) -- relative O(H^2) correction H^2/omega^2 EXACT.
+    Reported factually; NOT compared to any registered family (guard live).
+
+DEFECT HISTORY (all instrument-side; the physics never failed):
+  r1: explicit exp(ikz) representation stalled past the 20-minute rule ->
+      killed; phases absorbed into the nilpotent markers (the Tier-1
+      lesson); 61 s total afterward.
+  r2: THE VALUABLE CATCH -- the P-gate found P = -a^2 and thereby exposed
+      the run-2 'flat anchor pass' as TWO COMPENSATING HAND-SET SIGNS
+      (+2kappa^2 asserted vs +2kappa^2 hand-built): the response chain was
+      rebuilt orientation-DERIVED. Also: unmapped plain-u symbol vs real-u
+      (identical printing, no cancellation) failed the tie on a
+      representation artifact; sqrt(a^2) -> Abs broke the v-form check;
+      plain quadrature on the slow oscillatory tail (rel 8e+02) ->
+      quadosc + finite-eta exact comparison; sympy Piecewise on the
+      symbolic-d integral -> gated exact antiderivative.
+  r3: ALL GREEN 39/39.
+  mutation harness defect (disclosed): mutants ran inside the ledger and
+      OVERWROTE the artifact; clean re-run (r4) reproduced it
+      BYTE-IDENTICAL (deterministic, sha c5d399f5...).
+
+TIER-2 HARD STOP: no loop assembly, no vertex application, no D5/D4, no
+K_R, no matter-pole revisit, no Ward edit, no comparator comparison. The
+bath is frozen pending owner inspection. W-0; register untouched (+16).

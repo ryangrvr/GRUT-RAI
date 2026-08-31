@@ -1,0 +1,92 @@
+=== T2-0: INPUT / CONTRACT CHECK ===
+   GUARD CLEAN (no registered-comparator content in this construction)
+  ok   frozen kernel sha dd77b194... (Wall-A record; untouched here)
+  ok   Tier-1 vertex artifact pinned: sha 0152c777..., 7560 flat / 26032 dS terms
+  ok   Tier-1 result: zero failures on record
+  ok   Tier-1 dS density cache carries Lambda = -3H^2 (the derived in-convention value)
+  note input sha K_R_CONTRACT_OWNER_RULING.md = 5d89720b53e1b078...
+  note input sha WALL_A_A3_DECLARATIONS_V3_AMENDMENT.md = b0b9983bf0ab04c0...
+  note input sha WALL_A_A3_DECLARATIONS.md = 87e2d24d5be6d679...
+  note input sha K_R_CONTRACT_EXECUTION_CHARTER.md = 5416fa45498a6e5f...
+  note input sha wall_kr_tier1_vertex.py = 21261966189ab970...
+  note owner countersign commit d5dc33b; Tier-1 completion commit 0b21160
+  note D3 (owner ruling, verbatim): 'OPTION 3a -- BD-analogue Option-B adiabatic, with the flat massless anchor gated at H^0 per order, and the exact-dS state (Option-A analogue) retained as the declared cross-check target. IR: dimensional continuation ONLY; NO explicit IR scale.' Fork (ii) verbatim: 'named and priced -- a new register input'
+  note V3 amendment binding conditions (verbatim class): (1) declare the expansion parameter and retained order on the artifact's face + regime of validity; (2) dress consistently at every retained order; (3) recover the flat plant at each order; (4) keep Option A as the declared cross-check target
+  note state-definition audit: chart = frozen a^2 = 1+2Hu+3H^2u^2 (gated, Tier 1) -- PRESENT; state = BD-analogue (exact BD massless mode in this chart exists in closed form; graded state = its truncation) -- PRESENT; IR prescription = dim continuation, no scale -- PRESENT; anchor = flat massless at H^0 -- PRESENT
+  ok   T2-0 verdict: the bath is DEFINED (not UNDERDEFINED) -- all four state components are frozen on the record
+  note disclosed text blemishes (math unaffected, frozen files untouched): the Tier-1 G7b gate message and the artifact convention string still print 'Lambda = 3H^2'; every computed object uses -3H^2
+
+=== T2-1a: QUADRATIC TT ACTION (independent exact route) ===
+[    7.8s] exact-route quadratic cross density built (7.7s)
+  ok   the cross (eps1*eps2) sector is phase-free and real (e^{ikz} e^{-ikz} = 1 exactly -- the z-average is automatic in the phase-absorbed representation)
+  ok   the cross density is EXACTLY bilinear in (f1,f1',f1'') x (f2,f2',f2'') -- no stray structures
+  ok   no f''f' / f''f'' terms (R is linear in second derivatives -- build-consistency)
+  ok   no antisymmetric first-order remnant (f1'f2 - f1f2') after reduction
+  ok   MASSLESSNESS: the reduced quadratic density is P(u)(f1'f2' - k^2 f1 f2) -- zero residual mass term (requires the derived Lambda = -3H^2; the TT graviton is exactly massless in this chart)
+  ok   kinetic weight P(u) = -a^2(u) EXACTLY (stripped units; flat P = -1): the pipeline's Ricci ORIENTATION (the same one giving R_dS = -12H^2 and G3 = +1 x p1.p2) carries into the TT kinetic term. Magnitude |P| = a^2 -- the (1/4) dh dh TT normalization; the sign is the recorded orientation, NOT a ghost (physical positivity statements below are orientation-invariant)
+  ctrl-DETECTED   WITHOUT Lambda the reduced density keeps a residual mass term -- the masslessness gate has teeth (mirrors the Tier-1 G7 control)
+
+=== T2-1b: PIPELINE TIE -- Tier-1 cached quadratic sector ===
+[   48.2s] graded-route quadratic cross density built (1.0s)
+  ok   PIPELINE TIE: the independent graded-route quadratic density == the FROZEN Tier-1 cached {1,2} sector, POINTWISE in (u, w1, w2, k, H) through O(H^2) (TT '+' waves along z; consistent dressing: identical a^2 chart weights as the Tier-1 vertex build)
+  ctrl-DETECTED   a WRONG chart (a^2 = 1+2Hu) fails the pipeline tie at O(H^2) -- the tie gate has teeth
+  ok   graded chart weight == exact chart weight through O(H^2) (chart truncation error is O(H^3), confined to the a^2 weights)
+
+=== T2-1c: MODE FUNCTIONS (BD-analogue, Option-B) ===
+  ok   EXACT BD MODE: h_k(u) = e^{-iku}[(1-Hu) + iH/k] solves the derived TT mode equation (a^2 h')' + k^2 a^2 h = 0 EXACTLY -- the mode is POLYNOMIAL in H (terminates at O(H); per-mode kernels terminate at O(H^2))
+  ok   equivalently v = a h satisfies v'' + (k^2 - a''/a)v = 0 with a''/a = 2 H^2 a^2 -- the massless-scalar form recovered, not imposed
+  ok   Wronskian a^2 (h h*' - h' h*) = 2ik = CONSTANT exactly (basis normalization pinned; the graded a^2 gives the same through O(H^2))
+  note T2-1 EXPOSURES -- momentum convention: mostly-minus, d_mu -> i p_mu (lower index), spatial wave e^{+ikz} with k > 0, positive frequency e^{-iku}; retarded prescription: theta(u-u') on the commutator == omega + i0 upper-half analyticity in F(omega) = int dDelta e^{i omega Delta} F(Delta); normalization: fixed by the classical response identity (chain: frozen pipeline density -> reduced action -> variation of parameters); H-order: per-mode kernels are EXACT polynomials terminating at O(H^2); state: BD-analogue = the closed-form BD mode of this chart (Option A executed as the cross-check, not deferred); expansion parameters (V3 condition 1): H/k per mode and |Hu| < 1 in the chart -- graded REPORTING of omega-domain objects is valid for omega >> H
+
+--- TT projector (exposed; d-continued trace) ---
+  ok   TT projector P^TT = (P_ia P_jb + P_ib P_ja)/2 - P_ij P_ab/(d-1), P = delta - k^hat k^hat: trace == (d+1)(d-2)/2 at d = 3,4,5,6 (= 2 polarizations at d = 3) -- the declared dimensional continuation of the polarization count
+  ok   TT projector at d = 3: idempotent and transverse (executed on a non-axis k^hat = (3/5, 4/5, 0))
+[   50.2s] T2-1 complete
+
+=== T2-2: RETARDED / NOISE / KMS STRUCTURE ===
+  ok   T2-5 CHECK 1 (FLAT ANCHOR): H -> 0 classical G_R = -2 kappa^2 sin(k Delta)/k -- the massless TT response: SHAPE theta sin(k Delta)/k and MAGNITUDE 2 kappa^2 are the anchor content; the overall sign is the pipeline's derived orientation (P = -a^2), exposed -- in the standard Ricci orientation P and G_R flip TOGETHER (orientation-invariant physics). Run-2 disclosure: the first version asserted +2 kappa^2 and 'passed' only because the response sign was hand-set to match -- two compensating errors caught by the P-gate
+  ok   T2-5 CHECK 2 (NORMALIZATION): dG_R/du at u = u'^+ == 2 kappa^2 / P(u') = -2 kappa^2 / a^2(u') EXACTLY, all orders in H -- the delta-source jump of the DERIVED reduced action (with the Wronskian and the pipeline tie, the normalization chain is closed)
+  ok   the retarded kernel solves the homogeneous mode equation for u != u' (exact); G_A is its (u <-> u') mirror on the opposite support
+  ok   KUBO CONSISTENCY (derived, not assumed): with the positive-normalized state (|N|^2 = kappa^2/k) and the orientation-derived classical G_R, the response identity comes out G_R = -i theta <[psi, psi*]> -- EXACTLY the standard retarded Green function definition. The magnitude fixes |N|^2 = kappa^2/k (flat Wightman = (kappa^2/k) e^{-ik Delta} per polarization)
+  ok   Wightman kernel = e^{-ik Delta} x (polynomial in Delta, degree 2) at EVERY base time u_b -- all frequency content at omega = +k (distributional: delta, delta', delta'' on the cone)
+  ok   T = 0 FDT / KMS (graded executable form): W+ has NO e^{+ik Delta} component => N(omega) = (1/2) sgn(omega) rho(omega) IDENTICALLY per order (support separation at omega = +-k)
+  note KMS scope statement: the dS temperature H/2pi is a static-patch, non-perturbative statement (e^{-2 pi omega/H} vanishes to all orders in the H grading); the executable graded statement is the T = 0 adiabatic FDT above. The Option-A thermality cross-check is the static-patch continuation of the SAME exact BD kernels -- a defined future computation, recorded, not gestured
+  ok   G_R is STATE-INDEPENDENT: the Bogoliubov-rotated commutator is identical (exact, symbolic)
+  ctrl-DETECTED   T2-5 CHECK 7 (wrong state): beta != 0 injects e^{+ik Delta} content into W+ -- the FDT/support gate DETECTS it (while G_R stays blind, as it must)
+  ok   T2-5 CHECK 3 (RETARDED SIGN): the Delta > 0 kernel's FT converges in the UPPER half plane and equals -2 kappa^2/(k^2 - (omega + i eta)^2) exactly (rel 1.7e-26); omega Im G_R < 0, so Im chi = -Im G_R > 0 for omega > 0 -- the passive orientation of the frozen chi = -G dictionary, derived
+  ctrl-DETECTED   T2-5 CHECK 8 (wrong retarded sign): the advanced branch (lower-half analyticity; independent quadrature, rel 1.7e-26) FLIPS the sign of Im G -- a wrong-sign i0 prescription is DETECTED by the sign of Im at real frequency
+[   56.3s] T2-2 complete
+
+=== T2-3: IR UNDER DIMENSIONAL CONTINUATION (no scale) ===
+  ok   IR CANCELLATION (central structural finding): the spectral/retarded kernel is FINITE as k -> 0 at fixed Delta -- the would-be 1/k and 1/k^3 enhancements CANCEL between the (H^2/k^2) and (H^2 Delta/k) mode structures; limit = Delta*kappa**2*(-Delta**2*H**2 - 12)/6. The dissipative half of the bath is IR-SOFT through O(H^2) (and exactly)
+  ok   the NOISE kernel is IR-ENHANCED: N -> kappa^2 H^2 / k^3 as k -> 0 (the dS graviton superhorizon enhancement, EXACT in the BD state -- Option-A cross-check: not a truncation artifact)
+  ok   EQUAL-TIME O(H^2) mode sum: the IR portion = H^2 k0^{d-3}/(d-3) (exact antiderivative, gated) -- a SCALELESS 1/(d-3) pole (split point k0 arbitrary; the pole residue is k0-independent). Under D3 this is a CLASSIFIED divergence, not a regulated one; NO IR scale is introduced
+  note T2-3 RULING APPLIED: no explicit IR scale is NECESSARY for the bath construction -- every object the fixed-omega contract path requires is IR-finite (T2-4). The fork-(ii) trigger is ARMED, not fired, with the precise condition: IF any downstream tier's loop integrals sample the equal-time/secular class (the noise kernel's k^{-3} region with non-oscillatory weight), the 1/(d-3) pole enters and fork (ii) fires THERE ('named and priced -- a new register input')
+  ok   T2-5 CHECK 5 (IR CONVERGENCE): fixed-omega spectral objects have delta-support at k = |omega| > 0 -- the k -> 0 region is never sampled at fixed omega > 0; finite per order (closed forms in T2-4)
+[   57.5s] T2-3 complete
+
+=== T2-4: SPECTRAL DENSITY (no comparator content anywhere) ===
+  ok   SUPPORT: the spectral density lives EXACTLY on the light cone omega = +-k at every order; graded corrections are delta'/delta'' distributional derivatives ON the cone, never off it; GAPLESS (threshold at omega = 0 only). Cone coefficients: c0 = (kappa^2/k)[(1-H u_b)^2 + H^2/k^2], c1 = i kappa^2 H^2/k^2, c2 = -kappa^2 H^2/(4k)
+  ok   T2-5 CHECK 4 (POSITIVITY): the leading delta-weight c0 is a sum of squares -- manifestly > 0 for all k, H, u_b; full distributional positivity is inherited from the exact BD state (Option A: rho of a genuine Fock state)
+  ok   MODE-SUMMED fixed-omega spectral density (TT-traced, per unit kappa^2): flat part = 2 pi Omega_d/(2 pi)^d x (d+1)(d-2)/2 x kappa^2 omega^{d-2} -- the flat massless DOS anchor at H^0
+  ok   O(H^2) relative correction at d = 3, u_b = 0: rho_bar(omega)/rho_bar_flat(omega) - 1 = H^2/omega^2 EXACTLY (the delta' and delta'' cone terms carry (d-3) factors and vanish at d = 3). LOW-FREQUENCY BEHAVIOR: relative correction grows as H^2/omega^2; the grading is valid for omega >> H, and the omega -> 0 class question is OUTSIDE the truncation's validity (Option-A/fork territory; NOT adjudicated here, NOT compared to any registered family)
+  ok   T2-5 CHECK 6 (DIMENSIONAL SCALING): the fixed-omega mode sum is ANALYTIC at d = 3 (smooth limit, no 1/(d-3) pole) while the equal-time O(H^2) object exhibits its 1/(d-3) pole (T2-3) -- the pole detector fires exactly where it must and nowhere else
+  note normalization exposure: every bath kernel carries kappa^2 explicitly (bath correlations are O(kappa^2)); tensor assembly rule (declared): kernel^{ij,kl} = P^TT_{ij,kl}(k^hat) x scalar kernel, which reproduces the linearized-Einstein flat response exactly (T2-5 check 1)
+  note NOT DONE, by charter: no fit of any spectrum to any registered comparator family; no low-frequency class adjudication; the Q3-class outcome table (frozen) applies to the K_R-level object only, at its own tier, k -> 0 first and omega -> 0 LAST
+[   59.4s] T2-4 complete
+
+=== T2-5: THE EIGHT DECLARED CHECKS (map) ===
+   1 flat anchor: G_R(H=0) = 2 kappa^2 sin(k Delta)/k [T2-2]
+   2 normalization: exact jump condition + Wronskian + pipeline tie [T2-1b/T2-2]
+   3 retarded sign: upper-half FT == closed form [T2-2]
+   4 spectral positivity: c0 sum-of-squares; Option-A inheritance [T2-4]
+   5 IR convergence: fixed-omega finite per order; commutator IR cancellation [T2-3]
+   6 dimensional scaling: analytic at d=3 (fixed-omega) vs 1/(d-3) (equal-time) [T2-3/T2-4]
+   7 wrong-state control: Bogoliubov beta != 0 DETECTED; G_R invariant [T2-2]
+   8 wrong-retarded-sign control: Im-sign flip DETECTED [T2-2]
+
+=== DELIVERABLE: FREEZE ===
+artifact written: /Users/mpg/Desktop/GRUT ResponsiveAI/PHYSICS_LEDGER/WALL_KR_TIER2_MASSLESS_BATH.json (sha c5d399f525407839...)
+
+TIER 2 BATH gates: 39/39 passed; failures: 0
+HARD STOP: the bath is frozen pending owner inspection.

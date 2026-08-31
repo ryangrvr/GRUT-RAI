@@ -1,0 +1,17 @@
+=== T2-0: INPUT / CONTRACT CHECK ===
+   GUARD CLEAN (no registered-comparator content in this construction)
+  ok   frozen kernel sha dd77b194... (Wall-A record; untouched here)
+  ok   Tier-1 vertex artifact pinned: sha 0152c777..., 7560 flat / 26032 dS terms
+  ok   Tier-1 result: zero failures on record
+  ok   Tier-1 dS density cache carries Lambda = -3H^2 (the derived in-convention value)
+  note input sha K_R_CONTRACT_OWNER_RULING.md = 5d89720b53e1b078...
+  note input sha WALL_A_A3_DECLARATIONS_V3_AMENDMENT.md = b0b9983bf0ab04c0...
+  note input sha WALL_A_A3_DECLARATIONS.md = 87e2d24d5be6d679...
+  note input sha K_R_CONTRACT_EXECUTION_CHARTER.md = 5416fa45498a6e5f...
+  note input sha wall_kr_tier1_vertex.py = 21261966189ab970...
+  note owner countersign commit d5dc33b; Tier-1 completion commit 0b21160
+  note D3 (owner ruling, verbatim): 'OPTION 3a -- BD-analogue Option-B adiabatic, with the flat massless anchor gated at H^0 per order, and the exact-dS state (Option-A analogue) retained as the declared cross-check target. IR: dimensional continuation ONLY; NO explicit IR scale.' Fork (ii) verbatim: 'named and priced -- a new register input'
+  note V3 amendment binding conditions (verbatim class): (1) declare the expansion parameter and retained order on the artifact's face + regime of validity; (2) dress consistently at every retained order; (3) recover the flat plant at each order; (4) keep Option A as the declared cross-check target
+  note state-definition audit: chart = frozen a^2 = 1+2Hu+3H^2u^2 (gated, Tier 1) -- PRESENT; state = BD-analogue (exact BD massless mode in this chart exists in closed form; graded state = its truncation) -- PRESENT; IR prescription = dim continuation, no scale -- PRESENT; anchor = flat massless at H^0 -- PRESENT
+  ok   T2-0 verdict: the bath is DEFINED (not UNDERDEFINED) -- all four state components are frozen on the record
+  note disclosed text blemishes (math unaffected, frozen files untouched): the Tier-1 G7b gate message and the artifact convention string still print 'Lambda = 3H^2'; every computed object uses -3H^2
