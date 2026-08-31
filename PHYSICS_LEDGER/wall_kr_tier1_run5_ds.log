@@ -1,0 +1,35 @@
+=== S0: CONVENTIONS ===
+  note metric mostly-minus; g = a^2(u)(eta + h); chart a^2 = 1+2Hu+3H^2u^2 (Section D, gated); FULL h (10 comps, D2=2a unfixed); action (1/2kappa^2) sqrt(-g)(R - 2 Lambda), Lambda = 3H^2; vertex reported per 1/(2 kappa^2); three plane waves, momenta p1,p2,p3, spatial conservation imposed only where a gate declares it
+  ok   chart gate: a^2 * (a^2)^-1 == 1 through O(H^2)
+  ok   LAMBDA GATE (derived in-convention): background R(dS exact) = -12*_H2**2 = 4*Lambda with Lambda = -3H^2 -- the chart-consistent value in the pipeline's own Ricci sign convention
+
+=== S1: G1 GRADED-ALGEBRA SELF-TESTS ===
+  ok   G1: nilpotency (eps_1^2 = 0) and cross-sector product exact
+  ok   G1: derivative rule = i p_mu (phase) + d/du (explicit u), verified
+  ctrl-DETECTED   G1 control: eps_1 * eps_1 annihilates (a non-nilpotent bug would put x1^2 in sector {1})
+[    0.6s] graded algebra verified
+
+=== S2: METRIC -> CHRISTOFFEL -> RICCI -> DENSITY ===
+[    0.6s] pipeline defined
+  note ds stage: flat gates already certified in the flat-stage process; loading the frozen flat vertex from cache
+
+=== S3: FLAT VERTEX + GATES G2-G6 ===
+
+=== S4: dS STAGE (H-graded through O(H^2)) ===
+[  338.1s]   christoffels built
+[ 1318.8s]   ricci built
+[ 3011.7s] dS graded density built + cached (3007.4s)
+  ok   G7a: the dS cubic vertex at H = 0 equals the flat vertex EXACTLY (the D3 flat anchor, per order zero)
+  ok   G7b (corrected): the dS LINEAR sector is EXACTLY a total derivative through O(H^2) WITH Lambda = 3H^2 (the background EOM in the chart, at action level -- the real content: the H-dependent p-independent pieces must cancel against Lambda)
+[ 3365.4s]   christoffels built
+[ 4354.2s]   ricci built
+  ctrl-DETECTED   G7 control: WITHOUT Lambda the dS linear sector is NOT a total derivative (the divergence-image solve fails -- the EOM gate has teeth)
+  note dS graded cubic vertex: 26032 terms total through O(H^2)
+[ 6070.5s] dS gates done
+
+=== S5: FREEZE ===
+
+================ SUMMARY (TIER 1) ================
+  flat cubic vertex: 7560 terms; dS graded: 26032 terms; sha 0152c7773e6a38df...
+gates: 8/8 passed; failures: 0
+elapsed: 6076.3s

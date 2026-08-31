@@ -4327,3 +4327,56 @@ BUILDER TIER-1 DESIGN (disclosed before computing):
     (H^0 == flat anchor; chart coefficients per Section D).
   * Output: the graded vertex artifact (srepr + sha), gate record, controls.
     HARD STOP at the Tier-1 boundary regardless of outcome.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-31 -- TIER 1 COMPLETE: THE dS TT-TT-TT VERTEX IS
+BUILT AND FULLY GATED. Flat 13/13, dS 8/8, zero failures. HARD STOP.
+================================================================================
+
+THE OBJECT: the cubic sector of (1/2kappa^2) sqrt(-g)(R - 2 Lambda) around
+g = a^2(u)(eta + h), FULL unfixed h (D2=2a), frozen chart, three graded
+plane waves, phases stripped. FLAT vertex: 7,560 terms. dS GRADED vertex
+through O(H^2): 26,032 terms. Artifact sha 0152c7773e6a38df... (srepr frozen
+in WALL_KR_TIER1_VERTEX_ARTIFACT.json; dS density cached for future tiers).
+
+THE GATE BATTERY (all green, every control detecting):
+  LAMBDA GATE (new, derived-in-convention): background R(dS exact) = -12H^2
+    = 4*Lambda in the pipeline's own Ricci orientation => Lambda = -3H^2 --
+    an OUTPUT of the frozen conventions, executed every run, not a
+    textbook recollection. (Known cosmetic blemish: the G7b message string
+    still prints "3H^2"; the computed LAM is -3H^2 -- disclosed, cosmetic.)
+  G2 CONFORMAL EXACT ANCHOR: pipeline cubic conformal density == the
+    independent exact R(Omega^2 eta) route, POINTWISE (no IBP freedom).
+    Passed IDENTICALLY on every one of the five runs.
+  G3 (conservation-imposed): TT quadratic density = CONSTANT x (p1.p2),
+    constant = 1 EXACTLY -- the kinetic normalization RECORDED for the G0
+    convention chain (Tier 5 will consume it).
+  G4 (corrected): the flat linear sector is EXACTLY a total derivative
+    (divergence-image solve with index-honest contravariant ansatz).
+  G5: full exchange symmetry, exact; injected-asymmetry control DETECTED.
+  G6 (++ channel): pure-gauge leg x two on-shell TT legs = EXACTLY ZERO at
+    density level with conservation; conservation-breaking control DETECTED.
+  G7a: dS vertex at H = 0 == flat vertex EXACTLY (the D3 flat anchor).
+  G7b (corrected): the dS linear sector is EXACTLY a total derivative
+    through O(H^2) with the derived Lambda -- the background EOM in the
+    chart at action level; the without-Lambda control FAILS the solve
+    (teeth).
+
+DEFECT HISTORY (five chain runs; ALL defects were gate/convention-side,
+ZERO pipeline defects; the conformal anchor never wavered):
+  r1: G3 lacked quadratic-sector conservation (numerator -2p1^2-3p1.p2-2p2^2
+      convicted it); G6 tested the parity-trivial +x channel (its own missed
+      control exposed it); dS stage swap-death (20-minute rule fired).
+  r2: stage split (fresh process + disk cache) cured the swap; G3/G6 green.
+  r3: G4 demanded a pointwise zero where physics promises an action-level
+      one -- corrected to divergence-image membership.
+  r4: the divergence ansatz omitted eta-raisings (contravariant repair);
+      flat 12/12; G7b failed with Lambda=+3H^2 while the no-Lambda control
+      passed -- the wrong-sign signature.
+  r5: Lambda DERIVED in-convention (-3H^2, R_bg = -12H^2) with its own
+      executed gate; ALL GREEN.
+
+TIER-1 HARD STOP (owner countersign terms): no Tier-2 mode integration, no
+K_R assembly, no benchmark consequence, no bridge, no Ward/Bardeen
+reinterpretation. The artifact awaits owner/reviewer inspection before
+Tier 2 is authorized. W-0; register untouched (net +16 stands).

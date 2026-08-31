@@ -1,0 +1,34 @@
+=== S0: CONVENTIONS ===
+  note metric mostly-minus; g = a^2(u)(eta + h); chart a^2 = 1+2Hu+3H^2u^2 (Section D, gated); FULL h (10 comps, D2=2a unfixed); action (1/2kappa^2) sqrt(-g)(R - 2 Lambda), Lambda = 3H^2; vertex reported per 1/(2 kappa^2); three plane waves, momenta p1,p2,p3, spatial conservation imposed only where a gate declares it
+  ok   chart gate: a^2 * (a^2)^-1 == 1 through O(H^2)
+
+=== S1: G1 GRADED-ALGEBRA SELF-TESTS ===
+  ok   G1: nilpotency (eps_1^2 = 0) and cross-sector product exact
+  ok   G1: derivative rule = i p_mu (phase) + d/du (explicit u), verified
+  ctrl-DETECTED   G1 control: eps_1 * eps_1 annihilates (a non-nilpotent bug would put x1^2 in sector {1})
+[    0.1s] graded algebra verified
+
+=== S2: METRIC -> CHRISTOFFEL -> RICCI -> DENSITY ===
+[    0.1s] pipeline defined
+
+=== S3: FLAT VERTEX + GATES G2-G6 ===
+[   13.0s]   christoffels built
+[  108.1s]   ricci built
+[  144.3s] flat cubic vertex: 7560 terms (144.2s)
+  ok   flat cubic sector is nontrivial (7560 terms -- the 'hundreds of terms' object)
+  FAIL G4 (flat): linear sector == 0 (flat solves the vacuum EOM; the pipeline produces no spurious tadpole)
+[  144.6s]   christoffels built
+[  146.2s]   ricci built
+[  147.7s]   exact conformal density computed (independent route)
+  ok   G2 CONFORMAL EXACT ANCHOR: the pipeline's cubic conformal density == the independent exact R(Omega^2 eta) route, POINTWISE (no IBP freedom) -- signs, normalization, and the full nonlinear structure certified at once
+  FAIL G3 quadratic anchor: the TT eps1-eps2 density on aligned momenta is PROPORTIONAL TO p1.p2 (ratio = (-2*p1_0**2 - 3*p1_0*p2_0 + 2*p1_3**2 + 3*p1_3*p2_3 - 2*p2_0**2 + 2*p2_3**2)/(p1_0*p2_0 - p1_3*p2_3)) -- the kinetic structure that fixed G0 in the frozen chain
+  ok   G5: full 1 <-> 2 exchange symmetry of the cubic vertex (EXACT)
+  ctrl-DETECTED   G5 control: an injected asymmetric term breaks the exchange symmetry (the gate is not vacuous)
+[  413.3s] flat gates G2/G3/G4/G5 done
+  ok   G6 GAUGE GATE: pure-gauge leg 3 against two ON-SHELL TT legs with momentum conservation gives EXACTLY ZERO at density level (total derivatives die on the conserved ansatz; D2=2a's unfixed vertex is orbit-consistent)
+  ctrl-MISSED   G6 control: breaking momentum conservation revives the gauge contraction (the zero is load-bearing, not identical)
+[  441.9s] flat stage complete
+
+=== S4: dS STAGE (H-graded through O(H^2)) ===
+[  760.8s]   christoffels built
+[ 1740.2s]   ricci built

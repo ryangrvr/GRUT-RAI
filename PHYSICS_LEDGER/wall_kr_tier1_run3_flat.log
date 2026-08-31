@@ -1,0 +1,32 @@
+=== S0: CONVENTIONS ===
+  note metric mostly-minus; g = a^2(u)(eta + h); chart a^2 = 1+2Hu+3H^2u^2 (Section D, gated); FULL h (10 comps, D2=2a unfixed); action (1/2kappa^2) sqrt(-g)(R - 2 Lambda), Lambda = 3H^2; vertex reported per 1/(2 kappa^2); three plane waves, momenta p1,p2,p3, spatial conservation imposed only where a gate declares it
+  ok   chart gate: a^2 * (a^2)^-1 == 1 through O(H^2)
+
+=== S1: G1 GRADED-ALGEBRA SELF-TESTS ===
+  ok   G1: nilpotency (eps_1^2 = 0) and cross-sector product exact
+  ok   G1: derivative rule = i p_mu (phase) + d/du (explicit u), verified
+  ctrl-DETECTED   G1 control: eps_1 * eps_1 annihilates (a non-nilpotent bug would put x1^2 in sector {1})
+[    0.1s] graded algebra verified
+
+=== S2: METRIC -> CHRISTOFFEL -> RICCI -> DENSITY ===
+[    0.1s] pipeline defined
+
+=== S3: FLAT VERTEX + GATES G2-G6 ===
+[   13.3s]   christoffels built
+[  107.8s]   ricci built
+[  143.7s] flat cubic vertex: 7560 terms (143.6s)
+  ok   flat cubic sector is nontrivial (7560 terms -- the 'hundreds of terms' object)
+  ok   G4 (flat, corrected): the linear sector is EXACTLY a total derivative (divergence-image solve closes; flat solves the vacuum EOM at action level)
+[  152.5s]   christoffels built
+[  154.1s]   ricci built
+[  155.6s]   exact conformal density computed (independent route)
+  ok   G2 CONFORMAL EXACT ANCHOR: the pipeline's cubic conformal density == the independent exact R(Omega^2 eta) route, POINTWISE (no IBP freedom) -- signs, normalization, and the full nonlinear structure certified at once
+  ok   G3 quadratic anchor (conservation-imposed): TT eps1-eps2 density = CONSTANT x (p1.p2), constant = 1 -- the kinetic normalization RECORDED for the G0 convention chain
+  ok   G5: full 1 <-> 2 exchange symmetry of the cubic vertex (EXACT)
+  ctrl-DETECTED   G5 control: an injected asymmetric term breaks the exchange symmetry (the gate is not vacuous)
+[  425.2s] flat gates G2/G3/G4/G5 done
+  ok   G6 GAUGE GATE: pure-gauge leg 3 against two ON-SHELL TT legs with momentum conservation gives EXACTLY ZERO at density level (total derivatives die on the conserved ansatz; D2=2a's unfixed vertex is orbit-consistent)
+  ctrl-DETECTED   G6 control: breaking momentum conservation revives the gauge contraction (the zero is load-bearing, not identical)
+[  454.6s] flat stage complete
+
+FLAT STAGE gates: 12/12 passed; failures: 0

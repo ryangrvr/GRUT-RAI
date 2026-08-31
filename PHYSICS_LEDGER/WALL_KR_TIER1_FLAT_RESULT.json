@@ -1,0 +1,85 @@
+{
+ "stage": "TIER 1 flat stage",
+ "checks": [
+  {
+   "pass": true,
+   "msg": "chart gate: a^2 * (a^2)^-1 == 1 through O(H^2)",
+   "gate": "S0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "LAMBDA GATE (derived in-convention): background R(dS exact) = -12*_H2**2 = 4*Lambda with Lambda = -3H^2 -- the chart-consistent value in the pipeline's own Ricci sign convention",
+   "gate": "S0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "G1: nilpotency (eps_1^2 = 0) and cross-sector product exact",
+   "gate": "G1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "G1: derivative rule = i p_mu (phase) + d/du (explicit u), verified",
+   "gate": "G1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: G1 control: eps_1 * eps_1 annihilates (a non-nilpotent bug would put x1^2 in sector {1})",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "flat cubic sector is nontrivial (7560 terms -- the 'hundreds of terms' object)",
+   "gate": "S3",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "G4 (flat, corrected): the linear sector is EXACTLY a total derivative (divergence-image solve closes; flat solves the vacuum EOM at action level)",
+   "gate": "G4",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "G2 CONFORMAL EXACT ANCHOR: the pipeline's cubic conformal density == the independent exact R(Omega^2 eta) route, POINTWISE (no IBP freedom) -- signs, normalization, and the full nonlinear structure certified at once",
+   "gate": "G2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "G3 quadratic anchor (conservation-imposed): TT eps1-eps2 density = CONSTANT x (p1.p2), constant = 1 -- the kinetic normalization RECORDED for the G0 convention chain",
+   "gate": "G3",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "G5: full 1 <-> 2 exchange symmetry of the cubic vertex (EXACT)",
+   "gate": "G5",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: G5 control: an injected asymmetric term breaks the exchange symmetry (the gate is not vacuous)",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "G6 GAUGE GATE: pure-gauge leg 3 against two ON-SHELL TT legs with momentum conservation gives EXACTLY ZERO at density level (total derivatives die on the conserved ansatz; D2=2a's unfixed vertex is orbit-consistent)",
+   "gate": "G6",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: G6 control: breaking momentum conservation revives the gauge contraction (the zero is load-bearing, not identical)",
+   "gate": "control"
+  }
+ ],
+ "notes": [
+  "metric mostly-minus; g = a^2(u)(eta + h); chart a^2 = 1+2Hu+3H^2u^2 (Section D, gated); FULL h (10 comps, D2=2a unfixed); action (1/2kappa^2) sqrt(-g)(R - 2 Lambda), Lambda = 3H^2; vertex reported per 1/(2 kappa^2); three plane waves, momenta p1,p2,p3, spatial conservation imposed only where a gate declares it"
+ ],
+ "failures": [],
+ "elapsed_s": 471.8
+}

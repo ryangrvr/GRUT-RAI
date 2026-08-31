@@ -1,0 +1,62 @@
+{
+ "stage": "K_R^(contract) TIER 1 -- dS TT-TT-TT vertex",
+ "declarations": "D1=1a, D2=2a, D3=3a (countersigned d5dc33b)",
+ "vertex_sha256": "0152c7773e6a38dfeee30ae3b18ca4157f713828640506701d80d4cc0701976d",
+ "instrument_sha256": "21261966189ab970fb9ea6a94fdd47f5d2bcf7c19e74fd9773caab095bc777fa",
+ "checks": [
+  {
+   "pass": true,
+   "msg": "chart gate: a^2 * (a^2)^-1 == 1 through O(H^2)",
+   "gate": "S0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "LAMBDA GATE (derived in-convention): background R(dS exact) = -12*_H2**2 = 4*Lambda with Lambda = -3H^2 -- the chart-consistent value in the pipeline's own Ricci sign convention",
+   "gate": "S0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "G1: nilpotency (eps_1^2 = 0) and cross-sector product exact",
+   "gate": "G1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "G1: derivative rule = i p_mu (phase) + d/du (explicit u), verified",
+   "gate": "G1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: G1 control: eps_1 * eps_1 annihilates (a non-nilpotent bug would put x1^2 in sector {1})",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "G7a: the dS cubic vertex at H = 0 equals the flat vertex EXACTLY (the D3 flat anchor, per order zero)",
+   "gate": "G7",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "G7b (corrected): the dS LINEAR sector is EXACTLY a total derivative through O(H^2) WITH Lambda = 3H^2 (the background EOM in the chart, at action level -- the real content: the H-dependent p-independent pieces must cancel against Lambda)",
+   "gate": "G7",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: G7 control: WITHOUT Lambda the dS linear sector is NOT a total derivative (the divergence-image solve fails -- the EOM gate has teeth)",
+   "gate": "control"
+  }
+ ],
+ "notes": [
+  "metric mostly-minus; g = a^2(u)(eta + h); chart a^2 = 1+2Hu+3H^2u^2 (Section D, gated); FULL h (10 comps, D2=2a unfixed); action (1/2kappa^2) sqrt(-g)(R - 2 Lambda), Lambda = 3H^2; vertex reported per 1/(2 kappa^2); three plane waves, momenta p1,p2,p3, spatial conservation imposed only where a gate declares it",
+  "ds stage: flat gates already certified in the flat-stage process; loading the frozen flat vertex from cache",
+  "dS graded cubic vertex: 26032 terms total through O(H^2)"
+ ],
+ "failures": [],
+ "elapsed_s": 6076.3,
+ "hard_stop": "TIER 1 BOUNDARY: no Tier-2 mode integration, no K_R assembly, no benchmark consequence, no bridge, no Ward/Bardeen reinterpretation. Owner inspection required before Tier 2."
+}
