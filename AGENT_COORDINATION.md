@@ -4250,3 +4250,31 @@ pre-existing outcome classes (convergent = register's side / divergent =
 "class-A was right" / cutoff-dependent = fork ii) are restated so the
 adjudication table exists before Tier 2 computes anything. No choice is made
 by the sheet. HARD STOP: awaiting (D1, D2, D3) + Tier-1 acceptance.
+
+================================================================================
+BUILDER ENTRY -- 2026-08-30 -- THE THREE DECLARATIONS RULED BY PRINCIPLE;
+AWAITING OWNER COUNTERSIGN. HARD STOP.
+================================================================================
+
+K_R_CONTRACT_OWNER_RULING.md (one page): the owner's stated principles
+applied mechanically to the decision sheet's frozen alternatives.
+  D1 = 1a (controlled k->0 + isotropy gate) -- the benchmark object is
+       omega-only and the probe is the long-wavelength GW; 1b rejected as
+       the convenience option that silently resolves the order of limits.
+  ORDER OF LIMITS (binding): k -> 0 FIRST at fixed omega; omega -> 0 LAST,
+       on the omega-only object -- the registered family's own structure;
+       joint rays = disclosed diagnostics only, never verdict-bearing.
+  D2 = 2a (gauge-unfixed, orbit-tracked) -- Declaration 5's "imposed none"
+       asymmetry preserved; D4 runs verbatim; cost not a reason; NO
+       AMENDMENT REQUIRED.
+  D3 = 3a (BD-analogue Option-B adiabatic; flat massless anchor at H^0;
+       exact-dS as declared cross-check) -- the frozen V3 "PRIMARY
+       computational route" commitment; 3a subsumes 3c's content as its
+       anchor order. IR = DIMENSIONAL CONTINUATION ONLY, no IR scale; a
+       demonstrated need = STOP + benchmark fork (ii) named-and-priced.
+  Amendments: NONE -- {1a, 2a, 3a} is the zero-amendment path; every frozen
+       protocol runs verbatim.
+  Consequences for Tiers 1-3 recorded (unfixed orbit-tracked vertex, chart
+       discipline, k->0-first mode integrals, pre-fixed Q3 outcome table).
+STATUS: RULED BY PRINCIPLE, AWAITING OWNER COUNTERSIGN. Tier 1 does not
+begin until countersigned. Nothing computed.
