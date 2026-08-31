@@ -4278,3 +4278,52 @@ applied mechanically to the decision sheet's frozen alternatives.
        discipline, k->0-first mode integrals, pre-fixed Q3 outcome table).
 STATUS: RULED BY PRINCIPLE, AWAITING OWNER COUNTERSIGN. Tier 1 does not
 begin until countersigned. Nothing computed.
+
+================================================================================
+OWNER COUNTERSIGN -- 2026-08-30 -- THE THREE DECLARATIONS APPROVED AS WRITTEN.
+TIER 1 AUTHORIZED. ONLY TIER 1.
+================================================================================
+
+Recorded verbatim (operative): D1 = 1a (controlled k->0 first at fixed omega,
+isotropy gate; omega->0 only afterward on the omega-only object); D2 = 2a
+(gauge-unfixed, orbit-tracked; Declaration-5 asymmetry load-bearing; D4
+proceeds frozen, no amendment); D3 = 3a (BD-analogue Option-B adiabatic
+primary, flat massless H^0 anchor, exact-dS as declared cross-check;
+dimensional continuation only, NO explicit IR scale). "If an IR scale becomes
+demonstrably necessary: STOP immediately and invoke the preregistered fork
+requiring a named and priced new register input." No amendments authorized.
+"Do not reinterpret these choices after computation starts. Do not optimize
+them away. Do not select an alternate gauge/state/order because it is
+cheaper." TIER 1 SCOPE EXACTLY: dS TT-TT-TT vertex + flat known-answer
+anchor + H-graded representation + independent validation gates. No Tier 2
+mode integration until Tier 1 passes its declared gates. No K_R assembly,
+benchmark consequence, massless-limit bridge, or Ward/Bardeen
+reinterpretation before the Tier-1 hard stop. W-0; register otherwise frozen.
+
+BUILDER TIER-1 DESIGN (disclosed before computing):
+  * Object: the cubic sector of (1/2 kappa^2) sqrt(-g) (R - 2 Lambda),
+    Lambda = 3H^2, around g = a^2(u)(eta + h) in the frozen chart
+    (a^2 = 1 + 2Hu + 3H^2u^2, Section-D discipline), FULL h (10 components,
+    gauge-unfixed per D2), three graded plane waves.
+  * Representation (the charter's binding rules): a THREE-SECTOR nilpotent
+    graded algebra (eps_i^2 = 0; sector key = subset of {1,2,3}) with
+    phases stripped (the derivative rule adds i*p_i per sector member;
+    explicit u-dependence in coefficients) -- the engine's own discipline
+    generalized from 2 to 3 sectors. det via the exact cubic-truncated
+    trace formula; explicit component loops; per-stage timers; caches; the
+    20-minute stop-and-re-represent rule armed.
+  * Gate battery (all executed, each with a negative control):
+    G1 graded-algebra self-tests; G2 CONFORMAL EXACT ANCHOR -- the pipeline
+    evaluated on h = 2 phi eta must match the exact R(Omega^2 eta) computed
+    by an independent non-graded route, POINTWISE AT DENSITY LEVEL (no IBP
+    ambiguity), order by order; G3 quadratic-sector anchor -- the eps_i
+    eps_j sector on TT waves must reproduce the frozen kinetic conventions
+    (ties Tier 1 to the chain K_R^matter used); G4 linear-sector vanishing
+    (background EOM: flat at H^0, dS-with-Lambda at H^1/H^2 -- a chart
+    consistency gate, not an assumption); G5 full permutation symmetry;
+    G6 gauge gate -- with momentum conservation imposed, a pure-gauge leg
+    against two on-shell TT legs must give EXACTLY ZERO at density level
+    (total derivatives die on the conserved ansatz); G7 H-grading gates
+    (H^0 == flat anchor; chart coefficients per Section D).
+  * Output: the graded vertex artifact (srepr + sha), gate record, controls.
+    HARD STOP at the Tier-1 boundary regardless of outcome.
