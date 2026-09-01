@@ -1,0 +1,513 @@
+{
+ "instrument": "wall_kr_tier3_loop.py",
+ "instrument_sha256": "1c72272b54d09f314dd9188e13a8cea0c00f6f0b64555c77dadd58bd4f336556",
+ "authorization": "owner 2026-08-31: TIER 3 CONTRACT-LEVEL LOOP ONLY (no K_R, no dressing, no D5/D4)",
+ "stages": {
+  "reduce": {
+   "stage": "reduce",
+   "checks": [
+    {
+     "pass": true,
+     "msg": "pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "pin wall_kr_tier2_massless_bath.py == 546df0d90ac5c62f...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "Tier-1 vertex artifact: sha 0152c777..., 26032 dS terms",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "Tier-2 bath: zero failures on record",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "Tier-1 dS cache Lambda = -3H^2",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "[plus_z] reduced vertex is EXACTLY bilinear in the spatial internal slots (reconstruction closes)",
+     "gate": "RED",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "[cross_z] reduced vertex is EXACTLY bilinear in the spatial internal slots (reconstruction closes)",
+     "gate": "RED",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "[plus_x] reduced vertex is EXACTLY bilinear in the spatial internal slots (reconstruction closes)",
+     "gate": "RED",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "[ward] reduced vertex is EXACTLY bilinear in the spatial internal slots (reconstruction closes)",
+     "gate": "RED",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "H^0 C-matrices from the dS cache == C-matrices from the INDEPENDENT Tier-1 flat cache (two frozen files, one answer)",
+     "gate": "RED",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "internal-slot exchange symmetry of the C-matrices (G5 inherited: (ab,nu1,q) <-> (cd,nu2,-q))",
+     "gate": "RED",
+     "detail": null
+    }
+   ],
+   "notes": [
+    "input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...",
+    "input sha Sigma_R_finite_full.json = eb6e685ca0164d30...",
+    "input sha WALL_A3_4_TT_RESULT.json = 8c27eeb3ecd235bc...",
+    "input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...",
+    "input sha WALL_PV_ROBUSTNESS_RESULT.json = 71dc569cd18dcf3d..."
+   ],
+   "failures": [],
+   "out": {},
+   "elapsed_s": 40.4
+  },
+  "assemble": {
+   "stage": "assemble",
+   "checks": [
+    {
+     "pass": true,
+     "msg": "pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "pin wall_kr_tier2_massless_bath.py == 546df0d90ac5c62f...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "Tier-1 vertex artifact: sha 0152c777..., 26032 dS terms",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "Tier-2 bath: zero failures on record",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "Tier-1 dS cache Lambda = -3H^2",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "TOY GATE (combinatorics): (D3/2)^2 x 2 pairings == (g^2/2) W^2 with g = 6 lambda == (1/2) x D3^2 x single-pairing -- the assembly constant is CALIBRATED, not assumed",
+     "gate": "ASM",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "TOY GATE (marker form): (1/2) x C1 x C2 x WW == (g^2/2) W^2 -- the exact rule the tensor assembly implements; its equality with the 2-pairing sum rests on the internal-exchange C symmetry, EXECUTED as a reduce-stage gate",
+     "gate": "ASM",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "H^0 stationarity: the flat retarded integrand depends on Delta only (u_b drops out exactly)",
+     "gate": "ASM",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "H^2 ret q^-1 pole coefficient is u_b-free (symbolic-u_b scan closes the declared-vs-executed gap)",
+     "gate": "T3-1",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "H^2 noise q^-2 pole coefficient is u_b-free (symbolic-u_b scan closes the declared-vs-executed gap)",
+     "gate": "T3-1",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "T3-1 FORK: H^0 worst alpha = 0 > -1 (ret 1, noise 0) -> IR-integrable, FORK NOT FIRED",
+     "gate": "T3-1",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "CONTROL: T3-1 planted-defect: an injected kappa^4 omega^2/q^3 term (the armed class pre-measure) drives the H^0 scan to alpha = -1 <= -1 -- the fork detection path has teeth end-to-end",
+     "gate": "control"
+    },
+    {
+     "pass": true,
+     "msg": "CONFIG INDEPENDENCE (ALL H orders): the full graded retarded integrand for external config cross_z == plus_z (symbolic or 4 spot points to 1e-18; the fork verdicts are configuration-independent as a CHECK, not an assumption) [596s]",
+     "gate": "T3-1",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "CONFIG INDEPENDENCE (ALL H orders): the full graded retarded integrand for external config plus_x == plus_z (symbolic or 4 spot points to 1e-18; the fork verdicts are configuration-independent as a CHECK, not an assumption) [28s]",
+     "gate": "T3-1",
+     "detail": null
+    }
+   ],
+   "notes": [
+    "input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...",
+    "input sha Sigma_R_finite_full.json = eb6e685ca0164d30...",
+    "input sha WALL_A3_4_TT_RESULT.json = 8c27eeb3ecd235bc...",
+    "input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...",
+    "input sha WALL_PV_ROBUSTNESS_RESULT.json = 71dc569cd18dcf3d...",
+    "T3-1 CRITERION AS EXECUTED (amended per the adversarial review, disclosed BEFORE any radial integration): for each H sector, the small-q Laurent exponent alpha of the exact angular-averaged radial integrand (measure q^{d-1} at d = 3; oscillation series-expanded; u_b SYMBOLIC, with every pole coefficient gated u_b-free) of BOTH combinations: the retarded difference Sigma_> - Sigma_< AND the noise sum Sigma_> + Sigma_< (the Tier-2 armed class is NOISE-defined; the difference alone is softer by exactly one power through oscillation parity and is NOT a faithful proxy). Sector verdict = the WORSE of the two. alpha > -1 for both -> proceed; else FORK FIRES: sector fenced, no regulator, fork (ii) invoked, PRICED AT THE NOISE-SIDE CLASS",
+    "H^0 exponents: retarded alpha = 1, noise alpha = 0",
+    "H^1 exponents: retarded alpha = None, noise alpha = None",
+    "H^2 exponents: retarded alpha = -1, noise alpha = -2",
+    "H^1: both combinations vanish identically",
+    "T3-1 FORK FIRES for H^2: worst alpha = -2 (retarded -1; NOISE -2 = the armed class at its noise-defined strength, POWER). Sector FENCED: no radial integration, no regulator, no subtraction; fork (ii) invoked for the owner, PRICED AT THE NOISE-SIDE CLASS ('named and priced -- a new register input')"
+   ],
+   "failures": [],
+   "out": {
+    "fork_verdicts": {
+     "0": {
+      "ret": 1,
+      "noise": 0,
+      "ret_pole_coeffs": {},
+      "noise_pole_coeffs": {}
+     },
+     "1": {
+      "ret": null,
+      "noise": null,
+      "ret_pole_coeffs": {},
+      "noise_pole_coeffs": {}
+     },
+     "2": {
+      "ret": -1,
+      "noise": -2,
+      "ret_pole_coeffs": {
+       "-1": "4*omega**3*(-I*Delta*omega - 3)/15"
+      },
+      "noise_pole_coeffs": {
+       "-2": "4*omega**4/15"
+      }
+     }
+    },
+    "fork_fired_sectors": [
+     2
+    ]
+   },
+   "elapsed_s": 1648.6
+  },
+  "flat": {
+   "stage": "flat",
+   "checks": [
+    {
+     "pass": true,
+     "msg": "pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "pin wall_kr_tier2_massless_bath.py == 546df0d90ac5c62f...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "Tier-1 vertex artifact: sha 0152c777..., 26032 dS terms",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "Tier-2 bath: zero failures on record",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "Tier-1 dS cache Lambda = -3H^2",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "H^0 retarded integrand = c(q) e^{-2iqD} + c'(q) e^{+2iqD} (pure two-particle cone; no stray phases, no u_b phase, no Delta-polynomial at H^0)",
+     "gate": "FLAT",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "SLOT HERMITICITY: c'(omega) = -c*(-omega) EXACTLY (the correct fixed-omega identity for a commutator-difference with external derivative couplings; run-8 disclosure: the first version asserted c' = -c* without the omega flip -- the adversarial review identified the wrong identity and verified this one holds identically)",
+     "gate": "FLAT",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "H^0 absorptive response is a PURE POWER (scale-free flat massless cut): Im Sigma_R = c omega^4 at d = 3, c = -3/(1280*pi)",
+     "gate": "FLAT",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "T3-6 #3 RETARDED/PASSIVITY SIGN: Im Sigma_R(omega > 0) < 0 -- the frozen passive orientation (Im Sigma_R <= 0, chi = -G dictionary)",
+     "gate": "FLAT",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "T3-6 #1 INDEPENDENT ROUTE: Im Sigma_R^{H0} == -3 omega^4/(1280 pi) -- EXACT match with the blind independent implementation (two code paths, one number). Run-6 disclosure: before the phase-normalizer repair this instrument reported +3 omega^4/(1024 pi); the independent route + the cone gates convicted the collector, and the repaired result agrees exactly",
+     "gate": "FLAT",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "inner time integral K_0 == n!/(eta - i(omega-2q))^{n+1} (sympy-independent form, exact)",
+     "gate": "FLAT",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "inner time integral K_1 == n!/(eta - i(omega-2q))^{n+1} (sympy-independent form, exact)",
+     "gate": "FLAT",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "inner time integral K_2 == n!/(eta - i(omega-2q))^{n+1} (sympy-independent form, exact)",
+     "gate": "FLAT",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "T3-6 #5 routing: the q -> -q relabel is the internal-slot exchange already gated at reduction (G5-inherited C symmetry); executed there",
+     "gate": "FLAT",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "T3-6 #6 independent numeric radial route (narrow-Gaussian delta) matches the closed form at omega = 1.7 (rel 2.8e-05)",
+     "gate": "FLAT",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "CONTROL: T3-6 #7: a sign-corrupted vertex C entry changes the assembled cone content (the anchor pipeline is sensitive to every entry)",
+     "gate": "control"
+    },
+    {
+     "pass": true,
+     "msg": "CONTROL: T3-6 #8: a corrupted bath normalization (W -> W/2) scales the loop by exactly 1/4 -- the bath enters quadratically and detectably",
+     "gate": "control"
+    },
+    {
+     "pass": true,
+     "msg": "CONTROL: T3-6 #9 wrong-IR-treatment: an IR cutoff leaves the H^0 sector untouched (delta-support at q = omega/2) but a cutoff on the fenced log-class integrand is cutoff-DEPENDENT -- exactly why the fork may not be regulated away",
+     "gate": "control"
+    },
+    {
+     "pass": true,
+     "msg": "T3-6 #10 branch sign: Sigma_A = mirror; Im flip is the Tier-2 gated advanced-branch statement, inherited",
+     "gate": "FLAT",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "T3-8 Ward diagnostic computed and recorded (repair explicitly out of scope)",
+     "gate": "WARD",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "ISOTROPY GATE (D1): external config cross_z gives the IDENTICAL H^0 kernel (polarization/direction invariance at the k_ext = 0 evaluation point of the controlled limit; symbolic or 3 spot points to 1e-20)",
+     "gate": "FLAT",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "ISOTROPY GATE (D1): external config plus_x gives the IDENTICAL H^0 kernel (polarization/direction invariance at the k_ext = 0 evaluation point of the controlled limit; symbolic or 3 spot points to 1e-20)",
+     "gate": "FLAT",
+     "detail": null
+    }
+   ],
+   "notes": [
+    "input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...",
+    "input sha Sigma_R_finite_full.json = eb6e685ca0164d30...",
+    "input sha WALL_A3_4_TT_RESULT.json = 8c27eeb3ecd235bc...",
+    "input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...",
+    "input sha WALL_PV_ROBUSTNESS_RESULT.json = 71dc569cd18dcf3d...",
+    "Im Sigma_R^{H0}(omega) [d symbolic] = 2**(-2*d - 9)*pi**(1 - d/2)*omega**(d + 1)*(-21*d**6 - 126*d**5 + 196*d**4 + 1120*d**3 - 1099*d**2 + 602*d - 1176)/((d - 1)**2*gamma(d/2 + 4))",
+    "Im Sigma_R^{H0}(omega) [d = 3]     = -3*omega**4/(1280*pi)",
+    "T3-7: Im Sigma_R^{H0} = c omega^4 at d = 3 (pure power, scale-free) => the nonlocal content is the power-law cut itself; Re Sigma_R from the subtracted dispersion (subtraction count set by the cut's growth, the frozen Q3 discipline) is scheme-polynomial + the KK log-structure of the cut; the subtraction polynomial (the LOCAL slot) is fixed at the K_R tier by the frozen renormalization conditions -- NOT chosen here. The absorptive coefficient is d-finite at d = 3 (recorded symbolically at general d).",
+    "T3-8 WARD: the gauge-image contraction is NONZERO: omega**2*(84*X0**2*d**5*omega**2 - 288*X0**2*d**5*omega*q + 249*X0**2*d**5*q**2 + 564*X0**2*d**4*omega**2 - 2016*X0**2*d**4*omega*q + 1797*X0**2*d**4*q**2 - 84*X0**2*d**3*omega**2 - 552*X0**2*d**3*omega*q + 1161*X0**2*d**3*q**2 - 1956*X0**2*d**2*omega**2 + 5760*X0**2*d**2*omega*q - 3609*X0**2*d**2*q -- the Class-B structure has a graviton-loop analogue (a FINDING, not a repair; no patch applied)",
+    "D1 disclosure: the finite-k_ext loop (the full controlled-limit path) is the K_R tier's gate; Tier 3 executes the isotropy content at the k = 0 evaluation point and inherits the D1 order-of-limits declaration"
+   ],
+   "failures": [],
+   "out": {
+    "im_sigma_flat_general_d": "2**(-2*d - 9)*pi**(1 - d/2)*omega**(d + 1)*(-21*d**6 - 126*d**5 + 196*d**4 + 1120*d**3 - 1099*d**2 + 602*d - 1176)/((d - 1)**2*gamma(d/2 + 4))",
+    "im_sigma_flat_d3": "-3*omega**4/(1280*pi)",
+    "uv_finite_split": {
+     "nonlocal": "Im Sigma = c omega^4 (exact, recorded); KK-transform log structure",
+     "local": "subtraction polynomial in omega^2 -- deferred to the K_R tier's frozen renormalization conditions",
+     "c_d3": "-3/(1280*pi)"
+    },
+    "ward_diagnostic_H0": "omega**2*(84*X0**2*d**5*omega**2 - 288*X0**2*d**5*omega*q + 249*X0**2*d**5*q**2 + 564*X0**2*d**4*omega**2 - 2016*X0**2*d**4*omega*q + 1797*X0**2*d**4*q**2 - 84*X0**2*d**3*omega**2 - 552*X0**2*d**3*omega*q + 1161*X0**2*d**3*q**2 - 1956*X0**2*d**2*omega**2 + 5760*X0**2*d**2*omega*q - 3609*X0**2*d**2*q**2 + 8256*X0**2*d*omega**2 - 25608*X0**2*d*omega*q + 20802*X0**2*d*q**2 - 10512*X0**2*omega**2 + 31248*X0**2*omega*q - 25416*X0**2*q**2 + 60*X1**2*d**4*q**2 + 160*X1**2*d**3*q**2 - 1540*X1**2*d**2*q**2 - 840*X1**2*d*q**2 + 7200*X1**2*q**2 + 60*X2**2*d**4*q**2 + 160*X2**2*d**3*q**2 - 1540*X2**2*d**2*q**2 - 840*X2**2*d*q**2 + 7200*X2**2*q**2 + 60*X3**2*d**4*q**2 + 160*X3**2*d**3*q**2 - 1540*X3**2*d**2*q**2 - 840*X3**2*d*q**2 + 7200*X3**2*q**2)/(32*d*(d**4 + 11*d**3 + 32*d**2 + 4*d - 48))"
+   },
+   "elapsed_s": 191.4
+  },
+  "grade": {
+   "stage": "grade",
+   "checks": [
+    {
+     "pass": true,
+     "msg": "pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "pin wall_kr_tier2_massless_bath.py == 546df0d90ac5c62f...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "Tier-1 vertex artifact: sha 0152c777..., 26032 dS terms",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "Tier-2 bath: zero failures on record",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "Tier-1 dS cache Lambda = -3H^2",
+     "gate": "T3-0",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "H^1 cone split is COMPLETE (no stray phases -- the grade-stage completeness gate the review found missing)",
+     "gate": "GRADE",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "H^1 cone coefficient is u_b-free (gated, not assumed)",
+     "gate": "GRADE",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "H^1 sector Im Sigma_R computed in closed form: d = 3 value recorded = 0",
+     "gate": "GRADE",
+     "detail": null
+    },
+    {
+     "pass": true,
+     "msg": "H^2 sector fenced per T3-1; fork (ii) invocation drafted for the owner at the noise-side class",
+     "gate": "GRADE",
+     "detail": null
+    }
+   ],
+   "notes": [
+    "input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...",
+    "input sha Sigma_R_finite_full.json = eb6e685ca0164d30...",
+    "input sha WALL_A3_4_TT_RESULT.json = 8c27eeb3ecd235bc...",
+    "input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...",
+    "input sha WALL_PV_ROBUSTNESS_RESULT.json = 71dc569cd18dcf3d...",
+    "fork verdicts inherited from the assemble stage: fired sectors = [2]",
+    "H^2 FENCED (fork fired): retarded alpha = -1, noise alpha = -2; ALL pole coefficients recorded from the assemble-stage scan (both combinations); NO integration performed, NO regulator introduced"
+   ],
+   "failures": [],
+   "out": {
+    "im_sigma_H1_general_d": "0",
+    "im_sigma_H1_d3": "0",
+    "H2_fence_record": {
+     "retarded_alpha": -1,
+     "noise_alpha": -2,
+     "retarded_pole_coeffs_d3": {
+      "-1": "4*omega**3*(-I*Delta*omega - 3)/15"
+     },
+     "noise_pole_coeffs_d3": {
+      "-2": "4*omega**4/15"
+     },
+     "pricing": "fork (ii) priced at the NOISE-side class (the Tier-2 armed definition); the retarded log data recorded alongside"
+    }
+   },
+   "elapsed_s": 11.7
+  }
+ },
+ "failures_total": [],
+ "hard_stop": "NO final K_R, NO G_R^TT dressing, NO D5, NO full D4, NO benchmark cells, NO comparator, NO new pole classification, NO bath/Tier-1 edits, NO Ward repair. Next stage only on owner inspection."
+}

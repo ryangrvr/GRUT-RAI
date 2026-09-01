@@ -3,7 +3,10 @@
 **Date:** 2026-08-31 · **Authorization:** owner, 2026-08-31 (bath ONLY) ·
 **Declarations:** D1=1a, D2=2a, D3=3a (countersign d5dc33b) ·
 **Instrument:** `wall_kr_tier2_massless_bath.py`
-(sha `546df0d90ac5c62b…`) · **Artifact:**
+(sha `546df0d90ac5c62f…`; a one-character transcription error in the first
+committed version of this line — `…c62b` — was caught by the Tier-3 T3-0
+pin gate and corrected 2026-08-31; the file itself never changed) ·
+**Artifact:**
 `WALL_KR_TIER2_MASSLESS_BATH.json` (sha `c5d399f525407839…`) ·
 **Battery:** 39/39, zero failures, every control detecting ·
 **Mutation battery:** 4/4 killed. **W-0: computed-and-reported, NOT banked.**

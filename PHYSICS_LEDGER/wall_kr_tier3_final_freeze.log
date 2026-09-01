@@ -1,0 +1,43 @@
+=== T3-0: INPUT INTEGRITY ===
+  note input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...
+  ok   pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...
+  ok   pin wall_kr_tier2_massless_bath.py == 546df0d90ac5c62f...
+  note input sha Sigma_R_finite_full.json = eb6e685ca0164d30...
+  note input sha WALL_A3_4_TT_RESULT.json = 8c27eeb3ecd235bc...
+  note input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...
+  note input sha WALL_PV_ROBUSTNESS_RESULT.json = 71dc569cd18dcf3d...
+  ok   pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...
+  ok   pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...
+  ok   Tier-1 vertex artifact: sha 0152c777..., 26032 dS terms
+  ok   Tier-2 bath: zero failures on record
+  ok   Tier-1 dS cache Lambda = -3H^2
+
+  T3-2 DEPENDENCY GRAPH:
+    [Tier-1 dS cubic vertex, sector (1,2,3), 26032 terms, per 1/(2 kappa^2)]
+        --e1 -> external TT probe (k_ext = 0 evaluation point of the D1
+                controlled limit; isotropy gate executed: pol + direction);
+          e2,e3 -> internal TT bath slots (time rows -> 0);
+          p1 = (omega,0,0,0); p2 = (nu1, q n^hat); p3 = (nu2, -q n^hat)-->
+    [C-matrices: 6x6 spatial-pair bilinear coefficients, H-graded, cached]
+        x
+    [Tier-2 bath kernels W+(q;u,u') = (kappa^2/q) e^{-iq(u-u')} x
+     ((1-Hu)(1-Hu') + i H^2 (u-u')/q + H^2/q^2), EXACT thru O(H^2);
+     tensor rule <h h> = P^TT x W (frozen declaration)]
+        --nu^a -> (-i d/du)^a on the W arguments (phase-stripped ops)-->
+    [Sigma_>(u,u';q,n^hat) = (1/(2kappa^2))^2 (1/2) C1.C2 : P^TT P^TT : WW]
+        --angular average (exact monomial moments, d symbolic)-->
+    [radial integrand] --T3-1 FORK GATE (small-q class, PER SECTOR)-->
+    [cone rep: delta^(n)(omega - 2q) support] --> [Im Sigma_R(omega) closed
+     form per sector] --> [UV/finite separation; Ward diagnostic; controls]
+
+
+=== STAGE freeze: MERGE + HASH + RE-READ (T3-10) ===
+  note stage reduce: 13/13 checks, 0 failures
+  note stage assemble: 16/16 checks, 0 failures
+  note stage flat: 24/24 checks, 0 failures
+  note stage grade: 11/11 checks, 0 failures
+  ok   ALL STAGES: zero failures across the merged record
+  ok   T3-10: artifact written, RE-READ, and re-hashed identically (sha 4c016e93b889bd04...)
+
+TIER 3 LOOP ARTIFACT sha256 = 4c016e93b889bd0454c2f1edfb75724b063fb87f5de26fe349834758fd7b2cc6
+freeze checks: 9/9

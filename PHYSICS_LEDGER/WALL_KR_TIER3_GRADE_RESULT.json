@@ -1,0 +1,97 @@
+{
+ "stage": "grade",
+ "checks": [
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin wall_kr_tier2_massless_bath.py == 546df0d90ac5c62f...",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Tier-1 vertex artifact: sha 0152c777..., 26032 dS terms",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Tier-2 bath: zero failures on record",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Tier-1 dS cache Lambda = -3H^2",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "H^1 cone split is COMPLETE (no stray phases -- the grade-stage completeness gate the review found missing)",
+   "gate": "GRADE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "H^1 cone coefficient is u_b-free (gated, not assumed)",
+   "gate": "GRADE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "H^1 sector Im Sigma_R computed in closed form: d = 3 value recorded = 0",
+   "gate": "GRADE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "H^2 sector fenced per T3-1; fork (ii) invocation drafted for the owner at the noise-side class",
+   "gate": "GRADE",
+   "detail": null
+  }
+ ],
+ "notes": [
+  "input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...",
+  "input sha Sigma_R_finite_full.json = eb6e685ca0164d30...",
+  "input sha WALL_A3_4_TT_RESULT.json = 8c27eeb3ecd235bc...",
+  "input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...",
+  "input sha WALL_PV_ROBUSTNESS_RESULT.json = 71dc569cd18dcf3d...",
+  "fork verdicts inherited from the assemble stage: fired sectors = [2]",
+  "H^2 FENCED (fork fired): retarded alpha = -1, noise alpha = -2; ALL pole coefficients recorded from the assemble-stage scan (both combinations); NO integration performed, NO regulator introduced"
+ ],
+ "failures": [],
+ "out": {
+  "im_sigma_H1_general_d": "0",
+  "im_sigma_H1_d3": "0",
+  "H2_fence_record": {
+   "retarded_alpha": -1,
+   "noise_alpha": -2,
+   "retarded_pole_coeffs_d3": {
+    "-1": "4*omega**3*(-I*Delta*omega - 3)/15"
+   },
+   "noise_pole_coeffs_d3": {
+    "-2": "4*omega**4/15"
+   },
+   "pricing": "fork (ii) priced at the NOISE-side class (the Tier-2 armed definition); the retarded log data recorded alongside"
+  }
+ },
+ "elapsed_s": 11.7
+}

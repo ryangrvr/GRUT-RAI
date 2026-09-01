@@ -4443,3 +4443,87 @@ DEFECT HISTORY (all instrument-side; the physics never failed):
 TIER-2 HARD STOP: no loop assembly, no vertex application, no D5/D4, no
 K_R, no matter-pole revisit, no Ward edit, no comparator comparison. The
 bath is frozen pending owner inspection. W-0; register untouched (+16).
+
+================================================================================
+2026-09-01 -- TIER 3 SHIPPED: THE CONTRACT-LEVEL MASSLESS-GRAVITON LOOP
+                 (builder: Claude; FORK (ii) FIRED AT O(H^2) -- OWNER DECISION)
+================================================================================
+
+OWNER AUTHORIZATION (2026-08-31): loop construction + validation ONLY; the
+IR-fork gate FIRST; flat anchor before curved orders; D4/D5/K_R downstream.
+PRIMARY QUESTION: "Can the validated dS TT-TT-TT vertex and validated
+massless TT bath be assembled into a stable, independently checked
+contract-level one-loop response without triggering an undeclared IR
+prescription?"
+
+ANSWER: YES at H^0/H^1; NO at O(H^2) -- and the NO arrived DECLARED, FENCED,
+AND PRICED (the designed outcome): no regulator, no subtraction, no
+integration in the fired sector. See WALL_KR_TIER3_FORK_INVOCATION.md.
+
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_tier3_loop.py (5-stage, disk-cached)
+ARTIFACT:   PHYSICS_LEDGER/WALL_KR_TIER3_LOOP_RESULT.json
+            (sha 4c016e93..., merged 4-stage record, re-read + re-hashed)
+VERDICT:    PHYSICS_LEDGER/WALL_KR_TIER3_LOOP_VERDICT.md
+CHAIN (final instrument, single pass): reduce 13/13, assemble 16/16,
+flat 24/24, grade 11/11, freeze 9/9 -- ZERO failures.
+
+HEADLINE RESULTS:
+  * FLAT ANCHOR: Im Sigma_R^{H0}(omega>0) = -(3/1280) omega^4/pi
+    (kappa = 1, d = 3; general-d closed form recorded) -- validated by
+    THREE mutually independent routes: this instrument's operator
+    assembly, a BLIND independent implementation (separate agent, own
+    code, identical intermediate contraction polynomial), and a brute
+    numeric angular quadrature (ratio 1.0000002). Passive orientation
+    derived. Scale-free pure power (the massless two-particle cut).
+  * IR FORK (both CTP combinations, per the adversarial-review amendment
+    adopted BEFORE any graded integration): H^0 ret alpha=+1/noise 0 =
+    clean; H^1 IDENTICALLY ZERO (the loop's first curvature correction
+    is O(H^2), not O(H)); H^2 ret alpha=-1 (log) / NOISE alpha=-2
+    (POWER) -> FORK (ii) FIRES, priced at the NOISE-side class (the
+    Tier-2 armed definition is noise-stated; the retarded difference is
+    softer by exactly one power through oscillation parity in EVERY
+    sector -- a structural fact now on the record). All pole
+    coefficients (both combinations) recorded; u_b-free gated;
+    configuration-independence gated at ALL H orders across 3 external
+    configs; planted-defect control on the detection path.
+  * WARD DIAGNOSTIC (T3-8): the gauge-image contraction of the H^0 loop
+    is NONZERO at k_ext = 0 (X-quadratic form recorded) -- the Class-B
+    structure has a graviton-loop analogue. FINDING; no repair.
+  * T3-7: nonlocal = the cut itself; local subtraction polynomial
+    deferred to the K_R tier's frozen renormalization conditions.
+
+THE ADVERSARIAL ARCHITECTURE EARNED ITS KEEP (all disclosed):
+  * The flat anchor FIRST came out +3 omega^4/(1024 pi) and survived my
+    own gates; the blind independent route said -3/(1280 pi); a third
+    numeric route agreed with it; the review then LOCATED two defects:
+    the cone collector lost 124 ratio-stored terms whose denominators
+    hide a common phase factor, and my "conjugate-odd" gate asserted the
+    WRONG Hermiticity identity (correct: c'(omega) = -c*(-omega)).
+    Repaired -> exact three-route agreement.
+  * Review upgrades adopted: noise-side fork classification (MAJOR: the
+    retarded proxy under-prices the armed class by one divergence
+    class), planted-defect fork control (MAJOR), symbolic-u_b scan,
+    all-orders config gates, grade-stage completeness gates, PV-leak
+    reality gate in the distributional builder.
+  * MUTATION BATTERY RESULT: M1 (vertex C-sign) KILLED, M2 (distributional
+    sign) KILLED, M3 (Wightman ordering) KILLED; M4 (prefactor 1/2->1/4)
+    NOT COMPLETED -- timed out on a loaded machine and was killed, NOT a
+    pass. 3 of 4 killed, 1 unrun; disclosed as an open verification item
+    (the prefactor is separately covered by the toy-gate calibration and
+    the three-route absolute agreement, but the mutant did not run).
+  * Toy gate convicted my own Wick-prefactor derivation (rule was right).
+  * Recurring symbol-assumption traps: plain-vs-real q_i caught on the
+    ward config (the only q-carrying config; the three physical configs
+    are exactly q-free -- no loop result touched); fixed + chain re-run.
+  * Two 20-minute-rule re-representations (exp-explicit -> phase-absorbed
+    markers -> factorized moment-lookup assembly; full-H assembly now
+    ~4 min).
+  * MUTATION BATTERY (calc-layer floor) run in an ISOLATED SCRATCH COPY
+    (the Tier-2 overwrite lesson): M1 C-entry sign flip, M2 distributional
+    sign flip, M3 Wightman-ordering swap, M4 prefactor 1/2 -> 1/4;
+    results recorded below/in the verdict.
+
+TIER-3 HARD STOP: no final K_R, no G_R^TT dressing, no D5, no full D4, no
+benchmark cells, no comparator, no new pole classification, no bath/Tier-1
+edits, no Ward repair. The loop record is frozen pending owner inspection;
+THE FORK-(ii) DECISION IS ON THE OWNER'S DESK. W-0; register untouched (+16).

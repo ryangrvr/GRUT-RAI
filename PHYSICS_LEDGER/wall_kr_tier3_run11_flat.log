@@ -1,0 +1,74 @@
+=== T3-0: INPUT INTEGRITY ===
+  note input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...
+  ok   pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...
+  ok   pin wall_kr_tier2_massless_bath.py == 546df0d90ac5c62f...
+  note input sha Sigma_R_finite_full.json = eb6e685ca0164d30...
+  note input sha WALL_A3_4_TT_RESULT.json = 8c27eeb3ecd235bc...
+  note input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...
+  note input sha WALL_PV_ROBUSTNESS_RESULT.json = 71dc569cd18dcf3d...
+  ok   pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...
+  ok   pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...
+  ok   Tier-1 vertex artifact: sha 0152c777..., 26032 dS terms
+  ok   Tier-2 bath: zero failures on record
+  ok   Tier-1 dS cache Lambda = -3H^2
+
+  T3-2 DEPENDENCY GRAPH:
+    [Tier-1 dS cubic vertex, sector (1,2,3), 26032 terms, per 1/(2 kappa^2)]
+        --e1 -> external TT probe (k_ext = 0 evaluation point of the D1
+                controlled limit; isotropy gate executed: pol + direction);
+          e2,e3 -> internal TT bath slots (time rows -> 0);
+          p1 = (omega,0,0,0); p2 = (nu1, q n^hat); p3 = (nu2, -q n^hat)-->
+    [C-matrices: 6x6 spatial-pair bilinear coefficients, H-graded, cached]
+        x
+    [Tier-2 bath kernels W+(q;u,u') = (kappa^2/q) e^{-iq(u-u')} x
+     ((1-Hu)(1-Hu') + i H^2 (u-u')/q + H^2/q^2), EXACT thru O(H^2);
+     tensor rule <h h> = P^TT x W (frozen declaration)]
+        --nu^a -> (-i d/du)^a on the W arguments (phase-stripped ops)-->
+    [Sigma_>(u,u';q,n^hat) = (1/(2kappa^2))^2 (1/2) C1.C2 : P^TT P^TT : WW]
+        --angular average (exact monomial moments, d symbolic)-->
+    [radial integrand] --T3-1 FORK GATE (small-q class, PER SECTOR)-->
+    [cone rep: delta^(n)(omega - 2q) support] --> [Im Sigma_R(omega) closed
+     form per sector] --> [UV/finite separation; Ward diagnostic; controls]
+
+
+=== STAGE flat: H^0 ANCHOR (T3-4) + VALIDATION (T3-6) ===
+  ok   H^0 retarded integrand = c(q) e^{-2iqD} + c'(q) e^{+2iqD} (pure two-particle cone; no stray phases, no u_b phase, no Delta-polynomial at H^0)
+  ok   SLOT HERMITICITY: c'(omega) = -c*(-omega) EXACTLY (the correct fixed-omega identity for a commutator-difference with external derivative couplings; run-8 disclosure: the first version asserted c' = -c* without the omega flip -- the adversarial review identified the wrong identity and verified this one holds identically)
+  note Im Sigma_R^{H0}(omega) [d symbolic] = 2**(-2*d - 9)*pi**(1 - d/2)*omega**(d + 1)*(-21*d**6 - 126*d**5 + 196*d**4 + 1120*d**3 - 1099*d**2 + 602*d - 1176)/((d - 1)**2*gamma(d/2 + 4))
+  note Im Sigma_R^{H0}(omega) [d = 3]     = -3*omega**4/(1280*pi)
+  ok   H^0 absorptive response is a PURE POWER (scale-free flat massless cut): Im Sigma_R = c omega^4 at d = 3, c = -3/(1280*pi)
+  ok   T3-6 #3 RETARDED/PASSIVITY SIGN: Im Sigma_R(omega > 0) < 0 -- the frozen passive orientation (Im Sigma_R <= 0, chi = -G dictionary)
+  ok   T3-6 #1 INDEPENDENT ROUTE: Im Sigma_R^{H0} == -3 omega^4/(1280 pi) -- EXACT match with the blind independent implementation (two code paths, one number). Run-6 disclosure: before the phase-normalizer repair this instrument reported +3 omega^4/(1024 pi); the independent route + the cone gates convicted the collector, and the repaired result agrees exactly
+  ok   inner time integral K_0 == n!/(eta - i(omega-2q))^{n+1} (sympy-independent form, exact)
+  ok   inner time integral K_1 == n!/(eta - i(omega-2q))^{n+1} (sympy-independent form, exact)
+  ok   inner time integral K_2 == n!/(eta - i(omega-2q))^{n+1} (sympy-independent form, exact)
+  ok   T3-6 #5 routing: the q -> -q relabel is the internal-slot exchange already gated at reduction (G5-inherited C symmetry); executed there
+Traceback (most recent call last):
+  File "/Users/mpg/Desktop/GRUT ResponsiveAI/PHYSICS_LEDGER/wall_kr_tier3_loop.py", line 836, in <module>
+    val_num = -mp.pi * mp.quad(
+                       ~~~~~~~^
+        lambda qq: f_mc(qq)
+        ^^^^^^^^^^^^^^^^^^^
+        * mp.e**(-((om_n - 2 * qq) / sig_eps)**2 / 2)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        / (sig_eps * mp.sqrt(2 * mp.pi)),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        [om_n / 2 - 8 * sig_eps, om_n / 2 + 8 * sig_eps])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/site-packages/mpmath/calculus/quadrature.py", line 746, in quad
+    v, err = rule.summation(f, points[0], prec, epsilon, m, verbose)
+             ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/site-packages/mpmath/calculus/quadrature.py", line 233, in summation
+    result = self.sum_next(f, nodes, degree, prec, results, verbose)
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/site-packages/mpmath/calculus/quadrature.py", line 308, in sum_next
+    S += self.ctx.fdot((w,f(x)) for (x,w) in nodes)
+         ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/site-packages/mpmath/ctx_mp_python.py", line 940, in fdot
+    if type(b) not in types: b = ctx.convert(b)
+                                 ~~~~~~~~~~~^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/site-packages/mpmath/ctx_mp_python.py", line 671, in convert
+    return ctx._convert_fallback(x, strings)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/site-packages/mpmath/ctx_mp.py", line 634, in _convert_fallback
+    raise TypeError("cannot create mpf from " + repr(x))
+TypeError: cannot create mpf from 0.3368442004603880762627406229244*omega**4 - 1.717905422347979188939977166466*omega**3 + 3.893918957322086161597281553638*omega**2 - 4.344153336762452374031967206856*omega + 2.153976029478049302124183726965

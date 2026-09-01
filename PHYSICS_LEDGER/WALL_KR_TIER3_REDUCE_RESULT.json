@@ -1,0 +1,93 @@
+{
+ "stage": "reduce",
+ "checks": [
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin wall_kr_tier2_massless_bath.py == 546df0d90ac5c62f...",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Tier-1 vertex artifact: sha 0152c777..., 26032 dS terms",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Tier-2 bath: zero failures on record",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "Tier-1 dS cache Lambda = -3H^2",
+   "gate": "T3-0",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "[plus_z] reduced vertex is EXACTLY bilinear in the spatial internal slots (reconstruction closes)",
+   "gate": "RED",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "[cross_z] reduced vertex is EXACTLY bilinear in the spatial internal slots (reconstruction closes)",
+   "gate": "RED",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "[plus_x] reduced vertex is EXACTLY bilinear in the spatial internal slots (reconstruction closes)",
+   "gate": "RED",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "[ward] reduced vertex is EXACTLY bilinear in the spatial internal slots (reconstruction closes)",
+   "gate": "RED",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "H^0 C-matrices from the dS cache == C-matrices from the INDEPENDENT Tier-1 flat cache (two frozen files, one answer)",
+   "gate": "RED",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "internal-slot exchange symmetry of the C-matrices (G5 inherited: (ab,nu1,q) <-> (cd,nu2,-q))",
+   "gate": "RED",
+   "detail": null
+  }
+ ],
+ "notes": [
+  "input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...",
+  "input sha Sigma_R_finite_full.json = eb6e685ca0164d30...",
+  "input sha WALL_A3_4_TT_RESULT.json = 8c27eeb3ecd235bc...",
+  "input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...",
+  "input sha WALL_PV_ROBUSTNESS_RESULT.json = 71dc569cd18dcf3d..."
+ ],
+ "failures": [],
+ "out": {},
+ "elapsed_s": 40.4
+}
