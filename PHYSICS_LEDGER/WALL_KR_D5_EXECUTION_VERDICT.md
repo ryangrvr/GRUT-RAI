@@ -12,10 +12,18 @@ real/local sector. A **scheme ruling, not a spectral choice.** ·
 > CALCULATED.** (owner, verbatim — the governing principle, and the
 > instrument was built so the machine enforces it)
 
-## THE OBJECTIVE, MET
+## THE OBJECTIVE — WHAT THE RUN ESTABLISHES (owner wording correction,
+## adopted)
 
 *"Prove that the D3-extended local renormalization calculation is
-numerically and analytically valid."* — **Proven at H⁰.** The direct
+numerically and analytically valid."* — **What is established: the
+implemented H⁰ D3-extended calculation PASSES its analytic/numerical
+validation battery under the stipulated scheme and the frozen upstream
+inputs.** That is a computational result. It is **not** a proof that the
+underlying physical regularization prescription is uniquely correct, and
+not a proof of any physical theory: Option α remains unresolved and the
+PV-pattern scheme-independence demonstration (Option γ) remains open.
+The result does not need the stronger wording. The direct
 (non-dispersive) retarded integral was assembled in closed form from the
 frozen Tier-3 cone data, continued in the declared spatial d = 3 − 2ε,
 and MS-subtracted pole-only per the frozen Declaration-1 doctrine.

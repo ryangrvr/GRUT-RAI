@@ -4817,3 +4817,69 @@ uncertified and not carried forward.
 OWNER QUEUE: (1) Axis-2 authorization (now unblocked at H^0); (2) the
 noise-sector fork (H^2 locals); (3) gate-E; (4) T4 + consequence-cell
 adjudications. W-0; register untouched (+16).
+
+================================================================================
+2026-09-01 -- AXIS-2 H^0 ADJUDICATION (post-D5 gate; H^0 ONLY)
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_axis2_h0.py
+ARTIFACT:   WALL_KR_AXIS2_H0_RESULT.json (sha 81bc28cf...)
+RECORD:     WALL_KR_AXIS2_H0_ADJUDICATION.md
+BATTERY: 30/30, zero failures, four controls detecting.
+FROZEN INPUTS TOUCHED: NONE (all re-hashed byte-identical post-run).
+
+CLASSIFICATION: **C = INDETERMINATE** -- and sharply so. Not a failed
+calculation and not unknown local terms: exactly ONE input remains
+unresolved by the frozen record, the renormalization scale mu in plant
+units. Declaration 1 keeps mu 'symbolic and its dependence recorded';
+Option beta ruled the CONTINUATION, not the scale. The instrument
+SEARCHED for a mu pinning and found none; no numeric mu was adopted.
+
+THE OBJECT: Re chi^{H0} = (-A) omega^4 [log(mu^2/omega^2) + kappa],
+kappa = -6841/2835 - gamma_E + log 4pi, -A = 3/(1280 pi^2) > 0.
+TWO INDEPENDENT ROUTES AGREE EXACTLY: (A) the frozen Tier-4 stored
+dispersive completion + the certified local slot; (B) the direct radial
+integral RE-EXECUTED from the frozen T3 cone data and MS-subtracted.
+
+EXACT ZERO: omega* = mu exp(kappa/2), omega*/mu = 0.79483456354 -- a
+pure computed number. Bracketed first; two numeric methods agree to
+<1e-20; residual 4.35e-30; stable dps 25/40/60; sign-change count
+exactly 1 at densities 201/401/801 (no missed second crossing). mu = 1
+used ONLY as a disclosed reference slice for the machinery, never as a
+verdict.
+
+THE mu-MAP (the verdict-bearing object), each regime verified by direct
+endpoint evaluation:
+  mu < 0.377437 WC        -> Re chi < 0 THROUGHOUT: NEITHER registered
+                             label applies (FINDING: the registered
+                             trichotomy does not name this case)
+  0.377437 < mu/WC < 1.132311 -> sign change inside => RESONANT
+  mu > 1.132311 WC        -> Re chi > 0 throughout => PURELY-RELAXATIONAL
+Scheme-dependence stated explicitly: the registered Axis-2 criterion IS
+scheme-dependent through the local real terms.
+
+WHAT D5 RESOLVED: the five-constant H^0 ambiguity collapsed to ONE
+scale. c0 = c2 = 0 exactly, c4 calculated, and the zero's LOCATION RATIO
+is fixed. Axis 2 was open in a 5-parameter space; it is now open in
+exactly one, with boundaries computed to nine figures.
+
+CONTROLS: local-sign flip moves the zero 0.79483 -> 1.25812 mu; c4 = 0
+puts it at exactly mu; a known 10% c4 perturbation moves it 2.27%; the
+adjudicated object is exactly real. All detected.
+
+EXCLUSION: wall_kr_d5_exec_run2/3/4.log located, hashed, confirmed RED on
+their own face, EXCLUDED; a source-level check verifies no numeric value
+is read from them. The adjudication stands independently.
+
+RUN-1 DEFECTS (gate-side, disclosed): float() truncated the reference
+root to ~1e-16 under a 1e-20 comparison; and I had the SIGN wrong on two
+control mutations (Re chi = (-A)om^4(L+kappa) with c4 = A kappa, so
+REMOVING the local term ADDS c4 om^4). Physics unaffected.
+
+H^2 FIREWALL HONORED: no H^2 local computed/fitted/inferred/backsolved;
+noise fork not opened; alpha = -2 not consulted; Tier-4 boundary, Ward
+Class-B and the J(omega) conclusion untouched.
+
+OWNER QUEUE: (1) the mu-convention ruling (mu in plant units) -- and per
+the critical principle it may NOT be justified by any spectral or memory
+outcome; (2) noise fork / H^2 locals; (3) gate-E; (4) T4 +
+consequence-cell adjudications. W-0; register untouched (+16).

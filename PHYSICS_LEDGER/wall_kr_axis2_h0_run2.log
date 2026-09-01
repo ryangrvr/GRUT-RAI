@@ -1,0 +1,93 @@
+=== PROVENANCE: frozen upstream artifacts ===
+  note input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...
+  ok   pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...
+  ok   pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  ok   pin WALL_KR_CONTRACT_BENCHMARK_RESULT.json == 1ac17a18ce8c0b8f...
+  note input sha WALL_KR_D5_EXECUTION_RESULT.json = b60cecc2f7d356f7...
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  ok   pin MICROSCOPIC_TARGET_BENCHMARK.md == f6513b1e551fd9cf...
+  ok   D5 execution artifact: zero failures on record (the certified source of the local terms)
+
+=== 3: EXCLUSION OF THE UNCERTIFIED PRE-REPAIR READINGS ===
+  note EXCLUDED wall_kr_d5_exec_run2.log (sha d0b777ce08aa03b6..., 3 RED gates, axis2 text present: True)
+  note EXCLUDED wall_kr_d5_exec_run3.log (sha 174228e620aea010..., 3 RED gates, axis2 text present: True)
+  note EXCLUDED wall_kr_d5_exec_run4.log (sha 3cdc78779c595677..., 2 RED gates, axis2 text present: True)
+  ok   the three pre-repair Axis-2 logs are LOCATED and every one is RED (failing gates on its own face) -- they are uncertified by their own record and are excluded; no number is read from them
+  ok   this instrument reads no numeric value from the excluded logs (source-level check: the only references are the provenance listing above)
+
+=== 2: THE REGISTERED CRITERION (quoted, not paraphrased) ===
+    **Axis 2 — analytic character within the declared validity domain (ω ≪ ω_c):**
+    `PURELY-RELAXATIONAL` (Re χ > 0 throughout, no resonance) · `RESONANT` (Re χ changes sign inside
+    the domain) · `INDETERMINATE`.
+  ok   operative condition located verbatim: PURELY-RELAXATIONAL = 'Re chi > 0 throughout, no resonance'; RESONANT = 'Re chi changes sign inside the domain'; else INDETERMINATE
+  note DOMAIN, as registered: 'within the declared validity domain (omega << omega_c)'. The registered probe span is (0.3, 0.45, 0.6, 0.75, 0.9) x WC with WC = 1.0 in plant units (provenance: the frozen J-stage instrument's BENCH block, which transcribed the registration). DISCLOSED LOOSENESS: 'omega << omega_c' is not a sharp interval; the probe span is used as the operative domain and every verdict below is reported against it explicitly
+  note OBJECT: Axis 2 is defined on chi. The register does NOT define Axis 2 on a dressed propagator; the consequence stage's kernel-level reading (chi = -K_R, review-verified against the sealed matter J-instrument) is inherited unchanged. No switch to a dressed object is made here
+
+=== 1: CERTIFIED INPUTS (exact symbolic forms authoritative) ===
+  note A     = -3/(1280*pi**2)  (frozen nonlocal log coefficient AND 1/eps residue)
+  note kappa = -6841/2835 - EulerGamma + log(4 pi) = -0.459242564317
+  note c4    = A * kappa = (-log(691951117060154232584648190417108168361196345449410532433025028136486071171513121923335889484581556785186465359116731706832057357287798611809036296045562801197755679111422991196466540712625612144226352705834213184357990856807024859358212363474833357397625954567385040555396109944075922951619394689158700471045127416508877266196876127282575942689992413105102058781653637411624937428013940813751008944171432002579167368042484498261046658395273221706533389269522140532026604059248544660652787753445888709237401459626025859833534849230034306137356881784076243858429605029902414081253068141057365207015486383666081337276883563740452068425049990851438862996653727157003482248424520653390290707897602515096698789061795992529383057811510586591255735383450529282269123802219906896522106204320159246039686996667406718918975493792599062557336581874880430142924207083810887308706331372745671954354742520592134066769345690643266224101569176674788258242463852118393578787907268983824072638528610319859889493012220552927156121714006320113270708865351795026738914610030290563477397475410106946375433491404560215889904920549948279675969348194034123001932163288257242203785148961144263092747685013391166407761562968140357631562643642169720522036227401657615103335663303332479336194087053803400292198303901719641754378606111608236741150726205986862398620119662071627845457505162646245754493102793309482443154361934391256723868144811998735070656820834397631090910801094192275213313689293891270020587881196940086878533540801218401206302460784452302326147217391936830004392121222150575767508386489291878090191414096880765994561957267549410847612051507509858219048175016792318218309962143321472695499677234535981310193137482727424*pi**2835) + 2835*EulerGamma + 6841)/(1209600*pi**2) ~ 0.000109057031708   (certified D5 H^0 local constant)
+  note c0 = c2 = 0 (EXACT, structural -- certified D5)
+  ok   certified c4 matches the recorded decimal check +1.0906e-4 (the symbolic form is authoritative; the decimal is the check)
+  ok   c4 is READ BACK from the certified D5 artifact's own record (c4_over_A field), not retyped from the report
+
+=== 6: mu TREATMENT (searched, not assumed) ===
+  note Declaration 1 (verbatim): ...MINIMAL SUBTRACTION** — pole terms only are subtracted; finite parts of all six basis coefficients are left exactly as the loop produces them; μ is kept symbolic and its dependence recorded as part of Π_local^scheme's data. This is the unique condition with ZERO finite-part discretion — the conserva...
+  ok   mu IS NOT PINNED by the frozen record: Declaration 1 orders it 'kept symbolic and its dependence recorded'. Option beta ruled the CONTINUATION, not mu. No numeric mu is adopted by this instrument
+
+=== 4: ROUTE A (Tier-4 stored completion) ===
+  note Route A: the FROZEN Tier-4 H^0 completion string with the certified local slot substituted (c0 = c2 = 0, c4 as above)
+
+=== 4: ROUTE B (D5 direct integral, re-executed) ===
+
+=== STEP 1: MASTER INTEGRALS (derived + numerically gated) ===
+
+=== STEP 2: DIRECT RETARDED INTEGRAL (declared continuation) ===
+
+=== STEP 3: THE DECLARED CONTINUATION + POLE-ONLY MS ===
+  note Route B: the direct radial integral rebuilt from the FROZEN T3 cone data through the gated master formulas and MS-subtracted (the D5 code path re-executed), then Re taken
+  ok   ROUTE A == ROUTE B EXACTLY: the Tier-4 stored dispersive completion (+ certified local) and the independently re-executed direct integral give the identical real response -- genuinely different constructions, one answer (not a self-simplification)
+  note Re chi^{H0}(omega) = omega**4*(log(691951117060154232584648190417108168361196345449410532433025028136486071171513121923335889484581556785186465359116731706832057357287798611809036296045562801197755679111422991196466540712625612144226352705834213184357990856807024859358212363474833357397625954567385040555396109944075922951619394689158700471045127416508877266196876127282575942689992413105102058781653637411624937428013940813751008944171432002579167368042484498261046658395273221706533389269522140532026604059248544660652787753445888709237401459626025859833534849230034306137356881784076243858429605029902414081253068141057365207015486383666081337276883563740452068425049990851438862996653727157003482248424520653390290707897602515096698789061795992529383057811510586591255735383450529282269123802219906896522106204320159246039686996667406718918975493792599062557336581874880430142924207083810887308706331372745671954354742520592134066769345690643266224101569176674788258242463852118393578787907268983824072638528610319859889493012220552927156121714006320113270708865351795026738914610030290563477397475410106946375433491404560215889904920549948279675969348194034123001932163288257242203785148961144263092747685013391166407761562968140357631562643642169720522036227401657615103335663303332479336194087053803400292198303901719641754378606111608236741150726205986862398620119662071627845457505162646245754493102793309482443154361934391256723868144811998735070656820834397631090910801094192275213313689293891270020587881196940086878533540801218401206302460784452302326147217391936830004392121222150575767508386489291878090191414096880765994561957267549410847612051507509858219048175016792318218309962143321472695499677234535981310193137482727424*pi**2835*mu**5670/omega**5670) - 6841 - 2835*EulerGamma)/(1209600*pi**2)
+
+=== 5: ZERO SEARCH (exact + two numeric methods) ===
+  ok   reduced sign function: Re chi = (-A) omega^4 [log(mu^2/omega^2) + kappa] with -A > 0 and omega^4 > 0, so the sign of Re chi is the sign of the bracket EXACTLY
+  ok   EXACT unique positive zero: omega* = mu * exp(kappa/2), i.e. omega*/mu = 0.79483456354 (a pure computed number, scheme-fixed given the declared continuation)
+  note the only other zero of Re chi is omega = 0 (order 4), the domain edge, not an interior sign change
+  note numerical root-finding below uses the DISCLOSED reference slice mu = 1 x WC purely to exercise the machinery; NO verdict is taken at a single mu -- the verdict is the mu-map in section 5b
+  ok   root bracketed on [0.05, 5] at the reference slice (sign change confirmed before any solve)
+  ok   TWO independent numeric methods (bisection, secant) agree with each other and with the exact root to < 1e-20; direct substitution residual |Re chi(omega*)| = 4.35e-30
+  ok   root stable under increased precision (dps 25/40/60 agree to < 1e-20) -- not a numerical artifact
+  ok   sign-change count on [0.05, 5] is exactly 1 at sampling densities 201/401/801 (counts [1, 1, 1]) -- the single crossing is not a sampling artifact and no second crossing is being missed
+
+=== 5b: THE mu-MAP (verdict-bearing; mu symbolic) ===
+  note omega* = 0.794834564 * mu, so omega* lies INSIDE the registered probe span [0.3, 0.9] WC  <=>  mu in (0.377437034, 1.1323111) WC
+  note   mu < 0.377437 WC  ->  omega* below the span: Re chi < 0 THROUGHOUT the domain -- neither registered label applies (a case the registered trichotomy does not name; recorded as a FINDING)
+  note   0.377437 WC < mu < 1.132311 WC  ->  omega* inside the span: Re chi CHANGES SIGN inside the domain => RESONANT
+  note   mu > 1.132311 WC  ->  omega* above the span: Re chi > 0 THROUGHOUT the domain => PURELY-RELAXATIONAL
+  ok   mu-map verified by direct evaluation at mu = 0.2 WC: endpoint signs give 'neg' as mapped
+  ok   mu-map verified by direct evaluation at mu = 1.0 WC: endpoint signs give 'cross' as mapped
+  ok   mu-map verified by direct evaluation at mu = 3.0 WC: endpoint signs give 'pos' as mapped
+
+=== 7: NEGATIVE CONTROLS ===
+  ctrl-DETECTED   A. LOCAL-TERM SIGN MUTATION: flipping the certified local contribution (frozen nonlocal untouched) moves the zero from 0.79483456 mu to 1.2581234 mu -- the adjudication IS sensitive to the local term, so the criterion genuinely consumes D5
+  ctrl-DETECTED   B. REMOVE-LOCAL-TERM: with c4 = 0 the zero sits exactly at omega* = mu (log(mu^2/omega^2) = 0), distinct from the certified 0.79483456 mu -- the certified constant is doing real work
+  ctrl-DETECTED   C. WRONG-REFERENCE PERTURBATION: a known 10% shift of c4 moves the zero to 0.77679142 mu (from 0.79483456 mu), a 0.0227 relative shift the machinery resolves -- detection where expected
+  ctrl-DETECTED   D. REALITY: the adjudicated object is exactly real (no absorptive leakage into the Re-sign test)
+
+=== 10: CLASSIFICATION ===
+  note CLASS verdict: C
+  note CLASS meaning: C = INDETERMINATE: a required quantity remains unresolved. The unresolved quantity is now a SINGLE NUMBER -- the renormalization scale mu measured in plant units (WC) -- which the frozen record deliberately keeps symbolic (Declaration 1). All three registered outcomes are reachable as mu varies, and the boundaries are now EXACTLY computed, so the adjudication is complete except for that one input
+  note CLASS what_D5_did_resolve: the five-constant H^0 ambiguity collapsed to this one scale: c0 = c2 = 0 exactly and c4 calculated; the zero's LOCATION RATIO omega*/mu = exp(kappa/2) is a fixed computed number
+  note CLASS scheme_dependence_statement: the registered Axis-2 criterion IS scheme-dependent through the local real terms -- stated explicitly as the frozen record requires
+  note CLASS unnamed_case_finding: for mu below the lower boundary the response has Re chi < 0 throughout the domain, which is NEITHER PURELY-RELAXATIONAL NOR RESONANT as registered -- the trichotomy does not name this case; recorded as a FINDING, not resolved here
+  ok   final classification emitted as exactly one of A / B / C: C
+
+=== 11: FROZEN INPUTS RE-VERIFIED AFTER THE RUN ===
+  ok   every frozen upstream artifact is BYTE-IDENTICAL to its pre-run hash -- no frozen file was touched
+  note worktree at end of run: M WALL_KR_D5_EXECUTION_VERDICT.md | ?? WALL_KR_AXIS2_H0_RESULT.json | ?? wall_kr_axis2_h0.py | ?? wall_kr_axis2_h0_run1.log | ?? wall_kr_axis2_h0_run2.log
+  ok   artifact written, re-read, re-hashed (sha 81bc28cfe7aea3a1...)
+
+AXIS-2 H^0: 30/30 passed; failures: 0
+CLASSIFICATION: C
+HARD STOP.
