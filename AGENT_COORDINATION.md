@@ -5052,3 +5052,56 @@ runtime-assembled sentinel. Worth remembering as a recurring shape.
 
 NEXT AUTHORIZED: ledger/parameter-count update, then H^2 local fork and
 Gate-E, each separately. W-0; register untouched (+16).
+
+================================================================================
+2026-09-01 -- H^0 PARAMETER-COUNT / LEDGER UPDATE (governance accounting)
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_h0_parameter_ledger.py
+DOC:        WALL_KR_H0_PARAMETER_LEDGER.md
+MACHINE:    WALL_KR_H0_PARAMETER_LEDGER_RESULT.json
+BATTERY: 19/19, zero failures, first run. REGISTER MODIFIED: NO
+(claims.json byte-identical; net unchanged). H^2: NOT TOUCHED.
+AXIS-2: C, unchanged.
+
+CONCLUSION: H^0 contains exactly ONE independent unresolved
+renormalization constant, Lambda_R. A REPARAMETERIZATION of the (mu, c4)
+representation, NOT the removal of a parameter. No numerical value
+selected.
+
+THE ACCOUNTING QUESTION, ANSWERED HONESTLY (the owner's key fence): mu
+and c4 were NEVER counted as independent frozen inputs -- verified
+mechanically, the register contains NO Lambda_R entry and NO c4 entry
+(its single 'c4' string match is the substring of the prose token
+'Sec4'). The whole contract-K_R campaign has been W-0 throughout.
+THEREFORE NO REDUCTION IS CLAIMED and the register net is unchanged; the
+correct statement is the REPRESENTATION one.
+
+**NAME COLLISION FOUND, RECORDED, DISAMBIGUATED:** the register already
+uses 'mu' for a DIFFERENT quantity -- the linear-cosmology modification
+parameter mu = 1 + alpha (mu = 1 GR-like; mu = 4/3 trace-only,
+ISW-excluded) in nodes mu_linear and zeta_interior_family. NOT the
+renormalization scale. This surfaced only now because claims.json is a
+barred file the mu-audit correctly did not read. It changes nothing about
+mu-RULING-C, but it is an independent reason to carry the constant as
+Lambda_R, and is recorded so no later reader conflates them.
+
+ASSERTIONS A-G recorded separately; A/B verified against the D5
+artifact's own fields and F/G against the frozen Owner Decision Record
+(not retyped). D gated NON-VACUOUSLY: two DISTINCT (mu, c4) points
+sharing one Lambda_R give the IDENTICAL response (degenerate along the
+Lambda_R orbit); NEGATIVE CONTROL: moving c4 OFF the orbit changes the
+response, so the degeneracy is specific to Lambda_R and the 'two
+independent constants' reading is violated by the certified collapse.
+
+MACHINE-READABLE RECORD mirrors claims.json field names (so it could be
+promoted verbatim if ever banked) but carries register_node = False,
+ledger_delta = 0, numerical_value = null, h2_scope = excluded. A WORDING
+GATE mechanically enforces 'reparameterization' and forbids 'removed'.
+
+FIREWALLS: register byte-identical (no grade up/down, no node, no delta);
+read-set intersected with the barred/outcome set is EMPTY; no
+spectral-outcome token in source, with runtime-assembled sentinel
+teeth-controls. DISCLOSED CARVE-OUT: claims.json is barred for
+LOOP-COMPUTING instruments; read here for GOVERNANCE ACCOUNTING only.
+
+NEXT AUTHORIZED STAGE: THE H^2 LOCAL FORK. W-0; register untouched.

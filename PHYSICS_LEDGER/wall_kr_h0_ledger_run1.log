@@ -1,0 +1,50 @@
+=== PROVENANCE ===
+  note input sha WALL_KR_D5_EXECUTION_RESULT.json = b60cecc2f7d356f7...
+  note input sha WALL_KR_MU_CONVENTION_RESULT.json = 4a381e7fcf2145c4...
+  note input sha WALL_KR_MU_OWNER_DECISION_RESULT.json = e842b7bc76b5175d...
+  note input sha WALL_KR_LAMBDA_R_OWNER_RULING_RESULT.json = 8bae0614700a0590...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  ok   pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...
+  note register provenance/claims.json sha 4efa8db93a73ce38... (READ-ONLY this stage)
+
+=== 5: BARRED-SOURCE FIREWALL ===
+  ok   NO Axis-2 output, benchmark artifact, J(omega) instrument, plant or comparator is consumed as evidence (read-set intersected with the barred/outcome set is empty)
+  ok   no spectral-outcome token appears in this instrument's source -- bookkeeping cannot have been steered by an outcome
+  ctrl-DETECTED   outcome-token scanner has teeth: runtime-assembled sentinels ARE detected by the same membership test
+  note DISCLOSED CARVE-OUT: provenance/claims.json is on the registry's barred list for LOOP-COMPUTING instruments (F5 anti-unblinding). This stage READS it for GOVERNANCE ACCOUNTING ONLY -- it computes no loop quantity, consumes no spectral object from it, and does not modify it. The exemption is DECLARED, not assumed
+
+=== 3: WHAT DID THE AUTHORITATIVE LEDGER ACTUALLY COUNT? ===
+  ok   REGISTER SEARCH: the register contains NO Lambda_R entry and no c4 entry -- its single 'c4' string match is the substring of the prose token 'Sec4' (1 occurrence(s), all accounted). The renormalization scale and the local constants were NEVER booked as register inputs
+  ok   NAME COLLISION FOUND AND RECORDED: the register's 'mu' is the LINEAR-COSMOLOGY modification parameter mu = 1 + alpha (mu = 1 GR-like, mu = 4/3 trace-only) in nodes ['mu_linear', 'zeta_interior_family'] -- a DIFFERENT physical quantity from the renormalization scale. The two must never be conflated; this is an independent reason the new constant is carried as Lambda_R and not as 'mu'
+  note register net (sum of ledger_delta, read-only) = +16
+  ok   ACCOUNTING VERDICT: this is a REPRESENTATION result, not a register-net change. mu and c4 were never independent frozen inputs, so no reduction is claimed and the net is unchanged
+
+=== 1/2: PARAMETER COUNT + ASSERTIONS A-G ===
+  ok   ASSERTION E: d ReSigma^(H0) / d Lambda_R != 0 -- Lambda_R is a GENUINE degree of freedom (the count is not zero)
+  ok   ASSERTION D: two DISTINCT (mu, c4) points sharing one Lambda_R give the IDENTICAL response -- the pair contains exactly ONE independent H^0 constant (the family is degenerate along the Lambda_R orbit)
+  ctrl-DETECTED   NEGATIVE CONTROL: moving c4 OFF the Lambda_R orbit changes the response (difference = -omega**4/5) -- so the degeneracy is specific to Lambda_R, not a vacuous identity, and the 'two independent constants' reading is violated by the certified collapse relation
+  note ASSERTION A: c0 = 0 exactly (certified D5, structural)
+  note ASSERTION B: c2 = 0 exactly (certified D5, structural)
+  note ASSERTION C: c4 is determined by the certified D5 finite calculation ONLY modulo the renormalization-scale representation
+  note ASSERTION D: (mu, c4) contains exactly ONE independent H^0 constant
+  note ASSERTION E: Lambda_R is genuine: d ReSigma^(H0)/d Lambda_R != 0
+  note ASSERTION F: NO numerical value of Lambda_R has been introduced
+  note ASSERTION G: Axis-2 remains C
+  ok   ASSERTIONS A and B verified against the certified D5 artifact's own record (c0, c2 fields), not retyped
+  ok   ASSERTIONS F and G verified against the frozen Owner Decision Record (numerical_value_introduced = False; Axis-2 = C)
+
+=== 6: MACHINE-READABLE RECORD ===
+  ok   machine-readable record: numerical_value = null, H^2 excluded, ledger_delta = 0, register_node = False (schema mirrors claims.json field names so it could be promoted verbatim, but it is NOT a register node today)
+  ok   wording gate: the record says REPARAMETERIZATION and never 'removed' (owner's refinement, enforced mechanically)
+
+=== 4: REGISTER FIREWALL ===
+  ok   the register is BYTE-IDENTICAL: no claim grade upgraded or downgraded, no node added, no ledger_delta altered by this accounting stage
+
+=== 7/8: PROVENANCE AND VALIDATION ===
+  ok   no uncertified preliminary Axis-2 run is cited or read
+  ok   all frozen upstream artifacts AND the register byte-identical to their pre-run hashes
+  note files added/changed: ?? wall_kr_h0_ledger_run1.log | ?? wall_kr_h0_parameter_ledger.py
+  ok   artifact written and re-read: count = 1, numerical_value = null, register_modified = False (sha 8f4adb633fbe44ad...)
+
+H^0 PARAMETER LEDGER: 19/19 passed; failures: 0
+HARD STOP.
