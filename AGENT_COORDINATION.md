@@ -4640,3 +4640,64 @@ TIER-4 HARD STOP: no benchmark consequence, no J(omega), no Ward/Bardeen,
 no bridge, no operators, no sign changes, no omega << H, no noise import.
 Owner holds: T4 adjudication, the noise-sector fork, gate-E disposition,
 D5 conditions. W-0; register untouched (+16).
+
+================================================================================
+2026-09-01 -- CONTRACT-LEVEL BENCHMARK CONSEQUENCE SHIPPED (builder: Claude)
+================================================================================
+OWNER AUTHORIZATION: consequence only; K_R immutable; no fits, no IR
+scale, no omega << H; C1-C7 sealed from the comparator, C8 opens it last.
+
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_contract_benchmark.py
+ARTIFACT:   WALL_KR_CONTRACT_BENCHMARK_RESULT.json (sha 1ac17a18...)
+VERDICT:    WALL_KR_CONTRACT_BENCHMARK_VERDICT.md
+BATTERY: 28/28, zero failures, five controls detecting (after review).
+
+THE CELL, AS THE OBJECT FILLS IT:
+  AXIS 1: s >= 2 AND CONVERGENT. Flat slice (H=0, unconditional to
+    omega->0): Im chi ~ omega^4 EXACT power law => s = 5 in the
+    registered J-convention (J ~ omega^5); Re chi(0) = 3/(2560 pi^2)
+    exactly (WC=1). H>0: in-domain slope in (3.8, 4]; the omega->0
+    s-limit at fixed H INAPPLICABLE (domain ends at omega ~ H).
+  AXIS 2: INDETERMINATE -- missing component NAMED per the registered
+    row 4: the D5 local/renormalization conditions (the Re-sign test is
+    scheme-hostage; review confirmed BOTH registered outcomes reachable
+    by scheme choice; the reference-slice crossing sits at omega = mu
+    and moves with mu). Scheme-robust: NO resonance/pole in-domain for
+    ANY real local choice.
+  CELL ROW: row 4 ('cannot adjudicate; report which component is
+    missing'). Row-1 availability recorded CONDITIONAL on D5 (Re chi > 0
+    in-window) -- with the registered row-1 text quoted IN FULL and its
+    stale '+1 partially discharges' clause surfaced as a SUPERSESSION
+    (the +1 was retired 2026-08-30, post-registration, by Q1^TT^Q5^TT).
+  DIVERGENT ROW: not triggered anywhere in-domain; the white-floor
+    regime (omega <~ H, horizon-forced) is OUTSIDE the truncation --
+    unadjudicated at contract scope, where the noise-sector fork lives.
+  SINGLE-POLE: no pole certified anywhere; rung3's anchor remains
+    underived at contract scope. NOTHING DISCHARGED.
+
+THE HEADLINE PHYSICS: the registered s=3 is NOT the flat contract
+vacuum's class -- the computed leading class is s = 5 (the two-derivative
+TT-TT-TT vertex contributes omega^4 in |V|^2 on the gapless cut, which
+the rung3 DOS argument never counted); the registered omega^3 power
+RE-ENTERS as the curvature-induced O(H^2) component with an
+H^2-proportional coefficient the registered family excludes
+('H_dependence: NONE declared'). Same decision-axis side (CONVERGENT),
+different analytic form; structural mismatch at leading flat order.
+
+ADVERSARIAL REVIEW (pre-freeze): kernel-level chi reading CONFIRMED
+(precedent-verified against the sealed matter J-instrument) but flagged
+LOAD-BEARING -- the dressed-G_R alternative would sit on the OPPOSITE
+side of the convergence boundary (Im chi -> const, Ohmic): sensitivity
+disclosure now in the instrument + verdict, incl. that K_R = Sigma_R
+postdates the registration. Repairs adopted: control #5 was VACUOUS
+(two literals -- the print-statement-fact class AGAIN, caught pre-freeze)
+-> now exercised on both actual objects; the truncated 'verbatim' cell
+table restored IN FULL with the supersession note; dead code removed.
+Axis-1 semantics, Re chi(0), boundary slope 42/11, and the axis-2
+scheme-hostage argument all independently verified by the reviewer.
+
+MATTER/CONTRACT SEPARATION: stated side-by-side; nothing transplanted.
+HARD STOP: the cell is on the owner's desk. Owner-held: the D5
+conditions (axis 2), the chi-object ruling if ever contested, the
+noise-sector fork, gate-E, the omega <~ H regime. W-0; register
+untouched (+16).
