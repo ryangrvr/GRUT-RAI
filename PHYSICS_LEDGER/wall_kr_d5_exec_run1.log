@@ -1,0 +1,27 @@
+=== PINS + DECLARED SCHEME ===
+  ok   pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  ok   pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...
+  note input sha WALL_KR_D5_RENORMALIZATION_RESULT.json = 071eb0470f969d46...
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  ok   pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...
+  note RULING option: BETA
+  note RULING text: Extend the already-authorized D3/Option-3a spatial continuation consistently to the direct real/local part of the contract-level response.
+  note RULING character: SCHEME RULING, not a spectral choice
+  note RULING rationale_on_record: the owner's stated reason: D3/Option-3a is the ALREADY-DECLARED contract computational continuation; it preserves the existing Tier-2/3/4 machinery; it avoids Option alpha's unresolved graviton-level realizability question. NOT because it favours any benchmark outcome
+  note RULING retained_alternative: Declaration-1's d = 4 - eps SPACETIME dS-invariant scheme remains a RECORDED, UNRESOLVED alternative (Option alpha) -- not erased, not refuted; a future scheme-independence demonstration (the frozen PV cross-check pattern, Option gamma) remains open
+  note RULING doctrine_unchanged: Declaration 1 F2: pole-only MS, finite parts exactly as the loop produces them, ZERO finite-part discretion; the critical principle (no spectral-referencing justification) governs throughout
+
+=== STEP 1: MASTER INTEGRALS (derived + numerically gated) ===
+  note J_plus(a,x)  = int_0^inf q^(a-1)/(q + x) dq = pi x^(a-1)/sin(pi a)
+  note J_minus(a,x) = int_0^inf q^(a-1)/(q - x - i0) dq = pi x^(a-1) [ i - cot(pi a) ]   (PV + i pi delta)
+  FAIL MASTER J_plus verified numerically at 3 (a, x) points (rel < 1e-15)
+  FAIL MASTER J_minus verified numerically at 3 (a, x) points via an independent finite-eta regulator with eta-Richardson (rel < 1e-6) -- the retarded i0 prescription and the PV/delta split are BOTH confirmed, not assumed
+
+=== STEP 2: DIRECT RETARDED INTEGRAL (declared continuation) ===
+  ok   CONE ANCHOR: the loaded H^0 cone reproduces the frozen T3 absorptive value -(3/1280 pi) omega^4 through the Tier-4 delta-support formula -- the input is the frozen object
+[   15.1s] direct integral assembled in closed form
+  ok   SCALE-FREE STRUCTURE (declared before computing, now VERIFIED): Sigma_R^direct = omega^(d+1) mu^(3-d) F(d) exactly -- a single power, no polynomial. CONSEQUENCE: the omega^0 and omega^2 local slots CANNOT be generated at this order
+  note F(d) = -7*2**(-2*d - 9)*I*pi**(1 - d/2)*(sin(pi*d)*tan(pi*d) + I*sin(pi*d) - I*tan(pi*d))*(3*d**6 + 18*d**5 - 28*d**4 - 160*d**3 + 157*d**2 - 86*d + 168)/((d - 1)**2*sin(pi*d)*tan(pi*d)*gamma(d/2 + 4))
+
+=== STEP 3: THE DECLARED CONTINUATION + POLE-ONLY MS ===

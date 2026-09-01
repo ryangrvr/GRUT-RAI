@@ -4756,3 +4756,64 @@ STANDING OWNER QUEUE (all separated cleanly now): (1) D5 scheme ruling
 (alpha/beta/gamma); (2) the noise-sector fork (H^2); (3) gate-E
 disposition; (4) the chi-object ruling if contested; (5) T4 + consequence
 cell adjudications. W-0; register untouched (+16).
+
+================================================================================
+2026-09-01 -- D5 EXECUTION SHIPPED under OWNER SCHEME RULING (Option BETA)
+================================================================================
+RULING: extend the already-authorized D3/Option-3a SPATIAL continuation to
+the direct real/local sector. A SCHEME ruling, not a spectral choice.
+Governing principle (owner, verbatim): "THE SCHEME MAY BE DECLARED. THE
+FINITE LOCAL NUMBERS MAY ONLY BE CALCULATED."
+
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_d5_execution.py
+ARTIFACT:   WALL_KR_D5_EXECUTION_RESULT.json
+VERDICT:    WALL_KR_D5_EXECUTION_VERDICT.md
+BATTERY: 27/27, zero failures, every control detecting.
+
+THE RESULT (H^0, direct non-dispersive route, MS pole-only):
+  Sigma_R^direct = omega^(d+1) mu^(3-d) F(d)  -- SCALE-FREE (declared in
+    the header BEFORE computing, then gated)
+  pole = -(3/1280 pi^2) omega^4/eps ; MS finite = A omega^4 [L -
+    6841/2835 - EulerGamma + log 4pi] + i pi A omega^4, A = -3/(1280 pi^2)
+  LOCAL SLOT DETERMINED: c0 = 0 EXACT (structural), c2 = 0 EXACT
+    (structural), c4 = A(-6841/2835 - gamma_E + log 4pi) ~ +1.0906e-4 at
+    mu = 1 -- CALCULATED, never chosen. c0p/c2p NOT computed (H^2
+    fork-gated). The consequence stage's FIVE-constant ambiguity is
+    reduced at H^0 to ONE computed number plus the declared symbolic mu.
+
+VALIDATION: convergence ladder (owner-mandated repair) J+ 3.6e-5 ->
+1.2e-8 -> 3.2e-13, J-(PV) 4.8e-5 -> 1.6e-8 -> 4.2e-13, monotone >= 3
+decades/step, final below the DECLARED 1e-12 (rate is the evidence; the
+threshold was never relaxed to cover a discrepancy); LADDER NEGATIVE
+CONTROL: a reference perturbed by 1e-9 makes the ladder PLATEAU ->
+detected. ANCHOR 1: direct log coefficient AND the 1/eps residue both ==
+the frozen dispersive -3/(1280 pi^2) EXACTLY (two routes, one nonlocal
+answer). POLE/LOG verified independently (L = 1 vs L = 3). ANCHOR 2: Im
+unchanged, exactly. Independent numeric renormalization check at eps =
+1e-3, 3e-4. BASIS FIT: the UV pole is pure omega^4 -> the frozen 1b
+curvature-squared class; no operator outside the basis.
+
+TWO FINDINGS FROM FAILED GATES (disclosed):
+  (1) my "wrong regulator" control was ILL-POSED: eps -> -eps leaves the
+      MS finite part INVARIANT as a THEOREM (F = A/delta + B gives
+      B - A L/2 either way). Recorded as a consistency property; the
+      control REBUILT around a genuinely wrong scheme (continue the
+      measure in d while freezing the projector algebra at d = 3 -- the
+      dropped-evanescent-terms error), which IS detected.
+  (2) the earlier red gates were GATE defects, not physics: unreachable
+      tolerances, and one anchor compared A*omega^4 against a per-omega^4
+      constant (my own dimensional mismatch). A vacuous
+      simplify(dlog-dlog)==0 gate was shipped and is now replaced; the
+      instrument contains ZERO check(True) gates.
+
+BOUNDARIES: all four upstream artifact hashes re-verified UNCHANGED after
+the run (Tier2 c5d399f5, Tier3 4c016e93, Tier4 d916ef32, benchmark
+1ac17a18). Declaration-1's spacetime scheme RETAINED as recorded
+alternative (alpha); PV scheme-independence demo (gamma) still open.
+AXIS 2 NOT COMPUTED per the owner's continuation directive; a preliminary
+reading exists only in the RED pre-repair run logs, disclosed as
+uncertified and not carried forward.
+
+OWNER QUEUE: (1) Axis-2 authorization (now unblocked at H^0); (2) the
+noise-sector fork (H^2 locals); (3) gate-E; (4) T4 + consequence-cell
+adjudications. W-0; register untouched (+16).
