@@ -1,0 +1,76 @@
+=== T4-0: INPUT INTEGRITY ===
+  note input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...
+  ok   pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...
+  ok   pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   pin WALL_KR_TIER3_FLAT_RESULT.json == fac2e090540c57cd...
+  ok   pin WALL_KR_TIER3_IR_CHECK_RESULT.json == a43633f5d34f6895...
+  note input sha WALL_A3_4_TT_RESULT.json = 8c27eeb3ecd235bc...
+  note input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...
+  note input sha WALL_PV_ROBUSTNESS_RESULT.json = 71dc569cd18dcf3d...
+  ok   pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...
+  ok   pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...
+  note input sha WALL_KR_TIER3_FORK_ADJUDICATION.md = 251646a071054b49...
+  ok   T3 IR-check on record: RETARDED VALIDITY BOUNDARY, zero failures
+  note claimed new paths: WALL_KR_CONTRACT_RETARDED_RESULT.json / _VERDICT.md / _MANIFEST.json; wall_kr_tier4_retarded.py
+
+=== T4-1: FROZEN ABSORPTIVE DATA (loaded, not re-derived) ===
+  ok   loaded Im Sigma^{H0} from the frozen T3 artifact == -3 omega^4/(1280 pi)
+  ok   loaded Im Sigma^{H2} (per H^2) from the frozen IR-check artifact == -13 omega^2/(480 pi)
+  note kappa-power bookkeeping: the T3 kernels are kappa^0 in the (1/2 kappa^2)-stripped pipeline units (T3 review-verified); kappa re-enters only through G0 = 2 kappa^2/((omega+i0)^2 - k^2)
+  note u_b-independence of the retarded kernels through O(H^2): review-verified on the frozen T3 cone data; Sigma_R(omega) below is base-time independent at the retained orders
+  note NOISE FENCE: nothing in this instrument reads nk_wigner or any noise-sector object; the alpha = -2 finding stays separate
+
+=== T4-1b: RETARDED ANALYTIC COMPLETION ===
+  ok   completion gate (H^0): Im part == the frozen absorptive value EXACTLY (locals are real and contribute nothing)
+  ok   completion gate (H^2): Im part == the frozen IR-check value EXACTLY
+  ok   INDEPENDENT ROUTE (H^0 completion): the numeric 5x-subtracted Kramers-Kronig transform of the frozen absorptive law reproduces the log-form's polynomial-free 5th derivative (rel 7.1e-03; finite-difference-limited)
+  ok   INDEPENDENT ROUTE (H^2 completion): the 3x-subtracted KK transform of the omega^2 law reproduces the log-form's polynomial-free 3rd derivative (rel 2.5e-04) -- the n = 2 completion is now KK-gated in its own right
+  note H^2 completion IR systematic (review-recorded): the dispersion formally samples omega' <~ H where the truncated absorptive law is invalid; the induced Re error is O(eps_H^2) relative to the retained H^2 omega^2 log term -- inside the domain gate's own tolerance, recorded on the artifact face
+  ok   retarded structure: Sigma_R(omega>0) = Re + i Im with Im < 0 (passive half-plane) and Sigma_R(-omega) = Sigma_R(omega)* by the declared odd/real extension
+[    2.5s] T4-1 complete
+
+=== T4-2: PROBE LIMIT ===
+  note D1 inherited: k -> 0 FIRST at fixed omega > 0. Sigma(omega) enters at the k_ext = 0 evaluation point (T3; isotropy gated there at all H orders across three external configurations -- cited as executed evidence, commit 65ccb1b). The O(k^2) dependence of Sigma was not computed at T3 (scope-disclosed); the dressing's own k -> 0 continuity is gated here.
+  ok   dressing continuity: G0^{-1}(omega,k) -> G0^{-1}(omega,0) smoothly as k -> 0 at fixed omega > 0 (no degeneracy in the scalar TT-projected channel; the projector's k^hat dependence was retired by the executed isotropy gates)
+  note joint rays omega ~ k: NOT used as verdict-bearing data (barred by D1); no such computation performed
+
+=== T4-3/T4-4: DYSON PAIR + VALIDITY DOMAIN ===
+  ok   domain gate: omega/H = 20 evaluates CONTROLLED (eps_H = 0.02889)
+  ok   domain gate: omega/H = 4 returns with an explicit BOUNDARY flag (eps_H = 0.7222) -- reported, not hidden
+  note refusal message: eps_H = 11.5556 >= 1: omega <~ H is outside the truncated H expansion
+  ctrl-DETECTED   T4-7 #10 EXTRAPOLATION CONTROL: an attempted omega = H evaluation is REJECTED by the instrument (the truncated H series is never numerically extrapolated into omega <~ H)
+
+=== T4-5/T4-6: K_R ASSEMBLY + INFLUENCE-ACTION NORMALIZATION ===
+  note K_R(omega) = Sigma_R(omega) in the (1/2 kappa^2)-weighted probe convention. DERIVATION (executable identity, not import): the quadratic SK action of the probe in the (r,a) basis is S2 = int x_a [G0_R^{-1}] x_r + (loop) with the loop's r-a piece = -x_a Sigma_R x_r; hence G_R^{-1} = G0^{-1} - Sigma_R (the resummed object above) and the influence-action retarded kernel is K_R = Sigma_R verbatim in these units. The friction convention Im chi = J/omega is a DEFINITION of normalization (chi = G_R per the frozen chi = -G dictionary orientation chain); no J(omega) content is read or compared
+  ok   dimensions: lam = 2 kappa^2 Sigma/omega^2 = (kappa omega)^2 x (logs/numbers) -- dimensionless, kappa-free after the (kappa omega)^2 strip; vanishes into the domain's IR
+  ok   production evaluation flag ASSERTED CONTROLLED (review FINDING 1b: flags are consumed, never discarded)
+  ok   T4-6 SIGN: Im G_R(omega>0) < 0 for the dressed propagator in-domain (numeric -2.998e-7) -- the frozen passive orientation propagates through the dressing (Tier-2 chain external check, not a circular definition)
+
+=== T4-7: CHECKS ===
+  ok   #1 flat limit reproduces the frozen T3 value exactly
+  ok   #2 H^2 content reproduces the frozen IR-check value exactly
+  note #3 isotropy: executed at T3 (three configs, all H orders) -- cited, artifact-pinned; #5 routing: same (G5-inherited C symmetry gate)
+  ok   #4 retarded/advanced: Sigma_A = Sigma_R* on the real axis (branch flip = conjugation; upper/lower half-plane pair)
+  ok   #7a the SHIPPED G_R and G_1 are exactly the Dyson forms of the assembled Sigma (toy-to-real tie, both objects)
+  ok   #7b Dyson pair: G_R - G_1 = G0^3 Sigma^2 + O(Sigma^3) EXACTLY (symbolic; the agreement domain is |lam| << 1, REPORTED per the frozen charter)
+  ok   #7c the first-order object is EXERCISED numerically in-domain: |G_1 - G_R|/|G_R| = 2.25e-10 ~ lam^2 (agreement domain confirmed; G1 no longer ships uncertified)
+  ctrl-DETECTED   #8 wrong-retarded-sign: flipping the branch flips Im G_R > 0 -- detected by the passivity gate
+  ctrl-DETECTED   #9 wrong-symmetry-factor: a doubled Sigma fails the frozen flat-anchor identity -- detected
+  ok   evaluation #11 flag ASSERTED CONTROLLED
+  ok   #11 numeric evaluation integrity: Im K_R(omega/H = 130) through the domain-gated evaluator chain == direct arithmetic on the frozen absorptive data (rel 0.0); the Re part's polynomial-free content is independently covered by the Kramers-Kronig gate, and its local slot is symbolic by construction
+
+=== T4-8: ANALYTIC STRUCTURE (contract object only) ===
+  note BRANCH STRUCTURE (unconditional): the gapless two-graviton continuum gives a branch point at omega = 0 with a cut along the real axis (the log in the completion); no gap, no threshold at finite omega. This is one-loop branch structure, present in BOTH Dyson forms.
+  note POLE STRUCTURE (classified, not assumed): G0^{-1} has the double zero at omega = 0 (the massless graviton). In the resummed denominator D = omega^2/(2 kappa^2) - Sigma_R: (i) whether the omega = 0 pole survives is decided by the LOCAL slot (c0 = 0 preserves it; c0 != 0 shifts it) -- a D5/renormalization-condition question, DEFERRED, recorded parametrically; (ii) additional zeros require |2 kappa^2 Sigma/omega^2| ~ 1, which in the reference slice needs (kappa omega)^2 |log| ~ 1 -- OUTSIDE the EFT/perturbative domain; no in-domain pole exists.
+  ok   IN-DOMAIN REAL-AXIS DENOMINATOR BOUND (pointwise grid max |lam| = 0.000319 AND an executable interval sup bound 0.0004943662823 on omega in [0.3, 4], CONTROLLED H^2 band included) -- CONDITIONS: reference slice c = 0, kappa = 0.1 units, mu = 1; the resummed denominator cannot vanish on that real segment. NOT a Rouche/contour statement; the complex-plane and general-slice no-pole statements remain PARAMETRIC (the local slot is undetermined) and no pole claim is made
+  note second sheet: the log's continuation (L -> L - 2 pi i) is recorded as the declared second-sheet map; second-sheet zeros of D sit at (kappa omega)^2 ~ 1/|log| -- out of domain; NOT certified as physical poles (certification machinery would be required and no in-domain candidate exists). The matter-sector pole result is NOT imported and NOT assumed.
+
+=== T4-9: WARD ===
+  ok   T3 Ward record carried: the H^0 gauge-image contraction is NONZERO (class: SAME CLASS as the T3 finding; the graviton-loop analogue of the Class-B structure persists). K_R is TT-scoped by the frozen charter (section 6): the residual is EXCLUDED by construction, NOT resolved, NOT repaired, and K_R was NOT altered to change it
+
+=== T4-10: FREEZE ===
+  ok   artifact written, re-read, re-hashed identically (sha d916ef32f6f73fa3...)
+manifest: /Users/mpg/Desktop/GRUT ResponsiveAI/PHYSICS_LEDGER/WALL_KR_CONTRACT_RETARDED_MANIFEST.json (sha 7545d02a42980e24...)
+
+TIER 4 RETARDED K_R: 34/34 passed; failures: 0
+HARD STOP: the retarded contract K_R record is frozen pending owner adjudication.

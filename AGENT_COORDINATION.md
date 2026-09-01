@@ -4590,3 +4590,53 @@ SK-state/KMS finding, not consulted for this verdict.
 The owner's predicted map is now exact: retarded chain defined at fixed
 omega; omega->0 nonuniform in H; the power divergence confined to the
 noise/state sector. HARD STOP. Frozen T3 untouched (sha 4c016e93 pinned).
+
+================================================================================
+2026-09-01 -- TIER 4 SHIPPED: THE CONTRACT-LEVEL RETARDED K_R (builder: Claude)
+================================================================================
+OWNER AUTHORIZATION: retarded assembly only; noise alpha=-2 never enters;
+eps_H = (104/9) H^2/omega^2 hard-wired; omega << H forbidden; both Dyson
+orders; hard stop before any benchmark/J/D5/Ward work.
+
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_tier4_retarded.py
+ARTIFACT:   WALL_KR_CONTRACT_RETARDED_RESULT.json (sha d916ef32...)
+MANIFEST:   WALL_KR_CONTRACT_RETARDED_MANIFEST.json
+VERDICT:    WALL_KR_CONTRACT_RETARDED_VERDICT.md
+BATTERY: 34/34, zero failures, all controls detecting.
+
+THE OBJECT (the gravitational vacuum's own retarded kernel, contract
+scope, (1/2 kappa^2)-weighted units, K_R = Sigma_R by the derived SK
+identity):
+  Sigma_R(omega>0) = -(3/1280 pi^2) omega^4 [log(mu^2/omega^2) + i pi]
+                   + H^2 (-(13/480 pi^2) omega^2 [log(mu^2/omega^2)+i pi])
+                   + [real local slot c0..c4, H^2(c0p,c2p)] (D5, SYMBOLIC)
+  H^1 = 0. Both Dyson forms built and tied to the shipped Sigma; domain
+  gate refuses eps_H >= 1 AND |lam| >= 1; BOUNDARY flags asserted.
+  Branch point omega = 0 + real-axis cut (gapless 2-graviton continuum);
+  omega = 0 graviton pole survives iff c0 = 0 (D5 condition, parametric);
+  real-segment no-zero bound pointwise + interval sup, TRIPLY CONDITIONAL
+  (c = 0 slice, kappa = 0.1, mu = 1) and frozen as such; NO pole claim.
+  Ward: same class (nonzero gauge-image), EXCLUDED by TT scope, not
+  repaired; provenance-locked through two pinned artifacts.
+
+ADVERSARIAL REVIEW (2 lenses, run BEFORE trusting the freeze): physics
+NOT-REFUTED on all three attacks (completion re-derived incl. the +i pi
+branch via independent Cauchy contour to 1e-41; SK factor chain
+re-derived; passivity structural Im G_R = Im Sigma/|D|^2). FOUR MAJOR
+instrument findings ALL ADOPTED: evaluator-internal |lam| enforcement +
+flag assertion; honest bound naming + conditionality frozen into the
+artifact (the kappa-conditional-verdict defect class caught AGAIN, this
+time pre-freeze) + the H^2-band inclusion (first interval draft wrongly
+took H = 0 as worst case); Dyson check tied to the SHIPPED objects (the
+toy-only proof was the print-statement-fact shape); provenance pins for
+the actually-read files + Ward cross-lock. Rev1 minors adopted: n = 2 KK
+gate added, UV-cutoff-limited relabel, H^2 dispersion IR systematic
+recorded (O(eps_H^2)).
+
+RUN-1 DEFECT: the identical-printing-symbols trap, FOURTH appearance
+(sympify plain omega vs positive-assumed) -- six failures, one bug.
+
+TIER-4 HARD STOP: no benchmark consequence, no J(omega), no Ward/Bardeen,
+no bridge, no operators, no sign changes, no omega << H, no noise import.
+Owner holds: T4 adjudication, the noise-sector fork, gate-E disposition,
+D5 conditions. W-0; register untouched (+16).
