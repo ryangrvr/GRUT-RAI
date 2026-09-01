@@ -52,7 +52,7 @@ Repeated mentions of μ were **not** counted as independent conventions.
 - **(C) Numerical identification of μ with a physical scale.** **Absent
   from the record**, and not implied by (A) or (B).
 
-## 3. CAN μ BE REMOVED INSTEAD? — **YES, and this is the finding**
+## 3. μ IS REPARAMETERIZED, NOT REMOVED — **the finding**
 
 Derived from the existing formalism (no RG equations invented, no new
 running computed): changing the renormalization point μ → μ′ requires
@@ -68,6 +68,8 @@ and the entire H⁰ real kernel collapses to
 **One dimensionful constant, not two.** A negative control confirms the
 invariance breaks under a perturbed shift, so the gate is not a
 tautology.
+
+**Not a removal — a reparameterization** (owner's refinement, adopted): the pair (μ, c4) is REPLACED by the single invariant Λ_R. Nothing left the theory; the free-input COUNT went from two redundant parameters to one irreducible constant.
 
 **Consequence for the decision:** "declare μ" and "declare Λ_R" are the
 *same single new input* in different clothes. Option 2 therefore has a

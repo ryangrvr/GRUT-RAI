@@ -1,0 +1,43 @@
+=== PROVENANCE ===
+  note input sha WALL_KR_MU_OWNER_DECISION_RESULT.json = e842b7bc76b5175d...
+  note input sha WALL_KR_MU_CONVENTION_RESULT.json = 4a381e7fcf2145c4...
+  note input sha WALL_KR_D5_EXECUTION_RESULT.json = b60cecc2f7d356f7...
+  note input sha WALL_KR_AXIS2_H0_RESULT.json = 81bc28cfe7aea3a1...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  ok   pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...
+
+=== 1: THE OWNER RULING (recorded, not composed) ===
+  note RULING: The current GRUT record does not contain an independently justified numerical value for the renormalization invariant Lambda_R. No numerical value will be introduced at this stage. Lambda_R remains symbolic and is carried as one unresolved renormalization input. Axis 2 therefore remains parametrically unresolved with respect to Lambda_R. Future numerical fixing is permitted only through an independently justified renormalization/matching condition that is established without reference to Axis 1, Axis 2, J(omega), plant data, resonance, memory behavior, or other downstream outcomes.
+  ok   the ruling is recorded VERBATIM with its four operative clauses intact: (a) no independently justified value exists; (b) none is introduced now; (c) Lambda_R is carried as ONE unresolved renormalization input; (d) future fixing only via an independent condition
+
+=== 2: NO NUMERICAL VALUE IS ASSIGNED (mechanical) ===
+  FAIL this instrument assigns NO numeric value to Lambda_R or mu (pattern scan over its own source)
+  ctrl-DETECTED   the value-assignment detector has teeth: a planted 'Lambda_R = <number>' string IS caught by the same scan
+  ok   Lambda_R is carried as a free SYMBOL in this record -- it enters no numeric context anywhere
+
+=== 3: THE RULING'S EVIDENCE BASIS ===
+  ok   EVIDENCE: the ruling rests on the hash-pinned authority sweep (8 entries, ZERO supplying a numerical scale) and on ruling C -- NOT on any outcome artifact
+  ok   the Axis-2 artifact is hash-pinned for provenance only; its 'out' block (which carries the classification and the regime map) is never dereferenced by this record
+  ok   NO barred file is read by this record (barred set intersected with the read set is empty) -- the comparator-to-response channel is not used
+
+=== 4: THE H^0 FREE-INPUT COUNT ===
+  ok   (i) NOT ZERO parameters: d(Re Sigma)/d(Lambda_R) = 2*A_x*omega**4/Lambda_R != 0, so Lambda_R is a genuine degree of freedom of the H^0 response
+  ok   (ii) NOT TWO parameters: the explicit (mu, c4) form is IDENTICALLY the one-constant form, so the pair enters only through Lambda_R -- a reparameterization, NOT a removal (owner's refinement, adopted): nothing left the theory; two redundant parameters were replaced by one irreducible constant
+  ctrl-DETECTED   count control: a WRONG invariant (mu -> mu + 1 inside Lambda_R) fails the identity -- the one-constant collapse is specific to Lambda_R and not an artifact of the algebra
+  note PARAMETER-COUNT RESULT (positive structural finding): the H^0 local freedom is EXACTLY ONE independent dimensionful constant, down from five constants plus a scale before D5
+
+=== 5: SCOPE OF THE RULING ===
+  note SCOPE settles: that NO numerical value enters GRUT at this stage; that Lambda_R is carried as ONE unresolved renormalization input; that Axis 2 is parametrically unresolved with respect to Lambda_R -- classification C stands; the admissibility condition for any FUTURE fixing
+  note SCOPE does_not_settle: the value of Lambda_R; Axis 2's absolute classification; the H^2 local fork; Gate-E; the consequence cell beyond recording C
+  note SCOPE explicitly_not_done: the register/ledger parameter-count update is the NEXT stage and is NOT performed here; provenance/claims.json is untouched and the net stands unchanged
+
+=== VALIDATION ===
+  ok   every pinned input byte-identical to its pre-run hash
+  note provenance/claims.json sha 4efa8db93a73ce38... (READ ONLY -- not modified by this stage)
+  note files added/changed: M WALL_KR_MU_OWNER_DECISION_PACKAGE.md | ?? wall_kr_lambdaR_owner_ruling.py | ?? wall_kr_lambdaR_run1.log
+  ok   artifact written and re-read: numerical_value_introduced = False AND register_modified = False on the record (sha 9220a8f94a4733ff...)
+
+LAMBDA_R OWNER RULING RECORD: 14/15 passed; failures: 1
+  FAILURE: this instrument assigns NO numeric value to Lambda_R or mu (pattern scan over its own source)
+HARD STOP.

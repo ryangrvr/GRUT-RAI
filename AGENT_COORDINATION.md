@@ -5000,3 +5000,55 @@ before sympy would combine logs; the scan's own prose tripped the strict
 list -- the PROSE was reworded, the list was NOT weakened.
 
 NEXT AUTHORIZED ACTION: OWNER DECISION ONLY. W-0; register untouched.
+
+================================================================================
+2026-09-01 -- OWNER DECISION RECORD: THE Lambda_R RENORMALIZATION INPUT
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_lambdaR_owner_ruling.py
+DOC:        WALL_KR_LAMBDA_R_OWNER_RULING.md
+COMPANION:  WALL_KR_LAMBDA_R_OWNER_RULING_RESULT.json
+BATTERY: 15/15, zero failures. NUMERICAL VALUE INTRODUCED: NO.
+REGISTER MODIFIED: NO (claims.json read-only; net unchanged).
+
+THE RULING (owner, verbatim, recorded not composed): the record contains
+no independently justified numerical value for Lambda_R; none is
+introduced now; Lambda_R remains SYMBOLIC and is carried as ONE
+unresolved renormalization input; Axis 2 remains parametrically
+unresolved w.r.t. Lambda_R; future fixing only via an independently
+justified renormalization/matching condition established WITHOUT
+reference to Axis 1, Axis 2, J(omega), plant data, resonance, memory
+behavior, or other downstream outcomes.
+
+MECHANICAL VERIFICATION: (a) no numeric assignment to Lambda_R or mu
+anywhere in the record's source (pattern scan + a runtime-assembled
+sentinel teeth-control); (b) the evidence basis is the hash-pinned
+authority sweep (8 entries, ZERO supplying a scale) + ruling C, NOT any
+outcome artifact -- the Axis-2 'out' block is never dereferenced; (c)
+the read-set intersected with the registry's BARRED set is EMPTY.
+
+**POSITIVE STRUCTURAL RESULT -- THE H^0 FREE-INPUT COUNT IS EXACTLY 1.**
+Before D5: five local constants + the scale mu. After D5 at H^0: c0 = c2
+= 0 EXACTLY (structural), and (mu, c4) is redundant by exactly one
+function's worth. Irreducible: the single RG-invariant Lambda_R = mu
+exp(c4/(2A)). Gated BOTH ways -- d(Re Sigma)/d(Lambda_R) != 0 (not zero
+parameters) and the explicit (mu, c4) form is IDENTICALLY the
+one-constant form (not two) -- with a control showing a WRONG invariant
+fails the identity. FRAMING (owner's refinement, ADOPTED):
+**REPARAMETERIZED, NOT REMOVED** -- nothing left the theory; two
+redundant parameters became one irreducible constant. H^2 locals are NOT
+in this count (fork-gated).
+
+SETTLES: no value enters GRUT now; Lambda_R = one unresolved
+renormalization input; Axis 2 parametrically unresolved (C STANDS); the
+admissibility condition for future fixing.
+DOES NOT SETTLE: the value; Axis-2's absolute classification; the H^2
+fork; Gate-E; the consequence cell beyond recording C.
+NOT DONE HERE: the register/ledger parameter-count update -- NEXT stage,
+awaiting its own authorization.
+
+DEFECT: the self-scan trap for the THIRD time in this campaign (a
+teeth-control planting the very pattern it forbids). Fixed with a
+runtime-assembled sentinel. Worth remembering as a recurring shape.
+
+NEXT AUTHORIZED: ledger/parameter-count update, then H^2 local fork and
+Gate-E, each separately. W-0; register untouched (+16).

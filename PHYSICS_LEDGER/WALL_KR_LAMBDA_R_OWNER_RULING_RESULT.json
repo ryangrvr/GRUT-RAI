@@ -1,0 +1,145 @@
+{
+ "instrument": "wall_kr_lambdaR_owner_ruling.py",
+ "instrument_sha256": "ff98efe82fe155bdb25189f01dcbf71599af21652cebccf4aa3daaeae13bc05e",
+ "record_type": "OWNER DECISION RECORD (ruling recorded and mechanically verified; not composed by the builder)",
+ "owner_ruling_verbatim": "The current GRUT record does not contain an independently justified numerical value for the renormalization invariant Lambda_R. No numerical value will be introduced at this stage. Lambda_R remains symbolic and is carried as one unresolved renormalization input. Axis 2 therefore remains parametrically unresolved with respect to Lambda_R. Future numerical fixing is permitted only through an independently justified renormalization/matching condition that is established without reference to Axis 1, Axis 2, J(omega), plant data, resonance, memory behavior, or other downstream outcomes.",
+ "numerical_value_introduced": false,
+ "lambda_R_status": "SYMBOLIC -- one unresolved renormalization input",
+ "axis2_status": "C, parametrically unresolved w.r.t. Lambda_R",
+ "register_modified": false,
+ "out": {
+  "owner_ruling_verbatim": "The current GRUT record does not contain an independently justified numerical value for the renormalization invariant Lambda_R. No numerical value will be introduced at this stage. Lambda_R remains symbolic and is carried as one unresolved renormalization input. Axis 2 therefore remains parametrically unresolved with respect to Lambda_R. Future numerical fixing is permitted only through an independently justified renormalization/matching condition that is established without reference to Axis 1, Axis 2, J(omega), plant data, resonance, memory behavior, or other downstream outcomes.",
+  "free_input_count_H0": {
+   "before_D5": "five real local constants (c0, c2, c4, c0p, c2p) plus the scale mu",
+   "after_D5_at_H0": "c0 = 0 and c2 = 0 EXACTLY (structural); the surviving (mu, c4) pair is redundant by exactly one function's worth",
+   "irreducible_count": 1,
+   "the_constant": "Lambda_R = mu exp(c4/(2A)), RG-invariant",
+   "status_of_the_constant": "UNRESOLVED -- no independently justified value exists in the record",
+   "framing": "REPARAMETERIZED, not removed: (mu, c4) -> Lambda_R",
+   "H2_sector": "NOT counted here -- fork-gated; the H^2 locals (c0p, c2p) remain outside this count"
+  },
+  "ruling_scope": {
+   "settles": [
+    "that NO numerical value enters GRUT at this stage",
+    "that Lambda_R is carried as ONE unresolved renormalization input",
+    "that Axis 2 is parametrically unresolved with respect to Lambda_R -- classification C stands",
+    "the admissibility condition for any FUTURE fixing"
+   ],
+   "does_not_settle": [
+    "the value of Lambda_R",
+    "Axis 2's absolute classification",
+    "the H^2 local fork",
+    "Gate-E",
+    "the consequence cell beyond recording C"
+   ],
+   "explicitly_not_done": "the register/ledger parameter-count update is the NEXT stage and is NOT performed here; provenance/claims.json is untouched and the net stands unchanged"
+  },
+  "claims_sha": "4efa8db93a73ce38",
+  "worktree": [
+   "M WALL_KR_MU_OWNER_DECISION_PACKAGE.md",
+   "?? WALL_KR_LAMBDA_R_OWNER_RULING_RESULT.json",
+   "?? wall_kr_lambdaR_owner_ruling.py",
+   "?? wall_kr_lambdaR_run1.log",
+   "?? wall_kr_lambdaR_run2.log"
+  ]
+ },
+ "checks": [
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "the ruling is recorded VERBATIM with its four operative clauses intact: (a) no independently justified value exists; (b) none is introduced now; (c) Lambda_R is carried as ONE unresolved renormalization input; (d) future fixing only via an independent condition",
+   "gate": "RULE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "this instrument assigns NO numeric value to Lambda_R or mu (pattern scan over its own source)",
+   "gate": "NOVAL",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: the value-assignment detector has teeth: a sentinel built at runtime IS caught by the same scan, while the source itself carries no assignment",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "Lambda_R is carried as a free SYMBOL in this record -- it enters no numeric context anywhere",
+   "gate": "NOVAL",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "EVIDENCE: the ruling rests on the hash-pinned authority sweep (8 entries, ZERO supplying a numerical scale) and on ruling C -- NOT on any outcome artifact",
+   "gate": "EVID",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "the Axis-2 artifact is hash-pinned for provenance only; its 'out' block (which carries the classification and the regime map) is never dereferenced by this record",
+   "gate": "EVID",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "NO barred file is read by this record (barred set intersected with the read set is empty) -- the comparator-to-response channel is not used",
+   "gate": "EVID",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "(i) NOT ZERO parameters: d(Re Sigma)/d(Lambda_R) = 2*A_x*omega**4/Lambda_R != 0, so Lambda_R is a genuine degree of freedom of the H^0 response",
+   "gate": "COUNT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "(ii) NOT TWO parameters: the explicit (mu, c4) form is IDENTICALLY the one-constant form, so the pair enters only through Lambda_R -- a reparameterization, NOT a removal (owner's refinement, adopted): nothing left the theory; two redundant parameters were replaced by one irreducible constant",
+   "gate": "COUNT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: count control: a WRONG invariant (mu -> mu + 1 inside Lambda_R) fails the identity -- the one-constant collapse is specific to Lambda_R and not an artifact of the algebra",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "every pinned input byte-identical to its pre-run hash",
+   "gate": "PROV",
+   "detail": null
+  }
+ ],
+ "notes": [
+  "input sha WALL_KR_MU_OWNER_DECISION_RESULT.json = e842b7bc76b5175d...",
+  "input sha WALL_KR_MU_CONVENTION_RESULT.json = 4a381e7fcf2145c4...",
+  "input sha WALL_KR_D5_EXECUTION_RESULT.json = b60cecc2f7d356f7...",
+  "input sha WALL_KR_AXIS2_H0_RESULT.json = 81bc28cfe7aea3a1...",
+  "RULING: The current GRUT record does not contain an independently justified numerical value for the renormalization invariant Lambda_R. No numerical value will be introduced at this stage. Lambda_R remains symbolic and is carried as one unresolved renormalization input. Axis 2 therefore remains parametrically unresolved with respect to Lambda_R. Future numerical fixing is permitted only through an independently justified renormalization/matching condition that is established without reference to Axis 1, Axis 2, J(omega), plant data, resonance, memory behavior, or other downstream outcomes.",
+  "PARAMETER-COUNT RESULT (positive structural finding): the H^0 local freedom is EXACTLY ONE independent dimensionful constant, down from five constants plus a scale before D5",
+  "SCOPE settles: that NO numerical value enters GRUT at this stage; that Lambda_R is carried as ONE unresolved renormalization input; that Axis 2 is parametrically unresolved with respect to Lambda_R -- classification C stands; the admissibility condition for any FUTURE fixing",
+  "SCOPE does_not_settle: the value of Lambda_R; Axis 2's absolute classification; the H^2 local fork; Gate-E; the consequence cell beyond recording C",
+  "SCOPE explicitly_not_done: the register/ledger parameter-count update is the NEXT stage and is NOT performed here; provenance/claims.json is untouched and the net stands unchanged",
+  "provenance/claims.json sha 4efa8db93a73ce38... (READ ONLY -- not modified by this stage)",
+  "files added/changed: M WALL_KR_MU_OWNER_DECISION_PACKAGE.md | ?? WALL_KR_LAMBDA_R_OWNER_RULING_RESULT.json | ?? wall_kr_lambdaR_owner_ruling.py | ?? wall_kr_lambdaR_run1.log | ?? wall_kr_lambdaR_run2.log"
+ ],
+ "failures": [],
+ "elapsed_s": 0.5
+}
