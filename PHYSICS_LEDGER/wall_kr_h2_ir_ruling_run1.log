@@ -1,0 +1,76 @@
+=== PROVENANCE ===
+  note input sha WALL_KR_H2_LOCAL_FORK_RESULT.json = 29893751a5578895...
+  ok   pin WALL_KR_TIER3_IR_CHECK_RESULT.json == a43633f5d34f6895...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  note input sha WALL_KR_H0_PARAMETER_LEDGER_RESULT.json = 8f4adb633fbe44ad...
+  ok   pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...
+  note input sha K_R_CONTRACT_DECLARATION_SHEET.md = 45cf54fe99dae85e...
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+
+=== PART 0: CORRECTION TO THE COMMITTED H^2 EVIDENCE ===
+  note DEFECT (builder's own, self-caught): the H^2 fork stage (commit 390a22d) built its NUMERIC route from the c_m cone branch ALONE. The retarded response carries BOTH branches. This is a material error in the evidence, corrected here before any ruling is issued
+  note c_m branch ALONE (what 390a22d measured): {'q^-2': '2*omega**3/15', 'q^-1': '-4*omega**2/15', 'q^0': 'omega/5'}
+  note BOTH branches (correct): {'q^-1': '-8*omega**2/15'}
+  ok   CORRECTION 1: the q^-2 POWER piece present in the single branch CANCELS EXACTLY between the two cone branches -- the 1/delta power divergence reported in 390a22d is NOT a property of the retarded response
+  ok   CORRECTION 2: what SURVIVES is a LOGARITHMIC IR divergence with coefficient exactly -8 omega^2/15 (per H^2, d = 3) -- the divergence is real, but it is a LOG, not a power
+  note cutoff ladder (both branches): steps per decade = ['-2.0753965', '-2.0753967', '-2.0753967']
+  ok   CORRECTION 3 (numeric, independent): the ladder shows a CONSTANT ADDITIVE step per decade matching -(8 omega^2/15) ln 10 to rel 9.5e-08 -- a textbook logarithmic divergence, not the ~10x multiplicative growth the single-branch run showed
+  ctrl-DETECTED   the log-divergence detector has teeth: the per-decade step is nonzero and stable, so 'no divergence' would be visibly different
+
+=== 6: CAN THE LOG BE REMOVED WITHOUT AN EXTERNAL SCALE? ===
+  note one genuine cancellation was FOUND, not manufactured: the power piece cancels between the cone branches. The question is whether any further cancellation, already present in the formalism, kills the surviving LOG
+  ok   NO: the log coefficient is exactly -8 omega^2/15 != 0 after ALL branches and all Delta-powers of the frozen cone are summed -- there is no further cancellation available inside the existing formalism
+  ctrl-DETECTED   false-cancellation control: perturbing the claimed coefficient makes the cancellation test fail, so the 'no further cancellation' finding is not vacuous
+  note no zero-mode subtraction, Ward identity, or observable-level subtraction in the frozen record is available to remove it: the authority sweep below finds none
+
+=== 1: AUTHORITY SWEEP FOR AN IR PRESCRIPTION ===
+  note AUTH K_R_CONTRACT_OWNER_RULING.md | D3 / Option-3a | licenses IR extraction: False
+  note AUTH K_R_CONTRACT_OWNER_RULING.md | D3 fork trigger | licenses IR extraction: False
+  note AUTH K_R_CONTRACT_DECLARATION_SHEET.md | IR sub-choice row | licenses IR extraction: False
+  note AUTH MICROSCOPIC_TARGET_BENCHMARK.md | fork (ii) | licenses IR extraction: False
+  note AUTH WALL_A_A3_DECLARATIONS.md | Declaration 1 F2 | licenses IR extraction: False
+  ok   AUTHORITY SWEEP: 5 authorities examined; ZERO license an IR prescription that would permit extracting c0'/c2'. Every one either forbids an IR scale outright or routes the situation to the preregistered fork
+  ok   the two governing clauses are present verbatim in the frozen D3 ruling: 'NO explicit IR scale' AND the fork-(ii) trigger with its price
+
+=== 3/9: UV vs IR, AND WHETHER MS APPLIES ===
+  note UVIR UV_poles: map onto the registered 1b local operator basis (established in the H^2 fork stage); MS pole-only subtraction IS licensed for these
+  note UVIR IR_pole: the surviving a = 0 pole originates at q -> 0 with coefficient -8 omega^2/15; it is NOT a UV counterterm and is NOT absorbed into c0' or c2'
+  note UVIR drop_the_pole_test: REJECTED. The claim 'the 1/(d-3) pole is discarded by MS, therefore the finite H^2 local term is defined' does NOT hold here: MS is licensed against the 1b basis for UV poles, and no registered prescription extends it to an IR-origin pole. Calling an IR subtraction 'MS' merely because it is a 1/(d-3) pole is exactly the move the audit was instructed to test for and reject
+  ok   the UV/IR distinction is recorded and the 'drop the pole' shortcut is explicitly rejected
+
+=== 4: IS THE STATE/BOUNDARY DATA SUFFICIENT? ===
+  ok   the frozen state declaration is INSUFFICIENT to single out an IR prescription; recorded as part of the fork rather than patched with a new state assumption
+
+=== 2/5: ANTI-CIRCULARITY AND THE SCALE FIREWALL ===
+  ok   no spectral-outcome token in this audit's source: the ruling cannot have been selected to make any outcome come out
+  ctrl-DETECTED   outcome-token scanner has teeth (runtime-assembled sentinel)
+  note SCALE FIREWALL: 9 tempting regulators recorded as candidates requiring a NEW owner decision; none adopted
+  ok   no numerical IR scale introduced anywhere in this audit
+
+=== 7: REVIEW OF THE CONDITIONAL c0' STATEMENT ===
+  ok   the conditional c0' = 0 statement is REVIEWED and explicitly NOT promoted to a certified result
+
+=== 8: PARAMETER COUNT ===
+  ok   H^0 count UNCHANGED at exactly one (Lambda_R), read back from the certified ledger artifact -- this audit does not touch it
+
+=== 11: THE RULING ===
+  note RULING code: IR-B
+  note RULING derivation: mechanical: pre_existing_license = False; record_preregisters_a_route = True; owner_declaration_exists_today = False
+  note RULING text: NO PRE-EXISTING LICENSE, BUT THE FROZEN RECORD PRE-REGISTERS THE ROUTE by which a new owner-declared IR convention may be introduced -- fork (ii), 'named and priced (a new register input)'
+  note RULING practical_state_today: IDENTICAL to IR-C: no prescription is licensed, no declaration exists, so c0' and c2' REMAIN UNRESOLVED and the H^2 local sector stays fork-gated
+  note RULING why_not_IR_A: zero authorities license an IR prescription
+  note RULING why_not_IR_C_strictly: IR-C would say no new prescription is AUTHORIZED at this stage. The record does not merely leave the question open -- it PRE-REGISTERED the fork and its price, which is a standing, independently justified route for the owner to declare one. That distinction is the only thing separating B from C here
+  note RULING owner_may_prefer_C: if the owner intends 'no new prescription may be introduced at this stage', that is a one-line owner amendment to this record and changes nothing computational -- FLAGGED, not decided by the builder
+  note RULING builder_chose_no_regulator: True
+  ok   ruling emitted as exactly one code: IR-B
+
+=== 15: VALIDATION ===
+  ok   all frozen inputs AND the register byte-identical to their pre-run hashes
+  FAIL no numerical value is assigned to c0' or c2' anywhere
+  note files added/changed: ?? wall_kr_h2_ir_owner_ruling.py | ?? wall_kr_h2_ir_ruling_run1.log
+  ok   artifact written and re-read (sha 10c712924e588c35...)
+
+H^2 IR OWNER RULING: 22/23 passed; failures: 1
+  FAILURE: no numerical value is assigned to c0' or c2' anywhere
+RULING: IR-B
+HARD STOP.

@@ -5161,3 +5161,78 @@ local counterterm cannot remove Route B's cutoff dependence).
 
 NEXT AUTHORIZED: OWNER FORK DECISION on the H^2 IR condition. Gate-E and
 the noise fork remain separate and untouched. W-0; register untouched.
+
+================================================================================
+2026-09-01 -- H^2 IR-FORK OWNER AUDIT: RULING IR-B
+                 (+ CORRECTION to the builder's own commit 390a22d)
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_h2_ir_owner_ruling.py
+DOC:        WALL_KR_H2_IR_OWNER_RULING.md
+ARTIFACT:   WALL_KR_H2_IR_OWNER_RULING_RESULT.json
+BATTERY: 23/23, zero failures. Frozen inputs AND register byte-identical.
+NO IR regulator, scale, or coefficient chosen.
+
+*** PART 0 -- CORRECTION TO COMMIT 390a22d (builder's own, self-caught)
+That stage's NUMERIC route integrated the c_m cone branch ALONE; the
+retarded response carries BOTH. With both branches:
+  - the q^-2 POWER piece CANCELS EXACTLY between branches -- the 1/delta
+    divergence reported in 390a22d is NOT a property of the response;
+  - what SURVIVES is a LOGARITHMIC IR divergence, coefficient exactly
+    -8 omega^2/15 (per H^2, d = 3);
+  - numerically independent: constant ADDITIVE step per decade matching
+    -(8 w^2/15) ln 10 to rel < 1e-6 (vs the ~10x multiplicative growth
+    the single-branch run showed);
+  - in master-exponent terms: a = -1 (cone q^-4) CANCELS; a = 0 (cone
+    q^-3) SURVIVES.
+VERDICT IMPACT: **H2-B STANDS** -- an IR-origin LOG still contaminates
+the 1/(d-3) structure. Only the characterization/strength are corrected,
+and the corrected form is PRECISELY the 'scaleless log class' the Tier-2
+fork registered in advance.
+
+RULING: **IR-B** -- no pre-existing license, BUT the frozen record
+PRE-REGISTERS the route for a new owner-declared IR convention (fork
+(ii), 'named and priced -- a new register input'). PRACTICAL STATE TODAY
+IS IDENTICAL TO IR-C: nothing licensed, no declaration exists, so c0' and
+c2' REMAIN UNRESOLVED and H^2 stays fork-gated. Not IR-A: zero
+authorities license a prescription. Not IR-C strictly: the record does
+not merely leave the question open, it pre-registered the fork AND its
+price. FLAGGED FOR THE OWNER, NOT DECIDED: if the owner intends 'no new
+prescription may be introduced at this stage', that is a one-line
+amendment and changes nothing computational.
+
+AUTHORITY SWEEP: 5 entries, ZERO licensing (D3 'NO explicit IR scale';
+D3 fork trigger 'STOP ... named and priced'; declaration-sheet IR
+sub-choice; benchmark fork (ii); Declaration 1 F2 = UV only).
+
+'DROP THE POLE' TEST: REJECTED explicitly. MS pole-only is licensed
+against the 1b basis for UV poles; calling an IR subtraction 'MS' merely
+because it is a 1/(d-3) pole is the move the audit was told to test for.
+
+SCALE-FREE RESOLUTION: one REAL cancellation FOUND (the power piece), but
+after ALL branches and Delta-powers the log coefficient is -8 w^2/15 != 0
+-- no further cancellation exists in the formalism; false-cancellation
+control confirms the test is not vacuous.
+
+STATE SUFFICIENCY: D3 = 3a fixes the STATE and H-grading but specifies no
+initial-time/switching/box/horizon/observation-time condition -->
+INSUFFICIENT to single out an IR prescription; recorded as part of the
+fork, NOT patched with a new state assumption.
+
+SCALE FIREWALL: 9 tempting regulators (q_min, H, 1/T, box, horizon, obs
+frequency, WC, Lambda_R, mu) recorded as candidates requiring a NEW owner
+decision; NONE adopted.
+
+CONDITIONAL c0' = 0: REVIEWED, NOT PROMOTED -- and its premise is now
+sharper (any prescription regulating the log generically introduces its
+own scale, which can feed the omega^0 slot).
+
+PARAMETER COUNT: H^0 unchanged at ONE (Lambda_R); H^2 stays OUTSIDE; no
+IR scale hidden inside Lambda_R.
+
+DEFECT: the self-scan trap for the FOURTH time (a strict pattern matched
+the PROSE of the conditional statement). Scans must target assignments
+and emitted artifacts, never descriptive text.
+
+NEXT AUTHORIZED: OWNER DECISION -- invoke fork (ii) and price a new IR
+input, or leave H^2 fork-gated. Gate-E and the noise fork untouched.
+W-0; register untouched.
