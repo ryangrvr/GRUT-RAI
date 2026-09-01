@@ -3,7 +3,7 @@
 **Date:** 2026-09-01 · **Authorization:** owner (retarded assembly only;
 noise α = −2 never enters; ω ≪ H forbidden) · **Instrument:**
 `wall_kr_tier4_retarded.py` · **Artifact:**
-`WALL_KR_CONTRACT_RETARDED_RESULT.json` (sha `5bad5574…`) ·
+`WALL_KR_CONTRACT_RETARDED_RESULT.json` ·
 **Manifest:** `WALL_KR_CONTRACT_RETARDED_MANIFEST.json` (input hash
 provenance). **Battery: 34/34, zero failures, all controls detecting —
 after a two-lens adversarial review whose findings were all adopted
@@ -40,10 +40,14 @@ Im Σ_R^{H⁰} = −(3/1280π)ω⁴, Im Σ_R^{H²} = −(13/480π)H²ω².
 - **Retarded completion (the tier's only new analytic content):** the
   unique upper-half-plane completion of each frozen scale-free
   absorptive law, gated two ways: (i) its Im part equals the frozen
-  values exactly; (ii) an INDEPENDENT numeric 5×-subtracted
-  principal-value Kramers–Kronig transform of the absorptive law
-  reproduces the log-form's polynomial-free fifth derivative
-  (rel 7×10⁻³, finite-difference-limited).
+  values exactly; (ii) INDEPENDENT numeric subtracted principal-value
+  Kramers–Kronig transforms reproduce the log-forms' polynomial-free
+  derivatives for BOTH laws (n = 4: rel 7×10⁻³, UV-cutoff-limited per
+  the review; n = 2: its own 3×-subtracted gate). The reviewer further
+  verified the +iπ retarded branch by an independent Cauchy-contour
+  test (upper-half-plane analyticity to 1e-41) and its n-independence.
+  Recorded IR systematic: the H² dispersion formally samples ω′ ≲ H;
+  the induced Re error is O(ε_H²) relative to the retained term.
 - **Both Dyson objects, kept separate:** G₁ = G₀ + G₀ΣG₀ and
   G_R = 1/(G₀⁻¹ − Σ), with the exact symbolic identity
   G_R − G₁ = G₀³Σ² + O(Σ³) gated, and the agreement domain |λ| ≪ 1
