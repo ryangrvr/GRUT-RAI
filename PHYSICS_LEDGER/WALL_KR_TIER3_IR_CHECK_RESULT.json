@@ -1,0 +1,63 @@
+{
+ "instrument": "wall_kr_tier3_ir_check.py",
+ "authorization": "owner 2026-09-01: substitution-only retarded H^2 IR check; HARD STOP after",
+ "out": {
+  "im_sigma_H2_general_d": "2**(-2*d - 7)*pi**(1 - d/2)*omega**(d - 1)*(-14*d**7 - 103*d**6 + 27*d**5 + 935*d**4 + 151*d**3 - 536*d**2 - 348*d - 1008)/((d - 1)**2*gamma(d/2 + 4))",
+  "im_sigma_H2_d3": "-13*omega**2/(480*pi)",
+  "ratio_H2_over_H0_d3": "104/(9*omega**2)",
+  "verdict": "RETARDED VALIDITY BOUNDARY"
+ },
+ "checks": [
+  {
+   "pass": true,
+   "msg": "frozen T3 merged artifact sha 4c016e93... (untouched)",
+   "gate": "PIN"
+  },
+  {
+   "pass": true,
+   "msg": "H^0 cone split complete (no strays)",
+   "gate": "H0"
+  },
+  {
+   "pass": true,
+   "msg": "Im Sigma_R^{H0} == -3 omega^4/(1280 pi) -- matches the frozen, three-route-validated value EXACTLY (the substitution machinery is pinned before touching H^2)",
+   "gate": "H0"
+  },
+  {
+   "pass": true,
+   "msg": "H^2 cone split complete (no strays)",
+   "gate": "H2"
+  },
+  {
+   "pass": true,
+   "msg": "H^2 cone coefficient is u_b-free (gated)",
+   "gate": "H2"
+  },
+  {
+   "pass": true,
+   "msg": "EXISTENCE: Im Sigma_R^{H2}(omega) exists at fixed omega > 0 and is SMOOTH at d = 3 (no surviving 1/(d-3) pole: residue = 0)",
+   "gate": "H2"
+  },
+  {
+   "pass": true,
+   "msg": "the ratio has a definite leading omega power (found omega^-2 with coefficient 104/(9*H**2), per H^2)",
+   "gate": "RATIO"
+  }
+ ],
+ "notes": [
+  "T3 instrument sha = 1c72272b54d09f31...",
+  "integrand cache sha = 47fde70f8e025af9...",
+  "adjudication commit b4a6943; T3 commit 65ccb1b; owner authorization = substitution-only, this instrument",
+  "RETARDED cache only is read; the noise entry nk_wigner is NOT loaded (owner rule: the noise result may not force this verdict)",
+  "Im Sigma_R^{H2}(omega; d=3, u_b=0) = -13*omega**2/(480*pi)",
+  "Sigma_H2 / Sigma_H0 (absorptive, d = 3) = 104/(9*omega**2)",
+  "spot: omega=1.0, H=0.1 -> ratio = 11.555556",
+  "spot: omega=0.5, H=0.1 -> ratio = 46.222222",
+  "spot: omega=0.25, H=0.1 -> ratio = 184.88889",
+  "spot: omega=2.0, H=0.3 -> ratio = 2.8888889",
+  "VERDICT: RETARDED VALIDITY BOUNDARY -- Im Sigma^{H2}/Im Sigma^{H0} = (exact) 104/(9*omega**2): the retarded H^2 sector EXISTS at every fixed omega > 0 with no IR scale, and the graded expansion is controlled for omega >> H, marginal at omega ~ H, and NOT VALID for omega << H (no extrapolation performed -- the strict omega -> 0 limit is nonuniform in H). The noise alpha = -2 finding remains a SEPARATE SK-state record and was not consulted."
+ ],
+ "failures": [],
+ "elapsed_s": 244.8,
+ "hard_stop": "no H^2 radial integration performed; no regulator; no noise input; no benchmark/J/matter content; frozen T3 untouched"
+}

@@ -1,0 +1,33 @@
+=== PINS (read-only) ===
+  ok   frozen T3 merged artifact sha 4c016e93... (untouched)
+  note T3 instrument sha = 1c72272b54d09f31...
+  note integrand cache sha = 47fde70f8e025af9...
+  note adjudication commit b4a6943; T3 commit 65ccb1b; owner authorization = substitution-only, this instrument
+[    0.1s] frozen machinery loaded from the committed instrument
+  note RETARDED cache only is read; the noise entry nk_wigner is NOT loaded (owner rule: the noise result may not force this verdict)
+
+=== H^0 (consistency pin against the frozen artifact) ===
+  ok   H^0 cone split complete (no strays)
+  ok   Im Sigma_R^{H0} == -3 omega^4/(1280 pi) -- matches the frozen, three-route-validated value EXACTLY (the substitution machinery is pinned before touching H^2)
+
+=== H^2 (substitution-level; u_b = 0 Wigner convention) ===
+[  144.7s] H^2 cone extraction done (120.9s)
+  ok   H^2 cone split complete (no strays)
+  ok   H^2 cone coefficient is u_b-free (gated)
+  ok   EXISTENCE: Im Sigma_R^{H2}(omega) exists at fixed omega > 0 and is SMOOTH at d = 3 (no surviving 1/(d-3) pole: residue = 0)
+  note Im Sigma_R^{H2}(omega; d=3, u_b=0) = -13*omega**2/(480*pi)
+
+=== RATIO AND CLASSIFICATION ===
+  note Sigma_H2 / Sigma_H0 (absorptive, d = 3) = 104/(9*omega**2)
+  ok   the ratio has a definite leading omega power (found omega^-2 with coefficient 104/(9*H**2), per H^2)
+  note spot: omega=1.0, H=0.1 -> ratio = 11.555556
+  note spot: omega=0.5, H=0.1 -> ratio = 46.222222
+  note spot: omega=0.25, H=0.1 -> ratio = 184.88889
+  note spot: omega=2.0, H=0.3 -> ratio = 2.8888889
+
+=== VERDICT ===
+  note VERDICT: RETARDED VALIDITY BOUNDARY -- Im Sigma^{H2}/Im Sigma^{H0} = (exact) 104/(9*omega**2): the retarded H^2 sector EXISTS at every fixed omega > 0 with no IR scale, and the graded expansion is controlled for omega >> H, marginal at omega ~ H, and NOT VALID for omega << H (no extrapolation performed -- the strict omega -> 0 limit is nonuniform in H). The noise alpha = -2 finding remains a SEPARATE SK-state record and was not consulted.
+
+artifact: /Users/mpg/Desktop/GRUT ResponsiveAI/PHYSICS_LEDGER/WALL_KR_TIER3_IR_CHECK_RESULT.json (sha a43633f5d34f6895...)
+IR CHECK: 7/7 passed; failures: 0
+HARD STOP.

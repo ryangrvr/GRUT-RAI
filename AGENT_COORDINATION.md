@@ -4565,3 +4565,28 @@ CONSEQUENCE FOR THE H^2 FORK:
       validity boundary Tier 2 declared; gate-grade confirmation is ONE
       substitution-level evaluation, awaiting authorization.
 DELIVERABLE: PHYSICS_LEDGER/WALL_KR_TIER3_FORK_ADJUDICATION.md. HARD STOP.
+
+================================================================================
+2026-09-01 -- RETARDED H^2 IR CHECK (owner-authorized, SUBSTITUTION ONLY)
+================================================================================
+Instrument wall_kr_tier3_ir_check.py (execs the FROZEN T3 machinery, no
+reimplementation); reads the retarded cache ONLY (noise entry never loaded);
+7/7, zero failures. Machinery pinned on H^0 first (reproduces the frozen
+-3 omega^4/(1280 pi) exactly), then the authorized substitution:
+
+  Im Sigma_R^{H2}(omega; d=3, u_b=0) = -(13/480 pi) H^2 omega^2
+  EXISTS at every fixed omega > 0; SMOOTH at d = 3 (zero 1/(d-3) residue);
+  NO IR scale introduced; same (passive) sign as H^0.
+
+  RATIO (exact):  Sigma_H2 / Sigma_H0 = (104/9) H^2/omega^2
+
+VERDICT (rule declared before the numbers): **RETARDED VALIDITY BOUNDARY**
+-- the retarded contract chain remains defined at fixed omega; the graded
+expansion is controlled for omega >> H, marginal at omega ~ H, NOT VALID
+for omega << H (the strict omega->0 limit is nonuniform in H; no
+extrapolation performed). The noise alpha=-2 divergence remains a SEPARATE
+SK-state/KMS finding, not consulted for this verdict.
+
+The owner's predicted map is now exact: retarded chain defined at fixed
+omega; omega->0 nonuniform in H; the power divergence confined to the
+noise/state sector. HARD STOP. Frozen T3 untouched (sha 4c016e93 pinned).
