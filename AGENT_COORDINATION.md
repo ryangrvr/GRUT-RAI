@@ -4527,3 +4527,41 @@ TIER-3 HARD STOP: no final K_R, no G_R^TT dressing, no D5, no full D4, no
 benchmark cells, no comparator, no new pole classification, no bath/Tier-1
 edits, no Ward repair. The loop record is frozen pending owner inspection;
 THE FORK-(ii) DECISION IS ON THE OWNER'S DESK. W-0; register untouched (+16).
+
+================================================================================
+2026-09-01 -- FORK ADJUDICATION (owner-ordered bounded audit; READ-ONLY)
+================================================================================
+QUESTION: does the frozen K_R^(contract) definition consume the noise-sector
+object whose alpha=-2 divergence fired the fork, or is K_R retarded-only?
+
+METHOD: verbatim read of the frozen record (rung1_inin_formalism,
+rung2_kms_gate + its ledger note, K_R_OWNER_CHARTER, K_R_CHARTER_AUDIT,
+K_R_CONTRACT_EXECUTION_CHARTER, MICROSCOPIC_TARGET_BENCHMARK, A3
+declarations fence). NO computation; NO H^2 integration; NO regulator; the
+frozen T3 artifact untouched.
+
+CLASSIFICATION: **B, determinate, with one chartered caveat.**
+  * K_R is BY DEFINITION the retarded dissipation kernel of S_IF (rung1);
+    the register's own ledger REMOVED N as an independent input ("-1: N
+    removed ... locked to Im chi"); the Dyson form is retarded verbatim;
+    BOTH benchmark axes -- including the white floor itself, which is an
+    Im chi statement -- consume retarded data.
+  * Caveat: Tier-4 gate E requires the (K_R, N) FDT-lock VERIFICATION; at
+    O(H^2) the actual SK noise (alpha=-2) and the FDT-image of the finite
+    retarded data cannot both hold -- a COMPUTED KMS-admissibility finding
+    about the non-stationary dS state (the frozen fence: state spec != KMS
+    of the interacting response). Lands at rung2 scope for the OWNER.
+
+CONSEQUENCE FOR THE H^2 FORK:
+  (a) noise/secular class + gate-E at O(H^2): fork FULLY ACTIVE at the
+      power class; the invocation doc stands for the owner's pricing.
+  (b) retarded fixed-omega chain: constructible AS FROZEN with no IR scale
+      (delta-support at q = omega/2 -- the Tier-2 split reappearing at loop
+      level; the alpha=-1 divergence lives in the BI-TIME representation
+      only). Its IR question lands in the benchmark's OWN preregistered
+      three-way fork, evaluated omega->0 LAST at the K_R tier. Scaling-
+      grade (recorded coefficients, no integration): Im Sigma^{H2} ~
+      H^2 omega^2 vs flat omega^4 -- the omega->0 axis hits the H^2/omega^2
+      validity boundary Tier 2 declared; gate-grade confirmation is ONE
+      substitution-level evaluation, awaiting authorization.
+DELIVERABLE: PHYSICS_LEDGER/WALL_KR_TIER3_FORK_ADJUDICATION.md. HARD STOP.
