@@ -1,0 +1,302 @@
+{
+ "instrument": "wall_kr_h2_local_fork.py",
+ "instrument_sha256": "a6de6741d60f8b03f01d65cc18eddb88fe3ef0d58999090c2adf40ee51e7f4b1",
+ "verdict": "H2-B",
+ "h2_local_coefficients": "UNRESOLVED (registered IR fork)",
+ "new_independent_input": false,
+ "H0_Lambda_R_status": "ONE, unchanged",
+ "axis2_status": "C, unchanged (not computed here)",
+ "noise_fork": "NOT TOUCHED",
+ "register_modified": false,
+ "out": {
+  "h2_local_ansatz": {
+   "slot": "H^2 (c0p + c2p omega^2)",
+   "notation": "c0p, c2p preserved",
+   "basis_expanded": false
+  },
+  "radial_term_classification": [
+   {
+    "delta_power": 0,
+    "q_power": 0,
+    "a_at_d3": 3,
+    "strip_hi": 1,
+    "pole_origin": "UV"
+   },
+   {
+    "delta_power": 0,
+    "q_power": -1,
+    "a_at_d3": 2,
+    "strip_hi": 1,
+    "pole_origin": "UV"
+   },
+   {
+    "delta_power": 0,
+    "q_power": -2,
+    "a_at_d3": 1,
+    "strip_hi": 1,
+    "pole_origin": "UV"
+   },
+   {
+    "delta_power": 0,
+    "q_power": -3,
+    "a_at_d3": 0,
+    "strip_hi": 1,
+    "pole_origin": "IR"
+   },
+   {
+    "delta_power": 0,
+    "q_power": -4,
+    "a_at_d3": -1,
+    "strip_hi": 1,
+    "pole_origin": "IR"
+   },
+   {
+    "delta_power": 1,
+    "q_power": 1,
+    "a_at_d3": 4,
+    "strip_hi": 2,
+    "pole_origin": "UV"
+   },
+   {
+    "delta_power": 1,
+    "q_power": 0,
+    "a_at_d3": 3,
+    "strip_hi": 2,
+    "pole_origin": "UV"
+   },
+   {
+    "delta_power": 1,
+    "q_power": -1,
+    "a_at_d3": 2,
+    "strip_hi": 2,
+    "pole_origin": "UV"
+   },
+   {
+    "delta_power": 1,
+    "q_power": -2,
+    "a_at_d3": 1,
+    "strip_hi": 2,
+    "pole_origin": "convergent"
+   },
+   {
+    "delta_power": 1,
+    "q_power": -3,
+    "a_at_d3": 0,
+    "strip_hi": 2,
+    "pole_origin": "IR"
+   }
+  ],
+  "ir_cutoff_ladder": [
+   [
+    0.01,
+    "(27.016937401925393+0j)"
+   ],
+   [
+    0.001,
+    "(289.62158898759935+0j)"
+   ],
+   [
+    0.0001,
+    "(2924.9841247380577+0j)"
+   ],
+   [
+    1e-05,
+    "(29287.94644979047+0j)"
+   ]
+  ],
+  "verdict": {
+   "code": "H2-B",
+   "text": "H^2 local coefficients NOT uniquely determined: a registered scheme/IR ambiguity remains",
+   "reason": "the H^2 direct radial integral requires the IR region: 3 of its terms have master exponent a <= 0 at d = 3 (q^-3 and q^-4 structures), so the 1/(d-3) poles are IR-CONTAMINATED. Pole-only MS is licensed for UV poles only; subtracting an IR-origin pole with a local counterterm would be exactly the illegitimate move the frozen record forbids",
+   "fork_status": "the REGISTERED IR-scale condition is ENCOUNTERED. No scale was invented; no dimensional-regularization interpretation was manufactured for an IR divergence; the stage STOPS here pending the owner's fork decision",
+   "not_H2_A": "H^2 locals were NOT determined -- and were not forced",
+   "not_H2_C": "no structural inconsistency and no unregistered operator: the UV-origin poles fit the frozen basis; the obstruction is the IR condition, which the record already anticipated and registered"
+  },
+  "h2_local_coefficients": {
+   "c0p": "UNRESOLVED (fork)",
+   "c2p": "UNRESOLVED (fork)",
+   "conditional_structure": "IF the fork were resolved so that the extraction became legitimate, the scale-free omega^(d-1) form would carry the single power omega^2 at d = 3, which would force c0p = 0 structurally and leave c2p as the one determined H^2 constant. RECORDED AS CONDITIONAL ONLY -- it is NOT claimed, because the extraction is not currently licensed"
+  },
+  "parameter_count_impact": {
+   "H0": "UNCHANGED -- exactly one irreducible unresolved constant, Lambda_R (certified; this stage does not touch it)",
+   "H2_contribution": "NONE ADDED. No H^2 constant is demonstrated, so none is counted. The H^2 sector remains fork-gated and OUTSIDE the count",
+   "new_independent_input": "NO -- and none was introduced",
+   "double_counting_avoided": "no redundant parameterization is counted twice; nothing was folded into Lambda_R"
+  },
+  "worktree": [
+   "?? .h2_cone.json",
+   "?? h2_cone_extract.log",
+   "?? wall_kr_h2_fork_run1.log",
+   "?? wall_kr_h2_local_fork.py"
+  ]
+ },
+ "checks": [
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...",
+   "gate": "FRZ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...",
+   "gate": "FRZ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_TIER3_IR_CHECK_RESULT.json == a43633f5d34f6895...",
+   "gate": "FRZ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...",
+   "gate": "FRZ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...",
+   "gate": "FRZ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "FROZEN H^2 NONLOCAL INPUT loaded unchanged: Im Sigma_R^{H2} = -13 omega^2/(480 pi) (per H^2) -- read from the frozen artifact, NOT refitted",
+   "gate": "FRZ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "no Axis-2 output, benchmark artifact, J(omega) instrument or plant is read (read-set intersected with the prohibited set is empty)",
+   "gate": "FW",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "no spectral-outcome token in this instrument's source",
+   "gate": "FW",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: outcome-token scanner has teeth (runtime-assembled sentinel is detected)",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "the registered H^2 local slot is EXACTLY H^2 (c0p + c2p omega^2) -- notation preserved, and NO c4p or other operator is added",
+   "gate": "ANSATZ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "the frozen H^2 cone extraction is COMPLETE (no stray phases) -- the input to this stage is the certified Tier-3 object",
+   "gate": "H2IN",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "H^2 radial term inventory built from the frozen cone: 10 terms",
+   "gate": "H2IN",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "classification executed on all 10 terms: 3 IR-origin, 6 UV-origin, 1 convergent",
+   "gate": "IR",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "ROUTE B CONFIRMS ROUTE A: the H^2 radial integral at d = 3 DIVERGES as the small-q cutoff falls (|I| grows by a factor 1.08e+03 from delta = 1e-2 to 1e-5) -- the IR end genuinely contributes, demonstrated numerically and not merely inferred from power counting",
+   "gate": "IR",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: IR-detector teeth: an IR-FINITE surrogate integrand shows NO such growth under the same ladder -- the detector responds to the divergence, not to shrinking the interval",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "DECISIVE: 3 radial terms have IR-origin poles at d = 3 (a = [-1, 0]). MS pole-only subtraction against the frozen 1b counterterm basis is licensed for UV poles ONLY; an IR-origin 1/(d-3) cannot be absorbed by a local counterterm",
+   "gate": "POLE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "PARAMETER COUNT: H^0 stays at exactly ONE (Lambda_R); H^2 adds NOTHING because nothing was demonstrated -- the sector stays fork-gated and outside the count",
+   "gate": "COUNT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: A. wrong-evanescent/projector: freezing the projector algebra at d = 3 while continuing the measure changes the radial structure (q-powers [-4, -3, -2, -1, 0, 1] vs [-4, -3, -2, -1, 0, 1]) -- the inconsistent continuation is visible to the inventory",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: B. wrong-local-reference: a 10%% perturbation of the frozen H^2 nonlocal reference is caught by the comparison against the artifact value",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: C. wrong-subtraction: a local counterterm cannot remove the cutoff dependence demonstrated in Route B -- any 'MS' finite part extracted here would still depend on the IR cutoff, which is precisely why the fork fires",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "every frozen upstream artifact BYTE-IDENTICAL to its pre-run hash (Tier-1..4, D5, the H^0 ledger, the declarations)",
+   "gate": "FRZ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "register provenance/claims.json byte-identical -- untouched",
+   "gate": "FRZ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "H^0 absorptive coefficient A unchanged; H^2 log coefficient and Im Sigma_R^{H2} unchanged; Tier-4 branch structure untouched",
+   "gate": "FRZ",
+   "detail": null
+  }
+ ],
+ "notes": [
+  "input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...",
+  "input sha WALL_KR_D5_EXECUTION_RESULT.json = b60cecc2f7d356f7...",
+  "input sha WALL_KR_H0_PARAMETER_LEDGER_RESULT.json = 8f4adb633fbe44ad...",
+  "frozen Tier-4 local_slot: c0 + c2 omega^2 + c4 omega^4 + H^2(c0p + c2p omega^2), REAL, UNDETERMINED (D5/scheme; frozen renormalization conditions deferred); mu symbolic (absorbable into c4/c2p)",
+  "POWER COUNTING (the reason for that slot): the H^2 direct response is scale-free in omega, so it carries the single power omega^(d-1) (at d = 3: omega^2). An F1-local partner is an even polynomial in omega with H^2 coefficients; at this order the admissible entries are omega^0 and omega^2, i.e. exactly (c0p, c2p)",
+  "Option-beta inherited verbatim from D5: spatial continuation d = 3 - 2 eps (from D3/Option-3a), pole-only MS, NO new IR scale, NO new regulator freedom, and NO scheme choice taken from any outcome. Option alpha is NOT reopened",
+  "ROUTE A (analytic): each radial master converges only for 0 < Re a < n+1; a <= 0 is the IR end, a >= n+1 the UV end",
+  "  Delta^0 q^0 -> a(d=3) = 3, strip (0, 1) : UV",
+  "  Delta^0 q^-1 -> a(d=3) = 2, strip (0, 1) : UV",
+  "  Delta^0 q^-2 -> a(d=3) = 1, strip (0, 1) : UV",
+  "  Delta^0 q^-3 -> a(d=3) = 0, strip (0, 1) : IR",
+  "  Delta^0 q^-4 -> a(d=3) = -1, strip (0, 1) : IR",
+  "  Delta^1 q^1 -> a(d=3) = 4, strip (0, 2) : UV",
+  "  Delta^1 q^0 -> a(d=3) = 3, strip (0, 2) : UV",
+  "  Delta^1 q^-1 -> a(d=3) = 2, strip (0, 2) : UV",
+  "  Delta^1 q^-2 -> a(d=3) = 1, strip (0, 2) : convergent",
+  "  Delta^1 q^-3 -> a(d=3) = 0, strip (0, 2) : IR",
+  "  delta = 1e-2 -> int_delta^0.4 = 27.0169374",
+  "  delta = 1e-3 -> int_delta^0.4 = 289.621589",
+  "  delta = 1e-4 -> int_delta^0.4 = 2924.984125",
+  "  delta = 1e-5 -> int_delta^0.4 = 29287.94645",
+  "the UV-origin poles (a = [1, 2, 3, 4]) DO map onto the registered curvature/local class; no operator outside the frozen basis is required for them -- the obstruction is not a basis deficiency",
+  "SEPARATION HELD (owner's section 7): this is the RETARDED LOCAL sector. The noise alpha = -2 result was NOT imported and plays no role; the divergence found here is a property of the RETARDED radial integrand itself",
+  "VERDICT code: H2-B",
+  "VERDICT text: H^2 local coefficients NOT uniquely determined: a registered scheme/IR ambiguity remains",
+  "VERDICT reason: the H^2 direct radial integral requires the IR region: 3 of its terms have master exponent a <= 0 at d = 3 (q^-3 and q^-4 structures), so the 1/(d-3) poles are IR-CONTAMINATED. Pole-only MS is licensed for UV poles only; subtracting an IR-origin pole with a local counterterm would be exactly the illegitimate move the frozen record forbids",
+  "VERDICT fork_status: the REGISTERED IR-scale condition is ENCOUNTERED. No scale was invented; no dimensional-regularization interpretation was manufactured for an IR divergence; the stage STOPS here pending the owner's fork decision",
+  "VERDICT not_H2_A: H^2 locals were NOT determined -- and were not forced",
+  "VERDICT not_H2_C: no structural inconsistency and no unregistered operator: the UV-origin poles fit the frozen basis; the obstruction is the IR condition, which the record already anticipated and registered",
+  "files added/changed: ?? .h2_cone.json | ?? h2_cone_extract.log | ?? wall_kr_h2_fork_run1.log | ?? wall_kr_h2_local_fork.py"
+ ],
+ "failures": [],
+ "elapsed_s": 3.6
+}

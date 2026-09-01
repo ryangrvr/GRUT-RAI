@@ -5105,3 +5105,59 @@ teeth-controls. DISCLOSED CARVE-OUT: claims.json is barred for
 LOOP-COMPUTING instruments; read here for GOVERNANCE ACCOUNTING only.
 
 NEXT AUTHORIZED STAGE: THE H^2 LOCAL FORK. W-0; register untouched.
+
+================================================================================
+2026-09-01 -- H^2 LOCAL FORK: VERDICT H2-B (registered IR condition hit)
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_h2_local_fork.py
+DOC:        WALL_KR_H2_LOCAL_FORK.md
+ARTIFACT:   WALL_KR_H2_LOCAL_FORK_RESULT.json
+BATTERY: 24/24, zero failures, FIRST RUN. FROZEN INPUTS TOUCHED: NONE
+(Tier-1..4, D5, H^0 ledger, declarations, register all byte-identical).
+
+VERDICT: **H2-B** -- H^2 local coefficients NOT uniquely determined; a
+registered scheme/IR ambiguity remains. NOT forced to H2-A; not H2-C.
+
+WHY: the H^2 direct radial integral GENUINELY REQUIRES the IR region, so
+its 1/(d-3) poles are IR-CONTAMINATED and pole-only MS cannot legitimately
+extract a finite local part. No scale invented; no dim-reg interpretation
+manufactured for an IR divergence.
+
+TWO INDEPENDENT ROUTES:
+ A (analytic): each radial master converges only for 0 < Re a < n+1;
+   a <= 0 is the IR end. Inventory of the frozen H^2 cone at d = 3:
+   Delta^0: q^0 (a=3,UV), q^-1 (a=2,UV), q^-2 (a=1,UV), **q^-3 (a=0,IR)**,
+            **q^-4 (a=-1,IR)**
+   Delta^1: q^1 (a=4,UV), q^0 (a=3,UV), q^-1 (a=2,UV), q^-2 (a=1,conv),
+            **q^-3 (a=0,IR)**
+   => THREE IR-origin poles (a = 0 and a = -1).
+ B (numeric, independent): the d=3 radial integrand from cutoff delta:
+   1e-2 -> 27.0169 ; 1e-3 -> 289.622 ; 1e-4 -> 2924.98 ; 1e-5 -> 29287.9
+   ~10x PER DECADE = a 1/delta POWER divergence, exactly the strength the
+   a = -1 (q^-4) term predicts. DEMONSTRATED, not inferred. TEETH: an
+   IR-finite surrogate shows NO growth under the identical ladder.
+
+NOT A BASIS DEFICIENCY: the UV-origin poles (a = 1,2,3,4) map onto the
+registered curvature/local class; NO operator outside the frozen basis is
+required and none was added.
+
+SEPARATION HELD: this is the RETARDED LOCAL sector; the noise alpha = -2
+result was NOT imported and plays no role -- the divergence is a property
+of the retarded radial integrand itself.
+
+CONDITIONAL STRUCTURE (recorded, NOT claimed): if the fork were resolved
+so the extraction became legitimate, the scale-free omega^(d-1) form
+would carry the single power omega^2 at d = 3, forcing c0p = 0
+structurally and leaving c2p as the one determined H^2 constant -- exact
+parallel to H^0. NOT claimed; the extraction is not licensed.
+
+PARAMETER COUNT: H^0 UNCHANGED (exactly one, Lambda_R). H^2 ADDS NOTHING
+(nothing demonstrated => nothing counted); the sector stays fork-gated
+and OUTSIDE the count. NEW INDEPENDENT INPUT: NO.
+
+CONTROLS all detecting: wrong-evanescent/projector; wrong-local-reference
+(10% perturbation of the frozen nonlocal caught); wrong-subtraction (a
+local counterterm cannot remove Route B's cutoff dependence).
+
+NEXT AUTHORIZED: OWNER FORK DECISION on the H^2 IR condition. Gate-E and
+the noise fork remain separate and untouched. W-0; register untouched.
