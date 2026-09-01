@@ -21,7 +21,7 @@ The owner's instruction was explicit: *if μ and c4 were never counted as
 independent frozen inputs, do not manufacture a numerical "reduction."*
 
 **They were never counted.** Verified mechanically against the register:
-it contains **no Λ_R entry and no c4 entry** — its single  string
+it contains **no Λ_R entry and no c4 entry** — its single `c4` string
 match is the substring of the prose token **"Sec4"**. The entire
 contract-K_R campaign has been W-0 (computed-and-reported, not banked)
 throughout.
@@ -36,10 +36,10 @@ independent constant.*
 The register already uses the symbol **μ** for a **different physical
 quantity**: the linear-cosmology modification parameter μ = 1 + α
 (μ = 1 GR-like; μ = 4/3 trace-only, ISW-excluded), in the nodes
- and . That is **not** the
+`mu_linear` and `zeta_interior_family`. That is **not** the
 renormalization scale of the contract H⁰ kernel.
 
-This surfaced only in this stage, because  is itself a
+This surfaced only in this stage, because `claims.json` is itself a
 barred file that the μ-audit correctly did not read. It changes nothing
 about μ-RULING-C — but it is an independent reason to carry the new
 constant as **Λ_R** rather than as "μ", and it is recorded here so no
@@ -89,9 +89,9 @@ only — no loop quantity, no spectral object, no modification.
 
 ## PROVENANCE
 
-D5 H⁰ c0/c2/c4 →  / ; μ-RULING-C → ; Owner
-Decision Record → ; the Λ_R reparameterization → 
-(package §3) and  (gated both ways). The uncertified pre-repair
+D5 H⁰ c0/c2/c4 → `12ea453` / `04b8d6c`; μ-RULING-C → `eef50eb`; Owner
+Decision Record → `fb3ce39`; the Λ_R reparameterization → `4a2e728`
+(package §3) and `fb3ce39` (gated both ways). The uncertified pre-repair
 Axis-2 runs are **not cited and not read**.
 
 ## HARD STOP
