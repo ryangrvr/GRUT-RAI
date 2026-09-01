@@ -4883,3 +4883,63 @@ OWNER QUEUE: (1) the mu-convention ruling (mu in plant units) -- and per
 the critical principle it may NOT be justified by any spectral or memory
 outcome; (2) noise fork / H^2 locals; (3) gate-E; (4) T4 +
 consequence-cell adjudications. W-0; register untouched (+16).
+
+================================================================================
+2026-09-01 -- mu-CONVENTION AUDIT: RULING C (governance, no calculation)
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_mu_convention_audit.py
+ARTIFACT:   WALL_KR_MU_CONVENTION_RESULT.json
+RULING DOC: WALL_KR_MU_CONVENTION_RULING.md
+BATTERY: 20/20, zero failures. FROZEN INPUTS TOUCHED: NONE.
+AXIS-2: C, unchanged, NOT re-adjudicated.
+
+RULING: **mu-RULING-C** -- NO PRE-EXISTING NUMERICAL mu CONVENTION; a
+numerical mu WOULD BE A NEW INPUT. Derived mechanically from the
+candidate table (count of candidates supplying a number = 0); no Axis-2
+quantity enters, verified at source level.
+
+DIMENSIONAL RESULT: mu enters only as the measure factor mu^(3-d) and
+inside log(mu^2/omega^2); mu d/dmu Sigma = 2A omega^4 is mu-independent
+and, with the certified slot, the kernel is EXACTLY homogeneous of
+degree 4 under (omega, mu) -> (lam omega, lam mu). So [mu] = [omega] =
+[WC] = frequency, and identifying mu numerically with any multiple of WC
+is an ADDITIONAL convention, not a dimensional necessity.
+
+THE CANDIDATES AND WHY EACH FAILS TO SUPPLY A NUMBER:
+ (i)   Declaration 1 MS: REGISTERED but it REFUSES to fix mu ('kept
+       symbolic and its dependence recorded'); no numeric value anywhere.
+ (ii)  matter-stage MS-bar with mu = 1 (wall_j_omega_comparison.py:211,
+       inside chi_A, 'the FROZEN response, EVALUATED as computed'): an
+       EVALUATION SLICE in a comparison instrument, MATTER scope, in
+       that kernel's master units. Charter STEP 10 permits only
+       validated machinery + the sign dictionary to cross scopes and
+       forbids parameter transfer; a numerical renormalization scale is
+       a PARAMETER, not convention algebra.
+ (iii) mu = WC: **BARRED BY CONSTRUCTION** -- WC = 1.0 is defined in
+       wall_a_g1_ohmic_plant.py, which the registry lists as a barred
+       input ('G1 Ohmic plant (carries registered J(omega) explicitly)'),
+       and the registry's forbidden_direction is 'registered J(omega) ->
+       Sigma_R construction'. Setting the RESPONSE's renormalization
+       scale from the COMPARATOR's validity scale is exactly that flow.
+       THIS IS THE KEY FINDING: the most tempting convention is the one
+       the blind-discipline explicitly forbids.
+ (iv)  mu = omega / omega-dependent: nowhere declared; would be invented.
+ (v)   a physical scale (H, m): nowhere declared; H absent at H^0 by
+       construction; m is matter scope.
+
+WHAT IS REGISTERED vs NOT: the SCHEME (dS-invariant dim reg; the spatial
+continuation per Option beta) and the SUBTRACTION (pole-only MS, zero
+finite discretion) ARE registered. The renormalization POINT is NOT.
+
+IF THE OWNER DECLARES mu: it must be PRICED AS A NEW REGISTER INPUT and
+justified from normalization/renormalization setup ALONE -- the critical
+principle bars spectral/memory/benchmark/outcome justification.
+
+DEFECT HISTORY (gate-side): the anti-circularity gate failed ON ITSELF
+twice -- its banned-token list necessarily contains the forbidden
+strings, then the excision markers matched their own finder lines.
+Repaired with a concatenation-built marker. No physics involved.
+
+OWNER QUEUE: (1) the mu new-input decision (price it, or leave Axis-2 at
+C); (2) noise fork / H^2 locals; (3) gate-E; (4) T4 + consequence-cell
+adjudications. W-0; register untouched (+16).

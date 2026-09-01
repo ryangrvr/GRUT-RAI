@@ -1,0 +1,58 @@
+=== PROVENANCE ===
+  ok   pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...
+  ok   pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  ok   pin WALL_KR_CONTRACT_BENCHMARK_RESULT.json == 1ac17a18ce8c0b8f...
+  note input sha WALL_KR_D5_EXECUTION_RESULT.json = b60cecc2f7d356f7...
+  note input sha WALL_KR_AXIS2_H0_RESULT.json = 81bc28cfe7aea3a1...
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  ok   pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...
+  ok   pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...
+  note input sha K_R_OWNER_CHARTER.md = 49f94a7ca4304e70...
+
+=== D: INDEPENDENCE FROM THE AXIS-2 OUTCOME ===
+  FAIL the executable body contains NO Axis-2 outcome token (no regime name, no boundary number, no omega* value): the ruling cannot be steered by the spectral result -- checked at source level, with the audit's own token list excised from the scan (the gate would otherwise fail on itself)
+  ok   the Axis-2 artifact is HASH-PINNED for provenance only; its 'out' block (which carries the outcome) is never dereferenced
+
+=== A: AUTHORITATIVE DECLARATIONS CONCERNING mu ===
+  note SOURCE 1 -- WALL_A_A3_DECLARATIONS.md (sha 87e2d24d..., FROZEN, predates Axis-2), Declaration 1 / F2: "Renormalisation condition: MINIMAL SUBTRACTION** — pole terms only are subtracted; finite parts of all six basis coefficients are left exactly as the loop produces them; μ is kept symbolic and its dependence recorded as part of Π_local^scheme's data. This is the unique condition with ZERO finite-part discretion — the conservative completi"
+  ok   SOURCE 1 result: Declaration 1 orders mu KEPT SYMBOLIC and its dependence RECORDED. It assigns NO numeric value anywhere -- it is a refusal to fix mu, not a convention that fixes it
+  note SOURCE 2 -- K_R_CONTRACT_EXECUTION_CHARTER.md (sha 5416fa45..., FROZEN): "STEP 10 — MATTER-RESULT BOUNDARY (binding)  **matter K_R pole result ≠ contract K_R pole result.** The matter result is citable only as a separate lower-scope result. No parameter, pole location, spectral behavior, sign-magnitude, or analytic-structure conclusion transfers between the two objects — the only things that carry are VALIDATED MACHINERY (evaluators, continuation discipline, gates) and "
+  ok   SOURCE 2 result: charter STEP 10 permits ONLY validated machinery and the sign dictionary to cross the matter/contract boundary; 'No parameter, pole location, spectral behavior, sign-magnitude, or analytic-structure conclusion transfers'
+  ok   SOURCE 3 -- K_R_OWNER_CHARTER.md: the normalization section fixes the AMPLITUDE chain (A1 vertex normalization, master-unit measure anchored by the A3-1 Im law, the friction convention) and assigns NO numeric renormalization scale
+
+=== B: DIMENSIONAL AUDIT ===
+  ok   mu enters the frozen H^0 kernel ONLY through log(mu^2/omega^2): mu d/dmu Sigma = (2A) omega^4, independent of mu -- so mu is commensurable with omega and with nothing else
+  ok   HOMOGENEITY (executable): with the certified slot the kernel satisfies Sigma(lam*omega, lam*mu) = lam^4 Sigma(omega, mu) EXACTLY -- mu carries the SAME dimension as omega (frequency; equivalently spatial wavenumber, the bath being massless with omega = |k|). Provenance: mu entered the D5 execution as the measure factor mu^(3-d) of the SPATIAL continuation
+  note DIMENSIONAL RESULT: [mu] = [omega] = [WC] = frequency. Nothing in the dimensional structure selects a numerical value
+
+=== C: CANDIDATE CONVENTIONS, WITH PROVENANCE ===
+  ok   CANDIDATE (iii) mu = WC is BARRED BY CONSTRUCTION: WC is defined in wall_a_g1_ohmic_plant.py, which the registry lists as a barred input ('G1 Ohmic plant (carries registered J(omega) explicitly)'), and the registry's forbidden_direction is 'registered J(omega) -> Sigma_R construction'. Setting the RESPONSE's renormalization scale from the COMPARATOR's validity scale is exactly that forbidden flow
+  ok   CANDIDATE (ii) LOCATED: the MATTER-stage J instrument substitutes muS: 1 (with the MS-bar constant log(4 pi) - EulerGamma) at line 211, INSIDE chi_A -- documented there as 'the FROZEN response, EVALUATED as computed'. It is an EVALUATION SLICE inside a comparison instrument, at MATTER scope, in that kernel's master units
+  note CANDIDATE (i) Declaration 1 MS, mu symbolic -> REGISTERED -- but it is a REFUSAL to fix mu ('kept symbolic and its dependence recorded'), not a numerical convention
+  note CANDIDATE (ii) matter-stage MS-bar with mu = 1 -> EVALUATION SLICE, not a renormalization declaration; MATTER scope. Charter STEP 10 permits only validated machinery and the sign dictionary to cross t
+  note CANDIDATE (iii) mu = WC (plant validity scale) -> BARRED -- that file is a registry barred input and the flow comparator -> response is the registry's forbidden_direction
+  note CANDIDATE (iv) mu = omega (or any omega-dependent choice) -> would be invented here; also not a fixed scale
+  note CANDIDATE (v) a physical scale (H, m, ...) -> the H^0 sector contains no H by construction; m is matter scope. Would be invented
+
+=== E: NEW-INPUT TEST ===
+  ok   NEW-INPUT TEST: ZERO pre-existing conventions supply a numerical mu at contract scope. Therefore adopting a numerical mu would NOT merely instantiate an already-registered convention -- it would INTRODUCE A NEW FREE INPUT (a renormalization-point declaration)
+
+=== F: RULING ===
+  note RULING code: C
+  note RULING text: NO PRE-EXISTING NUMERICAL mu CONVENTION; A NUMERICAL mu WOULD BE A NEW INPUT
+  note RULING derivation: mechanical from the candidate table: the ruling is the count of candidates that supply a number at contract scope, and no Axis-2 quantity enters
+  note RULING what_is_registered: the SCHEME is registered (dS-invariant dim reg per Declaration 1; the spatial continuation per Option beta) and the SUBTRACTION is registered (pole-only MS, zero finite discretion). What is NOT registered is the renormalization POINT
+  note RULING if_owner_declares_mu: it must be priced as a new register input and justified from normalization/renormalization setup ALONE -- the critical principle bars any spectral/memory/outcome justification
+  ok   ruling emitted as exactly one of A / B / C: mu-RULING-C
+  note AXIS-2 STATUS: C, UNCHANGED -- not re-adjudicated by this audit
+
+=== VALIDATION ===
+  ok   every frozen input byte-identical to its pre-run hash
+  note files added/changed by this stage: ?? WALL_KR_MU_CONVENTION_RESULT.json | ?? wall_kr_mu_audit_run1.log | ?? wall_kr_mu_audit_run2.log | ?? wall_kr_mu_convention_audit.py
+  ok   artifact written and re-read (sha 85c64117e8fe86d0...)
+
+mu-CONVENTION AUDIT: 19/20 passed; failures: 1
+  FAILURE: the executable body contains NO Axis-2 outcome token (no regime name, no boundary number, no omega* value): the ruling cannot be steered by the spectral result -- checked at source level, with the audit's own token list excised from the scan (the gate would otherwise fail on itself)
+mu-RULING: C
+HARD STOP.
