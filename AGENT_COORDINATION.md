@@ -4701,3 +4701,58 @@ HARD STOP: the cell is on the owner's desk. Owner-held: the D5
 conditions (axis 2), the chi-object ruling if ever contested, the
 noise-sector fork, gate-E, the omega <~ H regime. W-0; register
 untouched (+16).
+
+================================================================================
+2026-09-01 -- D5 RENORMALIZATION AUDIT SHIPPED (builder: Claude;
+                 FIRST CLASSIFICATION REFUTED BY REVIEW, CORRECTION ADOPTED)
+================================================================================
+OWNER AUTHORIZATION: audit only -- does the frozen contract uniquely
+determine the local real terms needed to decide Axis 2? K_R immutable; no
+values chosen; no pole search.
+
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_d5_renormalization_audit.py
+ARTIFACT:   WALL_KR_D5_RENORMALIZATION_RESULT.json (25/25 after repairs)
+AUDIT DOC:  WALL_KR_D5_RENORMALIZATION_AUDIT.md
+
+VERDICT (SPLIT, review-corrected):
+  DOCTRINE: UNIQUE -- Declaration 1's F2 clause ('finite parts of all six
+    basis coefficients are left exactly as the loop produces them ...
+    ZERO finite-part discretion') + the critical principle + the 1b basis
+    import to contract scope AIRTIGHT (charter Step 2/3 + gate C
+    verbatim). NO slot constant may ever be chosen by anyone.
+  SCHEME: **D AT THE SCHEME LEVEL** -- a scheme-completion OWNER RULING
+    is required: Declaration 1 declares d = 4-eps SPACETIME dS-invariant
+    dim reg; the contract machinery's actual regulator is the fixed-omega
+    SPATIAL d = 3-2eps continuation installed by the SEPARATE D3/
+    Option-3a ruling. Inequivalent regulators differ exactly by local
+    polynomials -- the objects under audit. The record's own precedent
+    (D3) says such extensions are fresh owner declarations; the declared
+    scheme's graviton-level realizability is itself open (gauge/measure
+    (ii) underdefined; Tsamis-Woodard dispute). OWNER MENU: (alpha)
+    declare the spacetime scheme + resolve realizability; (beta) extend
+    D3's spatial continuation to the Re/local part (one line); (gamma)
+    rule the identification contentless pending an executed PV-pattern
+    scheme-independence demonstration. The ruling is about
+    REGULARIZATION, never spectral outcome (critical principle stands).
+  OWED EXECUTION AFTER RULING: direct Re/local part of the frozen T3
+    kernel in the ruled scheme; H^0 branch unobstructed; H^2 branch gated
+    by the T3-fenced fork (branch (c) -- restored by review, the first
+    draft omitted it).
+
+REVIEW RECORD: the first draft's A/UNIQUE was REFUTED (3 MAJORs: the
+silent scheme identification; the asserted-not-derived dispersion-slot =
+counterterm-finite-parts equation + the omitted fork branch; 'not D'
+contradicted by the D3 precedent + the priced fork). ALL adopted.
+Also repaired: vacuous basis-compatibility check -> executable linearized-
+R-vanishes-on-TT computation (R^2's flat TT kernel is NULL; omega^4 is
+Ricci^2/Riemann^2-class); H^2 'basis-LINKED' downgraded to CONDITIONAL
+(F7-class assumption, to be demonstrated); classifier holes coded
+(omega^6 basis-overflow FINDING; omega^2/H^2 finiteness rejection);
+recorded-statement gates labeled unfailable on their face; dead code
+removed; the barred-file byte-read carve-out DECLARED for owner
+ratification.
+
+STANDING OWNER QUEUE (all separated cleanly now): (1) D5 scheme ruling
+(alpha/beta/gamma); (2) the noise-sector fork (H^2); (3) gate-E
+disposition; (4) the chi-object ruling if contested; (5) T4 + consequence
+cell adjudications. W-0; register untouched (+16).

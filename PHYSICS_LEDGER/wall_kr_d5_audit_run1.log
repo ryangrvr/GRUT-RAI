@@ -1,0 +1,65 @@
+=== PINS (everything read is frozen) ===
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  ok   pin WALL_KR_CONTRACT_BENCHMARK_RESULT.json == 1ac17a18ce8c0b8f...
+  ok   pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...
+  ok   pin MICROSCOPIC_TARGET_BENCHMARK.md == f6513b1e551fd9cf...
+
+=== D5-0: THE FROZEN D5 REQUIREMENT ===
+  note D5-0 split: Pi_ren = Pi_local^scheme + Pi_nonlocal^invariant; local = polynomial in (omega^2, k^2) with coefficients arbitrary FINITE functions of (m^2, H^2, mu) [F1-amended predicate]; 'Analytic at omega = 0 and k = 0 by construction'
+  note D5-0 scheme: 'Primary scheme: de Sitter-invariant dimensional regularisation ... divergences appear as poles in eps and are subtracted by the counterterm basis of DECLARATION 1b'
+  note D5-0 condition_F2: 'Renormalisation condition: MINIMAL SUBTRACTION -- pole terms only are subtracted; finite parts of all six basis coefficients are LEFT EXACTLY AS THE LOOP PRODUCES THEM; mu is kept symbolic and its dependence recorded as part of Pi_local^scheme's data. This is the unique condition with ZERO finite-part discretion'
+  note D5-0 critical_principle: 'No finite local counterterm may be selected because it produces a preferred spectral or memory behavior' ... 'Any counterterm choice whose justification references spectral density, memory behavior, or convergence class is PROHIBITED and would invalidate the blind'
+  note D5-0 basis_1b: 'frozen to the diffeomorphism-invariant local operators of the declared action: cosmological constant Lambda, Newton's constant G (i.e. the EH term), R^2, R_mn^2, R_mnrs^2, and box R. No other operator may enter' -- a non-fitting divergent term is a FINDING
+  note D5-0 sensitivity_iii: '(iii) IR analytic structure / convergence class: NO [local sensitivity] for the class: local terms are polynomials in omega -- analytic at omega = 0 -- and cannot change the nonlocal low-frequency analytic class'
+  note D5-0 charter_gate_C: 'D5: UV pole reproduction against the frozen counterterm basis; pole-only MS discipline (zero finite discretion -- the frozen doctrine); locality of every subtraction'
+  note D5-0 pv_crosscheck: the primary scheme must be run against the Pauli-Villars alternative at the assembly stage; differences confined to local polynomials, reported, never averaged away
+  note D5-0 benchmark_unique_slice: the registered benchmark requires the TWO AXES; it does NOT require (and the critical principle FORBIDS obtaining) a local slice chosen for a preferred axis-2 outcome
+  ok   D5-0: the frozen requirement is quoted verbatim; no condition was inferred from any desired outcome
+
+=== D5-1: THE UNDETERMINED LOCAL COEFFICIENTS ===
+  note the frozen K_R carries FIVE real slot constants (c0, c2, c4, c0p, c2p) plus mu, with mu absorbable into (c4, c2p) -- FIVE effective real unknowns enter Re K_R
+  ok   ALL FIVE slot constants enter Re K_R on the axis-2 window (none is silently irrelevant; none is set to zero anywhere in this audit)
+  ok   BASIS COMPATIBILITY (flat): the frozen slot's flat part is a degree-4 even polynomial -- exactly the span of the 1b basis classes {Lambda, EH, R^2-class} on the TT probe at k -> 0; no operator outside the frozen basis is needed and none is used
+  note H^2-LINKAGE (structural consequence of 1b, stated not executed): each basis operator's TT quadratic kernel in the frozen chart is a FIXED (omega^0, omega^2, omega^4) x (H^0, H^2) vector once its single coefficient is given -- so under the basis the pair (c0p, c2p) is NOT independent of (c0, c2, c4): the five slot constants are constrained to the (rank <= 6, with the frozen Wall-A null relation [GB + 2 R_mn^2 - R^2 = -K^2 EH] reducing the quartic classes) image of the basis coefficients. Deriving the exact linkage vectors requires the counterterm operators' O(H^2) TT kernels -- part of the OWED D5 EXECUTION, not of this audit; nothing here depends on their values
+
+=== D5-2: INDEPENDENT CHECKS ===
+  FAIL UV STATUS (frozen T3 gate, artifact-pinned): the fixed-omega loop is ANALYTIC at d = 3 -- NO eps-poles exist at this order, so the pole-only MS step subtracts NOTHING and 'UV pole reproduction against the basis' is satisfied VACUOUSLY (zero poles, zero counterterms required)
+  ok   Im K_R INVARIANCE: every F1-predicate local term (real polynomial in omega^2 with real (H^2, mu)-dependent coefficients) has ZERO imaginary part -- the frozen absorptive content and the s-classification CANNOT be touched by any admissible local choice (exact, symbolic)
+  ok   BRANCH-CUT INVARIANCE: the local slot is analytic at omega = 0 (all derivatives finite) -- it cannot generate, move, or cancel the omega = 0 branch point (the frozen sensitivity map's row (iii), verified executably)
+  ok   flat limit and dimensional consistency of the slot against the F1 predicate (even powers only; H^2-coefficients allowed)
+  ok   K_R NOT MODIFIED: the object this audit reasons about is byte-identical in content to the frozen Tier-4 artifact (anchor identity, exact)
+
+=== D5-3: IDENTIFIABILITY ===
+  note THE DETERMINATION, from the frozen text alone: Declaration 1 (F2) commands that the finite parts be 'LEFT EXACTLY AS THE LOOP PRODUCES THEM' under dS-invariant dimensional regularisation with pole-only subtraction and ZERO finite-part discretion. The five slot constants are therefore NOT free parameters, NOT owner choices, and NOT new physical inputs: they are COMPUTABLE NUMBERS -- the direct scheme-regularized values of the loop's local part. The Tier-4 dispersion route is structurally blind to them (a subtracted dispersion determines the nonlocal content only); the frozen record itself mandates the complementary route: 'the full object independently reproduced once (dispersive vs direct, the PV pattern)' (charter STEP 8). The direct route IS the determination.
+  note D5-3 classification: A. UNIQUE -- the frozen contract supplies the complete condition set (dS-invariant dim reg + pole-only MS + finite parts as-the-loop-produces-them + the 1b basis for any pole that did arise). What remains is an OWED EXECUTION, not a missing condition and not a free choice
+  note D5-3 owed_execution: the DIRECT (non-dispersive) evaluation of the local/Re part of the frozen T3 kernel at fixed omega in the declared scheme, through O(H^2): (a) if the direct transform is d = 3-analytic (as the absorptive side, frozen T3 gate), the five constants are unique mu-free numbers; (b) if a (d-3) pole appears in the Re continuation, MS subtracts it and mu enters symbolically-and-recorded per the frozen text -- still zero discretion. Either way the local slice is DETERMINED by computation. The PV cross-check clause then applies to the executed values
+  note D5-3 not_B: no combination is left free by the contract -- B does not apply
+  note D5-3 not_C: the contract is not silent -- it is maximally explicit (zero discretion) -- C does not apply
+  note D5-3 not_D: no new physical input is required -- indeed the critical principle PROHIBITS introducing one by preference -- D does not apply
+  ok   IDENTIFIABILITY: A (UNIQUE) -- determined by the frozen text, with the determination an owed computation named exactly; nothing was chosen and no value was produced here
+
+=== D5-4: AXIS-2 DEPENDENCY (no verdict collapse) ===
+  note Re chi(omega) = [nonlocal logs, coefficients FROZEN] - [the five-constant slot]. Dependency structure, exact:
+  note D5-4 invariant_1: NO kernel-level pole for ANY slot values (chi has no denominator; locals are entire) -- exact
+  note D5-4 invariant_2: Im chi, the branch point, the cut, the s-class, and the axis-1 convergence verdict are slot-invariant (D5-2 gates above)
+  note D5-4 invariant_3: the log coefficients (3/1280 pi^2 at omega^4, 13/480 pi^2 H^2 at omega^2) are slot-invariant (the 5th/3rd polynomial-free derivatives)
+  note D5-4 dependent_1: the pointwise SIGN of Re chi on the registered window -- the axis-2 discriminator -- depends on the slot: the consequence-stage review exhibited BOTH registered outcomes (Re chi > 0 throughout; an in-window sign change) as reachable over the unrestricted slot, and the basis restriction does not remove the quartic-class freedom pre-execution
+  note D5-4 dependent_2: whether the dressed object's omega = 0 graviton pole persists (c0 = 0 or not) -- determined by the same owed execution
+  note CONSEQUENCE (stated without collapsing): before the owed execution, neither 'pole possible for all allowed choices' nor 'no pole possible for all allowed choices' holds at the dressed level, and the axis-2 sign test is undetermined; AFTER the owed execution the slot is unique numbers and axis 2 becomes a DEFINITE evaluation. Axis 2 is therefore DECIDABLE BY COMPUTATION under the frozen contract -- not by choice, not by new input. 'Depends on D5' is hereby converted into 'awaits the named D5 execution', which is a schedulable step, not a verdict
+  ok   D5-4 recorded; no axis-2 verdict was emitted
+
+=== D5-5: CONTROLS ===
+  ctrl-DETECTED   #1 wrong subtraction: an omega^3 term violates the F1 locality predicate (odd power) and is REJECTED by the classifier -- it may not be subtracted
+  ctrl-DETECTED   #2 wrong finite-local constant: injecting a unit omega^4 shift breaks the frozen Tier-4 anchor identity -- any modification of K_R is DETECTED
+  ctrl-DETECTED   #3 accidental Im-part alteration: a complex 'local' term fails the reality requirement of the F1 predicate -- REJECTED (no admissible local can touch Im K_R)
+  ctrl-DETECTED   #4 normalization corruption: a doubled kernel fails the anchor identity -- DETECTED
+  ctrl-DETECTED   #5 (positive control) genuine basis-class locals PASS the F1 classifier -- the predicate is not vacuously rejecting everything
+
+=== FREEZE ===
+  ok   artifact written, re-read, re-hashed (sha a82c02b7cf91d832...); K_R modification flag is FALSE on the record
+
+D5 AUDIT: 21/22 passed; failures: 1
+  FAILURE: UV STATUS (frozen T3 gate, artifact-pinned): the fixed-omega loop is ANALYTIC at d = 3 -- NO eps-poles exist at this order, so the pole-only MS step subtracts NOTHING and 'UV pole reproduction against the basis' is satisfied VACUOUSLY (zero poles, zero counterterms required)
+HARD STOP.
