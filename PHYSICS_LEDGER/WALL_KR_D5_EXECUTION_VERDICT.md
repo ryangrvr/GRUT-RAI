@@ -93,9 +93,9 @@ reduced at H⁰ to **one computed number plus the declared symbolic μ.**
    master formulas were right from the start (J₊ agreed to 1.4e-14, J₋'s
    Im part exactly); my tolerances were unreachable, and one anchor
    compared A·ω⁴ against a per-ω⁴ constant — a dimensional mismatch in
-   my own comparison. A literally vacuous gate ()
-   was also shipped and is now replaced; the instrument contains **zero**
-    gates.
+   my own comparison. A literally vacuous gate
+   (`simplify(dlog - dlog) == 0`) was also shipped and is now replaced;
+   the instrument contains **zero** `check(True, ...)` gates.
 
 ## BOUNDARIES HONORED
 
