@@ -4943,3 +4943,60 @@ Repaired with a concatenation-built marker. No physics involved.
 OWNER QUEUE: (1) the mu new-input decision (price it, or leave Axis-2 at
 C); (2) noise fork / H^2 locals; (3) gate-E; (4) T4 + consequence-cell
 adjudications. W-0; register untouched (+16).
+
+================================================================================
+2026-09-01 -- mu OWNER DECISION PACKAGE (assembled; NO value selected)
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_mu_owner_package.py
+DOC:        WALL_KR_MU_OWNER_DECISION_PACKAGE.md
+COMPANION:  WALL_KR_MU_OWNER_DECISION_RESULT.json
+BATTERY: 20/20, zero failures. FROZEN INPUTS TOUCHED: NONE.
+NUMERICAL mu SELECTED: NO. AXIS-2: C, unchanged, not re-adjudicated.
+
+AUTHORITY SWEEP: eight entries tabulated (file/section/status/predates/
+supplies-numerical-mu/new-input/independent-of-outcome). ZERO supply a
+numerical mu at contract scope. Repeated mentions of mu were NOT counted
+as independent conventions.
+
+THE THREE THINGS, SEPARATED AND DEMONSTRATED: (A) units -- the kernel is
+degree-4 homogeneous under (omega,mu)->(lam omega, lam mu), an identity
+that holds for EVERY numerical mu and therefore selects none; (B)
+prescription -- pole-only MS is COMPLETE with mu symbolic, so (B) does
+not imply (C); (C) numerical identification -- ABSENT from the record.
+
+**THE FINDING (section 3): mu CAN be removed instead.** From the
+existing formalism only (no RG equations invented): the reparameterization
+shift c4 -> c4 + A log(mu^2/mu2^2) is omega-INDEPENDENT, so (mu, c4) is
+redundant by exactly one function's worth, and Lambda_R = mu exp(c4/(2A))
+is RG-INVARIANT (gated, with a teeth-control that breaks it under a
+perturbed shift). The whole H^0 real kernel collapses to
+  Re Sigma^{H0} = 2 A omega^4 log(Lambda_R / omega)
+-- ONE dimensionful constant, not two. CONSEQUENCE: 'declare mu' and
+'declare Lambda_R' are the SAME single new input; option 2 has the
+cleaner exact form (report Lambda_R, leave IT undetermined), making
+explicit that exactly ONE number is in question and that no loop
+calculation at this order can supply it. Lambda_R/mu is deliberately NOT
+reproduced here (interpreting it is Axis-2 content).
+
+DECISION TREE: A NOT SUPPORTED (zero authorities supply a number); B NOT
+SUPPORTED (zero, not several); **C SUPPORTED**. Owner must either
+formally introduce the new convention (with independent justification,
+priced as a new register input) or leave mu symbolic and accept Axis-2
+as mu-parametric. THE BUILDER DOES NOT CHOOSE.
+
+IMPACT MAP -- blocked by mu: Axis-2 absolute classification; the
+dependent consequence-cell adjudication; any unique real-axis sign claim.
+Settled independently of mu: Im Sigma = -3 omega^4/(1280 pi); the branch
+structure; A = -3/(1280 pi^2) = the 1/eps residue; c0 = c2 = 0 exact;
+the K_R nonlocal content; Axis 1 entirely. NOT OVERSTATED: c4 is settled
+GIVEN mu; the mu-invariant local content is Lambda_R, still undetermined.
+
+FIREWALL on the package face (verbatim, all three) and enforced
+mechanically by a self-immune source scan with its own teeth-control.
+
+DEFECT HISTORY (gate-side): the token-scan control planted the literal it
+forbids (caught by the scan itself); the RG gates needed positivity
+before sympy would combine logs; the scan's own prose tripped the strict
+list -- the PROSE was reworded, the list was NOT weakened.
+
+NEXT AUTHORIZED ACTION: OWNER DECISION ONLY. W-0; register untouched.

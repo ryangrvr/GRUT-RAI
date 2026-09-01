@@ -1,0 +1,62 @@
+=== PROVENANCE ===
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  note input sha WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md = f6127ca65ad6636b...
+  ok   pin WALL_A_A3_REGISTRY.json == faa977d40f1ba318...
+  ok   pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...
+  note input sha K_R_OWNER_CHARTER.md = 49f94a7ca4304e70...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  note input sha WALL_KR_D5_EXECUTION_RESULT.json = b60cecc2f7d356f7...
+  note input sha WALL_KR_MU_CONVENTION_RESULT.json = 4a381e7fcf2145c4...
+  note input sha WALL_KR_AXIS2_H0_RESULT.json = 81bc28cfe7aea3a1...
+
+=== 8: THE PACKAGE DOES NOT REFERENCE ANY OUTCOME ===
+  ok   the executable body carries NO Axis-2 outcome token, no regime verdict, and no numerical WC-as-mu assignment -- scanned with the package's own token list excised by self-immune markers. (run-2 note: the banned list stays STRICT; it was the check's own descriptive prose that tripped it, so the prose was reworded rather than the list weakened)
+  ctrl-DETECTED   banned-token scanner has teeth: a sentinel built at RUNTIME from the token list IS detected by the same membership test, while no literal token sits in the source
+  ok   the Axis-2 artifact is hash-pinned for provenance only (its 'out' block is never dereferenced) and no pre-repair Axis-2 log is read
+
+=== 1: EVERY CANDIDATE AUTHORITY, TABULATED ===
+  note AUTHORITY WALL_A_A3_DECLARATIONS.md | Declaration 1 / F2 (renormalisation conditio | frozen | supplies numerical mu: no
+  note AUTHORITY WALL_A_A3_DECLARATIONS.md | Declaration 1 / F1 (local predicate) | frozen | supplies numerical mu: no
+  note AUTHORITY WALL_A_A3_DECLARATIONS.md | Declaration 1b (counterterm basis) | frozen | supplies numerical mu: no
+  note AUTHORITY WALL_A_A3_DECLARATIONS_V4_AMENDMENT.md | local-predicate restatement | frozen | supplies numerical mu: no
+  note AUTHORITY K_R_OWNER_CHARTER.md | section 3 (probe-coupling normalization) | frozen | supplies numerical mu: no
+  note AUTHORITY K_R_CONTRACT_EXECUTION_CHARTER.md | STEP 10 (matter/contract boundary) | frozen | supplies numerical mu: no
+  note AUTHORITY wall_j_omega_comparison.py | chi_A evaluation slice (muS: 1 with the MS-b | frozen instrument, MATTER scope, c | supplies numerical mu: no
+  note AUTHORITY wall_a_g1_ohmic_plant.py | WC = 1.0 | BARRED INPUT (registry) | supplies numerical mu: no
+  ok   AUTHORITY SWEEP: 8 entries examined, ZERO supply a numerical mu at contract scope (repeated mentions of mu were NOT counted as independent conventions)
+  ok   the WC-defining file is confirmed a registry BARRED INPUT -- the comparator-side plant is not an admissible source
+
+=== 2: UNITS vs PRESCRIPTION vs NUMERICAL IDENTIFICATION ===
+  ok   (A) UNITS: the kernel is exactly degree-4 homogeneous under the JOINT rescaling (omega, mu) -> (lam omega, lam mu) => [mu] = [omega]. This fixes mu's DIMENSION and nothing else -- the identity holds for EVERY numerical mu, so it cannot select one
+  ok   (B) PRESCRIPTION: the frozen record fixes the SUBTRACTION (pole-only MS, zero finite discretion) while explicitly keeping mu symbolic -- a prescription that is complete WITHOUT a numerical scale, demonstrating that (B) does not imply (C)
+  ok   (C) NUMERICAL IDENTIFICATION: absent from the record. (A) and (B) are both satisfied by the frozen record and NEITHER implies (C) -- demonstrated, not asserted
+
+=== 3: mu-FREE REFORMULATION (conceptual audit) ===
+  ok   the reparameterization shift c4 -> c4 + A log(mu^2/mu2^2) is omega-INDEPENDENT -- i.e. the (mu, c4) pair is redundant by exactly one function's worth, which is what makes an invariant exist
+  ok   RG-INVARIANT EXISTS (derived from the existing formalism, no new RG equations invented): Lambda_R = mu exp(c4/(2A)) is UNCHANGED under the renormalization-point shift
+  ok   and the ENTIRE H^0 real kernel collapses to Re Sigma = 2 A omega^4 log(Lambda_R/omega) -- ONE dimensionful constant, not two. So the existing formalism ALREADY supports a mu-free reporting: state Lambda_R and leave it undetermined
+  ctrl-DETECTED   RG-invariance control: perturbing the reparameterization shift by a constant BREAKS the invariance of Lambda_R -- the invariance gate is not an identity that holds for any shift
+  note CONSEQUENCE FOR THE OWNER: option 2 ('leave mu symbolic') has a cleaner exact form -- report the single RG-invariant Lambda_R and leave IT undetermined. This makes explicit that there is exactly ONE new number in question, and that no loop calculation at this order can supply it
+
+=== 4: OWNER DECISION TREE ===
+  ok   decision tree resolves to BRANCH C on the authority evidence (not overridden: no authoritative contrary evidence was found)
+
+=== 5: CRITICAL FIREWALL ===
+  note FIREWALL: No numerical value for mu may be selected by optimizing, preserving, creating, removing, or matching an Axis-2 spectral or memory outcome.
+  note FIREWALL: mu = WC is not licensed by dimensional analysis alone.
+  note FIREWALL: The comparator-side plant is not an admissible source for fixing mu.
+  ok   all three required firewall statements are on the package's face
+
+=== 6/7: OWNER ACTION AND IMPACT MAP ===
+  note IMPACT blocked_by_mu: Axis-2 ABSOLUTE classification (the sign structure on the registered window); the consequence-cell adjudication that depends on Axis 2; any claim requiring a unique real-axis sign structure
+  note IMPACT settled_independently_of_mu: H^0 absorptive coefficient Im Sigma = -3 omega^4/(1280 pi); the branch-cut structure (branch point at omega = 0, gapless two-graviton continuum); the nonlocal logarithmic coefficient A = -3/(1280 pi^2), equal to the 1/eps residue; H^0 local c0 = 0 and c2 = 0 (exact, structural); H^0 c4 under the stipulated Option-beta scheme (calculated at a given mu; the mu-dependence is the recorded scheme data); the contract K_R nonlocal content; Axis-1 (s-class and convergence), which reads only Im chi
+  note IMPACT not_overstated: c4 is settled GIVEN mu; it is not a mu-independent number. The mu-invariant content of the local sector is the single constant Lambda_R, which remains undetermined
+
+=== VALIDATION ===
+  ok   every frozen input byte-identical to its pre-run hash
+  note files added/changed by this stage: ?? WALL_KR_MU_OWNER_DECISION_RESULT.json | ?? wall_kr_mu_owner_package.py | ?? wall_kr_mu_package_run1.log | ?? wall_kr_mu_package_run2.log | ?? wall_kr_mu_package_run3.log
+  ok   machine-readable companion written and re-read; numerical_mu_selected = False on the record (sha e842b7bc76b5175d...)
+
+mu OWNER PACKAGE: 20/20 passed; failures: 0
+CURRENT RULING: C | NUMERICAL mu SELECTED: NO
+HARD STOP.
