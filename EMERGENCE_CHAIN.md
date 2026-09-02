@@ -236,6 +236,7 @@ field is missing (item 3).
 | `info_i2_beyond_standard_bridge` | information-principle triplet: screened-refuted |
 | `info_i3_distinct_consequence` | information-principle triplet: moot |
 | `kk_static_transfer` | the dissipative-to-static transfer question (answered 2026-08-09: conditional at the class-level chi_inf >= 0, never unconditional) -- an instrument pointed at the floor's reach, not a link |
+| `kr_contract_retarded_tier4` | scoped computed record (banked 2026-09-01, delta 0) -- the contract-level retarded kernel the rung3/Class-C open question awaits; a record pointed at the chain's open anchor, not a link in the derivation |
 | `l0_r1_redundancy_exists` | frontier-3 generic half (its crux nodes sit at the structure link) |
 | `method_novelty` | the method's own gauntlet -- about the program, not the universe |
 | `passivity_channel_diagonal` | the general channel-diagonal passivity lemma -- frame-free linear-response mathematics, not a stage of the story |

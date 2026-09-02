@@ -348,7 +348,7 @@ class TestResident(unittest.TestCase):
         r = audit(grut, self.src, DEFAULT_TIERS)
         self.assertTrue(r.ok, f"live register must audit clean; blocks={r.blocking}")
         self.assertEqual(r.net, 16)       # +16: the response_lorentz_covariance +1 (booked 2026-08-24) was RETIRED 2026-08-30 by the owner-adjudicated Q1^TT-and-Q5^TT discharge, per the node's own retire clause
-        self.assertEqual(len(grut), 52)   # 51 + response_lorentz_covariance (2026-08-24); 50 + the Ruling-B split's second half (2026-08-23) before that
+        self.assertEqual(len(grut), 53)   # 52 + kr_contract_retarded_tier4 (banked 2026-09-01, delta 0, owner relay); 51 + response_lorentz_covariance (2026-08-24); 50 + the Ruling-B split's second half (2026-08-23) before that
         # depends_on present on every claim; tiers are the banked ones
         for c in self.claims:
             self.assertIn("depends_on", c, f"{c['id']} missing depends_on metadata")

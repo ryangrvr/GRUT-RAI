@@ -1646,6 +1646,34 @@
    "overturning_computation": "DISCHARGE (retire the +1): only if the microscopic Sigma_R^TT calculation demonstrates that the vacuum response lies in the 3-dimensional Lorentz-covariant subspace WITHOUT imposing it as an input (G0 mode-counting declaration binding; an assembly that inserts Lorentz covariance cannot discharge this node). REFUTED AS NECESSARY: if an exhibited symmetry derivation shows the FRW gauge structure alone forces the 3D subspace, contradicting the measured 11 (then the computed kernel-gate chain contains an error to be located). ADVERSE REALISATION: if Sigma_R^TT places the response OUTSIDE the 3D subspace, this assumption is contradicted microscopically and the GRUT kernel architecture takes the hit directly.",
    "ledger_delta": 0,
    "ledger_note": "+1, net +16 -> +17 (owner go 2026-08-24) -- RETIRED 2026-08-30 per this node's own discharge clause ('DISCHARGE (retire the +1)'): net +17 -> +16 (owner go of this date; adjudication c1c3f51; A3-4 456487c, A4 b2f00c1, PV 7427b26; frozen kernel dd77b194...). Original price record: width of the license was 8 structures (2 vector by orthogonality, 6 scalar by membership at three samples); kinematic chain fully measured 21/11/3/2. The priced RESPONSE property is now DEMONSTRATED unimposed, not assumed."
+  },
+  {
+   "id": "kr_contract_retarded_tier4",
+   "tier": "shown",
+   "sub_status": "scoped computed record, banked-as-written per the T4-BANK-A adversarial pre-screen (commit b4a2aa2); every conditionality preserved verbatim",
+   "ledger_delta": 0,
+   "ledger_note": "0 -- a scoped computed record, not a strength claim: NO derivation credit accrues to any GRUT rung (rung3 single-pole remains derived-pending/underived; the 2026-08-30 +1 retirement is untouched). Banked at delta 0 so the net (+16) is unchanged by construction.",
+   "statement": "The contract-level retarded TT kernel exists and is well-defined in its declared domain: K_R = Sigma_R = -(3/1280 pi^2) omega^4 L + H^2 (-(13/480 pi^2) omega^2 L) + real local slot, with L = log(mu^2/omega^2) + i pi and H^1 = 0 identically. UNCONDITIONAL: branch point at omega = 0 with a real-axis cut (gapless two-graviton continuum); the frozen absorptive coefficients; retarded analyticity of the +i pi completion. CONDITIONAL (banked AS conditional): no additional real-axis zero of the resummed denominator ON THE REFERENCE SLICE ONLY (c = 0, kappa = 0.1, mu = 1, controlled band); resummed/first-order agreement iff |lambda| << 1. NO pole claim is made. Validity: omega >> H with eps_H = (104/9) H^2/omega^2; omega << H refused by the evaluator. Local statuses carried by owner rulings: H^0 c0 = c2 = 0 exact (Option-beta D5 execution) with c4 represented by the RG-invariant Lambda_R, retained SYMBOLIC (one unresolved renormalization input); H^2 c0'/c2' UNRESOLVED (IR fork gated, no scale introduced). Ward Class-B excluded by TT scope, not repaired. A theorem about GRUT-as-written at contract scope; explicitly NOT a Class-C consequence classification (that cell is CC-C: not yet adjudicable -- D4 dual-gauge unexecuted, the low-frequency criterion lies outside the truncation's domain, and the certificate-vs-manifest face adjudication is owner-owed).",
+   "sources": [
+    "schwinger1961",
+    "keldysh1964",
+    "feynman_vernon1963"
+   ],
+   "depends_on": [
+    "rung1_inin_formalism",
+    "rung2_kms_gate"
+   ],
+   "overturning_computation": "PHYSICS_LEDGER/wall_kr_tier4_retarded.py -> WALL_KR_CONTRACT_RETARDED_RESULT.json (sha d916ef32..., full battery green, two-lens adversarial review adopted pre-freeze); chain commits 0b21160 (T1 vertex) / 62e7df2 (T2 bath) / 65ccb1b (T3 loop) / 2d3f514+41811ff (T4); bank pre-screen b4a2aa2",
+   "domain": "open-systems-EFT / de Sitter contract scope",
+   "grut_standing": "covered",
+   "differentiator": "the contract vacuum's own retarded TT response at one loop -- the object the Class-C dispatch awaits, pending that cell's own prerequisites",
+   "boundary_condition": "CONDITIONAL statements are banked as conditional (reference slice; |lambda| << 1; omega >> H). The Class-C consequence cell is NOT banked with this node.",
+   "edge_note": {
+    "consequence_cell": "CC-C recorded separately (WALL_KR_CLASSC_CELL_ADJUDICATION.md); fork (ii) NOT invoked",
+    "corroborating_w0_records": "Gate-E-A and NOISE-A exist as W-0 (unbanked) records and are NOT banked with this node",
+    "rung3_relation": "SUBJECT-MATTER cross-reference, NOT a dependency: the T4 result never assumes rung3's single-pole anchor claim; it is the object that claim's open question awaits. Removed from depends_on on the bankgate's own TIER-CONTRADICTION discipline (a 'shown' result may not rest on a 'derived-pending' input it does not actually use)."
+   },
+   "tier_note": "BANKED 2026-09-01 on owner relay in-session ('I would actually bank Tier 4 ... execute the formal bank relay for Tier 4 only'); bankgate FLAG-FOR-FIREWALL surfaced (new node, by design) and owner-accepted; net +16 unchanged (delta 0); GRUT-scope count 52 -> 53."
   }
  ]
 }

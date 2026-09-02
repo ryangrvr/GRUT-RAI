@@ -1,0 +1,7 @@
+{
+ "kr_contract_retarded_tier4": {
+  "sha": "505479bcf7dddd2c5664f8d5d8cd3d078901ac02bbf7a5c492931edd0dae86ca",
+  "severity": "SUBSTANTIVE",
+  "_relay": "owner in-session 2026-09-01: 'I would actually bank Tier 4 ... execute the formal bank relay for Tier 4 only' -- single-flag hold; the 23 pre-existing flags remain UNREVIEWED by design (relay-and-hold)"
+ }
+}

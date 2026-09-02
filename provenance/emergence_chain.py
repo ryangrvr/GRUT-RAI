@@ -159,6 +159,7 @@ STAGES = [
 # not cited above should account for every GRUT node; the generator CHECKS this).
 OFF_CHAIN = {
  "rung8_falsifier": "the tabletop discriminator -- an instrument pointed at the chain, not a link",
+ "kr_contract_retarded_tier4": "scoped computed record (banked 2026-09-01, delta 0) -- the contract-level retarded kernel the rung3/Class-C open question awaits; a record pointed at the chain's open anchor, not a link in the derivation",
  "method_novelty": "the method's own gauntlet -- about the program, not the universe",
  "founding_h3_doubleslit_anchor": "deferred anchor (disposition: deferred)",
  "info_i1_renorm_as_information": "information-principle triplet: generic half",

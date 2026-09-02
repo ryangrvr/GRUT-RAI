@@ -5468,3 +5468,39 @@ NOISE A; Axis-2 C; register +16 untouched. NEXT AUTHORIZED ACTION:
 OWNER/OVERSEER RELAY on the proposed T4 bank delta; the D4/face/epoch
 items are separately owner-owed. THE WALL CAMPAIGN'S GOVERNANCE QUEUE IS
 NOW EMPTY OF BUILDER-SIDE ACTIONS.
+
+================================================================================
+2026-09-01 -- TIER-4 BANK EXECUTED (owner relay; the register's own gate)
+================================================================================
+RECORD: PHYSICS_LEDGER/WALL_KR_T4_BANK_EXECUTED.md
+NODE: kr_contract_retarded_tier4 (tier shown, ledger_delta 0) in
+provenance/claims.json. NET +16 -> +16 (unchanged by construction);
+GRUT-scope count 52 -> 53 (both pins amended with riders).
+
+MECHANISM FOLLOWED EXACTLY (bankgate.py): run 1 drew a legitimate
+TIER-CONTRADICTION (shown resting on derived-pending rung3) -- REPAIRED
+HONESTLY (rung3 was never an actual dependency; moved to edge-note;
+depends_on = rung1 + rung2, both shown). Run 2: by-design NEW-NODE flag,
+recorded owner-reviewed in held_flags.json (single entry, fingerprinted,
+relay quote embedded). BASELINE NOT BLANKET-ACCEPTED: 23 pre-existing
+unreviewed flags remain surfaced -- sweeping them under a T4-only
+authorization would launder them; they are now explicitly on the owner's
+desk. Designed ripples fixed by their own patterns: count pins 52->53
+(test_auditor, test_resident); OFF_CHAIN declaration + EMERGENCE_CHAIN.md
+regenerated; GLOSSARY audit denominator 73->74 (numerator 18 unchanged);
+doc-register pins re-pinned post-reconciliation.
+
+STASH-PROOF: full suite without changes = 13 pre-existing failures; with
+changes = the IDENTICAL 13 (zero new, zero silently resolved);
+test_auditor + test_bankgate 33/33 asserting net +16 and count 53.
+
+NOT DONE: no Class-C outcome (CC-C stands); no Lambda_R value; no H^2
+resolution; fork (ii) NOT invoked; Tier-4 artifact byte-identical
+(d916ef32); pre-existing test_resident failures NOT patched
+(stash-proven, per the 8e64588 precedent).
+
+THE WALL CAMPAIGN'S ENDPOINT STATE: Lambda_R unresolved; c0'/c2'
+IR-fork gated; Axis-2 = C; Gate-E = A; Noise = A; Tier 4 = BANKED as
+scoped; Class-C consequence = not yet adjudicable (CC-C). Owner options
+stand as stated: close the Wall here, or separately authorize the
+D4/epoch-window/face prerequisites.
