@@ -5236,3 +5236,62 @@ and emitted artifacts, never descriptive text.
 NEXT AUTHORIZED: OWNER DECISION -- invoke fork (ii) and price a new IR
 input, or leave H^2 fork-gated. Gate-E and the noise fork untouched.
 W-0; register untouched.
+
+================================================================================
+2026-09-01 -- OWNER DECISION: H^2 IR FORK -- LEAVE FORK-GATED
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_h2_ir_owner_decision.py
+DOC:        WALL_KR_H2_IR_OWNER_DECISION.md
+COMPANION:  WALL_KR_H2_IR_OWNER_DECISION_RESULT.json
+BATTERY: 18/18, zero failures, first run. IR SCALE INTRODUCED: NO.
+REGISTER MODIFIED: NO (byte-identical; the ruling introduces no input so
+it requires no governance entry and none was made).
+
+DECISION: the preregistered fork is ACKNOWLEDGED as an available future
+governance path but is NOT INVOKED to introduce a numerical IR regulator
+or new physical scale now. The H^2 local sector stays FORK-GATED.
+
+TEN CLAUSES recorded verbatim (1 genuine residual LOG divergence after
+exact cancellation of the power branch; 2 no licensed IR prescription;
+3 fork acknowledged but not invoked; 4 c0'/c2' unresolved, sector
+fork-gated; 5 no new input; 6 H^0 stays exactly one constant Lambda_R;
+7 Axis-2 C, not recomputed; 8 noise fork untouched; 9 Gate-E untouched;
+10 the corrected evidence supersedes 390a22d wherever cited).
+
+AUTHORITATIVE WORDING (owner-required, enforced by a WORDING GATE with
+its own teeth-control -- the record may never say the divergence was
+'removed'):
+  "The q^-4 / a=-1 power contribution cancels exactly between the two
+   retarded cone branches. A nonzero q^-3 / a=0 logarithmic IR
+   divergence remains."
+Small-cutoff form: -(8/15) omega^2 ln(delta); coefficient -8 omega^2/15
+RE-VERIFIED in this record directly from the frozen cone.
+
+SUPERSESSION FRAMING (the provenance distinction the owner required):
+  SUPERSEDED = the EVIDENCE CHARACTERIZATION only (the single-branch
+    numeric route and its 1/delta description)
+  NOT SUPERSEDED = the PHYSICAL VERDICT. H2-B stands.
+  PRECISE: "the original divergence classification was BRANCH-INCOMPLETE,
+    and the corrected full retarded integrand still diverges
+    logarithmically"
+  STATUS: SUPERSEDED AS EVIDENCE, NOT REFUTED AS RESULT.
+A prominent supersession banner was added at the TOP of
+WALL_KR_H2_LOCAL_FORK.md so no later reader cites the branch-incomplete
+ladder. The 390a22d RESULT JSON is left byte-identical as the historical
+run record (editing it would destroy the provenance trail).
+
+WHY THIS DIFFERS FROM H^0 (owner's reasoning, recorded): at H^0 leaving
+Lambda_R symbolic preserves a well-defined functional form. Here an IR
+regulator would be a NEW physical/conventional ingredient adopted
+specifically to make the H^2 extraction finite, and the record does not
+independently say whether that scale should be H, a box scale, an
+initial-time scale, or something else. Choosing now would expand the
+model before the theory has earned it.
+
+STANDING CONDITION: introducing an IR scale later is a NEW DECLARED
+INPUT requiring its own provenance and independent justification, and it
+may NOT be justified by any spectral, memory, benchmark or downstream
+outcome.
+
+NEXT AUTHORIZED STAGE: GATE-E, unless the register directs otherwise.
+W-0; register untouched (+16).

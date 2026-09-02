@@ -1,0 +1,173 @@
+{
+ "instrument": "wall_kr_h2_ir_owner_decision.py",
+ "instrument_sha256": "897da564db0503ed9b0a30f807cea3d78dcfcaec252cf2d4adbf8fcd2b4a757e",
+ "record_type": "OWNER DECISION RECORD (H^2 IR fork)",
+ "decision": "LEAVE FORK-GATED",
+ "ir_scale_introduced": false,
+ "c0p": "UNRESOLVED",
+ "c2p": "UNRESOLVED",
+ "H0_Lambda_R": "ONE, unchanged",
+ "axis2_status": "C, unchanged (not recomputed)",
+ "noise_fork": "untouched",
+ "gate_E": "untouched",
+ "register_modified": false,
+ "supersedes_evidence_of": "390a22d (branch-incomplete classification; NOT a failed physical result)",
+ "out": {
+  "corrected_evidence": {
+   "power_piece": "the q^-4 / a = -1 power contribution cancels exactly between the two retarded cone branches",
+   "surviving": "a nonzero q^-3 / a = 0 logarithmic IR divergence remains, coefficient -8 omega^2/15",
+   "small_cutoff_form": "-(8/15) omega^2 ln(delta)",
+   "authoritative": true,
+   "supersedes": "the single-branch power-divergence characterization in commit 390a22d"
+  },
+  "supersession": {
+   "commit": "390a22d",
+   "what_is_superseded": "the EVIDENCE CHARACTERIZATION only -- specifically the single-branch numeric route and the resulting 1/delta power-divergence description",
+   "what_is_NOT_superseded": "the physical verdict. H2-B stands: the H^2 local coefficients are not uniquely determined and the sector is fork-gated",
+   "precise_statement": "the original divergence classification was BRANCH-INCOMPLETE, and the corrected full retarded integrand still diverges logarithmically",
+   "not_a_failed_physical_result": true,
+   "status": "SUPERSEDED AS EVIDENCE, NOT REFUTED AS RESULT"
+  },
+  "owner_ruling": {
+   "1": "The corrected H^2 retarded local calculation has a genuine residual logarithmic IR divergence after exact cancellation of the prior power-divergent branch contribution.",
+   "2": "No pre-existing IR prescription or IR scale is licensed by the frozen theory/contract.",
+   "3": "The preregistered fork-(ii) route is acknowledged as an available future governance path, but it is NOT invoked to introduce a numerical IR regulator or new physical scale now.",
+   "4": "Therefore: c0' = unresolved; c2' = unresolved; H^2 local sector = fork-gated.",
+   "5": "No new independent input is introduced.",
+   "6": "H^0 remains exactly one irreducible unresolved constant: Lambda_R.",
+   "7": "Axis-2 remains C and is not recomputed.",
+   "8": "The noise fork remains untouched.",
+   "9": "Gate-E remains untouched.",
+   "10": "The corrected H^2 evidence supersedes the erroneous single-branch power-divergence characterization from commit 390a22d everywhere that it is cited."
+  },
+  "future_ir_scale_status": "Introducing an IR scale later would constitute a NEW DECLARED INPUT and would require its own provenance and independent justification -- it may not be justified by any spectral, memory, benchmark or downstream outcome.",
+  "required_wording": "The q^-4 / a=-1 power contribution cancels exactly between the two retarded cone branches. A nonzero q^-3 / a=0 logarithmic IR divergence remains.",
+  "register_entry_required": false,
+  "worktree": [
+   "?? wall_kr_h2_ir_decision_run1.log",
+   "?? wall_kr_h2_ir_owner_decision.py"
+  ]
+ },
+ "checks": [
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CLAUSE 1a: after summing BOTH retarded cone branches the power-divergent pieces are ABSENT from the integrand (no q^-2, q^-3 or q^-4 survives) -- the q^-4 / a = -1 power contribution CANCELS EXACTLY between the two branches",
+   "gate": "EVID",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CLAUSE 1b: a NONZERO q^-3 / a = 0 LOGARITHMIC IR divergence REMAINS, coefficient exactly -8 omega^2/15 (per H^2, d = 3) -- so the H^2 retarded local integral behaves as -(8/15) omega^2 ln(delta) at small cutoff",
+   "gate": "EVID",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "390a22d is marked SUPERSEDED AS EVIDENCE (branch-incomplete classification), explicitly NOT a failed physical result -- the provenance distinction the owner required",
+   "gate": "SUPER",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "all ten ruling clauses recorded verbatim",
+   "gate": "RULE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "WORDING GATE 1: the record never says the H^2 divergence was 'removed' -- it says the power contribution CANCELS and a logarithmic divergence REMAINS",
+   "gate": "WORD",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: wording detector has teeth: a runtime-assembled offending phrase IS caught by the same membership test",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "WORDING GATE 2: the owner's prescribed sentence is carried verbatim, naming both the cancelling (a = -1) and surviving (a = 0) contributions",
+   "gate": "WORD",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "WORDING GATE 3: the conditional c0' = 0 statement remains NOT PROMOTED (read back from the prior audit's own record)",
+   "gate": "WORD",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "no numerical IR scale is assigned in code and no numeric c0'/c2' is emitted in the record",
+   "gate": "FW",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "no downstream spectral outcome token in this record's source -- the decision consulted none",
+   "gate": "FW",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: outcome-token scanner has teeth (runtime-assembled sentinel)",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "CLAUSE 6 verified against the certified ledger: H^0 remains exactly ONE irreducible unresolved constant, Lambda_R",
+   "gate": "FW",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "all frozen upstream artifacts byte-identical to their pre-run hashes",
+   "gate": "VAL",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "register provenance/claims.json byte-identical -- the ruling introduces no input, so it requires no governance entry and none was made",
+   "gate": "VAL",
+   "detail": null
+  }
+ ],
+ "notes": [
+  "input sha WALL_KR_H2_IR_OWNER_RULING_RESULT.json = 5a7d8859c7af43d1...",
+  "input sha WALL_KR_H2_LOCAL_FORK_RESULT.json = 29893751a5578895...",
+  "input sha WALL_KR_H0_PARAMETER_LEDGER_RESULT.json = 8f4adb633fbe44ad...",
+  "SUPERSESSION: the original divergence classification was BRANCH-INCOMPLETE, and the corrected full retarded integrand still diverges logarithmically",
+  "CLAUSE 1: The corrected H^2 retarded local calculation has a genuine residual logarithmic IR divergence after exact cancellation of the prior power-divergent branch contribution.",
+  "CLAUSE 2: No pre-existing IR prescription or IR scale is licensed by the frozen theory/contract.",
+  "CLAUSE 3: The preregistered fork-(ii) route is acknowledged as an available future governance path, but it is NOT invoked to introduce a numerical IR regulator or new physical scale now.",
+  "CLAUSE 4: Therefore: c0' = unresolved; c2' = unresolved; H^2 local sector = fork-gated.",
+  "CLAUSE 5: No new independent input is introduced.",
+  "CLAUSE 6: H^0 remains exactly one irreducible unresolved constant: Lambda_R.",
+  "CLAUSE 7: Axis-2 remains C and is not recomputed.",
+  "CLAUSE 8: The noise fork remains untouched.",
+  "CLAUSE 9: Gate-E remains untouched.",
+  "CLAUSE 10: The corrected H^2 evidence supersedes the erroneous single-branch power-divergence characterization from commit 390a22d everywhere that it is cited.",
+  "FUTURE: Introducing an IR scale later would constitute a NEW DECLARED INPUT and would require its own provenance and independent justification -- it may not be justified by any spectral, memory, benchmark or downstream outcome.",
+  "files added/changed: ?? wall_kr_h2_ir_decision_run1.log | ?? wall_kr_h2_ir_owner_decision.py"
+ ],
+ "failures": [],
+ "elapsed_s": 1.2
+}

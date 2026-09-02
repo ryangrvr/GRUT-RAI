@@ -1,0 +1,51 @@
+=== PROVENANCE ===
+  note input sha WALL_KR_H2_IR_OWNER_RULING_RESULT.json = 5a7d8859c7af43d1...
+  note input sha WALL_KR_H2_LOCAL_FORK_RESULT.json = 29893751a5578895...
+  note input sha WALL_KR_H0_PARAMETER_LEDGER_RESULT.json = 8f4adb633fbe44ad...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  ok   pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...
+
+=== 1: THE CORRECTED H^2 EVIDENCE (re-verified here) ===
+  ok   CLAUSE 1a: after summing BOTH retarded cone branches the power-divergent pieces are ABSENT from the integrand (no q^-2, q^-3 or q^-4 survives) -- the q^-4 / a = -1 power contribution CANCELS EXACTLY between the two branches
+  ok   CLAUSE 1b: a NONZERO q^-3 / a = 0 LOGARITHMIC IR divergence REMAINS, coefficient exactly -8 omega^2/15 (per H^2, d = 3) -- so the H^2 retarded local integral behaves as -(8/15) omega^2 ln(delta) at small cutoff
+
+=== 2: SUPERSESSION OF 390a22d (framing matters) ===
+  note SUPERSESSION: the original divergence classification was BRANCH-INCOMPLETE, and the corrected full retarded integrand still diverges logarithmically
+  ok   390a22d is marked SUPERSEDED AS EVIDENCE (branch-incomplete classification), explicitly NOT a failed physical result -- the provenance distinction the owner required
+
+=== 3: THE OWNER RULING (10 clauses, recorded) ===
+  note CLAUSE 1: The corrected H^2 retarded local calculation has a genuine residual logarithmic IR divergence after exact cancellation of the prior power-divergent branch contribution.
+  note CLAUSE 2: No pre-existing IR prescription or IR scale is licensed by the frozen theory/contract.
+  note CLAUSE 3: The preregistered fork-(ii) route is acknowledged as an available future governance path, but it is NOT invoked to introduce a numerical IR regulator or new physical scale now.
+  note CLAUSE 4: Therefore: c0' = unresolved; c2' = unresolved; H^2 local sector = fork-gated.
+  note CLAUSE 5: No new independent input is introduced.
+  note CLAUSE 6: H^0 remains exactly one irreducible unresolved constant: Lambda_R.
+  note CLAUSE 7: Axis-2 remains C and is not recomputed.
+  note CLAUSE 8: The noise fork remains untouched.
+  note CLAUSE 9: Gate-E remains untouched.
+  note CLAUSE 10: The corrected H^2 evidence supersedes the erroneous single-branch power-divergence characterization from commit 390a22d everywhere that it is cited.
+  ok   all ten ruling clauses recorded verbatim
+  note FUTURE: Introducing an IR scale later would constitute a NEW DECLARED INPUT and would require its own provenance and independent justification -- it may not be justified by any spectral, memory, benchmark or downstream outcome.
+
+=== 4: CRITICAL WORDING GATES ===
+  ok   WORDING GATE 1: the record never says the H^2 divergence was 'removed' -- it says the power contribution CANCELS and a logarithmic divergence REMAINS
+  ctrl-DETECTED   wording detector has teeth: a runtime-assembled offending phrase IS caught by the same membership test
+  ok   WORDING GATE 2: the owner's prescribed sentence is carried verbatim, naming both the cancelling (a = -1) and surviving (a = 0) contributions
+  ok   WORDING GATE 3: the conditional c0' = 0 statement remains NOT PROMOTED (read back from the prior audit's own record)
+
+=== 5: FIREWALLS ===
+  ok   no numerical IR scale is assigned in code and no numeric c0'/c2' is emitted in the record
+  ok   no downstream spectral outcome token in this record's source -- the decision consulted none
+  ctrl-DETECTED   outcome-token scanner has teeth (runtime-assembled sentinel)
+  ok   CLAUSE 6 verified against the certified ledger: H^0 remains exactly ONE irreducible unresolved constant, Lambda_R
+
+=== 6: VALIDATION ===
+  ok   all frozen upstream artifacts byte-identical to their pre-run hashes
+  ok   register provenance/claims.json byte-identical -- the ruling introduces no input, so it requires no governance entry and none was made
+  note files added/changed: ?? wall_kr_h2_ir_decision_run1.log | ?? wall_kr_h2_ir_owner_decision.py
+  ok   artifact written and re-read (sha b6ecde682832faf4...)
+
+H^2 IR OWNER DECISION: 18/18 passed; failures: 0
+DECISION: LEAVE FORK-GATED | IR SCALE INTRODUCED: NO
+HARD STOP.

@@ -1,5 +1,25 @@
 # H² LOCAL FORK — AUDIT RECORD
 
+> ## ⚠ EVIDENCE SUPERSEDED — READ FIRST
+>
+> **The numeric route in this record integrated the c_m cone branch
+> ALONE.** With both retarded branches summed, the **q^-4 / a=-1 power
+> contribution cancels exactly**, and what remains is a **nonzero
+> q^-3 / a=0 logarithmic IR divergence** of coefficient **−8ω²/15**.
+> The "≈10× per decade / 1/δ power divergence" ladder below is therefore
+> **branch-incomplete and superseded**.
+>
+> **The verdict H2-B is NOT superseded.** The original classification was
+> branch-incomplete; the corrected full retarded integrand still diverges
+> logarithmically, so the H² local sector remains fork-gated for the same
+> reason — now stated correctly.
+>
+> Authoritative characterization and correction:
+> `WALL_KR_H2_IR_OWNER_RULING.md` (Part 0) and
+> `WALL_KR_H2_IR_OWNER_DECISION.md`. Commits `47aa43e`,
+> and this record's own commit `390a22d` for provenance.
+
+
 **Date:** 2026-09-01 · **Instrument:** `wall_kr_h2_local_fork.py` ·
 **Artifact:** `WALL_KR_H2_LOCAL_FORK_RESULT.json` · **Battery: 24/24,
 zero failures, first run.** · **Frozen inputs touched: NONE** (Tier-1..4,
