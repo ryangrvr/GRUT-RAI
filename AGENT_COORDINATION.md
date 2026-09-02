@@ -5690,3 +5690,71 @@ NEXT: FORMAL D4 RE-ADJUDICATION consuming a54aa7f (external-orbit
 operator identity) + 56b64c0 (internal KTERM-A) under this declared
 scope. D4 remains C until that run. CC-C, Axis-2 C, Gate-E A, Noise A,
 Lambda_R one, H^2 fork-gated -- all unchanged.
+
+================================================================================
+2026-09-02 -- FORMAL D4 RE-ADJUDICATION: D4-A
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_d4_readjudication.py (28/28)
+RECORD: WALL_KR_D4_RE_ADJUDICATION.md + machine JSON.
+Adjudication of EXISTING certified evidence -- not a new derivation.
+Frozen artifacts (a54aa7f's and 56b64c0's included) + register
+byte-identical; no new input; no new physics; NO consequence class.
+
+CLASSIFICATION: **D4-A** -- all registered D4 conditions satisfied for
+the declared consequence-scope object.
+
+REQ (1) DISCHARGED: the orbit direction is BY CONSTRUCTION gradient +
+trace = exactly Declaration 5's "trace + longitudinal" discards, and its
+TT projection VANISHES (each piece separately, exact rational arithmetic,
+5 directions x 9 index pairs). So the orbit moves content only WITHIN the
+discard space -- that IS "the discards must map orbit-to-orbit".
+REQ (2) DISCHARGED via the OPERATOR-IDENTITY ROUTE, licensed by charter
+gate D's own clause ("agreement of TT content between gauges as an
+operator identity where provable, exact symbolic check where not").
+Bridge built in 6 steps, NOT assumed: (a) D5 compares two constructions
+of the SAME linearized object; (b) any gauge transformation acts on the
+spatial block as i(k xi + xi k) + lambda delta, INCLUDING the one
+reaching synchronous gauge; (c) the certified identities annihilate that
+form for ARBITRARY direction/xi/lambda, so (b)'s particular xi is a
+special case; (d) per-configuration zeros integrate to zero => Sigma^TT
+is the SAME object; (e) Pi_nonlocal is a PART of Sigma^TT, so identical
+object => identical nonlocal part (EXACT equality); (f) the route is the
+contract's own licensed alternative.
+REQ (3) DISCHARGED STRUCTURALLY WITHOUT READING ANY VERDICT: D5 requires
+Q1/Q3 to be IDENTICAL BETWEEN GAUGES -- an invariance statement, not a
+value statement. Same object => same verdicts. Consequence firewall
+intact: no Axis-2/J(omega)/benchmark/plant datum entered.
+H-ORDERS: lambda is the only H-carrier and the trace piece vanishes for
+ARBITRARY lambda => one uniform identity proves H^0/H^1/H^2 at once;
+three separate calcs would be strictly WEAKER.
+
+SUPERSESSION (exact wording): the prior internal residual is a
+"SUPERSEDED INTERPRETATION OF THE EXECUTABLE TEST" -- NOT a deleted
+result, NOT a physical contradiction. It came from inserting the gauge
+image as a FREE POLARIZATION rather than the declared P^TT x W
+contraction. D4-C artifact byte-identical.
+
+CONTROLS (5): remove external transversality -> gradient survives;
+remove internal TT projection / revert to free-polarization -> the
+residual RETURNS (the superseded test itself); remove trace cancellation
+-> trace direction survives; and THE DECISIVE ONE: any nonzero Delta_TT
+between the two constructions fails the equality test -- the dispatch is
+an EQUALITY TEST, not equivalence by fiat.
+
+D4-A MEANS ONLY: the declared TT-bath dual-gauge/orbit requirement is
+satisfied for the registered object. NOT general-gauge uniqueness, NOT
+GRUT, NOT a consequence class, NOT low-frequency memory, NOT Lambda_R,
+NOT the H^2 IR ambiguity.
+
+DEFECTS (gate-side, disclosed): run-1 evidence gate matched prose
+capitalization instead of the artifact's field name; run-2 trigsimp
+idempotency contraction hit the 20-minute rule (re-represented to exact
+rationals; the discard-space step needs no idempotency since the orbit is
+gradient+trace by construction); run-3 quote gate missed a LINE-WRAPPED
+clause ("map\n   orbit-to-orbit") -- whitespace-normalized. Physics
+unmoved throughout.
+
+NEXT: OWNER REVIEW. If accepted, the remaining consequence prerequisites
+are the low-frequency/epoch-window fork-(ii) path and the
+certificate-vs-manifest face ruling. CC-C, Axis-2 C, Gate-E A, Noise A,
+Tier-4 banked, Lambda_R one, H^2 fork-gated -- all unchanged.
