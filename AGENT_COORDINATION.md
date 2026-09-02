@@ -5588,3 +5588,60 @@ independence check) -- runtime-built tokens.
 NEXT: OWNER REVIEW -- authorize the priced K-term completion, or stop
 the consequence pursuit here. CC-C unchanged; Axis-2 C; Gate-E A;
 Noise A; Lambda_R one; H^2 fork gated.
+
+================================================================================
+2026-09-02 -- D4 K-TERM COMPLETION (internal-line sector): KTERM-A
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_d4_kterm.py (27/27)
+RECORD: WALL_KR_D4_KTERM_COMPLETION.md + machine JSON.
+Frozen inputs byte-identical (D4-C artifact INCLUDED); register
+untouched; no new physical input; NO floating point anywhere.
+
+CLASSIFICATION: **KTERM-A** -- the internal-line requirement PASSES.
+D4 REMAINS C pending owner re-adjudication (no governance rule defines
+this run as the formal D4 completion).
+
+GOVERNANCE FINDING (stop-clause honored, then proceeded): the registered
+protocol contains NO separate internal-line machinery -- at matter scope
+A4's internal lines were SCALARS and carried no orbit, so none was ever
+written. The registered "K-term completion" IS transversality +
+trace-cancellation on the orbit direction (read verbatim from
+wall_a4_response_dressed.py). The priced completion = that same
+mechanism re-derived on the INTERNAL slot; cost/input obstruction
+UNCHANGED.
+
+ROUTE A (symbolic projector, |n|=1 by construction): K-half annihilated
+for arbitrary direction/Y; trace-half annihilated for arbitrary lambda;
+full orbit direction annihilated EXACTLY.
+H-ORDER: the annihilation is INDEPENDENT of lambda (d/dlambda = 0) and
+lambda is the ONLY H-carrier => H^0/H^1/H^2 each annihilated separately
+-- UNIFORM in H, stronger than an order-by-order check.
+ROUTE B (independent: explicit transverse orthonormal dyad + A4's TT
+amplitude readout, 4 exact rational directions, no projector): both TT
+amplitudes vanish everywhere. Shares only the frozen orbit DEFINITION.
+
+**HONEST DIAGNOSIS OF THE D4-C RESIDUAL:** the D4-C Part-2 test inserted
+the gauge image as a FREE POLARIZATION on the internal slot; the loop
+contracts that slot with the bath propagator P^TT x W (T3 frozen tensor
+rule, time rows zeroed by T2). The test BYPASSED the projector that
+defines the declared bath. Decomposition category B = EXACT ZERO AFTER
+TT PROJECTION. This corrects the BUILDER'S OWN interpretation; the
+frozen D4-C artifact and classification are preserved.
+
+SCOPE BOUNDARY (named): this is orbit robustness WITHIN the declared TT
+bath. It does NOT establish that the TT-bath DECLARATION is the unique
+admissible gauge -- that is D3(iii), owner-declared and underdefined,
+NOT a D4 question and NOT answered here.
+
+CONTROLS: omit-transversality -> K survives; generic insertion survives;
+break |n|=1 -> annihilation fails; omit-trace-subtraction -> trace
+survives (A and E prove BOTH halves load-bearing). The sign-flip control
+is WEAK BY CONSTRUCTION (antisymmetric dies against a symmetric
+projector regardless) -- flagged as weak, not counted as teeth.
+NUMERICS: 6 random EXACT unit directions x 9 index pairs, annihilated
+exactly in rational/radical arithmetic.
+
+NEXT: OWNER REVIEW of the K-term result -- if accepted, D4 becomes
+eligible for re-adjudication with both sectors resolved (external =
+a54aa7f operator identity; internal = this completion), the D3(iii)
+bath-declaration boundary explicitly outside both.

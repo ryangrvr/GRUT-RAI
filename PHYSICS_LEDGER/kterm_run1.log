@@ -1,0 +1,77 @@
+=== PROVENANCE (pre-run) ===
+  note input sha WALL_KR_D4_DUAL_GAUGE_RESULT.json = 0ffa6f045c4f1f23...
+  note input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...
+  ok   pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...
+  ok   pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  ok   pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...
+  ok   pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...
+  note input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...
+  note input sha wall_a4_response_dressed.py = 639092b99d6c0719...
+  note input sha wall_kr_tier3_loop.py = 1c72272b54d09f31...
+  note input sha .d4_flat_ward.json = afaf920ba96bde32...
+  note input sha .d4_vertex_gauge.json = b1772109fc3f9bf8...
+
+=== 1: THE REGISTERED K-TERM, READ FROM THE SOURCE ===
+  note A4 ORBIT SPLIT (source, verbatim): orbit split through O(H^2): de^0 = i(KX + XK); de^1 = 2 X_0 eta "      "[u-free]; de^2u = 2 u X_0 eta [u-CARRYING -- pure trace; demands a loop "      "u-moment; TT-irrelevant by the trace-cancellation theorem below; "      "recorded as the single non-TT O(H^2) scope boundary]")  # =================
+  note A4 THEOREM (source, verbatim): => the orbit cannot move ANY TT amplitude at ANY order in H (K-terms "      "cannot reach the transverse block; eta-terms shift e11 and e22 equally "      "and cancel in the traceless combination; the u-carrying term is "      "eta-direction too). Route-B TT == route-A TT as an OPERATOR IDENTITY "      "through O(H^2); the A3-4 TT verdicts (Q1 INSIDE / Q4 HOLDS / Q5 "      "INSIDE) are therefore G
+  ok   THE REGISTERED K-TERM MECHANISM, located in the A4 source: the orbit direction splits as de^0 = i(KX + XK) [the K-terms] plus eta-direction trace pieces; the theorem is that K-terms CANNOT REACH THE TRANSVERSE BLOCK and eta-terms CANCEL IN THE TRACELESS COMBINATION -- i.e. the 'K-term completion' IS transversality + trace-cancellation, executed on the orbit direction
+  note GOVERNANCE FINDING (reported per section 1's stop-clause): the registered protocol contains NO separate internal-line machinery. At matter scope A4's internal lines were SCALARS and carried no orbit at all, so none was ever written. The priced completion is therefore the SAME mechanism applied to the internal slot -- which is a re-derivation, not a new object, and the declared cost/input obstruction is UNCHANGED. Proceeding
+
+=== 6: FLAT CONTROL (must pass before anything else) ===
+  ok   FLAT WARD CONTROL re-verified from its frozen record: the flat vertex with a gauge-image leg under EXACT conservation and on-shell TT companions is IDENTICALLY ZERO -- the apparatus detects genuine gauge invariance; proceeding is licensed
+
+=== ROUTE A: registered mechanism, internal slot ===
+  ok   projector sanity: P^TT is traceless on the exact unit-vector parameterization (|n| = 1 imposed by construction, not by substitution -- the run-1 defect that made this read nonzero was a failed n3^2 subs, disclosed)
+  ok   K-TERM HALF: P^TT annihilates the internal K-direction i(q n_i Y_j + q n_j Y_i) for ARBITRARY direction (theta, phi) and ARBITRARY Y, at every (a,b) -- 'K-terms cannot reach the transverse block', now proven on the INTERNAL slot
+  ok   TRACE HALF: P^TT annihilates the eta/trace direction lambda delta_ij for ARBITRARY lambda -- 'eta-terms cancel in the traceless combination'. lambda = 2(a'/a) xi^0 carries ALL the H-dependence, so this half is H-exact
+  ok   ROUTE A RESULT: the FULL internal orbit direction (K + trace) is annihilated by the bath projector exactly -- the internal line cannot carry orbit content into the TT block
+
+=== 8: H-ORDER SEPARATION ===
+  ok   H-ORDER: the annihilation is INDEPENDENT of lambda (d/dlambda = 0 identically), and lambda is the ONLY carrier of H in the internal orbit direction -- so H^0, H^1 and H^2 are each annihilated separately and no order can hide a residual behind another (this is stronger than an order-by-order check: it is uniform in H)
+
+=== ROUTE B: independent route (different construction) ===
+  ok   ROUTE B RESULT (independent construction: explicit transverse orthonormal dyad + the A4 TT-amplitude readout, at 4 exact RATIONAL unit directions, sharing no intermediate with Route A): BOTH TT amplitudes of the internal orbit direction vanish -- ((e+ . de . e+) - (ex . de . ex))/2 = 0 and e+ . de . ex = 0
+  ok   INDEPENDENCE: Route A contracts with the symbolic projector on a trigonometric parameterization; Route B reads TT amplitudes off an explicit rational-direction dyad. They share the frozen orbit-direction DEFINITION (raw input, permitted) and no final intermediate expression
+
+=== 5: WHAT THE D4-C RESIDUAL WAS (honest diagnosis) ===
+  ok   the D4-C record is read, not rewritten (classification preserved at a54aa7f)
+  ok   the D4-C internal residual is reproduced from its frozen cache (nonzero, as recorded)
+  note DIAG what_D4C_tested: the gauge image was inserted as a FREE polarization on the vertex's internal slot
+  note DIAG what_the_loop_does: the internal slot is contracted with the bath propagator P^TT x W (T3's frozen tensor rule; internal time rows zeroed by the T2 declaration)
+  note DIAG the_gap: the D4-C test BYPASSED the projector that defines the declared bath. Routes A and B show that projector annihilates the orbit direction exactly, so the residual cannot enter the loop as declared
+  note DIAG classification_of_the_residual: category B of the required decomposition -- EXACT ZERO AFTER TT PROJECTION (not 'pure gauge by inspection', not an EOM cancellation, not a new K-term): the projection is the registered mechanism itself
+  note DIAG self_correction: this is a correction of the builder's own D4-C Part-2 interpretation, not of the frozen record; the D4-C artifact stays byte-identical
+
+=== 10: NEGATIVE CONTROLS ===
+  ctrl-DETECTED   A. OMIT the transversality half: the K-direction SURVIVES (nonzero) -- the K-term half is load-bearing, not decoration
+  ctrl-DETECTED   B. sign flip: the antisymmetrized image contracts to 0 -- recorded; note this control is WEAK by construction (an antisymmetric tensor dies against the symmetric projector regardless), which is exactly why controls A/C/E carry the teeth here
+  ctrl-DETECTED   C. generic (non-orbit) symmetric insertion SURVIVES the projector -- the annihilation is specific to the orbit direction, not a projector that kills everything
+  ctrl-DETECTED   D. break exact conservation/normalization (|n|^2 = 3/4): the annihilation FAILS -- the identity genuinely depends on the on-shell transverse structure and is not an algebraic accident
+  ctrl-DETECTED   E. OMIT the trace subtraction: the eta/trace direction SURVIVES -- the trace-cancellation half is load-bearing; together with A both halves of the registered mechanism are proven to have teeth
+
+=== 11: EXACT-RATIONAL VALIDATION (no rounding) ===
+  ok   EXACT-RATIONAL VALIDATION: 6 random exact unit directions x 9 index pairs, all annihilated EXACTLY (rational/radical arithmetic -- nothing rounds to zero; no floating point anywhere in this instrument)
+
+=== 12: GOVERNANCE FIREWALL ===
+  ok   no Axis-2, consequence-map, J(omega) or plant artifact is read -- the K-term succeeds or fails on the D4 contract alone (tokens runtime-built; 7th-appearance self-scan trap avoided)
+  ctrl-DETECTED   token scanner has teeth
+
+=== 13/14: CLASSIFICATION ===
+  note CLASS code: KTERM-A
+  note CLASS statement: the internal-line requirement PASSES: the registered K-term mechanism (transversality + trace cancellation), applied to the INTERNAL slot, annihilates the full internal orbit direction exactly -- for arbitrary direction, arbitrary gauge parameter, and uniformly in H
+  note CLASS not_by_a_new_term: no term was invented to make anything vanish: the mechanism is A4's own, re-derived on the internal slot as the charter's gate D prescribes
+  note CLASS the_D4C_residual: diagnosed as category B (exact zero after TT projection): the D4-C Part-2 test inserted the gauge image WITHOUT the bath projector the loop actually applies -- a builder-side mis-posed test, corrected here, with the frozen D4-C artifact preserved
+  note CLASS SCOPE BOUNDARY (named, not hidden): this establishes ORBIT robustness WITHIN the declared TT bath: gauge-transforming the internal line moves no TT amplitude. It does NOT establish that the TT-bath DECLARATION itself is the unique admissible gauge choice -- that is D3(iii), the graviton-bath state/gauge prescription the charter lists as OWNER-DECLARED and UNDERDEFINED. A general-gauge propagator whose non-TT content differs is a D3(iii) question, not a D4 one, and is NOT answered here
+  note CLASS d4_status: D4 remains C pending owner re-adjudication -- this stage does not change the D4 classification (no governance rule defines this execution as the formal D4 completion)
+  ok   classification emitted: KTERM-A -- computed from Routes A and B, not forced
+
+=== 17: POST-RUN INTEGRITY ===
+  ok   every frozen input byte-identical to its pre-run hash (the D4-C artifact included -- history preserved)
+  note register untouched: claims.json sha beaeb84e8a6f8468...
+  note files added: ?? kterm_run1.log | ?? wall_kr_d4_kterm.py
+  ok   artifact written and re-read (sha be66003c8ce0d8cb...)
+
+K-TERM COMPLETION: 27/27 passed; failures: 0
+KTERM: KTERM-A | D4 remains: C (pending owner re-adjudication)
+HARD STOP.
