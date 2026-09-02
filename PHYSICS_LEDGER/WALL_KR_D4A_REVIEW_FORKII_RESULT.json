@@ -1,0 +1,73 @@
+{
+  "instrument": "wall_kr_d4a_review_forkii.py",
+  "date": "2026-09-02",
+  "kind": "GOVERNANCE REVIEW + READINESS ASSESSMENT (no physics computed)",
+  "battery": "55/55",
+  "failures": [],
+  "repository": {
+    "branch": "master",
+    "HEAD": "86e42136080c1c84365559dcfbd336b94ccda2cf",
+    "worktree_clean": false,
+    "commit_86e4213_present": true
+  },
+  "d4a_owner_review": {
+    "classification": "D4-A",
+    "status": "PACKET PREPARED — AWAITING OWNER ACCEPTANCE (not implicitly accepted)",
+    "scope": "declared TT-bath consequence-scope object only",
+    "general_gauge_uniqueness": "NOT CLAIMED",
+    "evidence_consumed": [
+      "a54aa7f external-orbit operator identity",
+      "56b64c0 KTERM-A internal K-term completion"
+    ],
+    "new_input": "NONE",
+    "new_physics": "NONE",
+    "consequence_class_assigned": "NONE",
+    "register_modified": false
+  },
+  "frozen_integrity": {
+    "PHYSICS_LEDGER/WALL_KR_D4_DUAL_GAUGE_RESULT.json": "0ffa6f045c4f1f23b57c8d1fcd24549bb25edcfd05435d11b7909082f72f7628",
+    "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json": "be66003c8ce0d8cbf4e59e647ea2d7e8ace65fe98dcabaf386e68b8cded155e3",
+    "PHYSICS_LEDGER/WALL_KR_TIER1_VERTEX_ARTIFACT.json": "dfd8d5c203c80b1d57ea5d83740d341a3eb848523f634cf354b92e2ef38424b9",
+    "PHYSICS_LEDGER/WALL_KR_TIER2_MASSLESS_BATH.json": "c5d399f525407839b3c6ad53e3acfc0a4c11a0af8d01af4535df7b0794e5a48e",
+    "PHYSICS_LEDGER/WALL_KR_TIER3_LOOP_RESULT.json": "4c016e93b889bd0454c2f1edfb75724b063fb87f5de26fe349834758fd7b2cc6",
+    "PHYSICS_LEDGER/WALL_KR_CONTRACT_RETARDED_RESULT.json": "d916ef32f6f73fa3bb955c6aee8a668eb552aeda3b6e5b9ec055b98c1221d3b5"
+  },
+  "fork_ii_readiness": {
+    "A_what_fork_ii_is": "REGISTERED as limb (ii) of the benchmark three-way fork: 'the white floor is right but an IR cutoff exists — then it must be named and priced (a new register input)'. It is an IR-CUTOFF fork.",
+    "A_conflation_finding": "The phrase 'low-frequency/epoch-window fork-(ii) path' BUNDLES TWO DISTINCT registered inputs: (1) benchmark fork (ii) = a named+priced IR cutoff; (2) the epoch-window input priced at W* < 0.25 e-folds (CLASS_C_DISPATCH_DECISIONS D1). No registered source identifies them; the identification appears only in an unbanked builder record.",
+    "B_input_required": [
+      "a declared IR prescription (regulator + scale), currently unlicensed",
+      "a declared epoch window W, currently unpriced"
+    ],
+    "C_licensed": "NO for both. IR: standing ruling IR-B — no pre-existing license, nine candidate regulators swept, none adopted. Epoch window: registered as a PRICED INPUT, not as a licensed technique.",
+    "D_W_star": "Stationarity of the TT worldline kernel holds only for W < 0.25 e-folds at 10% shape tolerance; the map records that this caps frequency resolution at d_omega ~ 1/W ~ 4H.",
+    "E_object": "The registered Class-3 criterion is stated on the ASSEMBLED, GAUGE-INVARIANT, IR-RESUMMED retarded G_R^TT(omega) CONTINUED TO omega -> 0, and additionally requires an exponent alpha extractable WITH AN ERROR BUDGET; otherwise outcome 4.",
+    "F_frozen_must_not_refit": [
+      "K_R / Sigma_R nonlocal coefficients (T1-T4 chain)",
+      "H0 locals c0=c2=0 exact, c4 calculated",
+      "Lambda_R (symbolic, one irreducible constant)",
+      "the H2 fork-gated local sector (c0', c2')",
+      "the consequence map and its class criteria"
+    ],
+    "G_evaluator_refusal": "eps_H = (104/9) H^2/omega^2; eps_H >= 1 raises DomainRejected. Refusal boundary omega = sqrt(104/9) H = 3.3993 H. The truncated H-series is never extrapolated.",
+    "H_licensed_extension": "NONE FOUND. No registered authority licenses an IR prescription or an epoch-window approximation. Furthermore the registered kill conditions attach PENALTY SEMANTICS to windowing: a named window reclassifies outcome 1 -> outcome 5, an unnamed one fires prohibition 5, and a windowed calculation CANNOT report outcome 2.",
+    "H_structural_note": "Arithmetic on registered numbers only: the window's resolution floor (~4H) lies ABOVE the evaluator's refusal boundary (3.3993H), so pricing the window does not by itself deliver the omega -> 0 continuation the Class-3 criterion is stated on. Reported as a structural consequence requiring owner adjudication, NOT as a physics result.",
+    "I_status": "2 AND 3 — requires an owner decision AND at least one new priced register input"
+  },
+  "firewalls_observed": [
+    "no consequence class assigned",
+    "branch-cut existence NOT equated with the Class-3 criterion",
+    "no evaluation attempted below the evaluator's refusal boundary",
+    "no IR prescription invented",
+    "mu not chosen numerically",
+    "Lambda_R not treated as known",
+    "no J(omega)/plant/benchmark/Axis-2 datum used to justify a prerequisite",
+    "no H0 coefficient refit",
+    "H2 fork-gated sector untouched",
+    "TT-bath result not broadened to general-gauge uniqueness",
+    "consequence map unmodified",
+    "no baseline refreshed",
+    "nothing banked"
+  ],
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
