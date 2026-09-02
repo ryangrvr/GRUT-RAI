@@ -1,0 +1,11 @@
+[     0s] cache loaded
+[     8s] sympified
+[    25s] sig_g/sig_l transformed to the Wigner frame
+[    55s] identity nk == sg + sl (numeric, 6 pts): True
+[    68s] sg H^0: m NONZERO | p 0 | stray {}
+[    68s] sg H^1: m 0 | p 0 | stray {}
+[   175s] sg H^2: m NONZERO | p 0 | stray {}
+[   188s] sl H^0: m 0 | p NONZERO | stray {}
+[   188s] sl H^1: m 0 | p 0 | stray {}
+[   295s] sl H^2: m 0 | p NONZERO | stray {}
+[   295s] DONE

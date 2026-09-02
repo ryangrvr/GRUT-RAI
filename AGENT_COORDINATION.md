@@ -5295,3 +5295,64 @@ outcome.
 
 NEXT AUTHORIZED STAGE: GATE-E, unless the register directs otherwise.
 W-0; register untouched (+16).
+
+================================================================================
+2026-09-01 -- GATE-E: FDT/KMS LOCK AT O(H^2) -- CLASSIFICATION GATE-E-A
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_gate_e_fdt_kms.py (+ gate_e_extract2.py)
+RECORD:     GATE_E_H2_FDT_KMS_AUDIT.md
+ARTIFACT:   GATE_E_H2_FDT_KMS_RESULT.json
+BATTERY: 32/32, zero failures, six controls detecting. Frozen inputs and
+register byte-identical pre/post.
+
+CLASSIFICATION: **GATE-E-A** -- the lock PASSES at O(H^0), O(H^1) and
+O(H^2) within the declared domain (omega >> H); nothing claimed at
+omega ~ H or omega -> 0.
+
+CRITERION: three sources composed WITHOUT conflict (charter gate E ->
+rung2 coth-lock -> Tier-2 graded executable form); coth -> sgn DERIVED
+per order (the dS temperature H/2pi is non-perturbative: e^{-2pi omega/H}
+has vanishing H-limit and vanishing first/second H-derivatives).
+Composed relation: R_n = [S> + S<]_n - sgn(omega)[S> - S<]_n == 0
+on-cone per order. STRUCTURAL EXCLUSION: Sigma_K has no theta => no PV
+part => the unresolved locals (c0', c2', Lambda_R) CANNOT enter either
+side -- no back-propagation into the IR decision is possible.
+
+ROUTE A (structural): SUPPORT SEPARATION HOLDS EXACTLY THROUGH O(H^2)
+-- Sigma_> pure m-branch, Sigma_< pure p-branch, no strays, per order;
+H^1 vanishes for each Wightman function INDIVIDUALLY (stronger than the
+retarded H^1 = 0). Hence R_n = 2 S<_n = 0 IDENTICALLY: the graded T=0
+lock is a SUPPORT IDENTITY, untouched by any IR structure.
+
+ROUTE B (independent): noise on-cone content from the S>/S< cones via a
+delta-support formula calibrated against an INDEPENDENT Gaussian-damped
+numeric FT == -2 x certified Im Sigma_R EXACTLY at all three orders
+(H^0: 3 omega^4/640pi; H^1: 0; H^2: 13 omega^2/240pi per H^2). The two
+routes share no intermediates.
+
+IR: the relation samples ONLY the delta-pinned q = omega/2 -- no radial
+IR integration enters; the H^2 retarded LOG lives in the PV sector which
+the lock never sees; NO IR regulator introduced (none needed); the
+frozen noise alpha = -2 record (1/q^2 coeff 4 omega^4/15) = the
+zero-mode/omega -> 0 regime, OUTSIDE the domain -- echoed, NOT consumed,
+NOT resolved.
+
+CONTROLS: wrong sign / factor-2 / wrong KMS factor (numeric coth at ad
+hoc T = 0.3 leaves residual while sgn leaves ~0) / perturbed coefficient
+/ support-separation teeth (injected e^{+2iq Delta} caught) / token
+sentinel. All detecting.
+
+DEFECTS (all mine, gate-side, disclosed): extraction run-1 memory death
+(swap-death lesson reapplied: numeric identity check); run-2 FRAME
+MISMATCH in my own check (S>/S< cached in (u,u') vs nk in Wigner vars);
+battery run-1 unsubstituted d + (+i/2)^n where the frozen convention
+gives (-i/2)^n, with a SELF-CALIBRATED toy that shared the error (the
+calibration trap -- replaced by the independent damped-FT reference);
+runs 2-3 Richardson order + a 0<0 strict-improvement test.
+
+INTERPRETATION FIREWALL: the pass fixes NOTHING else -- c0'/c2'/Lambda_R
+untouched, H^2 fork UNRESOLVED, noise fork untouched, Axis-2 C, no new
+input, no unique thermal state, no pole.
+
+OWNER QUEUE: noise fork; T4 + consequence-cell adjudications; the
+fork-(ii) option. W-0; register untouched (+16).

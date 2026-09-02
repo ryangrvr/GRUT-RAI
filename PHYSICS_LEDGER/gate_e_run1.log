@@ -1,0 +1,63 @@
+=== 15: PROVENANCE (pre-run) ===
+  ok   pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...
+  ok   pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   pin WALL_KR_TIER3_IR_CHECK_RESULT.json == a43633f5d34f6895...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  note input sha WALL_KR_H2_IR_OWNER_DECISION_RESULT.json = b6ecde682832faf4...
+  ok   pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...
+  note input sha .tier3_integrand_cache.json = 47fde70f8e025af9...
+  note input sha .gate_e_cones.json = 96114ef8321e02a7...
+
+=== 1: THE REGISTERED GATE-E CRITERION (three sources) ===
+  note SOURCE 1 (charter gate E, verbatim): - **E. Influence action:** the retarded/noise (K_R, N) pair verified against   the rung2 FDT lock; normalization by derived theorem gate; TT reduction   strictly downstream.
+  note SOURCE 2 (rung2 register node, verbatim): statement: In equilibrium the noise kernel N is locked to Im[chi] by FDT with a coth(hbar*omega/2kT) factor; admissible kernels must satisfy KMS detailed balance. Enforced as a hard admission gate. | enforcement: gate/kms.py: any candidate (chi, N) pair whose residual |G_K - coth*(G_R-G_A)| exceeds tol over the frequency grid FAILS and is barred from the foundation.
+  note SOURCE 3 (frozen Tier-2 graded form): T = 0 FDT / KMS (graded executable form): W+ has NO e^{+ik Delta} component => N(omega) = (1/2) sgn(omega) rho(omega) IDENTICALLY per order (support separation at omega = +-k)
+  note SOURCE 3 scope note: KMS scope statement: the dS temperature H/2pi is a static-patch, non-perturbative statement (e^{-2 pi omega/H} vanishes to all orders in the H grading); the executable graded statement is the T = 0 adiabatic FDT above. The Option-A thermality cross-check is the static-patch continuation of the SAME exact BD kernels -- a defined future com
+  ok   the three sources are located and COMPOSE without conflict: the charter points to the rung2 lock; rung2 gives the coth form; the frozen Tier-2 scope note supplies the graded executable form (coth -> sgn per order, the dS temperature being non-perturbative). NO governance conflict -- no formulation was chosen for its outcome
+  ok   coth -> sgn DERIVED: coth(pi omega/H) - 1 = 2/(e^{2pi omega/H} - 1) has vanishing H-limit AND vanishing first and second H-derivatives at fixed omega > 0 -- zero to all tested orders of the grading, exactly as the frozen scope note states
+  note scope: the relation constrains ON-CONE content -- Sigma_K carries no theta(Delta), hence NO PV/dispersive part; the unresolved LOCAL real terms (c0', c2', Lambda_R slot) are REAL POLYNOMIALS in the dispersive sector and CANNOT enter either side. They are excluded by the structure of the registered relation, not by assumption
+
+=== 4: FROZEN INPUTS ===
+  ok   frozen-combination identity verified at extraction: nk_wigner == sig_g + sig_l EXACTLY (the cached noise combination IS the sum of the cached Wightman pieces)
+  note frozen fork record (echoed, NOT consumed as a coefficient): H2 ret alpha = -1, noise alpha = -2, noise 1/q^2 coefficient '4*omega**4/15' -- the small-q-expanded INTEGRAND record; the q -> 0 region maps to the omega -> 0 / zero-mode regime, OUTSIDE the controlled domain. The noise fork is NOT resolved here
+  note certified retarded absorptive inputs (frozen): Im Sigma_R^{H0} = -(3/1280 pi) omega^4 ; Im Sigma_R^{H1} = 0 ; Im Sigma_R^{H2} = -(13/480 pi) H^2 omega^2 -- never altered
+
+=== 5/7 ROUTE A: SUPPORT SEPARATION, PER H ORDER ===
+  ok   H^0 branch structure recorded: Sig_> p-branch == 0, Sig_< m-branch == 0, strays ({} | {})
+  ok   H^1 branch structure recorded: Sig_> p-branch == 0, Sig_< m-branch == 0, strays ({} | {})
+  ok   H^2 branch structure recorded: Sig_> p-branch == 0, Sig_< m-branch == 0, strays ({} | {})
+  ok   SUPPORT SEPARATION HOLDS through O(H^2): Sig_> carries ONLY the e^{-2iq Delta} (positive-frequency) branch and Sig_< ONLY the e^{+2iq Delta} branch. Consequence when it holds: for omega > 0 the on-cone content of Sig_< vanishes, so R_n(omega) = [Sig_> + Sig_<]_n - [Sig_> - Sig_<]_n = 2 Sig_<,n = 0 IDENTICALLY -- the T = 0 lock per order is a support IDENTITY, independent of the radial integration and hence untouched by any IR structure
+
+=== 7 ROUTE B: ON-CONE COEFFICIENTS vs CERTIFIED VALUES ===
+  ok   DELTA-SUPPORT FORMULA CALIBRATED on a self-contained toy (hand-integrated deltas vs the formula: exact agreement incl. the delta' term) -- the extraction machinery is verified before touching any physics object
+  ok   H^0 LOCK RESIDUAL: R_0(omega>0) = N_oncone - sgn*(diff)_oncone = 0 -- ZERO IDENTICALLY
+  FAIL H^0 INDEPENDENT COEFFICIENT TEST: noise on-cone content (from the sig_g/sig_l cones through the toy-calibrated formula) == -2 x certified Im Sigma_R^{H0} = 3*omega**4/(640*pi) -- MISMATCH 7*omega**4*(3*d**6 + 18*d**5 - 28*d**4 - 160*d**3 + 157*d**2 - 86*d + 168)/(512*pi*d*(d**5 + 10*d**4 + 21*d**3 - 28*d**2 - 52*d + 48)) vs 3*omega**4/(640*pi)
+  ok   H^1 LOCK RESIDUAL: R_1(omega>0) = N_oncone - sgn*(diff)_oncone = 0 -- ZERO IDENTICALLY
+  ok   H^1 INDEPENDENT COEFFICIENT TEST: noise on-cone content (from the sig_g/sig_l cones through the toy-calibrated formula) == -2 x certified Im Sigma_R^{H1} = 0 -- EXACT
+  ok   H^2 LOCK RESIDUAL: R_2(omega>0) = N_oncone - sgn*(diff)_oncone = 0 -- ZERO IDENTICALLY
+  FAIL H^2 INDEPENDENT COEFFICIENT TEST: noise on-cone content (from the sig_g/sig_l cones through the toy-calibrated formula) == -2 x certified Im Sigma_R^{H2} = 13*omega**2/(240*pi) -- MISMATCH omega**2*(71*d**6 + 423*d**5 - 677*d**4 - 3771*d**3 + 3806*d**2 - 1924*d + 3864)/(128*pi*d*(d**5 + 10*d**4 + 21*d**3 - 28*d**2 - 52*d + 48)) vs 13*omega**2/(240*pi)
+  note H^1 is DEMONSTRATED, not skipped: both the noise on-cone content and the certified retarded absorptive H^1 vanish -- the lock's H^1 implication holds as 0 == 0 with both sides computed
+
+=== 9: DIMENSIONS AND SCALING ===
+  ok   scaling: the H^0 on-cone content is homogeneous of degree 4 and the H^2 content of degree 2 in omega -- matching the certified retarded scalings exactly (omega^4 and H^2 omega^2); both sides of the registered relation carry identical dimensions and H scaling, AND the full coefficients were tested above (not exponents alone)
+
+=== 6/11: IR ANALYSIS AND THE VALIDITY BOUNDARY ===
+  note IR classification: A -- the relation is WELL-DEFINED AND TESTABLE in the declared finite-frequency regime
+  note IR why: the registered relation constrains ON-CONE content only (Sigma_K carries no theta, hence no PV part). At fixed omega > 0 the delta support pins q = omega/2, strictly away from q = 0: NO radial IR integration enters either side. The certified H^2 retarded LOG divergence lives in the PV/local sector, which does not appear in the lock
+  note IR no_regulator: no q_min, horizon scale, initial-time cutoff or any other IR parameter was introduced -- none is needed, because the relation never samples q -> 0 in-domain
+  note IR noise_fork: the frozen noise alpha = -2 record describes the small-q-expanded INTEGRAND (1/q^2 coefficient 4 omega^4/15) -- the q -> 0 / omega -> 0 zero-mode regime, OUTSIDE the controlled domain. It is echoed for provenance, NOT consumed, NOT resolved
+  note IR validity_domain: same as the retarded contract: omega >> H controlled; omega ~ H boundary; omega << H out of scope. The lock verdict below claims NOTHING at omega <~ H and nothing at omega -> 0
+  ok   no IR regulator variable is assigned anywhere in this instrument
+
+=== 10: NEGATIVE CONTROLS ===
+  ctrl-DETECTED   A. wrong retarded sign: comparing the noise content against +2 Im Sigma_R^{H2} (flipped sign) gives a NONZERO residual -- the lock test detects a sign error
+  ctrl-DETECTED   B. wrong factor of two: a doubled noise kernel fails the coefficient test -- detected
+Traceback (most recent call last):
+  File "/Users/mpg/Desktop/GRUT ResponsiveAI/PHYSICS_LEDGER/wall_kr_gate_e_fdt_kms.py", line 364, in <module>
+    control(bad_kms > mp.mpf("1e-10") and good_kms < mp.mpf("1e-25"),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.15/lib/python3.15/site-packages/sympy/core/relational.py", line 519, in __bool__
+    raise TypeError(
+    ...<3 lines>...
+    )
+TypeError: cannot determine truth value of Relational: 0.0235509250683815144401053836783*Abs((0.5546875*d**6 + 3.3046875*d**5 - 5.2890625*d**4 - 29.4609375*d**3 + 29.734375*d**2 - 15.03125*d + 30.1875)/(d**5 + 10*d**4 + 21*d**3 - 28*d**2 - 52*d + 48))/d > 1.0e-10

@@ -1,0 +1,88 @@
+=== 15: PROVENANCE (pre-run) ===
+  ok   pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...
+  ok   pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   pin WALL_KR_TIER3_IR_CHECK_RESULT.json == a43633f5d34f6895...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  note input sha WALL_KR_H2_IR_OWNER_DECISION_RESULT.json = b6ecde682832faf4...
+  ok   pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...
+  note input sha .tier3_integrand_cache.json = 47fde70f8e025af9...
+  note input sha .gate_e_cones.json = 96114ef8321e02a7...
+
+=== 1: THE REGISTERED GATE-E CRITERION (three sources) ===
+  note SOURCE 1 (charter gate E, verbatim): - **E. Influence action:** the retarded/noise (K_R, N) pair verified against   the rung2 FDT lock; normalization by derived theorem gate; TT reduction   strictly downstream.
+  note SOURCE 2 (rung2 register node, verbatim): statement: In equilibrium the noise kernel N is locked to Im[chi] by FDT with a coth(hbar*omega/2kT) factor; admissible kernels must satisfy KMS detailed balance. Enforced as a hard admission gate. | enforcement: gate/kms.py: any candidate (chi, N) pair whose residual |G_K - coth*(G_R-G_A)| exceeds tol over the frequency grid FAILS and is barred from the foundation.
+  note SOURCE 3 (frozen Tier-2 graded form): T = 0 FDT / KMS (graded executable form): W+ has NO e^{+ik Delta} component => N(omega) = (1/2) sgn(omega) rho(omega) IDENTICALLY per order (support separation at omega = +-k)
+  note SOURCE 3 scope note: KMS scope statement: the dS temperature H/2pi is a static-patch, non-perturbative statement (e^{-2 pi omega/H} vanishes to all orders in the H grading); the executable graded statement is the T = 0 adiabatic FDT above. The Option-A thermality cross-check is the static-patch continuation of the SAME exact BD kernels -- a defined future com
+  ok   the three sources are located and COMPOSE without conflict: the charter points to the rung2 lock; rung2 gives the coth form; the frozen Tier-2 scope note supplies the graded executable form (coth -> sgn per order, the dS temperature being non-perturbative). NO governance conflict -- no formulation was chosen for its outcome
+  ok   coth -> sgn DERIVED: coth(pi omega/H) - 1 = 2/(e^{2pi omega/H} - 1) has vanishing H-limit AND vanishing first and second H-derivatives at fixed omega > 0 -- zero to all tested orders of the grading, exactly as the frozen scope note states
+  note scope: the relation constrains ON-CONE content -- Sigma_K carries no theta(Delta), hence NO PV/dispersive part; the unresolved LOCAL real terms (c0', c2', Lambda_R slot) are REAL POLYNOMIALS in the dispersive sector and CANNOT enter either side. They are excluded by the structure of the registered relation, not by assumption
+
+=== 4: FROZEN INPUTS ===
+  ok   frozen-combination identity verified at extraction: nk_wigner == sig_g + sig_l EXACTLY (the cached noise combination IS the sum of the cached Wightman pieces)
+  note frozen fork record (echoed, NOT consumed as a coefficient): H2 ret alpha = -1, noise alpha = -2, noise 1/q^2 coefficient '4*omega**4/15' -- the small-q-expanded INTEGRAND record; the q -> 0 region maps to the omega -> 0 / zero-mode regime, OUTSIDE the controlled domain. The noise fork is NOT resolved here
+  note certified retarded absorptive inputs (frozen): Im Sigma_R^{H0} = -(3/1280 pi) omega^4 ; Im Sigma_R^{H1} = 0 ; Im Sigma_R^{H2} = -(13/480 pi) H^2 omega^2 -- never altered
+
+=== 5/7 ROUTE A: SUPPORT SEPARATION, PER H ORDER ===
+  ok   H^0 branch structure recorded: Sig_> p-branch == 0, Sig_< m-branch == 0, strays ({} | {})
+  ok   H^1 branch structure recorded: Sig_> p-branch == 0, Sig_< m-branch == 0, strays ({} | {})
+  ok   H^2 branch structure recorded: Sig_> p-branch == 0, Sig_< m-branch == 0, strays ({} | {})
+  ok   SUPPORT SEPARATION HOLDS through O(H^2): Sig_> carries ONLY the e^{-2iq Delta} (positive-frequency) branch and Sig_< ONLY the e^{+2iq Delta} branch. Consequence when it holds: for omega > 0 the on-cone content of Sig_< vanishes, so R_n(omega) = [Sig_> + Sig_<]_n - [Sig_> - Sig_<]_n = 2 Sig_<,n = 0 IDENTICALLY -- the T = 0 lock per order is a support IDENTITY, independent of the radial integration and hence untouched by any IR structure
+
+=== 7 ROUTE B: ON-CONE COEFFICIENTS vs CERTIFIED VALUES ===
+  FAIL DELTA-SUPPORT FORMULA CALIBRATED against an INDEPENDENT Gaussian-damped numeric FT (exact Gaussian moments in Delta, numeric q integral, eta-Richardson): rel 0.0e+00 at the finer rung, improving with refinement -- the (-i/2)^n convention is confirmed by a route that never touches the delta algebra (run-1's self-calibrated toy is retired)
+  ctrl-DETECTED   calibration teeth: a perturbed formula value is REJECTED by the same numeric reference
+  ok   H^0 LOCK RESIDUAL: R_0(omega>0) = N_oncone - sgn*(diff)_oncone = 0 -- ZERO IDENTICALLY
+  ok   H^0 INDEPENDENT COEFFICIENT TEST: noise on-cone content (from the sig_g/sig_l cones through the toy-calibrated formula) == -2 x certified Im Sigma_R^{H0} = 3*omega**4/(640*pi) -- EXACT
+  ok   H^1 LOCK RESIDUAL: R_1(omega>0) = N_oncone - sgn*(diff)_oncone = 0 -- ZERO IDENTICALLY
+  ok   H^1 INDEPENDENT COEFFICIENT TEST: noise on-cone content (from the sig_g/sig_l cones through the toy-calibrated formula) == -2 x certified Im Sigma_R^{H1} = 0 -- EXACT
+  ok   H^2 LOCK RESIDUAL: R_2(omega>0) = N_oncone - sgn*(diff)_oncone = 0 -- ZERO IDENTICALLY
+  ok   H^2 INDEPENDENT COEFFICIENT TEST: noise on-cone content (from the sig_g/sig_l cones through the toy-calibrated formula) == -2 x certified Im Sigma_R^{H2} = 13*omega**2/(240*pi) -- EXACT
+  note H^1 is DEMONSTRATED, not skipped: both the noise on-cone content and the certified retarded absorptive H^1 vanish -- the lock's H^1 implication holds as 0 == 0 with both sides computed
+
+=== 9: DIMENSIONS AND SCALING ===
+  ok   scaling: the H^0 on-cone content is homogeneous of degree 4 and the H^2 content of degree 2 in omega -- matching the certified retarded scalings exactly (omega^4 and H^2 omega^2); both sides of the registered relation carry identical dimensions and H scaling, AND the full coefficients were tested above (not exponents alone)
+
+=== 6/11: IR ANALYSIS AND THE VALIDITY BOUNDARY ===
+  note IR classification: A -- the relation is WELL-DEFINED AND TESTABLE in the declared finite-frequency regime
+  note IR why: the registered relation constrains ON-CONE content only (Sigma_K carries no theta, hence no PV part). At fixed omega > 0 the delta support pins q = omega/2, strictly away from q = 0: NO radial IR integration enters either side. The certified H^2 retarded LOG divergence lives in the PV/local sector, which does not appear in the lock
+  note IR no_regulator: no q_min, horizon scale, initial-time cutoff or any other IR parameter was introduced -- none is needed, because the relation never samples q -> 0 in-domain
+  note IR noise_fork: the frozen noise alpha = -2 record describes the small-q-expanded INTEGRAND (1/q^2 coefficient 4 omega^4/15) -- the q -> 0 / omega -> 0 zero-mode regime, OUTSIDE the controlled domain. It is echoed for provenance, NOT consumed, NOT resolved
+  note IR validity_domain: same as the retarded contract: omega >> H controlled; omega ~ H boundary; omega << H out of scope. The lock verdict below claims NOTHING at omega <~ H and nothing at omega -> 0
+  ok   no IR regulator variable is assigned anywhere in this instrument
+
+=== 10: NEGATIVE CONTROLS ===
+  ctrl-DETECTED   A. wrong retarded sign: comparing the noise content against +2 Im Sigma_R^{H2} (flipped sign) gives a NONZERO residual -- the lock test detects a sign error
+  ctrl-DETECTED   B. wrong factor of two: a doubled noise kernel fails the coefficient test -- detected
+  ctrl-DETECTED   C. wrong KMS factor: substituting coth(omega/2T) at an ad hoc numeric T = 0.3 leaves residual 0.00128 while the registered graded factor sgn = 1 leaves 0.0 -- the distribution factor is exercised, not assumed
+  ctrl-DETECTED   D. perturbed H^2 noise coefficient (+10%%): the comparison detects the known perturbation
+  ctrl-DETECTED   E. support-separation teeth: an injected e^{+2iq Delta} term in Sig_> IS caught by the branch gate (p-branch nonzero) -- the Route-A machinery detects state contamination, exactly as Tier-2's wrong-state control did at bath level
+
+=== 12: CLASSIFICATION ===
+  note CLASS code: GATE-E-A
+  note CLASS H0: PASS
+  note CLASS H1: PASS
+  note CLASS H2: PASS
+  note CLASS domain: within the declared validity domain (omega >> H); nothing claimed at omega ~ H or omega -> 0
+  note CLASS mechanism: support separation makes the graded T = 0 lock an IDENTITY per order; the independent coefficient route confirms the exact factors against the certified retarded absorptive values
+  ok   classification emitted: GATE-E-A -- computed from the recorded structure, not forced (the instrument can produce all three)
+
+=== 13: INTERPRETATION FIREWALL ===
+  note FW a_pass_does_NOT: ["fix c0'", "fix c2'", 'fix Lambda_R', 'remove the H^2 IR fork', 'prove GRUT', 'establish a unique thermal state', 'establish a pole']
+  note FW why_locals_cannot_enter: the unresolved local real terms are REAL POLYNOMIALS in the dispersive sector; the registered relation constrains on-cone content only -- they are structurally excluded, so no Gate-E outcome can back-propagate into the IR decision
+  note FW a_failure_would_NOT: invalidate the certified retarded H^2 dissipative coefficient -- it would mean only that the registered consistency relation is not satisfied under the declared conventions
+  note FW h2_local_fork: UNRESOLVED, unchanged
+  note FW noise_fork: untouched
+  note FW axis2: C, unchanged
+  note FW Lambda_R: ONE, unchanged
+  ok   no spectral-outcome token in source
+  ctrl-DETECTED   outcome-token scanner has teeth (runtime-assembled sentinel)
+
+=== 15: PROVENANCE (post-run) ===
+  ok   every frozen artifact AND the register byte-identical to pre-run hashes
+  note files added/changed: ?? .gate_e_cones.json | ?? GATE_E_H2_FDT_KMS_RESULT.json | ?? gate_e_extract.log | ?? gate_e_extract2.py | ?? gate_e_run1.log | ?? gate_e_run2.log | ?? gate_e_run3.log | ?? wall_kr_gate_e_fdt_kms.py
+  ok   artifact written and re-read (sha afa785078b8e6516...)
+
+GATE-E: 31/32 passed; failures: 1
+  FAILURE: DELTA-SUPPORT FORMULA CALIBRATED against an INDEPENDENT Gaussian-damped numeric FT (exact Gaussian moments in Delta, numeric q integral, eta-Richardson): rel 0.0e+00 at the finer rung, improving with refinement -- the (-i/2)^n convention is confirmed by a route that never touches the delta algebra (run-1's self-calibrated toy is retired)
+CLASSIFICATION: GATE-E-A
+HARD STOP.
