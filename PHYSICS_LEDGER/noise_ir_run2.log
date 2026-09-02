@@ -1,0 +1,78 @@
+=== 15: PROVENANCE ===
+  ok   pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   pin WALL_KR_TIER3_IR_CHECK_RESULT.json == a43633f5d34f6895...
+  note input sha GATE_E_H2_FDT_KMS_RESULT.json = 3042ee6fd4a11011...
+  note input sha .tier3_integrand_cache.json = 47fde70f8e025af9...
+  note input sha .gate_e_cones.json = 96114ef8321e02a7...
+  ok   pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...
+  note input sha K_R_CONTRACT_DECLARATION_SHEET.md = 45cf54fe99dae85e...
+  ok   pin MICROSCOPIC_TARGET_BENCHMARK.md == f6513b1e551fd9cf...
+  note input sha wall_kr_tier3_loop.py = 1c72272b54d09f31...
+
+=== 1: THE REGISTERED NOISE-FORK WORDING ===
+  ok   SOURCE A1 (T3-1 CRITERION note, verbatim -- the frozen record's OWN statement of what alpha measures): 'T3-1 CRITERION AS EXECUTED (amended per the adversarial review, disclosed BEFORE any radial integration): for each H sector, the small-q Laurent exponent alpha of the exact angular-averaged radial integrand (measure q^{d-1} at d = 3; oscillation series-expanded; u_b SYMBOLIC, with every pole coeffic'
+  ok   SOURCE A2 (T3-1 FIRING note, verbatim): 'T3-1 FORK FIRES for H^2: worst alpha = -2 (retarded -1; NOISE -2 = the armed class at its noise-defined strength, POWER). Sector FENCED: no radial integration, no regulator, no subtraction; fork (ii) invoked for the owner, PRICED AT THE NOISE-SIDE CLASS ('named and priced -- a new register input')'
+  note SOURCE B (D3 owner ruling): 'If the calculation demonstrates an IR scale is necessary: STOP — the preregistered fork (ii) fires verbatim ("named and priced — a new register input"). It may not appear as an imp'
+  note SOURCE C (benchmark fork (ii)): '(ii) the white floor is right but an IR cutoff exists — then it must be **named and priced**   (a new register input); - (iii) χ(0) genuinely diverges — then th'
+  ok   the three sources COMPOSE without conflict: T3-1 executes the D3 trigger, which routes to benchmark fork (ii) -- one fork, one price ('a new register input'), applying to the SECTOR the scan classified; resolution paths = owner declaration only; no scale permitted without it
+  ok   the frozen trigger record: H^2 noise alpha = -2, 1/q^2 coefficient 4 omega^4/15 (echoed from the pinned artifact)
+
+=== 3: IDENTIFICATION (mechanical, not from the label) ===
+  ok   SCAN DEFINITION (from the frozen source): fork_scan takes the measure-weighted Wigner-space integrand at fixed omega and Laurent-expands it in q with the OSCILLATORY PHASES SERIES-EXPANDED (rewrite to sin/cos, then series in q) -- i.e. the scanned object is the NO-OSCILLATION-CREDIT bound of the radial integrand, evaluated BEFORE the cone/support assembly. The frozen record SAYS SO ITSELF: the T3-1 criterion note reads 'oscillation series-expanded' -- source-code reading and record wording agree
+[   20.1s] expanding the H^2 noise integrand (phase-expanded scan)...
+  ok   SCAN REPRODUCED verbatim from the frozen cache: leading exponent alpha = -2 with 1/q^2 coefficient exactly 4 omega^4/15 -- the audit is talking about the same object as the frozen record
+[   20.6s] evaluating the UN-expanded integrand at internal coincidence...
+  ok   IDENTIFICATION: at INTERNAL COINCIDENCE (Delta = 0, where the phases equal 1 EXACTLY -- no expansion, no credit to strip) the un-expanded integrand has the IDENTICAL leading behavior (4 omega^4/15)/q^2. The alpha = -2 object IS the equal-time/secular mode-sum class: the small-q divergence of the internal-coincidence radial integrand. It is a KELDYSH-combination (Sigma_> + Sigma_<) statement, at H^2, u_b-free (frozen T3 gate), obtained on the fixed-omega Wigner integrand
+
+=== 5/6: DOMAIN AND DEPENDENCY (mechanical) ===
+  ok   THE ASSEMBLED KERNEL (Gate-E pipeline, recomputed): N^{H2}(omega) = 13 omega^2/(240 pi) per H^2 EXACTLY -- a pure polynomial for ALL omega > 0: finite at every finite frequency, NO pole, NO 1/omega^2 behavior, and -> 0 as omega -> 0
+  ok   the kernel's omega -> 0 limit is ZERO (not divergent): the alpha = -2 behavior is NOT the kernel's low-frequency exponent -- a zero-frequency asymptotic was NOT extrapolated from it, and no white-floor claim is made in either direction (omega <~ H stays out of the truncation's scope regardless)
+  note q-pole content of the phase-INTACT noise cone sectors: present in coefficients -- the delta support q = omega/2 evaluates them at a strictly positive argument for every omega > 0, so any small-q pole of a cone COEFFICIENT never enters the assembled kernel in-domain
+  ok   DEPENDENCY 1 -- Gate-E: consumes ON-CONE content at fixed omega > 0 only (support identity + coefficient tests); it never evaluates Delta = 0 and never samples q -> 0: Gate-E does NOT consume the alpha = -2 object (verified against its artifact)
+  note DEPENDENCY 2 -- the registered benchmark: both axes are defined on chi(omega) at finite frequency (probe window [0.3, 0.9] WC); Re chi(0) is the KK integral of Im chi/omega over finite frequencies -- none of it consumes the internal-coincidence object
+  note DEPENDENCY 3 -- the rung2 KMS gate: enforced as a residual over a FREQUENCY GRID of (chi, N) pairs -- finite-omega content only
+  note DEPENDENCY 4 -- observables that WOULD consume it: equal-time/coincidence variances (<h^2>-class), secular-growth diagnostics. NONE is a registered contract observable today; any future one re-opens this fork -- that is exactly what the pre-registered fork-(ii) route remains available for
+
+=== 4: AUTHORITY SWEEP (noise-IR prescriptions) ===
+  note AUTH K_R_CONTRACT_OWNER_RULING.md | D3/Option-3a | licenses a noise-IR prescription: False
+  note AUTH K_R_CONTRACT_OWNER_RULING.md | state declaration (iii) | licenses a noise-IR prescription: False
+  note AUTH K_R_CONTRACT_DECLARATION_SHEET.md | IR sub-choice row | licenses a noise-IR prescription: False
+  note AUTH MICROSCOPIC_TARGET_BENCHMARK.md | fork (ii) | licenses a noise-IR prescription: False
+  note AUTH WALL_KR_TIER2_MASSLESS_BATH.json | KMS scope note | licenses a noise-IR prescription: False
+  ok   AUTHORITY SWEEP: 5 entries, ZERO license a noise-sector IR/state prescription; downstream comparison artifacts were not counted as authorities
+
+=== 7: SCALE-FREE STATUS OF THE REGISTERED OBSERVABLE ===
+  ok   for the REGISTERED noise observable (the finite-frequency kernel) NO resolution is needed: the finite-frequency restriction -- already built into every registered consumer -- IS the scale-free interpretation, and it was found in the existing formalism, not invented. For the COINCIDENCE object itself no scale-free interpretation exists in the record (nothing cancels its 1/q^2: the u_b-free coefficient 4 omega^4/15 is a single positive term), and NONE is manufactured here
+
+=== 8: NEW-INPUT FIREWALL ===
+  ok   no IR scale of any kind is assigned in this audit (q_min, H-as-cutoff, box, initial/observation time, horizon, WC, Lambda_R, mu: none appears as an assignment)
+  note REQUIREMENT RECORDED, VALUE NOT CHOSEN: if a coincidence/secular observable is ever registered, defining it will require a new IR/state input via fork (ii) -- named and priced then, with independent justification; nothing is selected now
+
+=== 9: NEGATIVE CONTROLS ===
+  ctrl-DETECTED   A. moving the evaluation into the excluded IR regime (omega = H) raises DomainRejected -- detected as a DOMAIN violation, not misclassified as a finite-domain physical failure; an in-domain point evaluates CONTROLLED
+  ctrl-DETECTED   B. altering the registered exponent: a perturbed copy (alpha = -1) mismatches the frozen artifact record (alpha = -2) -- the comparison detects it
+  ctrl-DETECTED   C. injecting an unauthorized IR scale: a shadow evaluation carrying a finite q_min is flagged UNLICENSED by the same check that passes the scale-free path
+  ctrl-DETECTED   D. perturbing a term of the assembled kernel makes the exact-polynomial test FAIL -- the exactness claim is not vacuous
+  ok   no spectral-outcome token in source
+  ctrl-DETECTED   outcome-token scanner has teeth (runtime sentinel)
+
+=== 10/11: PARAMETER COUNT AND GATE-E ===
+  note GATE-E: LEAVES GATE-E-A UNCHANGED. The lock consumes on-cone finite-frequency content only; the alpha = -2 object lives at internal coincidence, which the lock never evaluates. This audit exposes no separate limitation of Gate-E: the boundary was already declared on Gate-E's own face (nothing claimed at omega -> 0). Gate-E is NOT retroactively modified.
+  ok   Gate-E artifact re-read: classification GATE-E-A stands; this audit changes nothing in it
+
+=== 12: CLASSIFICATION ===
+  note CLASS code: NOISE-A
+  note CLASS statement: the alpha = -2 behavior is CONFINED to the equal-time/secular (internal-coincidence) mode-sum class -- a regime no registered observable consumes -- and requires NO new prescription for the registered noise observable, whose finite-frequency kernel is an exact polynomial (13 omega^2/240 pi per H^2)
+  note CLASS earned_not_assumed: the identification is mechanical: the scan was reproduced verbatim from the frozen cache; the identical divergence appears at Delta = 0 where the phases are exactly 1 (nothing expanded); and the assembled kernel was recomputed exactly
+  note CLASS standing_caveat: registering ANY coincidence/secular observable in the future re-opens this as fork (ii) -- a new input, named and priced then
+  note CLASS not_noise_c: no inconsistency: the registered formalism is coherent -- kernel finite where consumed, divergence confined to an unconsumed class the record itself fenced in advance
+  ok   classification emitted: NOISE-A (computed from the mechanical findings, not forced)
+
+=== 15: POST-RUN INTEGRITY ===
+  ok   every frozen artifact AND the register byte-identical
+  note files added/changed: ?? WALL_KR_NOISE_IR_AUDIT_RESULT.json | ?? noise_ir_run1.log | ?? noise_ir_run2.log | ?? wall_kr_noise_ir_audit.py
+  ok   artifact written and re-read (sha b47c04a60eb34b81...)
+
+NOISE/IR AUDIT: 27/27 passed; failures: 0
+CLASSIFICATION: NOISE-A
+HARD STOP.

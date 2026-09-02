@@ -5356,3 +5356,60 @@ input, no unique thermal state, no pole.
 
 OWNER QUEUE: noise fork; T4 + consequence-cell adjudications; the
 fork-(ii) option. W-0; register untouched (+16).
+
+================================================================================
+2026-09-01 -- NOISE / IR FORK AUDIT: CLASSIFICATION NOISE-A
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_noise_ir_audit.py
+RECORD:     WALL_KR_NOISE_IR_AUDIT.md
+ARTIFACT:   WALL_KR_NOISE_IR_AUDIT_RESULT.json
+BATTERY: 27/27, zero failures, six controls detecting. Frozen inputs and
+register byte-identical. NO IR regulator/scale/prescription introduced.
+
+CLASSIFICATION: **NOISE-A** -- alpha = -2 is CONFINED to the equal-time/
+secular (internal-coincidence) mode-sum class, which NO registered
+observable consumes; the registered noise observable needs no new
+prescription.
+
+THE IDENTIFICATION (earned, three mechanical steps): (1) the frozen
+fork_scan source AND the frozen T3-1 criterion note itself ('oscillation
+series-expanded') establish the scanned object = the NO-OSCILLATION-
+CREDIT bound of the radial integrand, pre-assembly; (2) the scan was
+REPRODUCED verbatim from the frozen cache (alpha = -2, coefficient
+4 omega^4/15); (3) at INTERNAL COINCIDENCE (Delta = 0, phases exactly 1,
+nothing expanded) the un-expanded integrand shows the IDENTICAL
+(4 omega^4/15)/q^2 -- the object IS the equal-time/secular class.
+
+DOMAIN (demonstrated, not asserted): NOT the Gate-E domain (delta pins
+q = omega/2 > 0); NOT the omega -> 0 kernel limit (the assembled kernel
+is EXACT: N^{H2} = 13 omega^2/240pi per H^2, pure polynomial, -> 0 at
+omega -> 0 -- no white-floor claim either direction, omega <~ H out of
+scope regardless); NOT the finite-frequency kernel anywhere. ONLY the
+coincidence mode sum.
+
+DEPENDENCY: Gate-E, the benchmark, and the rung2 gate all consume
+finite-frequency content only -- NONE consumes the coincidence object.
+Would-be consumers (equal-time variances, secular diagnostics) are NOT
+registered contract observables; registering one re-opens fork (ii)
+(requirement RECORDED, no value chosen).
+
+AUTHORITY SWEEP: 5 entries, ZERO license a noise-IR prescription.
+SCALE-FREE STATUS: the finite-frequency restriction already built into
+every registered consumer IS the scale-free interpretation (found, not
+invented); the coincidence object itself has NO scale-free
+interpretation in the record and none was manufactured.
+
+CONTROLS: excluded-regime evaluation -> DOMAIN violation (not a physics
+failure); perturbed exponent detected; injected q_min flagged UNLICENSED;
+perturbed kernel term breaks the exactness test; runtime sentinel.
+
+RELATION TO GATE-E: LEAVES GATE-E-A UNCHANGED; no separate limitation
+exposed; nothing retroactively modified. PARAMETER COUNT: H^0 = 1
+(Lambda_R); c0'/c2' unresolved fork-gated; ZERO new inputs.
+
+DEFECT (gate-side): note-matching assumed one FORK-FIRES note; the
+record has two, and the "wrong" match was the better source. Physics
+never moved.
+
+OWNER QUEUE NOW: T4 + consequence-cell adjudications (the LAST standing
+items); fork-(ii) available but uninvoked. W-0; register untouched (+16).
