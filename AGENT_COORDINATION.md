@@ -5545,3 +5545,46 @@ with runtime-built tokens and an invocation-pattern scan.
 STATE UNCHANGED: T4 BANKED; Axis-2 C; Gate-E A; Noise A; Lambda_R one;
 c0'/c2' gated; CC-C. THE WALL IS AT ITS FROZEN ENDPOINT; the only queue
 anywhere is the owner's three decisions above.
+
+================================================================================
+2026-09-02 -- D4 DUAL-GAUGE GRAVITON-LOOP VERIFICATION: D4-C
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_d4_dual_gauge.py (24/24)
+RECORD: WALL_KR_D4_DUAL_GAUGE_AUDIT.md + machine JSON.
+Frozen inputs + register byte-identical; no new input; no consequence
+class assigned; consequence firewall verified at source (runtime tokens).
+
+CLASSIFICATION: **D4-C** with real content both sides:
+ EXTERNAL ORBIT: **OPERATOR IDENTITY, PASSES ALL H ORDERS IDENTICALLY**
+   -- P^TT annihilates i(k xi + xi k) + lambda delta for ARBITRARY
+   k/xi/lambda (H lives only in lambda = 2(a'/a)xi^0); covers probe
+   legs, G0^TT linear invariance, and the corrected synchronous residual
+   class in one stroke. Teeth: transversality-mutation and
+   traceless-mutation each leave survivors (both halves load-bearing).
+   Run-1 disclosure: the antisymmetrized "wrong-sign" control was
+   USELESS (transversality kills any k-carrying tensor) -- replaced.
+ INTERNAL-LINE/SLICING: **UNDECIDED, exactly characterized.** POSITIVE
+   CONTROL FIRST: the frozen FLAT vertex + gauge-image leg under EXACT
+   conservation + on-shell TT companions = IDENTICALLY ZERO (the flat
+   Ward identity, same machinery -- the apparatus detects genuine
+   invariance). The dS insertion at loop kinematics is NONZERO at
+   H^0/H^1/H^2; the H^0 on-support obstruction is EXACT:
+   (7/2) i omega^2 q (X0 +- X3)(t11 - t22) -- external EOM factor x
+   NULL gauge-parameter combos x internal-external TT overlap; +-q
+   residues cancel neither in sum nor difference; direction-independent
+   (3 exact-rational skew checks; symbolic skew run killed for cost,
+   disclosed). Mutation controls nonzero and distinct.
+WHY NOT A/B: Decl-5 wants Pi_nonlocal exact equality (undecided here);
+no INTEGRATED mismatch exhibited either -- at matter scope A4's raw
+orbit terms were ALSO nonzero (8675) and the K-term machinery disposed
+of all. DECISIVE SCOPE FACT: A4's internal lines were SCALARS -- the
+internal-graviton-line sector has NO precedent; this run supplies its
+FIRST computed characterization.
+THE PRICED COMPLETION: re-derive the A4 orbit/K-term/trace-cancellation
+machinery on graviton content (charter gate D, sessions scale) -- its
+input obstruction now precisely characterized.
+SELF-SCAN TRAP: 6th appearance, caught (cache-name literals in the
+independence check) -- runtime-built tokens.
+NEXT: OWNER REVIEW -- authorize the priced K-term completion, or stop
+the consequence pursuit here. CC-C unchanged; Axis-2 C; Gate-E A;
+Noise A; Lambda_R one; H^2 fork gated.

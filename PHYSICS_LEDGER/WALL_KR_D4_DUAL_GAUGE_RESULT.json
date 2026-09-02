@@ -1,0 +1,198 @@
+{
+ "instrument": "wall_kr_d4_dual_gauge.py",
+ "instrument_sha256": "28ce3d8a89a6ea1ee96e5ff1b51d09bfd1d2a65e36db825329e664b04ba7f813",
+ "classification": "D4-C",
+ "object_verified": "gauge-invariantly assembled retarded TT response G_R^TT derived from the pure-graviton de Sitter self-energy Sigma(x,x')",
+ "gauge_routes": "gauge-UNFIXED-orbit-deformation vs the executed TT/synchronous-class construction (per Declaration 5 / charter gate D)",
+ "H0": "external PASS / internal UNDECIDED",
+ "H1": "external PASS / internal UNDECIDED",
+ "H2": "external PASS / internal UNDECIDED",
+ "frozen_inputs_touched": "NONE",
+ "new_input": "NONE",
+ "consequence_cell": "CC-C, unchanged",
+ "axis2": "C, unchanged",
+ "h2_local_fork": "UNRESOLVED, unchanged",
+ "gate_e": "A, unchanged",
+ "noise": "A, unchanged",
+ "out": {
+  "classification": {
+   "code": "D4-C",
+   "what_PASSES_as_operator_identity": "the EXTERNAL orbit (probe legs, G0^TT, the synchronous residual class): P^TT annihilates the full orbit direction for arbitrary k, xi and trace coefficient -- identically at every H order",
+   "what_is_NOT_decided": "the INTERNAL-line / slicing sector: the gauge-image insertion at loop kinematics is NONZERO at H^0, H^1, H^2, with the exact on-support H^0 obstruction (7/2) i omega^2 q (X0 +- X3)(t11 - t22); no cheap pairwise disposal exists; the flat-Ward positive control proves the apparatus detects genuine invariance, so this is a real off-support structure that only the INTEGRATED orbit/K-term machinery (Declaration 5's own mechanism at matter scope: 'K-terms + trace cancellation') can dispose or convict",
+   "why_not_D4_A": "Declaration 5 requires Pi_nonlocal exact symbolic equality between constructions; the internal sector is undecided at the executable level of this run",
+   "why_not_D4_B": "no integrated mismatch was exhibited: at matter scope A4's raw orbit terms were ALSO nonzero (8675 of them) and the integrated machinery disposed of every one ('the orbit moves no TT amplitude'); a raw nonzero here is not a failure verdict",
+   "the_priced_completion": "re-derive the A4 orbit-formula/K-term/trace-cancellation machinery on graviton-loop content -- exactly the charter's gate D as written, priced at sessions scale; its input obstruction is now precisely characterized",
+   "matter_precedent_scope_note": "A4's internal lines were SCALARS (no internal gauge freedom); the internal-graviton-line sector has NO matter-scope precedent -- this run supplies its first computed characterization"
+  },
+  "h_orders": {
+   "H0": "external PASS / internal UNDECIDED (obstruction exact)",
+   "H1": "external PASS / internal insertion NONZERO (graded separately)",
+   "H2": "external PASS / internal insertion NONZERO (graded separately)"
+  },
+  "worktree": [
+   "?? .d4_flat_ward.json",
+   "?? .d4_vertex_gauge.json",
+   "?? WALL_KR_D4_DUAL_GAUGE_RESULT.json",
+   "?? d4_extract.log",
+   "?? d4_extract.py",
+   "?? d4_run1.log",
+   "?? d4_run2.log",
+   "?? wall_kr_d4_dual_gauge.py"
+  ]
+ },
+ "checks": [
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin WALL_A_A3_DECLARATIONS.md == 87e2d24d5be6d679...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "SOURCE 1 (Declaration 5, frozen): second gauge = SYNCHRONOUS (residual freedom = xi^0 = C(x)/a + time-independent xi^i, fixed by BD-asymptotic coincidence); comparison = gauge-UNFIXED (full h, orbit-tracked) vs synchronous; criteria = (1) TT-vertex + discard bookkeeping orbit-reconciled, (2) Pi_nonlocal EXACT SYMBOLIC EQUALITY, (3) identical Q1/Q3 verdict strings; any mismatch BLOCKS assembly",
+   "gate": "CRIT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "SOURCE 2 (charter gate D, the contract-scope translation, verbatim): 'the A4 response-level machinery (orbit formula, synchronous solver, trace-cancellation theorem) re-derived for the graviton loop -- agreement of TT content between gauges as an operator identity where provable, exact symbolic check where not' -- and the charter's unblock list prices D4 as REQUIRED, NOT YET EXECUTED at graviton-loop level (sessions scale)",
+   "gate": "CRIT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "no conflict between the two authoritative sources: the charter EXPLICITLY translates Declaration 5 to contract scope; one protocol, one translation",
+   "gate": "CRIT",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "the consequence manifest's registered object (verbatim): 'gauge-invariantly assembled retarded TT response G_R^TT derived from the pure-graviton de Sitter self-energy Sigma(x,x')' -- D4 therefore tests the gauge robustness of Sigma^TT, which carries to G_R^TT = 1/(G0^-1 - Sigma) through G0^TT's own linear gauge invariance (proven below); no substitute object is used",
+   "gate": "OBJ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "OPERATOR IDENTITY (all H orders at once): P^TT annihilates the FULL orbit direction delta h_ij = i(k_i xi_j + k_j xi_i) + lambda delta_ij for ARBITRARY k-direction, ARBITRARY xi and ARBITRARY trace coefficient lambda = 2(a'/a) xi^0 -- gradients die by transversality, the trace term by tracelessness. The H-dependence lives ONLY in lambda, so the identity holds at H^0, H^1 and H^2 IDENTICALLY (no order-by-order truncation difference is possible). This covers: the external probe legs, G0^TT's linear gauge invariance, AND the corrected synchronous residual class (xi^0 = C(x)/a with time-independent xi^i is a special case of the arbitrary (xi, lambda) just annihilated)",
+   "gate": "PART1",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: A(i). transversality mutation: with the k k/k^2 subtraction REMOVED (traceless-only operator), the gradient terms of the orbit direction SURVIVE (nonzero off-diagonal projection) -- transversality is load-bearing, not decoration",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: A(ii). traceless mutation: the TRANSVERSE TRACE (P_ia P_ib dh_ab summed on i) is NONZERO (= 2 lambda per transverse direction) -- the trace removal is load-bearing; together with A(i) both halves of the Part-1 identity are proven to have teeth",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "POSITIVE CONTROL FIRST (the apparatus detects genuine gauge invariance): the FLAT frozen vertex contracted with a gauge-image leg under EXACT momentum conservation and on-shell TT companions gives IDENTICALLY ZERO -- the flat linearized diffeomorphism Ward identity, confirmed by the same machinery that produces the dS result below. A nonzero dS result is therefore MEANINGFUL, not an apparatus artifact",
+   "gate": "PART2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "the dS internal gauge-image insertion (TT probe x gauge-image internal slot x TT-projected internal slot, loop kinematics p1 = (omega, 0), p2,3 = (nu, +-q n)) is NONZERO at H^0, H^1 AND H^2 -- computed from the frozen Tier-1 dS vertex, H-orders graded separately (no order assumed from another)",
+   "gate": "PART2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "THE OBSTRUCTION, EXACTLY: on frequency conservation and on-shell (nu1 = +-q) the surviving H^0 residual is (7/2) i omega^2 q (X0 +- X3)(t11 - t22) -- the external EOM factor omega^2 times the NULL gauge-parameter combinations times the internal-external TT overlap. Structured, tiny, and NOT zero",
+   "gate": "PART2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "no cheap pairwise disposal: the +-q on-shell residues neither cancel in the sum nor in the difference -- the retarded commutator structure alone does not remove the obstruction; disposal (if it occurs) must come from the INTEGRATED orbit/K-term machinery",
+   "gate": "PART2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: B/C. non-gauge mutations (pure-trace internal slot; unsymmetrized image) are NONZERO and DISTINCT from the main result -- omitted-term and projector mutations are distinguishable, the contraction is not degenerate",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "DIRECTION INDEPENDENCE of the NONZERO conclusion: the dS insertion evaluated at 3 exact-rational skew unit directions (with H and u nonzero rational) is nonzero at every one -- the z-aligned symbolic result is not an alignment accident (the symbolic skew computation was killed for cost; this exact-rational route replaces it, disclosed)",
+   "gate": "PART2",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "verified at source level: no assembled-loop cache is consumed by this instrument",
+   "gate": "INDEP",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "classification emitted: D4-C -- computed from the evidence; not forced toward A",
+   "gate": "CLASS",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "no consequence-cell text, Axis-2 outcome, J(omega) or plant artifact is read -- the D4 criterion came from the registered contract alone (tokens runtime-built)",
+   "gate": "FW",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: token scanner has teeth",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "every frozen input byte-identical to its pre-run hash",
+   "gate": "PROV",
+   "detail": null
+  }
+ ],
+ "notes": [
+  "input sha WALL_KR_TIER1_VERTEX_ARTIFACT.json = dfd8d5c203c80b1d...",
+  "input sha WALL_A4_RESPONSE_DRESSED_RESULT.json = d430e7b743be2054...",
+  "input sha CLASS_C_MANIFEST.json = e2d8065c4f157cff...",
+  "input sha .d4_vertex_gauge.json = b1772109fc3f9bf8...",
+  "input sha .d4_flat_ward.json = afaf920ba96bde32...",
+  "dependency graph: PART 1 uses only the projector algebra (no cache); the FLAT control uses flat_vertex_srepr; PART 2's main result uses ds_vertex_srepr + fresh contraction code -- none of the three consumes the T3 cone caches or any assembled-loop object, so no shared final cached object can make an agreement tautological. The frozen T1 artifact (raw immutable input) is the only shared ancestor, as permitted",
+  "CLASS code: D4-C",
+  "CLASS what_PASSES_as_operator_identity: the EXTERNAL orbit (probe legs, G0^TT, the synchronous residual class): P^TT annihilates the full orbit direction for arbitrary k, xi and trace coefficient -- identically at every H order",
+  "CLASS what_is_NOT_decided: the INTERNAL-line / slicing sector: the gauge-image insertion at loop kinematics is NONZERO at H^0, H^1, H^2, with the exact on-support H^0 obstruction (7/2) i omega^2 q (X0 +- X3)(t11 - t22); no cheap pairwise disposal exists; the flat-Ward positive control proves the apparatus detects genuine invariance, so this is a real off-support structure that only the INTEGRATED orbit/K-term machinery (Declaration 5's own mechanism at matter scope: 'K-terms + trace cancellation') can dispose or convict",
+  "CLASS why_not_D4_A: Declaration 5 requires Pi_nonlocal exact symbolic equality between constructions; the internal sector is undecided at the executable level of this run",
+  "CLASS why_not_D4_B: no integrated mismatch was exhibited: at matter scope A4's raw orbit terms were ALSO nonzero (8675 of them) and the integrated machinery disposed of every one ('the orbit moves no TT amplitude'); a raw nonzero here is not a failure verdict",
+  "CLASS the_priced_completion: re-derive the A4 orbit-formula/K-term/trace-cancellation machinery on graviton-loop content -- exactly the charter's gate D as written, priced at sessions scale; its input obstruction is now precisely characterized",
+  "CLASS matter_precedent_scope_note: A4's internal lines were SCALARS (no internal gauge freedom); the internal-graviton-line sector has NO matter-scope precedent -- this run supplies its first computed characterization",
+  "register untouched: claims.json sha beaeb84e8a6f8468...",
+  "files added: ?? .d4_flat_ward.json | ?? .d4_vertex_gauge.json | ?? WALL_KR_D4_DUAL_GAUGE_RESULT.json | ?? d4_extract.log | ?? d4_extract.py | ?? d4_run1.log | ?? d4_run2.log | ?? wall_kr_d4_dual_gauge.py"
+ ],
+ "failures": [],
+ "elapsed_s": 31.4
+}
