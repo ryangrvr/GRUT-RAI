@@ -1,0 +1,115 @@
+{
+  "instrument": "wall_kr_owner_ruling_phase.py",
+  "date": "2026-09-02",
+  "kind": "OWNER RULING PHASE — governance only, no physics executed",
+  "battery": "75/75",
+  "failures": [],
+  "D1_d4a_acceptance": {
+    "status": "ACCEPTED BY OWNER (recorded append-only)",
+    "scope": "declared TT-bath consequence-scope object only",
+    "d3iii": "CLOSED FOR CURRENT TT-BATH SCOPE",
+    "general_gauge_uniqueness": "NOT CLAIMED",
+    "consequence_class": "NONE",
+    "historical_artifacts_rewritten": false
+  },
+  "D2_ir_fork": {
+    "ruling": "NOT INVOKED — no IR prescription chosen, priced, or calculated with",
+    "A_mathematically_possible": true,
+    "B_register_authorized": false,
+    "distinction": "A and B carry OPPOSITE truth values; collapsing them inverts the ruling",
+    "mechanism": "manifest regulator_policy requires every regulator be appended with purpose/location/limit/order BEFORE use, and declares that solvers refusing undeclared regulators is correct behaviour",
+    "consequence_of_adoption": "a NEW REGISTER INPUT under the standing IR-B ruling",
+    "owner_decision_required": "authorize or reject introducing a named, priced IR input; if authorized, it must be appended to the manifest BEFORE use and classified as regulating-only vs a physical IR scale"
+  },
+  "D3_epoch_window": {
+    "ruling": "SEPARATE DECISION — not bound to fork (ii); not invoked",
+    "penalties_preserved": [
+      "named window: outcome 1 reclassified to outcome 5",
+      "unnamed window: fires manifest prohibition 5 ('unstated epoch/window parameters')",
+      "windowed calculation cannot report outcome 2 at all"
+    ],
+    "registered_price": "W* < 0.25 e-folds (stationarity bound, 10% shape tolerance)",
+    "not_chosen_to_reach_a_class": true
+  },
+  "D4_domain_overlap": {
+    "evaluator_refusal_boundary_H": 3.3993,
+    "window_resolution_floor_H": 4.0,
+    "relation": "OVERLAP — the window's floor lies ABOVE the refusal boundary",
+    "disposition_1_existing_machinery_sufficient": "REFUTED (evaluator refuses the region)",
+    "disposition_2_existing_registered_extension_sufficient": "REFUTED (allowed_reductions admits only reductions PROVED stationary within their own declared scope, and presumes none)",
+    "disposition_3_new_method_or_input_must_be_registered": "THE ONLY NON-AMENDING EXIT",
+    "disposition_4_criterion_unreachable_under_frozen_contract": "THE CURRENT STATE",
+    "disposition_5_criterion_requires_owner_amendment": "AVAILABLE TO THE OWNER, NOT TAKEN",
+    "ruling": "4 (current state) with 3 as the only exit that does not amend the criterion",
+    "remedy_shape_fixed_by_certificate": "the certificate's own amendment rule: any necessary change to the Class-C computational contract is a NEW RESEARCH EVENT requiring a new versioned dispatch that explicitly explains why this one failed"
+  },
+  "D5_certificate_vs_manifest": {
+    "face_ruling": "SEMANTICALLY IDENTICAL, TEXTUALLY DIFFERENT",
+    "certificate_face": "seven slash-separated prose tokens",
+    "manifest_face": "six JSON array entries",
+    "mapping_proved": {
+      "cert 1": "class 1 isolated pole",
+      "cert 2": "class 2 multiple poles / ladder",
+      "cert 3+4": "class 3 branch cut / continuum  (CONFIRMED)",
+      "cert 5": "class 4 secular / nonstationary memory",
+      "cert 6": "class 5 no long-memory structure",
+      "cert 7": "class 6 ill-posed even after assembly  (CONFIRMED)"
+    },
+    "cause": "the certificate's prose uses '/' as BOTH the item separator AND the intra-class alternation separator; three manifest classes themselves contain '/', so the prose face is inherently ambiguous",
+    "third_face": "CLASS_C_DISPATCH_SPEC.md section 6 carries a THIRD face: six NUMBERED classes. TWO OF THREE FACES AGREE ON SIX; the certificate's seven is the outlier.",
+    "textual_defects": [
+      "spec names class 1 'Pole'; manifest names it 'isolated pole'",
+      "spec and manifest class 2 carry 'ladder'; the certificate DROPS it",
+      "the certificate's '/' serves as both item separator and intra-class alternation"
+    ],
+    "mechanism_of_divergence": "provenance/class_c_freeze.py HARDCODES the certificate's prose outcome string and never reads the manifest's permitted_outcome_classes — the faces were never derived from one another, so they could drift silently",
+    "stale_or_extra_class_on_the_in_force_faces": "NONE — every certificate token consumed once",
+    "out_of_force_extra_class": "provenance/prereg/PREREG_TERMINATION_V5_DRAFT.txt defines a catch-all C1.g 'ANOTHER STRUCTURE justified by calculation'. It is ABSENT from the hashed prereg MANIFEST = UNSIGNED, NOT IN FORCE. A contradiction hazard for any reader, not a registered seventh class.",
+    "authoritative": "NOT DECLARED ANYWHERE. A sweep of the spec, manifest, certificate, dispatch decisions and CHARTER for authority/precedence language returns ZERO hits, and the register itself states 'the certificate-vs-manifest face adjudication is owner-owed'. The manifest's supersedes field orders MANIFEST VERSIONS only and confers no precedence between representations. CORRECTION: an earlier draft of this ruling inferred authority from that field; the inference is withdrawn.",
+    "what_the_builder_may_and_may_not_settle": "MAY settle: the COUNT and the MAPPING (six classes; the seven-token face is a delimiter artifact, proved not asserted). MAY NOT settle: WHICH FACE IS CONTRACTUALLY AUTHORITATIVE — that is an owner declaration.",
+    "zero_change_fix_sufficient_for_the_face": true,
+    "physics_artifact_or_ledger_change": "NONE — the six-class taxonomy is unchanged",
+    "SEPARATE_INTEGRITY_FINDING": {
+      "pins_total": 11,
+      "matching": [
+        "calc/class_c_solver.py",
+        "provenance/CLASS_C_BENCHMARK_MATRIX.md",
+        "provenance/CLASS_C_PROVENANCE_LEDGER.md",
+        "provenance/SCREEN_RECORD_2026-08-22_classc_infrastructure.md",
+        "provenance/class_c_benchmark_matrix.py",
+        "provenance/class_c_dependency_closure.py"
+      ],
+      "drifted": [
+        "CLASS_C_DISPATCH_SPEC.md",
+        "CLASS_C_MANIFEST.json",
+        "provenance/CLASS_C_CONTAMINATION_AUDIT.md",
+        "provenance/class_c_contamination_audit.py",
+        "provenance/class_c_manifest_gate.py"
+      ],
+      "drifted_content_recoverable_from_history": false,
+      "declared_drift": [
+        "CLASS_C_MANIFEST.json (v1.1 supersedes v1.0, reason stated)"
+      ],
+      "undeclared_drift": [
+        "CLASS_C_DISPATCH_SPEC.md",
+        "provenance/CLASS_C_CONTAMINATION_AUDIT.md",
+        "provenance/class_c_contamination_audit.py",
+        "provenance/class_c_manifest_gate.py"
+      ],
+      "no_gate_verifies_the_pins": true,
+      "freeze_script_has_no_verify_mode": true,
+      "self_certification": "provenance/class_c_manifest_gate.py is itself a pinned file AND one of the drifted ones, and it does not check the pins",
+      "zero_change_fix_sufficient": false,
+      "owner_decision_required": "the certificate is IMMUTABLE by its own terms and may not be edited; a re-freeze would be a NEW versioned dispatch. Rule whether to (a) issue one, (b) record the drift as a declared, accepted deviation, or (c) add a verify gate. NOTE: the taxonomy is unaffected either way."
+    }
+  },
+  "D6_held_flags": {
+    "queue": "exactly three; the 23 flags are historical provenance, not pending edits",
+    "1_collective_accept": "authorize or decline the single baseline refresh covering the 20 F1 flags and the already-authorized changes under the 3 F2 flags",
+    "2_tier_contradiction": "rung1_inin_formalism and rung2_kms_gate are 'shown' resting on 'assumed' background_time_translation_flow: repair the edge, waive with a documented note, or leave standing as expected-red",
+    "3_orphan": "response_lorentz_covariance is 'shown' with empty depends_on: annotate as borrowed-axiom-class, or attach a dependency edge",
+    "blanket_accept_performed": false
+  },
+  "licensed_for_next_physics_run": "NOTHING — no low-frequency calculation is licensed",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
