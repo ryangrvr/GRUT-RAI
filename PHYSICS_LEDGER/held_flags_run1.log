@@ -1,0 +1,22 @@
+=== PROVENANCE (pre-run) ===
+  note guarded claims.json = beaeb84e8a6f8468...
+  note guarded claims.baseline.json = 7bd1a54a405f9569...
+  note guarded held_flags.json = dacc1ed95be0e0e8...
+  ok   frozen pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  ok   frozen pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   frozen pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...
+
+=== 1: THE ACTUAL FLAG STATE ===
+  ok   the live bank-gate report carries EXACTLY 23 unreviewed flags (22 node flags + 1 deletion listed separately as rung1_inin_action) plus the one owner-held T4 entry -- read from the gate's own structured output, not from summaries
+  ok   LIVE discipline findings, extracted from the register's own test helper: tier-contradictions at exactly {rung1_inin_formalism, rung2_kms_gate} -- both 'shown' resting on background_time_translation_flow ('assumed', the omission deliberately booked 2026-08-18 at +1 to expose that presupposition)
+
+=== 2-10: LEDGER ASSEMBLY AND CLASSIFICATION ===
+  FAIL the ledger carries EXACTLY 23 rows, one per flag, no omissions and no duplicates (the deletion is its own row; the held T4 entry is NOT among them -- it was owner-reviewed at banking)
+Traceback (most recent call last):
+  File "/Users/mpg/Desktop/GRUT ResponsiveAI/PHYSICS_LEDGER/wall_held_flags_23_review.py", line 189, in <module>
+    check(all(any(e["commit"] in AUTH for e in ORG["history"][r["flag"]])
+          ^^^
+  File "/Users/mpg/Desktop/GRUT ResponsiveAI/PHYSICS_LEDGER/wall_held_flags_23_review.py", line 189, in <genexpr>
+    check(all(any(e["commit"] in AUTH for e in ORG["history"][r["flag"]])
+                                               ~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'kr_contract_retarded_tier4'

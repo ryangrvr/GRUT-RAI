@@ -5504,3 +5504,44 @@ IR-fork gated; Axis-2 = C; Gate-E = A; Noise = A; Tier 4 = BANKED as
 scoped; Class-C consequence = not yet adjudicable (CC-C). Owner options
 stand as stated: close the Wall here, or separately authorize the
 D4/epoch-window/face prerequisites.
+
+================================================================================
+2026-09-02 -- 23 HELD-FLAG GOVERNANCE REVIEW: F1=20 F2=3 F3=0
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_held_flags_23_review.py (16/16)
+DOC: WALL_HELD_FLAGS_23_REVIEW.md + machine companion.
+NO baseline refresh; NO blanket accept; claims.json/baseline/held-ledger
+and all frozen physics artifacts BYTE-IDENTICAL. Flags removed: 0;
+still held: 23 (classification only -- the owner clears).
+
+WHAT THE 23 ARE: already-landed, owner-authorized register history vs
+the stale 2026-08-17 baseline. Five owner-explicit transactions + one
+documented annotation wave: 19/23 = the ONE Rulings-A/B/C transaction
+(04dc7e1 + 1459a2d rider: rung1 split + 16-node edge reattachment);
+9c14dfa omission booking (the tier contradiction SURFACED ON THE RECORD
+at booking); b0bdfb6 boost/Lorentz (owner go); 8e64588 +1 retirement
+(owner go; independently audited: own retire clause, no residual deps,
+net asserted by the live suite); 8 rung3 annotation commits 08-18/19.
+TEMPORAL GATE PASSED: every change predates 2026-08-31 -- ALL 23 precede
+the entire K_R campaign; NONE is a T4 ripple; NONE touches a frozen
+physics artifact.
+
+F2 (genuine standing debt, not noise): rung1_inin_formalism +
+rung2_kms_gate (live tier-contradictions: 'shown' on 'assumed'
+background_time_translation_flow -- the omission was booked PRECISELY to
+expose that presupposition, so correct physics bookkeeping is in genuine
+tension with the tier rule -- an owner call); response_lorentz_covariance
+(live orphaned-result: 'shown', empty depends_on).
+
+OWNER DECISION QUEUE (exactly 3): (1) the collective baseline accept;
+(2) tier-contradiction disposition (repair / waive-with-note / formally
+expected-red); (3) orphan disposition (borrowed-axiom annotation / add
+edge). F3 = 0: no flag exposes a scientific inconsistency.
+
+DEFECT: the self-scan trap, 5th appearance (banned-list literals + a
+prose mention of the accept flag tripping their own scanners) -- fixed
+with runtime-built tokens and an invocation-pattern scan.
+
+STATE UNCHANGED: T4 BANKED; Axis-2 C; Gate-E A; Noise A; Lambda_R one;
+c0'/c2' gated; CC-C. THE WALL IS AT ITS FROZEN ENDPOINT; the only queue
+anywhere is the owner's three decisions above.

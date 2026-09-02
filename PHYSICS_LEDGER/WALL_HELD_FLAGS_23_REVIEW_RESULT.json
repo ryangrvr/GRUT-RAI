@@ -1,0 +1,475 @@
+{
+ "instrument": "wall_held_flags_23_review.py",
+ "instrument_sha256": "3e2bbc224bfb3c61135bf828b35a155e18c9d21d1a93fc3b01fe04c9945eef17",
+ "review": "COMPLETE",
+ "counts": {
+  "F1": 20,
+  "F2": 3,
+  "F3": 0,
+  "resolved_by_existing_evidence": 20,
+  "still_open": 3,
+  "flags_removed_from_active_queue": 0,
+  "flags_still_held": 23,
+  "owner_decisions_required": 3
+ },
+ "baseline_refreshed": false,
+ "blanket_accept_used": false,
+ "frozen_scientific_content_changed": false,
+ "tier4": "BANKED, unchanged",
+ "axis2": "C, unchanged",
+ "gate_e": "A, unchanged",
+ "noise": "A, unchanged",
+ "H0_Lambda_R": "ONE, unresolved",
+ "h2_locals": "FORK-GATED, unchanged",
+ "consequence_cell": "CC-C, unchanged",
+ "out": {
+  "ledger": [
+   {
+    "flag": "rung1_inin_formalism",
+    "fingerprint": "77aab2333133f317",
+    "origin_commits": "04dc7e1 ADDED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "LIVE tier-contradiction: 'shown' resting on 'assumed' background_time_translation_flow (surfaced 2026-08-18 commit 9c14dfa; stash-proven-and-reported-not-patched at the 2026-08-30 bank, 8e64588)",
+    "class": "F2",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "DISPOSITION REQUIRED: repair the edge, waive-with-documented-note, or formally leave standing as expected-red"
+   },
+   {
+    "flag": "rung1_ontology_finite_memory",
+    "fingerprint": "d3144e66e8f4eea0",
+    "origin_commits": "04dc7e1 ADDED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "rung2_kms_gate",
+    "fingerprint": "fadf6ca2ce0e4a17",
+    "origin_commits": "9c14dfa MODIFIED (2026-08-18); 04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-18 'Omission booked at +1; the R5 edge surfaced a tier contradiction at rung1' (finding surfaced ON THE RECORD at booking time); 2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "LIVE tier-contradiction: same assumed input (the collect-every-case repair of the test found it after rung1 alone was first named)",
+    "class": "F2",
+    "evidence": "2026-08-18 'Omission booked at +1; the R5 edge surfaced a tier contradiction at rung1' (finding surfaced ON THE RECORD at booking time); 2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "DISPOSITION REQUIRED: repair the edge, waive-with-documented-note, or formally leave standing as expected-red"
+   },
+   {
+    "flag": "rung3_single_pole",
+    "fingerprint": "371b44b5e622307c",
+    "origin_commits": "534ef03 MODIFIED (2026-08-18); 20d00b2 MODIFIED (2026-08-18); 7754153 MODIFIED (2026-08-19); d3aa6ac MODIFIED (2026-08-19); afeebdc MODIFIED (2026-08-19); deacfb9 MODIFIED (2026-08-19); cb54e02 MODIFIED (2026-08-19); 7eeb29e MODIFIED (2026-08-19); 04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-18 'Tasks 2/4/5 executed; Task 1 HELD'; 2026-08-18 rung3 interrogation wave (documented); 2026-08-19 MZ-inheritance reading (documented wave); 2026-08-19 adversarial pass, 4 lenses (documented); 2026-08-19 convention-question reading (documented); 2026-08-19 deflation-overshoot correction (documented); 2026-08-19 l>=2 multipole result (documented wave); 2026-08-19 ladder-adverse filing (documented wave); 2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-18 'Tasks 2/4/5 executed; Task 1 HELD'; 2026-08-18 rung3 interrogation wave (documented); 2026-08-19 MZ-inheritance reading (documented wave); 2026-08-19 adversarial pass, 4 lenses (documented); 2026-08-19 convention-question reading (documented); 2026-08-19 deflation-overshoot correction (documented); 2026-08-19 l>=2 multipole result (documented wave); 2026-08-19 ladder-adverse filing (documented wave); 2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "rung4_love_kk",
+    "fingerprint": "58efbaf890564824",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "rung5_gr_limit",
+    "fingerprint": "9ab05360984ab697",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "rung6_qm_limit",
+    "fingerprint": "a9630fe07bf11ab0",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "rung7_wz",
+    "fingerprint": "9d980ebdc81c4ad2",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "rung8_falsifier",
+    "fingerprint": "542f7d5950a31dcc",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "rung9b_bridge",
+    "fingerprint": "cfd24f3a25d2bba5",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "arrow_of_time",
+    "fingerprint": "0fc176409bf181b3",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "p_tt_ansatz",
+    "fingerprint": "dfc2ea094e7f6afa",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "info_i1_renorm_as_information",
+    "fingerprint": "aee53b5b6f0ebdee",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "info_i2_beyond_standard_bridge",
+    "fingerprint": "6d4e8440da0413d9",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "l0_r2_exact_unique_breaker",
+    "fingerprint": "27ca170fcc67e7c8",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "rung7_w1_wz_map",
+    "fingerprint": "8f06bf41fff7abb1",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23); 1459a2d MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING); 2026-08-23 'Ruling-B edge correction (owner)' (EXPLICIT OWNER LABEL)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING); 2026-08-23 'Ruling-B edge correction (owner)' (EXPLICIT OWNER LABEL)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "u1_form_universality",
+    "fingerprint": "6df84ecb14f87054",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23); 1459a2d MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING); 2026-08-23 'Ruling-B edge correction (owner)' (EXPLICIT OWNER LABEL)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING); 2026-08-23 'Ruling-B edge correction (owner)' (EXPLICIT OWNER LABEL)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "u2_kernel_universality",
+    "fingerprint": "787a57a97d4ad834",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "eft_operator_basis",
+    "fingerprint": "fbe2f2747e736269",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "analogue_gravity_acoustic",
+    "fingerprint": "05e5f80204c29dc8",
+    "origin_commits": "04dc7e1 MODIFIED (2026-08-23)",
+    "authorization": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "background_time_translation_flow",
+    "fingerprint": "0b1b5f418f02e60d",
+    "origin_commits": "9c14dfa ADDED (2026-08-18)",
+    "authorization": "2026-08-18 'Omission booked at +1; the R5 edge surfaced a tier contradiction at rung1' (finding surfaced ON THE RECORD at booking time)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-18 'Omission booked at +1; the R5 edge surfaced a tier contradiction at rung1' (finding surfaced ON THE RECORD at booking time)",
+    "owner_action": "covered by the single collective accept decision"
+   },
+   {
+    "flag": "response_lorentz_covariance",
+    "fingerprint": "d5618df27516f8e7",
+    "origin_commits": "b0bdfb6 ADDED (2026-08-24); 8e64588 MODIFIED (2026-08-30)",
+    "authorization": "2026-08-24 'BOOKED on owner go' (EXPLICIT OWNER GO); 2026-08-30 '+1 RETIRED in the register (owner go)' (EXPLICIT OWNER GO)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "LIVE ORPHANED-RESULT: 'shown' with empty depends_on (booked +1 2026-08-24 owner go; retired to 0 2026-08-30 owner go per the node's own retire clause; the orphan finding stands)",
+    "class": "F2",
+    "evidence": "2026-08-24 'BOOKED on owner go' (EXPLICIT OWNER GO); 2026-08-30 '+1 RETIRED in the register (owner go)' (EXPLICIT OWNER GO)",
+    "owner_action": "DISPOSITION REQUIRED: repair the edge, waive-with-documented-note, or formally leave standing as expected-red"
+   },
+   {
+    "flag": "rung1_inin_action",
+    "fingerprint": "DELETED",
+    "origin_commits": "9c14dfa MODIFIED (2026-08-18); 04dc7e1 DELETED (2026-08-23)",
+    "authorization": "2026-08-18 'Omission booked at +1; the R5 edge surfaced a tier contradiction at rung1' (finding surfaced ON THE RECORD at booking time); 2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "type": "register node change (claims.json-internal)",
+    "frozen_impact": "NONE (no physics artifact touched)",
+    "register_impact": "already-landed content vs the stale 2026-08-17 baseline (the flag is the unreviewed DIFF, not a pending edit)",
+    "predates_entire_KR_campaign": true,
+    "current_status": "authorized, documented, internally consistent; awaiting only the collective baseline accept",
+    "class": "F1",
+    "evidence": "2026-08-18 'Omission booked at +1; the R5 edge surfaced a tier contradiction at rung1' (finding surfaced ON THE RECORD at booking time); 2026-08-23 'Bank owner rulings 2026-08-23 (Rulings A/B/C): split rung1...' (EXPLICIT OWNER RULING)",
+    "owner_action": "covered by the single collective accept decision"
+   }
+  ],
+  "counts": {
+   "F1": 20,
+   "F2": 3,
+   "F3": 0,
+   "resolved_by_existing_evidence": 20,
+   "still_open": 3,
+   "flags_removed_from_active_queue": 0,
+   "flags_still_held": 23,
+   "owner_decisions_required": 3
+  },
+  "owner_decision_queue": [
+   "1. COLLECTIVE ACCEPT: after reviewing this report, authorize (or decline) the single baseline refresh (bankgate --accept) covering the 20 F1 flags and the already-authorized CHANGES underlying the 3 F2 flags. Until then all 23 stay surfaced -- by design.",
+   "2. TIER-CONTRADICTION DISPOSITION (rung1_inin_formalism, rung2_kms_gate): decide -- (a) repair the edge (e.g. re-grade or restructure the assumed background-flow input), (b) waive with a documented note (the omission was booked precisely to expose this presupposition -- arguably correct physics bookkeeping in tension with the tier rule), or (c) formally leave standing as expected-red. The builder decides none of these.",
+   "3. ORPHANED-RESULT DISPOSITION (response_lorentz_covariance): decide -- annotate as a legitimately-rootless borrowed-axiom-class node, or attach a dependency edge."
+  ],
+  "worktree": [
+   "?? WALL_HELD_FLAGS_23_REVIEW_RESULT.json",
+   "?? held_flags_run1.log",
+   "?? held_flags_run2.log",
+   "?? held_flags_run3.log",
+   "?? wall_held_flags_23_review.py"
+  ]
+ },
+ "checks": [
+  {
+   "pass": true,
+   "msg": "frozen pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "frozen pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "frozen pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "the live gate reports 23 node diffs (22 unreviewed + the one owner-held T4 entry, excluded from this review as already reviewed) plus 1 deletion -- so the 23 UNDER REVIEW = 22 node flags + the rung1_inin_action deletion, read from the gate's own structured output",
+   "gate": "STATE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "LIVE discipline findings, extracted from the register's own test helper: tier-contradictions at exactly {rung1_inin_formalism, rung2_kms_gate} -- both 'shown' resting on background_time_translation_flow ('assumed', the omission deliberately booked 2026-08-18 at +1 to expose that presupposition)",
+   "gate": "STATE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "the ledger carries EXACTLY 23 rows, one per flag, no omissions and no duplicates (the deletion is its own row; the held T4 entry is NOT among them -- it was owner-reviewed at banking)",
+   "gate": "LEDGER",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "EVERY row's origin commits are matched to documented authorization evidence -- 5 owner-explicit transactions (Rulings A/B/C split + edge correction; omission booking; boost/Lorentz booking; +1 retirement) plus the documented 2026-08-18/19 rung3 annotation wave; nothing is unprovenance'd",
+   "gate": "LEDGER",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "TEMPORAL: every flag's every change predates 2026-08-31 -- ALL 23 precede D5, Axis-2, the H^2 fork, Gate-E, Noise, and the T4 bank; NONE is a T4-bank ripple (the T4 ripples live outside claims.json and are separately documented)",
+   "gate": "TEMPORAL",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CLASSIFICATION: F1 = 20 (authorized + documented + consistent; awaiting only the collective accept), F2 = 3 (the two live tier-contradictions and the live orphaned-result -- genuine standing governance debt, surfaced on the record at their own origin, NOT called historical noise), F3 = 0 (no flag exposes a scientific inconsistency or an unclassifiable state)",
+   "gate": "CLASS",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "NO flag was removed from the active queue: the held-ledger was NOT mutated, the baseline was NOT refreshed -- this review CLASSIFIES; only the owner clears",
+   "gate": "CLASS",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "no Axis-2 outcome, J(omega), plant, benchmark or resonance artifact is read or referenced -- flags are resolved by their OWN provenance evidence only (scanner tokens runtime-built)",
+   "gate": "FW",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: token scanner has teeth (runtime-assembled sentinel)",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: completeness teeth: a copy of the ledger with one row dropped FAILS the 23-row completeness gate -- 'no omissions' is enforced, not asserted",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: no-accept teeth: no line of this instrument INVOKES the baseline refresh (invocation-pattern scan; prose mentions in the owner queue are data, not calls)",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "claims.json, claims.baseline.json, held_flags.json AND every frozen physics artifact are BYTE-IDENTICAL: no mutation, no refresh, no blanket accept occurred",
+   "gate": "PROV",
+   "detail": null
+  }
+ ],
+ "notes": [
+  "guarded claims.json = beaeb84e8a6f8468...",
+  "guarded claims.baseline.json = 7bd1a54a405f9569...",
+  "guarded held_flags.json = dacc1ed95be0e0e8...",
+  "DUPLICATE HANDLING (sec 5): 19 of the 23 flags share ONE underlying owner transaction (04dc7e1 Rulings A/B/C, with the 1459a2d owner-labeled rider) -- recorded as a shared origin-transaction annotation; every per-claim fingerprint is preserved and NO rows were merged (the held mechanism is per-claim)",
+  "RETIREMENT REVIEW (sec 10): 8e64588 retired the response_lorentz_covariance +1 to 0 per the node's OWN retire clause upon the owner-adjudicated Q1^TT-and-Q5^TT discharge; authorized (owner go), no dependency on the retired +1 remains, and the live suite asserts the resulting net (+16) -- internally consistent; the retirement is neither reversed nor blindly accepted, it is EVIDENCED",
+  "OWNER: 1. COLLECTIVE ACCEPT: after reviewing this report, authorize (or decline) the single baseline refresh (bankgate --accept) covering the 20 F1 flags and the already-authorized CHANGES underlying the 3 F2 flags. Until then all 23 stay surfaced -- by design.",
+  "OWNER: 2. TIER-CONTRADICTION DISPOSITION (rung1_inin_formalism, rung2_kms_gate): decide -- (a) repair the edge (e.g. re-grade or restructure the assumed background-flow input), (b) waive with a documented note (the omission was booked precisely to expose this presupposition -- arguably correct physics bookkeeping in tension with the tier rule), or (c) formally leave standing as expected-red. The builder decides none of these.",
+  "OWNER: 3. ORPHANED-RESULT DISPOSITION (response_lorentz_covariance): decide -- annotate as a legitimately-rootless borrowed-axiom-class node, or attach a dependency edge.",
+  "files added: ?? WALL_HELD_FLAGS_23_REVIEW_RESULT.json | ?? held_flags_run1.log | ?? held_flags_run2.log | ?? held_flags_run3.log | ?? wall_held_flags_23_review.py"
+ ],
+ "failures": [],
+ "elapsed_s": 0.1
+}

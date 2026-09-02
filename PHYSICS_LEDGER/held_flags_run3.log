@@ -1,0 +1,38 @@
+=== PROVENANCE (pre-run) ===
+  note guarded claims.json = beaeb84e8a6f8468...
+  note guarded claims.baseline.json = 7bd1a54a405f9569...
+  note guarded held_flags.json = dacc1ed95be0e0e8...
+  ok   frozen pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  ok   frozen pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   frozen pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...
+
+=== 1: THE ACTUAL FLAG STATE ===
+  ok   the live gate reports 23 node diffs (22 unreviewed + the one owner-held T4 entry, excluded from this review as already reviewed) plus 1 deletion -- so the 23 UNDER REVIEW = 22 node flags + the rung1_inin_action deletion, read from the gate's own structured output
+  ok   LIVE discipline findings, extracted from the register's own test helper: tier-contradictions at exactly {rung1_inin_formalism, rung2_kms_gate} -- both 'shown' resting on background_time_translation_flow ('assumed', the omission deliberately booked 2026-08-18 at +1 to expose that presupposition)
+
+=== 2-10: LEDGER ASSEMBLY AND CLASSIFICATION ===
+  ok   the ledger carries EXACTLY 23 rows, one per flag, no omissions and no duplicates (the deletion is its own row; the held T4 entry is NOT among them -- it was owner-reviewed at banking)
+  ok   EVERY row's origin commits are matched to documented authorization evidence -- 5 owner-explicit transactions (Rulings A/B/C split + edge correction; omission booking; boost/Lorentz booking; +1 retirement) plus the documented 2026-08-18/19 rung3 annotation wave; nothing is unprovenance'd
+  ok   TEMPORAL: every flag's every change predates 2026-08-31 -- ALL 23 precede D5, Axis-2, the H^2 fork, Gate-E, Noise, and the T4 bank; NONE is a T4-bank ripple (the T4 ripples live outside claims.json and are separately documented)
+  note DUPLICATE HANDLING (sec 5): 19 of the 23 flags share ONE underlying owner transaction (04dc7e1 Rulings A/B/C, with the 1459a2d owner-labeled rider) -- recorded as a shared origin-transaction annotation; every per-claim fingerprint is preserved and NO rows were merged (the held mechanism is per-claim)
+  note RETIREMENT REVIEW (sec 10): 8e64588 retired the response_lorentz_covariance +1 to 0 per the node's OWN retire clause upon the owner-adjudicated Q1^TT-and-Q5^TT discharge; authorized (owner go), no dependency on the retired +1 remains, and the live suite asserts the resulting net (+16) -- internally consistent; the retirement is neither reversed nor blindly accepted, it is EVIDENCED
+  ok   CLASSIFICATION: F1 = 20 (authorized + documented + consistent; awaiting only the collective accept), F2 = 3 (the two live tier-contradictions and the live orphaned-result -- genuine standing governance debt, surfaced on the record at their own origin, NOT called historical noise), F3 = 0 (no flag exposes a scientific inconsistency or an unclassifiable state)
+  ok   NO flag was removed from the active queue: the held-ledger was NOT mutated, the baseline was NOT refreshed -- this review CLASSIFIES; only the owner clears
+
+=== 12/13: FIREWALL AND CONTROLS ===
+  ok   no Axis-2 outcome, J(omega), plant, benchmark or resonance artifact is read or referenced -- flags are resolved by their OWN provenance evidence only (scanner tokens runtime-built)
+  ctrl-DETECTED   token scanner has teeth (runtime-assembled sentinel)
+  ctrl-DETECTED   completeness teeth: a copy of the ledger with one row dropped FAILS the 23-row completeness gate -- 'no omissions' is enforced, not asserted
+  ctrl-DETECTED   no-accept teeth: no line of this instrument INVOKES the baseline refresh (invocation-pattern scan; prose mentions in the owner queue are data, not calls)
+  note OWNER: 1. COLLECTIVE ACCEPT: after reviewing this report, authorize (or decline) the single baseline refresh (bankgate --accept) covering the 20 F1 flags and the already-authorized CHANGES underlying the 3 F2 flags. Until then all 23 stay surfaced -- by design.
+  note OWNER: 2. TIER-CONTRADICTION DISPOSITION (rung1_inin_formalism, rung2_kms_gate): decide -- (a) repair the edge (e.g. re-grade or restructure the assumed background-flow input), (b) waive with a documented note (the omission was booked precisely to expose this presupposition -- arguably correct physics bookkeeping in tension with the tier rule), or (c) formally leave standing as expected-red. The builder decides none of these.
+  note OWNER: 3. ORPHANED-RESULT DISPOSITION (response_lorentz_covariance): decide -- annotate as a legitimately-rootless borrowed-axiom-class node, or attach a dependency edge.
+
+=== POST-RUN INTEGRITY ===
+  ok   claims.json, claims.baseline.json, held_flags.json AND every frozen physics artifact are BYTE-IDENTICAL: no mutation, no refresh, no blanket accept occurred
+  note files added: ?? WALL_HELD_FLAGS_23_REVIEW_RESULT.json | ?? held_flags_run1.log | ?? held_flags_run2.log | ?? held_flags_run3.log | ?? wall_held_flags_23_review.py
+  ok   artifact written and re-read (sha 8ae42ecaae946560...)
+
+23-FLAG REVIEW: 16/16 passed; failures: 0
+F1=20 F2=3 F3=0 | held=23 | removed=0
+HARD STOP.
