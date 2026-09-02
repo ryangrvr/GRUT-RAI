@@ -1,0 +1,343 @@
+{
+ "instrument": "wall_kr_t4_bank_and_cell.py",
+ "instrument_sha256": "d57544ceb9d7549c91780e57f25376231247952d758012e57b4d8fa57cc516c6",
+ "t4_bank_status": "T4-BANK-A",
+ "t4_scientific_content": "UNCHANGED",
+ "consequence_cell_status": "CC-C",
+ "registered_consequence_class": "UNRESOLVED",
+ "bank_delta": "PROPOSED ONLY",
+ "H0_Lambda_R": "ONE, unchanged",
+ "h2_local_fork": "UNRESOLVED, unchanged",
+ "gate_e": "A, unchanged",
+ "noise": "A, unchanged",
+ "axis2": "C, unchanged",
+ "new_physics_calculation": "NONE",
+ "register_modified": false,
+ "out": {
+  "t4_conditionality_table": [
+   {
+    "claim": "branch point at omega = 0 + real-axis cut (gapless two-graviton continuum)",
+    "status": "UNCONDITIONAL",
+    "condition": "none",
+    "source": "out.analytic_structure"
+   },
+   {
+    "claim": "Im Sigma_R^{H0} = -(3/1280 pi) omega^4; H^1 = 0; Im Sigma_R^{H2} = -(13/480 pi) H^2 omega^2",
+    "status": "UNCONDITIONAL/FROZEN",
+    "condition": "none",
+    "source": "frozen T3/IR-check inputs, anchor-gated"
+   },
+   {
+    "claim": "retarded analyticity of the stated completion (+i pi branch)",
+    "status": "UNCONDITIONAL",
+    "condition": "none (review Cauchy-contour verified)",
+    "source": "T4 gates + review record"
+   },
+   {
+    "claim": "no additional real-axis zero of the resummed denominator",
+    "status": "CONDITIONAL",
+    "condition": "reference slice c = 0, kappa = 0.1 units, mu = 1, CONTROLLED band only",
+    "source": "out.analytic_structure.poles"
+   },
+   {
+    "claim": "omega = 0 graviton pole survives",
+    "status": "CONDITIONAL",
+    "condition": "iff c0 = 0 (D5; later certified c0 = 0 at H^0 under Option beta -- recorded in the WRAPPER, bytes preserved)",
+    "source": "poles + D5 artifact"
+   },
+   {
+    "claim": "resummed/first-order agreement",
+    "status": "CONDITIONAL",
+    "condition": "|lambda| << 1",
+    "source": "dyson block"
+   },
+   {
+    "claim": "anything at omega <~ H",
+    "status": "OUT OF SCOPE",
+    "condition": "refused by the evaluator",
+    "source": "domain gates"
+   }
+  ],
+  "t4_bank_status": {
+   "code": "T4-BANK-A",
+   "meaning": "FORMALLY BANKABLE AS WRITTEN -- the frozen result can move from computed-and-reported to BANKABLE with every condition, scope limit and unresolved quantity preserved exactly; the bank MOVE itself remains the owner's act (adversarial pre-screen = this record; relay = owner)",
+   "scientific_content": "UNCHANGED"
+  },
+  "consequence_cell": {
+   "code": "CC-C",
+   "registered_class": "UNRESOLVED -- not adjudicable from the frozen artifact against the registered criterion",
+   "taxonomy_component": "RESOLVED (six-class face authoritative; 3+4 = one class; 'outcome 7' = class 6)",
+   "blockers": [
+    "1. gauge-invariance precondition: D4 dual-gauge at graviton-loop level REQUIRED, NOT YET EXECUTED (Wall B makes gauge agreement a precondition of reading any verdict)",
+    "2. criterion-domain mismatch: spec sec 6's classification interrogates the low-frequency behavior; the truncation's controlled domain is omega >> H and the evaluator refuses omega << H",
+    "3. certificate-vs-manifest face adjudication owed to the owner (surfaced by the map itself)"
+   ],
+   "not_a_physical_failure": "the controlled-domain analytic structure (cut unconditional, no in-domain zero conditional) is genuine and stays in the Tier-4 record; CC-C is a governance status: the registered cell cannot yet be read against this object",
+   "not_class_6": "class 6 ('ill-posed even after assembly') is a POSITIVE structural no-go about the question; 'our truncation does not reach the regime' is NOT evidence for it and it is NOT assigned",
+   "cell_effects": "NOT retrieved, NOT applied -- no class was assigned, and per the map every move would require adversarial pre-screen + owner/overseer relay regardless"
+  },
+  "proposed_bank_delta": {
+   "type": "PROPOSED_BANK_DELTA -- NOT EXECUTED",
+   "node_id": "kr_contract_retarded_tier4",
+   "current_state": "W-0 computed-and-reported, NOT BANKED",
+   "proposed_state": "BANKED as a scoped computed record",
+   "ledger_delta": 0,
+   "reason": "the frozen Tier-4 result answers its own contract question affirmatively within its declared domain, with 34/34 validation, adversarial review adopted, and every conditionality preserved (Part I pre-screen = this record)",
+   "source_evidence": [
+    "WALL_KR_CONTRACT_RETARDED_RESULT.json (d916ef32...)",
+    "commits 2d3f514/41811ff",
+    "this pre-screen record"
+   ],
+   "consequence_cell_reference": "NONE -- consequence-cell status is CC-C; no class is banked with it",
+   "conditions_carried": [
+    "reference slice c = 0, kappa = 0.1 units, mu = 1, CONTROLLED band only",
+    "iff c0 = 0 (D5; later certified c0 = 0 at H^0 under Option beta -- recorded in the WRAPPER, bytes preserved)",
+    "|lambda| << 1"
+   ],
+   "unresolved_dependencies": [
+    "Lambda_R (H^0, symbolic by owner ruling)",
+    "c0'/c2' (H^2, fork-gated)",
+    "D4 dual-gauge at contract scope",
+    "certificate-vs-manifest face adjudication"
+   ],
+   "requires": "owner/overseer relay per the map's bank procedure; this instrument does NOT mutate provenance/claims.json"
+  },
+  "auditor_tail": [],
+  "worktree": [
+   "?? WALL_KR_T4_BANK_AND_CELL_RESULT.json",
+   "?? WALL_KR_T4_BANK_DELTA_PROPOSED.json",
+   "?? t4_bank_run1.log",
+   "?? t4_bank_run2.log",
+   "?? t4_bank_run3.log",
+   "?? wall_kr_t4_bank_and_cell.py"
+  ]
+ },
+ "checks": [
+  {
+   "pass": true,
+   "msg": "pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...",
+   "gate": "PROV",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.1 scope element present in the frozen artifact: TT scope / Ward exclusion",
+   "gate": "T4SCOPE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.1 scope element present in the frozen artifact: noise fence",
+   "gate": "T4SCOPE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.1 scope element present in the frozen artifact: validity rule",
+   "gate": "T4SCOPE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.1 scope element present in the frozen artifact: local slot symbolic",
+   "gate": "T4SCOPE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.1 scope element present in the frozen artifact: k->0 / isotropy carried",
+   "gate": "T4SCOPE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.1 scope element present in the frozen artifact: no J(omega) input",
+   "gate": "T4SCOPE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.1 the frozen validation record carries 33 checks, ALL passing, zero failures (the terminal 34/34 line included the final artifact-rehash gate, which necessarily post-dates the artifact write -- an off-by-one of bookkeeping, not of validation)",
+   "gate": "T4SCOPE",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.2 the unconditional branch-point/cut statement is present in the frozen analytic-structure block",
+   "gate": "T4COND",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.2/I.5 EVERY pole/zero qualifier is PRESENT in the frozen artifact's own poles field: 'CONDITIONAL ON: reference slice c = 0, kappa = 0.1 units, mu = 1', 'PARAMETRIC ONLY', 'NO pole claim is made; nothing is certified' -- no upgrade from 'no zero found on the reference slice' to 'there are no poles' occurs anywhere in this pre-screen",
+   "gate": "T4COND",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: conditionality-upgrade control: a conditions-stripped wrapper text FAILS the same qualifier-presence gate that the frozen artifact passes -- an upgrade from 'no zero on the reference slice' to 'no poles' would be caught, not waved through",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "I.3 the hardwired rule is exercised in the frozen record at all three levels (CONTROLLED at omega/H = 20; explicit BOUNDARY flag; REJECTED extrapolation control) -- omega << H is refused, not interpreted",
+   "gate": "T4DOM",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.4 the G1-vs-resummed distinction and the |lambda| << 1 agreement condition are in the frozen record; no pole theorem is derived from resummation",
+   "gate": "T4DOM",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.6 Tier-4 itself claims NO unique local values (slot recorded UNDETERMINED) -- consistent with banking as written",
+   "gate": "T4LOC",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.6 the WRAPPER carries the later certified statuses (H^0: c0 = c2 = 0, c4 via Lambda_R; H^2: c0'/c2' unresolved, fork-gated) -- read from their own artifacts; the Tier-4 bytes are NOT rewritten",
+   "gate": "T4LOC",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.6 historical bytes preserved: the Tier-4 artifact hash is unchanged",
+   "gate": "T4LOC",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.7 Ward Class-B: excluded by TT scope, NOT repaired (frozen wording present)",
+   "gate": "T4FW",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "I.7 Gate-E-A and NOISE-A were established SEPARATELY and afterward -- they are cited in the wrapper as corroboration, never retro-fitted into Tier-4",
+   "gate": "T4FW",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "II.8 the machine-readable authority is the SIX-class face (manifest v1.1 permitted_outcome_classes, matching spec sec 6); the map's own table files certificate tokens 3 AND 4 into registered class 3 as ONE banked class, and any 'outcome 7' filing is registered class 6. TAXONOMY: RESOLVED -- banking must use six-class names only",
+   "gate": "TAX",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "II.10 the registered object REQUIRES gauge-invariant assembly; the frozen dispatch further makes dual-gauge agreement 'a precondition of reading any verdict at all' (Wall B, quoted in the map: 'the classification outcome ... must AGREE between gauges')",
+   "gate": "OBJ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "II.10 BLOCKER 1 (gauge precondition): the execution charter lists D4 dual-gauge as REQUIRED, NOT YET EXECUTED at graviton-loop level, and no stage of this campaign executed it (coordination log verified) -- the frozen Tier-4 object is a single-construction result and does not yet satisfy the manifest's 'gauge-invariantly assembled' predicate",
+   "gate": "OBJ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "II.10 BLOCKER 2 (criterion domain): spec sec 6 class 3 itself asks 'whether the LOW-FREQUENCY behavior yields the registered memory kernel shape' -- but the frozen result's validity terminates at omega ~ H and its evaluator REFUSES omega << H: the regime the registered criterion interrogates lies outside the truncation's declared domain. 'Has a branch cut' may NOT be equated with the class-3 filing",
+   "gate": "OBJ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "II.11 single-pole/ladder firewall: no pole or ladder class is assigned from the state ladder or any free thermal factor; the frozen record makes NO pole claim and none is manufactured here",
+   "gate": "OBJ",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "II.12 consequence-cell status: CC-C (computed from the object/criterion match, not from any outcome preference)",
+   "gate": "CC",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: II.14a token-mutation control: feeding ANY hypothetical class through the adjudication leaves the three blockers firing unchanged -- the mapping logic is class-independent, so no class was preferred",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "II.14b the map was read ONLY for its taxonomy table (sec 0.3) and bank procedure; no consequence-cell prose was quoted into the classification path (source-verifiable: this instrument contains no cell text)",
+   "gate": "CC",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "no Axis-2 outcome token in source",
+   "gate": "CC",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "CONTROL: token scanner has teeth",
+   "gate": "control"
+  },
+  {
+   "pass": true,
+   "msg": "III.16 the bank delta is PROPOSED ONLY (written to its own file); provenance/claims.json is byte-identical -- no register mutation occurred",
+   "gate": "BANK",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "III.17 parameter count preserved: H^0 = exactly one (Lambda_R); H^2 adds nothing; no regulator, WC, or cosmology mu counted",
+   "gate": "FW",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "III.18 Axis-2 remains C; the branch/analytic classification and Axis-2 are DIFFERENT objects and are kept separate in every record of this stage",
+   "gate": "FW",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "the repository's own register auditor exits green (read-only run; tail: )",
+   "gate": "REG",
+   "detail": null
+  },
+  {
+   "pass": true,
+   "msg": "every frozen artifact AND the register byte-identical",
+   "gate": "PROV",
+   "detail": null
+  }
+ ],
+ "notes": [
+  "input sha WALL_KR_D5_EXECUTION_RESULT.json = b60cecc2f7d356f7...",
+  "input sha WALL_KR_H0_PARAMETER_LEDGER_RESULT.json = 8f4adb633fbe44ad...",
+  "input sha WALL_KR_H2_IR_OWNER_DECISION_RESULT.json = b6ecde682832faf4...",
+  "input sha GATE_E_H2_FDT_KMS_RESULT.json = 3042ee6fd4a11011...",
+  "input sha WALL_KR_NOISE_IR_AUDIT_RESULT.json = b47c04a60eb34b81...",
+  "input sha CLASS_C_MANIFEST.json = e2d8065c4f157cff...",
+  "input sha CLASS_C_DISPATCH_SPEC.md = 2d4caaf1b8294e96...",
+  "input sha CLASS_C_CONSEQUENCE_MAP_UNSEALED.md = 76c0e4244e16b060...",
+  "PART I RESULT: T4-BANK-A",
+  "II.8 SECOND DISCREPANCY (surfaced by the map, NOT resolvable here): the immutable certificate records clock/boundary/approximation as UNDECIDED-DISPATCH while live manifest v1.1 has moved all three; 'Owner adjudication is owed on which face a result answers.' That adjudication is STILL OWED and is one of the named blockers below",
+  "II.10 the REGISTERED object (manifest, verbatim): 'gauge-invariantly assembled retarded TT response G_R^TT derived from the pure-graviton de Sitter self-energy Sigma(x,x')'",
+  "II.10 BLOCKER 3 (face adjudication): which face (immutable certificate vs manifest v1.1) a result answers is owner-owed (II.8 note)",
+  "II.10 what the frozen result DOES establish (its own scope, unchanged): branch point at omega = 0 + real-axis cut (unconditional); no in-domain real-axis zero (triply conditional); validity boundary hard-wired; Re part Lambda_R-parametric; low-frequency limit NOT reached",
+  "II.12 code: CC-C",
+  "II.12 registered_class: UNRESOLVED -- not adjudicable from the frozen artifact against the registered criterion",
+  "II.12 taxonomy_component: RESOLVED (six-class face authoritative; 3+4 = one class; 'outcome 7' = class 6)",
+  "II.12 blockers: 1. gauge-invariance precondition: D4 dual-gauge at graviton-loop level REQUIRED, NOT YET EXECUTED (Wall B makes gauge agreement a precondition of reading any verdict); 2. criterion-domain mismatch: spec sec 6's classification interrogates the low-frequency behavior; the truncation's controlled domain is omega >> H and the evaluator refuses omega << H; 3. certificate-vs-manifest face adjudication owed to the owner (surfaced by the map itself)",
+  "II.12 not_a_physical_failure: the controlled-domain analytic structure (cut unconditional, no in-domain zero conditional) is genuine and stays in the Tier-4 record; CC-C is a governance status: the registered cell cannot yet be read against this object",
+  "II.12 not_class_6: class 6 ('ill-posed even after assembly') is a POSITIVE structural no-go about the question; 'our truncation does not reach the regime' is NOT evidence for it and it is NOT assigned",
+  "II.12 cell_effects: NOT retrieved, NOT applied -- no class was assigned, and per the map every move would require adversarial pre-screen + owner/overseer relay regardless",
+  "files added/changed: ?? WALL_KR_T4_BANK_AND_CELL_RESULT.json | ?? WALL_KR_T4_BANK_DELTA_PROPOSED.json | ?? t4_bank_run1.log | ?? t4_bank_run2.log | ?? t4_bank_run3.log | ?? wall_kr_t4_bank_and_cell.py"
+ ],
+ "failures": [],
+ "elapsed_s": 0.1
+}

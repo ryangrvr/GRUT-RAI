@@ -1,0 +1,26 @@
+{
+ "type": "PROPOSED_BANK_DELTA -- NOT EXECUTED",
+ "node_id": "kr_contract_retarded_tier4",
+ "current_state": "W-0 computed-and-reported, NOT BANKED",
+ "proposed_state": "BANKED as a scoped computed record",
+ "ledger_delta": 0,
+ "reason": "the frozen Tier-4 result answers its own contract question affirmatively within its declared domain, with 34/34 validation, adversarial review adopted, and every conditionality preserved (Part I pre-screen = this record)",
+ "source_evidence": [
+  "WALL_KR_CONTRACT_RETARDED_RESULT.json (d916ef32...)",
+  "commits 2d3f514/41811ff",
+  "this pre-screen record"
+ ],
+ "consequence_cell_reference": "NONE -- consequence-cell status is CC-C; no class is banked with it",
+ "conditions_carried": [
+  "reference slice c = 0, kappa = 0.1 units, mu = 1, CONTROLLED band only",
+  "iff c0 = 0 (D5; later certified c0 = 0 at H^0 under Option beta -- recorded in the WRAPPER, bytes preserved)",
+  "|lambda| << 1"
+ ],
+ "unresolved_dependencies": [
+  "Lambda_R (H^0, symbolic by owner ruling)",
+  "c0'/c2' (H^2, fork-gated)",
+  "D4 dual-gauge at contract scope",
+  "certificate-vs-manifest face adjudication"
+ ],
+ "requires": "owner/overseer relay per the map's bank procedure; this instrument does NOT mutate provenance/claims.json"
+}

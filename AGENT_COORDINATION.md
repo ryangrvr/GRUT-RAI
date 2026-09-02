@@ -5413,3 +5413,58 @@ never moved.
 
 OWNER QUEUE NOW: T4 + consequence-cell adjudications (the LAST standing
 items); fork-(ii) available but uninvoked. W-0; register untouched (+16).
+
+================================================================================
+2026-09-01 -- FINAL GOVERNANCE: T4-BANK-A + CONSEQUENCE-CELL CC-C
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_t4_bank_and_cell.py (35/35)
+RECORDS: WALL_KR_T4_BANK_PRESCREEN.md, WALL_KR_CLASSC_CELL_ADJUDICATION.md
+MACHINE:  WALL_KR_T4_BANK_AND_CELL_RESULT.json
+DELTA:    WALL_KR_T4_BANK_DELTA_PROPOSED.json (PROPOSED ONLY)
+Register byte-identical; repo auditor suite green (read-only run); no
+frozen scientific artifact modified; no new physics calculation.
+
+PART I -- **T4-BANK-A: FORMALLY BANKABLE AS WRITTEN.** Scope verified
+against the frozen artifact (TT/Ward-excluded, noise fence, eps_H rule
+exercised at all 3 levels, local slot UNDETERMINED, no J input);
+conditionality table built with every qualifier verified PRESENT in the
+artifact's own strings ('CONDITIONAL ON... c = 0, kappa = 0.1, mu = 1',
+'PARAMETRIC ONLY', 'NO pole claim is made'); an upgrade-control shows a
+conditions-stripped text FAILS the same gate. Later certified results
+(c0=c2=0, Lambda_R; c0'/c2' fork-gated) carried in the WRAPPER; Tier-4
+bytes preserved (d916ef32 unchanged). Bank move = owner relay; delta
+PROPOSED ONLY, ledger_delta 0. Bookkeeping note: the artifact carries 33
+checks (the terminal 34/34 included the post-write rehash gate).
+
+PART II -- **CC-C: registered class UNRESOLVED** (governance, not
+physical failure). TAXONOMY RESOLVED: six-class face authoritative
+(manifest v1.1 = spec sec 6); map tokens 3+4 = ONE banked class 3;
+'outcome 7' = class 6. THREE BLOCKERS, none manufactured:
+ (1) GAUGE PRECONDITION: the registered object is 'gauge-invariantly
+     assembled retarded TT response G_R^TT' and Wall B makes dual-gauge
+     agreement 'a precondition of reading any verdict at all'; D4 at
+     graviton-loop level is REQUIRED, NOT YET EXECUTED (charter) and no
+     campaign stage ran it -- the frozen T4 object is single-construction.
+ (2) CRITERION-DOMAIN MISMATCH: spec sec-6 class 3 interrogates the
+     LOW-FREQUENCY memory-kernel shape; the truncation's domain ends at
+     omega ~ H and the evaluator refuses omega << H -- 'has a branch
+     cut' may NOT be equated with the class-3 filing (the owner's
+     warning, borne out by the registered text itself).
+ (3) FACE ADJUDICATION OWED: certificate vs manifest v1.1 (surfaced by
+     the map: 'Owner adjudication is owed on which face a result
+     answers').
+FENCES HELD: class 6 NOT assigned (truncation-unreached is not
+ill-posedness evidence); no pole/ladder from the state ladder; NO
+consequence-cell text retrieved or applied; Axis-2 (C) kept separate;
+class-independence control shows the blockers fire for ANY hypothetical
+class (no outcome preferred).
+UNBLOCK PATH (owner-priced, not performed): execute D4 at contract
+scope; the omega <~ H regime via fork (ii)'s epoch-window class
+(register's own pre-written expectation: W* < 0.25 e-folds); the face
+adjudication.
+
+STATE AFTER THIS STAGE: H^0 Lambda_R = ONE; H^2 fork-gated; Gate-E A;
+NOISE A; Axis-2 C; register +16 untouched. NEXT AUTHORIZED ACTION:
+OWNER/OVERSEER RELAY on the proposed T4 bank delta; the D4/face/epoch
+items are separately owner-owed. THE WALL CAMPAIGN'S GOVERNANCE QUEUE IS
+NOW EMPTY OF BUILDER-SIDE ACTIONS.

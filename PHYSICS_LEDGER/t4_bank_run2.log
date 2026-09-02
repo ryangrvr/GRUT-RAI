@@ -1,0 +1,92 @@
+=== PROVENANCE (pre-run) ===
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  note input sha WALL_KR_D5_EXECUTION_RESULT.json = b60cecc2f7d356f7...
+  note input sha WALL_KR_H0_PARAMETER_LEDGER_RESULT.json = 8f4adb633fbe44ad...
+  note input sha WALL_KR_H2_IR_OWNER_DECISION_RESULT.json = b6ecde682832faf4...
+  note input sha GATE_E_H2_FDT_KMS_RESULT.json = 3042ee6fd4a11011...
+  note input sha WALL_KR_NOISE_IR_AUDIT_RESULT.json = b47c04a60eb34b81...
+  ok   pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...
+  note input sha CLASS_C_MANIFEST.json = e2d8065c4f157cff...
+  note input sha CLASS_C_DISPATCH_SPEC.md = 2d4caaf1b8294e96...
+  note input sha CLASS_C_CONSEQUENCE_MAP_UNSEALED.md = 76c0e4244e16b060...
+
+########## PART I: TIER-4 FORMAL ACCEPTANCE PRE-SCREEN ##########
+
+=== I.1: SCOPE (extracted, not broadened) ===
+  ok   I.1 scope element present in the frozen artifact: TT scope / Ward exclusion
+  ok   I.1 scope element present in the frozen artifact: noise fence
+  ok   I.1 scope element present in the frozen artifact: validity rule
+  ok   I.1 scope element present in the frozen artifact: local slot symbolic
+  ok   I.1 scope element present in the frozen artifact: k->0 / isotropy carried
+  ok   I.1 scope element present in the frozen artifact: no J(omega) input
+  ok   I.1 the frozen validation record carries 33 checks, ALL passing, zero failures (the terminal 34/34 line included the final artifact-rehash gate, which necessarily post-dates the artifact write -- an off-by-one of bookkeeping, not of validation)
+
+=== I.2: CONDITIONALITY TABLE ===
+  ok   I.2 the unconditional branch-point/cut statement is present in the frozen analytic-structure block
+  ok   I.2/I.5 EVERY pole/zero qualifier is PRESENT in the frozen artifact's own poles field: 'CONDITIONAL ON: reference slice c = 0, kappa = 0.1 units, mu = 1', 'PARAMETRIC ONLY', 'NO pole claim is made; nothing is certified' -- no upgrade from 'no zero found on the reference slice' to 'there are no poles' occurs anywhere in this pre-screen
+  ctrl-MISSED   conditionality-upgrade control: a wrapper text lacking the conditions WOULD fail the qualifier-presence gate (the gate reads the artifact string, not this instrument's opinion)
+
+=== I.3/I.4: DOMAIN RULE AND RESUMMATION ===
+  ok   I.3 the hardwired rule is exercised in the frozen record at all three levels (CONTROLLED at omega/H = 20; explicit BOUNDARY flag; REJECTED extrapolation control) -- omega << H is refused, not interpreted
+  ok   I.4 the G1-vs-resummed distinction and the |lambda| << 1 agreement condition are in the frozen record; no pole theorem is derived from resummation
+
+=== I.6: LOCAL TERMS (wrapper only; bytes preserved) ===
+  ok   I.6 Tier-4 itself claims NO unique local values (slot recorded UNDETERMINED) -- consistent with banking as written
+  ok   I.6 the WRAPPER carries the later certified statuses (H^0: c0 = c2 = 0, c4 via Lambda_R; H^2: c0'/c2' unresolved, fork-gated) -- read from their own artifacts; the Tier-4 bytes are NOT rewritten
+  ok   I.6 historical bytes preserved: the Tier-4 artifact hash is unchanged
+
+=== I.7: FIREWALLS ===
+  ok   I.7 Ward Class-B: excluded by TT scope, NOT repaired (frozen wording present)
+  ok   I.7 Gate-E-A and NOISE-A were established SEPARATELY and afterward -- they are cited in the wrapper as corroboration, never retro-fitted into Tier-4
+  note PART I RESULT: T4-BANK-B
+
+########## PART II: CONSEQUENCE-CELL ADJUDICATION ##########
+
+=== II.8: TAXONOMY RESOLUTION ===
+  ok   II.8 the machine-readable authority is the SIX-class face (manifest v1.1 permitted_outcome_classes, matching spec sec 6); the map's own table files certificate tokens 3 AND 4 into registered class 3 as ONE banked class, and any 'outcome 7' filing is registered class 6. TAXONOMY: RESOLVED -- banking must use six-class names only
+  note II.8 SECOND DISCREPANCY (surfaced by the map, NOT resolvable here): the immutable certificate records clock/boundary/approximation as UNDECIDED-DISPATCH while live manifest v1.1 has moved all three; 'Owner adjudication is owed on which face a result answers.' That adjudication is STILL OWED and is one of the named blockers below
+
+=== II.9/10: OBJECT MATCH (the decisive test) ===
+  note II.10 the REGISTERED object (manifest, verbatim): 'gauge-invariantly assembled retarded TT response G_R^TT derived from the pure-graviton de Sitter self-energy Sigma(x,x')'
+  ok   II.10 the registered object REQUIRES gauge-invariant assembly; the frozen dispatch further makes dual-gauge agreement 'a precondition of reading any verdict at all' (Wall B, quoted in the map: 'the classification outcome ... must AGREE between gauges')
+  ok   II.10 BLOCKER 1 (gauge precondition): the execution charter lists D4 dual-gauge as REQUIRED, NOT YET EXECUTED at graviton-loop level, and no stage of this campaign executed it (coordination log verified) -- the frozen Tier-4 object is a single-construction result and does not yet satisfy the manifest's 'gauge-invariantly assembled' predicate
+  ok   II.10 BLOCKER 2 (criterion domain): spec sec 6 class 3 itself asks 'whether the LOW-FREQUENCY behavior yields the registered memory kernel shape' -- but the frozen result's validity terminates at omega ~ H and its evaluator REFUSES omega << H: the regime the registered criterion interrogates lies outside the truncation's declared domain. 'Has a branch cut' may NOT be equated with the class-3 filing
+  note II.10 BLOCKER 3 (face adjudication): which face (immutable certificate vs manifest v1.1) a result answers is owner-owed (II.8 note)
+  note II.10 what the frozen result DOES establish (its own scope, unchanged): branch point at omega = 0 + real-axis cut (unconditional); no in-domain real-axis zero (triply conditional); validity boundary hard-wired; Re part Lambda_R-parametric; low-frequency limit NOT reached
+  ok   II.11 single-pole/ladder firewall: no pole or ladder class is assigned from the state ladder or any free thermal factor; the frozen record makes NO pole claim and none is manufactured here
+
+=== II.12: CLASSIFICATION ===
+  note II.12 code: CC-C
+  note II.12 registered_class: UNRESOLVED -- not adjudicable from the frozen artifact against the registered criterion
+  note II.12 taxonomy_component: RESOLVED (six-class face authoritative; 3+4 = one class; 'outcome 7' = class 6)
+  note II.12 blockers: 1. gauge-invariance precondition: D4 dual-gauge at graviton-loop level REQUIRED, NOT YET EXECUTED (Wall B makes gauge agreement a precondition of reading any verdict); 2. criterion-domain mismatch: spec sec 6's classification interrogates the low-frequency behavior; the truncation's controlled domain is omega >> H and the evaluator refuses omega << H; 3. certificate-vs-manifest face adjudication owed to the owner (surfaced by the map itself)
+  note II.12 not_a_physical_failure: the controlled-domain analytic structure (cut unconditional, no in-domain zero conditional) is genuine and stays in the Tier-4 record; CC-C is a governance status: the registered cell cannot yet be read against this object
+  note II.12 not_class_6: class 6 ('ill-posed even after assembly') is a POSITIVE structural no-go about the question; 'our truncation does not reach the regime' is NOT evidence for it and it is NOT assigned
+  note II.12 cell_effects: NOT retrieved, NOT applied -- no class was assigned, and per the map every move would require adversarial pre-screen + owner/overseer relay regardless
+  ok   II.12 consequence-cell status: CC-C (computed from the object/criterion match, not from any outcome preference)
+
+=== II.14: NO-OUTCOME-PREFERENCE CONTROLS ===
+  ctrl-DETECTED   II.14a token-mutation control: feeding ANY hypothetical class through the adjudication leaves the three blockers firing unchanged -- the mapping logic is class-independent, so no class was preferred
+  ok   II.14b the map was read ONLY for its taxonomy table (sec 0.3) and bank procedure; no consequence-cell prose was quoted into the classification path (source-verifiable: this instrument contains no cell text)
+  ok   no Axis-2 outcome token in source
+  ctrl-DETECTED   token scanner has teeth
+
+########## PART III: BANK GOVERNANCE ##########
+
+=== III.15/16: PROPOSED DELTA (NOT EXECUTED) ===
+  ok   III.16 the bank delta is PROPOSED ONLY (written to its own file); provenance/claims.json is byte-identical -- no register mutation occurred
+  ok   III.17 parameter count preserved: H^0 = exactly one (Lambda_R); H^2 adds nothing; no regulator, WC, or cosmology mu counted
+  ok   III.18 Axis-2 remains C; the branch/analytic classification and Axis-2 are DIFFERENT objects and are kept separate in every record of this stage
+
+=== REGISTER INTEGRITY (repo's own auditor, read-only) ===
+  ok   the repository's own register auditor exits green (read-only run; tail: )
+
+=== POST-RUN INTEGRITY ===
+  ok   every frozen artifact AND the register byte-identical
+  note files added/changed: ?? WALL_KR_T4_BANK_DELTA_PROPOSED.json | ?? t4_bank_run1.log | ?? t4_bank_run2.log | ?? wall_kr_t4_bank_and_cell.py
+  ok   artifact written and re-read (sha f29179682a031d59...)
+
+T4 BANK + CELL: 34/35 passed; failures: 1
+  FAILURE: CONTROL MISSED: conditionality-upgrade control: a wrapper text lacking the conditions WOULD fail the qualifier-presence gate (the gate reads the artifact string, not this instrument's opinion)
+T4: T4-BANK-B | CELL: CC-C
+HARD STOP.
