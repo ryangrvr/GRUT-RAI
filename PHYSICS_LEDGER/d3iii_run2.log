@@ -1,0 +1,70 @@
+=== PROVENANCE (pre-run) ===
+  ok   pin K_R_CONTRACT_EXECUTION_CHARTER.md == 5416fa45498a6e5f...
+  ok   pin K_R_CONTRACT_OWNER_RULING.md == 5d89720b53e1b078...
+  ok   pin WALL_KR_TIER2_MASSLESS_BATH.json == c5d399f525407839...
+  ok   pin WALL_KR_TIER3_LOOP_RESULT.json == 4c016e93b889bd04...
+  ok   pin WALL_KR_CONTRACT_RETARDED_RESULT.json == d916ef32f6f73fa3...
+  note input sha WALL_KR_D4_DUAL_GAUGE_RESULT.json = 0ffa6f045c4f1f23...
+  note input sha WALL_KR_D4_KTERM_COMPLETION_RESULT.json = be66003c8ce0d8cb...
+
+=== 1: THE D3(iii) AUTHORITY, VERBATIM ===
+  note CHARTER STEP 1, verbatim: '(iii) the de Sitter state prescription for the massless graviton bath at the loop level (BD for the matter scalar was declared; the graviton-sector analogue must be declared, not assumed). ## STEP 2 — DEPENDEN'
+  ok   the D3(iii) authority is located verbatim and says the graviton-sector state prescription 'must be declared, not assumed' -- i.e. it is an OWNER DECLARATION slot, exactly the kind of item this ruling fills
+  note PRIOR D3 RULING (Tier-2), verbatim: '## 4. D3 — bath state + IR: **OPTION 3a — BD-analogue Option-B adiabatic**, with the flat massless anchor gated at H⁰ per order, and the exact-dS state (Option-A analogue) retained as the declared cross-check target. **IR: dimensional continuation ONLY; NO explicit IR scale.** *Why:* the V3 amendment (frozen) ruled Option B *"th'
+  ok   the PRIOR D3 ruling (bath state = Option 3a, BD-analogue Option-B adiabatic; IR = dimensional continuation only) is on record -- this ruling extends that same declared object to the consequence campaign's gauge scope; it does not replace it
+
+=== 2: THE DECLARED OBJECT EXISTS AND IS FROZEN ===
+  ok   the TT-bath contract is FROZEN and certified: the Tier-2 artifact (sha c5d399f5...) carries the tensor rule <hh> = P^TT x W with zero failures -- the object this ruling scopes is defined, not hypothetical
+
+=== 3: THE K-TERM COMPLETION IS CERTIFIED ===
+  ok   KTERM-A is certified (27/27, zero failures, H^0/H^1/H^2): the internal orbit is annihilated within the declared TT bath -- the factual basis this ruling rests on
+  ok   the D4-C record is read unchanged (a54aa7f); this ruling does NOT re-adjudicate D4
+
+=== 4: THE OWNER RULING (7 clauses) ===
+  note CLAUSE 1: The consequence object may be treated as the registered TT-bath retarded TT response.
+  note CLAUSE 2: Gauge/orbit robustness is required WITHIN that declared TT bath.
+  note CLAUSE 3: No claim is made that this TT-bath prescription is the unique admissible general-gauge graviton propagator.
+  note CLAUSE 4: The existence of alternative general-gauge/non-TT propagator content remains a separately scoped theoretical question.
+  note CLAUSE 5: D3(iii) is therefore CLOSED FOR CURRENT CONSEQUENCE SCOPE, NOT SOLVED AS A GENERAL GAUGE-UNIQUENESS THEOREM.
+  note CLAUSE 6: This ruling does NOT alter the frozen scientific result.
+  note CLAUSE 7: No new physical parameter is introduced.
+  ok   all seven clauses recorded verbatim, with clause 5's closed-for-scope / not-solved-as-theorem distinction intact
+
+=== 5: WORDING DISCIPLINE ===
+  note RECORDED: Declared TT-bath scope is accepted for the present consequence campaign.
+  note RECORDED: The unresolved general-gauge/D3(iii) question remains outside the present consequence-scope contract.
+  ok   WORDING GATE: the record NEVER asserts general-gauge uniqueness in any of its forbidden phrasings -- it states the negative as 'NOT CLAIMED'. The forbidden strings are assembled at runtime and appear nowhere in the record or this source
+  ctrl-DETECTED   wording detector has teeth: a runtime-assembled offending phrase IS caught by the same membership test
+  ok   both required statements are present verbatim in the record
+
+=== 6: ANTI-CIRCULARITY ===
+  ok   NO consequence-class output, branch/memory/resonance outcome, Axis-2, J(omega), plant/WC or benchmark artifact is read or referenced -- the sole basis is the contract's TT-bath definition plus the certified K-term completion (tokens runtime-built)
+  ctrl-DETECTED   outcome-token scanner has teeth (runtime sentinel)
+  ok   the read-set intersected with the outcome-artifact set is EMPTY (read files: K_R_CONTRACT_EXECUTION_CHARTER.md, K_R_CONTRACT_OWNER_RULING.md, WALL_KR_CONTRACT_RETARDED_RESULT.json, WALL_KR_D4_DUAL_GAUGE_RESULT.json, WALL_KR_D4_KTERM_COMPLETION_RESULT.json, WALL_KR_TIER2_MASSLESS_BATH.json, WALL_KR_TIER3_LOOP_RESULT.json)
+
+=== 7: NO NEW PHYSICS, NO NEW PARAMETER ===
+  ok   NO new physical parameter is assigned, and this instrument imports no CAS at all -- it cannot have calculated a general-gauge propagator, a loop amplitude, a K_R, or any low-frequency/epoch-window response
+
+=== 8: STATE PRESERVATION ===
+  note STATE D3iii: CLOSED FOR CURRENT CONSEQUENCE SCOPE
+  note STATE general_gauge_uniqueness: NOT CLAIMED
+  note STATE TT_bath_scope: OWNER-ACCEPTED
+  note STATE new_input: NONE
+  note STATE D4: STILL PENDING FORMAL RE-ADJUDICATION (not touched here)
+  note STATE H0_Lambda_R: ONE, unchanged
+  note STATE H2_locals: FORK-GATED, unchanged
+  note STATE axis2: C, unchanged
+  note STATE gate_e: A, unchanged
+  note STATE noise: A, unchanged
+  note STATE consequence_cell: CC-C, unchanged (no class assigned)
+  note STATE consequence_map: NOT modified
+  note STATE tier4_scientific_content: NOT modified
+
+=== POST-RUN INTEGRITY ===
+  ok   every frozen scientific artifact AND the register are byte-identical to their pre-run hashes
+  note files added: ?? WALL_KR_D3III_OWNER_RULING_RESULT.json | ?? d3iii_run1.log | ?? d3iii_run2.log | ?? wall_kr_d3iii_ruling.py
+  ok   artifact written and re-read (sha d52f7983924badb2...)
+
+D3(iii) RULING: 20/20 passed; failures: 0
+D3(iii): CLOSED FOR CURRENT CONSEQUENCE SCOPE | GENERAL-GAUGE UNIQUENESS: NOT CLAIMED
+HARD STOP.

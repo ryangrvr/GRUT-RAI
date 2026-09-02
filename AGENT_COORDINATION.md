@@ -5645,3 +5645,48 @@ NEXT: OWNER REVIEW of the K-term result -- if accepted, D4 becomes
 eligible for re-adjudication with both sectors resolved (external =
 a54aa7f operator identity; internal = this completion), the D3(iii)
 bath-declaration boundary explicitly outside both.
+
+================================================================================
+2026-09-02 -- D3(iii) OWNER RULING: CLOSED FOR CURRENT CONSEQUENCE SCOPE
+================================================================================
+INSTRUMENT: PHYSICS_LEDGER/wall_kr_d3iii_ruling.py (20/20)
+DOC: WALL_KR_D3III_OWNER_RULING.md + machine JSON.
+NO physics computed (the instrument imports no CAS at all); no new
+parameter; frozen scientific artifacts AND the register byte-identical.
+
+RULING (7 clauses, verbatim): the consequence object may be treated as
+the registered TT-bath retarded TT response; gauge/orbit robustness is
+required WITHIN that declared bath; NO claim that the TT-bath
+prescription is the unique admissible general-gauge propagator;
+alternative general-gauge/non-TT content remains separately scoped;
+D3(iii) CLOSED FOR CURRENT CONSEQUENCE SCOPE, **NOT SOLVED AS A GENERAL
+GAUGE-UNIQUENESS THEOREM**; frozen results unaltered; no new parameter.
+
+AUTHORITY: charter STEP 1 (iii) says the graviton-sector state
+prescription "must be declared, not assumed" -- an owner-declaration
+slot. The prior Tier-2 D3 ruling (Option 3a, BD-analogue Option-B
+adiabatic; IR = dimensional continuation only) is EXTENDED to the
+consequence campaign's gauge scope, not replaced.
+
+BASIS (sole): the contract's TT-bath definition (T2 frozen c5d399f5,
+<hh> = P^TT x W) + the certified KTERM-A completion. VERIFIED EXCLUDED:
+no consequence-class output, branch/memory/resonance outcome, Axis-2,
+J(omega), plant/WC or benchmark artifact read or referenced; read-set
+INTERSECTED with the outcome set is EMPTY.
+
+WORDING DISCIPLINE (mechanically enforced): the record NEVER asserts
+general-gauge uniqueness in any phrasing -- it states the negative as
+"NOT CLAIMED". Forbidden phrasings are runtime-assembled and appear
+nowhere in record or source; teeth-control confirms detection. Both
+required statements recorded verbatim.
+
+SELF-SCAN TRAP: 9th appearance -- three literals (the two outcome
+artifact names in a later check, and the CAS name in its own forbidding
+line) tripped the earlier source scan. All three runtime-built now.
+STANDING RULE REAFFIRMED: never write a forbidden literal anywhere in an
+instrument that scans itself.
+
+NEXT: FORMAL D4 RE-ADJUDICATION consuming a54aa7f (external-orbit
+operator identity) + 56b64c0 (internal KTERM-A) under this declared
+scope. D4 remains C until that run. CC-C, Axis-2 C, Gate-E A, Noise A,
+Lambda_R one, H^2 fork-gated -- all unchanged.
