@@ -1,0 +1,30 @@
+{
+  "instrument": "wall_kr_h1_dynamical_stage1.py",
+  "date": "2026-09-03",
+  "base": "43d175f",
+  "kind": "H1 DYNAMICAL CAMPAIGN STAGE 1 — reconstruction + coefficient locus; adjudication deliberately NOT made",
+  "battery": "21/21",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "integrand_cache_sha256": "47fde70f8e025af99977affc578291d1db55b6cb1d55dcf2aaa8336b6916de42",
+  "step2_locus": "coeff(H,1) IDENTICALLY ZERO POINTWISE in sig_g, sig_l, ret_wigner, nk_wigner (general d, all u_b) — established with together/cancel/powsimp/simplify",
+  "disclosed_false_negative": "a first-pass expand()-only census reported 16 nonzero H^1 terms; they are unmerged exponential fractions",
+  "mechanism_decomposition": {
+    "L0": "h' = -ik(1-Hu)e^{-iku} EXACT",
+    "L1": "(0,0) and (1,1) pairs are flat x conformal through O(H); state piece enters at O(H^2)",
+    "L2": "(1,0) and (0,1) mixed pairs each carry an extra O(H) residual -H x (flat pair)",
+    "C1": "conformal weight balance (2 vertices x +2Hu vs 2 lines x -H(u+u')) — algebraic",
+    "C2": "mixed-residual sum over the T1 derivative routing must vanish — the DYNAMICAL half, isolated as a flat-vertex identity, NOT yet proven"
+  },
+  "remaining_obligations": [
+    "(iv) read the per-vertex a-weight off the frozen T1 artifact",
+    "(C2) prove or refute the mixed-residual flat-vertex identity",
+    "Step 3 independent route = the (C1)+(C2) derivation itself",
+    "Step 6 negative controls (alpha-vacuum O(H) admixture; weight a^2 -> a^3) on the toy assembly",
+    "Step 7 local/nonlocal separation note: the pointwise integrand zero leaves no room for a loop-generated local H^1 either"
+  ],
+  "verdict": "DEFERRED — stage 1 only, per the work order's BEGIN-WITH-RECONSTRUCTION-ONLY",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
