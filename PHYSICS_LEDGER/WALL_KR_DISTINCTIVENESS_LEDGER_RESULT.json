@@ -1,0 +1,103 @@
+{
+  "instrument": "wall_kr_distinctiveness_ledger.py",
+  "date": "2026-09-03",
+  "base": "2739e5f",
+  "kind": "DISTINCTIVENESS LEDGER — read-only, no physics, no A-F selection",
+  "battery": "29/29",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "headline": "CLASS E (demonstrated GRUT-specific result) IS EMPTY — and the register's own differentiator labels agree: 25 candidates, all FAILS / CONDITIONAL / WOULD-BE-IF / standard-type computed objects",
+  "candidates_enumerated": 25,
+  "five_way": {
+    "A_standard_result": [
+      "rung2 KMS lock",
+      "rung5 GR limit (tau_c=0 = Jacobson/Padmanabhan)",
+      "rung4 Love/KK (real-but-invisible)",
+      "passivity lemma",
+      "Gate-E structure"
+    ],
+    "B_standard_input": [
+      "EH cubic vertex",
+      "TT projector",
+      "bath field content",
+      "BD state",
+      "regulator/scheme",
+      "weak coupling",
+      "Gaussianity",
+      "near-equilibrium",
+      "timescale separation"
+    ],
+    "C_known_open_problem": [
+      "U4 proper (genericity of the conditions)",
+      "u5 agreement question",
+      "kernel selection (2739e5f)",
+      "rung8 gravitational decoherence (baseline AH2013)"
+    ],
+    "D_grut_specific_candidate": [
+      "u2 universality (blocked C+F)",
+      "rung7_w2/w3 no-crossing exports",
+      "founding_h2 spectral bridge",
+      "info_i2/i3",
+      "rung1_ontology (contradicted at contract scope)",
+      "zeta_interior_family empirical surface"
+    ],
+    "E_demonstrated": []
+  },
+  "inputs_vs_derived": {
+    "inputs": {
+      "EH cubic vertex": "INPUT (chosen microphysics; standard GR)",
+      "TT projector": "INPUT -- p_tt_ansatz, 'chosen (not derived)', tier assumed",
+      "bath field content": "INPUT (declared massless graviton bath)",
+      "BD state": "INPUT (owner-ruled declaration, D3(iii))",
+      "regulator/scheme": "INPUT (Option-beta ruling; dimensional continuation)",
+      "weak coupling": "ASSUMED APPROXIMATION (standard)",
+      "Gaussianity": "ASSUMED APPROXIMATION (the one-loop truncation)",
+      "near-equilibrium": "ASSUMED APPROXIMATION (standard)",
+      "timescale separation": "ASSUMED APPROXIMATION (eps_H domain, standard class)"
+    },
+    "derived": {
+      "T1-T4 kernel (H^0 + H^2 nonlocal, L completion)": "DERIVED CONSEQUENCE of the declared inputs -- standard-type content, and a genuine CALCULATION with potential standalone value as ordinary QFT, independent of GRUT",
+      "H^1 = 0": "DERIVED (loop); not yet a theorem",
+      "Gate-E coth->sgn at O(H^2)": "DERIVED; standard-class (dS temperature, KMS)",
+      "channel-diagonal passivity lemma": "STANDARD LEMMA (derived, standard type)",
+      "s=5 / branch cut / no pole": "DERIVED; standard-type content that CONTRADICTS the assumed finite-memory/single-pole stance at contract scope",
+      "mu_linear no-go": "DERIVED-PENDING; a no-go EXPORT, not a differentiator (register's label)"
+    }
+  },
+  "standalone_value_note": "the T1-T4 O(H^2) dS TT kernel + Gate-E KMS structure is a genuine calculation with potential standalone value as ordinary QFT, independent of any GRUT claim",
+  "kernel_space": "K_GRUT(declared inputs) subset K_admissible; not uniquely selected; Lambda_R and (c0',c2') freedoms preserved",
+  "h1_theorem_target": {
+    "mechanisms": {
+      "hermitian analyticity / evenness in omega": "CANDIDATE -- registered-adjacent (the D5 oddness control); not proven for the full H^1 sector",
+      "dS parity / eta -> -eta structure": "POSSIBLE -- nothing registered",
+      "absence of a first-order invariant in the TT sector": "POSSIBLE -- nothing registered",
+      "accident of the specific loop": "THE NULL HYPOTHESIS -- what the record currently supports"
+    },
+    "decision_free": true,
+    "performed": false,
+    "registered_adjacent_evidence": "the D5 control 'omega^3 (odd) rejected'"
+  },
+  "cross_sector": "NO cross-sector selection principle registered; closest items assumed or explicitly generic",
+  "maturity": "LEVEL 1 reached; LEVEL 2 not demonstrated; LEVEL 3 empty",
+  "guf_minimum_threshold": [
+    "at least ONE Level-3 item: a selective principle surviving the hostile subtraction (the registered routes are the u2 universality theorem [blocked C+F] or a forced-conditions/forced-kernel theorem [unexecuted])",
+    "at least ONE Level-2 derivation whose input/consequence matrix shows NO sector-specific input doing the selecting",
+    "one empirical discriminator of an already-derived type (the five types listed in 2739e5f)",
+    "the certified-pieces-first discipline: per CHARTER s8 and u4's order-of-work rule, the synthesis arrives AFTER the theorems"
+  ],
+  "must_not_market": [
+    "response existence / 'the vacuum responds'",
+    "retardation/causality of the response",
+    "memory / nonlocality as such",
+    "the omega^4 flat shape",
+    "the flat coefficient",
+    "KMS/FDT/noise structure",
+    "passivity",
+    "'responsive medium with finite memory' as ESTABLISHED (assumed, and contradicted at contract scope)",
+    "single-pole relaxation (contradicted at contract scope)",
+    "'GRUT explains why the universe is responsive'"
+  ],
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
