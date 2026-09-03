@@ -32,9 +32,27 @@ CERT_N = norm(read(os.path.join(ROOT, "CLASS_C_DISPATCH_FROZEN.md")))
 SPEC_RAW = read(os.path.join(ROOT, "CLASS_C_DISPATCH_SPEC.md"))
 
 print("="*74); print("PART 1 — STATE"); print("="*74)
-check(git("rev-parse","HEAD").startswith("4cb5d23"), "HEAD is 4cb5d23")
-mods = [l for l in git("status","--short").splitlines() if not l.startswith("??")]
-check(mods == [], "no tracked file modified (packet is additive only)")
+# Durable invariant: the packet's base commit must be an ANCESTOR of HEAD. (An
+# amendment run moves HEAD past it; a first-publication run sits on it. Both are
+# legitimate; a HEAD that does not descend from 4cb5d23 is not.)
+_anc = subprocess.run(["git","merge-base","--is-ancestor","4cb5d23","HEAD"],
+                      cwd=ROOT, capture_output=True).returncode == 0
+check(_anc, "packet base 4cb5d23 is an ancestor of HEAD (lineage intact)")
+
+# An amendment may touch ONLY this packet, its artifact, and this instrument.
+# Nothing else -- and no frozen artifact -- may be modified.
+# Use name-only listings rather than slicing porcelain status columns (an
+# off-by-one in that slice silently truncated a path on the first run).
+mods = [x for x in (git("diff","--name-only").splitlines()
+                    + git("diff","--cached","--name-only").splitlines()) if x]
+_allowed = {"PHYSICS_LEDGER/WALL_KR_OWNER_DECISION_PACKET.md",
+            "PHYSICS_LEDGER/WALL_KR_OWNER_DECISION_PACKET_RESULT.json",
+            "PHYSICS_LEDGER/wall_kr_owner_decision_packet.py"}
+check(set(mods) <= _allowed,
+      "only this packet/instrument modified; nothing else: %s" % sorted(set(mods)-_allowed))
+_frozen = ["CLASS_C_MANIFEST.json","CLASS_C_DISPATCH_FROZEN.md","CLASS_C_DISPATCH_SPEC.md",
+           "provenance/claims.json","provenance/CLASS_C_CONSEQUENCE_MAP_UNSEALED.md"]
+check(not (set(mods) & set(_frozen)), "NO frozen/registered artifact modified")
 check(git("rev-parse","--abbrev-ref","HEAD") == "master", "on the campaign branch")
 
 print(); print("="*74); print("PART 2 — THE THREE FACES, VERIFIED AGAINST SOURCE"); print("="*74)
@@ -95,6 +113,26 @@ REQ = [
 for lab, q in REQ:
     check(norm(q) in PKT_N, "firewall statement present: " + lab)
 
+print(); print("="*74); print("PART 4b — SCOPING OF THE SEMANTIC-IDENTITY CLAIM"); print("="*74)
+# Owner instruction: "no semantic difference" must stay scoped to the six-class
+# interpretation and must NOT be readable as "the documents are interchangeable".
+_bare = "No semantic difference was found among the three faces." + "*" + "*"
+check(_bare not in PKT,
+      "the UNSCOPED form of the semantic-identity claim is ABSENT")
+check(norm("scoped strictly to the six-class interpretation compared here") in PKT_N,
+      "the claim is explicitly scoped to the six-class interpretation")
+check(norm("**This does NOT establish that the three documents are interchangeable for any "
+           "other purpose.**") in PKT_N,
+      "the non-interchangeability limit is stated explicitly")
+check(all(norm(t) in PKT_N for t in ['dropped "ladder"', '"Pole" vs "isolated pole"', "`C1.g`"]),
+      "all three open textual/provenance questions are named at the scoping point")
+# The amendment must not have smuggled in a selection.
+_still = [o for o in OPTS if re.search(r"(chosen|selected|adopted)\s*[:=]?\s*\*?\*?%s\b" % o,
+                                       PKT, re.I)]
+check(_still == [], "the amendment introduced NO selection: %s" % _still)
+check(norm("A–F remaining unselected") in PKT_N,
+      "the recorded owner disposition restates that A-F remain unselected")
+
 print(); print("="*74); print("PART 5 — CONTENT FIDELITY + CONTROLS"); print("="*74)
 check(norm("every regulator must be appended here with purpose/location/limit/order BEFORE use; "
            "solvers refusing undeclared regulators is correct behaviour") ==
@@ -138,7 +176,8 @@ out = {
           "FACE_2":"CLASS_C_MANIFEST.json v1.1 — JSON array of 6",
           "FACE_3":"CLASS_C_DISPATCH_SPEC.md section 6 — numbered list of 6"},
  "face_authority":"NOT DECLARED — owner-owed; the earlier manifest-is-authoritative claim stays WITHDRAWN",
- "semantic_difference_between_faces":"NONE FOUND",
+ "semantic_difference_between_faces":("NONE FOUND — scoped strictly to the six-class interpretation compared here. This does NOT establish that the three documents are interchangeable for any other purpose; the dropped 'ladder', the 'Pole' vs 'isolated pole' naming, and out-of-force C1.g remain open."),
+ "packet_c5948f6_owner_disposition":"ACCEPTED as a neutral decision packet; A-F remain unselected; one scoping instruction applied",
  "proven_mappings":{"cert 3+4":"class 3","cert 7":"class 6"},
  "remaining_ambiguities":["which face binds",
                           "whether the two textual defects are errata or frozen content",

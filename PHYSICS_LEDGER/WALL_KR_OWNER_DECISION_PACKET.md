@@ -3,6 +3,10 @@
 **Date:** 2026-09-02 · **Instrument:** `wall_kr_owner_decision_packet.py` ·
 **Artifact:** `WALL_KR_OWNER_DECISION_PACKET_RESULT.json` ·
 **State:** commit `4cb5d23`, branch `v4`, D4-A accepted, worktree clean.
+**Owner disposition (recorded append-only):** the packet at `c5948f6` is **ACCEPTED as a
+neutral decision packet**, with A–F remaining unselected. Acceptance carries one binding
+scoping instruction, applied in Decision D below. The three textual/provenance questions
+stay open and do not block acceptance.
 **No physics run authorized. No decision in this packet is made by the agent.**
 W-0: unbanked.
 
@@ -147,8 +151,15 @@ could occur** — stated as prerequisites, not as a proposal:
 
 #### Whether they differ semantically
 
-**No semantic difference was found among the three faces.** All six meanings appear on
-all three, and each face's set is closed.
+**No semantic difference was found among the three faces — scoped strictly to the
+six-class interpretation compared here.** All six meanings appear on all three, and each
+face's set is closed.
+
+**This does NOT establish that the three documents are interchangeable for any other
+purpose.** It establishes one thing: the same six-class mapping holds under the comparison
+performed. The dropped "ladder", the "Pole" vs "isolated pole" naming, and the
+out-of-force `C1.g` all remain open, and any of them could matter for a use other than
+enumerating the six classes.
 
 #### Mappings PROVEN
 

@@ -2,7 +2,7 @@
   "instrument": "wall_kr_owner_decision_packet.py",
   "date": "2026-09-02",
   "kind": "OWNER DECISION PACKET — presentation only, no decision made",
-  "battery": "46/46",
+  "battery": "53/53",
   "failures": [],
   "base_commit": "4cb5d23",
   "branch": "v4",
@@ -21,7 +21,8 @@
     "FACE_3": "CLASS_C_DISPATCH_SPEC.md section 6 — numbered list of 6"
   },
   "face_authority": "NOT DECLARED — owner-owed; the earlier manifest-is-authoritative claim stays WITHDRAWN",
-  "semantic_difference_between_faces": "NONE FOUND",
+  "semantic_difference_between_faces": "NONE FOUND — scoped strictly to the six-class interpretation compared here. This does NOT establish that the three documents are interchangeable for any other purpose; the dropped 'ladder', the 'Pole' vs 'isolated pole' naming, and out-of-force C1.g remain open.",
+  "packet_c5948f6_owner_disposition": "ACCEPTED as a neutral decision packet; A-F remain unselected; one scoping instruction applied",
   "proven_mappings": {
     "cert 3+4": "class 3",
     "cert 7": "class 6"
