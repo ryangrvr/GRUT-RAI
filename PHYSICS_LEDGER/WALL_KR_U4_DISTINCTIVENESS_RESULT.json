@@ -1,0 +1,144 @@
+{
+  "instrument": "wall_kr_u4_distinctiveness_audit.py",
+  "date": "2026-09-03",
+  "base": "9b9036b",
+  "kind": "AUDIT ONLY — read-only, no physics, no A-F selection",
+  "battery": "29/29",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "correction_to_9b9036b": "the fork-(ii) sentence is restated: absence of a scale separation means no Wilsonian soft-mode exclusion was implemented; the H^2 IR behaviour cannot be attributed to an explicitly regulated fast-mode elimination. A cutoff separates sectors; it does not eliminate IR physics",
+  "u4_minimal_object": "the chi(omega,k) equivalence class — linearity built into the definition",
+  "register_own_split": "form-given-conditions belongs to U1 (borrowed, standard); U4 proper = why the conditions hold generically",
+  "standard_subtraction": {
+    "A Gaussian integrate-out": {
+      "derives": "EXACTLY a quadratic influence functional: retarded kernel + noise kernel",
+      "assumes": "Gaussian bath, linear coupling",
+      "kernel_from": "the bath two-point function",
+      "does_not_explain": "why Gaussian, why linear coupling, which bath"
+    },
+    "B Feynman-Vernon": {
+      "derives": "the same, formalized for any factorized initial state",
+      "assumes": "the partition + initial product state",
+      "kernel_from": "bath correlators",
+      "does_not_explain": "the partition, the state"
+    },
+    "C Schwinger-Keldysh": {
+      "derives": "K_R and N with causal/unitarity structure; KMS locks N to Im chi in equilibrium",
+      "assumes": "the CTP contour, a state",
+      "kernel_from": "the microscopic action",
+      "does_not_explain": "which action, which state"
+    },
+    "D Kubo": {
+      "derives": "linear response = the retarded correlator, to first order in the probe",
+      "assumes": "near-equilibrium, weak probe",
+      "kernel_from": "equilibrium correlations",
+      "does_not_explain": "why the regime applies"
+    },
+    "E Mori-Zwanzig": {
+      "derives": "the generalized-Langevin/constitutive FORM **EXACTLY, for ANY projector, with NO weak-coupling or Gaussianity assumption** — drift + memory kernel + noise is an operator identity",
+      "assumes": "a projector and a Liouvillian",
+      "kernel_from": "the orthogonal dynamics (generally as hard as the full problem)",
+      "does_not_explain": "why the kernel is ever SIMPLE/universal — i.e. why the description is USEFUL"
+    },
+    "F Wilsonian EFT": {
+      "derives": "nonlocal effective action from gapless modes; local expansion from gapped ones",
+      "assumes": "a hierarchy",
+      "kernel_from": "the integrated-out sector",
+      "does_not_explain": "the hierarchy"
+    },
+    "G near-equilibrium stat mech": {
+      "derives": "regression/Onsager: response = correlation",
+      "assumes": "near-equilibrium",
+      "kernel_from": "fluctuations",
+      "does_not_explain": "the regime"
+    },
+    "H hydrodynamic SK-EFT": {
+      "derives": "constitutive relations constrained by symmetry + KMS (the u4 source crossley_glorioso_liu2017)",
+      "assumes": "gradient expansion, thermal state",
+      "kernel_from": "transport coefficients (inputs)",
+      "does_not_explain": "coefficient values"
+    }
+  },
+  "residue": {
+    "1 why constitutive at all": "STANDARDLY EXPLAINED (dissolved by the MZ identity) — and u4's own dissolution branch names this outcome for the FORM half",
+    "2 why linear": "STANDARD ASSUMPTION — linearity is the first-order regime, and it is built into U4's own object definition",
+    "3 why retarded": "STANDARDLY EXPLAINED — SK/causality",
+    "4 why causal": "STANDARDLY EXPLAINED — same",
+    "5 why memory": "STANDARDLY EXPLAINED — the MZ kernel exists identically; gapless modes make it nonlocal",
+    "6 why Gaussian": "STANDARD ASSUMPTION — the truncation itself",
+    "7 why this bath state": "STANDARD ASSUMPTION in GRUT — BD declared by owner ruling D3(iii), not derived",
+    "8 why the TT sector": "STANDARD ASSUMPTION in GRUT — p_tt_ansatz, tier assumed, 'chosen (not derived)'",
+    "9 why this kernel": "NOT A U4 QUESTION — that is u2 territory",
+    "10 why this analytic structure": "PARTIALLY EXPLAINED — causality/passivity/KMS CONSTRAIN the class; they do not SELECT a member",
+    "11 why admissible coarse-grainings agree": "OPEN PROBLEM — this is the u5 classification question, unexecuted",
+    "12 why the four conditions hold generically across successful EFTs": "OPEN PROBLEM — a KNOWN one (foundations of EFT), and it is U4 PROPER after the register's own U1/U4 split"
+  },
+  "surviving_open_problems": [
+    "why admissible coarse-grainings agree (u5, unexecuted)",
+    "why the four conditions hold generically across successful EFTs (U4 proper — a KNOWN open problem)"
+  ],
+  "memory_disentangled": {
+    "nonlocality": "generic (gapless modes)",
+    "retardation": "generic (causality)",
+    "finite correlation time": "NOT generic — a claim",
+    "exponential memory": "NOT generic — a claim",
+    "single-pole response": "NOT generic — THE claim, held by rung1_ontology (tier ASSUMED)",
+    "branch-cut response": "what the campaign actually FOUND (Tier-4)",
+    "power-law memory": "what a branch cut implies"
+  },
+  "kernel_selection": {
+    "symmetry": "necessary constraint; not sufficient",
+    "conservation/Ward": "constraint; not sufficient",
+    "analyticity/causality": "constrains to a half-plane class; not sufficient",
+    "FDT/KMS": "locks N to Im chi; does not pick chi",
+    "passivity/positivity": "sign/cone constraint",
+    "scale invariance + dimensions": "AT H=0, WITH A GAPLESS BATH AND A TWO-DERIVATIVE VERTEX, the SHAPE Im chi ~ omega^4 is essentially FORCED — only the coefficient is dynamical (the benchmark's own mechanism finding)",
+    "microscopic dynamics": "WHAT ACTUALLY SELECTED GRUT'S KERNEL — the T1-T4 chain computed it from the EH cubic vertex + massless bath + declared BD state. STANDARD QFT selection",
+    "state choice": "an input (BD declared, owner-ruled)",
+    "RG fixed point": "not invoked in the current construction"
+  },
+  "u4_vs_u2": [
+    {
+      "question": "why constitutive conditions hold generically",
+      "U4": "U4",
+      "u2": "-",
+      "shared_prerequisite": "coarse-graining granted",
+      "blocked": "no"
+    },
+    {
+      "question": "which chi classes exist / their morphisms",
+      "U4": "-",
+      "u2": "u5 (branch)",
+      "shared_prerequisite": "the chi(omega,k) object",
+      "blocked": "no"
+    },
+    {
+      "question": "is the IR kernel UV-completion-independent",
+      "U4": "-",
+      "u2": "u2",
+      "shared_prerequisite": "the low-omega structure",
+      "blocked": "YES — C+F"
+    },
+    {
+      "question": "what selects THIS kernel at flat level",
+      "U4": "answered (standard QFT)",
+      "u2": "-",
+      "shared_prerequisite": "the microdynamics",
+      "blocked": "no"
+    }
+  ],
+  "criterion": [
+    "U4 MOTIVATED",
+    "U4 FORMALIZED",
+    "U4 DERIVED",
+    "U4 SUPPORTED",
+    "U4 REFUTED",
+    "U4 REDUCED TO STANDARD THEORY"
+  ],
+  "NOVELTY_VERDICT": "B — a known open problem applied to the GRUT setting; strong A component; not C",
+  "what_would_make_it_C": "a derivation that the conditions or kernel class are FORCED by gravitational microphysics, or u2's universality theorem (blocked C+F)",
+  "guf_relevance": "hypothetical scope theorem for the response language; not an ontology",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
