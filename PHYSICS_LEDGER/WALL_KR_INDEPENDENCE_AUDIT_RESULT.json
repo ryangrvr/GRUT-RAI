@@ -1,0 +1,61 @@
+{
+  "instrument": "wall_kr_independence_audit.py",
+  "date": "2026-09-02",
+  "base": "765327f",
+  "kind": "STATEMENT-LEVEL INDEPENDENCE AUDIT — read-only, no physics, no A-F selection",
+  "battery": "25/25",
+  "failures": [],
+  "self_correction": "3 of the 13 prior candidates were WRONG: info_i2, l0_r2 and u2_kernel_universality sit inside the blast radius. The prior list used a one-level dependency check; this audit re-derived full ancestry.",
+  "classification": {
+    "method_novelty": "CONFIRMED DECISION-INDEPENDENT",
+    "u3_split_origin": "CONFIRMED DECISION-INDEPENDENT",
+    "u4_constitutive_origin": "CONFIRMED DECISION-INDEPENDENT",
+    "u6_constitutive_order": "CONFIRMED DECISION-INDEPENDENT",
+    "lambda_undetermined": "CONFIRMED DECISION-INDEPENDENT",
+    "vc_w_equals_minus_one": "CONFIRMED DECISION-INDEPENDENT",
+    "vc_grut_relation": "CONFIRMED DECISION-INDEPENDENT",
+    "emergence_chain": "CONFIRMED DECISION-INDEPENDENT",
+    "founding_h2_R_zeta_bridge": "CONDITIONALLY INDEPENDENT",
+    "u5_constitutive_phases": "CONDITIONALLY INDEPENDENT",
+    "info_i2_beyond_standard_bridge": "OWNER-DECISION DEPENDENT",
+    "u2_kernel_universality": "OWNER-DECISION DEPENDENT",
+    "l0_r2_exact_unique_breaker": "UNRESOLVED FROM CURRENT EVIDENCE"
+  },
+  "tally": {
+    "CONFIRMED DECISION-INDEPENDENT": 8,
+    "CONDITIONALLY INDEPENDENT": 2,
+    "OWNER-DECISION DEPENDENT": 2,
+    "UNRESOLVED FROM CURRENT EVIDENCE": 1
+  },
+  "confirmed_independent": 8,
+  "conditional": 2,
+  "owner_dependent": 2,
+  "unresolved": 1,
+  "internally_advanceable": [
+    "emergence_chain",
+    "u3_split_origin",
+    "u4_constitutive_origin",
+    "u6_constitutive_order"
+  ],
+  "independent_but_not_advanceable": {
+    "method_novelty": "graduates ONLY on external validation by a different team",
+    "lambda_undetermined": "an open-field marker asserting absence",
+    "vc_w_equals_minus_one": "empirical; moves with data, not with our work",
+    "vc_grut_relation": "answered only by deriving rho_Lambda, which is denied"
+  },
+  "decision_B_register_footprint": "ZERO — 'epoch' occurs 0 times in the register",
+  "missing_edge_finding": "u5_constitutive_phases classifies chi(omega,k) yet declares zero dependencies; it presupposes the single-frequency kernel that background_time_translation_flow licenses. REPORTED, NOT REWRITTEN.",
+  "agent_claims_corrected": [
+    "'rung1_inin_action' is NOT a dangling id — the register records it as the pre-rename name",
+    "the H^2 dispersion sampling omega' <~ H is REAL but was already disclosed on the Tier-4 artifact face with an O(eps_H^2) error estimate — not a concealed dependency"
+  ],
+  "legitimate_next_tasks_zero_owner_selections": [
+    "u3_split_origin — why a system/bath split at all (sits BELOW rung1; cannot inherit lineage)",
+    "u4_constitutive_origin — why coarse-graining yields constitutive/response structure",
+    "u6_constitutive_order — order parameter for constitutive organization",
+    "emergence_chain drift check (EXECUTED this run: no drift)",
+    "documentation/reference hygiene; a certificate-pin VERIFY gate (records drift, repairs none)"
+  ],
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
