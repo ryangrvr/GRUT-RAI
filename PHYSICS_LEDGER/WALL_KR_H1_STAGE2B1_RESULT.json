@@ -1,0 +1,22 @@
+{
+  "instrument": "wall_kr_h1_stage2b1_reconstruction.py",
+  "date": "2026-09-03",
+  "base": "e25c3f5",
+  "kind": "STAGE 2B.1 ONLY — tagged reconstruction on the FROZEN machinery; Routes A/B, controls 2B.6-8, classification 2B.5 and the verdict all REMAIN OPEN",
+  "battery": "18/18",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "reconstruction": {
+    "S0_flat_terms": 134,
+    "A_vertex_terms": 246,
+    "B_lines_terms": 270,
+    "total_pointwise_zero_reproduced_without_cache": true,
+    "C1": "A_weight = +2(u+u')Sigma0_flat cancels B_pureconf = -2(u+u')Sigma0_flat — closed",
+    "C2prime": "SEPARATE PROTECTION: A_R == 0 raw (mechanism: vertex-exchange ANTISYMMETRY of the frequency factor, demonstrated by the with/without-factor contrast; angular orthogonality REFUTED) AND B_mixed == 0 phase-merged (mixed residuals self-cancel). 2A's cross-cancellation hypothesis REFUTED",
+    "B_mixed_terms": 292
+  },
+  "verdict": "DEFERRED — 2B.1 complete; C2'-THEOREM requires the independent Route B, the three negative controls, and the classification, none of which ran here",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
