@@ -1,0 +1,63 @@
+{
+  "instrument": "wall_kr_owner_decision_packet.py",
+  "date": "2026-09-02",
+  "kind": "OWNER DECISION PACKET — presentation only, no decision made",
+  "battery": "46/46",
+  "failures": [],
+  "base_commit": "4cb5d23",
+  "branch": "v4",
+  "decisions_presented": [
+    "A IR input",
+    "B epoch window",
+    "C low-frequency domain",
+    "D certificate/manifest face",
+    "E hash-pin drift",
+    "F three held flags"
+  ],
+  "agent_selections": "NONE — every decision left to the owner",
+  "faces": {
+    "FACE_1": "CLASS_C_DISPATCH_FROZEN.md — slash-separated prose, 7 apparent tokens",
+    "FACE_2": "CLASS_C_MANIFEST.json v1.1 — JSON array of 6",
+    "FACE_3": "CLASS_C_DISPATCH_SPEC.md section 6 — numbered list of 6"
+  },
+  "face_authority": "NOT DECLARED — owner-owed; the earlier manifest-is-authoritative claim stays WITHDRAWN",
+  "semantic_difference_between_faces": "NONE FOUND",
+  "proven_mappings": {
+    "cert 3+4": "class 3",
+    "cert 7": "class 6"
+  },
+  "remaining_ambiguities": [
+    "which face binds",
+    "whether the two textual defects are errata or frozen content",
+    "status of out-of-force class C1.g in the unsigned V5 draft"
+  ],
+  "low_frequency_prerequisites": [
+    "an evaluator/assembly valid at omega <~ 3.3993 H",
+    "an IR prescription appended to the manifest BEFORE use",
+    "a reduction proved stationary in the omega -> 0 scope, or an explicit waiver",
+    "if windowed: a named, priced window with its pre-registered penalties accepted",
+    "a method to extract alpha WITH an error budget",
+    "the amendment issued as a NEW versioned dispatch explaining why this one failed"
+  ],
+  "integrity_issues": {
+    "drifted_pins": 5,
+    "of_total": 11,
+    "drifted_content_located_in_history": false,
+    "current_content_assumed_correct": false,
+    "pins_repaired": false,
+    "classified_as": "integrity/provenance, NOT a physics failure"
+  },
+  "register_state": {
+    "net": "+16",
+    "cell": "CC-C",
+    "axis2": "C",
+    "gate_e": "A",
+    "noise": "A",
+    "tier4": "banked",
+    "lambda_R": "one unresolved",
+    "h2_locals": "fork-gated",
+    "general_gauge_uniqueness": "NOT CLAIMED"
+  },
+  "licensed_for_next_physics_run": "NOTHING",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
