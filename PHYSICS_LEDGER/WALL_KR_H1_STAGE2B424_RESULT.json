@@ -1,0 +1,31 @@
+{
+  "instrument": "wall_kr_h1_stage2b424_provenance.py",
+  "date": "2026-09-03",
+  "base": "f628d48",
+  "kind": "2B.4.2.4 GATED PROVENANCE RECORD — no theorem, no classification, Route-B not executed",
+  "battery": "18/18",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "machinery_sha256": "1c72272b54d09f314dd9188e13a8cea0c00f6f0b64555c77dadd58bd4f336556",
+  "p2_objects_sha256": "1b136cd4898e690ffea2ce86ff862f094102ea5b29565ccbad0b765949794f72",
+  "native_routing_keys": 36,
+  "endpoint_dependence_nonzero_keys": 0,
+  "pre_angular": {
+    "aggregate_zero_pointwise": true,
+    "keys_individually_zero": 14,
+    "keys_collectively_cancelling": 22
+  },
+  "omega_free_per_key": true,
+  "exceptional_class_feeders": 0,
+  "recharacterization": {
+    "A_representation": "the stored B_mixed (292 terms; 146 u + 146 u'; 39 denominator classes; 8 exceptional q^0 (d-1)^2 classes; one (d,omega^2) rational core) is a TRUE and exact property of the global-subtraction representation B_lines - B_pureconf. It stands as recorded data.",
+    "B_intrinsic": "the native frozen assemble() bucket loop cancels KEY-LOCAL and PRE-ANGULAR: every populated nu-routing key's O(H) mixed object is endpoint-free and omega-free, the aggregate pre-angular object is zero pointwise in n^hat, and ZERO native cells feed the 8 exceptional classes.",
+    "C_status": "A is SUPERSEDES AS CHARACTERIZATION, NOT AS DATA. The endpoint/8-class picture is an artifact of the subtraction representation and must not be called the intrinsic algebraic heart of Protection 2; the intrinsic picture is B. Frozen artifacts stand byte-identical; no earlier record is rewritten."
+  },
+  "confirmed": true,
+  "no_theorem": "recorded only: 'the frozen construction exhibits key-local, pre-angular O(H) cancellation'",
+  "verdict": "DEFERRED",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 -- computed-and-reported, NOT banked"
+}
