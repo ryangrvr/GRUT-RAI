@@ -1,0 +1,338 @@
+{
+  "instrument": "wall_kr_h1_stage2b422_endpoint.py",
+  "date": "2026-09-03",
+  "base": "cf93e76",
+  "kind": "2B.4.2.2 ONLY — endpoint-block grouping; later sub-stages NOT entered",
+  "battery": "14/14",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "decomposition": {
+    "N": "B_mixed = e^{2iq(u'-u)} (u F_u + u' F_up), exact",
+    "Fu_zero_merged": true,
+    "Fup_zero_merged": true,
+    "raw_negation_Fu_plus_Fup": false,
+    "Fu_classes": {
+      "('(d - 1)**2', 0)": {
+        "n_terms": 14,
+        "zero": true
+      },
+      "('(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('(d - 1)**2*(d + 2)*(d + 4)*(d + 6)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('16*(d - 1)**2', 0)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('16*(d - 1)**2*(d + 2)', 0)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('2*(d - 1)*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('2*(d - 1)**2', 0)": {
+        "n_terms": 4,
+        "zero": false
+      },
+      "('2*(d - 1)**2*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": false
+      },
+      "('2*(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 6,
+        "zero": true
+      },
+      "('2*d*(d - 1)**2*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('2*d*(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 1,
+        "zero": false
+      },
+      "('4*(d - 1)*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('4*(d - 1)**2', 0)": {
+        "n_terms": 18,
+        "zero": false
+      },
+      "('4*(d - 1)**2*(d + 2)', 0)": {
+        "n_terms": 12,
+        "zero": false
+      },
+      "('4*(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 1,
+        "zero": false
+      },
+      "('4*(d - 1)**2*(d + 2)*(d + 4)*(d + 6)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('4*d*(d - 1)*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('4*d*(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 2,
+        "zero": false
+      },
+      "('8*(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 4,
+        "zero": false
+      },
+      "('8*d*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d - 1)*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d - 1)**2', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d - 1)**2*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d - 1)**2*(d + 2)*(d + 4)*(d + 6)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('(d - 1)**2', 1)": {
+        "n_terms": 6,
+        "zero": true
+      },
+      "('(d - 1)**2*(d + 2)*(d + 4)*(d + 6)', 1)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('2*(d - 1)**2*(d + 2)*(d + 4)', 1)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('4*(d - 1)**2', 1)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('4*(d - 1)**2*(d + 2)', 1)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('d*(d - 1)**2*(d + 2)', 1)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d - 1)**2*(d + 2)*(d + 4)', 1)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('(d - 1)**2', 2)": {
+        "n_terms": 6,
+        "zero": true
+      },
+      "('(d - 1)**2*(d + 2)*(d + 4)*(d + 6)', 2)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('2*(d - 1)**2*(d + 2)*(d + 4)', 2)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('4*(d - 1)**2', 2)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('4*(d - 1)**2*(d + 2)', 2)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('d*(d - 1)**2*(d + 2)*(d + 4)', 2)": {
+        "n_terms": 2,
+        "zero": true
+      }
+    },
+    "Fup_classes": {
+      "('(d - 1)**2', 0)": {
+        "n_terms": 14,
+        "zero": true
+      },
+      "('(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('(d - 1)**2*(d + 2)*(d + 4)*(d + 6)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('16*(d - 1)**2', 0)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('16*(d - 1)**2*(d + 2)', 0)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('2*(d - 1)*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('2*(d - 1)**2', 0)": {
+        "n_terms": 4,
+        "zero": false
+      },
+      "('2*(d - 1)**2*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": false
+      },
+      "('2*(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 6,
+        "zero": true
+      },
+      "('2*d*(d - 1)**2*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('2*d*(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 1,
+        "zero": false
+      },
+      "('4*(d - 1)*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('4*(d - 1)**2', 0)": {
+        "n_terms": 18,
+        "zero": false
+      },
+      "('4*(d - 1)**2*(d + 2)', 0)": {
+        "n_terms": 12,
+        "zero": false
+      },
+      "('4*(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 1,
+        "zero": false
+      },
+      "('4*(d - 1)**2*(d + 2)*(d + 4)*(d + 6)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('4*d*(d - 1)*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('4*d*(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 2,
+        "zero": false
+      },
+      "('8*(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 4,
+        "zero": false
+      },
+      "('8*d*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d - 1)*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d - 1)**2', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d - 1)**2*(d + 2)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d - 1)**2*(d + 2)*(d + 4)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d - 1)**2*(d + 2)*(d + 4)*(d + 6)', 0)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('(d - 1)**2', 1)": {
+        "n_terms": 6,
+        "zero": true
+      },
+      "('(d - 1)**2*(d + 2)*(d + 4)*(d + 6)', 1)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('2*(d - 1)**2*(d + 2)*(d + 4)', 1)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('4*(d - 1)**2', 1)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('4*(d - 1)**2*(d + 2)', 1)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('d*(d - 1)**2*(d + 2)', 1)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('d*(d - 1)**2*(d + 2)*(d + 4)', 1)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('(d - 1)**2', 2)": {
+        "n_terms": 6,
+        "zero": true
+      },
+      "('(d - 1)**2*(d + 2)*(d + 4)*(d + 6)', 2)": {
+        "n_terms": 2,
+        "zero": true
+      },
+      "('2*(d - 1)**2*(d + 2)*(d + 4)', 2)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('4*(d - 1)**2', 2)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('4*(d - 1)**2*(d + 2)', 2)": {
+        "n_terms": 4,
+        "zero": true
+      },
+      "('d*(d - 1)**2*(d + 2)*(d + 4)', 2)": {
+        "n_terms": 2,
+        "zero": true
+      }
+    },
+    "Fu_all_classes_zero": false,
+    "Fup_all_classes_zero": false,
+    "independent_route": "F = dN/du, dN/du' agrees with construction route"
+  },
+  "verdict": "DEFERRED — grouping only; no interpretation per the order",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
