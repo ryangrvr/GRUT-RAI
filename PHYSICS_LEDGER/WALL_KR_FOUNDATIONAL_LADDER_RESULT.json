@@ -1,0 +1,53 @@
+{
+  "instrument": "wall_kr_foundational_ladder_audit.py",
+  "date": "2026-09-02",
+  "base": "309d983",
+  "kind": "FOUNDATIONAL-LADDER AUDIT — read-only, no physics, no A-F selection, no graph mutation",
+  "battery": "27/27",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "worktree_unchanged": true,
+  "type_A_graph_dependency": "NONE among u3/u4/u6 — all three declare empty depends_on",
+  "type_B_conceptual_prerequisites": {
+    "ladder_stated_verbatim_in_register": "THREE distinct layers: why-split (U3, Frontier 2) -> why-constitutive (U4, Frontier 3) -> which-kernel (rung3, Frontier 1).",
+    "u4_presupposes_u3_object": "u4 opens 'GIVEN coarse-graining'",
+    "u4_NOT_entailed_by_u3_answer": "DISTINCT from U3 (why coarse-grain at all): deriving coarse-graining does NOT hand you linear response",
+    "u6_is_branch_of_u4": "u6's first clause: '(a branch of U4 / Frontier 3)'",
+    "u3_presupposes_nothing": "'This sits BELOW rung1 (rung1 assumes the split)'"
+  },
+  "missing_edges_reported_not_written": [
+    {
+      "edge": "u4_constitutive_origin -> u3_split_origin",
+      "evidence": "u4 presupposes coarse-graining ('GIVEN coarse-graining') and states the U3->U4 ordering"
+    },
+    {
+      "edge": "u6_constitutive_order -> u4_constitutive_origin",
+      "evidence": "u6 declares itself 'a branch of U4'"
+    },
+    {
+      "edge": "u5_constitutive_phases -> u4_constitutive_origin",
+      "evidence": "u5 declares itself 'a branch of U4'"
+    },
+    {
+      "edge": "u4_constitutive_origin -> rung3 (downstream layer)",
+      "evidence": "the stated ladder's third rung"
+    }
+  ],
+  "u6_info_i2_relation": "ANTI-DEPENDENCY — an explicit guard plus a declared failure mode, not an inherited prerequisite",
+  "classification": {
+    "u3_split_origin": "CONFIRMED INDEPENDENT",
+    "u4_constitutive_origin": "CONDITIONALLY INDEPENDENT",
+    "u6_constitutive_order": "CONCEPTUALLY DOWNSTREAM",
+    "emergence_chain": "DOCUMENTARY / RENDERING DEPENDENCE (type D)"
+  },
+  "foundational_research_order": [
+    "1. u3_split_origin — why a system/bath split at all (deepest; presupposes nothing registered)",
+    "2. u4_constitutive_origin — why coarse-graining yields response form (needs u3's OBJECT as given, NOT u3's answer; therefore pursuable in parallel with or before u3 is resolved)",
+    "3. u6_constitutive_order — order parameter for constitutive organization (a branch of u4; its object only exists once u4's subject matter is granted)"
+  ],
+  "note_on_the_existing_campaign": "the register's own ladder places the existing K_R work at the THIRD rung (which-kernel / rung3 / Frontier 1) — u3 and u4 are strictly more foundational layers the register already maps but has never executed",
+  "execution_recommended": "NONE — ordering established, execution not proposed",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
