@@ -1,0 +1,115 @@
+{
+  "instrument": "wall_kr_u3_specification_audit.py",
+  "date": "2026-09-02",
+  "base": "ba67454",
+  "kind": "U3 FOUNDATIONAL SPECIFICATION AUDIT — read-only, no physics, no A-F selection",
+  "battery": "40/40",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "worktree_unchanged": true,
+  "part1_object": {
+    "tier": "to-derive",
+    "grut_standing": "open field",
+    "domain": "universality-classification",
+    "sources": [
+      "zurek2003",
+      "mori1965_zwanzig"
+    ],
+    "ledger_delta": 0,
+    "differentiator": "NON-DIFFERENTIATING",
+    "fence": "default-BROKEN, machine-watched in sub_status"
+  },
+  "part2_meaning": {
+    "verdict": "UNDERSPECIFIED",
+    "supported_notions": {
+      "A_hilbert_tensor_factorization": "zurek2003 (einselection presumes H_S (x) H_B)",
+      "B_algebraic_projection": "mori1965_zwanzig (a projection operator P defines relevant/irrelevant)",
+      "C_operational_accessible_observables": "zurek2003 (pointer states = what is accessible/robust)",
+      "D_coarse_graining_partition": "mori1965_zwanzig; and the statement's own slash",
+      "E_eft_retained_vs_integrated_out": "implied by the Feynman-Vernon/influence-functional lineage",
+      "F_open_system_reduced_dynamics": "Feynman-Vernon, named in the statement"
+    },
+    "not_supported": [
+      "G spacetime/causal partition"
+    ],
+    "ambiguity_on_its_face": "the statement slashes 'system/bath split / coarse-graining' as one object"
+  },
+  "part3_well_posed": {
+    "as_a_test": "WELL-POSED — derivation required, symmetric in both directions",
+    "as_an_object": "UNDERSPECIFIED",
+    "modalities_not_distinguished": [
+      "ontological necessity",
+      "mathematical convenience",
+      "calculational convenience",
+      "operational necessity"
+    ]
+  },
+  "part5_bootstrap": {
+    "instance_found": false,
+    "specific_loop_to_guard": "justifying the split BY the universality of the response it yields",
+    "already_fenced": true,
+    "fence_location": "sub_status (machine-watched per CHARTER s7); changes trip the firewall"
+  },
+  "part6_ordering": {
+    "alternatives": [
+      "split -> coarse-graining (factorization first)",
+      "coarse-graining -> split (projection defines the partition)",
+      "both from a deeper primitive (neither prior)"
+    ],
+    "selected": "NONE",
+    "decisive_evidence": "u3's own two sources embody the two competing orderings (Zurek: factorization first; Mori-Zwanzig: the projector IS the partition)"
+  },
+  "part7_relations": {
+    "background_time_translation_flow": "NO RELATION — u3 is not in its blast radius and uses no kernel",
+    "rung1_inin_formalism": "CONCEPTUAL PREREQUISITE (inverted) — rung1 ASSUMES what u3 questions",
+    "rung2_kms_gate": "NO DIRECT RELATION — downstream of rung1",
+    "rung3_single_pole": "DOCUMENTARY — the ladder's third rung ('which-kernel')",
+    "u4_constitutive_origin": "SHARED PRIMITIVE — coarse-graining; ordering UNRESOLVED",
+    "u5_constitutive_phases": "NO RELATION to u3 (it is a branch of u4)",
+    "u6_constitutive_order": "NO RELATION to u3 (a branch of u4)",
+    "K_R construction": "CONCEPTUAL PREREQUISITE (inverted) — K_R presupposes the split",
+    "declared TT-bath prescription": "CONCEPTUAL PREREQUISITE (inverted) — it NAMES a bath, instantiating the very split u3 questions"
+  },
+  "part8_outside": {
+    "SOURCE FACT": "both cited sources are established literature",
+    "INFERENCE": "U3 is a reformulation of several known open questions",
+    "OPEN GRUT QUESTION": "whether they share an answer that ALSO yields constitutive response",
+    "validation_claimed": "NONE"
+  },
+  "part9_criterion": {
+    "solved": "U3 SOLVED requires an EXHIBITED DERIVATION, in either direction: either the split is shown irreducibly fundamental, or it is shown to emerge WITH THE MECHANISM EXHIBITED. A screen returning 'looks emergent' does NOT graduate it.",
+    "ladder": [
+      "U3 ASSUMED",
+      "U3 MOTIVATED",
+      "U3 FORMALIZED",
+      "U3 COMPATIBLE",
+      "U3 MODELLED",
+      "U3 SOLVED"
+    ],
+    "negative_control": "NEGATIVE CONTROL: standard decoherence/einselection. It appears to EXPLAIN the system/bath split by showing why a pointer basis is selected — but it takes the tensor factorization H = H_S (x) H_B as an INPUT and selects a basis WITHIN it. It answers 'which states survive', not 'why is there a factorization'. Any U3 candidate must be tested against this failure mode."
+  },
+  "part10_program": [
+    "U3.1 define the object (choose among notions A-F, or prove them equivalent)",
+    "U3.2 fix the modality (ontological / mathematical / calculational / operational)",
+    "U3.3 identify the candidate primitive and the split/coarse-graining ordering",
+    "U3.4 derive the split, or exhibit it as irreducible",
+    "U3.5 prove representation / observer / scale properties",
+    "U3.6 state handoff conditions to U4"
+  ],
+  "part11": {
+    "classification": "2. FORMALIZABLE BUT UNDERSPECIFIED — needs definition work before physics",
+    "A_reason": "the success test is strict and symmetric, but the OBJECT is not pinned to one of six supported notions and the record's own sources disagree on the ordering",
+    "B_missing_definitions": [
+      "which notion of 'split'",
+      "which modality",
+      "the split/coarse-graining ordering"
+    ],
+    "C_can_precede_u4": "YES — u4 needs u3's OBJECT, not u3's ANSWER (ba67454)",
+    "D_dependency_on_A_to_F": "NONE — u3 names no new accepted input and uses no kernel",
+    "E_deeper_foundation_for_GUF": "QUALIFIED YES as a foundational CLASSIFICATION result (the register calls a derivation of the split 'a foundational result'), but CHARTER s8 binds GRUT II to classification and states it is NOT a Theory of Everything and 'never an ontology to defend'. An ontological reading is charter-barred."
+  },
+  "A_to_F_selected": "NONE",
+  "u3_solved": false,
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
