@@ -1,0 +1,28 @@
+{
+  "instrument": "wall_kr_h1_stage2a_vertex_weight.py",
+  "date": "2026-09-03",
+  "base": "6151328",
+  "kind": "STAGE 2A ONLY — vertex weight read off the frozen artifact; DISCREPANCY STOP",
+  "battery": "18/18",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "vertex": {
+    "id": "T1 dS cubic, sector (1,2,3), sha 0152c777..., 26032 terms",
+    "H_census": {
+      "H0": 7560,
+      "H1": 9156,
+      "H2": 9316
+    },
+    "u_dependence": "only via H*u (V3^(0) u-free); no d symbol",
+    "literal_H1_grading": "V3^(1) = 2u*V3^(0) + R, R 1596 terms, u-free",
+    "R_on_TT_slots": "180 terms survive = (p1_0+p2_0+p3_0) * S, S = 60 purely spatial terms",
+    "closed_form_gated": true
+  },
+  "discrepancy": "Stage-1 C1 ('pure a^2 weight per vertex') is INCOMPLETE at the frozen-vertex level: a total-frequency insertion (p1_0+p2_0+p3_0)*S accompanies the weight on TT slots",
+  "refined_C2_target": "C2' = [nu-derivative-hits-conformal residuals from W] + [-3i S (omega+nu1+nu2) insertions per vertex] = 0 pointwise — a compact flat identity; recorded as the Stage-2B target, NOT proven here",
+  "steps_2B_to_2I": "NOT EXECUTED — stopped per the work order's discrepancy rule",
+  "verdict": "DEFERRED",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
