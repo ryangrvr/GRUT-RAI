@@ -1,0 +1,22 @@
+{
+  "instrument": "wall_kr_h1_stage2b425_routeB.py",
+  "date": "2026-09-03",
+  "base": "4563b4d",
+  "kind": "2B.4.2.5 Route B — independent flat-vertex derivation; no theorem/classification verdict",
+  "battery": "26/26",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "v4_verified_by_ref": true,
+  "independence": "residual DERIVED from mode product rule (W_flat x (1-H(u+u'))); B_mixed and its 146/146 + 39/8 decompositions NOT read; V_k from flat C^0",
+  "M_definition": "M = sum over 36 native (a,c),(b,d) routing keys of V_k . m_k",
+  "route_b_pre_angular_zero": true,
+  "second_implementation": "explicit P^TT dyads at 4 exact rational directions; M==0 each",
+  "omega": "m_k omega-free; no omega transformation needed",
+  "d": "symbolic; no d=3",
+  "minimal_collective_unit": "per total-order sector N (propagator-free combinatorial identity); 14 keys vanish individually (weight or V zero), 22 cancel within their N-sector",
+  "classification_evidence": "only flat EH vertex + derivative algebra + routing + P^TT contraction + O(H) conformal dressing; no BD-specific/retarded/angular-d/dynamical input",
+  "VERDICT": "ROUTE-B-CLOSED",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
