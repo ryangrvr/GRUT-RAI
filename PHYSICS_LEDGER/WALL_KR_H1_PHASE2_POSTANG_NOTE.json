@@ -1,0 +1,62 @@
+{
+  "instrument": "wall_kr_h1_phase2_postang_note.py",
+  "date": "2026-09-03",
+  "kind": "gated addendum: does the Phase-2 breaking survive the exact angular average?",
+  "battery": "1/1",
+  "failures": [],
+  "per_config": {
+    "plus_z": {
+      "postang_Aplus_zero": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "postang_Aminus_zero": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "breaking_survives_angular_average": true
+    },
+    "cross_z": {
+      "postang_Aplus_zero": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "postang_Aminus_zero": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "breaking_survives_angular_average": true
+    },
+    "plus_x": {
+      "postang_Aplus_zero": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "postang_Aminus_zero": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "breaking_survives_angular_average": true
+    }
+  },
+  "scope_note": "the Phase-2 verdict is issued at the declared PRE-ANGULAR scope; this addendum only reports the post-angular fate of the breaking term",
+  "W": "W-0"
+}

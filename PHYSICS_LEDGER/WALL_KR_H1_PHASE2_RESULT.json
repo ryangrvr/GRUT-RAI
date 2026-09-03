@@ -1,0 +1,113 @@
+{
+  "instrument": "wall_kr_h1_phase2_alpha_control.py",
+  "date": "2026-09-03",
+  "base": "bedc989",
+  "kind": "H1 CLOSURE PHASE 2 — alpha-vacuum-like O(H) state deformation CONTROL",
+  "battery": "40/40 testable",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "deformation": {
+    "mode": "h_a(u) = h(u) + alpha (H/q) hbar(u)",
+    "alpha": "real, symbolic",
+    "alpha0_registered": 1,
+    "native_OH_state_term": "0 (BD +-iH/q pieces cancel at O(H); gated)",
+    "deformed_OH_state_term": "alpha H (kap^2/q^2)(e^{+iq(u+u')}+e^{-iq(u+u')}) per line (derived from mode product rule; gated)",
+    "changed": "both internal line kernels",
+    "unchanged": [
+      "flat kernel",
+      "conformal dressing",
+      "vertex",
+      "projector",
+      "routing",
+      "derivative algebra",
+      "compensator",
+      "angular machinery"
+    ],
+    "naming": "alpha-vacuum-LIKE (mixing coefficient explicitly O(H)); NOTHING claimed about the constant-angle dS alpha-vacuum family"
+  },
+  "per_config": {
+    "plus_z": {
+      "native": true,
+      "M1_zero": false,
+      "A1_antisym": false,
+      "Aplus_zero": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "Aminus_zero": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "Sigma0_nonzero": true
+    },
+    "cross_z": {
+      "native": true,
+      "M1_zero": false,
+      "A1_antisym": false,
+      "Aplus_zero": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "Aminus_zero": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "Sigma0_nonzero": true
+    },
+    "plus_x": {
+      "native": true,
+      "M1_zero": false,
+      "A1_antisym": false,
+      "Aplus_zero": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "Aminus_zero": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "Sigma0_nonzero": true
+    }
+  },
+  "verdict": "PHASE2-BREAKS",
+  "status_verbs": {
+    "M(alpha)=alpha*M1 linearity": "GATED (pair-level)",
+    "native limit M(0)=0": "VERIFIED (independent reconstruction)",
+    "M1 pointwise value": "GATED per config",
+    "swap relation under deformation": "STATE-INDEPENDENT by construction (V_k carries no alpha; gated)",
+    "A1 transposition behavior": "GATED observable",
+    "this is": "CONTROL",
+    "H1-THEOREM-A/B/C": "NOT CLAIMED",
+    "alpha-vacuum family": "NOT CLAIMED",
+    "GRUT content": "NOT CLAIMED"
+  },
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked",
+  "adversarial": {
+    "workflow": "wd2hzdhto (2 legs, 0 errors)",
+    "legA_construction": "CONFIRMED — independently reproduced: flat kernel==frozen WPLUS|H=0; dressing reproduces frozen WPLUS at O(H^0) and O(H^1); V_k alpha-free (36 keys); local wop==frozen wops (a,c<=2); compensator==Route B; M0,M1 alpha-free; native limit REAL-independent (no B_mixed var, swap relation only a label); iszero(M1)=False exact, not numeric; witness confined to two confirm-nonzero sites. No errors.",
+    "legB_interpretation": "CONFIRMED_WITH_CAVEATS — swap relation treated as OBSERVABLE not input; no theorem creep; naming + status verbs honored. Caveats ADOPTED: (1) REQUIRED rephrased to load-bearing scope (not every O(H) deformation); (2) section-6 demotion account is a reading of the gated parity form, not separately gated; (3) frozen Route-B file predates the rename, not edited.",
+    "caveats_adopted": 3,
+    "verdict_unchanged": true
+  },
+  "verdict_truthtable": "native vanishing-O(H)-state property is LOAD-BEARING; THIS deformation + negative control break the cancellation pre- and post-angular; NOT shown that every O(H) state deformation breaks it"
+}
