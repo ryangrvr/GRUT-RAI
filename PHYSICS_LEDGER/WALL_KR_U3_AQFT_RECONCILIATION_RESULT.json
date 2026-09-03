@@ -1,0 +1,88 @@
+{
+  "instrument": "wall_kr_u3_aqft_reconciliation.py",
+  "date": "2026-09-02",
+  "base": "6675d1c",
+  "kind": "AUDIT / SPECIFICATION ONLY — read-only, no physics, no A-F selection",
+  "battery": "27/27",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "worktree_unchanged": true,
+  "evidence_provenance": {
+    "independent_comparison": "DISPATCHED, RETURNED EMPTY",
+    "external_claims_status": "INFERENCE-FROM-KNOWLEDGE — not independently verified in this run; requires external check before reliance"
+  },
+  "aqft": {
+    "primitive": "a net of local von Neumann algebras A(O) over spacetime regions, plus a state (typically the vacuum) and the causal/inclusion structure of regions",
+    "derived": "local dynamics, superselection structure, and — under further conditions — subsystem/tensor structure",
+    "why_S1": "in a vacuum representation the algebra of a bounded region is typically a type III_1 factor; type III factors admit no trace and no density matrices, so H does NOT split as H_O (x) H_O' with A(O) acting on one factor",
+    "what_split_property_supplies": "for a STRICT inclusion O1 <<subset>> O2 (a spacelike collar), an INTERMEDIATE TYPE I FACTOR N with A(O1) subset N subset A(O2); a type I factor DOES carry a tensor-product structure",
+    "assumptions_required": "strict spacelike separation (a collar), plus nuclearity / suitable energy conditions — the split property is a HYPOTHESIS satisfied by good theories, not an automatic feature",
+    "remains_noncanonical": "the intermediate type I factor is NOT unique — the tensor factorization it supplies depends on the choice of N (and on the collar), so the resulting subsystem structure is AVAILABLE-UNDER-CONDITIONS, not canonical"
+  },
+  "interpretations": {
+    "A_fundamental_hilbert_factorization": "NOT SUPPORTED as fundamental in relativistic QFT — displaced, not merely unproven",
+    "B_algebraic_subsystem_structure": "MEANINGFUL and the natural formulation — subalgebras of a net; this is where the question should be posed",
+    "C_emergent_operational_subsystem_structure": "MEANINGFUL and PARTIALLY ANSWERED — the split property gives sufficient conditions under which a tensor structure becomes available, but not a derivation that it MUST"
+  },
+  "verdict": "REFINEMENT, NOT DISSOLUTION",
+  "withdrawn_claim": "the prior 'U3 may be ill-posed in relativistic QFT' (6675d1c) was TOO STRONG and is WITHDRAWN",
+  "refined_question": "Under what conditions on the primitive structure (algebra, causal/inclusion relations, state, scale) does a subsystem/bath structure become AVAILABLE, and is any such structure canonical or one of many admissible choices?",
+  "candidate_primitives_none_selected": [
+    "causal structure",
+    "local observable algebras",
+    "the split property",
+    "state dependence",
+    "modular structure",
+    "scale/coarse-graining",
+    "operational accessibility"
+  ],
+  "triangulation": {
+    "Zurek / decoherence": {
+      "primitive": "H_S (x) H_B plus an interaction Hamiltonian",
+      "partition": "ASSUMED",
+      "reduction": "partial trace",
+      "unexplained": "why the factorization exists"
+    },
+    "Mori-Zwanzig": {
+      "primitive": "a projector P onto 'relevant' variables",
+      "partition": "CHOSEN (P IS the partition)",
+      "reduction": "exact generalized Langevin equation",
+      "unexplained": "what selects P"
+    },
+    "AQFT": {
+      "primitive": "a net of local algebras + state + causal structure",
+      "partition": "NOT primitive; available under the split property",
+      "reduction": "restriction to a subalgebra",
+      "unexplained": "why nuclearity/split holds, and which intermediate type I factor"
+    },
+    "Effective field theory": {
+      "primitive": "a field content and a scale",
+      "partition": "BY SCALE (retained vs integrated-out)",
+      "reduction": "path integral over heavy modes",
+      "unexplained": "what selects the scale/split point"
+    },
+    "Wilsonian coarse-graining": {
+      "primitive": "a cutoff and a blocking rule",
+      "partition": "the blocking rule IS the partition",
+      "reduction": "RG flow",
+      "unexplained": "what selects the blocking rule"
+    }
+  },
+  "FINAL_CLASSIFICATION": "U3-REQUIRES-DEFINITION",
+  "non_upgrade_reason": "AQFT SUPPLIES a candidate primitive, so the gap is fillable by definition work rather than blocked on an unresolved deeper primitive",
+  "derivation_criterion": {
+    "rejects": [
+      "assuming H_S (x) H_B",
+      "assuming a projector P",
+      "assuming a system/environment decomposition",
+      "renaming coarse-graining",
+      "deriving decoherence after assuming the split"
+    ],
+    "test": "THE DELETION TEST: remove every partition-valued object from the inputs. If the derivation still runs, it is a candidate U3 derivation. If it fails, the split was an INPUT and the argument is disqualified — symmetric, and it rejects all five moves above.",
+    "symmetric": true
+  },
+  "u3_solved": false,
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
