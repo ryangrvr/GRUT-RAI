@@ -1,0 +1,70 @@
+{
+  "instrument": "wall_kr_u3_eft_baseline_audit.py",
+  "date": "2026-09-03",
+  "base": "fd6d6fd",
+  "kind": "AUDIT ONLY — read-only, no physics, no A-F selection",
+  "battery": "30/30",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "part1_actual_split": {
+    "category": "NOT B (Wilsonian momentum-shell). The implemented split is the EXTERNAL-LEG vs INTERNAL-LINE partition of a one-loop influence-functional calculation — closest to E (projection/partition of which fields are integrated), regularized dimensionally with no scale. Category H (hybrid): a diagrammatic partition described in scale/mode language.",
+    "no_cutoff_parameter": true,
+    "regularization": "dimensional continuation only; NO explicit IR scale",
+    "consequence": "the loop integrates ALL internal momenta, soft ones included"
+  },
+  "part2_five_freedoms": {
+    "cutoff-choice freedom": "the VALUE of a separation scale; low-energy observables are independent of it PROVIDED the RG running/matching is done consistently",
+    "projection-choice freedom": "WHICH variables are retained as slow. NOT generally free — a different projection is a different effective theory, not a rescheme",
+    "field-redefinition freedom": "on-shell observables are invariant (equivalence theorem); off-shell Green's functions are NOT",
+    "physical scale hierarchy": "a FACT about the system (a ratio being small), NOT a choice",
+    "universality of observables": "low-energy observables depend on the UV only through finitely many couplings"
+  },
+  "correction_adopted": "'placement is immaterial' was TOO STRONG; decoupling/universality hold for a CONTROLLED construction with consistent matching, not for arbitrary projections",
+  "part3_residue": {
+    "why this scale hierarchy exists": "OUTSIDE WILSONIAN SCOPE — an input, never derived",
+    "why these modes are the natural effective variables": "ASSUMED — the choice of slow variables is exactly the Mori-Zwanzig 'which P' question, unanswered here",
+    "why TT gravitational modes are the correct probe": "ASSUMED — registered as p_tt_ansatz, tier ASSUMED, 'the projector P^TT chosen (not derived)'",
+    "why the bath may be treated as approximately Gaussian": "ASSUMED — one loop IS the Gaussian truncation; it is the approximation, not a result",
+    "why a retarded response description is valid": "ALREADY EXPLAINED — causality plus the SK/CTP structure give the retarded kernel; standard",
+    "why memory / nonlocal response emerges": "ALREADY EXPLAINED — integrating out MASSLESS modes generically yields nonanalytic, nonlocal terms (logs/branch cuts); only MASSIVE modes give a local derivative expansion"
+  },
+  "part4_candidates": {
+    "U3-A (controlled-description)": {
+      "well_posed": "YES",
+      "novel": "NO — standard EFT validity question",
+      "open": "little; the conditions are textbook",
+      "testable": "yes"
+    },
+    "U3-B (dynamically privileged)": {
+      "well_posed": "YES",
+      "novel": "POSSIBLY — this is the known scale/variable-selection problem, not GRUT-specific",
+      "open": "genuinely open",
+      "testable": "unclear"
+    },
+    "U3-C (invariance under admissible splits)": {
+      "well_posed": "YES IN PRINCIPLE",
+      "novel": "NO",
+      "open": "NOT CURRENTLY TESTABLE IN GRUT — the construction has NO split parameter to vary",
+      "testable": "no, as implemented"
+    }
+  },
+  "part5_novelty": "A with a C component",
+  "part6_four_conditions": {
+    "weak coupling": "A — standard open-system/EFT assumption",
+    "Gaussianity": "A — standard (one-loop/quadratic bath truncation)",
+    "near-equilibrium": "A — standard linear-response assumption",
+    "timescale separation": "A — standard (Born-Markov-adjacent); in GRUT it is the eps_H domain condition, made explicit"
+  },
+  "part7_memory": {
+    "nonlocal_kernel_from_gapless_modes": "STANDARD, already explained",
+    "grut_distinctive_claim_was": "FINITE memory / single pole",
+    "campaign_own_result": "s = 5, branch cut, NO pole — contradicts the distinctive claim",
+    "what_would_be_distinctive": "showing the SPECIFIC kernel is FORCED (u2/u4 territory)"
+  },
+  "U3_STATUS": "A — mostly standard EFT question",
+  "strongest_remaining_formulation": "U3-B — why THIS decomposition is dynamically privileged; genuinely open, but the known scale/variable-selection problem, not GRUT-specific",
+  "u3_solved": false,
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
