@@ -1,0 +1,60 @@
+{
+  "instrument": "wall_kr_h1_phase1_theorem.py",
+  "date": "2026-09-03",
+  "base": "c583c0c",
+  "kind": "H1 CLOSURE PHASE 1 — formal theorem/classification; deformation controls NOT run",
+  "battery": "15/15",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "swap_relation": {
+    "plus_z": {
+      "swap_noflip": true,
+      "swap_omflip": false,
+      "sector": true,
+      "jm_cells": 9,
+      "sectors": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "cross_z": {
+      "swap_noflip": true,
+      "swap_omflip": false,
+      "sector": true,
+      "jm_cells": 9,
+      "sectors": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "plus_x": {
+      "swap_noflip": true,
+      "swap_omflip": false,
+      "sector": true,
+      "jm_cells": 9,
+      "sectors": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  "mechanism": "vertex-swap antisymmetry: S_(m,j) = (-1)^(j+m) S_(j,m) plus zero-weight diagonal ==> per-sector identity by exact (j,m)<->(m,j) pairing; same mechanism class as Protection 1",
+  "SCOPE_VERDICT": "THEOREM-LOCAL",
+  "not_claimed": [
+    "THEOREM-EH-TT (generalization beyond frozen contraction conventions)",
+    "GRUT-specific content",
+    "H1-THEOREM-A (awaits Phases 2-7)"
+  ],
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
