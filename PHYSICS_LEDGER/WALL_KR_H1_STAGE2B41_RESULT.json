@@ -1,0 +1,26 @@
+{
+  "instrument": "wall_kr_h1_stage2b41_freeze.py",
+  "date": "2026-09-03",
+  "base": "2d184b4",
+  "kind": "2B.4.1 ONLY — Protection-2 object frozen; dissection stages 2B.4.2+ NOT entered",
+  "battery": "15/15",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "objects_artifact": {
+    "file": "WALL_KR_H1_P2_OBJECTS.json",
+    "sha256": "1b136cd4898e690ffea2ce86ff862f094102ea5b29565ccbad0b765949794f72",
+    "B_mixed_raw_terms": 292,
+    "free_symbols": [
+      "d",
+      "omega",
+      "q",
+      "u",
+      "u_p"
+    ]
+  },
+  "protection1": "NOT rerun (per the order); its mechanism stands as 2B.1 evidence",
+  "verdict": "DEFERRED — PROTECTION2 status not adjudicated at 2B.4.1",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
