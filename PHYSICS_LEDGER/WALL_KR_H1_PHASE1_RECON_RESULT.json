@@ -1,0 +1,23 @@
+{
+  "instrument": "wall_kr_h1_phase1_reconciliation.py",
+  "date": "2026-09-03",
+  "base": "41b7df1",
+  "kind": "Phase-1 reconciliation — both adversarial-leg verdicts adopted under gate",
+  "battery": "20/20 testable",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "corrections": [
+    "mechanism RENAMED: graded routing-transposition symmetry / slot-exchange parity (sign (-1)^N), NOT vertex-exchange antisymmetry",
+    "omega-transporting (true-exchange) variant gated FALSE on all three configs — promoted to a NAMED NEGATIVE RESULT, load-bearing for pointwise-in-omega vanishing",
+    "'SAME mechanism as Protection 1' RETRACTED (identity claim untested inside a passing gate's label — the self-certification shape); link remains plausible-not-established",
+    "quantifier pinned to the three TT configs; 'ward' (non-TT) untested; the three do not span the general polarization bilinear space (harmless — generality not claimed)",
+    "status verbs split: implication DERIVED, swap relation GATED-not-derived; F1=>F2 sector-local (N<=4); F2 is a consistency corollary, not independent evidence",
+    "T-symmetry + any-antisymmetric-weight strengthening gated on ALL THREE configs",
+    "Phase-1 instrument defects disclosed: vacuous ancestry gate (stdout vs returncode); battery inflation (15/15 counted three untestable gates; honest 12/12); pairing gate plus_z-only"
+  ],
+  "pairing_algebra": "CONFIRMED by both legs; no mathematical error",
+  "scope": "THEOREM-LOCAL stands (leg 2: 'honest'), with the quantifier now pinned",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
