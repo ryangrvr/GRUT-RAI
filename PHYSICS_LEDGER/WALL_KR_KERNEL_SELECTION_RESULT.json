@@ -1,0 +1,91 @@
+{
+  "instrument": "wall_kr_kernel_selection_audit.py",
+  "date": "2026-09-03",
+  "base": "c3f2058",
+  "kind": "AUDIT ONLY — read-only, no physics, no A-F selection",
+  "battery": "23/23",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "part1_constraints": {
+    "retardedness": "E — restricts support, not form",
+    "causality/analyticity (UHP)": "D — qualitative analytic structure (half-plane, dispersion)",
+    "spectral support / gaplessness": "D — puts the branch point at omega = 0 (given massless bath)",
+    "passivity (omega Im chi >= 0)": "E — a cone constraint on sign, not a selector",
+    "unitarity (cut = states)": "D — ties Im chi to the two-graviton cut",
+    "Ward identities": "E — constrain the non-TT sectors; TT scope bypasses (Class-B recorded)",
+    "TT projection": "E — selects the channel, not the kernel within it",
+    "dimensional analysis ALONE": "F — NO meaningful restriction by itself (counterexample below)",
+    "scale-freeness at H=0 (no scale but omega)": "B — fixes the EXPONENT, given the dimension",
+    "symmetries (dS at the declared order)": "E — grades the H expansion",
+    "locality/nonlocality": "D — gapless modes force a nonlocal part",
+    "positivity of the spectral measure": "E"
+  },
+  "part2_omega4_decomposition": {
+    "dimensionally allowed": "ANY power, once extra scales (WC, mu, H) are admitted — the ω³ comparator is the on-record proof",
+    "symmetry allowed": "any even-in-derivatives structure at the declared order",
+    "forced by the two-derivative vertex": "the ω⁴ weight in |V|² — the vertex ORDER is doing the work, and the vertex order is INPUT microphysics (Einstein-Hilbert), not a principle",
+    "forced by available intermediate states": "the gapless two-graviton cut — branch point at 0, DOS ~ ω²",
+    "forced by scale-freeness at H=0": "given the above two, the EXPONENT — no residual scale can deform a pure power",
+    "actually computed at one loop": "the COEFFICIENT -(3/1280π²), the log/iπ completion, and the local-slot structure — dynamics, not principle"
+  },
+  "part2_correction": "9b9036b's 'essentially forced by dimensional analysis' is tightened: the exponent is forced by (two-derivative vertex + gapless cut + scale-freeness) JOINTLY, and the vertex order is INPUT microphysics. The register's own ω³ comparator proves dimensions alone never forced it",
+  "part3_flat_uniqueness": "Given the declared inputs (EH cubic vertex, massless TT bath, BD state, TT scope, Option-beta scheme), the H=0 kernel is a ONE-PARAMETER FAMILY indexed by Lambda_R — NOT unique, and not more ambiguous than that either.",
+  "part4_curved": {
+    "H^1 = 0": "LOOP-DERIVED (both CTP combinations vanish identically); no symmetry proof is on record — recorded as derived, not as forced",
+    "H^2 nonlocal coefficient -(13/480π²)": "LOOP-DERIVED",
+    "H^2 logs": "LOOP-DERIVED (same L structure)",
+    "H^2 local polynomials c0', c2'": "UNRESOLVED — fork-gated; scheme- AND IR-prescription-dependent; NO prescription exists and none is invoked here",
+    "IR contamination at H^2": "CURRENTLY UNRESOLVED — the registered log class, priced to fork-(ii)",
+    "state dependence": "BD DECLARED (owner ruling); a different admissible state is an unexplored direction of K_admissible"
+  },
+  "part5_alternatives": [
+    {
+      "family": "Lambda_R family",
+      "status": "the record's OWN one-parameter family: every Lambda_R value is a distinct admissible kernel satisfying every registered constraint. ALREADY EXHIBITED by the campaign"
+    },
+    {
+      "family": "H^2-local two-parameter family",
+      "status": "every (c0', c2') choice pending the fork — admissible, undetermined"
+    },
+    {
+      "family": "different bath content",
+      "status": "add any massless field to the bath: causal, retarded, TT, passive, correct dimensions — different coefficient. Excluded only by the DECLARATION of the bath, not by principle"
+    },
+    {
+      "family": "gapped-bath kernel",
+      "status": "poles/thresholds instead of the ω=0 branch point — excluded by the declared MASSLESS bath, i.e. by input, not by principle"
+    },
+    {
+      "family": "different state in the admissible class",
+      "status": "a non-BD adiabatic state deforms the kernel — excluded by DECLARATION"
+    }
+  ],
+  "part5_conclusion": "constraints do NOT uniquely select; every alternative is excluded by an INPUT (vertex, bath, state, scheme), never by a principle",
+  "part6_hierarchy": [
+    "compatible",
+    "constrained",
+    "highly constrained",
+    "uniquely selected",
+    "derived from microscopic dynamics"
+  ],
+  "part6_status": "GRUT's kernel sits at 'derived from microscopic dynamics' GIVEN the declared inputs, and at 'constrained' (not 'uniquely selected') within K_admissible. To reach 'forced': either derive the inputs themselves, or prove u2-type UV-completion independence — the latter blocked (C+F).",
+  "part7_residue": {
+    "constitutive organization": "registered STIPULATION (GLOSSARY: 'stipulations, not results')",
+    "memory architecture / finite memory": "ASSUMED (rung1_ontology, a stance) — and contradicted at contract scope by the s=5/no-pole result",
+    "response covariance": "ASSUMED (response_lorentz_covariance, owner-priced; the orphan of F3)",
+    "cross-sector universality": "TO-DERIVE (u2) — the one candidate with selective POWER if proven, and it is blocked (C+F)",
+    "channel-diagonal passivity lemma": "DERIVED but STANDARD-CLASS (a passivity statement)"
+  },
+  "part8_max_statement": "The maximum pre-A/C/F kernel statement is EXACTLY the banked Tier-4 statement: the nonlocal H^0 and H^2 coefficients with the L completion, valid omega >> H, one unresolved constant Lambda_R, H^2 locals fork-gated, no pole claim. Nothing stronger is sayable, and nothing stronger is said.",
+  "NOVELTY_VERDICT": "B",
+  "part10_discrimination_types": [
+    "frequency dependence: the s-class slope (already-derived: log-slope exactly 4 flat)",
+    "curvature dependence: the H^2 omega^2 component with its H^2-proportional coefficient (already-derived: 13/480π² per H^2) — a family the registered comparator excludes",
+    "polarization: TT-channel-only response vs scalar-channel admixtures",
+    "memory profile: power-law relaxation (branch cut) vs exponential (pole) — the campaign's own result is on the power-law side",
+    "spectral density shape near threshold: gapless ω⁴ onset vs gapped threshold"
+  ],
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
