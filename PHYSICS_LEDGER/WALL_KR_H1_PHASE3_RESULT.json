@@ -1,0 +1,82 @@
+{
+  "instrument": "wall_kr_h1_phase3_a3_control.py",
+  "date": "2026-09-03",
+  "base": "39551c7",
+  "kind": "H1 CLOSURE PHASE 3 — a^2->a^3 vertex-weight deformation CONTROL",
+  "battery": "42/42 testable",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "definition": {
+    "anchor": "V3^(1) = 2u*V3^(0) + R (R u-free), re-gated from the 26,032-term frozen artifact; coefficient 2 = the a-power; unique (3u leaves u-dependence)",
+    "deformation": "per-vertex conformal weight 2 -> 2+beta; pair-level vertex-weight term (2+beta)(u+u')*flatA*flatB; beta0=1 = the a^3 point; reversible at beta=0",
+    "unchanged": [
+      "flat C^0 vertex",
+      "R insertion",
+      "line/state kernels",
+      "routing",
+      "TT projector",
+      "derivative algebra"
+    ],
+    "compensator_note": "the +2(u+u') term IS the two-vertex a^2 weight (gated balance: lines carry -2(u+u'), vertices +2(u+u')); changing the vertex weight mathematically requires changing it — the order's carved-out case",
+    "limitation": "a full a^3 EH-like vertex would also differ in its R-analogue and at O(H^2); ONLY the multiplicative conformal weight is deformed"
+  },
+  "per_config": {
+    "plus_z": {
+      "native": true,
+      "M1_nonzero": true,
+      "Sigma0_nonzero": true,
+      "D_antisym": false,
+      "ladder_identity_holds": true,
+      "postang_nonzero": true,
+      "closed_form": "M(beta) = beta*(u+u')*Sigma0"
+    },
+    "cross_z": {
+      "native": true,
+      "M1_nonzero": true,
+      "Sigma0_nonzero": true,
+      "D_antisym": false,
+      "ladder_identity_holds": true,
+      "postang_nonzero": true,
+      "closed_form": "M(beta) = beta*(u+u')*Sigma0"
+    },
+    "plus_x": {
+      "native": true,
+      "M1_nonzero": true,
+      "Sigma0_nonzero": true,
+      "D_antisym": false,
+      "ladder_identity_holds": true,
+      "postang_nonzero": true,
+      "closed_form": "M(beta) = beta*(u+u')*Sigma0"
+    }
+  },
+  "verdict": "PHASE3-BREAKS",
+  "closed_form": "M(beta) = beta*(u+u')*Sigma0, Sigma0 != 0 exact — the breaking is the detuned multiplicative balance between the vertex a^2 weight and the lines' conformal dressing; fingerprint shape identical to the (disclosed) double-compensation bug class",
+  "localization": {
+    "6A_routing": "beta never enters V_k — routing/transposition untouched",
+    "6B_weight": "the added term carries weight (u+u')*flatA*flatB — no new (j,m) pairing structure",
+    "6C_ladder": "the native antisymmetric ladder identity holds and is beta-free — demotion mechanism untouched",
+    "6D": "breaking localized to the vertex weight; state and line kernels frozen"
+  },
+  "epistemic_wording": "This specific a^2->a^3 vertex-weight deformation breaks the native H1 cancellation under the declared frozen construction; the native cancellation is sensitive to the declared conformal vertex-weight structure. NOT claimed: 'a^2 is uniquely required'; 'GRUT requires a^2'; 'impossible without a^2'; anything beyond this deformation",
+  "status_verbs": {
+    "definition anchor": "GATED (re-gated from frozen artifact)",
+    "native limit": "VERIFIED (exact-symbolic, independent reconstruction)",
+    "M(beta) closed form": "GATED",
+    "Sigma0 != 0": "GATED (exact-symbolic, NOT numeric)",
+    "post-angular": "GATED (exact moment() machinery)",
+    "ladder identity": "GATED",
+    "this is": "CONTROL",
+    "uniqueness of a^2": "NOT CLAIMED",
+    "GRUT content": "NOT CLAIMED"
+  },
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked",
+  "adversarial": {
+    "workflow": "wn7qtjp7y (2 legs, 0 errors)",
+    "legA_construction": "CONFIRMED — definition ANCHORED/UNIQUE/MINIMAL-in-frame; the compensator-is-vertex-weight identification FORCED (2B.1 object-level A_weight == -B_pureconf; O(H) source enumeration; analytic forcing M(c)=(c-2)(u+u')Sigma0); uniqueness strengthened to ALL real c; grading verified to descend to the contracted C-matrix level (28/28 entries, all configs); native limit reproduced via TWO routes (independent assembly + assembly-free 81-grid closed form with per-sector ladder sums); order counting exact; every gate exact-symbolic. Five disclosure-level findings adopted (tautology label on the VERTEX SIDE gate; representative-key linearity gate; 6A is documentation-by-construction; 2B.1 tag plus_z-only, closed per-config by the leg; 2A string-containment check re-verified symbolically).",
+    "legB_interpretation": "CONFIRMED — no over-generalization at load-bearing level; routing observable-only; the compensator-relabel attack FAILS (split fixed by declared frozen rules; label-invariant total multiplicative O(H) content moves 0 -> beta(u+u') under ANY relabeling); not a representation artifact; angular exact; negative control non-tautological. Seven wording corrections ALL adopted, incl. the d=3 post-angular gate (addendum wall_kr_h1_phase3_d3_note.py).",
+    "corrections_adopted": 12,
+    "verdict_unchanged": true
+  }
+}

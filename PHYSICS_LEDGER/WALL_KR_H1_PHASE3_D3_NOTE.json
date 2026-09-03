@@ -1,0 +1,22 @@
+{
+  "instrument": "wall_kr_h1_phase3_d3_note.py",
+  "date": "2026-09-03",
+  "kind": "gated addendum (adopted from adversarial Leg B): <Sigma0> nonzero at d=3",
+  "battery": "3/3",
+  "failures": [],
+  "per_config": {
+    "plus_z": {
+      "postang_nonzero_symbolic_d": true,
+      "postang_nonzero_d3": true
+    },
+    "cross_z": {
+      "postang_nonzero_symbolic_d": true,
+      "postang_nonzero_d3": true
+    },
+    "plus_x": {
+      "postang_nonzero_symbolic_d": true,
+      "postang_nonzero_d3": true
+    }
+  },
+  "W": "W-0"
+}
