@@ -1,0 +1,38 @@
+{
+  "instrument": "wall_kr_h1_verification_reconciliation.py",
+  "date": "2026-09-03",
+  "base": "2f8a625",
+  "kind": "verification reconciliation — read-only addendum",
+  "battery": "13/13",
+  "failures": [],
+  "verdicts": {
+    "hermiticity": "CONFIRMED",
+    "covariance": "CONFIRMED",
+    "ds_scaling": "CONFIRMED"
+  },
+  "errors_found": {
+    "hermiticity": "none",
+    "covariance": "none",
+    "ds_scaling": "none"
+  },
+  "standing_verdict": "H1-REFUTED as a structural theorem — now verified on all three legs; the computed fact H^1 = 0 stands untouched",
+  "sharpenings_adopted": {
+    "one_line_proof": "hermitian analyticity for a UHP-analytic f is EQUIVALENT to reality on the positive imaginary axis (Schwarz reflection); admissibility of i b omega^3 l is the single line f(is) = b s^3 log(s/mu) real — replaces the branch-tracking argument",
+    "general_parity_lemma": "with L = -2 Log(-i omega/mu): real-coefficient omega^n L is hermitian for n EVEN, anti-hermitian for n ODD; i*omega^n L is hermitian for n odd. One rule covers the registered omega^4 L and H^2 omega^2 L terms, the H-slot candidate, and any future O(H^3) discussion",
+    "paley_wiener": "the candidate is the transform of a REAL RETARDED tempered kernel (Hadamard-regularized b Theta(t)/t^4 plus real delta-derivative counterterms) — so reality AND retardedness JOINTLY admit O(H)",
+    "two_real_numbers": "THE SHARP RESIDUE: reality locks the dispersive part (b pi/2)|omega|^3 to the absorptive part b omega^3 log(|omega|/mu) through ONE real parameter, plus one local i c omega^3. 'H^1 vanished identically' is therefore the vanishing of exactly TWO real numbers (b, c) — not of independent Re/Im functions. The remaining dynamical theorem is a statement about two numbers",
+    "exact_resolvent": "leg 2 strengthened from generic to EXACT: at k=0 the retarded resolvent of the covariant dS mode operator is 1/(omega^2 + 3i omega H - m^2) — exactly linear in H, a complete covariant counterexample",
+    "orientation_mechanism": "the H -> -H loophole is closed by a NAMED mechanism: flipping sgn(H) requires a time-orientation-reversing isometry, which maps retarded to advanced (G_R(-tau;H) = G_A(tau;-H)); retardedness is non-metric data, so geometry constrains only the orientation-even part",
+    "tree_level_witness": "ONE-LINE WITNESS: the TREE-LEVEL TT operator already contains -3i H omega — an H-odd anti-hermitian term produced by exactly dS-invariant dynamics. A symmetry ban on H-odd terms would forbid cosmological friction itself",
+    "dissipative_sector": "the strongest defensible symmetry statement: any derived discrete relation intertwines H -> -H with omega -> -omega and/or conjugation, and at most forces the O(H) omega^3 coefficient into the ANTI-HERMITIAN (dissipative) sector — exactly where the exhibited candidate lives"
+  },
+  "my_corrections": {
+    "scaling_premise": "my premise 'the only scale is H' was LITERALLY FALSE — mu is a scale of the renormalized kernel. Corrected form: Sigma = H^4 [ g(omega/H) + P4(omega/H) log(mu/H) ] with P4 of degree <= 4 fixed by RG locality. Harmless to the conclusion; wrong as stated",
+    "parity_wording": "'Im f = b omega^3 log|omega|/mu sgn-consistently' invites a mu-crossing misreading — the invariant statement is f(-omega)* = f(omega), oddness holding for every mu",
+    "log_variant_refinement": "if the O(H) term carried a LOG, RG consistency would require a LOCAL H d_t^3 friction counterterm — admissible in a retarded kernel but NOT in a hermitian action. Whether the registered locals basis (hermitian, even) thereby excludes the LOG variant while leaving the non-log i c omega^3 local open is a REFINEMENT the campaign missed — flagged, not resolved",
+    "ds_premise_conditionality": "leg 3's conclusion is marked CONDITIONAL on the exactly-dS-invariant graviton premise (known IR/gauge subtleties); unaffected in direction, since the leg claims only that the symmetry ADMITS the term"
+  },
+  "remaining_theorem": "do the declared BD/Option-B dynamics force b = c = 0? — two real numbers, dynamical, requiring an unregistered adiabatic-asymptotics condition",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
