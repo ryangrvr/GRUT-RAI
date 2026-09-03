@@ -1,0 +1,53 @@
+{
+  "instrument": "wall_kr_h1_stage2b423_block.py",
+  "date": "2026-09-03",
+  "base": "30a6741",
+  "kind": "2B.4.2.3 — single-endpoint internal closure + mirror; NO routing interpretation",
+  "battery": "20/20",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "local31": {
+    "unit_census": {
+      "2-term opposition": 19,
+      "perfect 2-term pairing (2 pairs)": 8,
+      "perfect 2-term pairing (3 pairs)": 3,
+      "perfect 2-term pairing (7 pairs)": 1
+    }
+  },
+  "exceptional8": {
+    "signatures": [
+      "('2*(d - 1)**2', 0)",
+      "('2*(d - 1)**2*(d + 2)', 0)",
+      "('2*d*(d - 1)**2*(d + 2)*(d + 4)', 0)",
+      "('4*(d - 1)**2', 0)",
+      "('4*(d - 1)**2*(d + 2)', 0)",
+      "('4*(d - 1)**2*(d + 2)*(d + 4)', 0)",
+      "('4*d*(d - 1)**2*(d + 2)*(d + 4)', 0)",
+      "('8*(d - 1)**2*(d + 2)*(d + 4)', 0)"
+    ],
+    "each_nonzero": true,
+    "Eu_zero_after_recombination": true,
+    "common_denominator": "4*d*(d - 1)**2*(d + 2)*(d + 4)",
+    "combined_numerator": "identically zero polynomial in (d, omega, q)",
+    "independent_partial_fraction_proof": true,
+    "q_free": true,
+    "omega_degrees": [
+      2
+    ],
+    "omega_parity_census": {
+      "even": 8
+    }
+  },
+  "mirror": {
+    "same_39_31_8": true,
+    "same_exceptional_signatures": true,
+    "per_class_relation": {
+      "equal": 8
+    }
+  },
+  "main_answer": "Protection 2 reduces to a finite family of ordinary rational identities: the 31 local classes close by elementary term opposition, and the entire nontrivial content is ONE polynomial identity among the eight q^0 (d-1)^2 classes (proved twice, independently). WHY the cubic vertex produces these identities is NOT addressed here",
+  "verdict": "DEFERRED",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
