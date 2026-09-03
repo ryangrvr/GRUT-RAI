@@ -1,0 +1,94 @@
+{
+  "instrument": "wall_kr_u3_program_audit.py",
+  "date": "2026-09-02",
+  "base": "4ec4b45",
+  "kind": "AUDIT / SPECIFICATION ONLY — read-only, no physics, no A-F selection",
+  "battery": "36/36",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "worktree_unchanged": true,
+  "stage1_pre_u3": {
+    "u0_label_already_used": "CHARTER s8 governing rule, NOT a register claim",
+    "candidate_primitives": {
+      "total Hilbert space": "C — imported via zurek2003; never registered",
+      "algebra of observables": "C — imported via the Mori-Zwanzig lineage; never registered",
+      "total state": "C — imported; never registered",
+      "field configuration": "B — implicit in rung1's 'doubled x_r/x_a fields'",
+      "spacetime/background": "B — implicit in the declared background",
+      "degrees of freedom": "E — genuinely unresolved; the natural referent, nowhere fixed",
+      "modes": "B — implicit in rung3's DOS and the bath's 'fast modes'",
+      "causal structure": "B — implicit in retarded/CTP structure",
+      "effective action": "A — registered (rung1 S_IF), but DOWNSTREAM of the split"
+    },
+    "verdict": "POSSIBLE PRE-U3 PREREQUISITE — the WHOLE being partitioned is nowhere registered",
+    "u0_invented": false
+  },
+  "stage2_3_sources": {
+    "u3": "zurek2003 + mori1965_zwanzig (opposite orderings)",
+    "u4": "kubo1966, kadanoff_martin1963, forster1975, crossley_glorioso_liu2017",
+    "neither_derives_the_partition": true
+  },
+  "stage5_handoff": {
+    "non_entailing": true,
+    "registered_extra_conditions": [
+      "weak coupling",
+      "Gaussianity",
+      "near-equilibrium",
+      "timescale separation"
+    ],
+    "collapse_forbidden": "the register explicitly forbids collapsing F2 (U3) into F3 (U4)"
+  },
+  "stage6_u6": {
+    "branch_of_u4": "REGISTERED",
+    "derivable_from_u4": "NOWHERE CLAIMED",
+    "central_object": "equivalence class of chi(omega,k) giving identical observable transport under admissible coarse-grainings"
+  },
+  "stage8_novelty": {
+    "the question 'why is there a split'": "A/B — a recognized open problem, not original here",
+    "the conjunction: one primitive must yield BOTH the split AND constitutive response": "D-CANDIDATE — unusual framing, but a RESEARCH TARGET, not an established claim",
+    "requiring an EXHIBITED derivation, fenced in a machine-watched field": "C — methodological novelty; process, not physics",
+    "'constitutive organization' as an operational equivalence class": "B/C — a stipulated working definition, explicitly provisional"
+  },
+  "stage9_charter": {
+    "ontology_barred": true,
+    "u0_line": "revising a definition is expected; defending it is forbidden",
+    "order_of_work": "interpretation CANNOT precede the theorem (registered in u4)",
+    "register_self_description": "a PROBE of the universality/microscopic boundary"
+  },
+  "stage4_criterion": {
+    "ladder": [
+      "U3 assumed",
+      "U3 motivated",
+      "U3 formalized",
+      "U3 modeled",
+      "U3 derived",
+      "U3 empirically supported",
+      "U3 contradicted"
+    ],
+    "negative_control": "NEGATIVE CONTROL (must FAIL): assume H_total = H_S (x) H_B, derive reduced dynamics, observe useful constitutive behaviour, declare the split explained. This restates the split in another formalism and derives its CONSEQUENCES; it never derives the split."
+  },
+  "stage10_map": [
+    "U3.0 name the whole being partitioned (POSSIBLE PRE-U3 PREREQUISITE)",
+    "U3.1 select or unify the notion of 'split'",
+    "U3.2 fix the modality (ontological/mathematical/calculational/operational)",
+    "U3.3 settle the split<->coarse-graining ordering",
+    "U3.4 derive the split, or exhibit it as irreducible",
+    "U3.5 invariance/uniqueness (representation, observer, scale)",
+    "U3.6 U4 handoff under the four registered extra conditions"
+  ],
+  "stage11_executability": {
+    "U3.0": "A conceptual/specification — decision-free",
+    "U3.1": "A conceptual — decision-free",
+    "U3.2": "A conceptual — decision-free",
+    "U3.3": "D external literature analysis — decision-free",
+    "U3.4": "F not yet well-posed (blocked on U3.0-U3.3)",
+    "U3.5": "F not yet well-posed",
+    "U3.6": "A conceptual — decision-free"
+  },
+  "discovered_contradiction": "u3 and u4 each call themselves the DEEPEST frontier — reported, not repaired",
+  "FINAL_CLASSIFICATION": "U3-REQUIRES-DEFINITION",
+  "u3_solved": false,
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
