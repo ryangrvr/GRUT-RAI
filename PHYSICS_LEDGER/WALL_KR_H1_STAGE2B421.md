@@ -1,7 +1,7 @@
 # H¹ CAMPAIGN — STAGE 2B.4.2.1: THE FROZEN OBJECT'S STRUCTURAL CENSUS
 
 **Date:** 2026-09-03 · **Instrument:** `wall_kr_h1_stage2b421_census.py` ·
-**Artifact:** `WALL_KR_H1_STAGE2B421_RESULT.json` · **Battery: 12/12, zero failures.**
+**Artifact:** `WALL_KR_H1_STAGE2B421_RESULT.json` · **Battery: 11/11, zero failures.** *(Correction: an earlier draft of this record said 12/12; a gate was merged during the census fix. The JSON artifact was always correct.)*
 **2B.4.2.1 only — load, verify, census. No grouping, no simplification, no cancellation.**
 Frozen store verified by sha; round-trip exact (292 terms). Read-only; register sha256
 identical pre/post; A-F unselected; nothing banked. W-0.
