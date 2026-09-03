@@ -1,0 +1,60 @@
+{
+  "instrument": "wall_kr_crosssector_h1_audit.py",
+  "date": "2026-09-03",
+  "base": "bbea87b",
+  "kind": "TRACK A (H^1 structural) + TRACK B (cross-sector) — read-only, no physics",
+  "battery": "24/24",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "trackA": {
+    "result": "H1-UNRESOLVED",
+    "mechanisms": {
+      "1 hermitian analyticity / reality": "IRRELEVANT-ALONE — Im Sigma_R oddness is carried by the sgn(omega) continuation, not by the power: an H*omega^3 absorptive term with the odd continuation is parity-ALLOWED. Parity forbids only a REAL omega^3 LOCAL — which is exactly what the D5 control rejected. Parity cannot force H^1 = 0",
+      "2 omega parity": "SAME VERDICT — subsumed by mechanism 1",
+      "3 CTP/r-a structure": "PLAUSIBLE BUT UNPROVEN — the vanishing holds in BOTH CTP combinations independently (registered), which is evidence the mechanism is upstream of the r-a split; no theorem is on record",
+      "4 dS background symmetry (curvature evenness)": "THE STRONGEST CANDIDATE — the background enters covariant organization through CURVATURE, and dS curvature is O(H^2) (R = 12H^2): every covariant local invariant is EVEN in H. Registered-adjacent: the D5/1b counterterm basis is {omega^0, omega^2, omega^4} — no odd slot exists. UNPROVEN for the NONLOCAL sector: that the full kernel organizes covariantly is exactly the kind of assumption the record's F7 discipline forbids assuming",
+      "5 TT projection": "IRRELEVANT — channel selection, blind to H-order",
+      "6 tensor/index symmetry": "IRRELEVANT-ALONE",
+      "7 absence of a first-order invariant": "PLAUSIBLE BUT UNPROVEN — equivalent to mechanism 4 stated as: no covariant scalar linear in H exists at the declared order. True for curvature invariants; NOT established for state/boundary (non-covariant) structures",
+      "8 declared-state adiabatic order": "REQUIRES EXAMINATION — the BD/Option-B adiabatic declaration could admit or exclude O(H) state terms; nothing on record settles it"
+    },
+    "strongest": "curvature evenness (dS curvature is O(H^2); the 1b basis has no odd slot)",
+    "supporting_registered_fact": "base-time independence through O(H^2) excludes the u_b class",
+    "proof_obligation": "PROOF OBLIGATION (constructed, not discharged): show that through first order in H the assembled non-TT self-energy admits a covariant-in-curvature organization PLUS that the declared adiabatic state contributes no O(H) term — then H^1 = 0 follows from curvature evenness. Both halves are open; the second is where a counterexample lives.",
+    "counterexample_template": "COUNTEREXAMPLE TEMPLATE (not executed): any modification contributing at adiabatic order ONE — an alpha-vacuum-like deformation linear in H, an initial-time/boundary term at u_b, or a chart-dependent subtraction — would generically produce H^1 != 0. The theorem, if true, must EXCLUDE exactly these; the verified base-time independence already excludes the u_b class, which is why it is supporting structure.",
+    "key_negative": "omega-parity CANNOT force H^1=0 — oddness lives in the sgn continuation"
+  },
+  "trackB": {
+    "certified_sectors": {
+      "gravitational TT vacuum response (T1-T4)": "BANKED",
+      "KMS/FDT/noise structure (Gate-E)": "CERTIFIED A",
+      "matter-scope K_R (gapped; pole-from-cut, g<0 branch)": "CLOSED at matter scope",
+      "channel-diagonal passivity lemma": "SHOWN (prereg'd)",
+      "dual-gauge orbit robustness (D4-A)": "ACCEPTED",
+      "mu_linear cosmological no-go": "DERIVED-PENDING (no-go export)"
+    },
+    "excluded_claims": {
+      "gravitational decoherence (rung8)": "EXCLUDED — tier to-derive, quiet-or-faint",
+      "w(z) dark energy (rung7)": "EXCLUDED — to-derive, +2 inserted inputs",
+      "u2 universality": "EXCLUDED — to-derive, blocked C+F"
+    },
+    "pairs": {
+      "TT-vacuum <-> matter K_R": "B/C — same SK/Dyson/retarded machinery; physics transfer barred by the record's own Step-10 rule",
+      "Gate-E <-> every sector": "C — KMS/FDT is a standard principle; the register's own label: 'FAILS-DIFFERENTIATION by design'",
+      "passivity lemma <-> every sector": "C — genuinely cross-cutting, derived, frame-free — and standard-class: it constrains nothing beyond ordinary passivity",
+      "D4 orbit machinery <-> A4 Ward machinery": "A — deliberate template reuse (an input)",
+      "mu_linear <-> TT response": "A — the SHARED INPUT is p_tt_ansatz (chosen, not derived)",
+      "matter pole-from-cut <-> contract no-pole": "F — an apparent contrast, not a commonality; the objects differ by declared bath (gapped vs gapless), i.e. by input"
+    },
+    "register_pre_declaration": "charter Step 10 bars physics transfer between the two completed sectors: shared content = machinery + a sign dictionary that is convention algebra",
+    "strongest_surviving": "the passivity lemma — derived, cross-cutting, and CLASS C (standard)",
+    "cross_sector_principle": "NO CROSS-SECTOR PRINCIPLE FOUND",
+    "level2": "FAILS for all candidates",
+    "level3": "NO",
+    "promotion_requirement": "a same-constraint-two-sectors theorem from a non-input premise (u2 theorem, or mechanism-4 H^1-forcing generalized)",
+    "only_registered_level3_route": "u2 (to-derive, blocked C+F)"
+  },
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
