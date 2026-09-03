@@ -1,0 +1,42 @@
+{
+  "instrument": "wall_kr_h1_stage2b421_census.py",
+  "date": "2026-09-03",
+  "base": "2180d86",
+  "kind": "2B.4.2.1 ONLY — load/verify/census; grouping stages NOT entered",
+  "battery": "11/11",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "census": {
+    "terms": 292,
+    "free_symbols": [
+      "d",
+      "omega",
+      "q",
+      "u",
+      "u_p"
+    ],
+    "endpoint": "exp-free numerators at most LINEAR in u and u'; denominators pure d-polynomials; corrected census after the composite-denominator phase fix",
+    "endpoint_occupancy": {
+      "u_only": 146,
+      "up_only": 146,
+      "both": 0,
+      "neither": 0
+    },
+    "phase_arguments": {
+      "-2*I*q*u + 2*I*q*u_p": 292
+    },
+    "omega_degrees": {
+      "4": 44,
+      "2": 100,
+      "0": 64,
+      "3": 48,
+      "1": 36
+    },
+    "q_negative_power_terms": 0,
+    "d_nonpolynomial_terms": 0
+  },
+  "verdict": "DEFERRED — census only",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
