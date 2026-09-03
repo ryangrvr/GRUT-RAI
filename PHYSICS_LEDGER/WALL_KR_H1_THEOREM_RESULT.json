@@ -1,0 +1,34 @@
+{
+  "instrument": "wall_kr_h1_theorem_campaign.py",
+  "date": "2026-09-03",
+  "base": "6ad4c2a",
+  "kind": "THEOREM/COUNTEREXAMPLE CAMPAIGN — kernel-form mathematics; no loop calculation",
+  "battery": "21/21",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "theorem_candidate": "CANDIDATE: {reality/hermitian analyticity} + {causality/retardedness} + {general covariance} + {exact dS invariance of the construction} + {TT scope} + {dimensions} ==> the O(H^1) part of Sigma_R vanishes.",
+  "VERDICT": "H1-REFUTED (as a structural theorem over registered structural assumptions; the computed fact H^1=0 stands untouched)",
+  "counterexample_form": "i*b*omega^3*Log(-i omega/mu), b real — reality-exact (defect 0 at 40 dps over 29 UHP points), causal (UHP-analytic), dimensionally the H^1 slot, Re even/Im odd on the real axis; control (real coefficient) FAILS the condition",
+  "where_each_proof_route_breaks": {
+    "parity/hermiticity": "the exhibited form passes — the route never starts",
+    "curvature evenness": "FALSE for nonlocal objects: Box_FRW carries 3H d/dt linearly; valid only for the local counterterm sector (consistent with the even 1b basis)",
+    "dS invariance": "Sigma = H^4 g(omega/H); O(H) = an x^3 term in g's large-x expansion, unforbidden by symmetry; flat matching constrains only the leading term",
+    "CTP structure": "consistent-with but yields no theorem",
+    "state declaration": "'BD therefore no H term' is insufficient by the scaling argument"
+  },
+  "counterexample_battery": {
+    "alpha-vacuum-like O(H) deformation": "produces the exhibited form generically; excluded only by the DECLARATION of BD/Option-B — a declaration, not a theorem",
+    "boundary/initial-time term at u_b": "EXCLUDED by the verified base-time independence through O(H^2) — the one exclusion that IS evidenced",
+    "chart-dependent subtraction": "excluded by the D3 ruling (a declaration)",
+    "noncovariant regulator artifact": "excluded by the declared dimensional continuation (a declaration)",
+    "nonlocal state-dependent term": "the exhibited i*omega^3 form; excluded by NOTHING structural on the record"
+  },
+  "weakest_missing_assumption": "an asymptotic/adiabatic-order condition on g killing the x^3 term — NEW input, neither standard nor registered; proving it FROM the declared BD/Option-B construction is the actual remaining theorem, now precisely posed",
+  "generalization": "the refutation legs are sector-blind; O(H) terms are generic in FRW open systems, making the gravitational vanishing MORE surprising",
+  "level2_candidacy": "dead as a symmetry premise; alive only as a dynamical regularity requiring its own derivation",
+  "independent_verification": "PENDING (3 legs dispatched)",
+  "decision_free": true,
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
