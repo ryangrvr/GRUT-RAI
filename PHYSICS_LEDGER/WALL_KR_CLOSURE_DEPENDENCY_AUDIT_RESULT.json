@@ -1,0 +1,191 @@
+{
+  "instrument": "wall_kr_closure_dependency_audit.py",
+  "date": "2026-09-02",
+  "kind": "CLOSURE/DEPENDENCY AUDIT — read-only, no physics, no A-F selection",
+  "battery": "29/29",
+  "failures": [],
+  "base": "8d00097",
+  "Q1_register": {
+    "nodes": 74,
+    "ledger_net": 16,
+    "tiers": {
+      "shown": 12,
+      "assumed": 17,
+      "derived-pending": 4,
+      "to-derive": 20,
+      "measured": 3,
+      "postulate": 14,
+      "heuristic": 2,
+      "open": 2
+    }
+  },
+  "Q6_hidden_dependency": {
+    "root": "background_time_translation_flow (tier assumed, delta +1)",
+    "transitive_dependents": 30,
+    "ledger_carried_by_dependents": 15,
+    "shown_nodes_downstream": [
+      "info_i1_renorm_as_information",
+      "kr_contract_retarded_tier4",
+      "passivity_channel_diagonal",
+      "rung1_inin_formalism",
+      "rung2_kms_gate",
+      "rung4_love_kk",
+      "rung7_w1_wz_map",
+      "u1_form_universality"
+    ],
+    "direct_tier_violations": [
+      "rung1_inin_formalism",
+      "rung2_kms_gate"
+    ],
+    "finding": "the ENTIRE register net of +16 sits downstream of ONE 'assumed' node. The F2 tier-rule violation is narrow (two direct edges) but its DEPENDENCY scope is the whole register — F2's disposition conditions essentially everything.",
+    "OWNER-DECISION REQUIRED": "F"
+  },
+  "Q5_overclaim_sweep": {
+    "tier4_node": "correctly scoped (omega >> H stated, no pole claim, disclaims Class-C)",
+    "stale_clause": "the register still cites 'D4 dual-gauge unexecuted' as a live reason for CC-C, but D4-A is accepted. The CONCLUSION CC-C still stands on the two remaining reasons; only the justification is out of date.",
+    "repair_class": "register mutation — OWNER/BANK-GATED, NOT decision-free"
+  },
+  "Q4_defects": {
+    "prereg_chain": "INTACT 18/18",
+    "certificate_chain": "6/11 verify — 5 drifted",
+    "interpretation": "mechanism-specific, not systemic: the hashed-MANIFEST design holds perfectly; the emit-once, never-verified certificate design does not",
+    "dangling_refs": {
+      "gw_tensor_friction.py": "declared future work, not a broken link",
+      "pi0_trace_channel.py": "absent; cited in X_FLOOR_MAP.md"
+    },
+    "my_own_checker_defect": "the first reference sweep did not search provenance/prereg/ and falsely reported a prereg cited by a 'shown' register node as missing; disclosed and fixed",
+    "decision_free_repairs_available": [
+      "documentation/reference hygiene",
+      "adding a certificate-pin VERIFY gate (does not alter frozen content; records rather than repairs drift)"
+    ]
+  },
+  "Q2_Q3_Q7_owed_work": {
+    "total_owed": 26,
+    "candidate_decision_free": [
+      "founding_h2_R_zeta_bridge",
+      "info_i2_beyond_standard_bridge",
+      "l0_r2_exact_unique_breaker",
+      "method_novelty",
+      "u2_kernel_universality",
+      "u3_split_origin",
+      "u4_constitutive_origin",
+      "u5_constitutive_phases",
+      "u6_constitutive_order",
+      "lambda_undetermined",
+      "vc_w_equals_minus_one",
+      "vc_grut_relation",
+      "emergence_chain"
+    ],
+    "blocked": [
+      {
+        "id": "rung3_single_pole",
+        "keyword_blockers": [
+          "C_lowf"
+        ],
+        "unresolved_deps": [
+          "rung1_ontology_finite_memory"
+        ]
+      },
+      {
+        "id": "rung7_wz",
+        "keyword_blockers": [],
+        "unresolved_deps": [
+          "rung1_ontology_finite_memory"
+        ]
+      },
+      {
+        "id": "rung8_falsifier",
+        "keyword_blockers": [],
+        "unresolved_deps": [
+          "rung6_qm_limit"
+        ]
+      },
+      {
+        "id": "mu_linear",
+        "keyword_blockers": [],
+        "unresolved_deps": [
+          "p_tt_ansatz"
+        ]
+      },
+      {
+        "id": "founding_h3_doubleslit_anchor",
+        "keyword_blockers": [],
+        "unresolved_deps": [
+          "founding_h2_R_zeta_bridge",
+          "rung8_falsifier"
+        ]
+      },
+      {
+        "id": "info_i3_distinct_consequence",
+        "keyword_blockers": [],
+        "unresolved_deps": [
+          "info_i2_beyond_standard_bridge"
+        ]
+      },
+      {
+        "id": "l0_r3_payoff_mu_linear",
+        "keyword_blockers": [],
+        "unresolved_deps": [
+          "l0_r2_exact_unique_breaker"
+        ]
+      },
+      {
+        "id": "rung7_w2_wa_sign",
+        "keyword_blockers": [],
+        "unresolved_deps": [
+          "rung7_wz",
+          "p_tt_ansatz"
+        ]
+      },
+      {
+        "id": "rung7_w3_nocrossing_export",
+        "keyword_blockers": [],
+        "unresolved_deps": [
+          "rung7_w2_wa_sign",
+          "rung7_wz"
+        ]
+      },
+      {
+        "id": "eft_operator_basis",
+        "keyword_blockers": [
+          "C_lowf"
+        ],
+        "unresolved_deps": [
+          "rung5_gr_limit"
+        ]
+      },
+      {
+        "id": "zeta_interior_family",
+        "keyword_blockers": [],
+        "unresolved_deps": [
+          "eft_operator_basis"
+        ]
+      },
+      {
+        "id": "x_no_pin_theorem",
+        "keyword_blockers": [],
+        "unresolved_deps": [
+          "eft_operator_basis"
+        ]
+      },
+      {
+        "id": "kk_static_transfer",
+        "keyword_blockers": [
+          "C_lowf"
+        ],
+        "unresolved_deps": []
+      }
+    ],
+    "scope_limit": "keyword absence is NOT proof of independence; every candidate requires statement-level confirmation before commitment",
+    "smallest_unlock_sets": {
+      "low-frequency consequence": "A (IR) + C (domain amendment); B only if the route is windowed",
+      "H2 local sector": "A (IR prescription)",
+      "consequence class assignment": "A + C + D (face) — and F conditions the register beneath it",
+      "certificate face use": "D",
+      "certificate pin integrity": "E"
+    }
+  },
+  "licensed_for_next_physics_run": "NOTHING requiring A-F; candidate decision-free work exists",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked"
+}
