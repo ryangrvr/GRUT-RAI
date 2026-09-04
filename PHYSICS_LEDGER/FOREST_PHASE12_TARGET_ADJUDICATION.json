@@ -1,0 +1,57 @@
+{
+  "instrument": "forest_phase12_adjudication.py",
+  "date": "2026-09-04",
+  "base": "acae001",
+  "kind": "FOREST PHASE 12 — amplitude-channel target adjudication (NO computation)",
+  "battery": "44/44",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_mutated": false,
+  "decision": "NEITHER-DISCRIMINATING",
+  "decision_corrected_from": "BOTH-BLOCKED (first draft) — see Leg B",
+  "candidate_A": {
+    "id": "gamma_T_siren_amplitude",
+    "status": "BLOCKED — DECIDABLE-BUT-NOT-YET-DISCRIMINATING",
+    "observable": "standard-siren amplitude (achromatic tensor friction Gamma_T at ~H0)",
+    "channel_note": "the friction is achromatic => degenerate with coalescence phase; the dephasing test is blind BY CONSTRUCTION (SPEC Q-D). Amplitude is the live channel",
+    "scaffolding": "pre-registered SPEC exists; code absent",
+    "blocker": "Q-A (sector): does the tau_2 pole appear in P^TT at all? scalar-only => TT friction is ZERO and the question closes. SPEC: 'Neither horn supports a quoted number'",
+    "parameters": "B staked; TWO live values ~3.2 orders apart (0.2*H0 inside the slot bound vs 1.2e-4*H0 invisible); B==eps is an unverified assumption",
+    "standard_overlap": "the dissipative Gamma_T+noise FORM is U1-GENERIC published open-EFT — register grants NO validation credit for the form; only a parameter-free VALUE could be GRUT-specific",
+    "real_distinction": "dissipative Gamma_T + mandatory noise is explicitly DISTINCT from the conservative running-Planck-mass alpha_M*H"
+  },
+  "candidate_B": {
+    "id": "bh_ringdown_qnm",
+    "status": "BLOCKED — NOT-YET-POSABLE",
+    "observable": "QNM frequencies / ringdown damping times",
+    "scaffolding": "ABSENT — zero files mention Kerr, Teukolsky, tidal heating, Love number or horizon flux; the only Regge-Wheeler/Zerilli material is the de Sitter STATIC PATCH ('every M-dependent term drops at M = 0') — not a black hole",
+    "history": "a prior QNM reading here was RETRACTED (the boundary check tested the wrong thing)",
+    "ancestry": "rung4_love_kk is itself FAILS-DIFFERENTIATION; its 22-62 orders is a dephasing-branch figure not covering the amplitude channel",
+    "equation_demand": "NOT MET — with no BH perturbation problem in the corpus, the equation that would differ from GR cannot be written"
+  },
+  "why_not_target_A": "selecting A would select a question whose own SPEC states 'neither horn supports a quoted number' — the Phase-10 error (selecting an unresolved-or-answered question and calling it parameter-free) repeated",
+  "owner_question": "whether to authorize A's Q-A as a CLOSURE calculation (decidable, cheap, closes or opens the route) rather than as a discriminator campaign — deliberately NOT decided here",
+  "A_to_F_selected": "NONE",
+  "target_computation": "NONE LAUNCHED",
+  "W": "W-0 — adjudication only; nothing banked; nothing computed",
+  "adversarial": {
+    "workflow": "w7wz0seh4 (2 legs)",
+    "legA_technical": "INCONCLUSIVE — reached BOTH-BLOCKED independently but could not certify the adjudication. DECISIVE FINDING: the first draft loaded rung3_single_pole into memory, gated it TWICE, extracted the favourable clause ('explicitly DISTINCT from alpha_M') and promoted it to 'the one real structural distinction' — while omitting, from the same string, 'A detected Xi_0 != 1 could NEVER confirm GRUT' and the slot-degeneracy fence. Also: the SPEC's 'achromatic => degenerate with the coalescence phase' is a CATEGORY ERROR (a damping rate contributes no phase), propagated unchecked; the 'independent confirmation' of Phase 11's fence is CIRCULAR (same source); the verdict logic could emit only BOTH-BLOCKED. Confirmed correct: B-scaffolding absence (by a broader sweep than the instrument's), the static patch not being a black hole, the QNM retraction, the dephasing-only status of 22-62 orders (four independent locations), and all arithmetic.",
+    "legB_referee": "FAILED — outcome right, label wrong, asymmetry flatters A. BOTH-BLOCKED implicates a removable obstacle behind which a target sits; unestablished for both and CONTRADICTED for A. The SPEC pre-registers FOUR outcomes; the first draft listed three and used the truncated list to certify A 'decidable' — REFUSE was omitted. Candidate B's quantity IS posed (Im chi horizon/tidal); only the machinery is absent. B's expected disposition and its named-owed-calculation status were dropped. The owner question was 'a nomination presented as a neutral deferral' — three endorsements, zero counter-case.",
+    "corrections_adopted": 11,
+    "decision_changed": "BOTH-BLOCKED -> NEITHER-DISCRIMINATING"
+  },
+  "self_disclosed_defects": [
+    "cherry-picked a register fence: carried the favourable half, dropped 'could NEVER confirm GRUT' and the slot-degeneracy, from a string the instrument had in memory",
+    "propagated the SPEC's achromatic=>phase-degeneracy CATEGORY ERROR unchecked",
+    "called a same-source restatement 'independent confirmation' (circular)",
+    "listed 3 of the SPEC's 4 pre-registered outcomes, omitting REFUSE, then used the truncated list to certify A 'decidable'",
+    "mischaracterized B as 'quantity unposed' when only the machinery is absent",
+    "dropped B's on-record expected disposition and its named-owed-calc governance status",
+    "verdict logic could emit only BOTH-BLOCKED — 8th occurrence of the pass-label pattern",
+    "framed the owner question with three endorsements and no counter-case",
+    "understated the standard overlap: TOTAL in the selected channel, not merely severe-for-form"
+  ],
+  "observation_not_promoted": "the separating feature of a genuine dissipative kernel is the MANDATORY NOISE, implying a stochastic-background observable no phase has assessed. Named here; NOT converted into a candidate — that is Phase-11-type mapping work under its own order"
+}
