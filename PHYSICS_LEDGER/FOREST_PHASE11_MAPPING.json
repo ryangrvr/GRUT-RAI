@@ -1,0 +1,55 @@
+{
+  "instrument": "forest_phase11_mapping.py",
+  "date": "2026-09-04",
+  "base": "b34cb24",
+  "kind": "FOREST PHASE 11 — expansion / unmapped-sector mapping (NOT physics, NOT selection)",
+  "battery": "50/50",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_mutated": false,
+  "forest_status": "FOREST-EMPTY (UNCHANGED) · MAP-EXPANDED-BY-2",
+  "register_differentiator_set": "UNCHANGED — Phase 10 FOREST-EMPTY stands; no node added",
+  "sector_resolutions": {
+    "flavor": "MAPPED-ABSENT — no repository content; every occurrence colloquial, plus one methodological exemplar (electron Yukawa) in merge_criterion.py",
+    "strong-CP": "MAPPED-ABSENT — occurs in EXACTLY ONE file, as the same methodological exemplar; not a sector, not a claim",
+    "neutrino": "NOT-A-SECTOR — appears only as an explicitly FORBIDDEN proxy (rung3 brief)",
+    "dark-matter": "RETIRED + DECLARED GAP — the substrate line died with the superseded book; listed in coverage.py KNOWN_GAPS",
+    "quantum-gravity": "DECLARED GAP (KNOWN_GAPS)",
+    "black-hole-interior": "DECLARED GAP (KNOWN_GAPS)",
+    "early-universe/inflation": "DECLARED GAP (KNOWN_GAPS)",
+    "baryogenesis": "DECLARED GAP (KNOWN_GAPS)",
+    "unification/conformalon": "RESOLVED NEGATIVE — 'zero novel positive predictions'",
+    "QCD": "NOT-A-SECTOR — appears as vacuum-energy condensate bookkeeping only",
+    "gravitational decoherence": "REGISTERED and self-disqualified (rung8 falsifier: quiet-or-faint, 7-47 orders below detectability)",
+    "cosmological perturbations": "REGISTERED (mu_linear, zeta_interior_family) — Phase-10-classified STANDARD-PARAMETERIZATION"
+  },
+  "the_additions": [
+    {
+      "id": "bh_ringdown_qnm (UNREGISTERED)",
+      "source": "SIGNATURE_AUDIT.md 'The one soft spot'; POSTULATE_MAP.md M6",
+      "observable": "QNM frequencies / ringdown damping times (GW detectors)",
+      "standard_baseline": "GR quasinormal spectrum",
+      "status": "MAPPED-UNRESOLVED — never given a dedicated calculation",
+      "expected_disposition": "'confirms invisible' — INHERITANCE ARGUMENT, NOT A COMPUTATION, and CHANNEL-CONDITIONAL (Leg B): rung4's 22-62 orders is a DEPHASING-branch statement; gw_dissipation_bounds.py's scope fence says the amplitude/damping channel is NOT covered by it, and the IR-pole friction Gamma = B*H_0/2 is NOT orders below the quoted slot bound. QNM damping time is an amplitude-channel observable",
+      "cautionary_history": "a prior QNM reading in this area was RETRACTED (the boundary check tested the wrong thing) — raises the bar, does not lower it",
+      "NOT": "NOT classified potentially-novel; NOT selected; NOT computed"
+    },
+    {
+      "id": "gamma_T_siren_amplitude (UNREGISTERED)",
+      "source": "GRUT_ToE.md frontier set item (1); calc/SPEC_gw_tensor_friction.md (SPEC exists, code ABSENT); rung3_single_pole.tier_note 'NOT YET COMPUTED'",
+      "observable": "cosmological tensor friction Gamma_T at omega~H_0 / standard-siren amplitude channel",
+      "standard_baseline": "GR (no tensor friction); note the dissipative Gamma_T + noise FORM is U1-GENERIC published open-EFT (register: NO validation credit for the form)",
+      "status": "MAPPED-UNRESOLVED — staged calculation, never run",
+      "missed_by_first_draft": "YES — this is the error Leg A caught; the same evidentiary situation as the QNM item",
+      "fence": "the |Gamma_T| <~ few x H_0 figure is an UN-COMPUTED order-of-magnitude inference, fenced 'do not quote as a bound'",
+      "NOT": "NOT classified potentially-novel; NOT selected; NOT computed"
+    }
+  ],
+  "legA_citations_rejected": "two Leg-A supports failed direct check and are NOT propagated: a 'Gate to re-admit' quote attributed to SIGNATURE_AUDIT.md:68 (string absent from that file), and 'Two items remain live, not one' (verified to name rung3's Pi_0 and the kappa activation-scale question, not QNM/Gamma_T). The Gamma_T FINDING is adopted on independently verified evidence",
+  "prior_expansion": "SIGNATURE_AUDIT.md — a pre-registered four-domain external hunt with standing verdict EMPTY; Phase 10 confirms it independently rather than discovering it",
+  "program_self_assessment": "GRUT_ToE.md already states 'GRUT's novel-physics-prediction column is empty' and 'none survived as a parameter-free observable wedge'",
+  "A_to_F_selected": "NONE",
+  "target_selected": "NONE — reserved for a later explicit phase",
+  "W": "W-0 — mapping only; nothing banked; nothing computed"
+}
