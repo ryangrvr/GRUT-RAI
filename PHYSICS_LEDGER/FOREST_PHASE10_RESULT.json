@@ -1,0 +1,46 @@
+{
+  "instrument": "forest_phase10_selection.py",
+  "date": "2026-09-04",
+  "base": "ad5ea33",
+  "kind": "FOREST PHASE 10 — target selection / novelty isolation (NOT a physics campaign)",
+  "battery": "40/40",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "verdict": "FOREST-EMPTY",
+  "inventory_buckets": {
+    "NON-DIFFERENTIATING": 15,
+    "CONDITIONAL": 12,
+    "FAILS-DIFFERENTIATION": 5,
+    "LIVE": 7,
+    "NO-GO-EXPORT": 1,
+    "UNSET": 34
+  },
+  "live_candidates": [
+    "kk_static_transfer",
+    "kr_contract_retarded_tier4",
+    "rung3_single_pole",
+    "rung6_qm_limit",
+    "rung7_wz",
+    "x_no_pin_theorem",
+    "zeta_interior_family"
+  ],
+  "headline": "ZERO register nodes carry an unconditional, currently-observable differentiating result (now actually gated, not gate(True))",
+  "first_draft_withdrawn": {
+    "target": "kk_static_transfer",
+    "why": "the register records it ANSWERED 2026-08-09 at outcomes (ii)+(iii): unconditional transfer refuted by a passive counterexample; the residual is sign(chi_inf), a contact/counterterm datum passivity is blind to — so the 'parameter-free' criterion that carried the selection is false",
+    "both_legs": "FAILED"
+  },
+  "why_forest_empty": "no live node combines a working observable today, a difference not absorbed by a free parameter, and separation from the broader modified-gravity landscape (mu>=1 quasi-static is already the standard expectation for stable ghost-free Horndeski — in the repo's own sources)",
+  "self_disclosed_defects": [
+    "selected an already-answered target (non-uniform schema; sub_status/boundary_condition unread)",
+    "gate(True) headline — 7th occurrence of the non-falsifiable-gate pattern",
+    "LIVE bucket prefix artifact (11/8 -> 12/7)",
+    "'matches DIFFERENTIATOR_TABLE' overstated (stale, different classifier)",
+    "BREACHED the standing prohibition by quoting an unconditional sign floor",
+    "'B downstream of A' unsupported; ranking inverted (A is downstream of C)",
+    "the 'computed datum' was near-vacuous and supported a superseded framing"
+  ],
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — selection only; nothing banked; nothing computed"
+}
