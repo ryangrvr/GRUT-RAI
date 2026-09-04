@@ -1,0 +1,69 @@
+{
+  "instrument": "wall_kr_h1_phase5_provenance.py",
+  "date": "2026-09-03",
+  "base": "e5009bc",
+  "kind": "H1 CLOSURE PHASE 5 — condition-forcing / provenance audit",
+  "battery": "19/19 testable",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "classification": {
+    "S_state": {
+      "amplitude_direction": "STANDARD IDENTITY — canonical normalization (Wronskian) forces the O(H) amplitude to be unrenormalized; gated",
+      "mixing_direction": "DECLARED CONSTRUCTION — the Bogoliubov direction preserves the Wronskian at O(H) (gated), so only the declared positive-frequency/BD prescription excludes it",
+      "grut_specific": false,
+      "unforced_remainder": false
+    },
+    "W_weight": {
+      "total_zero": "DERIVED FROM PRE-EXISTING INPUT — standard conformal-weight bookkeeping of the declared EH+dS+normalization inputs, via the in-repo T1/T2 derivations (both coefficients re-gated from the frozen artifacts)",
+      "coefficient_2_split": "DECLARED CONSTRUCTION — the sigma-reweighting gate shows the split moves while the total stays identically zero; only the total is invariant",
+      "grut_specific": false,
+      "unforced_remainder": false
+    },
+    "L_ladder": {
+      "status": "STRUCTURALLY CHARACTERIZED BUT UNFORCED — an exact gated property (P1's fixed-omega graded routing-transposition symmetry) whose naive derivations BOTH fail: the omega-transporting relabeling is gated FALSE (bedc989) and the Bose line-exchange is weight-even/inert (gated here); the derivation from first principles remains the named open generalization",
+      "premise_diagnostics": {
+        "plus_z": {
+          "plain_sym": true,
+          "transverse_no_trace": true,
+          "single_delta": true
+        },
+        "cross_z": {
+          "plain_sym": true,
+          "single_delta": true
+        },
+        "plus_x": {
+          "plain_sym": true,
+          "single_delta": true
+        }
+      },
+      "projector_immaterial_where_tested": true,
+      "grut_specific": false
+    }
+  },
+  "implications": "all six pairwise implications among S, W, L DISPROVED BY CONTROL (frame-admissible witness points from the closed one-slot controls); independence as FRAME requirements established; fundamentality NOT",
+  "deeper_principles": {
+    "canonical_normalization": "DERIVES S (amplitude direction)",
+    "state_prescription_BD": "INPUT that excludes the mixing direction (not derived)",
+    "conformal_weight_bookkeeping": "DERIVES W (total form)",
+    "field_normalization_convention": "explains the 2-vs-2 SPLIT (convention)",
+    "bose_exchange": "INERT for L (weight-even; gated)",
+    "vertex_relabeling_omega_flip": "FALSE for L (gated, bedc989)",
+    "dimension": "not a premise of L (d symbolic in the gates)",
+    "momentum_conservation": "not load-bearing (Route B)",
+    "CTP_retarded": "not load-bearing for the pointwise zero (Stage-1: all four cache objects vanish pointwise pre-CTP-assembly)",
+    "GRUT_specific_principle": "NONE FOUND — a search verdict over the section-8 candidate table, not a proof of absence; no GRUT-specific input appears in any provenance or verification chain"
+  },
+  "verdict": "PARTIALLY-FORCED",
+  "expected_next": "the honest map for Phases 6-8: S and W rows trace to standard inputs; L row is the one candidate for anything beyond bookkeeping — and it is currently unforced, with its naive standard derivations refuted",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked",
+  "adversarial": {
+    "workflow": "w8zf5yge7 (2 legs, 0 errors)",
+    "legA_provenance": "CONFIRMED (independent 25/25) — a^2 W is the UNIQUE integrating factor of the frozen mode equation (a^3 W fails as control) and the identical condition was already gated exactly in frozen T2 (predates Phase 5 — not a fit); T1/T2 genuinely DERIVE the vertex/kernel (read and verified); W+ == (kappa^2/q) h(u)h*(u') exactly; weights 1,3 do not strip u (2 sharp); {x,y,alpha} spans ALL solution-preserving O(H) state deformations (S dichotomy complete); no circularity; controls-as-witnesses legitimate. 4 observations adopted as disclosures.",
+    "legB_interpretation": "CONFIRMED — 'what has been explained' matches: A+B for S/W (B in the input-citation sense for S-mixing and the split), A only for L ('a real regularity deserving a derivation, currently without one'; 22-key collective cancellation probe); A never reported as C; GRUT scan clean; PARTIALLY-FORCED robust in the safe direction. 6 wording corrections adopted.",
+    "verdict_epistemology": "S/W forcing certified at GATE strength; L-unforcedness at SEARCH-VERDICT strength (refuted candidates + citation — the correct epistemology for a negative); the instrument's third verdict branch is unreachable dead code, disclosed",
+    "corrections_adopted": 10,
+    "verdict_unchanged": true
+  }
+}
