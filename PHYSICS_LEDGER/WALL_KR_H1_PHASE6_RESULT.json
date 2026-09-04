@@ -1,0 +1,82 @@
+{
+  "instrument": "wall_kr_h1_phase6_ladder_derivation.py",
+  "date": "2026-09-03",
+  "base": "016d84b",
+  "kind": "H1 CLOSURE PHASE 6 — ladder-identity derivation attack",
+  "battery": "34/34 testable",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "derivation": {
+    "premise_i": "HOMOGENEITY — every flat C^0 entry monomial has total momentum degree exactly 2 (two-derivative EH); gated on the raw artifact, all three configs",
+    "premise_ii": "SLOT SYMMETRY — the contraction is exchange-symmetric (dummy-index relabeling); gated for P^TT and single-delta",
+    "bridge": "E(-omega,-q)(nu) == E(omega,q)(-nu) per entry — the frozen D2 transform IS the nu-reflection; explains the FALSE omega-flipped variant",
+    "step1": "V[(e,f),(g,h)] == (-1)^{g+h} G[(e,f),(g,h)] per key (G = untransformed Gram array)",
+    "step2": "G symmetric under key transposition",
+    "conclusion": "Lambda_N = (-1)^N sum_k (g+h-e-f) G_k == 0 per transposition-orbit (antisymmetric weight x symmetric array; diagonal weight-0) — derived, and the direct Lambda_N == 0 reproduced on all three configs",
+    "explains": [
+      "the fixed-omega (no-flip) form of the P1 symmetry",
+      "why NO symmetry supports an omega-flipped form (the D2 transform's entire content is the nu-reflection) — the flipped variant's FALSITY remains P1's gated fact, resting additionally on the omega-oddness of the mixed S-blocks (leg-verified), which is consistent with but not derivable from premises (i)+(ii)",
+      "Phase-5 projector-immateriality (any slot-symmetric contraction works)",
+      "d/momentum-conservation/CTP immateriality",
+      "the sector bound N <= 4 (degree <= 2 per vertex)"
+    ]
+  },
+  "hostile_controls": {
+    "a_odd_admixture": "degree-1 term in one entry breaks bridge AND Lambda (premise i load-bearing)",
+    "b_asymmetric_pairing": "two-projector contraction isolating the incompatible cross-pair 11_11 x 11_33 breaks G-symmetry AND Lambda sectors 1,2,3 (premise ii load-bearing for the derivation route)",
+    "b_failed_drafts": "three drafts caught by their own gates: index-weighted delta (inert on support); (1,1)->(1,2) (empty support); (1,1)->(2,2) (cancelled — a DISCOVERY, kept as d1)"
+  },
+  "discoveries": {
+    "d1": "REFINEMENT: the operative intermediate condition is G-SYMMETRY; premise (ii) is one sufficient route (covers the native case); entry-proportionality is another (gated: 11_11 ~ 22_22 proportional, so G symmetric under ANY pairing; 11_11 !~ 11_33, which is why hostile b breaks there). No second mechanism — the derivation factors through G-symmetry in every observed case",
+    "d2": "the entries partition into proportionality classes of their nu-stripped coefficient vectors; WHY the EH vertex produces these particular proportionalities is RESIDUAL STRUCTURE, recorded as an open observation"
+  },
+  "necessity_sufficiency": {
+    "sufficient": "EXACT — (i)+(ii) => Lambda_N == 0 (gated derivation); covers the native contraction",
+    "necessary": "(i): load-bearing (hostile a). (ii): load-bearing for the derivation route (hostile b) but NOT necessary in general (discovery d1); search-verdict strength",
+    "premise_provenance": "(i) = two-derivative EH at flat level, gated on the artifact, produced by T1's in-repo derivation from the declared action — EXACTNESS of degree 2 also uses the declared Lambda = 3H^2 being O(H^2) (a generic cosmological constant would deposit derivative-free cubic monomials at flat level), and gauge-fixing/measure terms are absent BY DECLARED CONSTRUCTION (full unfixed h; classical action-level vertex); (ii) = standard dummy-index relabeling; neither GRUT-specific"
+  },
+  "per_config": {
+    "plus_z": {
+      "homogeneity": true,
+      "bridge": true,
+      "V_eq_graded_G": true,
+      "G_symmetric": true,
+      "lambda_zero_reproduced": true,
+      "orbit_cancellation": true
+    },
+    "cross_z": {
+      "homogeneity": true,
+      "bridge": true,
+      "V_eq_graded_G": true,
+      "G_symmetric": true,
+      "lambda_zero_reproduced": true,
+      "orbit_cancellation": true
+    },
+    "plus_x": {
+      "homogeneity": true,
+      "bridge": true,
+      "V_eq_graded_G": true,
+      "G_symmetric": true,
+      "lambda_zero_reproduced": true,
+      "orbit_cancellation": true
+    }
+  },
+  "verdict": "LADDER-DERIVED",
+  "not_claimed": [
+    "generality beyond the three frozen TT configurations and the frozen routing conventions (THEOREM-LOCAL heritage)",
+    "necessity of the premises beyond the tested directions",
+    "any GRUT-specific content"
+  ],
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked",
+  "adversarial": {
+    "workflow": "w698vxp9d (2 legs, 0 errors)",
+    "legA_algebra": "CONFIRMED — independent reconstruction from the RAW cache in a DIFFERENT representation (own nu-decomposition, own P^TT, stricter zero-test); all steps + hostile controls + the 5-class partition reproduce on all three configs. Circularity attack fails on commit archaeology: the D2 convention frozen at 65ccb1b (2026-09-01), two days BEFORE P1; the bridge is a discovered, falsifiable equivalence. Genericity control: random degree-2 entries + random symmetric pairing => Lambda == 0 identically (structural theorem, not coefficient coincidence). P1's swap relation verified as a corollary; omega-flip variant FALSE re-confirmed. Notes adopted: TT flat entries are q-FREE (q->-q leg of the bridge vacuous at this level; only ward carries q_i); the +/-q routing is upstream-cache-baked, covered by THEOREM-LOCAL scope.",
+    "legB_interpretation": "CONFIRMED — the section-13 question answered: EXPLAINED, not merely re-verified (premise independence; genuine logical consequences; counterfactual dependence gated in both directions; the anomaly absorbed and its remainder quarantined). Premise provenance sharpened (Lambda=3H^2 exactness nuance; gauge-fixing/measure absence structural by declared construction). Refinement does not weaken the derivation. Classification exact under section 13; notably conservative (THEOREM-EH-TT visibly close, still not claimed). GRUT scan clean. Seven wording corrections ALL adopted, incl. the omega-flip explains-item rescoped and STILL-UNFORCED reassigned to the d2 partition.",
+    "corrections_adopted": 9,
+    "verdict_unchanged": true,
+    "d2_cross_config": "5 proportionality classes on ALL three configs (cross_z includes singletons [12_33],[33_12]; plus_x pairs indices 2<->3) — transverse-index exchange in each configuration's own transverse plane (leg-B data, recorded)"
+  },
+  "still_unforced_now_attaches_to": "the d2 proportionality-class partition (a property of non-native contractions, outside the native forcing chain) — NOT the ladder identity within-frame"
+}
