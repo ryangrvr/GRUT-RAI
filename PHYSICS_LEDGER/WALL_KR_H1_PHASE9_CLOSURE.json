@@ -1,0 +1,49 @@
+{
+  "instrument": "wall_kr_h1_phase9_closure.py",
+  "date": "2026-09-04",
+  "base": "c90d684",
+  "kind": "H1 CAMPAIGN PHASE 9 — closure memorandum / final epistemic freeze",
+  "battery": "53/53 (12 governance + 34 record-content + 7 substantive symbolic)",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "campaign_status": "FROZEN — CLOSED FOR EPISTEMIC PURPOSES",
+  "channel_status": {
+    "S": "DERIVED (amplitude) + DECLARED INPUT (mixing)",
+    "W": "DERIVED (total) + CONVENTION (split)",
+    "L": "DERIVED (class-level)",
+    "R": "GATED FACT — CLOSED-AS-GATED; derivation = open item"
+  },
+  "levels": {
+    "I": "frozen construction: fully closed (3 derived + 1 gated channel)",
+    "II": "even-degree class, ladder leg only: fully closed (pure mathematics)",
+    "III": "EH: membership=>even-degree ESTABLISHED; 'every EH calc' NOT established",
+    "IV": "GRUT: NO GRUT-SPECIFIC CONSEQUENCE ESTABLISHED"
+  },
+  "binding_interpretation": "H1 cancellation is a consistency benchmark for any construction reproducing the declared standard ingredients; NOT a discriminator for GRUT; must not be cited as GRUT evidence absent an independently introduced and tested GRUT-specific difference",
+  "open_items": [
+    "R-channel deeper derivation",
+    "EH-generality bridge (4 items)",
+    "polarization-direction generality",
+    "d2 proportionality-class residual",
+    "ward configuration",
+    "per-sector vs aggregate vs q-dependent V",
+    "genuinely GRUT-specific observables (the forest question)"
+  ],
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — the freeze is a governance status in this record; nothing banked; register untouched",
+  "adversarial": {
+    "workflow": "wh7141k0v (retry; the first dispatch produced ZERO coverage — one leg hit usage credits, one a classifier flag — and the commit was HELD rather than proceeding ungated)",
+    "legA_logical_closure": "CONFIRMED — no mathematical error, no false claim; Levels I-IV separated, Level IV at correct search-verdict strength, R non-promotion 'airtight'. SEVERE INSTRUMENT FINDINGS, all adopted AT SOURCE: (1) the first draft's headline exhaustion gate and the W per-key re-anchor were BOTH NON-FALSIFIABLE (proved to pass on random junk entries and a wrong 7u dressing) — the 6th occurrence of the self-certification shape and the first undisclosed; demoted to notes and replaced by R u-freeness (all 4 configs), coefficient-2 pinning, assembly H-freeness; (2) the R mixed-polarization gap — the Domain clause assumed an extension gated nowhere; the leg supplied it and it is now run in-instrument; (3) dropped degree-support and search-verdict qualifiers; (4) plus_z-only scope label; (5) sec.3 provenance tension; (6) leg-verified span universal printed unqualified; plus three uncarried open-register residues (now items 8-10).",
+    "legB_scientific_interpretation": "CONFIRMED — independent six-status answer matches the memorandum. GRUT neutrality sound but for the 'not a failure of the framework' gloss (deleted) and open-item 7's presupposing 'where' (neutralized). THE BINDING RULE WAS JUDGED NOT STRONG ENOUGH: scope contradiction (it asserted what Level III denies) closed both directions; the 'unless' loophole deleted and covered forms widened to ANY downstream record; authority corrected to PROPOSED — AWAITING OWNER RATIFICATION. Freeze verified by execution to bank nothing (claims.json hash identical, 74 claims untouched). Freeze-label objection ('epistemic' vs one underived channel + ten open items) RECORDED, label retained as owner-specified.",
+    "corrections_adopted": 14,
+    "first_dispatch": "both legs errored; zero coverage; held",
+    "substantive_additions": [
+      "R u-freeness gate across all four cache configurations",
+      "coefficient-2 pinning re-anchor",
+      "assembly H-freeness gate",
+      "R mixed-polarization gate (Sigma_R(p,c)=Sigma_R(c,p)=0) — closes a gap no phase had gated"
+    ]
+  },
+  "binding_rule_status": "PROPOSED STANDING RULE — AWAITING OWNER RATIFICATION; binds this record's authors and the executing agent's default behavior only; added to the owner queue"
+}
