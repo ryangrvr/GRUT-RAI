@@ -1,0 +1,106 @@
+{
+  "instrument": "wall_kr_h1_phase4_mechanism.py",
+  "date": "2026-09-03",
+  "base": "dffe1ca",
+  "kind": "H1 CLOSURE PHASE 4 — mechanism synthesis / minimal sufficient condition",
+  "battery": "59/59 testable",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "factorization": {
+    "exact_identity": "M(alpha,beta;V) = alpha X_s + beta X_w + F_ladder(V), with F_ladder = sum_N Lambda_N(V) x (i pref q^{N-1} W^2); native: alpha=beta=0, Lambda_N == 0",
+    "three_depths": {
+      "F_state": "== 0 at the IDENTITY level (BD pair, before contraction)",
+      "F_weight": "== 0 PER KEY (pairwise vertex a^2 weight vs two-line conformal, -2+2)",
+      "F_ladder": "== 0 only PER SECTOR (collective; individual V_k D_k nonzero, witnessed)"
+    },
+    "cancellation_locations": "internal-to-ingredient: state (identity level); pairwise between ingredients: weight (vertex vs line); after routing aggregation: ladder",
+    "fourth_channel": "the u-free vertex-grading remainder R (Protection 1's structure) is OUTSIDE the mixed object's three slots and assembles to ZERO pre-angular with flat lines (GATED, all three configs) — the full-object H1 = three slots + this separately vanishing channel",
+    "single_product_CxL": "does NOT ORGANIZE as a global product in the natural form class (one propagator-free factor x one W^2-type kernel — with alpha on, M spans three phase classes); genuine product form lives inside the ladder leg only: Lambda_N x kernel"
+  },
+  "necessity_sufficiency": {
+    "sufficient": "EXACT: (i)+(ii)+(iii, either form) ==> M_H1 == 0, by the gated decomposition identity",
+    "necessary_state": "YES within frame (phase-class disjointness — no absorption)",
+    "necessary_weight": "YES within frame (u-degree separation from ladder shapes)",
+    "necessary_ladder": "PER SECTOR at native scope (gated q-freeness of V_k => q-degree separation); against q-DEPENDENT V deformations (cdecomp contract admits them) necessity binds in aggregate form only — CORRECTED per both adversarial legs from the draft's false 'V_k carries q' premise (an under-claim, fixed by strengthening)",
+    "independence": "witnessed by the three one-slot deformation directions; no condition implies another"
+  },
+  "controls_as_validation": {
+    "phase2_alpha": "switches on exactly the state slot (X_s != 0 re-derived; class-disjoint)",
+    "phase3_beta": "switches on exactly the weight slot (X_w = (u+u')Sigma0 != 0 re-derived)",
+    "Vk_perturbation": "moves exactly the ladder functionals",
+    "superposition": "M(alpha,beta) exact affine, NO cross term (gated all 36 keys, all configs)",
+    "mutual_compensation": "impossible (disjoint classes)"
+  },
+  "d3_status": "both exposed shapes <X_s>, <X_w> nonzero post-angular AND at d=3, exact — closes the Phase-2 addendum's symbolic-d-only gap",
+  "per_config": {
+    "plus_z": {
+      "decomposition_exact": true,
+      "ladder_closed_form": true,
+      "LambdaN_zero_per_sector": true,
+      "collective_witness": true,
+      "Vk_q_free": true,
+      "Sigma0_nonzero": true,
+      "Xs_nonzero": true,
+      "Xw_nonzero": true,
+      "class_disjoint_state": true,
+      "degree_separation": true,
+      "no_mutual_compensation": true,
+      "superposition_exact": true,
+      "postang_d3_Xw": true,
+      "postang_d3_Xs": true,
+      "fourth_channel_R_zero": true
+    },
+    "cross_z": {
+      "decomposition_exact": true,
+      "ladder_closed_form": true,
+      "LambdaN_zero_per_sector": true,
+      "collective_witness": true,
+      "Vk_q_free": true,
+      "Sigma0_nonzero": true,
+      "Xs_nonzero": true,
+      "Xw_nonzero": true,
+      "class_disjoint_state": true,
+      "degree_separation": true,
+      "no_mutual_compensation": true,
+      "superposition_exact": true,
+      "postang_d3_Xw": true,
+      "postang_d3_Xs": true,
+      "fourth_channel_R_zero": true
+    },
+    "plus_x": {
+      "decomposition_exact": true,
+      "ladder_closed_form": true,
+      "LambdaN_zero_per_sector": true,
+      "collective_witness": true,
+      "Vk_q_free": true,
+      "Sigma0_nonzero": true,
+      "Xs_nonzero": true,
+      "Xw_nonzero": true,
+      "class_disjoint_state": true,
+      "degree_separation": true,
+      "no_mutual_compensation": true,
+      "superposition_exact": true,
+      "postang_d3_Xw": true,
+      "postang_d3_Xs": true,
+      "fourth_channel_R_zero": true
+    }
+  },
+  "verdict": "MECHANISM-FACTORIZED",
+  "not_claimed": [
+    "'a^2 uniquely required' over any admissible theory space",
+    "GRUT content",
+    "per-sector ladder necessity against q-DEPENDENT V deformations (native q-free scope only)",
+    "any statement beyond the declared frozen frame"
+  ],
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked",
+  "adversarial": {
+    "workflow": "wc5upsm97 (2 legs, 0 errors)",
+    "legA_algebra": "CONFIRMED — reproduced everything ordered (line closed forms by hand; ladder form on all 81 combos; per-key decomposition; F_state from BD modes; Lambda_N==0 per sector all configs; class facts with own splitter; superposition; d=3/post-angular; alpha-shape from Bogoliubov-deformed pairs). Slots pinned by an invariant double grading (phase class x u-degree), representation-independent. Four findings ALL adopted: false 'V_k carries q' premise (native V_k are q-FREE — per-sector ladder necessity FOLLOWS at native scope, now GATED); hardcoded-True RES fields (FIXED AT SOURCE, rerun green); un-gated R-omission (fourth channel now GATED zero, all configs); T3-0 sub-namespace note (compensated by sha pins, disclosed).",
+    "legB_interpretation": "CONFIRMED — the stronger 'this exact structure is required (within frame)' reading is algebra-supported: within-frame biconditional carried by the decomposition identity + separations, not control-sampling; the unstated premise (V_k u,u'-free and phase-free) verified by the leg's own run. No stray uniqueness or GRUT claims. Five wording corrections ALL adopted: q-premise fix; RES binding at source; C-x-L softened with declared form class; inline frame qualifier; (iii)-either-form harmonization.",
+    "corrections_adopted": 9,
+    "verdict_unchanged": true,
+    "note": "the reconciliation was applied AT SOURCE and the full battery re-ran (52/52 -> 59/59 with the new gates); nothing was patched around"
+  }
+}
