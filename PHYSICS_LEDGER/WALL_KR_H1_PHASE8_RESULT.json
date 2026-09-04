@@ -1,0 +1,192 @@
+{
+  "instrument": "wall_kr_h1_phase8_synthesis.py",
+  "date": "2026-09-04",
+  "base": "d44bfd2",
+  "kind": "H1 CLOSURE PHASE 8 — synthesis / quantified theorem adjudication",
+  "battery": "29/29 testable",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "dependency_graph": {
+    "D1_EH_action_Lambda3H2": {
+      "class": "DECLARED INPUT",
+      "premises": [],
+      "provenance": "charter/T1 declaration"
+    },
+    "D2_dS_conformal_chart": {
+      "class": "DECLARED INPUT",
+      "premises": [],
+      "provenance": "T1/T2 declaration"
+    },
+    "D3_TT_canonical_normalization": {
+      "class": "DECLARED INPUT",
+      "premises": [],
+      "provenance": "T2 declaration (D2=2a unfixed h)"
+    },
+    "D4_BD_positive_frequency": {
+      "class": "DECLARED INPUT",
+      "premises": [],
+      "provenance": "T2 declaration (state prescription)"
+    },
+    "D5_routing_contraction_conventions": {
+      "class": "CONVENTION",
+      "premises": [],
+      "provenance": "T3 (D2 transform, P^TT pairing)"
+    },
+    "D6_derivative_rule": {
+      "class": "CONVENTION",
+      "premises": [],
+      "provenance": "T3 (nu -> -i d/du)"
+    },
+    "M1_canonical_FRW_Wronskian": {
+      "class": "STANDARD IDENTITY",
+      "premises": [],
+      "provenance": "P5 (unique integrating factor; pre-existing exact T2 gate)"
+    },
+    "M2_dummy_index_relabeling": {
+      "class": "STANDARD IDENTITY",
+      "premises": [],
+      "provenance": "mathematics"
+    },
+    "M3_momentum_reflection_parity": {
+      "class": "STANDARD IDENTITY",
+      "premises": [],
+      "provenance": "mathematics"
+    },
+    "T1_vertex_derived": {
+      "class": "DERIVED",
+      "premises": [
+        "D1_EH_action_Lambda3H2",
+        "D2_dS_conformal_chart",
+        "D3_TT_canonical_normalization"
+      ],
+      "provenance": "T1 instrument (graded Christoffel/Ricci; P5 leg-read)"
+    },
+    "T2_kernel_derived": {
+      "class": "DERIVED",
+      "premises": [
+        "D1_EH_action_Lambda3H2",
+        "D2_dS_conformal_chart",
+        "D3_TT_canonical_normalization",
+        "D4_BD_positive_frequency"
+      ],
+      "provenance": "T2 instrument (exact BD solution; a^2 W gated; P5 leg-read)"
+    },
+    "even_degree_membership": {
+      "class": "DERIVED",
+      "premises": [
+        "T1_vertex_derived"
+      ],
+      "provenance": "P7 tensor-level gate (7,560 terms exactly degree 2; needs Lambda=O(H^2) from D1)"
+    },
+    "bridge_D2_equals_nu_reflection": {
+      "class": "DERIVED",
+      "premises": [
+        "even_degree_membership",
+        "M3_momentum_reflection_parity",
+        "D5_routing_contraction_conventions"
+      ],
+      "provenance": "P6 per-entry gate + P7 q/u-freeness gates"
+    },
+    "S_amplitude_zero": {
+      "class": "DERIVED",
+      "premises": [
+        "M1_canonical_FRW_Wronskian",
+        "T2_kernel_derived"
+      ],
+      "provenance": "P5 gates (x-deformation violates a^2 W; native O(H)-flat)"
+    },
+    "S_mixing_excluded": {
+      "class": "DECLARED INPUT",
+      "premises": [
+        "D4_BD_positive_frequency"
+      ],
+      "provenance": "P5 (Bogoliubov preserves canonical Wronskian — only the declaration excludes it)"
+    },
+    "W_total_zero": {
+      "class": "DERIVED",
+      "premises": [
+        "T1_vertex_derived",
+        "T2_kernel_derived",
+        "D6_derivative_rule"
+      ],
+      "provenance": "P3/P5 (coefficient 2 and endpoint -1 re-gated from derived artifacts; sigma-invariant)"
+    },
+    "W_split_2v2": {
+      "class": "CONVENTION",
+      "premises": [
+        "D3_TT_canonical_normalization"
+      ],
+      "provenance": "P5 sigma-reweighting gate"
+    },
+    "L_ladder_zero": {
+      "class": "DERIVED",
+      "premises": [
+        "even_degree_membership",
+        "bridge_D2_equals_nu_reflection",
+        "M2_dummy_index_relabeling",
+        "D5_routing_contraction_conventions",
+        "D6_derivative_rule"
+      ],
+      "provenance": "P6 derivation + P7 class theorem"
+    },
+    "R_channel_zero": {
+      "class": "GATED FACT",
+      "premises": [
+        "T1_vertex_derived",
+        "T2_kernel_derived",
+        "D5_routing_contraction_conventions",
+        "D6_derivative_rule"
+      ],
+      "provenance": "P4 gate (Sigma_R == 0 pre-angular, all configs); mechanism characterized (2B.1 frequency-insertion antisymmetry); NOT derived from deeper principle — the one remaining underived vanishing"
+    },
+    "H1_zero_frozen": {
+      "class": "DERIVED",
+      "premises": [
+        "S_amplitude_zero",
+        "S_mixing_excluded",
+        "W_total_zero",
+        "L_ladder_zero",
+        "R_channel_zero"
+      ],
+      "provenance": "P4 exact decomposition + the four channels"
+    },
+    "Lambda_class_theorem": {
+      "class": "DERIVED",
+      "premises": [
+        "M2_dummy_index_relabeling",
+        "M3_momentum_reflection_parity"
+      ],
+      "provenance": "P7 abstract polynomial identity (no repo-specific input at all)"
+    }
+  },
+  "graph_facts": {
+    "acyclic": true,
+    "no_control_as_premise": true,
+    "leaves_all_input_or_standard": [
+      "D1_EH_action_Lambda3H2",
+      "D2_dS_conformal_chart",
+      "D3_TT_canonical_normalization",
+      "D4_BD_positive_frequency",
+      "D5_routing_contraction_conventions",
+      "D6_derivative_rule",
+      "M1_canonical_FRW_Wronskian",
+      "M2_dummy_index_relabeling",
+      "M3_momentum_reflection_parity"
+    ],
+    "class_theorem_ancestors": [
+      "M2_dummy_index_relabeling",
+      "M3_momentum_reflection_parity"
+    ]
+  },
+  "verdict": "H1-STRUCTURALLY-CLOSED-BUT-NOT-EH-GENERAL",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked",
+  "adversarial": {
+    "workflow": "w362uh77q (2 legs, 0 errors)",
+    "legA_formal_logic": "CONFIRMED — graph reconstructed independently (own iterative traversal); every edge classification checked against the P1-P7 records, nothing mislabeled DERIVED/DECLARED; no circularity (the M1 loop candidate closed; P6's commit archaeology cited); no quantifier promotion; controls witness-only; matrix correct; the four channels verified to EXHAUST the O(H) object. Findings adopted at source: D6 orphan node given its W/L edges; T2 edge added to R_channel_zero; graph_facts bound to computed outcomes (the recurring hardcoded-True shape); the diagram-topology boundary observation recorded in section E.",
+    "legB_interpretation": "CONFIRMED — 'what explained' matches the record point for point; classification table agrees everywhere with one upgrade adopted: Theorem II is a NEW STRUCTURAL CONSEQUENCE (premises purely the two standard identities — calling it merely standard would deflate the one genuinely new item). GRUT gate correctly scoped; overlooked-candidate scan clean (Lambda_R, mu, trace-anomaly alpha, memory kernel appear nowhere in the ancestry); the benchmark-selection motivation-vs-premise distinction recorded. Final classification audited as the right pick (any FULLY/EH-GENERAL variant overstates; any PARTIAL variant understates). Seven wording corrections ALL adopted, incl. the deflationary consequence stated explicitly and the self-certifying 'valid result' clause removed.",
+    "corrections_adopted": 11,
+    "verdict_unchanged": true
+  }
+}
