@@ -1,0 +1,38 @@
+{
+  "instrument": "wall_kr_h1_phase7_generality.py",
+  "date": "2026-09-03",
+  "base": "b10c4d9",
+  "kind": "H1 CLOSURE PHASE 7 — generality audit OF the EH-TT ladder derivation (theorem-boundary attack; the kind names the question, not an achieved property)",
+  "battery": "22/22 testable",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "generalizations": {
+    "tensor_level": "homogeneity gated on ALL 7,560 flat vertex terms in the full unrouted 4-momenta, BEFORE slotting/routing/projection — premise (i) descends to every external TT polarization and every routing (slotting is linear with momentum-free coefficients)",
+    "polarization": "FULL 2-parameter TT polarization space at the frozen probe direction z, via the symmetrized mixed Gram (Lambda^{pc}+Lambda^{cp} == 0 gated); probe-DIRECTION generality NOT claimed",
+    "abstract_theorem": "for GENERIC symbolic entries on the even-degree basis and a GENERIC symbolic symmetric pairing, Lambda_N == 0 is a POLYNOMIAL IDENTITY — the random genericity control is replaced by a formal class theorem",
+    "boundary": "the true premise is EVEN total momentum degree, not exactly-2 — GATED at degrees {0,2,4} (complete bases) with odd counterexamples at {1,3} (complete bases); higher even degrees follow from the parity identity (derivation, not separately gated). Degree-0 (cosmological-constant-type) contamination HARMLESS; the exact obstruction is the extra (-1) the odd part acquires under reflection",
+    "routing": "q-freeness of the flat TT entries gated: the +/-q routing cannot enter any derivation step; d/angular/momentum-conservation/CTP/on-shell/TT absent from the abstract theorem by construction"
+  },
+  "necessity_sufficiency": {
+    "even_homogeneity": "sufficient (identity); necessary at generic level (gated); universal necessity not claimed",
+    "symmetric_pairing": "sufficient; not necessary (P6 refinement, cited)",
+    "EH_specific_condition": "NONE — EH enters only as provenance of even-class membership"
+  },
+  "verdict": "TWO-DERIVATIVE-CLASS-GENERALIZED",
+  "not_claimed": [
+    "probe-direction generality (two directions probed; no cross_x in the frozen cache)",
+    "'every EH graviton calculation of this class necessarily has H1=0' (only the LADDER leg is generalized here; the S and W legs keep their own provenances)",
+    "universal necessity of even-homogeneity (generic only)",
+    "any GRUT-specific content"
+  ],
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — computed-and-reported, NOT banked",
+  "adversarial": {
+    "workflow": "wyczryawe (2 legs, 0 errors)",
+    "legA_generality": "CONFIRMED — descent arguments formally closed: trilinearity gated (26,032 terms, one e-factor per leg) making the slotting-linearity descent airtight; NENT=3 sufficiency PROVEN via pairwise-bracket extraction (carries to arbitrary entry count and ring-valued coefficients); concrete degree-0 injections into the real 11_11 entry harmless (order-demanded test); no-grading control breaks exactly odd sectors (parity mechanism operative); three-way D2 faithfulness identity gated; u,u'-freeness companion assumption found and gated; CC order counting verified three ways. No hidden d/TT/routing/momentum-conservation assumptions.",
+    "legB_wording": "CONFIRMED — every quantifier traced to its domain; four levels separated, no promotion; the verdict string deliberately conservative (under-claim); 'every EH calculation has H1=0' impossible reading (quoted-and-negated in md and machine-readable not_claimed). Seven corrections ALL adopted at source: degree-4 gated (complete basis); label-riding universals moved to a support-scoped note; 'representatives' scoped to premise (i); Lambda-symbol collision fixed; JSON kind retitled; degree-3 basis completed; the (a,b) bilinearity note upgraded to a direct gate.",
+    "corrections_adopted": 10,
+    "verdict_unchanged": true
+  }
+}
