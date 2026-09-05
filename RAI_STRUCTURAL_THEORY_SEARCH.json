@@ -1,0 +1,249 @@
+{
+  "artifact": "RAI_STRUCTURAL_THEORY_SEARCH",
+  "date": "2026-09-04",
+  "base_commit": "0db0bc5",
+  "kind": "AUDIT ONLY -- read-only, no physics executed, no A-F selection, nothing banked",
+  "W": "W-0 -- computed-and-reported, NOT banked",
+  "A_to_F_selected": "NONE",
+  "register_sha256_prefix_pre": "beaeb84e8a6f8468",
+  "register_sha256_prefix_post": "beaeb84e8a6f8468",
+  "register_nodes": 74,
+  "provenance": {
+    "primary": {
+      "run": "wf_03e3a277-2f1",
+      "agents": 36,
+      "blind_to_hostile": true
+    },
+    "hostile": {
+      "run": "wf_e88a43df-6f1",
+      "agents": 4,
+      "blindness": "STRUCTURAL -- dispatched in parallel before the primary finished; could not see the primary's answer"
+    },
+    "verification": {
+      "run": "wf_1ba00fb8-681",
+      "clusters": 5,
+      "level": "source-level, live literature fetch"
+    }
+  },
+  "outcome_class": "D-FOUNDATIONAL-GAP",
+  "agreement": {
+    "primary": "D-FOUNDATIONAL-GAP",
+    "hostile": "D-FOUNDATIONAL-GAP",
+    "agree": true,
+    "converged_also_on": [
+      "the missing principle (what fixes the split)",
+      "the build-next target (crossed-product + quantum reference frames)"
+    ]
+  },
+  "answer1_best_current_account": {
+    "statement": "Local unitary microcausal QFT as an EFT below a cutoff, gravity as the metric EFT (EH + Lambda, unique by Lovelock), plus added CONTENT (dark-matter field, dim-5 Weinberg operator, baryogenesis mechanism)",
+    "status": "SUPPORTED; NOT established as fundamental",
+    "precision_1": "the LITERAL theory is FALSE -- predicts m_nu=0, Omega_c=0, eta_B~0 against three measured quantities",
+    "precision_2": "the framework claim 'missing content not structure' is NOT truth-apt as posed; adding a right-handed neutrino dequantizes hypercharge, so 'mere content' dissolves a structural derivation",
+    "hostile_dissent": "declined to award the slot at all -- EFT is constitutively not a structural theory; naming it the winner is a category error. No factual disagreement.",
+    "depth_by_sector": {
+      "PREDICTION": [
+        "electroweak",
+        "QCD running",
+        "radiative gravity",
+        "QEC"
+      ],
+      "REPRODUCTION": [
+        "Lambda value",
+        "Omega_c",
+        "13 flavour parameters",
+        "alpha",
+        "G",
+        "six LambdaCDM numbers"
+      ],
+      "SILENCE": [
+        "initial condition",
+        "Born rule",
+        "definite outcomes",
+        "a_0 regularity"
+      ]
+    },
+    "clean_structure_level_failure": "electroweak transition is a CROSSOVER not first order at m_H=125.20 GeV; Sakharov departure-from-equilibrium ABSENT (Csikor-Fodor-Heitger hep-ph/9809291) [VERIFIED]"
+  },
+  "answer2_best_to_build_next": {
+    "primary_target": "algebraic / observer-relative programme: type III->II crossed product joined to quantum reference frames and quantum mereology",
+    "selected_independently_by_both": true,
+    "declared_ceiling": "EMPIRICALLY-INACCESSIBLE; depth = UNIFICATION not PREDICTION; occupies exactly the position GRUT was convicted of occupying",
+    "co_priority": "the empirical frontier -- the only place a structural theory can currently be shown WRONG",
+    "empirical_ranked": [
+      "macroscopic-coherence scaling",
+      "residual collapse-model parameter space",
+      "neutrinoless double beta decay (EFT's own parameter-free ordering test)",
+      "wide binaries under a PRE-REGISTERED protocol with Gaia DR4",
+      "DESI final-year w(z) with SN systematics marginalized",
+      "CMB-S4 to sigma(r)~0.003"
+    ],
+    "high_leverage_checks": [
+      "whether AS dimension-six SMEFT NORMALIZATION and OPERATOR CATEGORIZATION are independent of scanned gravitational couplings (NOT the ratios -- those are fixed rational numbers by U(N_W) symmetry)",
+      "open-EFT dissipative gravitational-birefringence signature vs GWTC polarization data",
+      "Lorentzian- and de Sitter-native construction across programmes",
+      "baryogenesis mechanism-space constrained by the verified crossover result"
+    ],
+    "deliberately_declined": "open-system / stochastic gravity -- closest neighbour to GRUT. 'Proximity to GRUT is not a reason, and would have been the tell.'"
+  },
+  "answer3_what_we_are_missing": {
+    "question": "Is the decomposition of a physical system into subsystems -- which algebra of observables is the physically relevant one -- FIXED by the dynamics and the state, or IRREDUCIBLY OBSERVER-RELATIVE?",
+    "recurs_in": [
+      "quantum foundations",
+      "gravity/vacuum entropy split",
+      "vacuum energy",
+      "holography",
+      "crossed products",
+      "quantum reference frames",
+      "causal sets",
+      "LQG",
+      "CDT",
+      "analogue gravity",
+      "stochastic gravity",
+      "GRUT"
+    ],
+    "warrant": "the split is an INPUT to computations that produce numbers, and different admissible splits give DIFFERENT numbers",
+    "conceded_limit": "resolving it would change which computed number is right to compare against measurement; it is NOT shown to change any measured number",
+    "cuts_against_grut": true,
+    "runners_up": [
+      "does vacuum energy gravitate (never measured)",
+      "the a_0 low-acceleration regularity"
+    ]
+  },
+  "candidates": [
+    {
+      "n": "GR + SM as EFT (null hypothesis)",
+      "attack": "SURVIVES-WOUNDED"
+    },
+    {
+      "n": "Asymptotic safety",
+      "attack": "SURVIVES-WOUNDED"
+    },
+    {
+      "n": "String/M-theory + gauge-gravity duality",
+      "attack": "SURVIVES-WOUNDED"
+    },
+    {
+      "n": "Loop quantum gravity / spin foams",
+      "attack": "SURVIVES-WOUNDED"
+    },
+    {
+      "n": "Causal set theory",
+      "attack": "SURVIVES-WOUNDED"
+    },
+    {
+      "n": "Causal dynamical triangulations",
+      "attack": "SURVIVES-WOUNDED"
+    },
+    {
+      "n": "Thermodynamic / entropic gravity",
+      "attack": "SURVIVES-WOUNDED"
+    },
+    {
+      "n": "Quantum information -> geometry",
+      "attack": "SURVIVES-WOUNDED"
+    },
+    {
+      "n": "AQFT / crossed-product type III->II",
+      "attack": "SURVIVES-WOUNDED"
+    },
+    {
+      "n": "Semiclassical stochastic gravity (Hu-Verdaguer)",
+      "attack": "SURVIVES-WOUNDED"
+    },
+    {
+      "n": "Relational / background-independent",
+      "attack": "SURVIVES-WOUNDED"
+    },
+    {
+      "n": "Analogue / emergent gravity",
+      "attack": "SURVIVES-WOUNDED"
+    },
+    {
+      "n": "GRUT as currently constructed",
+      "attack": "FAILS"
+    },
+    {
+      "n": "Modified GRUT",
+      "attack": "FAILS"
+    }
+  ],
+  "grut_disposition": {
+    "structural_credit": "NONE",
+    "refuted": false,
+    "status": "UNEVALUATED AT ITS OWN CLAIM POINT, not nulled there",
+    "hostile_self_correction": "overruled all three of its own routes for treating KERNEL-STANDARD as a settled null, using the scope caveat committed in 0db0bc5",
+    "fails_scoping": "FAILS = fails to constitute a distinctive physical theory; NOT 'the responsive-vacuum hypothesis is FALSE'. Underlying question stays UNRESOLVED and COMPUTATIONALLY-INACCESSIBLE.",
+    "struck_unverified_claim": "the '~40 orders of magnitude' memory-scale figure appears NOWHERE in this repository, was not verified, and is STRUCK from the record",
+    "repo_confirmed_instead": [
+      "docs/WHERE_IT_STOPS.md:225 'a class has no scale, and the framework asserts the class'",
+      "response_lorentz_covariance is tier=assumed, +1 -- covariance is a PRICED ASSUMPTION"
+    ],
+    "transferable_asset": "the METHOD, not the physics"
+  },
+  "the_settled_contradiction": {
+    "primary_said": "the crossed-product construction has ESCAPED the AdS crutch; same theorem, no per-case refitting",
+    "hostile_said": "every one of those results takes asymptotic boundary structure as an INPUT",
+    "verdict": "BOTH OVERSTATED. The construction HAS escaped AdS specifically; it has NEVER escaped inserted structure; and there is NO 'same theorem' -- the output algebra type is a FUNCTION of which structure is inserted.",
+    "anchor": "Kudler-Flam, Leutheusser, Satishchandran, Phys. Rev. D 111, 025013 (2025), arXiv:2309.15897: 'in all cases where there exists another boundary structure (e.g., an asymptotic boundary or another Killing horizon) the algebra of observables is Type II_infinity and in the absence of such structures (e.g., de Sitter) the algebra is Type II_1.'"
+  },
+  "verification_refutations": {
+    "against_primary": [
+      "null infinity STRUCK -- it is Type I_infinity at PAST null infinity; type II_infinity is on the HORIZON",
+      "lattice gauge theory and group field theory STRUCK -- unverifiable over-claims",
+      "'same theorem, no per-case refitting' REFUTED by the source's own closing sentence",
+      "'arbitrary diffeo-invariant gravity with Wald entropy' NARROWED to a STATIC black hole; Wald identification is in a follow-up",
+      "m_W: 80,369.2 +/- 13.3 MeV is the PDG WORLD AVERAGE, not CMS 2024 (80,360.2 +/- 9.9). SM prediction 80.353 is PDG 2024; PDG 2025 gives 80.356 +/- 0.006",
+      "Willow: 105 qubits is the processor; the distance-7 code is 101 qubits",
+      "Rauch et al.: 9.3 sigma / 7.4e-21 / 96% are PAIR 1 figures",
+      "Karolyhazy R_K bound MISATTRIBUTED -- it is Bortolotti et al. arXiv:2601.00651 / NJP, not Donadi et al. 2021, and bounds a DIFFERENT model",
+      "macroscopicity symbol is tau_m not tau_c and is NOT a coherence time; mu = 15.45 underlying, 15.5 headline",
+      "'trinity theorem' needs BOTH arXiv:1912.00033 and arXiv:2007.00580",
+      "'linear order' means first subleading in the SEMICLASSICAL parameter eta, not in G or hbar; corrections VANISH for clock-field product states"
+    ],
+    "against_hostile": [
+      "'every one takes asymptotic boundary as INPUT' REFUTED twice -- de Sitter counterexample from the same group (type II_1 in the ABSENCE of such structures); and arXiv:2306.07323 'independent of gravity' over 'arbitrary spacetime regions in arbitrary QFTs'",
+      "arXiv:2511.00622 MISREAD -- it RESOLVES the static-patch problem while keeping the crossed product and type II; its residual insertion is an OBSERVER, not a boundary",
+      "quotation drift -- 'from AdS/CFT' was a gloss presented inside quotation marks",
+      "its de Sitter requirement is a CONJUNCTION (static patch AND observer worldline); only half was named"
+    ],
+    "disputed_axis_settled": {
+      "subject": "asymptotic safety's Shaposhnikov-Wetterich m_H ~ 126 GeV prediction",
+      "verdict": "settled AGAINST it carrying confirmatory weight, by SW's own text",
+      "detail": "re-evaluating SW Eq. (12) at PDG-2024 inputs gives m_min = 128.7 GeV vs measured 125.20 +/- 0.11 -- a 3.5 GeV overshoot, ~1.6 sigma on SW's own theory error. SW's numbers are 'taken from' a pure-SM two-loop computation; the gravitational fixed point contributes a SIGN picking an endpoint of a pre-existing interval. A sign is not a number.",
+      "correction_in_own_disfavour": "the claim that AS dimension-six SMEFT RATIOS are coupling-conditional is itself an OVER-CLAIM -- the ratios are fixed rational numbers set by U(N_W) symmetry; the normalization and categorization are what is conditional",
+      "correlated_source_flag": "the 2026 Symmetry (MDPI) BRST paper was cited by two nominally independent routes; inherited by neither; that caution is endorsed"
+    },
+    "net_effect": "NOTHING undermines D-FOUNDATIONAL-GAP; two of five clusters report it HARDENS"
+  },
+  "why_D_not_C": "C says the evidence fails to select -- true but uninformative. D names WHY selection is blocked and what would unblock it, and is therefore falsifiable.",
+  "falsifiers_of_D": [
+    "a CDT-class boundary-free programme reaching matter coupling and a continuum limit",
+    "a derived covariant de Sitter observer algebra with no inserted worldline"
+  ],
+  "confidence": {
+    "no_structural_theory_currently_justified": "HIGH",
+    "D_over_C": "MEDIUM (~55-60%)",
+    "build_next_recommendation": "MEDIUM-HIGH (survives even if D is wrong)",
+    "internal_ranking_among_LQG_causal_sets_CDT_AS": "WITHHELD -- insufficient verification"
+  },
+  "epistemic_grading": {
+    "VERIFIED": "sections checked at source this campaign",
+    "LITERATURE": "agent-searched and cited, not independently re-checked here",
+    "SYNTHESIS": "inference -- the most attackable material; the identification of the three split-insertions as ONE gap is SYNTHESIS and is the first thing either adjudication would retract"
+  },
+  "declared_limitations": [
+    "hostile web-search budget exhausted at 200/200 calls mid-adjudication",
+    "July 2026 DESI release returned HTTP 403; routes anchor on March 2025 DR2, possibly ~18 months stale; no verdict depends on it",
+    "NOT verified and NOT leaned on: muon g-2 closure; Sorkin causal-set Lambda priority; Goroff-Sagnotti; Connes spectral-action Higgs episode"
+  ],
+  "governance_debt": [
+    "CHARTER vs register vs read-only audits: precedence UNRESOLVED, not chosen here",
+    "two disagreeing dependency orderings (machine depends_on vs published F2/F3/F1 prose)",
+    "register still carries unamended s=3 while CLASS_C_DISPATCH_SPEC.md:73 calls importing it laundering",
+    "stale parametric deferral: Tier-4 says c0=0 DEFERRED while D5 made it exact/structural",
+    "u3_split_origin was demoted 2026-09-03 on an argument whose engine ('placement is immaterial') was WITHDRAWN six minutes later in WALL_KR_U3_EFT_BASELINE.md:38, and the withdrawal was never propagated",
+    "ROOT-0 retired, preserved, uncommitted"
+  ],
+  "one_sentence": "No structural theory of reality is currently justified, and the blocker is specific and nameable: every structural result we possess -- Strominger-Vafa, Ryu-Takayanagi, the Page curve, the crossed-product generalized entropy -- was obtained only after someone supplied by hand the split between a region and its complement (an asymptotic boundary, a Killing horizon, or an observer worldline), our universe supplies none of these, and no candidate theory derives which split is the physical one."
+}
