@@ -1,0 +1,284 @@
+{
+  "report": "SECTOR_SELECTION_FIREWALL",
+  "phase": 3,
+  "scope": "algorithmic-organization study; NOT a causal-emergence test; does not modify the reducibility gate or any frozen artifact",
+  "generated_utc": "2026-09-06T18:18:21.181835+00:00",
+  "registered_constants": {
+    "N_basis_operators": 15,
+    "K_registered": 4,
+    "conditions": [
+      {
+        "seed": 1,
+        "lam": 0.02,
+        "tau": 3
+      },
+      {
+        "seed": 1,
+        "lam": 0.05,
+        "tau": 3
+      },
+      {
+        "seed": 1,
+        "lam": 0.1,
+        "tau": 3
+      },
+      {
+        "seed": 1,
+        "lam": 0.02,
+        "tau": 5
+      },
+      {
+        "seed": 1,
+        "lam": 0.05,
+        "tau": 5
+      },
+      {
+        "seed": 1,
+        "lam": 0.1,
+        "tau": 5
+      }
+    ]
+  },
+  "controls": {
+    "null_p": {
+      "threshold": 0.05,
+      "mode": "max"
+    },
+    "split_consistency": {
+      "threshold": 0.75,
+      "mode": "min"
+    },
+    "basis_agreement": {
+      "threshold": 0.75,
+      "mode": "min"
+    },
+    "k_agreement": {
+      "threshold": 0.75,
+      "mode": "min"
+    },
+    "lam_agreement": {
+      "threshold": 0.75,
+      "mode": "min"
+    },
+    "seed_agreement": {
+      "threshold": 0.75,
+      "mode": "min"
+    },
+    "held_out_accuracy": {
+      "threshold": 0.75,
+      "mode": "min"
+    }
+  },
+  "per_condition": [
+    {
+      "seed": 1,
+      "lam": 0.02,
+      "tau": 3,
+      "split_consistency": 1.0,
+      "null_p": 1.0,
+      "basis_agreement": 0.8095238095238095,
+      "k_agreement": 0.7714285714285715,
+      "k_values_used": [
+        3,
+        4,
+        5
+      ],
+      "lam_agreement": 0.8285714285714286,
+      "seed_agreement": 0.6571428571428571,
+      "held_out_accuracy": 0.34444444444444444
+    },
+    {
+      "seed": 1,
+      "lam": 0.05,
+      "tau": 3,
+      "split_consistency": 1.0,
+      "null_p": 1.0,
+      "basis_agreement": 0.8095238095238095,
+      "k_agreement": 0.7714285714285715,
+      "k_values_used": [
+        3,
+        4,
+        5
+      ],
+      "lam_agreement": 0.8285714285714286,
+      "seed_agreement": 0.6571428571428571,
+      "held_out_accuracy": 0.34444444444444444
+    },
+    {
+      "seed": 1,
+      "lam": 0.1,
+      "tau": 3,
+      "split_consistency": 1.0,
+      "null_p": 1.0,
+      "basis_agreement": 0.8095238095238095,
+      "k_agreement": 0.7714285714285715,
+      "k_values_used": [
+        3,
+        4,
+        5
+      ],
+      "lam_agreement": 0.8285714285714286,
+      "seed_agreement": 0.6571428571428571,
+      "held_out_accuracy": 0.34444444444444444
+    },
+    {
+      "seed": 1,
+      "lam": 0.02,
+      "tau": 5,
+      "split_consistency": 1.0,
+      "null_p": 1.0,
+      "basis_agreement": 0.6571428571428571,
+      "k_agreement": 0.7428571428571429,
+      "k_values_used": [
+        3,
+        4,
+        5
+      ],
+      "lam_agreement": 0.8666666666666667,
+      "seed_agreement": 0.6571428571428571,
+      "held_out_accuracy": 0.35555555555555557
+    },
+    {
+      "seed": 1,
+      "lam": 0.05,
+      "tau": 5,
+      "split_consistency": 1.0,
+      "null_p": 1.0,
+      "basis_agreement": 0.6571428571428571,
+      "k_agreement": 0.7428571428571429,
+      "k_values_used": [
+        3,
+        4,
+        5
+      ],
+      "lam_agreement": 0.8666666666666667,
+      "seed_agreement": 0.6571428571428571,
+      "held_out_accuracy": 0.35555555555555557
+    },
+    {
+      "seed": 1,
+      "lam": 0.1,
+      "tau": 5,
+      "split_consistency": 1.0,
+      "null_p": 1.0,
+      "basis_agreement": 0.6571428571428571,
+      "k_agreement": 0.7428571428571429,
+      "k_values_used": [
+        3,
+        4,
+        5
+      ],
+      "lam_agreement": 0.8666666666666667,
+      "seed_agreement": 0.6571428571428571,
+      "held_out_accuracy": 0.35555555555555557
+    }
+  ],
+  "aggregate": {
+    "status": "SECTOR_SELECTION_UNRESOLVED",
+    "summary": {
+      "null_p": {
+        "threshold": 0.05,
+        "worst_case": 1.0,
+        "per_condition": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "pass": false
+      },
+      "split_consistency": {
+        "threshold": 0.75,
+        "worst_case": 1.0,
+        "per_condition": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "pass": true
+      },
+      "basis_agreement": {
+        "threshold": 0.75,
+        "worst_case": 0.6571428571428571,
+        "per_condition": [
+          0.8095238095238095,
+          0.8095238095238095,
+          0.8095238095238095,
+          0.6571428571428571,
+          0.6571428571428571,
+          0.6571428571428571
+        ],
+        "pass": false
+      },
+      "k_agreement": {
+        "threshold": 0.75,
+        "worst_case": 0.7428571428571429,
+        "per_condition": [
+          0.7714285714285715,
+          0.7714285714285715,
+          0.7714285714285715,
+          0.7428571428571429,
+          0.7428571428571429,
+          0.7428571428571429
+        ],
+        "pass": false
+      },
+      "lam_agreement": {
+        "threshold": 0.75,
+        "worst_case": 0.8285714285714286,
+        "per_condition": [
+          0.8285714285714286,
+          0.8285714285714286,
+          0.8285714285714286,
+          0.8666666666666667,
+          0.8666666666666667,
+          0.8666666666666667
+        ],
+        "pass": true
+      },
+      "seed_agreement": {
+        "threshold": 0.75,
+        "worst_case": 0.6571428571428571,
+        "per_condition": [
+          0.6571428571428571,
+          0.6571428571428571,
+          0.6571428571428571,
+          0.6571428571428571,
+          0.6571428571428571,
+          0.6571428571428571
+        ],
+        "pass": false
+      },
+      "held_out_accuracy": {
+        "threshold": 0.75,
+        "worst_case": 0.34444444444444444,
+        "per_condition": [
+          0.34444444444444444,
+          0.34444444444444444,
+          0.34444444444444444,
+          0.35555555555555557,
+          0.35555555555555557,
+          0.35555555555555557
+        ],
+        "pass": false
+      }
+    },
+    "n_pass": 2,
+    "n_total": 7,
+    "failed_controls": [
+      "null_p",
+      "basis_agreement",
+      "k_agreement",
+      "seed_agreement",
+      "held_out_accuracy"
+    ]
+  },
+  "outcome": "SECTOR_SELECTION_UNRESOLVED",
+  "claim_firewall": "IRREDUCIBLE_EMERGENT_INFLUENCE = OUT_OF_SCOPE",
+  "interpretation_limit": "A favorable result means only that the frozen discovery procedure identified a reproducible pattern among candidate operator-response clusters that survived the registered split, seed, k, epsilon, basis, permutation, null, and held-out controls. It does NOT mean the model generated physical sectors, causal structure, observers, geometry, spacetime, or any new physical primitive."
+}
