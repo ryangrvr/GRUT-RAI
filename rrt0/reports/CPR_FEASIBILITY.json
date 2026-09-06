@@ -1,0 +1,78 @@
+{
+  "audit": "RRT0_CPR_FEASIBILITY",
+  "criterion": "delta=(l1+l4)-(l2+l3), rel=|delta|/(l4-l1); exists<=1e-10; absent>1e-6",
+  "seeds": [
+    {
+      "seed": 20260213,
+      "eigs": [
+        -1.574577853862652,
+        -0.5176843099097073,
+        0.9226055420879936,
+        2.581132070026228
+      ],
+      "delta": 0.6016329839852897,
+      "delta_rel": 0.14477261286376947,
+      "outcome": "NO_REFERENCE_LOCAL_STRUCTURE_FOR_FROZEN_MODEL_FAMILY"
+    },
+    {
+      "seed": 1,
+      "eigs": [
+        -1.4226843062670047,
+        -0.6789714805938477,
+        1.1595350880916584,
+        1.9456658889296623
+      ],
+      "delta": 0.04241797516484691,
+      "delta_rel": 0.012593101283036355,
+      "outcome": "NO_REFERENCE_LOCAL_STRUCTURE_FOR_FROZEN_MODEL_FAMILY"
+    },
+    {
+      "seed": 2,
+      "eigs": [
+        -1.6105861616666644,
+        0.3780592590572772,
+        0.8658088733520701,
+        1.9305473631581278
+      ],
+      "delta": -0.923906930917884,
+      "delta_rel": 0.2609071147532052,
+      "outcome": "NO_REFERENCE_LOCAL_STRUCTURE_FOR_FROZEN_MODEL_FAMILY"
+    },
+    {
+      "seed": 3,
+      "eigs": [
+        -1.2088264449181052,
+        -0.5228304603804,
+        0.792123102649513,
+        2.113548561426043
+      ],
+      "delta": 0.635429474238825,
+      "delta_rel": 0.19125760127181862,
+      "outcome": "NO_REFERENCE_LOCAL_STRUCTURE_FOR_FROZEN_MODEL_FAMILY"
+    },
+    {
+      "seed": 4,
+      "eigs": [
+        -1.4662112629839354,
+        -0.5039256873517279,
+        0.9851471571974943,
+        2.279784069898739
+      ],
+      "delta": 0.3323513370690372,
+      "delta_rel": 0.08872177019325894,
+      "outcome": "NO_REFERENCE_LOCAL_STRUCTURE_FOR_FROZEN_MODEL_FAMILY"
+    },
+    {
+      "seed": 5,
+      "eigs": [
+        -1.5374341181623898,
+        -0.8112810386221305,
+        0.053543298712513926,
+        0.7737672062059437
+      ],
+      "delta": -0.005929172046829523,
+      "delta_rel": 0.002565406996056479,
+      "outcome": "NO_REFERENCE_LOCAL_STRUCTURE_FOR_FROZEN_MODEL_FAMILY"
+    }
+  ]
+}
