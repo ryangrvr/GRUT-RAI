@@ -18,7 +18,7 @@ from pathlib import Path
 
 import numpy as np
 
-_ROOT = Path(__file__).resolve().parent.parent.parent
+_ROOT = Path(__file__).resolve().parent.parent  # rrt0/ package dir
 
 
 def load_frozen():
@@ -33,6 +33,23 @@ def load_frozen():
             f"GATE-A HARD STOP: ledger hash {h} != frozen {expected}. Simulation aborted."
         )
     return ledger, freeze
+
+
+def verify_freeze_ledger():
+    """Re-verify the frozen ledger hash against RRT0_FREEZE.json.
+
+    Returns True if the on-disk RRT0_INPUT_LEDGER.json still matches the
+    SHA-256 recorded in the freeze manifest; False otherwise.
+    """
+    ledger_path = _ROOT / "RRT0_INPUT_LEDGER.json"
+    freeze_path = _ROOT / "RRT0_FREEZE.json"
+    if not ledger_path.exists() or not freeze_path.exists():
+        return False
+    freeze = json.loads(freeze_path.read_text())
+    expected = freeze.get("artifacts", {}).get("RRT0_INPUT_LEDGER.json")
+    if expected is None:
+        return False
+    return hashlib.sha256(ledger_path.read_bytes()).hexdigest() == expected
 
 
 LEDGER, FREEZE = load_frozen()
@@ -143,14 +160,21 @@ def support_projector(op, tol=1e-10):
 SIGMAS = [support_projector(O) for O in BASIS]
 
 
-def internal_operation(rho, sigma, lam=LAM):
-    """E_alpha: model-internal re-weighting toward the sector support state,
-    followed by normal closed evolution in the caller.
-    SPEC NOTE (recorded in hostile review): the literal frozen formula
-    U^{tau_op}((1-lam)rho + lam sigma)U^{-tau_op} is the identity map
-    (conjugations cancel). The operational reading — perturb, then evolve —
-    is implemented here; the discrepancy is logged, not silently rescued."""
+def e_alpha(rho, sigma, lam=LAM):
+    """AUTHORITATIVE canonical intervention map (Phase-2 semantic decision,
+    Option 1 — see RRT0_E_ALPHA_SEMANTIC_DECISION.md):
+
+        E_alpha[rho] = (1 - lam) * rho + lam * sigma
+
+    Unit propagation is a SEPARATE subsequent operation
+    (rho -> U^{tau} E_alpha[rho] U^{-tau}); it is NOT part of this map.
+    This is the single implementation; no module may duplicate this formula."""
     return (1.0 - lam) * rho + lam * sigma
+
+def internal_operation(rho, sigma, lam=LAM):
+    """Legacy name — delegates to the authoritative e_alpha. Kept so prior
+    call sites/provenance remain runnable under canonical semantics."""
+    return e_alpha(rho, sigma, lam)
 
 
 # ------------------------------------------------------------------ observables

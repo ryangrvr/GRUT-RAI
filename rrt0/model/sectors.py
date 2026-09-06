@@ -35,7 +35,10 @@ def probe_influence_rows(U, lam_probe, tau, rng):
     for a in range(NB):
         row = np.zeros((NB,), dtype=float)
         for rho in [np.eye(D, dtype=complex) / D]:
-            rp = internal_operation(rho, BASIS[a] and _sig(a), lam_probe)
+            # REPAIR (Phase-2 semantic decision): was `BASIS[a] and _sig(a)`,
+            # a Python truthiness defect returning BASIS[a] itself. The
+            # spec-consistent intervention state is sigma_alpha = _sig(a).
+            rp = internal_operation(rho, _sig(a), lam_probe)
             rp = evolve_steps(rp, U, tau)
             rb = evolve_steps(rho, U, tau)
             for b in range(NB):

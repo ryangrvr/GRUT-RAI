@@ -1,0 +1,25 @@
+{
+  "instrument": "root0_foundation_audit.py",
+  "date": "2026-09-04",
+  "base": "8449984",
+  "kind": "ROOT-0 — microscopic foundation / response-origin audit (reconstruction only)",
+  "battery": "45/45",
+  "failures": [],
+  "register_sha256_pre": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_sha256_post": "beaeb84e8a6f84681e6625c1ee5f3b42d5c3f0a978a93256313e77ba65572402",
+  "register_mutated": false,
+  "verdict": "ROOT-FOUNDATION-B",
+  "verdict_criteria": {
+    "qft_layer_specified": true,
+    "sub_qft_ontology_exists": false,
+    "forcing_argument_non_circular": false
+  },
+  "what_exists": "a QFT-level specification microscopic RELATIVE TO the kernel — gravitons on a background, Einstein-Hilbert dynamics, declared Bunch-Davies state, TT probe, in-in/SK coarse-graining — sufficient to have executed Tier 1-4 and produced a kernel",
+  "what_does_not_exist": "any sub-QFT ontology; the responsive-medium/finite-memory premise (rung1) is tier=assumed, self-described as a STANCE explicitly not derived, priced +1, with nothing in the repository beneath it",
+  "the_computed_answer": "the frozen Tier-4 kernel carries UNCONDITIONALLY a branch point at omega=0 with a real-axis cut (gapless two-graviton continuum) — a CUT, not a pole",
+  "the_scope_gap": "Tier-4's conditional scope is omega >> H; the pre-registered memory question is about the LOW-frequency structure. The Class-C consequence cell is explicitly NOT banked with the node, and the dispatch solver refuses while prerequisites are undecided",
+  "first_missing_premise": "the low-frequency spectral content of the bath, rho(Omega) as omega -> 0 — supplied in-repo only by COMMITMENT to massless relativistic mode content (DOS~omega^2 => J~omega^3), with an undischarged 'no second internal dynamical scale' proviso, an ADMITTED CIRCULAR forcing argument, and a LIVE unresolved conflict against a horizon-forced white floor (s_eff -> 0) on the other side of the convergence boundary",
+  "not_filled": "per the order, this gap is REPORTED and NOT filled by this audit",
+  "A_to_F_selected": "NONE",
+  "W": "W-0 — reconstruction only; nothing banked; nothing computed"
+}
