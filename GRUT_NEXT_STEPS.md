@@ -24,9 +24,11 @@ KERNEL-STANDARD scope caveat is the standing template for how to say it.
 ## THE PREDICTION HUNT — the single most valuable target
 Not "find anything interesting." **Find one quantitative consequence that is nontrivial and
 not already encoded in the inputs.** The structural barriers (no scale from a class; no
-ratio from a cone) say any such consequence must come from *relations between sectors* that
-the common architecture enforces and separate formalisms would not — the cross-sector KMS
-lock is the natural place to look. Candidates on the record, in order of nearness: the
+ratio from a cone) make *relations between sectors* that the common architecture enforces
+and separate formalisms would not the promising direction — the cross-sector KMS lock is
+one such locus, not a forced one (owner correction 2026-09-06: nothing establishes it as
+the only place such a consequence could live). Candidates on the record, in order of
+nearness — each **a currently identified candidate**, not a guaranteed door: the
 Γ_T slot (GRUT's own induced tensor friction at ω ~ H₀ — **`calc/gw_tensor_friction.py`
 remains staged and unbuilt**, the one live door with a shared parameter and no GRUT entry);
 the USL shape signature (distinguishable-in-shape from DP/CSL — needs the magnitude regime
