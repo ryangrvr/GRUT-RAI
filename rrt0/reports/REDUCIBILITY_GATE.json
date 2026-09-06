@@ -1,0 +1,101 @@
+{
+  "document": "RRT0_REDUCIBILITY_AUDIT",
+  "generated_utc": "2026-09-06T13:12:57.760887+00:00",
+  "provenance_boundary": {
+    "spec_frozen_intact": true,
+    "frozen_parameters": {
+      "d": 4,
+      "lam": 0.05,
+      "lam_ladder": [
+        0.02,
+        0.05,
+        0.1
+      ],
+      "tau_op": 3,
+      "tau_influence": 5
+    }
+  },
+  "identity": "Delta_rho_raw(tau) = U^tau [E_alpha(rho) - rho] U^{-tau} = lam (U^tau sigma_alpha U^{-tau} - U^tau rho U^{-tau})",
+  "analytical_linearity_exact": true,
+  "test_matrix": {
+    "seeds": [
+      20260213,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "n_states_per_seed": "maximally mixed + 5 Haar pure + 1 random mixed = 7",
+    "alphas": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "lams": [
+      0.0,
+      0.02,
+      0.05,
+      0.1,
+      0.37,
+      1.0
+    ],
+    "taus": [
+      1,
+      3,
+      5,
+      17
+    ],
+    "n_cases": 15120
+  },
+  "tolerance": {
+    "declared_residual_tolerance_reducible": 1e-10,
+    "declared_residual_tolerance_unresolved": 1e-06
+  },
+  "residuals": {
+    "max_abs_fro": 2.707246205366915e-14,
+    "max_rel_fro": 2.844708167426074e-14,
+    "mean_abs_fro": 1.0056441322884454e-15,
+    "median_abs_fro": 1.2803245490248765e-16,
+    "p95_abs_fro": 5.2001116339271015e-15,
+    "max_route_disagreement_fro": 2.7116936589636603e-14
+  },
+  "routes": "A (integer repeated multiplication / exponentiation of the validated unitary U via np.linalg.matrix_power; inverse = U^dagger); B (spectral decomposition of the HERMITIAN generator H from the same seed: U^tau = V exp(-i H tau dt) V^dagger). np.linalg.eigh is applied ONLY to H, never to U. Superseded route (eigh on the non-Hermitian unitary U) has been removed from evidentiary status; see SUPERSEDED_AUDIT below.",
+  "structural_checks": {
+    "max_abs_trace_raw": 1.304512053934559e-14,
+    "max_abs_trace_supplied": 1.3322676295501878e-15,
+    "max_hermiticity_raw": 4.922459356137124e-16,
+    "max_hermiticity_supplied": 4.729040816504765e-16,
+    "verified_within_tolerance": true
+  },
+  "failures": [],
+  "SUPERSEDED_AUDIT": {
+    "artifact": "reports/REDUCIBILITY_GATE.FAILED-eigh_on_unitary-20260906T121724Z.json",
+    "script_backup": "reports/run_reducibility_gate.FAILED-eigh_on_unitary.py.bak",
+    "status": "SUPERSEDED_FAILED_AUDIT_INVALID_PROPAGATOR_CONSTRUCTION",
+    "root_cause": "The previous gate constructed the 'independent' propagator as V diag(w^t) V^dagger with w, v = np.linalg.eigh(U), where U is a generic unitary (NOT Hermitian). np.linalg.eigh is a Hermitian-only eigensolver, so the reconstructed propagator was mathematically invalid. The reported residuals (max_abs 597.48, max_rel 283.98, mean_abs 11.60) reflect this invalid construction and carry NO scientific evidence about the reducibility identity.",
+    "evidentiary_status": "NONE \u2014 superseded by this corrected audit",
+    "tolerance_or_semantics_changed": false
+  },
+  "verdict": "FULLY_REDUCIBLE_IN_LINEAR_UNITARY_MODEL_CLASS",
+  "status": "PASS",
+  "environment": {
+    "python": "3.12.13",
+    "platform": "macOS-12.7.6-x86_64-i386-64bit",
+    "numpy": "2.4.6",
+    "interpreter": "/usr/local/opt/python@3.12/bin/python3.12"
+  },
+  "phi_raw_note": "Phi_raw was NOT altered; Delta_raw, Delta_supplied and Delta_residual are reported separately throughout."
+}

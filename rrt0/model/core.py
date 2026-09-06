@@ -107,6 +107,7 @@ def initial_ensemble(rng, n_pure=5):
     rhos = [np.eye(D, dtype=complex) / D]
     for _ in range(n_pure):
         v = (rng.standard_normal(D) + 1j * rng.standard_normal(D)) / np.sqrt(2)
+        v = v / np.linalg.norm(v)  # BUGFIX: normalize so tr(rho)=1 (pure state)
         rhos.append(np.outer(v, v.conj()))
     return rhos
 
@@ -148,6 +149,10 @@ def evolve_steps(rho, U, n):
 def support_projector(op, tol=1e-10):
     """Normalized projector onto the support subspace of a Hermitian operator.
     Built ONLY from the model's own operators (model-native, no external lab)."""
+    assert np.linalg.norm(op - op.conj().T) < 1e-10, (
+        "support_projector requires a Hermitian operator "
+        "(np.linalg.eigh on non-Hermitian input silently returns garbage)"
+    )
     w, v = np.linalg.eigh(op)
     keep = np.abs(w) > tol
     if not keep.any():

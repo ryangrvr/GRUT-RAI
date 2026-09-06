@@ -60,19 +60,17 @@ def discover_sectors(U, rng):
 
 
 def commutant_sectors(U):
-    """SECONDARY S2 (frozen): spectral projectors of H inside U's generator."""
-    w, v = np.linalg.eigh(U)
-    # group eigenvalues by approximate equality (degenerate blocks = commutant)
-    groups, cur = [], [0]
-    for i in range(1, len(w)):
-        if abs(w[i] - w[i - 1]) < 1e-8:
-            cur.append(i)
-        else:
-            groups.append(cur); cur = [i]
-    groups.append(cur)
-    ops = []
-    for g in groups:
-        if 1 < len(g) < D:
-            P = v[:, g] @ v[:, g].conj().T
-            ops.append(P / np.trace(P).real)
-    return ops
+    """SECONDARY S2 (frozen): spectral projectors of H inside U's generator.
+
+    FORBIDDEN ROUTE (superseded): this function previously diagonalized the
+    unitary U directly with np.linalg.eigh(U). U is unitary, NOT Hermitian,
+    so eigh silently returned garbage (the root cause of the superseded
+    failed audit reports/REDUCIBILITY_GATE.FAILED-eigh_on_unitary-*.json).
+    Any future implementation MUST decompose the Hermitian generator H, e.g.
+    w, v = np.linalg.eigh(H); H is available from the same seed via
+    model.core.gue_hamiltonian. This stub is retained as provenance and to
+    make the invalid route impossible to call accidentally."""
+    raise NotImplementedError(
+        "commutant_sectors: the eigh(U) route is invalid (U is unitary, "
+        "not Hermitian); rebuild this on the Hermitian generator H only."
+    )

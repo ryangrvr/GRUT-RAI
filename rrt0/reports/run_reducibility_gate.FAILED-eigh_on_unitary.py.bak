@@ -1,0 +1,182 @@
+"""RRT-0 PRE-RESULTS GATE: analytical reducibility of Delta_rho_raw.
+
+Identity under test (closed unitary model class, canonical E_alpha):
+    E_alpha(rho) = (1-lam) rho + lam sigma_alpha
+    Delta_rho_raw(tau) = U^tau [E_alpha(rho) - rho] U^{-tau}
+
+Because conjugation is linear:
+    U^tau [lam(sigma - rho)] U^{-tau} = lam ( U^tau sigma U^{-tau} - U^tau rho U^{-tau} )
+i.e. Delta_rho_raw must be EXACTLY reducible to the supplied quantities:
+intervention strength lam, supplied propagator U^tau, supplied initial state rho,
+supplied readout. This script verifies that identity numerically to float64
+precision across seeds / states / alphas / lam / tau, using an INDEPENDENT
+construction of the supplied term (independent propagators, independently
+propagated states, no reuse of the raw-difference intermediates).
+
+Read-only w.r.t. the frozen specification. No scientific battery is run,
+no simulation results are generated. Verdict derived only from the
+predeclared tolerance ladder in model/reducibility.py.
+"""
+import hashlib
+import json
+import platform
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+import numpy as np
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT.parent))
+
+from rrt0.model.core import (  # noqa: E402
+    D, LAM, LAM_LADDER, TAU_OP, TAU_INF, SEED_PRIMARY, SEEDS_ROBUST,
+    haar_unitary, gue_hamiltonian, step_unitary, initial_ensemble,
+    support_projector, BASIS, gell_mann_basis, e_alpha, verify_freeze_ledger,
+)
+from rrt0.model import reducibility as R  # noqa: E402
+
+RNG = np.random.default_rng(SEED_PRIMARY)
+ALPHAS = list(range(len(BASIS)))
+TAUS = sorted({1, TAU_OP, TAU_INF, 17})
+LAMS = sorted(set([LAM] + LAM_LADDER + [0.0, 1.0, 0.37]))
+TOL = R.RESIDUAL_TOLERANCE_REDUCIBLE
+
+results = []
+max_abs, max_rel = 0.0, 0.0
+sum_abs, n = 0.0, 0
+failures = []
+
+def rel(a, b):
+    return np.linalg.norm(a - b) / (np.linalg.norm(a) + R.EPS)
+
+for seed in [SEED_PRIMARY] + SEEDS_ROBUST:
+    rng = np.random.default_rng(seed)
+    H = gue_hamiltonian(rng)
+    U = step_unitary(H)
+    # independent propagator construction for the SUPPLIED route:
+    # tau-step product built from an INDEPENDENT single-step generator
+    # (spectral decomposition of U), NOT from matrix_power(U, tau).
+    w, v = np.linalg.eigh(U)
+
+    def build_prop(t):
+        # eigenvalues w of U are unit-modulus phases; U^t = V diag(w^t) V^H
+        return (v * (w ** t)) @ v.conj().T
+
+    def build_prop_inv(t):
+        return (v * (w ** (-t))) @ v.conj().T
+
+    rhos = initial_ensemble(rng)
+    # additional mixed state: random convex combination
+    a, b = rng.random(2); a, b = a / (a + b), b / (a + b)
+    rhos.append(a * rhos[0] + b * rhos[1])
+
+    sigmas = {al: support_projector(BASIS[al]) for al in ALPHAS}
+
+    for si, rho0 in enumerate(rhos):
+        for al in ALPHAS:
+            sigma = sigmas[al]
+            for lam in LAMS:
+                for tau in TAUS:
+                    # ---- RAW route: canonical map, then conjugate the difference
+                    Ut_raw = np.linalg.matrix_power(U, tau)
+                    d_raw = Ut_raw @ (e_alpha(rho0, sigma, lam) - rho0) @ Ut_raw.conj().T
+
+                    # ---- SUPPLIED route (independent construction)
+                    # term1: lam * (U^tau sigma U^{-tau}); term2: -lam * (U^tau rho U^{-tau})
+                    Ut_supplied = build_prop(tau)
+                    Ut_inv_supplied = build_prop_inv(tau)
+                    prop_sig = Ut_supplied @ sigma @ Ut_inv_supplied
+                    prop_rho0 = Ut_supplied @ rho0 @ Ut_inv_supplied
+                    d_supplied = lam * (prop_sig - prop_rho0)
+                    # cross-check term-by-term against matrix_power propagator
+                    d_supplied_b = lam * ((Ut_raw @ sigma @ Ut_raw.conj().T)
+                                          - (Ut_raw @ rho0 @ Ut_raw.conj().T))
+
+                    resid = d_raw - d_supplied
+                    r_abs = float(np.linalg.norm(resid, ord="fro"))
+                    r_rel = float(rel(d_raw, d_supplied))
+                    r_abs_b = float(np.linalg.norm(d_supplied - d_supplied_b, ord="fro"))
+
+                    # ---- structural checks
+                    tr_raw = float(np.real(np.trace(d_raw)))
+                    tr_sup = float(np.real(np.trace(d_supplied)))
+                    herm_raw = float(np.linalg.norm(d_raw - d_raw.conj().T, ord="fro"))
+                    herm_sup = float(np.linalg.norm(d_supplied - d_supplied.conj().T, ord="fro"))
+
+                    max_abs = max(max_abs, r_abs)
+                    max_rel = max(max_rel, r_rel)
+                    sum_abs += r_abs; n += 1
+                    ok = (r_abs <= TOL and r_rel <= TOL and r_abs_b <= TOL
+                          and abs(tr_raw) <= TOL and abs(tr_sup) <= TOL
+                          and herm_raw <= TOL and herm_sup <= TOL)
+                    if not ok:
+                        failures.append(dict(seed=seed, state=si, alpha=al, lam=lam,
+                                             tau=tau, abs=r_abs, rel=r_rel))
+                    results.append(dict(seed=seed, state=si, alpha=al, lam=lam, tau=tau,
+                                        abs_residual=r_abs, rel_residual=r_rel,
+                                        supplied_variants_abs=r_abs_b,
+                                        trace_raw=tr_raw, trace_supplied=tr_sup,
+                                        hermiticity_raw=herm_raw, hermiticity_supplied=herm_sup))
+
+typ = sum_abs / n
+verdict = R.verdict_from_residual(max_rel)
+status = "PASS" if verdict == "FULLY_REDUCIBLE_IN_LINEAR_UNITARY_MODEL_CLASS" else "FAIL"
+
+# ---- analytical identity verification (symbolic linearity check, exact)
+x = np.array([[1, 2], [3, 4]], dtype=complex)
+y = np.array([[1j, 0], [2, -1j]], dtype=complex)
+c1, c2 = 0.7 + 0.2j, -1.3 + 0.5j
+V = np.array([[0, 1j], [1, 0]], dtype=complex)
+lhs = V @ (c1 * x + c2 * y) @ V.conj().T
+rhs = c1 * (V @ x @ V.conj().T) + c2 * (V @ y @ V.conj().T)
+analytical_ok = bool(np.allclose(lhs, rhs, atol=0, rtol=0) or np.array_equal(lhs, rhs))
+
+report = {
+    "document": "RRT0_REDUCIBILITY_AUDIT",
+    "generated_utc": datetime.now(timezone.utc).isoformat(),
+    "provenance_boundary": {
+        "spec_frozen_intact": verify_freeze_ledger(),
+        "frozen_parameters": dict(d=D, lam=LAM, lam_ladder=LAM_LADDER,
+                                  tau_op=TAU_OP, tau_influence=TAU_INF),
+    },
+    "identity": "Delta_rho_raw(tau) = U^tau [E_alpha(rho) - rho] U^{-tau} = lam (U^tau sigma_alpha U^{-tau} - U^tau rho U^{-tau})",
+    "analytical_linearity_exact": analytical_ok,
+    "test_matrix": {
+        "seeds": [SEED_PRIMARY] + SEEDS_ROBUST,
+        "n_states_per_seed": "maximally mixed + 5 Haar pure + 1 random mixed = 7",
+        "alphas": ALPHAS,
+        "lams": LAMS,
+        "taus": TAUS,
+        "n_cases": n,
+    },
+    "tolerance": {"declared_residual_tolerance_reducible": TOL,
+                  "declared_residual_tolerance_unresolved": R.RESIDUAL_TOLERANCE_UNRESOLVED},
+    "residuals": {"max_abs_fro": max_abs, "max_rel_fro": max_rel,
+                  "mean_abs_fro": typ},
+    "routes": "A (direct difference propagation), B (independent state propagation + subtraction, spectral propagator), supplied cross-variant (matrix_power propagator)",
+    "structural_checks": "trace, Hermiticity verified per case within tolerance",
+    "failures": failures,
+    "verdict": verdict,
+    "status": status,
+    "environment": {
+        "python": sys.version.split()[0], "platform": platform.platform(),
+        "numpy": np.__version__,
+        "interpreter": sys.executable,
+    },
+    "phi_raw_note": ("Phi_raw was NOT altered; Delta_raw, Delta_supplied and "
+                     "Delta_residual are reported separately throughout."),
+}
+
+out = ROOT / "reports"
+out.mkdir(exist_ok=True)
+(out / "REDUCIBILITY_GATE.json").write_text(json.dumps(report, indent=2))
+print(json.dumps({k: report[k] for k in
+                  ["generated_utc", "analytical_linearity_exact", "residuals",
+                   "n_cases" if False else "verdict", "status"]}, indent=2))
+print(json.dumps(report["test_matrix"], indent=2))
+print("max supplied-variant discrepancy:", max(r["supplied_variants_abs"] for r in results))
+print("max trace |.|:", max(max(abs(r["trace_raw"]), abs(r["trace_supplied"])) for r in results))
+print("max hermiticity norm:", max(max(r["hermiticity_raw"], r["hermiticity_supplied"]) for r in results))
+print("failures:", len(failures))
+print("freeze intact:", report["provenance_boundary"]["spec_frozen_intact"])
