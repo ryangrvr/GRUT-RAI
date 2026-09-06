@@ -1,0 +1,12 @@
+{
+  "frozen_at": "2026-02-13",
+  "branch": "rrt-0-hostile-test",
+  "artifacts": {
+    "RRT0_SPEC.md": "cbbc381a50cef8c57e3fb5981162ffa4bdca91435ed2c808bd43fb650bd6d2e7",
+    "RRT0_INPUT_LEDGER.json": "362c15464a1fe06ed648c6dfd8cfca7c2cfba7d1632ebbdde6472b97e9bbc467",
+    "RRT0_CLAIM_BOUNDARIES.md": "1f49ae982ed424612d94fb220239377c3ad9c3fb83ecbc8af048cfc47feecf9e",
+    "RRT0_TEST_MATRIX.md": "d50292f4e56cfa60017d9059a301854e4af1800582524db9bb7a5de3c03f7f37",
+    "RRT0_CONTROL_MATRIX.md": "ad3365b1ef71a2f83f390189c550349cd80826a93d20dd7a4ae634c19d30c825",
+    "RRT0_RECONSTRUCTION_SPEC.md": "9f02e47c70988e5932bc924ef426e59bc61cf5414b2d4b65bba9689d355f7c96"
+  }
+}

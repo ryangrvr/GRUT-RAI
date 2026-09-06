@@ -1,0 +1,20 @@
+{
+  "state_space": "density matrices on C^4 (d=4)",
+  "relation_structure": "H0 equivalence under E_int response profile equality",
+  "composition_rule": "star: sequential application of internal operations; associativity TESTED not imposed",
+  "dynamics": "closed unitary rho_{t+1}=U rho U^dagger, U=exp(-i H dt), H=GUE(4) per seed",
+  "parameters": {"d": 4, "N_sectors": 4, "dt": 0.1, "T_obs": 200, "sample_every": 2, "lam": 0.05, "lam_ladder": [0.02, 0.05, 0.1], "tau_op": 3, "tau_influence": 5, "epsilon": 0.01, "epsilon_ladder": [0.005, 0.01, 0.02, 0.05]},
+  "symmetries": "global unitary conjugation; tested via relabeling/permutation invariance of diagnostics",
+  "operation_family": "internal depolarize-onto-sector-support then re-evolve tau_op steps",
+  "sector_selection": {"primary": "kmeans k=N on influence rows (S1)", "secondary_frozen": "commutant-of-H spectral projectors (S2)", "frozen_before_results": true},
+  "coarse_graining": "restriction of observables to sector support projectors; two variants pre-registered",
+  "threshold": 0.01,
+  "observation_window": [0, 200],
+  "numerical_precision": "float64 numpy; eigendecomposition exact for d=4",
+  "random_seeds": {"primary": 20260213, "robustness_set": [1, 2, 3, 4, 5]},
+  "initialization_distribution": "maximally mixed + 5 Haar random pure states",
+  "reconstruction_maps": ["d1_corr_based", "d2_influence_sum", "d3_row_euclidean"],
+  "controls": ["permuted_coupling", "state_ensemble", "dynamics_perturb", "coarse_graining", "reconstruction", "conjugation", "null_random", "planted_positive", "isospectral_rewire", "conjugate_dynamics"],
+  "stopping_criteria": "T_obs reached; no early stopping",
+  "software_environment": "python3 + numpy + scipy (versions recorded at run time into reports/ENV.json)"
+}
