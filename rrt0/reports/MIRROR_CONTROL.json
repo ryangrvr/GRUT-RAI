@@ -1,0 +1,146 @@
+{
+  "conditions": [
+    {
+      "condition": {
+        "seed": 1,
+        "lam": 0.02,
+        "tau": 3
+      },
+      "Q1_max_abs_dX": 0.0,
+      "Q2_abs_diffs": {
+        "null_p": 0.0,
+        "split_consistency": 0.0,
+        "basis_agreement": 0.0,
+        "k_agreement": 0.0,
+        "lam_agreement": 0.0,
+        "seed_agreement": 0.0,
+        "held_out_accuracy": 0.0
+      },
+      "Q3_same_invariant_pair_agreement": 1.0,
+      "Q3_same_labeling_best_perm": 1.0
+    },
+    {
+      "condition": {
+        "seed": 1,
+        "lam": 0.05,
+        "tau": 3
+      },
+      "Q1_max_abs_dX": 0.0,
+      "Q2_abs_diffs": {
+        "null_p": 0.0,
+        "split_consistency": 0.0,
+        "basis_agreement": 0.0,
+        "k_agreement": 0.0,
+        "lam_agreement": 0.0,
+        "seed_agreement": 0.0,
+        "held_out_accuracy": 0.0
+      },
+      "Q3_same_invariant_pair_agreement": 1.0,
+      "Q3_same_labeling_best_perm": 1.0
+    },
+    {
+      "condition": {
+        "seed": 1,
+        "lam": 0.1,
+        "tau": 3
+      },
+      "Q1_max_abs_dX": 0.0,
+      "Q2_abs_diffs": {
+        "null_p": 0.0,
+        "split_consistency": 0.0,
+        "basis_agreement": 0.0,
+        "k_agreement": 0.0,
+        "lam_agreement": 0.0,
+        "seed_agreement": 0.0,
+        "held_out_accuracy": 0.0
+      },
+      "Q3_same_invariant_pair_agreement": 1.0,
+      "Q3_same_labeling_best_perm": 1.0
+    },
+    {
+      "condition": {
+        "seed": 1,
+        "lam": 0.02,
+        "tau": 5
+      },
+      "Q1_max_abs_dX": 0.0,
+      "Q2_abs_diffs": {
+        "null_p": 0.0,
+        "split_consistency": 0.0,
+        "basis_agreement": 0.0,
+        "k_agreement": 0.0,
+        "lam_agreement": 0.0,
+        "seed_agreement": 0.0,
+        "held_out_accuracy": 0.0
+      },
+      "Q3_same_invariant_pair_agreement": 1.0,
+      "Q3_same_labeling_best_perm": 1.0
+    },
+    {
+      "condition": {
+        "seed": 1,
+        "lam": 0.05,
+        "tau": 5
+      },
+      "Q1_max_abs_dX": 0.0,
+      "Q2_abs_diffs": {
+        "null_p": 0.0,
+        "split_consistency": 0.0,
+        "basis_agreement": 0.0,
+        "k_agreement": 0.0,
+        "lam_agreement": 0.0,
+        "seed_agreement": 0.0,
+        "held_out_accuracy": 0.0
+      },
+      "Q3_same_invariant_pair_agreement": 1.0,
+      "Q3_same_labeling_best_perm": 1.0
+    },
+    {
+      "condition": {
+        "seed": 1,
+        "lam": 0.1,
+        "tau": 5
+      },
+      "Q1_max_abs_dX": 0.0,
+      "Q2_abs_diffs": {
+        "null_p": 0.0,
+        "split_consistency": 0.0,
+        "basis_agreement": 0.0,
+        "k_agreement": 0.0,
+        "lam_agreement": 0.0,
+        "seed_agreement": 0.0,
+        "held_out_accuracy": 0.0
+      },
+      "Q3_same_invariant_pair_agreement": 1.0,
+      "Q3_same_labeling_best_perm": 1.0
+    }
+  ],
+  "aggregate_identical": true,
+  "verdict": "PASS",
+  "aggregate_original": {
+    "status": "SECTOR_SELECTION_UNRESOLVED",
+    "n_pass": 2,
+    "failed_controls": [
+      "null_p",
+      "basis_agreement",
+      "k_agreement",
+      "seed_agreement",
+      "held_out_accuracy"
+    ]
+  },
+  "aggregate_mirror": {
+    "status": "SECTOR_SELECTION_UNRESOLVED",
+    "n_pass": 2,
+    "failed_controls": [
+      "null_p",
+      "basis_agreement",
+      "k_agreement",
+      "seed_agreement",
+      "held_out_accuracy"
+    ]
+  },
+  "stage1_max_abs_dX_over_all_conditions": 0.0,
+  "failures": [],
+  "original_pass_reproduces_committed_status": null,
+  "original_status_this_run": "SECTOR_SELECTION_UNRESOLVED"
+}
