@@ -36,10 +36,30 @@ The H² sector carries the partner Λ′ := μ·exp(c2p/2A′), and the two are 
 **— i.e. the "μ-invariant combination" is the log of the ratio of two independently generated
 scales.** *(Constructed here; not banked. W-0.)*
 
-**And 104/9 is not inert.** With both slots running affinely, the dimensionless ratio
-y := c2p/c₄ flows to **104/9 = A′/A** from any initial condition (verified: y = 5.97 → 8.48 →
-9.43 → 9.93 → 10.24 → … → 11.5556). **104/9 is the attractor of that flow**, not merely a
-datum about it.
+**And 104/9 is not inert — but it is NOT a fixed point either.** *(Corrected 2026-09-08;
+the first draft's "attractor" language is withdrawn — numerical approach was allowed to stand
+in for proof. The exact flow, derived analytically:)*
+
+With c₄(t) = c₄₀ − 2At and c2p(t) = c2p₀ − 2A′t (t = log μ), the ratio y := c2p/c₄ obeys
+
+    β_y = dy/dt = 2A·(y − y*)/c₄(t) ,   y* = A′/A = 104/9
+
+**and its exact solution is  y(t) − y* = (c2p₀A − c₄₀A′)/(A·c₄(t)),** i.e. the deviation decays
+as **1/c₄ ∼ 1/t — a power law, not exponentially.** Three consequences, each disqualifying the
+"fixed point" reading:
+
+1. **y has no autonomous beta function.** β_y depends on c₄ as well as y; the system is
+   genuinely two-dimensional in (c₄, c2p).
+2. **No fixed point exists anywhere.** In the plane the flow is
+   d(c₄, c2p)/dt = (−2A, −2A′) — a **constant, non-vanishing vector field**, which has **no
+   zeros at all.**
+3. **y* is the *direction* of that translation vector, not an equilibrium.** y → y* is
+   L'Hôpital: the ratio of two affine functions tends to the ratio of their slopes.
+
+**So 104/9 is the slope of the flow line in the (c₄, c2p) plane** — a genuine structural fact
+about the flow, and *not* a fixed point, *not* an attractor, and *not* a beta-function zero.
+The stability and scheme-invariance tests a real fixed point would have to pass are therefore
+moot: there is nothing to test.
 
 ## 3 · Why transmutation is nevertheless not established — the correct reason
 
@@ -83,8 +103,10 @@ same wall the record reached independently.
 ## 5 · The inventory by kind (22 objects listed here, from a 31-object sweep)
 
 - **RUNNING, μ-absorbing (β ≠ 0):** c₄, c2p. Derived invariants: Λ_R, Λ′, log(Λ_R/Λ′).
-- **RG ATTRACTOR:** 104/9 = A′/A, the fixed point of y = c2p/c₄. *(Reclassified — the first
-  draft called it "never a beta-function candidate," an over-correction.)*
+- **FLOW-DIRECTION RATIO (not a fixed point):** 104/9 = A′/A, the slope of the constant
+  translation vector (−2A, −2A′) in the (c₄, c2p) plane. *Twice reclassified: the first draft
+  called it "never a beta-function candidate" (over-correction), the second called it an
+  "attractor" (over-claim). It is neither — see §2.*
 - **STRUCTURAL INVARIANT (β ≡ 0):** α = a/c (cohomological, one-loop-exact, state-independent);
   the spectral index s; the frozen residues A, A′; the GR lock.
 - **KINEMATIC (screen 2):** ε_H = (104/9)H²/ω²; λ ∼ (κω)²; ω/T; m_eff²/H²; ωτ; w(z).
@@ -134,7 +156,14 @@ accepting it.
    of a ratio of two generated scales, and the draft dismissed it in a subordinate clause.
 6. **AN OVER-CORRECTION.** 104/9 "can never be a beta-function candidate, no transformation
    law" — it is the **attractor** of y = c2p/c₄.
-7. **Minors:** a headline count of 31 the document did not reproduce (now stated as 22 of 31);
+7. **"ATTRACTOR" WAS AN OVER-CLAIM IN THE OTHER DIRECTION** *(caught 2026-09-08)*. The second
+   draft let five numerical trajectories approaching 11.5556 stand in for a proof. Derived
+   exactly, the deviation decays as 1/t, β_y is non-autonomous, and the 2-d flow is a constant
+   non-vanishing vector field with **no zeros anywhere** — so there is no fixed point to be an
+   attractor of. **On this one object I have now erred in three different directions:** inert
+   datum → attractor → (correctly) the direction of a translation. Recorded because the
+   pattern, not the object, is the lesson.
+8. **Minors:** a headline count of 31 the document did not reproduce (now stated as 22 of 31);
    nine screens used but never listed (now §4); the x bounds quoted without the register's
    mandatory F-MAP fence (now carried); novelty over-claimed against the gate, whose §3 table
    already had the affine shift and the linear-vs-nonlinear contrast; the class vocabulary's
