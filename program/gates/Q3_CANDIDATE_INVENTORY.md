@@ -26,8 +26,13 @@ r is a form-factor ratio, not a Callan–Symanzik coupling. Not re-proposed.
 Verified numerically across six decades: Λ_R = 0.79483456354 at μ = 0.01, 1, 100, 10⁶ —
 **constant**. The record certifies it: *"the single RG-invariant Λ_R = μ·exp(c₄/2A) …
 RG-INVARIANT (gated, with a teeth-control that breaks it under a perturbed shift)."* And
-Λ_R has physical content: it is **the frequency at which Re Σ^{H⁰} vanishes**
-(Re Σ^{H⁰} = 2Aω⁴log(Λ_R/ω)).
+~~Λ_R has physical content: it is the frequency at which Re Σ^{H⁰} vanishes.~~
+**WITHDRAWN 2026-09-08** (`Q3_LAMBDA_PHYSICAL_CONTENT_GATE.md` §4): the tie is **definitional**
+— Re Σ^{H⁰} = 2Aω⁴log(Λ_R/ω) vanishes at ω = Λ_R *because log 1 = 0*, the definition
+rearranged — and the record already establishes the zero is **scheme-mobile**
+(*"scheme-hostage: the undetermined local constants can place or remove a sign change
+anywhere"*). **I reproduced the register's own definitional-gate failure shape while arguing
+FOR physical content.** Added to the §7 failure list as item 9.
 
 The H² sector carries the partner Λ′ := μ·exp(c2p/2A′), and the two are linked exactly:
 
@@ -163,7 +168,12 @@ accepting it.
    attractor of. **On this one object I have now erred in three different directions:** inert
    datum → attractor → (correctly) the direction of a translation. Recorded because the
    pattern, not the object, is the lesson.
-8. **Minors:** a headline count of 31 the document did not reproduce (now stated as 22 of 31);
+8. **THE "PHYSICAL CONTENT" CLAIM WAS A DEFINITIONAL GATE** *(withdrawn 2026-09-08, §2)* —
+   see above. **And my first attempt to withdraw it silently failed**: the edit did not match,
+   I reported success unconditionally, and an audit caught the claim still standing in the
+   record while a gate cited it as withdrawn. Process fix adopted: every text edit asserts its
+   match before writing.
+9. **Minors:** a headline count of 31 the document did not reproduce (now stated as 22 of 31);
    nine screens used but never listed (now §4); the x bounds quoted without the register's
    mandatory F-MAP fence (now carried); novelty over-claimed against the gate, whose §3 table
    already had the affine shift and the linear-vs-nonlinear contrast; the class vocabulary's
