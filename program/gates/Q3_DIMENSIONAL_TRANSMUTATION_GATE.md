@@ -78,6 +78,15 @@ channel ℓ_i → ℓ_i + A_i·log(μ²/μ′²). Under that law each coefficien
 
     dr/dlog μ = 0 , exactly.
 
+> **SUPERSEDING NOTE (added 2026-09-07, see `Q3_CANDIDATE_INVENTORY.md` §2, §7):** the
+> sentence in §2 of this gate — *"renormalization-point independence is exactly the statement
+> that nothing here runs"* — is **too strong and is withdrawn**. Something does run: the
+> subtraction constant c₄, with β_c₄ = −2A ≠ 0, machine-gated. The coefficients are
+> μ-invariant *because* c₄ runs to compensate. **Failure 1 below stands as stated for r** —
+> β_r = 0 — but the general gloss does not. The inventory also withdraws a further claim made
+> there and repeated in its own first draft: that an affine flow cannot generate a scale.
+> That is false (constant β is a chart property; QCD one-loop is affine in u = 1/(2b₀g²)).
+
 **The apparent "running" was the wrong derivative** — with the kernel's exact degree-4 joint
 homogeneity in (ω, μ), ∂/∂L at fixed slots is minus the ω-derivative: **kinematics relabelled
 as RG flow.** It is also scheme-annihilable: in momentum subtraction (ℓ_i = 0) r ≡ A₀/A₂
