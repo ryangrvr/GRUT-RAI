@@ -1,210 +1,219 @@
-# DISPATCH OBJECT SELECTION GATE — RESULT
+# DISPATCH CANDIDATE 01 — THE SLOT TEST
 
-> # ⛔ FAILED AUDIT — THE NULL RESULT DOES NOT STAND. NOT COMMITTED. DO NOT CITE.
+> # ⏸ HELD — PENDING SOURCE CHECK. NOT SENDABLE AS WRITTEN.
+> Audited: verifier **PASS**, refuter **FAIL**, referee **PASS — valid object, not sendable as
+> written**, six blocking repairs. Five are applied below. **The sixth is not closable here:**
+> §5.1's own precondition — read arXiv:2206.10780 §4.3 and §2 against the source — **has not run**,
+> and repair 1 below is affirmative evidence of that. This draft stays HELD until it does.
 >
-> The hostile refuter was aimed, in advance and by me, at exactly the failure this document
-> commits. It landed. Four CRITICAL defects, verified independently:
+> **DRAFTED, NOT SENT.** No dispatch has ever been sent by this program, and this one is not sent
+> either. Sending is an owner act. Q3 remains **OPEN**; register untouched (74 nodes, sha256
+> `beaeb84e8a6f8468`); ledger delta 0; W-0 held. No physics run, no observable built, no new
+> primitive, no status changed.
 >
-> **1. §2's universal claim is FALSE.** "none of them is accompanied by a derived rule stating what
-> each answer implies" is refuted by the corpus in force. `GRUT_PROGRAM_FREEZE.md:126-128` is a
-> written branch-to-status map *with a number*: *"Lifted (rate ≈ 0.034H at m_eff² = 0.1H²) → the
-> fixed point's referent falls and with it the persistence claim; protected → the one surviving
-> derived structure strengthens materially."* And machine-verified: **0 of 74 register nodes lack an
-> `overturning_computation` field** — every node in the register carries a written refutation
-> condition. The corpus is saturated with adjudication rules. My claim was exactly backwards.
->
-> **2. The "single shared defect" is refuted by this document's own §1 and §3.** Of the five leading
-> candidates, **zero** died solely of the stated shared defect and **four** died of independent
-> registered reasons: already answered (J) twice, ill-posed (D), too large (G). §3.5 says so in the
-> document's own words — *"the one candidate whose failure is about size, not about structure."*
->
-> **3. THE LOAD-BEARING MOVE: I silently raised the bar and then reported my own bar as a discovery
-> about the corpus.** Criteria A and B require only that an outcome *changes a live state*.
-> "Derived" appears nowhere in them. I upgraded to "the map must be **derived**", failed ~72
-> candidates against the upgraded bar, and presented the universal failure as a finding about the
-> record. Worse, the bar is unsatisfiable in principle — an adjudication rule is a governance
-> stipulation, not a theorem — and **§5 step 2 recommends writing one, i.e. stipulating it.**
-> Applied consistently, the standard that rejected every candidate also rejects the repair this
-> document recommends. It is self-refuting.
->
-> **4. §3.1 count 1 is factually false.** The clause *"gauged into the constraint"* is in the corpus
-> verbatim (`books/BOOK_V_MEMORY_THERMODYNAMICS_TIME.md:292`), the "seven statements" count
-> undercounts, and an operational scoping clause is not a "new primitive" in this program's declared
-> vocabulary. Criterion F — a MUST — was failed on a false premise.
->
-> **Also flagged (MAJOR):** §3.1 count 2 asserts a physics "collision" that contradicts the record,
-> reports the half supporting the null result, and withholds the half that would cost the framework
-> two record entries. And §4's K_R classification of (a) sits beside six reported prose connections
-> that meet the stated definition of (b).
->
-> **CONSEQUENCE.** The null result is withdrawn. Several candidates may pass when scored against the
-> criteria **as written**. That re-scoring has not been done and is not done here.
->
-> **PATTERN, third occurrence this session.** A finding favourable to the framework, produced by me,
-> collapsing under adversarial review: (i) the "structural gate" story about the zero-derived count;
-> (ii) a dispatch object whose only state-changing branch was the confirming one; (iii) this — a
-> comfortable "it is only missing paperwork" reframe, committed *inside a document written to guard
-> against exactly that*, after I flagged the risk in advance. The guard did not prevent it. Only the
-> audit did. — 2026-09-08
+> **This file previously held a FAILED null-result selection gate.** That content is superseded and
+> recoverable at commit `d1baa30`. Its central claim — that the corpus contains no pre-committed
+> answer-to-state map — was **false**, and the re-score under the owner's weak reading found several.
 
-> # ⛔ NULL RESULT: NO QUALIFYING DISPATCH OBJECT EXISTS IN THE RECORD.
->
-> **This is not a dispatch draft.** The selection gate ran and returned zero qualifying
-> candidates. Nothing is drafted for sending, and nothing should be sent.
->
-> **DO NOT SEND ANYTHING.** Q3 remains **OPEN**. Register untouched (74 nodes,
-> sha256 `beaeb84e8a6f8468`). Ledger delta 0. W-0 held. No physics run, no observable built,
-> no status changed.
+**Selected:** 2026-09-08, under the owner ruling *"a valid dispatch needs a pre-existing, explicit,
+two-way state map — not a derived one."* Three scoring sweeps, two audits run concurrently against
+the ranking, one referee.
 
-**Date:** 2026-09-08 · **Method:** four candidate pools, each pool → bidirectional state test +
-well-posedness attack → adversarial verification. 12 agents.
+**Selection round:** verifier PASS (rank 1); refuter **FATAL**, on the ground that the acceptance
+target `d ~ G_N^{1/2}` is an undefined symbol. **The referee resolved for the verifier** — the count
+was right, the inference wrong: `d` is CLPW's own conjecture, twice, parenthetically, inside an
+*"Unresolved"* list, and was never this program's bar (§5.2). **Draft round:** verifier PASS; refuter
+FAIL; referee **PASS — valid object, not sendable as written**. The refuter's central evidence — that
+the sibling RESIDUE test appears on both sides of framework §8 while SLOT appears on one — was
+checked and is **false at all three sites**; RESIDUE is one-sided too, in the opposite direction. The
+referee also found the refuter's second FATAL embeds the **voided** demand that a negative branch
+harm the framework.
 
 ---
 
-## 1. RESULT
+## 1. THE QUESTION, IN ONE SENTENCE
 
-**~72 candidates enumerated across four pools. Every pool's adversarial verifier returned
-`surviving: NONE`.**
+> Does the single-patch **G_N → 0** limit of the crossed-product construction in
+> **arXiv:2206.10780 (CLPW) §4.3** go through rigorously, and does the resulting algebra require a
+> *supplied clock-like system gauged into the constraint* as a **separate** structural input —
+> or is the surviving input the relative temporal datum **alone**?
 
-| Pool | Candidates | Survivors | How the leaders died |
-|---|---|---|---|
-| 1 — dispatchable artifacts & briefs | 27 | **0** | top candidate **already answered and banked** (2026-08-24) |
-| 2 — the register's open questions | 13 | **0** | the one KEEP falls to a dilemma of its own repair |
-| 3 — frontier reservations | 28 | **0** | interpolated premise; acceptance criterion does not exist |
-| 4 — K_R disconnect audit | 4 | **0** | (this pool answered a question rather than proposing one — §4) |
+**Acceptance is the fork: one irreducible input, or two.** Nothing else.
 
 ---
 
-## 2. THE STRUCTURAL FINDING — why nothing qualifies
+## 2. THE TWO-WAY MAP — PRE-COMMITTED, VERBATIM, FROM FOUR AUTHORITATIVE SOURCES
 
-The candidates did not fail for being uninteresting, ill-chosen, or too hard. **They failed on a
-single shared defect**, and it is the same defect in every pool:
+None superseded, none a failed artifact, all committed before any dispatch existed — **date-verified
+by the referee**: map sources committed 2026-09-06/07, this file first appears 2026-09-08.
 
-> **The map from an answer to a program-state change is asserted, never derived.**
+**The map's spine is `GRUT_PROGRAM_FREEZE.md` §5 key 3 (the standing consolidation) plus
+`GRUT_MODEL_FRAMEWORK.md` §8 (the authoritative model presentation), and it holds on those two
+alone.** Book VIII and the Corpus Charter supply the fork's phrasing and carry working-draft,
+non-banking banners — consistent with the weak reading, since the map is a governance stipulation
+already in the record, not a new bank.
 
-For the strongest candidate the verifier put it exactly: *"the map from either answer to program
-state is asserted five times and derived zero times, so the acceptance criterion does not yet exist
-in either direction."*
+**The binary, stated as a binary** — `books/BOOK_VIII_EMERGENCE_OBSERVATION_RELATIONAL.md:569-570`:
+> *"**The SLOT test** (§VIII.3) — reopening key 3. Decides the clock-slot fork: one irreducible
+> input or two."*
 
-This is why criterion **B** (negative outcome changes state) kept failing while criterion **A**
-appeared to pass: the corpus contains many sentences of the form *"resolving X would settle Y"*, and
-**none of them is accompanied by a derived rule stating what each answer implies.** A dispatch sent
-under those conditions returns a result the program cannot adjudicate — and the adjudication rule
-would then be written *after* the answer arrived, which is the program's own most-repeated defect
-(*a gate whose identity is definitional proves nothing*, six logged occurrences).
+**The governance key, neutrally worded** — `GRUT_PROGRAM_FREEZE.md:132-133`:
+> *"**The SLOT TEST decided**: a rigorous single-patch G_N → 0 limit (CLPW §4.3) — settles whether
+> the clock-slot is a second irreducible input."*
 
-**Consequence.** The first dispatch cannot be **selected** from the record. It must be
-**constructed** — and the missing part is not physics. It is a pre-registered adjudication rule.
+Note the wording is **"decided"**, not "confirmed" — the record pre-commits to the *decision*, not to
+a direction.
 
----
+**The fork, with both billings named** — `books/BOOK_VIII:288-292`:
+> *"which settles whether the clock-slot is a **second** irreducible input. This decides the one
+> exactly-nameable fork the campaign's blind sentence test ended on: the primary bills the surviving
+> input as the relative temporal datum *alone*; the hostile bills it as the *pair* {supplied
+> clock-like system gauged into the constraint} + {relative-orientation datum}."*
 
-## 3. HOW THE LEADING CANDIDATES DIED
+### S+ — the limit goes through; the clock-slot is **not** a second input
+`GRUT_MODEL_FRAMEWORK.md:165`: *"the SLOT test resolving the clock-slot as *not* a second
+irreducible input."*
 
-### 3.1 The SLOT test (CLPW §4.3 single-patch G_N → 0) — *nearest miss*
-Rated first before verification. Falls on four independent counts:
+**What S+ actually moves** *(the earlier wording — "converts a published canonical claim from
+asserted to tested" — is **withdrawn**: no such status exists in the eight-status vocabulary, and
+canonical claim 17 stays **ASSUMPTION** either way)*: freeze reopening key 3 **discharges**; the
+freeze §3 UNRESOLVED entry at `:100` and the Book VIII / Book V *"fork open pending the SLOT test"*
+status **close**; and claim 17's parenthetical count gains an **external check**, its grade
+unchanged.
 
-1. **Criterion F (no new primitive to formulate).** The clause that made one branch adverse —
-   *"without an adjoined observer/clock system gauged into the constraint"* — **appears in none of
-   the corpus's seven statements of the test**. It was interpolated by the pool and shipped as a
-   mechanical repair. F is a MUST.
-2. **A or J fails either way.** Keep the clause and the affirmative branch collides with the banked
-   reading of CLPW eqs 2.3–2.4 (*"delete the clock and the invariant algebra is ℂ·1"*). Drop it and
-   a rigorous §4.3 limit leaves the clock gauged in — the positive branch stops changing state.
-3. **B and H fail.** The negative branch's scientific content is already banked: the clock is
-   already recorded as external and generic, and already filed under *"Merely relocated."*
-4. **G and I fail outright.** The acceptance criterion does not exist (§2), and there are **zero
-   CLPW references across all 74 register nodes** — no landing site, so no provenance path.
+### S− — the limit requires the clock; it **is** a second input
+The hostile billing wins and **the axioms ledger gains an entry** — the clock-slot billed as a second
+irreducible input rather than folded into the relative datum. That row is **true, unbanked, and is
+what carries requirement 2 on this limb.**
 
-Also found: the acceptance target `d ~ G_N^{1/2}` uses a symbol **defined nowhere in the corpus**
-(two occurrences, both the same recycled fragment); and the claimed falsifier is **three arrows
-downstream**, of which arrows 1 and 2 are written nowhere.
+*(Two consequences asserted in an earlier draft are **withdrawn as false against the record**: the
+clock-slot is **not** one of the five audited dressings — enumerated at
+`books/BOOK_V_MEMORY_THERMODYNAMICS_TIME.md:43-48`, and it is not among them — and the
+relative-orientation datum **stays at count one** under the hostile billing.)*
 
-**Status: PROMOTABLE — NOT READY.** Its one real advantage over the alternative is that its pointer
-resolves (arXiv:2206.10780).
+**THE ASYMMETRY, STATED PLAINLY.** S− adds an axioms-ledger entry; **S+ amends nothing.** The owner
+ruling does not require symmetry — a negative branch may establish a competing interpretation rather
+than harm the framework — so this is disclosed, not repaired.
 
-### 3.2 u5/u6 KNOB 1 — dies by its own repair
-Pool 2 kept it on the strength of the DEFORMABLE horn, and its own binding repair (drop `z = 1`)
-**removes that horn**: `z = 1` is the only mechanism the register names for reaching it. Hold `z = 1`
-and it fails well-posedness the way `DISPATCH_ONE_PAGE` did. Its live-ness support is also
-superseded — the standing 2026-09-06 consolidation contains **zero** occurrences of "u5", "u6",
-"deformab" or "universality".
-
-### 3.3 The Bardeen dimension count — already answered
-Ranked first in Pool 1, and **settled on 2026-08-24**: measured by two independent routes,
-second-author countersigned, banked. The register holds it verbatim — *"the FRW gauge-allowed
-bilinear response space is 11-dimensional … kinematic chain fully measured 21/11/3/2."* The sweep
-read a 14:57 status file and never checked the 19:27–20:47 commits that closed it. **Its "positive"
-branch is the one the corpus rules out.**
-
-### 3.4 `rung7_w2_wa_sign` — the tension is already adjudicated
-The sweep quoted `sub_status` and never read `tier_note` on the same node, which resolves it:
-*"THE SECOND LAW FIXES THE SIDE, NOT THE SLOPE"*, with both readings *"fully passive"*. They are not
-inconsistent. The sign remains open, but the question as posed was answered.
-
-### 3.5 Runner-up worth recording
-**Q2-BRIDGE / reopening key #1** is, per the verifier, *"the cleanest bidirectional object in the
-corpus, with both branches and a number written into"* the freeze. It fails only criterion **G** —
-it is a three-part research programme, not a one-page question — and its dS-QFT-only shard loses the
-bidirectionality. **This is the one candidate whose failure is about size, not about structure.**
+**Neither branch is "continue investigating." Neither branch reopens a frozen preferred route.**
 
 ---
 
-## 4. THE K_R DISCONNECT — ANSWERED (owner Phase 5)
+## 3. THE DISPATCH — GRUT-NEUTRAL, AS IT WOULD BE SENT
 
-**Classification: (a) SCIENTIFICALLY JUSTIFIED.** Not (b), not (c), not (d).
+*(Nothing below names this program, asks for endorsement, or references any framework. It is a
+mathematical question about a published construction.)*
 
-`depends_on` encodes *"rests on as an input"*, and nothing downstream takes either result as an
-input. The Tier-4 node was banked at delta 0 with *"NO derivation credit accrues to any GRUT rung"*;
-the entire consequence layer is stamped W-0 / NOT BANKED; and `response_lorentz_covariance` states
-its own reason verbatim: *"consumer-edge wiring still deferred pending the closure-premise gate."*
+---
+**OBJECT.** The crossed-product algebra of the de Sitter static patch constructed in
+arXiv:2206.10780 (Chandrasekaran–Longo–Penington–Witten), specifically the single-patch
+**G_N → 0** limit treated in **§4.3**.
 
-**Out-degree 0 is the image of a deliberate policy, not a defect.** The earlier reading — that the
-leverage was not where the effort went — is withdrawn.
+**REQUESTED.** A determination of whether that limit is rigorous, and of what structure it requires:
 
-**Separately, and explicitly as BOOKKEEPING, not science:** six connections exist in prose that the
-graph does not encode. The register names this failure mode itself — *"an omission banked without its
-edges leaves the multiplicity signal as prose to be re-derived every wave."* The sharpest is that
-`rung3_single_pole` contains zero occurrences of "Tier-4", "contract", or "Wall", while the benchmark
-verdict says it *"adjudicates the register's rung3 derivation"* and lands **not confirmed as stated
-at flat contract scope** — on a flat slice *"unconditional to ω → 0"*, i.e. **not excluded by the
-ω ≫ H fence.** That last item is flagged as the one non-bookkeeping consequence the audit surfaced.
-**No repair is performed here.** All of it is owner/bank-gated.
+1. Does the §4.3 single-patch **G_N → 0** limit exist rigorously, in the sense the paper's own
+   construction requires? If it does not, name the obstruction.
+2. In the resulting algebra, is an **adjoined observer/clock system, gauged into the constraint**,
+   required as a **separate** structural input — or does the construction go through with the
+   relative temporal datum alone?
+3. If a clock-like system is required, is that requirement **essential** to the limit, or an
+   artifact of the particular regularization used?
+
+**INPUTS.** The published paper alone. No unpublished material, no private conventions, and no
+external data are supplied or needed.
+
+**EXPECTED OUTPUT.** A verdict on (1), and on (2) an answer of the form *one input* or *two inputs*,
+with the reasoning. A construction, an obstruction, or a demonstration that the question is not
+settled by §4.3 as written are all acceptable outputs.
+
+**ACCEPTANCE CRITERION.** Either (i) a stated verdict on the fork — *one irreducible input or two* —
+with its reasoning, **or** (ii) a determination that §4.3 as written does not settle the fork, **with
+the specific obstruction named**. Both are complete and acceptable. **The criterion does not depend
+on which way it comes out.** *(Reconciles the criterion with EXPECTED OUTPUT: an obstruction-named
+non-verdict is unambiguously IN, and §4 pre-commits what it does to the fork.)*
+
+**INVALID-RESULT CONDITIONS.** A result is not usable if it (a) answers a limit other than §4.3's
+single-patch **G_N → 0**; or (b) rests on unpublished or private conventions.
+
+*(An earlier draft characterized §2 as "the finite-G_N observerless case". That is **false against
+this program's own reconstruction** — §2 is precisely where the clock is adjoined — and "finite-G_N"
+occurs nowhere in the corpus except that sentence. Struck: it sat in the OUTGOING text and is the
+first thing a recipient holding the paper would check. Former condition (c) is struck under R4.)*
+
+**EXPLICITLY NOT REQUESTED.** No endorsement of any framework or programme. No opinion on anyone's
+research direction. No assembled observable, no spectral density, no transport coefficient. No
+review of any document. No judgment about whether the answer is welcome.
+---
 
 ---
 
-## 5. RECOMMENDATION
+## 4. THE THIRD OUTCOME — PRE-COMMITTED IN ADVANCE
 
-> ## **DO NOT SEND. No object qualifies.**
->
-> **The next action is not a dispatch and not physics. It is to construct the missing adjudication
-> rule** for the nearest candidate, pre-registered, before any answer exists.
-
-For the SLOT test specifically, promotion requires four steps, **none of them mechanical**:
-
-1. **Obtain arXiv:2206.10780** and state what §4.3 actually asserts, and what `d` is.
-2. **Write the adjudication rule for BOTH branches — pre-registered, before any answer arrives.**
-   This is the load-bearing step and the reason the candidate is not ready. The program has caught
-   this self-certification shape in itself repeatedly; writing the rule afterwards would repeat it.
-3. **Drop the interpolated clock-free clause, or justify it from a source.**
-4. **Create the register landing site** — there is currently no node for it to land in.
-
-**Only step 2 is genuinely hard, and it is hard in a useful way**: writing down in advance what each
-answer would imply is the same discipline that would have prevented four of this program's logged
-defects. It is also cheap, in-house, requires no new physics, and is exactly the thing whose absence
-made every candidate fail.
-
-**If the owner prefers a scientific action instead**, the standing fallback is unchanged: execute
-menu γ (in-house, demonstrated capability, fires a named reopening condition).
+**If the answer is "§4.3 as written does not rigorously settle it":** the fork returns **unchanged**.
+That outcome is **not** to be read as either billing, and must not be scored for or against either
+limb. It is recorded here before dispatch so it cannot be reinterpreted afterwards — the failure mode
+this program has logged repeatedly is writing the adjudication rule after the answer arrives.
 
 ---
 
-## 6. WHAT THIS RESULT IS NOT
+## 5. DISCLOSURES
 
-- **Not** a finding that GRUT is unfalsifiable. It is a finding that the *adjudication rules* have
-  not been written, which is a repairable documentation-and-design gap.
-- **Not** a claim that the frontier route is closed. Correction 4 stands: **no outside human has
-  ever been contacted**, and that remains untested — but it cannot be tested with a malformed or
-  unadjudicable question.
-- **Not** an argument from the `derived` count, in either direction (binding correction 1).
-- **Not** an interpretation of the K_R out-degree as scientific failure (binding correction 2) —
-  §4 classifies it as scientifically justified.
+1. **The corpus holds no §4.3 content of its own.** Every live occurrence of "single-patch",
+   "CLPW §4.3" or "G_N → 0" is a pointer or a status line; not one line reproduces or analyses the
+   section. **This is precisely why it is dispatchable** — but it also means nobody here has read
+   §4.3, and §3's question must be checked against the source before sending.
+2. **`d ~ G_N^{1/2}` is NOT the acceptance bar** and is deliberately absent from §3. It occurs twice
+   in the corpus, both times parenthetically inside an *"Unresolved"* list, describing what **CLPW
+   conjectures** — not what this program requires. An earlier pass mistook it for our acceptance
+   target and rejected the candidate on the ground that the symbol is undefined here. That rejection
+   was an over-read and is withdrawn.
+3. **The framework's §8 list is one-sided.** `GRUT_MODEL_FRAMEWORK.md:161-172` carries the SLOT test
+   only under *"GRUT is strengthened by"*; the weakened list has no complement for it. Factually
+   correct and disclosed. It does **not** disqualify the candidate: requirement 1 is satisfied by the
+   four sources in §2, and the owner ruling forbids requiring that a negative branch harm the
+   framework.
+4. **No register node moves.** Zero of 74 nodes contain "CLPW" or "clock". What moves is a freeze
+   reopening key, a §3 UNRESOLVED entry, and a **published canonical claim** — requirement 2's *"live
+   registered state **or question**"*.
+
+---
+
+## 6. WHY THIS ONE — THE RANKING, KEY BY KEY
+
+The other genuine survivor was **u5/u6 KNOB 1**, which has the cleaner map (both consequences in one
+pre-committed register sentence). The referee ranked it below on the owner's ordering:
+
+| Key | Winner | Ground |
+|---|---|---|
+| 1 · bidirectional live-state change | **tie** | u5/u6 has the cleaner map; SLOT has the live-er state |
+| 2 · scientific discrimination | **SLOT** | settles the input count under the corpus's own central induction; u5/u6's deflationary horn is pre-labelled *"standard info-RG relabeled"*, and for a pure-gravity vacuum **both horns give count 1** |
+| 3 · well-posedness | **SLOT** | *"posed, decidable, unrun"*, stated three times; u5/u6 needs three scope declarations and its own text says a horn *"stays UNDECIDED"* |
+| 4 · independence | **SLOT** | a question about a published construction; u5/u6's limb terminates in a *"FENCED MODELING INPUT"* |
+| 5 · external feasibility | **SLOT** | one section of one paper; u5/u6 is *"a loop / epsilon-expansion research calc"* |
+| 6 · new-input burden | **SLOT** | zero |
+| 7 · cost | **SLOT** | *not needed to decide* |
+
+**Both owner guards verified clean by all three auditors:** zero candidates were rejected on size or
+cost by anyone, and no residue of the withdrawn *"derived adjudication rule"* standard survives in any
+rejection ground.
+
+**Rejected, with reasons:** the CLPW outcome-A/B theorem-hypothesis confrontation **already fired**
+(banked as canonical claim 23) — found by searching the deliverable rather than the session label;
+RESIDUE key #2 and O2 key #1 fail **owner requirements 4 and 7** (*"merely continue investigating"*,
+and *well-posed/self-contained*) — **not** §6's ranking keys, and **not** on size or cost; the
+no-internal-T verification shard fails **owner requirement 3** (*materially distinct*); the Bardeen
+dimension count was **already answered and banked** 2026-08-24.
+
+---
+
+## 7. OWNER ITEMS SURFACED, NOT ACTED ON
+
+- **The kernel-vs-dressed object identity** — `GRUT_PROGRAM_FREEZE.md:96-97` marks it *"owner fork,
+  still owed; the dressed reading lands on the opposite side of the pre-registered boundary."* The
+  referee judges this **outranks the selection in consequence** and costs a ruling, not a calculation.
+- **A calibration discrepancy** — the freeze still writes a consequence in the future conditional
+  while two other live documents report the control already ran. The record cuts both ways; the
+  referee declined the stronger framing, and it is an owner call.
+- **§8's missing complement** (§5.3 above).
+
+**Nothing here is sent, and nothing is banked.**
