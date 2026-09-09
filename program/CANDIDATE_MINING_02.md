@@ -128,9 +128,38 @@ the paper's. **The corpus's reading of the material failed, not the material.**
 
 ---
 
-## 5. THE STRUCTURAL FINDING — more informative than the selection
+## 5. THE STRUCTURAL FINDING — **CORRECTED 2026-09-09. THE GENERALIZATION IS WITHDRAWN.**
 
-The mining sweep flagged it and the referee confirmed it is the **same kill, four times over**:
+> ### ⛔ THREE DEFECTS IN THIS SECTION, CORRECTED SURGICALLY. The candidate adjudications in §3 and
+> ### §6 are UNAFFECTED and stand.
+>
+> **DEFECT 1 — COUNT.** The text below said *"the same kill, four times over"* and *"Four different
+> candidates, one shape"* over a table with **FIVE** rows. The original wording is left visible.
+> **The count was wrong**, and the corrected analysis does **not** rely on the "four times"
+> generalization. Note which row the miscount omitted: the fifth is **u5/u6 KNOB 1**, the only row
+> naming the **slow-variable / coarse-graining choice** — i.e. the row the generalization was drawn
+> from is the row the headline count dropped.
+>
+> *(An earlier wording of this callout called that "the projection decision". **Corrected**: the row
+> names the slow-variable choice, and §9.2 is precisely the finding that "choose P" is
+> **under-determined by** "choose the slow variables". §9.4 bars collapsing A and C absent proven
+> equivalence — so the earlier wording performed the very collapse this correction forbids. Caught in
+> audit, not in self-review.)*
+>
+> **DEFECT 2 — THE Π₀ ROW'S PREMISE IS SUPERSEDED.** The row rests on
+> `GRUT_PROGRAM_FREEZE.md:49-51` (commit `7399765`, 2026-09-06 **14:39**): *"the specific partition
+> used by the contract was never declared in D1–D5."* A later document the **same afternoon**,
+> `GRUT_MODEL_FRAMEWORK.md:37` (commit `cc6c147`, 2026-09-06 **14:45**), states: *"the contract's
+> operative partition (external-leg vs internal-line) was historically **undeclared** — **now
+> declared here**."* The later record **declares** what the earlier one calls undeclared. **Whether
+> Π₀'s rejection survives this correction is NOT settled here** — the corpus is not made to
+> reconcile itself by interpretation, and no reconciliation is chosen.
+>
+> **DEFECT 3 — THE GENERALIZATION IS WITHDRAWN.** *"One shape"* was tested as a formal hypothesis
+> and **FAILED** — §9.
+
+The mining sweep flagged it and the referee confirmed it is the **same kill, four times over**
+*(count wrong — see above; five rows)*:
 
 > ### The object the map is keyed on is defined against something the record explicitly never declared.
 
@@ -142,10 +171,10 @@ The mining sweep flagged it and the referee confirmed it is the **same kill, fou
 | pole-vs-cut | an ω conjugate to cosmic time the target corpus does not define |
 | **u5/u6 KNOB 1** | **the slow-variable / coarse-graining choice** |
 
-**Four different candidates, one shape.** This is a different diagnosis from any reached earlier in
-this effort. Not missing maps, not missing adjudication rules, not cost, not frontier difficulty:
-**the program's questions are well-mapped and under-specified at the object level.** Every dispatch
-attempt has now died there.
+**~~Four different candidates, one shape.~~ WITHDRAWN** — the count was wrong (five rows), and the
+generalization was subsequently tested and failed (§9). What survives is only the per-candidate
+observation that each named object depends on some unresolved construction choice. **That the
+choices are the SAME choice is refuted.**
 
 ---
 
@@ -183,11 +212,113 @@ as scientific failure (separately classified **scientifically justified**).
 
 ---
 
-## 8. STANDING LESSON
+## 8. STANDING LESSON — **REVISED 2026-09-09**
 
-> A two-way governance map is **necessary but not sufficient**. The thing dispatched must also be the
-> scientific question the source actually poses — **and its object must be specified.**
+The prior wording — *"the object the map is keyed on is defined against something the record
+explicitly never declared"* — was useful and **overgeneralized**. Replaced by the narrower audited
+lesson:
+
+> **Object specification is itself FACTORED.** Several candidate objects depend on unresolved
+> construction choices, and the record must not collapse distinct choices — slow-variable selection,
+> system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff
+> choice, gauge/field-redefinition freedom — into one "effective description" decision **unless the
+> record establishes their equivalence.**
+>
+> **The attempted common-blocker hypothesis H was tested and FAILED (§9).**
+
+And the prior lesson, which stands unchanged: a two-way governance map is **necessary but not
+sufficient**; the thing dispatched must also be the scientific question the source actually poses.
 
 The selection machinery has now twice prevented an external investigation from being spent on a
 question that would not have survived contact: once on source fidelity, once on object
 specification. Both catches came from adversarial passes, neither from self-review.
+
+
+---
+
+## 9. HYPOTHESIS H — TESTED AND **FAILED** (added 2026-09-09)
+
+**H, as formulated:** *multiple currently blocked candidate objects are undefined because the choice
+of retained/slow variables — the Mori-Zwanzig "which P" decision — has not been declared.*
+
+### 9.1 Verdict: **FAIL**
+
+**The referee's co-determination criterion.** X is *the same decision* as choosing P **iff**, holding
+every other declared input fixed: **(i)** declaring P fixes X with no residual freedom, **and**
+**(ii)** declaring X fixes P with no residual freedom. If either direction leaves residual freedom,
+X is merely **RELATED** — and a candidate blocked on X does not support H.
+
+**Zero of the tested candidates satisfy it.** u5/u6 KNOB 1 comes closest and fails **sufficiency**:
+its bracket `{φ, C}` requires a **second, non-P declaration** — the fenced conserved-charge input —
+which is a different decision.
+
+### 9.2 The finding that is prior to any candidate: **H's subject is not one decision**
+
+*"Choose P"* is under-determined by *"choose the slow variables."* `calc/mz_inheritance.py:31-34`
+records that *"the Mori-Zwanzig kernel does not currently denote a unique object, and the two objects
+it could denote answer this question **OPPOSITELY**"* — the same retained variable admits the
+**Kubo-Mori** and the **symmetrised** inner products. The second half is booked as missing:
+*"the state supplying the inner product (unpriced anywhere)."*
+
+**So there was never one undeclared decision for multiple candidates to share.**
+
+### 9.3 What this does **NOT** establish
+
+**It does NOT prove the five obstructions are independent.** It establishes only that **P is not
+their demonstrated common decision.** No claim is made here about which construction choices are
+ultimately independent and which are related by a proven equivalence — that is an open question and
+this document does not answer it.
+
+### 9.4 The seven choices, to be kept SEPARATE until equivalence is proven
+
+**A** slow-variable selection · **B** system/bath partition · **C** the Mori-Zwanzig projection P ·
+**D** inner-product choice · **E** the state supplying the inner product · **F** cutoff/separation
+scale · **G** gauge/field-redefinition freedom.
+
+**No pair may be collapsed unless an authoritative source establishes equivalence.** The record
+explicitly declines to adjudicate at least one such pair: on partition-vs-P it carries two competing
+orderings (Zurek: split → coarse-graining; Mori-Zwanzig: choosing P *is* the partition) and states,
+at `PHYSICS_LEDGER/WALL_KR_U3_SPECIFICATION.md:78-79`: **"None is selected. This is the sharpest
+single result of the audit."**
+
+### 9.5 P remains OPEN — but is not a master key
+
+The projection choice is still a legitimate unresolved ingredient, recorded as **ASSUMED**: *"the
+choice of slow variables is exactly the Mori-Zwanzig 'which P' question, unanswered here"*
+(`PHYSICS_LEDGER/WALL_KR_U3_EFT_BASELINE_RESULT.json:26`). It is
+now represented **alongside** the other choices rather than elevated above them.
+
+**P also cannot be declared from authorized structure.** The split is booked as a **priced input**,
+not a convention — *"STANCE, not derivation"* (`provenance/claims.baseline.json`, `rung1`
+`ledger_note`) — and declaring it as one would run the freeze's own rule backwards:
+*"a supplied structure may never be re-reported as a derived one"* (`GRUT_PROGRAM_FREEZE.md:23`).
+
+---
+
+## 10. NEW UPSTREAM DEFECT — **OPEN RECONCILIATION ISSUE**, not adjudicated here
+
+Two same-day descriptions of what the program's split **is**, and the corpus does not reconcile them:
+
+| Record | Says |
+|---|---|
+| `WALL_KR_U3_SCALE_SPLIT_CORRECTION.md:73-75` | *"an EFT program whose split is a **cutoff choice**"* — **unretracted** |
+| `WALL_KR_U3_EFT_BASELINE.md:28` | *"there is **no cutoff parameter** whose placement could be varied"* — and at **`:24`** the split is ruled **"NOT B (Wilsonian momentum-shell)"** |
+
+**Are they answering the same question?** Not established. The record logs the debt itself, with the
+consequence spelled out: *"If these pose **different questions** rather than describe one twice,
+status F becomes correct and D is an artifact of treating a contradiction as a typo."*
+
+**This is NOT reconciled by interpretation here**, and neither statement is declared wrong. It is
+recorded as an **open reconciliation issue**, upstream of everything this pass touched, and it bears
+on a status grade. **It is the owner's to rule on.**
+
+---
+
+## 11. CORRECTION PROVENANCE
+
+Corrections applied 2026-09-09 after the projection-operator precondition test. **Surgical:** the
+count defect, the Π₀ provenance defect, and the withdrawn generalization are marked in place with
+the original wording left visible. **No earlier commit was altered.** The candidate adjudications
+(§3, §6) and the four-axis result (§1) are **unchanged** and were not rewritten to compensate.
+**No new scientific claim is introduced by this correction**, no ledger or register status changed,
+nothing sent, no computation run.
