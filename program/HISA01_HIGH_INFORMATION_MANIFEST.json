@@ -1,0 +1,670 @@
+{
+ "experiment": "HISA-01",
+ "phase": "MANIFEST_ONLY (pre-frozen; no adjudication performed)",
+ "created_utc": "2026-09-10T00:21:22.478681+00:00",
+ "head_sha": "0cf4a9a76faab2e4ed1fb819938ef1dbd4aa9121",
+ "object_classes_in_scope": [
+  "cutoff_separation_scale",
+  "response_kernel",
+  "projection_P",
+  "gauge_field_redefinition",
+  "slow_variable_coarse_graining"
+ ],
+ "canonical_pair_dispositions_source": "OBJECT_IDENTITY_AUDIT_02.json",
+ "statements": [
+  {
+   "statement_id": "provenance/claims.baseline.json:55",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.baseline.json",
+   "source_line": "55",
+   "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,gauge_field_redefinition,system_bath_partition",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "cb4ef9a175ed",
+   "object_classes": [
+    "cutoff_separation_scale",
+    "gauge_field_redefinition",
+    "system_bath_partition"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 270.0,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.json:79",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.json",
+   "source_line": "79",
+   "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,inner_product_state,response_object,slow_variable_coarse_graining,system_bath_partition",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "cca9b9cd0666",
+   "object_classes": [
+    "cutoff_separation_scale",
+    "inner_product_state",
+    "response_object",
+    "slow_variable_coarse_graining",
+    "system_bath_partition"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 144.0,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.baseline.json:269",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.baseline.json",
+   "source_line": "269",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P,response_object",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "ff630388514a",
+   "object_classes": [
+    "gauge_field_redefinition",
+    "projection_P",
+    "response_object"
+   ],
+   "specification_level": [
+    "NOT SPECIFIED",
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 118.0,
+   "association_kinds": [
+    "CONTEXTUAL_ASSOCIATION",
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.baseline.json:636",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.baseline.json",
+   "source_line": "636",
+   "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,response_object,slow_variable_coarse_graining",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "f273fb6a7952",
+   "object_classes": [
+    "cutoff_separation_scale",
+    "response_object",
+    "slow_variable_coarse_graining"
+   ],
+   "specification_level": [
+    "PARTIALLY_SPECIFIED"
+   ],
+   "selection_score": 56.0,
+   "association_kinds": [
+    "DIRECT_ASSOCIATION"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.baseline.json:201",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.baseline.json",
+   "source_line": "201",
+   "selection_reason": "top-ranked high-information line covering object class(es) projection_P,response_object",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "30574373d15a",
+   "object_classes": [
+    "projection_P",
+    "response_object"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 55.5,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "program/CANDIDATE_MINING_02.md:274",
+   "canonical_statement_id": "",
+   "source_path": "program/CANDIDATE_MINING_02.md",
+   "source_line": "274",
+   "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,inner_product_state,projection_P,slow_variable_coarse_graining,system_bath_partition",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "e77786e3d28f",
+   "object_classes": [
+    "cutoff_separation_scale",
+    "inner_product_state",
+    "projection_P",
+    "slow_variable_coarse_graining",
+    "system_bath_partition"
+   ],
+   "specification_level": [
+    "NOT SPECIFIED",
+    "PARTIALLY_SPECIFIED"
+   ],
+   "selection_score": 54.0,
+   "association_kinds": [
+    "CONTEXTUAL_ASSOCIATION",
+    "DIRECT_ASSOCIATION"
+   ]
+  },
+  {
+   "statement_id": "program/CANDIDATE_MINING_02.md:275",
+   "canonical_statement_id": "",
+   "source_path": "program/CANDIDATE_MINING_02.md",
+   "source_line": "275",
+   "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,gauge_field_redefinition,inner_product_state,projection_P,slow_variable_coarse_graining,system_bath_partition",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "87ff9f7059ea",
+   "object_classes": [
+    "cutoff_separation_scale",
+    "gauge_field_redefinition",
+    "inner_product_state",
+    "projection_P",
+    "slow_variable_coarse_graining",
+    "system_bath_partition"
+   ],
+   "specification_level": [
+    "NOT SPECIFIED",
+    "PARTIALLY_SPECIFIED"
+   ],
+   "selection_score": 49.0,
+   "association_kinds": [
+    "CONTEXTUAL_ASSOCIATION",
+    "DIRECT_ASSOCIATION"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.json:22",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.json",
+   "source_line": "22",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,response_object,system_bath_partition",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "f74c1223dfdb",
+   "object_classes": [
+    "gauge_field_redefinition",
+    "response_object",
+    "system_bath_partition"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 44.0,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.json:1637",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.json",
+   "source_line": "1637",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,response_object",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "a8aabf852854",
+   "object_classes": [
+    "gauge_field_redefinition",
+    "response_object"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 39.0,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.json:87",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.json",
+   "source_line": "87",
+   "selection_reason": "top-ranked high-information line covering object class(es) response_object,slow_variable_coarse_graining",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "ea42911984a2",
+   "object_classes": [
+    "response_object",
+    "slow_variable_coarse_graining"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 34.5,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "calc/mz_inheritance.py:18",
+   "canonical_statement_id": "",
+   "source_path": "calc/mz_inheritance.py",
+   "source_line": "18",
+   "selection_reason": "top-ranked high-information line covering object class(es) inner_product_state,response_object,slow_variable_coarse_graining",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "f26d970f65ea",
+   "object_classes": [
+    "inner_product_state",
+    "response_object",
+    "slow_variable_coarse_graining"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 34.0,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.baseline.json:180",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.baseline.json",
+   "source_line": "180",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P,response_object",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "6c5e17113972",
+   "object_classes": [
+    "gauge_field_redefinition",
+    "projection_P",
+    "response_object"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 34.0,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json:36",
+   "canonical_statement_id": "",
+   "source_path": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+   "source_line": "36",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "f432d6c90425",
+   "object_classes": [
+    "gauge_field_redefinition",
+    "projection_P"
+   ],
+   "specification_level": [
+    "NOT SPECIFIED",
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 33.0,
+   "association_kinds": [
+    "CONTEXTUAL_ASSOCIATION",
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json:216",
+   "canonical_statement_id": "",
+   "source_path": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+   "source_line": "216",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "c346fdab7db1",
+   "object_classes": [
+    "gauge_field_redefinition",
+    "projection_P"
+   ],
+   "specification_level": [
+    "NOT SPECIFIED",
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 33.0,
+   "association_kinds": [
+    "CONTEXTUAL_ASSOCIATION",
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "program/CANDIDATE_MINING_02.md:223",
+   "canonical_statement_id": "",
+   "source_path": "program/CANDIDATE_MINING_02.md",
+   "source_line": "223",
+   "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,gauge_field_redefinition,projection_P,system_bath_partition",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "9b30b85f1417",
+   "object_classes": [
+    "cutoff_separation_scale",
+    "gauge_field_redefinition",
+    "projection_P",
+    "system_bath_partition"
+   ],
+   "specification_level": [
+    "NOT SPECIFIED",
+    "PARTIALLY_SPECIFIED"
+   ],
+   "selection_score": 32.5,
+   "association_kinds": [
+    "CONTEXTUAL_ASSOCIATION",
+    "DIRECT_ASSOCIATION"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.baseline.json:639",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.baseline.json",
+   "source_line": "639",
+   "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,response_object,slow_variable_coarse_graining",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "990236570a7b",
+   "object_classes": [
+    "cutoff_separation_scale",
+    "response_object",
+    "slow_variable_coarse_graining"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 32.0,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.json:1640",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.json",
+   "source_line": "1640",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,response_object",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "cf3fc47626c9",
+   "object_classes": [
+    "gauge_field_redefinition",
+    "response_object"
+   ],
+   "specification_level": [
+    "UNRESOLVED"
+   ],
+   "selection_score": 30.0,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.baseline.json:660",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.baseline.json",
+   "source_line": "660",
+   "selection_reason": "top-ranked high-information line covering object class(es) slow_variable_coarse_graining",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "64d90fd54187",
+   "object_classes": [
+    "slow_variable_coarse_graining"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 29.0,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "provenance/sources.json:319",
+   "canonical_statement_id": "",
+   "source_path": "provenance/sources.json",
+   "source_line": "319",
+   "selection_reason": "top-ranked high-information line covering object class(es) projection_P",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "b682d97c775f",
+   "object_classes": [
+    "projection_P"
+   ],
+   "specification_level": [
+    "PARTIALLY_SPECIFIED"
+   ],
+   "selection_score": 29.0,
+   "association_kinds": [
+    "DIRECT_ASSOCIATION"
+   ]
+  },
+  {
+   "statement_id": "PHYSICS_LEDGER/WALL_A_A4_RESULT.json:28",
+   "canonical_statement_id": "",
+   "source_path": "PHYSICS_LEDGER/WALL_A_A4_RESULT.json",
+   "source_line": "28",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "6298a3b835d2",
+   "object_classes": [
+    "gauge_field_redefinition",
+    "projection_P"
+   ],
+   "specification_level": [
+    "PARTIALLY_SPECIFIED"
+   ],
+   "selection_score": 28.5,
+   "association_kinds": [
+    "DIRECT_ASSOCIATION"
+   ]
+  },
+  {
+   "statement_id": "calc/mz_inheritance.py:513",
+   "canonical_statement_id": "",
+   "source_path": "calc/mz_inheritance.py",
+   "source_line": "513",
+   "selection_reason": "top-ranked high-information line covering object class(es) response_object,slow_variable_coarse_graining",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "fa2f8c7dcbcc",
+   "object_classes": [
+    "response_object",
+    "slow_variable_coarse_graining"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 28.5,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "calc/mz_inheritance.py:559",
+   "canonical_statement_id": "",
+   "source_path": "calc/mz_inheritance.py",
+   "source_line": "559",
+   "selection_reason": "top-ranked high-information line covering object class(es) response_object,slow_variable_coarse_graining",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "1f7e6adc0225",
+   "object_classes": [
+    "response_object",
+    "slow_variable_coarse_graining"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 28.5,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.baseline.json:250",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.baseline.json",
+   "source_line": "250",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,response_object",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "f0cbe73b58cb",
+   "object_classes": [
+    "gauge_field_redefinition",
+    "response_object"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 28.5,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "provenance/claims.baseline.json:351",
+   "canonical_statement_id": "",
+   "source_path": "provenance/claims.baseline.json",
+   "source_line": "351",
+   "selection_reason": "top-ranked high-information line covering object class(es) slow_variable_coarse_graining",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "5fdd01610ce2",
+   "object_classes": [
+    "slow_variable_coarse_graining"
+   ],
+   "specification_level": [
+    "PARTIALLY_SPECIFIED"
+   ],
+   "selection_score": 28.0,
+   "association_kinds": [
+    "DIRECT_ASSOCIATION"
+   ]
+  },
+  {
+   "statement_id": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json:28",
+   "canonical_statement_id": "",
+   "source_path": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+   "source_line": "28",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "705f10f9686a",
+   "object_classes": [
+    "gauge_field_redefinition",
+    "projection_P"
+   ],
+   "specification_level": [
+    "EXPLICITLY_SPECIFIED",
+    "NOT SPECIFIED"
+   ],
+   "selection_score": 27.0,
+   "association_kinds": [
+    "CONTEXTUAL_ASSOCIATION",
+    "DIRECT_ASSOCIATION"
+   ]
+  },
+  {
+   "statement_id": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json:210",
+   "canonical_statement_id": "",
+   "source_path": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+   "source_line": "210",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "731a7bff7068",
+   "object_classes": [
+    "gauge_field_redefinition",
+    "projection_P"
+   ],
+   "specification_level": [
+    "EXPLICITLY_SPECIFIED",
+    "NOT SPECIFIED"
+   ],
+   "selection_score": 27.0,
+   "association_kinds": [
+    "CONTEXTUAL_ASSOCIATION",
+    "DIRECT_ASSOCIATION"
+   ]
+  },
+  {
+   "statement_id": "PHYSICS_LEDGER/kterm_run1.log:43",
+   "canonical_statement_id": "",
+   "source_path": "PHYSICS_LEDGER/kterm_run1.log",
+   "source_line": "43",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "b6573cbf3c53",
+   "object_classes": [
+    "gauge_field_redefinition",
+    "projection_P"
+   ],
+   "specification_level": [
+    "EXPLICITLY_SPECIFIED",
+    "NOT SPECIFIED"
+   ],
+   "selection_score": 27.0,
+   "association_kinds": [
+    "CONTEXTUAL_ASSOCIATION",
+    "DIRECT_ASSOCIATION"
+   ]
+  },
+  {
+   "statement_id": "PHYSICS_LEDGER/wall_kr_u3_specification_audit.py:109",
+   "canonical_statement_id": "",
+   "source_path": "PHYSICS_LEDGER/wall_kr_u3_specification_audit.py",
+   "source_line": "109",
+   "selection_reason": "top-ranked high-information line covering object class(es) projection_P,slow_variable_coarse_graining",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "92a0b079756c",
+   "object_classes": [
+    "projection_P",
+    "slow_variable_coarse_graining"
+   ],
+   "specification_level": [
+    "PARTIALLY_SPECIFIED"
+   ],
+   "selection_score": 27.0,
+   "association_kinds": [
+    "DIRECT_ASSOCIATION"
+   ]
+  },
+  {
+   "statement_id": "PHYSICS_LEDGER/WALL_KR_U3_SPECIFICATION.md:76",
+   "canonical_statement_id": "",
+   "source_path": "PHYSICS_LEDGER/WALL_KR_U3_SPECIFICATION.md",
+   "source_line": "76",
+   "selection_reason": "top-ranked high-information line covering object class(es) projection_P,slow_variable_coarse_graining",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "5eda92fbf1d0",
+   "object_classes": [
+    "projection_P",
+    "slow_variable_coarse_graining"
+   ],
+   "specification_level": [
+    "PARTIALLY_SPECIFIED"
+   ],
+   "selection_score": 25.5,
+   "association_kinds": [
+    "DIRECT_ASSOCIATION"
+   ]
+  },
+  {
+   "statement_id": "calc/mz_inheritance.py:530",
+   "canonical_statement_id": "",
+   "source_path": "calc/mz_inheritance.py",
+   "source_line": "530",
+   "selection_reason": "top-ranked high-information line covering object class(es) inner_product_state,slow_variable_coarse_graining",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "3727c7653ccb",
+   "object_classes": [
+    "inner_product_state",
+    "slow_variable_coarse_graining"
+   ],
+   "specification_level": [
+    "NOT_SPECIFIED"
+   ],
+   "selection_score": 25.5,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  },
+  {
+   "statement_id": "PHYSICS_LEDGER/WALL_ASSEMBLY2_RESULT.json:41",
+   "canonical_statement_id": "",
+   "source_path": "PHYSICS_LEDGER/WALL_ASSEMBLY2_RESULT.json",
+   "source_line": "41",
+   "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition",
+   "provenance_status": "UNIQUE",
+   "raw_dedup_key": "fbff7c2cb6e9",
+   "object_classes": [
+    "gauge_field_redefinition"
+   ],
+   "specification_level": [
+    "UNRESOLVED"
+   ],
+   "selection_score": 24.0,
+   "association_kinds": [
+    "TERM_ONLY"
+   ]
+  }
+ ],
+ "note": "All 31 entries carry NOT_SPECIFIED terminology-only evidence against at least one in-scope object class; this is expected and is exactly what HISA-01 adjudication must resolve."
+}

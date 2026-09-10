@@ -1,0 +1,1935 @@
+{
+  "package": "HISA01_FROZEN_EVIDENCE_PACKAGE",
+  "purpose": "Immutable extractive evidence package for INDEPENDENT semantic referent adjudication. Contains NO adjudication fields.",
+  "head_sha": "0cf4a9a76faab2e4ed1fb819938ef1dbd4aa9121",
+  "created_from": {
+    "manifest": "HISA01_HIGH_INFORMATION_MANIFEST.json",
+    "evidence_substrate": "OBJECT_EVIDENCE_03.json",
+    "prior_audits": [
+      "OBJECT_IDENTITY_AUDIT_01.json",
+      "OBJECT_IDENTITY_AUDIT_02.json"
+    ]
+  },
+  "exclusions": {
+    "machine_proposed_referent": false,
+    "machine_proposed_typing_level": false,
+    "machine_proposed_relation": false,
+    "same_different_recommendation": false,
+    "interpretation_ranking": false
+  },
+  "frozen_rules": {
+    "source_lines": "reproduced verbatim from OBJECT_EVIDENCE_03 full_source_line; verified against git show HEAD:<file>",
+    "no_rewriting": true,
+    "no_spelling_notation_correction": true,
+    "context_window": "bounded window exactly as stored in OBJECT_EVIDENCE_03; no expansion with repository knowledge",
+    "missing_field_policy": "NOT SPECIFIED written verbatim; nothing inferred"
+  },
+  "statement_count": 31,
+  "statements": [
+    {
+      "statement_id": "provenance/claims.baseline.json:55",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.baseline.json",
+      "source_line": 55,
+      "exact_source_line": "   \"boundary_condition\": \"CONDITIONAL (logged as a known boundary, not absorbed): the confirmation holds for the standard QBM construction with a smooth UV cutoff + bilinear coupling, PROVIDED GRUT's vacuum bath carries NO second internal dynamical scale (resonance/diffusive mode). A second scale would give a genuine second pole tau_2 (nu(t)~A e^{-t/tau_c}+B e^{-t/tau_2}). See rung7: an evolving w(z) REQUIRES exactly such a second (cosmologically slow) scale -- the two facts are coupled. SECOND BOUNDARY (2026-06-26, NEW specialist, NOT folded as settled): single-pole holds for a COLLISIONAL / analytic-noise bath. For a genuinely COLLISIONLESS free-streaming bath (Weinberg 2004 nonlocal memory) the kernel is power-law (K(t)~1/t^alpha, Bessel tails) -> Sigma(omega) has a BRANCH CUT at omega->0 (~|omega| or omega^2 log omega), NOT a pole -> the single pole DISSOLVES into a continuum (no dynamical mass, power-law not exponential relaxation). THREE specialists now CONFLICT on single-pole: (1) DOS [3+1D free relativistic modes super-Ohmic, J~omega^3 analytic -> holds], (2) analyticity [finite-T coth cancellation -> holds], (3) Weinberg [collisionless free-streaming -> branch cut -> FAILS]. Likely reconciliation = two senses of 'collisionless': the DOS/SPECTRUM of vacuum fluctuations (single-pole survives) vs FREE-STREAMING TRANSPORT of anisotropic stress (branch cut). Which GRUT's bath instantiates is decided by the UNPINNED system/bath split (ledger #2). So single-pole is DERIVED WITHIN THE COLLISIONAL/ANALYTIC REGIME; whether GRUT's vacuum is in that regime is OPEN -- the next question, to specialist 1 (does the DOS/analytic single-pole survive a Weinberg free-streaming bath, or does it introduce a branch cut the analysis omitted?). SPINE TEST RUN 2026-07-04 (loaded onto the Tan-Tsamis-Woodard COMPUTED object, arXiv:2103.08547 -- an EXTRACTION of the low-omega transport class from a known pure-graviton dS self-energy, NOT a from-scratch loop; four grapples both-directions vs the firewall guards; DEFAULT-BROKEN). VERDICT: UNDER-DETERMINED -- but EARNED, replacing the previously-guessed 'probably under-determined' (predicting the outcome was exactly the move the discipline forbids). The probe does NOT graduate rung3 (STAYS derived-pending, ledger 0): the low-omega TT class lives in the gauge/scheme/prescription-dependent part of the object -- the 30-year dS-IR controversy in local form (the gauge-artifact, scheme-flip, and null-collision guards all fire). It banked THREE grounded things the guess did not have. (1) TT-FROZEN [leading-order, simplest-gauge; does NOT clear the gauge guard]: the perturbative TT sector does NOT itself provide evidence for the branch-cut (Class-B) interpretation -- TTW state explicitly 'there are no changes in the graviton mode function' at one loop, and the secular ln(a) is in the SPIN-0 potentials Psi, Phi, NOT the TT channel that G_R^TT probes. This DEFUSES the REFUTED reading FOR THE TT CHANNEL, and is NOT evidence for single-pole: a frozen mode function is EQUALLY consistent with a trivial / no-response -- the Higuchi/Marolf-Morrison stability horn. So 'frozen' sits BETWEEN single-pole and trivial and distinguishes NEITHER (absence-of-evidence-against, not evidence-for). CRISP FORM [external specialist wording, adopted verbatim 2026-07-04, cleaner than the in-house phrasing]: 'The existing perturbative TT calculations remove one commonly cited argument for an inevitable branch-cut interpretation, but they do not positively establish a relaxation pole.' (2) HORN-CONDITIONAL [a DERIVED fork, not a shrug]: the under-determination decomposes along the dS-IR controversy -- Tsamis-Woodard IR-SCREENING horn: secular resums to a dynamical graviton mass => pole => Class A => HOLDS; Higuchi / Marolf-Morrison IR-STABILITY horn: the growth is a gauge artifact removed by the assembled observable => trivially analytic / ambiguous; the un-resummed object AS LITERALLY COMPUTED: the secular ln(a) is a REAL feature but does NOT establish a transport branch cut -- secular growth in the TIME-domain response is NOT rho(omega) ~ |omega| at omega->0 (the two are separated by exactly the omega->0 ANALYTIC CONTINUATION that has NOT been done), so even the un-resummed object does NOT force Class B. 3RD CORRECTION [external specialist 2026-07-04, the MIRROR of the referee's HOLDS-side catch]: our earlier 'secular => cut => REFUTED-leaning' over-identified a secular logarithm with a transport branch cut -- the SAME class of over-claim, on the OPPOSITE horn. Conceding it makes the under-determination SYMMETRIC: TT-frozen removes a branch-cut argument WITHOUT establishing a pole; the secular log is real but establishes NO cut; NEITHER pole NOR cut is forced by the current calculations. (The collisional/Class-A route is separately UN-established: graviton-graviton scattering in dS is suppressed as Gamma ~ G^2 H^5 (dimensional/order-of-magnitude estimate, NOT a computed rate; the forced cubic-GR vertex carries dimensionless coupling GH^2 ~ (H/M_Pl)^2, so Gamma/H ~ (H/M_Pl)^4) -- extraordinary IR suppression -- so collision-induced hydrodynamics is NOT demonstrated either.) NET (the grounded form of 'everything gates on rung3'): GRUT's single-pole spine is NATURALLY SUPPORTED IF de Sitter IR-SCREENS -- FORWARD DIRECTION ONLY (IR-screening -> dynamical mass -> pole). The CONVERSE (single-pole -> screening) is UNPROVEN: other pole-generating mechanisms (a different resummation, a genuine collisional channel) are NOT excluded, so this is NOT a biconditional until a uniqueness theorem closes the converse. (3) EARNED CEILING: the pure-graviton low-omega TT class is NOT extractable from the existing computed object -- the only gauge-invariant assembled observables (Glavan-Miao-Prokopec-Woodard) require inserted matter, and the pure-graviton low-omega assembled observable is the still-OPEN 2026 frontier (arXiv:2602.07908). So the specialist dispatch is now EARNED, not assumed: we loaded the object, hit the wall, and know EXACTLY what must be computed to break the fork. EXTERNAL CHECK 2026-07-04 (the FIRST external check logged in this register): an independent specialist, reasoning from the same pure-graviton dS literature, INDEPENDENTLY reconstructed the identical disposition -- earned-under-determined, retain derived-pending -- and named the SAME blocking computation (rho_TT(omega->0) = 2 Im G_R^TT, extracted after gauge-invariant assembly + IR resummation + analytic continuation), then corrected us one notch further (the 3rd/symmetric correction above). This is a PROCESS CHECK on the disposition -- an independent, adversarial-by-default reviewer reconstructing the same under-determined verdict and tightening it -- NOT positive evidence for GRUT (the overseer relayed it as the register's strongest process-check short of the computation itself); wording/source only, no tier/ledger change. QUANTITATIVE FORM 2026-07-04 (calc/rung3_spectral_structure.py + calc/RESULTS_rung3_spectral_structure.md, in-house TOY/SCALING, default-BROKEN, does NOT graduate rung3; firewalled both-directions before banking, amber->green): the earned-under-determined disposition is made quantitative via the exact secular-envelope -> low-omega-singularity dictionary [rho(omega)=2 Im G_R; envelope t^p -> rho ~ 2 Gamma(p+1) sin((p+1)pi/2) omega^-(p+1); a FORMAL scaling transform -- for p>=2 it returns sign-indefinite rho (omega*rho<0, an unstable/growing mode, not a passive response), so only p<=1 carries a direct passive-response reading]. THE DERIVED CONTENT is the TT-channel power counting: the TT graviton mode function is FROZEN at O(G) -> no low-omega growth-singularity at O(G) -> leading TT dissipation eta_TT vanishes at O(G) -> O(G^2) or higher. ORDER-COUNTING COHERENCE: eta_TT=O(G^2) is consistent, at leading nonzero order, with the null-collision Gamma~G^2 H^5 (dimensional/order-of-magnitude estimate, NOT a computed rate; also O(G^2)); the pole-vs-cut fork (a razor-thin Lorentzian of width ~Gamma~G^2 H^5 vs a free-streaming cut) sits at O(G^2), BELOW the current O(G) un-resummed simplest-gauge resolution. So 'earned under-determined' is now the DERIVED quantitative statement: the right channel's distinguishing dissipation is a higher-order effect below current resolution. WRONG-CHANNEL check (spin-0): the spin-0 potentials Psi,Phi grow ~ ln a; IF one takes that bare time-domain envelope at FACE VALUE (p=1) through the dictionary it returns a non-integrable delta'(omega) -- but that is EXACTLY the illegitimate secular-log=>cut shortcut the 3rd/symmetric correction RETRACTED (the real omega->0 continuation of the ASSEMBLED object has NOT been done, so the secular log establishes NO cut), AND it is the WRONG CHANNEL (not what G_R^TT probes); so the naive Class-B signal, even at face value, establishes nothing about rho_TT. FENCE (the single easiest over-claim): frozen-TT = SILENT at O(G) (no distinguishing singularity), NOT Class A AND NOT Class B -- equally consistent with a razor-thin pole or a trivial no-response; both horns stay live. TOY/SCALING (envelopes, not the tensor/gauge-invariant result); rung3 STAYS derived-pending, ledger 0. LITERATURE ANCHOR 2026-08-02 (overseer-verified against primary literature) [AUTHORITY-VOCABULARY ANNOTATION 2026-08-12, sealed audit PREREG_AUTHORITY_TERMS_2026-08-12.txt (23a86fc8...): the word above reads as an OUTSIDE party to anyone who has not read the glossary. It is not one. 'Overseer' is this program's own human author; 'specialist', 'referee', 'independent' and 'external' denote in-house passes -- separate AI sessions run by that same author from a clean context. NO OUTSIDE HUMAN HAS EVER BEEN CONTACTED BY THIS PROGRAM: no transmission is logged at any date, and the author states directly that none occurred. The string is ANNOTATED, NOT RENAMED -- the register is historical evidence and the vocabulary drift is itself the finding.]: the open-EFT-of-gravity literature (Salcedo-Colas-Dufner-Pajer, JHEP 02(2026)241, arXiv:2507.03103; sources: salcedo_colas_dufner_pajer2026) parameterizes exactly this claim's object CLASS -- a genuine dissipative tensor friction Gamma_T (not GRUT's specific single-pole kernel), explicitly DISTINCT from the conservative running-Planck-mass alpha_M*H, appearing with a MANDATORY stochastic source xi in a Schwinger-Keldysh open EFT. Three consequences: (a) the dissipative graviton kernel + noise is now a NAMED, published mainstream parameterization, not a GRUT-private construct; (b) the conservative-vs-dissipative split (alpha_M vs Gamma_T+xi) matches the reactive-vs-(Im K_R + N) sort GRUT uses -- NOTE the retarded+noise FORM itself is U1-GENERIC (standard open-EFT, per this register's own u1_form_universality; NO validation credit for the form); what is genuinely new is the mainstream application to the GRAVITATIONAL tensor sector with Gamma_T explicitly distinguished from alpha_M; (c) via slot-degeneracy in the mean-field tensor equation, current GW-friction measurements transfer as the FIRST measured bound on this object CLASS: effective Markovian, achromatic |Gamma_T| <~ few x H_0 [FENCED 2026-08-09, external-review close-out: THIS NUMBER IS AN UN-COMPUTED ORDER-OF-MAGNITUDE INFERENCE, not a quantity appearing in arXiv:2507.03103. It is the OVERSEER RELAY's inference from the slot-degeneracy argument (attribution recorded at the overseer's own instruction): GW170817-class friction bounds constrain the shared mean-field friction slot at O(H_0), and no cancellation can hide a dissipative contribution -- but the 'few' has NO CALC behind it, which violates the every-load-bearing-number-has-a-calc rule written after the 32-sigma. Standing: ORDER-OF-MAGNITUDE INFERENCE ONLY; do not quote as a bound, do not consume downstream, compute or retire at calc/gw_tensor_friction.py (owed, Part-7 time-boxed)] -- a NO-CANCELLATION bound on the shared friction slot, NOT a decomposed measurement of GRUT's kernel (alpha_M is sign-indefinite and slot-degenerate); loose but real AS A CLASS STATEMENT (the class statement survives the fence; the NUMBER does not). CATEGORY FENCE (do NOT collapse): alpha_M != Im Sigma_R -- the conservative alpha_M is removable by field redefinition, graviton-number-conserving, sign-indefinite, achromatic, and noiseless; a genuine dissipative kernel is none of these. A detected Xi_0 != 1 could NEVER confirm GRUT and would bear on it only AFTER a conservative-vs-dissipative decomposition. GRUT's OWN induced Gamma_T at omega~H_0 is NOT YET COMPUTED (calc/gw_tensor_friction.py staged; NO number banks until it exists -- the earlier '<=1e-21' figure had no calculation behind it and is NOT banked). See SPECIALIST_BRIEF_rung3_spine.md, STATE.md, calc/RESULTS_rung3_spectral_structure.md, SIGNATURE_AUDIT.md. SCOPING CORRECTION 2026-08-10 (source-verified against arXiv:2103.08547 directly -- extracted paper text, not an index; overseer-ruled that the register carry the QUOTES, never a characterization): the TT-frozen leg above is MIS-SCOPED. The paper's epilogue reads, verbatim: 'Both of these things have already been computed (using the old formalism) for the contribution of a massless, minimally coupled scalar [19, 20]. Although there are no changes in the graviton mode function [20], the response to a point mass acquires corrections which grow at late times and large distances [19]' -- where [20] is S. Park and R. P. Woodard, Phys. Rev. D 83, 084049 (2011), the SCALAR-loop computation. The 'no changes' sentence is therefore explicitly scalar-loop-scoped; this register banked it as an unscoped graviton-sector fact. For the GRAVITON loop the same paper states the opposite: Table 8's caption, verbatim: 'Contributions to T^i(x;x-prime) that contain factors of ln(H^2 Delta-x^2). Each tabulated term must be multiplied by -kappa^2/(64 pi^4)' -- with row i=2 (T^2, the single structure function surviving TT projection per eqs. 108-109: 'the only one of the coefficient functions T^i(x;x-prime) that contributes is T^2(x;x-prime)') NONZERO; and the epilogue, verbatim: 'The potential for gravity to mediate more interesting effects than matter can be seen from the factor of ln(H^2 Delta-x^2) which multiplies all the contributions of Table 8, and is absent from the analogous scalar contributions of Table 6.' Section 4.3, verbatim: 'These other terms can potentially change the graviton mode function, and they typically induce fractional changes in the potentials of the form GH^2 times large temporal and/or spatial logarithms', with the gauge status the paper's own stated unknown: 'How the parameters alpha and beta of the general de Sitter gauge (154) affect the other terms is not known.' Companion mode-function results, abstract-verified: Mora-Tsamis-Woodard arXiv:1307.1422, verbatim: 'the one loop correction to the plane wave mode function u(eta,k) goes like G H^2 ln(a)/a^2' (Hartree); Tan-Tsamis-Woodard arXiv:2107.13905, verbatim: 'these corrections are enhanced by the square of the number of inflationary e-foldings.' CONSEQUENCES, priced: (i) the DEFUSES-the-REFUTED-reading leg and the trivial/no-response horn hold ONLY for scalar-loop sources; for graviton-loop sources the gauge-fixed T^2 is secular and the trivial escape is CLOSED. (ii) This does NOT establish a branch cut (the third correction stands: an un-resummed secular log establishes no cut) and does NOT establish a physical secular TT effect (the gauge status is unresolved, per the quote above) -- the under-determination PERSISTS, re-scoped onto two named blockers: (A) no graviton-probe version of the arXiv:2602.07908 source/observer/external-mode-function assembly exists (that construction is scalar-probe); (B) the graviton Langevin input of arXiv:2409.12003 lacks its RG completion. In-house attempt and sharpened ask: calc/RESULTS_c1_inhouse_assembly_attempt.md, DISPATCH_ONE_PAGE.md (2026-08-10 sharpening). (iii) DIRECTION, stated on the face: AGAINST the framework -- the branch-cut defusal weakens; nothing here moves toward single-pole. FENCED, ours and unverified: any inference from the author-stated square-of-e-foldings enhancement to a Sudakov/entire-function third outcome (the abstract states the enhancement, not what resums to what). No tier move, no ledger move: derived-pending at Delta 0, under-determined for a differently-scoped reason. SECOND CORRECTION 2026-08-10b (source-verified; the register carries QUOTES, never a characterization; four errors in the 2026-08-10 scoping correction above): (1) CATEGORY -- T^2 is a COEFFICIENT function, not a structure function. PDF p.23 (= printed folio 22; PAGE CONVENTION for this source, declared 2026-08-10c: page citations to arXiv:2103.08547 in this register are PDF page numbers, and the printed folio runs one behind throughout -- final folio 47 on PDF page 48), verbatim: 'the only one of the coefficient functions T^i(x;x-prime) that contributes is T^2(x;x-prime).' The nine STRUCTURE functions are T^12, T^16, T^18, T^19 and S^2, S^4, S^7, S^8, S^10 (p.14 and Epilogue); eq. (81) renders T^2 a COMPOSITE of six of them. The phrase 'the single structure function surviving TT projection' above is wrong at the category. (2) TIME-ORDERING -- the tabulated T^2 is the IN-OUT (Feynman) object, NOT retarded: in the paper's 48 pages 'retarded' occurs 0 times, 'causal' 0, 'Schwinger' 0, 'Keldysh' 0, 'in-in' 0; T*-ordered VEVs at eqs. (116) and (133); the Feynman i-epsilon at eq. (9). The Schwinger-Keldysh conversion is performed in arXiv:2107.13905 section 2.2.3 and produces a DIFFERENT symbol, T^2_SK; its eqs. (52)-(55) are where ln(H^2 Delta-x^2) becomes theta(Delta-eta - r) * ln[H^2(Delta-eta^2 - r^2)] -- the SK step is what CREATES the causal support and the branch structure. Reading the Table-8 object as the retarded kernel is wrong at the definition. (3) TABLE 8'S GRADE -- the in-house write-up called it 'exact one-loop coincidence-limit tables'; inverted on both words. Section 4.2, verbatim: 'The actual computation [22] was made in D=4 dimensions before it was understood how to employ dimensional regularization, so it can only be used away from coincidence.' Not dimensionally regulated, not renormalized, missing local terms -- usable only AWAY from coincidence. (4) SECULARITY -- a position-space ln(H^2 Delta-x^2) is NOT time-domain secularity; that requires the x-prime integration of eq. (109), which the paper explicitly has NOT done (Epilogue: '...and then employ them to solve equations (109)...'). The sentence 'the gauge-fixed T^2 is secular' in consequence (i) above OVERSTATES: what is established is NONZERO, with logarithmic position-space factors, in the IN-OUT object; 'secular' awaits the integration. Consequence (i) accordingly weakens to: the trivial/no-response horn closes on NONZERO, not on established secularity. NO TIER MOVE, NO LEDGER MOVE: rung3 stays derived-pending at Delta 0.\",",
+      "bounded_context_window": {
+        "system/bath": "\"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past what",
+        "UV cutoff": "\"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past what",
+        "gauge": "\"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past what"
+      },
+      "candidate_term": [
+        "system/bath",
+        "UV cutoff",
+        "gauge"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,gauge_field_redefinition,system_bath_partition",
+      "object_class": [
+        "cutoff_separation_scale",
+        "gauge_field_redefinition",
+        "system_bath_partition"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1902,
+          1903,
+          1904
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "cb4ef9a175ed"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> system/bath partition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> system/bath partition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "gauge / field-redefinition freedom <--> system/bath partition",
+          "prior_classification": "LEXICAL_TRIGGER_ONLY",
+          "prior_classifier_trigger": "loose phrase retained as candidate (known false-positive class)"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "identification phrase",
+        "identification phrase",
+        "loose phrase retained as candidate (known false-positive class)"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "LEXICAL_TRIGGER_ONLY"
+        ]
+      }
+    },
+    {
+      "statement_id": "provenance/claims.json:79",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.json",
+      "source_line": 79,
+      "exact_source_line": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past what was shown). TWO-LEVEL FRONTIER (named missing input = the TRANSPORT SELF-ENERGY Sigma controlling G_R = 1/(G0^-1 - Sigma)): (1) committing the system/bath partition yields only the FREE bath correlator (super-Ohmic, collisionless-AT-FREE-LEVEL) which by itself does NOT decide the fork; (2) Sigma additionally needs the bath's INTERNAL dynamics (graviton-graviton scattering / nonlinear mode coupling / Boltzmann) -> read the low-omega scaling CLASS: Ohmic (Im G_R ~ eta*omega) -> single-pole holds; non-Ohmic / Weinberg free-streaming power-law-tail kernel -> single-pole fails. The decision is a one-bit low-omega scaling CLASS read off a FULL transport self-energy calc -- NOT 'one number from one vertex', and NOT the |omega|/sub-Ohmic s<1 shorthand (a RETIRED mischaracterization; the failure mode is the Weinberg branch cut). Do NOT read free-level super-Ohmicity as the Weinberg free-streaming failure branch -- the decision lives entirely in Sigma from the bath's INTERNAL dynamics. So single-pole is pending a MODELING COMMITMENT GRUT has not made, NOT a referee computation; this low-omega scaling class is FRONTIER-RESERVED (specify and hand out, do NOT approximate Sigma in-house). REFEREE REBUTTALS banked as corroboration (no tier/ledger change): KMS != viscosity; de Sitter / Gibbons-Hawking != a colliding gas; Weinberg branch cut = an extra collisionless ASSUMPTION (the collisionless branch, tidied to the Weinberg reading). Bank the PROOF, not the specialist's favorable prior ('the vacuum probably has finite transport coefficients' = ZERO evidential weight; 'finite eta' is strictly weaker than 'single Debye pole'). Collisionality is the ANCHOR's open input #17, decided only by the full transport calc. [Pre-screen history:] GENUINELY OPEN (both leans live), 2026-06-26 -- tier derived-pending with a FAVORABLE-BUT-CIRCULAR lean (see reconciliation at end). [History:] finite-T CONFIRMED 2026-06-25 by open-systems specialist via ANALYTICITY: the coth 1/omega is exactly cancelled by one of the three powers of omega in J~omega^3, so S(omega)=a*omega^2+b*omega^4+... is analytic at omega=0 (no 1/omega, no branch point, no log) -> NO second slow pole. The s:3->2 softening is structural, not numerical; memory stays cutoff-set (tau_c~1/omega_c). Single-pole holds at finite T. Graduated derived-pending -> DERIVED. RE-QUALIFIED 2026-06-26: tier stays 'derived' but REGIME-CONDITIONAL -- the result is real within the COLLISIONAL/ANALYTIC-bath regime; a NEW specialist raised that a COLLISIONLESS free-streaming (Weinberg) bath gives a branch cut that dissolves the single pole (see boundary_condition, second boundary). NOT folded as settled in either direction (three specialists conflict); the deciding question -- is GRUT's bath collisional or free-streaming-collisionless -- is open and traces to the unpinned system/bath split (ledger #2). 'derived, specialist-confirmed' must no longer stand UNQUALIFIED. ISOLATED-BATH VERDICT 2026-06-26 (specialist, FAVORABLE lean -- partial reprieve, NOT settled): the object is rho_chi(omega)=2 Im chi^R_TT(omega) for the vacuum BEFORE the conformalon. Two IR universality classes -- Class A (local vacuum fluctuations: Caldeira-Leggett/DOS/KMS/local Schwinger-Keldysh -> rho~omega^3 analytic, single-pole survives, exponentially-localized memory) vs Class B (free-streaming ballistic transport, Weinberg 2004 -> rho~|omega| or omega^2 ln omega, branch cut, single-pole dissolves, infinite directional memory). LEAN: Class A (rho~omega^3), single-pole SURVIVES -- because GRUT's OWN stated axioms (Gaussian, KMS-locked, linear-response, finite-memory, local influence functional) ARE the analytic class, and nothing in the present formulation introduces a collisionless kinetic sector at the bath level. CAVEAT: 'strong inference, NOT a theorem' -- specialist explicitly declines to settle it. NEAR-CIRCULARITY (mark, do not absorb): GRUT's finite-memory PREMISE essentially IS the Class-A choice, so single-pole 'following' is partly definitional; the genuinely independent earned content is the finite-T analyticity robustness check (within Class A, finite-T could have generated a slow second pole and does not). THE REAL OPEN QUESTION (sharpened by the specialist): NOT the exponent but 'what is the bath HILBERT SPACE integrated out to produce the GRUT influence functional?' -- needs a FIRST-PRINCIPLES derivation of rho_chi from the microscopic DOF, not argument-by-analogy to either oscillator baths or collisionless transport. Tier STAYS derived-pending (favorable lean, not settled). Net ledger unchanged (+10); collisionality input #17 refined to 'GRUT's vacuum is Class A (the bath Hilbert space is Gaussian KMS fluctuations, not free-streaming carriers)'. TRANSPORT/VISCOSITY PIN 2026-06-26 (REVERSES the above lean, lands AGAINST single-pole, demotes derived-pending -> ASSUMED): the previous chain (and the original DOS argument) committed a CATEGORY ERROR -- the super-Ohmic omega^3/omega^4 object is the T=0 VACUUM RESPONSE (graviton-emission phase space, high-freq probe), NOT the thermal MEMORY kernel. The right variable is NOT an exponent but tau_collision: single-pole memory time = the collision time, single-pole <=> tau_collision << tau_0. KEY FACT (rock-solid kinetic theory, not a delicate loop): a FREE field has INFINITE shear viscosity (nothing relaxes momentum, eta ~ tau_collision -> inf); the transport peak narrows to a delta(omega) of diverging weight (non-decaying shear mode) = the non-analytic structure, tau_K -> inf. The MINIMAL de Sitter vacuum is FREE fields -> tau_collision = inf -> FREE-STREAMING -> single-pole DISSOLVES (NOT super-Ohmic omega^3). de Sitter adds T_dS=H/2pi but NO collisions unless put in by hand; the only escape is super-horizon FREEZING (omega<H modes don't free-stream, may suppress the delta(omega) weight) -- but that is (a) UNCOMPUTED and (b) even maximally gives tau_K ~ 1/H ~ 14 Gyr ~ 300x tau_0 (~42 Myr) [MARKER 2026-08-18, not a correction: '~42 Myr' is the PRIOR LINEAGE's figure, appearing here only comparatively, inside the argument RETRACTED the same day by its own proposer (see the RECONCILED entry). It is not banked, and no node's content depends on a value of the memory scale -- confirmed by the 2026-08-18 sweep of all 18 nodes touching it, which found only limits, class questions, and the separately-priced second scale. Retained because the retracted reasoning is retained; marked so a reader grepping the clean register for a memory-scale value cannot misread it as banked.] = the SLOW regime, STILL not single-pole. So single-pole requires GRUT to POSIT collisions with tau_collision << tau_0 -- a NEW microphysical input the minimal vacuum does NOT supply. Hence ASSUMED (+1), not derived. RIGOROUS COMPUTATION (the de-anchor, for the Part-1 specialist, in isolation before the conformalon): Im<T_TT T_TT>(omega->0,k->0) for a free field on de Sitter in Bunch-Davies/Gibbons-Hawking, into the super-horizon limit, with free-streaming-vs-freezing as the explicit object. RECONCILED 2026-06-26 (proposer of the transport pin UPDATES -- this is the settled state): the viscosity argument is FLAT-SPACE finite-T kinetic and does NOT cleanly transfer to de Sitter -- Gibbons-Hawking is observer-dependent (not a real particle gas), the Bunch-Davies vacuum stress correlator is ANALYTIC by microcausality, and super-horizon FREEZING can suppress exactly the streaming piece the argument leans on. So Class B is NOT established on dS and Class A (analytic) has real merit there. STATE: GENUINELY OPEN, both leans live (NOT 'leans against', NOT split-the-difference). Tier reverts ASSUMED -> DERIVED-PENDING; ledger +1 -> 0; net +11 -> +10. SHARPENED CIRCULARITY (tighter than 'axioms favor A'): Gaussian/KMS/linear-response do NOT force Class A -- a Gaussian KMS bath can free-stream (Weinberg's neutrinos ARE essentially that). The axiom that forces Class A is LOCALITY/FINITE-MEMORY of the influence functional == single-pole RESTATED. So the favorable lean and the assumption are the SAME object -> the lean carries ALMOST NO independent evidential weight; do NOT bank it as reassurance. The ONLY genuinely-independent earned content is the small finite-T robustness check (within the assumed analytic class, coth could have manufactured a slow second pole and does not -- real, small, the right size). CONVERGENCE = the actual signal: specialist (lean A) + proposer (lean B) + the document (ledger #2 system/bath split) all land on the BATH HILBERT SPACE -- three paths, one question, robust BECAUSE it survives the disagreement about which way single-pole goes. *** ADVERSE EVIDENCE RECORDED RETROSPECTIVELY, 2026-08-19 (owner ruling: evidence moved and nothing fired, so it is recorded in the node's own text rather than by superseding a pre-registration; NO TIER OR LEDGER MOVE). calc/finite_T_pole_structure.py answers the question calc/finite_T_exponent.py left open on 2026-06-25 -- 'does the s_eff=2 spectrum carry a slow second pole that the cutoff-set memory time hides?' It is not a second pole. coth(omega/2T) has a simple pole at omega = 2 pi i n T for EVERY n, residue 2T; this is a property of the KMS factor alone and is independent of J and of the regulator. With T = H/2pi -- fixed uniquely here at rung2 and paid at rung5, explicitly not a free input -- the NOISE kernel carries a MATSUBARA LADDER at omega = -i n H, spacing exactly H. Weighting by residue (J ~ omega^3 gives n^3), the leading rung's share is (1-x)^4/(1+4x+x^2) with x = e^{-Ht}: 6.1% at Ht = 1, reaching 90% only at Ht = 4.32. rung7 carries tau_2 ~ 1/H0, i.e. Ht ~ 1, so THE COSMOLOGICAL SECTOR OPERATES ABOUT FOUR E-FOLDS SHORT OF WHERE SINGLE-POLE BECOMES A GOOD APPROXIMATION, and no limit of the parameters moves it there because H is the only scale the framework has. Robust to the regulator: truncating at n <= 3 lifts the Ht = 1 share only to 13.2%. AND IT IS DENSER THAN THE STRUCTURE IT REPLACED -- the static-patch QNM tower retracted the same day had spacing 2H; this ladder has spacing H, and the second rung is ~294% of the first at Ht = 1 once residues are included. 'The tower was retracted' reads as a reprieve and is the opposite. THE ONE STEP NOT TAKEN, which is this node's actual claim: the ladder is in the NOISE kernel of the bilinear QBM split; the retarded kernel is T-independent and untouched. Whether the Mori-Zwanzig memory kernel of the projected dynamics INHERITS the ladder is not established. It is sharply posed rather than open-ended: KMS ties N to Im K_R, so N inherits coth's poles UNLESS Im K_R has zeros at the Matsubara frequencies that cancel them, and that cancellation is the only route by which the projected kernel could fail to inherit the ladder. *** *** THE ADVERSE FILING ABOVE IS NARROWED, 2026-08-19, BY THE PARTY IT DISFAVOURS. calc/mz_inheritance.py takes the inheritance step. TWO RESULTS, opposite in direction. (1) THE ESCAPE ROUTE IS CLOSED: the framework's own J has no zeros on the imaginary axis (J(i v) = eta (i v)^3 exp(+v^2/w_c^2), nonzero for every v and every s tested), so nothing cancels coth's poles and the SYMMETRISED noise kernel does inherit the ladder exactly as framed. (2) BUT THE SYMMETRISED CORRELATION IS NOT THE ONLY CANDIDATE, AND THE OTHER STANDARD ONE HAS NO LADDER. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI (canonical) inner product, and the Kubo correlation carries C_K(w) = 2 chi''(w)/(beta w) rather than C_S(w) = chi''(w) coth(beta w/2) -- derived here from the Kubo transform's definition, not quoted. The coth is REPLACED by 2/(beta w): every Matsubara pole is gone, leaving one pole at w = 0. Separately, the generalised-Langevin FRICTION kernel contains no temperature at all (verified bit-identical at two temperatures) while the noise kernel's late-time rate tracks 2 pi T to 0.07-0.09%. SO: the phrase 'the Mori-Zwanzig kernel' in this node's own statement DOES NOT DENOTE A UNIQUE OBJECT, and the two objects it could denote answer the inheritance question OPPOSITELY. The adverse reading is therefore CONDITIONAL on identifying it with the symmetrised correlation, which this node does not do. This is a defect in the node's STATEMENT, not in its physics; it is cheap to repair and must be repaired before the ladder can be said to bear on the conjecture. Until then the ladder neither refutes nor spares single-pole, and the honest disposition is that the node is UNDER-SPECIFIED exactly where the evidence would bite. *** *** AND A SCOPE CORRECTION TO THE STATIC-PATCH WORK, same date, also against the adverse direction (owner): A POLE-FREE FREE RESPONSE IS NULL, NOT ADVERSE. Pure de Sitter has no scattering centre; the graviton potential is purely centrifugal, l(l+1)/sinh^2(H r_*), and that exactly-solvable case is FORCED to return a finite Blaschke amplitude. A trivial scattering problem returns a trivial answer, so the free level carries no evidence either way -- and with c = 0 now DERIVED (calc/static_patch_tt_response.py PART 1b), the 'artefact of an exactly-solvable potential' caveat is the operative fact rather than a hedge. Everything that bears on this node rests on the interacting self-energy Sigma. *** *** AND THE NARROWING IS ITSELF NARROWED, 2026-08-19, BACK TOWARD ADVERSE -- because reading THIS NODE'S OWN PRE-EXISTING TEXT answers the convention question it was said to leave open. This node has carried since 2026-06-25: 'finite-T CONFIRMED ... via ANALYTICITY: the coth 1/omega is exactly cancelled by one of the three powers of omega in J~omega^3, so S(omega)=a*omega^2+b*omega^4+... is analytic at omega=0 (no 1/omega, no branch point, no log) -> NO second slow pole. ... memory stays cutoff-set (tau_c~1/omega_c). Single-pole holds at finite T.' TWO CONSEQUENCES. (i) THE CONVENTION IS NOT UNSTATED AFTER ALL: that check is performed on S = J coth, the SYMMETRISED noise spectrum, so this node's own finite-T history identifies its kernel and the adverse reading of the Matsubara ladder APPLIES rather than being conditional. The narrowing recorded above was too generous to this node and is withdrawn to that extent. (ii) THE BANKED CLAIM'S NEGATIVE HALF DOES NOT FOLLOW FROM ITS ARGUMENT. The positive half is correct and is re-verified in calc/mz_inheritance.py PART 3b: with J ~ omega^3 the 1/omega really is cancelled and S is analytic at the origin. But 'analytic at omega = 0' is a statement about ONE POINT, and coth's poles sit at omega = 2 pi i n/beta for every n != 0, where J does not vanish -- residue J(2 pi i n/beta)*(2/beta), verified nonzero at n = 1,2,3,7. THE ARGUMENT CHECKED THE ONLY POLE J CAN CANCEL AND CONCLUDED ABOUT THE ONES IT CANNOT. Correspondingly 'memory stays cutoff-set' is false: the ladder's slowest component sits at 1/(2 pi T) = 1/H, which for this framework is enormously slower than any UV cutoff time. TWO INSTRUMENTS, TWO DIFFERENT MISSES, ONE BANKED CONCLUSION: the analyticity check looked at the single point where cancellation was possible, and the tau_nu memory-time diagnostic is a |nu|-weighted mean in which the ladder carries almost none of the weight (calc/finite_T_pole_structure.py PART 4). 'Single-pole holds at finite T' rests on both. NO TIER OR LEDGER MOVE is taken here; this is the same retrospective recording the owner ruled for, and what it changes is that the ladder's adverse bearing is now unconditional rather than convention-dependent. *** *** MULTIPOLE CORRECTION AND A TWO-SIDED RESULT, 2026-08-19, calc/mz_inheritance.py PART 1b. THE CORRECTION IS FILED FIRST BECAUSE THE FAVOURABLE HALF IS THE QUOTABLE ONE. The graviton has NO l = 0 and NO l = 1, so every physical multipole has l >= 2; an earlier pass tabulated l = 1, which is not a graviton mode. The free static-patch spectral function A_l vanishes at the first l Matsubara rungs, so THE SLOWEST SURVIVING RUNG IS (l+1)H. CONSEQUENCE, AGAINST THE ENTRIES ABOVE: the free-level memory time is 1/(3H), NOT 1/H, and every statement in this register reading 'slowest rung exactly H' or 'memory time 1/H' -- including the Matsubara-ladder filing earlier this same day -- is about a ladder containing modes the graviton does not have. AND IT IS MULTIPOLE-DEPENDENT: 3H at l=2, 4H at l=3, (l+1)H generally. THIS NODE ASSERTS *THE* MEMORY TIME; THE FREE THEORY SUPPLIES A FAMILY INDEXED BY MULTIPOLE. That is a stronger objection than any share arithmetic: single-pole is not a poorly-dominated approximation here, the single rate it approximates DOES NOT EXIST at free level. THE FAVOURABLE HALF, real and booked as such: because every physical l >= 2, RUNGS n = 1 AND n = 2 VANISH FOR EVERY PHYSICAL MULTIPOLE -- the geometry genuinely kills the two slowest rungs, the ones governing late-time memory. That is the first structural result in this fortnight running toward the framework. It does not rescue single-pole: the leading surviving rung carries 6.4% at l=2 and Ht=1 (2.5% at l=3, 1.0% at l=4 -- the share FALLS with l), and the escape still requires Sigma to manufacture zeros at n > l where the free theory has none, l-dependently, to yield any single rate at all. STATUS: numerically verified, NOT adversarially tested, and it runs the direction the builder already expected -- the profile of both errors this week. Not to carry a dispatch until a hostile pass has had it. NO TIER OR LEDGER MOVE. *** *** ADVERSARIAL PASS, 2026-08-19: all four lenses returned NOT-REFUTED -- the adverse conclusion stands -- and all four found the STATEMENT wrong. calc/mz_inheritance.py PART 1c. (1) THE ZERO SET WAS UNDER-COUNTED, FAVOURABLY: N carries an overall factor of omega, so it vanishes at omega = 0 and at the negative rungs too -- exactly 2l+1 zeros, |n| <= l -- so l+1 NON-NEGATIVE rungs cancel, not l. (2) 'A IS PROPORTIONAL TO N' IS FALSE AS WRITTEN, reported independently by two lenses: A = N psi_reg(x_<) psi_reg(x_>)/(2iW), and that prefactor is entire of order 1 with INFINITELY MANY zeros (for l=2 at x=0.9 near omega = 6.256, 10.012, ...; a DIFFERENT set at x=2.0, spaced ~pi/x). So 'and at no others' is true of N and FALSE of A. The rung conclusion survives only through a positivity argument that was NOT in the claim: on omega = i kappa the equation is psi'' = (kappa^2 + V)psi with V > 0, so psi_reg is positive and has no zeros there. I asserted about A what I had proved about N. (3) THE ADVERSE CONCLUSION IS STRONGER THAN FILED: at FIXED l the surviving rungs are the whole infinite tower n >= l+1, so there is no single relaxation rate even before summing over multipoles. (4) AND THE FAVOURABLE HALF IS KINEMATIC, NOT GEOMETRIC -- the correction that matters most. EXACT SUM RULE, verified here to 26+ digits at four (x,omega): sum_{l>=0} (2l+1) A_l(x,x;omega) = -omega sinh^2(x). The entire prod(omega^2 + j^2) structure CANCELS IDENTICALLY under the natural (2l+1) degeneracy; the l-summed local spectral density is exactly OHMIC with NO Matsubara-rung zeros at all. The ladder zeros are a PARTIAL-WAVE THRESHOLD FACTOR -- the de Sitter splitting of the flat-space order-(2l+1) centrifugal zero at omega = 0 -- and they survive into the graviton bath SOLELY BECAUSE l = 0 AND l = 1 TENSOR HARMONICS DO NOT EXIST. So the entry above reading 'the geometry genuinely kills the two slowest rungs ... first structural result running the framework's way' IS WITHDRAWN AS TO ITS CAUSE: two missing partial waves kill them and de Sitter does nothing. The effect is real; its cause is a kinematic accident, which is a far weaker thing to book. NO TIER OR LEDGER MOVE. *** *** THE DEFLATION ABOVE OVERSHOT AND HALF OF IT IS RESTORED, 2026-08-19 (owner). 'de Sitter does nothing' concedes more than the panel found. TWO FACTS, NOT ONE. (a) DE SITTER SUPPLIES THE SPLITTING AND THE COINCIDENCE: as H -> 0 the structure omega*prod(omega^2+j^2H^2) collapses to omega^(2l+1) -- the FLAT-SPACE centrifugal threshold zero, one degenerate zero of order 2l+1 at the origin (verified l=1..4). de Sitter splits it into 2l+1 SIMPLE zeros at spacing exactly H, and the Matsubara poles sit at spacing H as well because beta = 2pi/H, SO THE SPLIT LANDS ON THE LADDER. In a flat-space bath at EXTERNAL temperature T the threshold zeros stay bunched at omega = 0 while the poles sit at 2 pi i n T with no relation to the centrifugal structure, so no cancellation is available at any rung ever. That is a genuine de Sitter effect and it is precisely the 'T is not external here' mechanism. (b) THE MISSING l=0 AND l=1 PARTIAL WAVES supply the SURVIVAL into the summed graviton bath after the (2l+1) degeneracy sum -- that half is kinematic accident and its withdrawal stands. THE MECHANISM IS DE SITTER; ITS SURVIVAL IN THE SUMMED BATH IS NOT. AND THE HEADLINE OUTRANKS BOTH AND DEPENDS ON NEITHER: at fixed l the surviving rungs are the entire infinite tower n >= l+1 with lowest rate (l+1)H, multipole-dependent -- cutoff-independent, degeneracy-independent, untouched by the sum rule. This node asserts *the* memory time; the free theory supplies a family indexed by l. SINGLE-POLE IS NOT BADLY DOMINATED HERE -- IT NAMES A SINGLE RATE THAT DOES NOT EXIST AT FREE LEVEL. NO TIER OR LEDGER MOVE. ***\",",
+      "bounded_context_window": {
+        "system/bath": "\"sub_status\": \"anchor-class; derived-pending (neither derived nor refuted); SPINE TEST RUN 2026-07-04: earned-under-determined, externally reviewed -- see boundary_condition\",    \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): singl",
+        "Mori-Zwanzig": "\"sub_status\": \"anchor-class; derived-pending (neither derived nor refuted); SPINE TEST RUN 2026-07-04: earned-under-determined, externally reviewed -- see boundary_condition\",    \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): singl",
+        "inner product": "\"sub_status\": \"anchor-class; derived-pending (neither derived nor refuted); SPINE TEST RUN 2026-07-04: earned-under-determined, externally reviewed -- see boundary_condition\",    \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): singl",
+        "cutoff": "\"sub_status\": \"anchor-class; derived-pending (neither derived nor refuted); SPINE TEST RUN 2026-07-04: earned-under-determined, externally reviewed -- see boundary_condition\",    \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): singl",
+        "correlator": "\"sub_status\": \"anchor-class; derived-pending (neither derived nor refuted); SPINE TEST RUN 2026-07-04: earned-under-determined, externally reviewed -- see boundary_condition\",    \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): singl"
+      },
+      "candidate_term": [
+        "system/bath",
+        "Mori-Zwanzig",
+        "inner product",
+        "cutoff",
+        "correlator"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,inner_product_state,response_object,slow_variable_coarse_graining,system_bath_partition",
+      "object_class": [
+        "cutoff_separation_scale",
+        "inner_product_state",
+        "response_object",
+        "slow_variable_coarse_graining",
+        "system_bath_partition"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          2001,
+          2002,
+          2003,
+          2004,
+          2005
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "cca9b9cd0666"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> inner product / state",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> response-object definition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> system/bath partition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "inner product / state <--> response-object definition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "inner product / state <--> slow-variable selection / coarse-graining",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "inner product / state <--> system/bath partition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "response-object definition <--> system/bath partition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> response-object definition",
+          "prior_classification": "LEXICAL_TRIGGER_ONLY",
+          "prior_classifier_trigger": "loose phrase retained as candidate (known false-positive class)"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "inner product / state <--> response-object definition",
+          "prior_classification": "LEXICAL_TRIGGER_ONLY",
+          "prior_classifier_trigger": "loose phrase retained as candidate (known false-positive class)"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "inner product / state <--> slow-variable selection / coarse-graining",
+          "prior_classification": "LEXICAL_TRIGGER_ONLY",
+          "prior_classifier_trigger": "loose phrase retained as candidate (known false-positive class)"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "inner product / state <--> system/bath partition",
+          "prior_classification": "LEXICAL_TRIGGER_ONLY",
+          "prior_classifier_trigger": "loose phrase retained as candidate (known false-positive class)"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "response-object definition <--> system/bath partition",
+          "prior_classification": "LEXICAL_TRIGGER_ONLY",
+          "prior_classifier_trigger": "loose phrase retained as candidate (known false-positive class)"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "identification phrase",
+        "identification phrase",
+        "identification phrase",
+        "identification phrase",
+        "identification phrase",
+        "identification phrase",
+        "identification phrase",
+        "loose phrase retained as candidate (known false-positive class)",
+        "loose phrase retained as candidate (known false-positive class)",
+        "loose phrase retained as candidate (known false-positive class)",
+        "loose phrase retained as candidate (known false-positive class)",
+        "loose phrase retained as candidate (known false-positive class)"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "LEXICAL_TRIGGER_ONLY"
+        ]
+      }
+    },
+    {
+      "statement_id": "provenance/claims.baseline.json:269",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.baseline.json",
+      "source_line": 269,
+      "exact_source_line": "   \"boundary_condition\": \"INTERROGATION RESULT 2026-08-02 (the forced-vs-chosen question ANSWERED; overseer-run five-angle interrogation, each angle adversarially verified against the five pre-registered kill-conditions, core computation independently replicated in EXACT RATIONAL ARITHMETIC by three verifiers; converges with the in-house frame-level eft_operator_basis result at a strictly stronger level of generality -- full Lorentz-covariant, closing that calc's frontier-reserved gap): VERDICT = CHOSEN, unanimous. THE PHYSICS IN ONE LINE: diffeomorphism invariance gets you to TRANSVERSE and stops exactly one condition short of transverse-TRACELESS. The complete Lorentz-covariant kernel space is 6-dimensional (Barnes-Rivers); the diffeo Ward identity on BOTH Schwinger-Keldysh branches leaves exactly TWO survivors [WARD-SCOPE CORRECTION 2026-08-14, from the SCDP primary-literature read this register's own fence flagged as OWED (salcedo_colas_dufner_pajer2026, arXiv:2507.03103, read in full extraction). THE CLAUSE 'the diffeo Ward identity on BOTH Schwinger-Keldysh branches leaves exactly TWO survivors' IS RE-SCOPED: imposing the ADVANCED-branch identity at quadratic order selects kernels transverse on the advanced slot and a transverse noise kernel -- but per SCDP, verbatim: 'operators that are inherently linked to the openness of the system, such as dissipative or noise-induced terms, necessarily break 4d-diff+ x 4d-diff- to its diagonal subgroup 4d-diff_r', and 'the closed, unitary limit corresponds to sending to zero all EFT coefficients of operators that break the symmetry'. Their general quadratic noise functional (their Eq. 1.11) contains explicitly NON-transverse structures ((a00)^2, (a.g)^2, a_0mu a_0nu g^munu). CONSEQUENCES, bounded: (1) the 'EXACTLY TWO survivors' EXHAUSTIVENESS is CONDITIONAL on imposing the advanced-branch identity -- a symmetry no dissipative completion sustains; under the surviving DIAGONAL identity the Ward constraint is transversality on the RETARDED SLOT ONLY, and the admissible space is strictly larger. (2) The CHOSEN verdict SURVIVES AND STRENGTHENS: a larger admissible space makes TT-only more of a choice, not less. (3) The EH counterexample and the -2 ratio are UNTOUCHED: Einstein-Hilbert is unitary, and both-branch is the correct symmetry of the closed action. (4) The frame-level enumeration (operator_basis.py, S1-S7, its own KC5 fences) is UNTOUCHED -- it never used both-branch language. (5) NEW INPUT SURFACED: the NOISE kernel's transversality is NOT bought by the diagonal Ward identity; it is an input, with available literature support in stochastic-gravity Bianchi consistency (Hu-Verdaguer Einstein-Langevin requires a conserved stochastic source) -- support cited, not claimed. (6) The SCDP full-basis fence is PARTIALLY DISCHARGED: their basis demonstrably carries scalar-sector and non-transverse noise operators. DIRECTION, stated on the face: AGAINST the framework's licensing (one more constraint that read as symmetry-bought is a choice) and FOR the CHOSEN verdict. Found by a mandated priority lens attacking the public document's Part I, 2026-08-13; the register correction precedes the prose correction by ruling.] -- P^(2) (spin-2, traceless; GRUT's P^TT) and P^(0,s) (spin-0, transverse but traceful). Transversality is what the Ward identity buys; tracelessness is a separate, unforced condition. GRUT keeps one survivor and zeroes the other BY HAND (on the FRW frame mu_linear uses: 5 independent form factors, GRUT keeps 1, zeroes 4). THE DECISIVE FACT (verified twice, exact arithmetic): linearized Einstein-Hilbert is ITSELF (1/2)k^2[P^(2) - 2P^(0,s)] -- GR's own response kernel carries a scalar component TWICE its spin-2 one. No general principle can force a gravitational response kernel to be TT-only, because GR's is not. This kills the KC2 defense outright (EH has exactly two radiative TT polarizations AND a large off-shell scalar kernel -- counting propagating GW modes says nothing about kernel structure). THE ONE SYMMETRY that would force TT-only -- linearized Weyl invariance -- is blocked, most sharply by GRUT itself: rung9a imports alpha as the TRACE-ANOMALY ratio, and the trace anomaly IS the statement that Weyl invariance is broken; you cannot use Weyl invariance to delete the scalar channel while importing its anomaly coefficient as your normalization. CONSTITUTIVE RESTATEMENT (GRUT's own borrowed vocabulary): {P^(2), P^(0,s)} are SHEAR and BULK response; p_tt_ansatz restated is zeta_vacuum == 0 -- a CONSTITUTIVE ASSERTION, not a symmetry consequence; both borrowed media (linear_response_viscoelastic, relativistic_hydro_israel_stewart) carry BOTH moduli. THE ALPHA TERM [CORRECTED 2026-08-04 -- overseer-ruled; the sentence below is RETIRED here at its ORIGINAL home, matching the retirement at eft_operator_basis finding (iv), so the register does not carry the retraction and the un-retired original at once]. RETIRED TEXT: 'the anomaly's linear-response carrier is the spin-0 channel P^TT annihilates, while the anomaly leaves the TT channel unaffected -- GRUT attaches an anomaly ratio to the one channel the anomaly does not touch, having deleted the one it does'. WHY IT IS RETIRED (computed, calc/anomaly_c0_map.py): at TWO-POINT order the anomaly has BOTH carriers -- b' (a-anomaly) reaches P0s at k^4 and b (c-anomaly) reaches P2 at k^4 (int sqrt(g) C^2 = (1/2)k^4 P2 with P0s coefficient EXACTLY 0). So 'leaves the TT channel unaffected' is FALSE, and 'the one channel the anomaly does not touch' is FALSE for the c-part; the first half's TWO-POINT reading ('the carrier is the spin-0 channel', singular) is likewise wrong -- there are two carriers, in orthogonal channels. WHAT SURVIVES, in its own words: (1) the ONE-POINT fact that <T^mu_mu> is a spin-0 object; (2) the a-part of the original observation -- GRUT did delete the channel the a-anomaly lives in; and (3) the REPLACEMENT, which is stronger than what it replaces: alpha = a/c is a RATIO OF COEFFICIENTS LIVING IN DIFFERENT CHANNELS -- the coefficient of NEITHER. This transports nothing into c2 (the conformal direction has identically zero P2 overlap; what reaches P2 is b ALONE, never the ratio) and changes NOTHING about the CHOSEN verdict, which rests on Barnes-Rivers + the both-branch Ward identity + the linearized-EH counterexample + Weyl-broken -- not on this sentence (rung9b's settled-negative seen from the other side). THE ONE ESCAPE, honestly named: IF a bath-microphysics commitment makes the trace correlator <T^mu_mu T^nu_nu>_R vanish non-perturbatively, Pi_0 = 0 follows and this flips to FORCED -- but that is a NEW +1 at its point of entry (rung3): it RELOCATES the assumption, it does not discharge it. The symmetry route to FORCED is definitively closed; only the dynamical route survives, and it costs what it saves. THE CONSTRUCTIVE OPENING: the INTERIOR of the {shear, bulk} family (zeta_vacuum != 0, NOT the excluded trace-only endpoint) is empirically viable -- not ruled out by the ISW (2026-08-03: the 32sigma retired, computed ~2.0sigma cross; the interior's viability is STRENGTHENED -- see mu_linear/zeta_interior_family) -- and is exactly the sector where the observables live; GRUT foreclosed it by fiat, not by data or symmetry. The question is RE-HOMED to u4/u5 ('is zeta_vacuum = 0?' is a constitutive-classification question). CONSEQUENCES BANKED ELSEWHERE: the +1 here does NOT retire (stays assumed/+1 -- now with a DERIVED justification for why it is an assumption); mu_linear's demotion is OPENED as its own screened question (see mu_linear.boundary_condition); net ledger unaffected by this banking. *** DISCHARGE ADDENDUM 2026-08-17 (appended, not superseding -- both clauses of the 2026-08-14 mark remain true: noise transversality is NOT bought by the diagonal Ward identity alone, and outside the family below it remains an input). On the booked family, noise-kernel transversality is DERIVED: the Ward-sourced zero (g'rho g = 0, from this correction's own surviving retarded-slot content) + N-covariance positivity in the plain pairing + the booked (eps,tau_2) scalar lock, with Cauchy-Schwarz applied directly to N (N g = 0; rho g = N g / n(omega) wherever n != 0) -- CONDITIONAL on rung1_inin_action's FOURTH declared input priced 2026-08-17 (+1, net +14), RENAMED at owner verification the same day: THE 4D-COVARIANT AVAILABILITY OF THE WARD-SOURCED GAUGE-ORBIT ZERO (the KC5-reserved covariantization; explicit discharge condition in rung1's note). The owner's decomposition: N-as-PSD-covariance was ruled CONSTITUTIVE of the banked Gaussian bath (any genuine state's symmetrized correlator is PSD by construction); the frontier half -- the 4d gauge-orbit zero -- is what the +1 pays for. The 0-delta horn was DECLINED by the owner 2026-08-17, grounds recorded at rung1. The spatial-frame S4 CANNOT substitute for the carrier: its banked home is the 6-dim SVT frame whose KC5 fence frontier-reserves the h_0mu/4d completion (x_no_pin_theorem precedent); it corroborates in the spatial frame only. COROLLARY, same conditionality: K_R is transverse on BOTH slots on the family (K_R^dag g = K_R g - 2i rho g = 0); omega<0 runs with rho NSD and the conclusion sign-independent; the omega->0 edge closes by continuity. CLOSURE, NOT RESTORATION: within the booked FDT-locked scalar-dial family the admissible (K_R, N) pair closes on the transverse pair P^(2), P^(0s) -- a family-conditional closure theorem; the unconditional both-branch classification stays RETIRED; outside the family (independent non-FDT noise, channel-structured occupations -- SCDP's Eq. 1.11 class) SCDP's strictly larger space stands, priced at entry by rung2's standing fence. SIGNATURE FACT (screen-found): plain-pairing positivity itself forces s2 = 0 at spacelike k^2 on this family (P^(2) is indefinite there; spacelike tensor-channel support needs a medium frame u^mu, outside the eta,k-only family) -- transversality there holds via P^(0s) alone. The counterexample K_cx = i(k x k)(x)Pi is barred by N-covariance positivity (ruled constitutive of the banked Gaussian bath at owner verification 2026-08-17): it satisfies the matrix-adjoint lock form N = coth*(K - K^dag)/2i -- the form the booked family itself uses -- while the banked per-scalar-channel gate is silent on non-normal kernels. DEMARCATION (screen-mandated): SCDP App. B.2 + salcedo_colas_pajer2025 derive noise constraints by a Bianchi route whose no-dissipation corner reproduces this conclusion and deforms under dissipation (this theorem covers the with-dissipation FDT-locked case by a different mechanism); abe_nishii2026 Sec. 4.3 uses the identical (Ward, FDT, positivity) triad with the transverse projection IMPOSED as an input -- the projection this chain derives; the PSD/FDT matrix engine is landau_lifshitz_sp1-standard -- the new content is only the Ward-sourced zero on the gravitational gauge orbit and the assembly. hu_verdaguer_lrr: corroboration by a different route (bath stress-tensor conservation) in the conserved-current-bath subclass -- SHIPPED unamended by the screen. EXHIBIT: calc/noise_transversality_check.py (exact rationals, both signatures, six in-process + six registry mutants, every one a verified killer) with calc/RESULTS_noise_transversality.md; adversarially screened 2026-08-16/17 (three refuter lenses + adjudicator + targeted re-screen: SHIP). THE SCREEN'S OWN CATCH, recorded because it is the program's recurring shape: the first draft's exhibit ran an off-family spacelike instance its own theorem bars, and its exact-PSD tool was wrong on complex-Hermitian input -- both caught BEFORE banking, both fixed, both now mutant-covered. Kill-condition 4 compliance: the zero is Ward-sourced, positivity only propagates it (a zero diagonal kills its cross-couplings -- the guard's own licensed mechanism); no physical channel is annihilated, only gauge directions; P^(0s) survives and CHOSEN stands. FOR THIS NODE: the +1 stays. Transversality-derived does not force TRACELESSNESS -- P^(0s) remains admissible, the TT restriction remains CHOSEN, and this node's price is exactly that choice.\",",
+      "bounded_context_window": {
+        "GAUGE": "\"statement\": \"The vacuum response is purely transverse-traceless: K^R = alpha*chi(omega)*P^TT, with the projector P^TT chosen (not derived). This is the structural input the mu_linear no-go export rests on.\",    \"boundary_condition\": \"INTERROGATION RESULT 2026-08-02 (the forced-vs-chosen question AN",
+        "response kernel": "\"statement\": \"The vacuum response is purely transverse-traceless: K^R = alpha*chi(omega)*P^TT, with the projector P^TT chosen (not derived). This is the structural input the mu_linear no-go export rests on.\",    \"boundary_condition\": \"INTERROGATION RESULT 2026-08-02 (the forced-vs-chosen question AN"
+      },
+      "candidate_term": [
+        "GAUGE",
+        "response kernel"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P,response_object",
+      "object_class": [
+        "gauge_field_redefinition",
+        "projection_P",
+        "response_object"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1933,
+          1934
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "ff630388514a"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> response-object definition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "projection P <--> response-object definition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "gauge / field-redefinition freedom <--> response-object definition",
+          "prior_classification": "LEXICAL_TRIGGER_ONLY",
+          "prior_classifier_trigger": "loose phrase retained as candidate (known false-positive class)"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "projection P <--> response-object definition",
+          "prior_classification": "LEXICAL_TRIGGER_ONLY",
+          "prior_classifier_trigger": "loose phrase retained as candidate (known false-positive class)"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "identification phrase",
+        "identification phrase",
+        "loose phrase retained as candidate (known false-positive class)",
+        "loose phrase retained as candidate (known false-positive class)"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "LEXICAL_TRIGGER_ONLY"
+        ]
+      }
+    },
+    {
+      "statement_id": "provenance/claims.baseline.json:636",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.baseline.json",
+      "source_line": 636,
+      "exact_source_line": "   \"statement\": \"Version II, entry U4 / Frontier 3 (the origin of the constitutive FORM): GIVEN coarse-graining, WHY does the effective description take a RESPONSE / constitutive form (a susceptibility chi, memory, linear response) rather than an arbitrary functional? Why is constitutive structure so GENERIC across successful EFTs (thermodynamics, hydrodynamics, transport)? This is STRICTLY DEEPER than U1 -- which PRESUPPOSES the constitutive conditions (weak coupling / Gaussianity / near-equilibrium / timescale separation) and only says the form is THEN universal-and-standard -- and DISTINCT from U3 (why coarse-grain at all): deriving coarse-graining does NOT hand you linear response. THREE distinct layers: why-split (U3, Frontier 2) -> why-constitutive (U4, Frontier 3) -> which-kernel (rung3, Frontier 1).\",",
+      "bounded_context_window": {
+        "coarse-grain": "\"depends_on\": [],    \"statement\": \"Version II, entry U4 / Frontier 3 (the origin of the constitutive FORM): GIVEN coarse-graining, WHY does the effective description take a RESPONSE / constitutive form (a susceptibility chi, memory, linear response) rather than an arbitrary functional? Why is consti",
+        "scale separation": "\"depends_on\": [],    \"statement\": \"Version II, entry U4 / Frontier 3 (the origin of the constitutive FORM): GIVEN coarse-graining, WHY does the effective description take a RESPONSE / constitutive form (a susceptibility chi, memory, linear response) rather than an arbitrary functional? Why is consti",
+        "susceptibility": "\"depends_on\": [],    \"statement\": \"Version II, entry U4 / Frontier 3 (the origin of the constitutive FORM): GIVEN coarse-graining, WHY does the effective description take a RESPONSE / constitutive form (a susceptibility chi, memory, linear response) rather than an arbitrary functional? Why is consti"
+      },
+      "candidate_term": [
+        "susceptibility",
+        "coarse-grain",
+        "scale separation"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,response_object,slow_variable_coarse_graining",
+      "object_class": [
+        "cutoff_separation_scale",
+        "response_object",
+        "slow_variable_coarse_graining"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1960,
+          1961,
+          1962
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "f273fb6a7952"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> response-object definition",
+          "prior_classification": "DISTINCT_CONSTRUCTION",
+          "prior_classifier_trigger": "distinction phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> slow-variable selection / coarse-graining",
+          "prior_classification": "DISTINCT_CONSTRUCTION",
+          "prior_classifier_trigger": "distinction phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> response-object definition",
+          "prior_classification": "DISTINCT_IN_CORPUS_CANDIDATE",
+          "prior_classifier_trigger": "explicit distinction phrase"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "distinction phrase",
+        "distinction phrase",
+        "explicit distinction phrase"
+      ],
+      "contradiction_ambiguity_flag": "NOT SPECIFIED"
+    },
+    {
+      "statement_id": "provenance/claims.baseline.json:201",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.baseline.json",
+      "source_line": 201,
+      "exact_source_line": "   \"statement\": \"The c_0 normalization (alpha-bridge): c_0 = alpha is an ADOPTED phenomenological DC normalization of the TT response kernel (K^R = alpha*chi*P^TT) -- the conformal anomaly does NOT derive it. Structural obstruction (projector-orthogonality PRIMARY / Ward / UV-IR no-RG-protection) + FDT/KMS leaves c_0 FREE; NOT forbidden; rescue open via the E4 kinematic S^4 a/c. MECHANISM REFINED 2026-08-03 (overseer-ruled; computed in calc/anomaly_c0_map.py): the PRIMARY obstruction's coarse form ('trace = spin-0, TT = spin-2, therefore no bridge') is REPLACED by THE a/c SECTOR-SPLIT (COMPUTED 2026-08-03, calc/anomaly_c0_map.py, exact rationals at four independent 4-momenta, fit + held-out, mutation-tested): b' (the a-anomaly) reaches the SPIN-0 channel ONLY -- int E_4's flat-space quadratic form is IDENTICALLY ZERO and the a-source enters solely through the box-R vertex -> int R^2 = 3 k^4 P0s with P2 coefficient EXACTLY 0; b (the c-anomaly) reaches the SPIN-2 channel ONLY -- int sqrt(g) C^2 = (1/2) k^4 P2 with P0s coefficient EXACTLY 0. THEREFORE alpha = a/c is a RATIO OF COEFFICIENTS LIVING IN DIFFERENT CHANNELS -- the coefficient of NEITHER. (Scope: this is the statement about the LOCAL C^2 counterterm and the nonlocal C ln(box) C sharing its P2 structure; the WZ vertex b*sigma*C^2 is O(sigma h^2), cubic, and contributes nothing to the tree-level two-point kernel.) The refinement STRENGTHENS the mechanism -- it is no longer an argument from which sector the anomaly 'is in', but a computed statement that the ratio's numerator and denominator live in orthogonal channels. *** EXPLICIT GRADE GUARD (overseer-ruled, and recorded BECAUSE a sharper mechanism is exactly the temptation to upgrade): the grade DOES NOT MOVE. This stays settled-negative -- obstruction-backed, NOT a formal no-go; NO promotion; tier stays assumed; ledger_delta stays 0; the Version-I freeze and its sole reopen condition (a genuinely new metric-built scalar->TT intertwiner) are UNCHANGED. A better-computed obstruction is still an obstruction, not an impossibility proof. *** FENCE ON THIS NODE'S OWN RESCUE ROUTE (co-located 2026-08-04 so the completeness is symmetric): the same computation that sharpens the obstruction also touches the premise of the named rescue (this node's overturning_computation contemplates 'an anomaly coefficient -- the c/C_T of the Weyl-squared term, which lives in the TT sector -- normalizes the TT 2-point'), and the wave DID compute that b reaches P2. It is NOT fresh evidence for the rescue: what reaches P2 is b ALONE, never the ratio a/c that this node's c_0 is identified with, and the C^2 structure is k^4 rather than the k^2 of the response kernel. The rescue condition is UNCHANGED and still requires a genuinely new metric-built scalar->TT intertwiner.\",",
+      "bounded_context_window": {
+        "projector": "],    \"statement\": \"The c_0 normalization (alpha-bridge): c_0 = alpha is an ADOPTED phenomenological DC normalization of the TT response kernel (K^R = alpha*chi*P^TT) -- the conformal anomaly does NOT derive it. Structural obstruction (projector-orthogonality PRIMARY / Ward / UV-IR no-RG-protection)",
+        "response kernel": "],    \"statement\": \"The c_0 normalization (alpha-bridge): c_0 = alpha is an ADOPTED phenomenological DC normalization of the TT response kernel (K^R = alpha*chi*P^TT) -- the conformal anomaly does NOT derive it. Structural obstruction (projector-orthogonality PRIMARY / Ward / UV-IR no-RG-protection)"
+      },
+      "candidate_term": [
+        "projector",
+        "response kernel"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) projection_P,response_object",
+      "object_class": [
+        "projection_P",
+        "response_object"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1919,
+          1920
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "30574373d15a"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "projection P <--> response-object definition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "projection P <--> response-object definition",
+          "prior_classification": "SAME_CONSTRUCTION_CANDIDATE",
+          "prior_classifier_trigger": "strict identification phrase"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "identification phrase",
+        "strict identification phrase"
+      ],
+      "contradiction_ambiguity_flag": "NOT SPECIFIED"
+    },
+    {
+      "statement_id": "program/CANDIDATE_MINING_02.md:274",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "program/CANDIDATE_MINING_02.md",
+      "source_line": 274,
+      "exact_source_line": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7",
+      "bounded_context_window": {
+        "system/bath": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation",
+        "Mori-Zwanzig": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation",
+        "projection P": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation"
+      },
+      "candidate_term": [
+        "projection P",
+        "Mori-Zwanzig",
+        "system/bath"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,inner_product_state,projection_P,slow_variable_coarse_graining,system_bath_partition",
+      "object_class": [
+        "cutoff_separation_scale",
+        "inner_product_state",
+        "projection_P",
+        "slow_variable_coarse_graining",
+        "system_bath_partition"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1660,
+          1661,
+          1662
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "e77786e3d28f"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> inner product / state",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "inner product / state <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "inner product / state <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "inner product / state <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "projection P <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> inner product / state",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "inner product / state <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "inner product / state <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "inner product / state <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "projection P <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "program/CANDIDATE_MINING_02.md:275",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "program/CANDIDATE_MINING_02.md",
+      "source_line": 275,
+      "exact_source_line": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation",
+      "bounded_context_window": {
+        "inner product": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation scale \u00b7 **G** gauge/field-redefinition freedom.",
+        "cutoff": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation scale \u00b7 **G** gauge/field-redefinition freedom."
+      },
+      "candidate_term": [
+        "cutoff",
+        "inner product"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,gauge_field_redefinition,inner_product_state,projection_P,slow_variable_coarse_graining,system_bath_partition",
+      "object_class": [
+        "cutoff_separation_scale",
+        "gauge_field_redefinition",
+        "inner_product_state",
+        "projection_P",
+        "slow_variable_coarse_graining",
+        "system_bath_partition"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1663,
+          1664
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "87ff9f7059ea"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> gauge / field-redefinition freedom",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> inner product / state",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> inner product / state",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "inner product / state <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "inner product / state <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "inner product / state <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "projection P <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> gauge / field-redefinition freedom",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> inner product / state",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "gauge / field-redefinition freedom <--> inner product / state",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "gauge / field-redefinition freedom <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "gauge / field-redefinition freedom <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "inner product / state <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "inner product / state <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "inner product / state <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "projection P <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "provenance/claims.json:22",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.json",
+      "source_line": 22,
+      "exact_source_line": "   \"ledger_note\": \"+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET stays +13). *** The four recorded double-count checks were all PAIRWISE, and a pairwise sweep is structurally blind to the SHARED-CONSTRAINT class -- a derived constraint on n>=3 that cuts the joint count without being localizable to any pair (the Friedmann shape: Om+OL+Ok=1 costs two inputs, every pair correctly shows nothing, a pairwise map reports three). THIS NODE'S THREE DECLARED INPUTS were therefore evaluated JOINTLY, using the frozen merge criterion (provenance/merge_criterion.py v3.1; FROZEN_MERGE.txt). RESULT: TRADE -- discrete -2, posit +1. NO REDUCTION IS AVAILABLE AND THE LEDGER DOES NOT MOVE: the would-be relation is POSITED, and taking it would swap three booked stances for one unbooked relation, which is the laundering the ledger exists to prevent. THE HONEST POSITIVE: every PAIR also scores TRADE at -1, so pairwise blindness was concealing nothing here -- the Friedmann blindness is CLOSED at home rather than merely named. THE THREE NON-MECHANIZABLE JUDGEMENTS, with attribution: (C1 derived-or-posited) BUILDER -- no chain exhibited in any direction; a fixed Lorentzian background admits arbitrarily many system/bath partitions, a partition admits Gaussian OR non-Gaussian influence actions, and Gaussianity constrains correlator ORDER only. Jointly the three are co-members of 'prerequisites for writing S_IF at all', which is a CLASSIFICATION, and merging by category is the pre-registered error. => POSITED. (C2 discharge over the family) BUILDER -- fixing any one leaves the other two free; the degenerate 'trivial theory' reading is the exact-point error this program withdrew and is refused by construction. (C3 enumeration) REGISTER, verified by BUILDER -- exactly the three ids this ledger_note names; none invented (KC2). HONEST CEILING, stated in place: this audits the triple that was NAMED. It is not a search for constraints nobody has proposed, and it cannot be. The tool that produced the arithmetic is a DECLARATION SCHEMA plus a structural validator, never an adjudicator -- passing it banks nothing (see its cardinal invariant). *** FOURTH INPUT BOOKED 2026-08-17, RENAMED AT OWNER VERIFICATION SAME DAY (+1, net +13 -> +14; the 2026-08-16 noise-accounting ruling's book-or-derive fallback, taken on the adversarial screen's finding): THE 4D-COVARIANT AVAILABILITY OF THE WARD-SOURCED GAUGE-ORBIT ZERO -- that K_R annihilates the FULL 4d gauge orbit {k (x) xi + xi (x) k, all xi including time components} on its retarded slot, at covariant strength. WHY THIS IS THE INPUT'S TRUE NAME (the owner's decomposition, 2026-08-17): the transversality chain consumed TWO things. (1) N as a PSD covariance on the full index space -- RULED CONSTITUTIVE of what this node already banks: the symmetrized correlator of any genuine state is PSD by construction, and the system/bath split and Gaussian truncation are inputs one and two. (2) The gauge-orbit zero at 4d covariant strength -- the half the screen actually caught, which the register's own KC5 record reserves as unbuilt ('P2 full-4d-invariant; P0s spatial-subgroup-only, Bardeen completion frontier-reserved' -- calc/RESULTS_operator_basis.md) and which the x_no_pin precedent bars from silent use. A general 'covariance-positivity' label understated the owed half and pointed a future reader at the wrong thing; renamed so the price sits on the frontier item. DISCHARGE CONDITION, explicit: when the KC5-reserved 4d/Bardeen completion of the operator basis lands (eft_operator_basis's own graduation screen), this +1 retires into that work's accounting -- a clear discharge, not a dissolving stance. WHAT THE INPUT BUYS (with the discharge addenda on p_tt_ansatz and eft_operator_basis): noise-kernel transversality and both-slot K_R transversality as family-conditional THEOREMS (calc/noise_transversality_check.py), closing the admissible family on the transverse pair. SCOPE FENCE unchanged: bath-side unitarity only -- the system-side wrong-sign (conformal-mode) sector lives in Re K_R and is untouched; a completion with fundamental (non-bath-realizable) openness rejects the bath reading and re-opens SCDP's larger space, priced at its point of entry. THE 0-DELTA HORN WAS DECLINED by the owner 2026-08-17, three grounds recorded: (a) the register fences this itself -- KC5's gauge-footing asymmetry is exactly the covariantization the chain needs, reserved as unbuilt; (b) the 0-delta horn is the flattering direction -- it returns net to +13 and makes the framework look cheaper, which is precisely when this program's own guard says to distrust the reasoning; (c) overriding the screen toward the cheaper answer would make the screen decorative. The fallback the 2026-08-16 ruling pre-authorized fired correctly and stands. [RULING B SPLIT 2026-08-23: this node is the FORMALISM half -- the SK/Feynman-Vernon influence-action structure with its four priced prerequisites (system/bath split, Gaussian/linear-response truncation, Lorentzian causal background, 4d-covariant Ward gauge-orbit-zero availability), carried here because each is a prerequisite for WRITING S_IF at all and none is the proposition that the vacuum physically possesses finite memory. That proposition is booked separately as rung1_ontology_finite_memory (assumed, +1, owner finalisation B.5 option 2). Edge migration used the V2 node-level classification: 17 of 27 transitive dependents are formalism-only; ambiguous dissipat-only cases attach here because K_R IS the dissipation kernel.]\",",
+      "bounded_context_window": {
+        "system/bath": "\"ledger_delta\": 4,    \"ledger_note\": \"+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET s",
+        "GAUGE": "\"ledger_delta\": 4,    \"ledger_note\": \"+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET s",
+        "correlator": "\"ledger_delta\": 4,    \"ledger_note\": \"+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET s"
+      },
+      "candidate_term": [
+        "system/bath",
+        "GAUGE",
+        "correlator"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,response_object,system_bath_partition",
+      "object_class": [
+        "gauge_field_redefinition",
+        "response_object",
+        "system_bath_partition"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1992,
+          1993,
+          1994
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "f74c1223dfdb"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> response-object definition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> system/bath partition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "response-object definition <--> system/bath partition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "response-object definition <--> system/bath partition",
+          "prior_classification": "LEXICAL_TRIGGER_ONLY",
+          "prior_classifier_trigger": "loose phrase retained as candidate (known false-positive class)"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "identification phrase",
+        "identification phrase",
+        "identification phrase",
+        "loose phrase retained as candidate (known false-positive class)"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "LEXICAL_TRIGGER_ONLY"
+        ]
+      }
+    },
+    {
+      "statement_id": "provenance/claims.json:1637",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.json",
+      "source_line": 1637,
+      "exact_source_line": "   \"statement\": \"OWNER RULING 2026-08-24 (+1): the vacuum response kernel itself belongs to the Lorentz-covariant subspace identified by the flat-limit membership test -- NOT that the background is Lorentz invariant (the FRW background is not globally Lorentz invariant; the priced assumption is a property of the RESPONSE). Measured basis for the price: the FRW gauge-allowed bilinear response space is 11-dimensional (two independent constructions, countersigned), the Lorentz-covariant flat-compatible subspace is 3-dimensional, and the 8 removed structures are explicitly computed (2 by orthogonality, 6 by membership rank tests at multiple rational samples) -- PHYSICS_LEDGER/wall_a_kernel_gate_bruteforce.py, wall_a_boost_membership.py, second-author countersign E1-E7.\",",
+      "bounded_context_window": {
+        "gauge": "\"depends_on\": [],    \"statement\": \"OWNER RULING 2026-08-24 (+1): the vacuum response kernel itself belongs to the Lorentz-covariant subspace identified by the flat-limit membership test -- NOT that the background is Lorentz invariant (the FRW background is not globally Lorentz invariant; the priced ",
+        "response kernel": "\"depends_on\": [],    \"statement\": \"OWNER RULING 2026-08-24 (+1): the vacuum response kernel itself belongs to the Lorentz-covariant subspace identified by the flat-limit membership test -- NOT that the background is Lorentz invariant (the FRW background is not globally Lorentz invariant; the priced "
+      },
+      "candidate_term": [
+        "response kernel",
+        "gauge"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,response_object",
+      "object_class": [
+        "gauge_field_redefinition",
+        "response_object"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          2099,
+          2100
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "a8aabf852854"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": "NOT SPECIFIED",
+      "prior_classifier_trigger": "NOT SPECIFIED",
+      "contradiction_ambiguity_flag": "NOT SPECIFIED"
+    },
+    {
+      "statement_id": "provenance/claims.json:87",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.json",
+      "source_line": 87,
+      "exact_source_line": "   \"overturning_computation\": \"calc/finite_T_exponent.py (computed) + specialist analyticity check (confirmed 2026-06-25). REMAINING falsifier: if the vacuum susceptibility contains a second dynamical scale (e.g. J~omega^3/(1+omega^2 tau^2), or an internal resonance/diffusive mode), a second slow pole appears and short-memory breaks. GRUT must commit to no-second-scale or check it. ALSO NOW BEARING ON THIS NODE (2026-08-19, adverse, no tier move): calc/finite_T_pole_structure.py -- the finite-T noise kernel's Matsubara ladder at spacing H. The falsifying step it does NOT take is Mori-Zwanzig inheritance; see tier_note. AND NARROWED BY calc/mz_inheritance.py (2026-08-19): the inheritance step is convention-dependent -- symmetrised correlation inherits the ladder, Kubo-Mori does not -- so this node's 'Mori-Zwanzig kernel' must be disambiguated before the ladder counts for or against it.\",",
+      "bounded_context_window": {
+        "Mori-Zwanzig": "],    \"overturning_computation\": \"calc/finite_T_exponent.py (computed) + specialist analyticity check (confirmed 2026-06-25). REMAINING falsifier: if the vacuum susceptibility contains a second dynamical scale (e.g. J~omega^3/(1+omega^2 tau^2), or an internal resonance/diffusive mode), a second slow",
+        "susceptibility": "],    \"overturning_computation\": \"calc/finite_T_exponent.py (computed) + specialist analyticity check (confirmed 2026-06-25). REMAINING falsifier: if the vacuum susceptibility contains a second dynamical scale (e.g. J~omega^3/(1+omega^2 tau^2), or an internal resonance/diffusive mode), a second slow"
+      },
+      "candidate_term": [
+        "susceptibility",
+        "Mori-Zwanzig"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) response_object,slow_variable_coarse_graining",
+      "object_class": [
+        "response_object",
+        "slow_variable_coarse_graining"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          2009,
+          2010
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "ea42911984a2"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": "NOT SPECIFIED",
+      "prior_classifier_trigger": "NOT SPECIFIED",
+      "contradiction_ambiguity_flag": "NOT SPECIFIED"
+    },
+    {
+      "statement_id": "calc/mz_inheritance.py:18",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "calc/mz_inheritance.py",
+      "source_line": 18,
+      "exact_source_line": "      AT ALL. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI",
+      "bounded_context_window": {
+        "Mori-Zwanzig": "(2) BUT THE SYMMETRISED ROUTE IS NOT THE ONLY ONE, AND THE OTHER STANDARD CHOICE HAS NO LADDER       AT ALL. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI       (canonical) inner product, and the Kubo correlation function carries",
+        "KUBO": "(2) BUT THE SYMMETRISED ROUTE IS NOT THE ONLY ONE, AND THE OTHER STANDARD CHOICE HAS NO LADDER       AT ALL. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI       (canonical) inner product, and the Kubo correlation function carries"
+      },
+      "candidate_term": [
+        "KUBO",
+        "Mori-Zwanzig"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) inner_product_state,response_object,slow_variable_coarse_graining",
+      "object_class": [
+        "inner_product_state",
+        "response_object",
+        "slow_variable_coarse_graining"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1492,
+          1493
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "f26d970f65ea"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "inner product / state <--> response-object definition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "inner product / state <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "response-object definition <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "inner product / state <--> response-object definition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "inner product / state <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "response-object definition <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "provenance/claims.baseline.json:180",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.baseline.json",
+      "source_line": 180,
+      "exact_source_line": "   \"tier_note\": \"BANKED 2026-06-27 (rung-9 SPLIT, consolidated overseer relay, Brief 2). The alpha VALUE is UNTOUCHED -- NOT refuted; conditional-theorem (ANCHOR-on-a-free-datum) support, the single adopted dimensionless axiom. SHOWN only as 'IF the conformal mode is the IR carrier THEN a/c=1/3'; the SHOWN axiom carries ZERO anchor credit (the -1 anchor credit SUSPENDED, not deleted). The anomaly COEFFICIENT (a/b'/alpha) is PROTECTED: cohomological / one-loop-exact (Wess-Zumino; Komargodski-Schwimmer), independent of state/metric/dynamics. VERIFIED-NOTE (corroboration, no ledger delta): the dielectric (D=epsilon E) analogy is RETIRED as non-load-bearing (it presupposes the TT-ness it must justify). SEPARATE & OPEN (no inherited weight): the conformal SECTOR's late-time stability and the kinematic 4th-order S^4 Riegert/Paneitz a/c carrier-identification are frontier-reserved/contested -- neither prejudices this value, and the settled-negative bridge (rung9b_bridge) does NOT prejudice the S^4 front. [Pre-screen history of the alpha leg:] near-shown for the a-coefficient; derived-pending for the c-coefficient / Riegert conformal-mode normalization that actually enters chi (a-theorem fixes RUNNING, not absolute value). Conformalon may already be implicit. CONNECTION 2026-06-26: the conformalon (this leg's de-anchor mode) is the candidate self-coupled IR mode that rung 7 needs for w(z) -- its de Sitter dynamical mass m_eff~H would BOTH gap it (helping alpha hold) AND set tau2~1/H (supplying w(z)). So rung 9 and rung 7 may be ONE object governed by one anomaly-fixed Q^2. GATE: does the 4th-order conformal mode get a Starobinsky-Yokoyama sqrt(lambda)H attractor, or does conformal symmetry protect/gap it differently? RESOLVED 2026-06-26 (specialist): NO SY mass -- the conformalon is a Paneitz Delta_4 compensator (1/k^4 propagator, Wess-Zumino realization of the anomaly, NOT a local scalar), IR-ENHANCED but NOT mass-generated; and the anomaly-shift and the cosmological stress-response are ONE nonlocal kernel in two projections (ratio O(1), not >=7). The rung7<->rung9 unification is CLOSED -- the conformalon does NOT supply the cosmological IR mode. NEW LIVE rung-9 QUESTION (specialist-teed): does the Delta_4 inverse on de Sitter admit a STABLE late-time Green's function without SECULAR BLOW-UP in the stress tensor? That is a STABILITY question -- whether the anomaly-induced conformal sector is even well-defined at late times -- more fundamental than de-anchoring or any observable. FLAGGED FOR RE-TIER 2026-06-26 (NEW open item from the mu_linear pre-screen -- the alpha=1/3-vs-P^TT carrier CONTRADICTION): alpha=1/3 is DEFINED as the conformal/trace-mode anomaly ratio, then multiplied onto a tracefree projector P^TT that annihilates exactly that mode (the double-trace eta.eta.P^TT is IDENTICALLY ZERO). So EITHER the response is genuinely pure-TT and alpha=1/3 has NO CARRIER (the entire GRUT normalization is unsourced) OR the trace leg is real and mu!=1 (mu_linear fails). This is a self-contradiction at the alpha anchor, flagged in the repo's own 'Fact 3'. It is TIER-RELEVANT and may demote rung 9 to derived-pending on the SAME wound as mu_linear. Re-tier PENDING its own Sec1.4 pre-screen (relayed up, not banked here); the alpha-carrier reconciliation overlaps the reserved frontier (Riegert/conformal sector) and goes to the specialist. RESOLVED 2026-06-26 (workflow + calc/delta4_stability.py) = COEFFICIENT-SAFE, SECTOR-CONTESTED. (i) The anomaly COEFFICIENT (a/b'/alpha) is PROTECTED -- cohomological / one-loop-exact (Wess-Zumino; Komargodski-Schwimmer a-theorem), independent of state/metric/dynamics -> alpha-as-a-number ANCHORS regardless of the sector's late-time behavior. GOOD for the leg. (ii) The conformal SECTOR's late-time stability is genuinely CONTESTED: the one-point <T_munu> is finite & dS-invariant (w=+1/3, redshifts a^-4; Anderson-Mottola 1310.1963 eq 5.14) IF the secular zero-mode c0 is set to 0, but Mottola HIMSELF (1806.10339) argues the growth DOES enter renormalized <T_munu> -- the tension is INTERNAL to the Mottola program and the c0=0 renormalization CHOICE is the crux; the residual open computation is whether the secular ln-a growth survives in the gauge-invariant TWO-POINT <T_ab T_cd> (uncomputed). The workflow's own critic flagged the synthesis for leaning 'gauge=harmless/stable' -- so recorded as CONTESTED, not stable. BRANCH-CUT 'STRENGTHENING' -- DOWNGRADED to OPEN PROBLEM (referee 2026-06-26): the claim that a collisionless |omega| branch cut DOMINATES the omega^2 Delta_4 structure as omega->0 (dissolving the poles) is NOT established -- it assumes an Ohmic (|omega|) bath self-energy. A super-Ohmic ~omega^3 bath (the relativistic free-streaming reading consistent with rung 3) is IR-SUBDOMINANT to omega^2, so the bath would be a WEAK DRESSING and the Delta_4 structure SURVIVES -- the OPPOSITE conclusion. Whether the cut dissolves or merely dresses the poles hinges on the unpinned small-omega exponent of Sigma(omega). So this is a precisely-posed OPEN PROBLEM, not a closure-strengthener. IMPORTANT: the conformalon-no-SY-mass closure does NOT rest on this -- it stands on the solid reasons (free Gaussian Delta_4 action with no sigma^4 -> no SY mass; w=+1/3 wrong EoS; magnitude order short). NET: alpha coefficient SAFE; the stronger 'conformal sector as a stable late-time scale reference' is OPEN; the cut-vs-dressing question reduces to the small-omega exponent of rho_sigma. See calc/RESULTS_conformalon.md.\",",
+      "bounded_context_window": {
+        "projector": "\"sub_status\": \"conditional-theorem; dimensionless axiom; NOT absolute anchor; zero anchor credit\",    \"tier_note\": \"BANKED 2026-06-27 (rung-9 SPLIT, consolidated overseer relay, Brief 2). The alpha VALUE is UNTOUCHED -- NOT refuted; conditional-theorem (ANCHOR-on-a-free-datum) support, the single ad",
+        "gauge": "\"sub_status\": \"conditional-theorem; dimensionless axiom; NOT absolute anchor; zero anchor credit\",    \"tier_note\": \"BANKED 2026-06-27 (rung-9 SPLIT, consolidated overseer relay, Brief 2). The alpha VALUE is UNTOUCHED -- NOT refuted; conditional-theorem (ANCHOR-on-a-free-datum) support, the single ad",
+        "Green's function": "\"sub_status\": \"conditional-theorem; dimensionless axiom; NOT absolute anchor; zero anchor credit\",    \"tier_note\": \"BANKED 2026-06-27 (rung-9 SPLIT, consolidated overseer relay, Brief 2). The alpha VALUE is UNTOUCHED -- NOT refuted; conditional-theorem (ANCHOR-on-a-free-datum) support, the single ad"
+      },
+      "candidate_term": [
+        "projector",
+        "gauge",
+        "Green's function"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P,response_object",
+      "object_class": [
+        "gauge_field_redefinition",
+        "projection_P",
+        "response_object"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1916,
+          1917,
+          1918
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "6c5e17113972"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> response-object definition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "projection P <--> response-object definition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "gauge / field-redefinition freedom <--> response-object definition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "projection P <--> response-object definition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json:36",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+      "source_line": 36,
+      "exact_source_line": "   \"SCOPE BOUNDARY (named, not hidden)\": \"this establishes ORBIT robustness WITHIN the declared TT bath: gauge-transforming the internal line moves no TT amplitude. It does NOT establish that the TT-bath DECLARATION itself is the unique admissible gauge choice -- that is D3(iii), the graviton-bath state/gauge prescription the charter lists as OWNER-DECLARED and UNDERDEFINED. A general-gauge propagator whose non-TT content differs is a D3(iii) question, not a D4 one, and is NOT answered here\",",
+      "bounded_context_window": {
+        "gauge": "\"the_D4C_residual\": \"diagnosed as category B (exact zero after TT projection): the D4-C Part-2 test inserted the gauge image WITHOUT the bath projector the loop actually applies -- a builder-side mis-posed test, corrected here, with the frozen D4-C artifact preserved\",    \"SCOPE BOUNDARY (named, not"
+      },
+      "candidate_term": [
+        "gauge"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P",
+      "object_class": [
+        "gauge_field_redefinition",
+        "projection_P"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          302
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "f432d6c90425"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "gauge / field-redefinition freedom <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "co-occurrence only",
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json:216",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+      "source_line": 216,
+      "exact_source_line": "  \"CLASS SCOPE BOUNDARY (named, not hidden): this establishes ORBIT robustness WITHIN the declared TT bath: gauge-transforming the internal line moves no TT amplitude. It does NOT establish that the TT-bath DECLARATION itself is the unique admissible gauge choice -- that is D3(iii), the graviton-bath state/gauge prescription the charter lists as OWNER-DECLARED and UNDERDEFINED. A general-gauge propagator whose non-TT content differs is a D3(iii) question, not a D4 one, and is NOT answered here\",",
+      "bounded_context_window": {
+        "gauge": "\"CLASS the_D4C_residual: diagnosed as category B (exact zero after TT projection): the D4-C Part-2 test inserted the gauge image WITHOUT the bath projector the loop actually applies -- a builder-side mis-posed test, corrected here, with the frozen D4-C artifact preserved\",   \"CLASS SCOPE BOUNDARY (n"
+      },
+      "candidate_term": [
+        "gauge"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P",
+      "object_class": [
+        "gauge_field_redefinition",
+        "projection_P"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          315
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "c346fdab7db1"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "program/CANDIDATE_MINING_02.md:223",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "program/CANDIDATE_MINING_02.md",
+      "source_line": 223,
+      "exact_source_line": "> system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff",
+      "bounded_context_window": {
+        "system/bath": "> construction choices, and the record must not collapse distinct choices \u2014 slow-variable selection, > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the",
+        "projection P": "> construction choices, and the record must not collapse distinct choices \u2014 slow-variable selection, > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the",
+        "cutoff": "> construction choices, and the record must not collapse distinct choices \u2014 slow-variable selection, > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the"
+      },
+      "candidate_term": [
+        "cutoff",
+        "projection P",
+        "system/bath"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,gauge_field_redefinition,projection_P,system_bath_partition",
+      "object_class": [
+        "cutoff_separation_scale",
+        "gauge_field_redefinition",
+        "projection_P",
+        "system_bath_partition"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1650,
+          1651,
+          1652
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "9b30b85f1417"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> gauge / field-redefinition freedom",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "projection P <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> gauge / field-redefinition freedom",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "gauge / field-redefinition freedom <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "projection P <--> system/bath partition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only",
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "provenance/claims.baseline.json:639",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.baseline.json",
+      "source_line": 639,
+      "exact_source_line": "   \"tier_note\": \"POSED 2026-07-02 (Version II, the referee's Frontier 3, adjudicated-in). THE CATCH (conceded): the earlier map said TWO frontiers; there are THREE -- deriving coarse-graining does NOT hand you a constitutive/response structure (that follows only under extra conditions: weak coupling, Gaussianity, near-equilibrium, timescale separation). So three genuinely distinct layers, previously two were collapsed: why-split (U3 / F2, the setup) -> why-constitutive (U4 / F3, the form) -> which-kernel (rung3 / F1, the content). U4 is NOT covered by U1: U1 says 'GIVEN the constitutive conditions, the form is universal-and-standard (Feynman-Vernon)'; U4 asks 'why do those conditions hold at all / why is constitutive structure generic' -- strictly deeper. This is now V2's CENTRAL question (the constitutive-universality question: why do constitutive descriptions appear in every successful EFT?); U1/U2 demote to GRUT-specific INSTANCES of it. It reframes GRUT from a candidate-to-validate into a PROBE of the universality/microscopic boundary -- the boundary where thermodynamics vs statistical mechanics, hydrodynamics vs molecular dynamics, EFT vs UV-completion all live. DISCIPLINE: fenced BOTH directions (do not pre-answer emergent OR forced); do NOT collapse F2 (U3) and F3 (U4); and 'we found a third frontier' is a truer MAP, NOT a third MOVE -- F3 is arguably the LEAST tractable, so forward-gating is unchanged (external: rung3 specialist / dS-IR / foundational-EFT progress). THREE COUPLED FACETS (2026-07-04): U4 is ONE frontier worked in a FIXED ORDER of three coupled facets -- assumption-space (III) -> theorem (VIII) -> interpretation (II); interpretation (II) CANNOT precede the theorem (VIII). One frontier, structured -- fix the assumption-space, prove the theorem, THEN interpret; never interpretation-first. BRANCHES (2026-07-04): U4 is operationalized as a CLASSIFICATION tree under the u0 charter -- u5_constitutive_phases (universality classes of chi) and u6_constitutive_order (order parameter of constitutive organization), each with first-class success AND failure conditions, pointing toward an observable EFT. CENTRAL OBJECT: u4 derives / interrogates the EXISTENCE of 'constitutive organization' (GLOSSARY.md, provisional/revisable per u0) -- the equivalence class of response functionals chi(omega,k) producing identical observable transport under admissible coarse-grainings. See GRUT_II_Agenda.md. RE-HOME POINTER 2026-08-02: the 'is zeta_vacuum = 0?' question from the p_tt interrogation is re-homed to the u5 branch of this tree -- see u5_constitutive_phases.boundary_condition.\",",
+      "bounded_context_window": {
+        "coarse-grain": "\"sub_status\": \"HELD OPEN -- FENCED (machine-checkable, lives here in sub_status not prose): do NOT pre-answer 'emergent' OR 'forced'. Why constitutive/response structure appears at all is a HYPOTHESIS TO TEST in BOTH directions, never a banked conclusion; a screen returning 'looks forced' or 'looks ",
+        "scale separation": "\"sub_status\": \"HELD OPEN -- FENCED (machine-checkable, lives here in sub_status not prose): do NOT pre-answer 'emergent' OR 'forced'. Why constitutive/response structure appears at all is a HYPOTHESIS TO TEST in BOTH directions, never a banked conclusion; a screen returning 'looks forced' or 'looks ",
+        "response function": "\"sub_status\": \"HELD OPEN -- FENCED (machine-checkable, lives here in sub_status not prose): do NOT pre-answer 'emergent' OR 'forced'. Why constitutive/response structure appears at all is a HYPOTHESIS TO TEST in BOTH directions, never a banked conclusion; a screen returning 'looks forced' or 'looks "
+      },
+      "candidate_term": [
+        "coarse-grain",
+        "scale separation",
+        "response function"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) cutoff_separation_scale,response_object,slow_variable_coarse_graining",
+      "object_class": [
+        "cutoff_separation_scale",
+        "response_object",
+        "slow_variable_coarse_graining"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1963,
+          1964,
+          1965
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "990236570a7b"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "cutoff / separation scale <--> response-object definition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "cutoff / separation scale <--> response-object definition",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "co-occurrence only",
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "provenance/claims.json:1640",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.json",
+      "source_line": 1640,
+      "exact_source_line": "   \"tier_note\": \"BOOKED 2026-08-24 on the owner's explicit go after the ruling gate (second-author review of the three kernel files, all seven expectations passing, reviewer self-catch disclosed). The old story 'the Ward identity gives two survivors' is retired by measurement: gauge/orbit constraints alone leave an 11-dimensional FRW response family; descending to the 3-dimensional Lorentz-compatible family is bought ONLY by this assumption; descending further to 2 is bought by S7/closure in its regime. This +1 prices a property of the response kernel, not a symmetry of the background.\",",
+      "bounded_context_window": {
+        "gauge": "\"sub_status\": \"DISCHARGED 2026-08-30 (owner adjudication OWNER_ADJUDICATION_WALL_A_CLOSURE.md; register application on the owner's explicit go of this date). The node's own discharge condition is met: the microscopic Sigma_R^TT calculation demonstrates the response lies in the 3-dimensional Lorentz-",
+        "response kernel": "\"sub_status\": \"DISCHARGED 2026-08-30 (owner adjudication OWNER_ADJUDICATION_WALL_A_CLOSURE.md; register application on the owner's explicit go of this date). The node's own discharge condition is met: the microscopic Sigma_R^TT calculation demonstrates the response lies in the 3-dimensional Lorentz-"
+      },
+      "candidate_term": [
+        "gauge",
+        "response kernel"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,response_object",
+      "object_class": [
+        "gauge_field_redefinition",
+        "response_object"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          2102,
+          2103
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "cf3fc47626c9"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": "NOT SPECIFIED",
+      "prior_classifier_trigger": "NOT SPECIFIED",
+      "contradiction_ambiguity_flag": "NOT SPECIFIED"
+    },
+    {
+      "statement_id": "provenance/claims.baseline.json:660",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.baseline.json",
+      "source_line": 660,
+      "exact_source_line": "   \"boundary_condition\": \"OPENING SURVEY RESULT 2026-07-04 (the u5 analog of the rung3 candidate-methods pass -- an admissibility FILTER over universality CLASSES, one level up from the harness's kernel filter; ungated -- this is ADMISSIBILITY, not the rung3-gated PLACEMENT; firewalled both-directions before banking, amber->green). CONSTRAINTS applied to the dissipative/dynamical universality zoo: KMS/detailed-balance, causality/Kramers-Kronig, passivity (Im chi >= 0), influence-functional structure, and Lorentz/diffeo-invariance + T_mu_nu-conservation (no preferred frame). BANKED RESULT = a TWO-SECTOR EXCLUSION (one-sided, clean): (a) KMS/detailed-balance EXCLUDES the entire FAR-FROM-EQUILIBRIUM / DRIVEN-DISSIPATIVE Keldysh sector (Sieberer-Buchhold-Diehl 2016; KPZ-polariton, dark-state driven criticality) -- clean BY CONSTRUCTION, since those classes are DEFINED by the ABSENCE of detailed balance, so a passive KMS vacuum cannot be one (the driven character is robust: the d=1+1 KPZ accidental Edwards-Wilkinson/FDT symmetry is a stationary-measure coincidence with a nonzero stationary current, NOT KMS detailed balance, so the exclusion stands). (b) Lorentz/diffeo + T_mu_nu-conservation + no-preferred-frame EXCLUDES the LITERAL Hohenberg-Halperin Models A-J (1977) -- meaning the NON-relativistic MODEL EQUATIONS themselves (frame-fixed Langevin dynamics, Einstein relation set by one rest-frame T, frame-dependent kinetic coefficients), which a vacuum with no preferred frame cannot instantiate. LOAD-BEARING PRECISION (do NOT drop 'literal'): this excludes the frame-fixed EQUATIONS, NOT the universality CLASSES -- the fixed-point scaling content SURVIVES relativistic covariantization (relativistic Model B for a conserved charge, relativistic Model H near the QCD critical point are standard, actively-studied constructions). WHAT SURVIVES: the RELATIVISTIC, passive, KMS-equilibrium, causal viscoelastic-TRANSPORT sector -- whose candidate internal classes are the relativistic-covariant analogs of the momentum/charge-conserving, reversible-mode-coupling subset (A-D are purely relaxational; E/F/G/H/J carry the reversible Poisson-bracket streaming term, Model H -- conserved OP advected by conserved transverse momentum -- being the T_mu_nu/stress-tensor analog). That subset is FAVORED because a conserved stress tensor forces reversible advective OP couplings; but the relativistic analogs of E/F/G/H/J are ADMISSIBILITY CANDIDATES whose count is NOT yet resolved (<= these, pending the u6 count), and relaxational relativistic classes (rel. Model A/B) are NOT asserted to be excluded -- they are simply not the stress-tensor transport class. HARD FENCE (both directions -- the both-directions pass CANCELLED a 'rigid/unique' over-reach against a 'phase-structure' over-reach): bank EXCLUSION ONLY. Exclusion is NOT uniqueness -- excising the OUTSIDE (driven, non-relativistic) does NOT show the surviving sector is a SINGLE class; and it is NOT phase structure -- the count is not shown to be >1 either. THE COUNT inside the surviving sector -- one class (responsiveness RIGID / forced) vs a family (constitutive PHASE STRUCTURE) -- IS OPEN and is LOAD-BEARING ON u6: the order parameter is a REQUIRED missing label (together with the conserved-charge content and coupling structure) needed to enumerate/count the classes, so u5 and u6 are COUPLED at the frontier and u6 is the named next step that lets u5 finish the count. CONSISTENCY CHECK (a reassurance, NOT a result): GRUT's own constitutive ontology -- rung1 (S_IF) + rung2 (KMS) + rung4 (Love/KK viscoelastic) -- sits INSIDE the admissible surviving sector; it did NOT pick an excluded class. HONEST PROVENANCE: the builder LED this turn predicting 'rigid/unique' (the strong horn); the both-directions pass cancelled it to 'exclusion only' before it reached the register. u5 STAYS to-derive, ledger 0; net +12 unchanged at banking (2026-07-04). See GRUT_II_Agenda.md. RE-HOMED QUESTION 2026-08-02 (from the p_tt interrogation, verdict CHOSEN -- see p_tt_ansatz.boundary_condition): 'IS zeta_vacuum = 0?' is a constitutive-classification question and now lives HERE. The interrogation hands V2 the {shear, bulk} TWO-MODULI family as the admissible kernel space (P^(2) + P^(0,s) after diffeo-Ward); the INTERIOR (zeta_vacuum != 0, not the excluded trace-only endpoint) is empirically viable and UNEXPLORED -- exactly the sector where the observables live. Adds a GRUT-specific instance to u5's classification; tier/ledger unchanged. DEFORMABILITY CALC 2026-07-04 (calc/u5u6_deformability.py + calc/RESULTS_u5u6_deformability.md, in-house TOY/SCALING, default-BROKEN, graduates NEITHER u5 nor u6; firewalled both-directions, amber->green) -- the COUNT this claim owes now has its scaling-level structure: the shared deformability computation FACTORS the deformability question into two knobs (fixing the scaling-level STRUCTURE of u5's count and u6's order-parameter-reality together; graduating neither). KNOB 1 (RG-relevance / sharp-vs-deformable): UNDECIDED at scaling level -- z=1 is a FIXED-POINT ASSUMPTION (a thermal/KMS medium breaks boosts, so NOT a symmetry theorem), and under z=1 the non-relativistic Hohenberg-Halperin upper-critical-dimension logic does NOT transfer; the fixed-point anomalous dimension is the decider (a loop / epsilon-expansion research calc). The toy fixes only that the Model-H bracket (OP advected by conserved momentum T^{0i}) is SYMMETRY-FORCED-PRESENT (T_mu_nu-conservation + Lorentz) -- NECESSARY, NOT sufficient, for a sharp H-class (presence != relevance). KNOB 2 (conserved-charge content): DECIDABLE -- a bracket {phi,Q} exists only if Q is conserved; T_mu_nu is universal (H always available, flat-space EFT sense), every OTHER bracket needs an EXTRA charge (J a non-abelian internal charge, E/F a U(1), G internal+staggered). GIVEN sharp, the u5 count is a MONOTONE function of charge content (~1 per unlocked bracket; some classes need combined structure and one charge can seed several). THE REDUCTION: the deformability question reduces to 'how many conserved charges beyond T_mu_nu does the vacuum carry?'. Settled TOGETHER at scaling level: sharp+extra-charges => u6 order parameter REAL + u5 PHASE STRUCTURE; DEFORMABLE => u6 COLLAPSES + u5 RIGID (info_i2-adjacent); sharp+only-T_mu_nu => u6 real-but-SINGLE-VALUED + u5 RIGID (count 1); (pure gravity gives count 1 in BOTH horns). FENCES: TOY/SCALING (NOT the fixed-point RG -- points the direction, horn stays UNDECIDED); the conserved-charge content is a FENCED MODELING INPUT (rung3-channel-shaped -- a conformalon/anomaly current beyond T_mu_nu is NOT settled here), a SECOND rung3-shaped input DISTINCT from u6's already-held coarse-graining/slow-variable conditional (the independent-definition guard's conditional pass), which stays LIVE and un-discharged; both horns FIRST-CLASS; 'only T_mu_nu => rigid' is a LEAN conditioned on TWO inputs (the charge content AND 'sharp'), NOT a result. u5/u6 STAY to-derive, ledger 0; net +12 unchanged. See calc/RESULTS_u5u6_deformability.md.\",",
+      "bounded_context_window": {
+        "coarse-grain": "\"tier_note\": \"POSED 2026-07-04 (Version II, a branch of U4 / Frontier 3, under the u0 GRUT-II charter). U5 operationalizes U4's central question as a CLASSIFICATION: rather than assert why constitutive response is universal, ENUMERATE the universality classes chi(omega,k) can occupy (admissible clas"
+      },
+      "candidate_term": [
+        "coarse-grain"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) slow_variable_coarse_graining",
+      "object_class": [
+        "slow_variable_coarse_graining"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1968
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "64d90fd54187"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": "NOT SPECIFIED",
+      "prior_classifier_trigger": "NOT SPECIFIED",
+      "contradiction_ambiguity_flag": "NOT SPECIFIED"
+    },
+    {
+      "statement_id": "provenance/sources.json:319",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/sources.json",
+      "source_line": 319,
+      "exact_source_line": "  \"verifies\": \"PRIORITY, NOT SUPPORT. The higher-derivative-gravity propagator analysis from which the spin-projector decomposition of gravitational kernels became routine; every subsequent propagator/ghost analysis in that literature performs the same decomposition. Cited so the document states plainly that decomposing a gravitational kernel on these projectors is textbook. ATTESTATION: secondary-literature-verified, NOT read in original.\"",
+      "bounded_context_window": {
+        "projector": "\"ref\": \"K. S. Stelle, 'Renormalization of higher-derivative quantum gravity', Phys. Rev. D 16, 953 (1977)\",   \"verifies\": \"PRIORITY, NOT SUPPORT. The higher-derivative-gravity propagator analysis from which the spin-projector decomposition of gravitational kernels became routine; every subsequent pr"
+      },
+      "candidate_term": [
+        "projector"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) projection_P",
+      "object_class": [
+        "projection_P"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          2345
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "b682d97c775f"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": "NOT SPECIFIED",
+      "prior_classifier_trigger": "NOT SPECIFIED",
+      "contradiction_ambiguity_flag": "NOT SPECIFIED"
+    },
+    {
+      "statement_id": "PHYSICS_LEDGER/WALL_A_A4_RESULT.json:28",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "PHYSICS_LEDGER/WALL_A_A4_RESULT.json",
+      "source_line": 28,
+      "exact_source_line": "  \"verdict\": \"A4 PASS: the synchronous-gauge computation reproduces the gauge-invariant content of the gauge-unfixed computation. The transformation to synchronous exists; its residual family is zeta^0 = C(x)/a with zeta_i = C_i(x) - (d_i C) Ia (the frozen F3 product characterisation was REFUTED by the fleet, superseded by the v2 amendment; the asymptotic prescription still kills the C-sector); the difference of the two computations is the orbit variation, which reduces identically to bath-EoM (friction included) + total derivative; the spatial-TT content is orbit-blind; plants (constant-H trap, wrong-a, projector vacuity) all detected. The frozen barred-inputs guard ran live and clean. Sigma_R^TT assembly is UNBLOCKED under the frozen protocol. The response-level dual-gauge check (Pi_nonlocal equality) re-runs at assembly per Declaration 5.\"",
+      "bounded_context_window": {
+        "projector": "},   \"verdict\": \"A4 PASS: the synchronous-gauge computation reproduces the gauge-invariant content of the gauge-unfixed computation. The transformation to synchronous exists; its residual family is zeta^0 = C(x)/a with zeta_i = C_i(x) - (d_i C) Ia (the frozen F3 product characterisation was REFUTED ",
+        "gauge": "},   \"verdict\": \"A4 PASS: the synchronous-gauge computation reproduces the gauge-invariant content of the gauge-unfixed computation. The transformation to synchronous exists; its residual family is zeta^0 = C(x)/a with zeta_i = C_i(x) - (d_i C) Ia (the frozen F3 product characterisation was REFUTED "
+      },
+      "candidate_term": [
+        "gauge",
+        "projector"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P",
+      "object_class": [
+        "gauge_field_redefinition",
+        "projection_P"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          161,
+          162
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "6298a3b835d2"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "gauge / field-redefinition freedom <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "co-occurrence only",
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "calc/mz_inheritance.py:513",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "calc/mz_inheritance.py",
+      "source_line": 513,
+      "exact_source_line": "    print(\"       - the Mori-Zwanzig projection conventionally uses the KUBO-MORI correlation;\")",
+      "bounded_context_window": {
+        "Mori-Zwanzig": "print(\"       - June's robustness check examines the SYMMETRISED spectrum S = J coth;\")     print(\"       - the Mori-Zwanzig projection conventionally uses the KUBO-MORI correlation;\")     print(\"       - rung3's STATEMENT names 'the Mori-Zwanzig kernel' while its own supporting\")",
+        "KUBO": "print(\"       - June's robustness check examines the SYMMETRISED spectrum S = J coth;\")     print(\"       - the Mori-Zwanzig projection conventionally uses the KUBO-MORI correlation;\")     print(\"       - rung3's STATEMENT names 'the Mori-Zwanzig kernel' while its own supporting\")"
+      },
+      "candidate_term": [
+        "KUBO",
+        "Mori-Zwanzig"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) response_object,slow_variable_coarse_graining",
+      "object_class": [
+        "response_object",
+        "slow_variable_coarse_graining"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1519,
+          1520
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "fa2f8c7dcbcc"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "response-object definition <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "calc/mz_inheritance.py:559",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "calc/mz_inheritance.py",
+      "source_line": 559,
+      "exact_source_line": "    print(\"at all, and the GLE friction kernel contains no temperature. rung3's 'Mori-Zwanzig\")",
+      "bounded_context_window": {
+        "Mori-Zwanzig": "print(\"ladder -- while the KUBO-MORI correlation replaces coth by 2/(beta w) and has no ladder\")     print(\"at all, and the GLE friction kernel contains no temperature. rung3's 'Mori-Zwanzig\")     print(\"kernel' does not denote a unique object, and the two candidates answer oppositely.\")"
+      },
+      "candidate_term": [
+        "Mori-Zwanzig"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) response_object,slow_variable_coarse_graining",
+      "object_class": [
+        "response_object",
+        "slow_variable_coarse_graining"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1527
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "1f7e6adc0225"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": "NOT SPECIFIED",
+      "prior_classifier_trigger": "NOT SPECIFIED",
+      "contradiction_ambiguity_flag": "NOT SPECIFIED"
+    },
+    {
+      "statement_id": "provenance/claims.baseline.json:250",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.baseline.json",
+      "source_line": 250,
+      "exact_source_line": "   \"boundary_condition\": \"The REAL settling check (which would graduate this to derived) is deriving the scalar projection's VANISHING from the action WITHOUT inserting P^TT -- this is OPEN and partly FRONTIER-RESERVED (it overlaps the conformal/Riegert-Paneitz sector). The circular 'confirm P^TT annihilates scalars' check is FORBIDDEN (it re-detects the inserted ansatz). The safe in-house piece is only the bookkeeping (modified-Poisson + lensing) -> calc/mu_linear.py. SETTLING CHECK ANSWERED AGAINST 2026-08-02: the p_tt interrogation (see p_tt_ansatz.boundary_condition) returned CHOSEN -- the scalar projection's vanishing is NOT derivable from the declared structure (diffeo-Ward leaves the transverse-traceful P^(0,s) survivor; tracelessness is unforced). DEMOTION QUESTION OPENED (its own screened change, NOT adjudicated here; tier/disposition UNCHANGED pending that screen), on two independent grounds: (1) this claim's positive mu=1 leg rests on a now-derived-to-be-CHOSEN assumption; (2) the banked enumeration is NON-EXHAUSTIVE -- 'TT -> mu=1' and 'trace-only -> mu=4/3' are the two ENDPOINTS of a continuous {shear, bulk} family (calc/mu_linear.py raises ValueError on the interior), and the 32-sigma ISW result excludes the trace-only ENDPOINT, not the interior -- so the derived boundary as banked is weaker than stated. The mu=4/3-ENDPOINT exclusion itself (p_tt-independent, separate-universe + ISW) is NOT in question -- but note the ISW-ANCHOR PROVENANCE CAVEAT (2026-08-02): the ~32sigma is a DERIVED exclusion significance, not the cited papers' headline (~4-5sigma ISW detections), with NO in-repo computation (calc/isw_exclusion.py OWED); the SEPARATE-UNIVERSE leg of the exclusion is independent of it. DEMOTION SCREEN ADJUDICATED AND OVERSEER-RULED (2026-08-03): RETAIN_SCOPED, conditional on the statement WEAKEN edit -- APPLIED same wave. Grounds (adjudicator, against the default-broken-toward-demotion): both demotion grounds (the CHOSEN verdict; the non-exhaustive enumeration) are scope-facing and ISW-value-independent; the endpoint export is intact (the separate-universe leg carries admissibility alone -- harness exclusion_basis 'separate-universe-endpoint'); the window content is homed at zeta_interior_family (count-once); the WEAKEN edit is the instrument, not a tier move; demotion would double-home the window, promote the register's worst-provenanced number to headline content, and orphan the resident-scanned no_go_export marker. Tier/sub_status/ledger UNCHANGED (delta 0; net +13). The tier's pending item is RESTATED: no longer 'derive the scalar vanishing from the action' (answered AGAINST -- CHOSEN), but the rung3 trace-correlator route ONLY, which if taken costs a new +1 (relocation, not discharge). R2 (one-dial model / eta=1/mu split under P0s admixture) lives with zeta_interior_family's to-derive content; NOT closed by this screen. ARMED TIER TRIGGER (overseer-ordered): if rung3 resolves AGAINST the trace-correlator route (Pi_0 != 0 established), the pending-predicate is dead and this node moves derived-pending -> assumed -- a future wave executes this, it does not re-litigate it. NEW OWED ITEM (the screen's find) [PARTIALLY DISCHARGED 2026-08-03: the EdS-level content landed in isw_exclusion.py PART E, selftested (p(4/3)-p_SU = +0.186, comoving-gauge identification); the RESIDUE stays owed: adiabaticity + the presupposed dilatation bridge]: the SEPARATE-UNIVERSE leg previously had NO in-repo computation (its adiabatic-dilatation bridge was scored 'relocated, not derived' by the L0 screen) -- named alongside calc/isw_exclusion.py, since it is the export's primary structural leg; until both land, the exclusion's fully-clean independent support is the ~3.5sigma DESI Sigma0 tension (desi_mg2024). THE DISSENT, RECORDED VERBATIM (overseer-ordered 2026-08-03 -- the register holds the argument against its own tier): 'The tier's pending-predicate is dead in spirit even though alive in letter. mu_linear.boundary_condition named ONE graduation check -- derive the scalar vanishing from the action without inserting P^TT -- and on 2026-08-02 that check was run and ANSWERED AGAINST (CHOSEN, unanimous, exact-arithmetic-replicated); the sole surviving route relocates the assumption to rung3 at the cost of a new +1, i.e. the claim can never graduate without paying for what it saves. Retaining derived-pending on the ground that a named open input still exists is exactly the flattering-label inertia the directional-optimism rule (CHARTER Sec1.4) exists to catch -- and it matters disproportionately here because linear cosmology = LCDM is the register's most-quoted headline (NO_GO_LEDGER, GRUT_ToE), so a stale tier at this node does more downstream laundering work than anywhere else. The retain_scoped verdict answers this only by making the statement rewrite mandatory and restating the pending item; a purist reading of the charter's premature-graduation clause, run in reverse, would still say: a conditional on a demonstrably-arbitrary choice is assumed-conditional, not derived-pending, and no rewrite of prose fields fixes a wrong tier label.' THE ANCHOR COMPUTED (2026-08-03, calc/isw_exclusion.py -- outcome (b) of the pre-registered set; FIREWALL-CORRECTED same wave, B1: the Weyl-source Sigma(x) factor): cross-channel N(1) ~ 2.0sigma (computed 1.97 central; KC3 band ~0.6-4.8), NOT ~32 -- a 32-class number is IMPOSSIBLE in that channel (capped at ~9-12sigma for a signal-suppressing model), and at central inputs the cross channel ALONE no longer 2sigma-excludes the endpoint (band-hi corners still do). MECHANISM CORRECTED: the banked line 'mu>1 enhances late-time potential decay -> ISW excess' is BACKWARDS -- mu>1 strengthens growth, SUPPRESSES decay (potential GROWS for z > ~0.8); the model suppresses the positive signal to ~0.57x the template (A(1) = +0.57); the exclusion operates because the DATA detect the positive LCDM-like signal. The endpoint exclusion is now MULTI-LEG: separate-universe (EdS-QUANTIFIED in PART E: p(4/3)-p_SU = +0.186 != 0; usable-but-conditional -- adiabaticity + the presupposed dilatation bridge, named) + DESI Sigma0 ~3.5sigma (independent) + ISW-cross ~2.0sigma (~4sigma-class joint empirical) + the TT-AUTO channel as a PROSPECT, not a leg (estimate-grade order-10^2-sigma-class at x=1, filter/normalization-sensitive, NOT BANKED, own calc OWED). REOPENING-TRIGGER STATUS (relayed, no tier edit): condition 1 (lands at/below the detection headline) FIRED -- ~2.0 < 4-5; condition 2 (separate-universe leg unusable) NOT FIRED -- scored usable-but-conditional with computed EdS content; the conjunction FAILS -> no demotion; the statement re-weakened to the computed record instead.\",",
+      "bounded_context_window": {
+        "gauge": "\"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay): tier=derived-pending + sub_status=no_go_export -- a NO-GO EXPORT, NOT derived-clean; mu_linear ledger Delta 0 (empirically SELECTED by exclusion, not derived), p_tt_ansatz +1 (the structural cost). [Pre-screen history:] ENTERED 2026-06-2",
+        "correlator": "\"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay): tier=derived-pending + sub_status=no_go_export -- a NO-GO EXPORT, NOT derived-clean; mu_linear ledger Delta 0 (empirically SELECTED by exclusion, not derived), p_tt_ansatz +1 (the structural cost). [Pre-screen history:] ENTERED 2026-06-2"
+      },
+      "candidate_term": [
+        "gauge",
+        "correlator"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,response_object",
+      "object_class": [
+        "gauge_field_redefinition",
+        "response_object"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1928,
+          1929
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "f0cbe73b58cb"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> response-object definition",
+          "prior_classification": "SAME_CONSTRUCTION",
+          "prior_classifier_trigger": "identification phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "gauge / field-redefinition freedom <--> response-object definition",
+          "prior_classification": "LEXICAL_TRIGGER_ONLY",
+          "prior_classifier_trigger": "loose phrase retained as candidate (known false-positive class)"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "identification phrase",
+        "loose phrase retained as candidate (known false-positive class)"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "LEXICAL_TRIGGER_ONLY"
+        ]
+      }
+    },
+    {
+      "statement_id": "provenance/claims.baseline.json:351",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "provenance/claims.baseline.json",
+      "source_line": 351,
+      "exact_source_line": "   \"statement\": \"INFORMATION-PRINCIPLE sub-claim I1 (GENERIC -- already in GRUT, NOT uniquely GRUT): renormalization/coarse-graining is an information-projection, and distinguishability monotones organize RG flow -- Wilsonian coarse-graining as information loss, the Zamolodchikov c-theorem and Komargodski-Schwimmer a-theorem as monotone distinguishability measures (a_UV >= a_IR), Casini-Huerta entanglement-entropy RG monotones, and FDT as an information-response relation. This motif is established physics and is ALREADY present in GRUT: trace-out / influence-functional (rung1), FDT/KMS (rung2), the a-theorem (rung9a). It establishes the motif; it makes NO novel GRUT claim.\",",
+      "bounded_context_window": {
+        "coarse-grain": "],    \"statement\": \"INFORMATION-PRINCIPLE sub-claim I1 (GENERIC -- already in GRUT, NOT uniquely GRUT): renormalization/coarse-graining is an information-projection, and distinguishability monotones organize RG flow -- Wilsonian coarse-graining as information loss, the Zamolodchikov c-theorem and Ko"
+      },
+      "candidate_term": [
+        "coarse-grain"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) slow_variable_coarse_graining",
+      "object_class": [
+        "slow_variable_coarse_graining"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1939
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "5fdd01610ce2"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": "NOT SPECIFIED",
+      "prior_classifier_trigger": "NOT SPECIFIED",
+      "contradiction_ambiguity_flag": "NOT SPECIFIED"
+    },
+    {
+      "statement_id": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json:28",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+      "source_line": 28,
+      "exact_source_line": "   \"classification_of_the_residual\": \"category B of the required decomposition -- EXACT ZERO AFTER TT PROJECTION (not 'pure gauge by inspection', not an EOM cancellation, not a new K-term): the projection is the registered mechanism itself\",",
+      "bounded_context_window": {
+        "gauge": "\"the_gap\": \"the D4-C test BYPASSED the projector that defines the declared bath. Routes A and B show that projector annihilates the orbit direction exactly, so the residual cannot enter the loop as declared\",    \"classification_of_the_residual\": \"category B of the required decomposition -- EXACT ZER"
+      },
+      "candidate_term": [
+        "gauge"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P",
+      "object_class": [
+        "gauge_field_redefinition",
+        "projection_P"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          298
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "705f10f9686a"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> projection P",
+          "prior_classification": "RELATED_NOT_IDENTIFIED",
+          "prior_classifier_trigger": "relational phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "gauge / field-redefinition freedom <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "relational phrase",
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "RELATED_NOT_IDENTIFIED",
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json:210",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+      "source_line": 210,
+      "exact_source_line": "  \"DIAG classification_of_the_residual: category B of the required decomposition -- EXACT ZERO AFTER TT PROJECTION (not 'pure gauge by inspection', not an EOM cancellation, not a new K-term): the projection is the registered mechanism itself\",",
+      "bounded_context_window": {
+        "gauge": "\"DIAG the_gap: the D4-C test BYPASSED the projector that defines the declared bath. Routes A and B show that projector annihilates the orbit direction exactly, so the residual cannot enter the loop as declared\",   \"DIAG classification_of_the_residual: category B of the required decomposition -- EXAC"
+      },
+      "candidate_term": [
+        "gauge"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P",
+      "object_class": [
+        "gauge_field_redefinition",
+        "projection_P"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          311
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "731a7bff7068"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "gauge / field-redefinition freedom <--> projection P",
+          "prior_classification": "RELATED_NOT_IDENTIFIED",
+          "prior_classifier_trigger": "relational phrase"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "gauge / field-redefinition freedom <--> projection P",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "relational phrase",
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "RELATED_NOT_IDENTIFIED",
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "PHYSICS_LEDGER/kterm_run1.log:43",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "PHYSICS_LEDGER/kterm_run1.log",
+      "source_line": 43,
+      "exact_source_line": "  note DIAG classification_of_the_residual: category B of the required decomposition -- EXACT ZERO AFTER TT PROJECTION (not 'pure gauge by inspection', not an EOM cancellation, not a new K-term): the projection is the registered mechanism itself",
+      "bounded_context_window": {
+        "gauge": "note DIAG the_gap: the D4-C test BYPASSED the projector that defines the declared bath. Routes A and B show that projector annihilates the orbit direction exactly, so the residual cannot enter the loop as declared   note DIAG classification_of_the_residual: category B of the required decomposition -"
+      },
+      "candidate_term": [
+        "gauge"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition,projection_P",
+      "object_class": [
+        "gauge_field_redefinition",
+        "projection_P"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          718
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "b6573cbf3c53"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": "NOT SPECIFIED",
+      "prior_classifier_trigger": "NOT SPECIFIED",
+      "contradiction_ambiguity_flag": "NOT SPECIFIED"
+    },
+    {
+      "statement_id": "PHYSICS_LEDGER/wall_kr_u3_specification_audit.py:109",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "PHYSICS_LEDGER/wall_kr_u3_specification_audit.py",
+      "source_line": 109,
+      "exact_source_line": "      \"Mori-Zwanzig: choosing a projector P IS the partition (coarse-graining -> split)\")",
+      "bounded_context_window": {
+        "Mori-Zwanzig": "\"Zurek: a tensor factorization exists FIRST, then tracing (split -> coarse-graining); \"       \"Mori-Zwanzig: choosing a projector P IS the partition (coarse-graining -> split)\") ORDERINGS = [\"split -> coarse-graining (factorization first)\",",
+        "projector": "\"Zurek: a tensor factorization exists FIRST, then tracing (split -> coarse-graining); \"       \"Mori-Zwanzig: choosing a projector P IS the partition (coarse-graining -> split)\") ORDERINGS = [\"split -> coarse-graining (factorization first)\","
+      },
+      "candidate_term": [
+        "projector",
+        "Mori-Zwanzig"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) projection_P,slow_variable_coarse_graining",
+      "object_class": [
+        "projection_P",
+        "slow_variable_coarse_graining"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1257,
+          1258
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "92a0b079756c"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": "NOT SPECIFIED",
+      "prior_classifier_trigger": "NOT SPECIFIED",
+      "contradiction_ambiguity_flag": "NOT SPECIFIED"
+    },
+    {
+      "statement_id": "PHYSICS_LEDGER/WALL_KR_U3_SPECIFICATION.md:76",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "PHYSICS_LEDGER/WALL_KR_U3_SPECIFICATION.md",
+      "source_line": 76,
+      "exact_source_line": "- **Mori-Zwanzig:** choosing the projector **P** *is* the partition. \u2192 *coarse-graining \u2192 split*",
+      "bounded_context_window": {
+        "Mori-Zwanzig": "- **Zurek:** a tensor factorization exists *first*; tracing follows. \u2192 *split \u2192 coarse-graining* - **Mori-Zwanzig:** choosing the projector **P** *is* the partition. \u2192 *coarse-graining \u2192 split*",
+        "projector": "- **Zurek:** a tensor factorization exists *first*; tracing follows. \u2192 *split \u2192 coarse-graining* - **Mori-Zwanzig:** choosing the projector **P** *is* the partition. \u2192 *coarse-graining \u2192 split*"
+      },
+      "candidate_term": [
+        "projector",
+        "Mori-Zwanzig"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) projection_P,slow_variable_coarse_graining",
+      "object_class": [
+        "projection_P",
+        "slow_variable_coarse_graining"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          569,
+          570
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "5eda92fbf1d0"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "projection P <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "calc/mz_inheritance.py:530",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "calc/mz_inheritance.py",
+      "source_line": 530,
+      "exact_source_line": "    print(\"       Mori-Zwanzig inner product there is no ladder to inherit, and the friction\")",
+      "bounded_context_window": {
+        "Mori-Zwanzig": "print(\"     WHAT IS WEAKENED, and it must be said in this direction: on the CONVENTIONAL\")     print(\"       Mori-Zwanzig inner product there is no ladder to inherit, and the friction\")     print(\"       kernel does not contain T at all. The adverse reading of rung3 is therefore\")",
+        "inner product": "print(\"     WHAT IS WEAKENED, and it must be said in this direction: on the CONVENTIONAL\")     print(\"       Mori-Zwanzig inner product there is no ladder to inherit, and the friction\")     print(\"       kernel does not contain T at all. The adverse reading of rung3 is therefore\")"
+      },
+      "candidate_term": [
+        "inner product",
+        "Mori-Zwanzig"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) inner_product_state,slow_variable_coarse_graining",
+      "object_class": [
+        "inner_product_state",
+        "slow_variable_coarse_graining"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          1522,
+          1523
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "3727c7653ccb"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": [
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_01",
+          "prior_pair": "inner product / state <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        },
+        {
+          "audit": "OBJECT_IDENTITY_AUDIT_02",
+          "prior_pair": "inner product / state <--> slow-variable selection / coarse-graining",
+          "prior_classification": "UNRESOLVED",
+          "prior_classifier_trigger": "co-occurrence only"
+        }
+      ],
+      "prior_classifier_trigger": [
+        "co-occurrence only",
+        "co-occurrence only"
+      ],
+      "contradiction_ambiguity_flag": {
+        "present": true,
+        "flags": [
+          "UNRESOLVED"
+        ]
+      }
+    },
+    {
+      "statement_id": "PHYSICS_LEDGER/WALL_ASSEMBLY2_RESULT.json:41",
+      "canonical_statement_id": "NOT SPECIFIED",
+      "source_path": "PHYSICS_LEDGER/WALL_ASSEMBLY2_RESULT.json",
+      "source_line": 41,
+      "exact_source_line": "    \"CENTRAL FINDING: NO pole family achieves a unique fit onto the frozen six-operator basis at integrand level (consistent=False across all families, generic k != 0). Per the frozen declaration these poles are NOT absorbed. Candidate diagnoses for ASSEMBLY-2B adjudication: (a) off-shell gauge artifacts -- no gauge-fixing term was ever added to the h-action, so the bare off-shell kernel can carry gauge-dependent pole pieces outside the gauge-invariant basis; (b) on-shell/TT projection may be REQUIRED before basis closure is meaningful; (c) genuine new counterterm structure (would require basis amendment via superseding declaration).\",",
+      "bounded_context_window": {
+        "gauge": "\"findings\": [     \"CENTRAL FINDING: NO pole family achieves a unique fit onto the frozen six-operator basis at integrand level (consistent=False across all families, generic k != 0). Per the frozen declaration these poles are NOT absorbed. Candidate diagnoses for ASSEMBLY-2B adjudication: (a) off-sh"
+      },
+      "candidate_term": [
+        "gauge"
+      ],
+      "selection_reason": "top-ranked high-information line covering object class(es) gauge_field_redefinition",
+      "object_class": [
+        "gauge_field_redefinition"
+      ],
+      "provenance_chain": {
+        "substrate": "OBJECT_EVIDENCE_03.json",
+        "evidence_record_ids": [
+          115
+        ],
+        "manifest_provenance_status": "UNIQUE",
+        "raw_dedup_key": "fbff7c2cb6e9"
+      },
+      "duplicate_provenance_copy_status": "UNIQUE",
+      "prior_audit_classification": "NOT SPECIFIED",
+      "prior_classifier_trigger": "NOT SPECIFIED",
+      "contradiction_ambiguity_flag": "NOT SPECIFIED"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+ "meta": {
+  "commit": "0cf4a9a76faab2e4ed1fb819938ef1dbd4aa9121",
+  "status": "DRAFT / NOT_CANONICAL / NOT_A_THEORY_RESULT",
+  "note": "Provisional typed registry from OBJECT_EVIDENCE_03 + referent audit. Typed only where the source states it; everything else NOT_SPECIFIED.",
+  "objects": [
+   {
+    "category": "system/bath partition",
+    "evidence_records": 103,
+    "mathematical_type": "NOT_SPECIFIED",
+    "referent_structure": "see CUTOFF_REFERENT_AUDIT_01 for the cutoff family (multiple referent candidates present)",
+    "typed_fields": "NONE typed at category level \u2014 typing is per-mention in OBJECT_MENTION_LEDGER_01"
+   },
+   {
+    "category": "slow-variable selection / coarse-graining",
+    "evidence_records": 223,
+    "mathematical_type": "NOT_SPECIFIED",
+    "referent_structure": "see CUTOFF_REFERENT_AUDIT_01 for the cutoff family (multiple referent candidates present)",
+    "typed_fields": "NONE typed at category level \u2014 typing is per-mention in OBJECT_MENTION_LEDGER_01"
+   },
+   {
+    "category": "projection P",
+    "evidence_records": 363,
+    "mathematical_type": "NOT_SPECIFIED",
+    "referent_structure": "see CUTOFF_REFERENT_AUDIT_01 for the cutoff family (multiple referent candidates present)",
+    "typed_fields": "NONE typed at category level \u2014 typing is per-mention in OBJECT_MENTION_LEDGER_01"
+   },
+   {
+    "category": "inner product / state",
+    "evidence_records": 43,
+    "mathematical_type": "NOT_SPECIFIED",
+    "referent_structure": "see CUTOFF_REFERENT_AUDIT_01 for the cutoff family (multiple referent candidates present)",
+    "typed_fields": "NONE typed at category level \u2014 typing is per-mention in OBJECT_MENTION_LEDGER_01"
+   },
+   {
+    "category": "cutoff / separation scale",
+    "evidence_records": 634,
+    "mathematical_type": "NOT_SPECIFIED",
+    "referent_structure": "see CUTOFF_REFERENT_AUDIT_01 for the cutoff family (multiple referent candidates present)",
+    "typed_fields": "NONE typed at category level \u2014 typing is per-mention in OBJECT_MENTION_LEDGER_01"
+   },
+   {
+    "category": "gauge / field-redefinition freedom",
+    "evidence_records": 832,
+    "mathematical_type": "NOT_SPECIFIED",
+    "referent_structure": "see CUTOFF_REFERENT_AUDIT_01 for the cutoff family (multiple referent candidates present)",
+    "typed_fields": "NONE typed at category level \u2014 typing is per-mention in OBJECT_MENTION_LEDGER_01"
+   },
+   {
+    "category": "response-object definition",
+    "evidence_records": 278,
+    "mathematical_type": "NOT_SPECIFIED",
+    "referent_structure": "see CUTOFF_REFERENT_AUDIT_01 for the cutoff family (multiple referent candidates present)",
+    "typed_fields": "NONE typed at category level \u2014 typing is per-mention in OBJECT_MENTION_LEDGER_01"
+   }
+  ]
+ }
+}

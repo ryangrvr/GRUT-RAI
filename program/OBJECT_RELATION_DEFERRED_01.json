@@ -1,0 +1,113 @@
+{
+ "meta": {
+  "commit": "0cf4a9a76faab2e4ed1fb819938ef1dbd4aa9121",
+  "note": "Pairwise questions deferred because object identity/type is unresolved. NOT inferred independence \u2014 deferred."
+ },
+ "deferred": [
+  {
+   "object_X": "cutoff / separation scale",
+   "object_Y": "gauge / field-redefinition freedom",
+   "reason": "RELATED_CANDIDATE"
+  },
+  {
+   "object_X": "cutoff / separation scale",
+   "object_Y": "inner product / state",
+   "reason": "UNRESOLVED (only lexical triggers)"
+  },
+  {
+   "object_X": "cutoff / separation scale",
+   "object_Y": "projection P",
+   "reason": "UNRESOLVED"
+  },
+  {
+   "object_X": "cutoff / separation scale",
+   "object_Y": "response-object definition",
+   "reason": "DISTINCT_IN_CORPUS_CANDIDATE"
+  },
+  {
+   "object_X": "cutoff / separation scale",
+   "object_Y": "slow-variable selection / coarse-graining",
+   "reason": "DISTINCT_IN_CORPUS_CANDIDATE"
+  },
+  {
+   "object_X": "cutoff / separation scale",
+   "object_Y": "system/bath partition",
+   "reason": "DISTINCT_IN_CORPUS_CANDIDATE"
+  },
+  {
+   "object_X": "gauge / field-redefinition freedom",
+   "object_Y": "inner product / state",
+   "reason": "UNRESOLVED"
+  },
+  {
+   "object_X": "gauge / field-redefinition freedom",
+   "object_Y": "projection P",
+   "reason": "DISTINCT_IN_CORPUS_CANDIDATE"
+  },
+  {
+   "object_X": "gauge / field-redefinition freedom",
+   "object_Y": "response-object definition",
+   "reason": "SAME_OBJECT_CANDIDATE"
+  },
+  {
+   "object_X": "gauge / field-redefinition freedom",
+   "object_Y": "slow-variable selection / coarse-graining",
+   "reason": "UNRESOLVED"
+  },
+  {
+   "object_X": "gauge / field-redefinition freedom",
+   "object_Y": "system/bath partition",
+   "reason": "UNRESOLVED (only lexical triggers)"
+  },
+  {
+   "object_X": "inner product / state",
+   "object_Y": "projection P",
+   "reason": "UNRESOLVED"
+  },
+  {
+   "object_X": "inner product / state",
+   "object_Y": "response-object definition",
+   "reason": "RELATED_CANDIDATE"
+  },
+  {
+   "object_X": "inner product / state",
+   "object_Y": "slow-variable selection / coarse-graining",
+   "reason": "UNRESOLVED (only lexical triggers)"
+  },
+  {
+   "object_X": "inner product / state",
+   "object_Y": "system/bath partition",
+   "reason": "UNRESOLVED (only lexical triggers)"
+  },
+  {
+   "object_X": "projection P",
+   "object_Y": "response-object definition",
+   "reason": "SAME_OBJECT_CANDIDATE"
+  },
+  {
+   "object_X": "projection P",
+   "object_Y": "slow-variable selection / coarse-graining",
+   "reason": "UNRESOLVED"
+  },
+  {
+   "object_X": "projection P",
+   "object_Y": "system/bath partition",
+   "reason": "UNRESOLVED"
+  },
+  {
+   "object_X": "response-object definition",
+   "object_Y": "slow-variable selection / coarse-graining",
+   "reason": "DISTINCT_IN_CORPUS_CANDIDATE"
+  },
+  {
+   "object_X": "response-object definition",
+   "object_Y": "system/bath partition",
+   "reason": "RELATED_CANDIDATE"
+  },
+  {
+   "object_X": "slow-variable selection / coarse-graining",
+   "object_Y": "system/bath partition",
+   "reason": "DISTINCT_IN_CORPUS_CANDIDATE"
+  }
+ ]
+}

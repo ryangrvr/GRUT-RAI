@@ -1,0 +1,505 @@
+{
+ "meta": {
+  "commit": "0cf4a9a76faab2e4ed1fb819938ef1dbd4aa9121",
+  "note": "LAB-ONLY QA of OBJECT_REGISTRY_LAB_01 against OBJECT_EVIDENCE_01. No fixes applied, no scientific inference."
+ },
+ "1_category_assignment": {
+  "potentially_multi_object_records": 187,
+  "combination_counts": {
+   "projection_P + slow_variable_coarse_graining": 41,
+   "slow_variable_coarse_graining + system_bath_partition": 28,
+   "response_object + slow_variable_coarse_graining": 25,
+   "cutoff_separation_scale + gauge_field_redefinition": 22,
+   "gauge_field_redefinition + projection_P": 13,
+   "cutoff_separation_scale + slow_variable_coarse_graining": 10,
+   "projection_P + response_object": 6,
+   "inner_product_state + response_object": 5,
+   "gauge_field_redefinition + system_bath_partition": 4,
+   "cutoff_separation_scale + projection_P": 4,
+   "cutoff_separation_scale + system_bath_partition": 4,
+   "inner_product_state + response_object + slow_variable_coarse_graining": 4,
+   "cutoff_separation_scale + gauge_field_redefinition + projection_P + system_bath_partition": 4,
+   "inner_product_state + slow_variable_coarse_graining": 3,
+   "cutoff_separation_scale + inner_product_state + projection_P + slow_variable_coarse_graining + system_bath_partition": 3,
+   "cutoff_separation_scale + gauge_field_redefinition + inner_product_state": 3,
+   "cutoff_separation_scale + gauge_field_redefinition + inner_product_state + projection_P + slow_variable_coarse_graining + system_bath_partition": 2,
+   "gauge_field_redefinition + response_object": 2,
+   "cutoff_separation_scale + inner_product_state + slow_variable_coarse_graining": 1,
+   "cutoff_separation_scale + inner_product_state": 1,
+   "inner_product_state + system_bath_partition": 1,
+   "cutoff_separation_scale + inner_product_state + system_bath_partition": 1
+  },
+  "examples": [
+   {
+    "file": "PHYSICS_LEDGER/ROOT1_KERNEL_ORIGIN.md",
+    "line": 169,
+    "assigned_to": "gauge_field_redefinition",
+    "categories_present_in_context": [
+     "gauge_field_redefinition",
+     "system_bath_partition"
+    ],
+    "terminology": "gauge",
+    "context": "It is admissible because \u2014 verified here, and **stated by no prior document** \u2014 the contract declaration sheet fixes D1 (probe kinematics), D2 (gauge), D3 (state + IR), D4 (dual gauge) and D5 (renormalization), and **never declares the system/bath mode partition**: zero"
+   },
+   {
+    "file": "PHYSICS_LEDGER/ROOT1_KERNEL_ORIGIN.md",
+    "line": 170,
+    "assigned_to": "system_bath_partition",
+    "categories_present_in_context": [
+     "gauge_field_redefinition",
+     "system_bath_partition"
+    ],
+    "terminology": "system/bath",
+    "context": "declaration sheet fixes D1 (probe kinematics), D2 (gauge), D3 (state + IR), D4 (dual gauge) and D5 (renormalization), and **never declares the system/bath mode partition**: zero occurrences of \"partition\" or \"system/bath\" across the entire D-sheet and owner ruling. **A"
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_A_SESSION_BOUNDARY.md",
+    "line": 27,
+    "assigned_to": "projection_P",
+    "categories_present_in_context": [
+     "gauge_field_redefinition",
+     "projection_P"
+    ],
+    "terminology": "projection onto",
+    "context": "1. **A2 Phase-1 closeout** \u2014 EH channel projection onto six BR sectors + gauge contraction    discriminator (NOTE 2). Spec in the owner's brief; implementation ~50 lines."
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_A_SESSION_BOUNDARY.md",
+    "line": 27,
+    "assigned_to": "gauge_field_redefinition",
+    "categories_present_in_context": [
+     "gauge_field_redefinition",
+     "projection_P"
+    ],
+    "terminology": "gauge",
+    "context": "1. **A2 Phase-1 closeout** \u2014 EH channel projection onto six BR sectors + gauge contraction    discriminator (NOTE 2). Spec in the owner's brief; implementation ~50 lines."
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_D4_DUAL_GAUGE_RESULT.json",
+    "line": 140,
+    "assigned_to": "projection_P",
+    "categories_present_in_context": [
+     "gauge_field_redefinition",
+     "projection_P"
+    ],
+    "terminology": "projector",
+    "context": "\"pass\": true,    \"msg\": \"CONTROL: B/C. non-gauge mutations (pure-trace internal slot; unsymmetrized image) are NONZERO and DISTINCT from the main result -- omitted-term and projector mutations are distinguishable, the contraction is not degenerate\",    \"gate\": \"control\""
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_D4_DUAL_GAUGE_RESULT.json",
+    "line": 140,
+    "assigned_to": "gauge_field_redefinition",
+    "categories_present_in_context": [
+     "gauge_field_redefinition",
+     "projection_P"
+    ],
+    "terminology": "gauge",
+    "context": "\"pass\": true,    \"msg\": \"CONTROL: B/C. non-gauge mutations (pure-trace internal slot; unsymmetrized image) are NONZERO and DISTINCT from the main result -- omitted-term and projector mutations are distinguishable, the contraction is not degenerate\",    \"gate\": \"control\""
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+    "line": 36,
+    "assigned_to": "gauge_field_redefinition",
+    "categories_present_in_context": [
+     "gauge_field_redefinition",
+     "projection_P"
+    ],
+    "terminology": "gauge",
+    "context": "\"the_D4C_residual\": \"diagnosed as category B (exact zero after TT projection): the D4-C Part-2 test inserted the gauge image WITHOUT the bath projector the loop actually applies -- a builder-side mis-posed test, corrected here, with the frozen D4-C artifact preserved\",    \"SCOPE BOUNDARY (named, not"
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+    "line": 216,
+    "assigned_to": "gauge_field_redefinition",
+    "categories_present_in_context": [
+     "gauge_field_redefinition",
+     "projection_P"
+    ],
+    "terminology": "gauge",
+    "context": "\"CLASS the_D4C_residual: diagnosed as category B (exact zero after TT projection): the D4-C Part-2 test inserted the gauge image WITHOUT the bath projector the loop actually applies -- a builder-side mis-posed test, corrected here, with the frozen D4-C artifact preserved\",   \"CLASS SCOPE BOUNDARY (n"
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_D5_EXECUTION_RESULT.json",
+    "line": 191,
+    "assigned_to": "projection_P",
+    "categories_present_in_context": [
+     "cutoff_separation_scale",
+     "projection_P"
+    ],
+    "terminology": "projector",
+    "context": "\"pass\": true,    \"msg\": \"CONTROL: #1 WRONG REGULATOR CONTINUATION: continuing the measure in d while freezing the projector algebra at d = 3 (dropped evanescent terms) CHANGES the MS finite part -- the gate detects a genuinely inconsistent continuation, which is precisely why the scheme had to be RU"
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_D5_EXECUTION_RESULT.json",
+    "line": 191,
+    "assigned_to": "cutoff_separation_scale",
+    "categories_present_in_context": [
+     "cutoff_separation_scale",
+     "projection_P"
+    ],
+    "terminology": "REGULATOR",
+    "context": "\"pass\": true,    \"msg\": \"CONTROL: #1 WRONG REGULATOR CONTINUATION: continuing the measure in d while freezing the projector algebra at d = 3 (dropped evanescent terms) CHANGES the MS finite part -- the gate detects a genuinely inconsistent continuation, which is precisely why the scheme had to be RU"
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_FOUNDATIONAL_LADDER_RESULT.json",
+    "line": 45,
+    "assigned_to": "system_bath_partition",
+    "categories_present_in_context": [
+     "slow_variable_coarse_graining",
+     "system_bath_partition"
+    ],
+    "terminology": "system/bath",
+    "context": "\"foundational_research_order\": [     \"1. u3_split_origin \u2014 why a system/bath split at all (deepest; presupposes nothing registered)\",     \"2. u4_constitutive_origin \u2014 why coarse-graining yields response form (needs u3's OBJECT as given, NOT u3's answer; therefore pursuable in parallel with or before"
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_FOUNDATIONAL_LADDER_RESULT.json",
+    "line": 46,
+    "assigned_to": "slow_variable_coarse_graining",
+    "categories_present_in_context": [
+     "slow_variable_coarse_graining",
+     "system_bath_partition"
+    ],
+    "terminology": "coarse-grain",
+    "context": "\"1. u3_split_origin \u2014 why a system/bath split at all (deepest; presupposes nothing registered)\",     \"2. u4_constitutive_origin \u2014 why coarse-graining yields response form (needs u3's OBJECT as given, NOT u3's answer; therefore pursuable in parallel with or before u3 is resolved)\",     \"3. u6_constit"
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_INDEPENDENCE_AUDIT_RESULT.json",
+    "line": 53,
+    "assigned_to": "system_bath_partition",
+    "categories_present_in_context": [
+     "slow_variable_coarse_graining",
+     "system_bath_partition"
+    ],
+    "terminology": "system/bath",
+    "context": "\"legitimate_next_tasks_zero_owner_selections\": [     \"u3_split_origin \u2014 why a system/bath split at all (sits BELOW rung1; cannot inherit lineage)\",     \"u4_constitutive_origin \u2014 why coarse-graining yields constitutive/response structure\","
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_INDEPENDENCE_AUDIT_RESULT.json",
+    "line": 54,
+    "assigned_to": "slow_variable_coarse_graining",
+    "categories_present_in_context": [
+     "slow_variable_coarse_graining",
+     "system_bath_partition"
+    ],
+    "terminology": "coarse-grain",
+    "context": "\"u3_split_origin \u2014 why a system/bath split at all (sits BELOW rung1; cannot inherit lineage)\",     \"u4_constitutive_origin \u2014 why coarse-graining yields constitutive/response structure\",     \"u6_constitutive_order \u2014 order parameter for constitutive organization\","
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION.md",
+    "line": 82,
+    "assigned_to": "slow_variable_coarse_graining",
+    "categories_present_in_context": [
+     "projection_P",
+     "slow_variable_coarse_graining"
+    ],
+    "terminology": "Mori-Zwanzig",
+    "context": "| Zurek / decoherence | `H_S \u2297 H_B` + interaction | **ASSUMED** | partial trace | why the factorization exists | | Mori-Zwanzig | a projector `P` | **CHOSEN** (`P` *is* the partition) | generalized Langevin | what selects `P` | | **AQFT** | net of algebras + state + causality | **NOT primitive**; av"
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION.md",
+    "line": 82,
+    "assigned_to": "projection_P",
+    "categories_present_in_context": [
+     "projection_P",
+     "slow_variable_coarse_graining"
+    ],
+    "terminology": "projector",
+    "context": "| Zurek / decoherence | `H_S \u2297 H_B` + interaction | **ASSUMED** | partial trace | why the factorization exists | | Mori-Zwanzig | a projector `P` | **CHOSEN** (`P` *is* the partition) | generalized Langevin | what selects `P` | | **AQFT** | net of algebras + state + causality | **NOT primitive**; av"
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION.md",
+    "line": 85,
+    "assigned_to": "slow_variable_coarse_graining",
+    "categories_present_in_context": [
+     "cutoff_separation_scale",
+     "slow_variable_coarse_graining"
+    ],
+    "terminology": "coarse-grain",
+    "context": "| Effective field theory | field content + a scale | **BY SCALE** | integrate out heavy modes | what selects the scale | | Wilsonian coarse-graining | cutoff + blocking rule | the blocking rule *is* the partition | RG flow | what selects the blocking rule |"
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION.md",
+    "line": 85,
+    "assigned_to": "cutoff_separation_scale",
+    "categories_present_in_context": [
+     "cutoff_separation_scale",
+     "slow_variable_coarse_graining"
+    ],
+    "terminology": "cutoff",
+    "context": "| Effective field theory | field content + a scale | **BY SCALE** | integrate out heavy modes | what selects the scale | | Wilsonian coarse-graining | cutoff + blocking rule | the blocking rule *is* the partition | RG flow | what selects the blocking rule |"
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION.md",
+    "line": 119,
+    "assigned_to": "projection_P",
+    "categories_present_in_context": [
+     "projection_P",
+     "slow_variable_coarse_graining"
+    ],
+    "terminology": "projector",
+    "context": "and an \"emergent\" answer that smuggles in a projector \u2014 and it rejects all five disallowed moves: assuming `H_S \u2297 H_B`; assuming a projector `P`; assuming a system/environment decomposition; renaming coarse-graining; deriving decoherence after assuming the split."
+   },
+   {
+    "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION.md",
+    "line": 120,
+    "assigned_to": "slow_variable_coarse_graining",
+    "categories_present_in_context": [
+     "projection_P",
+     "slow_variable_coarse_graining"
+    ],
+    "terminology": "coarse-grain",
+    "context": "moves: assuming `H_S \u2297 H_B`; assuming a projector `P`; assuming a system/environment decomposition; renaming coarse-graining; deriving decoherence after assuming the split."
+   }
+  ]
+ },
+ "2_contradiction_flags": {
+  "flagged": 4,
+  "details": [
+   {
+    "object": "gauge / field-redefinition freedom",
+    "file": "PHYSICS_LEDGER/wall_a_assembly2.py",
+    "line": 830,
+    "pair": "gauge-invariant / gauge-dependent",
+    "same_object": "UNRESOLVED",
+    "actually_contradictory": "UNRESOLVED (not adjudicated; requires conceptual judgment)",
+    "adjudication": "deferred"
+   },
+   {
+    "object": "gauge / field-redefinition freedom",
+    "file": "PHYSICS_LEDGER/wall_a_assembly2.py",
+    "line": 831,
+    "pair": "gauge-invariant / gauge-dependent",
+    "same_object": "UNRESOLVED",
+    "actually_contradictory": "UNRESOLVED (not adjudicated; requires conceptual judgment)",
+    "adjudication": "deferred"
+   },
+   {
+    "object": "gauge / field-redefinition freedom",
+    "file": "calc/delta4_stability.py",
+    "line": 11,
+    "pair": "gauge-invariant / gauge-dependent",
+    "same_object": "UNRESOLVED",
+    "actually_contradictory": "UNRESOLVED (not adjudicated; requires conceptual judgment)",
+    "adjudication": "deferred"
+   },
+   {
+    "object": "gauge / field-redefinition freedom",
+    "file": "calc/delta4_stability.py",
+    "line": 12,
+    "pair": "gauge-invariant / gauge-dependent",
+    "same_object": "UNRESOLVED",
+    "actually_contradictory": "UNRESOLVED (not adjudicated; requires conceptual judgment)",
+    "adjudication": "deferred"
+   }
+  ]
+ },
+ "3_object_level_specification_counts": {
+  "system/bath partition": {
+   "distinct_terminology_strings": 3,
+   "explicit_definitions": 0,
+   "partial_specifications": 24,
+   "explicit_unresolved": 1,
+   "not_specified_fields": 783,
+   "source_documents": 42
+  },
+  "slow-variable selection / coarse-graining": {
+   "distinct_terminology_strings": 3,
+   "explicit_definitions": 4,
+   "partial_specifications": 49,
+   "explicit_unresolved": 8,
+   "not_specified_fields": 1713,
+   "source_documents": 44
+  },
+  "projection P": {
+   "distinct_terminology_strings": 6,
+   "explicit_definitions": 7,
+   "partial_specifications": 76,
+   "explicit_unresolved": 2,
+   "not_specified_fields": 2940,
+   "source_documents": 112
+  },
+  "inner product / state": {
+   "distinct_terminology_strings": 6,
+   "explicit_definitions": 2,
+   "partial_specifications": 16,
+   "explicit_unresolved": 3,
+   "not_specified_fields": 293,
+   "source_documents": 14
+  },
+  "cutoff / separation scale": {
+   "distinct_terminology_strings": 6,
+   "explicit_definitions": 0,
+   "partial_specifications": 312,
+   "explicit_unresolved": 14,
+   "not_specified_fields": 5217,
+   "source_documents": 174
+  },
+  "gauge / field-redefinition freedom": {
+   "distinct_terminology_strings": 3,
+   "explicit_definitions": 4,
+   "partial_specifications": 305,
+   "explicit_unresolved": 49,
+   "not_specified_fields": 6908,
+   "source_documents": 179
+  },
+  "response-object definition": {
+   "distinct_terminology_strings": 8,
+   "explicit_definitions": 4,
+   "partial_specifications": 41,
+   "explicit_unresolved": 10,
+   "not_specified_fields": 2356,
+   "source_documents": 79
+  }
+ },
+ "4_information_loss": {
+  "duplicate_evidence_records_(same file:line:term:cat repeated)": {
+   "count": 0,
+   "examples": []
+  },
+  "records_sharing_one_source_line_across_categories": {
+   "count": 139,
+   "examples": [
+    "PHYSICS_LEDGER/WALL_A_A4_RESULT.json:28 x2",
+    "PHYSICS_LEDGER/WALL_A_SESSION_BOUNDARY.md:27 x2",
+    "PHYSICS_LEDGER/WALL_KR_D4_DUAL_GAUGE_RESULT.json:140 x2",
+    "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json:35 x2",
+    "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json:215 x2",
+    "PHYSICS_LEDGER/WALL_KR_D5_EXECUTION_RESULT.json:191 x2",
+    "PHYSICS_LEDGER/WALL_KR_D5_RENORMALIZATION_RESULT.json:191 x2",
+    "PHYSICS_LEDGER/WALL_KR_DISTINCTIVENESS_LEDGER.md:21 x2",
+    "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION.md:82 x2",
+    "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION.md:85 x2"
+   ]
+  },
+  "cross_object_associations_lost": 187,
+  "not_specified_overreach_risks": [
+   {
+    "object": "system/bath partition",
+    "section": "C_physical_specification",
+    "field": "state_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "system/bath partition",
+    "section": "C_physical_specification",
+    "field": "gauge_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "system/bath partition",
+    "section": "C_physical_specification",
+    "field": "regulator_renormalization_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "slow-variable selection / coarse-graining",
+    "section": "C_physical_specification",
+    "field": "state_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "slow-variable selection / coarse-graining",
+    "section": "C_physical_specification",
+    "field": "gauge_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "slow-variable selection / coarse-graining",
+    "section": "C_physical_specification",
+    "field": "regulator_renormalization_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "projection P",
+    "section": "C_physical_specification",
+    "field": "state_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "projection P",
+    "section": "C_physical_specification",
+    "field": "gauge_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "projection P",
+    "section": "C_physical_specification",
+    "field": "regulator_renormalization_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "inner product / state",
+    "section": "C_physical_specification",
+    "field": "state_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "inner product / state",
+    "section": "C_physical_specification",
+    "field": "gauge_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "inner product / state",
+    "section": "C_physical_specification",
+    "field": "regulator_renormalization_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "cutoff / separation scale",
+    "section": "C_physical_specification",
+    "field": "state_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "cutoff / separation scale",
+    "section": "C_physical_specification",
+    "field": "gauge_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "cutoff / separation scale",
+    "section": "C_physical_specification",
+    "field": "regulator_renormalization_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "gauge / field-redefinition freedom",
+    "section": "C_physical_specification",
+    "field": "state_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "gauge / field-redefinition freedom",
+    "section": "C_physical_specification",
+    "field": "gauge_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "gauge / field-redefinition freedom",
+    "section": "C_physical_specification",
+    "field": "regulator_renormalization_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "response-object definition",
+    "section": "C_physical_specification",
+    "field": "state_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "response-object definition",
+    "section": "C_physical_specification",
+    "field": "gauge_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   },
+   {
+    "object": "response-object definition",
+    "section": "C_physical_specification",
+    "field": "regulator_renormalization_dependence",
+    "issue": "registry-level 'NOT SPECIFIED' aggregates record-level absence; it must not be read as a claim that the field is absent from the corpus"
+   }
+  ],
+  "evidence_model_recommendation": "records should be many-to-many: e_i -> {categories present in context}; currently forced one-to-one"
+ }
+}

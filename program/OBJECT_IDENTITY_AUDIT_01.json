@@ -1,0 +1,2863 @@
+{
+ "meta": {
+  "commit": "0cf4a9a76faab2e4ed1fb819938ef1dbd4aa9121",
+  "note": "OBJECT IDENTITY AUDIT. Classifications derived ONLY from explicit phrases in source lines. Terminological similarity, co-occurrence, and notation differences were NOT treated as identity or distinctness. Contradictory source statements preserved, not resolved.",
+  "rules": "SAME_CONSTRUCTION=source identification phrase; DISTINCT_CONSTRUCTION=source distinction phrase; RELATED_NOT_IDENTIFIED=source relational phrase without identification; UNRESOLVED=co-occurrence only.",
+  "counts": {
+   "pairs_examined": 21,
+   "SAME_CONSTRUCTION": 2,
+   "DISTINCT_CONSTRUCTION": 0,
+   "RELATED_NOT_IDENTIFIED": 0,
+   "UNRESOLVED": 18,
+   "CONTRADICTORY_SOURCE_STATEMENTS_PRESENT": 1,
+   "pairs_with_no_usable_evidence": 16,
+   "source_statements_used": 305,
+   "explicit_corpus_identifications": 36,
+   "explicit_corpus_distinctions": 8
+  }
+ },
+ "pairs": [
+  {
+   "object_X": "cutoff / separation scale",
+   "object_Y": "gauge / field-redefinition freedom",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "RELATED_NOT_IDENTIFIED": 2,
+    "UNRESOLVED": 23,
+    "SAME_CONSTRUCTION": 4
+   },
+   "evidence_statements": [
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_D5_RENORMALIZATION_RESULT.json",
+     "line": 191,
+     "statement": "  \"THE DETERMINATION, from the frozen texts -- CORRECTED BY THE ADVERSARIAL REVIEW (the first draft classified A/UNIQUE and the review REFUTED it on the scheme level; the refutation is adopted): TWO transfers must be distinguished. (1) THE DOCTRINE -- pole-only MS, finite parts as-the-loop-produces-",
+     "terminology": [
+      "regulator",
+      "gauge"
+     ],
+     "classification": "RELATED_NOT_IDENTIFIED",
+     "cue": "relational phrase",
+     "confidence": "MEDIUM",
+     "reason": "source line contains an explicit relational phrase"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_d5_audit_run3.log",
+     "line": 37,
+     "statement": "  note THE DETERMINATION, from the frozen texts -- CORRECTED BY THE ADVERSARIAL REVIEW (the first draft classified A/UNIQUE and the review REFUTED it on the scheme level; the refutation is adopted): TWO transfers must be distinguished. (1) THE DOCTRINE -- pole-only MS, finite parts as-the-loop-produ",
+     "terminology": [
+      "regulator",
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "calc/class_c_solver.py",
+     "line": 11,
+     "statement": "  * EVERY clock/gauge/regulator/approximation/boundary parameter is obtained CONTRACT (hard):   * EVERY clock/gauge/regulator/approximation/boundary parameter is obtained     through provenance.class_c_manifest_gate.require() -- never from module",
+     "terminology": [
+      "regulator",
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 223,
+     "statement": "> system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > construction choices, and the record must not collapse distinct choices \u2014 slow-variable selection, > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choic",
+     "terminology": [
+      "cutoff",
+      "projection P",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 224,
+     "statement": "> choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the > re",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 275,
+     "statement": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation sc",
+     "terminology": [
+      "cutoff",
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 276,
+     "statement": "scale \u00b7 **G** gauge/field-redefinition freedom. **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation scale \u00b7 **G** gauge/field-redefinition freedom.",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/DEPENDENCY_EQUIVALENCE_AUDIT_01_BRIEF.md",
+     "line": 49,
+     "statement": "| **E** | cutoff / separation-scale choice | | **D** | inner product / the state supplying it | | **E** | cutoff / separation-scale choice | | **F** | gauge / field-redefinition freedom |",
+     "terminology": [
+      "cutoff"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/DEPENDENCY_EQUIVALENCE_AUDIT_01_BRIEF.md",
+     "line": 50,
+     "statement": "| **F** | gauge / field-redefinition freedom | | **E** | cutoff / separation-scale choice | | **F** | gauge / field-redefinition freedom | | **G** | response-object definition |",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/OBJECT_REGISTRY_01.md",
+     "line": 21,
+     "statement": "| **State / scale data** | D state \u00b7 E cutoff / separation scale | | **Mathematical reduction** | C projection `P` \u00b7 D inner product | | **State / scale data** | D state \u00b7 E cutoff / separation scale | | **Description redundancy** | F gauge / field-redefinition freedom |",
+     "terminology": [
+      "cutoff"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/OBJECT_REGISTRY_01.md",
+     "line": 22,
+     "statement": "| **Description redundancy** | F gauge / field-redefinition freedom | | **State / scale data** | D state \u00b7 E cutoff / separation scale | | **Description redundancy** | F gauge / field-redefinition freedom | | **Observable** | G response-object definition |",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/OBJECT_REGISTRY_01.md",
+     "line": 41,
+     "statement": "- **Gauge / state / regulator dependence \u00b7 domain/codomain \u00b7 allowed transformations:** NOT SPECIFIED. and states *\"**None is selected.** This is the sharpest single result of the audit.\"* - **Gauge / state / regulator dependence \u00b7 domain/codomain \u00b7 allowed transformations:** NOT SPECIFIED. - **Unre",
+     "terminology": [
+      "regulator",
+      "Gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    }
+   ],
+   "evidence_count": 29
+  },
+  {
+   "object_X": "cutoff / separation scale",
+   "object_Y": "inner product / state",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 8,
+    "SAME_CONSTRUCTION": 2
+   },
+   "evidence_statements": [
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 274,
+     "statement": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation",
+     "terminology": [
+      "projection P",
+      "Mori-Zwanzig",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 275,
+     "statement": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation sc",
+     "terminology": [
+      "cutoff",
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 276,
+     "statement": "scale \u00b7 **G** gauge/field-redefinition freedom. **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation scale \u00b7 **G** gauge/field-redefinition freedom.",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/DEPENDENCY_EQUIVALENCE_AUDIT_01.md",
+     "line": 55,
+     "statement": "| 2 | **B slow variables \u2194 C `P`** | **UNRESOLVED** | H established these cannot be declared identical | | 1 | **A split \u2194 E cutoff** | **UNRESOLVED** | the corpus carries an actual historical contradiction here (\u00a76) | | 2 | **B slow variables \u2194 C `P`** | **UNRESOLVED** | H established these cannot ",
+     "terminology": [
+      "slow variable"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/DEPENDENCY_EQUIVALENCE_AUDIT_01_BRIEF.md",
+     "line": 48,
+     "statement": "| **D** | inner product / the state supplying it | | **C** | projection **P** | | **D** | inner product / the state supplying it | | **E** | cutoff / separation-scale choice |",
+     "terminology": [
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/DEPENDENCY_EQUIVALENCE_AUDIT_01_BRIEF.md",
+     "line": 49,
+     "statement": "| **E** | cutoff / separation-scale choice | | **D** | inner product / the state supplying it | | **E** | cutoff / separation-scale choice | | **F** | gauge / field-redefinition freedom |",
+     "terminology": [
+      "cutoff"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/OBJECT_REGISTRY_01.md",
+     "line": 20,
+     "statement": "| **Mathematical reduction** | C projection `P` \u00b7 D inner product | | **Physical partitioning** | A system/bath split \u00b7 B slow-variable selection | | **Mathematical reduction** | C projection `P` \u00b7 D inner product | | **State / scale data** | D state \u00b7 E cutoff / separation scale |",
+     "terminology": [
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/OBJECT_REGISTRY_01.md",
+     "line": 21,
+     "statement": "| **State / scale data** | D state \u00b7 E cutoff / separation scale | | **Mathematical reduction** | C projection `P` \u00b7 D inner product | | **State / scale data** | D state \u00b7 E cutoff / separation scale | | **Description redundancy** | F gauge / field-redefinition freedom |",
+     "terminology": [
+      "cutoff"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    }
+   ],
+   "evidence_count": 10
+  },
+  {
+   "object_X": "cutoff / separation scale",
+   "object_Y": "projection P",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 9
+   },
+   "evidence_statements": [
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_D5_EXECUTION_RESULT.json",
+     "line": 191,
+     "statement": "   \"msg\": \"CONTROL: #1 WRONG REGULATOR CONTINUATION: continuing the measure in d while freezing the projector algebra at d = 3 (dropped evanescent terms) CHANGES the MS finite part -- the gate detects a genuinely inconsistent continuation, which is precisely why the scheme had to be RULED rather tha",
+     "terminology": [
+      "REGULATOR",
+      "projector"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_DISTINCTIVENESS_LEDGER.md",
+     "line": 21,
+     "statement": "| **B \u2014 standard input** | EH vertex \u00b7 TT projector (*\"chosen (not derived)\"*) \u00b7 bath content \u00b7 BD state \u00b7 scheme \u00b7 weak coupling \u00b7 Gaussianity \u00b7 near-equilibrium \u00b7 timescale separation | | **A \u2014 standard result** | KMS/FDT lock (*\"FAILS-DIFFERENTIATION by design\"*), GR limit (*\"at \u03c4_c=0 GRUT IS Jac",
+     "terminology": [
+      "projector",
+      "scale separation"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_d5_exec_run8.log",
+     "line": 57,
+     "statement": "  ctrl-DETECTED   #1 WRONG REGULATOR CONTINUATION: continuing the measure in d while freezing the projector algebra at d = 3 (dropped evanescent terms) CHANGES the MS finite part -- the gate detects a genuinely inconsistent continuation, which is precisely why the scheme had to be RULED rather than ",
+     "terminology": [
+      "REGULATOR",
+      "projector"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_d5_execution.py",
+     "line": 543,
+     "statement": "        \"#1 WRONG REGULATOR CONTINUATION: continuing the measure in d \" control(sp.simplify(fin_bad - SIG_MS) != 0,         \"#1 WRONG REGULATOR CONTINUATION: continuing the measure in d \"         \"while freezing the projector algebra at d = 3 (dropped \"",
+     "terminology": [
+      "REGULATOR"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_d5_execution.py",
+     "line": 544,
+     "statement": "        \"while freezing the projector algebra at d = 3 (dropped \" \"#1 WRONG REGULATOR CONTINUATION: continuing the measure in d \"         \"while freezing the projector algebra at d = 3 (dropped \"         \"evanescent terms) CHANGES the MS finite part -- the gate \"",
+     "terminology": [
+      "projector"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 223,
+     "statement": "> system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > construction choices, and the record must not collapse distinct choices \u2014 slow-variable selection, > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choic",
+     "terminology": [
+      "cutoff",
+      "projection P",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 224,
+     "statement": "> choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the > re",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 274,
+     "statement": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation",
+     "terminology": [
+      "projection P",
+      "Mori-Zwanzig",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 275,
+     "statement": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation sc",
+     "terminology": [
+      "cutoff",
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    }
+   ],
+   "evidence_count": 9
+  },
+  {
+   "object_X": "cutoff / separation scale",
+   "object_Y": "response-object definition",
+   "pair_classification": "CONTRADICTORY_SOURCE_STATEMENTS_PRESENT",
+   "class_distribution": {
+    "RELATED_NOT_IDENTIFIED": 1,
+    "DISTINCT_CONSTRUCTION": 3,
+    "UNRESOLVED": 3,
+    "SAME_CONSTRUCTION": 2
+   },
+   "evidence_statements": [
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 54,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "RELATED_NOT_IDENTIFIED",
+     "cue": "relational phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit relational phrase"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 636,
+     "statement": "   \"statement\": \"Version II, entry U4 / Frontier 3 (the origin of the constitutive FORM): GIVEN coarse-graining, WHY does the effective description take a RESPONSE / constitutive form (a susceptibility chi, memory, linear response) rather than an arbitrary functional? Why is constitutive structure s",
+     "terminology": [
+      "susceptibility",
+      "coarse-grain",
+      "scale separation"
+     ],
+     "classification": "DISTINCT_CONSTRUCTION",
+     "cue": "distinction phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit distinction phrase"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 639,
+     "statement": "   \"tier_note\": \"POSED 2026-07-02 (Version II, the referee's Frontier 3, adjudicated-in). THE CATCH (conceded): the earlier map said TWO frontiers; there are THREE -- deriving coarse-graining does NOT hand you a constitutive/response structure (that follows only under extra conditions: weak coupling",
+     "terminology": [
+      "coarse-grain",
+      "scale separation",
+      "response function"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 709,
+     "statement": "   \"statement\": \"Version II, entry U4 / Frontier 3 (the origin of the constitutive FORM): GIVEN coarse-graining, WHY does the effective description take a RESPONSE / constitutive form (a susceptibility chi, memory, linear response) rather than an arbitrary functional? Why is constitutive structure s",
+     "terminology": [
+      "susceptibility",
+      "coarse-grain",
+      "scale separation"
+     ],
+     "classification": "DISTINCT_CONSTRUCTION",
+     "cue": "distinction phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit distinction phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 712,
+     "statement": "   \"tier_note\": \"POSED 2026-07-02 (Version II, the referee's Frontier 3, adjudicated-in). THE CATCH (conceded): the earlier map said TWO frontiers; there are THREE -- deriving coarse-graining does NOT hand you a constitutive/response structure (that follows only under extra conditions: weak coupling",
+     "terminology": [
+      "coarse-grain",
+      "scale separation",
+      "response function"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 709,
+     "statement": "   \"statement\": \"Version II, entry U4 / Frontier 3 (the origin of the constitutive FORM): GIVEN coarse-graining, WHY does the effective description take a RESPONSE / constitutive form (a susceptibility chi, memory, linear response) rather than an arbitrary functional? Why is constitutive structure s",
+     "terminology": [
+      "susceptibility",
+      "coarse-grain",
+      "scale separation"
+     ],
+     "classification": "DISTINCT_CONSTRUCTION",
+     "cue": "distinction phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit distinction phrase"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 712,
+     "statement": "   \"tier_note\": \"POSED 2026-07-02 (Version II, the referee's Frontier 3, adjudicated-in). THE CATCH (conceded): the earlier map said TWO frontiers; there are THREE -- deriving coarse-graining does NOT hand you a constitutive/response structure (that follows only under extra conditions: weak coupling",
+     "terminology": [
+      "coarse-grain",
+      "scale separation",
+      "response function"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    }
+   ],
+   "evidence_count": 9
+  },
+  {
+   "object_X": "cutoff / separation scale",
+   "object_Y": "slow-variable selection / coarse-graining",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 14,
+    "DISTINCT_CONSTRUCTION": 3,
+    "SAME_CONSTRUCTION": 2
+   },
+   "evidence_statements": [
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION.md",
+     "line": 85,
+     "statement": "| Wilsonian coarse-graining | cutoff + blocking rule | the blocking rule *is* the partition | RG flow | what selects the blocking rule | | Effective field theory | field content + a scale | **BY SCALE** | integrate out heavy modes | what selects the scale | | Wilsonian coarse-graining | cutoff + blo",
+     "terminology": [
+      "cutoff",
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION_RESULT.json",
+     "line": 65,
+     "statement": "    \"Wilsonian coarse-graining\": { },     \"Wilsonian coarse-graining\": {       \"primitive\": \"a cutoff and a blocking rule\",",
+     "terminology": [
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION_RESULT.json",
+     "line": 66,
+     "statement": "      \"primitive\": \"a cutoff and a blocking rule\", \"Wilsonian coarse-graining\": {       \"primitive\": \"a cutoff and a blocking rule\",       \"partition\": \"the blocking rule IS the partition\",",
+     "terminology": [
+      "cutoff"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_SCALE_SPLIT_CORRECTION_RESULT.json",
+     "line": 19,
+     "statement": "  \"category_import_hazard\": \"CATEGORY IMPORT (now verified): importing the foundations-of-QM preferred-factorization problem into an EFT program whose split is a cutoff choice inflates the difficulty of GRUT's actual problem and mislabels a solved-enough question as 'the deepest frontier'.\", \"what_s",
+     "terminology": [
+      "cutoff"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_u3_aqft_reconciliation.py",
+     "line": 114,
+     "statement": " \"Wilsonian coarse-graining\":{\"primitive\":\"a cutoff and a blocking rule\", \"unexplained\":\"what selects the scale/split point\"},  \"Wilsonian coarse-graining\":{\"primitive\":\"a cutoff and a blocking rule\",    \"partition\":\"the blocking rule IS the partition\",\"reduction\":\"RG flow\",",
+     "terminology": [
+      "cutoff",
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 274,
+     "statement": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation",
+     "terminology": [
+      "projection P",
+      "Mori-Zwanzig",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 275,
+     "statement": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation sc",
+     "terminology": [
+      "cutoff",
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/DEPENDENCY_EQUIVALENCE_AUDIT_01.md",
+     "line": 54,
+     "statement": "| 1 | **A split \u2194 E cutoff** | **UNRESOLVED** | the corpus carries an actual historical contradiction here (\u00a76) | |---|---|---|---| | 1 | **A split \u2194 E cutoff** | **UNRESOLVED** | the corpus carries an actual historical contradiction here (\u00a76) | | 2 | **B slow variables \u2194 C `P`** | **UNRESOLVED** | ",
+     "terminology": [
+      "cutoff"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/DEPENDENCY_EQUIVALENCE_AUDIT_01.md",
+     "line": 55,
+     "statement": "| 2 | **B slow variables \u2194 C `P`** | **UNRESOLVED** | H established these cannot be declared identical | | 1 | **A split \u2194 E cutoff** | **UNRESOLVED** | the corpus carries an actual historical contradiction here (\u00a76) | | 2 | **B slow variables \u2194 C `P`** | **UNRESOLVED** | H established these cannot ",
+     "terminology": [
+      "slow variable"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/gates/Q2_STOCHASTIC_EXECUTION_PREREG.md",
+     "line": 344,
+     "statement": "stride. No lattice, no box, no UV/IR cutoff, no solver tolerance \u2014 the single-mode order 1.0 for this equation. Ensemble of independent trajectories; moments accumulated on a stride. No lattice, no box, no UV/IR cutoff, no solver tolerance \u2014 the single-mode (coarse-grained IR) formulation has none, ",
+     "terminology": [
+      "cutoff"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/gates/Q2_STOCHASTIC_EXECUTION_PREREG.md",
+     "line": 345,
+     "statement": "(coarse-grained IR) formulation has none, which removes the finite-box and cutoff artifact stride. No lattice, no box, no UV/IR cutoff, no solver tolerance \u2014 the single-mode (coarse-grained IR) formulation has none, which removes the finite-box and cutoff artifact classes by construction rather than",
+     "terminology": [
+      "cutoff",
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 636,
+     "statement": "   \"statement\": \"Version II, entry U4 / Frontier 3 (the origin of the constitutive FORM): GIVEN coarse-graining, WHY does the effective description take a RESPONSE / constitutive form (a susceptibility chi, memory, linear response) rather than an arbitrary functional? Why is constitutive structure s",
+     "terminology": [
+      "susceptibility",
+      "coarse-grain",
+      "scale separation"
+     ],
+     "classification": "DISTINCT_CONSTRUCTION",
+     "cue": "distinction phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit distinction phrase"
+    }
+   ],
+   "evidence_count": 19
+  },
+  {
+   "object_X": "cutoff / separation scale",
+   "object_Y": "system/bath partition",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 8,
+    "DISTINCT_CONSTRUCTION": 1,
+    "RELATED_NOT_IDENTIFIED": 1,
+    "SAME_CONSTRUCTION": 5
+   },
+   "evidence_statements": [
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_EFT_BASELINE.md",
+     "line": 108,
+     "statement": "1. **GRUT's actual split:** a diagrammatic external/internal partition of a one-loop 1. **GRUT's actual split:** a diagrammatic external/internal partition of a one-loop    influence-functional calculation, dimensionally regularized, with **no cutoff parameter**.",
+     "terminology": [
+      "partition of"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_EFT_BASELINE.md",
+     "line": 109,
+     "statement": "   influence-functional calculation, dimensionally regularized, with **no cutoff parameter**. 1. **GRUT's actual split:** a diagrammatic external/internal partition of a one-loop    influence-functional calculation, dimensionally regularized, with **no cutoff parameter**. 2. **What Wilsonian theory ",
+     "terminology": [
+      "cutoff"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_EFT_BASELINE_RESULT.json",
+     "line": 12,
+     "statement": "    \"no_cutoff_parameter\": true, \"category\": \"NOT B (Wilsonian momentum-shell). The implemented split is the EXTERNAL-LEG vs INTERNAL-LINE partition of a one-loop influence-functional calculation \u2014 closest to E (projection/partition of which fields are integrated), regularized dimensionally with no ",
+     "terminology": [
+      "cutoff"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 223,
+     "statement": "> system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > construction choices, and the record must not collapse distinct choices \u2014 slow-variable selection, > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choic",
+     "terminology": [
+      "cutoff",
+      "projection P",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 224,
+     "statement": "> choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the > re",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 274,
+     "statement": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation",
+     "terminology": [
+      "projection P",
+      "Mori-Zwanzig",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 275,
+     "statement": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation sc",
+     "terminology": [
+      "cutoff",
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/DEPENDENCY_EQUIVALENCE_AUDIT_01.md",
+     "line": 83,
+     "statement": "**Do not choose an interpretation.** If A concerns a regulator and B a system/bath boundary, the **Do not choose an interpretation.** If A concerns a regulator and B a system/bath boundary, the contradiction may dissolve because they concern different objects. If both concern the same",
+     "terminology": [
+      "regulator",
+      "system/bath"
+     ],
+     "classification": "DISTINCT_CONSTRUCTION",
+     "cue": "distinction phrase",
+     "confidence": "MEDIUM",
+     "reason": "source line contains an explicit distinction phrase"
+    },
+    {
+     "file": "program/OBJECT_REGISTRY_01.md",
+     "line": 20,
+     "statement": "| **Mathematical reduction** | C projection `P` \u00b7 D inner product | | **Physical partitioning** | A system/bath split \u00b7 B slow-variable selection | | **Mathematical reduction** | C projection `P` \u00b7 D inner product | | **State / scale data** | D state \u00b7 E cutoff / separation scale |",
+     "terminology": [
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 54,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "RELATED_NOT_IDENTIFIED",
+     "cue": "relational phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit relational phrase"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 55,
+     "statement": "   \"boundary_condition\": \"CONDITIONAL (logged as a known boundary, not absorbed): the confirmation holds for the standard QBM construction with a smooth UV cutoff + bilinear coupling, PROVIDED GRUT's vacuum bath carries NO second internal dynamical scale (resonance/diffusive mode). A second scale wo",
+     "terminology": [
+      "system/bath",
+      "UV cutoff",
+      "gauge"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    }
+   ],
+   "evidence_count": 15
+  },
+  {
+   "object_X": "gauge / field-redefinition freedom",
+   "object_Y": "inner product / state",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 4
+   },
+   "evidence_statements": [
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 275,
+     "statement": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation sc",
+     "terminology": [
+      "cutoff",
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 276,
+     "statement": "scale \u00b7 **G** gauge/field-redefinition freedom. **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation scale \u00b7 **G** gauge/field-redefinition freedom.",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/DEPENDENCY_EQUIVALENCE_AUDIT_01_BRIEF.md",
+     "line": 49,
+     "statement": "| **E** | cutoff / separation-scale choice | | **D** | inner product / the state supplying it | | **E** | cutoff / separation-scale choice | | **F** | gauge / field-redefinition freedom |",
+     "terminology": [
+      "cutoff"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/OBJECT_REGISTRY_01.md",
+     "line": 21,
+     "statement": "| **State / scale data** | D state \u00b7 E cutoff / separation scale | | **Mathematical reduction** | C projection `P` \u00b7 D inner product | | **State / scale data** | D state \u00b7 E cutoff / separation scale | | **Description redundancy** | F gauge / field-redefinition freedom |",
+     "terminology": [
+      "cutoff"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    }
+   ],
+   "evidence_count": 4
+  },
+  {
+   "object_X": "gauge / field-redefinition freedom",
+   "object_Y": "projection P",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 24,
+    "DISTINCT_CONSTRUCTION": 3,
+    "RELATED_NOT_IDENTIFIED": 4,
+    "SAME_CONSTRUCTION": 3
+   },
+   "evidence_statements": [
+    {
+     "file": "PHYSICS_LEDGER/WALL_A_A4_RESULT.json",
+     "line": 28,
+     "statement": "  \"verdict\": \"A4 PASS: the synchronous-gauge computation reproduces the gauge-invariant content of the gauge-unfixed computation. The transformation to synchronous exists; its residual family is zeta^0 = C(x)/a with zeta_i = C_i(x) - (d_i C) Ia (the frozen F3 product characterisation was REFUTED by ",
+     "terminology": [
+      "gauge",
+      "projector"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_A_SESSION_BOUNDARY.md",
+     "line": 27,
+     "statement": "1. **A2 Phase-1 closeout** \u2014 EH channel projection onto six BR sectors + gauge contraction 1. **A2 Phase-1 closeout** \u2014 EH channel projection onto six BR sectors + gauge contraction    discriminator (NOTE 2). Spec in the owner's brief; implementation ~50 lines.",
+     "terminology": [
+      "gauge",
+      "projection onto"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_DUAL_GAUGE_RESULT.json",
+     "line": 140,
+     "statement": "   \"msg\": \"CONTROL: B/C. non-gauge mutations (pure-trace internal slot; unsymmetrized image) are NONZERO and DISTINCT from the main result -- omitted-term and projector mutations are distinguishable, the contraction is not degenerate\", \"pass\": true,    \"msg\": \"CONTROL: B/C. non-gauge mutations (pure",
+     "terminology": [
+      "gauge",
+      "projector"
+     ],
+     "classification": "DISTINCT_CONSTRUCTION",
+     "cue": "distinction phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit distinction phrase"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+     "line": 28,
+     "statement": "   \"classification_of_the_residual\": \"category B of the required decomposition -- EXACT ZERO AFTER TT PROJECTION (not 'pure gauge by inspection', not an EOM cancellation, not a new K-term): the projection is the registered mechanism itself\", \"the_gap\": \"the D4-C test BYPASSED the projector that defi",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "RELATED_NOT_IDENTIFIED",
+     "cue": "relational phrase",
+     "confidence": "MEDIUM",
+     "reason": "source line contains an explicit relational phrase"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+     "line": 35,
+     "statement": "   \"the_D4C_residual\": \"diagnosed as category B (exact zero after TT projection): the D4-C Part-2 test inserted the gauge image WITHOUT the bath projector the loop actually applies -- a builder-side mis-posed test, corrected here, with the frozen D4-C artifact preserved\", \"not_by_a_new_term\": \"no te",
+     "terminology": [
+      "gauge",
+      "projector"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+     "line": 36,
+     "statement": "   \"SCOPE BOUNDARY (named, not hidden)\": \"this establishes ORBIT robustness WITHIN the declared TT bath: gauge-transforming the internal line moves no TT amplitude. It does NOT establish that the TT-bath DECLARATION itself is the unique admissible gauge choice -- that is D3(iii), the graviton-bath s",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+     "line": 210,
+     "statement": "  \"DIAG classification_of_the_residual: category B of the required decomposition -- EXACT ZERO AFTER TT PROJECTION (not 'pure gauge by inspection', not an EOM cancellation, not a new K-term): the projection is the registered mechanism itself\", \"DIAG the_gap: the D4-C test BYPASSED the projector that",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "RELATED_NOT_IDENTIFIED",
+     "cue": "relational phrase",
+     "confidence": "MEDIUM",
+     "reason": "source line contains an explicit relational phrase"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+     "line": 215,
+     "statement": "  \"CLASS the_D4C_residual: diagnosed as category B (exact zero after TT projection): the D4-C Part-2 test inserted the gauge image WITHOUT the bath projector the loop actually applies -- a builder-side mis-posed test, corrected here, with the frozen D4-C artifact preserved\", \"CLASS not_by_a_new_term",
+     "terminology": [
+      "gauge",
+      "projector"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION_RESULT.json",
+     "line": 216,
+     "statement": "  \"CLASS SCOPE BOUNDARY (named, not hidden): this establishes ORBIT robustness WITHIN the declared TT bath: gauge-transforming the internal line moves no TT amplitude. It does NOT establish that the TT-bath DECLARATION itself is the unique admissible gauge choice -- that is D3(iii), the graviton-bat",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/d4_run1.log",
+     "line": 23,
+     "statement": "  ctrl-MISSED   A. wrong gauge-transformation sign (antisymmetrized image): the projection is NONZERO -- the Part-1 identity is specific to the true symmetrized orbit direction, not a projector that kills everything ok   OPERATOR IDENTITY (all H orders at once): P^TT annihilates the FULL orbit direc",
+     "terminology": [
+      "projector",
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/d4_run1.log",
+     "line": 30,
+     "statement": "  ctrl-DETECTED   B/C. non-gauge mutations (pure-trace internal slot; unsymmetrized image) are NONZERO and DISTINCT from the main result -- omitted-term and projector mutations are distinguishable, the contraction is not degenerate ok   no cheap pairwise disposal: the +-q on-shell residues neither c",
+     "terminology": [
+      "gauge",
+      "projector"
+     ],
+     "classification": "DISTINCT_CONSTRUCTION",
+     "cue": "distinction phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit distinction phrase"
+    },
+    {
+     "file": "PHYSICS_LEDGER/d4_run1.log",
+     "line": 59,
+     "statement": "  FAILURE: CONTROL MISSED: A. wrong gauge-transformation sign (antisymmetrized image): the projection is NONZERO -- the Part-1 identity is specific to the true symmetrized orbit direction, not a projector that kills everything FAILURE: SOURCE 2 (charter gate D, the contract-scope translation, verbat",
+     "terminology": [
+      "projector",
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    }
+   ],
+   "evidence_count": 34
+  },
+  {
+   "object_X": "gauge / field-redefinition freedom",
+   "object_Y": "response-object definition",
+   "pair_classification": "SAME_CONSTRUCTION",
+   "class_distribution": {
+    "UNRESOLVED": 8,
+    "SAME_CONSTRUCTION": 12,
+    "RELATED_NOT_IDENTIFIED": 2
+   },
+   "evidence_statements": [
+    {
+     "file": "program/gates/Q3_OBSERVABLE_ASSEMBLY_PRECONDITION.md",
+     "line": 213,
+     "statement": "| R3 | **Feature-of vs function-itself.** Form-factor *feature* = a located property (a zero, a pole, a sign change, a threshold) of a response function, as against the response function itself. | Yes | Fits (iii)'s drafting context: the sibling had just refuted the *zero of Re \u03a3*, literally a locat",
+     "terminology": [
+      "response function"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/gates/Q3_OBSERVABLE_ASSEMBLY_PRECONDITION.md",
+     "line": 214,
+     "statement": "| R4 | **Gauge/scheme status.** Form-factor-like iff its value is not invariant under the admissible gauge and scheme transformations. | Partly, now \u2014 see note | **NOTE (propagated from \u00a76.1):** the source here, `CLASS_C_WALL_CONTRACTS.md:103-108`, is **not** merely a menu candidate. It is a **live,",
+     "terminology": [
+      "Gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/gates/Q3_PHYSICAL_SCALE_BRIDGE_GATE.md",
+     "line": 247,
+     "statement": "Off-shell Green's functions are **not** invariant under field redefinitions. So Off-shell Green's functions are **not** invariant under field redefinitions. So `d(Im G_R)/dlog \u039b_R = 9\u03ba\u2076\u03c9\u00b2/(51200\u03c0\u00b3) + O(\u03c9\u2074) \u2260 0`, and the O(\u03a3\u00b2) real part carries",
+     "terminology": [
+      "field redefinition",
+      "Green's function"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 20,
+     "statement": "   \"ledger_note\": \"+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET stays +13). *** The ",
+     "terminology": [
+      "system/bath",
+      "GAUGE",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 180,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (rung-9 SPLIT, consolidated overseer relay, Brief 2). The alpha VALUE is UNTOUCHED -- NOT refuted; conditional-theorem (ANCHOR-on-a-free-datum) support, the single adopted dimensionless axiom. SHOWN only as 'IF the conformal mode is the IR carrier THEN a/c=1/3'; th",
+     "terminology": [
+      "projector",
+      "gauge",
+      "Green's function"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 250,
+     "statement": "   \"boundary_condition\": \"The REAL settling check (which would graduate this to derived) is deriving the scalar projection's VANISHING from the action WITHOUT inserting P^TT -- this is OPEN and partly FRONTIER-RESERVED (it overlaps the conformal/Riegert-Paneitz sector). The circular 'confirm P^TT an",
+     "terminology": [
+      "gauge",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 269,
+     "statement": "   \"boundary_condition\": \"INTERROGATION RESULT 2026-08-02 (the forced-vs-chosen question ANSWERED; overseer-run five-angle interrogation, each angle adversarially verified against the five pre-registered kill-conditions, core computation independently replicated in EXACT RATIONAL ARITHMETIC by three",
+     "terminology": [
+      "GAUGE",
+      "response kernel"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 768,
+     "statement": "   \"boundary_condition\": \"FRAME-LEVEL RESULT 2026-08-02 (calc/operator_basis.py + calc/RESULTS_operator_basis.md, pure-stdlib, self-tested at multiple k-hat; firewalled both-directions 2026-08-02 -- physics lens independently REPRODUCED every computation in a separate helicity-frame construction and",
+     "terminology": [
+      "GAUGE",
+      "response kernel"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 22,
+     "statement": "   \"ledger_note\": \"+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET stays +13). *** The ",
+     "terminology": [
+      "system/bath",
+      "GAUGE",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 224,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (rung-9 SPLIT, consolidated overseer relay, Brief 2). The alpha VALUE is UNTOUCHED -- NOT refuted; conditional-theorem (ANCHOR-on-a-free-datum) support, the single adopted dimensionless axiom. SHOWN only as 'IF the conformal mode is the IR carrier THEN a/c=1/3'; th",
+     "terminology": [
+      "projector",
+      "gauge",
+      "Green's function"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 300,
+     "statement": "   \"boundary_condition\": \"The REAL settling check (which would graduate this to derived) is deriving the scalar projection's VANISHING from the action WITHOUT inserting P^TT -- this is OPEN and partly FRONTIER-RESERVED (it overlaps the conformal/Riegert-Paneitz sector). The circular 'confirm P^TT an",
+     "terminology": [
+      "gauge",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 319,
+     "statement": "   \"boundary_condition\": \"INTERROGATION RESULT 2026-08-02 (the forced-vs-chosen question ANSWERED; overseer-run five-angle interrogation, each angle adversarially verified against the five pre-registered kill-conditions, core computation independently replicated in EXACT RATIONAL ARITHMETIC by three",
+     "terminology": [
+      "GAUGE",
+      "response kernel"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    }
+   ],
+   "evidence_count": 22
+  },
+  {
+   "object_X": "gauge / field-redefinition freedom",
+   "object_Y": "slow-variable selection / coarse-graining",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 1
+   },
+   "evidence_statements": [
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 275,
+     "statement": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation sc",
+     "terminology": [
+      "cutoff",
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    }
+   ],
+   "evidence_count": 1
+  },
+  {
+   "object_X": "gauge / field-redefinition freedom",
+   "object_Y": "system/bath partition",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 10,
+    "SAME_CONSTRUCTION": 6
+   },
+   "evidence_statements": [
+    {
+     "file": "PHYSICS_LEDGER/ROOT1_KERNEL_ORIGIN.md",
+     "line": 169,
+     "statement": "declaration sheet fixes D1 (probe kinematics), D2 (gauge), D3 (state + IR), D4 (dual gauge) It is admissible because \u2014 verified here, and **stated by no prior document** \u2014 the contract declaration sheet fixes D1 (probe kinematics), D2 (gauge), D3 (state + IR), D4 (dual gauge) and D5 (renormalization",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/ROOT1_KERNEL_ORIGIN.md",
+     "line": 170,
+     "statement": "and D5 (renormalization), and **never declares the system/bath mode partition**: zero declaration sheet fixes D1 (probe kinematics), D2 (gauge), D3 (state + IR), D4 (dual gauge) and D5 (renormalization), and **never declares the system/bath mode partition**: zero occurrences of \"partition\" or \"syste",
+     "terminology": [
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 223,
+     "statement": "> system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > construction choices, and the record must not collapse distinct choices \u2014 slow-variable selection, > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choic",
+     "terminology": [
+      "cutoff",
+      "projection P",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 224,
+     "statement": "> choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the > re",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 275,
+     "statement": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation sc",
+     "terminology": [
+      "cutoff",
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 20,
+     "statement": "   \"ledger_note\": \"+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET stays +13). *** The ",
+     "terminology": [
+      "system/bath",
+      "GAUGE",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 23,
+     "statement": "   \"stance_justification\": \"STANCE: this is the program's entry price, booked openly. The in-in/CTP influence-functional framing IS the posit; its four inputs (system/bath split, Gaussian truncation, causal structure, and -- booked 2026-08-17, renamed at owner verification -- the 4d-covariant availa",
+     "terminology": [
+      "system/bath",
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 55,
+     "statement": "   \"boundary_condition\": \"CONDITIONAL (logged as a known boundary, not absorbed): the confirmation holds for the standard QBM construction with a smooth UV cutoff + bilinear coupling, PROVIDED GRUT's vacuum bath carries NO second internal dynamical scale (resonance/diffusive mode). A second scale wo",
+     "terminology": [
+      "system/bath",
+      "UV cutoff",
+      "gauge"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 22,
+     "statement": "   \"ledger_note\": \"+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET stays +13). *** The ",
+     "terminology": [
+      "system/bath",
+      "GAUGE",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 25,
+     "statement": "   \"stance_justification\": \"STANCE: this is the program's entry price, booked openly. The in-in/CTP influence-functional framing IS the posit; its four inputs (system/bath split, Gaussian truncation, causal structure, and -- booked 2026-08-17, renamed at owner verification -- the 4d-covariant availa",
+     "terminology": [
+      "system/bath",
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 80,
+     "statement": "   \"boundary_condition\": \"CONDITIONAL (logged as a known boundary, not absorbed): the confirmation holds for the standard QBM construction with a smooth UV cutoff + bilinear coupling, PROVIDED GRUT's vacuum bath carries NO second internal dynamical scale (resonance/diffusive mode). A second scale wo",
+     "terminology": [
+      "system/bath",
+      "UV cutoff",
+      "gauge"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 22,
+     "statement": "   \"ledger_note\": \"+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET stays +13). *** The ",
+     "terminology": [
+      "system/bath",
+      "GAUGE",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    }
+   ],
+   "evidence_count": 16
+  },
+  {
+   "object_X": "inner product / state",
+   "object_Y": "projection P",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 5
+   },
+   "evidence_statements": [
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 274,
+     "statement": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation",
+     "terminology": [
+      "projection P",
+      "Mori-Zwanzig",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 275,
+     "statement": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation sc",
+     "terminology": [
+      "cutoff",
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 225,
+     "statement": "   \"tier_note\": \"ATTACKED 2026-06-25 (calc/arrow_origin.py + 7-agent adversarial workflow, primary-source-verified). The decisive cut is EXISTENCE vs DIRECTION. The in-in machinery INTRINSICALLY supplies the EXISTENCE & MAGNITUDE of dissipation (retarded analytic self-energy, positive Kallen-Lehmann",
+     "terminology": [
+      "Nakajima",
+      "reference state"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 272,
+     "statement": "   \"tier_note\": \"ATTACKED 2026-06-25 (calc/arrow_origin.py + 7-agent adversarial workflow, primary-source-verified). The decisive cut is EXISTENCE vs DIRECTION. The in-in machinery INTRINSICALLY supplies the EXISTENCE & MAGNITUDE of dissipation (retarded analytic self-energy, positive Kallen-Lehmann",
+     "terminology": [
+      "Nakajima",
+      "reference state"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 272,
+     "statement": "   \"tier_note\": \"ATTACKED 2026-06-25 (calc/arrow_origin.py + 7-agent adversarial workflow, primary-source-verified). The decisive cut is EXISTENCE vs DIRECTION. The in-in machinery INTRINSICALLY supplies the EXISTENCE & MAGNITUDE of dissipation (retarded analytic self-energy, positive Kallen-Lehmann",
+     "terminology": [
+      "Nakajima",
+      "reference state"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    }
+   ],
+   "evidence_count": 5
+  },
+  {
+   "object_X": "inner product / state",
+   "object_Y": "response-object definition",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 5,
+    "RELATED_NOT_IDENTIFIED": 3,
+    "SAME_CONSTRUCTION": 2
+   },
+   "evidence_statements": [
+    {
+     "file": "calc/mz_inheritance.py",
+     "line": 18,
+     "statement": "      AT ALL. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI (2) BUT THE SYMMETRISED ROUTE IS NOT THE ONLY ONE, AND THE OTHER STANDARD CHOICE HAS NO LADDER       AT ALL. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI       (canonical) i",
+     "terminology": [
+      "KUBO",
+      "Mori-Zwanzig"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "calc/mz_inheritance.py",
+     "line": 19,
+     "statement": "      (canonical) inner product, and the Kubo correlation function carries AT ALL. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI       (canonical) inner product, and the Kubo correlation function carries",
+     "terminology": [
+      "inner product",
+      "Kubo"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 260,
+     "statement": "**Kubo-Mori** and the **symmetrised** inner products. The second half is booked as missing: it could denote answer this question **OPPOSITELY**\"* \u2014 the same retained variable admits the **Kubo-Mori** and the **symmetrised** inner products. The second half is booked as missing: *\"the state supplying ",
+     "terminology": [
+      "inner product",
+      "Kubo"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 261,
+     "statement": "*\"the state supplying the inner product (unpriced anywhere).\"* **Kubo-Mori** and the **symmetrised** inner products. The second half is booked as missing: *\"the state supplying the inner product (unpriced anywhere).\"*",
+     "terminology": [
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/OBJECT_REGISTRY_01.md",
+     "line": 77,
+     "statement": "  *\"requires `P` orthogonal w.r.t. a **state-induced Kubo\u2013Mori inner product** \u2014 so producing GRUT's - **State dependence:** explicit. `RAI_GRUT_RESURRECTION.md:108-110` \u2014 producing the registered object   *\"requires `P` orthogonal w.r.t. a **state-induced Kubo\u2013Mori inner product** \u2014 so producing GR",
+     "terminology": [
+      "inner product",
+      "Kubo"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 148,
+     "statement": "   \"ledger_note\": \"+3: (i) the free amplitude eps (out-of-equilibrium N); (ii) the two-scale structural commitment -- the vacuum carries an IR relaxation mode tau_2~1/H0 (its scale pinned to the horizon, but its existence is an assumption); (iii) SINGLE-DEPARTURE-SHAPE CLOSURE (booked 2026-08-02, th",
+     "terminology": [
+      "KMS state",
+      "correlator"
+     ],
+     "classification": "RELATED_NOT_IDENTIFIED",
+     "cue": "relational phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit relational phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 185,
+     "statement": "   \"ledger_note\": \"+3: (i) the free amplitude eps (out-of-equilibrium N); (ii) the two-scale structural commitment -- the vacuum carries an IR relaxation mode tau_2~1/H0 (its scale pinned to the horizon, but its existence is an assumption); (iii) SINGLE-DEPARTURE-SHAPE CLOSURE (booked 2026-08-02, th",
+     "terminology": [
+      "KMS state",
+      "correlator"
+     ],
+     "classification": "RELATED_NOT_IDENTIFIED",
+     "cue": "relational phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit relational phrase"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 185,
+     "statement": "   \"ledger_note\": \"+3: (i) the free amplitude eps (out-of-equilibrium N); (ii) the two-scale structural commitment -- the vacuum carries an IR relaxation mode tau_2~1/H0 (its scale pinned to the horizon, but its existence is an assumption); (iii) SINGLE-DEPARTURE-SHAPE CLOSURE (booked 2026-08-02, th",
+     "terminology": [
+      "KMS state",
+      "correlator"
+     ],
+     "classification": "RELATED_NOT_IDENTIFIED",
+     "cue": "relational phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit relational phrase"
+    }
+   ],
+   "evidence_count": 10
+  },
+  {
+   "object_X": "inner product / state",
+   "object_Y": "slow-variable selection / coarse-graining",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 7,
+    "SAME_CONSTRUCTION": 2
+   },
+   "evidence_statements": [
+    {
+     "file": "calc/mz_inheritance.py",
+     "line": 18,
+     "statement": "      AT ALL. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI (2) BUT THE SYMMETRISED ROUTE IS NOT THE ONLY ONE, AND THE OTHER STANDARD CHOICE HAS NO LADDER       AT ALL. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI       (canonical) i",
+     "terminology": [
+      "KUBO",
+      "Mori-Zwanzig"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "calc/mz_inheritance.py",
+     "line": 19,
+     "statement": "      (canonical) inner product, and the Kubo correlation function carries AT ALL. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI       (canonical) inner product, and the Kubo correlation function carries",
+     "terminology": [
+      "inner product",
+      "Kubo"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "calc/mz_inheritance.py",
+     "line": 530,
+     "statement": "    print(\"       Mori-Zwanzig inner product there is no ladder to inherit, and the friction\") print(\"     WHAT IS WEAKENED, and it must be said in this direction: on the CONVENTIONAL\")     print(\"       Mori-Zwanzig inner product there is no ladder to inherit, and the friction\")     print(\"       k",
+     "terminology": [
+      "inner product",
+      "Mori-Zwanzig"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 274,
+     "statement": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation",
+     "terminology": [
+      "projection P",
+      "Mori-Zwanzig",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 275,
+     "statement": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation sc",
+     "terminology": [
+      "cutoff",
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/DEPENDENCY_EQUIVALENCE_AUDIT_01.md",
+     "line": 55,
+     "statement": "| 2 | **B slow variables \u2194 C `P`** | **UNRESOLVED** | H established these cannot be declared identical | | 1 | **A split \u2194 E cutoff** | **UNRESOLVED** | the corpus carries an actual historical contradiction here (\u00a76) | | 2 | **B slow variables \u2194 C `P`** | **UNRESOLVED** | H established these cannot ",
+     "terminology": [
+      "slow variable"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/DEPENDENCY_EQUIVALENCE_AUDIT_01.md",
+     "line": 56,
+     "statement": "| 3 | **C `P` \u2194 D inner product/state** | **UNRESOLVED** | the same retained variable admits constructions that *\"answer this question OPPOSITELY\"* | | 2 | **B slow variables \u2194 C `P`** | **UNRESOLVED** | H established these cannot be declared identical | | 3 | **C `P` \u2194 D inner product/state** | **U",
+     "terminology": [
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    }
+   ],
+   "evidence_count": 9
+  },
+  {
+   "object_X": "inner product / state",
+   "object_Y": "system/bath partition",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 4,
+    "SAME_CONSTRUCTION": 2
+   },
+   "evidence_statements": [
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 274,
+     "statement": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation",
+     "terminology": [
+      "projection P",
+      "Mori-Zwanzig",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 275,
+     "statement": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation sc",
+     "terminology": [
+      "cutoff",
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/OBJECT_REGISTRY_01.md",
+     "line": 19,
+     "statement": "| **Physical partitioning** | A system/bath split \u00b7 B slow-variable selection | |---|---| | **Physical partitioning** | A system/bath split \u00b7 B slow-variable selection | | **Mathematical reduction** | C projection `P` \u00b7 D inner product |",
+     "terminology": [
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/OBJECT_REGISTRY_01.md",
+     "line": 20,
+     "statement": "| **Mathematical reduction** | C projection `P` \u00b7 D inner product | | **Physical partitioning** | A system/bath split \u00b7 B slow-variable selection | | **Mathematical reduction** | C projection `P` \u00b7 D inner product | | **State / scale data** | D state \u00b7 E cutoff / separation scale |",
+     "terminology": [
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    }
+   ],
+   "evidence_count": 6
+  },
+  {
+   "object_X": "projection P",
+   "object_Y": "response-object definition",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 7,
+    "SAME_CONSTRUCTION": 6
+   },
+   "evidence_statements": [
+    {
+     "file": "calc/RESULTS_anomaly_c0_map.md",
+     "line": 47,
+     "statement": "2. **To `eft_operator_basis` finding (iv).** Its second clause, \"the anomaly leaves TT unaffected\", is **false at two-point level** (\u222bC\u00b2 is pure P2). The **one-point clause stands** (\u27e8T^\u03bc_\u03bc\u27e9 is spin-0). Correct reason it transports nothing into c\u2082 (the earlier reason was a non sequitur): what reache",
+     "terminology": [
+      "response kernel"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 180,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (rung-9 SPLIT, consolidated overseer relay, Brief 2). The alpha VALUE is UNTOUCHED -- NOT refuted; conditional-theorem (ANCHOR-on-a-free-datum) support, the single adopted dimensionless axiom. SHOWN only as 'IF the conformal mode is the IR carrier THEN a/c=1/3'; th",
+     "terminology": [
+      "projector",
+      "gauge",
+      "Green's function"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 201,
+     "statement": "   \"statement\": \"The c_0 normalization (alpha-bridge): c_0 = alpha is an ADOPTED phenomenological DC normalization of the TT response kernel (K^R = alpha*chi*P^TT) -- the conformal anomaly does NOT derive it. Structural obstruction (projector-orthogonality PRIMARY / Ward / UV-IR no-RG-protection) + ",
+     "terminology": [
+      "projector",
+      "response kernel"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 269,
+     "statement": "   \"boundary_condition\": \"INTERROGATION RESULT 2026-08-02 (the forced-vs-chosen question ANSWERED; overseer-run five-angle interrogation, each angle adversarially verified against the five pre-registered kill-conditions, core computation independently replicated in EXACT RATIONAL ARITHMETIC by three",
+     "terminology": [
+      "GAUGE",
+      "response kernel"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 275,
+     "statement": "   \"overturning_computation\": \"The settling check that would REMOVE this assumption: derive the response projector FROM the in-in action (no inserted P^TT). If it comes out non-pure-TT (e.g. carries the trace mode that alpha=1/3 sources), the ansatz is wrong and mu!=1. CORRECTION 2026-08-02 (append-",
+     "terminology": [
+      "projector",
+      "correlator"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 224,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (rung-9 SPLIT, consolidated overseer relay, Brief 2). The alpha VALUE is UNTOUCHED -- NOT refuted; conditional-theorem (ANCHOR-on-a-free-datum) support, the single adopted dimensionless axiom. SHOWN only as 'IF the conformal mode is the IR carrier THEN a/c=1/3'; th",
+     "terminology": [
+      "projector",
+      "gauge",
+      "Green's function"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 245,
+     "statement": "   \"statement\": \"The c_0 normalization (alpha-bridge): c_0 = alpha is an ADOPTED phenomenological DC normalization of the TT response kernel (K^R = alpha*chi*P^TT) -- the conformal anomaly does NOT derive it. Structural obstruction (projector-orthogonality PRIMARY / Ward / UV-IR no-RG-protection) + ",
+     "terminology": [
+      "projector",
+      "response kernel"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 319,
+     "statement": "   \"boundary_condition\": \"INTERROGATION RESULT 2026-08-02 (the forced-vs-chosen question ANSWERED; overseer-run five-angle interrogation, each angle adversarially verified against the five pre-registered kill-conditions, core computation independently replicated in EXACT RATIONAL ARITHMETIC by three",
+     "terminology": [
+      "GAUGE",
+      "response kernel"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 325,
+     "statement": "   \"overturning_computation\": \"The settling check that would REMOVE this assumption: derive the response projector FROM the in-in action (no inserted P^TT). If it comes out non-pure-TT (e.g. carries the trace mode that alpha=1/3 sources), the ansatz is wrong and mu!=1. CORRECTION 2026-08-02 (append-",
+     "terminology": [
+      "projector",
+      "correlator"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 224,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (rung-9 SPLIT, consolidated overseer relay, Brief 2). The alpha VALUE is UNTOUCHED -- NOT refuted; conditional-theorem (ANCHOR-on-a-free-datum) support, the single adopted dimensionless axiom. SHOWN only as 'IF the conformal mode is the IR carrier THEN a/c=1/3'; th",
+     "terminology": [
+      "projector",
+      "gauge",
+      "Green's function"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 245,
+     "statement": "   \"statement\": \"The c_0 normalization (alpha-bridge): c_0 = alpha is an ADOPTED phenomenological DC normalization of the TT response kernel (K^R = alpha*chi*P^TT) -- the conformal anomaly does NOT derive it. Structural obstruction (projector-orthogonality PRIMARY / Ward / UV-IR no-RG-protection) + ",
+     "terminology": [
+      "projector",
+      "response kernel"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 319,
+     "statement": "   \"boundary_condition\": \"INTERROGATION RESULT 2026-08-02 (the forced-vs-chosen question ANSWERED; overseer-run five-angle interrogation, each angle adversarially verified against the five pre-registered kill-conditions, core computation independently replicated in EXACT RATIONAL ARITHMETIC by three",
+     "terminology": [
+      "GAUGE",
+      "response kernel"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    }
+   ],
+   "evidence_count": 13
+  },
+  {
+   "object_X": "projection P",
+   "object_Y": "slow-variable selection / coarse-graining",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 29,
+    "SAME_CONSTRUCTION": 1,
+    "RELATED_NOT_IDENTIFIED": 1
+   },
+   "evidence_statements": [
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION.md",
+     "line": 82,
+     "statement": "| Mori-Zwanzig | a projector `P` | **CHOSEN** (`P` *is* the partition) | generalized Langevin | what selects `P` | | Zurek / decoherence | `H_S \u2297 H_B` + interaction | **ASSUMED** | partial trace | why the factorization exists | | Mori-Zwanzig | a projector `P` | **CHOSEN** (`P` *is* the partition) |",
+     "terminology": [
+      "projector",
+      "Mori-Zwanzig"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION.md",
+     "line": 119,
+     "statement": "moves: assuming `H_S \u2297 H_B`; assuming a projector `P`; assuming a system/environment and an \"emergent\" answer that smuggles in a projector \u2014 and it rejects all five disallowed moves: assuming `H_S \u2297 H_B`; assuming a projector `P`; assuming a system/environment decomposition; renaming coarse-graining",
+     "terminology": [
+      "projector"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION.md",
+     "line": 120,
+     "statement": "decomposition; renaming coarse-graining; deriving decoherence after assuming the split. moves: assuming `H_S \u2297 H_B`; assuming a projector `P`; assuming a system/environment decomposition; renaming coarse-graining; deriving decoherence after assuming the split.",
+     "terminology": [
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION_RESULT.json",
+     "line": 47,
+     "statement": "    \"Mori-Zwanzig\": { },     \"Mori-Zwanzig\": {       \"primitive\": \"a projector P onto 'relevant' variables\",",
+     "terminology": [
+      "Mori-Zwanzig"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_AQFT_RECONCILIATION_RESULT.json",
+     "line": 48,
+     "statement": "      \"primitive\": \"a projector P onto 'relevant' variables\", \"Mori-Zwanzig\": {       \"primitive\": \"a projector P onto 'relevant' variables\",       \"partition\": \"CHOSEN (P IS the partition)\",",
+     "terminology": [
+      "projector"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_EFT_BASELINE.md",
+     "line": 57,
+     "statement": "| why these are the natural effective variables | **ASSUMED** \u2014 the Mori-Zwanzig \"which P\" question | | why this scale hierarchy exists | **OUTSIDE WILSONIAN SCOPE** \u2014 an input | | why these are the natural effective variables | **ASSUMED** \u2014 the Mori-Zwanzig \"which P\" question | | why TT modes are ",
+     "terminology": [
+      "Mori-Zwanzig"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_EFT_BASELINE.md",
+     "line": 58,
+     "statement": "| why TT modes are the correct probe | **ASSUMED** \u2014 `p_tt_ansatz`, tier `assumed`, *\"the projector P^TT chosen (not derived)\"* | | why these are the natural effective variables | **ASSUMED** \u2014 the Mori-Zwanzig \"which P\" question | | why TT modes are the correct probe | **ASSUMED** \u2014 `p_tt_ansatz`, ",
+     "terminology": [
+      "projector"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_EFT_BASELINE_RESULT.json",
+     "line": 27,
+     "statement": "    \"why TT gravitational modes are the correct probe\": \"ASSUMED \u2014 registered as p_tt_ansatz, tier ASSUMED, 'the projector P^TT chosen (not derived)'\", \"why these modes are the natural effective variables\": \"ASSUMED \u2014 the choice of slow variables is exactly the Mori-Zwanzig 'which P' question, unans",
+     "terminology": [
+      "projector"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "MEDIUM",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_PROGRAM.md",
+     "line": 47,
+     "statement": "- **Mori-Zwanzig**: takes a **projector P** as primitive, derives reduced **dynamics**. - **Zurek**: takes H_S \u2297 H_B as **primitive**, derives a preferred **basis**. - **Mori-Zwanzig**: takes a **projector P** as primitive, derives reduced **dynamics**.",
+     "terminology": [
+      "projector",
+      "Mori-Zwanzig"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_SPECIFICATION.md",
+     "line": 75,
+     "statement": "- **Zurek:** a tensor factorization exists *first*; tracing follows. \u2192 *split \u2192 coarse-graining* - **Zurek:** a tensor factorization exists *first*; tracing follows. \u2192 *split \u2192 coarse-graining* - **Mori-Zwanzig:** choosing the projector **P** *is* the partition. \u2192 *coarse-graining \u2192 split*",
+     "terminology": [
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_SPECIFICATION.md",
+     "line": 76,
+     "statement": "- **Mori-Zwanzig:** choosing the projector **P** *is* the partition. \u2192 *coarse-graining \u2192 split* - **Zurek:** a tensor factorization exists *first*; tracing follows. \u2192 *split \u2192 coarse-graining* - **Mori-Zwanzig:** choosing the projector **P** *is* the partition. \u2192 *coarse-graining \u2192 split*",
+     "terminology": [
+      "projector",
+      "Mori-Zwanzig"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_SPECIFICATION.md",
+     "line": 102,
+     "statement": "  decomposition / factorization, the choice of the Mori-Zwanzig projector, and einselection's - **INFERENCE:** U3 is a **reformulation of several known open questions** \u2014 subsystem   decomposition / factorization, the choice of the Mori-Zwanzig projector, and einselection's   preferred-basis problem",
+     "terminology": [
+      "projector",
+      "Mori-Zwanzig"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    }
+   ],
+   "evidence_count": 31
+  },
+  {
+   "object_X": "projection P",
+   "object_Y": "system/bath partition",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 4
+   },
+   "evidence_statements": [
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 223,
+     "statement": "> system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > construction choices, and the record must not collapse distinct choices \u2014 slow-variable selection, > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choic",
+     "terminology": [
+      "cutoff",
+      "projection P",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 224,
+     "statement": "> choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the > system/bath partition, the projection P, inner-product choice, the state supplying it, cutoff > choice, gauge/field-redefinition freedom \u2014 into one \"effective description\" decision **unless the > re",
+     "terminology": [
+      "gauge"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 274,
+     "statement": "**A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation",
+     "terminology": [
+      "projection P",
+      "Mori-Zwanzig",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "program/CANDIDATE_MINING_02.md",
+     "line": 275,
+     "statement": "**D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation **A** slow-variable selection \u00b7 **B** system/bath partition \u00b7 **C** the Mori-Zwanzig projection P \u00b7 **D** inner-product choice \u00b7 **E** the state supplying the inner product \u00b7 **F** cutoff/separation sc",
+     "terminology": [
+      "cutoff",
+      "inner product"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    }
+   ],
+   "evidence_count": 4
+  },
+  {
+   "object_X": "response-object definition",
+   "object_Y": "slow-variable selection / coarse-graining",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 24,
+    "DISTINCT_CONSTRUCTION": 3,
+    "SAME_CONSTRUCTION": 2
+   },
+   "evidence_statements": [
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_PROGRAM.md",
+     "line": 67,
+     "statement": "equivalence class of response functionals \u03c7(\u03c9,k) that produce identical observable transport `u6` is a **registered branch** of the u4 classification tree, whose central object is *\"the equivalence class of response functionals \u03c7(\u03c9,k) that produce identical observable transport under admissible coar",
+     "terminology": [
+      "response function"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_PROGRAM.md",
+     "line": 68,
+     "statement": "under admissible coarse-grainings\"*. `u6` **labels** the classes `u5` classifies. equivalence class of response functionals \u03c7(\u03c9,k) that produce identical observable transport under admissible coarse-grainings\"*. `u6` **labels** the classes `u5` classifies.",
+     "terminology": [
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U4_DISTINCTIVENESS.md",
+     "line": 26,
+     "statement": "identical observable transport under admissible coarse-grainings.** Linearity is built into U4's minimal object is pinned by its own tier note: **the equivalence class of \u03c7(\u03c9,k) producing identical observable transport under admissible coarse-grainings.** Linearity is built into that definition \u2014 a ",
+     "terminology": [
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U4_DISTINCTIVENESS.md",
+     "line": 27,
+     "statement": "that definition \u2014 a susceptibility *is* a linear-response object. identical observable transport under admissible coarse-grainings.** Linearity is built into that definition \u2014 a susceptibility *is* a linear-response object.",
+     "terminology": [
+      "susceptibility"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_u4_distinctiveness_audit.py",
+     "line": 34,
+     "statement": "      \"GIVEN coarse-graining,\"), \"u4 statement recovered; opens 'GIVEN coarse-graining'\") check(ST.startswith(\"Version II, entry U4 / Frontier 3 (the origin of the constitutive FORM): \"       \"GIVEN coarse-graining,\"), \"u4 statement recovered; opens 'GIVEN coarse-graining'\") check(\"the equivalence c",
+     "terminology": [
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_u4_distinctiveness_audit.py",
+     "line": 35,
+     "statement": "check(\"the equivalence class of response functionals chi(omega,k) producing identical \" \"GIVEN coarse-graining,\"), \"u4 statement recovered; opens 'GIVEN coarse-graining'\") check(\"the equivalence class of response functionals chi(omega,k) producing identical \"       \"observable transport under admiss",
+     "terminology": [
+      "response function"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_u4_distinctiveness_audit.py",
+     "line": 36,
+     "statement": "      \"observable transport under admissible coarse-grainings\" in TN, check(\"the equivalence class of response functionals chi(omega,k) producing identical \"       \"observable transport under admissible coarse-grainings\" in TN,       \"U4's MINIMAL OBJECT is pinned: the chi(omega,k) equivalence class",
+     "terminology": [
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "calc/mz_inheritance.py",
+     "line": 18,
+     "statement": "      AT ALL. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI (2) BUT THE SYMMETRISED ROUTE IS NOT THE ONLY ONE, AND THE OTHER STANDARD CHOICE HAS NO LADDER       AT ALL. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI       (canonical) i",
+     "terminology": [
+      "KUBO",
+      "Mori-Zwanzig"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "calc/mz_inheritance.py",
+     "line": 19,
+     "statement": "      (canonical) inner product, and the Kubo correlation function carries AT ALL. Mori-Zwanzig projection for a quantum system conventionally uses the KUBO-MORI       (canonical) inner product, and the Kubo correlation function carries",
+     "terminology": [
+      "inner product",
+      "Kubo"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "calc/mz_inheritance.py",
+     "line": 513,
+     "statement": "    print(\"       - the Mori-Zwanzig projection conventionally uses the KUBO-MORI correlation;\") print(\"       - June's robustness check examines the SYMMETRISED spectrum S = J coth;\")     print(\"       - the Mori-Zwanzig projection conventionally uses the KUBO-MORI correlation;\")     print(\"       ",
+     "terminology": [
+      "KUBO",
+      "Mori-Zwanzig"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "calc/mz_inheritance.py",
+     "line": 514,
+     "statement": "    print(\"       - rung3's STATEMENT names 'the Mori-Zwanzig kernel' while its own supporting\") print(\"       - the Mori-Zwanzig projection conventionally uses the KUBO-MORI correlation;\")     print(\"       - rung3's STATEMENT names 'the Mori-Zwanzig kernel' while its own supporting\")     print(\"  ",
+     "terminology": [
+      "Mori-Zwanzig"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "calc/mz_inheritance.py",
+     "line": 558,
+     "statement": "    print(\"ladder -- while the KUBO-MORI correlation replaces coth by 2/(beta w) and has no ladder\") print(\"CLOSED (J has no zeros at the rungs), so the SYMMETRISED noise kernel does inherit the\")     print(\"ladder -- while the KUBO-MORI correlation replaces coth by 2/(beta w) and has no ladder\")   ",
+     "terminology": [
+      "KUBO"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    }
+   ],
+   "evidence_count": 29
+  },
+  {
+   "object_X": "response-object definition",
+   "object_Y": "system/bath partition",
+   "pair_classification": "SAME_CONSTRUCTION",
+   "class_distribution": {
+    "SAME_CONSTRUCTION": 5,
+    "RELATED_NOT_IDENTIFIED": 1
+   },
+   "evidence_statements": [
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 20,
+     "statement": "   \"ledger_note\": \"+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET stays +13). *** The ",
+     "terminology": [
+      "system/bath",
+      "GAUGE",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.baseline.json",
+     "line": 54,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "RELATED_NOT_IDENTIFIED",
+     "cue": "relational phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit relational phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 22,
+     "statement": "   \"ledger_note\": \"+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET stays +13). *** The ",
+     "terminology": [
+      "system/bath",
+      "GAUGE",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 22,
+     "statement": "   \"ledger_note\": \"+3 declared inputs: system/bath split, Gaussian/linear-response truncation, background Lorentzian causal structure. STANCE, not derivation. *** N-SIDED DOUBLE-COUNT CHECK COMPLETED 2026-08-04 -- THE FIRST THIS LEDGER HAS EVER HAD (ledger 0, no tier change; NET stays +13). *** The ",
+     "terminology": [
+      "system/bath",
+      "GAUGE",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    },
+    {
+     "file": "provenance/claims.json.pre-discharge.bak",
+     "line": 79,
+     "statement": "   \"tier_note\": \"BANKED 2026-06-27 (consolidated overseer relay, Brief 1 Outcome 3a -- ANCHOR confirmed, NOT refuted): single-pole is ANCHOR-class, derived-pending -- an independent referee found the minimal inputs do NOT determine the transport class (do NOT over-demote this anti-GRUT result past w",
+     "terminology": [
+      "system/bath",
+      "Mori-Zwanzig",
+      "inner product",
+      "cutoff",
+      "correlator"
+     ],
+     "classification": "SAME_CONSTRUCTION",
+     "cue": "identification phrase",
+     "confidence": "HIGH",
+     "reason": "source line contains an explicit identification phrase"
+    }
+   ],
+   "evidence_count": 6
+  },
+  {
+   "object_X": "slow-variable selection / coarse-graining",
+   "object_Y": "system/bath partition",
+   "pair_classification": "UNRESOLVED",
+   "class_distribution": {
+    "UNRESOLVED": 20,
+    "DISTINCT_CONSTRUCTION": 2,
+    "SAME_CONSTRUCTION": 2
+   },
+   "evidence_statements": [
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_FOUNDATIONAL_LADDER_RESULT.json",
+     "line": 45,
+     "statement": "    \"1. u3_split_origin \u2014 why a system/bath split at all (deepest; presupposes nothing registered)\", \"foundational_research_order\": [     \"1. u3_split_origin \u2014 why a system/bath split at all (deepest; presupposes nothing registered)\",     \"2. u4_constitutive_origin \u2014 why coarse-graining yields respo",
+     "terminology": [
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_FOUNDATIONAL_LADDER_RESULT.json",
+     "line": 46,
+     "statement": "    \"2. u4_constitutive_origin \u2014 why coarse-graining yields response form (needs u3's OBJECT as given, NOT u3's answer; therefore pursuable in parallel with or before u3 is resolved)\", \"1. u3_split_origin \u2014 why a system/bath split at all (deepest; presupposes nothing registered)\",     \"2. u4_constit",
+     "terminology": [
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_INDEPENDENCE_AUDIT_RESULT.json",
+     "line": 53,
+     "statement": "    \"u3_split_origin \u2014 why a system/bath split at all (sits BELOW rung1; cannot inherit lineage)\", \"legitimate_next_tasks_zero_owner_selections\": [     \"u3_split_origin \u2014 why a system/bath split at all (sits BELOW rung1; cannot inherit lineage)\",     \"u4_constitutive_origin \u2014 why coarse-graining yie",
+     "terminology": [
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_INDEPENDENCE_AUDIT_RESULT.json",
+     "line": 54,
+     "statement": "    \"u4_constitutive_origin \u2014 why coarse-graining yields constitutive/response structure\", \"u3_split_origin \u2014 why a system/bath split at all (sits BELOW rung1; cannot inherit lineage)\",     \"u4_constitutive_origin \u2014 why coarse-graining yields constitutive/response structure\",     \"u6_constitutive_or",
+     "terminology": [
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_SPECIFICATION.md",
+     "line": 38,
+     "statement": "**Ambiguity on its face:** the statement writes *\"system/bath split / coarse-graining\"* \u2014 the **Ambiguity on its face:** the statement writes *\"system/bath split / coarse-graining\"* \u2014 the same slash-as-conflation defect found in the Class-C certificate. A tensor factorization and a",
+     "terminology": [
+      "coarse-grain",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/WALL_KR_U3_SPECIFICATION_RESULT.json",
+     "line": 36,
+     "statement": "    \"ambiguity_on_its_face\": \"the statement slashes 'system/bath split / coarse-graining' as one object\" ],     \"ambiguity_on_its_face\": \"the statement slashes 'system/bath split / coarse-graining' as one object\"   },",
+     "terminology": [
+      "coarse-grain",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_foundational_ladder_audit.py",
+     "line": 154,
+     "statement": "   \"1. u3_split_origin \u2014 why a system/bath split at all (deepest; presupposes nothing registered)\", \"foundational_research_order\":[    \"1. u3_split_origin \u2014 why a system/bath split at all (deepest; presupposes nothing registered)\",    \"2. u4_constitutive_origin \u2014 why coarse-graining yields response ",
+     "terminology": [
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_foundational_ladder_audit.py",
+     "line": 155,
+     "statement": "   \"2. u4_constitutive_origin \u2014 why coarse-graining yields response form (needs u3's OBJECT as \" \"1. u3_split_origin \u2014 why a system/bath split at all (deepest; presupposes nothing registered)\",    \"2. u4_constitutive_origin \u2014 why coarse-graining yields response form (needs u3's OBJECT as \"    \"given",
+     "terminology": [
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_independence_audit.py",
+     "line": 170,
+     "statement": "   \"u3_split_origin \u2014 why a system/bath split at all (sits BELOW rung1; cannot inherit lineage)\", \"legitimate_next_tasks_zero_owner_selections\":[    \"u3_split_origin \u2014 why a system/bath split at all (sits BELOW rung1; cannot inherit lineage)\",    \"u4_constitutive_origin \u2014 why coarse-graining yields ",
+     "terminology": [
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_independence_audit.py",
+     "line": 171,
+     "statement": "   \"u4_constitutive_origin \u2014 why coarse-graining yields constitutive/response structure\", \"u3_split_origin \u2014 why a system/bath split at all (sits BELOW rung1; cannot inherit lineage)\",    \"u4_constitutive_origin \u2014 why coarse-graining yields constitutive/response structure\",    \"u6_constitutive_order",
+     "terminology": [
+      "coarse-grain"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_u3_specification_audit.py",
+     "line": 46,
+     "statement": "check(\"system/bath split / coarse-graining\" in U3[\"statement\"], # statement SLASHES two distinct notions together. check(\"system/bath split / coarse-graining\" in U3[\"statement\"],       \"AMBIGUITY ON ITS FACE: the statement slashes 'system/bath split' together with \"",
+     "terminology": [
+      "coarse-grain",
+      "system/bath"
+     ],
+     "classification": "UNRESOLVED",
+     "cue": "co-occurrence only",
+     "confidence": "LOW",
+     "reason": "source line contains terms for both objects but no explicit relation"
+    },
+    {
+     "file": "PHYSICS_LEDGER/wall_kr_u3_specification_audit.py",
+     "line": 47,
+     "statement": "      \"AMBIGUITY ON ITS FACE: the statement slashes 'system/bath split' together with \" check(\"system/bath split / coarse-graining\" in U3[\"statement\"],       \"AMBIGUITY ON ITS FACE: the statement slashes 'system/bath split' together with \"       \"'coarse-graining' as if one object \u2014 they are not equ",
+     "terminology": [
+      "system/bath"
+     ],
+     "classification": "DISTINCT_CONSTRUCTION",
+     "cue": "distinction phrase",
+     "confidence": "MEDIUM",
+     "reason": "source line contains an explicit distinction phrase"
+    }
+   ],
+   "evidence_count": 24
+  }
+ ],
+ "pairs_with_no_usable_evidence": [
+  [
+   "system/bath partition",
+   "slow-variable selection / coarse-graining"
+  ],
+  [
+   "system/bath partition",
+   "projection P"
+  ],
+  [
+   "system/bath partition",
+   "inner product / state"
+  ],
+  [
+   "system/bath partition",
+   "cutoff / separation scale"
+  ],
+  [
+   "system/bath partition",
+   "gauge / field-redefinition freedom"
+  ],
+  [
+   "system/bath partition",
+   "response-object definition"
+  ],
+  [
+   "slow-variable selection / coarse-graining",
+   "projection P"
+  ],
+  [
+   "slow-variable selection / coarse-graining",
+   "inner product / state"
+  ],
+  [
+   "slow-variable selection / coarse-graining",
+   "cutoff / separation scale"
+  ],
+  [
+   "slow-variable selection / coarse-graining",
+   "gauge / field-redefinition freedom"
+  ],
+  [
+   "slow-variable selection / coarse-graining",
+   "response-object definition"
+  ],
+  [
+   "projection P",
+   "inner product / state"
+  ],
+  [
+   "projection P",
+   "cutoff / separation scale"
+  ],
+  [
+   "projection P",
+   "gauge / field-redefinition freedom"
+  ],
+  [
+   "inner product / state",
+   "cutoff / separation scale"
+  ],
+  [
+   "inner product / state",
+   "gauge / field-redefinition freedom"
+  ]
+ ]
+}
