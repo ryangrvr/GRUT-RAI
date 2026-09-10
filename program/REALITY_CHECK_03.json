@@ -1,0 +1,21 @@
+{
+  "artifact": "REALITY_CHECK_03",
+  "type": "reality-first synthesis; no new methodology",
+  "canonical_repo_modified": false,
+  "verdict": "GRUT contains useful effective physics but is not fundamental (option 3)",
+  "confidence_discipline": {"E": "evidenced", "T": "established theory control", "H": "hypothesis", "X": "closed by recorded failure"},
+  "key_findings": {
+    "double_slit": "memory mechanism REJECTED as explanation; standard coherent superposition sufficient [T]; corpus contains no phase-carrying memory variable [E]",
+    "origin_of_i": "representational until proven structural; complex = real 2N symplectic equivalent; i-derivation from inner-product/state choice UNRESOLVED (object 4 untyped)",
+    "memory": "best status: EFFECTIVE layer (Mori-Zwanzig derived from closed system + coarse-graining); fundamental-memory status unsupported",
+    "entropy_vs_state_space": "four distinct concepts; infinite state space does NOT imply high state entropy; ambient-reality hypothesis conflates them",
+    "closed_reality_test": "PASS in principle: closed substrate + coarse-graining derives all observed open-system structure; seven GRUT choices are plausibly effective-layer consequences, NOT seven independent freedoms [H]",
+    "seven_choices": "0 demonstrated relations; 1 corpus-level distinction; 1 candidate identification (MZ ordering claim) as source claim only; 2 EXPLICITLY_UNRESOLVED; 1 CONFLICTING_REFERENTS",
+    "minimum_inputs": "no demonstrated minimum; complex quantum structure + hbar + SM content + gravity mechanism + Lambda required by all frameworks",
+    "strongest_defensible_theory": "GRUT-B: one closed quantum system; open-system structure = effective description; seven choices = consequences of (substrate, coarse-graining)",
+    "sharpest_gap": "outcome selection (Born weights / definite outcomes) — the route the record shows failed",
+    "next_decisive_calculation": "outcome-selection identifiability test on a minimal closed system reproducing molecule interferometry decoherence"
+  },
+  "reality_check_02_consistency": "consistent: no candidate closes all nine arrows under common standard",
+  "hisa_01_consistency": "consistent: 43/62 first-pass semantic adjudications failed strict grounding; ontology claims not built on AI interpretation"
+}
