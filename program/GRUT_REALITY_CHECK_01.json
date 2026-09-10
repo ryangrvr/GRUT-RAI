@@ -1,0 +1,76 @@
+{
+  "artifact": "GRUT_REALITY_CHECK_01",
+  "type": "FINITE SYNTHESIS EXPERIMENT — stopping experiment",
+  "date": "2026-09-10",
+  "repo": "TestingGRUT (laboratory; canonical GRUT-RAI untouched)",
+  "scope": "What the nine-month GRUT program amounts to, assembled from EXISTING material only.",
+  "classifications_considered": [
+    "CLOSED THEORY",
+    "CLOSED EFFECTIVE THEORY / OPEN SYSTEM",
+    "PARTIALLY CLOSED FRAMEWORK",
+    "EFFECTIVE DESCRIPTION WITH UNRESOLVED INPUTS",
+    "MATHEMATICAL FRAMEWORK WITHOUT CLOSED PHYSICAL DYNAMICS",
+    "INCOHERENT / INTERNALLY INCOMPATIBLE",
+    "OTHER"
+  ],
+  "classification": "MATHEMATICAL FRAMEWORK WITHOUT CLOSED PHYSICAL DYNAMICS",
+  "sub_classification": "EFFECTIVE DESCRIPTION WITH UNRESOLVED INPUTS (for the open-system / transport subset)",
+  "supporting_evidence_summary": {
+    "object_layer": "HISA-01 repaired adjudication (62/62 grounded): corpus does NOT supply stable explicit mathematical referents for most of the seven declared effective-description choices; 5 explicitly typed, 9 locally typable, 17+ unresolved/not-specified across the high-information set; September 3 cutoff contradiction remains genuinely unresolved; the seven-object graph is blocked at the object-identity gate.",
+    "closure": "Every quantitative GRUT result (K_R, gamma_T transport class, mu=4/3, TT response structure) is conditional on declared inputs that the corpus itself marks STANCE, OWNER-DECLARED, or UNDERDEFINED (e.g. D3(iii) gauge prescription; system/bath split; coarse-graining; inner product).",
+    "predictions": "PREDICTED remains EMPTY in the canonical ledger: no output is simultaneously (a) not an input, (b) not fitted, (c) not recovery of GR/SM/EFT physics, (d) distinguishable from alternatives.",
+    "known_failures": [
+      "hbar-emergence attempt failed; hbar is an irreducible input",
+      "RRT-0 reducibility result",
+      "linear constitutive dynamics did not establish quantum outcome selection",
+      "Q1 USL analogue route: identifiability/mapping obstruction",
+      "Q2 scalar/SY result does not establish gravitational GRUT dynamics; Q2-BRIDGE blocked at gravitational zero-mode bridge",
+      "Q3 dimensional-transmutation route not established as physical",
+      "Gamma_T not an established discriminator/prediction",
+      "hbar-emergence / irreducible input (already listed)",
+      "known unresolved cosmology consistency/integration issues"
+    ]
+  },
+  "answers": {
+    "WHAT_IS_GRUT": "A declared mathematical/structural framework plus an effective open-system (transport/response) description built on declared but under-specified construction choices. Its strongest surviving pieces are self-consistency diagnostics (Ward/gauge-orbit zero of K_R, mu=4/3 normalization arithmetic, TT projector structure), not closed dynamics.",
+    "WHAT_IS_IT_NOT": "Not a closed theory. Not a derived effective theory (inputs are stance-declared, not derived). Not yet a predictive theory: PREDICTED is empty. Not a completed open-system model (the system/bath -> free correlator -> Sigma_R fork is typed but not fully constructed).",
+    "WHAT_WORKS": [
+      "Ward-sourced gauge-orbit zero of K_R (annihilation of the full 4d gauge orbit) — corpus-supported structural result",
+      "mu = 4/3 (scalar:spin-2 = 2:1) normalization arithmetic in the linearized Einstein-Hilbert response",
+      "K^R = alpha*chi(omega)*P^TT structural form with adopted c_0 = alpha DC normalization (an ADOPTION, not a derivation)",
+      "reduced-basis / deterministic pipeline mechanics and reproducible provenance infrastructure"
+    ],
+    "WHAT_FAILS": [
+      "every hbar-emergence route",
+      "constitutive/linear dynamics route to quantum outcome selection",
+      "USL-analogue identifiability route",
+      "Q2-BRIDGE gravitational zero-mode bridge",
+      "dimensional-transmutation physicality",
+      "Gamma_T as discriminator",
+      "object-identity layer: the seven effective-description choices are not stably typed by the corpus"
+    ],
+    "IRREDUCIBLE_INPUTS": [
+      "hbar",
+      "system/bath partition (declared, STANCE not derivation)",
+      "coarse-graining / slow-variable selection (declared conditional, un-discharged)",
+      "inner product / state supplying it (Kubo-Mori is conventional, not derived)",
+      "cutoff / separation scale (September 3 statements A/B conflict unresolved)",
+      "gauge / field-redefinition prescription (D3(iii) OWNER-DECLARED and UNDERDEFINED)",
+      "response-object definition (Mori-Zwanzig kernel phrase explicitly DOES NOT DENOTE A UNIQUE OBJECT)"
+    ],
+    "CLOSED_OR_OPEN": "OPEN — and the openings are exactly the seven declared construction choices; the corpus itself does not close them.",
+    "GENUINE_PREDICTION": "NO. PREDICTED = EMPTY.",
+    "STRONGEST_HONEST_DESCRIPTION": "A self-consistent, provenance-disciplined mathematical framework whose dynamical content is an open-system effective description resting on seven declared construction choices that its own corpus cannot type stably; its positive results are consistency diagnostics and adoptions, and it currently makes no genuine prediction distinguishing it from GR/SM/EFT."
+  },
+  "assembly_chain": {
+    "INPUTS": "declared stance choices (7) + hbar + background structure — STATUS: OPEN (under-specified)",
+    "DYNAMICAL_VARIABLES": "slow variables / retained modes — STATUS: OPEN (selection not derived)",
+    "EQUATIONS": "Mori-Zwanzig / memory-kernel / Dyson G_R = 1/(G0^-1 - Sigma) forms declared, not derived — STATUS: OPEN",
+    "RESPONSE_EVOLUTION": "K_R and TT response kernel exist as adopted forms; Sigma_R requires bath internal dynamics (fork step 2 incomplete) — STATUS: PARTIAL",
+    "OBSERVABLES": "transport class, Gamma_T — STATUS: OPEN (not established as discriminator)"
+  },
+  "final_question": "What survives when we force all of GRUT to become one actual physical model?",
+  "final_answer": "The provenance discipline, the negative results, and a small set of consistency diagnostics survive. No closed dynamics, no genuine prediction, and seven unresolved inputs survive with it. That is the program, as it stands.",
+  "no_new_methodology": true,
+  "canonical_repository_modified": false
+}
