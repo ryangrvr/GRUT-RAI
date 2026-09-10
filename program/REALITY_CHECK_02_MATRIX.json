@@ -1,0 +1,88 @@
+{
+  "artifact": "REALITY_CHECK_02_MATRIX",
+  "status_vocabulary": ["CLOSED", "CONDITIONAL", "PARTIAL", "INPUT", "UNRESOLVED", "NOT_APPLICABLE"],
+  "candidates": ["GRUT", "String_M", "AdS_CFT", "AsymptoticSafety", "LQG"],
+  "matrix": {
+    "Primitive->variables": {
+      "GRUT": {"status": "INPUT", "source": "REALITY_CHECK_01: seven construction choices + hbar are declared stance, not derived"},
+      "String_M": {"status": "CLOSED", "source": "String/M-theory: fundamental d.o.f. are strings/branes; stipulation is the theory's definition"},
+      "AdS_CFT": {"status": "CLOSED", "source": "Maldacena hep-th/9711200: CFT variables defined; bulk variables emerge from boundary CFT data"},
+      "AsymptoticSafety": {"status": "CLOSED", "source": "Niedermaier-Reuter LRR 2006: metric field and couplings as dynamical variables via RG flow"},
+      "LQG": {"status": "CLOSED", "source": "Rovelli-Smolin gr-qc/9505006: spin networks form a gauge-invariant basis"}
+    },
+    "Variables->equations": {
+      "GRUT": {"status": "PARTIAL", "source": "REALITY_CHECK_01: MZ/memory-kernel/Dyson form declared, not derived; D3(iii) gauge prescription OWNER-DECLARED and UNDERDEFINED"},
+      "String_M": {"status": "CLOSED", "source": "Worldsheet CFT / supergravity effective action; equations specified (with compactification ambiguity)"},
+      "AdS_CFT": {"status": "PARTIAL", "source": "hep-th/9905111: results derived only 'in the regime that the field theory is approximated by classical or semiclassical gravity'"},
+      "AsymptoticSafety": {"status": "PARTIAL", "source": "christiansen-1209.4188: fixed point established within truncations; truncation dependence is unresolved"},
+      "LQG": {"status": "PARTIAL", "source": "Ashtekar-Lewandowski gr-qc/0404018: 'the issue of Dynamics, especially Hamiltonian constraint... remains illusive despite a large amount of effort'"}
+    },
+    "Equations->evolution": {
+      "GRUT": {"status": "PARTIAL", "source": "REALITY_CHECK_01: response/evolution arrow PARTIAL - K_R form adopted, Sigma_R step incomplete (transport fork unconstructed)"},
+      "String_M": {"status": "CLOSED", "source": "Worldsheet/topological data determine evolution within a chosen compactification"},
+      "AdS_CFT": {"status": "PARTIAL", "source": "Correspondence maps boundary to bulk evolution within established AdS regime; generalization beyond AdS unresolved"},
+      "AsymptoticSafety": {"status": "PARTIAL", "source": "RG flow generates evolution of couplings, not full spacetime dynamics; GR recovery is an effective/low-energy claim"},
+      "LQG": {"status": "UNRESOLVED", "source": "Ashtekar-Lewandowski gr-qc/0404018: Hamiltonian constraint remains illusive; no established 4D evolution"}
+    },
+    "Evolution->GR": {
+      "GRUT": {"status": "UNRESOLVED", "source": "REALITY_CHECK_01: no derived GR recovery; Q2-BRIDGE BLOCKED at gravitational zero-mode bridge"},
+      "String_M": {"status": "CONDITIONAL", "source": "GR recovered in low-energy compactification limit; depends on vacuum/compactification choice"},
+      "AdS_CFT": {"status": "CONDITIONAL", "source": "hep-th/9905111: bulk GR recovered in semiclassical regime for AdS backgrounds, not as a cosmological statement"},
+      "AsymptoticSafety": {"status": "PARTIAL", "source": "GR recovered as effective low-energy limit given the UV fixed point; precision of recovery is truncation-dependent"},
+      "LQG": {"status": "UNRESOLVED", "source": "No established semiclassical limit recovering GR from canonical LQG on the audited record"}
+    },
+    "Evolution->QM": {
+      "GRUT": {"status": "UNRESOLVED", "source": "REALITY_CHECK_01: hbar irreducible (emergence FAILED); linear constitutive dynamics did NOT establish quantum outcome selection"},
+      "String_M": {"status": "CLOSED", "source": "Quantization of string coordinates gives QM natively (second-quantized framework)"},
+      "AdS_CFT": {"status": "CLOSED", "source": "QFT side is already quantum; bulk quantization follows from the duality in its established regime"},
+      "AsymptoticSafety": {"status": "CLOSED", "source": "It is a QFT: quantum mechanics is native, not recovered"},
+      "LQG": {"status": "CLOSED", "source": "Canonical quantization is the program's foundation (Hilbert space, spin-network basis)"}
+    },
+    "StandardModel": {
+      "GRUT": {"status": "INPUT", "source": "REALITY_CHECK_01: SM content inserted, not recovered; PREDICTED = EMPTY"},
+      "String_M": {"status": "PARTIAL", "source": "SM gauge group can be embedded in string vacua; unique SM embedding not established"},
+      "AdS_CFT": {"status": "PARTIAL", "source": "SM-adjacent gauge theories embedded in specific dualities; generic SM recovery unresolved"},
+      "AsymptoticSafety": {"status": "PARTIAL", "source": "christiansen-1209.4188: SM compatibility constrains the fixed point; inclusion of self-interacting scalars 'excluded' at truncation level"},
+      "LQG": {"status": "UNRESOLVED", "source": "No audited primary source establishing SM recovery within LQG"}
+    },
+    "Observables": {
+      "GRUT": {"status": "UNRESOLVED", "source": "REALITY_CHECK_01: observable mapping OPEN; Gamma_T NOT ESTABLISHED as discriminator"},
+      "String_M": {"status": "PARTIAL", "source": "Observables defined within a chosen vacuum; unique vacuum selection unresolved"},
+      "AdS_CFT": {"status": "CLOSED", "source": "Observables defined on the boundary CFT within the established duality"},
+      "AsymptoticSafety": {"status": "PARTIAL", "source": "Coupling trajectories are computable observables of the RG flow; physical predictions require GR-recovery bridge"},
+      "LQG": {"status": "UNRESOLVED", "source": "Observable mapping to spacetime physics unresolved pending dynamics"}
+    },
+    "UniquePredictions": {
+      "GRUT": {"status": "UNRESOLVED", "source": "REALITY_CHECK_01: PREDICTED = EMPTY"},
+      "String_M": {"status": "UNRESOLVED", "source": "Landscape/compactification freedom blocks unique prediction (see also Susskind hep-th/0302219 - count UNRESOLVED in ledger)"},
+      "AdS_CFT": {"status": "UNRESOLVED", "source": "dS/cosmological bridge unresolved; unique predictions for our universe not established"},
+      "AsymptoticSafety": {"status": "PARTIAL", "source": "Predicts specific fixed-point signatures (e.g. dimension flow), but GR-recovery bridge truncation-dependent"},
+      "LQG": {"status": "UNRESOLVED", "source": "No unique physical prediction established on the audited record"}
+    },
+    "PrincipalOpenArrow": {
+      "GRUT": {"status": "OPEN", "prose": "The declared construction choices (system/bath, projection P, cutoff/separation, gauge prescription, response object) do not chain to a closed dynamical construction."},
+      "String_M": {"status": "OPEN", "prose": "Consistent construction does not select a unique physical vacuum (landscape/compactification ambiguity)."},
+      "AdS_CFT": {"status": "OPEN", "prose": "The duality is established for AdS-type backgrounds; the bridge to our de Sitter-like cosmology is not established."},
+      "AsymptoticSafety": {"status": "OPEN", "prose": "The UV fixed point does not, at current truncation level, uniquely fix the full observed matter sector."},
+      "LQG": {"status": "OPEN", "prose": "The quantum-geometric representation does not yet chain to 4D dynamics and GR recovery (Hamiltonian constraint remains 'illusive')."}
+    }
+  },
+  "parameter_closure": {
+    "GRUT": {"hbar": "IRREDUCIBLE_INPUT", "seven_choices": "INPUT", "alpha_c0": "ADOPTED_FITTED", "distribution": "no DERIVED parameters on the record"},
+    "String_M": {"compactification_data": "UNRESOLVED", "yukawas_gauge_couplings": "FITTED_TO_VACUUM", "newton_G_string_scale": "UNRESOLVED"},
+    "AdS_CFT": {"cosmological_constant": "FIXED_BY_DUALITY_IN_ADS", "vacuum_energy_dS": "UNRESOLVED"},
+    "AsymptoticSafety": {"newton_G_scaling": "FIXED_BY_CONSISTENCY_AT_FIXED_POINT", "yukawas": "UNRESOLVED", "cosmological_constant": "UNRESOLVED"},
+    "LQG": {"immirzi_parameter": "FIXED_BY_CONSISTENCY_OR_FITTED", "newton_G": "EMPIRICAL_INPUT", "cosmological_constant": "UNRESOLVED"}
+  },
+  "cross_candidate_pattern": {
+    "finding": "The same unresolved-arrow pattern appears independently in unrelated frameworks: each chain stops at a DIFFERENT interface, not a shared one. GRUT stops at construction-choice closure; String/M at vacuum selection; AdS/CFT at de Sitter bridge; Asymptotic Safety at matter-sector uniqueness; LQG at 4D dynamics.",
+    "not_interpreted_as": "no claim that 'all frameworks are equal' or 'GRUT is vindicated'",
+    "strongest_observation": "No candidate on the audited record closes every arrow. The principal open arrows are interface-specific and do not coincide."
+  },
+  "pre_registered_hypothesis_status": "CONFIRMED under the audited record: no major candidate closes all nine arrows. This is a statement about the audited primary-source record, not a proof of impossibility.",
+  "integrity": {
+    "canonical_GRUT_RAI_untouched": true,
+    "testinggrut_lab_artifact": true,
+    "no_cell_without_source_or_UNRESOLVED_flag": true
+  }
+}
