@@ -1,0 +1,211 @@
+{
+  "artifact": "EXPERIMENT_P_OUTCOME_IDENTIFIABILITY",
+  "model_class": {
+    "hilbert": "H_s(2) \u2297 H_a(2) \u2297 H_e(N)",
+    "dynamics": "exact closed unitary measurement interaction; branch i: |i,A_ready,E0> -> |i,A_i,E_i>",
+    "env_kinds": [
+      "record",
+      "random-Haar (aux runs)"
+    ],
+    "dtype": "complex128"
+  },
+  "input_ledger": [
+    {
+      "item": "Hilbert dimensions",
+      "status": "ASSUMED (declared model input)"
+    },
+    {
+      "item": "measurement interaction",
+      "status": "ASSUMED (declared model input)"
+    },
+    {
+      "item": "initial state alpha|0>+beta|1>",
+      "status": "ASSUMED (carries amplitudes)"
+    },
+    {
+      "item": "s/a/e partition",
+      "status": "ASSUMED (partition control applied)"
+    },
+    {
+      "item": "coarse-graining map",
+      "status": "COARSE-GRAINING-DEPENDENT (control F)"
+    },
+    {
+      "item": "Born rule / collapse / pointer selection",
+      "status": "NOT USED in MODEL U"
+    }
+  ],
+  "controls": {
+    "A_decoherence": {
+      "N=8": {
+        "branch_cross_term_abs": 0.0,
+        "offdiag_in_pointer_basis": 0.0,
+        "purity_reduced": 0.5,
+        "vn_entropy_reduced": 1.0,
+        "decoherence": true,
+        "global_state_purity": 1.0
+      },
+      "N=64": {
+        "branch_cross_term_abs": 0.0,
+        "offdiag_in_pointer_basis": 0.0,
+        "purity_reduced": 0.5,
+        "vn_entropy_reduced": 1.0,
+        "decoherence": true,
+        "global_state_purity": 1.0
+      }
+    },
+    "B_definite_outcome": {
+      "global_state_purity": 1.0,
+      "reduced_branch_populations": [
+        0.5000000000000001,
+        0.4999999999999999
+      ],
+      "global_state_is_single_outcome": false,
+      "global_state_is_entangled_superposition": true,
+      "definite_outcome": "NOT_DERIVED"
+    },
+    "C_weights_vs_amplitudes": {
+      "alpha2=0.1": {
+        "p0_observed_in_reduced_state": 0.1,
+        "matches_input_amplitude_ratio": true,
+        "epistemic": "STATE-DEPENDENT (inherits |alpha|^2 from initial state; not derived from dynamics)"
+      },
+      "alpha2=0.25": {
+        "p0_observed_in_reduced_state": 0.25,
+        "matches_input_amplitude_ratio": true,
+        "epistemic": "STATE-DEPENDENT (inherits |alpha|^2 from initial state; not derived from dynamics)"
+      },
+      "alpha2=0.5": {
+        "p0_observed_in_reduced_state": 0.5000000000000001,
+        "matches_input_amplitude_ratio": true,
+        "epistemic": "STATE-DEPENDENT (inherits |alpha|^2 from initial state; not derived from dynamics)"
+      },
+      "alpha2=0.75": {
+        "p0_observed_in_reduced_state": 0.7499999999999999,
+        "matches_input_amplitude_ratio": true,
+        "epistemic": "STATE-DEPENDENT (inherits |alpha|^2 from initial state; not derived from dynamics)"
+      },
+      "alpha2=0.9": {
+        "p0_observed_in_reduced_state": 0.8999999999999999,
+        "matches_input_amplitude_ratio": true,
+        "epistemic": "STATE-DEPENDENT (inherits |alpha|^2 from initial state; not derived from dynamics)"
+      }
+    },
+    "D_purifications": {
+      "cases": [
+        {
+          "purification": "E0=|0>",
+          "p0": 0.5000000000000001,
+          "cross_term": 0.0,
+          "env_e0_overlap_first_record_state": null
+        },
+        {
+          "purification": "E0=generic superposition",
+          "p0": 0.5000000000000002,
+          "cross_term": 0.16337142957077358,
+          "env_e0_overlap_first_record_state": 0.0010487688392035945
+        }
+      ],
+      "identical_reduced_decoherence": false,
+      "identical_global_states": false,
+      "outcome_weight_identifiable_from_reduced_state_alone": true,
+      "verdict": "NON-IDENTIFIABLE at the reduced level; weights are STATE-DEPENDENT (trace initial amplitudes), not dynamics-derived"
+    },
+    "E_partitions": {
+      "partition_A_keep_s_a": {
+        "p0": 0.5000000000000001,
+        "purity": 0.5
+      },
+      "partition_B_keep_s_only": {
+        "p0": 0.5000000000000001,
+        "purity": 1.0
+      },
+      "outcome_description_invariant": "both partitions show the same p0; neither yields a definite outcome",
+      "epistemic": "partition-invariant for decoherence; NOT sufficient for outcome selection"
+    },
+    "F_coarse_grainings": {
+      "G1_dephased_p0": 0.5000000000000001,
+      "G2_full_p0": 0.5000000000000001,
+      "G1_yields_apparent_definite_outcome": true,
+      "G2_yields_entangled_superposition_evidence": true,
+      "epistemic": "COARSE-GRAINING-DEPENDENT: the 'definite outcome' appearance is a property of G1 (dephasing), not of the closed state"
+    },
+    "G_unitary_vs_collapse": {
+      "MODEL_U_p0": 0.5000000000000001,
+      "MODEL_C_rule": "p_i = |alpha_i|^2, then project (explicit ADDITIONAL_INPUT, not derived)",
+      "MODEL_C_outcome0_frequency": 0.49985,
+      "what_C_adds_over_U": "one realized outcome + a probability law. Neither exists in MODEL U's output.",
+      "epistemic": "MODEL C ASSUMED; MODEL U outputs decoherence only"
+    },
+    "H_identifiability": {
+      "pairs": [
+        {
+          "alpha2": 0.2,
+          "decoherence_observables": {
+            "cross": 0.0,
+            "purity": 0.6799999999999999
+          },
+          "outcome_weight_p0": 0.19999999999999998
+        },
+        {
+          "alpha2": 0.5,
+          "decoherence_observables": {
+            "cross": 0.0,
+            "purity": 0.5
+          },
+          "outcome_weight_p0": 0.5000000000000001
+        },
+        {
+          "alpha2": 0.8,
+          "decoherence_observables": {
+            "cross": 0.0,
+            "purity": 0.6799999999999999
+          },
+          "outcome_weight_p0": 0.7999999999999999
+        }
+      ],
+      "identical_decoherence_observables": true,
+      "different_outcome_weights": true,
+      "conclusion": "NON-IDENTIFIABLE: (C,G) fixed; initial-state amplitudes change outcome weights while decoherence observables are identical. Weights are carried by the initial state, not determined by closed dynamics + coarse-graining.",
+      "verdict": "NON-IDENTIFIABLE"
+    }
+  },
+  "epistemic_status": {
+    "decoherence": "DERIVED (control A: cross term -> 0 exactly, both N)",
+    "definite_outcome": "NOT_DERIVED (control B: global state remains pure entangled superposition; reduced diagonalization \u2260 outcome)",
+    "outcome_weights": "STATE-DEPENDENT / NON-IDENTIFIABLE (controls C, D, H: weights inherit |alpha|^2 from initial state; (C,G) do not determine them)",
+    "born_rule": "NOT_DERIVED",
+    "coarse_graining_dependence": "COARSE-GRAINING-DEPENDENT (control F: dephased G1 manufactures 'definite outcome' appearance)",
+    "partition_dependence": "partition-invariant for decoherence (control E), but invariance does not supply outcome selection"
+  },
+  "limitations": [
+    "Identifiability result established for the declared minimal model class; does not prove no conceivable closed dynamics could select outcomes (protocol Step 11 scope).",
+    "MODEL C collapse rule is an explicit ADDITIONAL_INPUT diagnostic, not a derivation.",
+    "Exact finite-dimensional calculations; no stochastic Monte Carlo in MODEL U."
+  ],
+  "reproducibility": {
+    "source_file": "calc/experiment_p_identifiability.py",
+    "sha256": "590a676e65006dff75adc9f8409820d284cfaeed90e231b2b5948ad0866b3e5c",
+    "method": "exact finite-dimensional numpy unitary evolution",
+    "seed": 20260910,
+    "tolerance": "1e-10 (double precision exact within numerical error)"
+  },
+  "final_verdict": {
+    "decision_table": {
+      "closed dynamics yields decoherence": "YES (exact)",
+      "decoherence yields definite outcome": "NO",
+      "outcome weights uniquely determined by (C,G)": "NO \u2014 STATE-DEPENDENT",
+      "Born weights derived": "NO",
+      "outcome selection identifiable": "NON-IDENTIFIABLE",
+      "depends on coarse-graining": "outcome APPEARANCE depends on G (control F)",
+      "depends on partition": "decoherence invariant; outcome question open in both",
+      "additional structure required": "YES \u2014 a selection rule and/or probability postulate"
+    },
+    "primary_verdict": "For the declared minimal closed model, closed unitary dynamics plus coarse-graining derive decoherence exactly but determine neither a definite outcome nor a unique outcome-weight law: outcome information is non-identifiable from the effective decoherence structure and is carried by the initial state.",
+    "strongest_positive_result": "Exact, artifact-verifiable demonstration that the closed model reproduces decoherence (cross term \u2192 0) with zero stochastic/collapse input.",
+    "strongest_negative_result": "Identical decoherence observables arise from initial states with different outcome weights (control H): outcome selection and Born weights are NON-IDENTIFIABLE from (C, G, decoherence observables).",
+    "required_additional_input": "An explicit outcome-selection rule and/or probability postulate (e.g. Born weights or a stochastic law) \u2014 an irreducible ADDITIONAL_INPUT for this model class.",
+    "what_this_does_not_prove": "It does not prove that no closed dynamics whatsoever can select outcomes; it establishes non-identifiability for the declared minimal identifiability model class.",
+    "primary_outcome_class": "B + C combined (decoherence YES; definite outcome NO; weights NOT uniquely determined \u2192 NON-IDENTIFIABLE)"
+  }
+}
