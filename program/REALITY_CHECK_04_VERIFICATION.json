@@ -1,0 +1,42 @@
+{
+  "A": {
+    "cross_term": "0j",
+    "sa_purity": 0.4999999999999998,
+    "branch_pop": [
+      0.4999999999999999,
+      0.4999999999999999
+    ],
+    "global_purity": 0.9999999999999996,
+    "unitary": 1.0,
+    "analytic_note": "record overlap <e0|U1|e0>=0 by construction (shift register, disjoint support) -> decoherence exact"
+  },
+  "D_recheck": {
+    "second_state_cross_term": 0.11161522499116128,
+    "identical_reduced_decoherence": false,
+    "conclusion": "FAILS: the second environment state does NOT decohere under the same U (cross term != 0). The pair is not an identical-reduced-state pair; control D does not test purificational indistinguishability. INVALID AS EXECUTED."
+  },
+  "H_recheck": [
+    {
+      "alpha": 0.2,
+      "cross": 0.0,
+      "p0": 0.04000000000000001,
+      "purity": 0.9232
+    },
+    {
+      "alpha": 0.5,
+      "cross": 0.0,
+      "p0": 0.25,
+      "purity": 0.6249999999999999
+    },
+    {
+      "alpha": 0.8,
+      "cross": 0.0,
+      "p0": 0.6400000000000001,
+      "purity": 0.5392000000000001
+    }
+  ],
+  "H_scoping": {
+    "purity_matched": false,
+    "note": "purities differ (0.68 vs 0.5); only the pointer-basis decoherence class (cross=0) is matched. p0 is itself a reduced-state element: weights ARE identifiable from the full reduced state as inherited initial-state input. Non-identifiability holds only relative to the decoherence-observable set."
+  }
+}
