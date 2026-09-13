@@ -1,0 +1,125 @@
+{
+  "artifact": "EC_BORN_01_PHASE2A_ADJUDICATION",
+  "phase": "2A",
+  "authorized_scope": ["R5", "R6", "R7", "R8"],
+  "excluded": ["R1", "R2", "R3", "R4", "R4a", "R4b", "R4c"],
+  "evidence_boundary": {"frozen": "9f92386", "parent": "b613b34"},
+  "verification_level": "ABSTRACT_VERIFIED / EVIDENCE_LIMITED (full-text premise extraction NOT performed)",
+  "source_notes": {
+    "penrose_locator_retired": "gr-qc/9607063 returned unrelated paper on live check 2026-09-12",
+    "R8_primary": "GRW Phys. Rev. D 34, 470 (1986) abstract (frozen) + DP-R0-01 as context only",
+    "R5_identity": "Masanes-Muller per frozen registry (Hardy NOT substituted)"
+  },
+  "target_firewall": [
+    "WEIGHT_REPRESENTATION != OBJECTIVE_CHANCE",
+    "RATIONAL_CREDENCE != OBJECTIVE_CHANCE",
+    "BRANCH_MEASURE != OUTCOME_SELECTION",
+    "OUTCOME_SELECTION != DERIVED_BORN_WEIGHTS"
+  ],
+  "routes": [
+    {
+      "route_id": "R5",
+      "name": "Masanes-Muller operational reconstruction",
+      "source": "arXiv:1004.1483v4 (ABSTRACT_VERIFIED)",
+      "targets": {
+        "WEIGHT_REPRESENTATION": "CONDITIONAL_DERIVATION",
+        "OBJECTIVE_CHANCE": "UNRESOLVED",
+        "RATIONAL_CREDENCE": "OUTSIDE_SCOPE",
+        "BRANCH_MEASURE": "OUTSIDE_SCOPE",
+        "OUTCOME_SELECTION": "NO_DEMONSTRATED_MECHANISM"
+      },
+      "premises": ["continuity of reversible transformations", "existence of a generic system", "no information without disturbance", "composition rule", "local measurability"],
+      "premise_types": ["PHYSICAL_DYNAMICAL", "OPERATIONAL", "MATHEMATICAL"],
+      "circularity_status": "UNRESOLVED_DUE_TO_RECORD — whether continuity/composition premises encode measure structure requires full text",
+      "cbp": "OUT_OF_SCOPE",
+      "disposition": "CONDITIONAL_DERIVATION (quantum-theory structure incl. probability representation, conditional on five assumed requirements); EVIDENCE_LIMITED"
+    },
+    {
+      "route_id": "R6",
+      "name": "Durr-Goldstein-Zanghi quantum equilibrium / typicality",
+      "source": "arXiv:quant-ph/0308039v1 (ABSTRACT_VERIFIED)",
+      "dependency_graph": [
+        "guidance dynamics [ASSUMED] -> equivariance [DERIVED, non-circular]",
+        "equivariance -> rho=|psi|^2 [requires IMPORTED typicality measure]",
+        "typicality measure -> empirical subsystem distributions [DERIVED given premises]",
+        "typicality -> objective single-run chance [NOT BRIDGED]"
+      ],
+      "targets": {
+        "WEIGHT_REPRESENTATION": "CONDITIONAL_DERIVATION_WITH_IMPORTED_POSTULATE",
+        "OBJECTIVE_CHANCE": "PARTIAL",
+        "RATIONAL_CREDENCE": "OUTSIDE_SCOPE",
+        "BRANCH_MEASURE": "OUTSIDE_SCOPE",
+        "OUTCOME_SELECTION": "NO_DEMONSTRATED_MECHANISM"
+      },
+      "outcome_selection_note": "definiteness supplied by Bohmian ONTOLOGICAL POSTULATE (particle positions), not by the probability argument",
+      "circularity_status": "DISPUTED — critics allege typicality measure presupposes target distribution; DGZ dispute; unresolved",
+      "cbp": "OUT_OF_SCOPE",
+      "disposition": "CONDITIONAL_DERIVATION_WITH_IMPORTED_POSTULATE; equivariance itself NOT_CIRCULAR (invariance-of, not argument-for)"
+    },
+    {
+      "route_id": "R7",
+      "name": "Valentini-Westman nonequilibrium relaxation",
+      "source": "arXiv:quant-ph/0403034v2 (ABSTRACT_VERIFIED)",
+      "targets": {
+        "WEIGHT_REPRESENTATION": "CONDITIONAL_DERIVATION",
+        "OBJECTIVE_CHANCE": "PARTIAL",
+        "RATIONAL_CREDENCE": "OUTSIDE_SCOPE",
+        "BRANCH_MEASURE": "OUTSIDE_SCOPE",
+        "OUTCOME_SELECTION": "NO_DEMONSTRATED_MECHANISM"
+      },
+      "key_findings": [
+        "rho != |psi|^2 admissible under Bohmian guidance -> |psi|^2 NOT forced by dynamics alone (constrains unconditional readings of R6)",
+        "relaxation via coarse-grained H-function (minus relative entropy), ~exponential decrease, 2D numerical demonstration only",
+        "authors place status 'similar to thermal probabilities in ordinary statistical mechanics' -> imported statistical premise + primordial-nonequilibrium initial condition required (E&C-01 FB1v2/FB3v2 class)"
+      ],
+      "circularity_status": "CONDITIONAL_NONCIRCULAR — derivation conditional on coarse-graining structure and special initial condition",
+      "cbp": "OUT_OF_SCOPE",
+      "disposition": "CONDITIONAL_DERIVATION (Born weights as dynamical equilibrium from special initial conditions)"
+    },
+    {
+      "route_id": "R8",
+      "name": "Collapse stochastic-law routes (GRW; DP context only)",
+      "source": "GRW Phys. Rev. D 34, 470 (1986) abstract (frozen record)",
+      "targets": {
+        "WEIGHT_REPRESENTATION": "PROBABILITY_STRUCTURE_IMPORTED",
+        "OBJECTIVE_CHANCE": "CONDITIONAL_DERIVATION_WITHIN_MODEL",
+        "RATIONAL_CREDENCE": "OUTSIDE_SCOPE",
+        "BRANCH_MEASURE": "OUTSIDE_SCOPE",
+        "OUTCOME_SELECTION": "DERIVED_WITHIN_MODEL_FROM_POSTULATED_DYNAMICS"
+      },
+      "key_findings": [
+        "dynamical modification explicitly POSTULATED per frozen GRW abstract",
+        "only R5-R8 route supplying outcome selection by DYNAMICS rather than ontological postulate or semantic reframing",
+        "numerical weighting EMBEDDED in postulated stochastic law by construction; probability question relocated into noise structure, not answered",
+        "free empirical parameters (collapse rate, localization width) — same burden class as DP R0",
+        "POSTULATED COLLAPSE != DERIVED BORN WEIGHTS (consistent with audited DP boundary)"
+      ],
+      "circularity_status": "NOT_CIRCULAR (postulates rather than derives — postulation is explicit, not smuggled)",
+      "cbp": "OUT_OF_SCOPE (Door-1 dynamics change)",
+      "disposition": "PARTIAL — outcome selection supplied; Born weighting postulated"
+    }
+  ],
+  "unresolved_items": [
+    "full-text premise depth for all four routes",
+    "R5 uniqueness of probability functional; whether continuity premises encode measure structure",
+    "R6 independence status of typicality measure (DISPUTED)",
+    "R7 universality of relaxation beyond 2D demonstration",
+    "R8 GRW/CSL full stochastic-law extraction; non-DP collapse bounds",
+    "bridge from empirical distributions/branch measures to single-run objective chance — UNBRIDGED in every non-collapse route"
+  ],
+  "negative_controls": {
+    "R1_R4_adjudicated": false,
+    "cross_route_scoring_or_ranking": false,
+    "global_born_conclusion": false,
+    "escape_door_modified": false,
+    "rc05_dp_ec01_modified": false,
+    "frozen_protocols_modified": false,
+    "hostile_audit_executed": false
+  },
+  "status": {
+    "phase_2a": "COMPLETE",
+    "phase_2a_hostile_audit": "NOT_EXECUTED",
+    "phase_2b": "NOT_AUTHORIZED",
+    "global_born_synthesis": "NOT_AUTHORIZED"
+  }
+}

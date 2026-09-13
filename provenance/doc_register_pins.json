@@ -4,15 +4,15 @@
     "GLOSSARY.md": "b8a587efcb82c2f1",
     "HOW_TO_VERIFY.md": "c1cf075a31f79574",
     "NO_GO_LEDGER.md": "90dba9ecffbe22a6",
-    "POSTULATE_MAP.md": "decb15a0fad68b7f",
+    "POSTULATE_MAP.md": "5cae881c97fe73ae",
     "S_IF.md": "05d9bf1bda3ec2d8"
   },
   "nodes": {
     "kk_static_transfer": "fc89e52fb499cb53",
     "mu_linear": "c51b5de311199f55",
-    "rung2_kms_gate": "2589e38b9d936cd3",
+    "rung2_kms_gate": "ca71fa7cf0712e7f",
     "rung3_single_pole": "cae4974deda5b5fb",
-    "rung4_love_kk": "397b24de1d46d25a",
+    "rung4_love_kk": "4ec05408c3c1d7ff",
     "rung5_gr_limit": "e070d4f8609c8bd6",
     "rung6_qm_limit": "e070d4f8609c8bd6",
     "rung7_w2_wa_sign": "648a1c60b5ea5d72",

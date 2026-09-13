@@ -1,0 +1,27 @@
+{
+  "artifact": "RAI_CAPABILITY_TEST_01",
+  "status": "PROVISIONAL — PHASE_0_GATE_FAILED (provenance suite red: 14 failed / 215 passed)",
+  "success_criterion": "honest gate-passing R/G/N classification; |N|=0 is a valid outcome",
+  "phase1_best_fit_structure": "semiclassical EFT vacuum sourcing (w=-1) + constitutive response K^R = alpha*chi(omega)*P^TT + Mori-Zwanzig finite-memory transport + borrowed structure (Born rule, horizon entropy, fluctuation theorems, Past Hypothesis); rung1/rung2 derived-pending; PREDICTED = EMPTY",
+  "classification": [
+    {"claim": "semiclassical EFT vacuum sourcing w=-1", "bin": "R", "reduction": "recovered EFT/standard cosmological-constant physics"},
+    {"claim": "K^R = alpha*chi(omega)*P^TT", "bin": "R", "reduction": "linear response + TT projector decomposition; projector CHOSEN not derived"},
+    {"claim": "Mori-Zwanzig finite-memory kernels", "bin": "R", "reduction": "standard open-system constitutive response (RC-03: effective)"},
+    {"claim": "arrow of time via finite memory", "bin": "G+R", "reduction": "reduces to imported fluctuation theorems + Past Hypothesis (E&C-01 FB3v2 class); residue is ontological label"},
+    {"claim": "a/c = 1/3 Casimir bridge", "bin": "G", "reduction": "forced conditional consequence of KMS/tier gates on borrowed conformal-mode identification"},
+    {"claim": "c_0 = alpha alpha-bridge", "bin": "R", "reduction": "adopted phenomenological normalization, a corpus postulate"},
+    {"claim": "vacuum IS a responsive medium with finite memory (rung1)", "bin": "R_ontological_frame", "reduction": "dynamical content is R/G; surplus is the ontology word 'IS', no independent dynamical consequence"},
+    {"claim": "mu = 4/3 TT arithmetic", "bin": "R", "reduction": "recovery of GR linearized Einstein-Hilbert response"}
+  ],
+  "N_survivors": [],
+  "result": "|N| = 0",
+  "plain_statement": "Under its own constraints the RAI reconstructs known physics, adds an ontological frame, and reports open questions; it produces no genuinely novel physical content.",
+  "cross_confirmation": ["REALITY_CHECK_01: PREDICTED = EMPTY", "REALITY_CHECK_03: effective-only verdict", "DP_R0_01: parameter-free candidate mechanism empirically excluded; R_0 free phenomenological parameter"],
+  "caveats": [
+    "provisional until suite reaches green; re-run Phase 0 gate after consistency restoration",
+    "|N| measured against corpus already in machine; bounds generative reach, not physics' content",
+    "novelty from new inputs is input-provenance, not generative novelty"
+  ],
+  "anti_laundering": {"correspondence_to_truth_language_used": false, "null_result_reachable": true, "N_bin_adversarial_reduction_applied": true},
+  "canonical_GRUT_RAI_modified": false
+}

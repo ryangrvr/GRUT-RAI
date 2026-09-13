@@ -334,8 +334,8 @@ class TestHarness(unittest.TestCase):
         grut = [c for c in after if c.get("ledger_scope", "grut") == "grut"]
         r = audit(grut, source_ids, DEFAULT_TIERS)
         self.assertTrue(r.ok)
-        self.assertEqual(r.net, 17)  # +17 since the 2026-08-24 boost-covariance booking
-        self.assertEqual(len(grut), 52)   # 51 + response_lorentz_covariance (2026-08-24); 50 + rung1_ontology_finite_memory (Ruling-B split, 2026-08-23) before that
+        self.assertEqual(r.net, 16)  # +16 net after 2026-09 foundation downgrade: rung1/rung2/rung4 derived-pending
+        self.assertEqual(len(grut), 53)   # 52 + 1 (foundation-era booking); claims.json is source of truth
 
 
 if __name__ == "__main__":
