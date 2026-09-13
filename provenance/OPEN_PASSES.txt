@@ -90,6 +90,21 @@ CROSS-REF: 2026-09-13 -- P1A ruled EDGE_CORRECT, making this pass's asymmetry LI
   P1B remains OPEN and is NOT narrowed by that ruling; both answers stay available (wire the
   prose inputs and cap, or rule prose-pricing sufficient). rung1_inin_action herein = the split
   successors rung1_inin_formalism / rung1_ontology_finite_memory (Ruling B, 2026-08-23).
+ADJUDICATED: 2026-09-13 -- LEGISLATION-REQUIRED under the frozen protocol
+  program/P1B_ADJUDICATION_01_PROTOCOL.md at HEAD e76953a (three assigned-verdict advocates +
+  evidence verifier + mandatory referee). Booked law UNDERDETERMINES: no booked sentence defines
+  what a result tier asserts about declared entry-price inputs -- the format-blind cap premise
+  exists only in the protocol's own gloss; `shown` has no booked satisfaction conditions;
+  CHARTER's own settled state enacts the disputed configuration; register practice is
+  non-uniform (rung6 prices two inputs, wires one); and the prose-sufficient convention exists
+  only as an unscreened stance the auditor never verifies for truth. STATUS REMAINS OPEN --
+  the substantive semantics choice goes to the owner (P1B_RATIFICATION_PACKAGE_01.md: option A,
+  input-carrying result tiers, RECOMMENDED with conservative mechanics; option B,
+  verification-grade tiers with the ledger triad carrying inputs). NAMED STANDING RISK, this
+  adjudication's own cost: no interim guard exists, so a static-patch discharge re-promoting
+  rung1 would legally re-land at `shown` with +4 prose-priced inputs before any ruling; and
+  CHARTER section-4's premature-graduation clause sits in direct textual tension with any such
+  re-promotion while the fourth input's discharge computation stays open.
 TITLE: is `shown` right for a node whose inputs are priced in prose rather than wired as edges?
 QUESTION: rung1_inin_action stands at tier `shown` with ledger_delta 4 -- the system/bath split,
   the Gaussian/linear-response truncation, the background Lorentzian causal structure, and the
