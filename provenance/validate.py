@@ -103,7 +103,7 @@ def main():
               f"+{wt} of the net sits behind {len(waived)} waivers:")
         for cid, d in waived:
             print(f"    +{d}  {cid}")
-        print("  A waiver is a DECLARED STANCE, not an exemption from arithmetic -- the +8 is in "
+        print(f"  A waiver is a DECLARED STANCE, not an exemption from arithmetic -- the +{wt} is in "
               "the net\n  because the register says so openly, and this line exists so that fact "
               "sits on the gate's\n  own face rather than being discoverable only by audit.")
     print("\nPASS: every claim tiered, sourced, falsifiable; laundering DISCIPLINE enforced "

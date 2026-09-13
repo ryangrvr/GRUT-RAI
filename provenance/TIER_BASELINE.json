@@ -1,0 +1,145 @@
+{
+ "_comment": "TIER PROVENANCE BASELINE + CHANGELOG. Why this file exists: commit 67059a8 moved EIGHT nodes shown -> derived-pending inside a commit titled 'R1/R2 complete + format pass' -- zero in-commit rationale, no tier_note change; the move was only reconstructed later by field-level git diff (see dc110ba's certificate and P1A_EDGE_ADJUDICATION_01). test_tier_provenance.py asserts the register's tiers (and node set) exactly match `baseline`; ANY tier change, node addition, or node removal therefore requires editing this file in the same commit -- updating `baseline` AND appending a `changelog` entry with date, authority, and rationale. A tier change without its changelog entry is the 67059a8 defect, and the suite now names it. Entries are APPEND-ONLY (history is never rewritten; git guards the rest). Inception 2026-09-13 at HEAD e76953a; earlier history lives in git and the three seed entries below record what is already reconstructed.",
+ "baseline": {
+  "rung1_inin_formalism": "derived-pending",
+  "rung1_ontology_finite_memory": "assumed",
+  "rung2_kms_gate": "derived-pending",
+  "rung3_single_pole": "derived-pending",
+  "rung4_love_kk": "derived-pending",
+  "rung5_gr_limit": "assumed",
+  "rung6_qm_limit": "assumed",
+  "rung7_wz": "to-derive",
+  "rung8_falsifier": "to-derive",
+  "rung9a_value": "shown",
+  "rung9b_bridge": "assumed",
+  "arrow_of_time": "assumed",
+  "mu_linear": "derived-pending",
+  "p_tt_ansatz": "assumed",
+  "founding_h1_zeta_casimir": "shown",
+  "founding_h2_R_zeta_bridge": "to-derive",
+  "founding_h3_doubleslit_anchor": "to-derive",
+  "info_i1_renorm_as_information": "derived-pending",
+  "info_i2_beyond_standard_bridge": "to-derive",
+  "info_i3_distinct_consequence": "to-derive",
+  "l0_r1_redundancy_exists": "shown",
+  "l0_r2_exact_unique_breaker": "to-derive",
+  "l0_r3_payoff_mu_linear": "to-derive",
+  "rung7_w1_wz_map": "derived-pending",
+  "rung7_w2_wa_sign": "to-derive",
+  "rung7_w3_nocrossing_export": "to-derive",
+  "method_novelty": "to-derive",
+  "u1_form_universality": "derived-pending",
+  "u2_kernel_universality": "to-derive",
+  "u3_split_origin": "to-derive",
+  "u4_constitutive_origin": "to-derive",
+  "u5_constitutive_phases": "to-derive",
+  "u6_constitutive_order": "to-derive",
+  "born_rule": "assumed",
+  "entropy_area_unruh": "assumed",
+  "past_hypothesis": "assumed",
+  "lambda_undetermined": "to-derive",
+  "eft_operator_basis": "to-derive",
+  "zeta_interior_family": "to-derive",
+  "passivity_channel_diagonal": "derived-pending",
+  "x_no_pin_theorem": "derived-pending",
+  "kk_static_transfer": "derived-pending",
+  "linear_response_viscoelastic": "assumed",
+  "relativistic_hydro_israel_stewart": "assumed",
+  "analogue_gravity_acoustic": "assumed",
+  "superfluid_bec_media": "assumed",
+  "entropy_foundations": "assumed",
+  "fluctuation_theorems": "assumed",
+  "second_law_h_theorem": "assumed",
+  "vc_rho_lambda": "measured",
+  "vc_v_ew": "measured",
+  "vc_m_planck": "measured",
+  "vc_vacuum_energy_gravitates": "postulate",
+  "vc_lorentz_invariant_vacuum": "postulate",
+  "vc_semiclassical_sourcing": "postulate",
+  "vc_heavy_thresholds_exist": "postulate",
+  "vc_eft_validity": "postulate",
+  "vc_ir_gravity_is_gr": "postulate",
+  "vc_naturalness_normative": "heuristic",
+  "vc_typicality_measure": "heuristic",
+  "vc_w_equals_minus_one": "open",
+  "vc_grut_relation": "open",
+  "vc_state_expectation_functional": "postulate",
+  "vc_mean_field_sourcing": "postulate",
+  "vc_eft_decoupling": "postulate",
+  "vc_eft_vacuum_operator": "postulate",
+  "vc_universal_metric_coupling": "postulate",
+  "vc_gravitational_uv_ceiling": "postulate",
+  "vc_flatness_in_reduction": "postulate",
+  "vc_averaging_commutes": "postulate",
+  "emergence_chain": "to-derive",
+  "background_time_translation_flow": "assumed",
+  "response_lorentz_covariance": "shown",
+  "kr_contract_retarded_tier4": "derived-pending"
+ },
+ "changelog": [
+  {
+   "date": "2026-08-24",
+   "commit": "8e64588",
+   "authority": "owner go (retire clause on the node itself)",
+   "changes": {
+    "response_lorentz_covariance": [
+     "assumed",
+     "shown"
+    ]
+   },
+   "rationale": "+1 retired: assumed->shown per the node's own retire clause; NET +17 -> +16."
+  },
+  {
+   "date": "2026-08-30",
+   "commit": "d5e9a99",
+   "authority": "owner relay (T4 bank gate)",
+   "changes": {
+    "kr_contract_retarded_tier4": [
+     null,
+     "shown"
+    ]
+   },
+   "rationale": "Node ADDED at tier shown via its own bank gate; GRUT count 52 -> 53; net unchanged."
+  },
+  {
+   "date": "2026-09-13 (recorded; the change itself landed in the testing-line commit 67059a8 with ZERO in-commit rationale -- the defect this file exists to prevent)",
+   "commit": "67059a8",
+   "authority": "P1A_EDGE_ADJUDICATION_01 (2026-09-13) ruled the demotions legitimately reachable under the represented dependency graph; the execution's paperwork remains unblessed, as disclosed on dc110ba",
+   "changes": {
+    "rung1_inin_formalism": [
+     "shown",
+     "derived-pending"
+    ],
+    "rung2_kms_gate": [
+     "shown",
+     "derived-pending"
+    ],
+    "rung4_love_kk": [
+     "shown",
+     "derived-pending"
+    ],
+    "kr_contract_retarded_tier4": [
+     "shown",
+     "derived-pending"
+    ],
+    "passivity_channel_diagonal": [
+     "shown",
+     "derived-pending"
+    ],
+    "u1_form_universality": [
+     "shown",
+     "derived-pending"
+    ],
+    "rung7_w1_wz_map": [
+     "shown",
+     "derived-pending"
+    ],
+    "info_i1_renorm_as_information": [
+     "shown",
+     "derived-pending"
+    ]
+   },
+   "rationale": "Honest tier propagation: eight nodes shown -> derived-pending, cascaded from background_time_translation_flow (assumed) through the R5 edges; fixed point verified (zero RESULT-on-OPEN violations, none over-demoted)."
+  }
+ ]
+}
