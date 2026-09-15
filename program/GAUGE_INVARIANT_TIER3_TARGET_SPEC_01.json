@@ -1,0 +1,654 @@
+{
+ "artifact": "GAUGE_INVARIANT_TIER3_TARGET_SPEC_01 (companion verification record)",
+ "date": "2026-09-16",
+ "status": "TARGET SPECIFICATION awaiting owner ratification; NO computation authorized",
+ "audit_1_first_draft": {
+  "verdict": "NOT_SOURCE_FAITHFUL",
+  "note": "draft called the graviton loop's working gauge UNDERDEFINED and D4 'never executed' by quoting the pre-ruling charter as current while K_R_CONTRACT_OWNER_RULING (D2=2a, D3=3a), WALL_KR_D3III_OWNER_RULING and three WALL_KR_D4_* records existed on disk -- the freeze-against-vocabulary failure, third instance, caught by the verifier",
+  "report": {
+   "checks": [
+    {
+     "claim": "§0 item 1: \"the constant TT mode is L_ζg with ζ^i = ε^i_j x^j/2 on any patch\"",
+     "file": "program/WALL_A_REDUCTION_01.md",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "All of the IR-divergent weight of O_flat's TT-gauge BD legs restricted to any patch is the constant TT mode ... and that mode is EXACTLY a linearized diffeomorphism, L_ζ g for ζ^i = ε_ij x^j/2 (all components, computed), Killing-time independent (ω_T = 0), pure l = 2 polar, regular on r < 1/H."
+    },
+    {
+     "claim": "§0 item 2: \"Power class: additionally tied to k_ext = 0 exactly (the slice-wide locus where \"patch-local\" stops applying; ζ grows linearly)\"",
+     "file": "program/WALL_A_REDUCTION_01.md",
+     "classification": "HYPOTHESIS-UNLABELED",
+     "actual_text": "The noise q⁻² POWER class (α = −2, coefficient 4ω⁴/15) requires k_ext = 0 EXACTLY. -- The parenthetical (slice-wide locus where patch-local stops applying; ζ grows linearly) is nowhere in the source; the JSON says only 'with a gauge parameter bounded on the patch'."
+    },
+    {
+     "claim": "§0 item 3: \"Log class: persists under every tested projection\"",
+     "file": "program/WALL_A_REDUCTION_01.md",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "The retarded q⁻¹ LOG class (α = −1) does NOT require k_ext = 0. It persists at every k_ext ≠ 0 ... and under every localized window of every width ... LOG (α = −1): locus-INDEPENDENT"
+    },
+    {
+     "claim": "§0 item 4: \"V₀ ≠ 0 at loop level: unresolved\" and §4 \"V₀ = 8ω⁴/15 ≠ 0\"",
+     "file": "program/WALL_A_REDUCTION_01.md",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "the ν-bare vertex coupling V₀ = 8ω⁴/15 ≠ 0 ... V₀ ≠ 0 is loop-level with its gauge status undecided — Ward repair fenced, T3-8 records the loop non-transverse"
+    },
+    {
+     "claim": "(1) §1(a): wall_a4_response_flat.py (A4-1): \"delta_e(X)_mu nu = i (K_mu X_nu + K_nu X_mu), K_mu = (omega, 0, 0, -k)\"",
+     "file": "PHYSICS_LEDGER/wall_a4_response_flat.py",
+     "classification": "VERBATIM",
+     "actual_text": "line 210: #     delta_e(X)_mu nu = i (K_mu X_nu + K_nu X_mu),  K_mu = (omega, 0, 0, -k) ; line 212: Klo = [om, 0, 0, -kk]"
+    },
+    {
+     "claim": "§1(a): \"At K = 0 the map is zero for every X\" and \"in momentum space a derivative of δ(k), not a plane wave at any K — so it is not in the image of A4's orbit family for any X\"",
+     "file": "PHYSICS_LEDGER/wall_a4_response_flat.py",
+     "classification": "HYPOTHESIS-UNLABELED",
+     "actual_text": "Not stated in the source. The first clause is arithmetic on the quoted formula; the δ'(k)/non-membership clause is the document's inference. Nearest source text (line 237-240): 'consistent with Declaration 5's residual family (zeta^0 = C(x)/a + static spatial maps) being zero-frequency only, hence empty at omega != 0'."
+    },
+    {
+     "claim": "(2) §1(a): WALL_A4_RESPONSE_DRESSED_RESULT.json: \"the orbit cannot move ANY TT amplitude at ANY order in H (K-terms cannot reach the transverse block …)\"",
+     "file": "PHYSICS_LEDGER/WALL_A4_RESPONSE_DRESSED_RESULT.json",
+     "classification": "VERBATIM",
+     "actual_text": "=> the orbit cannot move ANY TT amplitude at ANY order in H (K-terms cannot reach the transverse block; eta-terms shift e11 and e22 equally and cancel in the traceless combination; the u-carrying term is eta-direction too). Route-B TT == route-A TT as an OPERATOR IDENTITY through O(H^2)"
+    },
+    {
+     "claim": "§1(a): \"robustness by structural blindness of the plane-wave family to TT, not by invariance under all diffeomorphisms\"",
+     "file": "PHYSICS_LEDGER/WALL_A4_RESPONSE_DRESSED_RESULT.json",
+     "classification": "HYPOTHESIS-UNLABELED",
+     "actual_text": "Editorial characterization; the source says 'Route-B TT == route-A TT as an OPERATOR IDENTITY through O(H^2); the A3-4 TT verdicts ... are therefore GAUGE-ROBUST at every adjudicated order, by proof rather than re-evaluation.'"
+    },
+    {
+     "claim": "(3) §1(b): \"The full residual family preserving synchronous gauge (δg₀₀ = δg₀ᵢ = 0) is: ζ⁰ = C(x)/a(η), ζ_i = C_i(x) − (∂_i C)·Ia(η)\" attributed to WALL_A_A3_DECLARATIONS.md as amended by V2",
+     "file": "PHYSICS_LEDGER/WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md",
+     "classification": "MISATTRIBUTED",
+     "actual_text": "(In the V2 amendment file, not the parent file named) 'The full residual family preserving synchronous gauge (δg₀₀ = δg₀ᵢ = 0) is:  ζ⁰ = C(x)/a(η) ; ζ_i = C_i(x) − (∂_i C) · Ia(η), Ia′(η) = 1/a(η)'. Text is verbatim (Ia′ definition dropped); file attribution imprecise."
+    },
+    {
+     "claim": "(3) §1(b): \"The fixing prescription … asymptotic coincidence with the unfixed computation at η → −∞ kills the entire C-sector … and fixes the C_i.\"",
+     "file": "PHYSICS_LEDGER/WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md",
+     "classification": "VERBATIM",
+     "actual_text": "**The fixing prescription is unchanged and still suffices**: asymptotic coincidence with the unfixed computation at η → −∞ kills the entire C-sector (both ζ⁰ = C/a and its coupled −(∂_iC)·Ia piece; e.g. on the de Sitter chart a = −1/(Hη) both grow without bound as η → −∞) and fixes the C_i. -- Both 'fixes the C_i' and 'asymptotic coincidence ... at η → −∞' ARE the amendment's words. Note the first ellipsis elides 'is unchanged and still suffices', the source's own sufficiency claim."
+    },
+    {
+     "claim": "(3) §1(b): \"the frozen protocol removes BY DECLARATION\" / \"by declaration, not derivation\"",
+     "file": "PHYSICS_LEDGER/WALL_A_A3_DECLARATIONS.md",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "it is fixed by the declared prescription that the synchronous coordinates coincide with the unfixed-computation coordinates asymptotically as η → −∞ (the BD asymptotic region), which removes both C(x) and the spatial freedom."
+    },
+    {
+     "claim": "(3) §1(b): \"(iii) with a prescription whose action on a mode that does not decay at η → −∞ is \"coincide by fiat.\"\"",
+     "file": "PHYSICS_LEDGER/WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md",
+     "classification": "NOT_FOUND",
+     "actual_text": "'coincide by fiat' appears in no source file. The amendment gives a mechanism for the C-sector only ('both grow without bound as η → −∞') and asserts 'and fixes the C_i' with no mechanism; 'does not decay' is the document's inference about a time-independent C_i(x). The characterization is an EDITORIAL GLOSS (arguable in substance, but presented in quotation marks as if quoted)."
+    },
+    {
+     "claim": "(8) §1(b): \"A time-independent spatial reparametrization C_i(x) = ε_ij x^j/2 is exactly this family's C_i member (C = 0)\" and §2/§3 R₂ \"of which ζ_i = ε_ij x^j/2 is the constant member\"",
+     "file": "PHYSICS_LEDGER/WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md",
+     "classification": "HYPOTHESIS-UNLABELED",
+     "actual_text": "No source connects ζ^i = ε_ij x^j/2 (WALL_A_REDUCTION_01) to Declaration 5's C_i(x). The amendment says only 'The parameter count (one C, three C_i, all functions of x only)'. Membership is a reading the sources permit (a linear function of x is a function of x only) but never state; it is the document's inference and must be labeled a hypothesis."
+    },
+    {
+     "claim": "§1(b): \"The corpus therefore already classifies the constant-TT generator — as residual gauge removed by an asymptotic-coincidence boundary condition\"",
+     "file": "PHYSICS_LEDGER/WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md",
+     "classification": "HYPOTHESIS-UNLABELED",
+     "actual_text": "The corpus never mentions the constant-TT generator in connection with Declaration 5; this classification is derived from the unlabeled membership hypothesis above."
+    },
+    {
+     "claim": "(4) §1(c): wall_kr_tier3_loop.py T3-8: \"gauge image at k_ext = 0: e_mn = i(p_m X_n + p_n X_m), p=(w,0)\" — time-row images only, vanishing at ω = 0",
+     "file": "PHYSICS_LEDGER/wall_kr_tier3_loop.py",
+     "classification": "VERBATIM",
+     "actual_text": "line 238-240: # gauge image at k_ext = 0: e_mn = i(p_m X_n + p_n X_m), p=(w,0):  \"ward\": {\"e1_00\": 2 * sp.I * wsym * X0, \"e1_01\": sp.I * wsym * X1, \"e1_02\": sp.I * wsym * X2, \"e1_03\": sp.I * wsym * X3} -- dict has exactly the four time-row entries, each proportional to omega; the reading is correct."
+    },
+    {
+     "claim": "(4) §1(c): WALL_KR_TIER3_LOOP_VERDICT.md: \"The gauge-image external contraction of the H⁰ loop is nonzero at k_ext = 0 … the Class-B structure has a graviton-loop analogue\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_TIER3_LOOP_VERDICT.md",
+     "classification": "VERBATIM",
+     "actual_text": "The gauge-image external contraction of the H⁰ loop is **nonzero** at k_ext = 0 (recorded in the artifact): the Class-B structure has a graviton-loop analogue. No patch applied, no target imported from the matter-sector residual; classification deferred per the charter."
+    },
+    {
+     "claim": "§1(c): \"The Tier-3 side's only executed gauge diagnostic is likewise blind to the mode\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_DUAL_GAUGE_AUDIT.md",
+     "classification": "DISTORTED",
+     "actual_text": "'only' is false on the record: WALL_KR_D4_DUAL_GAUGE_AUDIT.md (2026-09-02): 'The dS computation (frozen Tier-1 dS vertex; TT probe ⊗ gauge-image internal slot ⊗ TT-projected internal slot; loop kinematics p₁ = (ω,0), p₂,₃ = (ν, ±q n̂)): NONZERO at H⁰, H¹ and H²' and Part 1 'P^TT [ i(k_i ξ_j + k_j ξ_i) + λ δ_ij ] = 0 identically' for arbitrary direction k; followed by WALL_KR_D4_KTERM_COMPLETION.md (KTERM-A) and WALL_KR_D4_RE_ADJUDICATION.md (D4-A)."
+    },
+    {
+     "claim": "§1(c): \"a non-transversality of the loop against ω ≠ 0 time-row images, a different question from the constant spatial TT mode\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_TIER3_LOOP_VERDICT.md",
+     "classification": "HYPOTHESIS-UNLABELED",
+     "actual_text": "Editorial reading; the source says 'the Class-B structure has a graviton-loop analogue ... classification deferred per the charter'."
+    },
+    {
+     "claim": "(5) §1(d): K_R charter: \"(ii) the graviton-loop gauge-fixing/measure choice inside the TT-TT-TT sector (the frozen record fixes D4 as the CHECK but not the working gauge of the cubic-vertex loop)\"",
+     "file": "PHYSICS_LEDGER/K_R_CONTRACT_EXECUTION_CHARTER.md",
+     "classification": "VERBATIM",
+     "actual_text": "(ii) the graviton-loop gauge-fixing/measure choice inside the TT-TT-TT sector (the frozen record fixes D4 as the CHECK but not the working gauge of the cubic-vertex loop) -- but the preceding header reads 'UNDERDEFINED (owner-resolved before Tier 1; carried from the owner charter, unchanged)'."
+    },
+    {
+     "claim": "§1(d) heading: \"The graviton loop's working gauge is UNDERDEFINED on the record\"",
+     "file": "PHYSICS_LEDGER/K_R_CONTRACT_OWNER_RULING.md",
+     "classification": "DISTORTED",
+     "actual_text": "Stale. K_R_CONTRACT_OWNER_RULING.md §3: 'D2 — working gauge: **OPTION 2a — gauge-UNFIXED, orbit-tracked.** ... D4 therefore runs **verbatim as frozen** (unfixed vs synchronous).' Countersigned: WALL_KR_TIER1_VERTEX_RESULT.json line 3: '\"declarations\": \"D1=1a, D2=2a, D3=3a (countersigned d5dc33b)\"'; wall_kr_tier1_vertex.py: 'FULL h (10 comps, D2=2a unfixed)'."
+    },
+    {
+     "claim": "(5) §1(d): \"D4 dual-gauge | REQUIRED, NOT YET EXECUTED at this level\" and the heading \"its dual-gauge check was never executed\"",
+     "file": "PHYSICS_LEDGER/K_R_CONTRACT_EXECUTION_CHARTER.md",
+     "classification": "DISTORTED",
+     "actual_text": "Charter row is verbatim: '| D4 dual-gauge | **REQUIRED, NOT YET EXECUTED** at this level (protocol frozen; A4 machinery reusable as template) |' — but it is the pre-execution charter. At HEAD the record contains WALL_KR_D4_DUAL_GAUGE_AUDIT.md (2026-09-02, 'CLASSIFICATION: D4-C — INDETERMINATE AT THIS RUN'S EXECUTABLE LEVEL', battery 24/24), WALL_KR_D4_KTERM_COMPLETION.md ('CLASSIFICATION: KTERM-A ... The internal-line requirement PASSES'), and WALL_KR_D4_RE_ADJUDICATION.md ('CLASSIFICATION: D4-A — ALL REGISTERED D4 CONDITIONS SATISFIED for the declared consequence-scope object'). 'never executed' is false."
+    },
+    {
+     "claim": "(5) §1(d): STEP 4-D \"the A4 response-level machinery (orbit formula, synchronous solver, trace-cancellation theorem) re-derived for the graviton loop\" described as 'names the plan'",
+     "file": "PHYSICS_LEDGER/K_R_CONTRACT_EXECUTION_CHARTER.md",
+     "classification": "VERBATIM",
+     "actual_text": "- **D. D4:** the A4 response-level machinery (orbit formula, synchronous solver, trace-cancellation theorem) re-derived for the graviton loop — agreement of TT content between gauges as an operator identity where provable, exact symbolic check where not. -- Quote exact; 'names the plan' is stale: WALL_KR_D4_KTERM_COMPLETION.md reports executing 'exactly the charter's gate D as written'."
+    },
+    {
+     "claim": "(5) §3 D: \"the graviton-sector analogue must be declared, not assumed\" — K_R charter STEP 1 (iii), \"still open on the record\"",
+     "file": "PHYSICS_LEDGER/K_R_CONTRACT_EXECUTION_CHARTER.md",
+     "classification": "DISTORTED",
+     "actual_text": "Quote is verbatim: '(iii) the de Sitter state prescription for the massless graviton bath at the loop level (BD for the matter scalar was declared; the graviton-sector analogue must be declared, not assumed).' 'still open' is false: K_R_CONTRACT_OWNER_RULING.md §4 'D3 — bath state + IR: OPTION 3a — BD-analogue Option-B adiabatic' (countersigned d5dc33b) and WALL_KR_D3III_OWNER_RULING.md: 'The prior D3 ruling (Tier-2) already declared the bath state as Option 3a ... This ruling extends that same declared object to the consequence campaign's gauge scope'. The document itself says '(declared, ...)' in the same sentence — internally contradictory."
+    },
+    {
+     "claim": "(5) §2: STEP 10 \"No parameter, pole location, spectral behavior, sign-magnitude, or analytic-structure conclusion transfers\" and \"VALIDATED MACHINERY\"",
+     "file": "PHYSICS_LEDGER/K_R_CONTRACT_EXECUTION_CHARTER.md",
+     "classification": "VERBATIM",
+     "actual_text": "No parameter, pole location, spectral behavior, sign-magnitude, or analytic-structure conclusion transfers between the two objects — the only things that carry are VALIDATED MACHINERY (evaluators, continuation discipline, gates) and the sign DICTIONARY"
+    },
+    {
+     "claim": "(6) §1(d): \"The Tier-3 instrument's internal legs are declared only as 'internal slots are TT bath: time rows vanish.'\"",
+     "file": "PHYSICS_LEDGER/wall_kr_tier3_loop.py",
+     "classification": "DISTORTED",
+     "actual_text": "Comment is verbatim (line 246: '# internal slots are TT bath: time rows vanish'), but 'declared only as' is false: line 169 'e2,e3 -> internal TT bath slots (time rows -> 0)', line 175 'tensor rule <h h> = P^TT x W (frozen declaration)', line 284 'with internal slots TT-spatial', plus the D3/Option-3a ruling and WALL_KR_D3III_OWNER_RULING.md declare the internal-leg object."
+    },
+    {
+     "claim": "(7) §1(e): WALL_A4_RESPONSE_FLAT_RESULT.json scalar-sector \"NOT invariant under the scalar orbit … classified as FINDING; NOT repaired\"",
+     "file": "PHYSICS_LEDGER/WALL_A4_RESPONSE_FLAT_RESULT.json",
+     "classification": "VERBATIM",
+     "actual_text": "A4-2: nonlocal scalar-sector response is NOT invariant under the scalar orbit (X0, X3 symbolic) -- orbit-sensitive scalar content, classified as FINDING; NOT repaired"
+    },
+    {
+     "claim": "(7) §1(e): difference localization \"TT-physical ZERO (proven), scalar NONZERO, remainder … 411 nonlocal difference terms … unresolved for the owner.\"",
+     "file": "PHYSICS_LEDGER/WALL_A4_RESPONSE_FLAT_RESULT.json",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "Spliced from two passages: 'A4-5: Sigma_B - Sigma_A carries 411 NONLOCAL terms -- decomposed: TT-physical ZERO (proven), scalar NONZERO, remainder recorded as orbit-equivalent/unresolved for the owner' and difference_localization: {\"TT_physical\": \"ZERO (proven: the orbit cannot reach the transverse block; route TT ops identical)\", \"scalar_Bardeen\": \"NONZERO -- see A4-2 FINDING\", \"unresolved\": \"411 nonlocal difference terms\"}. The 411 count is the whole nonlocal difference in one passage and the 'unresolved' field in the other; 'orbit-equivalent/' dropped."
+    },
+    {
+     "claim": "(7) §1(e): WALL_A_A4_STAGE.md \"L1(δ_ζh) = E·(ζ·∂φ) − ∂_mV^m identically in (φ, ζ, a(η))\"",
+     "file": "PHYSICS_LEDGER/WALL_A_A4_STAGE.md",
+     "classification": "VERBATIM",
+     "actual_text": "line 38: L1(δ_ζh) = E·(ζ·∂φ) − ∂_mV^m identically in (φ, ζ, a(η)), with E the Euler–Lagrange expression of L0"
+    },
+    {
+     "claim": "(7) §1(e): V2 amendment \"steps 4–5 hold for arbitrary ζ\"",
+     "file": "PHYSICS_LEDGER/WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md",
+     "classification": "VERBATIM",
+     "actual_text": "and — critically — that steps 4–5 hold for **arbitrary** ζ, so the gauge-invariant-content conclusion of A4 is untouched by this error."
+    },
+    {
+     "claim": "§1(e): the invariance identity \"is the one A4 result that is not plane-wave-bound\"",
+     "file": "PHYSICS_LEDGER/WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md",
+     "classification": "DISTORTED",
+     "actual_text": "Source scope is broader: 'Unaffected: every A4 physics conclusion (slice equality, invariance identity, TT blindness, plants, guard), because they hold for arbitrary ζ'; WALL_A_A4_STAGE.md fact 4: 'TT blindness: the spatial-TT projection of the orbit direction vanishes for arbitrary (ζ, a′/a, k)'. Singling out the identity as 'the one' contradicts the amendment's own list."
+    },
+    {
+     "claim": "§3 O: \"the A3-4 matter object (different diagram, A34_CONTRACT_DIFFERENTIAL_01)\"",
+     "file": "program/A34_CONTRACT_DIFFERENTIAL_01.md",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "The frozen A3-4 TT response and the frozen Tier-3 contract loop are **two different one-loop diagrams**, not one physical content in two representations."
+    },
+    {
+     "claim": "§3 L / §5: \"Wall-A showed these are inequivalent for the power class and equivalent for the log class\"",
+     "file": "program/WALL_A_REDUCTION_01.md",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "R: projection equivalence under horizon-localized TT l = 2 windows: HOLDS for the log class (continuously related coefficients); FAILS for the power class."
+    },
+    {
+     "claim": "§4: \"Wall-A's finding that the master variable is blind to the constant mode is a free-leg statement\"",
+     "file": "program/WALL_A_REDUCTION_01.md",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "O_static on the record is a *free* classical scattering object — no state, no loop ... 'Two kernels' is therefore a statement about field variables and their coupling (exact at the free-leg level; V₀ ≠ 0 is loop-level with its gauge status undecided"
+    },
+    {
+     "claim": "§4: \"The frozen T3-1 criterion (Laurent exponent of the angular-averaged radial integrand, both combinations)\"",
+     "file": "PHYSICS_LEDGER/wall_kr_tier3_loop.py",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "for each H sector, the small-q Laurent exponent alpha of the exact angular-averaged radial integrand (measure q^{d-1} at d = 3; ...) of BOTH combinations: the retarded difference Sigma_> - Sigma_< AND the noise sum Sigma_> + Sigma_<"
+    },
+    {
+     "claim": "§3 D: \"Exact dS in the conformal chart a = 1/(1−Hu)\"; \"dimensional continuation with NO IR scale\"",
+     "file": "program/WALL_A_REDUCTION_01.md",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "D: flat-slicing conformal chart a = 1/(1−Hu), BD at η → −∞ ; K_R_CONTRACT_OWNER_RULING.md: 'IR: dimensional continuation ONLY; NO explicit IR scale.'"
+    },
+    {
+     "claim": "Footer: \"Every quotation verified against the file by an independent read-only pass before this document was committed (see the verification record in the companion .json)\"",
+     "file": "program/GAUGE_INVARIANT_TIER3_TARGET_SPEC_01.json",
+     "classification": "NOT_FOUND",
+     "actual_text": "No companion .json exists in program/ (ls program | grep GAUGE_INVARIANT returns only the .md). The claim refers to a nonexistent record."
+    },
+    {
+     "claim": "§3 R₂: \"TT-gauge residual transformations — time-independent spatial reparametrizations ζ_i(x) with ∂_(i ζ_j) transverse-traceless\" and \"slice-wide, it is a large diffeomorphism whose status IS the boundary condition\"",
+     "file": "(no source)",
+     "classification": "HYPOTHESIS-UNLABELED",
+     "actual_text": "Construction proposed by the document; no frozen source defines a TT-gauge residual family or calls the constant member a 'large diffeomorphism'."
+    }
+   ],
+   "unlabeled_assertions": [
+    "§0 item 2 parenthetical: '(the slice-wide locus where \"patch-local\" stops applying; ζ grows linearly)' — not in WALL_A_REDUCTION_01; inference from ζ ∝ x.",
+    "§1(a): 'At K = 0 the map is zero for every X' and 'in momentum space a derivative of δ(k), not a plane wave at any K — so it is not in the image of A4's orbit family for any X' — arithmetic/inference on the quoted formula, unlabeled.",
+    "§1(a): 'robustness by structural blindness of the plane-wave family to TT, not by invariance under all diffeomorphisms' — editorial reading of the DRESSED_RESULT note.",
+    "§1(b): 'A time-independent spatial reparametrization C_i(x) = ε_ij x^j/2 is exactly this family's C_i member (C = 0)' — no source connects the Wall-A generator to Declaration 5's C_i; hypothesis.",
+    "§1(b): 'The corpus therefore already classifies the constant-TT generator — as residual gauge removed by an asymptotic-coincidence boundary condition' — depends on the preceding unlabeled hypothesis.",
+    "§1(b): '\"coincide by fiat\"' — in quotation marks, appears in no source; editorial gloss on the amendment's unexplained 'and fixes the C_i'.",
+    "§1(c): 'The Tier-3 side's only executed gauge diagnostic' — false: D4 dual-gauge audit, K-term completion and re-adjudication (2026-09-02) exist on the record.",
+    "§1(c): 'a non-transversality of the loop against ω ≠ 0 time-row images, a different question from the constant spatial TT mode' — editorial reading.",
+    "§1(d) heading: 'The graviton loop's working gauge is UNDERDEFINED on the record, and its dual-gauge check was never executed' — both halves contradicted by K_R_CONTRACT_OWNER_RULING.md (D2 = 2a, countersigned d5dc33b) and the three WALL_KR_D4_* records.",
+    "§1(d): 'STEP 4-D names the plan' — the plan was executed (WALL_KR_D4_KTERM_COMPLETION.md: 'exactly the charter's gate D as written').",
+    "§1(d): 'The Tier-3 instrument's internal legs are declared only as ...' — 'only' contradicted by lines 169/175/284 of wall_kr_tier3_loop.py and the D3/D3(iii) rulings.",
+    "§1(e): 'which is the one A4 result that is not plane-wave-bound' — the amendment lists every A4 physics conclusion as holding for arbitrary ζ.",
+    "§2: 'the executed Tier-3 image family is time-row-only and vanishes at ω = 0' as the whole of the executed record — omits the D4 record's arbitrary-direction operator identity, which explicitly claims to cover 'the corrected synchronous residual class'.",
+    "§3 D: 'K_R charter STEP 1 (iii), still open on the record' — filled by D3 = 3a (countersigned) and WALL_KR_D3III_OWNER_RULING.md; the same sentence says '(declared ...)'.",
+    "§3 R₂: the TT-gauge residual family definition and 'a large diffeomorphism whose status IS the boundary condition' — document construction, unlabeled.",
+    "§4: 'the flat-slicing analogue must be constructed' — proposal, unlabeled as such.",
+    "Footer: 'see the verification record in the companion .json' — no such file exists.",
+    "Line 4-5 and §5: owner quotations ('read A4 first, then write the charter'; 'the owner's six, verbatim in substance') are attributed to an owner message, not a file — unverifiable here; noted, not faulted."
+   ],
+   "required_corrections": [
+    {
+     "old": "**(d) The graviton loop's working gauge is UNDERDEFINED on the record, and its\ndual-gauge check was never executed.**",
+     "new": "**(d) The graviton loop's working gauge was ruled (D2 = 2a, gauge-UNFIXED, orbit-tracked; `K_R_CONTRACT_OWNER_RULING.md` §3, countersigned d5dc33b per `WALL_KR_TIER1_VERTEX_RESULT.json`), and the D4 dual-gauge check WAS executed on the graviton loop on 2026-09-02: `WALL_KR_D4_DUAL_GAUGE_AUDIT.md` (*\"D4-C — INDETERMINATE AT THIS RUN'S EXECUTABLE LEVEL\"*), `WALL_KR_D4_KTERM_COMPLETION.md` (*\"KTERM-A ... The internal-line requirement PASSES\"*), `WALL_KR_D4_RE_ADJUDICATION.md` (*\"D4-A — ALL REGISTERED D4 CONDITIONS SATISFIED for the declared consequence-scope object\"*). Its operator identity is again a plane-wave statement — *\"P^TT [ i(k_i ξ_j + k_j ξ_i) + λ δ_ij ] = 0 identically\"* for *\"arbitrary direction k\"* — and the record claims it covers *\"the corrected synchronous residual class (xi^0 = C(x)/a with time-independent xi^i is a special case of the arbitrary (xi, lambda) just annihilated)\"* (`wall_kr_d4_dual_gauge.py`). HYPOTHESIS (this document's): that coverage is at fixed plane-wave k and does not reach the k = 0, ζ ∝ x generator.**",
+     "reason": "Both halves of the heading are false at HEAD f108100: the charter text quoted is the pre-ruling, pre-execution state. The D2/D3 rulings and three D4 records exist and are frozen. This is precisely the 'plausible-but-false characterization of a frozen object' class the rule targets, and it is load-bearing for Gate A."
+    },
+    {
+     "old": "`K_R_CONTRACT_EXECUTION_CHARTER.md`: *\"(ii) the\ngraviton-loop gauge-fixing/measure choice inside the TT-TT-TT sector (the frozen record\nfixes D4 as the CHECK but not the working gauge of the cubic-vertex loop)\"* and *\"D4\ndual-gauge | REQUIRED, NOT YET EXECUTED at this level\"*; STEP 4-D names the plan:",
+     "new": "`K_R_CONTRACT_EXECUTION_CHARTER.md` (pre-ruling charter, since superseded on both points by the owner ruling and the D4 execution above) listed *\"(ii) the graviton-loop gauge-fixing/measure choice inside the TT-TT-TT sector (the frozen record fixes D4 as the CHECK but not the working gauge of the cubic-vertex loop)\"* under *\"UNDERDEFINED (owner-resolved before Tier 1 ...)\"* and *\"D4 dual-gauge | REQUIRED, NOT YET EXECUTED at this level\"*; STEP 4-D named the plan that `WALL_KR_D4_KTERM_COMPLETION.md` reports executing (*\"exactly the charter's gate D as written\"*):",
+     "reason": "The quotations are verbatim but presented as the current record; the charter itself says 'owner-resolved before Tier 1' and the resolution plus execution are on file."
+    },
+    {
+     "old": "**(c) The Tier-3 side's only executed gauge diagnostic is likewise blind to the\nmode.**",
+     "new": "**(c) The Tier-3 loop's T3-8 Ward diagnostic (one of the executed gauge diagnostics; the D4 records are the others, §1d) is likewise blind to the mode [reading, not a source statement].**",
+     "reason": "'only' is contradicted by WALL_KR_D4_DUAL_GAUGE_AUDIT.md, WALL_KR_D4_KTERM_COMPLETION.md, WALL_KR_D4_RE_ADJUDICATION.md."
+    },
+    {
+     "old": "the BD/Option-3a state (declared, *\"the graviton-sector analogue must be\n  declared, not assumed\"* — K_R charter STEP 1 (iii), still open on the record);",
+     "new": "the BD/Option-3a state (declared: `K_R_CONTRACT_OWNER_RULING.md` §4 *\"OPTION 3a — BD-analogue Option-B adiabatic\"*, countersigned d5dc33b; extended to the gauge scope by `WALL_KR_D3III_OWNER_RULING.md`, which fills the charter's STEP 1 (iii) slot *\"the graviton-sector analogue must be declared, not assumed\"*; whether that declaration also covers the R-invariant internal legs of THIS target is the owner's — HYPOTHESIS: it does not automatically);",
+     "reason": "'still open on the record' is false and contradicts 'declared' in the same clause; the D3(iii) ruling explicitly fills the quoted slot."
+    },
+    {
+     "old": "(iii) with a prescription whose action on a mode that does not\ndecay at η → −∞ is \"coincide by fiat.\"**",
+     "new": "(iii) with a prescription whose action on the time-independent C_i is asserted without a stated mechanism — the amendment gives one only for the C-sector (*\"both grow without bound as η → −∞\"*) and then says *\"and fixes the C_i\"* [EDITORIAL GLOSS: this document reads that as fixing by declaration rather than by a decay/growth argument].**",
+     "reason": "'coincide by fiat' is in quotation marks but appears in no source; 'does not decay' is an inference. The amendment's own claim is that the prescription 'is unchanged and still suffices'. Label the gloss."
+    },
+    {
+     "old": "Declaration 5 (`WALL_A_A3_DECLARATIONS.md`,\nas amended by V2):",
+     "new": "Declaration 5 (v1 `WALL_A_A3_DECLARATIONS.md`, superseded on this clause by `WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md`, from which both quotations below are taken):",
+     "reason": "Both quoted passages live in the V2 amendment file, not in the parent file named."
+    },
+    {
+     "old": "*\"The fixing prescription …\nasymptotic coincidence with the unfixed computation at η → −∞ kills the entire C-sector\n… and fixes the C_i.\"*",
+     "new": "*\"The fixing prescription is unchanged and still suffices: asymptotic coincidence with the unfixed computation at η → −∞ kills the entire C-sector (both ζ⁰ = C/a and its coupled −(∂_iC)·Ia piece; e.g. on the de Sitter chart a = −1/(Hη) both grow without bound as η → −∞) and fixes the C_i.\"*",
+     "reason": "The ellipses remove the source's sufficiency claim and its stated mechanism, which are exactly the content the document's (iii) argues against; quote in full so the reader can judge."
+    },
+    {
+     "old": "A time-independent spatial reparametrization C_i(x) = ε_ij x^j/2\nis exactly this family's C_i member (C = 0). **The corpus therefore already classifies\nthe constant-TT generator",
+     "new": "HYPOTHESIS (this document's; no source states it): the Wall-A generator ζ^i = ε_ij x^j/2 (`WALL_A_REDUCTION_01.md`) is a member of this family's C_i(x) with C = 0, since the amendment's parameter count is *\"three C_i, all functions of x only\"* and a linear function of x is such a function. **If that hypothesis holds, the corpus implicitly classifies\nthe constant-TT generator",
+     "reason": "No frozen source connects the Wall-A generator to Declaration 5's residual family; the membership is the document's inference and must be labeled per the standing rule (item 8)."
+    },
+    {
+     "old": "— holds for **arbitrary ζ** (V2 amendment: *\"steps 4–5 hold\nfor arbitrary ζ\"*), which is the one A4 result that is not plane-wave-bound.",
+     "new": "— holds for **arbitrary ζ** (V2 amendment: *\"steps 4–5 hold for arbitrary ζ\"*; the amendment lists *\"every A4 physics conclusion (slice equality, invariance identity, TT blindness, plants, guard)\"* as holding for arbitrary ζ). HYPOTHESIS: the TT-blindness statement, though stated for *\"arbitrary (ζ, a′/a, k)\"* (`WALL_A_A4_STAGE.md`), is expressed in plane-wave form and so does not by itself reach the k = 0 generator; the invariance identity is the result stated without a k.",
+     "reason": "'the one A4 result' contradicts the amendment's scope statement; the document's actual point is a reading and should be labeled."
+    },
+    {
+     "old": "The Tier-3 instrument's internal legs are\ndeclared only as *\"internal slots are TT bath: time rows vanish.\"*",
+     "new": "The Tier-3 instrument's internal legs are declared as *\"internal slots are TT bath: time rows vanish\"* and *\"tensor rule <h h> = P^TT x W (frozen declaration)\"* (`wall_kr_tier3_loop.py`), under the D3 = 3a state ruling.",
+     "reason": "'only' is contradicted by the same file's tensor-rule declaration (line 175) and the D3 rulings."
+    },
+    {
+     "old": "2. Power class: additionally tied to k_ext = 0 exactly (the slice-wide locus where\n   \"patch-local\" stops applying; ζ grows linearly).",
+     "new": "2. Power class: additionally tied to k_ext = 0 exactly (*\"requires k_ext = 0 EXACTLY\"*). [Inference, not in the source: this is the slice-wide locus where the patch-bounded gauge parameter — *\"a gauge parameter bounded on the patch\"*, `WALL_A_REDUCTION_01.json` — grows linearly in x.]",
+     "reason": "The parenthetical is the document's gloss; the source speaks only of the parameter being bounded on the patch."
+    },
+    {
+     "old": "difference localization *\"TT-physical ZERO (proven), scalar NONZERO,\nremainder … 411 nonlocal difference terms … unresolved for the owner.\"*",
+     "new": "difference localization *\"Sigma_B - Sigma_A carries 411 NONLOCAL terms -- decomposed: TT-physical ZERO (proven), scalar NONZERO, remainder recorded as orbit-equivalent/unresolved for the owner\"*",
+     "reason": "The document's version splices two passages and drops 'orbit-equivalent/'; quote the single A4-5 check message verbatim."
+    },
+    {
+     "old": "At K = 0 the map is zero for every\nX. The constant TT mode's generator ζ^i = ε^i_j x^j/2 is linear in x — in momentum space\na derivative of δ(k), not a plane wave at any K — **so it is not in the image of A4's\norbit family for any X.**",
+     "new": "[Arithmetic on the quoted formula:] at K = 0 the map is zero for every X. [HYPOTHESIS, this document's:] the constant TT mode's generator ζ^i = ε^i_j x^j/2 is linear in x — in momentum space a derivative of δ(k), not a plane wave at any K — **so it is not in the image of A4's orbit family for any X.** (Consistent with, but not stated by, `wall_a4_response_flat.py`: *\"Declaration 5's residual family (zeta^0 = C(x)/a + static spatial maps) being zero-frequency only, hence empty at omega != 0\"*.)",
+     "reason": "These are inferences about a frozen object without a quotation or label."
+    },
+    {
+     "old": "Every quotation verified against the file by an\nindependent read-only pass before this document was committed (see the verification\nrecord in the companion .json).",
+     "new": "Every quotation checked against the file by an independent read-only pass before commit (verification record: GAUGE_INVARIANT_TIER3_TARGET_SPEC_01_VERIFICATION.json — to be written from that pass's report).",
+     "reason": "No companion .json exists in program/; the sentence asserts a record that is not on disk."
+    },
+    {
+     "old": "**Gate A therefore resolves, without computation, into the one decision that must\nprecede any loop work:**",
+     "new": "**Gate A therefore resolves, without computation — but only after the D4 record's claim that the operator identity covers *\"the corrected synchronous residual class\"* is engaged (§1d; this document's hypothesis is that it covers the plane-wave residuals, not the k = 0 generator) — into the one decision that must precede any loop work:**",
+     "reason": "Gate A's on-record answer omits an executed frozen record that speaks directly to the residual class; the owner must see it before ratifying."
+    }
+   ],
+   "verdict": "NOT_SOURCE_FAITHFUL"
+  }
+ },
+ "audit_2_rewrite": {
+  "verdict": "SOURCE_FAITHFUL_WITH_CORRECTIONS",
+  "corrections_applied": 6,
+  "report": {
+   "checks": [
+    {
+     "claim": "§0.1: \"All of the IR-divergent weight of O_flat's TT-gauge BD legs restricted to any patch is the constant TT mode … EXACTLY a linearized diffeomorphism, L_ζ g for ζ^i = ε_ij x^j/2 … regular on r < 1/H\"",
+     "file": "program/WALL_A_REDUCTION_01.md §2",
+     "classification": "VERBATIM",
+     "actual_text": "All of the IR-divergent weight of O_flat's TT-gauge BD legs restricted to any patch is the constant TT mode (the x-dependent remainder is O(q), IR-finite — derived) — and that mode is EXACTLY a linearized diffeomorphism, L_ζ g for ζ^i = ε_ij x^j/2 (all components, computed), Killing-time independent (ω_T = 0), pure l = 2 polar, regular on r < 1/H."
+    },
+    {
+     "claim": "§0.2: power class \"requires k_ext = 0 EXACTLY\"",
+     "file": "program/WALL_A_REDUCTION_01.md §1",
+     "classification": "VERBATIM",
+     "actual_text": "The noise q⁻² POWER class (α = −2, coefficient 4ω⁴/15) requires k_ext = 0 EXACTLY."
+    },
+    {
+     "claim": "§0.2 [INFERENCE] that ζ ∝ x is unbounded at the slice-wide locus; record speaks only of \"a gauge parameter bounded on the patch\"",
+     "file": "program/WALL_A_REDUCTION_01.json (checker filing)",
+     "classification": "HYPOTHESIS-CORRECTLY-LABELED",
+     "actual_text": "...L_zeta g = a^2 eps_ij dx^i dx^j for zeta^i = eps_ij x^j/2 (all 16 components, sympy), with a gauge parameter bounded on the patch; pulled back to the static chart it is T-independent (omega_T = 0 exactly), pure l=2, regular on r < 1/H."
+    },
+    {
+     "claim": "§0.3: log class \"does NOT require k_ext = 0 … locus-INDEPENDENT\"",
+     "file": "program/WALL_A_REDUCTION_01.md §1 and §3",
+     "classification": "VERBATIM",
+     "actual_text": "§1: \"The retarded q⁻¹ LOG class (α = −1) does NOT require k_ext = 0.\"  §3 L: \"LOG (α = −1): locus-INDEPENDENT — k_ext = 0, every k_ext ≠ 0, every window.\" (two passages spliced by ellipsis; both exact)"
+    },
+    {
+     "claim": "§0.4: \"V₀ = 8ω⁴/15 ≠ 0 … loop-level with its gauge status undecided\"",
+     "file": "program/WALL_A_REDUCTION_01.md §1 and §2",
+     "classification": "VERBATIM",
+     "actual_text": "§1: \"the ν-bare vertex coupling V₀ = 8ω⁴/15 ≠ 0, closed form confirmed end to end to 4e−5\"; §2: \"V₀ ≠ 0 is loop-level with its gauge status undecided — Ward repair fenced, T3-8 records the loop non-transverse\" (spliced by ellipsis; both exact)"
+    },
+    {
+     "claim": "§1a: \"D2 — working gauge: OPTION 2a — gauge-UNFIXED, orbit-tracked … D4 therefore runs verbatim as frozen (unfixed vs synchronous).\"",
+     "file": "PHYSICS_LEDGER/K_R_CONTRACT_OWNER_RULING.md §3",
+     "classification": "VERBATIM",
+     "actual_text": "## 3. D2 — working gauge: **OPTION 2a — gauge-UNFIXED, orbit-tracked.** ... D4 therefore runs **verbatim as frozen** (unfixed vs synchronous). **No amendment is required.**"
+    },
+    {
+     "claim": "§1a: \"D3 — bath state + IR: OPTION 3a — BD-analogue Option-B adiabatic … IR: dimensional continuation ONLY; NO explicit IR scale.\"",
+     "file": "PHYSICS_LEDGER/K_R_CONTRACT_OWNER_RULING.md §4",
+     "classification": "VERBATIM",
+     "actual_text": "## 4. D3 — bath state + IR: **OPTION 3a — BD-analogue Option-B adiabatic**, with the flat massless anchor gated at H⁰ per order, and the exact-dS state (Option-A analogue) retained as the declared cross-check target. **IR: dimensional continuation ONLY; NO explicit IR scale.**"
+    },
+    {
+     "claim": "§1a countersign string: \"D1=1a, D2=2a, D3=3a (countersigned d5dc33b)\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_TIER1_VERTEX_RESULT.json",
+     "classification": "VERBATIM",
+     "actual_text": "\"declarations\": \"D1=1a, D2=2a, D3=3a (countersigned d5dc33b)\""
+    },
+    {
+     "claim": "§1a: the charter's \"UNDERDEFINED\" list is in STEP 1 and is pre-ruling text resolved by the rulings",
+     "file": "PHYSICS_LEDGER/K_R_CONTRACT_EXECUTION_CHARTER.md STEP 1 (line 36-41)",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "**UNDERDEFINED (owner-resolved before Tier 1; carried from the owner charter, unchanged):** (i) probe kinematics — ... (ii) the graviton-loop gauge-fixing/measure choice inside the TT-TT-TT sector (the frozen record fixes D4 as the CHECK but not the working gauge of ... (charter mtime Aug 30 16:32; ruling mtime Aug 30 21:44; item (iii) closed by the 2026-09-02 D3(iii) ruling). 'resolved by these rulings' is an untagged but supportable inference."
+    },
+    {
+     "claim": "§1b: D3(iii) clauses 1-5 as quoted (\"seven clauses verbatim, including: ...\")",
+     "file": "PHYSICS_LEDGER/WALL_KR_D3III_OWNER_RULING.md 'THE RULING (seven clauses, verbatim)'",
+     "classification": "VERBATIM",
+     "actual_text": "1. The consequence object may be treated as the registered TT-bath retarded TT response. 2. Gauge/orbit robustness is required **within** that declared TT bath. 3. **No claim is made** that this TT-bath prescription is the unique admissible general-gauge graviton propagator. 4. The existence of alternative general-gauge/non-TT propagator content remains a separately scoped theoretical question. 5. D3(iii) is therefore **CLOSED FOR CURRENT CONSEQUENCE SCOPE, NOT SOLVED AS A GENERAL GAUGE-UNIQUENESS THEOREM.** (Clauses 6 'This ruling does not alter the frozen scientific result.' and 7 'No new physical parameter is introduced.' are not quoted; the doc says 'including', so this is not a misrepresentation.)"
+    },
+    {
+     "claim": "§1b: wall_kr_tier3_loop.py \"internal slots are TT bath: time rows vanish\" and \"tensor rule <h h> = P^TT x W (frozen declaration)\"",
+     "file": "PHYSICS_LEDGER/wall_kr_tier3_loop.py lines 246 and 175",
+     "classification": "VERBATIM",
+     "actual_text": "line 246: '# internal slots are TT bath: time rows vanish'; line 175: 'tensor rule <h h> = P^TT x W (frozen declaration)]'"
+    },
+    {
+     "claim": "§1c: \"D4-C — INDETERMINATE AT THIS RUN'S EXECUTABLE LEVEL\"; external orbit \"OPERATOR IDENTITY — PASSES at every H order identically\"; internal-line sector \"UNDECIDED — the insertion is NONZERO at H⁰/H¹/H²\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_DUAL_GAUGE_AUDIT.md classification + table",
+     "classification": "VERBATIM",
+     "actual_text": "## CLASSIFICATION: **D4-C — INDETERMINATE AT THIS RUN'S EXECUTABLE LEVEL** | **External orbit** (probe legs, G0^TT, synchronous residual class) | **OPERATOR IDENTITY — PASSES at every H order identically** | **Internal-line / slicing sector** | **UNDECIDED — the insertion is NONZERO at H⁰/H¹/H², with the exact obstruction characterized; disposal requires the priced K-term stage** |"
+    },
+    {
+     "claim": "§1c: the H⁰ obstruction \"(7/2) i ω² q (X0 ± X3)(t11 − t22)\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_DUAL_GAUGE_AUDIT.md Part 2",
+     "classification": "VERBATIM",
+     "actual_text": "The H⁰ residual is 28 terms, and on frequency conservation + on-shell it collapses to the exact obstruction:\n\n    (7/2) i ω² q (X0 ± X3)(t11 − t22)"
+    },
+    {
+     "claim": "§1c: \"KTERM-A … The registered K-term mechanism — transversality + trace cancellation — applied to the internal slot annihilates the full internal orbit direction exactly: for arbitrary direction, arbitrary gauge parameter, and uniformly in H.\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_KTERM_COMPLETION.md classification",
+     "classification": "VERBATIM",
+     "actual_text": "## CLASSIFICATION: **KTERM-A**\n\n**The internal-line requirement PASSES.** The registered K-term mechanism — transversality + trace cancellation — applied to the **internal** slot annihilates the full internal orbit direction exactly: for arbitrary direction, arbitrary gauge parameter, and **uniformly in H**. (ellipsis skips one sentence; bold dropped)"
+    },
+    {
+     "claim": "§1c: \"D4-A — ALL REGISTERED D4 CONDITIONS SATISFIED for the declared consequence-scope object\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_RE_ADJUDICATION.md classification",
+     "classification": "VERBATIM",
+     "actual_text": "## CLASSIFICATION: **D4-A** — ALL REGISTERED D4 CONDITIONS SATISFIED\n\nfor the declared consequence-scope object."
+    },
+    {
+     "claim": "§1c: prior residual \"SUPERSEDED, NOT DELETED\"; inserted the gauge image \"as a free polarization on the internal slot\", not the declared \"P^TT × W\" contraction",
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_RE_ADJUDICATION.md §3",
+     "classification": "VERBATIM",
+     "actual_text": "## 3. THE PRIOR INTERPRETATION — SUPERSEDED, NOT DELETED ... The prior internal-line residual was generated by inserting the gauge image as a **free polarization** on the internal slot. That is *not* the declared TT-bath contraction — the declared internal slot is contracted with **P^TT × W**."
+    },
+    {
+     "claim": "§1c §8: \"It does not mean: general-gauge uniqueness proved.\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_RE_ADJUDICATION.md §8",
+     "classification": "VERBATIM",
+     "actual_text": "It does **not** mean: general-gauge uniqueness proved · GRUT proved · consequence class determined · low-frequency memory determined · Λ_R fixed · H² local IR ambiguity resolved. All preserved. (truncated at first list item; bold dropped)"
+    },
+    {
+     "claim": "§1d: \"For arbitrary direction k, arbitrary ξ, and arbitrary trace coefficient λ = 2(a′/a)ξ⁰: P^TT [ i(k_i ξ_j + k_j ξ_i) + λ δ_ij ] = 0 identically — gradients die by transversality, the trace term by tracelessness.\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_DUAL_GAUGE_AUDIT.md Part 1",
+     "classification": "VERBATIM",
+     "actual_text": "For **arbitrary** direction k, **arbitrary** ξ, and **arbitrary** trace coefficient λ = 2(a′/a)ξ⁰:\n\n    P^TT [ i(k_i ξ_j + k_j ξ_i) + λ δ_ij ]  =  0   identically\n\n— gradients die by transversality, the trace term by tracelessness."
+    },
+    {
+     "claim": "§1d: re-adjudication bridge (b): \"On a fixed background at linear order, any such transformation acts on the spatial block as δh_ij = i(k_iξ_j + k_jξ_i) + λδ_ij … including the particular ξ that reaches synchronous gauge.\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_RE_ADJUDICATION.md §4 REQ (2) (b)",
+     "classification": "VERBATIM",
+     "actual_text": "**(b)** On a fixed background at linear order, *any* such transformation acts on the spatial block as δh_ij = i(k_iξ_j + k_jξ_i) + λδ_ij with λ = 2(a′/a)ξ⁰ — including the particular ξ that reaches synchronous gauge. (ellipsis elides 'with λ = 2(a′/a)ξ⁰')"
+    },
+    {
+     "claim": "§1d: the audit states the identity \"covers the external probe legs, G0^TT's linear invariance, and the corrected synchronous residual class in one stroke.\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_DUAL_GAUGE_AUDIT.md Part 1",
+     "classification": "VERBATIM",
+     "actual_text": "This covers the external probe legs, G0^TT's linear invariance, and the corrected synchronous residual class in one stroke."
+    },
+    {
+     "claim": "§1e: V2 amendment residual family \"The full residual family preserving synchronous gauge (δg₀₀ = δg₀ᵢ = 0) is: ζ⁰ = C(x)/a(η) ; ζ_i = C_i(x) − (∂_i C) · Ia(η), Ia′(η) = 1/a(η)\" and \"(superseding the v1 clause)\"",
+     "file": "PHYSICS_LEDGER/WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md",
+     "classification": "VERBATIM",
+     "actual_text": "The full residual family preserving synchronous gauge (δg₀₀ = δg₀ᵢ = 0) is:\n\n```\nζ⁰   = C(x)/a(η)\nζ_i  = C_i(x) − (∂_i C) · Ia(η),      Ia′(η) = 1/a(η)\n```  (code block flattened inline with a ';' separator). Header: 'Supersedes: exactly one clause of the frozen WALL_A_A3_DECLARATIONS.md'."
+    },
+    {
+     "claim": "§1e: \"The fixing prescription is unchanged and still suffices: asymptotic coincidence with the unfixed computation at η → −∞ kills the entire C-sector (both ζ⁰ = C/a and its coupled −(∂_iC)·Ia piece; e.g. on the de Sitter chart a = −1/(Hη) both grow without bound as η → −∞) and fixes the C_i.\"",
+     "file": "PHYSICS_LEDGER/WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md",
+     "classification": "VERBATIM",
+     "actual_text": "**The fixing prescription is unchanged and still suffices**: asymptotic coincidence with the unfixed computation at η → −∞ kills the entire C-sector (both ζ⁰ = C/a and its coupled −(∂_iC)·Ia piece; e.g. on the de Sitter chart a = −1/(Hη) both grow without bound as η → −∞) and fixes the C_i."
+    },
+    {
+     "claim": "§1e [INFERENCE]: amendment exhibits a growth mechanism for the C-sector and states \"and fixes the C_i\" without one",
+     "file": "PHYSICS_LEDGER/WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md",
+     "classification": "HYPOTHESIS-CORRECTLY-LABELED",
+     "actual_text": "(as above) '...both grow without bound as η → −∞) and fixes the C_i.' — the source indeed gives no separate argument for the C_i; the reading is tagged."
+    },
+    {
+     "claim": "§1f: wall_a4_response_flat.py \"delta_e(X)_mu nu = i (K_mu X_nu + K_nu X_mu), K_mu = (omega, 0, 0, -k)\"",
+     "file": "PHYSICS_LEDGER/wall_a4_response_flat.py line 210",
+     "classification": "VERBATIM",
+     "actual_text": "#     delta_e(X)_mu nu = i (K_mu X_nu + K_nu X_mu),  K_mu = (omega, 0, 0, -k)"
+    },
+    {
+     "claim": "§1f: solver gate \"consistent with Declaration 5's residual family (zeta^0 = C(x)/a + static spatial maps) being zero-frequency only, hence empty at omega != 0\"",
+     "file": "PHYSICS_LEDGER/wall_a4_response_flat.py lines 237-240",
+     "classification": "VERBATIM",
+     "actual_text": "check(len(solX) == 1, \"A4-1 solver: the synchronous conditions determine X UNIQUELY at generic (omega, k) -- consistent with Declaration 5's residual family (zeta^0 = C(x)/a + static spatial maps) being zero-frequency only, hence empty at omega != 0\", gate=\"A4-1\")"
+    },
+    {
+     "claim": "§1f: the V2 amendment records every A4 physics conclusion as holding \"for arbitrary ζ\"",
+     "file": "PHYSICS_LEDGER/WALL_A_A3_DECLARATIONS_V2_AMENDMENT.md 'Scope of damage'",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "**Unaffected:** every A4 physics conclusion (slice equality, invariance identity, TT blindness, plants, guard), because they hold for arbitrary ζ;"
+    },
+    {
+     "claim": "§1f: WALL_A_A4_STAGE.md fact 4: \"the spatial-TT projection of the orbit direction vanishes for arbitrary (ζ, a′/a, k).\"",
+     "file": "PHYSICS_LEDGER/WALL_A_A4_STAGE.md fact 4",
+     "classification": "VERBATIM",
+     "actual_text": "4. **TT blindness:** the spatial-TT projection of the orbit direction vanishes for arbitrary (ζ, a′/a, k) — the countersigned δh^TT = 0 instantiated"
+    },
+    {
+     "claim": "§2 opening: the owner's Gate A question (italic quote) and header 'read A4 first, then write the charter'; §5 'the owner's six' outcomes",
+     "file": "(owner's 2026-09-16 message — not on disk)",
+     "classification": "NOT_FOUND",
+     "actual_text": "No file under PHYSICS_LEDGER/ or program/ contains these owner strings; they are attributed to the owner's instruction, not to a frozen object, and are unverifiable from the repo. Not a defect, but they should not be presented in quotation marks as if from the record without noting the source is the owner's message."
+    },
+    {
+     "claim": "§2 Fact 1: constant ε_ij is transverse and traceless, hence P^TT ε = ε; tagged [INFERENCE — elementary; checkable in one line]",
+     "file": "(no source; doc's own)",
+     "classification": "HYPOTHESIS-CORRECTLY-LABELED",
+     "actual_text": "Correctly tagged as an inference and presented as elementary, not sourced. Caveat on the label's content: the frozen instrument's P^TT is the per-direction momentum-space projector transverse to the internal momentum (wall_kr_tier3_loop.py: 'p2 = (nu1, q n^hat); p3 = (nu2, -q n^hat)', 'C1.C2 : P^TT P^TT : WW'), whose action on a constant ε_ij depends on n̂; 'P^TT ε = ε' is elementary only in the position-space sense ∂_iε_ij = 0. The tag should say which projector is meant, since the Gate A conclusion ('the P^TT × W contraction retains it') rests on it."
+    },
+    {
+     "claim": "§2 Fact 2: WALL_A_REDUCTION_01 computed δh_ij = ε_ij = ∂_(i ζ_j) for ζ_j = ε_jl x^l/2, all components, patch-locally",
+     "file": "program/WALL_A_REDUCTION_01.md §2; program/WALL_A_REDUCTION_01.json",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "md: 'that mode is EXACTLY a linearized diffeomorphism, L_ζ g for ζ^i = ε_ij x^j/2 (all components, computed)'; json: 'L_zeta g = a^2 eps_ij dx^i dx^j for zeta^i = eps_ij x^j/2 (all 16 components, sympy), with a gauge parameter bounded on the patch'. The '∂_(iζ_j)' form is the doc's rewrite of L_ζ g; the record's statement is in terms of the Lie derivative."
+    },
+    {
+     "claim": "§2 Fact 3 [HYPOTHESIS]: quotes \"for arbitrary direction k, arbitrary ξ\", \"gradients die by transversality\", \"covers … the corrected synchronous residual class\", \"zero-frequency only, hence empty at omega != 0\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_DUAL_GAUGE_AUDIT.md Part 1; wall_a4_response_flat.py",
+     "classification": "HYPOTHESIS-CORRECTLY-LABELED",
+     "actual_text": "All four fragments verbatim in their sources (see entries above). The interpretive claim that the identity 'does not reach' the constant direction is tagged [HYPOTHESIS — this document's central one; checkable]."
+    },
+    {
+     "claim": "§2 Gate A answer: \"alternative general-gauge/non-TT propagator content\" which the D3(iii) ruling places \"outside the present consequence-scope contract\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D3III_OWNER_RULING.md clause 4 + required statement 2",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "Clause 4: 'The existence of alternative general-gauge/non-TT propagator content remains a separately scoped theoretical question.' Required statement: 'The unresolved general-gauge/D3(iii) question remains outside the present consequence-scope contract.' (the two are joined by the doc; the ruling's 'outside' clause names the D3(iii) question, which clause 4 identifies with that content — fair)"
+    },
+    {
+     "claim": "§2 Gate A answer: \"the D4-A robustness certificate is about orbit directions that leave the TT block (§1d) and is silent on a direction that lies within it\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D4_RE_ADJUDICATION.md §4 REQ (1)",
+     "classification": "HYPOTHESIS-UNLABELED",
+     "actual_text": "Source: 'So the orbit moves content only *within* the discard space and never touches the TT block.' The first half paraphrases this; 'is silent on a direction that lies within it' is the doc's inference (it follows from the tagged Fact 3 hypothesis) but is stated as conclusion without a tag."
+    },
+    {
+     "claim": "§3 D: \"D1 = 1a, D2 = 2a, D3 = 3a as ruled (§1a): exact-dS conformal chart, BD-analogue Option-B adiabatic state, dimensional continuation with no IR scale\"",
+     "file": "PHYSICS_LEDGER/K_R_CONTRACT_OWNER_RULING.md §1, §3, §4",
+     "classification": "DISTORTED",
+     "actual_text": "D1 = 1a is 'Controlled k → 0 limit with the executed two-axis isotropy gate' (probe kinematics), D2 = 2a is the working gauge; neither is a chart. 'exact-dS conformal chart' appears in no ruling; the ruling's only 'exact-dS' phrase is 'the exact-dS state (Option-A analogue) retained as the declared cross-check target'. The background chart on the record is 'chart a^2 = 1+2Hu+3H^2u^2 (Section D, gated)' (Tier-1 json) / 'flat-slicing conformal chart a = 1/(1−Hu)' (Wall-A D). The gloss mislabels the content of the three declarations."
+    },
+    {
+     "claim": "§3 L: \"OPTION 1a … Option 1b (literal k = 0) is rejected\"",
+     "file": "PHYSICS_LEDGER/K_R_CONTRACT_OWNER_RULING.md §1",
+     "classification": "VERBATIM",
+     "actual_text": "## 1. D1 — probe kinematics: **OPTION 1a** ... Option 1b (literal k = 0) is rejected as the convenience option that silently resolves the order of limits;"
+    },
+    {
+     "claim": "§3 L: Wall-A found the three loci inequivalent for the power class, equivalent for the log class",
+     "file": "program/WALL_A_REDUCTION_01.md §3 R",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "**R:** projection equivalence under horizon-localized TT l = 2 windows: HOLDS for the log class (continuously related coefficients); FAILS for the power class."
+    },
+    {
+     "claim": "§3 R′: \"asymptotic coincidence in the sense of Declaration 5's prescription, adopted at contract scope by explicit ruling since STEP 10 licenses no transfer\"",
+     "file": "PHYSICS_LEDGER/K_R_CONTRACT_EXECUTION_CHARTER.md STEP 10; K_R_CONTRACT_OWNER_RULING.md §3, §5; WALL_KR_D4_DUAL_GAUGE_AUDIT.md §1",
+     "classification": "DISTORTED",
+     "actual_text": "STEP 10: 'No parameter, pole location, spectral behavior, sign-magnitude, or analytic-structure conclusion transfers between the two objects — the only things that carry are VALIDATED MACHINERY (evaluators, continuation discipline, gates) and the sign DICTIONARY' — i.e. it does license transfer of machinery. And Declaration 5's prescription is already in force at contract scope: ruling §3 'D4 therefore runs verbatim as frozen (unfixed vs synchronous). No amendment is required.'; §5 'every frozen protocol (Declaration 5 / D4, ...) runs verbatim'; D4 audit §1 'Declaration 5 (frozen): second gauge = synchronous (residual freedom ξ⁰ = C(x)/a + time-independent ξⁱ, fixed by BD-asymptotic coincidence)'. The sentence treats as not-yet-ruled something the D2 ruling and the D4 records already apply — the same defect class the first draft was rejected for."
+    },
+    {
+     "claim": "§3 R′ [HYPOTHESIS]: the ζ_i(x) family with ∂_(iζ_j) TT is the residual freedom of the TT-bath prescription; no frozen source names it",
+     "file": "(no source; doc's own)",
+     "classification": "HYPOTHESIS-CORRECTLY-LABELED",
+     "actual_text": "Tagged. Consistent with KTERM completion §1: 'the registered protocol contains no separate internal-line machinery' and D3(iii) clause 4."
+    },
+    {
+     "claim": "§3 O: NOT the A3-4 matter object (A34_CONTRACT_DIFFERENTIAL_01: different diagram)",
+     "file": "program/A34_CONTRACT_DIFFERENTIAL_01.md",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "OUTCOME: OBJECTS_NOT_COMPARABLE ... The frozen A3-4 TT response and the frozen Tier-3 contract loop are **two different one-loop diagrams**, not one physical content in two representations."
+    },
+    {
+     "claim": "§4: static-chart instance is the RW/Zerilli master variable, blind to the constant mode at free-leg level per Wall-A; frozen T3-1 criterion (Laurent exponent of the angular-averaged radial integrand); D4-A machinery's five negative controls",
+     "file": "program/WALL_A_REDUCTION_01.md §2; PHYSICS_LEDGER/wall_kr_tier3_loop.py lines 13-24, 646-656; WALL_KR_D4_RE_ADJUDICATION.md §7",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "Wall-A: 'O_static's legs are the gauge-invariant static master variable ... identically blind to that mode' / 'exact at the free-leg level'. tier3: 'the small-q Laurent exponent alpha of the exact angular-averaged radial integrand'. Re-adjudication: '## 7. NEGATIVE CONTROLS — five, including the decisive one'."
+    },
+    {
+     "claim": "§6: D3(iii) ruling's wording discipline \"the record never asserts general-gauge uniqueness in any phrasing\"",
+     "file": "PHYSICS_LEDGER/WALL_KR_D3III_OWNER_RULING.md",
+     "classification": "VERBATIM",
+     "actual_text": "**Wording discipline, enforced mechanically:** the record never asserts general-gauge uniqueness in any phrasing — it states the negative as **NOT CLAIMED**."
+    },
+    {
+     "claim": "§7: the A3-4 ±i0 defect flagged/inert",
+     "file": "program/A34_CONTRACT_DIFFERENTIAL_01.md §3",
+     "classification": "PARAPHRASE-ACCURATE",
+     "actual_text": "**CORPUS FLAG — a latent sign defect in two frozen A3-4 instruments** ... evaluate the R-atom branch as D + iη (+i0) while the G-branch is −i0 — the **reverse** of the A3-2 referee's frozen −i0 law. **INERT on the frozen record**"
+    },
+    {
+     "claim": "Header/footer: 'the audit and re-audit records are in the companion .json' / 'this draft: see companion .json'",
+     "file": "program/ (directory listing)",
+     "classification": "NOT_FOUND",
+     "actual_text": "Only GAUGE_INVARIANT_TIER3_TARGET_SPEC_01.md exists in program/ at HEAD f108100; no companion .json is on disk. The claim is forward-looking and should say so."
+    },
+    {
+     "claim": "§5: \"Wall-A has twice shown the taxonomy can be wrong\"",
+     "file": "program/WALL_A_REDUCTION_01.md",
+     "classification": "HYPOTHESIS-UNLABELED",
+     "actual_text": "Supportable from 'OUTCOME: MIXED' (not one of the four pre-registered outcomes), 'ROUTE-B's pre-registered mechanism ... is refuted', and 'The protocol's own characterization of O_static was wrong on the record', but 'twice' is the doc's count and is untagged."
+    }
+   ],
+   "unlabeled_assertions": [
+    "§2 Gate A answer: 'the D4-A robustness certificate is about orbit directions that leave the TT block (§1d) and is silent on a direction that lies within it' — the second clause is the doc's inference (it is the content of the tagged Fact 3 hypothesis) restated as a conclusion without a tag.",
+    "§3 D: 'exact-dS conformal chart' presented as the content of the ruled D1/D2/D3 — no ruling says this; D1 = 1a is the controlled k → 0 probe kinematics and D2 = 2a the working gauge.",
+    "§3 R′ parenthetical: 'since STEP 10 licenses no transfer' — stated as fact; STEP 10 explicitly carries validated machinery, and Declaration 5's fixing prescription already runs verbatim at contract scope per the D2 ruling and is quoted as in force by WALL_KR_D4_DUAL_GAUGE_AUDIT.md §1.",
+    "§1a: 'is pre-ruling text, resolved by these rulings' — supportable (file mtimes; charter says 'owner-resolved before Tier 1'; item (iii) closed by the D3(iii) ruling) but untagged; the D3(iii) ruling, not only the D1-D3 ruling, is what closes item (iii).",
+    "§5: 'Wall-A has twice shown the taxonomy can be wrong' — the doc's own count, untagged.",
+    "Header/footer: 'the audit and re-audit records are in the companion .json' — no such file exists at HEAD f108100.",
+    "§2 Fact 1 (tagged, but the tag under-specifies): 'P^TT ε_ij = ε_ij' is elementary only for the position-space/∂_i ε_ij = 0 sense; the frozen instrument's P^TT is the per-direction projector transverse to the internal momentum n̂ (wall_kr_tier3_loop.py), whose action on a constant tensor is n̂-dependent. The Gate A conclusion 'the P^TT × W contraction retains it' rests on which projector is meant; the [INFERENCE] tag should name it.",
+    "§2 Fact 2: 'δh_ij = ε_ij = ∂_(i ζ_j)' is the doc's rewrite; the record states 'L_ζ g = a² ε_ij dx^i dx^j for ζ^i = ε_ij x^j/2 (all 16 components, sympy)'. Accurate in substance; the record's form should be the one quoted or the rewrite tagged."
+   ],
+   "required_corrections": [
+    {
+     "old": "asymptotic\n    coincidence in the sense of Declaration 5's prescription, adopted at contract\n    scope by explicit ruling since STEP 10 licenses no transfer? none?",
+     "new": "asymptotic\n    coincidence in the sense of Declaration 5's prescription — already in force at\n    contract scope (`K_R_CONTRACT_OWNER_RULING.md` §3: *\"D4 therefore runs verbatim as\n    frozen (unfixed vs synchronous). No amendment is required.\"*; `WALL_KR_D4_DUAL_GAUGE_AUDIT.md`\n    §1: residual freedom *\"fixed by BD-asymptotic coincidence\"*), with **[proposal]** its\n    extension to the slice-wide k_ext = 0 member to be ruled explicitly (charter STEP 10\n    carries *\"VALIDATED MACHINERY … and the sign DICTIONARY\"* only, no results)? none?",
+     "reason": "STEP 10 does license transfer of validated machinery; and Declaration 5's fixing prescription is not awaiting adoption at contract scope — the D2 ruling runs it verbatim and the D4 audit already invokes it. As written the sentence repeats the first draft's defect (treating a ruled item as unruled)."
+    },
+    {
+     "old": "D1 = 1a, D2 = 2a, D3 = 3a as ruled (§1a): exact-dS conformal chart, BD-analogue\n  Option-B adiabatic state, dimensional continuation with no IR scale (fork (ii)\n  gated), O(H²) grading.",
+     "new": "D1 = 1a, D2 = 2a, D3 = 3a as ruled (§1a): controlled k → 0 with the isotropy gate;\n  gauge-unfixed, orbit-tracked; BD-analogue Option-B adiabatic state with dimensional\n  continuation and no IR scale (fork (ii) gated). Background as frozen: the Section-D\n  conformal chart (*\"chart a^2 = 1+2Hu+3H^2u^2 (Section D, gated)\"*,\n  `WALL_KR_TIER1_VERTEX_RESULT.json`), O(H²) grading.",
+     "reason": "'exact-dS conformal chart' is not the content of any of the three declarations (D1 = probe kinematics, D2 = working gauge, D3 = bath state/IR); the ruling's only 'exact-dS' phrase is the cross-check state. The gloss mislabels what was ruled."
+    },
+    {
+     "old": "the D4-A robustness certificate is\nabout orbit directions that leave the TT block (§1d) and is silent on a direction that\nlies within it.",
+     "new": "the D4-A robustness certificate is\nabout orbit directions that leave the TT block (*\"the orbit moves content only within the\ndiscard space and never touches the TT block\"*, `WALL_KR_D4_RE_ADJUDICATION.md` REQ (1))\nand — **[INFERENCE, from Fact 3]** — is silent on a direction that lies within it.",
+     "reason": "The 'silent on' clause is the doc's inference restated as conclusion; the rule requires a quotation or a tag."
+    },
+    {
+     "old": "**[INFERENCE — elementary; checkable in\none line]** The mode is *inside* the declared TT bath: the P^TT × W contraction retains\nit, it does not remove it.",
+     "new": "**[INFERENCE — elementary in the position-space sense ∂_i ε_ij = 0, ε_ii = 0; NOTE the\nfrozen instrument's P^TT is the per-direction projector transverse to the internal\nmomentum n̂ (`wall_kr_tier3_loop.py`: *\"p2 = (nu1, q n^hat); p3 = (nu2, -q n^hat)\"*), whose\naction on a constant ε_ij is n̂-dependent — which projector 'retains' the mode is part of\nGate A, not settled here]** The mode is *inside* the declared TT bath in the position-space\nsense; whether the instrument's P^TT × W contraction retains it is the checkable claim.",
+     "reason": "The tag is present, but 'checkable in one line' asserts elementary status for a statement whose truth depends on which P^TT is meant; the Gate A verdict rests on it, so the label should name the projector."
+    },
+    {
+     "old": "the audit and re-audit records are in the companion\n`.json`.",
+     "new": "the audit and re-audit records are to be filed in the companion\n`.json` (not yet on disk at f108100).",
+     "reason": "No GAUGE_INVARIANT_TIER3_TARGET_SPEC_01.json exists in program/ at HEAD."
+    },
+    {
+     "old": "`WALL_A_REDUCTION_01` computed δh_ij = ε_ij =\n∂_(i ζ_j) for ζ_j = ε_jl x^l/2, all components, patch-locally.",
+     "new": "`WALL_A_REDUCTION_01` computed the mode as *\"EXACTLY a linearized diffeomorphism, L_ζ g for\nζ^i = ε_ij x^j/2 (all components, computed)\"* (`.json`: *\"L_zeta g = a^2 eps_ij dx^i dx^j\n… with a gauge parameter bounded on the patch\"*) — i.e. δh_ij = ε_ij = ∂_(i ζ_j) **[restated]**.",
+     "reason": "The record states the result as a Lie derivative of the metric; the ∂_(iζ_j) form is the doc's rewrite and should be quoted-then-restated per the rule."
+    }
+   ],
+   "verdict": "SOURCE_FAITHFUL_WITH_CORRECTIONS"
+  }
+ },
+ "gate_a_answer": "UNRESOLVED AT THE EXISTING ORBIT APPARATUS -- because the ruled R (TT-bath, D3(iii)) RETAINS the constant mode (angular-averaged TT weight 2/5, Wall-A-computed) and the D4-A identity's mechanism (transversality kills k-proportional gradients) has no purchase on a k-independent gradient [HYPOTHESIS, checkable]; the residue is one owner scope decision: whether to extend the consequence-scope contract to R' (quotient of linear diffeomorphisms on the internal legs) with a declared slice boundary condition",
+ "workflow_runs": [
+  "wf_7d4c9bc1-28a",
+  "wf_84e85601-83f"
+ ],
+ "register_edits": 0
+}
