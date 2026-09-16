@@ -51,10 +51,10 @@
         ],
         "held_out": false,
         "m": "2/3",
-        "rank_B": 2,
-        "rank_Bt": 2,
-        "nullity": 2,
-        "inside": true
+        "rank_B": 3,
+        "rank_Bt": 4,
+        "nullity": 1,
+        "inside": false
       },
       {
         "K": [
@@ -63,10 +63,10 @@
         ],
         "held_out": false,
         "m": "2/3",
-        "rank_B": 2,
-        "rank_Bt": 2,
-        "nullity": 2,
-        "inside": true
+        "rank_B": 3,
+        "rank_Bt": 4,
+        "nullity": 1,
+        "inside": false
       },
       {
         "K": [
@@ -75,10 +75,10 @@
         ],
         "held_out": true,
         "m": "2/3",
-        "rank_B": 2,
-        "rank_Bt": 2,
-        "nullity": 2,
-        "inside": true
+        "rank_B": 3,
+        "rank_Bt": 4,
+        "nullity": 1,
+        "inside": false
       }
     ]
   },

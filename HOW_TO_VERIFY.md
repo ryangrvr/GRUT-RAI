@@ -159,7 +159,7 @@ own selftest fail. The figures are emitted from `provenance/mutation_registry.py
 |---|---|
 | mutation batteries | **14** |
 | **mutants that run by default** | **33 of 55** |
-| cited calcs still owing a battery | **15** |
+| cited calcs still owing a battery | **16** |
 
 So *"guards proven to fail on wrong answers"* is true of the batteries that run, and the honest
 form of the claim is: **every cited calc ships a battery or is declared owed, and every battery

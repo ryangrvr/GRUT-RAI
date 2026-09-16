@@ -14,7 +14,7 @@
 | test files in `provenance/` | **21** |
 | mutation batteries | **14** |
 | mutants that run by default | **33 of 55** |
-| cited calcs still owing a battery | **15** |
+| cited calcs still owing a battery | **16** |
 | tests collected | **240** |
 
 ### Tier histogram, GRUT scope (53 claims)

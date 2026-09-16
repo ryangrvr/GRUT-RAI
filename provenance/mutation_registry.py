@@ -517,6 +517,10 @@ OWED = {
     # added 2026-08-04: the coverage regex was case-sensitive ([a-z0-9_]) and these two escaped it
     "L0_redundancy.py": "escaped the coverage net until 2026-08-04 (capital L); battery owed",
     "finite_T_exponent.py": "escaped the coverage net until 2026-08-04 (capital T); battery owed",
+    # added 2026-09-13: register-cited (rung3 node: 'compute or retire at
+    # calc/gw_tensor_friction.py (owed, Part-7 time-boxed)') but missing from this
+    # registry -- the calc exists and is staged, no battery written yet.
+    "gw_tensor_friction.py": "staged, un-computed (Part-7 time-boxed per register); battery owed once it runs",
 }
 
 # THE RATCHET'S FROZEN HIGH-WATER MARK -- a HARDCODED LITERAL, frozen 2026-08-04; entries may only
@@ -532,7 +536,7 @@ OWED_CEILING = frozenset({
     "energy_basis_decoherence.py", "arrow_origin.py", "two_scale_desitter.py",
     "rung3_spectral_structure.py", "q1_energy_basis_magnitude.py", "delta4_stability.py",
     "conformalon_joint.py", "zeta_interior.py", "mu_linear.py",
-    "L0_redundancy.py", "finite_T_exponent.py",
+    "L0_redundancy.py", "finite_T_exponent.py", "gw_tensor_friction.py",
 })
 
 

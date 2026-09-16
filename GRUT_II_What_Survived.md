@@ -80,7 +80,7 @@ On installation the floor found further real gaps in calcs whose numbers were al
 
 ## The state at deposit
 
-**45 nodes · net +13 · `validate.py` PASS (register hygiene) · 109 register tests + the mutation battery.** Every claim carries a tier, a source, and a falsifier; no laundering.
+**At that deposit: 45 nodes · net +13 (register since advanced) · `validate.py` PASS (register hygiene) · 109 register tests + the mutation battery.** Every claim carries a tier, a source, and a falsifier; no laundering.
 
 **This wave is UNACCEPTED.** `bankgate.py` stands at FLAG-FOR-FIREWALL on four nodes (with RE-OPENS on `rung9b_bridge`, exactly as designed for a settled-negative node), pending overseer verification. The register — not this document — is the product; this is its readable face.
 
