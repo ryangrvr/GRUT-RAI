@@ -14,7 +14,8 @@ current evidentiary boundary. The next artifact is the paper.**
 - H¹ = 0 exactly; H³ is the first u_b-odd (time-asymmetric) dissipative term;
   H⁶ carries the first negative ω power.
 - The Δ > 0 memory structure (T3-09 R1, exact): power-law tails Δ⁻⁵, Δ⁻³, Δ⁻¹
-  carrying the u_b-dependence; a growing secular tail (ω⁻²) that is u_b-free.
+  carrying the u_b-dependence; a u_b-free ω⁻² tail growing within the licensed
+  window Δ ≲ 0.29/H (undetermined beyond — limitation 7).
   **Cosmic-time dependence and memory depth are anti-correlated.**
 - Counterterm/contact-redefinition invariance of all certified absorptive
   content (non-analyticity; T3-09 R2a).
