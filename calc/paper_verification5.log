@@ -1,0 +1,18 @@
+  ok   certificate numbers intact
+  ok   P table intact
+  ok   tails/premise/window intact
+  ok   13 limitations intact
+  ok   prior-pass edits intact
+  ok   item1 inheritance citations in section 2
+  ok   item2 debate paragraph verbatim
+  ok   item7 conversion assessment wording
+  ok   Q8 novelty statement owner wording
+  ok   TTW21b scale distinction
+  ok   flat-anchor no-identity sentence
+  ok   did-not-identify phrasing (not has-never-been-done)
+  ok   must-cites present
+  ok   references: no fabricated digits
+  ok   H0 mismatch NOT in the paper
+  ok   naive 61/1920 coefficient absent from paper
+
+VERDICT: ALL VERIFIED

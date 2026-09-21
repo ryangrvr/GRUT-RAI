@@ -70,6 +70,17 @@ and its certificates stand independently of any interpretation.
 
 ## 2. The calculation
 
+The one-loop graviton self-energy on de Sitter backgrounds is an
+established object: computed by Tsamis and Woodard [TW96], with a
+flat-space limit matching Capper's gauge-fixed computation [C79, as
+matched in TW96]; recomputed from gravitons in cosmology, with a
+nine-structure-function representation, by Tan, Tsamis and Woodard
+[TTW21a]; and converted to a retarded Schwinger–Keldysh form and applied
+to gravitational radiation in [TTW21b], whose conversion (Σ_ret from
+Σ₊₊ + Σ₊₋) the present contract inherits. The Wigner-resolved absorptive
+construction and everything downstream of §3 are the present work's own
+(§6.5).
+
 The object is the retarded self-energy of the transverse-traceless (TT)
 graviton on a de Sitter background of expansion rate H, at one loop in the
 pure-gravity sector, under the following declared contract (all elements
@@ -272,6 +283,17 @@ literature search. No claim of physics beyond standard QFT is made. The
 stationarity no-go is therefore a structural statement about the calculated
 self-energy, not an experimental discriminator.
 
+To the best of our knowledge, following the literature search documented
+in the program record, the specific Wigner-resolved, H-graded absorptive
+coefficient hierarchy studied in this work — including the u_b-odd H³
+contribution — and the associated parameter-free stationary-dressing
+inconsistency certificate have not previously been reported in this form.
+The underlying de Sitter graviton self-energy, its infrared/secular
+behavior, absorptive self-energy phenomena in de Sitter, and the broader
+question of whether de Sitter time dependence can be removed or
+interpreted physically are established subjects with substantial prior
+literature (§6.5).
+
 **6.4 Interpretation programs.** A "responsive-medium" reading of the
 gravitational vacuum is *consistent with* this structure — an expanding
 background carrying time-dependent response that no stationary dressing
@@ -279,8 +301,60 @@ absorbs — but nothing here distinguishes such a reading from standard QFT on
 de Sitter; the originating program's own audit records that its prediction
 ledger is empty and no discriminating observable survived its gates. The
 computed absorptive response is parametrically Planck-suppressed; no
-observable is claimed. (A quantitative experimental comparison is deferred
-to the documented literature pass.)
+observable is claimed. This question was assessed in the literature pass
+and is not presently supportable from the certified calculation: every
+conversion route examined imports a dressed propagator / response
+calculation, establishment of the relevant gauge-invariant status of the
+off-shell coefficient, or the additional low-frequency/transport
+calculation required for the proposed observable routes.
+
+**6.5 Relation to prior work.** The physical interpretation of secular
+effects in de Sitter quantum gravity has been debated, including arguments
+concerning gauge dependence, infrared regularity, and the definition of
+observables. The present calculation does not resolve that broader debate.
+Its stationarity result is instead a statement about the declared
+self-energy object and the specified class of amplitude and frequency
+dressings.
+
+The closest existing result is [TTW21b]: solving retarded effective field
+equations in position space, single-graviton loops produce secular growth
+of graviton mode functions, u₁ → (κ²H²/4π²)(4/3)ln²a·u₀, with breakdown
+at κ²H²ln²a ~ 1. That is a loop-counting/secular-growth criterion; the
+present secular surface Hu_b ≈ 0.64 is a kinematic boundary of the
+adopted one-loop H-graded truncation. The two belong to the same de
+Sitter infrared/secular physics family but are not competing estimates of
+the same quantity. On the physical status of such effects: the negative,
+infrared-divergent on-shell graviton self-energy goes back to [TW95];
+critiques and gauge/slicing analyses include [DEZ94] and Garriga–Tanaka
+(with reply [GT-R]); infrared-regularity programs include [TU14]; recent
+work argues gauge independence of graviton-loop logarithms once
+source/observer correlations are included [GIL24]; and soft-graviton
+corrections to matter couplings have been argued to be physical and
+covariance-forced, with time-dependent wave-function renormalization
+absorbing kinetic but not coupling corrections [KK14]. On the removal
+side, infrared/secular growth of *scalar correlators* is systematically
+absorbed by counterterms in dimensional regularization [HHPS24], treated
+in Soft de Sitter Effective Theory [SdSET], and resummed by dynamical
+renormalization group methods [DRG]. These transformations act on scalar
+correlation functions or matter couplings; none acts on the graviton
+absorptive self-energy studied here. Open-system treatments of the
+primordial *tensor* spectrum, with explicitly non-Markovian structure
+beyond the strict Markovian limit, appear in [OEFT22] — the framework
+family within which a two-time treatment of the present certified kernel
+would naturally sit. Absorptive and nonstationary self-energy phenomena
+on de Sitter are established for matter fields: dS-allowed decays
+[BEM10], initial-value nonstationary self-energies and decay widths with
+Bose enhancement at T = H/2π [B-line]. Wigner/Kadanoff–Baym two-time
+methods are standard in nonequilibrium field theory, including matter
+transport in curved spacetime [KBE]; the literature search documented in
+the program record did not identify an application producing the
+Wigner-resolved absorptive graviton self-energy hierarchy studied here.
+Finally, the flat-space calculations [C79, TW96] provide a diagrammatic
+and normalization historical anchor; no coefficient identity is asserted
+between the present flat coefficient and the gauge-dependent off-shell
+coefficient of those calculations, because the compared projected objects
+differ in gauge and construction (general-gauge dependence of the
+graviton self-energy is itself classical literature [GG78]).
 
 ## 7. Limitations
 
@@ -352,9 +426,63 @@ transforms, and the corrected calculations appear in §4.
 
 ---
 
+## References
+
+- [TW96] N. C. Tsamis, R. P. Woodard, "One loop graviton self-energy in a
+  locally de Sitter background," Phys. Rev. D 54, 2621 (1996);
+  hep-ph/9602317.
+- [C79] D. M. Capper, flat-space graviton self-energy (1979), as matched
+  in [TW96] (their Eq. 3.15b). *(Full bibliographic details to be
+  completed at typesetting from [TW96]'s reference list.)*
+- [GG78] "A general gauge calculation of the graviton self-energy,"
+  Nucl. Phys. B (1978). *(Details at typesetting.)*
+- [TTW21a] S. P. Tan, N. C. Tsamis, R. P. Woodard, "Graviton self-energy
+  from gravitons in cosmology," Class. Quant. Grav. 38, 145024 (2021);
+  arXiv:2103.08547.
+- [TTW21b] S. P. Tan, N. C. Tsamis, R. P. Woodard, "How inflationary
+  gravitons affect gravitational radiation," arXiv:2107.13905.
+- [TW95] N. C. Tsamis, R. P. Woodard, "Strong infrared effects in quantum
+  gravity," Ann. Phys. (1995). *(Volume/pages at typesetting.)*
+- [DEZ94] A. D. Dolgov, M. B. Einhorn, V. I. Zakharov, "On infrared
+  effects in de Sitter background," gr-qc/9403056.
+- [GT-R] N. C. Tsamis, R. P. Woodard, "Reply to 'Can infrared gravitons
+  screen Λ?'," arXiv:0708.2004; and "Comment on...," Phys. Rev. D 78,
+  028501 (2008). *(Garriga–Tanaka original details at typesetting.)*
+- [TU14] T. Tanaka, Y. Urakawa, "Strong restriction on inflationary vacua
+  from the local gauge invariance III," arXiv:1402.2076.
+- [GIL24] "Gauge independent logarithms from inflationary gravitons,"
+  arXiv:2402.05452.
+- [KK14] H. Kitamoto, Y. Kitazawa, "Time dependent couplings as
+  observables in de Sitter space," arXiv:1402.2443.
+- [HHPS24] J. Huenupi, E. Hughes, G. A. Palma, S. Sypsas, "Regularizing
+  infrared divergences in de Sitter spacetime: loops, dimensional
+  regularization, and cutoffs," Phys. Rev. D 110, 123536 (2024);
+  arXiv:2406.07610.
+- [SdSET] "Renormalisation and matching of massless scalar correlation
+  functions in Soft de Sitter Effective Theory," arXiv:2603.09438.
+- [DRG] "Dynamical RG and critical phenomena in de Sitter space," JHEP 04
+  (2020) 064; arXiv:2001.05974.
+- [OEFT22] "Quantum corrections to the primordial tensor spectrum: open
+  EFTs and Markovian decoupling of UV modes," arXiv:2206.05797.
+- [BEM10] J. Bros, H. Epstein, U. Moschella, "Particle decays and
+  stability on the de Sitter universe," Ann. Henri Poincaré 11 (2010);
+  see also arXiv:0901.4223.
+- [B-line] D. Boyanovsky et al.: hep-ph/9606208; astro-ph/0406287;
+  arXiv:1203.3903; arXiv:1712.04522.
+- [KBE] Kadanoff–Baym/Wigner methods: e.g. arXiv:0807.4551 (curved-
+  spacetime transport); standard nonequilibrium-QFT references at
+  typesetting.
+
+---
+
 *Draft note: owner edit passes one (wording, six edits), two (hostile
 review, six edits), and three (second hostile review, eight edits) of
-2026-09-21 applied; the scientific text is FROZEN — remaining changes are
-positioning only, pending the external literature/venue pass. Nothing in it may be strengthened
+2026-09-21 applied; the scientific text is FROZEN at v3. The POSITIONING
+PASS (2026-09-21) applied the owner-ratified literature items — §2
+inheritance citations, §6.5 relation to prior work, the §6.4 conversion
+assessment, and the documented-search novelty statement — as ADDITIONS
+ONLY: no scientific claim, coefficient, certificate, or limitation was
+altered. Bibliographic entries marked "at typesetting" carry unverified
+volume/page digits by design (nothing fabricated). Nothing in it may be strengthened
 without a corresponding certificate; the thirteen limitations travel with
 any excerpt.*
