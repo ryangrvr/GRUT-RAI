@@ -9,7 +9,8 @@ in-house verification, no external review yet (§7, item 9).*
 
 ## Abstract
 
-We compute the Wigner-time-resolved absorptive part of the one-loop
+We compute the Wigner-time-resolved absorptive (dissipative) part of the
+one-loop
 pure-graviton self-energy on a de Sitter background, within a fully declared
 contract (transverse-traceless internal legs, adiabatically dressed mode
 functions, zero external spatial momentum, dimensional continuation), through
@@ -26,8 +27,8 @@ first u_b-odd (time-asymmetric) dissipative term. We establish, by a
 parameter-free coefficient certificate, that no representation of the form
 F(Hu_b)·(ω̃⁴/1280π)·T(H/ω̃) with ω̃ = ω·g(Hu_b) — encompassing all
 time-dependent amplitude dressings, frequency rescalings, and their
-combinations, equivalently the leading-adiabatic action of local field
-rescalings and time reparametrizations — reproduces the certified
+combinations, corresponding at leading adiabatic order to the action of
+local field rescalings and time reparametrizations — reproduces the certified
 coefficients. Under the frozen retarded convention, and assuming the retarded
 kernel is real at fixed u_b, the certified non-analytic absorptive terms
 reconstruct for Δ > 0 as power-law memory tails; the u_b-dependent
@@ -131,8 +132,10 @@ Structural features of the certified table:
 1. **Validity domain.** The record's own derived boundary is
    ε_H = (104/9)H²/ω², with refusal at ω = √(104/9)·H ≈ 3.399H — the ratio
    of the H² to H⁰ coefficients. The u_b-free tower (−3, −104/3, −127,
-   −1280/3) has successive ratios ≈ 11.6, 3.7, 3.4, suggesting (three terms
-   only) a convergence boundary near ω ≈ 1.8H, safely inside the refusal.
+   −1280/3) has successive ratios ≈ 11.6, 3.7, 3.4; this three-term pattern
+   is suggestive of a lower characteristic scale near ω ∼ 1.8H but does not
+   establish a convergence radius — the operative boundary remains the
+   refusal at 3.399H.
 2. **Sign.** The ≤H⁴ truncation is analytically negative on the stated
    window (exact maximum −599127/270400). The H³/H⁶-inclusive expression
    was negative at every tested grid point, for both signs of u_b — grid
@@ -144,8 +147,9 @@ Structural features of the certified table:
    asymmetry of the dissipative coefficient. This should not be identified,
    by itself, with an arrow-of-time statement.
 4. **Secular self-termination.** The u_b-dependence equals the flat response
-   at Hu_b = 6^(−1/4) ≈ 0.64 (at y = 0): the truncated two-time expansion is
-   trustworthy only for Wigner drifts below this surface.
+   at Hu_b = 6^(−1/4) ≈ 0.64 (at y = 0): the certified truncated response is
+   restricted to Wigner drifts below this surface by the adopted
+   self-termination criterion.
 
 ## 4. Fourier/distributional mapping to relative-time structure
 
@@ -153,8 +157,8 @@ Three layers, kept separate.
 
 **4.1 Mathematical mapping (prescription-independent; conditional on the
 §4.2 premise).** For the certified spectral terms, and assuming the retarded
-kernel is real at fixed u_b (the premise stated in §4.2), the frozen
-convention maps their full odd extensions to the corresponding Δ > 0
+kernel is real at fixed u_b, the frozen convention maps the odd extensions
+implied by the §4.2 reality premise to the corresponding Δ > 0
 contributions via K(Δ) = (2/π)∫₀^∞ Im Σ̃(ω) sin(ωΔ) dω. This extracts the
 non-analytic tail associated with each certified term under the stated
 prescription; it does not reconstruct the complete physical kernel, whose
@@ -183,9 +187,9 @@ by the assembly's derivative-operator routing and is not pointwise
 anti-hermitian. The move from computed coefficient to odd extension is
 therefore a stated premise of the tail statements, not an identity.
 
-**4.3 Regime limitation (the infrared window).** The ω⁻² term (H⁶,
-u_b-free) has, with infrared cutoff ω\* at the domain boundary, the exact
-Δ > 0 kernel −Δ·Ci(ω\*Δ) + sin(ω\*Δ)/ω\*: it grows as
+**4.3 Regime limitation (the infrared window).** For the ω⁻² term (H⁶,
+u_b-free), the exact Δ > 0 kernel of the IR-cut model — cutoff ω\* at the
+domain boundary — is −Δ·Ci(ω\*Δ) + sin(ω\*Δ)/ω\*: it grows as
 Δ[1 − γ_E − ln(ω\*Δ)] **within the window Δ ≲ 1/ω\*** (ω\* = 3.399H, i.e.
 Δ ≲ 0.29/H) and is bounded oscillation beyond, in the cut model. The
 calculation does not determine the asymptotic behavior beyond the window;
@@ -198,10 +202,11 @@ calculation does not determine the asymptotic behavior beyond the window;
 > Im Σ = F(x) · (ω̃⁴/1280π) · T(H/ω̃),  ω̃ = ω·g(x),
 
 with F, g analytic (F(0) = g(0) = 1) and T arbitrary through the matched
-order. This class contains all time-dependent amplitude dressings (g ≡ 1),
-all frequency rescalings (F ≡ 1), and their combinations; equivalently, it is
-the leading-adiabatic (Wigner-local) action of local field rescalings
-h → Z(u_b)h and time reparametrizations u → f(u) on a stationary law.
+order. The declared class contains time-dependent amplitude dressings
+(g ≡ 1), frequency rescalings (F ≡ 1), and their combinations; in the
+leading-adiabatic (Wigner-local) construction used here, it corresponds to
+the action of local field rescalings h → Z(u_b)h and time reparametrizations
+u → f(u) on a stationary law.
 
 **5.2 The certificate.** Matching the class to the certified table on every
 complete slot through total order 6 proceeds as a chain of single linear
@@ -249,8 +254,8 @@ the calculation does not determine the asymptotic behavior.
 original intuition motivating this program fused them; the calculation
 separates them. Within the certified response, cosmic-time dependence and
 memory *depth* are anti-correlated: the explicitly time-dependent
-pieces ride the short-memory tails (Δ⁻⁵, Δ⁻³, Δ⁻¹), and the longest-memory
-certified contribution is stationary. Equivalently, in frequency space: no
+pieces ride the short-memory tails (Δ⁻⁵, Δ⁻³, Δ⁻¹), and the deepest
+certified memory contribution is stationary at this order. Equivalently, in frequency space: no
 time-dependent amplitude, no time-dependent clock, and no combination of the
 two turns the certified response into a stationary law (§5.2) — yet the
 component that most resembles genuine long-time memory carries no explicit
@@ -263,8 +268,9 @@ absorptive coefficients at H³, H⁴, H⁶, including the exact H¹ vanishing an
 the first u_b-odd term, together with the stationarity no-go certificate,
 the tail/nonstationarity anti-correlation, and the quantified
 Wigner-reduction error; a supported novelty statement awaits a documented
-literature search. No claim of
-physics beyond standard QFT is made.
+literature search. No claim of physics beyond standard QFT is made. The
+stationarity no-go is therefore a structural statement about the calculated
+self-energy, not an experimental discriminator.
 
 **6.4 Interpretation programs.** A "responsive-medium" reading of the
 gravitational vacuum is *consistent with* this structure — an expanding
@@ -346,8 +352,9 @@ transforms, and the corrected calculations appear in §4.
 
 ---
 
-*Draft note: owner edit pass one (wording, six edits) and pass two
-(hostile review, six edits) of 2026-09-21 applied; FROZEN as the scientific
-manuscript pending the external literature/venue pass. Nothing in it may be strengthened
+*Draft note: owner edit passes one (wording, six edits), two (hostile
+review, six edits), and three (second hostile review, eight edits) of
+2026-09-21 applied; the scientific text is FROZEN — remaining changes are
+positioning only, pending the external literature/venue pass. Nothing in it may be strengthened
 without a corresponding certificate; the thirteen limitations travel with
 any excerpt.*

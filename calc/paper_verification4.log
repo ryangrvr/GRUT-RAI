@@ -1,0 +1,16 @@
+  ok   P1 odd extensions tied to 4.2 premise
+  ok   P2 exactness narrowed to the IR-cut model
+  ok   P3 self-termination criterion wording
+  ok   P4 convergence demoted
+  ok   P5 corresponds-to (5.1 + abstract)
+  ok   P6 absorptive (dissipative) in abstract
+  ok   P7 deepest certified memory at this order (6.2)
+  ok   P8 structural-not-experimental sentence
+  ok   freeze note pass three
+  ok   certificate numbers intact
+  ok   tails/premise/window intact
+  ok   strongest formulation intact (6.1)
+  ok   passes 1-2 edits intact
+  ok   13 limitations + banned framings
+
+VERDICT: ALL VERIFIED
