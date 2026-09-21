@@ -1,0 +1,12 @@
+PDF pages: 8
+  ok   all 11 section headings present
+  ok   all 21 load-bearing strings present
+  ok   all 13 reference anchors present
+  ok   no U+FFFD replacement characters
+  ok   Greek/math glyphs extracted
+  ok   all 13 limitations present
+  ok   content sweep: 91 sampled windows all present
+  ok   banned phrases absent
+  ok   front matter present
+
+VERDICT: ALL VERIFIED
