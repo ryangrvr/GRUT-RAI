@@ -1,0 +1,52 @@
+{
+  "instrument": "calc/t3_01_ir_coefficient.py",
+  "checks": [
+    {
+      "name": "E1a diffeo image",
+      "pass": true,
+      "msg": "partial_i zeta_j + partial_j zeta_i == eps_ij exactly"
+    },
+    {
+      "name": "E1b trace-free",
+      "pass": true,
+      "msg": "tr(eps) = 0"
+    },
+    {
+      "name": "E1c transverse",
+      "pass": true,
+      "msg": "eps_ij delta^{j1} = 0 for k along x1 (TT condition)"
+    },
+    {
+      "name": "E2a constant part removed",
+      "pass": true,
+      "msg": "P_perp(eps) = 0: the constant TT mode is exactly in the removed sector"
+    },
+    {
+      "name": "E2b remainder is O(q)",
+      "pass": true,
+      "msg": "P_perp acts as identity on the O(q) remainder -- untouched, IR-finite"
+    },
+    {
+      "name": "E3a raw diverges as cutoff -> 0",
+      "pass": true,
+      "msg": "raw channel diverges with the frozen power class at k_ext = 0"
+    },
+    {
+      "name": "E3b quotient finite and k_ext-independent",
+      "pass": true,
+      "msg": "quotiented remainder = 1/3 exactly at every k_ext, including k_ext = 0"
+    },
+    {
+      "name": "E4 flat limit smooth",
+      "pass": true,
+      "msg": "Pi_quot -> Minkowski value as H -> 0 (max relative deviation 0.175 over H in [0.02, 0.5], scaling as H^2); even-in-H parity consistent"
+    }
+  ],
+  "summary": {
+    "C_raw": "nonzero (divergent, frozen power class at k_ext = 0)",
+    "C_quotient": 0,
+    "verdict": "IDENTITY: the quotient projector removes exactly the constant-TT component that carries the entire dangerous coefficient. C_quotient = 0 identically at patch-local scope. The open physics question is the boundary prescription (Case 1 vs Case 3), not the coefficient."
+  },
+  "w0": "computed-and-reported, NOT banked",
+  "scope": "patch-local linear-diffeomorphism quotient only; no global gauge claim"
+}

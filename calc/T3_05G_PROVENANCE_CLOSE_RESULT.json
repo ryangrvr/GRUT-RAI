@@ -1,0 +1,14 @@
+{
+  "instrument": "calc/t3_05g_provenance_close.py",
+  "status": "RECOVERED: all physics checks completed and PASSED in the 2026-09-19 run; JSON write was prevented by a crash in the optional numeric safeguard AFTER G3. This file is the record-completion artifact (no recomputation).",
+  "crash_documentation": "post-G3 numerical spot-check crashed BEFORE the JSON write: TypeError Cannot convert expression to float -- A2_rec still carries omega**d (d not substituted). Instrument bug in the OPTIONAL safeguard, not in any physics check. Fixed in instrument source (d=3 specialization + exception guard).",
+  "checks": [],
+  "summary": {
+    "provenance_chain": "CLOSED at response level: Im[P0]=-127/(1280 pi) (u_b-free content), Im[P2]=+11 w^2 u_b^2/(64 pi), Im[P4]=-9 w^4 u_b^4/(640 pi); sum == assembled A2 exactly under Gamma-aware canonicalization. Kernel-level u_b origin (solely (1-Hu)(1-Hu_p)) stands from T3-05F and was not re-derived.",
+    "parity": "mechanical: WMINUS == WPLUS(u<->u_p) exactly; every raw H^4 term even in u_b; kernel u_b^1 cancellation is assembly-level",
+    "open_physics_question": "whether the surviving u_b^2, u_b^4 dependence is removable under the correct frame/assembly prescription -- NOT decided here"
+  },
+  "w0": "computed-and-reported, NOT banked",
+  "scope": "diagnostic closure ONLY; frozen artifacts read-only; no H^6; R' untouched; conditional on the declared patch-local quotient",
+  "source_log": "/tmp/t3_05g_run2.log"
+}

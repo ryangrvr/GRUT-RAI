@@ -1,0 +1,18 @@
+P1: working-copy provenance (frozen files untouched)
+  ok   P1a frozen instrument untouched: frozen wall_kr_tier3_loop.py sha 1c72272b54d09f31... (read-only; pin table value 1c72272b...)
+  ok   P1b patch is machinery-range + output-redirect ONLY: working copy differs in exactly 8 lines: the _HKILL order (3->7), the imsig cone Delta-degree cap (3->7 -- machinery range extension; the Sokhotski delta-derivative formula itself is degree-general and the PV-leak gate applies per-n), and six output-filename redirects to T3_05_* -- NO physics line touched
+P2: H^4-extended integrand cache
+  ok   P2a cache exists: /Users/mpg/Desktop/grut testing/PHYSICS_LEDGER/.tier3_h4_integrand_cache.json
+  ok   P2b H^2 sector reproduced identically: the H^2 sector of the working copy == the frozen cache sector EXACTLY: the extended run is the same machinery, one order higher
+  ok   P2c H^0 sector reproduced identically: the H^0 sector likewise identical
+CORE: A2 from the frozen cone machinery (cone_split + imsig_from_cone)
+  ok   C1 H^4 cone split clean: H^4 sector cone split complete (no stray phases); nonzero cone branches: 3
+  FAIL C2 H^4 cone u_b-free: the H^4 cone coefficient is u_b-free (same gate as the frozen H^2 sector) -- the Wigner-frame convention is under control at H^4
+  Im Sigma^{H4} (general d) = 2**(-2*d - 12)*pi**(1 - d/2)*omega**(d - 3)*(-63*d**10 + 532*d**9 + 1512*d**8*omega**2*u_b**2 - 2465*d**8 + 1176*d**7*omega**2*u_b**2 - 22732*d**7 - 1008*d**6*omega**4*u_b**4 - 39024*d**6*omega**2*u_b**2 + 177103*d**6 - 6048*d**5*omega**4*u_b**4 + 133920*d**5*omega**2*u_b**2 - 95768*d**5 + 9408*d**4
+  ok   C3 H^4 d=3 smoothness: residue of 1/(d-3) in the H^4 sector = 0: SMOOTH at d=3
+
+  A2 = Im Sigma_R^{H4}(omega; d=3) = (-18*omega**4*u_b**4 + 220*omega**2*u_b**2 - 127)/(1280*pi)
+  ok   C4 A2 functional structure: A2(omega) = (-18*omega**4*u_b**4 + 220*omega**2*u_b**2 - 127)/(1280*pi) -- omega-dependence: omega powers [0, 2, 4]; nonanalytic-in-omega content (log/Abs/1/omega^n): PRESENT
+
+T3-05: 8/9 checks pass
+result written: /Users/mpg/Desktop/grut testing/calc/T3_05_H4_SECTOR_RESULT.json

@@ -1,0 +1,72 @@
+{
+  "instrument": "calc/t3_02_quotient_remainder.py",
+  "depends_on": "calc/T3_01_IR_COEFFICIENT_RESULT.json",
+  "checks": [
+    {
+      "name": "E1a P_perp kills constant mode",
+      "pass": true,
+      "msg": "P_perp(eps*f0) = 0 (T3-01 identity, re-verified inside T3-02)"
+    },
+    {
+      "name": "E1b remainder is exactly the O(q) piece",
+      "pass": true,
+      "msg": "h_quot == h_O(q) exactly: the subtraction is clean mode by mode"
+    },
+    {
+      "name": "E1c projector is idempotent on this sector",
+      "pass": true,
+      "msg": "P_perp^2 = P_perp on the decomposed mode (quotient consistency)"
+    },
+    {
+      "name": "E2a IR convergence demonstrated",
+      "pass": true,
+      "msg": "integral converges as qmin -> 0 (relative drift 7.18e-13 over the last decade; NO IR divergence in the quotiented remainder)"
+    },
+    {
+      "name": "E2b integrand vanishing power",
+      "pass": true,
+      "msg": "fitted integrand power near q=0 is 2.000414 (expected q^2 from the d=3 measure on a bounded amplitude) -- computed, not assumed"
+    },
+    {
+      "name": "E3a coefficient extracted and matches",
+      "pass": true,
+      "msg": "leading remainder coefficient I_rem = 0.464407794443 (numeric agrees to 1.53e-13) -- finite, nonzero, computed"
+    },
+    {
+      "name": "E4a omega power and A0",
+      "pass": true,
+      "msg": "Pi(omega,0) ~ omega^4.0000; extracted A0 = 0.46440781 matches symbolic Int q^2 a = 0.46440779"
+    },
+    {
+      "name": "E4b H power and A1",
+      "pass": true,
+      "msg": "H-dependent part ~ H^2.0000 (even-in-H, as required by the symmetry of the kernel); extracted A1 = 0.26697965 matches symbolic Int q^2 a/(1+q) = 0.26697964"
+    },
+    {
+      "name": "E4c flat limit",
+      "pass": true,
+      "msg": "relative H-correction at H = 0.02 is 2.56e-03, matching (A1/A0)(H/w)^2 to 1.2e-08: it scales as H^2 -> 0 at fixed omega, so the flat limit is the pure omega^4 remainder, smoothly"
+    },
+    {
+      "name": "E5 ratio computed for both shapes",
+      "pass": true,
+      "msg": "A1/A0 = 0.574882 vs 0.584987: the dimensionless remainder coefficient is SHAPE-DEPENDENT at the level of the scalar model (1.8% spread) -- i.e. at toy scope it is a scheme quantity, NOT yet a universal number. Extracting it from the real Tier-3 kernel is the open calculation."
+    }
+  ],
+  "summary": {
+    "decomposition": "h = eps*f0 + h_O(q); P_perp removes exactly eps*f0 (T3-01 identity)",
+    "IR_convergence": "remainder integrand ~ q^2 (fitted power 2.000); integral converges, no IR divergence",
+    "leading_remainder_coefficient": 0.4644077944426885,
+    "response_structure": "Pi_quot(omega, H) = A0*omega^4 + A1*H^2*omega^2 + ...",
+    "A0": 0.4644077944426885,
+    "A1": 0.2669796430638961,
+    "A1_over_A0": {
+      "a_rem": 0.5748819168355532,
+      "a_alt": 0.5849868304579525
+    },
+    "flat_limit": "H-dependent correction ~ H^2 -> 0 smoothly",
+    "verdict": "The quotiented channel is IR-finite with a computable remainder: A0*omega^4 + A1*H^2*omega^2.  The powers are verified by scaling collapse and the coefficients are extracted numerically and confirmed symbolically.  The dimensionless ratio A1/A0 is shape-dependent at toy scope: whether it is a universal number must be decided by the real Tier-3 kernel, not by this instrument."
+  },
+  "w0": "computed-and-reported, NOT banked",
+  "scope": "patch-local linear-diffeomorphism quotient only; scalar model instrument; no global gauge claim; no full-loop claim"
+}

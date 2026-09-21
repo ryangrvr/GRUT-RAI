@@ -1,0 +1,89 @@
+{
+  "instrument": "calc/t3_05c_additivity_probe.py",
+  "diagnostic_only": true,
+  "resolves": "T3-05B R3 nonlinearity suspect + P1 gate crash (input-convention bug in the probe, not the gate)",
+  "checks": [
+    {
+      "name": "P1 gate on PV-class input",
+      "pass": true,
+      "msg": "gate fires correctly on i^1 c_1 = i q^4/kappa^4 (imaginary): the T3-05B P1 crash was an INPUT-CONVENTION bug in the probe (out-of-domain synthetic input), not a gate defect -- PV-leak precondition violated: i^1 c_1 is not real"
+    },
+    {
+      "name": "P2 n=0 sign=-2 gate pass",
+      "pass": true,
+      "msg": "i^0 c_0 real by construction -> extracted: -2**(1 - 2*d)*pi**(1 - d/2)*omega**(d - 1)/gamma(d/2)"
+    },
+    {
+      "name": "P2 n=0 sign=+2 gate pass",
+      "pass": true,
+      "msg": "i^0 c_0 real by construction -> extracted: -2**(1 - 2*d)*pi**(1 - d/2)*omega**(d - 1)/gamma(d/2)"
+    },
+    {
+      "name": "P2 n=1 sign=-2 gate pass",
+      "pass": true,
+      "msg": "i^1 c_1 real by construction -> extracted: -pi**(1 - d/2)*d*omega**(d - 1)/(4**d*kappa*gamma(d/2))"
+    },
+    {
+      "name": "P2 n=1 sign=+2 gate pass",
+      "pass": true,
+      "msg": "i^1 c_1 real by construction -> extracted: -pi**(1 - d/2)*d*omega**(d - 1)/(4**d*kappa*gamma(d/2))"
+    },
+    {
+      "name": "P2 n=2 sign=-2 gate pass",
+      "pass": true,
+      "msg": "i^2 c_2 real by construction -> extracted: 2**(-2*d - 1)*pi**(1 - d/2)*d*omega**(d - 1)*(d + 1)/(kappa**2*gamma(d/2))"
+    },
+    {
+      "name": "P2 n=2 sign=+2 gate pass",
+      "pass": true,
+      "msg": "i^2 c_2 real by construction -> extracted: 2**(-2*d - 1)*pi**(1 - d/2)*d*omega**(d - 1)*(d + 1)/(kappa**2*gamma(d/2))"
+    },
+    {
+      "name": "P2 n=3 sign=-2 gate pass",
+      "pass": true,
+      "msg": "i^3 c_3 real by construction -> extracted: 2**(-2*d - 2)*pi**(1 - d/2)*d*omega**(d - 1)*(d + 1)*(d + 2)/(kappa**3*gamma(d/2"
+    },
+    {
+      "name": "P2 n=3 sign=+2 gate pass",
+      "pass": true,
+      "msg": "i^3 c_3 real by construction -> extracted: 2**(-2*d - 2)*pi**(1 - d/2)*d*omega**(d - 1)*(d + 1)*(d + 2)/(kappa**3*gamma(d/2"
+    },
+    {
+      "name": "P2 n=4 sign=-2 gate pass",
+      "pass": true,
+      "msg": "i^4 c_4 real by construction -> extracted: -2**(-2*d - 3)*pi**(1 - d/2)*d*omega**(d - 1)*(d + 1)*(d + 2)*(d + 3)/(kappa**4*"
+    },
+    {
+      "name": "P2 n=4 sign=+2 gate pass",
+      "pass": true,
+      "msg": "i^4 c_4 real by construction -> extracted: -2**(-2*d - 3)*pi**(1 - d/2)*d*omega**(d - 1)*(d + 1)*(d + 2)*(d + 3)/(kappa**4*"
+    },
+    {
+      "name": "P3a cone split recovers the branches",
+      "pass": true,
+      "msg": "cone_split(X_- + X_+) returns the PHASE-STRIPPED coefficients of (X_-, X_+) exactly, no stray"
+    },
+    {
+      "name": "P3b additivity (-cone): I[cone_m(X_-+X_+)] == I[cone_m(X_-)] + I[cone_m(X_+)]",
+      "pass": false,
+      "msg": "normalized residual = pi*omega*omega**d/(2*2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2)) + 4**d*pi*omega**3*omega**d*u_b**2/(8*2**(4*d)*pi**(d/2)*kappa**4*gamma(d/2))"
+    },
+    {
+      "name": "P3c branch-sum additivity",
+      "pass": false,
+      "msg": "I[X_-] + I[X_+] - I[assembled -cone] normalized residual = -pi*omega*omega**d/(2*2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2)) - 4**d*pi*omega**3*omega**d*u_b**2/(8*2**(4*d)*pi**(d/2)*kappa**4*gamma(d/2))"
+    },
+    {
+      "name": "P4a -2 branch reproducible in isolation",
+      "pass": true,
+      "msg": "I[X_-] alone == the -cone slot of I[X_- + X_+]: residual 0"
+    }
+  ],
+  "residual_P3c": "-pi*omega*omega**d/(2*2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2)) - 4**d*pi*omega**3*omega**d*u_b**2/(8*2**(4*d)*pi**(d/2)*kappa**4*gamma(d/2))",
+  "sign_asymmetry_residual": "0",
+  "notes": [
+    "P4b sign asymmetry probe: I[+2 branch] - I[-2 branch] normalized = 0"
+  ],
+  "w0": "computed-and-reported, NOT banked",
+  "scope": "synthetic additivity probe ONLY; frozen artifacts read-only; no physics interpretation drawn here"
+}

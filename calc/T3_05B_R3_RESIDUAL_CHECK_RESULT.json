@@ -1,0 +1,22 @@
+{
+  "instrument": "calc/t3_05b_residual_check.py",
+  "checks": [
+    {
+      "name": "N1 R1b residual is zero after normalization",
+      "pass": false,
+      "msg": "assembled-d3 (this run) minus T3-05 target, normalized = -9*omega**4*u_b**4/(640*pi) + 9*omega**4/(640*pi) + 11*omega**2*u_b**2/(64*pi) - 11*omega**2/(64*pi); the run-3 MISMATCH is confirmed a canonicalization false negative"
+    },
+    {
+      "name": "N2 R3 residuals normalized (branch decomposition commutes with extraction iff all zero)",
+      "pass": true,
+      "msg": "residuals: {\"0\": \"14981/(3840*pi)\", \"2\": \"-1143*omega**2/(64*pi)\", \"4\": \"729*omega**4/(640*pi)\"}"
+    }
+  ],
+  "residuals_normalized": {
+    "0": "14981/(3840*pi)",
+    "2": "-1143*omega**2/(64*pi)",
+    "4": "729*omega**4/(640*pi)"
+  },
+  "all_zero": false,
+  "verdict": "BRANCH DECOMPOSITION DOES NOT COMMUTE: normalized residuals are nonzero -- imsig_from_cone is not linear over the cone branches as implemented; the assembled A2 extraction itself is questionable. No physical classification of u_b-dependence should be made from run 3."
+}

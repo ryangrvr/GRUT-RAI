@@ -1,0 +1,6 @@
+L: load caches + frozen machinery (read-only)
+Traceback (most recent call last):
+  File "/Users/mpg/Desktop/grut testing/calc/t3_05g_provenance_close.py", line 120, in <module>
+    WPLUS, WMINUS = g["WPLUS"], g["WMINUS"]
+                    ~^^^^^^^^^
+KeyError: 'WPLUS'

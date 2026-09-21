@@ -1,0 +1,41 @@
+{
+  "instrument": "calc/t3_05j_additivity_probe_v2.py",
+  "load_path": "staged+cached",
+  "checks": [
+    {
+      "name": "L1 sec4 loaded (cached or first-run derived)",
+      "pass": true,
+      "msg": "H^4 coefficient in hand without relying on un-pinned state"
+    }
+  ],
+  "notes": [
+    "load path restructured after PID 24522 kill; killed run preserved at /tmp/probe_additivity_KILLED_24522.py.bak with empty log /tmp/probe_additivity_KILLED_EMPTY.log"
+  ],
+  "per_branch_d3": {
+    "rD=-2,rb=0": {
+      "d3_pole_residue": "0",
+      "A2_0": "-127/(1280*pi)",
+      "A2_2": "11*omega**2/(64*pi)",
+      "A2_4": "-9*omega**4/(640*pi)"
+    },
+    "rD=2,rb=0": {
+      "d3_pole_residue": "0",
+      "A2_0": "14981/(3840*pi)",
+      "A2_2": "-1143*omega**2/(64*pi)",
+      "A2_4": "729*omega**4/(640*pi)"
+    }
+  },
+  "branch_sum_d3": {
+    "0": "365/(96*pi)",
+    "2": "-283*omega**2/(16*pi)",
+    "4": "9*omega**4/(8*pi)"
+  },
+  "normalized_residuals": {
+    "0": "14981/(3840*pi)",
+    "2": "-1143*omega**2/(64*pi)",
+    "4": "729*omega**4/(640*pi)"
+  },
+  "classification": "BRANCH-SUM MISMATCH at u_b powers [0, 2, 4] -- residuals recorded, not interpreted.",
+  "w0": "computed-and-reported, NOT banked",
+  "scope": "diagnostic ONLY; frozen artifacts read-only; no R'; no H^6; no interpretation of u_b"
+}

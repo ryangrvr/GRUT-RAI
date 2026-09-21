@@ -1,0 +1,102 @@
+{
+  "instrument": "calc/t3_05h_frame_test.py",
+  "charter": "frame/assembly test of trusted H^4 u_b dependence",
+  "checks": [
+    {
+      "name": "Q1a no licensed frame transformation defined in the framework",
+      "pass": false,
+      "msg": "12 keyword hits inspected and classified: 10 are Ward/gauge-image comments, momentum-routing relabel, or Wigner-frame description -- NONE defines a transformation acting on u_b (u_b/wigner mentions in hits: 2). The only quotient in the program is the patch-local diffeo quotient, whose legitimacy is the OPEN R' question and which acts on mode content, not on u_b || POST-RUN CLASSIFICATION NOTE: the 2 u_b/wigner keyword hits are lines 628 (frozen) and 628 (h4-working): 'retarded AND noise combinations in the Wigner frame (the armed' -- a DESCRIPTION of the Wigner substitution subs(WIG), not a licensed frame transformation. The Q1a FAIL is classifier strictness (it required zero hits containing 'wigner'), not a discovery of a licensed transformation. The substantive finding -- no source line defines a transformation acting on u_b -- stands, and the H4 verdict is unaffected."
+    },
+    {
+      "name": "Q2a A2(u_b) is NOT invariant under a hypothetical frame shift",
+      "pass": true,
+      "msg": "A2(u_b+s) - A2(u_b) = -9*omega**4*s**4/(640*pi) - 9*omega**4*s**3*u_b/(160*pi) - 27*omega**4*s**2*u_b**2/(320*pi) - 9*omega**4*s*u_b**3/(160*pi) + 11*omega**2*s**2/(64*pi) + 11*omega**2*s*u_b/(32*pi) != 0: a frame shift WOULD change the A2 representation -- but no source declares this shift a physical equivalence, so no removability follows"
+    },
+    {
+      "name": "Q2b per-piece shift sensitivity recorded",
+      "pass": true,
+      "msg": "A_2,0 is frame-shift invariant (u_b-free); A_2,2 and A_2,4 change under the hypothetical shift (pieces [2, 4]) -- recorded as representation facts, NOT as physical statements"
+    },
+    {
+      "name": "Q3 identity action only",
+      "pass": true,
+      "msg": "the ONLY transformation the framework licenses on u_b is the identity: A_2,j -> A_2,j for j = 0, 2, 4. The u_b-dependent pieces are therefore neither removed nor relocated by any licensed operation -- but 'survival under the identity' is NOT evidence of genuine physical frame dependence (no nontrivial licensed map exists to test against)"
+    },
+    {
+      "name": "Q4 no physical observable defined",
+      "pass": true,
+      "msg": "NO_PHYSICAL_OBSERVABLE_DEFINED_FOR_THIS_DEPENDENCE: the construction defines no physical invariant associated with the response sector, so H2 (representation-only) cannot be established either -- an observable must not be invented here"
+    }
+  ],
+  "object_tested": "assembled retarded-response H^4 coefficient A2(u_b) (Wigner representation of the Tier-3 response), NOT the two-time kernel",
+  "transformation_inventory": [
+    "frozen:18: oscillation cannot regulate powers or logs; u_b symbolic with pole",
+    "frozen:19: coefficients gated u_b-free) of BOTH the retarded combination",
+    "frozen:114: u, up, ub, D = sp.symbols(\"u u_p u_b Delta\", real=True)",
+    "frozen:512: all exp arguments into i q (rD Delta + rb u_b). Every term is either",
+    "frozen:628: # retarded AND noise combinations in the Wigner frame (the armed",
+    "frozen:634: json.dump({\"ret_wigner\": sp.srepr(RET), \"nk_wigner\": sp.srepr(NKC),",
+    "frozen:642: \"Delta only (u_b drops out exactly)\", gate=\"ASM\")",
+    "frozen:650: \"oscillation series-expanded; u_b SYMBOLIC, with every pole \"",
+    "frozen:651: \"coefficient gated u_b-free) of BOTH combinations: the \"",
+    "frozen:682: \"is u_b-free (symbolic-u_b scan closes the \"",
+    "frozen:762: RET = sp.sympify(IC[\"ret_wigner\"]).xreplace(",
+    "frozen:763: {sp.Symbol(\"H\"): H, sp.Symbol(\"u_b\"): ub, sp.Symbol(\"Delta\"): D,",
+    "frozen:773: \"(pure two-particle cone; no stray phases, no u_b phase, no \"",
+    "frozen:1001: RET = sp.sympify(IC[\"ret_wigner\"]).xreplace(",
+    "frozen:1002: {sp.Symbol(\"H\"): H, sp.Symbol(\"u_b\"): ub, sp.Symbol(\"Delta\"): D,",
+    "frozen:1049: check(not cmub.has(ub), \"H^%d cone coefficient is u_b-free \"",
+    "h4-working:18: oscillation cannot regulate powers or logs; u_b symbolic with pole",
+    "h4-working:19: coefficients gated u_b-free) of BOTH the retarded combination",
+    "h4-working:114: u, up, ub, D = sp.symbols(\"u u_p u_b Delta\", real=True)",
+    "h4-working:512: all exp arguments into i q (rD Delta + rb u_b). Every term is either",
+    "h4-working:628: # retarded AND noise combinations in the Wigner frame (the armed",
+    "h4-working:634: json.dump({\"ret_wigner\": sp.srepr(RET), \"nk_wigner\": sp.srepr(NKC),",
+    "h4-working:642: \"Delta only (u_b drops out exactly)\", gate=\"ASM\")",
+    "h4-working:650: \"oscillation series-expanded; u_b SYMBOLIC, with every pole \"",
+    "h4-working:651: \"coefficient gated u_b-free) of BOTH combinations: the \"",
+    "h4-working:682: \"is u_b-free (symbolic-u_b scan closes the \"",
+    "h4-working:762: RET = sp.sympify(IC[\"ret_wigner\"]).xreplace(",
+    "h4-working:763: {sp.Symbol(\"H\"): H, sp.Symbol(\"u_b\"): ub, sp.Symbol(\"Delta\"): D,",
+    "h4-working:773: \"(pure two-particle cone; no stray phases, no u_b phase, no \"",
+    "h4-working:1001: RET = sp.sympify(IC[\"ret_wigner\"]).xreplace(",
+    "h4-working:1002: {sp.Symbol(\"H\"): H, sp.Symbol(\"u_b\"): ub, sp.Symbol(\"Delta\"): D,",
+    "h4-working:1049: check(not cmub.has(ub), \"H^%d cone coefficient is u_b-free \""
+  ],
+  "hypothetical_shift_delta_A2": "-9*omega**4*s**4/(640*pi) - 9*omega**4*s**3*u_b/(160*pi) - 27*omega**4*s**2*u_b**2/(320*pi) - 9*omega**4*s*u_b**3/(160*pi) + 11*omega**2*s**2/(64*pi) + 11*omega**2*s*u_b/(32*pi)",
+  "summary": {
+    "A2_trusted": "(-18 w^4 u_b^4 + 220 w^2 u_b^2 - 127)/(1280 pi)",
+    "A20": "-127/(1280 pi) [u_b-free]",
+    "A22": "+11 w^2 u_b^2/(64 pi)",
+    "A24": "-9 w^4 u_b^4/(640 pi)",
+    "transformation_tested": "NONE licensed; hypothetical u_b -> u_b + s computed for the record only",
+    "assumptions_required": "none beyond the frozen construction; R' was NOT required and NOT adopted",
+    "new_assumption_introduced": false,
+    "outcome": "H4",
+    "verdict": "H4 UNRESOLVED: the frozen framework defines NO licensed frame/assembly transformation acting on the Wigner mean time u_b, and NO physical observable against which removability or representation-only status could be tested. The u_b^2 and u_b^4 pieces of A2 are neither established as removable (H1), nor as representation-only (H2), nor as genuine physical frame dependence (H3). Resolving them requires either (a) a declared physical equivalence relation over u_b -- which does not exist in the present construction and is NOT supplied by adopting R' (R' concerns the constant-TT mode sector, a different object) -- or (b) a defined physical observable for the response sector. [Post-run note: Q1a's FAIL is a keyword-classifier false positive -- the two u_b/wigner hits describe the Wigner substitution, not a licensed frame transformation. Verdict unchanged.]",
+    "stop_conditions_hit": [
+      "licensed transformation not defined",
+      "physical observable not defined"
+    ],
+    "untouched": "W-0 NOT banked; no H^6; no loop rebuild; frozen artifacts read-only; R' unresolved and NOT assumed"
+  },
+  "notes": [
+    "u_b/Wigner/shift mentions in source: 32 (these define the substitution u -> u_b +/- Delta/2; they license no frame change)",
+    "equivalence/gauge/frame/quotient declarations found in source: 12",
+    "   frozen:238: # gauge image at k_ext = 0: e_mn = i(p_m X_n + p_n X_m), p=(w,0):",
+    "   frozen:485: denominator Add and return the phase-explicit equivalent term.\"\"\"",
+    "   frozen:628: # retarded AND noise combinations in the Wigner frame (the armed",
+    "   frozen:827: # T3-6 #5 momentum-routing equivalence: q -> -q relabel invariance",
+    "   frozen:957: note(\"T3-8 WARD: the gauge-image external contraction of the H^0 \"",
+    "   frozen:962: note(\"T3-8 WARD: the gauge-image contraction is NONZERO: %s -- \"",
+    "   h4-working:238: # gauge image at k_ext = 0: e_mn = i(p_m X_n + p_n X_m), p=(w,0):",
+    "   h4-working:485: denominator Add and return the phase-explicit equivalent term.\"\"\"",
+    "   h4-working:628: # retarded AND noise combinations in the Wigner frame (the armed",
+    "   h4-working:827: # T3-6 #5 momentum-routing equivalence: q -> -q relabel invariance",
+    "   h4-working:957: note(\"T3-8 WARD: the gauge-image external contraction of the H^0 \"",
+    "   h4-working:962: note(\"T3-8 WARD: the gauge-image contraction is NONZERO: %s -- \"",
+    "observable/invariant declarations in source: 0"
+  ],
+  "w0": "computed-and-reported, NOT banked",
+  "scope": "frame/assembly diagnostic ONLY; conditional on the declared patch-local quotient; no deep-IR claim; T3-04 nonuniformity unaffected"
+}

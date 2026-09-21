@@ -1,0 +1,51 @@
+{
+  "instrument": "calc/t3_05b_m4_repair.py",
+  "repairs": "T3-05A M4a/M4b (d-representation mismatch), diagnostic only; T3-05A record preserved",
+  "checks": [
+    {
+      "name": "E0 d3_view route is exact on screen cases",
+      "pass": false,
+      "msg": "cheap substitution route matches exact evaluation on regular and pi^d-type cases; a genuine pole REMAINS VISIBLE as zoo/oo rather than being silently swallowed (the pole case surfaces as inf) -- the screen guards, not replaces, the frozen limit machinery"
+    },
+    {
+      "name": "R1 assembled d=3 A2 reproduces the T3-05 record (substitution-only, no global normalization)",
+      "pass": false,
+      "msg": "MISMATCH: (9*omega**4*u_b**4 - 110*omega**2*u_b**2 - 9*omega**4*u_b**4 + 110*omega**2*u_b**2)/(640*pi)"
+    },
+    {
+      "name": "R3a branch sum == assembled (all u_b powers)",
+      "pass": false,
+      "msg": "disagreement at powers [0, 2, 4]"
+    }
+  ],
+  "per_branch_d3": {
+    "rD=-2,rb=0": {
+      "A2_0": "-127/(1280*pi)",
+      "A2_2": "11*omega**2/(64*pi)",
+      "A2_4": "-9*omega**4/(640*pi)"
+    },
+    "rD=2,rb=0": {
+      "A2_0": "14981/(3840*pi)",
+      "A2_2": "-1143*omega**2/(64*pi)",
+      "A2_4": "729*omega**4/(640*pi)"
+    }
+  },
+  "branch_sum_d3": {
+    "0": "365/(96*pi)",
+    "2": "-283*omega**2/(16*pi)",
+    "4": "9*omega**4/(8*pi)"
+  },
+  "classification": "SURVIVES: u_b^2 and u_b^4 pieces are nonzero in the correctly assembled d=3 object -- the H^4 sector carries genuine Wigner-frame dependence while H^0 and H^2 are u_b-free.",
+  "notes": [
+    "loaded frozen d=3 reference from T3_05_H4_SECTOR_RESULT.json (not rederived): A2_d3 = (-18*omega**4*u_b**4 + 220*omega**2*u_b**2 - 127)/(1280*pi)",
+    "d3_view equivalence screen (vs direct evaluation): x + 1/(2*d) @ d=3: ok; x**4 + (x**2 + 1)/(d - 3) @ d=3: MISMATCH; pi**d*x**2/(2*d + 1) @ d=3: ok",
+    "assembled d=3 decomposition: A20=-127/(1280*pi), A22=11*omega**2/(64*pi), A24=-9*omega**4/(640*pi)",
+    "rD=-2,rb=0: u_b^0: -127/(1280*pi), u_b^2: 11*omega**2/(64*pi), u_b^4: -9*omega**4/(640*pi)",
+    "rD=2,rb=0: u_b^0: 14981/(3840*pi), u_b^2: -1143*omega**2/(64*pi), u_b^4: 729*omega**4/(640*pi)",
+    "u_b^0: branch-sum != assembled",
+    "u_b^2: branch-sum != assembled",
+    "u_b^4: branch-sum != assembled"
+  ],
+  "w0": "computed-and-reported, NOT banked",
+  "scope": "M4 repair ONLY; frozen artifacts read-only; no H^6; R' untouched; conditional on the declared patch-local quotient"
+}

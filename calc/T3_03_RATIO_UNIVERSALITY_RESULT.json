@@ -1,0 +1,69 @@
+{
+  "instrument": "calc/t3_03_kernel_ratio.py",
+  "depends_on": [
+    "calc/T3_02_QUOTIENT_REMAINDER_RESULT.json",
+    "PHYSICS_LEDGER/WALL_KR_TIER3_IR_CHECK_RESULT.json"
+  ],
+  "conditional_scope": "patch-local linear-diffeomorphism quotient DECLARED; global boundary prescription (R') UNRESOLVED and not assumed",
+  "checks": [
+    {
+      "name": "pin WALL_KR_TIER3_IR_CHECK_RESULT.json",
+      "pass": true,
+      "msg": "sha256 a43633f5d34f6895... matches frozen pin a43633f5d34f6895"
+    },
+    {
+      "name": "pin WALL_KR_TIER3_LOOP_RESULT.json",
+      "pass": true,
+      "msg": "sha256 4c016e93b889bd04... matches frozen pin 4c016e93b889bd04"
+    },
+    {
+      "name": "A1 shape spread measured",
+      "pass": true,
+      "msg": "R_i over 6 admissible shapes spans [0.5730, 0.6051] (5.52% full spread): the TOY ratio is prescription-dependent. Recorded as a negative control: no toy number may be presented as a GRUT prediction."
+    },
+    {
+      "name": "B1 frozen H0 value present",
+      "pass": true,
+      "msg": "Im Sigma_R^{H0} = -3*omega^4/(1280*pi) appears verbatim in the frozen three-route-validated check log"
+    },
+    {
+      "name": "B2 kernel ratio is the closed form 104/9",
+      "pass": true,
+      "msg": "A1/A0 from the frozen Tier-3 kernel = 104/9 EXACTLY (= 11.5555555556), matching the frozen ratio record 104/(9*omega**2) as a coefficient ratio. This is a closed-form number of the FROZEN kernel -- no shape freedom enters: the kernel fixes its own mode functions."
+    },
+    {
+      "name": "B3 consistency with frozen ratio record",
+      "pass": true,
+      "msg": "frozen ratio_H2_over_H0_d3 = 104/(9*omega^2) is exactly R_kernel/omega^2: our extraction reproduces the frozen record"
+    },
+    {
+      "name": "B4 frozen spot reproduced",
+      "pass": true,
+      "msg": "frozen spot 'spot: omega=1.0, H=0.1 -> ratio = 11.555556' = 104/9 numerically -- reproduced"
+    }
+  ],
+  "summary": {
+    "T3_03A_shape_scan": {
+      "R_values": {
+        "S1 const": 0.5794415416791973,
+        "S2 linear": 0.5730048934444713,
+        "S3 rational": 0.5849868304596264,
+        "S4 t2-over-1+q": 0.5748819168376718,
+        "S5 saturating": 0.5775146705519426,
+        "S6 compact-core": 0.6051335503592691
+      },
+      "R_mean": 0.5824939005553631,
+      "R_full_spread_frac": 0.05515707011552503,
+      "verdict": "toy ratio is PRESCRIPTION-DEPENDENT: the toy construction does not select a universal number"
+    },
+    "T3_03B_real_kernel": {
+      "A0": "-3*omega**4/(1280*pi)   (frozen, three-route-validated)",
+      "A1": "-13*H^2*omega**2/(480*pi)   (frozen, d=3, u_b-free, smooth)",
+      "A1_over_A0": "104/9 = 11.5555555556 (EXACT, closed form)",
+      "verdict": "the ACTUAL Tier-3 kernel supplies its own mode functions: no shape freedom exists at this level, and the ratio is a closed-form property of the frozen kernel. Whether it is UNIVERSAL in the physics sense (representation- and regulator-independent) is bounded by what the frozen record certifies: three-route validated at d=3, u_b-free, no 1/(d-3) pole."
+    },
+    "grand_verdict": "Conditional on the declared patch-local quotient: the finite remainder of the REAL Tier-3 kernel is Pi ~ -3*omega^4/(1280pi) - 13*H^2*omega^2/(480pi) with exact coefficient ratio 104/9. The toy shape-dependence (A) does NOT contaminate this (B): the kernel has no shape freedom. The candidate GRUT-derived number is A1/A0 = 104/9 -- CONDITIONAL on R' (the global boundary prescription). If R' resolves to Case 3, the constant-TT sector re-enters as boundary data and this remainder is not the physical response."
+  },
+  "w0": "computed-and-reported, NOT banked (conditional on patch-local quotient; R' open)",
+  "scope": "frozen artifacts read-only; no new loop; patch-local quotient declared, global prescription unresolved"
+}

@@ -1,0 +1,16 @@
+P1: working-copy provenance (frozen files untouched)
+  ok   P1a frozen instrument untouched: frozen wall_kr_tier3_loop.py sha 1c72272b54d09f31... (read-only; pin table value 1c72272b...)
+  ok   P1b patch is truncation-order + output-redirect ONLY: working copy differs in exactly 7 lines: the _HKILL order (3->7) and six output-filename redirects to T3_05_* -- NO physics line touched
+P2: H^4-extended integrand cache
+  ok   P2a cache exists: /Users/mpg/Desktop/grut testing/PHYSICS_LEDGER/.tier3_h4_integrand_cache.json
+  ok   P2b H^2 sector reproduced identically: the H^2 sector of the working copy == the frozen cache sector EXACTLY: the extended run is the same machinery, one order higher
+  ok   P2c H^0 sector reproduced identically: the H^0 sector likewise identical
+CORE: A2 from the frozen cone machinery (cone_split + imsig_from_cone)
+  ok   C1 H^4 cone split clean: H^4 sector cone split complete (no stray phases); nonzero cone branches: 3
+  FAIL C2 H^4 cone u_b-free: the H^4 cone coefficient is u_b-free (same gate as the frozen H^2 sector) -- the Wigner-frame convention is under control at H^4
+Traceback (most recent call last):
+  File "/Users/mpg/Desktop/grut testing/calc/t3_05_h4_sector.py", line 135, in <module>
+    "the H^4 cone coefficient is u_b-free (same gate as the frozen H^2 "
+     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 105, in imsig_from_cone
+RuntimeError: cone Delta-degree beyond the builder's range

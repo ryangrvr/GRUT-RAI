@@ -1,0 +1,167 @@
+{
+  "instrument": "calc/t3_05f_kernel_provenance.py",
+  "diagnostic_only": true,
+  "question": "WHERE does u_b enter the H^4 sector? (provenance only)",
+  "checks": [
+    {
+      "name": "K0 frozen kernel text anchored",
+      "pass": true,
+      "msg": "kernels rebuilt from the exact frozen source text (wall_kr_tier3_loop_h4.py lines 185-188): exp(+-iq(u-up)) * [(1-Hu)(1-Hup) +-/ iH^2(u-up)/q + H^2/q^2]"
+    },
+    {
+      "name": "K1a every WPLUS H-sector classified",
+      "pass": true,
+      "msg": "each H-sector of WPLUS splits exactly into a shift-invariant part and a (1-Hu)(1-Hup)-type remainder; the phase and the iH^2(u-up)/q, H^2/q^2 pieces are shift-invariant"
+    },
+    {
+      "name": "K1b WMINUS mirrors WPLUS",
+      "pass": true,
+      "msg": "WMINUS has the identical H-sector structure (phase sign flipped only)"
+    },
+    {
+      "name": "K2 shift-invariant parts -> u_b-free functions of Delta",
+      "pass": true,
+      "msg": "every shift-invariant kernel term maps to a function of Delta ONLY under u->u_b+D/2, up->u_b-D/2: it can never generate a u_b entry"
+    },
+    {
+      "name": "K3a Wigner image of (1-Hu)(1-Hup)",
+      "pass": true,
+      "msg": "(1-Hu)(1-Hup) -> 1 - 2H u_b + H^2(u_b^2 - D^2/4): the exact u_b-polynomial generator; per-kernel u_b-degree ceiling = 2"
+    },
+    {
+      "name": "K3b u_up-carrying content confined to the (1-Hu)(1-Hup) factor",
+      "pass": false,
+      "msg": "the u/up-carrying kernel content equals EXACTLY the (Pfac - 1) expansion (-H(u+up) at H^1, H^2 u up at H^2) times the common prefactor kap^2/q * exp(+-iq(u-up)) PLUS the shift-invariant iH^2(u-up)/q piece (whose two expanded terms are individually shift-carrying but jointly shift-invariant, which is why the arbitration must be at sum level): no other u/up structure exists in either kernel"
+    },
+    {
+      "name": "K4a per-factor u_b-degree ceiling is 2 (measured)",
+      "pass": true,
+      "msg": "measured max u_b-degree over the (a,c) table of a SINGLE kernel factor = 2; NOTE u_b^1 IS present in every entry (the -2H u_b term survives all derivative patterns)"
+    },
+    {
+      "name": "K4c u_b rides on kernel-H powers {1, 2} only (measured)",
+      "pass": true,
+      "msg": "measured kernel-H powers carrying u_b across the table: [1, 2]"
+    },
+    {
+      "name": "K4b assembled u_b-degree ceiling 4",
+      "pass": true,
+      "msg": "the assembled loop multiplies TWO Wd entries, so the assembled u_b-degree is <= 4 (consistent with the observed A2 support). CAVEAT (recorded, not resolved): since a single factor carries u_b^1, a naive product argument does NOT exclude odd assembled powers; the observed absence of odd u_b powers in A2 is an ASSEMBLY-level fact (pairing/cancellation across the WPLUS/WMINUS factors and the Wigner moments) and is NOT proven by this kernel-level table. Deferred to the assembly-level provenance pass."
+    },
+    {
+      "name": "K5 bookkeeping recorded honestly",
+      "pass": true,
+      "msg": "MEASURED kernel-level bookkeeping: u_b rides on kernel-H powers [1, 2], so naive two-factor products make u_b POSSIBLE at every assembled sector {0: False, 2: True, 4: True}. The established u_b-freeness of A0 (H^0) and A1 (H^2) is therefore an ASSEMBLY-level property not captured by this kernel-factor table; it is NOT re-derived here, and no forced-vanishing theorem is claimed."
+    },
+    {
+      "name": "K5b measured u_b-carrying kernel-H powers are exactly {1, 2}",
+      "pass": true,
+      "msg": "across the full (a,c) table, u_b appears only on kernel-H^1 and kernel-H^2 factors (measured [1, 2]): consistent with the K3a generator 1 - 2H u_b + H^2(u_b^2 - D^2/4), whose u_b terms sit at H^1 and H^2"
+    },
+    {
+      "name": "K6 shift-invariant kernel is u_b-free through the full derivative table",
+      "pass": true,
+      "msg": "with (1-Hu)(1-Hup) replaced by 1 INCLUDING its shared shift-invariant prefactor kap^2/q * exp(-iq(u-up)), EVERY Wd[(a,c)] entry of the Wigner-substituted kernel is exactly u_b-free: any u_b entry in ANY assembled sector traces to the non-shift-invariant kernel factor and nothing else"
+    }
+  ],
+  "wd_table": {
+    "(0,0)": {
+      "ub_degree": 2,
+      "ub_H_powers": [
+        1,
+        2
+      ]
+    },
+    "(0,1)": {
+      "ub_degree": 2,
+      "ub_H_powers": [
+        1,
+        2
+      ]
+    },
+    "(0,2)": {
+      "ub_degree": 2,
+      "ub_H_powers": [
+        1,
+        2
+      ]
+    },
+    "(1,0)": {
+      "ub_degree": 2,
+      "ub_H_powers": [
+        1,
+        2
+      ]
+    },
+    "(1,1)": {
+      "ub_degree": 2,
+      "ub_H_powers": [
+        1,
+        2
+      ]
+    },
+    "(1,2)": {
+      "ub_degree": 2,
+      "ub_H_powers": [
+        1,
+        2
+      ]
+    },
+    "(2,0)": {
+      "ub_degree": 2,
+      "ub_H_powers": [
+        1,
+        2
+      ]
+    },
+    "(2,1)": {
+      "ub_degree": 2,
+      "ub_H_powers": [
+        1,
+        2
+      ]
+    },
+    "(2,2)": {
+      "ub_degree": 2,
+      "ub_H_powers": [
+        1,
+        2
+      ]
+    }
+  },
+  "sector_possibility": {
+    "0": false,
+    "2": true,
+    "4": true
+  },
+  "summary": {
+    "provenance": "u_b entries trace EXCLUSIVELY to the non-shift-invariant kernel factor (1 - H u)(1 - H up) of the frozen Tier-2 bath kernels. Under the Wigner substitution it maps to 1 - 2H u_b + H^2 (u_b^2 - D^2/4): u_b-degree <= 2 per kernel factor, <= 4 per loop product (two factors). MEASURED: u_b^1 and u_b^2 both occur per factor, riding on kernel-H powers {1, 2}; the phase exp(+-iq(u-up)) and the iH^2(u-up)/q, H^2/q^2 pieces are functions of u - up only and are exactly u_b-free.",
+    "consistency": "MEASURED kernel-level bookkeeping does NOT by itself force the H^0/H^2 assembled sectors u_b-free or exclude odd assembled powers; those established properties of A0/A1 and A2 are ASSEMBLY-level facts deferred to the assembly-level provenance pass. What IS established here: the sole kernel-level source of u_b is the (1 - H u)(1 - H up) factor.",
+    "NOT_claimed": "Whether the u_b^2, u_b^4 pieces of A2 are physical frame dependence or removable under the correct assembly/quotient prescription is NOT decided here (provenance only).",
+    "A2_reference": "(-18 w^4 u_b^4 + 220 w^2 u_b^2 - 127)/(1280 pi)"
+  },
+  "notes": [
+    "WPLUS H^0: shift-invariant terms 1, u/up-carrying terms 0",
+    "WPLUS H^1: shift-invariant terms 0, u/up-carrying terms 2",
+    "WPLUS H^2: shift-invariant terms 1, u/up-carrying terms 3",
+    "WMINUS H^0: shift-invariant terms 1, u/up-carrying terms 0",
+    "WMINUS H^1: shift-invariant terms 0, u/up-carrying terms 2",
+    "WMINUS H^2: shift-invariant terms 1, u/up-carrying terms 3",
+    "FAIL: WPLUS u_up-carrying content decomposition residual kappa**2*(-H**2*q*u*up - I*H**2*u + I*H**2*up + H*q*u + H*q*up + q*u*up - q*u - q*up + I*u - I*up)*exp(I*q*(-u + up))/q* (sum-shift-invariant: False)",
+    "FAIL: WMINUS u_up-carrying content decomposition residual kappa**2*(-H**2*q*u*up - I*H**2*u + I*H**2*up + H*q*u + H*q*up + q*u*up - q*u - q*up - I*u + I*up)*exp(I*q*(u - up))/q** (sum-shift-invariant: False)",
+    "Wd[(0,0)]: u_b-degree 2, u_b rides on kernel-H powers [1, 2]",
+    "Wd[(0,1)]: u_b-degree 2, u_b rides on kernel-H powers [1, 2]",
+    "Wd[(0,2)]: u_b-degree 2, u_b rides on kernel-H powers [1, 2]",
+    "Wd[(1,0)]: u_b-degree 2, u_b rides on kernel-H powers [1, 2]",
+    "Wd[(1,1)]: u_b-degree 2, u_b rides on kernel-H powers [1, 2]",
+    "Wd[(1,2)]: u_b-degree 2, u_b rides on kernel-H powers [1, 2]",
+    "Wd[(2,0)]: u_b-degree 2, u_b rides on kernel-H powers [1, 2]",
+    "Wd[(2,1)]: u_b-degree 2, u_b rides on kernel-H powers [1, 2]",
+    "Wd[(2,2)]: u_b-degree 2, u_b rides on kernel-H powers [1, 2]",
+    "H^0 assembled sector: u_b POSSIBLE at naive kernel-product level = False",
+    "H^2 assembled sector: u_b POSSIBLE at naive kernel-product level = True",
+    "H^4 assembled sector: u_b POSSIBLE at naive kernel-product level = True"
+  ],
+  "w0": "computed-and-reported, NOT banked",
+  "scope": "kernel-level provenance ONLY; frozen artifacts read-only; no assembly rerun; no H^6; R' untouched; no physical interpretation of u_b"
+}

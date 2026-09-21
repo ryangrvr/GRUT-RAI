@@ -1,0 +1,136 @@
+{
+  "instrument": "calc/t3_05e_trace_c0c2.py",
+  "conditional_scope": "trace of the operator AS IMPLEMENTED",
+  "checks": [
+    {
+      "name": "T0 baseline reproduces non-additivity",
+      "pass": true,
+      "msg": "delta_02 = -2*pi*d**2*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2)) + 4*pi*d*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2 - 1)) + 6* (must be nonzero for the trace to be on the failing case)"
+    },
+    {
+      "name": "T1 first divergence identified",
+      "pass": true,
+      "msg": "first stage where I(c0+c2) departs from I(c0)+I(c2): S5 gate c_0"
+    }
+  ],
+  "baseline_delta": "-2*pi*d**2*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2)) + 4*pi*d*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2 - 1)) + 6*pi*d*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2)) - 4*pi*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2 - 1)) - 4*pi*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2))",
+  "trace_c0": {
+    "S1_num": "omega**4",
+    "S1_den": "1",
+    "S2_den_has_D": false,
+    "S3_degree": 0,
+    "S4S6_per_n": {
+      "0": {
+        "c_n": "omega**4",
+        "gate_value": "0",
+        "gate_raises": false,
+        "contribution": "-I*pi*pi**(d/2)*omega**4*(omega/2)**(d - 1)/((2*pi)**d*gamma(d/2))"
+      }
+    },
+    "S7_tot": "-2*I*pi*omega**4*omega**(d - 1)/(2**(2*d)*pi**(d/2)*gamma(d/2))",
+    "S8_im": "-2*pi*re(omega**4*omega**(d - 1)/(2**(2*d)*pi**(d/2)*gamma(d/2)))",
+    "S9_simplified": "-2*pi*re(omega**(d + 3)/(4**d*pi**(d/2)*gamma(d/2)))"
+  },
+  "trace_c2": {
+    "S1_num": "-Delta**2*omega**2",
+    "S1_den": "kappa**2",
+    "S2_den_has_D": false,
+    "S3_degree": 2,
+    "S4S6_per_n": {
+      "2": {
+        "c_n": "-omega**2/kappa**2",
+        "gate_value": "0",
+        "gate_raises": false,
+        "contribution": "-I*pi*pi**(d/2)*(omega/2)**(d - 1)*(d - 2)*(d - 1)/(kappa**2*(2*pi)**d*gamma(d/2))"
+      }
+    },
+    "S7_tot": "-2*I*pi*d**2*omega**(d - 1)/(2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2)) + 6*I*pi*d*omega**(d - 1)/(2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2)) - 4*I*pi*omega**(d - 1)/(2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2))",
+    "S8_im": "-4*pi*re(omega**(d - 1)/(2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2))) + 6*pi*re(d*omega**(d - 1)/(2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2))) - 2*pi*re(d**2*omega**(d - 1)/(2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2)))",
+    "S9_simplified": "-2*pi*(2*re(omega**(d - 1)/(4**d*pi**(d/2)*kappa**2*gamma(d/2))) - 3*re(d*omega**(d - 1)/(4**d*pi**(d/2)*kappa**2*gamma(d/2))) + re(d**2*omega**(d - 1)/(4**d*pi**(d/2)*kappa**2*gamma(d/2))))"
+  },
+  "trace_combo": {
+    "S1_num": "-Delta**2*omega**2 + kappa**2*omega**4",
+    "S1_den": "kappa**2",
+    "S2_den_has_D": false,
+    "S3_degree": 2,
+    "S4S6_per_n": {
+      "0": {
+        "c_n": "omega**4",
+        "gate_value": "0",
+        "gate_raises": false,
+        "contribution": "-I*pi*pi**(d/2)*omega**4*(omega/2)**(d - 1)/((2*pi)**d*gamma(d/2))"
+      },
+      "2": {
+        "c_n": "-omega**2/kappa**2",
+        "gate_value": "0",
+        "gate_raises": false,
+        "contribution": "-I*pi*pi**(d/2)*(omega/2)**(d - 1)*(d - 2)*(d - 1)/(kappa**2*(2*pi)**d*gamma(d/2))"
+      }
+    },
+    "S7_tot": "-2*I*pi*d**2*omega**(d - 1)/(2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2)) + 6*I*pi*d*omega**(d - 1)/(2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2)) - 2*I*pi*omega**4*omega**(d - 1)/(2**(2*d)*pi**(d/2)*gamma(d/2)) - 4*I*pi*omega**(d - 1)/(2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2))",
+    "S8_im": "-4*pi*re(omega**(d - 1)/(2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2))) - 2*pi*re(omega**4*omega**(d - 1)/(2**(2*d)*pi**(d/2)*gamma(d/2))) + 6*pi*re(d*omega**(d - 1)/(2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2))) - 2*pi*re(d**2*omega**(d - 1)/(2**(2*d)*pi**(d/2)*kappa**2*gamma(d/2)))",
+    "S9_simplified": "-2*pi*(re(omega**(d + 3)/(4**d*pi**(d/2)*gamma(d/2))) + 2*re(omega**(d - 1)/(4**d*pi**(d/2)*kappa**2*gamma(d/2))) - 3*re(d*omega**(d - 1)/(4**d*pi**(d/2)*kappa**2*gamma(d/2))) + re(d**2*omega**(d - 1)/(4**d*pi**(d/2)*kappa**2*gamma(d/2))))"
+  },
+  "stage_comparison": [
+    {
+      "stage": "S1 cancel(together)",
+      "match": true,
+      "msg": "combo (num,den) equals cross-multiplied sum of parts (same rational function)"
+    },
+    {
+      "stage": "S3 Poly degree",
+      "match": true,
+      "msg": "degrees: c0 -> 0, c2 -> 2, combo -> 2"
+    },
+    {
+      "stage": "S4 c_0",
+      "match": true,
+      "msg": "combined c_0 == c_0^omega**4*exp(-2*I*Delta*q) + c_0^-Delta**2*omega**2*exp(-2*I*Delta*q)/kappa**2"
+    },
+    {
+      "stage": "S4 c_2",
+      "match": true,
+      "msg": "combined c_2 == c_2^omega**4*exp(-2*I*Delta*q) + c_2^-Delta**2*omega**2*exp(-2*I*Delta*q)/kappa**2"
+    },
+    {
+      "stage": "S5 gate c_0",
+      "match": false,
+      "msg": "gate(combo)=0 vs gate(c0)+gate(c2)=0+absent"
+    },
+    {
+      "stage": "S5 gate c_2",
+      "match": false,
+      "msg": "gate(combo)=0 vs gate(c0)+gate(c2)=absent+0"
+    },
+    {
+      "stage": "S6 contribution n=0",
+      "match": true,
+      "msg": "combined contribution == sum of separate"
+    },
+    {
+      "stage": "S6 contribution n=2",
+      "match": true,
+      "msg": "combined contribution == sum of separate"
+    },
+    {
+      "stage": "S7 tot (pre imag split)",
+      "match": true,
+      "msg": "combined tot == sum of parts"
+    },
+    {
+      "stage": "S8 as_real_imag",
+      "match": true,
+      "msg": "combined imag part == sum of parts"
+    },
+    {
+      "stage": "S9 simplify",
+      "match": true,
+      "msg": "combined simplified == sum of simplified"
+    }
+  ],
+  "first_divergence": "S5 gate c_0",
+  "verdict": "LOCALIZED: the reality-pattern GATE (S5) sees different objects on the combined route -- gate-dependent selection is the non-additive element.",
+  "notes": [],
+  "w0": "computed-and-reported, NOT banked",
+  "scope": "operator trace ONLY; imsig_from_cone untouched; no real-data assembly; no H^6; R' untouched"
+}

@@ -1,0 +1,23 @@
+P1: out-of-domain input (bare real coeff x Delta, no phase)
+  ok   P1 gate on PV-class input: gate fires correctly on i^1 c_1 = i q^4/kappa^4 (imaginary): the T3-05B P1 crash was an INPUT-CONVENTION bug in the probe (out-of-domain synthetic input), not a gate defect -- PV-leak precondition violated: i^1 c_1 is not real
+P2: correctly-phased single monomials (gate must pass)
+  ok   P2 n=0 sign=-2 gate pass: i^0 c_0 real by construction -> extracted: -2**(1 - 2*d)*pi**(1 - d/2)*omega**(d - 1)/gamma(d/2)
+  ok   P2 n=0 sign=+2 gate pass: i^0 c_0 real by construction -> extracted: -2**(1 - 2*d)*pi**(1 - d/2)*omega**(d - 1)/gamma(d/2)
+  ok   P2 n=1 sign=-2 gate pass: i^1 c_1 real by construction -> extracted: -pi**(1 - d/2)*d*omega**(d - 1)/(4**d*kappa*gamma(d/2))
+  ok   P2 n=1 sign=+2 gate pass: i^1 c_1 real by construction -> extracted: -pi**(1 - d/2)*d*omega**(d - 1)/(4**d*kappa*gamma(d/2))
+  ok   P2 n=2 sign=-2 gate pass: i^2 c_2 real by construction -> extracted: 2**(-2*d - 1)*pi**(1 - d/2)*d*omega**(d - 1)*(d + 1)/(kappa**2*gamma(d/2))
+  ok   P2 n=2 sign=+2 gate pass: i^2 c_2 real by construction -> extracted: 2**(-2*d - 1)*pi**(1 - d/2)*d*omega**(d - 1)*(d + 1)/(kappa**2*gamma(d/2))
+  ok   P2 n=3 sign=-2 gate pass: i^3 c_3 real by construction -> extracted: 2**(-2*d - 2)*pi**(1 - d/2)*d*omega**(d - 1)*(d + 1)*(d + 2)/(kappa**3*gamma(d/2
+  ok   P2 n=3 sign=+2 gate pass: i^3 c_3 real by construction -> extracted: 2**(-2*d - 2)*pi**(1 - d/2)*d*omega**(d - 1)*(d + 1)*(d + 2)/(kappa**3*gamma(d/2
+  ok   P2 n=4 sign=-2 gate pass: i^4 c_4 real by construction -> extracted: -2**(-2*d - 3)*pi**(1 - d/2)*d*omega**(d - 1)*(d + 1)*(d + 2)*(d + 3)/(kappa**4*
+  ok   P2 n=4 sign=+2 gate pass: i^4 c_4 real by construction -> extracted: -2**(-2*d - 3)*pi**(1 - d/2)*d*omega**(d - 1)*(d + 1)*(d + 2)*(d + 3)/(kappa**4*
+P3: additivity, correctly-phased two-branch input
+  FAIL P3a cone split recovers the branches: cone_split(X_- + X_+) returns exactly (X_-, X_+), no stray
+Traceback (most recent call last):
+  File "/Users/mpg/Desktop/grut testing/calc/t3_05c_additivity_probe.py", line 144, in <module>
+    I_separate = imsig_from_cone(cone_m(X_m)) + imsig_from_cone(cone_m(X_p))
+                                 ~~~~~~^^^^^
+  File "/Users/mpg/Desktop/grut testing/calc/t3_05c_additivity_probe.py", line 139, in cone_m
+    assert c["stray"] == {} and not c["p"], "unexpected cone content"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpected cone content

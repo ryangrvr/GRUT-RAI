@@ -1,0 +1,125 @@
+{
+  "instrument": "calc/T3_05I_RESPONSE_TO_OBSERVABLE_TRACE",
+  "date": "2026-09-19",
+  "diagnostic_only": true,
+  "purpose": ("Determine whether the EXISTING repository defines a path from the "
+              "Tier-3 retarded response (Sigma_R / A2(u_b)) to a named physical "
+              "observable. Discovery-oriented trace of ALREADY-DECLARED links only; "
+              "no observable, clock, gauge choice, detector, or equivalence "
+              "relation was defined, and none is proposed."),
+  "frozen_input": {
+    "A2(u_b)": "-127/(1280*pi) + 11*omega^2*u_b^2/(64*pi) - 9*omega^4*u_b^4/(640*pi)",
+    "T3_05H_status": ["H4_UNRESOLVED",
+                      "NO_LICENSED_NONTRIVIAL_TRANSFORMATION_ON_u_b",
+                      "NO_PHYSICAL_OBSERVABLE_DEFINED_FOR_THIS_DEPENDENCE"]
+  },
+  "path_candidates": [
+    {
+      "id": "PC1",
+      "segment": "Sigma_R -> effective inverse propagator",
+      "source": "BUILD_BANKING_PROMPT.md:50",
+      "quote": "Sharpen the named missing input to the TRANSPORT SELF-ENERGY Sigma controlling G_R = 1/(G0^-1 - Sigma).",
+      "link_type": "PROPOSED/ASPIRATIONAL",
+      "notes": ("The Dyson-resummation formula G_R = 1/(G0^-1 - Sigma) is STATED "
+                "as a prescription naming a future frontier input. It is not an "
+                "implemented calculation: no calc in the repository evaluates "
+                "G_R from the Tier-3 Sigma_R. The linked low-omega scaling class "
+                "is explicitly 'FRONTIER-RESERVED: do NOT approximate Sigma'."),
+      "A2_or_Sigma_enters": "Sigma by name; no explicit mathematical dependency implemented",
+      "u_b_status": "not tracked; u_b does not appear",
+      "endpoint": "another internal mathematical object (frontier-reserved input), not an observable"
+    },
+    {
+      "id": "PC2",
+      "segment": "Sigma(x;x') -> assembled G_R^TT -> K_R worldline kernel",
+      "source": "RUNG3_BRIDGE_SCOPE.md:52",
+      "quote": "No calc in this repository constructs K_R or N from Sigma(x;x'); J(omega) is staked directly",
+      "link_type": "ABSENT (explicitly audited absent)",
+      "notes": ("The repository's own rung-3 bridge audit (owner-commissioned "
+                "2026-08-21, status NOTHING BANKED / default-BROKEN scoping doc) "
+                "classified the assembled G_R^TT = 2 Im G_R^TT from Sigma(x;x') "
+                "as object-class C, 'never computed; never reduced; THE keystone'. "
+                "This is the repository's authoritative statement that the "
+                "response-to-observable map is the missing bridge."),
+      "A2_or_Sigma_enters": "Sigma explicitly named as class C, unreduced",
+      "u_b_status": "not tracked",
+      "endpoint": "keystone reduction explicitly missing"
+    },
+    {
+      "id": "PC3",
+      "segment": "Sigma_R^{H0/H2/H4} -> certified absorptive inputs -> FDT/KMS conversion",
+      "source": "PHYSICS_LEDGER/wall_kr_gate_e_fdt_kms.py:173-226",
+      "quote": "certified retarded absorptive inputs (frozen): Im Sigma_R^{H0} = -(3/1280 pi) omega^4 ; ... [Sig_> - Sig_<]_oncone(omega > 0) = -2 Im Sigma_R(omega)",
+      "link_type": "EXPLICIT MATHEMATICAL DEPENDENCY (between internal objects)",
+      "notes": ("The certified Im Sigma_R values ARE consumed downstream by the "
+                "gate-E FDT/KMS machinery -- but the consumer is another "
+                "consistency gate (noise-kernel lock test), NOT a physical "
+                "observable. The chain Sigma_R -> N/chi stays inside the "
+                "internal-mathematical-object layer."),
+      "A2_or_Sigma_enters": "Sigma_R explicitly (H0 and H2 certified values)",
+      "u_b_status": "A2's u_b-dependent H4 sector not part of the certified frozen set",
+      "endpoint": "internal consistency gate, not an observable"
+    },
+    {
+      "id": "PC4",
+      "segment": "Sigma_R^{finite} -> adjudication / renormalization stages",
+      "source": "PHYSICS_LEDGER/wall_a3_4_adjudication.py:151; wall_a_assembly2.py:96-141; wall_a4_response_dressed.py:122",
+      "link_type": "EXPLICIT MATHEMATICAL DEPENDENCY (between internal objects)",
+      "notes": ("The older WALL-A pipeline consumed a frozen Sigma_R^finite "
+                "(sha dd77b194..., complete-kernel freeze 2026-08-30) through "
+                "adjudication and renormalization stages (Sigma_R -> Sigma_div -> "
+                "Pi_local^MS + Pi_nonlocal^invariant). This is a genuine forward "
+                "consumer chain at the effective-dynamics layer -- but again the "
+                "endpoints are internal mathematical objects (local/nonlocal "
+                "pieces of the self-energy), and the pipeline is from the "
+                "OLDER frozen kernel, not the Tier-3 H4 object."),
+      "A2_or_Sigma_enters": "Sigma_R explicitly",
+      "u_b_status": "not tracked in those stages",
+      "endpoint": "internal effective-dynamics objects, not observables"
+    },
+    {
+      "id": "PC5",
+      "segment": "rho_TT / eta = lim Im G_R^TT / omega (Kubo)",
+      "source": "CLASS_C_WALL_CONTRACTS.md:18; SPECIALIST_BRIEF_1_bath_spectral_function.md:31",
+      "quote": "rho_TT(w->0) = 2 Im G_R^TT(w), eta = lim Im G_R^TT / w",
+      "link_type": "DECLARED TARGET, UNCOMPUTED",
+      "notes": ("The repository's wall contracts explicitly name the "
+                "fully-assembled rho_TT(omega->0) as 'the ONLY '
+                "'[thing] that counts' observable-class endpoint, and the "
+                "Kubo eta as the scalar the question reduces to. But "
+                "RUNG3_SPECTRAL_MEASURE_SPEC.md:29 lists 'assembled G_R^TT ... "
+                "from Sigma(x;x')' as UNCOMPUTED. The observable is named; the "
+                "path from the computed Tier-3 coefficients to it is not built."),
+      "A2_or_Sigma_enters": "via G_R^TT, which requires the missing assembly/resummation",
+      "u_b_status": "cannot be evaluated; the observable is not yet constructed",
+      "endpoint": "declared physical observable, unreachable from current artifacts"
+    }
+  ],
+  "final_status": "PARTIAL_RESPONSE_PATH_FOUND",
+  "status_rationale": ("Explicit mathematical dependency chains exist from the "
+                       "response coefficients to OTHER INTERNAL OBJECTS (FDT "
+                       "gates, renormalization stages, influence-action "
+                       "machinery), and the repository NAMES the physical "
+                       "observable endpoint (rho_TT(omega->0), Kubo eta) -- but "
+                       "no calculation in the repository constructs G_R^TT from "
+                       "Sigma(x;x'), and the repository's own rung-3 bridge "
+                       "audit formally classifies that reduction as the missing "
+                       "keystone. The missing bridge is precisely: assembly of "
+                       "Sigma into G_R^TT + resummation + the class-C->A/B "
+                       "reduction. The u_b-dependent H4 pieces therefore cannot "
+                       "be tested against an observable at present -- not "
+                       "because no observable exists in the theory, but because "
+                       "the constructed path to the named observable is absent "
+                       "and is the repository's own declared frontier."),
+  "missing_bridge": [
+    "assembly: Sigma(x;x') -> G_R^TT (resummed, continued)  [RUNG3_BRIDGE_SCOPE.md:70 'never computed; never reduced; THE keystone']",
+    "reduction: class C self-energy -> worldline (A) or homogeneous (B) object  [RUNG3_BRIDGE_SCOPE.md section 3]",
+    "for A2 specifically: whether the u_b^2/u_b^4 pieces survive assembly into G_R^TT is UNDETERMINED and NOT CLAIMABLE either way"
+  ],
+  "conclusions_about_covariance_frame_dependence_gauge_removability_or_observability": ("NONE "
+    "made. No claim was made that A2(u_b) is physical, unphysical, gauge, or "
+    "frame-dependent. No observable was defined, invented, or proposed. No "
+    "conclusion about observability was drawn beyond the trace itself."),
+  "untouched": ["W-0", "R'", "H6", "Tier-3 loop", "frozen ledger artifacts", "claims.json"],
+  "w0": "computed-and-reported, NOT banked"
+}

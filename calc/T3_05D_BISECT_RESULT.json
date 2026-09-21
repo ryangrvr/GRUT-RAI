@@ -1,0 +1,38 @@
+{
+  "instrument": "calc/t3_05d_additivity_bisect.py",
+  "conditional_scope": "imsig_from_cone characterized AS IMPLEMENTED; no physical interpretation",
+  "checks": [
+    {
+      "name": "B4a ordering-independent",
+      "pass": true,
+      "msg": "delta_02(0,2) - delta_02(2,0) = 0"
+    }
+  ],
+  "pairs_ub_free": {
+    "02": "-2*pi*d**2*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2)) + 4*pi*d*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2 - 1)) + 6*pi*d*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2)) - 4*pi*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2 - 1)) - 4*pi*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2))",
+    "04": "8*pi*d**2*omega**d/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 32*pi*d*omega**d/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) + 24*pi*omega**d/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 2*pi*d**4*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2)) + 20*pi*d**3*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2)) - 70*pi*d**2*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2)) + 100*pi*d*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2)) - 48*pi*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2))",
+    "24": "8*pi*d**2*omega**d/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 32*pi*d*omega**d/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) + 24*pi*omega**d/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 4*pi*d**3*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 1)) + 32*pi*d**2*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 1)) - 76*pi*d*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 1)) + 48*pi*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 1))"
+  },
+  "triple_ub_free": "8*pi*d**2*omega**d/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 32*pi*d*omega**d/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) + 24*pi*omega**d/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 2*pi*d**4*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2)) + 20*pi*d**3*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2)) - 2*pi*d**2*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2)) - 70*pi*d**2*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2)) + 4*pi*d*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2 - 1)) + 6*pi*d*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2)) + 100*pi*d*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2)) - 4*pi*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2 - 1)) - 4*pi*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2)) - 48*pi*omega**d/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2))",
+  "pairs_ub2": {
+    "02": "-2*pi*d**2*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2)) + 4*pi*d*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2 - 1)) + 6*pi*d*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2)) - 4*pi*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2 - 1)) - 4*pi*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2))",
+    "04": "8*pi*d**2*omega**d*u_b**2/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 32*pi*d*omega**d*u_b**2/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) + 24*pi*omega**d*u_b**2/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 2*pi*d**4*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2)) + 20*pi*d**3*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2)) - 70*pi*d**2*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2)) + 100*pi*d*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2)) - 48*pi*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2))",
+    "24": "8*pi*d**2*omega**d*u_b**2/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 32*pi*d*omega**d*u_b**2/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) + 24*pi*omega**d*u_b**2/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 4*pi*d**3*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 1)) + 32*pi*d**2*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 1)) - 76*pi*d*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 1)) + 48*pi*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 1))"
+  },
+  "minimal_trigger": {
+    "pair_level": true,
+    "triple_level": true
+  },
+  "notes": [
+    "delta_02 (u_b-free) = -2*pi*d**2*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2)) + 4*pi*d*omega**d/(2**(2*d)*pi**(d/2)*kappa**2*omega* -> NONZERO",
+    "delta_04 (u_b-free) = 8*pi*d**2*omega**d/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 32*pi*d*omega**d/(4**d*pi**(d/2)*kappa**4*omega** -> NONZERO",
+    "delta_24 (u_b-free) = 8*pi*d**2*omega**d/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 32*pi*d*omega**d/(4**d*pi**(d/2)*kappa**4*omega** -> NONZERO",
+    "delta_024 (u_b-free) = 8*pi*d**2*omega**d/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 32*pi*d*omega**d/(4**d*pi**(d/2)*kappa**4*omega**",
+    "delta_02 (u_b^2) = -2*pi*d**2*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*kappa**2*omega*gamma(d/2)) + 4*pi*d*omega**d*u_b**2/(2**(2*d)*pi**(d/2)*k -> NONZERO",
+    "delta_04 (u_b^2) = 8*pi*d**2*omega**d*u_b**2/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 32*pi*d*omega**d*u_b**2/(4**d*pi**(d/2)*ka -> NONZERO",
+    "delta_24 (u_b^2) = 8*pi*d**2*omega**d*u_b**2/(4**d*pi**(d/2)*kappa**4*omega**5*gamma(d/2 - 2)) - 32*pi*d*omega**d*u_b**2/(4**d*pi**(d/2)*ka -> NONZERO",
+    "non-additivity fires at PAIR level, first at: 02"
+  ],
+  "w0": "computed-and-reported, NOT banked",
+  "scope": "synthetic bisection ONLY; imsig_from_cone untouched; no real-data assembly; no H^6; R' untouched"
+}

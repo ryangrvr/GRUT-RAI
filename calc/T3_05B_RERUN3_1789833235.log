@@ -1,0 +1,6 @@
+[M4B-PATCH] loaded
+R1: assembled object, d=3 representation (reference-loaded, no rederive)
+  -- loaded frozen d=3 reference from T3_05_H4_SECTOR_RESULT.json (not rederived): A2_d3 = (-18*omega**4*u_b**4 + 220*omega**2*u_b**2 - 127)/(1280*pi)
+[M4B-PATCH] cheap reference-consistency regression
+  FAIL R1 reference-consistency gate (T3-05 record vs T3-05A decomposition, independent routes): A2^reference - (A20 + A22 + A24) canonically RESIDUAL (9*omega**4*u_b**4 - 110*omega**2*u_b**2 - 9*omega**4*u_b**4 + 110*omega**2*u_b**2)/(640*pi) -- two independent routes agree
+[M4B-PATCH] regression FAIL -- abort

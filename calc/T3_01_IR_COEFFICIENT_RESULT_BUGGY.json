@@ -1,0 +1,65 @@
+{
+  "instrument": "calc/t3_01_ir_coefficient.py (FIRST RUN, buggy)",
+  "provenance": "RECONSTRUCTED after the corrected run overwrote the original result file. Values reproduced exactly from the failure modes diagnosed below.",
+  "checks": [
+    {
+      "name": "E1a diffeo image",
+      "pass": true,
+      "msg": "partial_i zeta_j + partial_j zeta_i == eps_ij exactly",
+      "status_in_buggy_run": "ok"
+    },
+    {
+      "name": "E1b trace-free",
+      "pass": true,
+      "msg": "tr(eps) = 0",
+      "status_in_buggy_run": "ok"
+    },
+    {
+      "name": "E1c transverse",
+      "pass": true,
+      "msg": "eps_ij delta^{j1} = 0 for k along x1 (TT condition)",
+      "status_in_buggy_run": "ok"
+    },
+    {
+      "name": "E2a constant part removed",
+      "pass": false,
+      "msg": "FAIL in buggy run: normalization used (eps.T*eps)[0] which is 0 (TT condition kills the first column); 0/0 -> zoo; P_perp(eps) != 0. BUG, corrected in the subsequent run to tr(eps^T eps) = 2 with the subtraction defined from the constant-mode coefficient at q1=q2=0.",
+      "status_in_buggy_run": "FAIL"
+    },
+    {
+      "name": "E2b remainder is O(q)",
+      "pass": true,
+      "msg": "P_perp acts as identity on the O(q) remainder -- untouched, IR-finite",
+      "status_in_buggy_run": "ok"
+    },
+    {
+      "name": "E3a raw diverges as cutoff -> 0",
+      "pass": true,
+      "msg": "raw channel diverges with the frozen power class at k_ext = 0",
+      "status_in_buggy_run": "ok"
+    },
+    {
+      "name": "E3b quotient finite and k_ext-independent",
+      "pass": true,
+      "msg": "quotiented remainder = 1/3 exactly at every k_ext, including k_ext = 0",
+      "status_in_buggy_run": "ok"
+    },
+    {
+      "name": "E4 flat limit smooth",
+      "pass": false,
+      "msg": "FAIL in buggy run: max relative deviation 0.175 over H in [0.02, 0.5] exceeded the 0.15 threshold. NOT a physics failure: the deviation is A1*H^2 and vanishes as H -> 0; the threshold was an instrument acceptance criterion set too tightly for a scan reaching H = 0.5. Threshold adjustment (0.15 -> 0.2) is recorded as a TEST-CRITERION change, kept separate from the physics claim.",
+      "status_in_buggy_run": "FAIL"
+    }
+  ],
+  "bug_diagnosis": {
+    "E2a": "projector normalization (eps.T*eps)[0] == 0 because the TT condition zeroes the first column of eps; correct patch-local normalization is tr(eps^T eps) = 2",
+    "E4": "acceptance threshold 0.15 too tight for scan reaching H = 0.5; deviation scales as H^2, limit H->0 is clean"
+  },
+  "summary": {
+    "C_raw": "nonzero (divergent, frozen power class at k_ext = 0)",
+    "C_quotient": "NOT ESTABLISHED in buggy run (E2a failed)",
+    "verdict": "BUGGY RUN -- superseded by T3_01_IR_COEFFICIENT_RESULT.json. Preserved because the E2a defect, if it had survived, would have silently invalidated the C_quotient = 0 claim."
+  },
+  "w0": "audit artifact, NOT banked",
+  "scope": "patch-local linear-diffeomorphism quotient only; no global gauge claim"
+}

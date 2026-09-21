@@ -1,0 +1,32 @@
+{
+  "instrument": "calc/t3_05e_trace_c0c2.py (trace) + manual delta canonicalization check",
+  "addendum_to": ["T3_05C_ADDITIVITY_PROBE_RESULT.json", "T3_05D_*", "T3_05E_TRACE results"],
+  "type": "ADDENDUM -- retraction, no original file modified",
+  "date": "2026-09-18",
+  "status": "PRIOR_NONADDITIVITY_CLAIM_RETRACTED",
+  "corrected_result": {
+    "operator": "imsig_from_cone",
+    "property": "ADDITIVE on the phase-stripped cone-coefficient representation",
+    "minimal_case_tested": "{c0, c2}",
+    "evidence": [
+      "stage trace S1-S9: all stages additive; the only flagged difference was an instrument comparison artifact (string '0' vs 'absent'), both routes' reality gates actually passed",
+      "raw residual delta = I(c0+c2) - I(c0) - I(c2) was syntactically nonzero but reduces to EXACTLY 0 under sp.simplify, via the Gamma identity Gamma(d/2-1) = Gamma(d/2)/(d/2-1)",
+      "numerical verification at generic d = 2.37 and d = 4.19: residual ~ 1e-16 (machine zero)"
+    ]
+  },
+  "cause_of_prior_false_positive": {
+    "mechanism": "incomplete symbolic canonicalization: cancel/together leaves Gamma(d/2) and Gamma(d/2-1) in non-common form; residual classified nonzero without special-function-identity normalization",
+    "classification_error": "syntactically nonzero was treated as mathematically nonzero"
+  },
+  "methodological_rule_added": "No symbolic residual may be classified as nonzero until it has passed canonicalization appropriate to its function class, including known special-function identities, with numerical generic-point verification where feasible.",
+  "t3_05_H4_status": {
+    "A2_d3": "(-18*omega**4*u_b**4 + 220*omega**2*u_b**2 - 127)/(1280*pi)",
+    "status": "RESTORED to machinery-reproduced standing (the earlier 'machinery-contaminated' downgrade was based on the same false-nonzero logic)",
+    "open_physics_question": "Is the u_b dependence of A2 physical frame-dependence, or removable under the correct frame/assembly prescription? (u_b-free at H^0 and H^2; u_b-dependent at H^4 -- established pre-cone-split, both branches, Delta-degrees {0,1,2})"
+  },
+  "historical_records": {
+    "policy": "T3-05C and T3-05D result files are NOT deleted or modified; their raw residuals are preserved as documentation of the false-positive mechanism"
+  },
+  "untouched": ["W-0", "R'", "H6", "global quotient question"],
+  "w0": "computed-and-reported, NOT banked"
+}

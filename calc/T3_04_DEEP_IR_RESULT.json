@@ -1,0 +1,70 @@
+{
+  "instrument": "calc/t3_04_deep_ir.py",
+  "depends_on": [
+    "calc/T3_03_RATIO_UNIVERSALITY_RESULT.json",
+    "PHYSICS_LEDGER/WALL_KR_TIER3_IR_CHECK_RESULT.json",
+    "PHYSICS_LEDGER/.tier3_integrand_cache.json"
+  ],
+  "conditional_scope": "patch-local linear-diffeomorphism quotient DECLARED; global boundary prescription (R') UNRESOLVED and not assumed",
+  "checks": [
+    {
+      "name": "pin WALL_KR_TIER3_IR_CHECK_RESULT.json",
+      "pass": true,
+      "msg": "sha256 a43633f5d34f6895... matches frozen pin a43633f5d34f6895"
+    },
+    {
+      "name": "pin .tier3_integrand_cache.json",
+      "pass": true,
+      "msg": "sha256 47fde70f8e025af9... matches frozen pin 47fde70f8e025af9"
+    },
+    {
+      "name": "S1a frozen closed forms load",
+      "pass": true,
+      "msg": "Im Sigma^{H2} (d=3) = -13*omega^2/(480*pi) * H^2, exact, from the frozen record; delta-supported at q = omega/2 (no radial integral behind it) -- exact at every fixed omega > 0"
+    },
+    {
+      "name": "S2a frozen object truncated at H^2",
+      "pass": true,
+      "msg": "coeff(H^4) of the frozen ret_wigner is IDENTICALLY ZERO after u_b = 0: the frozen object is the H^2-truncated builder output. This is a TRUNCATION, not a vanishing: the physical H^4 sector was never computed (excluded by the owner authorization)."
+    },
+    {
+      "name": "S2b even-in-H parity of the truncated object",
+      "pass": true,
+      "msg": "all odd-H terms cancel at u_b = 0: the truncated object is exactly even in H, consistent with the frozen H-parity record"
+    },
+    {
+      "name": "C1 F(x) closed form",
+      "pass": true,
+      "msg": "F(x) = -(3/(1280 pi)) x^4 - (13/(480 pi)) x^2 EXACTLY (truncated object): analytic in x, no nonanalytic structure, no new scale -- option-A-like WITHIN the H^2 truncation"
+    },
+    {
+      "name": "C2 order of limits (truncated object)",
+      "pass": true,
+      "msg": "lim_{omega->0} lim_{H->0} Sigma = 0 and lim_{H->0} lim_{omega->0} Sigma = 0: the OBJECT-LEVEL limits COMMUTE in the truncated sector. The frozen record's nonuniformity is in the graded ORGANIZATION (ratio H2/H0 = 104H^2/(9 omega^2) -> oo), i.e. a nonuniform EXPANSION -- reported as exactly that, no ontology attached."
+    },
+    {
+      "name": "C3 truncation boundary at x ~ 1",
+      "pass": true,
+      "msg": "retained H^2 omega^2 term ~ x^2 in F-units; the FIRST OMITTED sector (H^4) enters F at O(1). They are comparable iff x = O(1): the deep-IR regime omega <~ H sits EXACTLY on the truncation boundary. The frozen record therefore CANNOT certify the omega/H -> 0 behavior."
+    }
+  ],
+  "summary": {
+    "F_x_truncated": "-(3/(1280 pi)) x^4 - (13/(480 pi)) x^2  (EXACT, truncated object)",
+    "object_level_limits": {
+      "omega_then_H": 0,
+      "H_then_omega": 0,
+      "commute": true
+    },
+    "expansion_uniformity": "NONUNIFORM: ratio H2/H0 = 104H^2/(9 omega^2) grows without bound as omega -> 0 at fixed H",
+    "truncation_boundary": "H^2 omega^2 (retained) vs H^4 (omitted) are comparable iff x = omega/H = O(1): the deep-IR regime is exactly the truncation boundary",
+    "outcome_classes": {
+      "A analytic continuation": "holds WITHIN the H^2 truncation (F(x) analytic)",
+      "B nonanalytic deep IR": "UNDETERMINED by the frozen record",
+      "C new IR scale/sector": "UNDETERMINED by the frozen record",
+      "D boundary sensitivity": "UNDETERMINED by the frozen record (R' open)"
+    },
+    "grand_verdict": "The frozen Tier-3 record is H^2-truncated, and the deep-IR regime omega <~ H is exactly where the omitted H^4 sector is of the same order as the retained H^2 omega^2 term. The exact F(x) of the truncated object is analytic (no nonanalyticity, no new scale, commuting object-level limits), but this CANNOT be extrapolated to omega/H -> 0: the deep-IR behavior is UNDETERMINED by the frozen record. Resolving it requires computing the H^4 sector -- the radial integration explicitly excluded by the standing owner authorization. This is the precise, minimal statement of what the Tier-3 physics does and does not establish at deep IR."
+  },
+  "w0": "computed-and-reported, NOT banked (conditional scope; R' open)",
+  "scope": "frozen artifacts read-only; no radial integration; no regulator; patch-local quotient declared, global prescription unresolved"
+}
