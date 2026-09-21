@@ -22,7 +22,7 @@ y = H/ω, the certified result is
 
 valid for ω ≳ 3.4H, with the H⁵ sector quarantined (extracted in its
 delta-class only; see §7). The H¹ sector vanishes exactly; H³ supplies the
-first u_b-odd (time-asymmetric) dissipative term. We prove, by a
+first u_b-odd (time-asymmetric) dissipative term. We establish, by a
 parameter-free coefficient certificate, that no representation of the form
 F(Hu_b)·(ω̃⁴/1280π)·T(H/ω̃) with ω̃ = ω·g(Hu_b) — encompassing all
 time-dependent amplitude dressings, frequency rescalings, and their
@@ -90,9 +90,10 @@ frozen before computation; see §9 for the audit trail):
   Σ̃_R(ω) = ∫₀^∞ dΔ e^{+iωΔ} Σ_R(Δ) — the upper-half-plane-analytic
   transform. The absorptive part is extracted from the ω = +2q cone of the
   loop integrand by the Sokhotski delta class, with a reality gate (iⁿcₙ
-  real) enforced per Δ-degree; the opposite cone is kinematically null for
-  ω > 0 (its delta support lies at q = −ω/2, outside the measure domain) —
-  verified per degree, term by term.
+  real) enforced per Δ-degree; for the present ω > 0 absorptive
+  delta-class extraction the opposite cone has no support (its delta class
+  lies at q = −ω/2, outside the measure domain; both cones carry independent
+  content for the dispersive part — §8) — verified per degree, term by term.
 - **Units:** κ = 1; all coefficients below are exact rationals over π.
 
 The two-time structure is carried in Wigner variables: u_b = (u+u′)/2 (the
@@ -148,9 +149,11 @@ Structural features of the certified table:
 
 Three layers, kept separate.
 
-**4.1 Mathematical mapping (exact, prescription-independent).** For a real
-causal kernel under the frozen convention, K(Δ) for Δ > 0 is recovered from
-its absorptive part alone: K(Δ) = (2/π)∫₀^∞ Im Σ̃(ω) sin(ωΔ) dω. A local
+**4.1 Mathematical mapping (prescription-independent; conditional on the
+§4.2 premise).** Assuming the retarded kernel is real at fixed u_b (the
+premise stated in §4.2), the frozen convention permits reconstruction of its
+Δ > 0 component from the corresponding full odd absorptive spectrum:
+K(Δ) = (2/π)∫₀^∞ Im Σ̃(ω) sin(ωΔ) dω. A local
 (contact) operator K = c·δ^(n)(Δ−0⁺) has Σ̃ = c(−iω)ⁿ exactly: only odd n
 contributes to the absorptive part, and then as an *analytic odd polynomial*.
 The certified terms are even powers of |ω| — no certified term is a
@@ -238,8 +241,8 @@ the calculation does not determine the asymptotic behavior.
 
 **6.2 Cosmic-time dependence and memory are not the same thing.** The
 original intuition motivating this program fused them; the calculation
-separates them. Cosmic-time dependence and memory *depth* are
-anti-correlated in the certified response: the explicitly time-dependent
+separates them. Within the certified response, cosmic-time dependence and
+memory *depth* are anti-correlated: the explicitly time-dependent
 pieces ride the short-memory tails (Δ⁻⁵, Δ⁻³, Δ⁻¹), and the longest-memory
 certified contribution is stationary. Equivalently, in frequency space: no
 time-dependent amplitude, no time-dependent clock, and no combination of the
@@ -249,11 +252,12 @@ cosmic-time dependence at this order.
 
 **6.3 What kind of result this is.** Every statement above is a result *of*
 standard quantum field theory on de Sitter space, obtained within the
-declared contract. What is new, to our knowledge, is the certified
-coefficient content itself — the Wigner-time-resolved absorptive coefficients
-at H³, H⁴, H⁶, including the exact H¹ vanishing and the first u_b-odd term —
-together with the stationarity no-go certificate, the tail/nonstationarity
-anti-correlation, and the quantified Wigner-reduction error. No claim of
+declared contract. The calculation provides the Wigner-time-resolved
+absorptive coefficients at H³, H⁴, H⁶, including the exact H¹ vanishing and
+the first u_b-odd term, together with the stationarity no-go certificate,
+the tail/nonstationarity anti-correlation, and the quantified
+Wigner-reduction error; a supported novelty statement awaits a documented
+literature search. No claim of
 physics beyond standard QFT is made.
 
 **6.4 Interpretation programs.** A "responsive-medium" reading of the
@@ -262,7 +266,7 @@ background carrying time-dependent response that no stationary dressing
 absorbs — but nothing here distinguishes such a reading from standard QFT on
 de Sitter; the originating program's own audit records that its prediction
 ledger is empty and no discriminating observable survived its gates. The
-computed damping is Planck-suppressed on every channel examined (tens of
+computed absorptive response is Planck-suppressed on every channel examined (tens of
 orders of magnitude below existing bounds); no observable is claimed.
 
 ## 7. Limitations
@@ -334,7 +338,7 @@ transforms, and the corrected calculations appear in §4.
 
 ---
 
-*Draft note: this document is generated from the frozen record and is
-awaiting owner edit and external review. Nothing in it may be strengthened
+*Draft note: owner edits 1–6 of 2026-09-21 applied; FROZEN as the
+scientific manuscript pending the external literature/venue pass. Nothing in it may be strengthened
 without a corresponding certificate; the thirteen limitations travel with
 any excerpt.*
