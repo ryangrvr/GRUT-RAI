@@ -106,17 +106,93 @@ attempted in this pass.
 
 ---
 
+## Session-2 findings (2026-09-21, continuing)
+
+**Queries logged (cont.):** (11) "Kadanoff-Baym graviton kinetic equation
+Wigner function gravitational wave transport curved spacetime self-energy".
+**Primary sources read (cont.):** Kitamoto–Kitazawa 1402.2443 (key sections
+via PDF text extraction); TW hep-ph/9602317 (flat-limit section via ar5iv,
+equation level); SdSET 2603.09438 (abstract).
+
+### Q5 — Kitamoto–Kitazawa branch CLOSED at read level
+
+Their transformation IS the time-dependent wave-function renormalization
+class: Z_φ(τ), Z_ψ(τ) ≃ 1 − c·κ²H² log a(τ) (their eqs. 3.11, 3.20, 6.3–6.4).
+Their objects: MATTER kinetic terms and couplings (gauge e, quartic λ₄,
+Yukawa λ_Y, Newton's G), corrected by soft-graviton IR logarithms with an
+explicit comoving IR cutoff ε₀ (their eq. 1.12) sourced by the super-horizon
+scale-invariant spectrum. Their own split: kinetic-term IR logs CAN be
+absorbed ("the IR logarithms due to soft gravitons can be eliminated in the
+free field theories after the wave function renormalization"); effective-
+coupling shifts SURVIVE and are argued gauge-invariant/covariance-forced.
+**Discriminating comparison (now precise):** same transformation vocabulary
+(time-dependent amplitude rescaling — a SUBSET of the manuscript's tested
+class, which adds clock reparametrization), but DISJOINT objects (matter
+couplings vs the graviton absorptive self-energy) and DISJOINT mechanisms
+(IR-cutoff-sensitive log a(τ) growth vs IR-finite polynomial (Hu_b)^n
+dependence on the ω ≳ 3.4H domain with no explicit IR scale). The
+certificate is NOT their argument in disguise; conversely their result must
+be cited as the existing "dS time dependence can be physical/observable"
+line. Their §4 on-shell/off-shell IR-cancellation-by-redefinition mechanism
+(energy-resolution regularization) is an adjacent matter-self-energy IR
+statement, not a graviton absorptive-coefficient statement.
+
+### Q5 — removal-side scope (abstract level)
+
+SdSET 2603.09438: massless SCALAR correlators (trispectrum, six-point,
+one-loop power spectrum); no self-energies, no gravitons, no absorptive
+parts, no rescaling/reparametrization transformations surfaced at abstract
+level. PRD 110, 123536 and JHEP 04 (2020) 064 remain to be scoped, but the
+pattern is consistent: the removal-side literature acts on scalar
+correlation functions.
+
+### Q4/H⁰ — the flat-limit cross-check: **INCOMPARABLE-AS-CONSTRUCTED**
+
+Equation-level data extracted from TW hep-ph/9602317: renormalized flat
+self-energy their Eq. (3.6),
+[Σ_flat] = (−iκ²)/(60(2π)⁴)·{(23/2)ηη∂⁴ + (61/2)η^{α(ρ}η^{σ)β}∂⁴
+− (23/2)[η∂∂ + η∂∂]∂² − 61 ∂η∂∂² + 42 ∂∂∂∂}(1/x⁴); agreement with Capper in
+gauge α = 1, β = −1/2; κ² ≡ 16πG; field g = Ω²(η + κψ); NO TT-projected
+scalar coefficient given; NO absorptive analysis. A naive double-TT
+projection (only the (61/2) structure survives transversality +
+tracelessness) with the standard FT/discontinuity of ∂⁴(1/x⁴) yields an
+absorptive coefficient of order 61κ²/(1920π), against the contract's
+3/(1280π) = 4.5/(1920π) (κ = 1 units): **no recognizable convention factor
+bridges 61 vs 4.5, and the honest verdict is that the comparison is
+between DIFFERENT DECLARED OBJECTS** — TW's full pseudo-graviton loop in a
+fixed gauge vs the contract's declared TT-bath internal legs (the program's
+own D3(iii): TT-bath uniqueness NOT claimed) — with at least five
+unresolved mapping layers (per-index-pair TT normalization; ψ-vs-h field
+factors; the −i/sign chain; the contract's κ-bookkeeping; gauge). The
+off-shell TT-projected coefficient is not gauge-invariant, so coefficient
+identity across gauges is not even expected. **What WOULD close a
+comparison: a gauge-invariant on-shell absorptive quantity computed on both
+sides — future work adjacent to the Re Σ/Ward line; not performed (no new
+physics branch).** Positioning consequence: the paper may cite TW (3.6) /
+Capper as the flat ANCHOR of the literature line while stating that its own
+flat coefficient belongs to the declared TT-bath construction and is not
+directly comparable — this PROTECTS the paper from a referee "checking"
+A₀ against Capper and claiming error.
+
+### Q3 — sharpened negative
+
+KBE/Wigner methods in curved spacetime are established for MATTER transport
+(e.g. arXiv:0807.4551, Boltzmann from Kadanoff–Baym in curved spacetime;
+hep-ph/0002012), including FRW backgrounds. The sharpened search (query 11)
+surfaced no application to a graviton self-energy. Negative now holds
+against both generic and sharpened queries; still not proof of absence.
+
 ## Remaining reading list (to close Pass 02)
 
 1. arXiv:2107.13905 — the Schwinger–Keldysh retarded conversion the
-   contract inherits (defines the inheritance boundary precisely).
-2. TTW §2.2.3 / TW hep-ph/9602317 flat-limit equations — the H⁰ mapping.
-3. Kitamoto–Kitazawa 1402.2443 in full — which objects, which
-   transformations, IR-cutoff sensitivity of their non-removability claim.
-4. PRD 110, 123536 + arXiv:2603.09438 (+ JHEP 04 (2020) 064) — the exact
-   scope of the removal-side claims (which objects lose their secular
-   terms; whether any absorptive quantity is covered).
-5. gr-qc/9403056 — the on-shell sign statement and its convention.
-6. Boyanovsky dS self-energy papers — absorptive frequency structure.
+   contract inherits (defines the inheritance boundary precisely). [OPEN]
+2. ~~TW flat-limit equations~~ [DONE — verdict INCOMPARABLE-AS-CONSTRUCTED,
+   see above; equation-level data on file.]
+3. ~~Kitamoto–Kitazawa full read~~ [DONE at key-section level — branch
+   closed, see above.]
+4. PRD 110, 123536 + JHEP 04 (2020) 064 — removal-side scope confirmation
+   (SdSET done at abstract level: scalar correlators only). [OPEN]
+5. gr-qc/9403056 — the on-shell sign statement and its convention. [OPEN]
+6. Boyanovsky dS self-energy papers — absorptive frequency structure. [OPEN]
 
 **No manuscript edits in this pass. v3 (sha a8b4ccda…7706) untouched.**
