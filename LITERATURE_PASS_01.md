@@ -1,7 +1,9 @@
 # LITERATURE_PASS_01 — external literature verification and positioning (first documented pass)
 
-**Date:** 2026-09-21. **Scope disclosure:** web-search level (six logged queries,
-titles/abstracts; the full texts were not read in this pass). A deeper
+**Date:** 2026-09-21. **Scope disclosure:** web-search level (EIGHT logged
+queries — the original header said "six", a bookkeeping error corrected here
+before Pass 02; the count of listed queries below was always eight;
+titles/abstracts only; the full texts were not read in this pass). A deeper
 INSPIRE/citation-graph pass, reading the primary papers, is REQUIRED before any
 novelty language enters the manuscript. **Ground rule (owner):** this pass may
 *downgrade* novelty claims; it may not rewrite the certified calculation.
@@ -94,7 +96,14 @@ artifacts. That is *related but not the same statement* as the manuscript's
 certificate, which is an intra-contract, coefficient-level inconsistency
 proof against a declared dressing class, with counterterm-invariance argued
 from non-analyticity. This pass found no existing argument of that specific
-form. **However, the manuscript MUST engage this debate in positioning: its
+form — an internal search result only, NOT evidence of absence: the paper
+must never convert this into "no existing argument exists." An equivalent
+argument could be expressed in entirely different terminology
+(field-redefinition invariance, wave-function renormalization,
+time-coordinate redefinition, adiabatic basis transformations, secular-log
+resummation, slicing transformations, structure-function representations,
+spectral/absorptive invariants, retarded kernel stationarity, average-time
+dependence) — Pass 02's Q5 searches exactly that space. **However, the manuscript MUST engage this debate in positioning: its
 own limitations (R′ unresolved; temporal-only boundary declarations; the
 declared-contract conditionality) are exactly where a Garriga–Tanaka-type
 critique would press. Recommended: a short related-work paragraph
@@ -153,3 +162,34 @@ mandatory in any such sentence.
 
 **What this pass changes: positioning only. The certified calculation, the
 certificates, and the thirteen limitations are untouched.**
+
+
+---
+
+## OWNER RULING ON THE SIX PROPOSED CHANGES (2026-09-21)
+
+1. §2 citations (TW/TTW line) — **RATIFIED** (application deferred: no
+   manuscript edits until Pass 02 completes; v3 untouched throughout).
+2. Related-work paragraph — **RATIFIED**, with the owner's wording fixed:
+   *"The physical interpretation of secular effects in de Sitter quantum
+   gravity has been debated, including arguments concerning gauge
+   dependence, infrared regularity, and the definition of observables. The
+   present calculation does not resolve that broader debate. Its
+   stationarity result is instead a statement about the declared
+   self-energy object and the specified class of amplitude and frequency
+   dressings."* (application deferred as above).
+3. Wigner/KBE citations in §4 — **RATIFIED** (application deferred).
+4. Quantitative suppression restoration — **HELD**: a graviton-mass or
+   propagation-speed bound is not automatically a bound on this absorptive
+   coefficient; the conversion must be demonstrated first, and if it
+   requires Re Σ, a dressed propagator, or transport, the answer is "not
+   presently supportable."
+5. Novelty sentence — **HELD**: "not found in this pass" is not evidence of
+   novelty; gated on Pass 02.
+6. H⁰ flat-limit cross-check — **AUTHORIZED**, classified as
+   positioning/normalization verification (validates a limiting coefficient
+   and a convention mapping; does NOT validate the de Sitter calculation).
+
+**Pass 02 authorized** (primary sources, citation graphs, structural
+vocabulary; objectives Q1–Q8 per the owner's charter; no manuscript edits;
+v3 untouched throughout).
