@@ -133,14 +133,16 @@ Structural features of the certified table:
    of the H² to H⁰ coefficients. The u_b-free tower (−3, −104/3, −127,
    −1280/3) has successive ratios ≈ 11.6, 3.7, 3.4, suggesting (three terms
    only) a convergence boundary near ω ≈ 1.8H, safely inside the refusal.
-2. **Sign.** P < 0 — the response is dissipative — throughout the
-   self-consistent window: exactly for the ≤H⁴ truncation (maximum
-   −599127/270400 on the window), and at every tested grid point with the
-   H³ and H⁶ terms included, for both signs of u_b.
-3. **Time asymmetry.** The first u_b-odd dissipative content enters at H³
-   (odd in u_b, even under the joint flip (H, u_b) → (−H, −u_b), as the
-   construction's parity mechanism requires): dissipation into the expanding
-   background distinguishes earlier from later Wigner time.
+2. **Sign.** The ≤H⁴ truncation is analytically negative on the stated
+   window (exact maximum −599127/270400). The H³/H⁶-inclusive expression
+   was negative at every tested grid point, for both signs of u_b — grid
+   verification, not an analytic proof. Accordingly, no gain/instability
+   was observed within the tested domain.
+3. **Time asymmetry.** The first u_b-odd absorptive contribution enters at
+   H³ (odd in u_b, even under the joint flip (H, u_b) → (−H, −u_b), as the
+   construction's parity mechanism requires), establishing Wigner-time
+   asymmetry of the dissipative coefficient. This should not be identified,
+   by itself, with an arrow-of-time statement.
 4. **Secular self-termination.** The u_b-dependence equals the flat response
    at Hu_b = 6^(−1/4) ≈ 0.64 (at y = 0): the truncated two-time expansion is
    trustworthy only for Wigner drifts below this surface.
@@ -150,10 +152,13 @@ Structural features of the certified table:
 Three layers, kept separate.
 
 **4.1 Mathematical mapping (prescription-independent; conditional on the
-§4.2 premise).** Assuming the retarded kernel is real at fixed u_b (the
-premise stated in §4.2), the frozen convention permits reconstruction of its
-Δ > 0 component from the corresponding full odd absorptive spectrum:
-K(Δ) = (2/π)∫₀^∞ Im Σ̃(ω) sin(ωΔ) dω. A local
+§4.2 premise).** For the certified spectral terms, and assuming the retarded
+kernel is real at fixed u_b (the premise stated in §4.2), the frozen
+convention maps their full odd extensions to the corresponding Δ > 0
+contributions via K(Δ) = (2/π)∫₀^∞ Im Σ̃(ω) sin(ωΔ) dω. This extracts the
+non-analytic tail associated with each certified term under the stated
+prescription; it does not reconstruct the complete physical kernel, whose
+spectrum is certified only on the stated frequency domain (§7, item 1). A local
 (contact) operator K = c·δ^(n)(Δ−0⁺) has Σ̃ = c(−iω)ⁿ exactly: only odd n
 contributes to the absorptive part, and then as an *analytic odd polynomial*.
 The certified terms are even powers of |ω| — no certified term is a
@@ -213,10 +218,11 @@ rescaling-only subclasses already at H⁴.
 local counterterms cannot generate or remove any certified coefficient: the
 no-go concerns content that is not a renormalization convention. Beyond
 leading adiabatic order, the redefinition orbit acquires gradient
-corrections, bounded by the computed field E = (H/ω)|∂ₓP|/|P|; on a computed
-subdomain (larger H/ω, the u_b-odd side) the certificate's obstruction
-exceeds this bound and the no-go extends to the full orbit there; elsewhere
-only the leading-order statement is claimed.
+corrections, bounded by the computed field E = (H/ω)|∂ₓP|/|P|. At three of
+the fifty evaluated grid points (larger H/ω, the u_b-odd side) the certified
+obstruction exceeds the computed gradient-correction bound; at those points
+the no-go extends to the tested full orbit. Elsewhere only the
+leading-adiabatic statement is claimed.
 
 **5.4 The Wigner-local approximation, quantified.** The same field E measures
 the error of replacing the two-time response by a local-frequency form: it
@@ -266,15 +272,17 @@ background carrying time-dependent response that no stationary dressing
 absorbs — but nothing here distinguishes such a reading from standard QFT on
 de Sitter; the originating program's own audit records that its prediction
 ledger is empty and no discriminating observable survived its gates. The
-computed absorptive response is Planck-suppressed on every channel examined (tens of
-orders of magnitude below existing bounds); no observable is claimed.
+computed absorptive response is parametrically Planck-suppressed; no
+observable is claimed. (A quantitative experimental comparison is deferred
+to the documented literature pass.)
 
 ## 7. Limitations
 
 The following are part of the result.
 
-1. Validity domain ω ≳ 3.4H (derived; coefficient chart-dependent); nothing
-   at ω ≲ H is evaluated at its claim point.
+1. Validity domain: ω ≳ 3.4H within the declared truncated expansion
+   (boundary derived; coefficient chart-dependent); no claim is made for
+   ω < 3.4H.
 2. Wigner-time window: secular self-termination at Hu_b ≈ 0.64 (y = 0);
    statements tested at |Hu_b| ≤ 0.5.
 3. H⁵ quarantined (delta-class only; a principal-value completion is
@@ -338,7 +346,8 @@ transforms, and the corrected calculations appear in §4.
 
 ---
 
-*Draft note: owner edits 1–6 of 2026-09-21 applied; FROZEN as the
-scientific manuscript pending the external literature/venue pass. Nothing in it may be strengthened
+*Draft note: owner edit pass one (wording, six edits) and pass two
+(hostile review, six edits) of 2026-09-21 applied; FROZEN as the scientific
+manuscript pending the external literature/venue pass. Nothing in it may be strengthened
 without a corresponding certificate; the thirteen limitations travel with
 any excerpt.*
