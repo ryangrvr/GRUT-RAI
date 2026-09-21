@@ -1,0 +1,82 @@
+{
+ "instrument": "calc/t3_06b_keystone_status.py",
+ "checks": [
+  {
+   "name": "B0 s-t reduction exact",
+   "pass": true,
+   "msg": "P(x, y) == Q(x^2, y^2); P is even in both variables (the recorded parity), so the domain analysis lives in the (s, t) quarter-plane"
+  },
+  {
+   "name": "B2a secular radius at y = 0 exact",
+   "pass": true,
+   "msg": "18 x^4 = 3  =>  x_* = 6^(-1/4) = 0.638943 -- at Wigner time u_b = 6^(-1/4)/H the H^4 u_b-terms EQUAL the flat response: the two-time expansion self-terminates within one Hubble time of Wigner-clock drift"
+  },
+  {
+   "name": "B2b self-consistent window ceiling",
+   "pass": true,
+   "msg": "s_max = 2/5 < 6^(-1/2) = x_*^2: the B1 sign statement is made strictly inside the window where the H^4 u_b-terms are subdominant, never on extrapolated ground"
+  },
+  {
+   "name": "B1 sign of Im Sigma_R over the whole validity domain",
+   "pass": true,
+   "msg": "exact global max of P on [0, 2/5] x [0, 9/104] = -599127/270400 = -2.2157 at (edge t=9/104, s = 2/5, t = 9/104): Im Sigma_R < 0 EVERYWHERE in the self-consistent window -- the H^2 and H^4 corrections (including the +220 x^2 y^2 term) NEVER flip the flat dissipative sign: no gain/instability window at the computed orders"
+  },
+  {
+   "name": "B3 the declared endpoint lies outside the computed domain",
+   "pass": true,
+   "msg": "declared: 'eta = lim_{omega->0} Im G_R^TT/omega' (SPECIALIST_BRIEF_1, 'The single scalar that the whole question reduces to'); computed domain: omega > sqrt(104/9) H = 3.3993 H (the record's own refusal, derived not declared -- ROOT1_KERNEL_ORIGIN). The gap is STRUCTURAL: reaching omega -> 0 requires the omega <~ H completion the record lists as open (K_R OPEN/UNCOMPUTED), and reading the transport class from any in-house proxy is EXPLICITLY FENCED: 'FRONTIER-RESERVED: do NOT approximate Sigma or read the class off any in-house proxy' (BUILD_BANKING_PROMPT). The keystone is UNDETERMINED BY THE COMPUTED OBJECTS -- demonstrated, and fenced by the record itself."
+  }
+ ],
+ "notes": [
+  "secular surface x_*(y) (first crossing, x = sqrt(s)): {\"0\": [\"0.638943\"], \"9/416\": [\"0.781583\"], \"9/208\": [\"0.917386\"], \"9/104\": [\"1.15967\"]}",
+  "interior critical points: [('2860/14721', '156/4907', '-17425/4907')]; Hessian det = -39256 (< 0: saddle -- the interior point cannot be the max)"
+ ],
+ "w0": "computed-and-reported, NOT banked",
+ "secular_surface": {
+  "definition": "|P(x,y) - P(0,y)| = |P(0,y)| (H^4 u_b-terms equal the u_b-free response)",
+  "x_star_at_y0_exact": "6**(-1/4)",
+  "x_star_at_y0": 0.6389431042462724,
+  "samples": {
+   "0": [
+    "0.638943"
+   ],
+   "9/416": [
+    "0.781583"
+   ],
+   "9/208": [
+    "0.917386"
+   ],
+   "9/104": [
+    "1.15967"
+   ]
+  },
+  "meaning": "u_b is the secular clock of the de Sitter loop: the truncated two-time expansion is trustworthy only for H u_b below the surface; beyond it, resummation (the keystone) is mandatory, not optional"
+ },
+ "sign": {
+  "verdict": "DISSIPATIVE_THROUGHOUT",
+  "max_P_exact": "-599127/270400",
+  "max_P": -2.215706360946746,
+  "at": {
+   "location": "edge t=9/104",
+   "s": "2/5",
+   "t": "9/104"
+  },
+  "domain": {
+   "s = x^2": "[0, 2/5]",
+   "t = y^2": "[0, 9/104]"
+  }
+ },
+ "keystone_decision_list": [
+  "(i) G0^TT normalization: no contract source declares the free external-leg TT propagator normalization the Dyson form G_R = 1/(G0^-1 - Sigma) (BUILD_BANKING_PROMPT, aspirational) would divide by -- a declaration, owner's domain.",
+  "(ii) two-time treatment: T3-06A refuted every factorized/redshift dressing (C1/C2); the combined class C3 admits a fit that is unfalsifiable at O(H^4) by parameter counting. A resummation must therefore either carry the two-time structure exactly or ADOPT the C3 scheme as a declared prescription -- a choice, not a result.",
+  "(iii) Re Sigma_R at H^4: requires the principal-value content of BOTH cones; T3-05L proved the p cone is INDEPENDENT (odd-derivative mechanism) so it cannot be inferred from the m cone -- a new, tractable radial computation if the keystone is pursued.",
+  "(iv) the omega <~ H completion for the declared rho_TT(omega->0)/eta endpoint -- the record's open item (K_R OPEN/UNCOMPUTED); the transport class additionally requires the bath's INTERNAL dynamics (graviton-graviton scattering) per the banked frontier note, and is frontier-reserved."
+ ],
+ "physical_summary": {
+  "what_is_established": "At one loop on de Sitter, omega > 3.4 H, the pure-graviton TT self-energy is a DISSIPATIVE response: Im Sigma_R = (omega^4/1280 pi) P(x,y) with P < 0 throughout the self-consistent window (B1, exact). The flat law is the standard scale-free omega^4 graviton cut; the H-corrections are computed exactly through H^4.",
+  "what_u_b_is": "u_b is the secular clock of dS perturbation theory: the computed coefficients fix the self-termination surface of the two-time expansion exactly (x_* = 6^(-1/4) at y = 0, ~0.64 Hubble times of Wigner drift), and T3-06A shows the u_b dependence is NOT removable by amplitude or frequency dressing alone -- order-H^4 evidence of genuine nonstationarity, quantitatively echoing the program's (omega, k)-incompatibility finding.",
+  "what_is_not_determined": "The declared observable endpoint (rho_TT(omega->0), Kubo eta) and with it the single-pole transport class: outside the computed domain, fenced frontier-reserved, and dependent on bath internal dynamics not present in the one-loop object. No observable claim is made; H stays empty."
+ },
+ "fences": "no resummation; no observable claim; no low-omega class reading; no R'; no H^6; frozen artifacts read-only; W-0",
+ "elapsed_s": 1.8
+}

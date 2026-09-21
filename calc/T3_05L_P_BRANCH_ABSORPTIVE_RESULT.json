@@ -1,0 +1,208 @@
+{
+ "instrument": "calc/t3_05l_p_branch_absorptive.py (v2)",
+ "question": "does the p / (+2,0) bucket of the H^4 sector contribute to the assembled Im Sigma_R(omega>0), and what is its information content?",
+ "v1_disclosure": "v1's conjugate-mirror premise REFUTED by its own diagnostic (log: t3_05l_run1.log); outcome classes revised before this filed run; mechanism M1-M3 below",
+ "checks": [
+  {
+   "name": "L1 term-array cache provenance verified",
+   "pass": true,
+   "msg": "3030 terms; source_cache_sha256/sec4_sha256/ordered_terms_hash all match"
+  },
+  {
+   "name": "L1 frozen derivation quotation on record",
+   "pass": true,
+   "msg": "imsig_from_cone docstring (verbatim head): Im Sigma_R(omega > 0) from the omega = +2q cone content of the retarded combination RET = sum_n c_n(q) Delta^n e^{-2iq Delta} + (+2q mirror). Derivation (exact inner time integral, recorded): Sigma_R "
+  },
+  {
+   "name": "L2 every pinned term lands in the two cone buckets",
+   "pass": true,
+   "msg": "m: 1515, p: 1515, other: 0 (matches K2: 1515/1515, no stray)"
+  },
+  {
+   "name": "L2 Delta-degree inventory identical between buckets",
+   "pass": true,
+   "msg": "degrees present: [0, 1, 2, 3, 4]; per-degree monomial counts m={0: 503, 1: 307, 2: 383, 3: 159, 4: 163} p={0: 503, 1: 307, 2: 383, 3: 159, 4: 163}"
+  },
+  {
+   "name": "M1 WMINUS == conj(WPLUS) EXACTLY (frozen Tier-2 forms)",
+   "pass": true,
+   "msg": "the W forms are quoted from the frozen source and the conjugation identity is exact"
+  },
+  {
+   "name": "M2 odd derivative order BREAKS conjugation covariance",
+   "pass": true,
+   "msg": "conj((-i d/du) WPLUS) - (-i d/du) WMINUS != 0: residual/WMINUS = 2*q**2*(-H*u + 1)/(H*q*u + I*H - q) -- the assembly's nu^a -> (-i d/du)^a operators (frozen dependency graph) are not conjugation-covariant at odd order"
+  },
+  {
+   "name": "M3 even derivative order IS conjugation-covariant",
+   "pass": true,
+   "msg": "a = 2 exact -- the breaking is strictly odd-order, which is why the two cones carry independent coefficient content while each separately satisfies the i^n c_n reality pattern"
+  },
+  {
+   "name": "L3 i^n c_n real for BOTH buckets at every exact rational point",
+   "pass": true,
+   "msg": "the frozen PV-leak gate's precondition holds on the p bucket too: its own absorptive/PV split is clean"
+  },
+  {
+   "name": "L4 inner integrals verified (both cones, n = 0..4)",
+   "pass": true,
+   "msg": "int_0^inf Delta^n e^{i omega Delta - eta Delta} e^{s 2iq Delta} dDelta == n!/(eta - i(omega + s 2q))^{n+1}, s = -+1 -- convergent Piecewise branch checked symbolically with an exact-rational 3-point backstop; the s = -1 form is the frozen docstring's recorded integral"
+  },
+  {
+   "name": "L5 p-branch absorptive support EMPTY on q in (0, inf), all n",
+   "pass": true,
+   "msg": "delta^(n)(omega + 2q) support q = -omega/2 < 0 for omega > 0; the integral over the measure domain vanishes identically for every degree present -- the exclusion is KINEMATIC and termwise, not a cancellation"
+  },
+  {
+   "name": "L5b m-branch support fires inside the domain (contrast)",
+   "pass": true,
+   "msg": "int_0^inf phi(q) delta(omega - 2q) dq == phi(omega/2)/2 -- the frozen extraction's support point; the cone asymmetry at omega > 0 is kinematic, exactly as the docstring records"
+  }
+ ],
+ "notes": [
+  "non-mirror ratios conj(c_n^m)/c_n^p (2 points per degree, recorded to document coefficient independence): {\"0\": [\"-19308559319807516183/2565706058231012382359\", \"-2275726609343034391793/14513818903286237005793\"], \"1\": [\"-100030235061427547/9815749498203089864\", \"-1341897913106546987/4923372220610884397\"], \"2\": [\"-95148992821514671/10129530579907780099\", \"-285034576905790657/1378243075294162672\"], \"3\": [\"-386667190820306/38318005673409917\", \"-4*2**(127/184)*3**(265/368)*5**(307/368)*7**(5/8)/675\"], \"4\": [\"-193864477767061/19988007819930157\", \"-3061524570589/14376917597014\"]}"
+ ],
+ "w0": "computed-and-reported, NOT banked",
+ "pins": {
+  "wall_kr_tier3_loop_h4.py": "a88b3eef638a871e77ad3a7582efad70d53a64d41966051b54bf2dbf236aff20"
+ },
+ "delta_degrees": {
+  "present": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "m_counts": {
+   "0": 503,
+   "1": 307,
+   "2": 383,
+   "3": 159,
+   "4": 163
+  },
+  "p_counts": {
+   "0": 503,
+   "1": 307,
+   "2": 383,
+   "3": 159,
+   "4": 163
+  }
+ },
+ "coefficient_symbols": [
+  "d",
+  "omega",
+  "q",
+  "u_b"
+ ],
+ "nonmirror_ratios": {
+  "0": [
+   "-19308559319807516183/2565706058231012382359",
+   "-2275726609343034391793/14513818903286237005793"
+  ],
+  "1": [
+   "-100030235061427547/9815749498203089864",
+   "-1341897913106546987/4923372220610884397"
+  ],
+  "2": [
+   "-95148992821514671/10129530579907780099",
+   "-285034576905790657/1378243075294162672"
+  ],
+  "3": [
+   "-386667190820306/38318005673409917",
+   "-4*2**(127/184)*3**(265/368)*5**(307/368)*7**(5/8)/675"
+  ],
+  "4": [
+   "-193864477767061/19988007819930157",
+   "-3061524570589/14376917597014"
+  ]
+ },
+ "inner_integrals": {
+  "0": {
+   "m": {
+    "symbolic": true,
+    "numeric_3pts": true
+   },
+   "p": {
+    "symbolic": true,
+    "numeric_3pts": true
+   }
+  },
+  "1": {
+   "m": {
+    "symbolic": true,
+    "numeric_3pts": true
+   },
+   "p": {
+    "symbolic": true,
+    "numeric_3pts": true
+   }
+  },
+  "2": {
+   "m": {
+    "symbolic": true,
+    "numeric_3pts": true
+   },
+   "p": {
+    "symbolic": true,
+    "numeric_3pts": true
+   }
+  },
+  "3": {
+   "m": {
+    "symbolic": true,
+    "numeric_3pts": true
+   },
+   "p": {
+    "symbolic": true,
+    "numeric_3pts": true
+   }
+  },
+  "4": {
+   "m": {
+    "symbolic": true,
+    "numeric_3pts": true
+   },
+   "p": {
+    "symbolic": true,
+    "numeric_3pts": true
+   }
+  }
+ },
+ "p_support": {
+  "0": {
+   "integral_zero": true,
+   "support_point": "-omega/2",
+   "outside_domain": true
+  },
+  "1": {
+   "integral_zero": true,
+   "support_point": "-omega/2",
+   "outside_domain": true
+  },
+  "2": {
+   "integral_zero": true,
+   "support_point": "-omega/2",
+   "outside_domain": true
+  },
+  "3": {
+   "integral_zero": true,
+   "support_point": "-omega/2",
+   "outside_domain": true
+  },
+  "4": {
+   "integral_zero": true,
+   "support_point": "-omega/2",
+   "outside_domain": true
+  }
+ },
+ "classification": "P_BRANCH_KINEMATICALLY_NULL_INDEPENDENT_CONTENT",
+ "consequences": {
+  "assembled_H4_Im": "Im Sigma_R^{H4}(omega > 0) = A2 = (-18*omega**4*u_b**4 + 220*omega**2*u_b**2 - 127)/(1280*pi) [d = 3] is COMPLETE from the m cone alone: the p cone's delta support lies at q = -omega/2, outside the measure domain, for every Delta-degree present.",
+  "p_information_content": "NOT redundant: the p-cone coefficients are INDEPENDENT of the m cone (mechanism M1-M3, odd-derivative vertices).  The p cone carries (i) the omega < 0 delta support and (ii) its own principal-value (dispersive) content.  Any future Re Sigma_R / full G_R^TT assembly must include the p cone EXPLICITLY -- it cannot be reconstructed from the m cone by conjugation.",
+  "t3_05j_reading": "T3-05J's 'the +2 bucket's coefficients are absent from the assembled result' is EXPECTED BEHAVIOR of the recorded derivation, not a defect: the assembled object is Im(omega > 0), which the m cone exhausts kinematically.",
+  "u_b_status": "unchanged: the u_b^2/u_b^4 dependence is a property of the complete Im Sigma_R^{H4}(omega > 0); its frame/assembly fate remains the keystone question (T3-05I/J)."
+ },
+ "fences": "no R'; no H^6; no keystone resummation; no u_b interpretation beyond completeness; frozen artifacts read-only; T3-05K/K2 untouched; W-0",
+ "elapsed_s": 81.9
+}

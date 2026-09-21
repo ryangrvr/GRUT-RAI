@@ -1,0 +1,15 @@
+  ok   B0 s-t reduction exact: P(x, y) == Q(x^2, y^2); P is even in both variables (the recorded parity), so the domain analysis lives in the (s, t) quarter-plane
+
+== B2: secular boundary (derived x-radius) ==
+  FAIL B2a secular radius at y = 0 exact: 18 x^4 = 3  =>  x_* = 6^(-1/4) = 0.638943 -- at Wigner time u_b = 6^(-1/4)/H the H^4 u_b-terms EQUAL the flat response: the two-time expansion self-terminates within one Hubble time of Wigner-clock drift
+  -- secular surface x_*(y) (first crossing, x = sqrt(s)): {"0": ["0.638943"], "9/416": ["0.781583"], "9/208": ["0.917386"], "9/104": ["1.15967"]}
+  ok   B2b self-consistent window ceiling: s_max = 2/5 < 6^(-1/2) = x_*^2: the B1 sign statement is made strictly inside the window where the H^4 u_b-terms are subdominant, never on extrapolated ground
+
+== B1: exact maximum of P over the validity domain ==
+  -- interior critical points: [('2860/14721', '156/4907', '-17425/4907')]; Hessian det = -39256 (< 0: saddle -- the interior point cannot be the max)
+  ok   B1 sign of Im Sigma_R over the whole validity domain: exact global max of P on [0, 2/5] x [0, 9/104] = -599127/270400 = -2.2157 at (edge t=9/104, s = 2/5, t = 9/104): Im Sigma_R < 0 EVERYWHERE in the self-consistent window -- the H^2 and H^4 corrections (including the +220 x^2 y^2 term) NEVER flip the flat dissipative sign: no gain/instability window at the computed orders
+
+== B3: declared endpoint vs computed domain ==
+  ok   B3 the declared endpoint lies outside the computed domain: declared: 'eta = lim_{omega->0} Im G_R^TT/omega' (SPECIALIST_BRIEF_1, 'The single scalar that the whole question reduces to'); computed domain: omega > sqrt(104/9) H = 3.3993 H (the record's own refusal, derived not declared -- ROOT1_KERNEL_ORIGIN). The gap is STRUCTURAL: reaching omega -> 0 requires the omega <~ H completion the record lists as open (K_R OPEN/UNCOMPUTED), and reading the transport class from any in-house proxy is EXPLICITLY FENCED: 'FRONTIER-RESERVED: do NOT approximate Sigma or read the class off any in-house proxy' (BUILD_BANKING_PROMPT). The keystone is UNDETERMINED BY THE COMPUTED OBJECTS -- demonstrated, and fenced by the record itself.
+
+wrote /Users/mpg/Desktop/grut physics testing /calc/T3_06B_KEYSTONE_STATUS_RESULT.json

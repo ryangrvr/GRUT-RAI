@@ -1,0 +1,39 @@
+{
+ "instrument": "calc/t3_07_h6_extraction_adjudication.py (v2)",
+ "v1_disclosure": "v1 exactness premise refuted by its own E1/E2 gates (assumptions bug in the precursor: plain vs real-assumed H); v1 result kept as T3_07_H_EXACTNESS_REFUTATION_RESULT.json",
+ "checks": [
+  {
+   "name": "P0 measure quoted from the frozen source",
+   "pass": true,
+   "msg": "MEAS = 2 pi^{d/2}/Gamma(d/2)/(2 pi)^d q^{d-1} (frozen)"
+  },
+  {
+   "name": "P1 sector census matches the v1 E2 finding",
+   "pass": true,
+   "msg": "per-H-power counts {0: 268, 1: 16, 2: 684, 3: 1198, 4: 3030, 5: 2186, 6: 4880}"
+  },
+  {
+   "name": "P3 PV-leak gate (i^n c_n real) at exact points",
+   "pass": false,
+   "msg": "the delta class is clean; no principal-value leakage into the absorptive part"
+  },
+  {
+   "name": "P3 d = 3 smoothness (piece-wise)",
+   "pass": true,
+   "msg": "1515 pieces evaluated at d = 3; singular pieces needing a limit: 0; value = -9*I*omega**4*u_b**4/(640*pi) + 11*I*omega**2*u_b**2/(64*pi) - 127*I/(1280*pi)"
+  },
+  {
+   "name": "P3 termwise extraction REPRODUCES the recorded A2 exactly",
+   "pass": false,
+   "msg": "A2(here) = -9*I*omega**4*u_b**4/(640*pi) + 11*I*omega**2*u_b**2/(64*pi) - 127*I/(1280*pi) == recorded (-18 w^4 u_b^4 + 220 w^2 u_b^2 - 127)/(1280 pi); buckets m/p = 1515/1515, stray = [], Delta-degrees = {0: 503, 1: 307, 2: 383, 3: 159, 4: 163}"
+  }
+ ],
+ "notes": [
+  "sec5/sec6 term caches written (srepr, provenance-pinned)"
+ ],
+ "w0": "computed-and-reported, NOT banked",
+ "pins": {
+  ".tier3_h4_integrand_cache.json": "7e908f62a6e4b5530748d272cddbcf3148d405b73a9498122223e1a7366a3e79"
+ },
+ "classification": "EXTRACTION_ANOMALY"
+}

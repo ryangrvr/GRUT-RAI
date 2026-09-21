@@ -1,0 +1,22 @@
+{
+ "instrument": "calc/t3_07_h_exactness_refutation.py",
+ "checks": [
+  {
+   "name": "E1 every nonzero C entry is H-independent",
+   "pass": false,
+   "msg": "64 nonzero entries across configs ['plus_z', 'cross_z', 'plus_x', 'ward']: max H-degree = 2. With each frozen W exactly terminating at H^2 (the exact linear-dressing mode product, T3-05L M1), Sigma = C.C : PP : WW has H-degree <= 4 EXACTLY"
+  },
+  {
+   "name": "E2 cached retarded integrand has H-degree <= 4; H^5, H^6 EMPTY",
+   "pass": false,
+   "msg": "12262 terms; per-H-power counts {0: 268, 1: 16, 2: 684, 3: 1198, 4: 3030, 5: 2186, 6: 4880}; max = 6. The builder's _HKILL(7..12) window sits entirely above the object's true degree: the H-content is a TERMINATING POLYNOMIAL, not a truncated series"
+  }
+ ],
+ "notes": [],
+ "w0": "computed-and-reported, NOT banked",
+ "pins": {
+  ".tier3_cmat_cache.json": "a603657a5d501510628788f0386ad5802b59a55a12400637f4d0b592e6f5381f",
+  ".tier3_h4_integrand_cache.json": "7e908f62a6e4b5530748d272cddbcf3148d405b73a9498122223e1a7366a3e79"
+ },
+ "classification": "NOT_H_EXACT"
+}

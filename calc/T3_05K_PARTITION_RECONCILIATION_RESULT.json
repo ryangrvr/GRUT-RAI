@@ -1,0 +1,89 @@
+{
+  "instrument": "calc/t3_05k_partition_reconciliation.py",
+  "question": "is branch_map's partition of sec4 identical to cone_split's canonical partition?",
+  "checks": [
+    {
+      "name": "G0 representative pre-gate",
+      "pass": true,
+      "msg": "5 representative terms covering the phase structure: fast classifier agrees with the frozen simplify classifier"
+    },
+    {
+      "name": "G1 fast classifier equivalent on sample",
+      "pass": true,
+      "msg": "60 random terms: identical keys and coefficients under cancel/expand and simplify phase checks"
+    },
+    {
+      "name": "K1 per-key bucket comparison recorded",
+      "pass": true,
+      "msg": "0 buckets agree canonically, 4 disputed keys"
+    },
+    {
+      "name": "K2 cone_split partition reassembles to sec4 (termwise)",
+      "pass": false,
+      "msg": "COVERAGE DEFECT: counts={(-2, 0): 1515, (2, 0): 1515} vs {(-2, 0): 1515, (2, 0): 1515}, keysets equal=False"
+    },
+    {
+      "name": "K3 branch_map partition reassembles to sec4 (termwise)",
+      "pass": false,
+      "msg": "branch_map coverage differs -- see K2 defect record"
+    }
+  ],
+  "notes": [
+    "cone_split keys: ['m', 'p'] + stray={}",
+    "branch_map keys: ['(-2, 0)', '(2, 0)']",
+    "keys only in cone_split: ['m', 'p']",
+    "keys only in branch_map: ['(-2, 0)', '(2, 0)']",
+    "DISPUTED: m -- key present only in cone_split",
+    "DISPUTED: p -- key present only in cone_split",
+    "DISPUTED: (-2, 0) -- key present only in branch_map",
+    "DISPUTED: (2, 0) -- key present only in branch_map",
+    "diagnostic ONLY; no physics conclusion about u_b; frozen artifacts read-only; no R'; no W-0; no H^6; no keystone"
+  ],
+  "cone_split_keys": [
+    "m",
+    "p"
+  ],
+  "branch_map_keys": [
+    "(-2, 0)",
+    "(2, 0)"
+  ],
+  "cone_split_stray_nonempty": false,
+  "key_set_equal": false,
+  "bucket_comparison": {
+    "agree": [],
+    "disputed": [
+      {
+        "key": "m",
+        "status": "key present only in cone_split"
+      },
+      {
+        "key": "p",
+        "status": "key present only in cone_split"
+      },
+      {
+        "key": "(-2, 0)",
+        "status": "key present only in branch_map"
+      },
+      {
+        "key": "(2, 0)",
+        "status": "key present only in branch_map"
+      }
+    ]
+  },
+  "coverage_counts": {
+    "cone_split": {
+      "(-2, 0)": 1515,
+      "(2, 0)": 1515
+    },
+    "branch_map": {
+      "(-2, 0)": 1515,
+      "(2, 0)": 1515
+    },
+    "n_terms": 3030,
+    "no_giant_add_constructed": true,
+    "note": "termwise replacement for the original canon(sum(buckets) - sec4) check: establishes the same proposition (each pinned term accounted for exactly once in exactly one bucket) without rebuilding the 3030-term Add; bucket/key semantics unchanged"
+  },
+  "classification": "PARTITIONS_DIFFER_BY_STRAY",
+  "interpretation_scaffold": "Terms branch_map assigned to branches are flagged stray by the canonical classifier; they need explicit phase-status accounting.",
+  "w0": "computed-and-reported, NOT banked"
+}

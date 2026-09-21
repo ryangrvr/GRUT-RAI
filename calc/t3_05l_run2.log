@@ -1,0 +1,29 @@
+[    0.0s][stage] L1: term-array cache provenance
+  ok   L1 term-array cache provenance verified: 3030 terms; source_cache_sha256/sec4_sha256/ordered_terms_hash all match
+  ok   L1 frozen derivation quotation on record: imsig_from_cone docstring (verbatim head): Im Sigma_R(omega > 0) from the omega = +2q cone content of the retarded combination RET = sum_n c_n(q) Delta^n e^{-2iq Delta} + (+2q mirror). Derivation (exact inner time integral, recorded): Sigma_R 
+[   14.4s][stage] L2: termwise classification into the two cone buckets
+[   14.4s][stage]   term 0/3030
+[   20.3s][stage]   term 500/3030
+[   26.3s][stage]   term 1000/3030
+[   32.6s][stage]   term 1500/3030
+[   38.6s][stage]   term 2000/3030
+[   45.0s][stage]   term 2500/3030
+[   51.0s][stage]   term 3000/3030
+  ok   L2 every pinned term lands in the two cone buckets: m: 1515, p: 1515, other: 0 (matches K2: 1515/1515, no stray)
+  ok   L2 Delta-degree inventory identical between buckets: degrees present: [0, 1, 2, 3, 4]; per-degree monomial counts m={0: 503, 1: 307, 2: 383, 3: 159, 4: 163} p={0: 503, 1: 307, 2: 383, 3: 159, 4: 163}
+[   51.3s][stage] M: conjugation structure of the frozen W kernels
+  ok   M1 WMINUS == conj(WPLUS) EXACTLY (frozen Tier-2 forms): the W forms are quoted from the frozen source and the conjugation identity is exact
+  ok   M2 odd derivative order BREAKS conjugation covariance: conj((-i d/du) WPLUS) - (-i d/du) WMINUS != 0: residual/WMINUS = 2*q**2*(-H*u + 1)/(H*q*u + I*H - q) -- the assembly's nu^a -> (-i d/du)^a operators (frozen dependency graph) are not conjugation-covariant at odd order
+  ok   M3 even derivative order IS conjugation-covariant: a = 2 exact -- the breaking is strictly odd-order, which is why the two cones carry independent coefficient content while each separately satisfies the i^n c_n reality pattern
+[   52.2s][stage] L3: i^n c_n reality pattern (both buckets) + non-mirror ratios
+  ok   L3 i^n c_n real for BOTH buckets at every exact rational point: the frozen PV-leak gate's precondition holds on the p bucket too: its own absorptive/PV split is clean
+  -- non-mirror ratios conj(c_n^m)/c_n^p (2 points per degree, recorded to document coefficient independence): {"0": ["-19308559319807516183/2565706058231012382359", "-2275726609343034391793/14513818903286237005793"], "1": ["-100030235061427547/9815749498203089864", "-1341897913106546987/4923372220610884397"], "2": ["-95148992821514671/10129530579907780099", "-285034576905790657/1378243075294162672"], "3": ["-386667190820306/38318005673409917", "-4*2**(127/184)*3**(265/368)*5**(307/368)*7**(5/8)/675"], "4": ["-193864477767061/19988007819930157", "-3061524570589/14376917597014"]}
+[   75.5s][stage] L4: exact inner time integral for every degree present
+  ok   L4 inner integrals verified (both cones, n = 0..4): int_0^inf Delta^n e^{i omega Delta - eta Delta} e^{s 2iq Delta} dDelta == n!/(eta - i(omega + s 2q))^{n+1}, s = -+1 -- convergent Piecewise branch checked symbolically with an exact-rational 3-point backstop; the s = -1 form is the frozen docstring's recorded integral
+[   81.7s][stage] L5: p-branch Sokhotski delta support over the measure domain
+  ok   L5 p-branch absorptive support EMPTY on q in (0, inf), all n: delta^(n)(omega + 2q) support q = -omega/2 < 0 for omega > 0; the integral over the measure domain vanishes identically for every degree present -- the exclusion is KINEMATIC and termwise, not a cancellation
+  ok   L5b m-branch support fires inside the domain (contrast): int_0^inf phi(q) delta(omega - 2q) dq == phi(omega/2)/2 -- the frozen extraction's support point; the cone asymmetry at omega > 0 is kinematic, exactly as the docstring records
+[   81.9s][stage] classification
+
+CLASSIFICATION: P_BRANCH_KINEMATICALLY_NULL_INDEPENDENT_CONTENT
+wrote /Users/mpg/Desktop/grut physics testing /calc/T3_05L_P_BRANCH_ABSORPTIVE_RESULT.json

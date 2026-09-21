@@ -1,0 +1,7 @@
+[    0.0s][stage] E1: H-degree of every cached C-matrix entry
+  FAIL E1 every nonzero C entry is H-independent: 64 nonzero entries across configs ['plus_z', 'cross_z', 'plus_x', 'ward']: max H-degree = 2. With each frozen W exactly terminating at H^2 (the exact linear-dressing mode product, T3-05L M1), Sigma = C.C : PP : WW has H-degree <= 4 EXACTLY
+[    2.5s][stage] E2: termwise H-degree census of the cached ret_wigner (42 MB)
+[   64.7s][stage]   term 0/12262
+[   64.9s][stage]   term 5000/12262
+[   65.2s][stage]   term 10000/12262
+  FAIL E2 cached retarded integrand has H-degree <= 4; H^5, H^6 EMPTY: 12262 terms; per-H-power counts {0: 268, 1: 16, 2: 684, 3: 1198, 4: 3030, 5: 2186, 6: 4880}; max = 6. The builder's _HKILL(7..12) window sits entirely above the object's true degree: the H-content is a TERMINATING POLYNOMIAL, not a truncated series

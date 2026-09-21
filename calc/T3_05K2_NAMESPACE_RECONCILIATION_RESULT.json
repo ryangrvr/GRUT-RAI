@@ -1,0 +1,41 @@
+{
+  "instrument": "calc/t3_05k2_namespace_reconciliation.py",
+  "preserves": "T3-05K result record untouched; K2/K3 failures stand as the instrument-defect record",
+  "checks": [
+    {
+      "name": "R0 mapping m<->(-2,0), p<->(+2,0) declared from source",
+      "pass": true,
+      "msg": "cone_split pops exactly the keys (-2,0) -> 'm' and (+2,0) -> 'p' and routes every other phase to 'stray'; branch_map keys are the tuples themselves"
+    },
+    {
+      "name": "R1 termwise keys agree after namespace reconciliation",
+      "pass": true,
+      "msg": "all 3030 pinned terms receive the SAME reconciled key from both classifiers"
+    }
+  ],
+  "notes": [
+    "term-array cache loaded: 3030 terms (provenance pinned to source cache sha ?...)"
+  ],
+  "namespace_premise": {
+    "cone_split_key_space": "strings 'm' (advancing/retarded branch, phase r_D = -2) and 'p' (phase r_D = +2), rb = 0; everything else -> 'stray'",
+    "branch_map_key_space": "tuples (rD, rb)",
+    "verified_mapping": {
+      "m": "(-2, 0)",
+      "p": "(+2, 0)"
+    },
+    "source": "calc/t3_05k_partition_reconciliation.py cone_split() branches.pop keys; ledger cone_split identical semantics"
+  },
+  "term_key_agreement": {
+    "n_terms": 3030,
+    "n_key_mismatches_after_reconciliation": 0,
+    "mismatches_sample": []
+  },
+  "bucket_content_comparison": {
+    "(-2, 0)": "AGREE",
+    "(2, 0)": "AGREE"
+  },
+  "classification": "PARTITIONS_IDENTICAL",
+  "interpretation": "The apparent T3-05K discrepancy is absent at the partition level: cone_split and branch_map produce the same partition. The T3-05B-era branch attribution must then be re-derived through the cone_split buckets before any SURVIVES/CANCELS claim.",
+  "w0": "computed-and-reported, NOT banked",
+  "scope": "diagnostic ONLY; frozen artifacts read-only; T3-05K record preserved; no R'; no H^6; no u_b interpretation"
+}

@@ -1,0 +1,53 @@
+  ok   P0 measure quoted from the frozen source: MEAS = 2 pi^{d/2}/Gamma(d/2)/(2 pi)^d q^{d-1} (frozen)
+[    0.1s][stage] P1: parsing the pinned cache and building sector term arrays
+[   60.4s][stage]   term 0
+[   85.8s][stage]   term 4000
+[  116.7s][stage]   term 8000
+[  151.0s][stage]   term 12000
+  ok   P1 sector census matches the v1 E2 finding: per-H-power counts {0: 268, 1: 16, 2: 684, 3: 1198, 4: 3030, 5: 2186, 6: 4880}
+  -- sec5/sec6 term caches written (srepr, provenance-pinned)
+[  167.4s][stage] P3: GATE -- reproduce the recorded A2 from this cache's H^4 terms
+[  167.4s][stage]   [H4-gate] term 0/3030
+[  203.2s][stage]   [H4-gate] term 400/3030
+[  248.6s][stage]   [H4-gate] term 800/3030
+[  293.3s][stage]   [H4-gate] term 1200/3030
+[  329.7s][stage]   [H4-gate] term 1600/3030
+[  355.9s][stage]   [H4-gate] term 2000/3030
+[  386.6s][stage]   [H4-gate] term 2400/3030
+[  392.8s][stage]   [H4-gate] term 2800/3030
+  ok   P3 PV-leak gate (i^n c_n real) at exact points: per-degree verdicts {0: True, 2: True, 4: True, 1: True, 3: True}
+  ok   P3 d = 3 smoothness (piece-wise): 1515 pieces evaluated at d = 3; singular pieces needing a limit: 0
+  ok   P3 total-level PV gate: Re(accumulated total) == 0: Re = 0; Im = -9*omega**4*u_b**4/(640*pi) + 11*omega**2*u_b**2/(64*pi) - 127/(1280*pi) (the frozen route's as_real_imag convention, reproduced)
+  ok   P3 termwise extraction REPRODUCES the recorded A2 exactly: A2(here) = -9*omega**4*u_b**4/(640*pi) + 11*omega**2*u_b**2/(64*pi) - 127/(1280*pi) == recorded (-18 w^4 u_b^4 + 220 w^2 u_b^2 - 127)/(1280 pi); buckets m/p = 1515/1515, stray = [], Delta-degrees = {0: 503, 1: 307, 2: 383, 3: 159, 4: 163}
+[  403.7s][stage] P4: the H^5 sector
+[  403.7s][stage]   [H5] term 0/2186
+[  413.2s][stage]   [H5] term 400/2186
+[  441.9s][stage]   [H5] term 800/2186
+[  475.9s][stage]   [H5] term 1200/2186
+[  510.9s][stage]   [H5] term 1600/2186
+[  536.0s][stage]   [H5] term 2000/2186
+  FAIL P4 PV-leak gate (i^n c_n real) at exact points: per-degree verdicts {0: True, 2: True, 1: True, 4: False, 3: True} -- FAILED; see total-level Re gate
+  ok   P4 d = 3 smoothness (piece-wise): 1093 pieces evaluated at d = 3; singular pieces needing a limit: 0
+  ok   P4 total-level PV gate: Re(accumulated total) == 0: Re = 0; Im = 13*omega**2*u_b**3/(120*pi) - 31*u_b/(80*pi) (the frozen route's as_real_imag convention, reproduced)
+  FAIL P4 A5 extracted: Im Sigma_R^[H5](d = 3) = 13*omega**2*u_b**3/(120*pi) - 31*u_b/(80*pi); buckets m/p = 1093/1093, stray = [], rb != 0: [], Delta-degrees = {0: 326, 1: 329, 2: 224, 3: 184, 4: 30}
+[  543.3s][stage] P5: the H^6 sector
+[  543.3s][stage]   [H6] term 0/4880
+[  710.1s][stage]   [H6] term 400/4880
+[  848.9s][stage]   [H6] term 800/4880
+[ 1062.4s][stage]   [H6] term 1200/4880
+[ 1345.7s][stage]   [H6] term 1600/4880
+[ 1493.9s][stage]   [H6] term 2000/4880
+[ 1650.6s][stage]   [H6] term 2400/4880
+[ 1801.0s][stage]   [H6] term 2800/4880
+[ 1971.9s][stage]   [H6] term 3200/4880
+[ 2083.1s][stage]   [H6] term 3600/4880
+[ 2112.2s][stage]   [H6] term 4000/4880
+[ 2136.5s][stage]   [H6] term 4400/4880
+[ 2148.4s][stage]   [H6] term 4800/4880
+  ok   P5 PV-leak gate (i^n c_n real) at exact points: per-degree verdicts {0: True, 4: True, 6: True, 2: True, 3: True, 1: True, 5: True}
+  ok   P5 d = 3 smoothness (piece-wise): 2440 pieces evaluated at d = 3; singular pieces needing a limit: 0
+  ok   P5 total-level PV gate: Re(accumulated total) == 0: Re = 0; Im = -3*omega**4*u_b**6/(80*pi) + 431*omega**2*u_b**4/(480*pi) - 207*u_b**2/(80*pi) - 1/(3*pi*omega**2) (the frozen route's as_real_imag convention, reproduced)
+  ok   P5 A6 extracted and d = 3 smooth: Im Sigma_R^[H6](d = 3) = -3*omega**4*u_b**6/(80*pi) + 431*omega**2*u_b**4/(480*pi) - 207*u_b**2/(80*pi) - 1/(3*pi*omega**2); buckets m/p = 2440/2440, stray = [], rb != 0: [], Delta-degrees = {0: 576, 1: 439, 2: 481, 3: 313, 4: 331, 5: 180, 6: 120}
+  ok   P5b u_b parity of A6: A6 is even in u_b (the recorded WMINUS == WPLUS(u<->u_p) mechanism)
+[ 2163.1s][stage] P6: order-6 adjudication of the dressed-stationary class
+  ok   P6a the H^5/H^6 contributions reduce to pure (x, y) monomials: extra = -48*x**6 + 3448*x**4*y**2/3 + 416*x**3*y**2/3 - 3312*x**2*y**4 - 496*x*y**4 - 1280*y**6/3

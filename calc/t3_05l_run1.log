@@ -1,0 +1,25 @@
+[    0.0s][stage] L1: term-array cache provenance
+  ok   L1 term-array cache provenance verified: 3030 terms; source_cache_sha256/sec4_sha256/ordered_terms_hash all match
+  ok   L1 frozen derivation quotation on record: imsig_from_cone docstring (verbatim head): Im Sigma_R(omega > 0) from the omega = +2q cone content of the retarded combination RET = sum_n c_n(q) Delta^n e^{-2iq Delta} + (+2q mirror). Derivation (exact inner time integral, recorded): Sigma_R = -i theta(Delta) RE
+[   13.9s][stage] L2: termwise classification into the two cone buckets
+[   13.9s][stage]   term 0/3030
+[   17.7s][stage]   term 500/3030
+[   20.6s][stage]   term 1000/3030
+[   23.4s][stage]   term 1500/3030
+[   25.9s][stage]   term 2000/3030
+[   28.9s][stage]   term 2500/3030
+[   31.4s][stage]   term 3000/3030
+  ok   L2 every pinned term lands in the two cone buckets: m: 1515, p: 1515, other: 0 (matches K2: 1515/1515, no stray)
+  ok   L2 Delta-degree inventory identical between buckets: degrees present: [0, 1, 2, 3, 4]; per-degree monomial counts m={0: 503, 1: 307, 2: 383, 3: 159, 4: 163} p={0: 503, 1: 307, 2: 383, 3: 159, 4: 163}
+[   46.5s][stage] L3a: termwise conjugate-multiset mirror test
+  FAIL L3a p bucket == conj(m bucket) as a term multiset: canonical-string multisets differ in 1804 entries (bucket-sum test decides below)
+[   56.7s][stage] L3b: exact-rational numeric bucket mirror test
+  FAIL L3b bucket sums: conj(sum m) == sum p at every point: 0/4 exact-rational evaluations agree (sums accumulated termwise on substituted values)
+[   93.6s][stage] L4: exact inner time integral for every degree present
+  FAIL L4 inner integrals verified exactly (both cones, n = 0..4): int_0^inf Delta^n e^{i omega Delta - eta Delta} e^{-+2iq Delta} dDelta == n!/(eta - i(omega -+ 2q))^{n+1} -- sympy exact, eta > 0; the m form is the frozen docstring's recorded integral
+[  137.9s][stage] L5: p-branch Sokhotski delta support over the measure domain
+Traceback (most recent call last):
+  File "/Users/mpg/Desktop/grut physics testing /calc/t3_05l_p_branch_absorptive.py", line 305, in <module>
+    "support_point": str(root[0]),
+                         ~~~~^^^
+IndexError: list index out of range

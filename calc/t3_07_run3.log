@@ -1,0 +1,20 @@
+  ok   P0 measure quoted from the frozen source: MEAS = 2 pi^{d/2}/Gamma(d/2)/(2 pi)^d q^{d-1} (frozen)
+[    0.1s][stage] P1: parsing the pinned cache and building sector term arrays
+[   62.0s][stage]   term 0
+[   87.1s][stage]   term 4000
+[  119.1s][stage]   term 8000
+[  153.1s][stage]   term 12000
+  ok   P1 sector census matches the v1 E2 finding: per-H-power counts {0: 268, 1: 16, 2: 684, 3: 1198, 4: 3030, 5: 2186, 6: 4880}
+  -- sec5/sec6 term caches written (srepr, provenance-pinned)
+[  169.3s][stage] P3: GATE -- reproduce the recorded A2 from this cache's H^4 terms
+[  169.3s][stage]   [H4-gate] term 0/3030
+[  205.1s][stage]   [H4-gate] term 400/3030
+[  251.7s][stage]   [H4-gate] term 800/3030
+[  296.7s][stage]   [H4-gate] term 1200/3030
+[  333.9s][stage]   [H4-gate] term 1600/3030
+[  360.5s][stage]   [H4-gate] term 2000/3030
+[  389.9s][stage]   [H4-gate] term 2400/3030
+[  396.0s][stage]   [H4-gate] term 2800/3030
+  FAIL P3 PV-leak gate (i^n c_n real) at exact points: the delta class is clean; no principal-value leakage into the absorptive part
+  ok   P3 d = 3 smoothness (piece-wise): 1515 pieces evaluated at d = 3; singular pieces needing a limit: 0; value = -9*I*omega**4*u_b**4/(640*pi) + 11*I*omega**2*u_b**2/(64*pi) - 127*I/(1280*pi)
+  FAIL P3 termwise extraction REPRODUCES the recorded A2 exactly: A2(here) = -9*I*omega**4*u_b**4/(640*pi) + 11*I*omega**2*u_b**2/(64*pi) - 127*I/(1280*pi) == recorded (-18 w^4 u_b^4 + 220 w^2 u_b^2 - 127)/(1280 pi); buckets m/p = 1515/1515, stray = [], Delta-degrees = {0: 503, 1: 307, 2: 383, 3: 159, 4: 163}
