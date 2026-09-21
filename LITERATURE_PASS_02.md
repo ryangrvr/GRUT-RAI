@@ -322,3 +322,43 @@ v3 (sha a8b4ccda…7706) untouched throughout. Awaiting: ratification of
 positioning change #7; the Q8 sentence decision (with depth caveat); and
 the go-ahead to apply the already-ratified positioning items 1–3 plus the
 related-work content assembled across both passes.
+
+
+---
+
+## Session-4: the two residual Q8 checks — COMPLETE (2026-09-21)
+
+**Check 1 — INSPIRE forward-citation crawls (API, recids resolved).**
+2107.13905 = recid 1895190, 24 citers — ALL enumerated, ZERO flags on
+{Wigner, absorptive, imaginary part, spectral, frequency-space, retarded
+kernel, nonequilibrium, Kadanoff–Baym, average time, two-time, memory
+kernel, stationarity}. 2103.08547 = recid 1851722, 14 citers — ALL
+enumerated, ZERO flags. The two evocative titles individually inspected:
+2305.17641 ("Remembrance of Things Past") = leading-log resummation of
+scalar propagator traces across expansion histories, clean;
+2402.05452 ("Gauge Independent Logarithms from Inflationary Gravitons") =
+gauge-independence of graviton-loop logs in the scalar exchange potential
+via source/observer correlations — **must-cite on the "physical" side of
+the debate cluster**, clean of the target constructions. One genuinely
+adjacent find among the citers: **arXiv:2206.05797** (primordial tensor
+spectrum as an open quantum system; matches standard loops "only in the
+strict Markovian limit" with a systematic non-Markovian relaxation) — a
+memory-adjacent GRAVITON open-system treatment, no Wigner-resolved
+absorptive hierarchy — **must-cite in related work**.
+
+**Check 2 — corpus "Wigner" sweep (with a disclosed instrument failure).**
+The first author-scoped queries returned invalid zeros — caught by a
+CONTROL query ("woodard graviton" via the same syntax = 0, impossible);
+syntax corrected. A second confound identified and documented: bare
+"woodard wigner" returns 36 CMS collaboration papers (the Wigner Research
+Centre is a CMS member institution). Clean queries: "tsamis wigner" = 0;
+"woodard absorptive" = 0; title-scoped wigner∧graviton across ALL of
+INSPIRE = 1 hit (Bargmann–Wigner massive-graviton wave equations —
+unrelated usage of "Wigner").
+
+**Conclusion:** both residual checks negative. Per the owner's ruling, the
+owner-approved Q8 wording is CLEARED for insertion as a documented
+literature-search statement in the positioning pass, together with the
+ratified items 1, 2, 3, 7 and the related-work material (now including
+2206.05797 and 2402.05452). "Not found" remains not "does not exist"; the
+sentence's second clause carries the acknowledgment.
