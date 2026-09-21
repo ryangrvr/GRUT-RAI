@@ -32,13 +32,19 @@ construction: the Wigner-resolved absorptive extraction, the H-graded
 
 ## Q2 — Absorptive precedent (PARTIAL)
 
-Tsamis–Woodard gr-qc/9403056 contains on-shell self-energy sign statements
-("the graviton's on-shell self-energy is negative and infrared divergent at
-one loop") — a sign-level precedent the manuscript's §3.2 positioning
-should acknowledge. No frequency-resolved absorptive dS graviton
-coefficients found yet. **Remaining: read gr-qc/9403056's definition of
-"on-shell self-energy" and sign convention; search Boyanovsky's dS
-self-energy forms for absorptive frequency structure.**
+**[MISATTRIBUTION CORRECTED in session 3]** The sign statement ("the
+graviton's on-shell self-energy is negative and infrared divergent at one
+loop, thereby inducing a negative infrared divergence in the two-loop
+vacuum energy") belongs to **Tsamis–Woodard, "Strong Infrared Effects in
+Quantum Gravity," Ann. Phys. 253 (1995)** — NOT to gr-qc/9403056, which a
+direct read shows is Dolgov–Einhorn–Zakharov, a CRITIQUE of the TW
+instability claims ("quantum corrections … can be at most powers of logs of
+conformal time") that belongs in the debate citation cluster instead. A
+sign-level on-shell precedent exists (TW 1995); it does not establish the
+finite-domain H-graded coefficients. Boyanovsky line characterized in
+session 3 (below). Bonus find: "A general gauge calculation of the graviton
+self-energy" (Nucl. Phys. B 146 (1978)) — direct literature support for the
+gauge-dependence of the off-shell coefficient (the H⁰ verdict).
 
 ## Q3 — Wigner precedent (STRENGTHENED NEGATIVE, pending breadth)
 
@@ -196,3 +202,123 @@ against both generic and sharpened queries; still not proof of absence.
 6. Boyanovsky dS self-energy papers — absorptive frequency structure. [OPEN]
 
 **No manuscript edits in this pass. v3 (sha a8b4ccda…7706) untouched.**
+
+
+---
+
+## Session-3 findings (2026-09-21) — the owner's six-step order, completed
+
+**Queries logged (cont.):** (12) PRD-110 locator; (13) Boyanovsky dS
+self-energy; (14) on-shell sign-statement locator. **Primary sources read
+(cont.):** arXiv:2107.13905 (full text via ar5iv); gr-qc/9403056 (full
+text via ar5iv — the misattribution catch).
+
+### Step 1 — 2107.13905: the inheritance boundary, now exact
+
+The paper is **"How Inflationary Gravitons Affect Gravitational
+Radiation"** (TTW). What the contract inherits: the Schwinger–Keldysh
+conversion (their §2.2.3, eqs. ~50–55): each vertex gets ± polarity;
+Σ_ret is built from Σ₊₊ + Σ₊₋ with Δx²₊₊ → Δx²₊₋; the retarded object
+then enters the quantum-corrected linearized Einstein equation (their
+Eq. 3). What the manuscript constructs beyond it: the Wigner-resolved
+absorptive extraction and everything downstream. **Nearest-neighbor
+result identified:** solving their effective equations in position space,
+they find secular growth of graviton mode functions, u₁ →
+(κ²H²/4π²)·(4/3)·ln²(a)·u₀, breakdown at κ²H² ln²a ~ 1, attributed to the
+propagator tail / continual production of Hubble-scale gravitons. **The
+paper must cite this as the closest existing result and distinguish
+scales: their breakdown is a loop-counting scale (κ²H² ln²a ~ 1); the
+manuscript's secular surface (Hu_b ≈ 0.64) is a kinematic truncation
+boundary WITHIN one loop — different objects, different parameters.**
+Confirmed at full text: no absorptive part, no frequency domain, no
+Wigner decomposition there.
+
+### Step 2 — removal-side scope confirmed
+
+PRD 110, 123536 = arXiv:2406.07610 (Huenupi–Hughes–Palma–Sypsas): for
+LIGHT SCALAR correlators, IR divergences absorb into counterterms under
+dimensional regularization; results finite and cutoff-independent, no new
+ln a(t). JHEP 04 (2020) 064 = arXiv:2001.05974 (dynamical RG, dS critical
+phenomena): scalar objects. Together with SdSET (scalar correlators): the
+removal side acts on scalar correlation functions throughout — **no
+graviton self-energy, no absorptive quantity, in any removal-side source
+examined.**
+
+### Step 3 — the sign statement pinned
+
+TW Ann. Phys. 253 (1995) "Strong Infrared Effects in Quantum Gravity"
+(see corrected Q2 above); gr-qc/9403056 reassigned to the critique
+cluster (Dolgov–Einhorn–Zakharov, with Garriga–Tanaka).
+
+### Step 4 — Boyanovsky: phenomenon-level, scalar-sector precedent
+
+Particle decay in inflationary cosmology (astro-ph/0406287): effective
+equations of motion of expectation values as an INITIAL-VALUE problem
+with self-energy corrections — a nonstationary self-energy treatment,
+for the INFLATON/scalars. Decay widths with Bose enhancement at
+T = H/2π (hep-ph/9606208); IR poles in single-particle self-energies
+(1203.3903); Wigner–WEISSKOPF (not Wigner-transform) methods in dS (JHEP
+05 (2011) 047); dS vacuum decay (1712.04522). **Verdict: establishes the
+general phenomenon (nonstationary, frequency/time-resolved absorptive
+self-energy physics on dS) for matter fields; provides NO
+coefficient-level graviton precedent and no H-graded hierarchy.**
+
+### Step 5 — Q6/Q7: the conversion assessment (the owner's test applied)
+
+Question: can the certified Im Σ_R(u_b, ω) be converted into an
+observational bound without importing what the manuscript does not have?
+Routes examined:
+(a) GW attenuation (the 1803.11397 comparison class): requires the
+    damping-rate extraction Γ ∝ Im Σ/(ω·N) — the dressed-propagator/pole
+    step — AND, decisively, the physical (gauge-invariant) status of the
+    off-shell coefficient, which the record leaves open (nonzero Ward
+    diagnostic; R′ unresolved; TT-bath non-uniqueness; the H⁰ verdict).
+    IMPORTS the dressed propagator and an unestablished invariance. FAILS.
+(b) ρ_TT(ω→0) / Kubo η: outside the domain; frontier-reserved; needs
+    bath internal dynamics. FAILS.
+(c) Tensor-power-spectrum route (the 2107.13905 observable): requires
+    solving through horizon crossing, ω ~ H — outside the domain. FAILS.
+(d) Parametric statement only: Γ/ω ~ (ω/M_P)²-class — this is exactly the
+    frozen sentence.
+**VERDICT: NOT PRESENTLY SUPPORTABLE. "The computed absorptive response
+is parametrically Planck-suppressed; no observable is claimed" is the
+correct, final statement.** Proposed positioning change #7 (owner to
+ratify): replace §6.4's "(A quantitative experimental comparison is
+deferred to the documented literature pass.)" with "(A quantitative
+experimental comparison was assessed in the documented literature pass
+and found not presently supportable: every conversion route imports the
+dressed propagator, the unestablished gauge-invariant status of the
+off-shell coefficient, or the deep-infrared completion.)"
+
+### Step 6 — Q8: the gated novelty candidate (NOT in the manuscript)
+
+Candidate sentence, two-clause form, submitted for owner review only:
+*"To the best of our knowledge, following the documented search recorded
+in LITERATURE_PASS_01/02 (fourteen logged queries; primary-source reads
+of the nearest neighbors), the Wigner-resolved H-graded absorptive
+coefficient hierarchy — including the exact H¹ vanishing and the u_b-odd
+H³ term — the parameter-free stationary-dressing certificate, and the
+memory-depth/nonstationarity anti-correlation have not previously
+appeared. The underlying object and its computation are long established
+(Tsamis–Woodard 1996; Tan–Tsamis–Woodard 2021); absorptive and
+nonstationary self-energy phenomena on de Sitter are established for
+matter fields (Bros–Epstein–Moschella 2010; Boyanovsky et al.); secular
+growth of graviton mode functions from this same one-loop physics is
+established in position space (Tan–Tsamis–Woodard, arXiv:2107.13905);
+and the removability of de Sitter secular effects is actively debated
+for scalar correlators and effective couplings (Kitamoto–Kitazawa;
+Huenupi et al.; Cohen–Green-line SdSET; dynamical RG)."*
+**Depth caveat for the owner's decision:** the search is web-level plus
+targeted primary reads (14 queries, 6 full/partial primary sources); an
+INSPIRE forward-citation crawl of TTW 2021/2107.13905 and a
+Woodard-corpus "Wigner" sweep remain undone and are the two highest-value
+residual checks if more assurance is wanted before the sentence enters
+the manuscript.
+
+## PASS 02 STATUS: COMPLETE PENDING OWNER REVIEW
+
+All six steps of the owner's order executed. No manuscript edits made;
+v3 (sha a8b4ccda…7706) untouched throughout. Awaiting: ratification of
+positioning change #7; the Q8 sentence decision (with depth caveat); and
+the go-ahead to apply the already-ratified positioning items 1–3 plus the
+related-work content assembled across both passes.
