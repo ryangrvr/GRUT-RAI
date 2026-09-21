@@ -1,0 +1,16 @@
+  ok   baseline registry sha re-verified
+  ok   final baseline sentence verbatim (whitespace-normalized)
+  ok   A.1 = 13, A.3 = 17
+  ok   category counts 13/23/36/22/22/19/11/0
+  ok   universal FORM quote verbatim in baseline
+  ok   62.7 orders + eps_H in baseline
+  ok   certificate numbers
+  ok   H3/H6 values vs doc
+  ok   keystone classification + protocol sha
+  ok   reduction errors 0.33/1.68
+  ok   NONSTAT_LOCAL + ub-free nonlocal
+  ok   sign max + x*
+  ok   owner formulation present
+  ok   banned phrase absent
+
+VERDICT: ALL VERIFIED
