@@ -36,11 +36,17 @@ physics: **the one-loop graviton self-energy on de Sitter space carries a fully
 certified absorptive response through H⁶ that is not representable by the
 tested class of stationary amplitude/frequency dressings — and its structure
 separates two things the original hypothesis had fused: cosmic-time dependence
-and memory are not the same thing.** The u_b-dependent (nonstationary)
-structure is confined, through H⁶, to *local* terms — the response remembers
-the expanding background through a time-dependent local dressing of the wave
-operator — while the first genuine *nonlocal* memory contribution (the ω⁻²
-term at H⁶) is u_b-independent: stationary. This characterizes graviton-loop
+and memory are not the same thing.** [AMENDED per T3-09 R1 and
+`calc/T3_08A_AMENDMENT_01.md`:] The u_b-dependent (nonstationary) structure
+attaches, through H⁶, to the *faster-decaying* components of the power-law
+memory — relative-time tails Δ⁻⁵, Δ⁻³, Δ⁻¹ — while the deepest-memory
+component, the growing secular tail from the ω⁻² term at H⁶, is
+u_b-independent: stationary. Cosmic-time dependence and memory depth are
+anti-correlated in the certified response: the longer the memory, the more
+stationary it is. Because every certified term is non-analytic in ω, no local
+counterterm or contact field redefinition can generate or remove any of this
+content: the absorptive conclusions are counterterm-free and do not await
+Re Σ (T3-09 R2). This characterizes graviton-loop
 dissipation on an expanding background concretely, and it does not by itself
 distinguish GRUT from standard QFT on de Sitter.
 
@@ -81,11 +87,26 @@ single-witness, on complete data only.
 
 **1c. The two-time response is assembled and characterized** (keystone T3-08A
 under the ratified frozen protocol, sha `caaf7a70…`; outcome
-`TWO_TIME_RESPONSE_CHARACTERIZED`, accepted by owner ruling). The exact
-structural finding: **every u_b-dependent monomial of the certified response
-sits at ω-powers {4, 2, 0} — local (contact/higher-derivative) terms — while
-the sole genuine nonlocal memory term (ω⁻², H⁶) is u_b-free**, IR-cut at the
-record's own refusal boundary ω\* = √(104/9)·H = 3.399H.
+`TWO_TIME_RESPONSE_CHARACTERIZED`, accepted by owner ruling; labeling
+corrected by `calc/T3_08A_AMENDMENT_01.md`). The exact structural finding:
+**every u_b-dependent monomial of the certified response sits at ω-powers
+{4, 2, 0}, whose Δ > 0 kernels are the power-law memory tails Δ⁻⁵, Δ⁻³, Δ⁻¹
+(T3-09 R1, exact) — while the deepest-memory term (ω⁻², H⁶, the growing
+secular tail) is u_b-free**, IR-cut at the record's own refusal boundary
+ω\* = √(104/9)·H = 3.399H.
+
+**1c′. Counterterm/redefinition invariance and the orbit no-go** (T3-09,
+`calc/T3_09_REPRESENTATION_CLOSURE_RESULT.json`). The certified Im content is
+non-analytic (sgn(ω)·|ω|^p), so local counterterms and contact redefinitions
+— which contribute only analytic pieces supported at Δ = 0 — can touch
+neither the certified coefficients nor any Δ > 0 tail. The residual
+redefinition freedom (local rescaling h → Z(u_b)h, time reparametrization
+u → f(u)) acts at leading Wigner order exactly as the dressing class the H⁶
+certificate refutes: **no such transformation stationarizes the certified
+response at leading adiabatic order (exact), and on a computed subdomain
+(larger H/ω, u_b-odd side) the obstruction exceeds the gradient-correction
+bound, extending the no-go to the full orbit there** — elsewhere only the
+leading-order statement is claimed (reported faithfully).
 
 **1d. The Wigner-local approximation is quantitatively bounded** (same
 instrument). Error field E = (H/ω)|∂ₓP|/|P|: maximum ≈ 0.33 on the tested
@@ -176,8 +197,10 @@ UNRESOLVED.
 
 ## 6. OPEN PHYSICS (the short list worth pursuing)
 
-1. **The local/memory split** (§1c) — is the time-dependent local dressing
-   physical after renormalization? (= the Re Σ/PV program.)
+1. **The tail hierarchy** (§1c) — CLOSED in its original form by T3-09 R2a:
+   the u_b-dependent absorptive content is counterterm-invariant (non-
+   analytic); what Re Σ/PV still governs is only the dispersive side
+   (μ-dependence, pole structure, the full G_R).
 2. **The stationary memory tail's fate at ω → 0** — the deep-IR completion,
    where the u_b-free ω⁻² term and the series' own convergence boundary
    (≈ 1.8H by three-term ratio, suggestive only) point.
