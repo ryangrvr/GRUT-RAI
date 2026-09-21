@@ -117,7 +117,9 @@ empty ledger is reported as a result.
 6. The full-orbit stationarity no-go holds only on the computed subdomain;
    elsewhere leading-adiabatic order.
 7. The deep-IR wall: long-Δ tail statements (Δ ≳ 1/(3.4H)) are not licensed;
-   the ω⁻² term's time-domain form depends on the IR boundary.
+   the ω⁻² term's kernel grows only WITHIN the window Δ ≲ 0.29/H and its
+   time-domain form depends on the IR boundary (T3-09B V7 — "secularly
+   growing" unqualified is over-interpretation).
 8. One-loop only; bath internal dynamics absent; the transport class
    undetermined and frontier-reserved.
 9. All verification is in-house; no external human review has occurred
@@ -130,6 +132,12 @@ empty ledger is reported as a result.
 12. The T3-08A→T3-09 labeling correction (local → power-law tails) must be
     stated; the owner's original "confined to local terms" formulation is
     superseded pending re-ruling (`calc/T3_08A_AMENDMENT_01.md`).
+13. The one premise of the tail statements — reality of Σ_R(u_b, Δ) at fixed
+    u_b (⟹ odd Im, the sgn(ω)|ω|^p extension) — must be stated explicitly:
+    standard for retarded responses, consistent with all gates, not
+    independently re-derived from the cached integrand (T3-09B V4). The
+    counterterm-invariance claim is scoped to the certified nonanalytic
+    absorptive sector, not the complete self-energy (V8).
 
 ---
 

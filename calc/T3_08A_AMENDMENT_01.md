@@ -16,7 +16,20 @@ c·ω^(2k+1) to the absorptive part; no certified term has that form. The
 (T3-09 R1, exact Abel sine transforms):
 
     ω⁴ → +48/(πΔ⁵)     ω² → −4/(πΔ³)     ω⁰ → +2/(πΔ)
-    ω⁻² → a growing secular tail Δ·[1 − γ_E − log(ω*Δ)] (IR-cut form)
+    ω⁻² → a tail growing as Δ·[1 − γ_E − log(ω*Δ)] WITHIN the licensed
+          window Δ ≲ 1/ω* (ω* = 3.399H, i.e. Δ ≲ 0.29/H); bounded
+          oscillation beyond in the IR-cut model; true behavior beyond
+          UNDETERMINED (deep-IR wall) — T3-09B V7
+
+## The stated premise (T3-09B V4)
+
+The sgn(ω)·|ω|^p odd extension — and with it every tail statement — rests on
+one premise: **Σ_R(u_b, Δ) is real at fixed u_b** (standard for retarded
+responses of hermitian sources; consistent with the real certified P and the
+iⁿcₙ gates; not independently re-derivable from the convention-dressed cached
+integrand). The paper states this premise explicitly. The counterterm-
+invariance claim is scoped to **the certified nonanalytic absorptive sector**,
+not the complete self-energy (T3-09B V8).
 
 ## What survives, corrected
 

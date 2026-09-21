@@ -40,13 +40,17 @@ and memory are not the same thing.** [AMENDED per T3-09 R1 and
 `calc/T3_08A_AMENDMENT_01.md`:] The u_b-dependent (nonstationary) structure
 attaches, through H⁶, to the *faster-decaying* components of the power-law
 memory — relative-time tails Δ⁻⁵, Δ⁻³, Δ⁻¹ — while the deepest-memory
-component, the growing secular tail from the ω⁻² term at H⁶, is
+component — the ω⁻² term at H⁶, whose kernel grows within the licensed
+window Δ ≲ 0.29/H and is undetermined beyond it (deep-IR wall; T3-09B) — is
 u_b-independent: stationary. Cosmic-time dependence and memory depth are
 anti-correlated in the certified response: the longer the memory, the more
 stationary it is. Because every certified term is non-analytic in ω, no local
 counterterm or contact field redefinition can generate or remove any of this
-content: the absorptive conclusions are counterterm-free and do not await
-Re Σ (T3-09 R2). This characterizes graviton-loop
+content — a statement scoped to the certified nonanalytic absorptive sector,
+not the complete self-energy — so the absorptive conclusions are
+counterterm-free and do not await Re Σ (T3-09 R2; convention and
+distributional mapping verified in T3-09B, which also states the one premise:
+reality of Σ_R(u_b, Δ) at fixed u_b). This characterizes graviton-loop
 dissipation on an expanding background concretely, and it does not by itself
 distinguish GRUT from standard QFT on de Sitter.
 
@@ -91,8 +95,9 @@ under the ratified frozen protocol, sha `caaf7a70…`; outcome
 corrected by `calc/T3_08A_AMENDMENT_01.md`). The exact structural finding:
 **every u_b-dependent monomial of the certified response sits at ω-powers
 {4, 2, 0}, whose Δ > 0 kernels are the power-law memory tails Δ⁻⁵, Δ⁻³, Δ⁻¹
-(T3-09 R1, exact) — while the deepest-memory term (ω⁻², H⁶, the growing
-secular tail) is u_b-free**, IR-cut at the record's own refusal boundary
+(T3-09 R1, exact; prescription-independent and numerically confirmed,
+T3-09B) — while the deepest-memory term (ω⁻², H⁶; growing within the licensed
+window, undetermined beyond) is u_b-free**, IR-cut at the record's own refusal boundary
 ω\* = √(104/9)·H = 3.399H.
 
 **1c′. Counterterm/redefinition invariance and the orbit no-go** (T3-09,
