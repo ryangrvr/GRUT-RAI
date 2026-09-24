@@ -179,3 +179,13 @@ Smallest sufficient instruments, in order, all cheap and all owner-visible befor
 
 No computational campaign is requested. Items 1–3 are read-and-adjudicate work over the
 existing record; each carries its kill conditions above.
+
+---
+
+## CORRECTION 01 (2026-09-24, visible per house rule — from the challenge round)
+
+§1a wrongly grouped **G** with Λ among boundary-wandering items. The C-III sweep
+(48-item classification) found no corpus support for any relocation of G: its value is
+many-preparation lab-measurable and its classification is stable. The movable-boundary
+observation stands on Λ and the framework-scale items alone. Verdicts and narrowed forms:
+`rrp/rrp01/CHALLENGE_ROUND_01.md`.

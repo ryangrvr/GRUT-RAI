@@ -1,0 +1,369 @@
+{
+ "round": "RRP-01 challenge round 01",
+ "date": "2026-09-24",
+ "results": {
+  "T_discharge": {
+   "entries_added": [
+    "quantum_field_theory_eft/phenomena/3 \u2014 OBSERVED, VERIFIED: weak-sector CP violation (K_L -> pi+pi-, 1964) plus direct T-reversal non-invariance not routed through CPT (CPLEAR Kbar0<->K0 transition-probability comparison; BaBar initial/final-state exchange in B0 transitions, Delta S_T^+ = -1.37 +/- 0.14 +/- 0.06, Delta S_T^- = 1.17 +/- 0.18 +/- 0.11); caveat records what it does NOT supply on the record: no surveyed account connects it to the thermodynamic arrow \u2014 macroscopic direction still enters as state/boundary data per statistical_mechanics_thermodynamics/empirical_inputs/0 and R9-2', stated as absence-of-connection at read level, no requirement language",
+    "quantum_field_theory_eft/symmetries/2 \u2014 COMMUNITY-DERIVED, VERIFIED: the observed CP/T violation is law-side (the single irreducible CKM phase, a coefficient in the dynamics, not state data) and CPT-preserving (direct T measurements constructed without assuming CPT; CPT-theorem attribution rides on the file's axiomatic-formulation entry, flagged Stage-2 in the caveat); same no-thermodynamic-arrow caveat cross-referencing statistical_mechanics_thermodynamics/empirical_inputs/0",
+    "SECTION 1b STRENGTH CHECK (RRP_01_CONCEPTUAL_PASS_01.md): stated at exactly the right strength \u2014 'everywhere on the record' matches the stat-mech entry's 'in every surveyed account' scoping, and the 'does nothing for' sentence is scoped by the pass's own orbit-structure sentence; the one available change is a STRENGTHENING, not a weakening: the parenthetical '(CP violation, CPT-preserving)' undersells the premise now that direct T-reversal observations (CPLEAR 1998, BaBar 2012) stand without the CP+CPT inference. No edit made to the pass document (outside this instrument's write scope); its '[Status: ... TO-VERIFY]' bracket in \u00a71b is now dischargeable by the owner \u2014 both corpus entries exist and are VERIFIED. File notes field updated with the addition record; no existing entries touched; gauge_theory.json left alone (flavor-sector discrete symmetries sit with the file already carrying the electroweak phenomena and CKM-CP-insufficiency cross-references)"
+   ],
+   "file": "/Users/mpg/Desktop/grut physics testing /rrp/corpus/domains/quantum_field_theory_eft.json",
+   "validator": "PASS quantum_field_theory_eft.json  entries=32 [OBSERVED=6 COMM=15 PROG=7 ABS=4] VERIFIED=26 TO-VERIFY=6 (zero ERROR, zero WARN; requirement-language screen did not fire)",
+   "citations_verified": [
+    "J. H. Christenson, J. W. Cronin, V. L. Fitch, R. Turlay, 'Evidence for the 2pi Decay of the K_2^0 Meson', Phys. Rev. Lett. 13, 138 (1964) \u2014 verified at journals.aps.org (title, authors, venue, volume/page/year; publication date 1964-07-27), fetched 2026-09-24; abstract text not exposed by APS page, so the ~2x10^-3 branching ratio is deliberately NOT carried in the entry",
+    "CPLEAR collaboration (A. Angelopoulos et al.), 'First direct observation of time-reversal non-invariance in the neutral-kaon system', Phys. Lett. B 444, 43-51 (1998) \u2014 exact ref confirmed: InspireHEP API record (first author Angelopoulos, A.; collaboration CPLEAR; PLB 444, 43-51, 1998) fetched 2026-09-24, corroborated by ScienceDirect listing (pii S0370269398013562) via search the same day; CERN CDS record blocked by bot protection (Anubis), not used",
+    "BaBar collaboration (J. P. Lees et al.), 'Observation of Time-Reversal Violation in the B0 Meson System', Phys. Rev. Lett. 109, 211801 (2012), arXiv:1207.5832 \u2014 verified at journals.aps.org and arXiv abstract, fetched 2026-09-24; asymmetries Delta S_T^+ = -1.37 +/- 0.14(stat) +/- 0.06(syst), Delta S_T^- = 1.17 +/- 0.18(stat) +/- 0.11(syst) and the 'first direct observation of T violation through the exchange of initial and final states' sentence confirmed verbatim; abstract states NO combined sigma, so no significance figure is carried in the entry",
+    "M. Kobayashi, T. Maskawa, 'CP Violation in the Renormalizable Theory of Weak Interaction', Prog. Theor. Phys. 49, 652-657 (1973) \u2014 InspireHEP API record (title, both authors, venue, volume/pages/year) fetched 2026-09-24; supports the law-side (CKM-phase) half of the symmetries entry"
+   ]
+  },
+  "CII_audit": {
+   "crunch_case_verdicts": [
+    {
+     "case": "Hartle-Hawking no-boundary proposal (J. Hartle & S. Hawking, 'Wave function of the Universe', Phys. Rev. D 28, 2960 (1983) \u2014 VERIFIED via APS/search: https://link.aps.org/doi/10.1103/PhysRevD.28.2960), including the modern contour controversy",
+     "supplied_content_strictly_reduced": "NO",
+     "ledger": "HH-1983 POSITION \u2014 Consumes: (1) the no-boundary history-class axiom: the amplitude is a path integral restricted to compact positive-definite 4-geometries whose only boundary is the argument 3-geometry \u2014 presented by HH themselves as a 'proposal' for the ground state, i.e. an axiom whose entire content is a state specification; (2) a complex integration contour, forced because the Euclidean gravitational action is unbounded below (conformal-factor problem) \u2014 and by the HH camp's OWN record the contour is chosen subject to criteria (convergence, WDW constraints, classicality prediction) that do not fix it uniquely: Halliwell & Hartle, 'Integration contours for the no-boundary wave function of the universe', Phys. Rev. D 41, 1815 (1990) \u2014 VERIFIED (https://ui.adsabs.harvard.edu/abs/1990PhRvD..41.1815H); (3) minisuperspace truncation, measure and ordering choices. Produces: Psi[h,phi] \u2014 the initial state. FLT POSITION \u2014 Feldbrugge, Lehners & Turok, 'Lorentzian quantum cosmology', Phys. Rev. D 95, 103508 (2017), arXiv:1703.02076 \u2014 VERIFIED. Consumes: the Lorentzian lapse contour (0+,infinity), defended on propagator/causality grounds but contested by the HH side \u2014 still a defended choice \u2014 plus Picard-Lefschetz theory (machinery, no supplied content). Produces: an unambiguous saddle assignment whose semiclassical weighting is 'precisely the inverse of the famous Hartle-Hawking result' (abstract, verified), with tensor perturbations unsuppressed by a general theorem ('No smooth beginning for spacetime', PRL 119, 171301 (2017), arXiv:1705.00192 \u2014 VERIFIED), and a no-go: 'there is no choice of complex contour for the lapse which avoids this problem' ('No rescue for the no boundary proposal', PRD 97, 023509 (2018), arXiv:1708.05104 \u2014 VERIFIED; inverse-Gaussian perturbation distribution). Ledger reading: FLT's position is that the output state is a FUNCTION of the contour \u2014 the state-from-law content lives in the contour choice; under their preferred contour the construction yields no acceptable state at all. INTERMEDIATE HH-SIDE POSITION \u2014 Diaz Dorronsoro, Halliwell, Hartle, Hertog & Janssen, 'The real no-boundary wave function in Lorentzian quantum cosmology', PRD 96, 043505 (2017), arXiv:1705.05340 \u2014 VERIFIED: a different lapse contour, also Picard-Lefschetz-defined, recovers the real HH wave function \u2014 consuming the alternative contour choice; supporting chain item 'Damped perturbations in the no-boundary state', arXiv:1804.01102 (title sighted in verification sweep; perturbation damping restored by a further choice of the perturbations' initial condition). TERMINAL HH-SIDE POSITIONS \u2014 (a) Halliwell, Hartle & Hertog, 'What is the no-boundary wave function of the Universe?', PRD 99, 043526 (2019), arXiv:1812.01760 \u2014 VERIFIED, key sentence quoted from abstract: 'The wave function is given as a sum of specific saddle points of the dynamical theory that satisfy conditions of regularity on geometry and field' \u2014 the contour-integral definition is ABANDONED and the state is specified by direct saddle selection; (b) Di Tucci & Lehners, 'No-boundary proposal as a path integral with Robin boundary conditions', PRL 122, 201302 (2019) \u2014 VERIFIED: stable HH saddles are obtained from a manifestly convergent path integral if and only if 'a specific family of Robin boundary conditions' is imposed, explicitly glossed 'The price to pay is that the off-shell geometries do not start at a zero size' and interpreted as 'an initial state with Euclidean momentum'.",
+     "evidence": "Net: the state selection is traded for {history-class axiom + contour choice + measure} (1983), and the modern controversy's two SETTLED endpoints both carry the supplied condition on their face: either a hand-selected saddle class satisfying regularity conditions (HHH 2019) or a Robin boundary condition read as an initial state with the authors' own 'price to pay' language (Di Tucci-Lehners 2019). The same supplied content is thus bookable in the verified record as (i) a lapse contour, (ii) a saddle-selection rule, (iii) a Robin boundary condition \u2014 three TYPES, one content, interconverted by the participants themselves. Contour-contentfulness parallels the corpus's SJ-not-equal-BD predictive-contentfulness anchor (R10.2-prime): different contours yield different wave functions with different predictions (HH weighting vs its inverse), so the choice is physical, not notational. Owner's-test reading: this is the second branch realized in the literature's own hands \u2014 every apparent derivation revealed an equivalent choice somewhere else, stated as such by the authors. Honesty rider: the FLT no-go theorem (no lapse contour controls perturbations) is evidence of construction FAILURE under their definition, not of a trade; C-II gains from the succeeding-and-visibly-re-pricing constructions, not from the failed one. Target row closed: rrp conceptual pass section 2 table row 'No-boundary-class proposals ... TO-AUDIT' at /Users/mpg/Desktop/grut physics testing /rrp/RRP_01_CONCEPTUAL_PASS_01.md line 91."
+    },
+    {
+     "case": "Vilenkin tunneling proposal (A. Vilenkin, 'Quantum creation of universes', Phys. Rev. D 30, 509 (1984) \u2014 VERIFIED via search incl. Vilenkin's own review arXiv:0909.2566; modern completion Vilenkin & Yamada, 'Tunneling wave function of the universe', PRD 98, 066003 (2018), arXiv:1808.02032 \u2014 VERIFIED)",
+     "supplied_content_strictly_reduced": "NO",
+     "ledger": "Consumes: (1) the tunneling boundary condition \u2014 Psi_T is the solution of the Wheeler-DeWitt equation that is everywhere bounded and consists SOLELY OF OUTGOING MODES at singular boundaries of superspace (verified formulation); 'outgoing' imports further structure: an orientation/flux direction on superspace and a probability current with respect to which 'outgoing' is defined; (2) resolutions of the ordering/sign ambiguity (the Vilenkin-vs-Linde exp(+/-) weighting dispute shows the output flips under these choices); (3) modern completion: 'the superspace approach requires Robin boundary conditions for the scalar field modes' (Vilenkin-Yamada 2018 abstract, verified) \u2014 a further explicitly supplied condition, added to answer the FLT perturbation criticism. Produces: Psi_T, nucleation probabilities, and (2018) well-behaved scalar fluctuations.",
+     "evidence": "This is the least disguised of the four cases: the proposal's own name in the literature is the 'tunneling BOUNDARY CONDITION', i.e. the initial state is priced as a named boundary condition on superspace rather than derived from dynamics \u2014 relocation in plain sight, law-like in presentation ('a law of boundary conditions') but state-specifying in content. The 2018 defense strengthens the C-II reading: answering the instability criticism required ADDING a supplied condition (Robin), not removing one. Verdict NO strict reduction: the ledger's supplied side is conserved (arguably grown), retyped from initial-state data into superspace boundary conditions."
+    },
+    {
+     "case": "CPR existence half \u2014 Cotler, Penington & Ranard, 'Locality from the spectrum', Commun. Math. Phys. 368, 1267 (2019), arXiv:1702.06142 \u2014 CORPUS-VERIFIED (abstract verified 2026-09-23) at /Users/mpg/Desktop/grut physics testing /rrp/corpus/domains/quantum_mechanics.json (primitives/2) and quantum_gravity_approaches.json (alternative_formulations/1)",
+     "supplied_content_strictly_reduced": "NO",
+     "ledger": "Consumes: (1) the Hamiltonian spectrum (legitimate data input \u2014 the object the theorem is about); (2) the k-LOCALITY DEMAND \u2014 a preferred-structure criterion: which notion of locality, which k, which interaction-hypergraph class; a selection-type input phrased law-side; (3) EXISTENCE of a k-local factorization \u2014 the conditional half (corpus caveat verbatim: 'existence of a k-local factorization is the conditional half'); spectra admitting one are measure-zero, so conditioning on existence concentrates essentially all of the selection information into the supplied condition; (4) genericity \u2014 a measure choice on the conditioned set. Produces: generic UNIQUENESS of the k-local tensor factorization when one exists \u2014 'which subsystems' is determined given (2)+(3).",
+     "evidence": "Net: the former price ('which factorization' \u2014 a point in a continuum of unitarily related decompositions) is converted into 'k-locality is the right criterion' + 'such a factorization exists' + genericity. Under a naive count this LOOKS reduced (continuum choice replaced by a discrete criterion plus a yes/no condition) \u2014 but the entries are type-heterogeneous, so the count comparison is exactly the type-mixed integer the archive forbids; under the charter's typed gate ('relocation, retyping, or trading one selection for another does not count' \u2014 /Users/mpg/Desktop/grut physics testing /rrp/RRP_01_CHARTER.md section 3) the verdict is NO: this is the record's paradigm TRADE, selection -> criterion + existence posit \u2014 the corpus's own annotation ('selection -> criterion', qm/primitives/2) and the conceptual pass's own naming of the existence half as the unpaid price. Honesty rider (steelman): this is the STRONGEST partial success on the whole ledger \u2014 the residual arbitrariness GIVEN the criterion is genuinely removed (generic uniqueness), and k-locality is independently motivated; in VACUUM_CLUSTER_MAP idiom the verdict is TRADE, not refutation, and whether the trade is favorable is a judgement the gate rightly declines. The count-vs-type incomparability of this case is a primary datum for the formalization verdict below."
+    },
+    {
+     "case": "Chosen fourth case (strongest state-from-law construction, steelmanning C-II's opposition): the LOST theorem \u2014 Lewandowski, Okolow, Sahlmann & Thiemann, 'Uniqueness of diffeomorphism invariant states on holonomy-flux algebras', Commun. Math. Phys. 267, 703-733 (2006), arXiv:gr-qc/0504147 \u2014 VERIFIED (with Fleischhack's parallel Weyl-algebra result community-known); evasion class Koslowski-Sahlmann representations \u2014 VERIFIED at search level (e.g. arXiv:1311.6117, arXiv:1406.0579: background-flux vacuum, diffeo-covariant not invariant, modified algebra)",
+     "supplied_content_strictly_reduced": "NO",
+     "ledger": "Why chosen: it is the only unconditional existence-AND-uniqueness state-from-law theorem located in the audited-adjacent literature \u2014 not uniqueness-given-existence like CPR: on the holonomy-flux *-algebra with compact structure group there is exactly ONE spatial-diffeomorphism-invariant cyclic representation (the Ashtekar-Isham-Lewandowski vacuum), verified abstract: 'there is only one cyclic representation invariant under spatial diffeomorphisms'. Law-side inputs, state-side output, no existence hypothesis, rigorous, independently re-derived. If C-II falls anywhere on present literature, it is here. Consumes: (1) the holonomy-flux algebra \u2014 a quantization CHOICE, inequivalent to Fock-type quantizations, whose non-standard continuity properties are what the 'derived' state then exhibits (discreteness, zero-flux vacuum); (2) compact structure group; (3) the DEMAND that the full spatial diffeomorphism group be implemented with an invariant cyclic state; (4) cyclicity. Produces: existence + uniqueness of the AL state.",
+     "evidence": "Re-pricing check (the owner's test, applied): (a) the invariance demand is a state-selection criterion phrased law-side \u2014 its content is exactly 'the state carries no diffeomorphism-variant information'; the theorem succeeds BECAUSE the demand strips all selection content out of the state, and the output is correspondingly selection-EMPTY: every physical selection (which spatial geometry, which semiclassical sector) must be re-supplied downstream (weave/coherent-state constructions) \u2014 the priced content is not discharged, it is deferred past the theorem's output; (b) the algebra choice is load-bearing: Koslowski-Sahlmann representations evade uniqueness by adding background-flux structure and weakening invariance to covariance \u2014 so the uniqueness is relative to the supplied (algebra, demand) pair, not absolute; (c) the construction is Tomita-Takesaki reversed: TT buys a law with a supplied (M, phi) pair (archive: origin/v4:PRIMITIVE_INVERSION_SCOPE.md, incl. the named tautology hazard); LOST buys a phi with a supplied (algebra, symmetry-demand) pair \u2014 traffic across the law/state boundary in the opposite direction, with the supplied side conserved. This matches and extends the conceptual pass's observation 1a (movable boundary, both directions). Verdict NO strict reduction: relocation into the algebra-plus-demand pair, with the selection content re-entering downstream of the unique state."
+    }
+   ],
+   "formalization_verdict": "NOT-FORMALIZABLE-TYPE-MIXED",
+   "formalization_argument": "No formulation-invariant scalar MEASURE of 'independent supplied content' exists across type-heterogeneous ledgers, on three grounds, one of them produced by this audit itself. (1) THE AUDIT'S OWN DATUM: one and the same supplied content is bookable, in the verified record, as a lapse-contour choice (FLT/DDHHHJ), a saddle-selection rule (HHH, PRD 99, 043526 (2019)), or a Robin boundary condition glossed as an initial state with Euclidean momentum (Di Tucci-Lehners, PRL 122, 201302 (2019)) \u2014 three types, one content, interconverted by the participants themselves. Any formulation-invariant measure must assign these equal size; but a contour is a point in an infinite-dimensional analytic space, a boundary condition a functional-parameter family, an axiom a discrete commitment \u2014 no shared unit exists, and equating them numerically is precisely the type-mixed integer the archive forbids (overseer-ruled 2026-08-04, origin/v4:VACUUM_CLUSTER_MAP.md line 59: 'if the integer is a type-mixed sum, don't ship an integer'; line 81: 'If anyone ever ships an integer, it must not be summed'). (2) CANDIDATE MEASURES FAIL SEVERALLY: entry COUNTING fails because individuation is formulation-dependent \u2014 the archive's own re-audit GREW its inventory for two reasons 'that are never summed', and compoundness vs omission 'present identically' (VACUUM_CLUSTER_MAP); DESCRIPTION-LENGTH (Kolmogorov-style) fails because reformulation IS language change and the O(1) inter-language slop is the size of the items being compared \u2014 a boundary condition can be absorbed into the description language itself; PRIOR-VOLUME measures on choice spaces are self-referential \u2014 they require a measure on the choice space, itself a priced selection (FLT vs DDHHHJ is literally a dispute over which choice space is the arena, with no meta-measure adjudicating); AXIOM-COUNTING collapses under interderivability \u2014 Lambda enters as coupling constant in EH form and integration constant in unimodular form (core item D(i), 'sometimes relocated'), with no fact of the matter about which column it counts in. (3) WHAT SURVIVES \u2014 the archive-honoring residue: strict reduction IS certifiable without any measure, per exhibited reformulation map, as TYPED SUBSET-WITH-REMAINDER: the new inventory embeds type-respectingly into the old with at least one old entry unmatched and no new entries added. That is a partial order on typed inventories, not a scalar; verdicts are per-map REDUCTION / TRADE / NO-REDUCTION \u2014 exactly the archive's certified idiom (VACUUM_CLUSTER_MAP merge-tool reframe: 'REDUCTION / TRADE / NO-REDUCTION are declared readings', a declaration schema plus validator, never an adjudicator). CONSEQUENCE FOR C-II'S WELL-POSEDNESS: kill condition (ii) of C-II (RRP_01_CONCEPTUAL_PASS_01.md lines 102-107) fires in exactly the mitigated form the pass pre-registered: C-II is NOT well-posed as a conservation law with a conserved cross-formulation scalar \u2014 'the ledger can't be summed across formulations', so the split's SIZE is vocabulary (a class-1-flavored finding, as the pass predicted); C-II REMAINS well-posed per formulation pair, as the typed-partial-order claim 'no exhibited derivation map in the audited record realizes typed subset-with-remainder' \u2014 qualitative-typed, per-map, and still killable by a single exhibited counterexample map, so the class-4 gate stays operational.",
+   "cii_net_effect": "STRENGTHENED at read level, in the demoted (typed, per-map) form \u2014 with the binding caveats that survival is not truth and all verification here is abstract/read-level, in-house. All four crunch cases return NO strict reduction, and \u2014 decisively for the owner's test \u2014 the two live state-from-law programs' TERMINAL positions carry the re-pricing on their face, in the authors' own words: the HH side's current definition specifies the state by hand-selected regular saddle points (HHH 2019) or by a Robin boundary condition with an explicit 'price to pay' gloss and an initial-state interpretation (Di Tucci-Lehners 2019); the tunneling side's current defense ADDS Robin conditions for the field modes (Vilenkin-Yamada 2018); CPR's existence half is the corpus-annotated trade (selection -> criterion + existence posit); and the strongest opposition steelman (LOST) derives only the selection-EMPTY state, from a supplied algebra-plus-invariance-demand pair, with all physical selections re-supplied downstream \u2014 Tomita-Takesaki's traffic reversed, supplied side conserved. The owner's test's second branch is therefore realized: every apparent derivation audited reveals an equivalent choice somewhere else, in several cases stated as such by the deriving authors themselves. The class-4 gate (RRP_01_CHARTER.md section 3) remains closed on this audit \u2014 zero of four cases opens it \u2014 so the C-II vs class-4 contest stands with C-II ahead on every audited instance (4 new cases + the 7 prior corpus rows in the pass's section-2 table, whose no-boundary TO-AUDIT row this audit completes). Two honesty riders travel with the strengthening: (1) the FLT no-go theorem (no complex lapse contour controls perturbations, PRD 97, 023509 (2018)) is evidence of construction FAILURE under that definition, not of a trade \u2014 C-II's support comes from the constructions that succeed and visibly re-price, and one paper class (1802-1812 era) turns on genuinely contested mathematics, so the HH ledger rests on the endpoints both camps published, not on adjudicating the dispute; (2) the formalization demotion means C-II may no longer be stated as conservation of a quantity \u2014 its supportable content is 'zero audited reformulation maps realize typed strict reduction', a bookkeeping conjecture universally quantified over AUDITED maps only (C5 discipline: no quantification over undeclared formalism classes), and one exhibited typed-subset-with-remainder map kills it. Recommended booking: the section-2 table row updates from 'TO-AUDIT \u2014 the crunch case' to 'audited: contour/saddle/Robin-BC choices re-price the state; NO strict reduction', pending this audit's own adversarial pass \u2014 nothing here banks unchallenged. Key file paths: /Users/mpg/Desktop/grut physics testing /rrp/RRP_01_CONCEPTUAL_PASS_01.md (target, lines 72-107 and 91); /Users/mpg/Desktop/grut physics testing /rrp/RRP_01_CHARTER.md (gate, section 3); /Users/mpg/Desktop/grut physics testing /rrp/corpus/domains/quantum_mechanics.json and quantum_gravity_approaches.json (CPR entries); archive precedents at origin/v4:VACUUM_CLUSTER_MAP.md and origin/v4:PRIMITIVE_INVERSION_SCOPE.md in /Users/mpg/Desktop/grut physics testing ."
+  },
+  "CI_refutation": {
+   "target": "C-I, the invariance argument (\"/Users/mpg/Desktop/grut physics testing /rrp/RRP_01_CONCEPTUAL_PASS_01.md\" \u00a72, C-I): in (X, law = group or semigroup of structure-preserving maps, state) presentations, laws-as-symmetries cannot choose among their own orbits; choices are therefore state, by construction \u2014 the split's existence as theorem.",
+   "verdict": "SURVIVES-NARROWED",
+   "argument": "Three attacks land; three fail and sharpen the survivor. (1) THE TRAP lands on exactly one sentence \u2014 C-I's own closing move, \"and 'orbit-selection data on X' is what state means in this presentation.\" With that sentence in place, the EXISTENCE-half of C-I is analytic in its own presentation: define state as the complement of what the law determines and \"the law cannot determine state\" is a partition being a partition (the rules of chess cannot tell you the position). The existence-half is therefore demoted from theorem-about-physics to organizing bookkeeping, per birth kill-condition (ii). But the trap does not take the whole candidate, because the owner's decisive question has an affirmative answer ON THE RECORD, and it rescues the location-half. Two named selections are physically meaningful, not dynamics-generated, and not definitional artifacts: (a) Micadei (Nat. Commun. 10:2456, corpus-VERIFIED, the R9-2\u2032 O-converter): at experimentally FIXED dynamics, varying only initial correlations reverses the observed heat-flow direction \u2014 the two runs differ physically, the difference is demonstrably not in the dynamics, and no renaming of the law/state partition makes the thermometer readings agree; the selection's non-artifact status is certified by an observation, not by the definition. (b) SJ vs BD (R10.2\u2032, qg/observables/0): both states are compatible with the same field equations, computed correlators differ (SJ = alpha-vacuum, alpha \u2260 0, for 0 < m < m*), and each candidate \"dynamical\" derivation consumes its own criterion (Hadamard/local-covariance admissibility derives BD but relocates the priced input to that criterion \u2014 recorded in R10.2's narrowed form; the SJ construction consumes its region/commutator prescription and is generically non-Hadamard, Fewster\u2013Verch). Contentfulness is certified by computation at fixed dynamics. This is the same anti-tautology anchor RRP_00 \u00a75 already adopted to reconcile R10.1 with R5-3 (\"non-analytic exactly where the priced input is predictively contentful\") \u2014 C-I inherits its non-emptiness from that anchor, and the narrowed form must carry it explicitly, because C-I's wrapper alone does not supply it. (2) DISSIPATIVE ATTRACTORS land against the stated class. C-I's declared class says \"group OR SEMIGROUP of structure-preserving maps.\" A GKLS semigroup is a semigroup of structure-preserving (CPTP) maps, and Spohn 1977/Frigerio 1977 (web-verified; Spohn already in core item E) exhibit relaxing semigroups: a unique stationary state to which every initial state converges \u2014 a law-generated state selection AND a law-generated relaxation direction inside C-I's own stated class. The engine fails structurally there: forward-orbits of a non-invertible semigroup merge, so \"cannot choose among configurations it maps into one another\" loses its subject. The available defense \u2014 the dissipator imports the bath state, temperature, and factorized initial condition upstream (Davies limit, oqs/limits/0; statmech empirical_inputs/1: three guises, one initial-condition assumption) \u2014 is true but is C-II's engine (conservation/relocation of priced input), not C-I's (invariance); a candidate may not borrow its sibling's mechanism to survive its own kill condition. Verdict component: the semigroup clause is REFUTED and the restriction to invertible structure-preserving group actions is load-bearing \u2014 and as stated it was SMUGGLED, since the word \"semigroup\" sits in the class declaration while every word of the engine (orbits, preserves, maps-into-one-another) silently uses group properties. Kill-condition (iii) proper does NOT fire: GKLS is neither symmetric nor state-input-free, and the one symmetric-law claimed evader (Barbour\u2013Koslowski\u2013Mercati PRL 113:181101, dynamics-generic per-branch arrow with no time-asymmetric input) stands CLAIMED-EVADER-UNADJUDICATED in the R9-2 record with a published contest (Zeh's comment: an improbable selection condition is required after all); it travels as an open flag on the arrow instance, not a kill \u2014 noting that if adjudicated for the evader it would arguably DISSOLVE the selection (indexical per-branch direction on symmetry-paired branches) rather than have the law perform it. (3) THE ALGEBRAIC COUNTER-FRAME lands against root status: birth kill-condition (i) fires, as the pass itself half-predicted. In (M, \u03c6) the dynamics is derived (Tomita\u2013Takesaki; archive PRIMITIVE_INVERSION_SCOPE.md \u00a74.1 with its recorded automatic-KMS tautology hazard), so C-I does not go false there \u2014 it goes IDLE: its engine (the law's invariance group cannot choose among orbits) has no purchase where the law is a downstream shadow of the supplied pair. Yet the split pattern persists in that frame: every selection rides the supplied (M, \u03c6) \u2014 \"a theory whose primitive is M cannot select M\" (RAI_GRUT_RESURRECTION.md:138, quote-verified in file), Takesaki's conditional-expectation criterion gates the subsystem split, type-III\u2081 removes the tensor factorization. An audited formulation not of (X, law, state) type still shows the split, so the invariance argument explains less than the pattern: it is a class-local instantiation, not the root. And the (X, law, state) class holds no non-circular privilege \u2014 its only recorded credential is near-universality in the audited corpus (an empirical fact about our formulations, a declared class per C5), while \u00a71a's boundary traffic (\u039b relocating; Tomita reversing law/state direction entirely) shows the class is a coordinate patch, not the manifold. (4) EINSELECTION fails as a kill and forces a precision. Zurek's pointer basis is law-side-selected by the FORM of H_int (oqs/derived_objects/2, VERIFIED) \u2014 but the pointer states are precisely NOT configurations the law maps into one another equivalently: H_int breaks basis-covariance, and the selection tracks its commutant, computable from the law ex ante (1981, before and independent of this debate), with the interaction itself and the system/environment split remaining priced inputs upstream (oqs/primitives/0). So C-I properly read predicts law-side selection exactly where the law has structure transverse to the candidate orbit \u2014 a substantive, confirmed instance. The task's dagger \u2014 is \"law selects where it has structure, state supplies the rest\" empty? \u2014 is answered: as a bare biconditional yes, it is \"the law determines what it determines\"; it escapes emptiness only under the discipline that \"structure/invariances\" be PROVEN properties of the presented law, computed independently of the explananda. That discipline must be written into the narrowed form; with it, the claim is falsifiable per instance (compute the invariance group, derive the forced state-side inventory, check the record \u2014 the R7.2\u2032 alpha-sweep is exactly such a check passing). (5) SSB fails as a kill and is C-I's sharpest confirmation: the vacuum manifold is a group orbit of the law's symmetry; the law fixes everything transverse to the orbit (instability of the symmetric point, manifold shape, Goldstone spectrum) and nothing along it (which vacuum \u2014 fluctuation/history data). The split verdict the attack anticipated is real, and both halves fall on C-I's predicted sides, cut exactly along a law-computed orbit boundary; explicit small breaking moves \"which vacuum\" law-side while destroying the exact orbit \u2014 again tracking computed structure, not post-hoc labels. (6) THE WEAK-T-VIOLATION REFINEMENT survives the unfalsifiable-patching charge conditionally: whether the CP-violating flavor-sector terms act on the reversal-pairing of macroscopic thermodynamic orbits is decidable from the law before consulting the phenomenon (they leave the measure-preservation and macro-orbit pairing untouched), so \"wrong orbits\" is an ex-ante computation, not a post-hoc epicycle \u2014 and it gives the refinement real discriminating power (the coarse \"symmetric laws can't pick directions\" reading gets \u00a71b wrong; the orbit reading gets it right). Grade caveat: the CP-violation input is the pass's own flagged uncorpused TO-VERIFY item, so this rescue is provisional until that discharge. WHY NOT THE OTHER VERDICTS: not VOCABULARY-ONLY \u2014 the location-half's content is non-definitional (per-law invariances are theorems that could fail; the inventory is checked against the record; the contentfulness anchor and the fixed-dynamics contrast are certified by computation and observation, not by the partition); not REFUTED \u2014 attacks 4, 5, 6 fail and attack 1 fails against the location-half; not SURVIVES-AS-STATED \u2014 the semigroup clause is false in-class, the existence-half is analytic under C-I's own closing sentence, and root status falls to kill-condition (i). Survival earned, at the recorded strength and no higher; survival is not truth.",
+   "narrowed_form": "C-I-NARROWED (three amputations, one added discipline, one added anchor). CLASS: presentations (X, law, state) where the law is a GROUP of structure-preserving automorphisms of X (invertible; measure/unitary/covariance-preserving as proven) \u2014 the semigroup clause is STRUCK: for non-invertible CPTP semigroups the law can and does select (relaxing GKLS, Spohn/Frigerio), and accounting for that selection's upstream cost is C-II's business, not C-I's. CLAIM: relative to this declared class \u2014 a class whose only credential is corpus-near-universality, held under C5 with no non-circular privilege \u2014 the LOCATION and inventory of required state-side data is theorem-shaped: for each presented law, the quantities constant on its orbits, computed from the law's PROVEN invariances ex ante and independently of the explananda (unitary invariants \u2192 branch weights inherited, R7.2\u2032; Liouville measure + reversal pairing \u2192 relaxation direction state-supplied with magnitude dynamics-intrinsic, R9-2\u2032, F2\u2032-scoped with the BKM evader flag attached; covariance over admissible states \u2192 selection undecided by dynamics and predictively contentful, R10.2\u2032; H_int commutant \u2192 pointer basis law-selected exactly where the law has transverse structure; symmetry orbit of degenerate vacua \u2192 which-vacuum state-supplied while everything transverse is law-fixed), cannot be dynamically generated and must enter as orbit-selection data. ANCHOR (carried as part of the claim, since the wrapper does not supply it): the claim is non-analytic exactly where the priced selection is predictively contentful or exhibited at fixed dynamics \u2014 SJ \u2260 BD by computation; Micadei arrow-reversal by observation \u2014 which is the affirmative answer to the owner's decisive question. DEMOTION (permanent): the EXISTENCE of the split is NOT explained by C-I \u2014 given its own definitional identification of state with orbit-selection data, that half is analytic bookkeeping, an organizing theorem only; and C-I is not the root of the cross-frame pattern \u2014 the algebraic (M, \u03c6) frame shows the same derive-or-price shape with C-I's engine idle, so C-I is a class-local instantiation of something broader, per its own kill-condition (i), which fired.",
+   "evidence": "RECORD BASIS (all paths absolute; repo dir ends in a literal space). Target and birth kill-conditions: \"/Users/mpg/Desktop/grut physics testing /rrp/RRP_01_CONCEPTUAL_PASS_01.md\" \u00a72 C-I, \u00a71a\u2013b; discipline and class-4 gate: \"/Users/mpg/Desktop/grut physics testing /rrp/RRP_01_CHARTER.md\" \u00a71, \u00a73; core and the R5-3/R10.1 contentfulness resolution: \"/Users/mpg/Desktop/grut physics testing /rrp/RRP_00_REQUIREMENTS_PICTURE_01.md\" \u00a72(A,D,E), \u00a75. Stage-4 narrowed forms leaned on: \"/Users/mpg/Desktop/grut physics testing /rrp/stage4/REFUTATION_02.json\" \u2014 R7.2\u2032 (\"no washing-out/attractor mechanism\", alpha-sweep, RC-04 tested class), R9-2\u2032 (F2\u2032 scope; Micadei O-converter; BKM listed CLAIMED-EVADER-UNADJUDICATED), R10.2\u2032 (SJ = alpha-vacuum alpha \u2260 0 for 0 < m < m*; Fewster\u2013Verch 1206.1562; \"the priced input relocates to that criterion ... rather than disappearing\"). Corpus entries (all VERIFIED unless noted), under \"/Users/mpg/Desktop/grut physics testing /rrp/corpus/domains/\": open_quantum_systems_decoherence.json derived_objects[2] (Zurek pointer basis selected by H_int form; Zurek PRD 24:1516 (1981), RMP 75:715 (2003)), primitives[0] (system-environment split + H_int are declared inputs), formalism[1] + limits[0] (GKLS form; Davies weak-coupling recovery), known_disconnects[0] (no outcome from decoherence); condensed_matter_emergence.json formalism[0] + symmetries[0] (Landau SSB; Anderson 1972); statistical_mechanics_thermodynamics.json empirical_inputs[0\u20131] + known_disconnects[0] (arrow as input; three guises one assumption; |Im Sigma| magnitude vs sign); nonequilibrium_statistical_mechanics.json phenomena[3] (Micadei Nat. Commun. 10:2456, arXiv:1711.03323, arrow reversal at fixed dynamics); quantum_gravity_approaches.json observables[0] (SJ \u2260 BD, Surya\u2013X\u2013Yazdi JHEP 07(2019)009, arXiv:1812.10228, \"choices are physics, not notation\"); mathematical_foundational_structures.json known_disconnects (Gleason scope; no reconstruction selects tensor structure); quantum_mechanics.json primitives[2] (Cotler\u2013Penington\u2013Ranard). Archive (git -C \"/Users/mpg/Desktop/grut physics testing \" show origin/v4:<path>): PRIMITIVE_INVERSION_SCOPE.md \u00a74.1 (Tomita\u2013Takesaki automatic-KMS tautology hazard, \"killed on sight\" discipline), \u00a74.2 (Takesaki conditional-expectation split criterion; type-III\u2081 no-factorization), K1\u2013K5; RAI_GRUT_RESURRECTION.md:138 (\"A theory whose primitive is M cannot select M ... filters do not generate their own inputs\" \u2014 quote-verified in file). EXTERNAL VERIFICATION performed this pass (abstract/record level): Spohn's relaxing-semigroup condition and Frigerio's uniqueness equivalence \u2014 [Springer, Lett. Math. Phys. \"Quantum dynamical semigroups and approach to equilibrium\"](https://link.springer.com/article/10.1007/BF00398571), [GKLS fifty-year review, arXiv:2609.19404](https://arxiv.org/pdf/2609.19404), [asymptotic relaxation review, arXiv:2410.14313](https://arxiv.org/pdf/2410.14313); Barbour\u2013Koslowski\u2013Mercati, \"Identification of a Gravitational Arrow of Time\", PRL 113:181101 (2014) \u2014 [arXiv:1409.0917](https://arxiv.org/abs/1409.0917), [PRL featured-article PDF](https://physics.aps.org/featured-article-pdf/10.1103/PhysRevLett.113.181101); the published contest \u2014 [Zeh-side comment, arXiv:1601.02790](https://arxiv.org/pdf/1601.02790). FLAGS TRAVELING WITH THIS VERDICT: \u00a71b's CP-violation input remains the pass's uncorpused TO-VERIFY item (the T-violation rescue is provisional on its discharge); BKM remains CLAIMED-EVADER-UNADJUDICATED (blocks class-wide strengthening of the arrow instance, does not kill); Spohn/BKM external items verified at abstract level only, consistent with corpus citation-check practice.",
+   "attacks_tried": [
+    "1. Tautology trap (owner's decisive question): constructed the strongest definitional reading \u2014 partial land: C-I's own closing sentence makes the existence-half analytic (demoted to bookkeeping); the location-half escapes via the record's predictive-contentfulness anchor (SJ \u2260 BD) and the fixed-dynamics contrast observation (Micadei), which jointly answer the owner's question YES with named instances.",
+    "2. Dynamics-generated selection, einselection (Zurek pointer basis): fails as kill \u2014 the pointer states are not symmetry-paired orbit points, H_int's commutant is law structure computed ex ante, and the interaction plus system/bath split stay priced upstream; forces the added discipline that 'invariances' means proven, explananda-independent properties of the presented law, without which the restatement 'law selects where it has structure' is empty.",
+    "3. Dynamics-generated selection, spontaneous symmetry breaking: fails as kill \u2014 split verdict confirms C-I exactly (law fixes instability, orbit shape, spectrum; state fixes which-vacuum along the law-computed symmetry orbit); explicit-breaking variant also tracks computed orbit structure.",
+    "4. Dynamics-generated selection, dissipative attractors (relaxing GKLS semigroups, Spohn/Frigerio): LANDS \u2014 a law-generated unique stationary state and relaxation direction inside C-I's stated 'group or semigroup' class; the upstream-pricing defense is C-II's engine, not C-I's; semigroup clause struck as smuggled (class declaration includes non-invertible maps while the argument's engine silently uses group properties).",
+    "5. Algebraic counter-frame (M, phi with Tomita-derived dynamics): LANDS against root status \u2014 birth kill-condition (i) fires: C-I's engine idles where law is derived, yet the derive-or-price pattern persists ('M cannot select M'); the (X, law, state) class has no non-circular privilege, so C-I is class-local, not the root.",
+    "6. Weak T-violation orbit refinement (unfalsifiable-patching check): fails as kill \u2014 orbit-relevance of the CP-violating terms is decidable from the law ex ante, giving the refinement genuine discriminating power the coarse reading lacks; graded provisional because the CP input is the pass's flagged uncorpused TO-VERIFY item.",
+    "7. Kill-condition (iii) direct hunt (symmetric law with attractor generating asymmetry without state input): does not fire \u2014 GKLS is neither symmetric nor input-free; the Barbour\u2013Koslowski\u2013Mercati Janus-point family is the one symmetric-law claimed evader, verified in the literature but CLAIMED-EVADER-UNADJUDICATED in the Stage-4 record and contested in print (Zeh comment); travels as an open flag limiting the arrow instance to its F2' scope."
+   ]
+  },
+  "CIII_sweep": {
+   "items_classified": [
+    {
+     "item": "Material response inputs (permittivity/permeability, equations of state, elastic moduli)",
+     "corpus_ref": "classical_field_theory/empirical_inputs/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "c (speed of light)",
+     "corpus_ref": "classical_field_theory/constants/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Field initial data (configurations + conjugate momenta on Cauchy surface)",
+     "corpus_ref": "classical_field_theory/primitives/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-STATE"
+    },
+    {
+     "item": "Locality as primitive modeling commitment",
+     "corpus_ref": "classical_field_theory/primitives/1",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Material-specific effective inputs (band structures, effective masses, Landau parameters, pairing strengths, T_c, gaps) \u2014 THE stress case",
+     "corpus_ref": "condensed_matter_emergence/empirical_inputs/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "R_K = h/e^2 (von Klitzing; material-independence tested)",
+     "corpus_ref": "condensed_matter_emergence/constants/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Substrate Hamiltonian (nonrel. electrons+nuclei+Coulomb; Laughlin-Pines)",
+     "corpus_ref": "condensed_matter_emergence/primitives/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Order parameters / emergent-structure values (which phase)",
+     "corpus_ref": "condensed_matter_emergence/primitives/1",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-STATE"
+    },
+    {
+     "item": "Lambda (cosmological constant)",
+     "corpus_ref": "cosmology/empirical_inputs/0; cosmology/alternative_formulations/1; general_relativity_gravity/empirical_inputs/0 + constants/1; RRP_00 sec.2.D(i)",
+     "ensemble": "SINGLE-PREPARATION",
+     "boundary_status": "WANDERS"
+    },
+    {
+     "item": "H0",
+     "corpus_ref": "cosmology/empirical_inputs/0; cosmology/known_disconnects/2",
+     "ensemble": "SINGLE-PREPARATION",
+     "boundary_status": "STABLE-STATE"
+    },
+    {
+     "item": "Dark-matter fraction Omega_c (abundance)",
+     "corpus_ref": "cosmology/empirical_inputs/0,1",
+     "ensemble": "SINGLE-PREPARATION",
+     "boundary_status": "STABLE-STATE"
+    },
+    {
+     "item": "LCDM parameters Omega_b h^2, acoustic scale, tau",
+     "corpus_ref": "cosmology/empirical_inputs/1",
+     "ensemble": "SINGLE-PREPARATION",
+     "boundary_status": "STABLE-STATE"
+    },
+    {
+     "item": "Primordial spectrum A_s, n_s (fitting frame: initial data; inflationary frame: inflaton-potential/law parameters)",
+     "corpus_ref": "cosmology/empirical_inputs/1; cosmology/primitives/1 (adiabatic initial perturbations)",
+     "ensemble": "SINGLE-PREPARATION",
+     "boundary_status": "WANDERS"
+    },
+    {
+     "item": "Past hypothesis / low-entropy initial condition (corpus: INPUT; Albert-Loewer Best-System: LAW \u2014 the corpus's own Stage-2 cite is the promotion's author; web-verified live contest)",
+     "corpus_ref": "cosmology/empirical_inputs/2; statistical_mechanics_thermodynamics/empirical_inputs/0",
+     "ensemble": "SINGLE-PREPARATION",
+     "boundary_status": "WANDERS"
+    },
+    {
+     "item": "Cosmological principle (a state-symmetry fact deployed in law-position as framework axiom; inflation would relocate it to derived)",
+     "corpus_ref": "cosmology/primitives/0",
+     "ensemble": "SINGLE-PREPARATION",
+     "boundary_status": "WANDERS"
+    },
+    {
+     "item": "Declared LCDM matter-energy content (content-vs-structure boundary 'leaks'; recorded weakest joint)",
+     "corpus_ref": "cosmology/primitives/1; cosmology/known_disconnects/1; quantum_field_theory_eft/known_disconnects/1",
+     "ensemble": "SINGLE-PREPARATION",
+     "boundary_status": "WANDERS"
+    },
+    {
+     "item": "T_CMB (a temperature \u2014 physically state everywhere, filed under 'constants')",
+     "corpus_ref": "cosmology/constants/0",
+     "ensemble": "SINGLE-PREPARATION",
+     "boundary_status": "STABLE-STATE"
+    },
+    {
+     "item": "Three gauge coupling values",
+     "corpus_ref": "gauge_theory/empirical_inputs/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "alpha_s(m_Z), alpha (fine-structure)",
+     "corpus_ref": "gauge_theory/constants/0,1; quantum_field_theory_eft/constants/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Gauge group SU(3)xSU(2)xU(1) + representation content (underived but boundary-uncontested)",
+     "corpus_ref": "gauge_theory/primitives/0; mathematical_foundational_structures/known_disconnects/3",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "G (lab-measurable: CODATA torsion-balance chain; relocations are theory-changes or postulated ensembles, not equivalent reformulations)",
+     "corpus_ref": "general_relativity_gravity/empirical_inputs/0 + constants/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Gravity mechanism as primitive",
+     "corpus_ref": "general_relativity_gravity/primitives/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "k_B (Boltzmann constant; SI-conventionalized 2019)",
+     "corpus_ref": "statistical_mechanics_thermodynamics/constants/0; information_theory/constants/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Temperature T in Landauer instantiation ('a state variable, not a constant' \u2014 the record's own caveat)",
+     "corpus_ref": "information_theory/empirical_inputs/0 + constants/0 caveat",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-STATE"
+    },
+    {
+     "item": "Supplied state space (probability distributions / density operators)",
+     "corpus_ref": "information_theory/primitives/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-STATE"
+    },
+    {
+     "item": "Gleason premises (projection lattice + noncontextuality, dim>=3)",
+     "corpus_ref": "mathematical_foundational_structures/primitives/0",
+     "ensemble": "AMBIGUOUS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Soler premises (orthomodular space + infinite orthonormal sequence)",
+     "corpus_ref": "mathematical_foundational_structures/primitives/1",
+     "ensemble": "AMBIGUOUS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Operational-reconstruction axioms incl. local tomography / composite rule",
+     "corpus_ref": "mathematical_foundational_structures/primitives/2; information_theory/alternative_formulations/0-2",
+     "ensemble": "AMBIGUOUS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Lab system-environment split + H_int (declared per experiment, conventionalized, uncontested)",
+     "corpus_ref": "open_quantum_systems_decoherence/primitives/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-STATE"
+    },
+    {
+     "item": "Global/fundamental subsystem factorization (type-III malformedness; G-WEAK 'typing decision frozen nowhere'; CPR conditional; per-ontology different failure mechanisms)",
+     "corpus_ref": "quantum_gravity_approaches/known_disconnects/0,2; mathematical_foundational_structures/known_disconnects/2; quantum_mechanics/primitives/2",
+     "ensemble": "SINGLE-PREPARATION",
+     "boundary_status": "WANDERS"
+    },
+    {
+     "item": "Transport coefficients (hydro-level per-material; Green-Kubo computable-in-principle from micro)",
+     "corpus_ref": "nonequilibrium_statistical_mechanics/empirical_inputs/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Micadei initial correlations \u2014 lab direction of heat flow",
+     "corpus_ref": "nonequilibrium_statistical_mechanics/empirical_inputs/1",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-STATE"
+    },
+    {
+     "item": "Local-equilibrium postulate",
+     "corpus_ref": "nonequilibrium_statistical_mechanics/primitives/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Mori-Zwanzig projector \u2014 slow-variable choice (redistributes content between systematic/memory/noise terms under choice) \u2014 THE many-preparation relocation case",
+     "corpus_ref": "nonequilibrium_statistical_mechanics/primitives/1",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "WANDERS"
+    },
+    {
+     "item": "Bath structure (spectral density, temperature, couplings \u2014 enters the reduced-dynamics generator; declared input at total level)",
+     "corpus_ref": "open_quantum_systems_decoherence/empirical_inputs/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Branch weights (inherited from initial amplitudes; alpha varied {0.2,0.5,0.8} across prepared systems in RC-04)",
+     "corpus_ref": "open_quantum_systems_decoherence/empirical_inputs/1; quantum_mechanics/empirical_inputs/1",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-STATE"
+    },
+    {
+     "item": "hbar",
+     "corpus_ref": "quantum_mechanics/empirical_inputs/0 + constants/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Hilbert-space + tensor-composition structure",
+     "corpus_ref": "quantum_mechanics/primitives/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Born postulate (postulate in standard form, lattice-theorem given Gleason's frame; never state-side in any audited formulation)",
+     "corpus_ref": "quantum_mechanics/primitives/1; mathematical_foundational_structures/known_disconnects/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Flat-space vacuum (selection fixed by Poincare symmetry; no residual freedom, uncontested)",
+     "corpus_ref": "quantum_field_theory_eft/primitives/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-STATE"
+    },
+    {
+     "item": "de Sitter / cosmological vacuum choice (SJ vs BD vs alpha-vacua; frequency-sign selection; predictively contentful SJ != BD)",
+     "corpus_ref": "quantum_gravity_approaches/observables/0 + derived_objects/2",
+     "ensemble": "SINGLE-PREPARATION",
+     "boundary_status": "WANDERS"
+    },
+    {
+     "item": "SM 19+ empirical parameters",
+     "corpus_ref": "quantum_field_theory_eft/empirical_inputs/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "EFT organization primitives (cutoff expansion, decoupling)",
+     "corpus_ref": "quantum_field_theory_eft/primitives/1,2",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "Planck length (derived combination of G, hbar, c)",
+     "corpus_ref": "quantum_gravity_approaches/constants/0",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-LAW"
+    },
+    {
+     "item": "CDT causal layering / inserted foliation (2D: provably survives as physics; 4D: open whether physics or scaffolding)",
+     "corpus_ref": "quantum_gravity_approaches/primitives/0",
+     "ensemble": "AMBIGUOUS",
+     "boundary_status": "WANDERS"
+    },
+    {
+     "item": "AQFT net assignment (unprotected typing decision; Tomita-Takesaki derives law FROM the supplied (algebra, state) pair \u2014 boundary traffic reversed)",
+     "corpus_ref": "quantum_gravity_approaches/primitives/1",
+     "ensemble": "AMBIGUOUS",
+     "boundary_status": "WANDERS"
+    },
+    {
+     "item": "Probability measure over microstates / typicality (corpus: primitive input; Mentaculus: law; ETH/typicality relocations recorded)",
+     "corpus_ref": "statistical_mechanics_thermodynamics/primitives/0",
+     "ensemble": "AMBIGUOUS",
+     "boundary_status": "WANDERS"
+    },
+    {
+     "item": "Relaxation direction via sign(beta) of supplied boundary state (lab face: preparation-reversible, cleanly state-side)",
+     "corpus_ref": "statistical_mechanics_thermodynamics/empirical_inputs/1 + known_disconnects/0,1",
+     "ensemble": "MANY-PREPARATIONS",
+     "boundary_status": "STABLE-STATE"
+    }
+   ],
+   "correlation_verdict": "HOLDS-WITH-EXCEPTIONS",
+   "counterexamples": [
+    "Mori-Zwanzig projector (nonequilibrium_statistical_mechanics/primitives/1): a MANY-PREPARATIONS item that mechanically WANDERS \u2014 different projector choices relocate content between systematic (law-like) and memory/noise (state/environment-like) terms in ordinary lab systems. Direct counterexample to 'wandering implies single-preparation' as literally stated. It is survivable only under a refinement: MZ relocation is CONVENTIONALIZED (all choices yield equivalent total descriptions; nobody treats 'which projector is right' as an open physical question), whereas Lambda-type relocation is CONTESTED-AS-PHYSICAL (the vacuum-energy reading generates the 120-orders problem; SJ vs BD changes predictions).",
+    "Condensed-matter effective Hamiltonians and couplings (condensed_matter_emergence/empirical_inputs/0; with transport coefficients nonequilibrium/empirical_inputs/0 and bath spectral densities open_quantum/empirical_inputs/0): preparation-variable across materials/setups yet treated as law-level structure within each \u2014 this instantiates the owner's kill condition, second clause, verbatim, against the level-ABSOLUTE reading of C-III. Absorbed only by level-relativity (invariant within the accessible ensemble = law at that level), at the falsifiability price adjudicated in the argument.",
+    "Clean single-preparation state items \u2014 T_CMB (cosmology/constants/0), H0 and Omega_c (cosmology/empirical_inputs/0), Omega_b h^2 and tau (cosmology/empirical_inputs/1): items with no meaningful preparation ensemble whose state-side classification works cleanly, with no wandering and no contest. This instantiates the kill condition's first clause against part B's biconditional phrasing ('ambiguous EXACTLY where the ensemble collapses to one'): ensemble-collapse is necessary for boundary trouble on this corpus, not sufficient.",
+    "SI-conventionalized constants c, h/hbar, k_B, R_K (classical_field_theory/constants/0; quantum_mechanics/constants/0; statistical_mechanics_thermodynamics/constants/0; condensed_matter_emergence/constants/0): many-preparation constants that DID relocate across a boundary under reformulation \u2014 measured law-coefficient to definitional convention (1983/2019 SI), with the empirical content moving into unit realizations. Shows boundary-mobility per se does not track ensemble-absence; only LAW-vs-STATE mobility does. Near-counterexample, strictly outside the law/state boundary.",
+    "G \u2014 a counterexample to the CONCEPTUAL PASS's own part-B wanderer list, in C-III's favor: the pass groups G with Lambda among items that 'wander across the boundary', but the corpus supports no wander for G. G's value is many-preparation lab-measurable (CODATA torsion-balance chain), and its relocations are law-to-law (Sakharov induced coupling), theory-changes with observable consequences (Brans-Dicke G-as-field, constrained by the Cassini gamma leg of core item B), or postulated inaccessible ensembles (string moduli). Lambda's unimodular relocation, by contrast, is between equivalent formulations of the same physics and lands Lambda as an integration constant fixed by initial data \u2014 genuinely state-side (Henneaux-Teitelboim, web-verified). The {G, Lambda} pair is thus a natural experiment inside core item D(i): the lab-measurable member is boundary-stable, the cosmological-only member wanders \u2014 exactly C-III's direction."
+   ],
+   "argument": "SWEEP: all 13 records classified (48 rows; the one ABSENCE-type priced entry, quantum_gravity_approaches/empirical_inputs/0, prices nothing of its own \u2014 it inherits G, hbar, c, Lambda, classified at their home rows; mathematical_foundational_structures declares itself empirically input-free, so its rows are theorem premises with ensemble AMBIGUOUS).\n\nTHE CORRELATION, TESTED. WANDERS rows: Lambda, primordial spectrum A_s/n_s, past hypothesis, cosmological principle, declared LCDM content, global factorization, dS vacuum choice (7 \u2014 all SINGLE-PREPARATION); CDT foliation, AQFT net assignment, statistical measure (3 \u2014 AMBIGUOUS, all global/framework-scale, patterning with the single-preparation cluster); Mori-Zwanzig projector (1 \u2014 MANY-PREPARATIONS, the counterexample). No many-preparation item anywhere in the 13 records has a CONTESTED law/state status: every many-preparation boundary-relativity in the corpus (MZ projector, system-bath split, material inputs) is conventionalized \u2014 indexed to a declared choice, all choices equivalent, no open problem riding on it. Every item whose law/state status is an open physical question (Lambda with its 120-orders problem premised on the vacuum-energy reading; the past hypothesis, promoted to law in the Mentaculus; the dS vacuum with SJ != BD; the global factorization with its unfrozen typing decision) is single-preparation or global. The forward direction (contested-as-physical implies single-preparation) holds with zero counterexamples. The reverse direction fails: T_CMB, H0, Omega_c, Omega_b h^2, tau are single-preparation and classify cleanly state-side \u2014 plain configuration data of the one preparation. The pattern the corpus actually supports: boundary-WANDERING = single-preparation AND law-position-eligible (items the formalism can be forced to write into its dynamics or axioms \u2014 a coefficient, a law-status candidate, a framework symmetry); single-preparation items that stay plain configuration data (temperatures, abundances, rates) never wander.\n\nSTRONGEST EVIDENCE \u2014 WITHIN-ITEM CONTRASTS (controlling for item-type confounds): the same formal object changes boundary behavior exactly when the ensemble collapses. (1) Vacuum: flat-space (many-prep, symmetry-fixed, uncontested) vs de Sitter (single-prep, SJ/BD/alpha-vacua contest, predictively contentful). (2) Factorization: lab system-bath split (many-prep, declared, conventionalized) vs global decomposition (single-prep, malformed in type-III, typing frozen nowhere). (3) Arrow: lab relaxation direction (many-prep, preparation-reversible per Micadei, cleanly state-side) vs cosmic arrow (single-prep, past hypothesis, law-status contested). (4) The condensed-matter record's own internal split, flagged in its own caveat: input-laden material parameters vs ensemble-invariant topological quantities (R_K) promoted to fundamental-constant status \u2014 the correlation running inside one domain.\n\nTHE CONDENSED-MATTER STRESS CASE, ADJUDICATED. Effective Hamiltonians/couplings ARE preparation-variable (materials) yet law-level within each material: the kill condition's second clause fires, verbatim, against the level-ABSOLUTE reading of C-III part B. The level-relative reading absorbs it \u2014 T_c is invariant across the within-material preparation ensemble (law at that level) and variable across the materials ensemble (input at the domain level) \u2014 and this absorption is NOT ad hoc: the identical structure recurs independently in engineered baths (open_quantum) and in the string-landscape relocation of all couplings to moduli vevs (core item D(i)), where postulating a vacua-ensemble is precisely an attempt to re-state-ify the couplings. So level-relativity is C-III's own prediction, instantiated at least twice in accessible physics.\n\nUNFALSIFIABILITY, ANSWERED HONESTLY: yes, UNRESTRICTED level-addition makes C-III unfalsifiable \u2014 any law can be re-described as state relative to an imagined bigger ensemble (the landscape is the warning case: an ensemble postulated, not accessible), and if levels may be redrawn freely, 'law at level L = invariant over level-L preparations' collapses into a definition and part B's correlation becomes analytic \u2014 the charter's vocabulary trap. C-III retains empirical content only under two declarable anchors: (i) ACCESSIBILITY \u2014 a level counts only if its preparation ensemble is independently accessible (materials, engineered baths, lab subsystem carvings qualify; postulated landscapes do not); (ii) CONTEST \u2014 'boundary-ambiguity' must mean contested-as-physical, marked non-circularly by predictive contentfulness or a standing open problem riding on the choice (SJ != BD; the 120-orders mismatch), not mere formal relocatability (which the many-prep MZ projector also has). With both anchors declared, part B survives as a falsifiable one-way claim and the corpus confirms it; without them, it is unfalsifiable and should be scored as vocabulary. Part A independently remains vocabulary-adjacent (kill condition ii, not this sweep's charge); part B's surviving content is the refined correlation, not the definition.\n\nVERDICT ON THE OWNER'S KILL CONDITION: both disjuncts are instantiable from the corpus against the STRONG form (biconditional, level-absolute) of part B \u2014 clause 1 by T_CMB/H0/Omega_c, clause 2 by the condensed-matter inputs \u2014 so the strong form, including the conceptual pass's 'exactly where' phrasing, is KILLED. The WEAK form (one-way, level-indexed with accessible ensembles, contest-anchored) survives every counterexample hunted in both directions. Hence HOLDS-WITH-EXCEPTIONS. Two corrections to the conceptual pass's part-B presentation follow from the sweep: G does not belong on the wanderer list (see counterexamples \u2014 the {G, Lambda} asymmetry in fact strengthens C-III), and the four-example base of part B is replaced by a full-corpus tally: 11 wanderers (7 single-prep, 3 global-ambiguous, 1 many-prep-conventionalized), 0 many-preparation contested items, 5 single-preparation clean-state exceptions.\n\nLOAD-BEARING LITERATURE VERIFIED (per task binding): unimodular/Henneaux-Teitelboim Lambda-as-integration-constant fixed by initial conditions \u2014 confirmed via arXiv:2301.01662 (Universe 9, 131 (2023) review) and arXiv:1505.04978; Past Hypothesis + statistical postulate as laws in the Albert/Loewer Best-System (Mentaculus), status live and contested \u2014 confirmed via Chen, arXiv:2008.00611 and the Loewer-Weslake-Winsberg volume (philpapers.org/rec/LOETAA). Note: Albert's Time and Chance is already the corpus's own Stage-2 cite for the past-hypothesis INPUT entry (statistical_mechanics_thermodynamics/empirical_inputs/0), so the law-promotion comes from the same source the corpus leans on \u2014 the wander is internal to the record's own citation base. Survival is not truth: this sweep classifies and tests; it banks nothing and constructs no ontology."
+  }
+ }
+}
