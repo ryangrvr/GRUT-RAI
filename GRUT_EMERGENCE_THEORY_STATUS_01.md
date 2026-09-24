@@ -50,16 +50,22 @@ repaired, predicts gravitational memory-kernel classes. **Confront them.** Spec:
 - **T-1 (kernel class):** the repaired on-shell coupling's predicted matter-sector kernel
   class versus the tail structure T3 certifies, compared *inside T3's validity window
   only*. Both are power-law/branch-cut or the identification is dead at a certified wall.
-- **T-2 (the soft-theorem gate — established physics constrains the vertex before any
-  run):** total momentum conservation plus the equivalence principle forbid monopole and
-  dipole graviton radiation; the leading *radiative* coupling of internal matter motion is
-  quadrupole. Standard expectation therefore: the physical IR class is the **tidal/
-  quadrupole class (J ~ ω⁵, K ~ t⁻⁶)** — V10's "control" may in fact be the physical
-  vertex, and the minimal-stress ω³ prediction may be soft-theorem-violating. The
-  repaired instrument's pre-registered prediction must be checked against the Weinberg
-  soft-graviton constraint (already in the audited corpus) before the run. If the
-  golden-rule calculation lands on the quadrupole class, that is not a failure — it is
-  the derivation agreeing with the quadrupole formula, i.e., with reality.
+- **T-2 (the soft-theorem gate — REVISED per owner ruling 2026-09-24: a theorem gate,
+  not an exponent assertion):** the earlier draft of this bullet reasoned from
+  momentum conservation + equivalence principle to an *expected* quadrupole class
+  (J ~ ω⁵, K ~ t⁻⁶). The owner's ruling corrects the protocol: the code must NOT encode
+  ω⁵ as an expected answer and call agreement a derivation. The decisive question is
+  whether **the actual on-shell matrix element enforces the soft suppression**. The
+  gate therefore requires: derive the on-shell amplitude in the soft limit; explicitly
+  track conservation-law cancellations and the TT projection; determine the leading
+  nonvanishing power of ω; only then derive J(ω) and K_R(t); report the resulting
+  exponent without fitting or imposing any target. If quadrupole suppression emerges,
+  identify the exact cancellation responsible. If it does not, determine which
+  assumption of the naive soft-radiation analogy fails for this observable (a response
+  kernel/self-energy, not the radiated power of an isolated classical binary). Only
+  after that, perform the T3 confrontation in the common ω ≳ 3.4H validity window.
+  The full gate specification and the sealed pre-registration ledger live in
+  `T2_THEOREM_GATE_AND_PREREGISTRATION_01.md` (this copy).
 - **T-3 (sign/passivity):** U3 derives strict passivity; T3 certifies the dissipative
   sign in-window. Must agree (they currently do).
 - **T-4 (the d-consistency link):** d enters twice — the substrate continuum class and
@@ -86,3 +92,41 @@ least one measured K, and the sign exports surviving DESI. Nothing less.
 
 The on-shell golden-rule repair of the coupling vertex (U3_COUPLING_ADJUDICATION_01 F3) —
 kept, because T-1/T-2 cannot run without it. All cosmetic repairs deferred.
+
+## 6. ARCHITECTURE FREEZE (owner ruling, 2026-09-24)
+
+The architecture is frozen at exactly this division; nothing moves between columns
+without a certificate.
+
+**Derived:** locality; persistent-variable representation of memory (U3-LEMMA);
+thermodynamic continuum; positive/passive spectral structure (Bernstein–Widder, no
+repeated poles); emergence of irreversible response; gravitational TT spectral class;
+existence of nonzero matter–graviton resistive matrix elements (V1); FDT/passivity/TT
+consistency (V8 robust; FDT pending the non-tautological check).
+
+**Empirical anchors (measure, do not derive):** spectral support/dimension N;
+macroscopic scale τ₀; arrow direction; the quantum/Born sector as currently documented.
+
+**Open discriminator:** the physical on-shell matter–graviton vertex; the T3 kernel
+confrontation; the external DESI w(z) sign channel.
+
+Ruling: no further machinery layers; run the one experiment that can kill the central
+identification.
+
+## 7. Incoming update from the builder (recorded 2026-09-24, pre-run)
+
+While rebuilding the on-shell instrument, VS Code reports a kinematic finding the old
+off-shell instrument hid: for a lightlike graviton, **chain-aligned modes are
+kinematically suppressed** (at fixed parallel momentum the two-phonon energy never
+reaches the lightlike energy — a supersonic/Cherenkov-type mismatch), while oblique
+modes resonate via the graviton's transverse momentum. **Adjudicator verification
+(analytic): CONFIRMED.** With sound speed 1 and concave dispersion ω_q = 2 sin(q/2) ≤ q,
+an aligned graviton has ω = |k∥|; same-sign pairs give ω_q + ω_q′ < |q| + |q′| = |k∥|
+strictly (concavity), and the opposite-sign solution q = (ω+k∥)/2, q′ = (k∥−ω)/2
+degenerates onto the excluded zero mode at ω = |k∥| — no interior on-shell solution.
+Oblique gravitons (ω = |k| > |k∥|) have interior solutions. Note the over-determined
+structure: the aligned channel was already killed by the TT selection rule (e_xx = 0
+for k̂ ∥ chain) — dead twice, once by geometry, once by kinematics. This confirms the
+F3 repair is load-bearing, not cosmetic. Two independent pre-registrations (builder's,
+in its tree; adjudicator's blinded set, this copy) are to be sealed before the
+repaired run reports.
