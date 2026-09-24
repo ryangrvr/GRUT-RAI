@@ -1,13 +1,13 @@
 {
   "domain": "quantum_mechanics",
-  "grade": "PILOT",
+  "grade": "TRANCHE-1",
   "schema": "CORPUS_SCHEMA v0",
   "date": "2026-09-23",
   "phenomena": [
-    {"claim": "Single-particle and many-path interference", "provenance": "OBSERVED", "verification": "TO-VERIFY", "source": "standard experimental record; Stage 2: cite a canonical electron/neutron/molecule interferometry primary source", "caveat": ""},
-    {"claim": "Born-frequency statistics in repeated measurements", "provenance": "OBSERVED", "verification": "TO-VERIFY", "source": "standard experimental record; Stage 2: cite precision tests of Born statistics", "caveat": ""},
-    {"claim": "Bell-inequality violations", "provenance": "OBSERVED", "verification": "TO-VERIFY", "source": "Stage 2: cite loophole-free tests (2015-class experiments)", "caveat": ""},
-    {"claim": "Environmental decoherence of superpositions", "provenance": "OBSERVED", "verification": "VERIFIED", "source": "archive: origin/v4:program/REALITY_PICTURE_01.md LEVEL 0 item 4 [E]; community experimental record behind it TO-VERIFY at primary level in Stage 2", "caveat": ""}
+    {"claim": "Single-particle and many-path interference", "provenance": "OBSERVED", "verification": "VERIFIED", "source": "Tonomura, Endo, Matsuda, Kawasaki & Ezawa, Am. J. Phys. 57, 117-120 (1989), doi:10.1119/1.16104 (single-electron buildup of a two-slit pattern); Arndt et al., Nature 401, 680-682 (1999) (C60 matter-wave interference, most massive object at the time) -- both abstract-verified 2026-09-23; archive: REALITY_PICTURE_01 LEVEL 0 item 1 [E]", "caveat": ""},
+    {"claim": "Born-frequency statistics in repeated measurements", "provenance": "OBSERVED", "verification": "VERIFIED", "source": "Sinha, Couteau, Jennewein, Laflamme & Weihs, Science 329, 418-421 (2010), arXiv:1007.4193 -- three-slit experiment bounding third-order (Sorkin) interference below 10^-2 of two-path interference -- abstract-verified 2026-09-23; archive: REALITY_PICTURE_01 LEVEL 0 item 2 [E]", "caveat": "precision test of the pairwise interference structure underlying Born statistics; not a test of single-run outcome selection"},
+    {"claim": "Bell-inequality violations", "provenance": "OBSERVED", "verification": "VERIFIED", "source": "Hensen et al., Nature 526, 682-686 (2015) (electron spins, 1.3 km, detection+locality loopholes closed); Giustina et al., Phys. Rev. Lett. 115, 250401 (2015) (photons, 11.5 sigma); Shalm et al., Phys. Rev. Lett. 115, 250402 (2015) (photons, p ~ 5.9e-9) -- the three 2015 loophole-free tests, all abstract-verified 2026-09-23; archive: REALITY_PICTURE_01 LEVEL 0 item 3 [E]", "caveat": "no superluminal signaling observed; the three experiments close the detection and locality loopholes simultaneously"},
+    {"claim": "Environmental decoherence of superpositions", "provenance": "OBSERVED", "verification": "VERIFIED", "source": "Brune et al., Phys. Rev. Lett. 77, 4887 (1996) -- cavity-QED observation of progressive decoherence of a mesoscopic superposition -- abstract-verified 2026-09-23; archive: REALITY_PICTURE_01 LEVEL 0 item 4 [E]", "caveat": ""}
   ],
   "formalism": [
     {"claim": "State space: rays in complex Hilbert space; observables: self-adjoint operators; composition: tensor product; dynamics: unitary evolution", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "textbook-standard; archive control [T] throughout REALITY_PICTURE_01", "caveat": "axiomatization choices vary (see alternative_formulations)"}
@@ -19,17 +19,17 @@
   ],
   "derived_objects": [
     {"claim": "Decoherence (suppression of interference in reduced states) is derived within closed unitary QM plus coarse-graining", "provenance": "PROGRAM-RESULT", "verification": "VERIFIED", "source": "archive: Experiment P repaired model, REALITY_CHECK_04 §10 ('produce reduced-state decoherence while preserving a pure global entangled state'); consistent with community decoherence theory (RC-05 C2)", "caveat": "tested model class: minimal closed s2⊗a2⊗eN with exact unitaries"},
-    {"claim": "The uncertainty principle is equivalent to an entropy bound on pure states (one-directional: the bound is stronger)", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "Carcassi & Aidala, Found. Phys. 52:40 (2022), arXiv:2111.09107 — full-text case extraction 2026-09-23", "caveat": "one degree of freedom in the source"}
+    {"claim": "The uncertainty principle follows from an entropy bound on pure states (one-directional: the bound is strictly stronger, the reverse implication fails)", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "Carcassi & Aidala, Found. Phys. 52:40 (2022), arXiv:2111.09107 ('Reverse Physics: From Laws to Physical Assumptions', Sec. III) — full-text case extraction 2026-09-23; re-verified against full text 2026-09-23 (adversarial pass)", "caveat": "one degree of freedom in the source"}
   ],
   "empirical_inputs": [
     {"claim": "hbar is an input, not derived", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "archive: REALITY_PICTURE_01 Q17 minimum input set; program-side: 'hbar remained an irreducible input' in the tested GRUT program (baseline/synthesis record)", "caveat": ""},
     {"claim": "Branch weights enter as initial-state data in the tested closed-unitary class — inherited, not dynamically derived", "provenance": "PROGRAM-RESULT", "verification": "VERIFIED", "source": "archive: REALITY_CHECK_04 §9-10 ('STATE_DEPENDENT / INHERITED FROM INITIAL AMPLITUDES / NOT DYNAMICALLY DERIVED, within the tested model class')", "caveat": "not a universal disproof of Born-rule derivability"}
   ],
   "constants": [
-    {"claim": "hbar (value, units, provenance chain)", "provenance": "OBSERVED", "verification": "TO-VERIFY", "source": "Stage 2: CODATA citation with value and uncertainty", "caveat": "exact by SI definition since 2019 — verify statement itself"}
+    {"claim": "hbar = 1.054571817...e-34 J s, exact: fixed by the 2019 SI redefinition via h = 6.62607015e-34 J s (exact)", "provenance": "OBSERVED", "verification": "VERIFIED", "source": "CODATA 2022 recommended values, NIST CUU (physics.nist.gov/cgi-bin/cuu/Value?hbar) -- page fetched 2026-09-23; standard uncertainty stated '(exact)'", "caveat": "exact by definition since the 2019 SI redefinition; the empirical content moved into realizations of the kilogram (Kibble balance), so 'observed' refers to the pre-2019 measurement chain the definition froze"}
   ],
   "symmetries": [
-    {"claim": "Symmetries are represented unitarily/antiunitarily on the state space (Wigner's theorem)", "provenance": "COMMUNITY-DERIVED", "verification": "TO-VERIFY", "source": "Stage 2: cite Wigner's theorem primary/standard source", "caveat": ""}
+    {"claim": "Symmetries are represented unitarily/antiunitarily on the state space (Wigner's theorem)", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "Wigner, Gruppentheorie und ihre Anwendung auf die Quantenmechanik der Atomspektren (1931; Engl. transl. Academic Press 1959); rigorous proof closely following Wigner: Bargmann, J. Math. Phys. 5, 862-868 (1964), doi:10.1063/1.1704188 -- Bargmann record verified via ADS/AIP listing 2026-09-23", "caveat": "applies to bijections of ray space preserving transition probabilities"}
   ],
   "limits": [
     {"claim": "Classical mechanics is recovered as a limit (decoherence + hbar->0)", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "archive: 'QM ──LIMIT_OF──▶ classical mechanics [T] CLOSED'", "caveat": "edge type LIMIT_RELATION"},
@@ -48,14 +48,14 @@
     {"claim": "Ontology of the quantum state", "provenance": "ABSENCE", "verification": "VERIFIED", "source": "archive: REALITY_PICTURE_01 LEVEL 0/LEVEL 6", "caveat": ""}
   ],
   "observables": [
-    {"claim": "Interference visibility; correlation functions; spectroscopic and g-2-class precision observables", "provenance": "OBSERVED", "verification": "TO-VERIFY", "source": "Stage 2: itemize with primary citations", "caveat": "coarse pilot entry"}
+    {"claim": "Precision observables anchor the domain: electron magnetic moment g/2 = 1.00115965218059(13) [0.13 ppt]; hydrogen 1S-2S transition f = 2 466 061 413 187 035(10) Hz [4.2e-15 fractional]; interference visibility and Bell correlation functions (see phenomena)", "provenance": "OBSERVED", "verification": "VERIFIED", "source": "Fan, Myers, Sukra & Gabrielse, Phys. Rev. Lett. 130, 071801 (2023) (electron g/2); Parthey et al., Phys. Rev. Lett. 107, 203001 (2011) (hydrogen 1S-2S) -- both abstract-verified 2026-09-23", "caveat": "representative precision anchors, not an exhaustive itemization; g-2 comparison to theory is a QED/SM statement, not pure QM"}
   ],
   "alternative_formulations": [
     {"claim": "Complex-Hilbert and real-symplectic formulations are equivalent", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "archive: REALITY_PICTURE_01 Q9 'Equivalences: complex/real-symplectic [T]' (RC-03 §G)", "caveat": ""},
-    {"claim": "Path-integral and phase-space (Wigner) formulations exist and are standard", "provenance": "COMMUNITY-DERIVED", "verification": "TO-VERIFY", "source": "Stage 2: standard citations", "caveat": ""}
+    {"claim": "Path-integral and phase-space (Wigner) formulations exist and are standard", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "Feynman, Rev. Mod. Phys. 20, 367 (1948) ('Space-Time Approach to Non-Relativistic Quantum Mechanics'); Wigner, Phys. Rev. 40, 749 (1932) ('On the Quantum Correction For Thermodynamic Equilibrium') -- both abstract-verified 2026-09-23", "caveat": "Wigner 1932 introduces the phase-space distribution; the full formulation is the later Moyal/Groenewold development"}
   ],
   "domain_of_validity": [
-    {"claim": "All tested matter and energy scales accessible to experiment; no confirmed deviation from unitarity/Born statistics in the tested regime", "provenance": "OBSERVED", "verification": "TO-VERIFY", "source": "Stage 2: cite collapse-model parameter-space constraints as the boundary record", "caveat": "collapse-model space partially constrained, not exhausted"}
+    {"claim": "All tested matter and energy scales accessible to experiment; no confirmed deviation from unitarity/Born statistics in the tested regime", "provenance": "OBSERVED", "verification": "VERIFIED", "source": "boundary record = collapse-model constraint reviews: Bassi, Lochan, Satin, Singh & Ulbricht, Rev. Mod. Phys. 85, 471 (2013); Carlesso et al., Nature Physics 18, 243-250 (2022) (non-interferometric tests: cold atoms, optomechanics, X-ray, cosmology) -- both abstract-verified 2026-09-23", "caveat": "collapse-model parameter space partially constrained, not exhausted; macroscopic superposition regime remains open territory"}
   ],
-  "notes": "PILOT record. Exists to be attacked at the Stage-2 gate. Nothing here is load-bearing for any requirement claim until TO-VERIFY entries are converted or deleted. Provenance firewall: PROGRAM-RESULT entries are in-house, unreviewed, and carry their recorded model-class scopes."
+  "notes": "TRANCHE-1 record, upgraded in place from the PILOT of 2026-09-23. All former TO-VERIFY entries converted to VERIFIED at abstract level against fetched sources (fetch dates recorded per entry); no entry weakened, no PROGRAM-RESULT caveat altered. Provenance firewall: PROGRAM-RESULT entries are in-house, unreviewed, and carry their recorded model-class scopes; they can never upgrade to OBSERVED/COMMUNITY-DERIVED by repetition. Requirement relativity: nothing here asserts a structure is required (Stage 4)."
 }
