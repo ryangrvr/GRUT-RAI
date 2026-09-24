@@ -1,0 +1,61 @@
+{
+  "domain": "quantum_mechanics",
+  "grade": "PILOT",
+  "schema": "CORPUS_SCHEMA v0",
+  "date": "2026-09-23",
+  "phenomena": [
+    {"claim": "Single-particle and many-path interference", "provenance": "OBSERVED", "verification": "TO-VERIFY", "source": "standard experimental record; Stage 2: cite a canonical electron/neutron/molecule interferometry primary source", "caveat": ""},
+    {"claim": "Born-frequency statistics in repeated measurements", "provenance": "OBSERVED", "verification": "TO-VERIFY", "source": "standard experimental record; Stage 2: cite precision tests of Born statistics", "caveat": ""},
+    {"claim": "Bell-inequality violations", "provenance": "OBSERVED", "verification": "TO-VERIFY", "source": "Stage 2: cite loophole-free tests (2015-class experiments)", "caveat": ""},
+    {"claim": "Environmental decoherence of superpositions", "provenance": "OBSERVED", "verification": "VERIFIED", "source": "archive: origin/v4:program/REALITY_PICTURE_01.md LEVEL 0 item 4 [E]; community experimental record behind it TO-VERIFY at primary level in Stage 2", "caveat": ""}
+  ],
+  "formalism": [
+    {"claim": "State space: rays in complex Hilbert space; observables: self-adjoint operators; composition: tensor product; dynamics: unitary evolution", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "textbook-standard; archive control [T] throughout REALITY_PICTURE_01", "caveat": "axiomatization choices vary (see alternative_formulations)"}
+  ],
+  "primitives": [
+    {"claim": "Hilbert-space structure and tensor-product composition are primitives, not derived", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "archive: REALITY_PICTURE_01 Q17 minimum input set includes 'quantum structure'", "caveat": ""},
+    {"claim": "The Born postulate is a primitive of the standard formulation", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "archive: 'QM ──ENCODES──▶ measurement statistics [T] CLOSED (Born as postulate)'", "caveat": "derivation programs exist and were audited: EC_BORN_01 Phase 2A found no route free of imported premises (abstract-level evidence only, hostile audit not executed)"},
+    {"claim": "The local tensor factorization (which subsystems) is not intrinsic to the Hilbert space; spectrum-only recovery is uniqueness-given-existence, genericity-qualified", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "Cotler, Penington & Ranard, Commun. Math. Phys. 368, 1267 (2019), arXiv:1702.06142 — abstract verified 2026-09-23", "caveat": "existence of a k-local factorization is the conditional half"}
+  ],
+  "derived_objects": [
+    {"claim": "Decoherence (suppression of interference in reduced states) is derived within closed unitary QM plus coarse-graining", "provenance": "PROGRAM-RESULT", "verification": "VERIFIED", "source": "archive: Experiment P repaired model, REALITY_CHECK_04 §10 ('produce reduced-state decoherence while preserving a pure global entangled state'); consistent with community decoherence theory (RC-05 C2)", "caveat": "tested model class: minimal closed s2⊗a2⊗eN with exact unitaries"},
+    {"claim": "The uncertainty principle is equivalent to an entropy bound on pure states (one-directional: the bound is stronger)", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "Carcassi & Aidala, Found. Phys. 52:40 (2022), arXiv:2111.09107 — full-text case extraction 2026-09-23", "caveat": "one degree of freedom in the source"}
+  ],
+  "empirical_inputs": [
+    {"claim": "hbar is an input, not derived", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "archive: REALITY_PICTURE_01 Q17 minimum input set; program-side: 'hbar remained an irreducible input' in the tested GRUT program (baseline/synthesis record)", "caveat": ""},
+    {"claim": "Branch weights enter as initial-state data in the tested closed-unitary class — inherited, not dynamically derived", "provenance": "PROGRAM-RESULT", "verification": "VERIFIED", "source": "archive: REALITY_CHECK_04 §9-10 ('STATE_DEPENDENT / INHERITED FROM INITIAL AMPLITUDES / NOT DYNAMICALLY DERIVED, within the tested model class')", "caveat": "not a universal disproof of Born-rule derivability"}
+  ],
+  "constants": [
+    {"claim": "hbar (value, units, provenance chain)", "provenance": "OBSERVED", "verification": "TO-VERIFY", "source": "Stage 2: CODATA citation with value and uncertainty", "caveat": "exact by SI definition since 2019 — verify statement itself"}
+  ],
+  "symmetries": [
+    {"claim": "Symmetries are represented unitarily/antiunitarily on the state space (Wigner's theorem)", "provenance": "COMMUNITY-DERIVED", "verification": "TO-VERIFY", "source": "Stage 2: cite Wigner's theorem primary/standard source", "caveat": ""}
+  ],
+  "limits": [
+    {"claim": "Classical mechanics is recovered as a limit (decoherence + hbar->0)", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "archive: 'QM ──LIMIT_OF──▶ classical mechanics [T] CLOSED'", "caveat": "edge type LIMIT_RELATION"},
+    {"claim": "QFT is recovered from QM + Lorentz invariance (constructively)", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "archive: 'QM+Lorentz ──RECOVERS──▶ QFT [T] CLOSED (constructively)'", "caveat": "no rigorous interacting 4D construction — recorded second-order gap (RAI_STRUCTURAL_THEORY_SEARCH §8)"}
+  ],
+  "known_connections": [
+    {"claim": "QM ENCODES measurement statistics via the Born postulate", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "archive: REALITY_PICTURE_01 LEVEL 3", "caveat": "postulate, not derivation"}
+  ],
+  "known_disconnects": [
+    {"claim": "Decoherence does NOT yield a definite outcome", "provenance": "PROGRAM-RESULT", "verification": "VERIFIED", "source": "archive: 'decoherence ──✗──▶ definite outcome [E] OPEN (P + RC-05 C2, cross-validated)'", "caveat": "tested route: closed unitary + coarse-graining"},
+    {"claim": "Decoherence observables alone do NOT determine branch weights", "provenance": "PROGRAM-RESULT", "verification": "VERIFIED", "source": "archive: REALITY_CHECK_04 §9.8 Control H NARROWED — 'Permitted claim only'", "caveat": "the stronger full-reduced-state claim is explicitly prohibited"}
+  ],
+  "open_problems": [
+    {"claim": "Outcome selection mechanism", "provenance": "ABSENCE", "verification": "VERIFIED", "source": "archive: REALITY_PICTURE_01 LEVEL 0 not-directly-observed list + LEVEL 6 rank 1", "caveat": ""},
+    {"claim": "Origin/derivability of the Born weights beyond the tested class", "provenance": "ABSENCE", "verification": "VERIFIED", "source": "archive: EC_BORN_01 unresolved item 6 ('single-run objective chance remains unbridged in every non-collapse route' — abstract-level adjudication)", "caveat": "PHASE_2A evidence limits recorded"},
+    {"claim": "Ontology of the quantum state", "provenance": "ABSENCE", "verification": "VERIFIED", "source": "archive: REALITY_PICTURE_01 LEVEL 0/LEVEL 6", "caveat": ""}
+  ],
+  "observables": [
+    {"claim": "Interference visibility; correlation functions; spectroscopic and g-2-class precision observables", "provenance": "OBSERVED", "verification": "TO-VERIFY", "source": "Stage 2: itemize with primary citations", "caveat": "coarse pilot entry"}
+  ],
+  "alternative_formulations": [
+    {"claim": "Complex-Hilbert and real-symplectic formulations are equivalent", "provenance": "COMMUNITY-DERIVED", "verification": "VERIFIED", "source": "archive: REALITY_PICTURE_01 Q9 'Equivalences: complex/real-symplectic [T]' (RC-03 §G)", "caveat": ""},
+    {"claim": "Path-integral and phase-space (Wigner) formulations exist and are standard", "provenance": "COMMUNITY-DERIVED", "verification": "TO-VERIFY", "source": "Stage 2: standard citations", "caveat": ""}
+  ],
+  "domain_of_validity": [
+    {"claim": "All tested matter and energy scales accessible to experiment; no confirmed deviation from unitarity/Born statistics in the tested regime", "provenance": "OBSERVED", "verification": "TO-VERIFY", "source": "Stage 2: cite collapse-model parameter-space constraints as the boundary record", "caveat": "collapse-model space partially constrained, not exhausted"}
+  ],
+  "notes": "PILOT record. Exists to be attacked at the Stage-2 gate. Nothing here is load-bearing for any requirement claim until TO-VERIFY entries are converted or deleted. Provenance firewall: PROGRAM-RESULT entries are in-house, unreviewed, and carry their recorded model-class scopes."
+}
