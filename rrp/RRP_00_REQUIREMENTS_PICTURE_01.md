@@ -155,9 +155,18 @@ follow if one appeared. It appeared.
 ## 7. Limitations
 
 All adjudication in-house, single-refuter per requirement, kill-by-default prior with
-recorded severity asymmetry; corpus tranche 2 incomplete (condensed matter/emergence,
-nonequilibrium, mathematical foundations unbuilt — the last is the evasion inventory, so the
-kill verdicts could only get *stronger* with it, but survivor narrowings could shift);
+recorded severity asymmetry. **Tranche-2 completion note (2026-09-23, post-synthesis):** the
+three remaining corpus records (condensed matter/emergence, nonequilibrium, mathematical
+foundations) were subsequently built and adversarially verified (2 CLEAN, 1 REPAIRED, zero
+fabrications; map now 13 domains / 384 entries, all validator-PASS). The evasion inventory
+**confirms the core without revision**: Gleason's theorem sharpens D(ii)'s pricing — the
+Born *form* is derivable given the projection lattice plus noncontextuality (dim ≥ 3), so
+the priced input relocates upstream to those premises while consumed-not-produced stands —
+and the record's ABSENCE entries (no reconstruction theorem selects the tensor/subsystem
+structure; no extension of the reconstruction program reaches QFT or gravity) are the
+mathematical-foundations instantiation of core item A's disjunction. The Micadei et al.
+correlated-qubits heat-flow reversal (Nat. Commun. 10:2456 (2019), verified) is now in the
+corpus as the named O-converter for R9-2′;
 17 TO-VERIFY corpus entries (none load-bearing); citation checks at abstract level;
 no external human review of any of it. The core is a statement about the audited record,
 at exactly its stated strength and no higher.
