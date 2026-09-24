@@ -179,7 +179,10 @@ motivated principle identifies a specific phenomenon the existing framework cann
 
 ## 9. Endpoint declaration
 
-The GRUT program ends here as a theory-development effort. GRUT is carried as a **historical
+The GRUT program ends here as a theory-development effort. **This closes the construction,
+not the question that motivated it**: nothing in this record establishes that the underlying
+question is unsolvable, and the open problems of §5 remain live physics (owner amendment,
+2026-09-23). GRUT is carried as a **historical
 candidate**: one proposed constitutive framework among whatever structures survive future
 evidence, under the standing rule "GRUT is the name of whatever survives" (commit `058c40d`).
 The archive is the deliverable: the method, the no-go record, the reality map, the T3 result,
