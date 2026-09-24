@@ -206,8 +206,10 @@ Protocol (adopted 2026-09-24, before any rebuilt-instrument numbers exist):
   radiation analogy that fails for a response kernel must be identified.
 - **Dual pre-registration.** Builder and adjudicator (§9) seal independent analytic
   predictions, by commit, before the rebuilt instrument reports. Their agreement or
-  disagreement is itself recorded. Status: protocol adopted; instrument rebuild in
-  progress; pre-registrations not yet sealed.
+  disagreement is itself recorded. Status: the adjudicator's ledger is SEALED
+  (`T2_THEOREM_GATE_AND_PREREGISTRATION_01.md`, this tree — three blinded routes in
+  exact agreement, adversarially verified); the builder's rebuild and its own
+  pre-registration are in progress.
 - **One leg already agrees:** the sign. The mechanism derives strict passivity; the
   certificate records the dissipative sign in-window. Necessary, far from sufficient.
 - **Pre-registered outcomes.** Class match = the first discriminator-grade internal

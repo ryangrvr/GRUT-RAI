@@ -64,9 +64,10 @@ repaired, predicts gravitational memory-kernel classes. **Confront them.** Spec:
   assumption of the naive soft-radiation analogy fails for this observable (a response
   kernel/self-energy, not the radiated power of an isolated classical binary). Only
   after that, perform the T3 confrontation in the common ω ≳ 3.4H validity window.
-  The full gate specification and the pre-registration ledger are to be sealed in
-  `T2_THEOREM_GATE_AND_PREREGISTRATION_01.md` (this copy; in preparation — blinded
-  independent derivations in progress; not yet sealed).
+  The full gate specification and the pre-registration ledger are SEALED in
+  `T2_THEOREM_GATE_AND_PREREGISTRATION_01.md` (this copy). Sealed result: J ~ ω⁸
+  task-literal / ω⁷ under the archived W-convention (tidal +4) — NOT ω³, NOT the
+  quadrupole ω⁵; three blinded routes in exact agreement, adversarially verified.
   CORRECTION OF RECORD (2026-09-24, U3_RECORD_NOTE_02): §1's "U3-LEMMA" claim is
   demoted at its constructive half — the necessity direction stands on passing checks
   (P1/P2); constructive realizability, Erlang representability, and the N = M law
