@@ -1,0 +1,290 @@
+[
+ {
+  "item": "Material response inputs (permittivity/permeability, equations of state, elastic moduli)",
+  "corpus_ref": "classical_field_theory/empirical_inputs/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "c (speed of light)",
+  "corpus_ref": "classical_field_theory/constants/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Field initial data (configurations + conjugate momenta on Cauchy surface)",
+  "corpus_ref": "classical_field_theory/primitives/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-STATE"
+ },
+ {
+  "item": "Locality as primitive modeling commitment",
+  "corpus_ref": "classical_field_theory/primitives/1",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Material-specific effective inputs (band structures, effective masses, Landau parameters, pairing strengths, T_c, gaps) \u2014 THE stress case",
+  "corpus_ref": "condensed_matter_emergence/empirical_inputs/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "R_K = h/e^2 (von Klitzing; material-independence tested)",
+  "corpus_ref": "condensed_matter_emergence/constants/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Substrate Hamiltonian (nonrel. electrons+nuclei+Coulomb; Laughlin-Pines)",
+  "corpus_ref": "condensed_matter_emergence/primitives/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Order parameters / emergent-structure values (which phase)",
+  "corpus_ref": "condensed_matter_emergence/primitives/1",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-STATE"
+ },
+ {
+  "item": "Lambda (cosmological constant)",
+  "corpus_ref": "cosmology/empirical_inputs/0; cosmology/alternative_formulations/1; general_relativity_gravity/empirical_inputs/0 + constants/1; RRP_00 sec.2.D(i)",
+  "ensemble": "SINGLE-PREPARATION",
+  "boundary_status": "WANDERS"
+ },
+ {
+  "item": "H0",
+  "corpus_ref": "cosmology/empirical_inputs/0; cosmology/known_disconnects/2",
+  "ensemble": "SINGLE-PREPARATION",
+  "boundary_status": "STABLE-STATE"
+ },
+ {
+  "item": "Dark-matter fraction Omega_c (abundance)",
+  "corpus_ref": "cosmology/empirical_inputs/0,1",
+  "ensemble": "SINGLE-PREPARATION",
+  "boundary_status": "STABLE-STATE"
+ },
+ {
+  "item": "LCDM parameters Omega_b h^2, acoustic scale, tau",
+  "corpus_ref": "cosmology/empirical_inputs/1",
+  "ensemble": "SINGLE-PREPARATION",
+  "boundary_status": "STABLE-STATE"
+ },
+ {
+  "item": "Primordial spectrum A_s, n_s (fitting frame: initial data; inflationary frame: inflaton-potential/law parameters)",
+  "corpus_ref": "cosmology/empirical_inputs/1; cosmology/primitives/1 (adiabatic initial perturbations)",
+  "ensemble": "SINGLE-PREPARATION",
+  "boundary_status": "WANDERS"
+ },
+ {
+  "item": "Past hypothesis / low-entropy initial condition (corpus: INPUT; Albert-Loewer Best-System: LAW \u2014 the corpus's own Stage-2 cite is the promotion's author; web-verified live contest)",
+  "corpus_ref": "cosmology/empirical_inputs/2; statistical_mechanics_thermodynamics/empirical_inputs/0",
+  "ensemble": "SINGLE-PREPARATION",
+  "boundary_status": "WANDERS"
+ },
+ {
+  "item": "Cosmological principle (a state-symmetry fact deployed in law-position as framework axiom; inflation would relocate it to derived)",
+  "corpus_ref": "cosmology/primitives/0",
+  "ensemble": "SINGLE-PREPARATION",
+  "boundary_status": "WANDERS"
+ },
+ {
+  "item": "Declared LCDM matter-energy content (content-vs-structure boundary 'leaks'; recorded weakest joint)",
+  "corpus_ref": "cosmology/primitives/1; cosmology/known_disconnects/1; quantum_field_theory_eft/known_disconnects/1",
+  "ensemble": "SINGLE-PREPARATION",
+  "boundary_status": "WANDERS"
+ },
+ {
+  "item": "T_CMB (a temperature \u2014 physically state everywhere, filed under 'constants')",
+  "corpus_ref": "cosmology/constants/0",
+  "ensemble": "SINGLE-PREPARATION",
+  "boundary_status": "STABLE-STATE"
+ },
+ {
+  "item": "Three gauge coupling values",
+  "corpus_ref": "gauge_theory/empirical_inputs/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "alpha_s(m_Z), alpha (fine-structure)",
+  "corpus_ref": "gauge_theory/constants/0,1; quantum_field_theory_eft/constants/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Gauge group SU(3)xSU(2)xU(1) + representation content (underived but boundary-uncontested)",
+  "corpus_ref": "gauge_theory/primitives/0; mathematical_foundational_structures/known_disconnects/3",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "G (lab-measurable: CODATA torsion-balance chain; relocations are theory-changes or postulated ensembles, not equivalent reformulations)",
+  "corpus_ref": "general_relativity_gravity/empirical_inputs/0 + constants/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Gravity mechanism as primitive",
+  "corpus_ref": "general_relativity_gravity/primitives/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "k_B (Boltzmann constant; SI-conventionalized 2019)",
+  "corpus_ref": "statistical_mechanics_thermodynamics/constants/0; information_theory/constants/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Temperature T in Landauer instantiation ('a state variable, not a constant' \u2014 the record's own caveat)",
+  "corpus_ref": "information_theory/empirical_inputs/0 + constants/0 caveat",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-STATE"
+ },
+ {
+  "item": "Supplied state space (probability distributions / density operators)",
+  "corpus_ref": "information_theory/primitives/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-STATE"
+ },
+ {
+  "item": "Gleason premises (projection lattice + noncontextuality, dim>=3)",
+  "corpus_ref": "mathematical_foundational_structures/primitives/0",
+  "ensemble": "AMBIGUOUS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Soler premises (orthomodular space + infinite orthonormal sequence)",
+  "corpus_ref": "mathematical_foundational_structures/primitives/1",
+  "ensemble": "AMBIGUOUS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Operational-reconstruction axioms incl. local tomography / composite rule",
+  "corpus_ref": "mathematical_foundational_structures/primitives/2; information_theory/alternative_formulations/0-2",
+  "ensemble": "AMBIGUOUS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Lab system-environment split + H_int (declared per experiment, conventionalized, uncontested)",
+  "corpus_ref": "open_quantum_systems_decoherence/primitives/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-STATE"
+ },
+ {
+  "item": "Global/fundamental subsystem factorization (type-III malformedness; G-WEAK 'typing decision frozen nowhere'; CPR conditional; per-ontology different failure mechanisms)",
+  "corpus_ref": "quantum_gravity_approaches/known_disconnects/0,2; mathematical_foundational_structures/known_disconnects/2; quantum_mechanics/primitives/2",
+  "ensemble": "SINGLE-PREPARATION",
+  "boundary_status": "WANDERS"
+ },
+ {
+  "item": "Transport coefficients (hydro-level per-material; Green-Kubo computable-in-principle from micro)",
+  "corpus_ref": "nonequilibrium_statistical_mechanics/empirical_inputs/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Micadei initial correlations \u2014 lab direction of heat flow",
+  "corpus_ref": "nonequilibrium_statistical_mechanics/empirical_inputs/1",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-STATE"
+ },
+ {
+  "item": "Local-equilibrium postulate",
+  "corpus_ref": "nonequilibrium_statistical_mechanics/primitives/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Mori-Zwanzig projector \u2014 slow-variable choice (redistributes content between systematic/memory/noise terms under choice) \u2014 THE many-preparation relocation case",
+  "corpus_ref": "nonequilibrium_statistical_mechanics/primitives/1",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "WANDERS"
+ },
+ {
+  "item": "Bath structure (spectral density, temperature, couplings \u2014 enters the reduced-dynamics generator; declared input at total level)",
+  "corpus_ref": "open_quantum_systems_decoherence/empirical_inputs/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Branch weights (inherited from initial amplitudes; alpha varied {0.2,0.5,0.8} across prepared systems in RC-04)",
+  "corpus_ref": "open_quantum_systems_decoherence/empirical_inputs/1; quantum_mechanics/empirical_inputs/1",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-STATE"
+ },
+ {
+  "item": "hbar",
+  "corpus_ref": "quantum_mechanics/empirical_inputs/0 + constants/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Hilbert-space + tensor-composition structure",
+  "corpus_ref": "quantum_mechanics/primitives/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Born postulate (postulate in standard form, lattice-theorem given Gleason's frame; never state-side in any audited formulation)",
+  "corpus_ref": "quantum_mechanics/primitives/1; mathematical_foundational_structures/known_disconnects/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Flat-space vacuum (selection fixed by Poincare symmetry; no residual freedom, uncontested)",
+  "corpus_ref": "quantum_field_theory_eft/primitives/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-STATE"
+ },
+ {
+  "item": "de Sitter / cosmological vacuum choice (SJ vs BD vs alpha-vacua; frequency-sign selection; predictively contentful SJ != BD)",
+  "corpus_ref": "quantum_gravity_approaches/observables/0 + derived_objects/2",
+  "ensemble": "SINGLE-PREPARATION",
+  "boundary_status": "WANDERS"
+ },
+ {
+  "item": "SM 19+ empirical parameters",
+  "corpus_ref": "quantum_field_theory_eft/empirical_inputs/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "EFT organization primitives (cutoff expansion, decoupling)",
+  "corpus_ref": "quantum_field_theory_eft/primitives/1,2",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "Planck length (derived combination of G, hbar, c)",
+  "corpus_ref": "quantum_gravity_approaches/constants/0",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-LAW"
+ },
+ {
+  "item": "CDT causal layering / inserted foliation (2D: provably survives as physics; 4D: open whether physics or scaffolding)",
+  "corpus_ref": "quantum_gravity_approaches/primitives/0",
+  "ensemble": "AMBIGUOUS",
+  "boundary_status": "WANDERS"
+ },
+ {
+  "item": "AQFT net assignment (unprotected typing decision; Tomita-Takesaki derives law FROM the supplied (algebra, state) pair \u2014 boundary traffic reversed)",
+  "corpus_ref": "quantum_gravity_approaches/primitives/1",
+  "ensemble": "AMBIGUOUS",
+  "boundary_status": "WANDERS"
+ },
+ {
+  "item": "Probability measure over microstates / typicality (corpus: primitive input; Mentaculus: law; ETH/typicality relocations recorded)",
+  "corpus_ref": "statistical_mechanics_thermodynamics/primitives/0",
+  "ensemble": "AMBIGUOUS",
+  "boundary_status": "WANDERS"
+ },
+ {
+  "item": "Relaxation direction via sign(beta) of supplied boundary state (lab face: preparation-reversible, cleanly state-side)",
+  "corpus_ref": "statistical_mechanics_thermodynamics/empirical_inputs/1 + known_disconnects/0,1",
+  "ensemble": "MANY-PREPARATIONS",
+  "boundary_status": "STABLE-STATE"
+ }
+]

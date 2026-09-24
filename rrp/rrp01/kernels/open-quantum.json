@@ -1,0 +1,261 @@
+{
+ "description_group": "open-quantum",
+ "contractions": [
+  {
+   "name": "C1. Partial trace / reduced-dynamics map (the Stinespring contraction)",
+   "mathematical_form": "State level: rho_SE |-> rho_S = Tr_E[rho_SE]. Dynamical level, for a declared factorization H = H_S \u2297 H_E and uncorrelated initial data: Lambda_t[rho_S] = Tr_E[ U_t (rho_S \u2297 rho_E) U_t^dag ] = sum_k K_k rho_S K_k^dag, with K_k = sqrt(p_i) <e_k| U_t |e_i>, sum_k K_k^dag K_k = 1_S. Dual (Heisenberg) map Lambda^dag(X) = sum_k K_k^dag X K_k, unital. Fibres: (i) all rho_SE with the same S-marginal; (ii) all global unitaries related by U -> (1_S \u2297 V) U; (iii) all Stinespring dilations above the minimal one; (iv) all Kraus sets related by K_i -> sum_j u_ij K_j with u an isometry.",
+   "why_this_is_the_contraction": "The briefs' primitives entry states that the system-environment tensor split and H_int are declared INPUTS of every open-system construction, not derived objects. Openness in this domain is therefore *defined* by the act of discarding E; there is no open dynamics logically prior to the choice of what to throw away. The contraction is not a computational convenience layered onto a closed theory \u2014 it is the constitutive move. That it is genuinely irreversible within the class is a theorem, not an intuition: a channel on the same Hilbert space possessing a CPTP inverse must be a unitary conjugation (Nayak-Sen 2007; general form Lambda(rho) = U(rho \u2297 omega)U^dag, which for equal input/output dimension forces omega pure). So every genuinely open channel is non-invertible inside the physical class.",
+   "what_it_erases": "The environment state; the S-E entanglement structure and all its relative phases; global purity (a pure entangled rho_SE and a proper mixture with the same marginal become literally the same object); the identity of the purification; the dilation data beyond minimality; the Kraus basis."
+  },
+  {
+   "name": "C2. The CPTP map as a monotone (data-processing) contraction",
+   "mathematical_form": "|| Lambda(rho) - Lambda(sigma) ||_1 <= || rho - sigma ||_1 for all CPTP Lambda (Ruskai 1994; Kossakowski). More generally D_f(Lambda rho || Lambda sigma) <= D_f(rho || sigma) for every quantum f-divergence, with F(Lambda rho, Lambda sigma) >= F(rho,sigma) for fidelity. Spectral consequence: spec(Lambda) lies in the closed unit disc, spectral radius exactly 1.",
+   "why_this_is_the_contraction": "The briefs list contractivity for trace distance under 'symmetries' as the structural invariance of the Markovian theory. It is exact (not perturbative, not weak-coupling), holds for every CPTP map, and is what makes this a theory of irreversible information loss rather than of reversible bookkeeping. It is also operationally load-bearing here: the briefs note it is the basis of trace-distance non-Markovianity witnesses (BLP), i.e. the whole non-Markovianity programme is calibrated against exactly this contraction.",
+   "what_it_erases": "Distinguishability along every strictly contracted direction; the possibility of running the dynamics backwards inside the physical (CPTP) class; monotone-decreasing quantities can never be restored, so any information they measured is gone for good under further processing."
+  },
+  {
+   "name": "C3. The asymptotic limit: spectral projection onto the peripheral subspace",
+   "mathematical_form": "Discrete: Lambda^n -> P_infty Lambda^n where P_infty projects onto the span of eigenspaces with |lambda| = 1. Continuous: e^{Lt} -> P_infty e^{L_infty t}. Closed form (Albert & Jiang, PRA 89, 022118 (2014), Eqs. 13-14): rho_ss = lim_{t->inf} e^{Lt}(rho_in) = sum_mu Tr[ J_mu^dag rho_in ] M_mu, with {M_mu} an orthonormal basis of the steady-state subspace and {J_mu} the dual conserved quantities, L^dag(J_mu) = 0. Block form (Eq. 43): rho_ss = \u2295_kappa [ sum_{mu,nu=1}^{n_kappa} rho^{(kappa)}_{mu nu} |mu>_kappa<nu| \u2297 T^{(kappa)} ]. With rotating points (Eq. 46): rho_infty(t) = \u2295_kappa [ sum_{mu nu} rho^{(kappa)}_{mu nu} e^{i lambda^{(kappa)}_{mu nu} t} |mu>_kappa<nu| \u2297 T^{(kappa)} ].",
+   "why_this_is_the_contraction": "This is where the rank actually collapses. C2 is non-expansive but need not be strictly many-to-one on any given pair; the t->infinity flow multiplies every non-peripheral mode by lambda^n -> 0 and is therefore genuinely, provably many-to-one on states. It is the open-system analogue of an RG flow to a fixed point, and it is the only map in the domain under which distinct *states* become exactly identical in finite information content. The domain's central phenomenon \u2014 the non-persistence of macroscopic superpositions, recorded in the briefs as an observed absence \u2014 is this projection.",
+   "what_it_erases": "The entire decaying sector: d^2 - sum_kappa n_kappa^2 real dimensions of the initial condition, exactly. All transient structure, all approach-to-steady-state history, the entire dependence of the late-time state on anything except the finite list {Tr[J_mu^dag rho_in]}."
+  },
+  {
+   "name": "C4. Nakajima-Zwanzig projection superoperator",
+   "mathematical_form": "P = rho_E \u2297 Tr_E[ \u00b7 ], P^2 = P, Q = 1 - P, PQ = 0. Exact reduced equation: d/dt P rho(t) = P L P rho(t) + int_0^t ds K(t-s) P rho(s) + P L Q e^{Q L Q t} Q rho(0), with memory kernel K(t) = P L Q e^{Q L Q t} Q L P. The inhomogeneous term vanishes iff Q rho(0) = 0, i.e. iff the initial state is factorized.",
+   "why_this_is_the_contraction": "It is the one place in the domain where the reduction is performed with zero approximation, so it isolates exactly what the reduction costs. P is literally idempotent \u2014 the definition of a projection, maximally non-invertible as a linear map on the joint operator space. Its physical content: the split into 'relevant' and 'irrelevant' is a declared choice of reference bath state rho_E, and the theorem is that the irrelevant sector does not vanish but is repackaged into a convolution kernel. The briefs record this as exact-but-generally-incomputable, which is the honest statement of the trade: nothing is lost from the trajectory, closure is lost.",
+   "what_it_erases": "Closure in the present state (the dynamics is no longer autonomous in rho_S(t)); the identity of which Q-sector configuration produced a given kernel K(t) \u2014 infinitely many baths share a kernel; and, if initial correlations are present, the reduced map is not even well-defined as a CP map on states (Pechukas, PRL 73, 1060 (1994)), so the CPTP idealization is bought by declaring Q rho(0) = 0."
+  },
+  {
+   "name": "C5. Davies / van Hove weak-coupling limit, including the secular projection (a contraction on THEORY space)",
+   "mathematical_form": "lambda -> 0, t -> infinity with tau = lambda^2 t fixed: e^{i H_S t} Lambda_t e^{-i H_S t} -> e^{L_D tau}, where L_D(rho) = -i[H_S + H_LS, rho] + sum_{omega in Bohr(H_S)} sum_{alpha beta} gamma_{alpha beta}(omega) [ A_beta(omega) rho A_alpha^dag(omega) - (1/2){A_alpha^dag(omega) A_beta(omega), rho} ]. Here A(omega) = sum_{eps' - eps = omega} Pi(eps) A Pi(eps'); Bohr(H_S) = {eps' - eps : eps, eps' in spec(H_S)}; gamma_{alpha beta}(omega) = int dt e^{i omega t} <B_alpha^dag(t) B_beta(0)>_{rho_E}; Gamma(omega) = (1/2)gamma(omega) + i S(omega) with S(omega) = PV int (domega'/2pi) gamma(omega')/(omega - omega'); H_LS = sum_omega S(omega) A^dag(omega)A(omega), [H_LS, H_S] = 0. The secular step is itself an idempotent projection on superoperators: P_sec = lim_{T->inf} (1/T) int_0^T dt e^{i[H_S,\u00b7]t} ( \u00b7 ) e^{-i[H_S,\u00b7]t}, whose image is the centralizer of [H_S, \u00b7].",
+   "why_this_is_the_contraction": "This is the contraction under which distinct THEORIES, not merely distinct states, become identical \u2014 the sense of 'many-to-one' the task asks about most directly. The briefs' limits entry records GKLS as recovered from underlying Hamiltonian system-plus-reservoir models in this limit, which is precisely the claim that the microscopic reservoir data is discarded. The entire bath \u2014 its Hilbert space, dimension, Hamiltonian spectrum, coupling constants, internal interactions \u2014 is replaced by the finite list {gamma_{alpha beta}(omega)} sampled only ON the Bohr shell, plus the principal-value Lamb functionals. Uncountably many microscopic models land on one generator. It is operative rather than convenient because the briefs' domain_of_validity entry makes the weak-coupling/Born-Markov/secular package the *definition* of where the GKLS description holds at all.",
+   "what_it_erases": "All bath spectral-density structure off the Bohr shell, as far as the dissipator is concerned; all bath memory (the correlation time tau_B is sent to zero, K(t) -> delta(t) times its zero-frequency weight); all non-secular, cross-Bohr-frequency couplings; the short-time quadratic (Zeno) regime, replaced by strict exponential decay from t = 0; the distinction between near-degenerate Bohr frequencies that the secular average merges."
+  },
+  {
+   "name": "C6. Feynman-Vernon influence-functional contraction (linear/Gaussian bath)",
+   "mathematical_form": "rho_S(x_f, x_f'; t) = int Dx Dx' e^{i(S[x] - S[x'])/hbar} F[x, x'] rho_S(x_i, x_i'; 0), with the influence functional for a bilinearly coupled oscillator bath Gaussian and depending on the bath ONLY through the noise kernel nu and the dissipation kernel eta, both built from the spectral density J(omega) = (pi/2) sum_n (c_n^2 / m_n omega_n) delta(omega - omega_n) and the temperature, tied by the fluctuation-dissipation relation nu(omega) = eta(omega) coth(beta hbar omega / 2). Caldeira-Leggett is the high-T reduction of the resulting master equation.",
+   "why_this_is_the_contraction": "Unlike C5 this is EXACT within its model class \u2014 no small parameter. And it is manifestly many-to-one on bath configurations at the level of the functional itself: two oscillator baths with the same J(omega) at the same T have literally identical influence functionals and therefore identical reduced dynamics to all orders in the coupling. The briefs record exactly this ('the influence functional captures the environment's ENTIRE effect'), which is the statement that J(omega) and beta are a complete sufficient statistic for the bath. This is the cleanest theory-space contraction in the domain because no approximation shares the blame.",
+   "what_it_erases": "All individual oscillator data (c_n, m_n, omega_n), the number of oscillators, the bath's Hilbert-space dimension, and every bath observable not expressible through the two-point function. Note also that the derived high-temperature Caldeira-Leggett equation is not CP at all times (briefs' caveat), so this contraction and C1/C2 are genuinely different maps, not two views of one."
+  },
+  {
+   "name": "C7. The unraveling average (ensemble over quantum trajectories)",
+   "mathematical_form": "rho(t) = E_xi[ |psi_xi(t)><psi_xi(t)| ], where xi labels a stochastic realization of a continuous monitoring scheme on E \u2014 Monte Carlo wave function / quantum jumps (Dalibard, Castin & Molmer, PRL 68, 580 (1992)), quantum state diffusion, homodyne, heterodyne, etc. All such averages reproduce the same Lindblad generator L.",
+   "why_this_is_the_contraction": "The briefs' alternative_formulations entry states the unraveling is not unique and that individual trajectories carry no extra ontological weight in the standard reading. That is exactly a statement that the map {monitoring scheme + record} -> {master equation} is many-to-one, with a large fibre: the Kraus freedom K_i -> sum_j u_ij K_j is the same freedom that relabels unravelings. This is the precise technical sense in which the Lindblad state is an average over environmental records, and it is the operative contraction whenever one asks what the ensemble description costs relative to the conditional one.",
+   "what_it_erases": "The measurement record; the individual trajectory; the choice of measurement basis on E; all conditional/selective information (a selected sub-ensemble can be far from rho(t)); the jump times and jump identities."
+  },
+  {
+   "name": "C8. Environment-fragment coarse-graining / environment-induced superselection (the decoherence map proper)",
+   "mathematical_form": "Pointer coupling: [ Pi \u2297 1_E, H_int ] = 0 for the pointer observable Pi = sum_n a_n |n><n|; then U_t |n>_S |E_0> = |n>_S |E_n(t)> and rho_S(t) = sum_{nm} rho_nm(0) <E_m(t)|E_n(t)> |n><m|, i.e. rho_nm -> rho_nm e^{-Gamma_nm t} with Gamma_nn = 0. The reduced map is a Schur (Hadamard) multiplier in the pointer basis with unit diagonal. Fragment version: rho_{SF} = Tr_{E \\ F}[rho_SE] for F a subset of environmental degrees of freedom.",
+   "why_this_is_the_contraction": "The briefs record pointer-basis selection by the form of the interaction as a derived object (Zurek 1981; RMP 75, 715 (2003)), with the interaction itself an input. This is the contraction that PICKS A BASIS: it is the only map in the list whose many-to-one structure is basis-anisotropic, sending the full d^2-dimensional operator space onto a d-dimensional commutative diagonal while acting as the identity on that diagonal. The briefs also record the derived result that closed unitary dynamics with orthogonal environmental records produces reduced-state decoherence while the global state stays pure \u2014 which is the statement that this contraction hides rather than destroys.",
+   "what_it_erases": "All pointer-basis coherences (asymptotically exactly), hence all interference observables; the distinction, at the level of rho_S alone, between a coherent superposition and a proper classical mixture over pointer states."
+  },
+  {
+   "name": "C9. Analytic/local redefinition class acting on response functions (contact-term contraction)",
+   "mathematical_form": "Sigma(omega) -> Sigma(omega) + P(omega) with P analytic in omega (local counterterms, contact field redefinitions, stationary amplitude/frequency dressings). Equivalently on the memory kernel: K(t) -> K(t) + sum_j c_j delta^{(j)}(t), i.e. addition of purely instantaneous (zero-memory) pieces.",
+   "why_this_is_the_contraction": "Every open-system response function is defined only modulo its scheme-dependent analytic contact part; this is the ambiguity class of the theory, and the map that quotients by it is genuinely many-to-one on Lagrangians/generators. It belongs in this domain rather than only in QFT because it is the map that decides which part of a retarded response is *physically* absorptive. The briefs' boundary entry uses exactly this structure (its certified content is said to be non-analytic in omega, so no local counterterm or contact field redefinition can generate or remove it), and also record that the Hamiltonian/dissipator split within GKLS is ambiguous under an analogous shift, so the contraction is operative on both sides of the domain.",
+   "what_it_erases": "The real analytic (scheme-dependent, polynomial-order) part of the response; the coherent-versus-dissipative attribution of any instantaneous piece; in the GKLS instance, the H-versus-dissipator split unless a traceless gauge is fixed by convention."
+  }
+ ],
+ "kernel_elements": [
+  {
+   "element": "Trace / normalization: Tr Lambda(rho) = Tr rho, for every contraction on the list.",
+   "why_not_erased": "Trace preservation is a defining constraint of the class (sum_k K_k^dag K_k = 1), and the partial trace is trace-preserving by construction. Under C5 the generator is traceless by construction; under C3 the peripheral projection preserves it because 1 is always a fixed point of the unital dual map. There is no configuration in the fibre of any of these maps with a different trace.",
+   "contraction": "C1, C2, C3, C4, C5, C7, C8",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The expectation value of every local observable A \u2297 1_E: Tr[rho_SE (A \u2297 1_E)] = Tr[ Tr_E(rho_SE) A ].",
+   "why_not_erased": "This identity is not a property of the partial trace, it is its DEFINITION: Tr_E is the unique linear map satisfying it for all A. So the entire local-algebra expectation functional is carried across C1 with zero loss, by uniqueness. Whatever C1 destroys lies strictly outside the algebra B(H_S) \u2297 1_E.",
+   "contraction": "C1",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Existence of at least one stationary state: every CPTP map on a finite-dimensional state space has rho with Lambda(rho) = rho.",
+   "why_not_erased": "The state space is compact and convex and Lambda maps it continuously into itself; Brouwer (or Markov-Kakutani for the semigroup) gives a fixed point. Equivalently the spectral radius is exactly 1 by trace-norm contractivity plus trace preservation, so 1 is in the spectrum. The contraction cannot empty its own fixed-point set.",
+   "contraction": "C2, C3",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The fixed-point / decoherence-free algebra, with full Wedderburn matrix-algebra structure: on the recurrent subspace H_rec = \u2295_k H_{A_k} \u2297 H_{B_k}, the Heisenberg fixed-point set F(Lambda^dag) = {X : Lambda^dag(X) = X} is a von Neumann algebra \u2295_k B(H_{A_k}) \u2297 1_{B_k}, and the Schrodinger fixed points are \u2295_k B(H_{A_k}) \u2297 tau_k.",
+   "why_not_erased": "Two independent proofs. (i) Algebraic: for a unital CP map, Kadison-Schwarz gives Lambda^dag(X^dag X) >= Lambda^dag(X)^dag Lambda^dag(X), and equality on fixed points forces them into the multiplicative domain \u2014 so the fixed set is automatically closed under products and is an algebra, whence Wedderburn gives the block form. (ii) Operational: Blume-Kohout, Ng, Poulin & Viola prove every perfectly preserved code has the structure of a matrix algebra and that preserved information can always be corrected. For a quantum Markov semigroup with a faithful normal invariant state the same conclusion is Frigerio's (CMP 63, 269 (1978)). The contraction cannot erase this because it is not extra structure imposed on the fixed set \u2014 it is forced by complete positivity alone.",
+   "contraction": "C2, C3",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Decoherence-free subspaces and noiseless subsystems: the A_k tensor factors on which all Kraus operators act as K = \u2295_k (1_{A_k} \u2297 M_k), i.e. the commutant of the algebra generated by the error/Kraus operators. For a semigroup with a faithful normal invariant state, the decoherence-free algebra is exactly the commutant N(T) = {H, L_j, L_j^dag : j}'.",
+   "why_not_erased": "On such a factor the channel acts as identity \u2297 (something): Lambda(rho_{A_k} \u2297 sigma) = rho_{A_k} \u2297 Lambda'(sigma). The contraction is not merely weak there, it is the identity map, so nothing is contracted at all. Algebraically, anything commuting with every L_j and with H is annihilated by the dissipator term by term. Strengthened by the Noether-like theorem for channels: for any channel admitting a full-rank fixed point, conserved quantities commute with that channel's Kraus operators up to a phase (Albert, Quantum 3, 151 (2019)).",
+   "contraction": "C1, C2, C3, C8",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The conserved quantities J_mu (ker L^dag, or Lambda^dag(J) = J), together with the EXACT statement of what survives the asymptotic flow: rho_ss = sum_mu Tr[J_mu^dag rho_in] M_mu.",
+   "why_not_erased": "This is the sharpest available kernel statement in the domain, and it is an identity rather than a bound. The J_mu are right eigenmatrices of L^dag with eigenvalue zero, dual to the steady-state basis {M_mu}, with dim ker L^dag = dim L_ss. The contraction C3 cannot erase the numbers Tr[J_mu^dag rho_in] because they are constants of the motion by construction; and it erases everything else, because the formula says the late-time state is a function of nothing but those numbers. Albert & Jiang call the J_mu the 'Lindblad analogues of pointer observables' \u2014 i.e. the surviving content of the initial condition IS a finite list of conserved expectation values.",
+   "contraction": "C3",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Exact dimension count of the surviving capacity: sum_kappa n_kappa^2 - 1 independent real parameters survive the asymptotic flow (block sizes n_kappa in the \u2295_kappa B(H_{A_kappa}) \u2297 T^{(kappa)} decomposition), out of d^2 - 1.",
+   "why_not_erased": "The steady-state subspace is spanned by {M_mu}; its real dimension is fixed by the block structure, and the trace constraint removes exactly one. This is a counting theorem, so the contraction cannot erase a fraction more or less than it says. It is also the quantitative form of 'what cannot be erased': the channel's zero-error quantum capacity is read off these n_kappa.",
+   "contraction": "C3",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Strong symmetries: any J with [J, H] = 0 and [J, L_j] = 0 for all j is both conserved (L^dag(J) = 0) and a symmetry generator (U^dag L U = L).",
+   "why_not_erased": "Substitute directly into L^dag(J) = i[H,J] + sum_j (L_j^dag J L_j - (1/2){L_j^dag L_j, J}): every term cancels identically when J commutes with H and with each L_j. No condition on coupling strength, temperature, or Markovianity is used \u2014 the annihilation is algebraic. Note carefully that the converse fails (see erasures): this is a one-way implication in dissipative dynamics.",
+   "contraction": "C3, C5",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Superselection-sector weights: Tr[P_kappa rho] for the block projectors P_kappa of the asymptotic decomposition, when the channel does not connect blocks.",
+   "why_not_erased": "Each such P_kappa lies in ker L^dag (it is a fixed point of the unital dual map), hence is a conserved quantity in the sense of the preceding item, hence its expectation is literally constant along the flow. This is the open-system form of a superselection rule: the contraction may destroy everything inside a sector and all coherence between sectors, but the classical probability distribution over sectors is frozen.",
+   "contraction": "C3, C8",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The peripheral spectrum and its rotating points: eigenvalues with |lambda| = 1. For an irreducible channel these form the group of m-th roots of unity, each simple, with m <= d (Evans & Hoegh-Krohn). In continuous time the purely imaginary eigenvalues give rho_infty(t) = \u2295_kappa [ sum_{mu nu} rho^{(kappa)}_{mu nu} e^{i lambda^{(kappa)}_{mu nu} t} |mu>_kappa<nu| \u2297 T^{(kappa)} ], lambda^{(kappa)}_{mu nu} = E^{(kappa)}_nu - E^{(kappa)}_mu.",
+   "why_not_erased": "|lambda| = 1 means exactly zero exponential damping: the restriction of the flow to the peripheral subspace is an automorphism (a unitary/permutation action), hence invertible, hence the contraction acts trivially there. The root-of-unity rigidity is stronger still: the peripheral phases cannot take arbitrary values, they are pinned to a finite cyclic group set by the block structure, so even the *frequencies* of the surviving oscillation are quantized data the flow cannot move. Albert & Jiang note these oscillations are induced only by the Hamiltonian part of L and can be rotated away \u2014 i.e. they are pure kinematics of the surviving algebra.",
+   "contraction": "C2, C3",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The Petz-sufficient (Koashi-Imoto) subalgebra: the part of the input on which the data-processing inequality is saturated.",
+   "why_not_erased": "This is a characterization, not an assumption. Petz's sufficiency theorem: D(rho||sigma) = D(Lambda rho || Lambda sigma) if and only if there is a recovery channel R (the Petz map R_{sigma,Lambda}(X) = sigma^{1/2} Lambda^dag(Lambda(sigma)^{-1/2} X Lambda(sigma)^{-1/2}) sigma^{1/2}) with R\u2218Lambda(rho) = rho and R\u2218Lambda(sigma) = sigma. Therefore the non-contracted part of any channel is EXACTLY its sufficient subalgebra, given by the Koashi-Imoto decomposition of the preserved state family; everything outside it is strictly contracted. This converts 'what survives' from a question into a computable object.",
+   "contraction": "C1, C2",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Kraus rank = Choi rank = minimal Stinespring environment dimension; and the Choi matrix J(Lambda) = (Lambda \u2297 id)(|Omega><Omega|) as a complete invariant of the channel.",
+   "why_not_erased": "The Kraus freedom K_i -> sum_j u_ij K_j with u an isometry leaves the Choi matrix invariant (Choi 1975), so rank J(Lambda) is a genuine invariant; and minimal Stinespring dilations are unique up to a unitary on the dilation space. Hence although C1 erases which unitary and which environment produced the channel, it cannot erase HOW MUCH environment was minimally needed. This is the non-erasable 'size of the discarded sector'.",
+   "contraction": "C1",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Pointer-basis populations under pure dephasing: <n|rho_S(t)|n> is exactly constant, with Gamma_nn = 0 for all t and all coupling strengths.",
+   "why_not_erased": "With H_int = A \u2297 B and [A, H_S] = 0, every Kraus operator is diagonal in A's eigenbasis, so Lambda^dag(P_n) = P_n exactly for each pointer projector. Equivalently the channel is a Schur multiplier with unit diagonal, and the diagonal entries of a Schur multiplier with unit diagonal are fixed points by inspection. This is exact, non-perturbative, and independent of the environment's state. The briefs' measured decoherence rates (Brune et al. 1996; Hornberger et al. 2003; Hackermuller et al. 2004) probe the off-diagonal decay precisely because the diagonal is inert.",
+   "contraction": "C8",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The pointer observable itself, as selected by the commutativity criterion [Pi \u2297 1, H_int] = 0 (environment-induced superselection).",
+   "why_not_erased": "The contraction cannot erase the pointer basis because the pointer basis is logically UPSTREAM of it: the briefs record the basis as derived GIVEN the declared interaction, with the interaction itself an input (Zurek 1981, RMP 2003). The map C8 is defined relative to Pi; a map cannot destroy a datum entering its own definition. Outside the strict commutativity limit the criterion generalizes to the predictability sieve / minimal-entropy-production selection, which is robust but not exact.",
+   "contraction": "C8, C1",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The declared system-environment tensor factorization and the form of H_int.",
+   "why_not_erased": "The briefs' primitives entry records these as declared inputs of every open-system construction, not derived objects. They are parameters of the contraction, not arguments of it \u2014 the family of contractions is indexed by them. Nothing in the reduced dynamics can determine them, and correspondingly nothing in the reduced dynamics can erase them. (The briefs flag that whether a preferred factorization exists intrinsically is recorded in a different domain record, so I do not resolve it here.)",
+   "contraction": "C1, C4, C8",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The bath temperature, transmitted through the KMS ratio gamma(-omega)/gamma(omega) = e^{-beta omega}, and with it quantum detailed balance and the Gibbs state sigma \u221d e^{-beta H_S} as stationary.",
+   "why_not_erased": "The KMS property of the bath correlation function is an identity of the Fourier transform of a thermal two-point function and survives evaluation at every omega, so the weak-coupling limit cannot lose it even though it loses almost everything else about the bath. The Davies generator therefore satisfies detailed balance with respect to the Gibbs state at exactly the bath's beta, and when the generator is ergodic that Gibbs state is the unique fixed point. So beta is one of the very few microscopic bath parameters that C5 carries across intact \u2014 it is a surviving coordinate on the quotient of theory space.",
+   "contraction": "C5",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The Bohr spectrum of H_S and its eigenspace grading: [ L_D, [H_S, \u00b7] ] = 0, so populations and coherences decouple and coherences at distinct Bohr frequencies never mix.",
+   "why_not_erased": "The secular projection P_sec is the time average over the group generated by [H_S, \u00b7]; its image is by construction the centralizer of that generator. So the grading by Bohr frequency is not merely preserved, it is the defining invariant of the image of the contraction. Equivalently, the surviving generator is block-diagonal in the Bohr grading, which is why the Gibbs state can be stationary at all. Caveat retained: the Lamb shift H_LS commutes with H_S but can lift degeneracies within an eigenspace, so eigenspace *structure* survives while exact degeneracy need not.",
+   "contraction": "C5",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The bath spectral data that survive C5: the on-shell values gamma_{alpha beta}(omega) for omega in Bohr(H_S), plus the Lamb-shift principal-value functionals S(omega) = PV int (domega'/2pi) gamma(omega')/(omega - omega').",
+   "why_not_erased": "They literally appear as the coefficients of the limiting generator, so they are the coordinates of the image of the theory-space contraction \u2014 by definition they are what is left. Worth stating precisely, because the two behave differently: the DISSIPATOR samples gamma only at the Bohr frequencies (a finite set of numbers), while the LAMB SHIFT is a principal-value integral over the whole spectral density and so retains a weighted functional of off-shell bath structure. Off-shell bath detail is therefore not uniformly erased \u2014 it survives only in the coherent shift.",
+   "contraction": "C5",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The bath data that survive C6: the spectral density J(omega) and the temperature, linked by the fluctuation-dissipation relation nu(omega) = eta(omega) coth(beta hbar omega / 2).",
+   "why_not_erased": "For a bilinearly coupled oscillator bath the influence functional is exactly Gaussian, and its exponent is built from nothing but the noise and dissipation kernels. The briefs record that the influence functional captures the environment's entire effect \u2014 which is the statement that (J, beta) is a complete sufficient statistic for the bath in this model class. No approximation is involved, so the survival is exact and the erasure of everything else is exact too.",
+   "contraction": "C6",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Linearity of the reduced map on operators \u2014 and hence the whole linear-response structure built on it.",
+   "why_not_erased": "Every contraction on this list is a linear map on the operator space: Tr_E is linear, composition of linear maps is linear, P is a linear projection, the Davies and van Hove limits are limits of linear maps in a topology in which linearity is closed, and the unraveling average is an expectation (linear). There is no route inside the domain by which linearity can be lost. The briefs' RRT-0 entry draws the corollary that unitary, invertible-non-unitary, non-invertible, CPTP, and Lindblad dynamics are all response-reducible because Delta_n = T^n((E - I)[rho]) uses only linearity, so escaping requires nonlinear dynamics, perturbation, or readout. I grade the preservation-of-linearity fact THEOREM; the response-reducibility corollary is PROGRAM-RESULT (in-house, unreviewed) per the briefs' own provenance firewall and I do not rest anything on it.",
+   "contraction": "C1, C2, C3, C4, C5, C6, C7, C8",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The global von Neumann entropy S(rho_SE) under the dilating unitary, and with it the fact that the contraction RELOCATES rather than destroys.",
+   "why_not_erased": "S(U rho U^dag) = S(rho) exactly for any unitary. Combined with Stinespring, every CPTP contraction on S is the shadow of an entropy-preserving global map: the which-path information that leaves rho_S has gone into S-E correlations, not out of existence. The briefs record exactly this as a derived result (closed unitary dynamics with orthogonal environmental records produces reduced-state decoherence while preserving a pure global entangled state), within the stated model class. This is a kernel element of the DESCRIPTION-CHANGE, not of the reduced state, and the distinction matters for everything below.",
+   "contraction": "C1, C8",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The exact reduced trajectory {rho_S(t)} is not lost by the Nakajima-Zwanzig projection.",
+   "why_not_erased": "The NZ equation is exact: P is idempotent, and the Q-sector influence is repackaged into K(t) and the inhomogeneity rather than dropped. So the contraction that looks maximally destructive (a rank-reducing projection) erases nothing at all about the S-trajectory; what it erases is autonomy. This sharply separates 'coarse-graining the description' from 'coarse-graining the dynamics', and it is why non-Markovianity is a statement about the generator, not about lost data.",
+   "contraction": "C4",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The monotone direction: for a semigroup with stationary sigma, D(rho_t || sigma) is non-increasing in t, and Spohn's entropy-production functional is non-negative and convex.",
+   "why_not_erased": "Monotonicity of relative entropy under CPTP maps (Lindblad-Uhlmann) plus L(sigma) = 0 gives the inequality immediately; no dynamical detail enters. The contraction therefore cannot reverse its own arrow \u2014 irreversibility is not a contingent feature of particular models but a structural consequence of the class. Combined with Petz: the relative entropy is STRICTLY decreasing except on the sufficient subalgebra, so the arrow and the kernel are two faces of one theorem.",
+   "contraction": "C2, C3, C5",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Impossibility of manufacturing non-Markovian signatures: no CPTP map can increase trace distance, so observed information backflow certifies that the underlying dynamics is not CP-divisible.",
+   "why_not_erased": "This is the contrapositive of C2's own contractivity, so it is as strong as C2 itself. The contraction cannot erase the *evidential* value of a backflow observation, because producing one is outside its range. The briefs flag contractivity as the basis of trace-distance non-Markovianity witnesses; I note that the briefs also record that no single canonical non-Markovianity measure is established (Breuer, Laine, Piilo & Vacchini, RMP 88, 021002 (2016)), so the witness is one-sided: backflow certifies non-divisibility, its absence certifies nothing.",
+   "contraction": "C2",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Redundant pointer records in environment fragments: for a fragment F of modest size, I(S:F) plateaus at the classical pointer entropy H(p_n), so discarding most of E does not erase the pointer information.",
+   "why_not_erased": "Redundancy: the pointer information is imprinted into many mutually-nearly-independent environmental subsystems, so the fibre of the fragment-tracing map does not collapse it. Only pointer-basis (classical) information has this property \u2014 non-pointer observables are recorded in at most one fragment's worth and are destroyed generically. I grade STANDARD rather than THEOREM because the redundancy plateau is established within model classes (spin baths, photon environments, and the general-emergence results) rather than as an unconditional theorem for arbitrary H_int, and the briefs carry environment-induced superselection at the Zurek-1981/RMP-2003 level without a fragment-level certificate.",
+   "contraction": "C8",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The choice among degenerate stationary states is NOT made by the flow: it is fixed entirely by the initial data through the finite list {Tr[J_mu^dag rho_in]}.",
+   "why_not_erased": "This is the task's 'undetermined-by-the-flow' category in its exact form. When dim L_ss > 1 the generator does not select a point on the steady-state manifold; the selection is carried in from t = 0 by conserved quantities and is untouchable by the dynamics, because those quantities are by construction annihilated by L^dag. Correspondingly the flow cannot be blamed for, or credited with, the selection: the degeneracy label is boundary data, not dynamical output.",
+   "contraction": "C3",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The dissipator as a superoperator, and the Kossakowski matrix in a fixed traceless orthonormal basis, as complete invariants of the generator.",
+   "why_not_erased": "The GKLS gauge freedom L_j -> L_j + c_j 1 with compensating H -> H + (1/2i) sum_j (c_j^* L_j - c_j L_j^dag), together with unitary mixing of the L_j, leaves the generator invariant. But once the Lindblad operators are required traceless in a fixed orthonormal basis, the Kossakowski matrix and a traceless H are determined uniquely (Gorini, Kossakowski & Sudarshan). So although the individual L_j are never recoverable, the dissipator superoperator always is. The contraction erases the parametrization, not the object.",
+   "contraction": "C5, C9",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Non-analytic structure in frequency: the absorptive part of a response function cannot be generated or removed by any analytic/local (contact) redefinition.",
+   "why_not_erased": "Adding an analytic P(omega) to Sigma(omega) changes only the analytic part; the discontinuity across the cut, and any non-analytic dependence, is untouched by construction, since the class of admissible redefinitions is analytic by definition. Equivalently in the time domain: delta-function (zero-memory) additions to K(t) cannot alter genuine memory. This is the general kernel of C9 and I grade it STANDARD as a general principle of dispersive/absorptive response. The briefs' de Sitter boundary entry is an instance of exactly this argument, but it is flagged PROGRAM-RESULT (in-house, unreviewed, scoped to a certified non-analytic sector through H^6 with a declared reality premise), so I cite the general principle and not the instance.",
+   "contraction": "C9",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The definite outcome, and branch selection, are outside the flow's reach in both directions \u2014 neither produced by it nor erased by it.",
+   "why_not_erased": "The reduced-dynamics contraction has no observable in its own algebra whose value is 'the outcome'; the derivation chain terminates at the reduced-state layer. The briefs record this as an explicit disconnect ('decoherence does NOT yield a definite outcome') with community concurrence noted at Zurek RMP 2003, and record the narrowed permitted claim 'decoherence observables alone do not determine branch weights' (this narrower statement is PROGRAM-RESULT, in-house; the briefs explicitly prohibit the stronger full-reduced-state version, since p_0 is itself a reduced-state observable \u2014 so the pointer-basis diagonal, which IS the Born weights, does survive as kernel element 13 above). I grade the outcome statement STANDARD as an established open problem rather than THEOREM, because it is an absence of derivation, not a no-go proof.",
+   "contraction": "C3, C8",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The semigroup composition law Lambda_{t+s} = Lambda_t Lambda_s as the structural invariance of the Markovian theory (and CP-divisibility as its differential form).",
+   "why_not_erased": "Once C5 has acted, the composition law is an identity of the exponential map e^{L(t+s)} = e^{Lt} e^{Ls} and cannot be broken by anything inside the resulting theory. The briefs list it under symmetries for exactly this reason. Note the direction: C5 does not preserve divisibility from the microscopic theory, it IMPOSES it \u2014 which is why the law is kernel of the Markovian theory but is one of the things C5 erases from the exact one.",
+   "contraction": "C5",
+   "confidence": "THEOREM"
+  }
+ ],
+ "things_erased_completely": [
+  "Global purity and the identity of the purification. A pure entangled rho_SE and a proper classical mixture with the same S-marginal become the same object under Tr_E; no measurement on S can separate them and no CPTP map on S can restore the distinction.",
+  "The environment's state, its Hilbert-space dimension beyond the Kraus rank, and the global unitary. U and (1_S \u2297 V)U give the identical channel; only the minimal dilation survives, and only up to a unitary on it.",
+  "The Kraus decomposition. K_i -> sum_j u_ij K_j is invisible in the channel; only the Choi matrix is an invariant. There is no such thing as 'the' set of Lindblad operators.",
+  "The Hamiltonian-versus-dissipator attribution, absent a traceless-basis convention. L_j -> L_j + c_j 1 with the compensating shift of H leaves the generator identical, so 'which part of the dynamics is coherent' is a pure gauge choice.",
+  "The entire decaying sector of the initial state: d^2 - sum_kappa n_kappa^2 real dimensions, multiplied by |lambda|^n -> 0. Everything in the initial condition except the conserved expectation values Tr[J_mu^dag rho_in] is destroyed by the asymptotic flow.",
+  "All pointer-basis coherences rho_{n != m}, exponentially and irreversibly. Once below the noise floor, data processing forbids their recovery by any physical map on S.",
+  "All bath microstructure off the on-shell set under the Davies limit: individual mode frequencies, couplings, masses, the bath Hamiltonian's spectrum away from Bohr(H_S), the bath dimension. The dissipator sees only {gamma_{alpha beta}(omega) : omega in Bohr(H_S)}. Uncountably many distinct microscopic theories collapse to one generator. (Partial exception: the Lamb shift retains a principal-value functional of the full spectral density.)",
+  "All individual oscillator data under Feynman-Vernon: c_n, m_n, omega_n, and the oscillator count. Only J(omega) and beta survive, exactly and with no approximation.",
+  "All bath memory in the Markovian limit: the correlation time tau_B is sent to zero and the Nakajima-Zwanzig kernel collapses, K(t) -> delta(t) times its zero-frequency weight. Every non-Markovian feature of the exact dynamics is destroyed by construction, and information backflow becomes impossible.",
+  "All non-secular, cross-Bohr-frequency couplings in the generator, annihilated by the time-averaging projection P_sec. Near-degenerate Bohr frequencies that the average merges are no longer distinguishable in the limiting theory.",
+  "The short-time (Zeno) regime. The semigroup decays strictly exponentially from t = 0, erasing the quadratic short-time behaviour of the exact dynamics and with it the quantum Zeno structure.",
+  "Time-reversal and microreversibility inside the physical class. A channel on the same space with a CPTP inverse must be a unitary conjugation (Nayak & Sen 2007), so every genuinely open channel is one-way: only t >= 0 is defined for the semigroup.",
+  "The unraveling, the trajectory, and the environmental measurement record. Every monitoring scheme averages to the same Lindblad generator, so nothing in rho(t) distinguishes quantum jumps from quantum state diffusion from homodyne detection, and no conditional/selective information survives the ensemble average.",
+  "The Noether bijection between continuous symmetries and conserved quantities. In unitary dynamics [J,H] = 0 <=> J-dot = 0 <=> U^dag H U = H; in dissipative dynamics four of these arrows are lost (Albert & Jiang 2014). Conserved quantities need not generate symmetries and symmetry generators need not be conserved. The implication [J,H] = [J,L_l] = 0 for all l => both is the only survivor, and it is one-way.",
+  "Initial system-environment correlations, erased by declaration rather than by dynamics. With Q rho(0) != 0 the reduced map need not even be completely positive (Pechukas, PRL 73, 1060 (1994)), so the CPTP framework purchases its own well-definedness by discarding the correlated sector at t = 0.",
+  "The distinction, at the level of rho_S alone, between environment-induced decoherence and a genuine collapse. The reduced state is blind to the difference, which is precisely why the outcome problem is not addressed by any map on this list.",
+  "The analytic contact part of any response function, and with it the scheme-dependent polynomial-order content of Re Sigma; only the non-analytic (absorptive/memory) structure is invariant under local redefinitions."
+ ],
+ "method_note": "SELECTION CRITERION. I admitted a map as a contraction only if it is demonstrably many-to-one \u2014 exhibiting the fibre explicitly \u2014 and I deliberately separated two levels that are often conflated in this domain: contractions on STATE space (C1, C2, C3, C4, C7, C8) and contractions on THEORY space, where distinct microphysical models become the same object (C5, C6, C9). The task's phrase 'distinct configurations OR THEORIES become identical' is what forced the second level in; without C5/C6 the answer would be a structure theorem for channels and would miss the part of the domain where the erasure is most violent. I also resisted the common slip of equating 'contractive' with 'non-invertible': a CPTP map is non-expansive for trace distance but need not be strictly many-to-one on any given pair (a weak depolarizing channel is an invertible linear map whose inverse is merely not positive). The precise criterion I used for irreversibility-within-the-class is Nayak-Sen: on a fixed Hilbert space, a channel with a CPTP inverse is a unitary conjugation, so every non-unitary channel is irreversible physically even when linearly invertible. C3 is then separated out as the only map that is strictly rank-collapsing on states, and it carries most of the sharp kernel results. C9 is the one entry I considered borderline; I kept it because the domain's own boundary material turns on exactly the analytic-versus-non-analytic split, and because the same structure recurs inside GKLS as the H-versus-dissipator gauge.\\n\\nWHAT THE BRIEFS INFLUENCED. Several kernel elements exist in this list because the briefs put them there rather than because I would have reached for them unprompted. (i) The primitives entry \u2014 that the S/E tensor split and H_int are declared inputs, not derived objects \u2014 drove kernel element 15 and shaped how I justified C1: the contraction cannot erase what parametrizes it. (ii) The symmetries entry on trace-distance contractivity drove C2 and kernel element 24 (the one-sided witness). (iii) The alternative_formulations entry on non-unique unravelings drove C7 as a free-standing contraction rather than a footnote to C2. (iv) The formalism entries on Nakajima-Zwanzig and Feynman-Vernon drove C4 and C6, and in particular kernel element 22 \u2014 that the exact NZ projection erases autonomy but not the trajectory \u2014 which is a distinction I would not have foregrounded without the briefs' 'exact but the kernel is not computable' caveat. (v) The known_disconnects entries drove kernel elements 20 (linearity, via the RRT-0 note) and 30 (outcome/branch weights). (vi) The de Sitter absorptive-response boundary entry drove C9 and kernel element 29. (vii) The Pechukas domain_of_validity entry set the scope caveat on C1/C4.\\n\\nPROVENANCE DISCIPLINE. The briefs mark four entries PROGRAM-RESULT (in-house, unreviewed) behind an explicit provenance firewall, and I honoured it: I state the general, externally-checkable principle and flag the in-house instance without leaning on it. Concretely \u2014 for kernel element 20 I graded the preservation-of-linearity fact THEOREM (it is trivially closed under all the maps listed) while explicitly declining to rest anything on the RRT-0 response-reducibility corollary; for kernel element 29 I graded the analytic/non-analytic separation STANDARD as a general dispersive-response principle and did not import the dS certificate's H^6 scope, its deep-IR wall, or its declared reality premise; for kernel element 30 I graded the outcome statement STANDARD as an established open problem (an absence of derivation, not a no-go proof) and noted that the briefs' narrower branch-weights claim is in-house and that the briefs themselves prohibit its stronger form, since the pointer-basis diagonal \u2014 the Born weights \u2014 does survive as kernel element 13. I did not upgrade any in-house item by repetition.\\n\\nEXTERNAL VERIFICATION PERFORMED. I checked, rather than recalled, the following load-bearing statements: Frigerio's fixed-point/decoherence-free algebra result and the commutant form N(T) = {H, L_j, L_j^dag}' under a faithful normal invariant state, including Spohn's observation that the faithfulness hypothesis is restrictive; the Albert-Jiang closed form rho_ss = sum_mu Tr[J_mu^dag rho_in] M_mu with the block decomposition and the sum_kappa n_kappa^2 - 1 capacity count; the Noether-like channel theorem that for a channel with a full-rank fixed point the conserved quantities commute with its Kraus operators up to a phase; the Evans-Hoegh-Krohn peripheral-spectrum result (roots of unity, simple, order <= d); the Blume-Kohout-Ng-Poulin-Viola matrix-algebra structure for perfectly preserved information; Petz sufficiency as the equality condition of data processing and its Koashi-Imoto form; the Davies KMS relation gamma(-omega) = e^{-beta omega} gamma(omega) with Gibbs stationarity; the GKLS gauge freedom and the uniqueness of the traceless split; Spohn's entropy-production functional; and Nayak-Sen on invertible channels. Two items I graded below THEOREM after checking: the quantum-Darwinism redundancy plateau (model-class-established, not unconditional) and the general pointer-selection criterion outside strict commutativity (predictability sieve, robust but not exact). I did not read any file outside the blinded brief directory."
+}

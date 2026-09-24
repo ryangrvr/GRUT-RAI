@@ -1,0 +1,303 @@
+{
+ "description_group": "qft-gauge-flavor",
+ "contractions": [
+  {
+   "name": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "mathematical_form": "Shell integration: exp(-S_{bL}[phi_<]) = INT D(phi_>) exp(-S_L[phi_< + phi_>]) for b<1, followed by x -> x/b and phi -> Z^{-1/2} phi. On coupling space this is a map R_b: {g_i} -> {g_i'} obeying R_b o R_b' = R_{bb'} with NO inverse element. Continuous form: Wetterich/Polchinski equation, d_t Gamma_k = (1/2) STr[(Gamma_k^{(2)} + R_k)^{-1} d_t R_k], a parabolic (diffusion-type) functional equation. Linearized at a fixed point g*: dg_i(mu) = (mu/Lambda)^{-y_i} dg_i(Lambda), y_i = d - Delta_i; y_i > 0 relevant (expanded toward IR), y_i = 0 marginal, y_i < 0 irrelevant (compressed by (mu/Lambda)^{|y_i|}).",
+   "why_this_is_the_contraction": "It is not a computational device layered onto the domain; per the briefs' own formalism entry (Wilson-Kogut, Phys. Rep. 12, 75 (1974)) it IS what renormalization is taken to be here. The physics reason it is the operative contraction: the domain's central empirical fact -- that a finite number of measured parameters predicts everything below the cutoff, with QED at ~1e-12 -- is logically the SAME statement as the non-invertibility. Universality is the fibre structure. PRECISION (load-bearing): at a FINITE scale ratio the flow is a formally invertible ODE whose inverse is merely exponentially ill-conditioned; the EXACTLY many-to-one map is the limit mu -> 0, whose fibre over a given IR endpoint is the entire stable manifold of the fixed point (infinite-dimensional). The a-theorem (Zamolodchikov in 2d; Komargodski-Schwimmer in 4d) upgrades this from 'no inverse in practice' to a strict monotone a_UV > a_IR, forbidding cycles and making the direction of the map physical.",
+   "what_it_erases": "Everything transverse to the unstable manifold: the microscopic action, the regulator, non-universal amplitudes, T_c, all short-distance structure that is not a symmetry, a topological invariant, a relevant/marginal coupling, or an anomaly."
+  },
+  {
+   "name": "Irrelevant-operator suppression / decoupling (the EFT truncation map)",
+   "mathematical_form": "L_eff(mu) = SUM_{d_i <= 4} c_i O_i + SUM_{d_i > 4} [c_i(mu)/Lambda^{d_i - 4}] O_i, with matrix elements scaling as c_i (E/Lambda)^{d_i - 4}. The map is Pi_n: {UV theories with symmetry G} -> {c_i : d_i <= 4+n}, defined modulo O((E/Lambda)^{n+1}). Appelquist-Carazzone: for E << M, a field of mass M contributes only O(E/M) power corrections plus renormalizations of the light couplings.",
+   "why_this_is_the_contraction": "This is the briefs' stated organizing primitive (Weinberg, Physica A 96, 327 (1979); Appelquist-Carazzone, PRD 11, 2856 (1975)). It is operative rather than convenient because it is simultaneously the source of predictivity and of UV non-identifiability: the SAME (E/Lambda)^{d-4} suppression that lets you truncate is what makes the fibre over a truncated IR Lagrangian infinite-dimensional. The hostile reading recorded in the QFT brief ('an EFT declares its degrees of freedom rather than deriving them') is a restatement of this contraction's kernel being exactly the declared relevant/marginal set.",
+   "what_it_erases": "The identity, spin, and mass spectrum of everything above the cutoff, beyond its imprint on the retained low-dimension coefficients and on threshold logarithms. Exactly many-to-one only in the strict E/Lambda -> 0 limit; at finite E/Lambda the erasure is loss of conditioning at rate (E/Lambda)^{d-4}."
+  },
+  {
+   "name": "Gauge-orbit quotient (gauge redundancy)",
+   "mathematical_form": "A_mu -> A_mu^g = g^{-1} A_mu g + g^{-1} d_mu g, with projection pi: A -> A/G onto the physical configuration space. Observables are functions on A/G: Wilson loops W[C] = tr P exp(i INT_C A), field-strength invariants, S-matrix elements.",
+   "why_this_is_the_contraction": "Elitzur's theorem (PRD 12, 3978 (1975), in the gauge brief) makes this a fact rather than a convention: without gauge fixing, any non-gauge-invariant local order parameter has identically vanishing expectation value, so the gauge-variant coordinates carry no content at all -- the fibre is not 'hard to measure', it is empty of physics. The gauge brief's own symmetries entry ('only gauge-invariant quantities are observable') states the quotient. Unlike the RG flow, this map is exactly non-invertible at every scale, with fibre = the gauge orbit (infinite-dimensional).",
+   "what_it_erases": "The gauge orbit itself; gauge-fixed off-shell Green functions, ghosts, gauge-parameter (xi) dependence of individual coefficients; and -- via Fradkin-Shenker continuity with fundamental matter -- any sharp Higgs/confinement distinction, which is exactly why the brief's electroweak result is a crossover with no transition at m_H = 125 GeV."
+  },
+  {
+   "name": "Flavor-basis quotient (Yukawa field redefinitions)",
+   "mathematical_form": "G_F = U(3)_Q x U(3)_u x U(3)_d x U(3)_L x U(3)_e acts by (Y_u, Y_d, Y_e) -> (V_Q^dag Y_u V_u, V_Q^dag Y_d V_d, V_L^dag Y_e V_e). Quark sector: 36 real parameters in (Y_u, Y_d); dim G = 27; generic stabilizer U(1)_B of dimension 1; orbit dimension 26; physical = 36 - 26 = 10 = 6 masses + 3 angles + 1 phase. Charged-lepton sector with massless neutrinos: 18 real; dim(U(3)_L x U(3)_e) = 18; generic stabilizer U(1)_e x U(1)_mu x U(1)_tau of dimension 3; physical = 18 - 15 = 3. Total 13, matching the briefs' '13 flavour parameters' tally. Adding the dim-5 Weinberg operator c_5 (complex symmetric, 12 real) collapses the stabilizer to nothing and gives 12 lepton-sector invariants (3 + 3 masses, 3 angles, 3 phases).",
+   "why_this_is_the_contraction": "This is the dominant erasure in the flavor sector, and it is NOT the RG flow -- a point worth stating flatly, because it is routinely conflated. Field redefinitions are unobservable by construction, so the SM's flavor content is literally a point on the quotient, never a matrix. The map is exactly non-invertible at every scale (26-dimensional fibres in the quark sector), independent of energy, and it acts BEFORE any running. It is the structural reason the briefs' open problem ('Origin of the SM parameter set: input everywhere; no audited framework derives them') is hard in the specific way it is: a UV flavor model's texture is destroyed down to 13 numbers plus theta-bar before the flow is ever applied.",
+   "what_it_erases": "Yukawa textures; the 26 removable real parameters in (Y_u, Y_d); the 5 unphysical relative quark phases; the left and right unitary rotations SEPARATELY (only V_CKM = V_uL^dag V_dL survives, and V_uR, V_dR are wholly unobservable in the SM since there are no right-handed charged currents)."
+  },
+  {
+   "name": "Yukawa RG flow: multiplicative evolution with infrared attractors",
+   "mathematical_form": "SM one loop: 16 pi^2 mu dY_u/dmu = Y_u [ (3/2)(Y_u^dag Y_u - Y_d^dag Y_d) + T - (17/20 g_1^2 + 9/4 g_2^2 + 8 g_3^2) ], with T = Tr(3 Y_u^dag Y_u + 3 Y_d^dag Y_d + Y_e^dag Y_e), and similarly for Y_d, Y_e. Every term carries Y_a as a one-sided factor, so the solution is Y_a(mu) = Y_a(mu_0) W_a(mu, mu_0) with W_a in GL(3,C) (path-ordered exponential) -- in general Y_a(mu) = U_a Y_a(mu_0) W_a with U_a, W_a invertible. The nonlinear attractor: dy_t/dt ~ y_t((9/2) y_t^2 - 8 g_3^2 - ...) drives y_t toward an infrared quasi-fixed point set by g_3.",
+   "why_this_is_the_contraction": "This is the flow acting INSIDE the flavor sector, and it is contractive in one honest sense and not in another. Honest sense: the top-Yukawa quasi-fixed point (Hill 1981; the strict Pendleton-Ross fixed point of 1981 is not two-loop stable because alpha_t/alpha_3 diverges in the IR) focuses a wide basin of y_t(Lambda) onto essentially one y_t(m_t), so at any finite experimental precision the preimage is an interval. Not-a-contraction sense, which must be stated: as an ODE flow on the 13 basis invariants at finite scale ratio the map is invertible -- RG running neither creates nor destroys basis-invariant flavor information. So the answer to 'what does RG flow erase in the flavor sector' is: far less than is usually assumed; the erasure there is overwhelmingly the scale-independent basis quotient, plus attractor conditioning loss.",
+   "what_it_erases": "The UV value of y_t inside the quasi-fixed-point basin (many-to-one at finite precision); more weakly, the UV values of the small Yukawas, which are compressed by a nearly common multiplicative factor so that only their ratios remain well-conditioned."
+  },
+  {
+   "name": "Chiral-rotation / theta-periodicity quotient (topological term)",
+   "mathematical_form": "L contains theta (g^2/32 pi^2) G^a_{mu nu} Gtilde^{a mu nu}, whose integral nu = (g^2/32 pi^2) INT d^4x G Gtilde is an integer on a closed 4-manifold, so theta ~ theta + 2 pi exactly. An anomalous chiral rotation q -> exp(i alpha gamma_5) q shifts theta -> theta - 2 N_f alpha while simultaneously shifting arg det M_q -> arg det M_q + 2 N_f alpha. The two-parameter family (theta, arg det M_q) therefore collapses onto the single circle-valued invariant theta-bar = theta + arg det(M_u M_d) in R/2 pi Z.",
+   "why_this_is_the_contraction": "It is forced by the U(1)_A anomaly -- the same anomaly structure that elsewhere resists renormalization. The contraction is the domain's own statement of which parameter is real, and its kernel is directly the brief's open problem: theta-bar is bounded only empirically at |theta-bar| <~ 1e-10 by the neutron EDM and is otherwise unexplained. Exactly non-invertible: the fibre over each theta-bar is a one-parameter family of (theta, phase) pairs, at every scale.",
+   "what_it_erases": "The separate values of theta_QCD and arg det M_q; any integer shift of theta; and -- in the degenerate case where any quark Yukawa eigenvalue is exactly zero -- theta-bar itself, which then becomes unphysical."
+  },
+  {
+   "name": "Scheme and field-redefinition reparametrization (Lagrangian space -> observables)",
+   "mathematical_form": "Coupling reparametrization gtil = g + a_2 g^2 + a_3 g^3 + ... ; for beta = -b_0 g^3 - b_1 g^5 - b_2 g^7 - ..., one finds btil_0 = b_0, btil_1 = b_1, btil_2 != b_2 in general. Field reparametrization: phi -> phi + eps F[phi] with F proportional to dS/dphi leaves the S-matrix invariant (equivalence theorem), so EOM-redundant operators and total derivatives are null directions of the Lagrangian -> S-matrix map.",
+   "why_this_is_the_contraction": "It is the reason the domain's parameters are not themselves data. In the EFT context it is fully concrete: Warsaw and SILH operator bases are different coordinates on the same coefficient space, and half of a naive dimension-6 basis is redundant. Distinct from the gauge quotient because its kernel is a different object -- the gauge quotient preserves topological configuration data, while this one preserves only on-shell and fixed-point quantities.",
+   "what_it_erases": "Off-shell Green functions and form factors; EOM-redundant and total-derivative operators; operator-basis choice; the individual values of beta-function coefficients from three loops onward; scheme-dependent splittings of finite parts."
+  }
+ ],
+ "kernel_elements": [
+  {
+   "element": "The fixed points themselves (beta(g*) = 0), as literal fixed points of the map",
+   "why_not_erased": "R_b(g*) = g* by definition of a fixed point; the coarse-graining map acts as the identity there, so there is nothing to erase. This is the one place where the semigroup is trivially invertible.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The CHOICE among fixed points / among basins of attraction",
+   "why_not_erased": "The flow moves a theory within a basin; it cannot move it between basins, because basins are separated by critical surfaces that the flow preserves. Which fixed point a theory sits near is UV boundary data the flow never touches -- an instance of 'undetermined-by-the-flow', not of 'preserved-through-the-flow'.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The unstable manifold: relevant and marginally-relevant directions, with their eigenvalues y_i > 0",
+   "why_not_erased": "Non-invertibility of the linearized flow is confined to the stable subspace. On the unstable subspace the map is EXPANDING, dg_i(mu) = (mu/Lambda)^{-y_i} dg_i(Lambda) with y_i > 0, hence locally invertible; the IR remembers these with exponentially amplified sensitivity. The count of such directions equals the number of renormalization conditions and therefore equals the domain's entire predictive leverage.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "In the SM specifically: the Higgs mass-squared is the unique strictly relevant operator, and it is the kernel element that must be supplied as UV data",
+   "why_not_erased": "Dimension-2, y = 2 > 0, so it is amplified rather than compressed. The hierarchy problem is precisely the observation that this non-erased kernel element must be specified with extreme fineness in UV data -- the flow will not fix it for you, by construction.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Critical exponents / scaling dimensions Delta_i at a fixed point, and the universality class as a whole",
+   "why_not_erased": "They are eigenvalues of the linearization of the flow at its own fixed point -- properties of the map, not of the point being mapped. They are additionally invariant under smooth invertible reparametrizations of coupling space, hence survive contraction 7 as well.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Exactly marginal directions and the conformal manifold (moduli)",
+   "why_not_erased": "beta identically zero along them to all orders means the flow acts as the identity on that submanifold: position on M_c is pure boundary data, undetermined by the flow in both directions. For 4d N=1 SCFTs the manifold is the quotient M_c = {marginal lambda} // G_F^C of marginal couplings by the COMPLEXIFIED continuous flavor group (Green-Komargodski-Seiberg-Tachikawa-Wecht, JHEP 06 (2010) 106): a marginal chiral operator fails to be exactly marginal only by pairing with a conserved current multiplet. Sharp negative for this description group: the SM has NO exactly marginal directions -- every marginal coupling there is marginally relevant (g_3) or marginally irrelevant (g_1, lambda, and the sub-top Yukawas) -- so this kernel component is empty in the SM while non-empty in the domain at large.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "theta itself as the SM's one genuinely non-running dimensionless direction -- a compact modulus of the gauge sector",
+   "why_not_erased": "theta multiplies a topological density whose spacetime integral is quantized, so it has no perturbative anomalous dimension and does not run at all in pure Yang-Mills. It is therefore an exactly marginal (indeed circle-valued) direction: a family of physically inequivalent theories that the perturbative flow cannot distinguish and cannot move along.",
+   "contraction": "Chiral-rotation / theta-periodicity quotient (topological term)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "'t Hooft anomaly coefficients of global symmetries: A_UV = A_IR",
+   "why_not_erased": "Gauge the global symmetry with non-dynamical background fields. The anomaly is then an obstruction to gauge invariance of the partition function AS A FUNCTIONAL OF THE BACKGROUNDS, valued in a discrete set (integers via the index theorem / quantized Chern-Simons levels in one higher dimension by inflow). A continuous flow cannot change a discrete invariant. Equivalently: spectator fermions added to cancel the anomaly in the UV are inert under the flow and must still cancel it in the IR. This kernel element survives even confinement -- the most violent contraction in the domain: for QCD with N_f massless flavors it forces the IR to produce either massless composite fermions or chiral symmetry breaking with Goldstone bosons.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Adler-Bardeen non-renormalization: the coefficient of the anomaly is one-loop exact",
+   "why_not_erased": "d_mu j5^mu = (N_f g^2 / 16 pi^2) G Gtilde receives no radiative correction to its coefficient beyond one loop; the infinite set of higher graphs cancels. Modern all-orders proofs exist in regulator-independent (BV / higher-derivative-plus-dimensional) frameworks, including the statement that if gauge anomalies cancel at one loop there is a subtraction scheme in which they manifestly vanish from two loops on by power counting. SCOPE CAVEAT, stated to avoid overclaim: this concerns the coefficient in the anomaly EQUATION; the flavor-singlet axial CURRENT operator still carries a scheme-dependent anomalous dimension starting at two loops in MS-bar. The two statements are compatible and should not be merged.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Gauge-anomaly cancellation conditions as an exactly scale-free constraint",
+   "why_not_erased": "The cancellation conditions (e.g. SUM Y^3 = 0, SUM Y = 0, the SU(2)^2 U(1) and SU(3)^2 U(1) conditions) are built from the same non-renormalized integer coefficients, so if they hold at one scale they hold at all scales. This is why the gauge brief's 'cancels generation by generation' is legitimately a scale-free statement. SCOPE CAVEAT from the briefs themselves: the constraint is rigid GIVEN the content but does not uniquely fix hypercharge once content changes -- adding a right-handed neutrino with a Dirac mass dequantizes hypercharge, Y -> Y_SM - eps(B-L) (Babu-Mohapatra, PRL 63, 938 (1989)). The anomaly is in the kernel; the selection of a point in the allowed set is not.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Discrete and global anomalies: the Witten SU(2) Z_2 anomaly, discrete theta-angles, SPT/anomaly-inflow classes",
+   "why_not_erased": "These are torsion-valued (e.g. pi_4(SU(2)) = Z_2) rather than merely integer-valued, so they are even more rigidly protected against continuous deformation than the perturbative coefficients. No continuous flow connects distinct classes.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The a-anomaly (and c) at each endpoint, and the ordering a_UV > a_IR",
+   "why_not_erased": "a is a fixed-point invariant, hence in the kernel of the flow at the endpoints. The inequality is a monotone the flow provably cannot violate for unitary flows between CFTs (Zamolodchikov 1986 in 2d; Komargodski-Schwimmer 2011 in 4d). It is the quantitative form of the irreversibility: it forbids RG limit cycles between CFTs and fixes the direction of the map as physical rather than conventional.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Exact symmetries of the UV action (with a stated asymmetry in the converse)",
+   "why_not_erased": "Coarse-graining is performed symmetrically -- the measure over phi_> respects the symmetry -- so an exact UV symmetry remains an exact IR symmetry. The converse fails, and the failure is informative rather than a defect: symmetries can EMERGE accidentally in the IR when every operator violating them is irrelevant. B and L conservation in the SM is exactly this: an output of the contraction at dimension 4, violated at dimension 5 (the Weinberg operator) and 6. So the kernel contains the UV symmetry group; the IR symmetry group can be strictly larger.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The vacuum / point on a moduli space of vacua",
+   "why_not_erased": "The flow acts on the action, not on the state. Which vacuum is realized -- including where on a SUSY flat direction the theory sits -- is boundary/initial data orthogonal to the flow. This is the same class as the briefs' recorded open problem that the curved-space vacuum is non-unique so 'the vacuum energy density' is not well-posed absent a state choice.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Asymptotic-state data: Poincare labels (mass, spin) of the surviving spectrum, and superselection sectors",
+   "why_not_erased": "These are labels of unitary irreducible representations of the Poincare group (Wigner 1939, the briefs' primitives entry), fixed by the symmetry algebra and the choice of sector rather than by the local action. Local coarse-graining cannot move a theory between superselection sectors.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The relevant and marginal (renormalizable) parameter set, intact up to running",
+   "why_not_erased": "It is by definition the complement of the suppressed set: contributions scale as (E/Lambda)^{d-4} with d <= 4, so no positive power of E/Lambda suppresses them. This finite set is exactly what the EFT map retains, and it is why the briefs can record QED as DERIVED and PREDICTIVE from declared inputs.",
+   "contraction": "Irrelevant-operator suppression / decoupling (the EFT truncation map)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The leading non-vanishing Wilson coefficient of any operator forbidden at the renormalizable level -- canonically c_5/Lambda for the Weinberg operator",
+   "why_not_erased": "It is suppressed but not zero, and it is the ONLY surviving trace of the UV physics that generated it. The SM's dimension-5 operator (Lbar^c Htilde*)(Htilde^dag L) is unique up to flavor indices (Weinberg, PRL 43, 1566 (1979)), so the IR cannot tell type-I from type-II from type-III seesaw -- but it retains c_5/Lambda, and the SAME coefficient fixes both m_nu and the neutrinoless double-beta amplitude. The briefs identify this correctly as the EFT's own parameter-free ordering test: a genuine kernel element that is empirically exploitable precisely because the contraction did not reach it.",
+   "contraction": "Irrelevant-operator suppression / decoupling (the EFT truncation map)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Positivity / analyticity constraints on Wilson coefficients",
+   "why_not_erased": "Unitarity, causality and crossing of the UV amplitude force sign conditions (e.g. positivity of certain dimension-8 coefficients) that hold for ANY consistent UV completion. The contraction can move a theory anywhere within the allowed region but cannot carry it outside, so the region's boundary is kernel data: an inequality the flow cannot violate. Scope note: established for specific coefficient combinations; the fully general classification is an active program, so I do not claim more than the established cases.",
+   "contraction": "Irrelevant-operator suppression / decoupling (the EFT truncation map)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The zero pattern of the anomalous-dimension matrix gamma_ij in the operator basis",
+   "why_not_erased": "Many entries vanish for reasons the flow cannot supply: symmetry, and (in SMEFT at dimension six) helicity/angular-momentum selection rules that forbid one-loop mixing of operators with mismatched total helicity weight -- non-renormalization without supersymmetry. These are structural zeros, not small numbers, so the flow cannot fill them in at that order.",
+   "contraction": "Irrelevant-operator suppression / decoupling (the EFT truncation map)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Threshold logarithms: the decoupling residue ln(M/mu) in the matching of marginal couplings",
+   "why_not_erased": "Appelquist-Carazzone kills the power effects of a heavy state but not the logarithmic renormalization of the light couplings it induces. So the EXISTENCE and SCALE of heavy thresholds is partially reconstructible from precision running of the marginal couplings, even though the heavy state's identity is gone. This is the mechanism behind coupling-unification inference and is the reason measured alpha_s running from ~1 GeV to TeV (five-loop agreement, per the gauge brief) is informative about physics it does not contain.",
+   "contraction": "Irrelevant-operator suppression / decoupling (the EFT truncation map)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Gauge-invariant observables as the coordinates on A/G",
+   "why_not_erased": "They are by construction functions on the quotient, i.e. constant along the fibre. Wilson loops/holonomies form an (over)complete such set; hadron masses and cross sections are the measured instances. Elitzur guarantees the complement carries nothing.",
+   "contraction": "Gauge-orbit quotient (gauge redundancy)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The global form of the gauge group and its center / 1-form symmetry",
+   "why_not_erased": "SU(N) versus SU(N)/Z_N is not determined by the Lie algebra and is not gauge-variant data: gauge transformations act WITHIN a choice of global form, never across choices. It controls the allowed spectrum of line operators, the periodicity of theta, and the available discrete theta-angles. The quotient cannot reach it because it is not a direction in A.",
+   "contraction": "Gauge-orbit quotient (gauge redundancy)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The global subgroup: conserved charges, charge quantization, superselection",
+   "why_not_erased": "The redundancy is LOCAL; the global subgroup acts physically. Gauss's law ties total charge to boundary flux, making it asymptotic data the local quotient does not touch. The gauge brief's own caveat flags this ('the physical content of the global subgroup -- charge conservation, superselection'), and the empirical trace is the charge-universality bound |eps_{p-e}| <~ 1e-21 e.",
+   "contraction": "Gauge-orbit quotient (gauge redundancy)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Topological configuration classes: instanton number nu = (g^2/32 pi^2) INT G Gtilde in Z, monopole and vortex charges",
+   "why_not_erased": "These are gauge-invariant AND integer-valued: invariance puts them on the quotient, quantization prevents continuous deformation. They are the reason the theta term has content at all.",
+   "contraction": "Gauge-orbit quotient (gauge redundancy)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The full invariant ring of G_F acting on (Y_u, Y_d, Y_e): the 13 physical flavor parameters",
+   "why_not_erased": "They are, by definition, the functions constant on G_F orbits -- generated by traces of products of H_u = Y_u Y_u^dag, H_d = Y_d Y_d^dag, H_e. The count is exact group theory: 36 - (27 - 1) = 10 in the quark sector, 18 - (18 - 3) = 3 in the charged-lepton sector. This reproduces the briefs' own '13 flavour parameters' tally independently, and the count is a theorem about the orbit structure, not an estimate.",
+   "contraction": "Flavor-basis quotient (Yukawa field redefinitions)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The Jarlskog invariant J as the unique CP-odd quark-sector invariant",
+   "why_not_erased": "It is constructible entirely from basis-invariant data: det[H_u, H_d] = 2i J (m_t^2 - m_c^2)(m_t^2 - m_u^2)(m_c^2 - m_u^2)(m_b^2 - m_s^2)(m_b^2 - m_d^2)(m_s^2 - m_d^2), up to a convention-dependent sign and normalization, with J = Im[V_us V_cb V_ub* V_cs*]. The quotient cannot erase it because it is a function on the quotient by construction. This is the single irreducible complex phase the QFT brief's symmetries entry identifies as the law-side source of weak CP violation (Kobayashi-Maskawa, PTP 49, 652 (1973)).",
+   "contraction": "Flavor-basis quotient (Yukawa field redefinitions)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The structural preconditions for CP violation: three generations and non-degenerate masses",
+   "why_not_erased": "J != 0 requires the mass-difference products above to be non-vanishing. Hence any two same-sector quarks exactly degenerate forces CP conservation, and with only two generations J vanishes identically. This is a statement about the invariant ring itself, so it is scale-independent and quotient-proof -- it is WHY three generations is a precondition for the Kobayashi-Maskawa mechanism rather than a numerical coincidence.",
+   "contraction": "Flavor-basis quotient (Yukawa field redefinitions)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The rank of each Yukawa matrix, and therefore the pattern of exactly massless fermions",
+   "why_not_erased": "Two independent arguments. (i) Structural: the SM one-loop RGE is purely one-sided, 16 pi^2 dY_u/dt = Y_u[...], so Y_u(mu) = Y_u(mu_0) W with W invertible; rank is exactly preserved, and left-null vectors are carried to left-null vectors. The same one-sided structure persists at higher loops (every term is of the form A Y_a or Y_a B). (ii) Symmetry: a vanishing Yukawa row is protected by an exact chiral U(1), so it cannot be generated at ANY order -- 't Hooft technical naturalness. Argument (ii) is the all-orders version and is what earns the THEOREM grade.",
+   "contraction": "Yukawa RG flow: multiplicative evolution with infrared attractors",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Vanishing or non-vanishing of J -- RG cannot create or destroy CP violation",
+   "why_not_erased": "CP is either a symmetry of the Lagrangian or it is not, and RG flow preserves symmetries of the Lagrangian (the coarse-graining respects them). So if the flavor sector is CP-conserving (J = 0) at one scale it is CP-conserving at every scale, and conversely. Equivalently, at the level of the RGE, J is a top-degree invariant obeying a homogeneous equation dJ/dt = J x (real function), so J = 0 is an invariant manifold of the flow and the sign of J is fixed.",
+   "contraction": "Yukawa RG flow: multiplicative evolution with infrared attractors",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Ratios of the small Yukawas, up to the difference of their non-universal pieces",
+   "why_not_erased": "For sub-top Yukawas the RGE is approximately homogeneous and universal, dY_i/dt ~ Y_i x (common gauge + top terms), so the common factor cancels in ratios and only the small non-universal differences run. This is exactly why m_b/m_tau unification is a computable GUT-scale statement rather than a scale-free guess: the flow compresses the absolute values but leaves the ratio well-conditioned.",
+   "contraction": "Yukawa RG flow: multiplicative evolution with infrared attractors",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The quasi-fixed-point value y_t* itself, as an output determined by the gauge couplings",
+   "why_not_erased": "The attractor is the destination, not the destroyed data: within its basin the UV value of y_t is forgotten but y_t* is FIXED by g_3 (and subleading gauge terms), so the contraction converts UV ignorance into an IR prediction. Historical precision: the strict Pendleton-Ross infrared fixed point (1981, predicting m_t ~ 100 GeV) is not stable at two loops because alpha_t/alpha_3 diverges in the IR; Hill's quasi-fixed point is the operative attractor, giving m_t of order 200-230 GeV for a UV scale near 1e15 GeV -- an over-prediction relative to the measured top mass, which is itself informative about where the SM sits relative to the attractor.",
+   "contraction": "Yukawa RG flow: multiplicative evolution with infrared attractors",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The number of generations",
+   "why_not_erased": "An integer; no continuous flow changes it. It is additionally locked to the representation content by anomaly cancellation, which the gauge brief records as tying quark and lepton content together within each generation -- so it is doubly protected, by integrality and by the non-renormalized anomaly.",
+   "contraction": "Yukawa RG flow: multiplicative evolution with infrared attractors",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Minimal Flavor Violation as an RG-stable class",
+   "why_not_erased": "The RGEs are covariant under G_F (the flow is built from G_F-covariant contractions of the Y's). Therefore the statement 'the only spurions breaking G_F are Y_u and Y_d' is preserved by the flow: MFV is a scale-independent class, not an ansatz that needs re-imposing at each scale. Equivalently, the flow descends well-defined to the quotient of contraction 4.",
+   "contraction": "Yukawa RG flow: multiplicative evolution with infrared attractors",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "theta-bar = theta + arg det(Y_u Y_d), mod 2 pi -- physical, and essentially RG-inert in the SM",
+   "why_not_erased": "Two separate facts. (i) It is the unique combination invariant under the chiral rotation, hence survives the quotient by construction. (ii) It barely runs: theta multiplies a quantized topological density and has no perturbative anomalous dimension, and the CKM phase feeds theta-bar only through flavor-diagonal mass corrections that first arise at high loop order, giving theta-bar_SM of order 1e-16 or smaller. So it propagates essentially unchanged from the UV to the deep IR, where it appears as the neutron EDM -- which is why the briefs can record |theta-bar| <~ 1e-10 as a bound on an unexplained INPUT rather than on a derived quantity. The strong CP problem is a kernel element with no known dynamical origin.",
+   "contraction": "Chiral-rotation / theta-periodicity quotient (topological term)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Structural interlock: the theta-bar kernel is conditional on the Yukawa-rank kernel",
+   "why_not_erased": "If any quark Yukawa eigenvalue were exactly zero, an exact chiral rotation would remove theta-bar entirely and it would cease to be physical. So the survival of theta-bar through contraction 6 depends on rank(Y_u), rank(Y_d) = 3, which is itself protected by contraction 5's kernel. Two kernels are not independent -- worth flagging because it means a single UV mechanism (a massless up quark) would have deleted an entire kernel element, and the empirical exclusion of that option is what keeps the strong CP problem alive.",
+   "contraction": "Chiral-rotation / theta-periodicity quotient (topological term)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "On-shell S-matrix elements, physical pole masses and residues, and all fixed-point data (Delta_i, a, c, OPE coefficients)",
+   "why_not_erased": "The equivalence theorem: field redefinitions proportional to the equations of motion change off-shell Green functions but leave the S-matrix invariant. Fixed-point data are properties of the fixed point, not of the coordinates used to reach it. These are exactly the quantities the briefs list as observables -- cross sections, hadron masses, running couplings -- which is not a coincidence: the observable list IS the kernel of this contraction.",
+   "contraction": "Scheme and field-redefinition reparametrization (Lagrangian space -> observables)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The first two beta-function coefficients b_0 and b_1 of a single coupling",
+   "why_not_erased": "Direct computation: under gtil = g + a_2 g^2 + ..., the transformation of beta leaves b_0 and b_1 unchanged while b_2 onward shift by scheme-dependent amounts. Hence asymptotic freedom (the sign of b_0, from Gross-Wilczek and Politzer 1973) is a scheme-independent structural fact, not an artifact -- which is what licenses the briefs' treatment of the measured alpha_s running as a genuine PREDICTION-grade confirmation. Caveat: the clean b_0, b_1 statement is for a single coupling in a mass-independent scheme; with several couplings the invariant statements require more care.",
+   "contraction": "Scheme and field-redefinition reparametrization (Lagrangian space -> observables)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "One-loop anomalous dimensions, in a basis with no operator mixing",
+   "why_not_erased": "Same reparametrization argument at leading order: the first non-trivial coefficient of a homogeneous evolution cannot be shifted by a redefinition that starts at the same order. The extension of basis-independence to the full pattern of one-loop mixing zeros is stronger and I grade it lower, since some zeros are basis-statements rather than invariant ones.",
+   "contraction": "Scheme and field-redefinition reparametrization (Lagrangian space -> observables)",
+   "confidence": "PLAUSIBLE"
+  },
+  {
+   "element": "Superpotential couplings in SUSY theories (holomorphic non-renormalization)",
+   "why_not_erased": "Holomorphy plus the selection rules of the spurious symmetries force the superpotential to be uncorrected in perturbation theory; only wave-function renormalization acts, so the holomorphic couplings are exactly in the kernel of the flow and running is confined to the Kahler sector. This is the mechanism that makes exactly marginal directions constructible and computable (via gamma = 0 conditions) rather than accidental. Included because it is the sharpest known example of a symmetry-protected kernel element in the domain, though it is not realized in the SM itself.",
+   "contraction": "Wilsonian coarse-graining (the RG semigroup), and its strict IR limit",
+   "confidence": "THEOREM"
+  }
+ ],
+ "things_erased_completely": [
+  "The UV action above the cutoff: in the strict E/Lambda -> 0 limit, all UV completions sharing a symmetry group, a fixed point, and the retained low-dimension coefficients become literally the same theory. The fibre is infinite-dimensional. This is what universality means, and it is not a limitation of technique.",
+  "The identity, spin, and mass of every state above the cutoff, beyond threshold logs: whether the dimension-5 Weinberg operator came from a heavy singlet fermion (type-I), a heavy triplet scalar (type-II), or a heavy triplet fermion (type-III) is not recoverable from c_5/Lambda -- three distinct UV theories, one IR coefficient.",
+  "The UV values of irrelevant couplings, compressed by (mu/Lambda)^{|y_i|}; exactly erased in the strict limit, and at finite ratio rendered unrecoverable by exponential ill-conditioning rather than by non-injectivity.",
+  "Non-universal data at a critical point: T_c, amplitude normalizations, the lattice spacing, the regulator and scheme, the microscopic Hamiltonian -- every member of a universality class collapses to one point.",
+  "The gauge orbit itself, plus gauge-fixed off-shell Green functions, ghost contributions, and the gauge-parameter dependence of individual coefficients. Elitzur's theorem makes this total: non-gauge-invariant local order parameters have identically vanishing expectation value.",
+  "Field-parametrization data: EOM-redundant operators, total derivatives, off-shell form factors, and the choice of operator basis (Warsaw vs SILH are the same point in different coordinates).",
+  "In the quark flavor sector, 26 of 36 real Yukawa parameters -- the entire texture. Also the 5 unphysical relative quark phases. This erasure is scale-independent and happens before any running.",
+  "The right-handed rotation matrices V_uR and V_dR, completely and permanently, because the SM has no right-handed charged currents. Any UV model's right-handed flavor structure leaves no IR trace whatsoever (this is specific to the SM gauge content; in a left-right model it is not erased).",
+  "The separate values of theta_QCD and arg det M_q -- only theta-bar survives -- plus all integer shifts of theta.",
+  "theta-bar itself, in the counterfactual where any quark Yukawa eigenvalue is exactly zero: the parameter would become unphysical, not merely small.",
+  "The UV value of y_t within the quasi-fixed-point basin of attraction: a wide interval of y_t(Lambda) maps onto essentially one IR value, so at any achievable experimental precision the preimage is an interval, not a point.",
+  "The UV value of the Higgs quartic under triviality/attractor flow: lambda(mu_IR) is bounded almost independently of lambda(Lambda), so the IR retains a bound rather than a value.",
+  "Individual beta-function coefficients from three loops onward, and finite-part splittings: only scheme-invariant combinations survive.",
+  "The high-frequency field configurations themselves. The integration over phi_> is a genuine partial trace: the modes are not functions of S_{bLambda}, only their aggregate effect is.",
+  "Any sharp Higgs-vs-confinement distinction in a gauge theory with fundamental-representation scalars (Fradkin-Shenker continuity). The empirical instance is in the briefs: at m_H = 125 GeV the electroweak transition is a crossover with no endpoint above m_H ~ 72 GeV, so there is no electroweak phase transition -- the two 'phases' are one phase, and with them the Sakharov departure-from-equilibrium condition is absent, not merely weak.",
+  "Colored constituents as asymptotic-state labels: confinement erases the quark/gluon description of the asymptotic spectrum entirely (no isolated fractionally-charged states), while leaving the anomaly-matching constraints and the global charges intact. What is erased is the asymptotic labeling, not the UV field content.",
+  "The direction-reversal itself: given only the IR theory, the UV is undetermined. The a-theorem makes this a strict monotone rather than practical ignorance -- a_UV > a_IR forbids even the existence of an inverse flow between CFTs."
+ ],
+ "method_note": "SELECTION CRITERIA. I admitted a map as a contraction only if it met three tests: (i) it is demonstrably many-to-one -- I could exhibit the fibre and, where possible, its dimension (26 for the quark flavor quotient, infinite for the gauge orbit and the strict IR limit, one-parameter for the chiral/theta quotient); (ii) it is forced by the domain's own physics rather than adopted for tractability -- Elitzur for the gauge quotient, the U(1)_A anomaly for the theta quotient, unobservability of field redefinitions for the flavor quotient, the definition of a cutoff theory for coarse-graining; (iii) its kernel is genuinely distinct from the others' -- where two candidate maps quotiented the same data I merged them (e.g. SMEFT operator-basis redundancy is folded into the scheme/field-redefinition contraction, not listed separately), and where kernels differed I kept them apart (the gauge-orbit quotient preserves quantized topological configuration data; the scheme reparametrization does not, preserving on-shell and fixed-point data instead).\\n\\nONE PRECISION I CONSIDER LOAD-BEARING, stated because it changes several answers. The contractions split into two kinds that are usually conflated. The redundancy quotients (gauge orbit, flavor basis, chiral/theta, scheme) are EXACTLY non-invertible at every scale -- the information was never there. The scale flows (Wilsonian coarse-graining, EFT truncation, Yukawa running) are, at a finite scale ratio, formally invertible ODE flows whose inverse is merely exponentially ill-conditioned; they become exactly many-to-one only in the limits mu -> 0 and E/Lambda -> 0, where the fibre becomes the whole stable manifold. This matters most in the flavor sector, where the honest answer to 'what does RG flow erase' is: very little that is basis-invariant. The 13 flavor invariants at one scale determine them at another (invertible flow); the massive erasure in flavor is the scale-independent basis quotient plus attractor conditioning loss at the top Yukawa. I flagged this inside the relevant contraction entries rather than only here, because reading the flavor-sector erasure as an RG effect is the most likely error this classification could induce.\\n\\nHOW THE BRIEFS INFLUENCED THE KERNEL LIST. The briefs are epistemic-audit records (provenance and verification grades on citations), not RG references; no RG or anomaly calculation appears in them. They supplied five concrete anchors that I used and independently checked: (a) the '13 flavour parameters' tally, which I re-derived from the orbit dimensions and which matches; (b) the unique dimension-5 Weinberg operator and its 0nubetabeta ordering test, which I used as the canonical surviving-irrelevant-coefficient kernel element; (c) the |theta-bar| <~ 1e-10 bound and its recorded status as an unexplained input, which I used to characterize the theta kernel as unexplained rather than merely small; (d) Elitzur's theorem and the electroweak-crossover/no-transition result, which I used respectively for the gauge-quotient kernel and for the Fradkin-Shenker erasure item; (e) the Babu-Mohapatra hypercharge dequantization (Y -> Y_SM - eps(B-L) with a Dirac right-handed neutrino), which I used to SCOPE the anomaly kernel -- the anomaly coefficient is preserved exactly, but it does not select a point in the allowed hypercharge set once content changes. Everything else in the kernel list is standard physics from my own knowledge: fixed points and unstable manifolds, the c/a-theorems, Adler-Bardeen, 't Hooft anomaly matching, conformal manifolds, basis invariants and the Jarlskog commutant identity, quasi-fixed points, technical naturalness, and scheme invariance of b_0 and b_1.\\n\\nVERIFIED THIS SESSION (web): the Jarlskog commutant identity det[H_u, H_d] proportional to 2i J times the two mass-difference products; the SM one-loop Yukawa RGE's one-sided form dY_u/dt = Y_u[(3/2)(Y_u^dag Y_u - Y_d^dag Y_d) + Y_2(S) - (17/20 g_1^2 + 9/4 g_2^2 + 8 g_3^2)]/16 pi^2, which is what licenses the exact rank-preservation claim; the Pendleton-Ross vs. Hill distinction (P-R not two-loop stable, alpha_t/alpha_3 divergent in the IR; Hill's quasi-fixed point giving m_t of order 220 GeV for a UV scale near 1e15 GeV); the GKSTW result that the conformal manifold is the quotient of marginal couplings by the COMPLEXIFIED global symmetry group; Adler-Bardeen's all-orders status in modern BV/regulator-independent proofs; and the loop order and 1e-16-scale magnitude of the SM's CKM-induced contribution to theta-bar.\\n\\nDELIBERATE NON-CLAIMS. I did not grade the SMEFT positivity program above STANDARD or assert it beyond established coefficient cases. I did not merge Adler-Bardeen non-renormalization of the anomaly COEFFICIENT with the separate fact that the singlet axial CURRENT has a two-loop anomalous dimension in MS-bar; conflating them is a common overclaim and I stated both. I graded the basis-independence of the full one-loop mixing-zero pattern as PLAUSIBLE rather than STANDARD, since some of those zeros are basis statements. I did not use the briefs' PROGRAM-RESULT entries (in-house, unreviewed adjudications, explicitly firewalled in the records themselves) for any physics content, only the community-derived and observed entries.\\n\\nNOTE ON SCOPE COMPLIANCE. I read only the two named files in the blinded directory; no file outside it, and nothing under any rrp/ path."
+}

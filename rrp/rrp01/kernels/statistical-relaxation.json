@@ -1,0 +1,441 @@
+{
+ "description_group": "statistical-relaxation",
+ "contractions": [
+  {
+   "name": "Macrostate coarse-graining (Boltzmann partition / conditional expectation onto macrovariables)",
+   "mathematical_form": "A partition of phase space by a chosen set of macrovariables: pi: Gamma -> M, x |-> M(x), with fibers Gamma_M = pi^{-1}(M) of Liouville measure |Gamma_M| and S_B(M) = k_B ln |Gamma_M|. On measures it is the idempotent conditional expectation E[.|sigma(M)]: rho |-> rho-bar = sum_M ( int_{Gamma_M} rho dmu / |Gamma_M| ) 1_{Gamma_M}, i.e. rho-bar is constant on each fiber. Composition with the Hamiltonian flow gives the coarse-grained evolution rho_t-bar = E[Phi_t rho | sigma(M)], which is NOT a semigroup and is not invertible.",
+   "why_this_is_the_contraction": "The domain's central quantity is defined by the degeneracy of this map, not merely computed with its help: entropy IS the log of the fiber volume (the brief records 'entropy = state-counting over coarse-grainings' and 'thermodynamics EMERGES_FROM coarse-graining -- CLOSED at the effective layer'). The underlying flow is exactly measure-preserving and one-to-one (the brief carries Carcassi-Aidala: Hamiltonian evolution is 'exactly a one-to-one map between past and future states'), so entropy increase can only live in the projection step. Remove the many-to-oneness and there is no thermodynamics left to derive. This is the operative contraction because the second law is a statement about how fibers of pi deform under an invertible flow.",
+   "what_it_erases": "The microstate coordinate inside the fiber -- of order exp(S_B/k_B) distinctions -- and with it the ability to retrodict the past microstate or to run the coarse description backwards."
+  },
+  {
+   "name": "Boltzmann-Grad limit with molecular-chaos closure (BBGKY truncation at the one-particle marginal)",
+   "mathematical_form": "N -> infinity, hard-sphere diameter a -> 0 with N a^{d-1} = const (mean free path ell fixed) and N a^d -> 0 (vanishing volume fraction). The map sends the N-particle measure to its first marginal, mu_N |-> f_1 = int mu_N dx_2...dx_N, and closes the BBGKY hierarchy by imposing factorization on the INCOMING half of the collision sphere: f_2(x,v,x + a n, v_*) = f_1(x,v) f_1(x,v_*) for (v - v_*).n < 0 (Stosszahlansatz), i.e. all connected correlation functions g_s, s >= 2, are set to zero pre-collision. Result: df/dt + v.grad f = Q(f,f). Lanford (1975) proves convergence for |t| < t_0 of order one fifth of a mean free time.",
+   "why_this_is_the_contraction": "The BBGKY hierarchy is exactly as time-reversal symmetric as Newton's equations; the H-theorem appears only after the pre-collisional factorization is imposed. The brief records precisely that this closure is not a dynamical consequence: Partovi (PRE 77, 021110) constructs entangled high-correlation initial states -- the opposite of molecular chaos -- for which heat flows cold to hot at unchanged dynamics. So the erasure of pre-collisional correlations is not a computational convenience layered onto an already-irreversible dynamics; it is the entire source of the irreversibility of the kinetic equation. The limit is also many-to-one on models: every interaction with the same differential cross-section gives the same Boltzmann equation.",
+   "what_it_erases": "All pre-collisional two- and higher-particle correlations, recollision and ring-diagram sequences, particle labels, the entire hierarchy above f_1, the sphere diameter a, and (in the image of the map) the velocity-reversed solution branch."
+  },
+  {
+   "name": "Hydrodynamic limit / Chapman-Enskog projection onto the null space of the linearized collision operator",
+   "mathematical_form": "Knudsen number Kn = ell/L -> 0 under hyperbolic (x -> eps x, t -> eps t) or diffusive (t -> eps^2 t) scaling. Write f = M[n,u,T](1 + h); linearize the collision operator about the Maxwellian, L h = 2 Q(M, M h)/M, self-adjoint and negative semidefinite in L^2(M^{-1} dv). The contraction is the orthogonal projector P_hyd onto N(L) = span{1, v, |v|^2}, dim = d + 2: f |-> (rho, rho u, E) = <(1, v, |v|^2/2) f>_v. The complement is slaved order by order, (1 - P)h = -L^{-1}(1 - P)(d_t + v.grad)M/M + O(Kn^2), producing Euler at O(1) and Navier-Stokes-Fourier at O(Kn) with eta, zeta, kappa read off from L^{-1}.",
+   "why_this_is_the_contraction": "The many-to-oneness is enforced by a spectral fact about L, not by a modelling choice: L has a spectral gap on N(L)^perp for hard spheres and hard potentials (Carleman; Grad; constructive estimates by Baranger-Mouhot), so every component outside N(L) decays at rate >= 1/tau while components inside N(L) have relaxation rates that vanish as k -> 0. After a few collision times, distinct kinetic distributions sharing the same d+2 moments are dynamically indistinguishable. That is a genuine collapse of the state space from a function of v to d+2 numbers per point, and it is what 'slow modes vs fast modes' names in this domain.",
+   "what_it_erases": "The entire gapped spectrum of L (all non-hydrodynamic kinetic modes), the initial Knudsen layer discarded in Chapman-Enskog matching, and all microscopic data except the equation of state and a finite list of transport coefficients."
+  },
+  {
+   "name": "Local-equilibrium (MaxEnt / Zubarev-Robertson) relevant-density map",
+   "mathematical_form": "Given a declared list of relevant observables {A_a}, the map rho |-> rho_rel = exp[-sum_a lambda_a(t) A_a]/Z[lambda], with the Lagrange multipliers lambda_a(t) fixed uniquely by the constraints Tr(rho_rel A_a) = Tr(rho A_a). It is an idempotent (nonlinear) projection whose fibers are the convex sets of all states sharing the same relevant moments. In the hydrodynamic instance A_a = (n(x), p(x), e(x)) and lambda_a = (-beta mu, beta u, beta)(x,t).",
+   "why_this_is_the_contraction": "The brief lists local equilibrium as a PRIMITIVE of the hydrodynamic-level description -- 'separation of time scales between fast microscopic relaxation and slow hydrodynamic variables ... assumed rather than derived' -- and the corresponding microscopic-derivation gap (Fourier's law) is recorded as an open problem. So this map is the point at which the domain's own accounting says information is put in by hand rather than extracted. Its contractiveness is exact and quantifiable: S[rho_rel] - S[rho] = D(rho || rho_rel) is literally the discarded information.",
+   "what_it_erases": "Every correlation and moment not in the declared relevant list; the distinction between any two states with identical relevant moments; all memory of how the state arrived at those moments."
+  },
+  {
+   "name": "Mori-Zwanzig projection and its Markov-Gaussian closure",
+   "mathematical_form": "Mori inner product (X,Y) = <X Y*>_eq; projector P X = (X, A).(A,A)^{-1}.A, P^2 = P, P^dagger = P, Q = 1 - P. Exact generalized Langevin equation: dA/dt = i Omega.A - int_0^t K(s) A(t-s) ds + F(t), with Omega = (LA, A)(A,A)^{-1}, F(t) = e^{i Q L t} Q i L A, and the second FDT K(t) = (F(t), F)(A,A)^{-1}. Two nested maps: (i) the linear projection P, with kernel ran Q; (ii) the physical closure F -> Gaussian white noise, K(t) -> 2 gamma delta(t) with gamma = K-tilde(0) = int_0^infinity K(s) ds.",
+   "why_this_is_the_contraction": "Stage (i) is a bona fide idempotent projection -- any two microscopic observables differing by an element of ran Q have the same image -- but it loses nothing if the orthogonal dynamics is kept: the identity is exact. The brief states the operative point exactly: the construction is 'exact but not by itself predictive: the kernel is defined through projected dynamics whose evaluation is generally as hard as the original problem.' The real contraction is therefore stage (ii), where the deterministic orthogonal dynamics is relabelled as noise and the memory kernel is collapsed to its zero-frequency value. The brief's primitive -- 'the choice of projection operator ... is a declared input of the construction, not an output of it; different choices redistribute content between systematic, memory, and noise terms' -- says that the fibration itself is exogenous, which is what makes this a contraction with a chosen, not a discovered, kernel.",
+   "what_it_erases": "At the closure step: the whole frequency dependence of K-tilde(omega) beyond K-tilde(0); all cumulants of F above the second; and the deterministic identity of e^{iQLt} Q iLA, which is rewritten as randomness."
+  },
+  {
+   "name": "Relaxation semigroup / approach to equilibrium (t -> infinity limit of a dissipative flow)",
+   "mathematical_form": "Lambda_t = e^{L t}, a Markov (Fokker-Planck, master-equation, or GKLS) semigroup. Contractive in relative entropy by the data-processing inequality, D(Lambda_t rho || Lambda_t sigma) <= D(rho || sigma). For an ergodic generator with stationary state rho_eq, lim_{t->infinity} Lambda_t = rho_eq Tr(.), a rank-one map: the entire basin collapses to a single point. Equivalent statements in the domain: dH/dt <= 0 (Boltzmann), <Delta s_tot> >= 0 by Jensen applied to Seifert's integral fluctuation theorem <exp(-Delta s_tot)> = 1.",
+   "why_this_is_the_contraction": "This is not a reduction imposed on the physics -- it is the phenomenon the description group names. The brief carries it at observation level (isolated quantum many-body systems relax to equilibrium-statistical-mechanics states, with ETH as the mechanism) and at formalism level (Lieb-Yngvason second law, Seifert IFT). Its non-invertibility is the physical content: infinitely many preparations become one equilibrium state, distinguishable afterwards only by their conserved charges.",
+   "what_it_erases": "All initial-condition information within a basin of attraction except the conserved-charge labels; for non-integrable systems, per ETH, even the eigenstate-to-eigenstate variation of few-body observables."
+  },
+  {
+   "name": "Thermodynamic (many-mode / continuum) limit",
+   "mathematical_form": "N, V -> infinity at fixed N/V; the net of finite-volume Gibbs states omega_{Lambda, beta} converges (weak-*) to a KMS state omega_beta on the quasi-local algebra. Spectrally: the discrete mode set {omega_k} is replaced by a continuous spectral density J(omega) = sum_k g_k^2 delta(omega - omega_k) -> continuous, which converts the quasi-periodic dephasing function Gamma(t) into a genuinely decaying one and sends the Poincare recurrence time t_rec -> infinity.",
+   "why_this_is_the_contraction": "The brief's own limits entry states it: 'Strict irreversibility exists only in the many-mode/thermodynamic (continuum) limit: finite closed systems recur (Poincare), with recurrence time growing with mode number.' Every other contraction in this group inherits its strictness from this one -- at finite N the coarse-grained entropy eventually comes back down. It is also many-to-one on theories: microscopically distinct finite sequences with the same free-energy density have the same limit, and the limit algebra supports disjoint representations that no finite-volume state distinguishes.",
+   "what_it_erases": "Poincare recurrences, the discrete spectrum and its quasi-periodicity, all subextensive and surface contributions to bulk densities, and the differences among finite systems sharing a limit."
+  },
+  {
+   "name": "Near-equilibrium linearization to the transport matrix (Kubo / Green-Kubo / Onsager)",
+   "mathematical_form": "J_i = sum_j L_ij X_j, with L_ij = (1/k_B V) int_0^infinity dt <J_i(t) J_j(0)>_eq (Green-Kubo), equivalently chi_AB(t) = (i/hbar) theta(t) <[A(t), B]>_eq (Kubo). The map sends the pair (microscopic Hamiltonian, equilibrium reference state) to a finite list: equation of state plus the matrix {L_ij}.",
+   "why_this_is_the_contraction": "The entire predictive content of the domain at macroscopic scale is that finite list. Two microscopic models with the same conservation laws, symmetry group, dimension and the same Green-Kubo integrals are macroscopically identical -- an infinite-dimensional space of Hamiltonians maps onto a finite-dimensional space of transport matrices. The brief's domain_of_validity entry fixes the map's scope (near-equilibrium linear regime around an equilibrium reference state, with field-reversal completion), which is exactly the statement that the map is defined only on a neighbourhood of the fiber's basepoint.",
+   "what_it_erases": "Everything about the microscopic interaction except the zero-frequency flux autocorrelation integrals and the static thermodynamics; all nonlinear response; and the manifest time-reversal symmetry of the parent dynamics (which survives only as a constraint on the coefficients)."
+  },
+  {
+   "name": "Dynamic renormalization-group flow to a nonequilibrium universality class",
+   "mathematical_form": "R_b: x -> b x, t -> b^z t, h -> b^alpha h, inducing a flow on couplings {g}; fixed point R_b g* = g*, with linearization dg/dl = M (g - g*) whose eigenvalues split into relevant (positive), marginal, and irrelevant (negative) directions. For KPZ: d_t h = nu grad^2 h + (lambda/2)(grad h)^2 + eta, with exponents in 1+1 D alpha = 1/2, z = 3/2, beta = alpha/z = 1/3.",
+   "why_this_is_the_contraction": "The contraction is experimentally demonstrated in this domain rather than assumed. The brief's VERIFIED phenomenon entry (Takeuchi-Sano, PRL 104, 230601) reports that growing interfaces in nematic liquid-crystal electroconvection -- a system sharing essentially no microscopic structure with a polymer-growth or exclusion-process model -- reproduce the same exponents AND the same random-matrix (Tracy-Widom) height-fluctuation distributions. Distinct theories have literally become identical under the flow, which is the definition demanded. The kernel-versus-erased split here is the sharpest in the whole group: irrelevant directions are provably erased, relevant ones provably not.",
+   "what_it_erases": "The entire infinite-dimensional space of irrelevant couplings, all non-universal amplitudes and short-distance cutoffs, and the microscopic realization of the growth rule."
+  },
+  {
+   "name": "Partial observation / state lumping in stochastic thermodynamics",
+   "mathematical_form": "A lumping map Phi from microstates (or full trajectories) to observed states/trajectories. The apparent entropy production is sigma_cg = D(P[Phi omega] || P-dagger[Phi omega-tilde]) computed on the observed path measure, versus the true sigma = D(P || P-dagger) on the full one. Monotonicity of relative entropy under the (stochastic) map Phi gives sigma_cg <= sigma (Esposito, PRE 85, 041125 (2012), and the subsequent bound literature).",
+   "why_this_is_the_contraction": "This is where the domain's actual observables live. The brief's observables entry -- 'trajectory-resolved work, heat, and entropy-production distributions' -- and its VERIFIED Wang et al. (PRL 89, 050601) phenomenon are all measured through a lumping of this kind, never on the full microstate. It is a genuine contraction (the fibers are the unobserved internal states), and the domain's central quantity is provably degraded by it in one direction only.",
+   "what_it_erases": "All irreversibility hidden in unobserved transitions and in internal states, including entire cycles of housekeeping entropy production that leave no observed current."
+  }
+ ],
+ "kernel_elements": [
+  {
+   "element": "Exact additive constants of motion (energy, particle number, total momentum, angular momentum)",
+   "why_not_erased": "The macro-partition is by construction refined by the level sets of the exact integrals of motion, and the Hamiltonian flow maps each level set to itself. A fiber Gamma_M therefore never leaves the charge shell it started on, so the charge values are functions on the quotient: they are well-defined after the projection and constant along the coarse evolution.",
+   "contraction": "Macrostate coarse-graining (Boltzmann partition / conditional expectation onto macrovariables)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The fine-grained Gibbs entropy S_G[rho] = -k_B Int rho ln rho, exactly constant",
+   "why_not_erased": "Liouville's theorem makes the flow measure-preserving, so S_G[Phi_t rho] = S_G[rho] for all t. The contraction acts on the description, never on the flow. This is the precise sense in which the coarse-graining -- and not the dynamics -- carries all of the entropy increase; the brief's Carcassi-Aidala entry carries the equivalent statement that Hamiltonian evolution is exactly one-to-one between past and future.",
+   "contraction": "Macrostate coarse-graining (Boltzmann partition / conditional expectation onto macrovariables)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The Liouville/symplectic reference measure that defines fiber volumes",
+   "why_not_erased": "S_B = k_B ln |Gamma_M| is meaningless without a measure on Gamma, and the measure used is fixed by the symplectic structure, not by the partition. No choice of macrovariables alters it, and it is invariant under the flow by Liouville's theorem. It is prior data the contraction consumes rather than produces.",
+   "contraction": "Macrostate coarse-graining (Boltzmann partition / conditional expectation onto macrovariables)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The choice of macro-partition itself (which variables count as macroscopic)",
+   "why_not_erased": "The map pi cannot select its own fibration: S_B is a functional of the partition, and a different partition assigns a different entropy to the same microstate. The contraction therefore leaves this datum exactly where it found it -- outside the formalism. This is the same exogeneity the brief records explicitly for the Mori-Zwanzig projector, appearing here in its phase-space form.",
+   "contraction": "Macrostate coarse-graining (Boltzmann partition / conditional expectation onto macrovariables)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The direction of time / the low-entropy boundary condition (past hypothesis)",
+   "why_not_erased": "The projection commutes with time reversal: applied to the reversed trajectory it yields the anti-thermodynamic conclusion with equal validity. The map is therefore strictly incapable of selecting a direction; the direction is supplied by the initial macrostate's atypically small fiber volume. The brief records exactly this structure -- 'arrow-of-time REQUIRES boundary condition -- INPUT (the past hypothesis), origin UNRESOLVED', and 'No surveyed derivation escapes a low-entropy/typicality input'. It is undetermined-by-the-flow in the strongest sense: it is a precondition of the flow's interpretation.",
+   "contraction": "Macrostate coarse-graining (Boltzmann partition / conditional expectation onto macrovariables)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The probability measure over microstates (equal a priori weights / typicality) as an independent input",
+   "why_not_erased": "Coarse-graining converts a measure into a fiber-averaged measure; it does not generate the measure being averaged. The brief lists this as a PRIMITIVE: 'A probability measure over microstates ... is a primitive of the statistical description, not derived from the microdynamics.' No amount of projecting produces the prior it projects.",
+   "contraction": "Macrostate coarse-graining (Boltzmann partition / conditional expectation onto macrovariables)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The collision invariants psi(v) in span{1, v, |v|^2} -- the null space of the collision operator",
+   "why_not_erased": "The closure is built from the same binary elastic kinematics that conserves these quantities, so Int psi(v) Q(f,f) dv = 0 identically for every f. Hilbert computed this kernel for hard spheres; for elastic binary collisions in d dimensions the null space is exactly (d+2)-dimensional. The Stosszahlansatz discards correlations but cannot touch a quantity conserved in each individual collision event.",
+   "contraction": "Boltzmann-Grad limit with molecular-chaos closure (BBGKY truncation at the one-particle marginal)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The H-theorem's equality manifold: the (d+2)-parameter family of local Maxwellians",
+   "why_not_erased": "Boltzmann's theorem gives dH/dt = 0 if and only if ln f is a collision invariant, i.e. f is a local Maxwellian M[n, u, T]. The fixed-point set of the contracted dynamics is therefore determined exactly and is not itself contracted: it is the (d+2)-parameter manifold, no larger and no smaller.",
+   "contraction": "Boltzmann-Grad limit with molecular-chaos closure (BBGKY truncation at the one-particle marginal)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The mean free path, i.e. the scaling combination N a^{d-1} held fixed",
+   "why_not_erased": "The limit sends a -> 0 and N -> infinity individually, so neither survives; but the limit is DEFINED by holding N a^{d-1} fixed, which means the mean free path is the one microscopic length that passes through and sets the collision frequency in the resulting equation. The combination is invariant by construction of the scaling, and Lanford's convergence is stated relative to it.",
+   "contraction": "Boltzmann-Grad limit with molecular-chaos closure (BBGKY truncation at the one-particle marginal)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The differential cross-section B(|v - v_*|, cos theta)",
+   "why_not_erased": "It is the only functional of the microscopic interaction that appears in Q(f,f). Everything else about the potential is erased; this is precisely the residue. Different potentials with identical cross-sections are indistinguishable at kinetic level, and identical cross-sections are indistinguishable in the other direction too -- the map's fiber, not its kernel, is the potential.",
+   "contraction": "Boltzmann-Grad limit with molecular-chaos closure (BBGKY truncation at the one-particle marginal)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The choice of pre-collisional (rather than post-collisional) factorization",
+   "why_not_erased": "Imposing chaos on the outgoing half of the collision sphere yields an exact anti-H-theorem with the same dynamics. Nothing inside the limit selects between the two; the selection is initial-data information imported from outside. The brief carries the physical realization: Partovi's constructed anti-chaos states permit heat flow from colder to hotter at unchanged dynamics, and are merely 'unlikely in a low-entropy environment' -- which relocates the selection to the boundary condition rather than deriving it.",
+   "contraction": "Boltzmann-Grad limit with molecular-chaos closure (BBGKY truncation at the one-particle marginal)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The recollision / correlation error beyond Lanford's horizon",
+   "why_not_erased": "Convergence of the BBGKY series to the Boltzmann hierarchy is proved only for |t| < t_0 of order one fifth of a mean free time; beyond it the discarded correlation terms are not shown to be negligible, and extending the proof is an open problem. So the structure the contraction claims to erase is provably erasable only on a short interval -- what the map does to correlations at hydrodynamic times is undetermined, not demonstrated.",
+   "contraction": "Boltzmann-Grad limit with molecular-chaos closure (BBGKY truncation at the one-particle marginal)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "N(L) = span{1, v, |v|^2}: the d+2 hydrodynamic modes, identified with the Noether densities",
+   "why_not_erased": "The projection is onto N(L) by construction, so it is the identity there. More physically: for a LOCAL dynamics, a conserved density obeys a continuity equation, so a long-wavelength excess can only be transported, never destroyed; its relaxation rate must satisfy omega(k) -> 0 as k -> 0. A gapless mode cannot be integrated out at any finite coarse-graining scale. Mass, momentum and energy densities are the Noether charges of U(1) particle number, space translation and time translation respectively.",
+   "contraction": "Hydrodynamic limit / Chapman-Enskog projection onto the null space of the linearized collision operator",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Goldstone / broken-symmetry hydrodynamic modes in ordered phases",
+   "why_not_erased": "Each spontaneously broken continuous-symmetry generator supplies an additional gapless variable (superfluid phase, magnon, crystal phonon), protected by Goldstone's theorem. The full hydrodynamic mode count is #conserved densities + #broken generators (Hohenberg-Martin, Forster), and no coarse-graining that preserves the symmetry can gap a Goldstone mode. The contraction's kernel dimension is thus set by the symmetry realization, which the contraction itself cannot change.",
+   "contraction": "Hydrodynamic limit / Chapman-Enskog projection onto the null space of the linearized collision operator",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Transport coefficients (eta, zeta, kappa, D) and the equation of state",
+   "why_not_erased": "They are the coefficients of the leading surviving gradient corrections, obtained from L^{-1} acting on the complement, and equivalently as Green-Kubo integrals of equilibrium flux autocorrelations. The limit erases the microscopic dynamics but this finite list is exactly what it converts that dynamics into; it is the non-erasable residue by construction of the Chapman-Enskog expansion.",
+   "contraction": "Hydrodynamic limit / Chapman-Enskog projection onto the null space of the linearized collision operator",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Positive semidefiniteness of the transport matrix / non-negative local entropy production",
+   "why_not_erased": "sigma = sum_ij L_ij X_i X_j >= 0 descends directly from the H-theorem (or, in the stochastic setting, from Seifert's integral fluctuation theorem via Jensen). It is an inequality on the surviving coefficients, so it is inherited by every object in the image. No admissible coarse-graining can produce a negative-definite transport matrix.",
+   "contraction": "Hydrodynamic limit / Chapman-Enskog projection onto the null space of the linearized collision operator",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Topological data of the order-parameter field: quantized circulation and defect homotopy class",
+   "why_not_erased": "Circulation of a superfluid is quantized, Contour_Int v.dl = n h/m, and the winding number is a homotopy invariant of the order-parameter map. A local coarse-graining that averages over blocks much smaller than the measuring contour cannot change an integer that is continuous-deformation invariant; only a defect crossing the contour can, and that is a dynamical event, not an act of projection. Defect classification by pi_n of the order-parameter manifold survives the hydrodynamic reduction intact.",
+   "contraction": "Hydrodynamic limit / Chapman-Enskog projection onto the null space of the linearized collision operator",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Extensive conserved-charge algebras in integrable systems: the kernel is infinite-dimensional, not d+2",
+   "why_not_erased": "Integrable models carry infinitely many local conservation laws, so the null space of the relevant linearized operator does not collapse to d+2. The hydrodynamic contraction then lands not on Euler but on generalized hydrodynamics, with a continuum of quasiparticle densities and a GGE as the local-equilibrium state. The size of the kernel is fixed by the conservation-law algebra, which no scaling limit can alter. The brief records integrable and many-body-localized systems as explicit exceptions to conventional thermalization.",
+   "contraction": "Hydrodynamic limit / Chapman-Enskog projection onto the null space of the linearized collision operator",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Spatial dimension d and the symmetry group of the dynamics",
+   "why_not_erased": "Both are preserved by every block/scaling transformation used to take the limit (a local coarse-graining commutes with the symmetry and does not change d). They set the hydrodynamic mode count, the long-time-tail exponent, and the universality class, and they are never among the things the flow integrates out.",
+   "contraction": "Hydrodynamic limit / Chapman-Enskog projection onto the null space of the linearized collision operator",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Slow-mode self-coupling: hydrodynamic long-time tails t^{-d/2} and the failure of the gap assumption in d <= 2",
+   "why_not_erased": "The contraction presupposes that everything outside N(L) decays fast, but the slow modes feed back on themselves through mode coupling, producing velocity-autocorrelation tails t^{-d/2} that make Green-Kubo integrals divergent in d <= 2. The brief records this as a limit: long-time tails 'make some transport coefficients divergent in low dimensions, bounding the domain of conventional hydrodynamic transport'. The nonlinear self-interaction of the kernel modes is therefore structure the contraction cannot remove, because it lives inside the part the contraction retains.",
+   "contraction": "Hydrodynamic limit / Chapman-Enskog projection onto the null space of the linearized collision operator",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The relevant moments <A_a> themselves",
+   "why_not_erased": "They are the constraints of the constrained maximization, so Tr(rho_rel A_a) = Tr(rho A_a) holds by definition of the map. The map is exactly the identity on the moment data and destroys everything else.",
+   "contraction": "Local-equilibrium (MaxEnt / Zubarev-Robertson) relevant-density map",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Uniqueness of the MaxEnt representative on each fiber",
+   "why_not_erased": "The von Neumann (Shannon) entropy is strictly concave on the convex set of states with prescribed moments, so the maximizer is unique. The contraction therefore has a canonical section: each fiber contains exactly one fixed point of the map, which is why the map is idempotent.",
+   "contraction": "Local-equilibrium (MaxEnt / Zubarev-Robertson) relevant-density map",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The conjugate fields lambda_a (beta(x,t), mu(x,t), u(x,t)) and the Legendre duality that generates them",
+   "why_not_erased": "The map from moments to multipliers is invertible wherever the susceptibility matrix d<A_a>/d lambda_b = -Cov(A_a, A_b) is positive definite, which is the convexity of ln Z. The hydrodynamic fields are therefore a faithful relabelling of the retained data, not a further loss.",
+   "contraction": "Local-equilibrium (MaxEnt / Zubarev-Robertson) relevant-density map",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The exact size of the discarded information: S[rho_rel] - S[rho] = D(rho || rho_rel)",
+   "why_not_erased": "This identity is provable from the MaxEnt construction and is not itself destroyed by the map -- it is a book-keeping invariant that says exactly how much was lost. Notably it makes the loss non-negative and zero only on the fiber's fixed point, so the map is entropy-non-decreasing as a matter of theorem rather than assumption.",
+   "contraction": "Local-equilibrium (MaxEnt / Zubarev-Robertson) relevant-density map",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The declared list of relevant observables",
+   "why_not_erased": "The brief lists local equilibrium as a primitive, 'assumed rather than derived'. Nothing in the maximization selects which A_a to constrain; the same microstate yields different rho_rel, different entropy and different hydrodynamics under different lists. The fibration is exogenous data the map cannot manufacture.",
+   "contraction": "Local-equilibrium (MaxEnt / Zubarev-Robertson) relevant-density map",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The slow variable set A itself: P A = A exactly",
+   "why_not_erased": "Immediate from idempotency P^2 = P -- the image of a projection is pointwise fixed. Whatever was declared slow is reproduced exactly, systematic term and all.",
+   "contraction": "Mori-Zwanzig projection and its Markov-Gaussian closure",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The static correlation matrix (A,A) and the frequency matrix Omega = (LA, A)(A,A)^{-1}",
+   "why_not_erased": "Both are equal-time equilibrium averages, computed before any closure is chosen, and every closure that preserves the same equilibrium measure reproduces them identically. They are the part of the reduced description that is fixed by statics and hence immune to the modelling freedom in the memory and noise terms.",
+   "contraction": "Mori-Zwanzig projection and its Markov-Gaussian closure",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The second fluctuation-dissipation relation K(t) = (F(t), F)(A,A)^{-1}",
+   "why_not_erased": "Memory kernel and noise autocorrelation are built from the same orthogonal-dynamics object e^{iQLt} Q i L A, so they cannot be specified independently -- fixing one fixes the other. The brief carries exactly this as a derived object: 'dissipation (memory) and noise are two faces of one projected object.' The relation is an identity of the construction, so it survives every choice of projector and every closure that keeps a consistent equilibrium reference.",
+   "contraction": "Mori-Zwanzig projection and its Markov-Gaussian closure",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Exactly conserved members of the slow set",
+   "why_not_erased": "If L A_c = 0 then Omega = 0, F = 0 and K = 0: the generalized Langevin equation degenerates to dA_c/dt = 0. There is no memory and no noise to approximate, so the projection is exact on conserved variables and the closure step has nothing to erase. Conservation laws are thus the one sector where the contraction is invertible.",
+   "contraction": "Mori-Zwanzig projection and its Markov-Gaussian closure",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Exact short-time expansion / frequency sum rules <A L^{2n} A>",
+   "why_not_erased": "The Mori continued fraction truncated at level n reproduces the first 2n frequency moments of the correlation function exactly, because those moments are static equilibrium averages entering the continued-fraction coefficients. So any closure that respects the hierarchy preserves a definite number of sum rules no matter how badly it mistreats the long-time behaviour.",
+   "contraction": "Mori-Zwanzig projection and its Markov-Gaussian closure",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The zero-frequency kernel value K-tilde(0) = Int_0^infinity K(s) ds",
+   "why_not_erased": "This single number is precisely what the Markovian closure is constructed to retain -- it becomes the friction/transport coefficient. Everything else about K-tilde(omega) is destroyed; this is the invariant the closure is defined around, and it coincides with the Green-Kubo integral for the same variable.",
+   "contraction": "Mori-Zwanzig projection and its Markov-Gaussian closure",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The choice of projector: which variables count as slow",
+   "why_not_erased": "The brief states it as a primitive of the formalism: 'The choice of projection operator -- which variables count as slow/relevant -- is a declared input of the Mori-Zwanzig construction, not an output of it; different choices redistribute content between systematic, memory, and noise terms.' P cannot derive its own range. This is the archetype in this domain of structure undetermined by the flow.",
+   "contraction": "Mori-Zwanzig projection and its Markov-Gaussian closure",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The full microscopic Liouvillian: at the exact level nothing is lost at all",
+   "why_not_erased": "The generalized Langevin equation is an identity, not an approximation: the projection acts on observables while the underlying symplectic/unitary flow is untouched and in principle recoverable by reinstating the Q-dynamics. This localizes the entire irreversibility of the Mori-Zwanzig route to the closure step, exactly paralleling how Liouville's theorem localizes it to the projection step for Boltzmann coarse-graining.",
+   "contraction": "Mori-Zwanzig projection and its Markov-Gaussian closure",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The fixed-point set ker L of the generator",
+   "why_not_erased": "By definition it is what the flow leaves invariant: L rho_ss = 0. For a classical irreducible chain Perron-Frobenius makes it one-dimensional; in general (Evans, Frigerio; Baumgartner-Narnhofer for GKLS) the stationary set carries an algebraic decomposition into minimal invariant components and noiseless/decoherence-free subsystems. A semigroup cannot contract its own fixed points.",
+   "contraction": "Relaxation semigroup / approach to equilibrium (t -> infinity limit of a dissipative flow)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The ergodic decomposition / invariant-component (superselection) label",
+   "why_not_erased": "Probability cannot flow between dynamically invariant sets, so the indicator of the component is a constant of the motion for the semigroup and the component index is exactly conserved. Two states in different components have D(rho || sigma) = infinity for all time, so relative-entropy contraction -- which is monotone but not strictly so across disjoint sectors -- can never merge them.",
+   "contraction": "Relaxation semigroup / approach to equilibrium (t -> infinity limit of a dissipative flow)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The values of the charges commuting with the generator, which select the point on the equilibrium manifold",
+   "why_not_erased": "The rank-one collapse is onto rho_eq[E, N, P], not onto a universal state: the charges are conserved by the flow, so their initial values survive the entire relaxation and parameterize the attractor. This is the exact residue of the initial condition that the contraction reports rather than destroys.",
+   "contraction": "Relaxation semigroup / approach to equilibrium (t -> infinity limit of a dissipative flow)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The KMS/passivity property of the attractor",
+   "why_not_erased": "Pusz-Woronowicz establish that for beta > 0 the KMS condition is equivalent to (complete) passivity -- no work extractable in cyclic processes. The brief carries this as 'the second law as a property of the state'. The flow cannot land on a non-passive state within the equilibrium class, so passivity is a property of the image, structurally protected rather than dynamically acquired.",
+   "contraction": "Relaxation semigroup / approach to equilibrium (t -> infinity limit of a dissipative flow)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Generalized-Gibbs charges in integrable systems and l-bits in many-body-localized systems",
+   "why_not_erased": "When an extensive set of (quasi-)local integrals of motion exists, all of their initial expectation values are exactly conserved, so the kernel of the relaxation map is extensive rather than a handful of numbers. The system relaxes to a GGE labelled by those charges, not to a thermal state. The brief records exactly these as the exceptions to the ETH-based relaxation claim.",
+   "contraction": "Relaxation semigroup / approach to equilibrium (t -> infinity limit of a dissipative flow)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The DIRECTION of relaxation: supplied by the reference state, not by the dissipative structure",
+   "why_not_erased": "The dissipative generator's positivity structure fixes the magnitude of relaxation but not its orientation in the thermodynamic sense: with the dynamics held exactly fixed, changing the initial state reverses the heat flow. The brief carries a direct experimental instance -- Micadei et al., Nat. Commun. 10, 2456 (2019), heat flowing spontaneously from colder to hotter between initially quantum-correlated qubits -- alongside the Loschmidt symmetry entry ('Microscopic dynamics ... distinguish no direction of time') and Partovi's anti-chaos construction. A population-inverted (beta < 0) state is a legal relaxation target with the arrow reversed. The direction is therefore boundary/state data the contraction never touches. (The archive's sharper spectral form of this -- positivity fixes |Im Sigma_R| but never its sign -- is flagged in the brief as in-house PROGRAM-RESULT and is not what this grading rests on.)",
+   "contraction": "Relaxation semigroup / approach to equilibrium (t -> infinity limit of a dissipative flow)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Monotonicity itself: relative entropy to the fixed point as a Lyapunov functional",
+   "why_not_erased": "D(rho_t || rho_eq) is non-increasing under any CPTP/stochastic map sharing rho_eq as a fixed point (Uhlmann-Lindblad data-processing inequality; classical H-theorem for Markov chains). The contraction cannot reverse its own monotone, and the monotone's existence is what makes 'approach to equilibrium' well-posed at all.",
+   "contraction": "Relaxation semigroup / approach to equilibrium (t -> infinity limit of a dissipative flow)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The inverse temperature beta as superselection-like asymptotic data: KMS states at distinct beta are disjoint",
+   "why_not_erased": "In the thermodynamic limit, KMS states for different temperatures (with respect to the same dynamics) are disjoint -- mutually singular, with unitarily inequivalent GNS representations. No quasi-local operation carries one into another, and no finite-volume state distinguishes representations at all. So beta is exactly the asymptotic label that the limit creates and then cannot erase; it behaves as superselection data rather than as a state parameter.",
+   "contraction": "Thermodynamic (many-mode / continuum) limit",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The choice among degenerate pure phases at a first-order transition / broken-symmetry vacua",
+   "why_not_erased": "The limiting KMS state decomposes into extremal components, which are the pure thermodynamic phases. The limit does not select among them -- the selection is made by boundary conditions or an infinitesimal field taken to zero after the volume. This is the 'choice among degenerate fixed points' left open by the contraction, and it survives as a genuine label on the limit theory.",
+   "contraction": "Thermodynamic (many-mode / continuum) limit",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The free-energy density, equation of state, and order-parameter expectation values",
+   "why_not_erased": "These are the intensive bulk data that the limit is constructed to converge to; they are common to every microscopic sequence sharing the limit and are precisely what remains after the sequence-specific data disappears. Their existence is what makes the limit a contraction on theories rather than a failure.",
+   "contraction": "Thermodynamic (many-mode / continuum) limit",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The low-frequency scaling class of the spectral density J(omega) (Ohmic / sub- / super-Ohmic)",
+   "why_not_erased": "The limit replaces a discrete mode set with a continuum, but the exponent governing J(omega) as omega -> 0 is what fixes the long-time decay law of the influence/dephasing functional. It is a property of the limiting continuum, not of the discretization that was removed, so it passes through untouched and controls everything the limit was taken to produce.",
+   "contraction": "Thermodynamic (many-mode / continuum) limit",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Boundary/reservoir data, which become the entire content of a nonequilibrium steady state",
+   "why_not_erased": "The bulk limit is taken at fixed boundary data, so boundary conditions are never among the things sent to infinity. In boundary-driven diffusive systems this is decisive: macroscopic fluctuation theory's large-deviation rate functional over density and current fields is a functional of the reservoir data, and the brief records that declared class explicitly. Boundary data is asymptotic data the flow does not touch, and far from equilibrium it carries the whole steady state.",
+   "contraction": "Thermodynamic (many-mode / continuum) limit",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Onsager-Casimir reciprocity L_ij(B) = L_ji(-B)",
+   "why_not_erased": "Reciprocity is inherited from microscopic time-reversal applied to the regression of equilibrium fluctuations, so it is a symmetry-protected constraint on the surviving coefficients rather than a property of any particular microscopic model. The contraction destroys the manifest T-symmetry of the equations of motion but cannot destroy its residue in the coefficient matrix. The brief carries both the relation and Onsager's own recorded breakdown of plain symmetry under magnetic or Coriolis forces, which is exactly why the field-reversal form is the protected statement.",
+   "contraction": "Near-equilibrium linearization to the transport matrix (Kubo / Green-Kubo / Onsager)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The fluctuation-dissipation theorem locking noise to response: G_K(omega) = coth(hbar omega / 2kT)(G_R - G_A)",
+   "why_not_erased": "Once the reference state is KMS, the response function and the noise spectrum are not independent data: the coarse-grained model has one free function, not two. This is a theorem about the equilibrium state (Callen-Welton; Kubo), so it constrains every reduced description built over that state. The brief's operational restatement is sharp: a (chi, noise) kernel pair passes the admission test only if it satisfies the quantum FDT/KMS relation, and white-noise or temperature-independent kernels FAIL -- i.e. the constraint is strong enough to reject candidate coarse models outright.",
+   "contraction": "Near-equilibrium linearization to the transport matrix (Kubo / Green-Kubo / Onsager)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Causality/analyticity of the retarded response and spectral positivity of its absorptive part",
+   "why_not_erased": "Retardation forces chi(omega) to be analytic in the upper half-plane, hence Kramers-Kronig, and the Kallen-Lehmann representation forces a positive spectral measure. Any contraction that preserves causality preserves these; they constrain the coarse-grained response function without reference to the microscopic model that produced it.",
+   "contraction": "Near-equilibrium linearization to the transport matrix (Kubo / Green-Kubo / Onsager)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Sum rules fixed by equal-time commutators and conservation laws (f-sum rule and relatives)",
+   "why_not_erased": "The integrated weight of a response function is set by an equal-time commutator, i.e. by kinematics plus a conservation law, so it is a static quantity that any dynamical reduction preserving those conservation laws must reproduce. It survives every approximation to the frequency dependence.",
+   "contraction": "Near-equilibrium linearization to the transport matrix (Kubo / Green-Kubo / Onsager)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The Gallavotti-Cohen / Crooks time-reversal symmetry of the entropy-production large-deviation function",
+   "why_not_erased": "Microscopic reversibility imposes a rigid symmetry on the full distribution of entropy production -- P(+sigma)/P(-sigma) = e^{sigma} at trajectory level, e(lambda) = e(-1-lambda) at large-deviation level -- which holds arbitrarily far from equilibrium for the declared dynamics classes and whose linear expansion regenerates Onsager reciprocity and Green-Kubo. The brief records exactly this as a LIMIT_RELATION between the fluctuation-theorem and linear-response layers. It is the strongest thing the reduction leaves standing: a constraint on an entire distribution, protected by a symmetry of the parent dynamics.",
+   "contraction": "Near-equilibrium linearization to the transport matrix (Kubo / Green-Kubo / Onsager)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The fixed point itself, together with its relevant and marginal directions (exponents alpha, beta, z and scaling functions)",
+   "why_not_erased": "These are, by definition, the data invariant under R_b: the fixed point is what the flow maps to itself, and the relevant eigendirections are the ones the flow expands rather than contracts. The brief's VERIFIED anchor makes this empirical rather than formal in this domain: Takeuchi-Sano observe KPZ beta = 1/3 and random-matrix height statistics in liquid-crystal electroconvection, i.e. the fixed-point data recovered from a microscopically unrelated system.",
+   "contraction": "Dynamic renormalization-group flow to a nonequilibrium universality class",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Whether the order parameter is conserved (model A vs model B, and the conservation-law structure generally)",
+   "why_not_erased": "A local coarse-graining of a conserved density is still a conserved density -- the continuity equation is preserved by block averaging. So no RG step can convert a conserving dynamics into a non-conserving one, and the conservation structure partitions the space of theories into basins that the flow cannot cross. It is the discrete datum that indexes the universality classes.",
+   "contraction": "Dynamic renormalization-group flow to a nonequilibrium universality class",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "KPZ non-renormalization of lambda from Galilean/tilt symmetry, enforcing alpha + z = 2 exactly in all d",
+   "why_not_erased": "lambda appears both as the nonlinear coupling and inside the Galilean symmetry transformation, so any scheme respecting the symmetry cannot renormalize it at any order; the flow equation d(lambda)/dl = (alpha + z - 2)lambda then forces the exponent identity exactly, in every dimension. This is a Ward-identity-protected non-renormalization statement: the contraction is forbidden by symmetry from touching this combination.",
+   "contraction": "Dynamic renormalization-group flow to a nonequilibrium universality class",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The initial-geometry subclass selecting the limiting fluctuation distribution (Tracy-Widom GUE vs GOE vs Baik-Rains)",
+   "why_not_erased": "Curved, flat and stationary initial conditions flow to the same exponents but to different limiting height-fluctuation distributions. The initial-condition class is asymptotic data the scaling limit does not erase -- it survives as a discrete label on the fixed point's fluctuation statistics, which the brief's anchor measures directly as random-matrix largest-eigenvalue statistics.",
+   "contraction": "Dynamic renormalization-group flow to a nonequilibrium universality class",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "In 1+1 D KPZ, the exact stationary (Brownian) measure",
+   "why_not_erased": "A fluctuation-dissipation property special to one dimension makes the Brownian measure exactly stationary for the KPZ equation, so it is a fixed point of the dynamics itself and not merely of the scaling flow. It is preserved exactly, not asymptotically.",
+   "contraction": "Dynamic renormalization-group flow to a nonequilibrium universality class",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The inequality direction: sigma_cg <= sigma_true",
+   "why_not_erased": "Monotonicity of relative entropy under the lumping map (data-processing inequality) applies to the path-measure pair (P, P-dagger) defining entropy production, so coarse-graining can only lose irreversibility, never manufacture it. Esposito (PRE 85, 041125 (2012)) is the standard statement of this for stochastic thermodynamics; the entire subsequent estimator literature is built on the bound's one-sidedness.",
+   "contraction": "Partial observation / state lumping in stochastic thermodynamics",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Positivity of the coarse-grained entropy production and the certificate property of an observed current",
+   "why_not_erased": "sigma_cg is itself a relative entropy, hence non-negative; combined with the bound above, any observed nonzero sigma_cg is a one-way certificate that the true dynamics is out of equilibrium. This is exactly the logic of the brief's VERIFIED Wang et al. observation, where trajectory-resolved entropy consumption is measured through a partial observation and still constrains the true ensemble statement.",
+   "contraction": "Partial observation / state lumping in stochastic thermodynamics",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The integral fluctuation theorem <exp(-Delta s_tot)> = 1",
+   "why_not_erased": "It holds for arbitrary initial states and arbitrary time-dependent driving over finite times for the declared stochastic dynamics classes (Seifert), which is a rigid constraint on the whole distribution rather than on a mean. It is exactly this rigidity that survives the subsequent averaging contraction only in weakened form -- as <Delta s_tot> >= 0 by Jensen -- so it marks the boundary between the two reduction steps.",
+   "contraction": "Partial observation / state lumping in stochastic thermodynamics",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Current-fluctuation bounds of thermodynamic-uncertainty type",
+   "why_not_erased": "The precision of any observed current lower-bounds the total entropy production, so even a heavily lumped observation retains a quantitative handle on the erased dissipation. The bound is a property of the full-dynamics path measure that projects onto observable statistics, so lumping degrades but cannot invalidate it.",
+   "contraction": "Partial observation / state lumping in stochastic thermodynamics",
+   "confidence": "STANDARD"
+  }
+ ],
+ "things_erased_completely": [
+  "The microstate coordinate inside a macrostate fiber: of order exp(S_B/k_B) distinctions, and with them the ability to retrodict the past microstate from macroscopic data.",
+  "Pre-collisional two- and higher-particle correlations, set identically to zero by the Stosszahlansatz; together with recollision and ring-diagram sequences in the BBGKY expansion.",
+  "Particle labels and the entire correlation hierarchy above the one-particle marginal in the Boltzmann-Grad limit.",
+  "Poincare recurrences and the discrete spectrum: after the many-mode limit the quasi-periodic structure of the dephasing function is gone and t_rec -> infinity, so recurrence becomes unrepresentable rather than merely long.",
+  "Velocity-reversal (Loschmidt) solutions: the image of the contraction does not contain the time-reversed trajectory, and the anti-H-theorem branch has no representative in the reduced description.",
+  "The entire gapped spectrum of the linearized collision operator -- all non-hydrodynamic kinetic modes -- plus the initial Knudsen layer discarded in Chapman-Enskog matching.",
+  "The microscopic interaction beyond its finite residue: everything except the differential cross-section, the equation of state, and the transport coefficients. Infinitely many distinct Hamiltonians are indistinguishable at hydrodynamic level.",
+  "All microscopic length and time scales except the ones held fixed by the scaling: the sphere diameter, the lattice spacing, the collision time, and every non-universal amplitude and short-distance cutoff.",
+  "Memory: after Markovianization only K-tilde(0) survives and the whole frequency dependence of the memory kernel is destroyed.",
+  "All cumulants of the orthogonal fluctuating force above the second, under Gaussian closure; and the deterministic identity of the orthogonal dynamics itself, which is relabelled as randomness.",
+  "Phase coherence between macroscopically distinguishable branches in the quantum coarse-graining, and interference between coarse-grained histories.",
+  "The distinction between any two initial states within one basin of attraction: the whole preparation space collapses onto the equilibrium manifold, leaving only the conserved-charge coordinates. Under ETH, even the eigenstate-to-eigenstate variation of few-body observables is erased for generic non-integrable systems.",
+  "The infinite-dimensional space of irrelevant couplings at an RG fixed point -- this is the content of universality, and the brief's KPZ anchor is a direct measurement of it.",
+  "Trajectory-level detail under ensemble averaging: the full distribution P(Delta s_tot) is replaced by its mean, degrading the exact integral fluctuation theorem to Jensen's inequality.",
+  "Subextensive and surface contributions to bulk densities in the thermodynamic limit, and the differences among finite systems sharing a limit (including finite-size ensemble inequivalence where equivalence holds in the limit).",
+  "Manifest microscopic time-reversal symmetry of the equations of motion: the Boltzmann, Fokker-Planck, Lindblad and hydrodynamic generators are not T-symmetric. The parent symmetry survives only as a residue -- Onsager-Casimir reciprocity and the Gallavotti-Cohen/Crooks relation -- and is unrecoverable from the reduced generator alone.",
+  "Irreversibility hidden in unobserved transitions under lumping: entire housekeeping cycles that leave no observed current contribute to sigma_true and are invisible in sigma_cg."
+ ],
+ "method_note": "SELECTION. I seeded from the four objects the description group names (Boltzmann-Grad, hydrodynamic limit, Mori-Zwanzig, approach to equilibrium / slow-vs-fast modes) and applied one test to each candidate map: does it have nontrivial fibers -- do distinct microscopic data or distinct theories become literally identical in the image? I then kept only maps where the domain's OWN physics, not computational convenience, forces the many-to-oneness. Three grounds qualified: (a) the domain's central quantity is defined by the degeneracy (entropy = log fiber volume; discarded information = D(rho||rho_rel)); (b) a spectral or scaling fact makes the fibers dynamically invisible at long times (the spectral gap of the linearized collision operator, the continuum spectrum after N -> infinity, RG irrelevance); (c) the domain's own records show the reduction is not a dynamical consequence and therefore imports information (the Stosszahlansatz, via the brief's Partovi entry). I added three contractions not named in the description group but forced by it: the thermodynamic/many-mode limit (the brief's limits entry makes it the precondition for relaxation being strict at all -- without it every other contraction is only approximately contractive), the MaxEnt/local-equilibrium map (the brief lists local equilibrium as the declared PRIMITIVE under which the hydrodynamic limit is taken, so it is where information is provably inserted), and the partial-observation lumping map (where the domain's actual trajectory-level observables live). I deliberately kept the Mori-Zwanzig entry as TWO nested maps, because the exact projection loses nothing while the closure loses everything -- collapsing them would misattribute the contraction.\n\nBRIEF INFLUENCE ON THE KERNEL LIST. Four specific places. (i) The primitive 'the choice of projection operator ... is a declared input ... not an output of it' put the exogeneity of the fibration on the kernel list as an item in its own right, and I propagated the same structure to the macro-partition and the MaxEnt relevant-list, where it is equally true but less often stated. (ii) The arrow-of-time cluster -- the Loschmidt symmetry entry, the Partovi anti-chaos disconnect, the Micadei et al. heat-reversal phenomenon, and the open problem 'origin of the low-entropy initial condition' -- is why I classified the DIRECTION of relaxation and the past hypothesis as kernel elements (structure undetermined by the flow) rather than as erased content; without the briefs I would likely have listed the arrow once instead of tracking it through three separate contractions. (iii) The ETH / integrability / MBL entries and the KPZ anchor fixed the GGE-charge and universality-class items and made me state the hydrodynamic kernel's dimension as conservation-algebra-dependent (d+2 only for non-integrable systems; infinite under generalized hydrodynamics) rather than flatly d+2. (iv) The long-time-tails limits entry supplied the domain-of-validity kernel item -- that the slow/fast gap the hydrodynamic contraction presupposes fails in d <= 2 through the retained modes' self-coupling.\n\nPROVENANCE DISCIPLINE. I imported no PROGRAM-RESULT content as a kernel element. The archive's in-house decomposition (spectral positivity fixes |Im Sigma_R| but never its sign) and the executable KMS admission gate are flagged in both briefs as in-house and unreviewed, so where I state a related kernel item I rest it on the community-verified sources instead -- Loschmidt/Partovi/Micadei for the state-supplied direction, Callen-Welton/Kubo/Pusz-Woronowicz for the FDT-KMS lock -- and graded accordingly. I cite the gate only as an operational restatement of the FDT constraint's strength, not as evidence for it.\n\nVERIFICATION. Checked externally before grading: disjointness of KMS states at different temperatures (Comm. Math. Phys.; unitarily inequivalent GNS representations) -> THEOREM; Esposito, PRE 85, 041125 (2012) and the coarse-graining entropy-production bound's one-sidedness -> THEOREM; Lanford's validity horizon at roughly one fifth of a mean free time, with long-time extension open -> THEOREM, and this is why I listed the unerased correlation error as a kernel item; the kernel of the linearized hard-sphere collision operator computed by Hilbert, with spectral gap established by Carleman and constructively by Baranger-Mouhot -> THEOREM; KPZ Galilean/tilt-symmetry non-renormalization of lambda and the resulting exact identity alpha + z = 2 in all dimensions -> THEOREM; generalized hydrodynamics and the infinite conserved-charge set of integrable models -> STANDARD. Goldstone mode-counting (Hohenberg-Martin/Forster), Mori continued-fraction moment reproduction, Onsager-Casimir, Gallavotti-Cohen, and the topological-defect items I graded STANDARD from textbook knowledge without separate fetch.\n\nRESIDUAL UNCERTAINTY I AM FLAGGING RATHER THAN HIDING. The topological item (quantized circulation, defect homotopy class) is STANDARD only under the stated locality condition -- a block transformation coarser than the measuring contour can destroy small defects, so the protected statement is about winding on contours large compared with the coarse-graining cell, not about arbitrary lumping maps. The Goldstone mode-counting is textbook at finite temperature but is not a theorem in the way Goldstone's theorem itself is. The Gallavotti-Cohen item is graded STANDARD rather than THEOREM because the briefs themselves carry it TO-VERIFY at citation level (Gallavotti 1996; Lebowitz-Spohn 1999) and its proof conditions differ between the chaotic-hypothesis and stochastic settings."
+}

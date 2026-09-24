@@ -1,0 +1,381 @@
+{
+ "description_group": "cosmology",
+ "contractions": [
+  {
+   "name": "C1. Cosmic no-hair: the expansion-normalized omega-limit map (Wald contraction)",
+   "mathematical_form": "Let x = (H, sigma_ij, {}^3R_ij, rho_A) be homogeneous data with Lambda > 0 and non-Lambda matter obeying the dominant and strong energy conditions. Define expansion-normalized variables Sigma_ij = sigma_ij/H, Omega_A = rho_A/(3H^2), Omega_k = -{}^3R/(6H^2). The contraction is the LIMIT map Psi = lim_{t->inf} Phi_t composed with normalization:  Psi: (Sigma_ij, Omega_k, Omega_A) |-> (0, 0, 0),  H -> H_inf = sqrt(Lambda/3).  Rates: sigma_ij ~ a^{-3} ~ e^{-3H_inf t}, {}^3R ~ a^{-2}, rho_m ~ a^{-3}, rho_r ~ a^{-4}, rho_Lambda ~ a^0; Wald (PRD 28, 2118 (1983)) gives H - H_inf <= O(e^{-H_inf t}) for all initially expanding Bianchi I-VIII, and for IX only if the Lambda term initially exceeds the maximum 3-curvature. In the inflationary version the same map reads |Omega - 1| = |K|/(aH)^2 -> e^{-2N}|Omega_0 - 1|.",
+   "why_this_is_the_contraction": "It is forced by the dilution hierarchy under accelerated expansion, not chosen: every source of inhomogeneity, anisotropy and curvature redshifts strictly faster than the one source that does not redshift at all. Raychaudhuri with SEC-respecting matter plus Lambda makes H monotone-decreasing and bounded below by sqrt(Lambda/3), so the shear-to-expansion ratio is squeezed by a factor with a strictly negative Lyapunov exponent. Each finite-time flow map Phi_t is a diffeomorphism (Einstein evolution is deterministic and reversible); the non-invertibility lives entirely in the t -> inf limit and in the restriction to a single comoving observer's causal diamond, where data that has been pushed super-Hubble is causally unavailable. That is the operative physics: the expansion does not destroy the data, it removes it from every local observer's reach while exponentially compressing what remains.",
+   "what_it_erases": "Initial shear magnitude and principal axes; initial 3-curvature magnitude; the initial matter/radiation density and the epoch-by-epoch composition ratio Omega_m/Omega_Lambda; all sub-Hubble inhomogeneity present at the start (pushed out); after ~60 e-folds these are suppressed by factors e^{-180} (shear) and e^{-120} (curvature), far below any conceivable measurement."
+  },
+  {
+   "name": "C2. Inflationary slow-roll attractor: centre-manifold / Hamilton-Jacobi reduction of inflaton phase space",
+   "mathematical_form": "Flow on (phi, phidot) with phiddot + 3H phidot + V'(phi) = 0, 3 M_p^2 H^2 = phidot^2/2 + V. Contraction: the 2-dimensional phase space collapses onto the 1-dimensional slow-roll (centre/slow) manifold phidot = -V'/(3H) + O(epsilon^2). In Hamilton-Jacobi form (Salopek-Bond 1990) phidot = -2 M_p^2 H'(phi), and the general solution is H(phi) = H_SR(phi)[1 + c exp(-3 int (H/H') dphi / M_p^2)], so transverse deviations decay as delta(phidot) ~ a^{-3}, i.e. e^{-3N}. Map: (phi_0, phidot_0) |-> the single attractor point labelled by N_rem(phi) ~= M_p^{-2} int V/V' dphi. Kinetic-dominated initial data redshifts even faster, rho_kin ~ a^{-6}.",
+   "why_this_is_the_contraction": "The contracting agent is the Hubble friction term 3H phidot, which is the same H that appears in Friedmann/Raychaudhuri \u2014 the reduction is powered by the expansion itself, not by a perturbative truncation. Because the transverse direction is damped at rate 3H while motion along the manifold proceeds at rate ~ epsilon H, the ratio of timescales is 1/epsilon and the slow manifold is a genuine attracting invariant manifold, not an approximation. This is why inflationary predictions are quoted as functions of N alone: one of the two phase-space functions is physically annihilated before the observable window opens.",
+   "what_it_erases": "The initial kinetic energy phidot_0 and, with it, the entire transverse coordinate of the pre-inflationary state (erased within about one e-fold for kination-like data); the memory of how inflation was entered; the shape of V away from the ~7-10 e-fold observable window; the total number of e-folds N_total as distinct from N-since-pivot-exit."
+  },
+  {
+   "name": "C3. Horizon exit: the gradient-expansion projection k/(aH) -> 0 onto the frozen adiabatic mode (separate-universe contraction)",
+   "mathematical_form": "Mukhanov-Sasaki: v_k'' + (c_s^2 k^2 - z''/z) v_k = 0 with z^2 = 2 a^2 epsilon / c_s^2. For c_s k << aH the two exact solutions are v ~ z (zeta_k = const) and v ~ z int dtau/z^2 (zeta_k ~ int dt/(a^3 epsilon)). The contraction is the rank-2 -> rank-1 projection P: (zeta_k, zetadot_k) |-> zeta_k^{const}, i.e. the annihilation of the decaying direction. Equivalently, the gradient expansion: zetadot = -(H/(rho+p)) delta p_nad + O(k^2/(aH)^2), and dropping the O(k^2) term is the contraction. Separate-universe/deltaN form: zeta(x) = deltaN(x), with the long mode acting as the dilatation x -> e^{zeta} x.",
+   "why_this_is_the_contraction": "Causality is the operative physics. Once c_s k < aH, no local process can act across the mode; each Hubble patch is an independent FLRW universe with shifted parameters, and the only residual action of the long mode on local physics is a rescaling of comoving coordinates \u2014 a large gauge transformation. So the dynamics cannot do anything to the long mode except leave it alone, and the second (decaying) solution is exactly the one that the expansion damps as a^{-3}. The k^2 term being dropped is not a convenience truncation: it is the statement that there is no causal agent to supply it.",
+   "what_it_erases": "Per mode and per polarization, one of the two functions of initial data: the decaying amplitude, equivalently zetadot_k, equivalently the mode's 'initial velocity'. This is precisely why the primordial condition is specifiable by one function of k (a power spectrum) rather than two, and why the brief can record 'nearly scale-invariant adiabatic initial perturbations' as a single declared input. Operationally it also erases the quantum/classical distinction for the mode (see kernel: not erased unitarily)."
+  },
+  {
+   "name": "C4. Growing-mode projection in post-inflationary linear evolution",
+   "mathematical_form": "delta'' + 2H delta' - 4 pi G rhobar_m delta = 0 (conformal time) for pressureless matter. Exact solutions with Lambda: D_-(a) ~ H(a) and D_+(a) ~ H(a) int_0^a da'/(a' H(a'))^3. EdS limit: D_+ ~ a ~ t^{2/3}, D_- ~ a^{-3/2} ~ t^{-1}. Contraction: (delta_k, theta_k)|_early |-> D_+(a) A_k(zeta) at late times, with the decaying part suppressed by D_-/D_+ ~ a^{-5/2}. A second stage acts in Lambda domination, where D_+(a) -> const: growth itself freezes.",
+   "why_this_is_the_contraction": "Gravitational instability in an expanding background is a damped-unstable linear system: the same 2H friction that drives C2 splits the solution space into one exponentially-preferred and one exponentially-suppressed direction. The physics that makes it operative is that the universe is matter-dominated for ~5 decades of scale factor, so a^{-5/2} suppression amounts to >12 decades of contraction on the decaying direction \u2014 no realistic decaying-mode admixture survives to be measured. Then Lambda domination freezes D_+, which is a second, genuinely different contraction: it stops the flow from writing any new information into the growing mode.",
+   "what_it_erases": "The decaying-mode amplitude \u2014 equivalently, any initial peculiar-velocity field not slaved to the density field. After the growing-mode projection, velocity and density are locked by theta = -a H f delta (f = dlnD_+/dlna), so one of the two initial fields is gone."
+  },
+  {
+   "name": "C5. Late-time attractors of the Friedmann system (de Sitter fixed point; scaling/tracker fixed points)",
+   "mathematical_form": "In Omega-variables for flat FLRW with Lambda and a fluid of equation of state w_m: dOmega_Lambda/dlna = 3(1+w_m) Omega_Lambda (1 - Omega_Lambda). Fixed points Omega_Lambda = 0 (repeller) and Omega_Lambda = 1 (global attractor for Lambda > 0, w_m > -1), reached with Omega_m/Omega_Lambda ~ a^{-3(1+w_m)}. For exponential quintessence V = V_0 exp(-lambda phi/M_p), the scaling fixed point has Omega_phi = 3(1+w_m)/lambda^2 (for lambda^2 > 3(1+w_m)), independent of initial conditions \u2014 the tracker property.",
+   "why_this_is_the_contraction": "It is the same dilution hierarchy as C1 read on the background alone, but it is a distinct map because its endpoint's coordinates are set by the theory (Lambda, or lambda) rather than being a universal zero. It is operative in this domain because it is what makes the present epoch unreconstructible from a single-time local measurement: the attractor erases the matter/dark-energy ratio, so 'why now?' cannot be answered by the flow. The fact that we can measure Omega_m ~ 0.3 at all is not because the contraction failed, but because we observe along a past light cone rather than at a single late time.",
+   "what_it_erases": "The initial Omega ratios; any memory of pre-Lambda-domination composition in the asymptotic state; for tracker models, the initial field value and velocity over many decades of basin. Asymptotically, the entire state is one number."
+  },
+  {
+   "name": "C6. Thermal and kinetic freeze-out: the Boltzmann relic attractor (BBN, WIMP freeze-out, recombination, blackbody thermalization)",
+   "mathematical_form": "dY/dx = -(lambda/x^2)(Y^2 - Y_eq^2) with Y = n/s, x = m/T. For x < x_f the equilibrium branch Y -> Y_eq is an attractor: dY/dx has a strongly restoring sign, so any initial Y is pulled to Y_eq within a few Hubble times. At x_f (Gamma ~ H) the comoving abundance freezes: Y_inf ~= x_f/lambda, i.e. Omega h^2 ~ 3e-27 cm^3 s^-1 / <sigma v>. Contraction: (Y_0, arbitrary) |-> Y_inf depending only on <sigma v>, g_*, m. BBN version: the whole nuclear-network trajectory |-> (Y_p, D/H, ...) depending only on eta, N_eff and measured cross-sections. Blackbody version: Compton + double-Compton/bremsstrahlung drive any spectrum to a Planck spectrum for z > 2e6.",
+   "why_this_is_the_contraction": "The Boltzmann collision term is dissipative and its equilibrium is an attractor with a finite relaxation time; the expansion then switches the attraction off at a sharp epoch. That two-step structure (attract, then freeze) is the operative mechanism for essentially every cosmological relic, and is exactly what makes the domain predictive: the brief's own framing \u2014 'light-element abundances follow from measured nuclear cross-sections plus one cosmological input' \u2014 is a statement that the contraction has reduced the entire pre-BBN history to a single number.",
+   "what_it_erases": "All pre-freeze-out abundance information: the initial dark-matter abundance, the pre-BBN nuclear composition, the initial photon spectrum above z ~ 2e6, the symmetric (particle-antiparticle) component of any annihilating species. More broadly, essentially everything about the pre-BBN universe not stored in a conserved charge, a frozen abundance, a spectral distortion, or a super-horizon mode."
+  },
+  {
+   "name": "C7. Dissipative mode destruction: Silk (photon-diffusion) damping and neutrino/warm free-streaming",
+   "mathematical_form": "Delta_k -> Delta_k exp(-k^2/k_D^2), with k_D^{-2}(eta) = int_0^eta (d eta' / (6 (1+R) a n_e sigma_T)) [R^2/(1+R) + 16/15]. Free-streaming analogue: suppression of growth above the free-streaming scale, with the small-scale matter power reduced by Delta P/P ~= -8 f_nu for massive neutrinos. Both are genuinely irreversible: the erased acoustic energy is thermalized and shows up as entropy.",
+   "why_this_is_the_contraction": "Unlike C1-C5, this is not a limit map or a causal projection: it is real, entropy-producing dissipation in the photon-baryon fluid. Photon mean free path grows, photons random-walk across a wavelength, and the perturbation is mixed into the monopole. It is operative in this domain because it sets the hard small-scale boundary of the linear observable window \u2014 no reconstruction, no matter how good, recovers a mode damped by e^{-(k/k_D)^2} with k >> k_D.",
+   "what_it_erases": "Acoustic power at k >> k_D (exponentially, hence completely for k/k_D of a few); in the mu-era window (roughly 50 Mpc^-1 < k < 1e4 Mpc^-1) the mode-by-mode phase and amplitude information is destroyed outright, leaving only an integrated residue; free streaming likewise destroys small-scale power above the free-streaming scale."
+  },
+  {
+   "name": "C8. Nonlinear phase mixing and violent relaxation: coarse-graining of the Vlasov-Poisson flow",
+   "mathematical_form": "Fine-grained: df/dt = 0 (Liouville along characteristics). Coarse-grained: fbar = <f>_W over a phase-space window W, and the map f |-> fbar is many-to-one and irreversible in practice because the fine-grained f develops filamentation on scales -> 0. Lynden-Bell violent relaxation: rapidly varying Phi during collapse randomizes energies on a crossing time. In Lagrangian terms, delta = 1/J - 1 with J = det(partial x / partial q) ceases to be single-valued at shell crossing: the Zel'dovich map becomes non-injective.",
+   "why_this_is_the_contraction": "Shell crossing is the precise point where the map from Lagrangian to Eulerian coordinates stops being invertible; after it, multiple fluid elements occupy the same position with different velocities and only the coarse-grained distribution is accessible. This is the operative contraction in the nonlinear regime the brief hands off to N-body simulation, and it is the reason that regime is characterized by summary statistics rather than by initial-condition reconstruction.",
+   "what_it_erases": "At the coarse-grained level: the fine-grained phase-space filamentation, the identity of which Lagrangian patch ended where inside a virialized halo, the initial phases of modes that have gone nonlinear (k > ~0.1-0.5 h/Mpc at z=0), and the one-to-one correspondence between initial and final density fields on those scales."
+  },
+  {
+   "name": "C9. Model-space contraction on inflationary Lagrangians: V |-> (n_s, r, alpha_s) at fixed N",
+   "mathematical_form": "The observational map M: {V(phi), or (V, K(phi), c_s, field content)} -> (n_s, r, ...) with n_s - 1 = -6 epsilon + 2 eta, r = 16 epsilon evaluated N e-folds before the end. Universality classes collapse the fiber: for alpha-attractors (a second-order pole in the kinetic term, Kahler curvature -2/(3 alpha)), every member of the class maps to n_s = 1 - 2/N, r = 12 alpha / N^2 in the small-alpha limit, irrespective of the detailed shape of V. So M has an infinite-dimensional fiber over each image point, and the image is coordinatized by (class label, alpha, N).",
+   "why_this_is_the_contraction": "This one is a contraction on THEORIES, not on states, and it is what the task's phrase 'distinct theories become identical' names in this domain. It is operative because the dynamical attractor C2 has already reduced each theory's prediction to functions of N alone, and because only a ~7-10 e-fold window of any potential is observationally sampled; the rest of the Lagrangian is unprobed by construction. The brief's own entries make the image tiny: n_s = 0.965 +/- 0.004 and r < 0.036 are almost the whole of what the map returns.",
+   "what_it_erases": "The individual potential within a universality class; the shape of V outside the observable window; the distinction between models differing only by higher-order slow-roll structure below current sensitivity; the field-space geometry beyond the single curvature parameter alpha."
+  },
+  {
+   "name": "C10. Background and parameter degeneracies: (Lambda_bare, rho_vac) |-> Lambda_eff, and (Omega_k, Omega_Lambda, H_0) |-> theta_*",
+   "mathematical_form": "(i) Lambda_eff = Lambda_bare + 8 pi G rho_vac. This is a LINEAR map R^2 -> R with a literal one-dimensional kernel, the direction (delta Lambda_bare, delta rho_vac) = (-8 pi G c, c). No background or linear-perturbation observable separates points along it. (ii) The CMB geometric degeneracy: the primary TT/TE/EE spectra depend on (omega_b, omega_c, A_s, n_s, tau) and on the single angle theta_* = r_s(z_*)/D_A(z_*); any one-parameter family of (Omega_k, Omega_Lambda, H_0) holding theta_* and the physical densities fixed produces a nearly identical primary spectrum.",
+   "why_this_is_the_contraction": "Both are exact or near-exact degeneracies of the observable map, independent of any dynamical flow, and both are recorded in the brief: 'Lambda as a geometric constant ... and Lambda as constant vacuum energy density are indistinguishable at the background-cosmology level', and 'the CMB value is model-dependent (LCDM-conditional)'. The operative physics of (i) is that a constant-w = -1 source and a constant in the action enter the Einstein equations in exactly the same place; of (ii) that recombination physics fixes a comoving ruler and the CMB measures only the angle it subtends, not the ruler and distance separately.",
+   "what_it_erases": "(i) The entire split of the measured Lambda_eff into geometric and vacuum-energy contributions \u2014 which is what turns the ~120-order-of-magnitude vacuum-energy mismatch into a problem of interpretation and not only of magnitude. (ii) The individual values of H_0, Omega_Lambda and Omega_k from primary CMB alone, prior to ISW, lensing, or external data."
+  },
+  {
+   "name": "C11. Observational contraction: one realization, one past light cone, statistical isotropy",
+   "mathematical_form": "The full stochastic 4-volume field |-> (a) its restriction to our past light cone; (b) for the CMB, its restriction to the 2-sphere of last scattering, entering later only through ISW, lensing and polarization; (c) reduction of the realization to rotational invariants, Chat_l = (2l+1)^{-1} sum_m |a_lm|^2. Irreducible floor: Var(Chat_l)/C_l^2 = 2/(2l+1), and no observation reaches k < H_0 or outside the light cone.",
+   "why_this_is_the_contraction": "Unlike C1-C8 this is not a dynamical map but the measurement map, and in cosmology it is not removable in principle: there is exactly one sky and exactly one light cone, so the ensemble over which the theory makes statements is never sampled more than once. It belongs in this list because it, not the dynamics, is what fixes the final resolution at which all the other contractions' kernels can be read.",
+   "what_it_erases": "The unmeasured realization: modes with k < H_0, the spacetime outside our past light cone, and the radial structure of the last-scattering surface beyond what projection integrals retain; and it caps the recoverable information at low l irreversibly at the cosmic-variance floor."
+  }
+ ],
+ "kernel_elements": [
+  {
+   "element": "Lambda itself (equivalently H_inf = sqrt(Lambda/3), and the endpoint's de Sitter entropy S = 3 pi/(G Lambda)).",
+   "why_not_erased": "Lambda is a parameter of the action, not a coordinate on state space; the flow acts on solutions at fixed Lagrangian, so dLambda/dt = 0 identically. The attractor's LOCATION is theory data and is therefore logically upstream of the contraction. This is the precise sense in which no-hair cannot explain the value of Lambda \u2014 the brief's 'input everywhere, derived nowhere' is a structural consequence, not an accident of current ignorance.",
+   "contraction": "C1. Cosmic no-hair: the expansion-normalized omega-limit map (Wald contraction)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The free asymptotic data at the spacelike conformal boundary I^+: the conformal class of g^(0)_ij and the transverse-traceless tensor g^(3)_ij in the Starobinsky/Fefferman-Graham expansion ds^2 = -dt^2 + e^{2Ht}[g^(0) + e^{-2Ht} g^(2) + e^{-3Ht} g^(3) + ...].",
+   "why_not_erased": "g^(2) is determined locally by g^(0); the free data are (conformal class of g^(0), g^(3)) subject to trace-free and divergence-free constraints \u2014 2 + 2 transverse-traceless functions, exactly the graviton's phase-space count. Friedrich's asymptotic characterization shows the data determine a unique development, and Friedrich (1986) shows de Sitter data are nonlinearly stable, so for data in the stability basin the bulk-to-boundary map is a bijection. Cosmic no-hair therefore destroys no information at all: it relocates it to I^+ and out of every comoving observer's causal diamond. This is the single most important correction to the naive reading of no-hair.",
+   "contraction": "C1. Cosmic no-hair: the expansion-normalized omega-limit map (Wald contraction)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Discrete/topological data: the Bianchi type (the isomorphism class of the homogeneity Lie algebra), the spatial topology, and the sign of the curvature index K.",
+   "why_not_erased": "By uniqueness of the maximal Cauchy development, the isometry group of initial data is an isometry group of the development \u2014 evolution cannot change the symmetry type. K enters the Friedmann equation as a constant of integration multiplying a^{-2}, so sign(K) is a flow invariant even as Omega_k -> 0. The contraction drives the curvature CONTRIBUTION to zero while leaving the curvature LABEL untouched; this is a clean instance of the flow erasing a magnitude but not a superselection-type datum.",
+   "contraction": "C1. Cosmic no-hair: the expansion-normalized omega-limit map (Wald contraction)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The choice of basin: whether the de Sitter endpoint is reached at all. Bianchi IX with insufficient Lambda recollapses instead.",
+   "why_not_erased": "Wald's theorem explicitly excludes type IX unless the initial ratio of vacuum energy to maximum 3-curvature exceeds a threshold with positive initial time derivative. So the discrete selection among competing endpoints (de Sitter vs. recollapse to a singularity) is fixed by initial data and is exactly the thing the attractor cannot determine. Every attractor theorem carries this: the basin boundary is undetermined-by-the-flow data.",
+   "contraction": "C1. Cosmic no-hair: the expansion-normalized omega-limit map (Wald contraction)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Comoving conserved charges and their ratios: baryon number, B-L below sphaleron decoupling, comoving entropy, and eta = n_b/n_gamma ~= 6e-10 after e+e- annihilation.",
+   "why_not_erased": "Dilution rescales all comoving-conserved densities by the same a^{-3}, so ratios of conserved charges are flow invariants of the expansion. A conserved charge has no decay channel that the expansion could open; the expansion changes only the volume in which it is counted.",
+   "contraction": "C1. Cosmic no-hair: the expansion-normalized omega-limit map (Wald contraction)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Super-Hubble inhomogeneity: modes with k/a << H are frozen, not destroyed.",
+   "why_not_erased": "No-hair is a statement about expansion-normalized local curvature invariants. A super-Hubble curvature perturbation is, in the local frame, a shift of the background, not a gradient; there is no local agent that can damp it (see the C3 kernel). No-hair therefore means 'smooth within the horizon', and the structure it appears to remove is precisely the structure that later re-enters the horizon as the observed CMB and LSS.",
+   "contraction": "C1. Cosmic no-hair: the expansion-normalized omega-limit map (Wald contraction)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The potential V(phi) (more generally the whole Lagrangian and field content).",
+   "why_not_erased": "Same argument as for Lambda: the attractor is a flow on states at fixed theory. This is worth stating explicitly because it is the load-bearing limit on what 'inflationary attractor behavior' can be claimed to explain: the attractor makes predictions insensitive to initial conditions, and for exactly that reason it makes them maximally sensitive to (and never derivative of) the choice of V.",
+   "contraction": "C2. Inflationary slow-roll attractor: centre-manifold / Hamilton-Jacobi reduction of inflaton phase space",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The marginal/slow direction: position along the attractor manifold, i.e. the reparametrization-invariant function epsilon(N) (equivalently the Hamilton-Jacobi function H(phi)) over the ~7-10 e-fold observable window.",
+   "why_not_erased": "The reduction annihilates one of two phase-space functions, not both. The flow is transitive along the slow manifold, so absolute position along it is pure time-translation; what survives is the relation between the attractor's local slope and the e-fold clock. This is the kernel that is actually measured: n_s - 1 = -6 epsilon + 2 eta and r = 16 epsilon are readings of the slow direction, not of the erased fast one.",
+   "contraction": "C2. Inflationary slow-roll attractor: centre-manifold / Hamilton-Jacobi reduction of inflaton phase space",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The DEVIATION from the fixed point is itself the observable: n_s - 1 = -0.035 +/- 0.004 measures the rate at which the contraction is proceeding, and r < 0.036 bounds it further.",
+   "why_not_erased": "Exact de Sitter is the fully contracted case and yields exactly scale-invariant, unmeasurably-tilted spectra. A contraction cannot erase its own approach rate, because the approach rate is what converts the transient into permanent frozen data at horizon exit: P_zeta(k) inherits its k-dependence from the fact that H and epsilon are still running when mode k exits. The brief records near-but-not-exact scale invariance as OBSERVED; structurally this is the measured distance from the fixed point.",
+   "contraction": "C2. Inflationary slow-roll attractor: centre-manifold / Hamilton-Jacobi reduction of inflaton phase space",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The basin boundary: ultra-slow-roll / non-attractor phases. On a plateau or inflection where V' -> 0, the solution phidot ~ a^{-3} is the ONLY solution, the would-be decaying mode becomes the growing one, zeta grows outside the horizon, and the single-field consistency relation is violated (f_NL^sq = 5/2 instead of 5(1-n_s)/12).",
+   "why_not_erased": "The contraction has a basin, and on the basin boundary it does not act. This is not a pathological corner: it is the regime used for primordial-black-hole production and it is exactly where the data the attractor would have erased is retained and becomes observable through a large, qualitatively different squeezed-limit bispectrum. The existence and location of the boundary is determined by V, not by the flow.",
+   "contraction": "C2. Inflationary slow-roll attractor: centre-manifold / Hamilton-Jacobi reduction of inflaton phase space",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The quantum-diffusion floor: the classical attractor cannot compress the field distribution below the de Sitter fluctuation scale. The stochastic (Fokker-Planck) flow has a stationary distribution P_eq(phi) ~ exp(-8 pi^2 V(phi)/(3 H^4)) = exp(-V * V_horizon / T_dS) with T_dS = H/2pi, giving <phi^2> = 3H^4/(8 pi^2 m^2) for a free field with m << H.",
+   "why_not_erased": "The omega-limit of the stochastic flow is a DISTRIBUTION of finite width, not a point: deterministic drift toward the attractor is balanced by the H/2pi per e-fold noise from modes crossing the coarse-graining scale. Where drift is weaker than diffusion (the eternal-inflation regime) the contraction fails to act at all. So the attractor's compression is bounded below by a scale set by H, which is itself theory/state data.",
+   "contraction": "C2. Inflationary slow-roll attractor: centre-manifold / Hamilton-Jacobi reduction of inflaton phase space",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Light orthogonal (isocurvature) field directions in multi-field models: the number of fields with effective mass below ~(3/2)H is not reduced by the attractor.",
+   "why_not_erased": "The centre-manifold reduction damps only directions whose effective mass exceeds the Hubble friction scale; a direction with m_eff << H is itself slow and is not transverse to the attractor. The reduction to a 1-dimensional manifold is a single-field statement, and the multi-field count survives as genuinely undetermined-by-the-flow data, later re-expressed as isocurvature and as super-horizon evolution of zeta.",
+   "contraction": "C2. Inflationary slow-roll attractor: centre-manifold / Hamilton-Jacobi reduction of inflaton phase space",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Whether the basin is entered at all: sufficient initial homogeneity over a Hubble patch, and sufficient field-space room, are preconditions the attractor does not supply.",
+   "why_not_erased": "An attractor theorem is conditional on initial data lying in the basin; it cannot be used to argue that the basin is generic without an independent measure. Combined with the fact that all of C1-C8 act only toward the future, this is why the brief's open problem 'origin of the low-entropy initial condition' is not addressed by any contraction in this domain: a many-to-one forward map makes postdiction of the initial state strictly impossible, which is the opposite of an explanation.",
+   "contraction": "C2. Inflationary slow-roll attractor: centre-manifold / Hamilton-Jacobi reduction of inflaton phase space",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "zeta_k, the curvature perturbation on uniform-density slices, is conserved on super-horizon scales whenever the non-adiabatic pressure perturbation is negligible \u2014 and this follows from local energy-momentum conservation ALONE, independent of the gravitational field equations.",
+   "why_not_erased": "Wands, Malik, Lyth & Liddle (PRD 62, 043527, 2000) derive zetadot = -(H/(rho+p)) delta p_nad + O(k^2) from nabla_mu T^{mu nu} = 0 without using Einstein's equations. So the kernel of the freezing contraction is robust not only against changes of initial data but against changes of the gravity theory \u2014 an unusually strong protection. The stated condition (adiabaticity) is exactly the condition the brief records as observationally consistent but not derived, so the theorem's hypothesis is the empirical question.",
+   "contraction": "C3. Horizon exit: the gradient-expansion projection k/(aH) -> 0 onto the frozen adiabatic mode (separate-universe contraction)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The residual large gauge symmetry of which zeta is the Goldstone mode: in the k -> 0 limit, constant zeta is the spatial dilatation x -> e^{zeta} x.",
+   "why_not_erased": "A gauge parameter has no dynamics to erase. This is the symmetry-based reason behind the energy-conservation proof above: the long-wavelength adiabatic mode is locally indistinguishable from a coordinate rescaling of the background, and Weinberg's adiabatic-mode argument guarantees that such a solution exists for k -> 0 in any theory obeying the relevant conditions, whatever the matter content. The brief's phrase 'the dilatation bridge' names exactly this structure.",
+   "contraction": "C3. Horizon exit: the gradient-expansion projection k/(aH) -> 0 onto the frozen adiabatic mode (separate-universe contraction)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Maldacena's squeezed-limit consistency relation: lim_{k_L -> 0} <zeta_{k_L} zeta_{k1} zeta_{k2}>' = -(n_s - 1) P(k_L) P(k_1), i.e. f_NL^sq = 5(1 - n_s)/12.",
+   "why_not_erased": "It is a Ward identity for the nonlinearly realized dilatation, not a perturbative result: it holds to all orders in slow roll for any single-field attractor model, so it is protected in the same way a non-renormalization theorem is. The freezing contraction cannot erase it because the contraction is the very thing that makes the long mode a pure rescaling. Its one failure mode is the failure of the attractor assumption (the ultra-slow-roll kernel element above) \u2014 so the relation is simultaneously a kernel element and a sharp test of which regime obtains.",
+   "contraction": "C3. Horizon exit: the gradient-expansion projection k/(aH) -> 0 onto the frozen adiabatic mode (separate-universe contraction)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Non-adiabatic (entropy/isocurvature) perturbations are not annihilated by the projection: they source zetadot on super-horizon scales.",
+   "why_not_erased": "The same exact equation that gives the conservation theorem, zetadot = -(H/(rho+p)) delta p_nad + O(k^2), shows that the O(k^2) term is what the contraction kills and the delta p_nad term is what it leaves untouched. The projection is therefore kernel-preserving precisely on the isocurvature sector, which is why multi-field information can survive horizon exit and keep evolving for many e-folds.",
+   "contraction": "C3. Horizon exit: the gradient-expansion projection k/(aH) -> 0 onto the frozen adiabatic mode (separate-universe contraction)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Tensor modes h^TT_ij freeze identically and record the inflationary energy scale directly: P_T = 2H^2/(pi^2 M_p^2), V^{1/4} ~= 1.06e16 GeV (r/0.01)^{1/4}, with the single-field relation n_t = -r/8.",
+   "why_not_erased": "The transverse-traceless sector has no source at linear order and no local process outside the horizon that can act on it; it is the cleanest possible frozen boundary datum. Its protection is the same causal argument as for zeta plus the fact that TT is a representation-theoretic (spin-2, parity-odd-and-even) sector that scalar dynamics cannot mix into at linear order. The brief's r_0.05 < 0.036 is a bound on this kernel element, and it is the sharpest surviving handle on the epoch the brief records as 'not established'.",
+   "contraction": "C3. Horizon exit: the gradient-expansion projection k/(aH) -> 0 onto the frozen adiabatic mode (separate-universe contraction)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Unitarity/symplectic invariance: the freezing is a Bogoliubov squeezing transformation, and the phase-space area of the Wigner function (equivalently the symplectic eigenvalues of the covariance matrix, equivalently the purity) is exactly conserved. The squeezing parameter r_k and squeezing angle retain the full information.",
+   "why_not_erased": "Linear evolution of a Gaussian state is a symplectic map on phase space; Liouville's theorem forbids any change in the invariant area. The decaying direction is exponentially squeezed, not destroyed. So the 'classicalization' of primordial perturbations is an ACCESSIBILITY statement (decoherence without decoherence), not an erasure: the information is stored in an exponentially thin, exponentially long phase-space ellipse that no realistic measurement resolves. Naming this precisely matters, because it separates what the mathematics erases (nothing) from what observation erases (everything about the decaying direction).",
+   "contraction": "C3. Horizon exit: the gradient-expansion projection k/(aH) -> 0 onto the frozen adiabatic mode (separate-universe contraction)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The growing-mode amplitude, i.e. the transfer-function image T(k) zeta_k of the primordial datum.",
+   "why_not_erased": "The projection annihilates one direction and is exactly the identity on the other. Above the damping scale the linear transfer map is deterministic and invertible, which is why reconstruction of the primordial field from late-time data is possible in practice (BAO reconstruction is this inversion applied to displacements). The contraction moves information within the two-dimensional solution space; it does not act on the surviving direction at all.",
+   "contraction": "C4. Growing-mode projection in post-inflationary linear evolution",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The shape of P(k): in matter domination the growth factor D_+(a) is scale-independent, so the flow can change the amplitude of the power spectrum but not its k-dependence.",
+   "why_not_erased": "delta_k(a) = D_+(a) T(k) zeta_k with D_+ independent of k for pressureless matter on sub-horizon, super-damping scales. A k-independent multiplicative map cannot alter a shape. The shape is therefore a kernel of the growth contraction, and it is what carries the k_eq feature, the tilt, and the baryon wiggles into the late universe.",
+   "contraction": "C4. Growing-mode projection in post-inflationary linear evolution",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The decaying mode is not independent data: D_-(a) ~ H(a) EXACTLY for pressureless matter (with D_+ = H int da/(aH)^3, and in LCDM D_- ~ a^{-3/2} sqrt(1 + (Omega_L/Omega_m) a^3)).",
+   "why_not_erased": "The second solution of the growth equation is fixed by the background expansion history, so the contraction erases only a single amplitude, never a functional form. This sharpens what 'decaying mode erasure' costs: one number per mode, not one function per mode. It also means the decaying mode carries no information not already in H(a), so its loss is genuinely one-dimensional.",
+   "contraction": "C4. Growing-mode projection in post-inflationary linear evolution",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The BAO standard ruler r_s(z_drag): a comoving length imprinted once, thereafter only advected.",
+   "why_not_erased": "A fixed comoving scale is invariant under a scale-independent growth factor (previous element) and is shifted by nonlinear evolution only at the sub-percent level, calculably and reversibly by reconstruction. It is thus a length-scale kernel that survives both the linear growing-mode projection and the nonlinear phase-mixing contraction \u2014 which is precisely why the brief can list BAO as a derived object measured across 0.1 < z < 4.2 and still treat it as a clean ruler.",
+   "contraction": "C4. Growing-mode projection in post-inflationary linear evolution",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Compensated isocurvature and baryon-CDM relative modes: directions the growing-mode projection barely touches.",
+   "why_not_erased": "A compensated mode carries no net density perturbation and hence sources no gravitational potential at leading order, so gravitational instability neither grows nor damps it; it is a nearly frozen, nearly unconstrained direction in the initial-data space. It is a clean example of a mode that is undetermined by the flow in both directions: the contraction cannot erase it, and it also cannot amplify it into visibility.",
+   "contraction": "C4. Growing-mode projection in post-inflationary linear evolution",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The fixed point's coordinates are theory data: Lambda for the de Sitter attractor, and Omega_phi = 3(1+w_m)/lambda^2 for the exponential scaling/tracker attractor.",
+   "why_not_erased": "A tracker attractor makes the late-time state independent of initial conditions precisely by making it a function of the potential's slope. The contraction's whole content is to trade state information for theory information; it cannot then also determine the theory information. This is the structural reason the brief's 'why is Lambda small, nonzero, and comparable to rho_m now' cannot be answered by any late-time attractor argument.",
+   "contraction": "C5. Late-time attractors of the Friedmann system (de Sitter fixed point; scaling/tracker fixed points)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The sign of Lambda and hence which endpoint class obtains (de Sitter expansion vs. recollapse for Lambda < 0 vs. marginal coasting for Lambda = 0).",
+   "why_not_erased": "A discrete superselection among qualitatively distinct endpoints, fixed by the data and not reachable by the flow, which is continuous and preserves the sign of the constant term in the Friedmann equation. Same structure as the Bianchi-IX basin element under C1.",
+   "contraction": "C5. Late-time attractors of the Friedmann system (de Sitter fixed point; scaling/tracker fixed points)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The record on the past light cone: H(z), D_A(z), D_L(z) over 0 < z < 4 and back to z ~ 1100.",
+   "why_not_erased": "The attractor acts on the state, not on the record. Because observation in cosmology is intrinsically a look backwards along a null cone, the ratio Omega_m/Omega_Lambda that the contraction erases asymptotically is directly measured at a continuum of earlier times. This is the precise sense in which the 'coincidence problem' is a problem about the state and not about our epistemic access \u2014 and also the reason the brief's evolving-w hint (DESI, 2.6-3.9 sigma within w0-wa) is testable at all.",
+   "contraction": "C5. Late-time attractors of the Friedmann system (de Sitter fixed point; scaling/tracker fixed points)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "One-sidedness of a single canonical scalar with respect to the phantom divide: w >= -1 strictly for a standard kinetic term, so crossing w = -1 requires extra degrees of freedom or a non-canonical/ghost-like kinetic sector.",
+   "why_not_erased": "The sign is fixed by the kinetic-term structure, w = (phidot^2/2 - V)/(phidot^2/2 + V) >= -1, independently of the trajectory; a continuous flow cannot move a solution across a boundary that the Lagrangian forbids it to reach. Vikman (PRD 71, 023515, 2005) makes this a statement about the impossibility (or instability) of the crossing for single-field dark energy. I state this in its community form only; I did not use the brief's in-house PROGRAM-RESULT version of the same claim.",
+   "contraction": "C5. Late-time attractors of the Friedmann system (de Sitter fixed point; scaling/tracker fixed points)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Conserved charges survive annihilation: the asymmetric component sets a floor that no amount of annihilation can remove. eta_B ~ 6e-10 survives precisely because B (and B-L) is conserved below sphaleron decoupling, while the symmetric baryon component is annihilated away.",
+   "why_not_erased": "The collision term for annihilation is proportional to (Y^2 - Y_eq^2) in the symmetric sector and annihilates nothing in a conserved-charge sector; a conserved charge is by definition a null direction of the collision operator. This is the single sharpest 'what the contraction cannot erase' in early-universe thermal physics, and it is why the brief can record eta as a one-number cosmological input rather than as a function of unknown initial conditions.",
+   "contraction": "C6. Thermal and kinetic freeze-out: the Boltzmann relic attractor (BBN, WIMP freeze-out, recombination, blackbody thermalization)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The microphysics: relic abundances depend only on cross-sections, g_*, masses, and the freeze-out condition Gamma ~ H \u2014 i.e. exactly the data the initial state does not contain.",
+   "why_not_erased": "Same trade as in C5: the attractor buys initial-condition independence by making the output a function of the Lagrangian. Structurally this is why BBN is a test rather than a fit: the brief's own framing \u2014 abundances from measured nuclear cross-sections plus ONE cosmological input \u2014 is a statement that the fiber of the contraction is enormous and its image is one-dimensional, so a hit is informative.",
+   "contraction": "C6. Thermal and kinetic freeze-out: the Boltzmann relic attractor (BBN, WIMP freeze-out, recombination, blackbody thermalization)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The surviving one-dimensional image of BBN (eta, equivalently omega_b) and its independent CMB determination: (D/H)_P = (2.527 +/- 0.030)e-5 agreeing with Planck.",
+   "why_not_erased": "Because the contraction leaves exactly one number to be matched, the agreement is a genuine PREDICTION-grade coincidence that could have failed. The kernel element here is not a quantity that resists the flow but the DIMENSIONALITY of what survives \u2014 one number, measured twice by causally and physically disjoint routes. The residual lithium discrepancy is the honest caveat: the image is one-dimensional in eta but the abundance vector has more components than eta can control.",
+   "contraction": "C6. Thermal and kinetic freeze-out: the Boltzmann relic attractor (BBN, WIMP freeze-out, recombination, blackbody thermalization)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "N_eff, the relativistic energy density at freeze-out, is recorded in the expansion rate and thereby in both Y_p and the CMB damping tail.",
+   "why_not_erased": "Freeze-out is defined by Gamma(T) = H(T), so the freeze-out point is a direct readout of H at that epoch, hence of the total relativistic content. The contraction that erases abundances simultaneously writes the expansion rate into the frozen values. What the flow destroys in one variable it stamps into another.",
+   "contraction": "C6. Thermal and kinetic freeze-out: the Boltzmann relic attractor (BBN, WIMP freeze-out, recombination, blackbody thermalization)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Spectral distortions: the energy dissipated by Silk damping is conserved and reappears in the CMB spectrum as mu and y distortions. LCDM predicts mu_ac ~= 2e-8 (2.3e-8 acoustic, with -0.3e-8 from adiabatic cooling); FIRAS bounds |mu| < 9e-5, |y| < 1.5e-5.",
+   "why_not_erased": "Energy conservation. The damping contraction destroys the mode-by-mode phase and amplitude information in 50 Mpc^-1 < k < 1e4 Mpc^-1, but it cannot destroy the energy, and after double-Compton and bremsstrahlung freeze out (z < 2e6) the photon field can no longer restore a pure blackbody. So an integrated image of the erased power is permanently stored in a DIFFERENT observable. This is the sharpest example in the domain of a contraction whose kernel lives outside the variable being contracted, and the brief's own FIRAS entry is the bound on it.",
+   "contraction": "C7. Dissipative mode destruction: Silk (photon-diffusion) damping and neutrino/warm free-streaming",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The damping scale k_D itself, and the low-k sector k << k_D which the contraction does not touch at all.",
+   "why_not_erased": "The map is exp(-k^2/k_D^2): it is k-graded, exactly the identity as k -> 0, and it carries its own parameter. Measuring the damping tail measures k_D, i.e. the integral over the Thomson mean free path, which is an independent constraint on omega_b and N_eff. The contraction records the measure of its own action.",
+   "contraction": "C7. Dissipative mode destruction: Silk (photon-diffusion) damping and neutrino/warm free-streaming",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The neutrino-induced BAO phase shift: free-streaming neutrinos propagate supersonically relative to the photon-baryon sound horizon and induce a shift in the acoustic peak POSITIONS, not merely a suppression of amplitude.",
+   "why_not_erased": "A phase is not degenerate with an amplitude rescaling; the free-streaming contraction acts multiplicatively on amplitudes but the supersonic propagation leaves a distinct, calculable positional residue (Bashinsky-Seljak; detected in Planck-era data). So the damping/free-streaming contraction cannot erase the fact that a free-streaming component was present.",
+   "contraction": "C7. Dissipative mode destruction: Silk (photon-diffusion) damping and neutrino/warm free-streaming",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Fine-grained phase-space density is exactly conserved (Liouville), and the coarse-grained distribution can never exceed the fine-grained maximum: fbar <= max f.",
+   "why_not_erased": "The coarse-grained f is an average of fine-grained values, hence bounded by their supremum; more strongly, the Tremaine-Henon-Lynden-Bell H-functions are monotone under mixing. This is a genuine theorem-grade constraint that survives arbitrarily violent nonlinear evolution, and it is the basis of the Tremaine-Gunn bound on light fermionic dark matter \u2014 a permanent statement about initial conditions derived from data AFTER the contraction has fully acted.",
+   "contraction": "C8. Nonlinear phase mixing and violent relaxation: coarse-graining of the Vlasov-Poisson flow",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Total mass, energy and angular momentum of an isolated collapsing region; and the total mass in any Lagrangian volume.",
+   "why_not_erased": "Mixing redistributes but does not create or destroy the conserved integrals of the Vlasov-Poisson system. These are the quantities that virial and halo-mass-function descriptions are built on, and they are exactly why a statistical description of the nonlinear regime is possible at all once the detailed map is gone.",
+   "contraction": "C8. Nonlinear phase mixing and violent relaxation: coarse-graining of the Vlasov-Poisson flow",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Large-scale modes are protected from long-wavelength displacements: a uniform large-scale flow cannot affect local clustering, so equal-time correlators are IR-safe (the LSS consistency relations / Galilean invariance of the Newtonian equations).",
+   "why_not_erased": "A long-wavelength mode acts on a small region as a uniform acceleration, removable by going to a free-falling frame; by the equivalence principle it cannot alter equal-time local statistics. This is the late-time descendant of the C3 dilatation kernel, and it is what allows the k < ~0.1 h/Mpc sector to remain a clean linear record after nonlinearity has destroyed the small scales.",
+   "contraction": "C8. Nonlinear phase mixing and violent relaxation: coarse-graining of the Vlasov-Poisson flow",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The universality-class label plus two numbers: for alpha-attractors, the pole structure of the kinetic term (Kahler curvature -2/(3alpha)) and the e-fold number, giving n_s = 1 - 2/N and r = 12 alpha/N^2.",
+   "why_not_erased": "The contraction collapses an infinite-dimensional space of potentials onto a finite-dimensional image, but the image is not a point: what survives is a discrete class label (set by the SINGULARITY structure of the kinetic term, a topological-type datum, not by the potential's shape) plus the continuous modulus alpha and the clock N. Discrete class data of this kind is the characteristic residue of a universality contraction, exactly as in critical phenomena.",
+   "contraction": "C9. Model-space contraction on inflationary Lagrangians: V |-> (n_s, r, alpha_s) at fixed N",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The inflationary energy scale: r fixes V^{1/4} ~= 1.06e16 GeV (r/0.01)^{1/4}, and degeneracy among potentials within a class does not degrade it.",
+   "why_not_erased": "r is a ratio of two independently frozen spectra (tensor and scalar), and tensors couple only to H. No reshaping of V within a universality class changes H at horizon exit without changing r. So the energy scale is a kernel element of the model-space contraction, and the brief's r_0.05 < 0.036 is a one-sided determination of it.",
+   "contraction": "C9. Model-space contraction on inflationary Lagrangians: V |-> (n_s, r, alpha_s) at fixed N",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Relations rather than parameters: the single-field consistency condition n_t = -r/8, and the squeezed-limit relation f_NL^sq = 5(1-n_s)/12.",
+   "why_not_erased": "A degeneracy among potentials moves a model along the image manifold but cannot move it off a relation that holds identically across the entire class. Relations are therefore the correct observables to target when a contraction has made individual parameters degenerate \u2014 they separate classes (single-field vs. multi-field vs. non-attractor) rather than members within a class.",
+   "contraction": "C9. Model-space contraction on inflationary Lagrangians: V |-> (n_s, r, alpha_s) at fixed N",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Reheating leaks back in through N: the pivot's e-fold number depends on the post-inflationary expansion history, so the contraction to (n_s, r) leaves a reheating-dependent residue.",
+   "why_not_erased": "N is not a free parameter but is fixed by matching the pivot scale to today through the full expansion history, so a class prediction n_s = 1 - 2/N is implicitly a joint statement about inflation AND reheating. The contraction cannot decouple them; it can only hide the dependence inside a single number.",
+   "contraction": "C9. Model-space contraction on inflationary Lagrangians: V |-> (n_s, r, alpha_s) at fixed N",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Lambda_eff itself: the one linear combination the degeneracy map does not annihilate.",
+   "why_not_erased": "For a linear map with a one-dimensional kernel, the quotient is exactly one-dimensional and is measured. The reason this matters is directional: because the kernel direction (delta Lambda_bare, delta rho_vac) = (-8 pi G c, c) is EXACTLY flat, no low-energy observation whatsoever can fix the split, which is why the ~120-order-of-magnitude vacuum-energy mismatch cannot be reduced to a measurement problem. Any resolution must come from outside the map \u2014 from a UV completion or from a mechanism that makes the split dynamical (and hence detectable through its dynamics).",
+   "contraction": "C10. Background and parameter degeneracies: (Lambda_bare, rho_vac) |-> Lambda_eff, and (Omega_k, Omega_Lambda, H_0) |-> theta_*",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The acoustic angle theta_* = r_s(z_*)/D_A(z_*), measured to ~0.03%, and the physical densities omega_b and omega_c.",
+   "why_not_erased": "These are exactly the invariants of the geometric degeneracy: the degeneracy direction is defined as the one along which they do not move. So the CMB's tightest constraints are the kernel of its own worst degeneracy. Practically this reframes the brief's 5-sigma H0 tension: what is measured is a ratio, so the tension constrains the product of pre-recombination physics (which sets r_s) and post-recombination expansion (which sets D_A), and a resolution can hide in either factor but not in H_0 alone.",
+   "contraction": "C10. Background and parameter degeneracies: (Lambda_bare, rho_vac) |-> Lambda_eff, and (Omega_k, Omega_Lambda, H_0) |-> theta_*",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Degeneracy-breaking channels that the background map does not control: late-time ISW, CMB lensing, and external low-z data.",
+   "why_not_erased": "The geometric degeneracy is a degeneracy of the PRIMARY anisotropies only. ISW and lensing are sourced by the time-dependence and depth of potentials along the line of sight, quantities that are not functions of theta_* alone; they therefore break the degeneracy by construction. A degeneracy that is exact at one order in the observable map is generally not exact at the next.",
+   "contraction": "C10. Background and parameter degeneracies: (Lambda_bare, rho_vac) |-> Lambda_eff, and (Omega_k, Omega_Lambda, H_0) |-> theta_*",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The rotationally invariant content C_l is estimable without bias from one sky, with an irreducible variance 2 C_l^2/(2l+1).",
+   "why_not_erased": "Statistical isotropy makes the a_lm at fixed l an ensemble of 2l+1 independent samples, so the invariant is measurable; but the sample size is fixed by geometry, not by effort. The floor is a theorem, not a technological limitation, and it means the contraction's kernel at low l is intrinsically fuzzy \u2014 which caps how sharply any large-scale anomaly can ever be assessed.",
+   "contraction": "C11. Observational contraction: one realization, one past light cone, statistical isotropy",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The E/B decomposition of CMB polarization: scalar perturbations generate no B modes at linear order.",
+   "why_not_erased": "E and B are the parity-even and parity-odd pieces of a spin-2 field on the sphere; a scalar (spin-0) source cannot produce the parity-odd piece at linear order. This is a representation-theoretic superselection, not a dynamical suppression, so the line-of-sight projection \u2014 which destroys most radial information \u2014 cannot mix the tensor signal into the far larger scalar one. It is the reason a primordial tensor search remains possible at all after everything else has been contracted away.",
+   "contraction": "C11. Observational contraction: one realization, one past light cone, statistical isotropy",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Monopole quantities, which carry no cosmic variance: T_CMB = 2.72548 +/- 0.00057 K, and the blackbody form itself (FIRAS: RMS deviations < 50 ppm of peak).",
+   "why_not_erased": "There is only one monopole and we measure it; the sample-variance argument that limits C_l has no analogue at l = 0. The blackbody form is additionally protected as the fixed point of the thermalization contraction (C6), so it is doubly held: dynamically attracted to, and observationally unambiguous.",
+   "contraction": "C11. Observational contraction: one realization, one past light cone, statistical isotropy",
+   "confidence": "STANDARD"
+  }
+ ],
+ "things_erased_completely": [
+  "Initial shear/anisotropy: the magnitude and principal axes of sigma_ij at the start of inflation. Suppressed by a^{-3}; after 60 e-folds the factor is e^{-180}. Not recoverable by any measurement.",
+  "Pre-inflationary spatial curvature magnitude: |Omega - 1| decays as e^{-2N}, so after 60 e-folds it is ~1e-52. Only the formal label sign(K) survives, and it becomes operationally undecidable.",
+  "The inflaton's initial kinetic energy phidot_0 and the entire transverse (fast) phase-space coordinate: rho_kin ~ a^{-6} erases it within about one e-fold. Nothing about how inflation was entered survives the attractor.",
+  "The shape of V(phi) outside the ~7-10 e-fold observable window, and the shape of V between that window and the end of inflation beyond what the single number N encodes.",
+  "The total number of e-folds N_total (as opposed to N since pivot exit): flatness and isotropy observables saturate, so N_total is unbounded above and unmeasurable.",
+  "The decaying-mode amplitude of every super-horizon perturbation, zeta ~ int dt/(a^3 epsilon) \u2014 one of the two functions of initial data per mode per polarization. This is why the primordial condition is a single power spectrum rather than two functions.",
+  "The post-inflationary decaying growth mode D_- ~ H(a): suppressed by a^{-5/2} relative to D_+, i.e. by >12 orders of magnitude across matter domination. Equivalently, any initial peculiar-velocity field not slaved to the density field.",
+  "Operationally (though not unitarily \u2014 see the symplectic-invariance kernel element): the quantum-vs-classical distinction for super-horizon modes. The squeezed state's residual phase information is unmeasurable, so the primordial field is indistinguishable from a classical stochastic realization.",
+  "Pre-freeze-out abundances in every thermal sector: the initial dark-matter abundance, the pre-BBN nuclear composition, the pre-z~2e6 photon spectrum. Each is attracted to equilibrium and then frozen at a value depending only on rates.",
+  "The symmetric (particle-antiparticle) component of any annihilating species. Only the conserved-charge component survives, which is why an asymmetry \u2014 and not an initial abundance \u2014 sets the relic floor.",
+  "Essentially all information about the pre-BBN universe not stored in (a) a conserved charge, (b) a frozen relic abundance, (c) a frozen spectral distortion, or (d) a super-horizon mode. This is the structural content of the brief's 'the pre-BBN universe is not directly probed'.",
+  "Acoustic power at k >> k_D (Silk damping, exp(-k^2/k_D^2)) and small-scale power above the free-streaming scale. In the mu-era window (~50 to ~1e4 Mpc^-1) the mode-by-mode phase and amplitude are destroyed outright; only the integrated energy survives, as mu ~ 2e-8.",
+  "Fine-grained phase-space filamentation inside virialized structures at the coarse-grained level, and the one-to-one Lagrangian-to-Eulerian correspondence on scales that have gone nonlinear (k > ~0.1-0.5 h/Mpc at z=0). Shell crossing makes the Zel'dovich map non-injective.",
+  "The split of the measured Lambda_eff into a geometric constant and a vacuum-energy contribution: an exactly flat degeneracy direction, unreachable by any background or linear-perturbation observable.",
+  "The individual potential within an inflationary universality class, and (from primary CMB alone) the individual values of H_0, Omega_Lambda and Omega_k along the geometric-degeneracy direction.",
+  "The unobserved realization: modes with k < H_0, the spacetime outside our past light cone, and radial structure through the last-scattering surface beyond what the projection integrals, ISW, lensing and polarization retain.",
+  "THE ASYMMETRY THAT MATTERS MOST: every contraction in this list acts only toward the future. None of them constrains, supplies, or explains the initial condition \u2014 a many-to-one forward map makes postdiction of initial data strictly impossible. So the brief's open problem 'origin of the low-entropy initial condition' is not merely unaddressed by attractor behavior; attractor behavior is the specific reason it cannot be addressed from within the flow."
+ ],
+ "method_note": "SELECTION. I required a candidate to be a genuinely many-to-one map, then asked in each case WHERE the non-invertibility actually lives \u2014 because the underlying Einstein + Boltzmann + Vlasov dynamics is deterministic and (except for the collision terms) time-reversible, so a naive reading would find no contraction at all. Every entry in the list is non-invertible for exactly one of five identifiable reasons, and I state which: (i) passage to the omega-limit t -> infinity in expansion-normalized variables, where each finite-time flow map is a diffeomorphism but the limit map is many-to-one (C1, C2, C5); (ii) restriction to a comoving observer's causal diamond, a genuine projection of the data (C1, and the operational half of C3); (iii) truncation of the gradient expansion k/(aH) -> 0, forced by causality rather than chosen (C3, C4); (iv) genuine entropy-producing dissipation or coarse-graining (C6, C7, C8); (v) maps on theory/parameter space rather than state space, non-invertible independent of any dynamics (C9, C10) plus the measurement map itself (C11). I included C6-C8 and C9-C11 although the task's named list (inflationary attractor, no-hair, growing/decaying modes, horizon crossing, late-time attractors) does not mention them, because they are the domain's only IRREVERSIBLE contractions (C6-C8) and its only theory-space ones (C9-C11), and the task explicitly asks about theories becoming identical. I flag the addition rather than smuggling it in.\n\nI deliberately separated two things that are usually conflated: what the mathematics erases and what observation erases. Cosmic no-hair and super-horizon freezing erase nothing in the first sense (asymptotic data at I^+ is complete; squeezing is symplectic) and nearly everything in the second. Several kernel elements exist only because of that distinction, and I would regard collapsing it as the main way this classification could be got wrong.\n\nBRIEF INFLUENCE ON THE KERNEL LIST. Five specific items steered it. (1) 'Primordial perturbations are consistent with ... adiabaticity' recorded as a consistency statement, not a derivation, made me state adiabaticity as the explicit hypothesis of the zeta-conservation theorem and list the non-adiabatic sector as a kernel element rather than assuming it away. (2) The phrase 'the dilatation bridge' in the separate-universe entry pointed me to give the symmetry-based (Goldstone/large-gauge) protection of zeta alongside the energy-conservation proof, and to include the Maldacena consistency relation as a non-renormalization-type kernel element. (3) The FIRAS bounds (|mu| < 9e-5, |y| < 1.5e-5) in the observables entry are what prompted the Silk-damping/mu-distortion kernel element \u2014 the cleanest case in the domain of a contraction whose kernel lives in a different observable. (4) The Lambda entries ('input everywhere, derived nowhere'; the 120-order mismatch; 'indistinguishable at the background-cosmology level') produced both the 'the fixed point's location is theory data' motif running through C1/C2/C5/C6 and the C10 entry, where the degeneracy has a literal linear-algebra kernel. (5) The open problem 'origin of the low-entropy initial condition' sharpened the final entry in the erasure list: forward-only contraction is precisely what makes that problem unreachable from inside the flow.\n\nPROVENANCE HANDLING. The brief carries two PROGRAM-RESULT entries (the mu = 4/3 super-horizon exclusion and the phantom-divide one-sidedness), flagged in-house and unreviewed. I treated both as non-load-bearing and used neither as a physics input. Where their subject matter touched a kernel element \u2014 the one-sidedness of a single relaxational channel across w = -1 \u2014 I anchored instead on the community result the brief itself cites (Vikman, PRD 71, 023515 (2005)) and graded it STANDARD on that basis alone.\n\nVERIFICATION. I checked externally, rather than from memory: Wald's exclusion of Bianchi IX and its threshold condition; the alpha-attractor formulas n_s = 1 - 2/N, r = 12 alpha/N^2; the exact growth solutions D_- ~ H(a), D_+ ~ H int da/(aH)^3 in LCDM; the LCDM acoustic mu-distortion value (mu_ac ~= 2.3e-8 including the -0.3e-8 adiabatic-cooling term); Friedrich's 1986 nonlinear stability of de Sitter together with the Fefferman-Graham/Starobinsky free data (conformal class of g^(0), TT g^(3)) at spacelike I^+ and their uniqueness property; and that Wands-Malik-Lyth-Liddle (PRD 62, 043527, 2000) derive zeta conservation from energy-momentum conservation alone, independent of the field equations. The Starobinsky-Yokoyama equilibrium exp(-8 pi^2 V/(3H^4)) I could not confirm from full text; I reconstructed it as exp(-V * V_horizon / T_dS) from the two facts the sources did confirm (Maxwell-Boltzmann equilibrium; T_dS = H/2pi) and cross-checked that it returns the standard <phi^2> = 3H^4/(8 pi^2 m^2) \u2014 it is graded STANDARD on that basis rather than THEOREM.\n\nGRADING POLICY. THEOREM is reserved for statements with a proof I can name (Wald, Friedrich, Liouville/symplectic invariance, WMLL, Maldacena's Ward identity, the mixing theorem, uniqueness of the Cauchy development, cosmic-variance sampling). STANDARD means textbook or unambiguously established in the literature. PLAUSIBLE would mark my own reasoned judgment; in the end I did not need it \u2014 every element I was prepared to assert cleared STANDARD, and anything that did not clear it I dropped rather than downgraded."
+}

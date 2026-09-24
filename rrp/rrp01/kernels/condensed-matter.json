@@ -1,0 +1,331 @@
+{
+ "description_group": "condensed-matter",
+ "contractions": [
+  {
+   "name": "Block-spin (Kadanoff) coarse-graining on configuration space",
+   "mathematical_form": "A stochastic blocking kernel T(sigma'|sigma) >= 0 with sum_{sigma'} T(sigma'|sigma) = 1, defining the renormalized Hamiltonian by exp(-H'[sigma']) = sum_sigma T(sigma'|sigma) exp(-H[sigma]), followed by length rescaling x -> x/b. Canonical example: majority rule sigma'_I = sgn(sum_{i in I} sigma_i) on blocks I of b^d sites. Partition function is preserved exactly, Z[H'] = Z[H]; the configuration count is not: 2^N -> 2^{N b^{-d}}.",
+   "why_this_is_the_contraction": "It is operative because of a physical fact specific to this domain, not because it is convenient: near a continuous transition the correlation length diverges (xi/a -> infinity), so the degrees of freedom at the lattice scale a carry no information about the singular part of the free energy. The blocking map is the formal statement that a probe of wavelength >> a cannot in principle distinguish the summed-over microstates. Its many-to-one-ness is measured, not postulated: the He-4 lambda-point exponent alpha = -0.0127(3) is the same number as in microscopically unrelated 3D XY systems, and the quantized Hall resistance agrees between GaAs/AlGaAs and epitaxial graphene to 8.6e-11. Both are direct experimental readouts of the fiber of the map being large.",
+   "what_it_erases": "All within-block microstates: the fiber over a given sigma' has size ~2^{N(1-b^{-d})}. Correlations at separations below the block scale. Caveat on the map itself: it is not always well-defined on Hamiltonian space -- van Enter, Fernandez & Sokal (1993) showed that for some blocking schemes in the low-temperature/high-field regime the block-spin measure is not Gibbsian for ANY quasi-local interaction, so H' does not exist. The contraction's domain of definition is itself a nontrivial hypothesis."
+  },
+  {
+   "name": "Momentum-shell elimination plus rescaling (Wilson RG on theory space)",
+   "mathematical_form": "exp(-S_{Lambda/b}[phi_<]) = integral D phi_> exp(-S_Lambda[phi_< + phi_>]) over the shell Lambda/b < |k| < Lambda, followed by k' = b k, phi'(k') = zeta(b)^{-1} phi(k). This induces a map on coupling space R_b : K -> K' obeying the SEMIGROUP law R_b o R_{b'} = R_{b b'}, with no inverse element. Differential form: Lambda dK_a/dLambda = beta_a(K) (Wegner-Houghton / Polchinski exact flow equation).",
+   "why_this_is_the_contraction": "The shell modes are genuinely integrated out -- traced over, not stored in an auxiliary register. The map is a marginalization of a probability measure, hence monotone under any data-processing/relative-entropy functional and strictly irreversible unless the shell decouples. In this domain the physical content is that the theory at cutoff Lambda/b is the complete description of all experiments resolving only wavelengths > b/Lambda, which is the operating regime of every thermodynamic and transport measurement in the record (specific heat, transport coefficients, gap spectra).",
+   "what_it_erases": "The functional dependence on phi_>, i.e. all information in the shell beyond its induced contribution to the low-mode effective action. On coupling space, the pre-image of K' is generically a positive-codimension-zero set of distinct K's (many microscopic theories give the same effective theory one shell down)."
+  },
+  {
+   "name": "Iteration to a fixed point on the critical manifold (the universality contraction)",
+   "mathematical_form": "lim_{n -> infinity} R_b^n (K) = K* for every K in W^s(K*), the stable manifold, which has codimension r = (number of relevant directions). Linearize: M_{ab} = partial K'_a / partial K_b at K*, with eigenvalues lambda_i = b^{y_i} and left eigenvectors defining scaling fields u_i, so u_i' = b^{y_i} u_i. On W^s all |b^{y_i}| < 1, so in a suitable norm R_b is locally a strict contraction mapping in the Banach sense; K* is its unique local fixed point.",
+   "why_this_is_the_contraction": "This is universality itself, and it is the single most sharply verified statement in the domain: an infinite-dimensional manifold of microscopically unrelated theories (fluids, uniaxial magnets, binary alloys; He-4 at the lambda point) is collapsed to one point, and every theory in the collapsed set thereafter produces identical singular thermodynamics. It is the operative contraction because the domain's precision data (alpha to 3e-4, resolution to 2 nK with no observed rounding) test the collapse, not the convenience of the scheme.",
+   "what_it_erases": "The entire critical manifold: where on W^s the microscopic theory sat, and therefore the whole approach trajectory. Concretely, T_c, the correlation-length amplitude xi_0, the individual specific-heat amplitudes C^+ and C^-, the lattice constant and the bandwidth."
+  },
+  {
+   "name": "Fermi-surface shell RG (Shankar / Polchinski contraction onto the Fermi surface)",
+   "mathematical_form": "Retain modes with |epsilon(k) - mu| < Lambda; decompose k = k_F n-hat + l and rescale l -> l/b with the FIXED POINT LOCUS being the (d-1)-dimensional Fermi surface rather than a point. Tree-level dimensions: the quartic coupling u(k_1,k_2,k_3,k_4) has dimension -1 (irrelevant) EXCEPT on the two measure-zero kinematic manifolds k_3 = k_1 (forward scattering, giving Landau functions F^{s,a}(theta)) and k_1 + k_2 = 0 (Cooper channel, giving V(theta)), where it is marginal. One loop: dV_l/d ln(Lambda_0/Lambda) = -V_l^2 (times density of states), the BCS log.",
+   "why_this_is_the_contraction": "This is the domain's own answer to why a weakly-interacting quasiparticle description emerges from a strongly-interacting Coulomb substrate -- the brief's LIMIT_RELATION entry. The contraction is not an approximation scheme: phase space near a codimension-1 Fermi surface geometrically suppresses generic four-fermion scattering, so an infinite-dimensional space of interaction functions is mapped onto two functions on the Fermi surface. The operative physics is Fermi statistics plus the geometry of the Fermi surface, nothing else.",
+   "what_it_erases": "All non-forward, non-Cooper quartic and higher couplings (they die as Lambda^{|y|}); band structure away from the Fermi surface; the entire high-energy spectrum. The quasiparticle residue Z, the effective mass m*, and the numerical values of Landau parameters are retained as fixed-point data but are non-universal."
+  },
+  {
+   "name": "Landau order-parameter reduction (microscopic Hamiltonian -> Ginzburg-Landau functional)",
+   "mathematical_form": "Z = integral D psi exp(-F[psi]) with F[psi] = integral d^dx [ a|grad psi|^2 + r|psi|^2 + u|psi|^4 + ... ], where psi(x) is a coarse-grained local order-parameter field, formally Z = integral D psi integral D sigma delta(psi(x) - O[sigma](x)) exp(-H[sigma]). Gor'kov's derivation from BCS fixes a, r, u from the microscopics near T_c: every microscopic input enters only through a finite list of numbers.",
+   "why_this_is_the_contraction": "The domain's own classification scheme (the Landau paradigm in the brief's formalism entry) is defined by this reduction: phases are labelled by which symmetry the order parameter breaks, not by which Hamiltonian produced it. It is operative because the brief's flagship derivation -- BCS to GL via Gor'kov -- shows the coefficients are the ONLY surviving channel: the phonon-mediated mechanism itself is invisible in F[psi].",
+   "what_it_erases": "The pairing mechanism, the full N-body wavefunction, the isotope-effect microphysics, the whole non-order-parameter sector of the Hilbert space. Any two Hamiltonians with the same symmetry-breaking pattern and the same three GL coefficients become literally the same theory."
+  },
+  {
+   "name": "Gapped-phase equivalence / entanglement RG (quasi-local unitary circuits)",
+   "mathematical_form": "Declare H_0 ~ H_1 iff there is a smooth path H_s with a uniform spectral gap; equivalently (quasi-adiabatic continuation) |psi_0> = U (|psi_1> tensor |product state>) with U a finite-depth quasi-local circuit. The wavefunction RG (Levin-Wen / MERA / Chen-Gu-Wen local unitary flow) applies disentanglers and discards the resulting unentangled spins, converging to a fixed-point wavefunction of the phase.",
+   "why_this_is_the_contraction": "The brief states the mechanism explicitly: the exact value of sigma_xy 'survives interactions and disorder because it is an invariant of the gapped phase, not a fine-tuned property of the substrate'. That is precisely the statement that the map from Hamiltonian to phase is massively many-to-one and that the invariant lives on the quotient. The experimental face of the quotient is the graphene-vs-GaAs comparison at 8.6e-11 relative uncertainty: two chemically unrelated points of the same fiber, one number.",
+   "what_it_erases": "Everything inside a connected gapped component: the Hamiltonian's couplings, its correlation length, gap magnitude, short-range entanglement structure, the chemistry, the device geometry (von Klitzing: 'insensitive to the geometry of the device')."
+  },
+  {
+   "name": "Symmetry-class projection (tenfold way / SPT labelling)",
+   "mathematical_form": "H |-> (d, AZ class), the class determined by the presence and squares of time reversal T (T^2 = +/-1), particle-hole C (C^2 = +/-1) and chiral S = TC; then class + d |-> pi_0 of the corresponding classifying space, giving Z, Z_2, or 0, with Bott periodicity (period 2 in d for the two complex classes, period 8 for the eight real classes). Bosonic SPT with symmetry G: H |-> [omega] in H^{d+1}(G, U(1)) (cobordism-refined in the general case).",
+   "why_this_is_the_contraction": "This is what makes 'topological insulator' a property of a symmetry class and a dimension rather than of a material -- the domain's strongest form of substrate-independence. It is operative because the only data entering the classification are discrete: which antiunitary symmetries exist and what they square to. An infinite-dimensional space of Hamiltonians maps to a countable, often finite, abelian group.",
+   "what_it_erases": "All Bloch eigenvectors, dispersions, band gaps, spin-orbit strengths -- everything except the index. It also erases part of the free-fermion index when interactions are switched on: in 1D class BDI the free Z collapses to Z_8 (Fidkowski-Kitaev), i.e. the subgroup 8Z is destroyed."
+  },
+  {
+   "name": "Disorder averaging and the mobility-gap reduction",
+   "mathematical_form": "[ . ]_dis = integral dP(V) ( . ), implemented as lim_{n->0} [Z^n] (replicas) or via supersymmetry/Keldysh; and the reduction of the spectrum to a mobility gap, in which extended states are replaced by their localized complement so that the Fermi projection P_F is a non-commutative-geometry object with a well-defined index.",
+   "why_this_is_the_contraction": "The IQHE is exact in a dirty, disordered device. The step from 'this particular impurity landscape' to 'the phase' is therefore not a computational shortcut but the operative reduction: the domain's headline exactness claim is made in a regime where the microscopic potential is unknown and unknowable and the answer does not depend on it. Disorder is also constitutive here rather than a perturbation -- without localization there are no plateaus at all.",
+   "what_it_erases": "The specific realization V(x), the device geometry, and (at a clean fixed point with d*nu > 2, by Harris) the disorder strength itself; only whether disorder is relevant survives, and at a random fixed point only the distribution's universality-relevant features."
+  },
+  {
+   "name": "Effective-theory representation quotient (duality; K-matrix congruence)",
+   "mathematical_form": "For abelian FQH states: the Chern-Simons K-matrix is defined only up to congruence K -> W^T K W with W in GL(N,Z), together with charge vector t -> W^{-1} t. More broadly, the map {Laughlin trial wavefunction, composite-fermion construction, Chern-Simons effective field theory, chiral edge CFT} -> observable content is many-to-one.",
+   "why_this_is_the_contraction": "The brief records exactly this: 'one emergent phase, several inequivalent-looking effective theories with matching observables'. The physics that makes it operative is that no experiment measures the presentation -- shot noise measures e*, collisions and interferometry measure the exchange phase, transport measures sigma_xy. The quotient by GL(N,Z) is the mathematically exact form of this: congruent K-matrices are physically identical.",
+   "what_it_erases": "The choice of representative within a congruence class (the number N of gauge fields, the specific integer entries of K, the parton/flux-attachment decomposition), and the entire wavefunction-vs-field-theory distinction."
+  },
+  {
+   "name": "Thermodynamic and scaling limits (N -> infinity, a -> 0 at fixed xi)",
+   "mathematical_form": "The GNS/inductive limit of the local observable algebras A_loc -> A = closure of union_Lambda A_Lambda, with states obtained as limits of finite-volume Gibbs states (DLR/KMS states); together with the scaling limit a -> 0, t -> 0 with xi = xi_0 |t|^{-nu} held fixed.",
+   "why_this_is_the_contraction": "Every sharp statement in the domain -- a genuine non-analyticity at T_c, an exactly quantized plateau, an exactly degenerate topological ground space -- exists only in this limit; at finite N everything is analytic and every degeneracy is split. The brief's 2 nK resolution 'with no observed rounding' is the experimental statement that the limit is being approached without obstruction. The map is many-to-one because inequivalent finite systems converge to the same limit state.",
+   "what_it_erases": "All finite-size corrections (including the exponentially small topological degeneracy splitting ~exp(-L/xi)), the boundary-to-bulk ratio, and the distinction between sequences of finite systems with the same limit."
+  }
+ ],
+ "kernel_elements": [
+  {
+   "element": "The fixed points K* themselves (the invariant set of the RG semigroup), and the discrete list of which fixed points exist for a given (d, symmetry).",
+   "why_not_erased": "Definitional and immediate: R_b K* = K* for all b, so the fixed set is the invariant set of the semigroup. No amount of iteration moves it. The flow acts on everything else; the fixed points are precisely the locus where it acts trivially. Note the fixed point's COORDINATES are scheme-dependent (a different blocking kernel puts K* elsewhere in coupling space); what is scheme-independent is its existence and the spectrum attached to it (next item).",
+   "contraction": "Iteration to a fixed point on the critical manifold (the universality contraction)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The full linearized eigenvalue spectrum {y_i} at K*, relevant AND irrelevant parts together (lambda_i = b^{y_i}).",
+   "why_not_erased": "The spectrum of M = dR_b/dK at K* is a similarity invariant, hence independent of the parametrization of coupling space and of where on W^s the trajectory began: every trajectory in W^s approaches K* and is governed by the same M. The contraction acts on the position in coupling space, not on the derivative of the map at its own fixed point. This is why exponents are universal while amplitudes are not.",
+   "contraction": "Iteration to a fixed point on the critical manifold (the universality contraction)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The relevant directions and the unstable manifold W^u, with dim W^u = r = the number of parameters that must be tuned to reach criticality (r = 1 for Ising at zero field, 2 including the field).",
+   "why_not_erased": "Because the map is NOT a contraction there. Along a relevant eigendirection u_i' = b^{y_i} u_i with y_i > 0, so a perturbation grows as b^{n y_i} under iteration: coarse-graining amplifies it rather than removing it. The relevant spectrum is exactly the obstruction to R_b being contractive on all of coupling space, so it is the one structure the contraction provably cannot reach.",
+   "contraction": "Iteration to a fixed point on the critical manifold (the universality contraction)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The critical exponents and the scaling laws among them: nu = 1/y_t, Delta = y_h/y_t, eta, plus Widom-Kadanoff-Rushbrooke-Fisher-Josephson relations and hyperscaling 2 - alpha = d nu.",
+   "why_not_erased": "They are algebraic functions of the spectrum in the previous item, and the singular free energy f_s(t,h) = b^{-dn} f_s(b^{n y_t} t, b^{n y_h} h) is a fixed-point identity. The brief's measured alpha = -0.0127(3) maps by hyperscaling to nu = 0.6709(1); the small, documented tension with Monte-Carlo/bootstrap nu ~ 0.6717 is a live metrology question, not a breakdown of the kernel structure.",
+   "contraction": "Iteration to a fixed point on the critical manifold (the universality contraction)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The leading irrelevant eigenvalue omega = -y_{first irrelevant}, controlling corrections to scaling (Wegner): C ~ |t|^{-alpha}(1 + a_1 |t|^{omega nu} + ...).",
+   "why_not_erased": "Sharp distinction the contraction respects: the VALUES of irrelevant couplings are driven to zero, but their EIGENVALUES are properties of M at K* and survive as universal correction exponents. The brief's domain_of_validity entry records exactly this -- universality holds asymptotically 'with measurable corrections to scaling'. Irrelevance is erasure of a coordinate, not of a direction.",
+   "contraction": "Momentum-shell elimination plus rescaling (Wilson RG on theory space)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Exactly marginal directions (y = 0) and the coordinate along a line of fixed points: the Luttinger parameter K in d = 1, the 8-vertex/Ashkin-Teller line, the c = 1 compactification radius.",
+   "why_not_erased": "Neither contracted nor expanded: u' = b^0 u = u exactly. The coordinate along a marginal direction is a strict invariant of the flow, so it is carried from the UV to the IR unchanged and shows up as continuously varying critical exponents -- the sharpest counterexample to 'coarse-graining forgets couplings'.",
+   "contraction": "Iteration to a fixed point on the critical manifold (the universality contraction)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Universal scaling functions and universal amplitude ratios: A^+/A^- = 1.053(2) (brief's measured value), R_xi, the Binder cumulant U_4, the universal finite-size amplitude.",
+   "why_not_erased": "The scaling function f_s(t,h) = |t|^{2-alpha} Phi(h/|t|^Delta) is fixed by the global flow along W^u emanating from K*, and only TWO non-universal metric factors (the scales of the nonlinear scaling fields t and h) are free. Any dimensionless ratio in which those two factors cancel is therefore a property of K* alone and cannot depend on the microscopic starting point.",
+   "contraction": "Iteration to a fixed point on the critical manifold (the universality contraction)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The symmetry group G acting on the degrees of freedom: R_b o g = g o R_b.",
+   "why_not_erased": "An admissible blocking kernel is constructed G-equivariantly, T(g sigma' | g sigma) = T(sigma'|sigma); then H'[g sigma'] = H'[sigma'] identically. So symmetry is neither destroyed nor manufactured by coarse-graining. This is the hinge on which every downstream protection statement hangs.",
+   "contraction": "Block-spin (Kadanoff) coarse-graining on configuration space",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The universality-class labels themselves: spatial dimension d, order-parameter component count n, the symmetry-breaking pattern G -> H, interaction range/analyticity (Sak's criterion for long-range interactions), particle statistics, presence of quenched randomness, and -- for dynamics -- the conservation laws (Hohenberg-Halperin models A/B/C/...).",
+   "why_not_erased": "These are discrete, superselected data, not coordinates on coupling space that the flow moves. The flow is a map on couplings AT FIXED d, fixed symmetry and fixed conservation structure; it has no matrix element between classes. This is exactly why microscopically unrelated systems (He-4, XY magnets) share exponents 'by symmetry/dimension class alone', as the brief's formalism entry states.",
+   "contraction": "Iteration to a fixed point on the critical manifold (the universality contraction)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The choice among competing/degenerate fixed points -- i.e. which basin of attraction a given microscopic theory lies in.",
+   "why_not_erased": "The contraction destroys the trajectory but not the identity of its endpoint. Which fixed point is reached is a global property of the initial theory that no local coarse-graining step can alter; and when several fixed points coexist at the same (d, symmetry) (e.g. Gaussian vs Wilson-Fisher; clean vs random; stable vs unstable multicritical), the basin label is strictly additional data over and above the class labels.",
+   "contraction": "Iteration to a fixed point on the critical manifold (the universality contraction)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The monotone certifying irreversibility: Zamolodchikov's c-function in 2D (dC/dl <= 0, C(fixed point) = c); the F-theorem in 3D; the a-theorem in 4D.",
+   "why_not_erased": "c is stationary only at fixed points and strictly decreasing along flows, so it is an invariant of the fixed point and simultaneously an obstruction to inverting the contraction: no RG flow runs from smaller c to larger c. In this domain c is directly observable -- the universal O(1/L) finite-size correction to the free energy and the entanglement entropy S = (c/3) ln(l) at a 1D quantum critical point.",
+   "contraction": "Momentum-shell elimination plus rescaling (Wilson RG on theory space)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "'t Hooft anomalies and Lieb-Schultz-Mattis (LSM) constraints: e.g. half-integer spin per unit cell with SO(3) plus lattice translation forbids a trivial gapped symmetric ground state -- the IR must be gapless, symmetry-broken, or topologically ordered.",
+   "why_not_erased": "An anomaly is valued in a discrete (cohomology/cobordism) group and therefore cannot flow continuously; it is matched exactly between UV and IR. Mechanically: the flux-threading argument (Oshikawa 1997; Hastings 2004 in higher d) is a momentum-balance statement that uses only U(1) charge conservation and translation -- both exactly preserved by any admissible coarse-graining. This kernel element constrains which fixed points are even reachable from a given microscopic lattice.",
+   "contraction": "Momentum-shell elimination plus rescaling (Wilson RG on theory space)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Mermin-Wagner-Hohenberg exclusion: no spontaneous breaking of a continuous symmetry at T > 0 in d <= 2 with short-range interactions.",
+   "why_not_erased": "A rigorous theorem about the infinite-volume Gibbs state, independent of the coarse-graining scheme; it forbids a whole class of fixed points from existing at all, so the flow cannot reach them no matter what is integrated out. It is the reason the 2D XY case terminates in a BKT fixed line rather than an ordered fixed point.",
+   "contraction": "Thermodynamic and scaling limits (N -> infinity, a -> 0 at fixed xi)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Dangerously irrelevant variables: an irrelevant coupling whose amplitude nevertheless survives in observables because the scaling function is singular as that coupling -> 0 (e.g. u above d_c = 4, where hyperscaling 2 - alpha = d nu fails and beta = 1/2 requires u).",
+   "why_not_erased": "Erasure by the flow is measured by the coupling going to zero; erasure from the physics requires in addition that the limit be regular. When Phi(x, u) ~ u^{-p} g(x u^q) the two come apart, and the irrelevant coupling re-enters every exponent above the upper critical dimension. This is the domain's proof that 'irrelevant' does not entail 'erased'.",
+   "contraction": "Momentum-shell elimination plus rescaling (Wilson RG on theory space)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Boundary/surface data: the boundary universality class (ordinary, extraordinary, special) and surface exponents, and in 2D the choice of conformal boundary condition (Cardy state).",
+   "why_not_erased": "The bulk RG flow acts on bulk couplings; the boundary carries its own coupling space, its own fixed points and its own relevant spectrum. The bulk fixed point constrains the allowed boundary fixed points (they must be consistent with the bulk operator content) but does not select among them. So boundary data is asymptotic data the bulk flow structurally does not touch.",
+   "contraction": "Iteration to a fixed point on the critical manifold (the universality contraction)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The two non-universal metric factors, i.e. the location of the critical manifold in coupling space -- and therefore T_c itself -- which the flow leaves undetermined.",
+   "why_not_erased": "Undetermined rather than invariant: fixed-point data (K*, M, the scaling functions) fixes the SHAPE of the singularity but says nothing about where in coupling space the singularity sits. T_c is set by where the microscopic trajectory pierces W^s, which is global, non-universal information that must be supplied from outside the fixed-point analysis. The brief's open_problems entry is the empirical shadow of this: four decades on, cuprate T_c values 'remain underived'.",
+   "contraction": "Iteration to a fixed point on the critical manifold (the universality contraction)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Universal jumps at marginal flows: the Nelson-Kosterlitz jump rho_s(T_c^-)/T_c = 2 m^2 k_B / (pi hbar^2) at the BKT transition.",
+   "why_not_erased": "The KT flow is marginal (vortex fugacity marginally irrelevant below T_c), so the fixed line's endpoint -- the separatrix -- carries an exact universal number even though there is no isolated fixed point and no power-law exponent. It survives because it is the value of the stiffness AT the separatrix, a geometric property of the flow diagram rather than of any trajectory.",
+   "contraction": "Iteration to a fixed point on the critical manifold (the universality contraction)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The Fermi surface as the fixed-point locus, and Luttinger's theorem: the enclosed volume is fixed by the particle density, independent of interaction strength.",
+   "why_not_erased": "Pinned by two exactly preserved structures: U(1) charge conservation and lattice translation. Oshikawa's flux-threading derivation (cond-mat/0002392) is non-perturbative -- adiabatically insert 2pi flux, undo it by a large gauge transformation, and compare crystal momenta -- so it does not rely on the perturbative expansion that could have been invalidated by the coarse-graining. Its failure mode is itself diagnostic: fractionalized FL* states evade it precisely by having extra topological sectors.",
+   "contraction": "Fermi-surface shell RG (Shankar / Polchinski contraction onto the Fermi surface)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The marginal coupling functions on the Fermi surface: Landau functions F^s(theta), F^a(theta) (forward scattering) and the Cooper coupling V(theta).",
+   "why_not_erased": "They sit on the two kinematic manifolds where the tree-level scaling dimension is exactly zero, so the contraction neither drives them to zero nor amplifies them at leading order. The infinite-dimensional quartic vertex is reduced to these two functions of angle -- and no further. This is the brief's Shankar entry: the reason 'a weakly-interacting quasiparticle description emerges from a strongly-interacting substrate'.",
+   "contraction": "Fermi-surface shell RG (Shankar / Polchinski contraction onto the Fermi surface)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The sign of V_l in each angular-momentum channel, and hence the identity of the relevant instability: superconductivity. Kohn-Luttinger: some finite-l channel is always attractive, so the Fermi-liquid fixed point has an unavoidable relevant direction at T = 0.",
+   "why_not_erased": "One-loop flow dV_l/d ln(Lambda_0/Lambda) = -V_l^2 makes the marginal coupling marginally relevant for V_l < 0 and marginally irrelevant for V_l > 0 -- a sign, which is discrete and cannot be continuously deformed away by further coarse-graining. The brief names this exact structure ('superconducting pairing as the identified relevant instability'). Kohn-Luttinger then shows that even a purely repulsive bare interaction generates attraction at high l via Friedel-oscillation overscreening.",
+   "contraction": "Fermi-surface shell RG (Shankar / Polchinski contraction onto the Fermi surface)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Ward-identity-protected relations: Kohn's theorem (cyclotron resonance of a translationally invariant 2DEG occurs exactly at omega_c = eB/m, unrenormalized by electron-electron interactions) and the Galilean relation m*/m = 1 + F_1^s/3.",
+   "why_not_erased": "Non-renormalization by symmetry: the centre-of-mass coordinate decouples from all relative coordinates under a translationally invariant two-body interaction, so the dipole-active mode is exactly the free cyclotron mode regardless of correlation strength. No coarse-graining that preserves translations and Galilean boosts can shift it. This is the domain's cleanest instance of an exact quantity riding through an arbitrarily strong-coupling reduction.",
+   "contraction": "Fermi-surface shell RG (Shankar / Polchinski contraction onto the Fermi surface)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The coset G/H and the Nambu-Goldstone count: n_A + 2 n_B = dim(G/H), with type-B modes (quadratic dispersion) arising when <[Q_a, Q_b]> != 0.",
+   "why_not_erased": "Goldstone masslessness is exact to all orders -- it is a Ward identity of the unbroken generators, not a tuned cancellation -- so no truncation of the flow can gap the modes. The nonrelativistic counting is a theorem (Watanabe & Murayama, PRL 108, 251602 (2012)), with n_B = (1/2) rank of the commutator matrix. Since G is preserved by equivariant blocking and H is defined by the order parameter, G/H passes through the Landau reduction untouched by construction.",
+   "contraction": "Landau order-parameter reduction (microscopic Hamiltonian -> Ginzburg-Landau functional)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Homotopy classification of topological defects: pi_n(G/H) -- vortices with pi_1(U(1)) = Z in superfluids and superconductors, hence flux quantization in units of Phi_0 = h/2e.",
+   "why_not_erased": "Homotopy classes are invariant under continuous deformation of any map and of the target; coarse-graining deforms the GL coefficients continuously and cannot change pi_n(G/H) unless the symmetry-breaking pattern itself changes. A defect's winding number is an integral of a total derivative over a closed surface, so it is insensitive to any local modification of the configuration in the interior.",
+   "contraction": "Landau order-parameter reduction (microscopic Hamiltonian -> Ginzburg-Landau functional)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Elitzur's theorem: a local gauge symmetry cannot be spontaneously broken -- so the Landau reduction cannot produce a gauge-invariant local order parameter for a superconductor. What survives instead is the Anderson-Higgs content: the gauge-field mass / London penetration depth, and (on a lattice) Z_2 topological order.",
+   "why_not_erased": "The theorem is an exact statement about finite-volume Gibbs averages of gauge-variant observables (they vanish identically at any nonzero gauge coupling), so it is not a statement the flow can override. Its corollary constrains the kernel from the other side: by Osterwalder-Seiler / Fradkin-Shenker, Higgs and confinement regimes are analytically connected for fundamental matter, so even the PHASE LABEL is not always a kernel element -- a useful negative result. The brief's Anderson 1963 entry is the positive content: the mass generation survives and was later exported to the electroweak sector.",
+   "contraction": "Landau order-parameter reduction (microscopic Hamiltonian -> Ginzburg-Landau functional)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The Chern/TKNN integer and the quantized Hall conductance sigma_xy = C e^2/h, for interacting lattice fermions with finite-range interactions and a gapped ground state.",
+   "why_not_erased": "An integer-valued function that is continuous in the couplings on the gapped set is locally constant, hence constant on each connected component; every coarse-graining step is a continuous deformation WITHIN the gapped phase. Hastings & Michalakis (arXiv:0911.4706, the brief's own entry) prove it without averaging assumptions, with corrections decaying stretched-exponentially in system size; later short proofs via Berry curvature on the flux torus (Bachmann, Bols, De Roeck & Fraas). Hypotheses -- gap and finite range -- are load-bearing, and the brief's domain_of_validity entry states the physical scope (mobility gap, low T, sub-breakdown current).",
+   "contraction": "Gapped-phase equivalence / entanglement RG (quasi-local unitary circuits)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The fractional case: sigma_xy quantized to a rational with denominator equal to the topological ground-state degeneracy p.",
+   "why_not_erased": "A many-body Fredholm-type index whose value is fractional with denominator p, defined for any charge-conserving system with a topologically ordered p-dimensional gapped ground-state sector (Bachmann-Bols-De Roeck-Fraas). Being an index it is deformation-invariant on the gapped set. The brief correctly notes that the Hastings-Michalakis theorem does not cover the fractional case; this later result does, at the price of assuming the topological degeneracy.",
+   "contraction": "Gapped-phase equivalence / entanglement RG (quasi-local unitary circuits)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Topological ground-state degeneracy on a genus-g surface (q^g for the Laughlin state at nu = 1/q; 4 for the toric code on a torus).",
+   "why_not_erased": "The degeneracy is not protected by any symmetry and has no local order parameter; it is exact up to splitting ~exp(-L/xi) because the states differ by non-contractible Wilson loops, which no quasi-local unitary of finite depth can implement. The entanglement RG is built from exactly such finite-depth circuits, so it cannot connect the sectors.",
+   "contraction": "Gapped-phase equivalence / entanglement RG (quasi-local unitary circuits)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The full modular tensor category data of the anyon content: fusion rules N^c_{ab}, F- and R-symbols, modular S and T matrices, topological spins theta_a, quantum dimensions d_a, total quantum dimension D.",
+   "why_not_erased": "Ocneanu rigidity (proved by Etingof, Nikshych & Ostrik, Ann. Math. 162, 581 (2005)): a fusion category admits no nontrivial infinitesimal deformations of its monoidal structure, and there are only finitely many fusion categories with a given fusion ring. So this data is literally undeformable -- there is no continuous path along which the flow could move it, independent of any physical argument. The brief supplies the measured elements: e* = e/3 (shot noise, 1997, two groups) and exchange phase phi = pi/3 (collisions and Fabry-Perot interferometry, 2020, two methods).",
+   "contraction": "Effective-theory representation quotient (duality; K-matrix congruence)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The chiral central charge c_- (thermal Hall conductance kappa_xy = c_- pi^2 k_B^2 T / (3h)), quantized in units of 1/2, with Kitaev's sixteenfold-way constraint relating c_- mod 8 to the anyon content.",
+   "why_not_erased": "c_- is the framing anomaly of the bulk TQFT and equals the chiral central charge of the edge CFT; it is the obstruction to gapping the boundary. As a discrete invariant tied to the modular data through T = exp(2 pi i c_-/24) diag(theta_a), it inherits the rigidity of the previous item and is fixed by the S,T matrices.",
+   "contraction": "Gapped-phase equivalence / entanglement RG (quasi-local unitary circuits)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Topological entanglement entropy gamma = ln D in S(region) = alpha L - gamma.",
+   "why_not_erased": "The entanglement RG removes only short-range-entangled (product) degrees of freedom, which contribute to the boundary-law coefficient alpha and not to the constant subleading term; the Kitaev-Preskill and Levin-Wen linear combinations are constructed precisely to cancel all local boundary contributions, leaving a quantity determined by the total quantum dimension alone.",
+   "contraction": "Gapped-phase equivalence / entanglement RG (quasi-local unitary circuits)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "Bulk-boundary correspondence: the number and chirality of protected edge/surface modes, which cannot be gapped without closing the bulk gap or breaking the protecting symmetry (anomaly inflow).",
+   "why_not_erased": "For the integer QHE this is an index theorem: the bulk Chern number of the Fermi projection equals the edge index (Kellendonk-Schulz-Baldes; Elbau-Graf), so the edge data is rigidly tied to a bulk invariant that the contraction already cannot move. Laughlin's gauge argument, in the brief's formalism entry, is the physical version: quantization follows from gauge invariance plus a mobility gap, with no microscopic input.",
+   "contraction": "Gapped-phase equivalence / entanglement RG (quasi-local unitary circuits)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Superselection sectors of the quasi-local observable algebra in the thermodynamic limit, identified with the anyon types.",
+   "why_not_erased": "Sectors are inequivalent irreducible representations of the same algebra; no operation in the algebra -- and coarse-graining is built from quasi-local operations -- can map between them. Rigorous for the toric code and related models (Naaijkens, and the DHR-style superselection analysis of the toric-code sectors); the general lattice statement is on weaker footing, which is why the grade is split.",
+   "contraction": "Thermodynamic and scaling limits (N -> infinity, a -> 0 at fixed xi)",
+   "confidence": "PLAUSIBLE"
+  },
+  {
+   "element": "The index in the classifying group determined by (d, AZ class): Z, Z_2 or 0, with Bott periodicity (period 2 for the complex classes A and AIII, period 8 for the eight real classes); and, for crystalline cases, the symmetry-indicator / topological-quantum-chemistry data at high-symmetry momenta.",
+   "why_not_erased": "For free fermions this is Kitaev's K-theoretic classification: the index is pi_0 of a classifying space, a homotopy invariant of the map from the Brillouin zone, so it is unchanged by any continuous gap-preserving deformation of the Hamiltonian. Symmetry indicators are representation labels -- discrete characters of the little group at high-symmetry points -- and characters cannot flow continuously.",
+   "contraction": "Symmetry-class projection (tenfold way / SPT labelling)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The SPT class [omega] in H^{d+1}(G, U(1)) (bosonic; cobordism-refined in general), surviving into the interacting regime.",
+   "why_not_erased": "The classification group is discrete, so no continuous flow can move the label; equivalently, two SPT states in different classes are not related by any finite-depth G-symmetric local unitary. The kernel is smaller than the free-fermion one, which is itself informative: interactions collapse Z -> Z_8 in 1D class BDI (Fidkowski-Kitaev), showing that part of the free index was not protected at all.",
+   "contraction": "Symmetry-class projection (tenfold way / SPT labelling)",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The Harris criterion as the condition for the clean kernel to survive weak disorder: quenched randomness is irrelevant at a clean fixed point iff d nu > 2 (equivalently alpha < 0).",
+   "why_not_erased": "It is a statement about the scaling dimension of the disorder coupling at the CLEAN fixed point, i.e. about the linearized spectrum -- already established as non-erasable. It is what licenses using clean-system exponents in dirty samples, and it is satisfied at the He-4 lambda point (alpha = -0.0127 < 0), which is why the brief's microgravity measurement can be compared with clean-system theory.",
+   "contraction": "Disorder averaging and the mobility-gap reduction",
+   "confidence": "STANDARD"
+  },
+  {
+   "element": "The Chayes-Chayes-Fisher-Spencer bound: at any random fixed point, the finite-size-scaling correlation-length exponent obeys nu_FS >= 2/d.",
+   "why_not_erased": "A rigorous inequality on the flow itself: the flow cannot produce a disordered critical point violating it, so it is a constraint the contraction is unable to evade. Scope note verified: the bound is proved for the finite-size-scaling exponent nu_FS; at 'unconventional' random critical points the typical exponent nu_typ can be smaller, and the bound is not a statement about nu_typ.",
+   "contraction": "Disorder averaging and the mobility-gap reduction",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Exactness of the quantized invariant in the presence of strong disorder, via the non-commutative Chern number of the Fermi projection defined over a mobility gap.",
+   "why_not_erased": "Bellissard-van Elst-Schulz-Baldes construct the index in a non-commutative-geometry framework that needs only a mobility gap and localization, not a spectral gap or translational invariance. The invariant is therefore defined on the disorder-averaged algebra itself, i.e. AFTER the contraction has acted -- it is constructed to be a function of the quotient. This is why von Klitzing's plateaus are 'insensitive to the geometry of the device'.",
+   "contraction": "Disorder averaging and the mobility-gap reduction",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "The GL(N,Z)-congruence invariants of the K-matrix: |det K| (torus ground-state degeneracy), the discriminant group Z^N / K Z^N (the anyon fusion group), the quadratic form q(l) = l^T K^{-1} l mod 2 (topological spins), and the signature of K (chiral central charge).",
+   "why_not_erased": "These are exactly the complete invariants of an integral symmetric bilinear form under unimodular congruence K -> W^T K W. The quotient by GL(N,Z) is the precise mathematical content of 'the choice of effective-theory presentation is unphysical', and these are, by construction, the functions constant on each fiber. The brief's alternative_formulations entry -- Laughlin wavefunction, composite fermions, Chern-Simons, edge CFT 'agreeing on the observed fractions and quasiparticle content' -- is this statement in physics language.",
+   "contraction": "Effective-theory representation quotient (duality; K-matrix congruence)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Existence of sharp non-analyticity and of multiple extremal DLR/KMS states (phase coexistence) as strictly infinite-volume facts; Lee-Yang zeros pinching the real axis.",
+   "why_not_erased": "At finite N the free energy is an analytic function of the couplings (a finite sum of exponentials with positive weights), so no phase transition exists at all -- the entire phase structure is produced by the thermodynamic limit rather than surviving it, and it cannot be undone by any further coarse-graining because it is a property of the limit state. The brief's 2 nK resolution 'with no observed rounding' is the experimental check that the limit is being approached cleanly.",
+   "contraction": "Thermodynamic and scaling limits (N -> infinity, a -> 0 at fixed xi)",
+   "confidence": "THEOREM"
+  },
+  {
+   "element": "Undetermined-by-the-flow residue on the disorder side: the IQHE plateau-transition fixed point exists and its localization-length exponent nu is a well-defined universal number, but that number is not delivered by any controlled analytic treatment.",
+   "why_not_erased": "Listed as kernel in the 'undetermined by the flow' sense the task allows: the contraction does not erase the existence or universality of the plateau-transition exponent, yet the fixed point is at strong coupling with no small parameter, and numerical values (nu ~ 2.4) remain unreconciled with proposed conformal field theories. Graded PLAUSIBLE because the claim that the fixed point is a single conventional critical point is itself contested in the literature.",
+   "contraction": "Disorder averaging and the mobility-gap reduction",
+   "confidence": "PLAUSIBLE"
+  },
+  {
+   "element": "Deducibility is not a kernel element: substrate-level exactness of the Hamiltonian does not survive as computational access to the emergent level.",
+   "why_not_erased": "The inverse statement is the one being made -- and it is the brief's own known_disconnects entry. The 'Theory of Everything' Hamiltonian is exactly known for every material, direct solution fails beyond ~10 particles, and superconductivity and the FQHE fractions were found by experiment plus effective-level reasoning. So what the contraction leaves invariant (exponents, indices, anyon data) is systematically NOT what a bottom-up calculation can reach. Noted here to prevent the kernel list from being read as a derivation route; the brief marks this a deducibility-in-practice statement, not an in-principle underivability theorem, and BCS shows post-hoc derivation can succeed.",
+   "contraction": "Block-spin (Kadanoff) coarse-graining on configuration space",
+   "confidence": "STANDARD"
+  }
+ ],
+ "things_erased_completely": [
+  "Within-block microstates. The blocking map has fibers of size ~2^{N(1 - b^{-d})}; the joint microscopic configuration is not recoverable from the block variables at any finite b, and the loss compounds multiplicatively under iteration.",
+  "All correlations at separations below the running cutoff. After n steps, G(r) for r << b^n a is unrecoverable; only the long-wavelength tail is carried forward. Structure factors, local bonding, and short-range order are gone.",
+  "The numerical values of all irrelevant couplings at the microscopic scale: they decay as b^{-n|y_i|}. (Their EIGENVALUES survive as correction-to-scaling exponents, and dangerously irrelevant couplings survive through the scaling function -- but the bare values themselves do not.)",
+  "The identity of the substrate. Chemical composition, band structure, lattice constant, bandwidth, phonon spectrum. The brief's 8.6e-11 GaAs-vs-graphene agreement is the direct measurement that the substrate label has been destroyed inside R_K.",
+  "Non-universal amplitudes and every dimensionful scale in the universal sector: T_c, T_lambda, the gap magnitude, xi_0, the individual amplitudes C^+ and C^- (only their ratio survives), the cutoff Lambda, and the numerical coordinates of K* itself (these are blocking-scheme dependent, unlike the spectrum at K*).",
+  "The RG trajectory. The entire codimension-r critical manifold W^s maps to the single point K*; where on W^s the system started, and by what route it arrived, are unrecoverable in principle, not merely in practice.",
+  "The microscopic mechanism behind an ordered phase. Phonon-mediated pairing is invisible in the Ginzburg-Landau functional; by Gor'kov's derivation the only surviving trace is the numerical values of a, r, u -- and any other mechanism producing those same three numbers is, at GL level, the identical theory.",
+  "Single-particle content in strongly correlated phases. The FQHE liquid retains no single-particle explanation (the discovery paper's own Wigner-solid/CDW proposal was superseded); the constituents' integer charge e and fermionic statistics are absent from the effective-level labels e* = e/3 and phi = pi/3, even though the substrate contains fermions of charge e only.",
+  "The disorder realization. The specific impurity landscape, the device geometry, and (when d*nu > 2) the disorder strength itself. Only whether disorder is relevant, plus the universality-relevant features of the distribution, survive the average.",
+  "Part of the free-fermion topological index. Switching on interactions collapses Z -> Z_8 in 1D class BDI (Fidkowski-Kitaev) -- the subgroup 8Z is destroyed -- and analogous collapses occur in other classes. Separately, all band-structure data (Bloch eigenvectors, dispersions, gap sizes) is erased by the symmetry-class projection, leaving only the index.",
+  "The choice of effective-theory presentation: the representative K-matrix within a GL(N,Z) congruence class, the number N of Chern-Simons gauge fields, the parton/flux-attachment decomposition, and the Laughlin-wavefunction vs composite-fermion vs Chern-Simons vs edge-CFT distinction. Nothing observable separates them.",
+  "Gauge-variant data. By Elitzur's theorem no local order parameter for a gauge symmetry exists in the first place, so the 'broken U(1) of a superconductor' is not merely erased -- it was never a well-defined quantity to retain. And by Osterwalder-Seiler / Fradkin-Shenker the Higgs/confinement PHASE LABEL itself can be erased, since the two regimes are analytically connected for fundamental matter.",
+  "Fermi-liquid non-universal parameters: the quasiparticle residue Z, the effective mass m*, the Fermi velocity, and the individual Landau-parameter values. The RELATIONS among them (Wilson ratio, Galilean m*/m = 1 + F_1^s/3) survive; the numbers do not.",
+  "The analytic background of thermodynamic functions. Only the singular part has a scheme-independent meaning; the regular part is redefined at each blocking step and carries no invariant content.",
+  "The inverse direction of the flow. The RG is a semigroup with no inverse, and this is certified, not merely conjectured: c(UV) > c(IR) by the c-theorem (F- and a-theorems in higher d). The ultraviolet theory is provably not reconstructible from the infrared fixed point."
+ ],
+ "method_note": "Selection method. I enumerated candidate maps by asking, for each structural reduction the domain actually performs, whether it has nontrivial fibers as a matter of physics rather than of technique -- i.e. whether two demonstrably distinct inputs are mapped to the same output and the domain's own experiments certify that they are. That yielded ten: three faces of the Wilsonian flow proper (configuration-level blocking; theory-space shell elimination; iteration to the fixed point, which are distinct maps with distinct kernels and should not be conflated), the Fermi-surface variant with a codimension-1 fixed-point locus, the Landau order-parameter reduction, the gapped-phase/quasi-local-unitary equivalence, the symmetry-class projection, disorder averaging, the effective-theory representation quotient, and the thermodynamic/scaling limit. I excluded maps that are lossy only as a matter of computational practice (mean-field decoupling, truncated perturbation series, finite-cluster diagonalization): they lose information but nothing in the domain asserts their fibers are physically indistinguishable.\n\nKernel method. For each contraction I asked what obstructs its inversion, and required one of four kinds of argument rather than an appeal to robustness: (i) the map acts trivially there by construction (fixed points, equivariance, marginal directions); (ii) the quantity is valued in a discrete set and depends continuously on the couplings, so it is locally constant (Chern number, SPT class, anyon data via Ocneanu rigidity, chiral central charge, symmetry indicators); (iii) the map is expanding rather than contracting there (relevant directions, and the spectrum at the fixed point, which is a similarity invariant); (iv) the quantity is fixed by an exactly preserved symmetry or Ward identity (Goldstone count, Luttinger's theorem via flux threading, Kohn's theorem, LSM/anomaly matching). I also deliberately included two categories that a naive reading of 'contraction' would misclassify: irrelevant-direction EIGENVALUES (universal, though their couplings are erased) and dangerously irrelevant variables (erased by the flow yet present in every observable above d_c).\n\nBrief influence. The briefs supplied the domain's empirical anchors and several specific kernel elements: the He-4 alpha = -0.0127(3) and A+/A- = 1.053(2) (universal exponent and amplitude ratio), the graphene-vs-GaAs 8.6e-11 test (the measured statement that the substrate is in the fiber), e* = e/3 and phi = pi/3 (measured modular data), the Hastings-Michalakis theorem with its gap-plus-finite-range hypotheses, the Shankar Fermi-liquid fixed point with pairing as the identified relevant instability, the Gor'kov BCS-to-GL limit, the Elitzur-adjacent Anderson 1963 mass-generation item, and the domain_of_validity entry establishing that the topological kernel is conditional (mobility gap, low T, sub-breakdown current) rather than exact simpliciter. The briefs also supplied two negative constraints I built into the kernel list: the high-Tc entry, which I used as the empirical face of 'T_c is undetermined by fixed-point data', and the Laughlin-Pines known_disconnect, which I recorded explicitly so the kernel list is not misread as a bottom-up derivation route.\n\nWhat did NOT come from the briefs. Ocneanu rigidity, the c-/F-/a-theorems, LSM and flux-threading anomaly matching, Oshikawa's topological Luttinger derivation, Watanabe-Murayama Goldstone counting, Kohn's theorem, the Harris criterion and the Chayes-Chayes-Fisher-Spencer bound, Bellissard-van Elst-Schulz-Baldes, Kellendonk-Schulz-Baldes bulk-edge, the Bachmann-Bols-De Roeck-Fraas fractional many-body index, the Fidkowski-Kitaev Z -> Z_8 collapse, Elitzur and Fradkin-Shenker, van Enter-Fernandez-Sokal on RG-map ill-definedness, Wegner corrections to scaling, and the Nelson-Kosterlitz jump are all from my own physics knowledge. I verified four load-bearing items by search before grading them THEOREM: Ocneanu rigidity (Etingof-Nikshych-Ostrik, Ann. Math. 162, 581 (2005) -- fusion categories admit no nontrivial deformations, finitely many per fusion ring); the CCFS bound (confirmed, and confirmed to apply to the finite-size-scaling exponent nu_FS, with nu_typ able to be smaller at unconventional random critical points -- I narrowed the claim accordingly); Watanabe-Murayama (PRL 108, 251602 (2012)); and Oshikawa's non-perturbative Luttinger argument (cond-mat/0002392). I also checked that a rigorous fractional-conductance index exists, since the brief explicitly says Hastings-Michalakis does not cover the fractional case; it does (Bachmann-Bols-De Roeck-Fraas many-body Fredholm index, fractional with denominator equal to the degeneracy), which is why that element is graded THEOREM rather than STANDARD. Confidence grading is deliberately conservative: THEOREM only where I can name the theorem and its hypotheses, STANDARD for textbook-level results whose general formulation carries scope conditions, PLAUSIBLE for the two items (general lattice superselection sectors; the plateau-transition fixed point's status) where the literature is genuinely unsettled. I read only condensed_matter_emergence.json in the blinded directory and no file outside it."
+}
