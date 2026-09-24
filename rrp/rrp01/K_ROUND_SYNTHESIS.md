@@ -3,8 +3,10 @@
 **Date:** 2026-09-24. **Round:** RRP-01 K-round (protocol frozen `rrp/rrp01/K_ROUND_PROTOCOL.md`).
 **Inputs:** four refuters; six blinded kernel computations (53 contractions, 244 kernel
 elements) at `rrp/rrp01/kernels/`; comparator `rrp/rrp01/COMPARATOR_02.json`.
-**Verdict: K-U-PARTIAL — the correspondence is real, and it explains something other than
-what K-U claimed.**
+**Verdict: K-U-PARTIAL.** Owner-ratified formulation (2026-09-24): *the sweep provides
+evidence for a nontrivial correspondence in several independently motivated contraction
+classes — some priced quantities are demonstrably retained by the relevant contraction; the
+correspondence is neither universal nor sufficient to characterize the priced inventory.*
 
 ## 0. Instrument defects, stated first
 
@@ -60,7 +62,8 @@ The surplus is the headline. The 244-element kernel splits cleanly in two:
 > **(ii) elements the contraction retains but the theory LEAVES UNDETERMINED** — these are
 > the priced inputs.
 
-So the corrected relation is not K-U's "priced = kernel." It is: **priced ⊂ kernel.**
+So the corrected relation is not K-U's "priced = kernel." It is: **priced ⊂ kernel — across
+the tested surviving cases, not as a universal theorem.**
 Survival of contraction is *necessary* for being priced — anything a contraction erases
 cannot be a standing input of the contracted description — but it is not sufficient, and
 the extra condition is exactly the law/state question RRP-01 started from. **Contraction
@@ -147,3 +150,23 @@ this phase.
 The compressibility question is **not** answered. Smallness in class B is local and
 relative; class D predicts anti-smallness; and the SM's 19+ parameters stand as the
 counterexample to every version of "contraction makes it small."
+
+
+---
+
+## AMENDMENT 01 (2026-09-24, owner ruling — language and verdict ledger)
+
+Wording above adjusted per owner: "the correspondence is real" replaced by the bounded
+formulation; "priced ⊂ kernel" scoped to the tested surviving cases, never a universal
+theorem. Owner's recorded verdict ledger for this round: **K-U as originally stated:
+REFUTED. K-U as a universal explanation of priced inputs: REFUTED. Contraction/kernel
+structure as a partial correspondence with the law/state boundary: supported by the
+surviving cases, not universal, not yet explanatory of the residual selection. "Contraction
+explains smallness": not established** — the flavor result is a potentially important
+counterpoint, not an establishment. The three-way separation is recorded as the round's
+strongest output: **kernel-retained ≠ law-determined ≠ law-undetermined** — with a fourth,
+type-error class (parameters *defining* the contraction — slow-variable declarations,
+system/environment splits, projectors, cutoffs — are not kernel elements at all). The
+carried-forward question: *why does a physical theory determine some elements of a retained
+kernel while leaving others as supplied content?* Next step per owner: inspection of the
+actual blinded outputs (no new campaign) — `K_ROUND_INSPECTION_01.md`.
