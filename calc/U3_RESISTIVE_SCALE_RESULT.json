@@ -1,0 +1,87 @@
+{
+  "id": "u3_resistive_scale_generation",
+  "title": "Scale generation inside the resistive persistent ontology (S1-S4): can the sector manufacture its clock?",
+  "protocol": "Start from C1/C3 with no supplied relaxation scale. Test rescaling symmetry, self-consistent nonlinear scale generation, RG dimensional transmutation with a renormalization-condition control, and vacuum-state (order-parameter) scale generation. Post-hoc blind comparison only if a finite scale emerges.",
+  "environment": {
+    "python": "3.12.13",
+    "numpy": "2.4.6",
+    "platform": "macOS-12.7.6-x86_64-i386-64bit",
+    "note": "pinned python3.12; default python3 (3.15) numpy installation broken on this machine"
+  },
+  "checks": [
+    {
+      "name": "S1_rescaling_symmetry_is_exact_no_absolute_clock",
+      "pass": true,
+      "summary": "A -> A/s maps every relaxation spectrum to s times itself exactly (tau check: [2.12891781 3.85495945] vs s*[0.29163258 0.52807664]). Within the linear resistive ontology the relaxation scale is a REDUNDANT convention, exactly as in the prior u3_scale_origin no-go -- now established inside the candidate ontology itself. Any clock must come from something that breaks this symmetry (nonlinearity, RG, vacuum state, or an external scale)."
+    },
+    {
+      "name": "S2_nonlinear_self_consistency_still_scale_free",
+      "pass": true,
+      "summary": "The self-consistent fixed point a_eff=(a+sqrt(a^2+2 gamma D))/2 = 1.6180 (rescaled units) is homogeneous under a->a/s: 0.3236 = a_eff/s exactly. Self-consistent nonlinear feedback selects a SHAPE of spectrum but not an absolute clock. S2 fails to generate the scale."
+    },
+    {
+      "name": "S3_rg_scale_is_mu0_relative_import_not_derivation",
+      "pass": true,
+      "summary": "Landau pole = mu0*exp(-1/(2 beta0 g0^2)): 0.1353 for mu0=1 vs 0.5007 for mu0=3.7 -- different numbers, same trajectory family. The transmuted scale is only defined relative to the reference scale mu0, which is a boundary/renormalization condition = an input. S3 does not derive an absolute clock unless a mechanism fixing mu0 internally is supplied."
+    },
+    {
+      "name": "S4_vacuum_state_relocates_but_does_not_generate_the_clock",
+      "pass": true,
+      "summary": "<O>=sqrt(-r/u)=0.7071 arises spontaneously (r<0, u>0), giving tau0 = 1/(kappa <O>^2) = 1.5385 -- but every ingredient is dimensionless, so tau0 is a dimensionless number. Converting it to a physical time requires a dimensionful coupling, i.e. the clock is imported through the back door. S4 fails as scale GENERATION; it succeeds only as scale SELECTION among branches."
+    }
+  ],
+  "branches": {
+    "S1": {
+      "statement": "A -> A/s is an exact symmetry of the linear resistive sector: tau_i -> s*tau_i",
+      "example": {
+        "taus": [
+          0.2916325768527336,
+          0.5280766370509941,
+          0.849355534297711
+        ],
+        "taus_rescaled_by_s7.3": [
+          2.1289178110249556,
+          3.8549594504722577,
+          6.20029540037329
+        ],
+        "s": 7.3
+      },
+      "rescaling_symmetry_holds": true
+    },
+    "S2": {
+      "model": "nonlinear resistive sector dot q = A q + B X - gamma|q|^2 q with OU fluctuation balance <q^2> = D/(2 a_eff)",
+      "fixed_point": "a_eff = (a + sqrt(a^2 + 2 gamma D)) / 2",
+      "fixed_point_value_rescaled_units": 1.618033988749895,
+      "homogeneous_under_rescaling": true,
+      "verdict": "nonlinearity reshapes the spectrum but the fixed point is dimensionally homogeneous of degree 1: no isolated absolute scale is generated"
+    },
+    "S3": {
+      "mechanism": "mu_* = mu0 exp(-1/(2 beta0 g0^2))",
+      "landau_pole_with_mu0=1": 0.1353352832366127,
+      "landau_pole_with_mu0=3.7": 0.5007405479754671,
+      "control": "renormalization-condition test: the generated scale is mu0-dependent; mu0 is an INPUT, not an output",
+      "verdict": "RG transmutation generates a scale RELATIVE to the arbitrary reference mu0. Unless the theory also fixes mu0 from within, this is an imported scale under a new name."
+    },
+    "S4": {
+      "model": "double-well sector V = r O^2/2 + u O^4/4, relaxation a = kappa <O>^2",
+      "spontaneous_order_parameter": 0.7071067811865476,
+      "tau0_in_dimensionless_units": 1.538461538461538,
+      "dimensional_audit": "r, u, kappa, O all dimensionless -> tau0 dimensionless. Promoting it to a physical time requires kappa to carry 1/t units: the clock re-enters as an import.",
+      "verdict": "a vacuum state can SELECT which branch of the spectrum is realized and can break discrete symmetries, but a dimensionless order parameter cannot manufacture a dimensionful time. The scale is relocated, not derived."
+    }
+  },
+  "timestamp": "2026-09-24T16:58:34.399257+00:00",
+  "blind_comparison": {
+    "policy": "the target macroscopic memory time was withheld from all derivations above; since S1-S4 all conclude no absolute scale is generated inside the linear or weakly nonlinear resistive ontology, no post-hoc comparison is performed",
+    "performed": false,
+    "reason": "no independently generated finite scale exists to compare against; any comparison would be a disguised fit"
+  },
+  "verdict": "no_internal_scale_generation",
+  "verdict_detail": "The resistive persistent ontology does NOT generate its own clock. (S1) A -> A/s is an exact symmetry of the linear sector: the relaxation scale is a redundant convention. (S2) Self-consistent nonlinear feedback produces a dimensionally homogeneous fixed point -- spectrum shape without absolute scale. (S3) RG transmutation yields a scale relative to an arbitrary reference mu0; fixing mu0 is a renormalization condition, i.e. an input. (S4) A spontaneously generated order parameter is dimensionless and can only relocate the scale into a dimensionless ratio. Conclusion: GRUT's irreducible foundation, as presently formulated, contains a genuine dimensionful dissipative constant. The clock is either an empirical input or must be generated by a mechanism OUTSIDE the resistive sector (gravity/cosmology/quantum-gravity scale).",
+  "consequences": [
+    "N is now derived from topology (u3_minimal_generative_ontology C2/C3) but tau0 is NOT derivable from the resistive sector's internal dynamics: the two problems are formally decoupled.",
+    "The remaining candidate scale-generators are external: background curvature (H, Lambda), Planck-scale transmutation with a physically fixed mu0, or an as-yet-unformulated quantum-gravity mechanism.",
+    "The 41.9 Myr-type value remains a measured import. Honest register entry: 'tau0: empirical, mechanism-unknown; S1-S4 no-go banked'.",
+    "claims.json untouched."
+  ]
+}

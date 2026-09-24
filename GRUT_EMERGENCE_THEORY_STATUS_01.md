@@ -64,8 +64,14 @@ repaired, predicts gravitational memory-kernel classes. **Confront them.** Spec:
   assumption of the naive soft-radiation analogy fails for this observable (a response
   kernel/self-energy, not the radiated power of an isolated classical binary). Only
   after that, perform the T3 confrontation in the common ω ≳ 3.4H validity window.
-  The full gate specification and the sealed pre-registration ledger live in
-  `T2_THEOREM_GATE_AND_PREREGISTRATION_01.md` (this copy).
+  The full gate specification and the pre-registration ledger are to be sealed in
+  `T2_THEOREM_GATE_AND_PREREGISTRATION_01.md` (this copy; in preparation — blinded
+  independent derivations in progress; not yet sealed).
+  CORRECTION OF RECORD (2026-09-24, U3_RECORD_NOTE_02): §1's "U3-LEMMA" claim is
+  demoted at its constructive half — the necessity direction stands on passing checks
+  (P1/P2); constructive realizability, Erlang representability, and the N = M law
+  FAILED their defining checks (P3/P4/E4a) while their summaries asserted success
+  (fourth narrative-vs-run instance). See the note for repairs owed.
 - **T-3 (sign/passivity):** U3 derives strict passivity; T3 certifies the dissipative
   sign in-window. Must agree (they currently do).
 - **T-4 (the d-consistency link):** d enters twice — the substrate continuum class and

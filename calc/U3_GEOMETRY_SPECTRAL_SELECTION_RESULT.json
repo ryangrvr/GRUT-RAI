@@ -1,0 +1,60 @@
+{
+  "instrument": "calc/u3_geometry_spectral_selection.py",
+  "checks": [
+    {
+      "name": "G1_flat_control_recovers_arbitrary_N",
+      "pass": true,
+      "msg": "R=0: N=1,2,3 discrete and both continuum measures passive over 80-pt grid; no curvature needed to admit any N",
+      "status": "ok"
+    },
+    {
+      "name": "G2_curvature_deforms_each_mode_independently",
+      "pass": true,
+      "msg": "per-mode curvature coupling changes chi'' by up to 0.72 rel; common coupling keeps all N passive: deformation allowed, selection not forced",
+      "status": "ok"
+    },
+    {
+      "name": "G3_ward_fixes_residue_structure_not_poles",
+      "pass": true,
+      "msg": "Ward/diffeo constraints act on the tensor character of each residue (which covariant operator it multiplies); arbitrary positive residue reassignment keeps every admissible spectrum covariant",
+      "status": "ok"
+    },
+    {
+      "name": "G4_ep_distinguishes_but_forbids_no_N",
+      "pass": true,
+      "msg": "local response N1 vs N2 differs by 0.179 at fixed curvature \u2014 empirically distinguishable, yet EP/universal-coupling admits all of N=1,2,3,infty (EP constrains the drive's coupling, not the response spectrum)",
+      "status": "ok"
+    },
+    {
+      "name": "G5_covariant_minimal_realization_all_N",
+      "pass": true,
+      "msg": "each mode embeds as a massive scalar constitutive field (Box+m^2)phi=J, m^2=1/tau^2>0, retarded support inside light cone; continuum realized as mass-weighted integral of the same fields: covariance excludes no N",
+      "status": "ok"
+    },
+    {
+      "name": "G6_no_pathology_triggered_by_N_itself",
+      "pass": true,
+      "msg": "ghost (negative residue) fails passivity and tachyonic m^2<0 fails causal retarded support INDEPENDENT of N; with positive weights any N is ghost-free, causal, conserved",
+      "status": "ok"
+    },
+    {
+      "name": "G7_geometry_parameterizes_spectrum_does_not_select",
+      "pass": true,
+      "msg": "VERDICT: curvature allows rho(tau) -> rho(tau;x) as a parameterization via per-mode couplings c_i R, but no covariant requirement (Ward, EP, conservation, causality) fixes the number of modes, their weights, or their times: the memory spectrum is an EMPIRICAL STRUCTURAL INPUT to GRUT",
+      "status": "ok"
+    },
+    {
+      "name": "GFRAME_geometry_constrains_coupling_not_spectral_content",
+      "pass": true,
+      "msg": "one-pole and two-pole media obey identical covariant/conservation/EP requirements in the same curved background yet give 0.29 relative local-response difference: geometry constrains HOW modes couple, not WHICH/HOW MANY modes exist",
+      "status": "ok"
+    },
+    {
+      "name": "CONTROL_instrument_discriminates_nonphysical",
+      "pass": true,
+      "msg": "ghost residue fails passivity (residual negative); tachyonic mode fails causal-support test: the instrument discriminates",
+      "status": "ok"
+    }
+  ],
+  "verdict": "Geometry does NOT select the memory spectrum. Curvature permits per-mode parameterization tau_i(x) and constrains residue tensor structure, but Ward identities, equivalence principle, conservation and causal retarded support admit N = 1, 2, 3, and infty equally. After eliminating temporal response axioms and equilibrium thermodynamics, the memory spectrum is an empirical structural input to GRUT."
+}

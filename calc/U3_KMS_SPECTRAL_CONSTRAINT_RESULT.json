@@ -1,0 +1,65 @@
+{
+  "instrument": "calc/u3_kms_spectral_constraint.py",
+  "checks": [
+    {
+      "name": "K1_kms_detailed_balance_holds_for_all_passive_spectra",
+      "pass": true,
+      "msg": "max |S(-w)-e^-bw S(w)|/S(w) = 9.61e-14 over N=1,2,3 spectra; KMS constrains occupation (coth factor), not chi''",
+      "status": "ok"
+    },
+    {
+      "name": "K2_fdt_insensitive_to_amplitude_timescale_perturbations",
+      "pass": true,
+      "msg": "perturbed (A,tau) spectra give max KMS residual 9.61e-14; FDT relates S to chi'' but fixes no spectral parameter",
+      "status": "ok"
+    },
+    {
+      "name": "K3_all_realization_dimensions_admitted",
+      "pass": true,
+      "msg": "N=1,2,3 discrete and N=infty continuum all give residual < 9.61e-14; no dimension is thermodynamically excluded",
+      "status": "ok"
+    },
+    {
+      "name": "K4_multipole_thermal_spectra_explicitly_constructed",
+      "pass": true,
+      "msg": "two- and three-pole passive spectra are odd, positive for w>0, and satisfy KMS at T=1 exactly -> negative result banked",
+      "status": "ok"
+    },
+    {
+      "name": "K5_continuum_measures_kms_compatible",
+      "pass": true,
+      "msg": "exponential rho (res 9.60e-14) and heavy-tail rho^-1.5 (res 9.60e-14) both satisfy KMS/FDT",
+      "status": "ok"
+    },
+    {
+      "name": "K6_no_intrinsic_relaxation_scale_from_kms",
+      "pass": true,
+      "msg": "rescaling all tau_i by lambda in [0.01,100] (max res 9.63e-14) and varying T over 4 decades (max res 1.04e-11) preserves KMS exactly: tau-spectrum is T-independent freedom",
+      "status": "ok"
+    },
+    {
+      "name": "K7_zero_temperature_limit_still_selects_nothing",
+      "pass": true,
+      "msg": "T=1e-6: discrete res 5.15e-131, continuum res 5.15e-131; S degenerates to 2 hbar chi'' Theta(w) (zero-point), no selection",
+      "status": "ok"
+    },
+    {
+      "name": "KFRAME_kms_constrains_occupation_not_dynamical_spectrum",
+      "pass": true,
+      "msg": "single- and two-pole media give empirically distinguishable S(w) (max rel diff 0.7) yet BOTH satisfy KMS/FDT exactly: equilibrium data constrains occupation only; the memory spectrum is not derived from it",
+      "status": "ok"
+    },
+    {
+      "name": "CONTROL_nonphysical_kernels_rejected",
+      "pass": true,
+      "msg": "even chi'' KMS residual 2.00, negative-weight passivity residual 1.00: the instrument discriminates",
+      "status": "ok"
+    }
+  ],
+  "verdict": "KMS/FDT constrain the thermodynamic occupation of the noise spectrum but do NOT derive the memory spectrum: N = 1, 2, 3, and infty are all admitted, amplitudes and relaxation times are unconstrained, no intrinsic tau_0 emerges, and the T->0 limit selects even less. Thermodynamic derivation of the number of memory modes FAILS.",
+  "consequences": [
+    "The attempt to derive N thermodynamically terminates (negative result).",
+    "GRUT can derive the allowable FORM of a passive memory spectrum (odd, positive, simple poles) but not the number of modes or scales.",
+    "Next candidate selection mechanism: geometry/spatial structure (u3_scale_selection), now motivated by exhaustion of temporal and thermodynamic constraints."
+  ]
+}

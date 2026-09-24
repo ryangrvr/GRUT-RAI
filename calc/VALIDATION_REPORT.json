@@ -1,0 +1,303 @@
+{
+  "validator": "calc/validate_calc_results.py",
+  "n_files": 42,
+  "n_ok": 42,
+  "n_failures": 0,
+  "failures": [],
+  "summary": [
+    {
+      "file": "T3_01_IR_COEFFICIENT_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 8,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_01_IR_COEFFICIENT_RESULT_BUGGY.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 8,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_02_QUOTIENT_REMAINDER_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 10,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_03_RATIO_UNIVERSALITY_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 7,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_04_DEEP_IR_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 8,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05A_UB_ATTRIBUTION_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 9,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05B_M4_REPAIR_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 1,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05B_M4_REPAIR_RESULT_RUN2_prior.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 3,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05B_R3_RESIDUAL_CHECK_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 2,
+      "verdict": "BRANCH DECOMPOSITION DOES NOT COMMUTE: normalized residuals are nonzero -- imsig"
+    },
+    {
+      "file": "T3_05C_ADDITIVITY_PROBE_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 15,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05D_BISECT_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 1,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05E_TRACE_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 2,
+      "verdict": "LOCALIZED: the reality-pattern GATE (S5) sees different objects on the combined "
+    },
+    {
+      "file": "T3_05F_K3B_REPAIR_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 0,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05F_KERNEL_PROVENANCE_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 12,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05G_PROVENANCE_CLOSE_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 0,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05H_FRAME_TEST_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 5,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05J_BRANCH_ADDITIVITY_PROBE_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 1,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05J_UB_SURVIVAL_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 1,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05K2_NAMESPACE_RECONCILIATION_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 2,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05K_PARTITION_RECONCILIATION_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 5,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05L_P_BRANCH_ABSORPTIVE_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 11,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_05_H4_SECTOR_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 9,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_06A_STRUCTURE_ADJUDICATION_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 5,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_06B_KEYSTONE_STATUS_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 5,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_07B_SLOT_CERTIFICATE_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 4,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_07_H6_EXTRACTION_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 0,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_07_H6_EXTRACTION_RESULT_RUN3_prior.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 5,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_07_H_EXACTNESS_REFUTATION_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 2,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_08A_TWO_TIME_STRUCTURE_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 7,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "T3_09B_TRANSFORM_VERIFICATION_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 8,
+      "verdict": "MAPPING VERIFIED: convention quoted; inversion identity exact; local-operator cl"
+    },
+    {
+      "file": "T3_09_REPRESENTATION_CLOSURE_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 11,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "U3_CG_UNIVERSALITY_RESULT.json",
+      "status": "ok",
+      "schema": "u3_standard",
+      "n_checks": 7,
+      "verdict": "conditional_universality"
+    },
+    {
+      "file": "U3_GEOMETRY_SPECTRAL_SELECTION_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 9,
+      "verdict": "Geometry does NOT select the memory spectrum. Curvature permits per-mode paramet"
+    },
+    {
+      "file": "U3_GRAVITATIONAL_CLOCK_RESULT.json",
+      "status": "ok",
+      "schema": "u3_standard",
+      "n_checks": 4,
+      "verdict": "C_no_gravitational_clock"
+    },
+    {
+      "file": "U3_KERNEL_MINIMALITY_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 5,
+      "verdict": "<missing (legacy)>"
+    },
+    {
+      "file": "U3_KMS_SPECTRAL_CONSTRAINT_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 9,
+      "verdict": "KMS/FDT constrain the thermodynamic occupation of the noise spectrum but do NOT "
+    },
+    {
+      "file": "U3_MINIMAL_ONTOLOGY_RESULT.json",
+      "status": "ok",
+      "schema": "u3_standard",
+      "n_checks": 6,
+      "verdict": "minimal_ontology_identified_conditional"
+    },
+    {
+      "file": "U3_ORIGIN_PERSISTENCE_RESULT.json",
+      "status": "ok",
+      "schema": "u3_standard",
+      "n_checks": 7,
+      "verdict": "B_with_partial_A"
+    },
+    {
+      "file": "U3_REALIZATION_DIMENSION_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 8,
+      "verdict": "{'D-UNIQ': 'CONFIRMED: minimal realization dimension N is uniquely determined by"
+    },
+    {
+      "file": "U3_RESISTIVE_SCALE_RESULT.json",
+      "status": "ok",
+      "schema": "u3_standard",
+      "n_checks": 4,
+      "verdict": "no_internal_scale_generation"
+    },
+    {
+      "file": "U3_SCALE_ORIGIN_RESULT.json",
+      "status": "ok",
+      "schema": "u3_standard",
+      "n_checks": 7,
+      "verdict": "No branch derives a macroscopic memory scale: dimensional emergence from {c,G,hb"
+    },
+    {
+      "file": "U3_SPECTRUM_RESULT.json",
+      "status": "ok",
+      "schema": "legacy",
+      "n_checks": 13,
+      "verdict": "{'R-REP': \"CONFIRMED as a real derivation: requiring persistent-mode spectra exc"
+    }
+  ]
+}

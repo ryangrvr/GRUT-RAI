@@ -36,7 +36,8 @@ def validate_file(path):
     counts = {p: 0 for p in PROVENANCE}
     vcounts = {v: 0 for v in VERIFICATION}
     try:
-        rec = json.load(open(path))
+        with open(path) as fh:
+            rec = json.load(fh)
     except Exception as e:  # noqa: BLE001 - report any parse failure uniformly
         return [f"JSON parse failure: {e}"], [], counts, vcounts
     for f in TOP_REQUIRED:

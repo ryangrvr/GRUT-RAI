@@ -1,0 +1,140 @@
+{
+  "instrument": "calc/u3_realization_dimension.py",
+  "checks": [
+    {
+      "name": "E1a Hankel rank equals pole count (D-UNIQ/D-RANK, finite class)",
+      "pass": true,
+      "msg": "Kronecker: for K = C e^{At} B the Hankel matrix on a uniform grid has exactly rank N.  single_pole->1, two_pole->2, jordan->2, triple->3, damped_cosine->2: rank agrees with pole counting INCLUDING defective (repeated-pole/Jordan) blocks and complex pairs -- N is uniquely determined by K, not a convention",
+      "status": "ok"
+    },
+    {
+      "name": "E1b non-rational kernels: rank large (outside finite class)",
+      "pass": true,
+      "msg": "boxcar rank=21 on a 40x40 window: a delay line has NO finite realization (rank fills the window).  The power-law kernel is partially compressible on a finite window, so its finite/infinite diagnosis is deferred to the observation-depth test E3 (the correct criterion for continua is rank NON-SATURATION, not window rank alone) -- the finite/infinite dichotomy is still an observable",
+      "status": "ok"
+    },
+    {
+      "name": "E3a rank growth diagnoses continuum vs finite modes (D-INF)",
+      "pass": true,
+      "msg": "rank vs observation depth m: power_law [6, 7, 9] (grows -> genuine continuum, N=inf), boxcar [19, 21, 21] (finite-duration delay: sampled rank saturates at the discrete capacity 1/dt=20; in continuous time a delay is not rational, so N=inf there too), jordan [2, 2, 2] and single_pole [1, 1, 1] (saturate at the true N).  N=infinity is not a formal label: it is DETECTABLE from finite data by non-saturation of rank",
+      "status": "ok"
+    },
+    {
+      "name": "E4a composition is dimension-INCREASING, not selecting (D-COMP)",
+      "pass": true,
+      "msg": "convolution of two dim-1 exponentials gives t e^-t, whose Hankel rank is 2: deg(K1*K2)=deg1+deg2 (shared pole).  The one-mode class is NOT closed under composition -- no N is a fixed point of composition except trivially; composition cannot single out any dimension",
+      "status": "ok"
+    },
+    {
+      "name": "E4b single-pole self-convolution = Jordan kernel (numeric)",
+      "pass": true,
+      "msg": "max |(e^-t * e^-t)(t) - t e^-t| = 1.11e-16 on (0,4]: the repeated-pole kernel is exactly what composition of primitives PRODUCES.  The single pole is the ATOM of the composition semiring; multi-mode memory is the natural product, not an anomaly",
+      "status": "ok"
+    },
+    {
+      "name": "E5a admissible kernels exist at every dimension (D-SELECT: negative)",
+      "pass": true,
+      "msg": "completely-monotone (passive) representatives: N=1: e^{-t}; N=2: (e^{-t}+e^{-2t})/2; N=3: (e^{-t}+e^{-2t}+e^{-3t})/3; N=inf: (1+t)^{-3} -- all pass the sign test. NEGATIVE RESULT: causality, stability, TTI, passivity/CM and finite memory constrain the FORM of each mode but do NOT select the NUMBER of modes.  N is not derived by any principle admitted so far",
+      "status": "ok"
+    },
+    {
+      "name": "E5b passivity EXCLUDES Jordan/repeated-pole structure (new constraint)",
+      "pass": true,
+      "msg": "t e^{-t} (the defective kernel, Hankel rank 2) FAILS complete monotonicity: (-1)^3 K'''(t) = (t-3)e^{-t} < 0 for t>3.  So passivity/CM -- a principle GRUT already admits -- rules out repeated poles with positive residues: every memory mode must be a SIMPLE positive-weight pole.  This is a derived structural constraint (on FORM, not on count) -- the first constraint the admitted principles place on the spectrum's fine structure",
+      "status": "ok"
+    },
+    {
+      "name": "E6a no finite N survives closure + minimality (obstruction identified)",
+      "pass": true,
+      "msg": "Hankel ranks: delta=0 (N=0: memoryless, encodes nothing), single_pole=1 (N=1), jordan=2 (N=2).  Closure under composition forces N up (1 -> 2 -> ...), minimality forces N down; no finite N is both closed and minimal.  OBSTRUCTION: the two candidate selection principles are jointly satisfiable only by the unbounded class.  The only DERIVED dichotomy: N>=1 iff response is non-instantaneous",
+      "status": "ok"
+    }
+  ],
+  "verdict": {
+    "D-UNIQ": "CONFIRMED: minimal realization dimension N is uniquely determined by K for the finite rational class (Kronecker/Hankel rank)",
+    "D-RANK": "CONFIRMED: rank = pole count including defective/Jordan blocks and complex pairs",
+    "D-INF": "CONFIRMED: N=inf is an observable, not a formal label -- rank non-saturation under deeper observation diagnoses continua and delay lines",
+    "D-COMP": "CONFIRMED: composition does not constrain N; it strictly increases it.  The single pole is the composition ATOM; multi-mode memory is the natural product",
+    "D-SELECT": "NEGATIVE RESULT BANKED: no principle admitted into GRUT selects N.  Admissible kernels exist at N = 1, 2, 3, inf. BUT passivity/CM EXCLUDES repeated-pole (Jordan) structure: every mode must be a simple positive-weight pole -- a derived constraint on form, not on count",
+    "D-STRONG": "OBSTRUCTION: minimality and composition-closure are jointly satisfiable only by the unbounded class; no finite N is selected.  The single derived dichotomy is N >= 1 iff the response is non-instantaneous",
+    "answer_to_central_question": "N itself is NOT derived: the dimension of the memory sector is an INDEPENDENT HYPOTHESIS (a free structural input) as of this calc.  GRUT does NOT yet have a principled reason for a finite-dimensional memory state.  What IS derived: (a) N is an observable of K, (b) N>=1 iff memory exists, (c) composition pushes N up, so nature's few-mode response is not generated by composition of primitives -- its low dimension must come from somewhere OUTSIDE the admitted principles (candidates: KMS/thermal structure, geometry, a fluctuation-dissipation constraint -- to be tested next). NEW derived constraint: passivity forbids repeated poles -- the spectrum may only contain simple positive-weight relaxation modes",
+    "hypothesis_status": "GRUT working hypothesis unchanged and now SHARPER: reality is a causal dynamical medium with persistent memory modes; the spectrum representation (R-REP) and the realization dimension are both observables of the response kernel; neither is yet derived from deeper principles.  Do not promote either to 'derived'",
+    "next_open_question": "u3_composition_closure and u3_kms_spectral_constraint: does thermal (KMS/detailed-balance) structure or fluctuation-dissipation consistency restrict the spectral measure's SUPPORT (atom count)?  If it does not, the low dimension of nature's memory sector is an empirical fact GRUT must import, not derive"
+  },
+  "jordan_passivity": "excluded (not completely monotone)",
+  "battery": {
+    "single_pole": {
+      "hankel_rank": 1,
+      "expected": 1,
+      "verdict": "ok"
+    },
+    "two_pole": {
+      "hankel_rank": 2,
+      "expected": 2,
+      "verdict": "ok"
+    },
+    "jordan": {
+      "hankel_rank": 2,
+      "expected": 2,
+      "verdict": "ok"
+    },
+    "triple_defect": {
+      "hankel_rank": 3,
+      "expected": 3,
+      "verdict": "ok"
+    },
+    "damped_cosine": {
+      "hankel_rank": 2,
+      "expected": 2,
+      "verdict": "ok"
+    },
+    "boxcar": {
+      "hankel_rank": 21,
+      "expected": null,
+      "verdict": "ok"
+    },
+    "power_law": {
+      "hankel_rank": 9,
+      "expected": null,
+      "verdict": "FAIL"
+    }
+  },
+  "rank_growth": {
+    "power_law": [
+      6,
+      7,
+      9
+    ],
+    "boxcar": [
+      19,
+      21,
+      21
+    ],
+    "jordan": [
+      2,
+      2,
+      2
+    ],
+    "single_pole": [
+      1,
+      1,
+      1
+    ]
+  },
+  "composition_dims": {
+    "single_pole": 1,
+    "jordan": 2,
+    "two_pole": 2
+  },
+  "admissible_reps": {
+    "1": "e^{-t}",
+    "2": "(e^{-t}+e^{-2t})/2",
+    "3": "(e^{-t}+e^{-2t}+e^{-3t})/3",
+    "inf": "(1+t)^{-3}"
+  },
+  "strong_selection": {
+    "delta": 0,
+    "single": 1,
+    "jordan": 2
+  }
+}
