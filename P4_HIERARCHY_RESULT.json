@@ -1,0 +1,181 @@
+{
+ "L4B": {
+  "p3": [
+   36.0,
+   37.125
+  ],
+  "yA": [
+   1.0,
+   2.0,
+   3.0
+  ],
+  "yB": [
+   1.3486121811340026,
+   1.5,
+   3.1513878188659974
+  ]
+ },
+ "charter_commit": "d0fc014",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "power sums p1, p2 match (p1 = 6.000000, p2 = 14.000000); p3 differ (36.0000 vs 37.1250)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "equal-time m2, m4 match to 1e-9 (m2 = 6.000000, m4 = 80.000000)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "m6 differ: 1296.0000 vs 1314.0000",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "two-point C(t) matches at sample times (max diff 9.9e-16)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "MULTI-TIME connected 4-point matches at the sample tuple (diff 4.1e-14) -- the pair matches ALL cumulants through order 4",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L4-A (kappa_4 mismatch): Delta(0.4)/Delta(0.2) = 17.2 (frozen window 16 x [0.7, 1.4]) -- discrimination enters at order 4 (Delta = 1.15e-02, 6.70e-04)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L4-B (kappa_6 mismatch): Delta(0.4)/Delta(0.2) = 54.9 (frozen window 64 x [0.7, 1.4]) -- discrimination enters at order 6 (Delta = 2.70e-02, 4.91e-04)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "matched-relabeling control: 1.6e-13 < 1e-12",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "4-spin construction: quartic roots ['0.9401', '2.2416', '2.7584', '4.0599'] (4 real positive)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "p1, p2, p3 match; p4 differ (354.0000 vs 355.6000) -- ALL cumulants through order 6 matched, first difference at order 8",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "order-8 pair (FROZEN GATE, preserved as found): Delta(0.4)/Delta(0.2) = 67.8, outside the 256-window -- at the frozen lambdas the series is NOT asymptotic for this strongly coupled pair (couplings up to ~2.0)",
+   "ok": false
+  },
+  {
+   "kind": "note",
+   "msg": "POST-HOC DIAGNOSTIC: successive halving ratios ['325', '320', '276'] converge toward 2^8 = 256 (last within 15%, trend monotone; the 0.4/0.2 failure was out-of-asymptotic-regime contamination, not a 6th-order leak) -- discrimination enters at order 8 as constructed. FINITE MATCHING NEVER CERTIFIES; every residual difference tracks the first unmatched cumulant order; no constraint-satisfying pair with an UNTRACKED physics difference was constructible",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "Hankel matrix of the real bath is PSD (min eig 5.47e-01)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "TAMPERED hierarchy (m4 = 0.5 m2^2 < m2^2) DETECTED (min eig -0.904 < 0): the Cauchy-Schwarz face",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "operator Gram over {1, B(0), B(0.8)} is PSD (min eig -1.28e-15)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "operator Gram over {1, B(0), B(2.3)} is PSD (min eig -2.07e-16)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "TAMPERED commutator (x1.5 at fixed symmetric part) DETECTED (min eig -1.691 < 0): the quantum face -- the hierarchy-level home of the hbar floor",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "vacuum saturation: |C(t)| = C(0) to 0.0e+00 -- the ground state sits ON the order-2 face (nu = J/2), reproducing P-2's boundary",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "thermal state sits STRICTLY inside the face (|C(t)| < C(0) by 0.6878): C-pos and the floor emerge as the order-2 faces of ONE Gram condition -- the unification claim holds on the model (H4-C)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "CHARACTERIZED-AND-REDUCIBLE: the single positive object exists (complete positive-definiteness of the influence moment hierarchy = state positivity on the generated *-algebra); the P-2 cone is its two-point face (vacuum ON the face, thermal strictly inside); REDUCIBLE to state positivity -- NULL-AS-NEW-PRINCIPLE, with the unification dividend (one object; the cone's two axioms as faces) reported separately and NOT promoted",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "LADDER-ESTABLISHED: finite matching never certifies (constructive mismatch pairs at orders 4, 6, 8; lambda-scaling 16/64/256 confirms discrimination enters at the first unmatched order every time); full-hierarchy matching certifies IN-CLASS (P-3 Q5 positive control; bounded-moment determinacy cited as standard, in-class only)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "DESCRIPTIVENESS ATTACK: no constraint-satisfying pair with an influence-untracked physics difference was constructible -- every residual difference tracked a named unmatched cumulant. In-class, the hierarchy is COMPLETE AS THE INTERFACE for the declared access; per the frozen scope line this is interface-completeness, not a claim about physics outside the access boundary",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "deltas": {
+  "order4": {
+   "0.2": 0.0006701356321090479,
+   "0.4": 0.011518799936459767
+  },
+  "order6": {
+   "0.2": 0.0004913520296088159,
+   "0.4": 0.026954832374981086
+  },
+  "order8": {
+   "0.2": 6.974273715099066e-05,
+   "0.4": 0.004726432821167803
+  },
+  "order8_asymptotic": {
+   "0.025": 2.4252821972936545e-12,
+   "0.05": 6.691233123135021e-10,
+   "0.1": 2.142662536286366e-07,
+   "0.2": 6.974273715099066e-05
+  }
+ },
+ "descriptiveness_pair": {
+  "p4": [
+   354.0,
+   355.5999999999988
+  ],
+  "yA4": [
+   1.0,
+   2.0,
+   3.0,
+   4.0
+  ],
+  "yB4": [
+   0.9401230956835338,
+   2.2415739111852684,
+   2.7584260888147103,
+   4.059876904316468
+  ]
+ },
+ "elapsed_s": 4.24,
+ "failures": [
+  "order-8 pair (FROZEN GATE, preserved as found): Delta(0.4)/Delta(0.2) = 67.8, outside the 256-window -- at the frozen lambdas the series is NOT asymptotic for this strongly coupled pair (couplings up to ~2.0)"
+ ],
+ "hard_stop": "verdict recorded; owner rules on what replaces the cone at recorded strength",
+ "instrument": "p4_hierarchy",
+ "ladder_ratios": {
+  "order4": 17.188759087780262,
+  "order6": 54.858494013835376,
+  "order8": 67.76953435216109
+ }
+}
