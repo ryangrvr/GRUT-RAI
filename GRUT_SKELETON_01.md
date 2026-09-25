@@ -39,9 +39,12 @@ identification arrow; everything read *as a claim about gravity* is HYPOTHESIS u
 finite local microscopic substrate
         │  DERIVED (necessity): memory REQUIRES persistent auxiliary state —
         │    a slaved variable yields only instantaneous response (checks P1, P2)
-        │  OPEN (constructive converse): "every finite-memory kernel is
-        │    realizable by persistent modes, with N = M" failed its defining
-        │    checks on the record (P3, P4, E4a — disclosed in §10)
+        │  DERIVED (constructive converse, RE-BANKED 2026-09-24 after
+        │    instrument repair): elimination reproduces the full dynamics at
+        │    machine precision (P3 repaired: 1.4e-16); N = number of DISTINCT
+        │    eliminated modes (P4 repaired: {1,2,3,5}→{1,2,3,5}, degenerate
+        │    pair correctly M−1); Erlang/delay representability at CDF level
+        │    (E4a repaired). The v01 demotion and the repair are both §10.
         ▼
 persistent degrees of freedom
         │  DERIVED: dissipation and continuous spectra emerge in the
@@ -70,11 +73,14 @@ dissipation + passivity + arrow
         │  1.972 vs theoretical 2.000; negative control passed); NOT derived
         ▼
 candidate gravitational realization
-        │  OPEN: the matter–graviton coupling. First derivation attempt
-        │  adjudicated: ATTEMPT RECORDED, INSTRUMENT REPAIR REQUIRED, GATE
-        │  UNTOUCHED (§5). The instrument is being rebuilt as the on-shell
-        │  golden-rule object; analytic predictions are to be sealed by both
-        │  parties BEFORE the rebuilt instrument reports (§6 protocol).
+        │  DERIVED WITHIN CLASS (2026-09-24, dual pre-registration executed):
+        │  the on-shell coupling gives J ~ ω⁷ (declared convention) with the
+        │  tracelessness cancellation identified by counterfactual controls;
+        │  the adjudicator's sealed blinded prediction is confirmed at
+        │  exponent AND coefficient level (ratio 1.0005); kernel class t⁻⁸.
+        │  Imports remain ledgered (κ, sector structure, minimal-stress
+        │  postulate) — within-class, not a forcing derivation; the class-4
+        │  gate stays unpassed.
         ▼
 matter–gravity coupling
         │  KILL TEST (an event, not a status): the T3 confrontation (§6);
@@ -204,12 +210,16 @@ Protocol (adopted 2026-09-24, before any rebuilt-instrument numbers exist):
   quadrupole ω⁵ folklore) to be "confirmed." If soft suppression emerges, the exact
   cancellation responsible must be identified; if not, the specific assumption of the
   radiation analogy that fails for a response kernel must be identified.
-- **Dual pre-registration.** Builder and adjudicator (§9) seal independent analytic
-  predictions, by commit, before the rebuilt instrument reports. Their agreement or
-  disagreement is itself recorded. Status: the adjudicator's ledger is SEALED
-  (`T2_THEOREM_GATE_AND_PREREGISTRATION_01.md`, this tree — three blinded routes in
-  exact agreement, adversarially verified); the builder's rebuild and its own
-  pre-registration are in progress.
+- **Dual pre-registration — EXECUTED (2026-09-24).** The builder's own
+  pre-registration (kinetic-only reasoning) was refuted by the builder's run; the
+  adjudicator's sealed blinded ledger (`T2_THEOREM_GATE_AND_PREREGISTRATION_01.md`,
+  commit d2da3a5, sealed 12 minutes before the first rebuilt run reported) was
+  confirmed by the repaired instrument at exponent (ω^7.008 vs 7 ± 0.15) and
+  coefficient (ratio 1.0005) level, with the mechanism identified by counterfactual
+  controls rather than assumed. This is the program's first two-sided
+  analytic-vs-instrument agreement. What it is NOT: a forcing derivation (imports
+  ledgered), and not yet the T3 confrontation itself — the mapping of the derived
+  matter-side class onto the certificate's in-window observable remains to be run.
 - **One leg already agrees:** the sign. The mechanism derives strict passivity; the
   certificate records the dissipative sign in-window. Necessary, far from sufficient.
 - **Pre-registered outcomes.** Class match = the first discriminator-grade internal
@@ -276,10 +286,21 @@ document's version 01* — persistence/representation prose asserting a theorem 
 defining checks failed (P3 tail error 0.995 vs threshold 0.05; P4 Hankel rank 4 at
 M=5 breaking the claimed N=M law; E4a claiming errors "decrease" over the recorded
 increasing sequence 0.721 → 1.193). Version 01 of this skeleton propagated instance
-#4 into its base-rung DERIVED tag; version 02 demotes that tag (§2, §3.1 item 1). The
+#4 into its base-rung DERIVED tag; version 02 demoted that tag. The
 operating rule, applied to this document itself: **checks outrank prose, and every
-status tag must trace to a check outcome.** Repairs of the underlying record entries
-are owed by the build side and tracked.
+status tag must trace to a check outcome.**
+
+**Resolution (same day):** all three instruments were repaired under owner
+authorization (P3 had recorded the closed-loop rate, not the kernel; P4 had a
+variable-shadowing bug plus degeneracy-blind random taus; E4a compared a density
+against a step). Repaired, the constructive converse passes at check level (P3
+trajectory equivalence 1.4e-16; P4 {1:1, 2:2, 3:3, 5:5} with a degenerate-pair
+control returning M−1; E4a CDF convergence at the CLT rate) and the base-rung tag
+is restored in §2 — by measurement, not by prose. A fifth instance (a kernel tail
+computed from a refuted pre-registration in the coupling calc's interim version)
+was caught and repaired the same way. The audit trail for all five lives in the
+adjudication records; the coupling instrument now assembles every verdict string
+from measured variables, which is the systemic fix.
 
 ## 11. What GRUT does not claim, and the name
 
