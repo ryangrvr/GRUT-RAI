@@ -1,0 +1,378 @@
+{
+ "LA": {
+  "A_exact_residual": 8.767177558304734e-13,
+  "A_mimic_dPi": 2.681188604469753e-10,
+  "A_sigma": [
+   0.10000000000000746,
+   -0.0050000000002593335
+  ],
+  "B_ladder_1term": 4.035130741343306,
+  "B_ladder_2term": 16.649911228609152,
+  "universality_ratio": 1.2000019999890392
+ },
+ "LC": {
+  "A": {
+   "nullity": 3,
+   "res_S": 5.773502691896835e-13,
+   "res_geo": 7.063719288205713e-14,
+   "vertex_rank": 2
+  },
+  "B": {
+   "nullity": 3,
+   "res_S": 5.77350269189674e-13,
+   "res_geo": 5.887493438662193e-14,
+   "vertex_rank": 2
+  }
+ },
+ "LG2": {
+  "A": {
+   "K_vs_G": 2.220446049250313e-16,
+   "M_rho": 0.0,
+   "M_v2": 0.0009990009990009652,
+   "S_rho": 1.9984014443252818e-15,
+   "S_v2": 1.9984014443252818e-15
+  },
+  "B": {
+   "K_vs_G": 2.220446049250313e-16,
+   "M_rho": 0.0,
+   "M_v2": 0.0009990009990009652,
+   "S_rho": 1.9984014443252818e-15,
+   "S_v2": 1.9984014443252818e-15
+  }
+ },
+ "LH": {
+  "M": 0.06963892245033125,
+  "S": 0.01633120189975487,
+  "X": 0.06963892245033124,
+  "geometric": 0.016465482260704656,
+  "tuned": 0.005610432619080428
+ },
+ "LI": {
+  "A": {
+   "Pi0": 0.8333333333334,
+   "dPi": [
+    5.551115123125783e-13,
+    0.0,
+    0.0,
+    -0.2666680641277841,
+    0.0
+   ],
+   "nullity": 2,
+   "rank": 1,
+   "slope": 8.004877738461449,
+   "survivor": [
+    -0.7438948121984705,
+    0.08045918800447505,
+    0.6634356241941362,
+    -1.5485340381932494e-12,
+    0.0
+   ]
+  },
+  "B": {
+   "Pi0": 0.8269933431327419,
+   "dPi": [
+    5.551115123125783e-13,
+    -5.551115123125783e-13,
+    5.551115123125783e-13,
+    -0.5947377331705361,
+    0.0
+   ],
+   "nullity": 2,
+   "rank": 1,
+   "slope": 8.003521202569104,
+   "survivor": [
+    -0.01592833192951726,
+    -0.699008051439443,
+    0.7149363833690211,
+    1.3048690032988737e-12,
+    0.0
+   ]
+  }
+ },
+ "LX": {
+  "A:M-only": 4.001626590846332,
+  "A:S-only (non-geometric)": 8.005961451886476,
+  "A:X-only": 4.001626590846332,
+  "A:geometric (1/2,1/2,-1)": 8.004877736626073,
+  "A:tuned geometric + S": 12.008128886403462,
+  "B:M-only": 4.001354643628994,
+  "B:S-only (non-geometric)": 8.00496551994121,
+  "B:geometric (1/2,1/2,-1)": 8.003521201684888,
+  "B:tuned geometric + S": 12.00619070120303
+ },
+ "adjudication": {
+  "class_split_fields": {
+   "A": [
+    2,
+    true,
+    true
+   ],
+   "B": [
+    2,
+    true,
+    false
+   ]
+  },
+  "components": [
+   "CONSTRAINED-NONUNIQUE",
+   "IRREDUCIBLE INPUT (reduced to Sel-4)",
+   "UNDERDETERMINED under pair access",
+   "CLASS-SPLIT"
+  ],
+  "counterexample_passes": true,
+  "earned_rank": {
+   "A": 2,
+   "B": 2
+  },
+  "import_discharged": false,
+  "pair_exact": {
+   "A": true,
+   "B": false
+  },
+  "sel4_selects": {
+   "A": true,
+   "B": true
+  }
+ },
+ "charter_commit": "708a31b",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "L-X GATE species A M-only (1, 0, 0, 0, 0): slope = 4.002 (predicted 4 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-X GATE species A geometric (1/2,1/2,-1) (0.5, 0.5, -1, 0, 0): slope = 8.005 (predicted 8 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-X GATE species A S-only (non-geometric) (0, 0, 0, 1, 0): slope = 8.006 (predicted 8 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-X GATE species A tuned geometric + S (0.5, 0.5, -1, -0.1, 0): slope = 12.008 (predicted 12 +- 0.3)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-X GATE species A X-only (0, 0, 0, 0, 1): slope = 4.002 (predicted 4 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-X GATE species B M-only (1, 0, 0, 0, 0): slope = 4.001 (predicted 4 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-X GATE species B geometric (1/2,1/2,-1) (0.5, 0.5, -1, 0, 0): slope = 8.004 (predicted 8 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-X GATE species B S-only (non-geometric) (0, 0, 0, 1, 0): slope = 8.005 (predicted 8 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-X GATE species B tuned geometric + S (0.5, 0.5, -1, -0.0833, 0): slope = 12.006 (predicted 12 +- 0.3)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-X matched control: species-A geometric slope reproduces CP-1's recorded L-M slope 8.004878 to 0.0e+00 < 1e-9",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-X control: the M - K direction's pair vertex is identically zero, max |V| = 0.0e+00 < 1e-15 (mass and stiffness are pair-vertex-identical on shell)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-X consequence (frozen): a NON-geometric dispersion-shape coupling lands in the same +4 class as geometric coupling on both species, and a fine-tuned geometric + shape member lands in a +8 class. The exponent identifies neither geometric coupling nor, strictly, its own class",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H GATE M: two-time Gram PSD, min eig / C0 = 6.96e-02",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H GATE geometric: two-time Gram PSD, min eig / C0 = 1.65e-02",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H GATE S: two-time Gram PSD, min eig / C0 = 1.63e-02",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H GATE X: two-time Gram PSD, min eig / C0 = 6.96e-02",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H GATE tuned: two-time Gram PSD, min eig / C0 = 5.61e-03",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-H consequence (frozen): geometric, material, shape, improvement and tuned couplings are all \ud835\udd20_full-admissible -- NULL as a selector",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G2 GATE species A: resistance density under G equals that under K, rel diff 2.2e-16 < 1e-9 (both shift rho by 9.99e-04)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G2 GATE species A: shape modulation S invisible to resistance density (2.0e-15) and IR speed (2.0e-15)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G2 GATE species A: mass leaves resistance density unchanged (0.0e+00) but shifts IR speed (9.99e-04 > 1e-4)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G2 GATE species B: resistance density under G equals that under K, rel diff 2.2e-16 < 1e-9 (both shift rho by 9.99e-04)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G2 GATE species B: shape modulation S invisible to resistance density (2.0e-15) and IR speed (2.0e-15)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G2 GATE species B: mass leaves resistance density unchanged (0.0e+00) but shifts IR speed (9.99e-04 > 1e-4)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-G2 consequence (frozen): in every G-2-recoverable IR geometric datum the proper-distance direction is indistinguishable from stiffness and the shape direction is invisible. Recovered geometry cannot select geometric coupling: NULL as selector. G-2 geometry is not the coupling ansatz",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE species A: earned null space nullity 3 (predicted 3); survivors satisfy every row to 1.1e-16",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE species A: geometric residual 7.1e-14 and S residual 5.8e-13 (both < 1e-8) -- both pass every earned constraint",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE species A: survivors' vertex image has rank 2 (predicted 2: geometric and non-geometric shape side by side)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE species B: earned null space nullity 3 (predicted 3); survivors satisfy every row to 1.1e-16",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE species B: geometric residual 5.9e-14 and S residual 5.8e-13 (both < 1e-8) -- both pass every earned constraint",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE species B: survivors' vertex image has rank 2 (predicted 2: geometric and non-geometric shape side by side)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-C consequence (frozen): earned structure leaves the geometric and the non-geometric shape coupling side by side -- CONSTRAINED-NONUNIQUE",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-I GATE species A (Pi_0 = 0.833333): dPi/dh = M 5.6e-13, K 0.0e+00, G 0.0e+00, X 0.0e+00 (all < 1e-6: unit changes) vs S -2.667e-01 (> 1e-3: changes the intrinsic shape)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-I GATE species A: earned + Sel-4 -> nullity 2 (predicted 2), vertex-image rank 1 (predicted 1), survivor (-0.744, 0.0805, 0.663, -1.55e-12, 0) slope 8.005 (predicted 8 +- 0.2); rows satisfied to 1.1e-16",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-I GATE species B (Pi_0 = 0.826993): dPi/dh = M 5.6e-13, K -5.6e-13, G 5.6e-13, X 0.0e+00 (all < 1e-6: unit changes) vs S -5.947e-01 (> 1e-3: changes the intrinsic shape)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-I GATE species B: earned + Sel-4 -> nullity 2 (predicted 2), vertex-image rank 1 (predicted 1), survivor (-0.0159, -0.699, 0.715, 1.3e-12, 0) slope 8.004 (predicted 8 +- 0.2); rows satisfied to 1.1e-16",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-I consequence (frozen): the geometric vertex is selected uniquely (up to amplitude and the pair-null M - K direction) ONLY once Sel-4 is added. Sel-4 is not earned: it is the operational weak-equivalence statement",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-A GATE species A: material shape mimic (sigma = 0.100000, sigma2 = -5.000e-03) reproduces the geometric vertex EXACTLY, max rel residual 8.8e-13 < 1e-9 at q in {0.05, 0.3, 0.6} (polynomial identity; halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-A GATE static discriminator: the species-A mimic's constant limit changes the intrinsic shape, dPi/dh = 2.681e-10 (|.| > 1e-3), while the geometric coupling's does not (L-I) -- static access separates what pair access cannot",
+   "ok": false
+  },
+  {
+   "kind": "note",
+   "msg": "L-A POST-HOC DIAGNOSTIC (labeled): the species-A 'material mimic' shape modulation sigma Q^2 + sigma2 Q^3 equals D - QD' to 8.8e-13 -- i.e. it acts on the dispersion EXACTLY as stiffness minus proper-distance, (mu, kappa, lambda) = (0, 1, -1). That differs from the geometric coupling (1/2, 1/2, -1) only by the M - K direction, which is pair-null and Sel-4-invisible (a time rescaling). The 'mimic' is the geometric coupling in material clothing, so its constant limit is a unit change and the frozen static-discriminator gate could not fire. The gate stays RED as found; its premise (that the mimic is non-geometric) was wrong",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-A GATE species B, 1-term shape fit: residual ratio r(0.2)/r(0.1) = 4.035 in [3.5, 4.5] (r = 6.60e-04 -> 2.66e-03)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-A GATE species B, 2-term shape fit: residual ratio = 16.650 in [13, 19] (r = 1.70e-07 -> 2.83e-06) -- the separation enters at the first unmatched order (ladder)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-A reported only: geometric vertex species ratio c_A/c_B = 1.20000 (dispersion-fixed, = alpha/(1/24) = 1.2). This would be the universality discriminator; universality is not earned (S-1 PC-D: amplitudes sector-supplied)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "earned vertex-image rank {'A': 2, 'B': 2}; Sel-4 selects {'A': True, 'B': True}; non-geometric counterexample passes every earned constraint: True; pair-access exact mimic {'A': True, 'B': False}; per-species fields {'A': [2, True, True], 'B': [2, True, False]}",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "VERDICT COMPONENTS (mechanical): CONSTRAINED-NONUNIQUE + IRREDUCIBLE INPUT (reduced to Sel-4) + UNDERDETERMINED under pair access + CLASS-SPLIT. Geometric coupling discharged: False",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Import consequence (frozen): geometric coupling stays SUPPLIED. Reduced form: Sel-4 -- a constant probe must act on each retained sector as a pure change of units (intrinsically invisible) -- which, with earned IR conservation and 2D Weyl, fixes the geometric vertex. Its test is a STATIC (constant-probe) measurement of the sector's intrinsic dispersion shape. Class-4 stays OPEN (retained sector untouched); D = 4 TT/xi and the ordering ambiguity stay open",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 0.01,
+ "failures": [
+  "L-A GATE static discriminator: the species-A mimic's constant limit changes the intrinsic shape, dPi/dh = 2.681e-10 (|.| > 1e-3), while the geometric coupling's does not (L-I) -- static access separates what pair access cannot"
+ ],
+ "halts": [],
+ "hard_stop": "verdict recorded; owner rules on the next layer",
+ "instrument": "eq1_equivalence"
+}
