@@ -1,0 +1,189 @@
+{
+ "L_B": {
+  "anchor_worst": {
+   "emission (a=s)": 0.05622127452017799,
+   "midpoint": 0.04943434938156403,
+   "observation (a=t)": 0.07833049516048468
+  },
+  "drift_D": 0.04978046572325329,
+  "n_pairs": 18
+ },
+ "L_D": {
+  "N12_residual": 1.0182965581861936e-12,
+  "sep_rank": 16
+ },
+ "L_E": {
+  "composition": 9.974659986866641e-18,
+  "err_h": 1.0088596624768797e-12,
+  "err_h2": 5.651035195342047e-14,
+  "ratio": 17.852652259332025
+ },
+ "L_P": {
+  "bernstein_min": 0.00037968135511592314,
+  "gram_min": 8.57828479132001e-14,
+  "min_eig_KA": 0.30000000000000043,
+  "min_eig_KB": 0.30000000000000115,
+  "tamper_min": -0.1601916315176137
+ },
+ "L_S": {
+  "dev_001": 0.000547588989026182,
+  "dev_002": 0.001093400944216616,
+  "drift_eps0": 7.771561172376096e-16,
+  "ratio": 1.9967548035636942
+ },
+ "adjudication": {
+  "composite": "PARTIAL -- see the per-component lines and any red gates",
+  "continuity": "established: K(t,s) -> K(t-s) exactly at TTI restoration; deviation linear in the breaking amplitude",
+  "fences": "no cosmological kernel consumed; no C2 content; omega^7/Class-4/GR-1/closed forks untouched; no absolute exponent computed",
+  "map": "DERIVED EXTENSION (in-class): epsilon extends constructively to stepped nonstationary M(t)",
+  "packaging": "NOT MECHANICALLY CERTIFIED (see gates)",
+  "structure": "PRESERVED: passivity, hierarchy positivity (Gram PSD, tamper detected), Bernstein class per snapshot"
+ },
+ "charter_commit": "fa6ac44",
+ "checks": [
+  {
+   "kind": "ctrl",
+   "msg": "U_B(10,5) U_B(5,2) = U_B(10,2): max diff 1.0e-17 < 1e-10 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-E GATE: reduced S-level solve (per-epoch spectral data + mixing matrices ONLY) vs exact full dynamics: max |q - x_S| = 1.0e-12 < 1e-6 at eps_m = 0.5 over t in [0,12]",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-E GATE: h -> h/2 error ratio 17.85 in [8, 32] (4th order; err(h/2) = 5.7e-14) -- the residual is integrator error, the reduction itself is exact",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-E consequence (frozen): the exact finite reduction is not a stationary accident -- epsilon extends constructively to stepped nonstationary M(t) in-class. The reduced description is closed at S level given the named two-time datum",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-S(a) GATE: eps_m = 0: cross-epoch anchors give identical kernels, max diff 7.8e-16 < 1e-10 -- K(t,s) collapses to K(t-s) exactly when TTI is restored (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-S(b) GATE: kernel deviation linear in the TTI-breaking amplitude: dev(0.02)/dev(0.01) = 1.9968 in [1.8, 2.2] (dev = 5.48e-04, 1.09e-03) -- the extension connects continuously to the stationary map",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE: passivity of the microscopic law: min eig K_A = 0.3000, K_B = 0.3000, both > 0",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE: ||x(t)|| monotone nonincreasing along the full nonstationary flow (tolerance 1e-12)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-P GATE: multi-time Gram (hierarchy positivity, the stationarity-independent admissibility object): min eigenvalue 8.58e-14 >= -1e-10 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE (tamper control): x1.5 off-diagonal inflation detected, min eigenvalue -0.160 < -1e-8 -- the positivity check has teeth",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-P GATE: Bernstein weights of every frozen-epoch kernel >= 0 (min u_l^2 = 3.8e-04): each snapshot stays in the earned completely monotone class (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-B(a) GATE: same-lag drift of the GENERATED kernel at eps_m = 0.5: D = 0.0498 > 0.1 -- the microscopic nonstationary law produces a genuinely two-time kernel (no cosmological input anywhere)",
+   "ok": false
+  },
+  {
+   "kind": "ok",
+   "msg": "L-B(b) GATE: every member of the local-anchor family fails on cross-boundary kernels by > 0.05 relative (emission (a=s): 0.0562, observation (a=t): 0.0783, midpoint: 0.0494) -- no single frozen spectral measure reproduces the crossing kernel",
+   "ok": false
+  },
+  {
+   "kind": "note",
+   "msg": "L-B consequence (frozen): the MAP extends but the STATIONARY PACKAGING does not -- no single rho(tau) and no single (J, nu)(omega) represents K(t,s). The priced additional structure is exhibited constructively by the solver itself: per-epoch spectral data PLUS the mixing datum C = V_new^T V_old (equivalently the bath propagator family) -- a two-time spectral datum. This names the S1 boundary instead of leaving it a hole",
+   "ok": true
+  },
+  {
+   "kind": "diag",
+   "msg": "  (i) normalization artifact: the frozen D divides by max|k| = k(0) = v.v, which is modulation-INDEPENDENT; the lagwise relative drift |kA-kB|/|kA(tau)| reaches 0.118 and exceeds 0.1 for tau >= 0.4 -- the two-time character is order 10^-1 in the kernel's own local scale",
+   "ok": true
+  },
+  {
+   "kind": "diag",
+   "msg": "  (ii) amplitude scaling: at eps_m = 1.0 (2x the frozen working point) D = 0.0887 and the anchor-family worst errors are (emission: 0.1095, observation: 0.1484, midpoint: 0.0968) -- the drift and the family failure scale with the TTI-breaking amplitude, consistent with L-S(b)'s measured linearity; the frozen 0.1 / 0.05 thresholds were miscalibrated against the frozen normalization and working point, not against the phenomenon",
+   "ok": true
+  },
+  {
+   "kind": "diag",
+   "msg": "  (iii) reading: the generated kernel IS genuinely two-time (drift 5.0e-2 against a 7.8e-16 stationary control, a 13-orders separation) and the anchor family DOES fail on two of three members at the frozen threshold; the packaging-boundary component nevertheless stays NOT MECHANICALLY CERTIFIED because the frozen gates are the record. No gate is repaired",
+   "ok": true
+  },
+  {
+   "kind": "diag",
+   "msg": "  N = 12 reduction residual 1.0e-12 (N-scaling: the map's exactness is size-independent)",
+   "ok": true
+  },
+  {
+   "kind": "diag",
+   "msg": "  separable rank of the sampled k(t,s) grid: 16 of 16 (bath size 23) -- reported only; no realization-dimension law is claimed off the stationary domain",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "map: DERIVED EXTENSION (in-class): epsilon extends constructively to stepped nonstationary M(t)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "continuity: established: K(t,s) -> K(t-s) exactly at TTI restoration; deviation linear in the breaking amplitude",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "structure: PRESERVED: passivity, hierarchy positivity (Gram PSD, tamper detected), Bernstein class per snapshot",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "packaging: NOT MECHANICALLY CERTIFIED (see gates)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "composite: PARTIAL -- see the per-component lines and any red gates",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "fences: no cosmological kernel consumed; no C2 content; omega^7/Class-4/GR-1/closed forks untouched; no absolute exponent computed",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 0.76,
+ "failures": [
+  "L-B(a) GATE: same-lag drift of the GENERATED kernel at eps_m = 0.5: D = 0.0498 > 0.1 -- the microscopic nonstationary law produces a genuinely two-time kernel (no cosmological input anywhere)",
+  "L-B(b) GATE: every member of the local-anchor family fails on cross-boundary kernels by > 0.05 relative (emission (a=s): 0.0562, observation (a=t): 0.0783, midpoint: 0.0494) -- no single frozen spectral measure reproduces the crossing kernel"
+ ],
+ "halts": [],
+ "hard_stop": "verdict recorded",
+ "instrument": "c1_seam",
+ "posthoc_diagnostic_LB": {
+  "D_at_eps1": 0.08867865194242436,
+  "anchor_worst_at_eps1": {
+   "emission": 0.10954343308109928,
+   "midpoint": 0.09682408613986733,
+   "observation": 0.14842700355509744
+  },
+  "lagwise_rel_max": 0.11824040521779104,
+  "rel_over_0p1_from_tau": 0.4
+ }
+}
