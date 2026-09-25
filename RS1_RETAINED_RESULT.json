@@ -1,0 +1,204 @@
+{
+ "LGEO": {
+  "A": {
+   "B": 3.7442744371893593,
+   "F": 1.0203581852729617,
+   "G": 1.0190733465944941,
+   "M": 1.9354838709677404,
+   "P": 1.9354838709677404
+  },
+  "A_F_phase": 1.895647187074561,
+  "fermi_dos": 0.15915893790371602,
+  "ring_identity_dev": 6.892264536872972e-13
+ },
+ "LLOR": {
+  "B": 3.9927756390996287,
+  "F": 0.9951847266738377,
+  "G": 0.9987954556819582,
+  "M": 3.9927756390996287,
+  "P": 0.9987954562106931
+ },
+ "LST": {
+  "fs1_tower_R2": 4,
+  "nullity": 2
+ },
+ "adjudication": {
+  "bar_met": true,
+  "conditions": [
+   "CARRIER (declared bridging premise)",
+   "supplied Lorentz/gauge probe structure (for the second layer)",
+   "relative to the tested candidate set"
+  ],
+  "earned_plus_supplied_survivors": [
+   "P"
+  ],
+  "earned_plus_supplied_verdict": "SELECTED-IN-CLASS",
+  "earned_survivors": [
+   "P",
+   "M"
+  ],
+  "earned_verdict": "CONSTRAINED-NONUNIQUE",
+  "eliminated_by_earned": [
+   "F",
+   "B"
+  ],
+  "overall": "CLASS-SPLIT across layers",
+  "stress_coupling": "PERMITTED, not forced",
+  "supplied_pass": [
+   "P",
+   "F",
+   "G"
+  ]
+ },
+ "charter_commit": "1f18205",
+ "checks": [
+  {
+   "kind": "ctrl",
+   "msg": "L-GEO control: phonon kernel reproduces the exact ring identity R(0,d) = d(N-d)/N to 6.9e-13 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-GEO control: Lindhard q -> 0 limit 0.15916 equals the Fermi-level DOS 1/(2 pi) = 0.15915 within 2% (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-GEO GATE P phonon: additivity A = R(0,16)/R(0,8) = 1.9355 in [1.8, 2.2] -- carries the additive metric",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-GEO GATE M magnon: A = 1.9355 in [1.8, 2.2] -- carries it (Goldstone, 1/q^2 static)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-GEO GATE B flexural: A = 3.7443 > 4 -- cubic growth, NOT additive: ELIMINATED",
+   "ok": false
+  },
+  {
+   "kind": "note",
+   "msg": "L-GEO POST-HOC DIAGNOSTIC (labeled): B's A = 3.7443 matches the ring form d^2 (N-d)^2 ratio 3.7461 -- the 1/q^4 kernel gives R ~ N d^2 (QUADRATIC, system-size dependent), not the cubic growth I predicted; R(0,8) grows 2.064x from N = 256 to 512 (not a local metric). The frozen '> 4' gate stays RED; B is still outside the additivity window [1.8, 2.2], which is what the frozen adjudication uses",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-GEO GATE G gapped control: A = 1.0191 < 1.3 -- screened: ELIMINATED",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-GEO GATE F free fermions (local density): A = 1.0204 < 1.3 -- compressible, saturating: ELIMINATED under local access",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-GEO GATE F via its NON-LOCAL bosonized phase field: A = 1.8956 in [1.8, 2.2] -- the elimination is ACCESS-RELATIVE",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-GEO consequence (frozen): given CARRIER, earned geometry eliminates two genuinely different gapless candidates (F under local access, B) and the gapped control; survivors {P, M}. The owner's success bar is met -- conditionally on CARRIER",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-LOR GATE P: IR ratio v_g v_p(2k)/v_g v_p(k) = 0.9988 (|r - 1| < 0.05): boost-compatible",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-LOR GATE F: IR ratio v_g v_p(2k)/v_g v_p(k) = 0.9952 (|r - 1| < 0.05): boost-compatible",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-LOR GATE G: IR ratio v_g v_p(2k)/v_g v_p(k) = 0.9988 (|r - 1| < 0.05): boost-compatible",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-LOR GATE M: ratio = 3.9928 in [3.5, 4.5] -- v_g v_p ~ k^2: no symmetric stress in the IR, cannot source the supplied massless probe: ELIMINATED",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-LOR GATE B: ratio = 3.9928 in [3.5, 4.5] -- v_g v_p ~ k^2: no symmetric stress in the IR, cannot source the supplied massless probe: ELIMINATED",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-LOR note: v = c per sector is a units choice; cross-sector light cones are U-1 territory, not tested here",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-ST GATE: D = 2 conservation null space of the declared bilinear family has nullity 2 (predicted 2: canonical + xi-improvement) -- full-stress coupling PERMITTED, not FORCED",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-ST carried (not re-tested): IR Weyl fixes xi = 0 in D = 2 (CP-1); TT probes see a rank-1, vacuous form (CP-1)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "Matched control: FS-1 phonon conserved tower at R = 2 has dim 4 (recorded 4) -- FS-1 preserved",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "bar_met: True",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "eliminated_by_earned: ['F', 'B']",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "earned_survivors: ['P', 'M']",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "earned_verdict: CONSTRAINED-NONUNIQUE",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "earned_plus_supplied_survivors: ['P']",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "earned_plus_supplied_verdict: SELECTED-IN-CLASS",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "stress_coupling: PERMITTED, not forced",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "overall: CLASS-SPLIT across layers",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "conditions: ['CARRIER (declared bridging premise)', 'supplied Lorentz/gauge probe structure (for the second layer)', 'relative to the tested candidate set']",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 0.21,
+ "failures": [
+  "L-GEO GATE B flexural: A = 3.7443 > 4 -- cubic growth, NOT additive: ELIMINATED"
+ ],
+ "halts": [],
+ "hard_stop": "verdict recorded",
+ "instrument": "rs1_retained"
+}
