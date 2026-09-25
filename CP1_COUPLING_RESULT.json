@@ -1,0 +1,279 @@
+{
+ "LC": {
+  "2": {
+   "nullity": 2,
+   "res_canon": 2.776039227961817e-16,
+   "res_improve": 2.757638277710384e-16
+  },
+  "4": {
+   "nullity": 2,
+   "res_canon": 2.661044040618577e-16,
+   "res_improve": 2.3551386880256624e-16
+  }
+ },
+ "LF": {
+  "canonical minimal stress": 8.005419679011105,
+  "contact c = 0.01": -0.0010848867810199342,
+  "improved xi = 0.2": 4.005417815951444,
+  "on-locus NON-canonical": 8.005419679011105
+ },
+ "LH": {
+  "canonical": 0.016397962400591895,
+  "contact c = 0.01": 0.37206141375755175,
+  "improved xi = 0.2": 0.06766684057690675,
+  "mass-only material modulation": 0.06963892245033143
+ },
+ "LM": {
+  "coef_cont": -0.04999375000001859,
+  "coef_latt": -0.04165972268720813,
+  "fd_check": 1.2829460637756933e-07,
+  "impedance_zero": 0.0,
+  "ratio_to_canon": 0.49996874804694286,
+  "s_mass": 4.001626590846332,
+  "s_stiff": 4.001626590846332,
+  "slope_cont": 8.004877736626073,
+  "slope_latt": 8.003521201684888
+ },
+ "LTT": {
+  "bc_zero": 1.2164850701288358e-14,
+  "g_plus_a": 3.506339319783115e-14,
+  "rank": 1
+ },
+ "LW": {
+  "2": {
+   "dir_residual": 6.639026299000817e-16,
+   "direction": [
+    -0.7071067811865476,
+    6.636144752361019e-18,
+    0.7071067811865479,
+    -2.885655313664466e-16
+   ],
+   "nullity": 1,
+   "slope": 8.005419680786291
+  },
+  "4": {
+   "dir_residual": 7.947220565261989e-16,
+   "direction": [
+    -0.8164965809277259,
+    0.4082482904638631,
+    0.40824829046386324,
+    7.363558906599871e-16
+   ],
+   "nullity": 1,
+   "slope": 4.004335455441805
+  }
+ },
+ "adjudication": {
+  "D2_strain_selected_on_locus": true,
+  "D4_strain_selected_on_locus": false,
+  "TT_vacuous": true,
+  "import_discharged": false,
+  "metric_reduction": true,
+  "verdict": "CLASS-SPLIT"
+ },
+ "charter_commit": "d78f9a4",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "L-F GATE canonical minimal stress (1, 0, -1, 0): slope = 8.005 (predicted 8 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-F GATE improved xi = 0.2 (0.8, -0.2, -0.6, 0): slope = 4.005 (predicted 4 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-F GATE on-locus NON-canonical (0, 1, 1, 0): slope = 8.005 (predicted 8 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-F GATE contact c = 0.01 (1, 0, -1, 0.01): slope = -0.001 (predicted 0 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-F matched control: canonical slope reproduces GR-1's recorded s_full = 8.005420 to 2.0e-12 < 1e-9",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-F consequence (frozen): the on-locus NON-canonical coupling (0,1,1,0) also lands at 8 -- the +4 is a property of a PLANE of couplings {c = 0, a - g + b = 0}, not of minimal stress as such. The exponent does not identify the coupling",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H GATE canonical: two-time Gram PSD, min eig / C0 = 1.64e-02 >= -1e-12",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H GATE improved xi = 0.2: two-time Gram PSD, min eig / C0 = 6.77e-02 >= -1e-12",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H GATE contact c = 0.01: two-time Gram PSD, min eig / C0 = 3.72e-01 >= -1e-12",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H GATE mass-only material modulation: two-time Gram PSD, min eig / C0 = 6.96e-02 >= -1e-12",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-H consequence (frozen): every coupling in the family -- minimal, improved, contact, material -- is \ud835\udd20_full-admissible. The admissible hierarchy constrains realizability, not the coupling form: NULL as a selector",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE D = 2: conservation null space has nullity 2 (predicted 2); null vectors satisfy every row to 2.2e-15",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE D = 2: canonical residual 2.8e-16, improvement residual 2.8e-16 (both < 1e-10) -- both are conserved",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE D = 4: conservation null space has nullity 2 (predicted 2); null vectors satisfy every row to 4.1e-15",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE D = 4: canonical residual 2.7e-16, improvement residual 2.4e-16 (both < 1e-10) -- both are conserved",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-C consequence (frozen): conservation (locality + symmetry) cuts the family to a 2-dim space = canonical + xi * improvement, and xi spans on- and off-locus members (L-F: xi = 0.2 -> base). CONSTRAINED-NONUNIQUE",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-W GATE D = 2: nullity 1 (predicted 1); null vector satisfies every row to 6.2e-15",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-W GATE D = 2: selected direction (-0.707, 6.64e-18, 0.707, -2.89e-16) matches the predicted (1, 0, -1, 0), residual 6.6e-16 < 1e-10",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-W GATE D = 2: strain-probe slope of the Weyl-selected coupling = 8.005 (predicted 8 +- 0.2: ON the +4 locus)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-W GATE D = 4: nullity 1 (predicted 1); null vector satisfies every row to 3.9e-15",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-W GATE D = 4: selected direction (-0.816, 0.408, 0.408, 7.36e-16) matches the predicted (2, -1, -1, 0), residual 7.9e-16 < 1e-10",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-W GATE D = 4: strain-probe slope of the Weyl-selected coupling = 4.004 (predicted 4 +- 0.2: OFF the +4 locus)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-W consequence (frozen): IR Weyl symmetry of the retained gapless sector selects a UNIQUE conserved coupling in each D -- in D = 2 it is the canonical minimal stress (on-locus, +4); in D = 4 it is the improved, conformally-coupled tensor, which in strain-probe kinematics sits OFF the locus (base class). The same principle selects different couplings by dimension",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-TT GATE: TT(b) = TT(c) = 0, max relative 1.2e-14 < 1e-12 (halt-grade identity)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-TT GATE: TT(g) = -TT(a), max relative 3.5e-14 < 1e-12 (halt-grade identity)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-TT GATE: TT image of the entire declared family has rank 1 (predicted 1) over 16 random pairs",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-TT consequence (frozen): for transverse-traceless probes the coupling FORM is forced up to amplitude -- kinetic/gradient weighting, contact and improvement terms are all invisible. The minimal-stress import is VACUOUS in the TT access class. Whether the TT channel then carries +4 is kinematic (v3 territory, NOT re-adjudicated here)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-M control: complex-step metric vertex agrees with an independent finite-difference variation of the action, max rel diff 1.3e-07 < 1e-4",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-M GATE continuum dispersion: metric-coupling slope = 8.005 (predicted 8 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-M GATE lattice dispersion 4 sin^2(q/2): metric-coupling slope = 8.004 (predicted 8 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-M GATE continuum coefficient V/q^4 = -0.049994 vs -alpha = -0.05 (within 1%)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-M GATE lattice coefficient V/q^4 = -0.041660 vs -1/24 = -0.041667 (within 1%)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-M GATE V_metric / V_canonical at q = 0.05 = 0.499969 (predicted 0.5 within 1%) -- metric coupling IS canonical minimal stress in the IR",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-M GATE impedance locus (mu = -kappa): material vertex vanishes identically, max |V| = 0.0e+00 < 1e-14 (both dispersions; halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-M GATE counterfactuals: mass-only slope 4.002, stiffness-only slope 4.002 (both predicted base 4 +- 0.2)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-M consequence (frozen): within {mass, stiffness, proper-distance} modulations of the retained sector, the +4 arises ONLY from proper-distance (metric) coupling -- material modulations give zero or base. The minimal-stress import REDUCES to the geometric-coupling (equivalence) principle at xi = 0. That principle is not already in \ud835\udcaf: a reduction, not a discharge",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Per class: D = 2 strain -- Weyl+conservation selects on-locus: True; D = 4 strain -- selects on-locus: False; TT class -- form vacuous: True; metric-coupling reduction holds: True",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "VERDICT (mechanical): CLASS-SPLIT; conservation alone: CONSTRAINED-NONUNIQUE; \ud835\udd20_full: NULL as selector. Minimal-stress import discharged: False",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Class-4 consequence (frozen): the minimal-stress import stays LOAD-BEARING, restated in reduced form -- geometric (proper-distance) coupling of the retained sector at xi = 0, where xi = 0 is selected by IR Weyl in D = 2 but NOT in D = 4 strain kinematics, and is invisible to TT probes. The retained-sector import was not attacked. Class-4 stays OPEN",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 0.01,
+ "failures": [],
+ "halts": [],
+ "hard_stop": "verdict recorded; owner rules on the next layer",
+ "instrument": "cp1_coupling",
+ "seed": 20260925
+}
