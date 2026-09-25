@@ -347,7 +347,7 @@ where it stops).
 
 | map | reads | type |
 |---|---|---|
-| ε : (M, 𝔞) → 𝒞_continuum | core | **CONSTRUCTIVE** on stationary 𝕆 (exact finite; FAMILY-FACT limits); **TERMINATES(S1)** off stationary backgrounds |
+| ε : (M, 𝔞) → 𝒞_continuum | core | **CONSTRUCTIVE** on stationary 𝕆 (exact finite; FAMILY-FACT limits) **and on finite stepped-nonstationary 𝕆_G, in-class** (C1-a, owner-accepted: reduction exact to 1e-12, continuity to the stationary map established); S1's remainder partitioned into **C1-b** (infinite-volume nonstationary limit), **C1-c** (smooth modulation), and the **packaging certification** (C1-a2, authorized) *(AMENDMENT 02)* |
 | ι_ℐ : (M, 𝔞, ρ) → ℐ | core | **CONSTRUCTIVE** (exact in 𝕆_G; hierarchy in 𝕆_S) |
 | adm : ℐ → {admissible?} | core + I7 | **CONSTRUCTIVE** given ℏ (the cone; hierarchy positivity = state positivity [IDENTITY]) |
 | count : sector → exponent class | core | **CONSTRUCTIVE** (per-branch; masking law) |
@@ -516,3 +516,16 @@ termination points are part of the theory, not omissions from it.**
 Successor document: `GRUT_FORMALIZATION_02.md` (the mathematical
 statement of GRUT on the datum/fibration architecture). No physics
 fork before it exists (owner ruling).
+
+## AMENDMENT 02 (owner ruling on C1-a, 2026-09-25 — applied as a dated amendment)
+
+Per the owner's C1-a acceptance (recorded on Issue #2): the §3 map
+table's ε row is updated — ε is CONSTRUCTIVE on stationary 𝕆 **and**
+on finite stepped-nonstationary 𝕆_G in-class (the first actual domain
+extension of the theory: 𝔻_core^stationary → 𝔻_core^stationary ∪
+𝔻_core^stepped-nonstationary at finite in-class level). Seam S1's
+remainder is explicitly partitioned into C1-b, C1-c, and the packaging
+certification (C1-a2, authorized, not yet evaluated). The two C1-a
+L-B reds remain red; the packaging boundary remains NOT certified; the
+hard fences (no C2; ω⁷/Class-4/GR-1/closed forks untouched) are
+unchanged.

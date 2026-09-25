@@ -294,3 +294,33 @@ decision this stop waits on: **the owner reads the statement and
 rules — amend, or select the first true completion attack (the owner
 has indicated C1 or C2, now well-posed as domain-extension problems
 for the specified object).**
+
+---
+
+## AMENDMENT 01 (owner ruling on C1-a, 2026-09-25 — applied as a dated amendment)
+
+C1 was selected and its finite core (C1-a) executed and **accepted at
+recorded strength** (charter `fa6ac44`, verdict
+`C1_STATIONARITY_SEAM_VERDICT_01.md`). Effects on this document:
+
+- **Definition 1 / Q1 domain:** 𝔻_core is enlarged at finite in-class
+  level — **𝔻_core^stationary → 𝔻_core^stationary ∪
+  𝔻_core^stepped-nonstationary** (finite 𝕆_G, stepped modulation).
+  The map ε is CONSTRUCTIVE there: the reduction is exact (1e-12,
+  fourth-order convergence signature), closes on the named two-time
+  datum ({λ_e, u_e}, C = V_newᵀV_e, K_SS), connects continuously to
+  the stationary map, and was obtained **without importing the FRW
+  kernel**. This is the theory's first actual domain extension.
+- **Structure:** hierarchy positivity is stationarity-independent **by
+  measurement now, not only by identity** (Gram PSD off the stationary
+  domain, tamper detected).
+- **Seam S1's remainder is partitioned:** (1) **C1-b** infinite-volume
+  nonstationary limit; (2) **C1-c** smooth modulation; (3) **the
+  packaging certification** — the two C1-a L-B gates stay red, the
+  two-time *phenomenon* is established (13-orders separation from the
+  stationary control) while the *packaging-boundary certification* is
+  not; **C1-a2 is authorized** as a separate, freshly chartered,
+  narrowly scoped re-test with a defensible normalization; it must
+  not rewrite C1-a.
+- Fences unchanged: no C2; no reopening of ω⁷, Class-4, GR-1, or any
+  closed fork.
