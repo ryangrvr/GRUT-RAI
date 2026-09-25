@@ -1,0 +1,190 @@
+{
+ "LD": {
+  "O2_residual": 1.0,
+  "commutant_dim_L6": 4,
+  "dense_comm": 0.0,
+  "shape_O2": 0.05819517274861,
+  "shape_unit": 1.582067810090848e-15
+ },
+ "LN": {
+  "comm_norm": 7.981700570680412,
+  "gram_min": 0.09235255382902667,
+  "graph_same": true,
+  "shape_change": 0.007533175887302568
+ },
+ "LT": {
+  "MFIM (generic)": 1,
+  "TFIM (integrable)": 4,
+  "XX (free)": 5
+ },
+ "LU": {
+  "Delta_nonuniversal_coupled": 0.0953394538436686,
+  "Delta_nonuniversal_decoupled": 0.11840255896118013,
+  "Delta_universal_coupled": 8.404388296412435e-14,
+  "Delta_universal_decoupled": 1.84297022087776e-14,
+  "commutant_g0.0": 2,
+  "commutant_g0.3": 1,
+  "gram_min": 0.00128820427586727,
+  "graph_same": true
+ },
+ "adjudication": {
+  "conditional_on": "C_cons",
+  "derived_all": false,
+  "overall": "CLASS-SPLIT per part; Sel-4 as a whole NOT derived",
+  "parts": {
+   "Sel-4U": "CLASS-SPLIT: DERIVED-IN-CLASS (interacting, | C_cons) / IRREDUCIBLE (non-interacting)",
+   "Sel-4t": "CLASS-SPLIT: DERIVED-IN-CLASS (generic, | C_cons) / CONSTRAINED-NONUNIQUE (integrable, free)",
+   "Sel-4x": "IRREDUCIBLE (carried from EQ-1, not re-tested)",
+   "\ud835\udd20_full & G-2 geometry": "NULL as selectors"
+  }
+ },
+ "charter_commit": "e83b6f0",
+ "checks": [
+  {
+   "kind": "ctrl",
+   "msg": "L-T control: [H, H] = 0 exactly in the symbolic Pauli algebra (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-T GATE MFIM (generic): commutant of H in the 48-operator range-<=3 local basis (L = 8) has dim 1 (predicted ==1)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-T GATE TFIM (integrable): commutant of H in the 48-operator range-<=3 local basis (L = 8) has dim 4 (predicted >=2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-T GATE XX (free): commutant of H in the 48-operator range-<=3 local basis (L = 8) has dim 5 (predicted >=2)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-T consequence (frozen): for the generic sector, locality + C_cons leave only O ~ H -- the constant clock-probe coupling IS a time-unit change: temporal Sel-4 DERIVED-IN-CLASS, conditional on C_cons. Integrable and free sectors carry extra local conserved charges: temporal Sel-4 NOT forced there (CONSTRAINED-NONUNIQUE). The phonon-type retained sector is free",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE: extracted extra conserved charge O2 has relative residual 1.000 > 0.1 against H (commutant dim at L = 6: 4)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-D control: dense ||[O2, H]|| = 0.0e+00 < 1e-10 (ED agrees with the symbolic commutant; halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE: unit-change probe O = H leaves the normalized spectrum shape unchanged, max|ds| = 1.6e-15 < 1e-10",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE: extra-charge probe O = O2 changes the normalized spectrum shape, max|ds| = 5.820e-02 > 1e-4 -- a genuinely distinct, conserved, local alternative that is intrinsically visible",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-N GATE: ||[O, H]|| (Pauli norm) = 7.982 > 0 -- O is not conserved; C_cons excludes it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-N GATE: the constant probe changes the normalized spectrum shape, max|ds| = 7.533e-03 > 1e-4 (intrinsically visible)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-N GATE: ground-state two-time Gram of O PSD, min eig / scale = 9.24e-02 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-N GATE: interaction graph of H + hO equals that of H -- G-2's hop geometry cannot see this alternative",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-N consequence (frozen): the non-conserved alternative is admitted by \ud835\udd20_full and invisible to G-2 geometry; it is excluded by C_cons and by nothing else earned. Without C_cons, Sel-4t cannot be selected",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-U GATE commutant (legs L = 6, 33-operator basis), rung g = 0.0: dim 2 (predicted 2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-U GATE commutant (legs L = 6, 33-operator basis), rung g = 0.3: dim 1 (predicted 1)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-U GATE coupled (g = 0.3): universal probe Delta = 8.4e-14 < 1e-10 at best common rescale c = 1.050000 (exact time rescaling; halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-U GATE coupled (g = 0.3): non-universal probe Delta = 9.534e-02 > 1e-3 even at the best common rescale c = 1.024753 -- relative clock rates are visible in the full accessible dynamics",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-U GATE: non-universal probe preserves the interaction graph -- G-2 hop geometry blind to it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-U GATE: ground-state two-time Gram of the non-universal coupling O = H_A PSD, min eig / scale = 1.29e-03 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-U GATE decoupled (g = 0.0): universal probe Delta = 1.8e-14 < 1e-10 at best common rescale c = 1.050000 (exact time rescaling; halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-U GATE decoupled (g = 0.0): non-universal probe Delta = 1.184e-01 > 1e-3 even at the best common rescale c = 1.023469 -- relative clock rates are visible in the full accessible dynamics",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-U consequence (frozen): with ANY rung coupling, C_cons leaves only H_total -- clock universality DERIVED-IN-CLASS for interacting sectors. Decoupled sectors: each clock is separately conserved, so conservation allows epsilon_A != epsilon_B -- yet the relative rate is observable by joint access. Universality is IRREDUCIBLE for non-interacting sectors",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Sel-4t: CLASS-SPLIT: DERIVED-IN-CLASS (generic, | C_cons) / CONSTRAINED-NONUNIQUE (integrable, free)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Sel-4U: CLASS-SPLIT: DERIVED-IN-CLASS (interacting, | C_cons) / IRREDUCIBLE (non-interacting)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Sel-4x: IRREDUCIBLE (carried from EQ-1, not re-tested)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "\ud835\udd20_full & G-2 geometry: NULL as selectors",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "OVERALL: CLASS-SPLIT per part; Sel-4 as a whole NOT derived. Every derived part is conditional on C_cons (zero-momentum conservation inherited from CP-1/EQ-1) -- the owner rules on that inheritance. Class-4 stays OPEN",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 10.97,
+ "failures": [],
+ "halts": [],
+ "hard_stop": "verdict recorded; owner rules on the next layer",
+ "instrument": "s41_sel4"
+}
