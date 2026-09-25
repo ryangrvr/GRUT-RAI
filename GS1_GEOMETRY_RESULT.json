@@ -1,0 +1,169 @@
+{
+ "LF": {
+  "iso_data_diff": 1.5864667196931241,
+  "iso_trace_dev": 1.6217823544359308e-16,
+  "recon_dev": 1.9984014443252818e-15,
+  "rewire_data_diff": 0.5216297389204985,
+  "rewire_first_trace_order": 3
+ },
+ "LM": {
+  "analytic": 0.19753086419753085,
+  "dynamic_diff": 49.68302036766061,
+  "order0": 3.885780586188048e-16,
+  "order_w2": 0.19753090851008892,
+  "static_diff": 2.220446049250313e-16
+ },
+ "LP": {
+  "a2_weight_at_0.4": 0.3894183423086505,
+  "data_dev": 8.43769498715119e-14,
+  "lp_count": 1,
+  "lp_diag_pinned_count": 96,
+  "lp_diag_pinned_noniso": 94,
+  "lp_noniso_count": 0,
+  "lp_noniso_range": null
+ },
+ "LT": {
+  "first_order": 8,
+  "mobius": [
+   0,
+   3,
+   0,
+   19,
+   0,
+   141,
+   0,
+   1107,
+   18,
+   8953,
+   550,
+   73789
+  ],
+  "prism": [
+   0,
+   3,
+   0,
+   19,
+   0,
+   141,
+   0,
+   1109,
+   0,
+   9063,
+   0,
+   76231
+  ]
+ },
+ "adjudication": {
+  "bar_met": true,
+  "boundary_access": "dynamic hierarchy selects interior dimension (Y over Delta); interior geometry CONSTRAINED-NONUNIQUE",
+  "full_access": "SELECTED-IN-CLASS (unique up to relabeling)",
+  "overall": "CLASS-SPLIT by access: geometry determined exactly as far as access reaches; the access boundary itself is supplied (P-5/P-6)",
+  "single_site": "UNDERDETERMINED by earned structure; selected only by LocPos (candidate)",
+  "static_only": "Y-Delta blind (G-2 resistance geometry insufficient)",
+  "topology": "invisible below local order 8 (horizon)"
+ },
+ "charter_commit": "7837fb2",
+ "checks": [
+  {
+   "kind": "ctrl",
+   "msg": "L-F GATE (a) machinery: K_hat = w^2 + G(w)^-1 reproduces the hidden network to 2.0e-15 < 1e-9 (halt-grade; NULL-REDUNDANT)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-F GATE (b) isospectral candidate: trace moments m = 1..8 equal to 1.6e-16 (all global spectral data agree) yet site-resolved data differ by 1.586 > 1e-3 -- ELIMINATED by local access, which global spectra cannot do",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-F GATE (c) degree-preserving rewire: data differ by 0.522 > 1e-3 -- ELIMINATED; first differing global trace moment: order 3",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-M GATE (a): static boundary data (Schur complement) of Y equals Delta to 2.2e-16 < 1e-12 -- G-2's STATIC resistance geometry cannot tell them apart (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-M GATE (b): dynamic boundary data at w = 0.3 differ by 49.6830 > 1e-3 -- the DYNAMIC influence hierarchy ELIMINATES Delta",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-M GATE (c): first distinguishing invariant = the w^2 coefficient of G_AA^-1 (order-0 diff 3.9e-16; order-w^2 diff 0.1975, analytic ||K_AI K_II^-2 K_IA|| = 0.1975)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-P GATE (a): single-site data G_aa(w) identical across all 3600 family members to 8.4e-14 < 1e-12 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE (b): family is NON-isometric -- at theta = 0.4, a couples to node 2 (weight 0.3894) where the hidden path has none",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE (c): \ud835\udd20_full admits the family (spectrum invariant; min eigenvalue at theta = 0.4 is 0.0590)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-P (d) REPORTED: LocPos-admissible theta count = 1; of these, non-isometric (away from 0, pi/2) = 0",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-P POST-HOC DIAGNOSTIC (labeled): the hidden path has ZERO interior pins, so it sits on the LocPos boundary. With interior pins 0.1, LocPos admits 96 theta, of which 94 are non-isometric (range 0.0017 .. 0.0829) -- the frozen reading's uniqueness is a boundary effect, not a robust selection",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-T GATE: local closed-walk counts equal as exact integers for m < 8 and first differ at m = 8 (predicted 8): the twist is invisible below the circumference order (G-2's horizon, carried)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "bar_met: True",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "full_access: SELECTED-IN-CLASS (unique up to relabeling)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "boundary_access: dynamic hierarchy selects interior dimension (Y over Delta); interior geometry CONSTRAINED-NONUNIQUE",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "static_only: Y-Delta blind (G-2 resistance geometry insufficient)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "single_site: UNDERDETERMINED by earned structure; selected only by LocPos (candidate)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "topology: invisible below local order 8 (horizon)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "overall: CLASS-SPLIT by access: geometry determined exactly as far as access reaches; the access boundary itself is supplied (P-5/P-6)",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 0.25,
+ "failures": [],
+ "halts": [],
+ "hard_stop": "verdict recorded",
+ "instrument": "gs1_geometry"
+}
