@@ -36,3 +36,19 @@ Source: `CLOCK_MISMATCH_VERDICT_01.md` (verdict (C), 23/23) and
 
 *All three edits are additive annotations (no tier moves, no ledger deltas).
 They await the both-directions firewall + owner relay before acceptance.*
+
+## EDIT 4 — `background_time_translation_flow`, outcome annotation (added post-transport-verdict)
+
+> TRANSPORT INSTRUMENT OUTCOME (2026-09-25, O-NONUNIQUE with O-MISSING
+> co-occurring, 11/11, sha 95f0f2a7): at free level the dS->FRW transport
+> exists as RECOMPUTATION from admitted inputs (C1 tensor primitive + declared
+> background); no LOCAL substitution rule is derivable (best member 34% worst-
+> case; eps = -Hdot/H^2 >= 0.4725 at every epoch -- no small parameter); the
+> local family is derived-with-domain (<= 0.3% at lag 0.241/H0, O(1) wrong by
+> lag 0.8/H0) and its nonuniqueness is measured (spread 0.003 -> 1.64 across
+> the grid). KMS/ladder side requires three relocation-class inputs (FRW state
+> choice; temperature/KMS structure absent a timelike Killing field; a proved
+> stationary reduction). The rung3/rung7 conditional comparison's premises are
+> disjoint: dominance needs lag >= 4.33/H_*, the licensed domain ends ~0.25/H0.
+
+*Additive annotation; no tier move, no ledger delta. Awaits firewall + relay.*

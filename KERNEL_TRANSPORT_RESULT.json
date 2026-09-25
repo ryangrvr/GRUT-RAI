@@ -1,0 +1,242 @@
+{
+ "adiabaticity_eps": {
+  "z=0.0": 0.47250000000000003,
+  "z=0.296": 0.7503755978512213,
+  "z=1.0": 1.1794071762870513,
+  "z=3.0": 1.4507076037419049
+ },
+ "background": {
+  "OL": 0.685,
+  "Om": 0.315
+ },
+ "charter": "KERNEL_TRANSPORT_CHARTER_01.md",
+ "charter_commit": "c30f18e",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "flat anchor: |Ghat| == |sin(k d)/k| (rel 2.4e-11); basis orientation recorded (real unit-W basis = -1 x BD convention)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "dS control: numeric kernel matches the closed BD form (rel 1.4e-14)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "Wronskian constancy on LCDM (max drift 7.6e-13)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "state-independence: SL(2,R) basis change leaves the commutator kernel invariant (rel 1.1e-13)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "superhorizon freezing: h(k=0.02) constant to 0.03% over a=0.75->1",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "control: a wrong-sign a''/a mutant misses the dS closed form by 80% -- detected",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "eps = -Hdot/H^2 NEVER falls below 0.473 on the declared background (z >= 0): every local substitution rule lacks a small parameter in the real universe",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "production run reaches a = 1.0000",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "orientation convention: closed-form members carry global sign +1 (one binary convention, applied uniformly, disclosed)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "outcome: O-NONUNIQUE -- no member within 10% everywhere (best worst-case 0.340); members mutually differ by up to 1.640 of the kernel scale -- 'apply dS locally' is a family, not a rule",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "co-occurrence: O-MISSING also holds (at some grid points EVERY member misses by > 10% -- the exact kernel is not any local-rate evaluation)",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 3.18,
+ "failures": [],
+ "grid_norm": 6.9458960476354035,
+ "grid_table": [
+  {
+   "K_exact": -0.3600599184256345,
+   "deltas": {
+    "H_emis": 0.0010077209379628456,
+    "H_mid": 0.0006339727816307568,
+    "H_obs(=H0)": 0.0017938593097497682
+   },
+   "family_spread": 0.0028015802477126136,
+   "k": 0.5,
+   "lag_cosmic": 0.24123066055964337,
+   "members_signed": {
+    "H_emis": -0.35306039354551894,
+    "H_mid": -0.364463427463872,
+    "H_obs(=H0)": -0.3725198787152394
+   },
+   "z_emis": 0.296
+  },
+  {
+   "K_exact": -1.633251094700602,
+   "deltas": {
+    "H_emis": 0.03566928519639912,
+    "H_mid": 0.032408744603569614,
+    "H_obs(=H0)": 0.06584055242960286
+   },
+   "family_spread": 0.10150983762600199,
+   "k": 0.5,
+   "lag_cosmic": 0.5480253771711402,
+   "members_signed": {
+    "H_emis": -1.3854959476329534,
+    "H_mid": -1.8583588657513614,
+    "H_obs(=H0)": -2.090572727595512
+   },
+   "z_emis": 1.0
+  },
+  {
+   "K_exact": -6.9458960476354035,
+   "deltas": {
+    "H_emis": 0.34007913811629653,
+    "H_mid": 0.8480376997784931,
+    "H_obs(=H0)": 1.299450387274528
+   },
+   "family_spread": 1.6395295253908244,
+   "k": 0.5,
+   "lag_cosmic": 0.803272926882125,
+   "members_signed": {
+    "H_emis": -4.583741706310165,
+    "H_mid": -12.836277754772658,
+    "H_obs(=H0)": -15.971743356703842
+   },
+   "z_emis": 3.0
+  },
+  {
+   "K_exact": -0.35669623970773984,
+   "deltas": {
+    "H_emis": 0.0009891533065387757,
+    "H_mid": 0.0006252790322944894,
+    "H_obs(=H0)": 0.001765608825675479
+   },
+   "family_spread": 0.0027547621322142547,
+   "k": 1.0,
+   "lag_cosmic": 0.24123066055964337,
+   "members_signed": {
+    "H_emis": -0.34982568366534667,
+    "H_mid": -0.3610393628668234,
+    "H_obs(=H0)": -0.36895997507166933
+   },
+   "z_emis": 0.296
+  },
+  {
+   "K_exact": -1.5194021348459605,
+   "deltas": {
+    "H_emis": 0.030067172736468948,
+    "H_mid": 0.028700198201520664,
+    "H_obs(=H0)": 0.05683026620712205
+   },
+   "family_spread": 0.086897438943591,
+   "k": 1.0,
+   "lag_cosmic": 0.5480253771711402,
+   "members_signed": {
+    "H_emis": -1.31055867857215,
+    "H_mid": -1.7187507281002556,
+    "H_obs(=H0)": -1.9141392562800774
+   },
+   "z_emis": 1.0
+  },
+  {
+   "K_exact": -5.334295997371338,
+   "deltas": {
+    "H_emis": 0.14536435063806288,
+    "H_mid": 0.3881143271674045,
+    "H_obs(=H0)": 0.3658719835798981
+   },
+   "family_spread": 0.5334786778054674,
+   "k": 1.0,
+   "lag_cosmic": 0.803272926882125,
+   "members_signed": {
+    "H_emis": -4.3246103288073305,
+    "H_mid": -8.030097768474088,
+    "H_obs(=H0)": -7.875604762059478
+   },
+   "z_emis": 3.0
+  },
+  {
+   "K_exact": -0.3434301383519247,
+   "deltas": {
+    "H_emis": 0.0009163633798168683,
+    "H_mid": 0.0005911880007285227,
+    "H_obs(=H0)": 0.0016548730922266608
+   },
+   "family_spread": 0.002571236472043529,
+   "k": 2.0,
+   "lag_cosmic": 0.24123066055964337,
+   "members_signed": {
+    "H_emis": -0.3370651735738569,
+    "H_mid": -0.34753646874959443,
+    "H_obs(=H0)": -0.35492471482256005
+   },
+   "z_emis": 0.296
+  },
+  {
+   "K_exact": -1.1114100349710447,
+   "deltas": {
+    "H_emis": 0.010843554943388395,
+    "H_mid": 0.016134525773059034,
+    "H_obs(=H0)": 0.026724748995098902
+   },
+   "family_spread": 0.0375683039384873,
+   "k": 2.0,
+   "lag_cosmic": 0.5480253771711402,
+   "members_signed": {
+    "H_emis": -1.036091829547446,
+    "H_mid": -1.223478773768607,
+    "H_obs(=H0)": -1.2970373633901504
+   },
+   "z_emis": 1.0
+  },
+  {
+   "K_exact": -1.0555952227170513,
+   "deltas": {
+    "H_emis": 0.3360717649101367,
+    "H_mid": 0.32141640152354334,
+    "H_obs(=H0)": 0.6395629530179183
+   },
+   "family_spread": 0.975634717928055,
+   "k": 2.0,
+   "lag_cosmic": 0.803272926882125,
+   "members_signed": {
+    "H_emis": -3.389914766328224,
+    "H_mid": 1.1769296902705224,
+    "H_obs(=H0)": 3.386742564864135
+   },
+   "z_emis": 3.0
+  }
+ ],
+ "hard_stop": "verdict recorded pending owner selection; Lambda_R/Matsubara/Pi_0/U5 fenced",
+ "instrument": "kernel_transport_rule",
+ "max_family_spread": 1.6395295253908244,
+ "o_missing_cooccurs": true,
+ "object": "free TT graviton retarded/commutator kernel per comoving k (state-independent; C1-validated primitive)",
+ "outcome": "O-NONUNIQUE",
+ "t2_status": "the exact FRW kernel IS computable from admitted inputs (A4+A7): a transport rule exists as recomputation at free level",
+ "worst_case_delta": {
+  "H_emis": 0.34007913811629653,
+  "H_mid": 0.8480376997784931,
+  "H_obs(=H0)": 1.299450387274528
+ }
+}
