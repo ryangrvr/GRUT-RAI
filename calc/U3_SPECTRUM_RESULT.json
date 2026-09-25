@@ -69,9 +69,9 @@
     },
     {
       "name": "E4a memory REQUIRES persistent auxiliary structure (Erlang convergence)",
-      "pass": false,
-      "msg": "L1 error of n-stage Erlang cascade vs the boxcar (a pure delay): [0.721, 0.825, 0.984, 1.193] decreases with n -> the delay line is the n->infty limit of persistent-mode cascades; conversely ANY non-instantaneous kernel is representable by persistent modes.  The system/bath split is therefore a REPRESENTATION THEOREM (u3 partial derivation): bath := the persistent auxiliary variables the response law itself requires; no separate ontological posit needed for the SPLIT -- what remains underived is why the physical realization is LOW-dimensional (why so few modes)",
-      "status": "FAIL"
+      "pass": true,
+      "msg": "L1 error of the n-stage Erlang cascade STEP RESPONSE vs the delayed step Theta(t-1): [0.486, 0.376, 0.277, 0.198] for n = 2,4,8,16 -- decreasing at the CLT rate ~ n^(-1/2) -> the delay line is the n->infty limit of persistent-mode cascades (no FINITE cascade is exact: e^{-s} is not rational); conversely ANY non-instantaneous kernel is representable by persistent modes. The system/bath split is therefore a REPRESENTATION result at check level: bath := the persistent auxiliary variables the response law itself requires; what remains underived is why the physical realization is LOW-dimensional (why so few modes)",
+      "status": "ok"
     },
     {
       "name": "E4b memoryless limit has NO persistent variables (the trivial case)",
@@ -146,10 +146,10 @@
   },
   "u3": {
     "erlang_l1": [
-      0.721,
-      0.825,
-      0.984,
-      1.193
+      0.486,
+      0.376,
+      0.277,
+      0.198
     ]
   }
 }

@@ -22,7 +22,10 @@ Branches:
 
   B3  response kernel: K(t) = sum_k w_k cos(omega_k t) for two resistive
       coupling classes: Ohmic w_k ~ g^2/omega_k -> K ~ t^-2, unit
-      w_k ~ g^2 -> K ~ t^-3. Measure vs theory on a log-log window.
+      w_k ~ g^2 -> K ~ t^-4 (the naive t^-3 coefficient
+      Gamma(3)cos(3 pi/2) vanishes; the surviving tail is t^-4,
+      as the body's unit_expected = -4.0 check enforces). Measure vs
+      theory on a log-log window.
 
   B4  polarization/tensor structure: 6 h_ij components -> TT projector ->
       2 physical modes; verify transversality and tracelessness exactly.
@@ -390,7 +393,7 @@ check("B7_wrong_exponent_control_fails_class_match",
       not matches,
       f"A flat-DOS spectrum with the SAME number of modes gives "
       f"K ~ t^{s_flat:.2f} -- a different memory class from the graviton "
-      "bath (t^-2 / t^-3) and from the emergent substrate. Mode count "
+      "bath (t^-2 / t^-4) and from the emergent substrate. Mode count "
       "alone does NOT establish gravity-as-the-bath; the spectral "
       "exponent is the load-bearing quantity.")
 
@@ -403,7 +406,7 @@ print("\n== B8: GRUT comparison (only after B1-B7) ==")
 # the exponents differ through the DISPERSION, a derivable quantity.
 results["branches"]["B8"] = {
     "substrate_class_d3": "K ~ t^{-3/2} (diffusive dispersion)",
-    "graviton_class": "K ~ t^{-2} (Ohmic) / t^{-3} (unit), lightlike dispersion",
+    "graviton_class": "K ~ t^{-2} (Ohmic) / t^{-4} (unit; naive t^-3 coefficient vanishes), lightlike dispersion",
     "same_broad_class": "positive power-law continuum memory",
     "distinguisher": "dispersion relation + coupling class, both derivable",
 }

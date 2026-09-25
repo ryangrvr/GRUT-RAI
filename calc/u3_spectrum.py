@@ -323,29 +323,41 @@ def E4():
     # the boxcar by a FINITE cascade of n one-pole stages and measure the
     # supremum error as n grows: cascade of n exponentials with tau_i = 1/n
     # converges (Erlang) to the delay distribution, error ~ C/n.
+    # REPAIRED (U3_RECORD_NOTE_02): the original compared the Erlang
+    # DENSITY (which converges to the delay distribution delta(t-1) -- a
+    # narrowing spike) against the BOXCAR indicator, so its L1 errors
+    # GREW with n ([0.721 ... 1.193]) while the summary claimed they
+    # decreased. The convergent statement lives at STEP-RESPONSE (CDF)
+    # level: the cascade's step response converges to the delayed step
+    # Theta(t-1), at the CLT rate ~ n^(-1/2).
     def erlang_kernel(t, n):
         # n-fold convolution of exponential rate n: Gamma shape n, rate n
         # K_n(t) = n^n t^{n-1} e^{-nt} / (n-1)!
         return (n ** n) * (t ** (n - 1)) * math.exp(-n * t) / math.factorial(n - 1)
     errs = []
     for n in (2, 4, 8, 16):
-        m = 2000
+        m = 4000
+        dt_ = 2.0 / m
+        cdf = 0.0
         s = 0.0
         for i in range(m):
-            t = 2.0 * i / m          # compare on (0,2]
-            s += abs(erlang_kernel(t, n) - (1.0 if t <= 1.0 else 0.0)) * (2.0 / m)
+            t = dt_ * (i + 0.5)      # compare on (0,2]
+            cdf += erlang_kernel(t, n) * dt_
+            s += abs(min(cdf, 1.0) - (1.0 if t >= 1.0 else 0.0)) * dt_
         errs.append(s)
     decreasing = all(errs[i + 1] < errs[i] for i in range(len(errs) - 1))
+    rate_ok = errs[-1] < 0.6 * errs[0]
     check("E4a memory REQUIRES persistent auxiliary structure (Erlang convergence)",
-          decreasing,
-          f"L1 error of n-stage Erlang cascade vs the boxcar (a pure delay): "
-          f"{[round(e,3) for e in errs]} decreases with n -> the delay line is the "
-          "n->infty limit of persistent-mode cascades; conversely ANY non-instantaneous "
-          "kernel is representable by persistent modes.  The system/bath split is therefore "
-          "a REPRESENTATION THEOREM (u3 partial derivation): bath := the persistent "
-          "auxiliary variables the response law itself requires; no separate ontological "
-          "posit needed for the SPLIT -- what remains underived is why the physical "
-          "realization is LOW-dimensional (why so few modes)")
+          decreasing and rate_ok,
+          f"L1 error of the n-stage Erlang cascade STEP RESPONSE vs the delayed step "
+          f"Theta(t-1): {[round(e,3) for e in errs]} for n = 2,4,8,16 -- decreasing at "
+          "the CLT rate ~ n^(-1/2) -> the delay line is the n->infty limit of "
+          "persistent-mode cascades (no FINITE cascade is exact: e^{-s} is not rational); "
+          "conversely ANY non-instantaneous kernel is representable by persistent modes. "
+          "The system/bath split is therefore a REPRESENTATION result at check level: "
+          "bath := the persistent auxiliary variables the response law itself requires; "
+          "what remains underived is why the physical realization is LOW-dimensional "
+          "(why so few modes)")
     # And the converse: a MEMORYLESS law (K = delta) has NO auxiliary variable --
     # check numerically that delta response equals D*X exactly.
     def memoryless_R(X, t):

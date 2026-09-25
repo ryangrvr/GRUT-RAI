@@ -20,7 +20,9 @@ Branches (searched, not assumed):
       not a cutoff artifact.
   C3  dimensionality: 1D / 2D / 3D local Laplacian substrates. Theory:
       local density of states rho(omega) ~ omega^(d-1) near zero, so the
-      coarse-grained local kernel decays as K(t) ~ t^(-d). If true, the
+      coarse-grained local kernel envelope decays as K(t) ~ t^(-d/2) (the
+      small-k cusp term t^(-d) is subleading -- see the body at the
+      C3 verdict; stale t^(-d) docstring corrected). If true, the
       memory-kernel CLASS (recurrent vs power-law decaying) is selected
       by spatial dimension -- geometry doing real work, no arbitrary
       spectral ansatz inserted.
