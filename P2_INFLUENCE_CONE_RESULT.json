@@ -1,0 +1,175 @@
+{
+ "J_base": [
+  0.3,
+  0.55,
+  0.2,
+  0.7,
+  0.15,
+  0.62,
+  0.28,
+  0.45
+ ],
+ "LD": {
+  "X2_winner_moments": {
+   "C1-winner [7,9]": {
+    "mean_freq": 1.4103735264170656,
+    "participation_rank": 2.1299657571807127,
+    "total_weight": 0.7500000000000003
+   },
+   "C2/C3-winner [0]": {
+    "mean_freq": 1.2504407662303334,
+    "participation_rank": 6.332099545131657,
+    "total_weight": 0.010000000000000009
+   }
+  },
+  "min_weight": 7.703719777548943e-34,
+  "sectors_checked": 165,
+  "verdict": "DIAGNOSTIC-COORDINATE",
+  "violations": []
+ },
+ "charter_commit": "291c23a",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "T1 boundary (vacuum, s = 1/2 exactly): realized",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "T1 boundary (vacuum, s = 1/2 exactly): reconstruction gate dK = 2.3e-16, dN = 1.5e-16",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "T2 thermal/KMS (T = 0.7): realized",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "T2 thermal/KMS (T = 0.7): reconstruction gate dK = 2.3e-16, dN = 2.0e-16",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "T3 non-KMS profile: realized",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "T3 non-KMS profile: reconstruction gate dK = 2.3e-16, dN = 2.4e-16",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "T3 is genuinely non-KMS: best single-T fit residual 0.750 (vs 1.2e-02 for the true thermal target)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "floor violation DETECTED by the quantum branch: s[3] = 0.3 < 1/2: single-mode symplectic eigenvalue 0.3 violates the uncertainty bound (state not positive)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "the CLASSICAL branch admits the same target -- C-floor is exactly the quantum content, and hbar is its scale (hbar = 1 units; the floor is nu >= hbar*J/2)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "negative-J target DETECTED: J[2] = -0.1 < 0: no real coupling c = sqrt(J) exists",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "cone membership: all 165 sectors of all three worlds satisfy J >= 0 (min weight 7.7e-34 >= 0, structural) with s = 1/2 under the factorized E-ground preparation",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-D VERDICT: DIAGNOSTIC-COORDINATE -- the criteria's plurality changes WHERE in the cone a sector sits (J-shape moments differ), never WHAT the cone is (every sector of every criterion lies in the same C_Gauss)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "false constraint 'nu must be KMS-representable': VIOLATED by the realized T3 profile",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "false constraint 'J must be monotone': VIOLATED by the realized non-monotone J_BASE",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "false constraint 's must be frequency-independent': VIOLATED by the realized thermal profile (s varies with omega)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "OUTCOME: CONE-CONFIRMED -- C_Gauss = {J >= 0, nu >= hbar*J/2}, both constraints verified constructively/detectively, all three false constraints counterexampled; KMS, FDT, stationarity and single-pole structure are STATES inside the cone",
+   "ok": true
+  }
+ ],
+ "cone": {
+  "C_floor": "nu(omega) >= hbar*J(omega)/2 (hbar=1)",
+  "C_pos": "J(omega) >= 0"
+ },
+ "date": "2026-09-25",
+ "elapsed_s": 0.09,
+ "failures": [],
+ "frequencies": [
+  0.5125000000000001,
+  0.7375,
+  0.9625,
+  1.1875,
+  1.4125,
+  1.6375000000000002,
+  1.8625000000000003,
+  2.0875
+ ],
+ "hard_stop": "verdict recorded; owner directs the next layer (gravity sector (K,N)_grav, P-3 quantum lift, or geometry)",
+ "instrument": "p2_influence_cone",
+ "outcome": "CONE-CONFIRMED",
+ "scope_boundary": "scalar S channel, Gaussian class; matrix channels, higher cumulants, and the type-III lift are the named extension boundary",
+ "targets": {
+  "T1 boundary (vacuum, s = 1/2 exactly)": {
+   "kms_fit_residual": 7.705225413268124e-08,
+   "s": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+   ]
+  },
+  "T2 thermal/KMS (T = 0.7)": {
+   "kms_fit_residual": 0.01218614054251195,
+   "s": [
+    1.4263273545193904,
+    1.035367655775101,
+    0.8384006893099123,
+    0.7244954910795717,
+    0.653322764763597,
+    0.6066800481407759,
+    0.5751512171281132,
+    0.5533901402796844
+   ]
+  },
+  "T3 non-KMS profile": {
+   "kms_fit_residual": 0.7499373754280777,
+   "s": [
+    0.5,
+    1.7,
+    0.6,
+    2.2,
+    0.9,
+    0.55,
+    1.3,
+    0.8
+   ]
+  }
+ }
+}
