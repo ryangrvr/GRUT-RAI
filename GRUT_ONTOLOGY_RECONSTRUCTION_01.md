@@ -276,3 +276,49 @@ attackable problem rather than an ambient assumption.
   apparatus caveat.
 - Fenced routes (Λ_R, Matsubara, Π₀, U5) were not touched. No register
   field changed. The F-list is a menu for the owner, not an opened campaign.
+
+---
+
+## ADDENDUM 01 (2026-09-25) — PROVENANCE DISCHARGE + CHERENKOV RE-STATUS (directive-executed; governs over §0 rows 1/3 and the corresponding E-list entry)
+
+Executed under `DIRECTIVE_TO_CLAUDE_CLOUD_01.md` (owner-relayed). The
+adjudicator track `origin/adjudicator-track` (head `90218f5`; repair-set
+`5f5395e`; seal `d2da3a5`) discharges two of §0's three provenance gaps:
+
+- **Row 1 DISCHARGED:** `calc/u3_continuum_origin.py` +
+  `calc/U3_CONTINUUM_ORIGIN_RESULT.json` (6/6) are now committed primaries
+  on `adjudicator-track`. The t^(−d) vs t^(−d/2) inconsistency this
+  document carried is **fixed at source** (stale docstring corrected; the
+  body always derived −d/2).
+- **Row 3 DISCHARGED AND PARTLY SUPERSEDED:** committed primaries
+  `calc/u3_gravity_bath_spectral_match.py` + RESULT (8/9 — the one FAIL,
+  `B3_discrete_box_kernel_matches_continuum_in_accessible_window`, is
+  banked in the RESULT as a box-floor instrumentation limit and travels
+  with any citation of the 8/9) and `calc/u3_resistive_graviton_coupling.py`
+  + RESULT (v3, 20/20). **The Cherenkov-disderivation half of this row is
+  SUPERSEDED**: see `CHERENKOV_RECORD_CORRECTION_01.md` — the disderivation
+  was refuted post-charter (`U3_COUPLING_ADJUDICATION_03`).
+- **Row 2 (ℏ-emergence attempt): remains EXTERNAL-RECORD** — no primary on
+  `adjudicator-track` either.
+
+**E-list re-status (supersedes the entry "the acoustic Cherenkov channel
+(EXTERNAL-RECORD; preserved per owner instruction, primary uncommitted)"):**
+the acoustic-coupling entry LEAVES the DISDERIVED list. New status:
+**CONDITIONALLY DERIVED** — acoustic channel OPEN, J ~ ω⁷ (measured
+ω^7.008; coefficient ratio 1.0005), kernel class t⁻⁸; conditions = the
+ledgered imports (κ = 1/M_Pl, retained-sector structure, minimal-stress
+postulate); annotated "derived within the minimal-stress class; class-4
+gate unpassed"; citation pairing mandatory:
+`calc/u3_resistive_graviton_coupling.py` v3 RESULT, 20/20,
+`origin/adjudicator-track`. Fence acknowledgment: this is a
+refutation-with-certificate under named owner authorization, not a
+softening of a DISDERIVED entry. **What stays on the DISDERIVED/citable
+list from the old record:** same-sign channel closure at all ω;
+aligned-channel TT death (e_xx = 0); gapped-sector threshold emptiness
+(J ≡ 0 below 2Ω).
+
+Consequent touch to §A row A1/gravity context: "gravity-as-bath currently
+only spectrally viable" weakens as a premise — the coupling arrow now has a
+conditionally derived open channel with a measured exponent; the A-table's
+constraint rows (helicity-2 containment, Weinberg–Witten exit) are
+unaffected.

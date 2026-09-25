@@ -132,3 +132,21 @@ this stop waits on: **the owner reads the regime trichotomy and rules on
 the relational candidate** — adopt it as the working frame at toy-class
 strength, order P-2/P-3, or reject. Λ_R, Matsubara, Π₀, U5 remain fenced;
 no prediction campaign was opened; the register is untouched.
+
+---
+
+## ADDENDUM 01 (2026-09-25) — cross-track convergence + citation notes (directive Step 4)
+
+- **Partition/first-rung convergence (new graph row):** P-1's regime
+  trichotomy (A-where-structured / B-where-symmetric / C-where-generic)
+  and the repaired base rung on `origin/adjudicator-track` attack the same
+  first rung from two sides: P3 reduced-vs-full trajectory equivalence at
+  1.4e-16; **P4 law: realization dimension = number of DISTINCT eliminated
+  modes** (degenerate-pair control returning M−1); E4a CDF-level
+  representability. Primaries: `calc/u3_origin_persistence.py`,
+  `calc/u3_realization_dimension.py` (adjudicator-track, head `90218f5`).
+  **Shared open remainder, both tracks: which sector, why few modes,
+  criterion unification (= P-2).**
+- **Symbol-collision note for future readers:** D-1's N is the noise
+  kernel of the (K, N) influence-functional pair; P4's N is the
+  realization dimension. The D-1 charter is frozen and untouched.
