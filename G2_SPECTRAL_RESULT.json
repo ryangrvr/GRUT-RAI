@@ -1,0 +1,237 @@
+{
+ "LB_diff": 4.344367215292917e-25,
+ "LC": {
+  "heat_diff": 4.440892098500626e-16,
+  "krylov_dim": 93,
+  "resolvent_diff": 2.220446049250313e-16
+ },
+ "LD": {
+  "dims": {
+   "d1": 1.0,
+   "d2": 2.0,
+   "d3": 2.941897045436432
+  },
+  "held_out": {
+   "additive": true,
+   "capture": 0.7752767924232257,
+   "tri_errs": [
+    0.14474612734244693,
+    0.18327392164676806
+   ]
+  },
+  "quantum": {
+   "additive": true,
+   "dq": 1.0
+  }
+ },
+ "LE": {
+  "R": [
+   20.000000000000316,
+   25.000000000000895
+  ],
+  "hop_errs": [
+   0.0005769818565592999,
+   0.0002663334563912656,
+   0.00016487693511990642
+  ]
+ },
+ "LF": {
+  "R_meas": 28.888888888893273,
+  "R_pred": 28.88888888889115,
+  "ratio": 0.44444444444446396
+ },
+ "LH": {
+  "comm_norm": 1.0,
+  "congruence": 2.57309750759978e-10,
+  "full_space": 0.0
+ },
+ "LIG": {
+  "heat_diff_t1": 0.0,
+  "heat_diff_t40": 4.655725424206059e-06,
+  "walk_diff_40": 2
+ },
+ "charter_commit": "c83e9d7",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "L-E GATE (C2 series law, DERIVED identity): R(5,25) = 20.000000000000 (=20), R(10,35) = 25.000000000001 (=25) to 1e-9 -- effective resistance = summed inverse stiffness, a known network metric, cited standard (NULL-REDUNDANT)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-E GATE (C1 hop identity): d_hat errors vs substrate hops {5, 12, 20} = 0.001, 0.000, 0.000 < 0.3 before rounding",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-C: Lanczos chain rebuilt, Krylov dimension 93",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-C GATE (resolvent): single-site G_aa(-s) identical across s in {0.1, 0.5, 1, 2}, max diff = 2.22e-16 < 1e-9 (halt-grade: Lanczos preserves the seed spectral measure)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-C GATE (heat data): single-site H_aa(t) identical across t in {0.5, 2, 8}, max diff = 4.44e-16 < 1e-9",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-C consequence (frozen): spectral data DO NOT break the one-site degeneracy -- a 2D grid and a 1D chain share the complete single-site frequency-domain interface. Single-site geometric underdetermination is a STRUCTURAL LIMIT of the interface (decision rule 2 at this access), not a G-1 instrument artifact",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE dimension 1D: d_hat = 1.000 in [0.65, 1.35] (shells 2 -> 2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE dimension 2D: d_hat = 2.000 in [1.65, 2.35] (shells 12 -> 24)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE dimension 3D: d_hat = 2.942 in [2.65, 3.35] (shells 38 -> 146)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-D matched control (A1 heat columns recomputed): diff = 0.0e+00",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE pairwise distances: all 10 anchor-pair hop estimates within 0.004 < 0.3 of substrate hop counts before rounding",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE held-out (additive triple, integers): d(A1,A4) = 36 equals d(A1,A5) + d(A5,A4) = 15 + 21 EXACTLY",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE held-out (trilateration): predicted d(X,A4) = 8.55 vs measured 10, rel err = 0.145 < 0.25 (frozen slack covers l1-in-l2 embedding distortion)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE held-out (trilateration): predicted d(X,A5) = 13.02 vs measured 11, rel err = 0.183 < 0.25 (frozen slack covers l1-in-l2 embedding distortion)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-D MDS capture (reported, not gated): 0.775",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE dimension quantum (XX one-magnon): d_hat = 1.000 in [0.65, 1.35] (shells 2 -> 2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE quantum hop additivity (integers): d(5,25) = 20 equals d(5,15) + d(15,25) = 10 + 10 EXACTLY",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-F GATE: spectral metric density ratio rho([50,70])/rho([10,30]) = 0.444444444 = 1/2.25 to 1e-6 -- EXACT tracking of the declared stiffness (G-1's time-of-flight measured 1.106 vs 1.5 on this same substrate)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-F GATE held-out: R_hat(20,60) = 28.888889 predicted from probe-resolution densities vs direct R(20,60) = 28.888889, diff = 2.12e-12 < 0.01",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-F consequence (frozen): the G-1 L-CRV failure was the ARRIVAL-TIME INSTRUMENT -- the static spectral functional recovers the inhomogeneous metric density exactly, with a held-out prediction. Effective resistance is standard network mathematics: NULL-REDUNDANT as a principle",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-B GATE: two-point spectral data identical under the frozen 30-rotation scramble, max diff = 4.34e-25 < 1e-9 (halt-grade) -- d_hat, shells, MDS all invariant",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-H GATE: one-magnon amplitudes of the FULL 2^3 spin system equal the hopping-matrix amplitudes, max diff = 0.00e+00 < 1e-12 (halt-grade) -- the substrate is the genuinely noncommutative spin system",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H: exchange terms genuinely noncommuting, ||[h12, h23]|| = 1.0 > 0",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-H GATE (congruence): |A_ab(t)| data identical under the frozen 20-rotation mode mixing, max diff = 2.57e-10 < 1e-9 (halt-grade) -- the candidate spectral geometry is basis/congruence invariant",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-I GATE: exact closed-walk counts (A^n)_00 EQUAL at n = 10, 20, 30, 38 (e.g. n=38: 35345263800 = 35345263800) -- matched low-order spectral data by construction, non-isometric graphs",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-I GATE: first distinguishing moment order = 40 = the circumference; (A^40)_00 differs by exactly 2 (the two winding walks)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-I consequence (frozen): the geometry ladder -- the interface distinguishes non-isometric graphs at invariant order EQUAL to the shortest non-contractible cycle. Low-order spectral matching never certifies global geometry (P-4's cumulant ladder, geometric form)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G GATE: |H_00 difference| at t = 1 is 0.00e+00 < 1e-14 (the exact difference ~ t^40/40! sits below the float floor -- established instead by the integer ladder)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G GATE: |H_00 difference| at t = 40 is 4.66e-06 > 1e-6 -- topology becomes spectrally visible at the recurrence scale",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-G consequence (frozen): what is identifiable is exact -- NOTHING about global topology below moment order/recurrence scale ~ circumference; everything above it. The frequency-domain form of G-1's causal horizon",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "GEOMETRY-PARTIAL-SPECTRAL (decision rule 1, multi-site access): invariant hop-metric distances (validated +-0.3), dimension by shells (1D/2D/3D + quantum), inhomogeneous metric density (exact), and held-out predictions recovered from spectral interface data alone -- the G-1 metric failure was the arrival-time instrument, in-class",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "GEOMETRY-UNDERDETERMINED (decision rule 2, structural): the single-site degeneracy SURVIVES full spectral data (L-C) -- a structural limit of the interface, not an instrument artifact; global topology invisible below moment order = circumference (L-I/G)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "REPRESENTATIONAL: all spectral reconstructions invariant under substrate scrambles and congruence (L-B, L-H)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "NULL-REDUNDANT (decision rule 4): heat kernels, effective resistance, Lanczos, MDS are standard network/spectral mathematics -- no new principle; the physical content is WHICH invariants the declared access makes recoverable",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Rule 3 honored: no promotion beyond PARTIAL -- the full metric remains non-unique (one-site degeneracy; sub-order topology). Rider carried: stationarity is a property of these static testbeds. No gravity input anywhere",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 7.24,
+ "failures": [],
+ "halts": [],
+ "hard_stop": "verdict recorded; owner rules on the next layer",
+ "instrument": "g2_spectral"
+}
