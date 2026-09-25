@@ -1,0 +1,164 @@
+{
+ "Q1": {
+  "lift_min_eig": 0.0,
+  "noncomm_channels": 1.2200000000000002,
+  "noncomm_cross_freq": 0.09729348068846708
+ },
+ "Q3": {
+  "coherence_delta": 0.33783639235229435,
+  "kappa4_A": -0.25,
+  "kappa4_B": -0.5000000000000002
+ },
+ "Q4": {
+  "H1_shift": [
+   2.0000000000000004,
+   2.0000000000156373
+  ],
+  "H3_shift": 2.2160411514671274,
+  "base": [
+   1.0024998781819834,
+   4.997500121808663
+  ],
+  "fake_slope": 3.004168282404605
+ },
+ "authority": "GitHub Issue #2 + owner guidance comment",
+ "charter_commit": "78b188e",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "[B1, B2] != 0 (norm-inf 1.220): the channels are genuinely noncommuting",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "Hermiticity of every C(omega) (worst 0.0e+00)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "Gram-PSD of every C(omega) (min eigenvalue -6.9e-18)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "[C(w1), C(w2)] != 0 (norm-inf 9.73e-02): no fixed channel basis exists",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "CANDIDATE LIFT HOLDS on the model: nu(w) +- J(w)/2 >= 0 as Hermitian matrices at every frequency (min eig 0.0e+00)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "covariance: the conditions hold in congruence-transformed channels (non-orthogonal R; min eig -5.6e-17) -- truth-value invariant",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "STRICTNESS: the declared pair passes every channelwise scalar check yet nu - J/2 has eigenvalue -0.80 < 0 -- NON-REALIZABLE (any realization would make it a Gram matrix); the matrix order is strictly stronger than the scalar cone applied per channel",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "REDUNDANCY (adjudicated as chartered): every C(omega) reconstructs exactly from Gram vectors sqrt(p_n)<n|B_a|m> (worst 5.6e-17) -- the matrix admissibility condition IS bath-state positivity in influence-data language: NULL-AS-NEW-PRINCIPLE",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "commuting restriction: the single-channel diagonal recovers the scalar nu >= |J|/2 at every frequency",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "Choi PSD at t = 0.7 (min eig 3.8e-04) -- CP holds by dilation; it adds no data constraint beyond state positivity (the (b) leg)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "Choi PSD at t = 2.1 (min eig 9.9e-02) -- CP holds by dilation; it adds no data constraint beyond state positivity (the (b) leg)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "two-point MATCH: <B^2> = 0.5000 both (2g^2 = 0.5000)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "third cumulants vanish by symmetry (checked)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "kappa_4 DIFFER as derived: -0.2500 (= -4g^4) vs -0.5000 (= -8g^4)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "CLASS-SPLIT DETECTED: probe coherence curves differ by 0.338 despite identical (K, N) -- the Gaussian pair is a PROJECTION; the first obstruction is the connected fourth cumulant",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "matched control (relabeled bath): difference 0.0e+00 < 1e-12",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "base eigen-slopes: dominant +1.002, subdominant +4.998",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "H1-matrix: multiplying ALL vertices by q shifts BOTH eigen-slopes by +2.000, +2.000 (frozen: +2 +- 0.1)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "H3-matrix (FROZEN GATE, preserved as found): the cancellation shifts the dominant eigen-slope by +2.216, NOT +4 -- at eigenvalue level the claim FAILS",
+   "ok": false
+  },
+  {
+   "kind": "note",
+   "msg": "POST-HOC DIAGNOSTIC: the cancellation adds +3.999 to the affected SPECIES' spectral weight exactly -- the +4 increment survives PER BRANCH; what fails is its commutation with eigenvalue ordering: in matrix channels a cancelled branch can be MASKED by another channel (min-dominance) and the observable dominant exponent shifts only to the masking channel's class. MODIFIED, not survived, at eigenvalue level.",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "NULL CONTROL: the omega-dependent rescaling diag(w, 1) shifts the apparent dominant slope to +3.004 (true +1.002) -- convention laundering demonstrated and EXCLUDED by the omega-independent-basis freeze",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "scalar-limit control: single channel p = 1 gives s = +1.000 (S-1's convention: 2p - 1 = 1)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "rotated realization reproduces the probe trajectory (max diff 1.1e-14 < 1e-9): microscopic differences with identical FULL influence data are representational -- D-1 extended to the matrix level; the quantity that DOES distinguish realizations is exactly the cumulant data (Q3: kappa_4)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Question A: SURVIVES-AS-GEOMETRY + NULL-AS-NEW-PRINCIPLE",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Question B: COUNTING MODIFIED in matrix channels (per-branch increments survive exactly, incl. +2 on all eigen-slopes; the +4 cancellation increment is MASKED at eigenvalue level by min-dominance -- the frozen eigenvalue-level gate FAILED and is preserved) + CLASS-SPLIT beyond Gaussian (first obstruction kappa_4)",
+   "ok": true
+  }
+ ],
+ "composite": {
+  "A": "SURVIVES-AS-GEOMETRY + NULL-AS-NEW-PRINCIPLE",
+  "B": "COUNTING MODIFIED in matrix channels (per-branch increments survive exactly, incl. +2 on all eigen-slopes; the +4 cancellation increment is MASKED at eigenvalue level by min-dominance -- the frozen eigenvalue-level gate FAILED and is preserved) + CLASS-SPLIT beyond Gaussian (first obstruction kappa_4)"
+ },
+ "date": "2026-09-25",
+ "elapsed_s": 0.43,
+ "failures": [
+  "H3-matrix (FROZEN GATE, preserved as found): the cancellation shifts the dominant eigen-slope by +2.216, NOT +4 -- at eigenvalue level the claim FAILS"
+ ],
+ "hard_stop": "verdict recorded; owner rules on what the lift does to the theory",
+ "instrument": "p3_nc_lift"
+}
