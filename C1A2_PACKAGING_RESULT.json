@@ -1,0 +1,95 @@
+{
+ "P1_r05": 0.11824040521779104,
+ "P2_r10": 0.19827504972094695,
+ "P2_ratio": 1.676880668293866,
+ "P3_family_eps05_reported": {
+  "emission (a=s)": 0.05622127452017799,
+  "midpoint": 0.04943434938156403,
+  "observation (a=t)": 0.07833049516048468
+ },
+ "P3_family_eps1": {
+  "emission (a=s)": 0.10954343308109928,
+  "midpoint": 0.09682408613986733,
+  "observation (a=t)": 0.14842700355509744
+ },
+ "P4_spread": 0.11004734640003616,
+ "P5_drift0": 4.360025174750602e-15,
+ "P5_spread0": 1.7980440773684377e-15,
+ "P6_kernel_diff": 0.273713190645675,
+ "P6_scaled_drift": 3.793914878766114e-15,
+ "adjudication": {
+  "S1_partition": "packaging certification CLOSED at finite stepped level; C1-b (infinite volume) and C1-c (smooth modulation) remain open, named not opened",
+  "fences": "no cosmological object consumed; no C2 content; omega^7/Class-4/GR-1/closed forks untouched; no absolute exponent computed",
+  "packaging_boundary": "CERTIFIED: no single spectral measure and no Dt-only kernel packages the generated K(t,s) at finite stepped level in-class; the priced datum is the two-time spectral datum C1-a exhibited ({lambda_e, u_e} + the mixing matrices)",
+  "relation_to_C1a": "C1-a's record unchanged; its two L-B reds remain red"
+ },
+ "charter_commit": "3b139ab",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "P-1 GATE: max local-scale same-lag drift at eps_m = 0.5: r = 0.1182 > 0.05 over cross-epoch anchor pairs, tau in [0.5, 3] -- the generated kernel is two-time at order 10^-1 in its own scale",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "P-2 GATE: amplitude scaling r(1.0)/r(0.5) = 1.6769 in [1.5, 2.5] (r(1.0) = 0.1983) -- the effect scales with the TTI-breaking amplitude",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "P-3 GATE: every member's worst cross-boundary relative error > 0.05 at eps_m = 1.0 (emission (a=s): 0.1095, observation (a=t): 0.1484, midpoint: 0.0968) -- no single frozen spectral measure reproduces the crossing kernel",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "  eps_m = 0.5 family values (reported, not gated): emission (a=s): 0.0562, observation (a=t): 0.0783, midpoint: 0.0494",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "P-4 GATE: max over window lags of std-across-anchors / mean|k| = 0.1100 > 0.05 at eps_m = 1.0 -- the per-lag mean is the L2-optimal Dt-only fit, so EVERY Dt-only kernel misses the generated K(t,s) by > 5% of its local scale at some lag",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "P-5 GATE: eps_m = 0 stationary control: drift 4.4e-15, spread 1.8e-15, both < 1e-10 -- the statistics vanish exactly on the stationary domain (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "P-6 GATE: matched STATIONARY world (all springs x1.25, constant): drift statistic 3.8e-15 < 1e-10 -- zero drift (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "P-6 GATE: yet its kernel differs from the base stationary kernel by 0.2737 > 0.05 relative -- the statistic detects NONSTATIONARITY, never mere kernel difference",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "packaging_boundary: CERTIFIED: no single spectral measure and no Dt-only kernel packages the generated K(t,s) at finite stepped level in-class; the priced datum is the two-time spectral datum C1-a exhibited ({lambda_e, u_e} + the mixing matrices)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "relation_to_C1a: C1-a's record unchanged; its two L-B reds remain red",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "S1_partition: packaging certification CLOSED at finite stepped level; C1-b (infinite volume) and C1-c (smooth modulation) remain open, named not opened",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "fences: no cosmological object consumed; no C2 content; omega^7/Class-4/GR-1/closed forks untouched; no absolute exponent computed",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 0.24,
+ "failures": [],
+ "halts": [],
+ "hard_stop": "verdict recorded",
+ "instrument": "c1a2_packaging"
+}
