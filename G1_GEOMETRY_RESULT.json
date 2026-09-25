@@ -1,0 +1,237 @@
+{
+ "LCRV": {
+  "ratio": 1.1057098765432103,
+  "rel_err": 0.16491841491841483,
+  "tau_meas": 42.9,
+  "tau_pred": 35.825
+ },
+ "LDIM": {
+  "d1": 0.713695814843359,
+  "d2": 1.5062505247071156,
+  "d3": 1.6737717676790123,
+  "diag": {
+   "d1": 1.1219905243786104,
+   "d2": 1.9413240926723925,
+   "d3": 1.7293524100563311
+  },
+  "diag_q": {
+   "additivity": 0.3975903614457832,
+   "dq": 0.9175378398080271
+  },
+  "dq": 0.4854268271702417
+ },
+ "LISO": {
+  "krylov_dim": 93,
+  "min_pin": -0.8627879557042202,
+  "trace_diff": 1.4448078150541832e-15
+ },
+ "LMET": {
+  "anisotropy": 1.039201126858721,
+  "capture": 0.9172620014771227,
+  "diag": {
+   "capture": 0.6049787104465393,
+   "errs": [
+    1.8735215182108793,
+    0.6494317138483799
+   ]
+  },
+  "held_out_errs": [
+   0.3659154326756101,
+   0.37419529699839593
+  ],
+  "recip": 8.673617379884035e-17
+ },
+ "LREP_diff": 1.970645868709653e-15,
+ "LTOP": {
+  "long": 0.3126375840425035,
+  "short": 0.0
+ },
+ "charter_commit": "f9b043b",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "L-DIM GATE 1D: d_hat = 0.714 in [0.65, 1.35] (balls 25->41 at tau 8.3->16.7)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-DIM GATE 2D: d_hat = 1.506 in [1.65, 2.35] (balls 113->321 at tau 3.6->7.2)",
+   "ok": false
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-DIM control: 2D ball counts monotone in tau",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-DIM GATE 3D: d_hat = 1.674 in [2.65, 3.35] (balls 63->201 at tau 1.0->2.0)",
+   "ok": false
+  },
+  {
+   "kind": "note",
+   "msg": "L-DIM POST-HOC DIAGNOSTIC (labeled): with the front-peak detector (arrival = half of each site's own max) the same interface data give d_hat = 1.122 / 1.941 / 1.729 for the 1D/2D/3D substrates. The frozen absolute threshold reads the evanescent precursor tail, whose crossing times are strongly non-metric at these sizes -- a detector regime error, not an absence of geometric information",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-DIM GATE quantum (XX one-magnon): d_hat = 0.485 in [0.65, 1.35] (balls 15->21 at tau 1.11->2.22)",
+   "ok": false
+  },
+  {
+   "kind": "ok",
+   "msg": "L-DIM GATE quantum additivity: tau_5(25) = 5.70 vs tau_5(15) + tau_15(25) = 3.80, rel diff = 0.333 < 0.2",
+   "ok": false
+  },
+  {
+   "kind": "note",
+   "msg": "L-DIM POST-HOC DIAGNOSTIC quantum (labeled): front-peak detector gives d_hat = 0.918 and additivity rel diff = 0.398 -- the ballistic magnon front (peak of J_r(2t) at t ~ r/2) is metric; the frozen threshold read the Bessel tail (J_r(2t) = 1e-4), which is not",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-DIM component: geometric dimensionality is present in the interface data (front structure); the frozen tail-threshold detector failed to read it except in 1D -- gates preserved red as found",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-MET GATE reciprocity (trace level, A1<->A4): max diff = 8.67e-17 < 1e-9 (analytic: K symmetric; halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-MET matched control (A1 source rerun): arrival map diff = 0.0e+00",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-MET GATE: top-2 MDS eigenvalues capture 0.917 >= 0.85 of the tau-metric -- the interface metric itself is 2-dimensional (independent of L-DIM's ball counting)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-MET GATE held-out: predicted tau(X, A4) = 6.68 vs measured 4.89, rel err = 0.366 < 0.2 (X trilaterated from A1-A3 only)",
+   "ok": false
+  },
+  {
+   "kind": "ok",
+   "msg": "L-MET GATE held-out: predicted tau(X, A5) = 7.56 vs measured 5.50, rel err = 0.374 < 0.2 (X trilaterated from A1-A3 only)",
+   "ok": false
+  },
+  {
+   "kind": "note",
+   "msg": "L-MET POST-HOC DIAGNOSTIC (labeled): with the front-peak detector the same reconstruction gives capture = 0.605 and held-out errors 1.874, 0.649 (predicted 25.83 vs 8.99; 3.42 vs 9.75) -- the precursor-tail metric is non-additive at short distances, which is what broke the frozen held-out gates",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-MET anisotropy (reported, not gated): tau(A1,A4)/(sqrt2 tau(A1,A2)) = 1.039 (lattice front-speed anisotropy)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-MET component: distances among accessed sites form a consistent metric recovered from arrival data; a held-out probe's unseen distances are PREDICTED, not fitted -- MDS/trilateration are standard mathematics (NULL-REDUNDANT as principles); the geometry is in the data",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-CRV GATE: measured speed ratio stiff/calibration = 1.106 vs sqrt(2.25) = 1.5, rel err = 0.263 < 0.15 -- the reconstructed metric density tracks the independently declared stiffness",
+   "ok": false
+  },
+  {
+   "kind": "ok",
+   "msg": "L-CRV GATE held-out: predicted tau(10->70) = 35.8 vs measured 42.9, rel err = 0.165 < 0.15 (calibrated on 10->30 only)",
+   "ok": false
+  },
+  {
+   "kind": "note",
+   "msg": "L-CRV scope line (frozen): a position-dependent metric density (effective line element) is recovered; a curvature TENSOR is not claimed by G-1 either way",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-REP GATE: interface kernel identical under the frozen 30-rotation scramble, max diff = 1.97e-15 < 1e-9 (halt-grade analytic identity)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-REP component: scrambled site labels carry no geometric meaning; every reconstruction above is a functional of interface kernels, hence representation-invariant -- REPRESENTATIONAL layer confirmed",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-ISO: Lanczos Krylov dimension = 93 (of 100; symmetry truncation expected), betas > 0 throughout",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-ISO GATE: complete single-site response of the 2D grid and the Lanczos 1D chain identical, max diff = 1.44e-15 < 1e-7 (halt-grade: exact Krylov polynomial identity)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-ISO component (frozen consequence): a 2D geometry and a 1D chain (min effective pin -0.863) generate IDENTICAL complete single-site influence data. Under single-site access, geometry -- including dimension -- is GEOMETRY-UNDERDETERMINED. The Lanczos map is standard mathematics: NULL-REDUNDANT as a principle. With L-DIM/L-MET: reconstructable geometry is a FUNCTION OF THE ACCESS STRUCTURE",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-TOP GATE: single-site kernels identical on [0, 10], max diff = 0.00e+00 < 1e-8 (fronts un-wrapped; Lieb-Robinson suppressed)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-TOP GATE: kernels differ on [0, 80], max diff = 0.3126 > 1e-3 (the N = 40 wrap returns)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-TOP component (frozen consequence): identical local couplings and local influence statistics, different global topology -- indistinguishable inside the causal horizon of the observation window, distinguished exactly when the window crosses the wrap time. Global topology is GEOMETRY-UNDERDETERMINED within the horizon; the interface sees geometry only as far as its data reaches",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Frozen record: EIGHT frozen gates failed and stay RED as found -- 2D/3D/quantum ball dimension, quantum additivity, both held-out metric predictions, and both L-CRV gates. The labeled diagnostics are measurements, not gate replacements, and they only PARTIALLY recover (front-peak dimension 1.12/1.94/1.73, quantum 0.92) while being contaminated themselves by boundary reflections (diag MDS capture 0.605, diag held-out errors up to 1.87, diag quantum additivity 0.40)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "THE LOCATED OBSTRUCTION: on finite dispersive substrates, arrival-time functionals of the interface data -- tail-threshold AND front-peak -- are NOT metric at these scales (dispersion, boundary reflection, impedance mismatch at inhomogeneities). What DOES certify at frozen strength: 1D ball dimension; the MDS rank (capture 0.917 -- the tau-data is effectively 2-dimensional); exact reciprocity; representation invariance; the L-ISO dimensional collapse; the L-TOP horizon. Geometry-related INVARIANTS are recovered; quantitative metric/curvature reconstruction FAILED in-class -- GEOMETRY-PARTIAL by the owner's frozen decision rule, at reduced strength, with the failure surface fully recorded",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "GEOMETRY-UNDERDETERMINED (single-site access / horizon-limited windows): L-ISO -- 2D vs 1D indistinguishable through one site; L-TOP -- global topology invisible inside the causal horizon",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "REPRESENTATIONAL: all reconstructions invariant under substrate scrambles (L-REP)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "NULL-REDUNDANT: the reconstruction procedures (Lanczos/Jacobi, MDS, trilateration) are standard mathematics -- no new principle; what is physical is WHICH data the access makes available",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Rider H: substrates static, stationarity BY CONSTRUCTION in-class; not presumed beyond (NONSTATIONARITY_RESULT_01 carries). No gravity input anywhere in G-1",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 51.7,
+ "failures": [
+  "L-DIM GATE 2D: d_hat = 1.506 in [1.65, 2.35] (balls 113->321 at tau 3.6->7.2)",
+  "L-DIM GATE 3D: d_hat = 1.674 in [2.65, 3.35] (balls 63->201 at tau 1.0->2.0)",
+  "L-DIM GATE quantum (XX one-magnon): d_hat = 0.485 in [0.65, 1.35] (balls 15->21 at tau 1.11->2.22)",
+  "L-DIM GATE quantum additivity: tau_5(25) = 5.70 vs tau_5(15) + tau_15(25) = 3.80, rel diff = 0.333 < 0.2",
+  "L-MET GATE held-out: predicted tau(X, A4) = 6.68 vs measured 4.89, rel err = 0.366 < 0.2 (X trilaterated from A1-A3 only)",
+  "L-MET GATE held-out: predicted tau(X, A5) = 7.56 vs measured 5.50, rel err = 0.374 < 0.2 (X trilaterated from A1-A3 only)",
+  "L-CRV GATE: measured speed ratio stiff/calibration = 1.106 vs sqrt(2.25) = 1.5, rel err = 0.263 < 0.15 -- the reconstructed metric density tracks the independently declared stiffness",
+  "L-CRV GATE held-out: predicted tau(10->70) = 35.8 vs measured 42.9, rel err = 0.165 < 0.15 (calibrated on 10->30 only)"
+ ],
+ "halts": [],
+ "hard_stop": "verdict recorded; owner rules on the next layer",
+ "instrument": "g1_geometry"
+}
