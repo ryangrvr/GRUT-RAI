@@ -538,10 +538,13 @@ Read "A ⟵ B" as "A is conditional on B". Supplied inputs are UPPERCASE.
     everything observational  ⟵  ARROW DIRECTION, BOUNDARY DATA,
         BORN MEASURE (strata 1–2 prices, still standing)
 
-The graph has a striking shape: **every load-bearing supplied input above
-the influence layer reduces either to the access declaration or to the
-supplied probe structure.** The campaign compressed a diffuse assumption
-cloud into two named stems (plus ℏ and the boundary-data imports).
+The graph has a striking shape: **most load-bearing structural
+assumptions above the influence layer collapse into two major stems —
+access and probe structure — with quantum and boundary-data inputs
+remaining separately priced.** The campaign compressed a diffuse
+assumption cloud into those two named stems plus the separately priced
+inputs (ℏ, state/boundary data, sector content). *(Wording amended per
+AMENDMENT 01.)*
 
 ---
 
@@ -684,3 +687,30 @@ Synthesis recorded. The decision this stop waits on: **the owner reads
 the assembled architecture, its two stems and two seams, and either
 amends the synthesis or selects the Phase-III question.** No fork is
 opened by this document.
+
+---
+
+## AMENDMENT 01 (owner ruling, 2026-09-25 — applied as a dated amendment, per §12)
+
+The owner accepted this synthesis as the architectural foundation of the
+theory paper, with one conceptual correction, applied above in §9:
+
+- The two-stems claim must not read as "everything reduces to two
+  stems." The precise statement is: **most load-bearing structural
+  assumptions above the influence layer collapse into two major stems —
+  access and probe structure — with quantum and boundary-data inputs
+  remaining separately priced.** The synthesis's own §8.3 table already
+  listed the separately priced inputs; the §9 headline sentence now
+  matches it.
+
+The owner also fixed the strongest supported claim-form, binding on all
+successor documents: not *"GRUT derives spacetime and gravity from local
+microscopic dynamics"* but *"GRUT identifies a hierarchy in which local
+microscopic dynamics can generate continuum spectral structure, influence
+functionals, memory and dissipation, and — given an access structure —
+recoverable spatial geometry and a constrained graviton-response sector;
+and it identifies the specific structures that remain irreducible inputs
+or unresolved seams."*
+
+Successor document: `GRUT_THEORY_PAPER_WORKING_01.md`. No physics fork
+before that paper exists (owner ruling).
