@@ -1,0 +1,207 @@
+{
+ "L_F": {
+  "T2_over_T1": -1.0,
+  "T2_over_T1_spread": 6.661338147750939e-16,
+  "ff_gram_eigs": [
+   4.57449774060712,
+   0.36984606222950567,
+   0.055656197163377705,
+   7.089309031398002e-16,
+   0.0
+  ],
+  "ff_rank": 3,
+  "ir_growth": 4.0,
+  "ir_ratio": {
+   "0.2": 0.040000000000000015,
+   "0.4": 0.16000000000000006
+  },
+  "per_point_max_l2_over_l1": 1.7528090467219927e-16
+ },
+ "L_K": {
+  "a_max_cos_dev": 6.661338147750939e-16,
+  "a_max_vertex": 2.2609196053463646e-16,
+  "b_min_vertex": 0.03212302706582142,
+  "c_ratio": 1.9974968710888854,
+  "c_vertex": {
+   "0.01": 0.0017655572442751317,
+   "0.02": 0.0035266950711678904
+  },
+  "d_closed": true,
+  "d_min_cos_minus_1": 0.0016003199999996554,
+  "onshell_max": 2.220446049250313e-16
+ },
+ "L_xi": {
+  "max_ratio": 2.0151672715487186e-15,
+  "onshell_max": 4.440892098500626e-16,
+  "per_f": {
+   "1": 2.0151672715487186e-15,
+   "p1.p2": 1.8000083584918916e-16,
+   "|p1|^2+|p2|^2": 1.7373671905445787e-15
+  },
+  "strain_trace_sensitivity": 0.7539868460936443
+ },
+ "adjudication": {
+  "Q1": "DERIVED-IN-CLASS: xi irrelevant in the physical TT channel",
+  "Q2": {
+   "form_factor": "CONSTRAINED-NONUNIQUE (rank 3; frozen prediction 4)",
+   "ir": "IR-forced (higher-derivative form factor suppressed)",
+   "tensor": "FORCED (rank 1 per point)"
+  },
+  "Q3": "CLASS-SPLIT: dead (v = c exactly) / open proportional to subluminality / closed (superluminal)",
+  "fence": "no absolute exponent computed; no omega^7 comparison"
+ },
+ "charter_commit": "b4a2f33",
+ "checks": [
+  {
+   "kind": "ctrl",
+   "msg": "on-shell condition re-verified on all 200 pairs: max ||k| - Omega| = 4.4e-16 < 1e-12",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-xi GATE: max |Lambda(improvement)| / |Lambda(canonical)| = 2.0e-15 < 1e-12 over 200 on-shell pairs and f in {1, p1.p2, |p1|^2+|p2|^2} (halt-grade identity)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "  f = 1: max ratio 2.0e-15",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "  f = p1.p2: max ratio 1.8e-16",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "  f = |p1|^2+|p2|^2: max ratio 1.7e-15",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "  sensitivity note (not a frozen gate): at static strain kinematics (Omega = 0, k^2 = -|k|^2) the trace of the improvement structure is 0.7540 != 0 -- xi is visible off-shell/trace, as CP-1 found; retained, not contradicted",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-xi consequence (frozen): xi and the whole improvement tower are invisible in the physical TT channel (Lambda(k k) = 0 and Lambda(1) = 0 identically). The D = 4 xi ambiguity dissolves there; it survives only for off-shell/trace (strain) probes",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-F(a) GATE: per-point TT images of T1..T5 have rank 1 on all 200 points: max lambda_2/lambda_1 of the Gram matrix = 1.8e-16 < 1e-10 -- the TT TENSOR structure is forced",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "  T2 proportional to T1 in TT: form-factor ratio constant to 6.7e-16 (value -1.0000)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "  form-factor Gram eigenvalues (normalized columns): 4.57e+00, 3.70e-01, 5.57e-02, 7.09e-16, 0.00e+00",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-F(b) GATE: form-factor rank across 200 points = 3 (frozen prediction 4)",
+   "ok": false
+  },
+  {
+   "kind": "ok",
+   "msg": "L-F(c) GATE: |Lambda(T3)|/|Lambda(T1)| at a = b = p: 0.0400 (p = 0.2) -> 0.1600 (p = 0.4), growth x4.0000 in [3.5, 4.5] -- the higher-derivative form factor is IR-suppressed",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-F consequence (frozen): in TT the leading IR coupling is forced (rank-1 tensor, constant form factor); beyond leading order the form factor is CONSTRAINED-NONUNIQUE and inherits the supplied geometric-coupling/Sel-4x choice",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-K(a) GATE: w = |p| (v = c): |cos theta - 1| <= 6.7e-16, collinear locus; max TT vertex 2.3e-16 < 1e-12 over 81 (a, b) -- aligned death (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-K(b) GATE: v = 0.8: min TT vertex over 200 random on-shell pairs = 0.0321 > 1e-3 -- channel open, non-collinear locus",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-K(c) GATE: w = |p| - alpha|p|^3 at a = b = 0.5: vertex 1.766e-03 (alpha = 0.01), 3.527e-03 (alpha = 0.02); ratio 1.9975 in [1.8, 2.2] -- the channel is open in proportion to subluminal curvature",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-K(d) GATE: w = |p| + 0.01|p|^3: cos theta > 1 for all 81 (a, b) (min cos theta = 1 + 1.60e-03) -- no on-shell solution, the channel is closed",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "on-shell re-verified on the L-K(a)/(c) loci: max residual 2.2e-16 < 1e-12",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-K consequence (frozen): the TT channel's existence is CLASS-SPLIT by the retained sector's light cone relative to the probe's -- dead for an exactly Lorentz-matched linear sector, open in proportion to subluminality, closed for superluminal dispersion. With RS-1's per-sector v = c units choice the channel lives only on dispersion curvature (microscopic retained-sector content); the cross-sector light-cone relation is U-1 territory (supplied)",
+   "ok": true
+  },
+  {
+   "kind": "diag",
+   "msg": "  linear sector v = 0.8: on-shell identity p1.p2 = (v^2-1)/2 (a^2+b^2) + w1 w2 holds to 4.4e-16 -- the T4 form factor is a combination of T3 and T5 there, so the rank drops from 4 to 3",
+   "ok": true
+  },
+  {
+   "kind": "diag",
+   "msg": "  curved sector w = 0.8|p| - 0.1|p|^3: per-point TT rank 1 (max lambda_2/lambda_1 = 1.6e-16); form-factor rank = 4 (Gram eigenvalues 4.0e+00, 8.3e-01, 2.0e-01, 2.0e-04, -1.2e-28) -- dispersion curvature breaks the identity",
+   "ok": true
+  },
+  {
+   "kind": "diag",
+   "msg": "  diagnostic reading: the form-factor rank is > 1 in both classes (the frozen CONSTRAINED-NONUNIQUE outcome is unaffected); the specific count 4 was an overcount for a linear sector, where the on-shell condition itself ties p1.p2 to (a^2+b^2) and w1 w2",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Q1: DERIVED-IN-CLASS: xi irrelevant in the physical TT channel",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Q2: {'tensor': 'FORCED (rank 1 per point)', 'form_factor': 'CONSTRAINED-NONUNIQUE (rank 3; frozen prediction 4)', 'ir': 'IR-forced (higher-derivative form factor suppressed)'}",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Q3: CLASS-SPLIT: dead (v = c exactly) / open proportional to subluminality / closed (superluminal)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "fence: no absolute exponent computed; no omega^7 comparison",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 0.15,
+ "failures": [
+  "L-F(b) GATE: form-factor rank across 200 points = 3 (frozen prediction 4)"
+ ],
+ "halts": [],
+ "hard_stop": "verdict recorded",
+ "instrument": "tt1_channel",
+ "posthoc_diagnostic_LF_rank": {
+  "curved_gram_eigs": [
+   3.970211922410109,
+   0.8341189210062792,
+   0.19546418531368992,
+   0.00020497126992311332,
+   -1.2407012501837202e-28
+  ],
+  "curved_per_point_l2_over_l1": 1.6368988639012482e-16,
+  "curved_rank": 4,
+  "linear_identity_residual": 4.440892098500626e-16
+ },
+ "seed": 20260925
+}
