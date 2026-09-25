@@ -70,3 +70,36 @@ The measurement is recorded. The record state of
 The decision this stop waits on: the owner reads the magnitude and decides
 what, if anything, it changes about the fenced queue
 (Λ_R, Matsubara, Π₀, U5 — all still fenced).
+
+---
+
+## CORRECTION 01 (owner review, 2026-09-25 — applied to the record, artifact JSON untouched)
+
+The owner inspected the committed artifacts directly and confirmed the
+numbers (R_pooled = 0.515943, per-k 0.534812/0.521726/0.457065, headline
+1.531026, excess 0.540396, all controls as reported; no evidence of
+retrofit). Two interpretation sentences are tightened:
+
+1. **M2 wording.** The phrase "no Δt-only function can carry even half of
+   the kernel's sampled variation" overstates the calculation. K̄_L is the
+   least-squares-optimal Δt-only representation **within the discrete
+   sampled problem**; the airtight statement, now governing, is:
+   > **On the frozen sampled grid, the best unconstrained Δt-only
+   > approximation leaves R = 0.516 fractional residual.**
+   It is not a theorem about every conceivable continuous reconstruction
+   outside the sampled lags. (The commit message of 5ea380e carries the
+   older phrase; this correction governs.)
+
+2. **M3 decomposition.** "Observed drift = redshifting-label contribution +
+   background-evolution contribution" holds **in the operational sense of
+   the declared dS(H₀) comparator** — not as an assumed exact decomposition
+   of the underlying field theory.
+
+**What is established, in the owner's ruled form:** K_FRW(t,t′;k) ≠
+K_FRW(t−t′;k) **on the frozen sampled domain**, with order-unity anchor
+dependence and pooled best-stationary residual ≈ 0.516; and K_FRW −
+K_dS(H₀) shows a growing background-specific excess reaching ≈ 0.54 in the
+reported normalization. It does **not** by itself establish that a
+stationary reduction is impossible in some other representation, after
+smearing, after changing the observable, or in a different asymptotic
+regime — the charter was correct not to make that leap.
