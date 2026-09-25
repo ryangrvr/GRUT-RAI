@@ -1,0 +1,209 @@
+{
+ "charter": "CLOCK_MISMATCH_CHARTER_01.md",
+ "charter_commit": "b25d79f",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "both embeddings satisfy the hyperboloid constraint (worst residual 1.8e-15)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "control: the pre-screen embedding typo (X_i = H r n_i) violates the constraint at H != 1 -- detected",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "D1 axis identity: static Killing T == cosmic t on r = 0 (worst |T-t| 0.0e+00)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "D2: comoving x=0.4 sits at static r=0.147 then r=1.087 -- off-axis, no shared clock",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "D3a: equal-space invariant reduces to cosh(H dt), independent of t0 (worst spread 1.2e-14)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "D3b: separated pairs at the same dt but different t0 give distinct invariants (0.8309 vs -1.0652)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "D4 (resolved): e^{-G dt} == (eta'/eta)^{G/H} -- the exponential/power-law mismatch attaches to the conformal pair, while the Killing/cosmic axis pair is the identity (worst 5.6e-17)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "D6 carried: T_dS = H/2pi is defined on the Killing flow; D3a gives the same temperature along comoving worldlines -- transport beyond those scopes stays an assumption (keystone)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "closed form matches direct n^3-weighted summation (worst 1.1e-16)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "share(Ht=1) = 6.12% (frozen: 6.1%)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "t90 = 4.322 (frozen: 4.33)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "t99 = 6.679 (frozen: 6.68)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "control: n^2-weight mutant gives 18.5% at Ht=1, not 6.1% -- detected",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "tower rates carried at cited strength: lowest (l+1)H, l=2 graviton -> 3H per Killing time; E4 retraction rides along (frequencies not established quasinormal; free response pole-free)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "integrator control: Om=1 gives H0 t0 = 0.666667 (exact 2/3)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "H0 t0 = 0.9510 for Om = 0.315 (the repo's declared background)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Lambda-domination onset: z_L = 0.296; lag since then = 0.2410/H0",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "e-fold clock: DN(z_on) = ln(1+z_on) crosses t90 = 4.32 at z_on = 74 and t99 = 6.68 at z_on = 794",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "fixed-T premise factor (priced, not disqualifying): across the up-to-t90 span the would-be ladder temperature T = H(z)/2pi varies by H(z=74)/H0 = 367x",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "R1 rider (computed): the filed lag 1/H0 EXCEEDS the age of the universe (0.951/H0) -- the kernel is probed at a lag longer than the available history of the background it is applied to",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "R5 control: in conformal time the ladder exponentials are power laws (S1/D4) -- rate language is clock-form-dependent; computed as control only, never a candidate reading (charter 6)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "comparability test: every declared reading requires an identification beyond D1-D6 (the D1 identity removes the CLOCK difference, not the BACKGROUND difference)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "verdict = (C): the comparison is underdetermined -- the D1 identity makes the two filed clocks THE SAME clock on the shared worldline (not (B): no coordinate re-expression changes any number), and the shortfall is not invariant (not (A)): the verdict flips between the H0-frozen readings (R1/R2/R3 below t90) and the e-fold promotion (R4b at/above t90), so it is decided by WHICH unbanked identification carries the constant-H kernel onto the FRW solution",
+   "ok": true
+  }
+ ],
+ "control_reproduction": {
+  "share_at_1": 0.061246758914328764,
+  "t90": 4.321878521345277,
+  "t99": 6.678808342005297
+ },
+ "date": "2026-09-25",
+ "declarations": {
+  "background": {
+   "OL": 0.685,
+   "Om": 0.315,
+   "source": "calc/isw_exclusion.py:70 (repo central)"
+  },
+  "controls_untouched": [
+   "calc/finite_T_pole_structure.py",
+   "calc/two_scale_desitter.py",
+   "calc/wz_dark_energy.py",
+   "calc/static_patch_tt_response.py"
+  ],
+  "named_clock": "comoving proper time on the shared axis worldline (D1: = static Killing there)"
+ },
+ "elapsed_s": 0.21,
+ "failures": [],
+ "frw": {
+  "H0_t0": 0.9509854893799479,
+  "T_variation_factor_t90": 366.9512500267988,
+  "lag_since_zL": 0.24104248123945649,
+  "z_Lambda": 0.2955673834609527,
+  "z_onset_for_t90": 74.33000448271319,
+  "z_onset_for_t99": 794.370737161204
+ },
+ "hard_stop": "verdict recorded; owner selects the next instrument; Lambda_R/Matsubara/Pi_0/U5 fenced until then per the owner charter",
+ "instrument": "clock_mismatch_check",
+ "named_inputs": [
+  "dS->FRW kernel transport rule (H_bath = H0 vs adiabatic H -> H(z); different solutions per X2; priced only as the +1 omission background_time_translation_flow)",
+  "onset/lag specification (elapsed-time vs relaxation-constant; keystone defect (i))",
+  "D3b reduction of the assembled object to an along-worldline kernel (wall A)"
+ ],
+ "readings": [
+  {
+   "D": 1.0,
+   "id": "R1",
+   "reading": "lag tau_2 = 1/H0, H_bath frozen at H0 (the filed reading)",
+   "unbanked_input": "dS->FRW identification H_bath = H0 (constant-H kernel applied on a non-constant-H solution)",
+   "vs_t90": "BELOW t90"
+  },
+  {
+   "D": 0.9509854893799479,
+   "id": "R2",
+   "reading": "lag t0 (all available history), H_bath frozen at H0",
+   "unbanked_input": "same identification, plus onset = initial time",
+   "vs_t90": "BELOW t90"
+  },
+  {
+   "D": 0.24104248123945649,
+   "id": "R3",
+   "reading": "lag since z_L = 0.30, H_bath frozen at H0",
+   "unbanked_input": "same identification, plus onset = Lambda-domination",
+   "vs_t90": "BELOW t90"
+  },
+  {
+   "D": null,
+   "id": "R4a",
+   "reading": "e-fold clock, lag tau_2 = 1/H0 before today",
+   "unbanked_input": "adiabatic promotion H -> H(z) of a constant-H kernel; lag reaches before the initial time",
+   "vs_t90": "UNDEFINED"
+  },
+  {
+   "D": 4.321878521345277,
+   "id": "R4b",
+   "reading": "e-fold clock, onset z_on >= 74 (DN = ln(1+z_on) >= t90)",
+   "unbanked_input": "adiabatic promotion H -> H(z); fixed-T ladder premise varies 367x over the span",
+   "vs_t90": "AT/ABOVE t90"
+  },
+  {
+   "D": 0.2589487331455308,
+   "id": "R4c",
+   "reading": "e-fold clock, onset z_L = 0.30",
+   "unbanked_input": "adiabatic promotion H -> H(z), onset = Lambda-domination",
+   "vs_t90": "BELOW t90"
+  }
+ ],
+ "sub_findings": [
+  "pure Killing-vs-cosmic exonerated on the axis (D1 identity): the seam is two backgrounds, not two clocks",
+  "within-toy statement stands (6.1% at Ht=1; t90=4.33; t99=6.68 reproduced)",
+  "fixed-T premise factor ~367x prices the e-fold escape as a different unbanked kernel"
+ ],
+ "verdict": "C",
+ "verdict_text": "(C) underdetermined: the conversion itself requires an unresolved physical input"
+}
