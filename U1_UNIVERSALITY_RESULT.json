@@ -1,0 +1,177 @@
+{
+ "LC": {
+  "Delta_nonuniversal": 0.04947765826773509,
+  "Delta_universal": 1.84297022087776e-14,
+  "comm": 3.552713678800501e-15,
+  "gram_min": -3.8688992175234145e-60,
+  "graph_same": true,
+  "shapeA": 1.1102230246251565e-16,
+  "shapeB": 4.85722573273506e-16
+ },
+ "LD": {
+  "clock-only": {
+   "HB_variation": 7.549516567451064e-15,
+   "comm_HA": 8.881784197001252e-16
+  },
+  "non-conserved (T_xx-type)": {
+   "HB_variation": 0.30270478920041,
+   "comm_HA": 2.1708000000000003
+  }
+ },
+ "LG": {
+  "classII_max_eq": 8.881784197001252e-16,
+  "classII_min_neq": 0.1297458179916556,
+  "classI_max": 0.0
+ },
+ "Lg": {
+  "comm_rel": {
+   "0.0": 4.0991273552561436e-16,
+   "0.001": 0.00020872274143319525,
+   "0.003": 0.0006261682242991758,
+   "0.01": 0.0020872274143303128
+  },
+  "drift": {
+   "0.0": 1.7763568394002505e-15,
+   "0.001": 0.0010042646315762127,
+   "0.003": 0.0030379302157541588,
+   "0.01": 0.010318784505274792
+  },
+  "lin_dev": 6.546985176214548e-13,
+  "slopes": [
+   1.0156288703307814,
+   1.0075627963248563
+  ]
+ },
+ "adjudication": {
+  "clock_only_probe_decouples": true,
+  "exchanging": "DERIVED-IN-CLASS (conditional on supplied gauge structure)",
+  "genuinely_decoupled": "IRREDUCIBLE INPUT",
+  "overall": "CLASS-SPLIT",
+  "residual": "whether every sector couples to a dynamical probe through exchange-carrying (non-conserved) components -- supplied"
+ },
+ "charter_commit": "f31ab7d",
+ "checks": [
+  {
+   "kind": "ctrl",
+   "msg": "L-C GATE C_cons-compatible: ||[O, H]|| = 3.6e-15 < 1e-12 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE \ud835\udd20_full: ground-state two-time Gram of O PSD, min eig / scale = -3.87e-60",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE G-2: interaction graph of H + hO equals that of H (hop geometry blind)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE each sector internally a pure unit change: normalized spectrum shape change A 1.1e-16, B 4.9e-16 (both < 1e-12)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-C GATE universal probe: joint Delta = 1.8e-14 < 1e-10 at best common rescale c = 1.050000 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE non-universal probe: joint Delta = 4.948e-02 > 1e-3 even at the best common rescale c = 1.033540 -- observable by joint access",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-C note (P-6 carried): the two sectors are different, so no earned symmetry relates them; for identical sectors, swap covariance of the probe would force equality only if supplied",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-C consequence (frozen): a non-universal clock coupling passes every earned selector PLUS C_cons -- \ud835\udd20_full, G-2 geometry, per-sector unit change -- yet is observable by joint access",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G GATE class I (genuinely decoupled, momentum conserved separately): max gauge variation 0.0e+00 < 1e-12 with kappa_A != kappa_B -- NOT forced",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G GATE class II (sectors exchange momentum): min variation 0.130 > 1e-3 for kappa_A != kappa_B; max 8.9e-16 < 1e-12 for kappa_A = kappa_B -- FORCED",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-G consequence (frozen): the supplied massless gauge structure forces universality EXACTLY when the sectors exchange energy-momentum, and not for genuinely decoupled sectors. (The algebra is the Weinberg soft-emission argument: standard, NULL-REDUNDANT as a principle)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-D GATE (i) clock-only probe: ||[H_A, H_full]|| = 8.9e-16 < 1e-12 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE (i) clock-only probe: <H_B>(t) varies by 7.5e-15 < 1e-10 on [0, 10] -- the probe mediates NO energy exchange: L-G class I, equality not forced",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE (ii) probe with non-conserved components: ||[H_A, H_full]|| = 2.171 > 1e-3 and <H_B>(t) varies by 3.027e-01 > 1e-4 -- the probe IS an exchange channel: L-G class II, equality forced (given the supplied gauge structure)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-D consequence (frozen): a dynamical probe coupled only through clocks leaves the sectors genuinely decoupled; a dynamical probe carrying non-conserved (T_xx-type) components -- the kind GR-1's channel uses -- makes every sector it touches exchange energy-momentum with the others",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-g GATE (i): ||[O,H]||/||O|| = 2.087e-03, 6.262e-04, 2.087e-04, 4.1e-16 -- exactly linear in g (deviation 6.5e-13), zero at the endpoint",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-g GATE (ii): observable non-conservation max|<O>(t) - <O>(0)| = 1.032e-02, 3.038e-03, 1.004e-03, 1.8e-15; log-slopes 1.016, 1.008 in [0.8, 1.2]; zero at g = 0",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-g consequence (frozen): C_cons forces universality exactly for any g != 0, but the violation it forbids is proportional to g -- visible only on timescales ~1/g -- and vanishes continuously at the endpoint. The g -> 0 'singularity' belongs to treating C_cons as an exact constraint, not to the physics",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "genuinely_decoupled: IRREDUCIBLE INPUT",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "exchanging: DERIVED-IN-CLASS (conditional on supplied gauge structure)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "clock_only_probe_decouples: True",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "overall: CLASS-SPLIT",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "residual: whether every sector couples to a dynamical probe through exchange-carrying (non-conserved) components -- supplied",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 6.02,
+ "failures": [],
+ "halts": [],
+ "hard_stop": "verdict recorded",
+ "instrument": "u1_universality",
+ "seed": 20260925
+}
