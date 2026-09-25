@@ -1,0 +1,166 @@
+{
+ "LC": {
+  "a2_weight": 0.2995525710066542,
+  "full_diff": 6.0483967290966625,
+  "single_site_diff": 1.3322676295501878e-14
+ },
+ "adjudication": {
+  "classification_identity": "uniform co-stretch == unit change",
+  "decidability": "CLASS-SPLIT by access",
+  "deformations_observable": true,
+  "overall": "IRREDUCIBLE INPUT for selection; CLASS-SPLIT by access for decidability",
+  "sel4x_general_hypothesis": "FALSE (rigid stretch is an observable constant rescaling)",
+  "selection": "IRREDUCIBLE INPUT (reduced to the co-stretch declaration)"
+ },
+ "charter_commit": "3857e64",
+ "checks": [
+  {
+   "kind": "ctrl",
+   "msg": "L-U GATE co-stretch (springs AND pins / lambda): |Delta D| = 2.4e-15 < 1e-12 -- a PURE UNIT CHANGE (dimensionless data identity; halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "  co-stretch (springs AND pins / lambda): hop geometry (graph integers) unchanged = True",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE co-stretch (springs AND pins / lambda): min eigenvalue 0.1538 > 0 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-R GATE rigid stretch (springs / lambda, pins fixed): |Delta D| = 0.0132 > 1e-3 -- a constant rescaling of spatial couplings that is NOT a unit change (the intrinsic scale did not co-stretch)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "  rigid stretch (springs / lambda, pins fixed): hop geometry (graph integers) unchanged = True",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE rigid stretch (springs / lambda, pins fixed): min eigenvalue 0.2000 > 0 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-A GATE anisotropic (x-springs / lambda): |Delta D| = 0.0936 > 1e-3 (anisotropy ratio 1.0936) -- a physical deformation, observable",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "  anisotropic (x-springs / lambda): hop geometry (graph integers) unchanged = True",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE anisotropic (x-springs / lambda): min eigenvalue 0.2000 > 0 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-A GATE inhomogeneous (columns 0-2 / lambda): |Delta D| = 0.1805 > 1e-3 (anisotropy ratio 1.0314) -- a physical deformation, observable",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "  inhomogeneous (columns 0-2 / lambda): hop geometry (graph integers) unchanged = True",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE inhomogeneous (columns 0-2 / lambda): min eigenvalue 0.2000 > 0 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-U/L-R/L-A/L-P consequence (frozen): only the co-stretch is a unit change. The rigid stretch and the deformations are observable -- and every one is earned-admissible. Earned structure DETECTS which occurred; it does not FORBID a probe from doing any of them. Hop (graph-integer) geometry sees none of them: metric/dynamic data do",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-C GATE: single-site data identical for description 1 (pure unit change) and description 2 (unit change + non-isometric interior deformation): max diff 1.3e-14 < 1e-12 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE: description 2 is NOT a pure unit change of the hidden network -- site a couples to node 2 (weight 0.2996) where the hidden path has none",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-C GATE: full-access data separate them, max diff 6.0484 > 1e-3",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-C consequence (frozen): under limited access, 'unit change' and 'unit change + physical deformation' are indistinguishable -- the counterexample SURVIVES. Under full access they separate",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "classification_identity: uniform co-stretch == unit change",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "sel4x_general_hypothesis: FALSE (rigid stretch is an observable constant rescaling)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "deformations_observable: True",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "selection: IRREDUCIBLE INPUT (reduced to the co-stretch declaration)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "decidability: CLASS-SPLIT by access",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "overall: IRREDUCIBLE INPUT for selection; CLASS-SPLIT by access for decidability",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 0.41,
+ "failures": [],
+ "grid": {
+  "anisotropic (x-springs / lambda)": {
+   "aniso": 1.0935902494591803,
+   "delta": 0.09359024945917982,
+   "hops_same": true,
+   "min_eig": 0.2000000000000017
+  },
+  "co-stretch (springs AND pins / lambda)": {
+   "aniso": 1.0000000000000002,
+   "delta": 2.375814066977332e-15,
+   "hops_same": true,
+   "min_eig": 0.15384615384615413
+  },
+  "inhomogeneous (columns 0-2 / lambda)": {
+   "aniso": 1.031361190540683,
+   "delta": 0.1804961921116505,
+   "hops_same": true,
+   "min_eig": 0.2000000000000003
+  },
+  "rigid stretch (springs / lambda, pins fixed)": {
+   "aniso": 1.0,
+   "delta": 0.013232568229927466,
+   "hops_same": true,
+   "min_eig": 0.20000000000000107
+  }
+ },
+ "halts": [],
+ "hard_stop": "verdict recorded",
+ "instrument": "sx1_length",
+ "lambda": 1.3
+}
