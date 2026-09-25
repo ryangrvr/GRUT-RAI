@@ -1,0 +1,142 @@
+{
+ "LA_maxdiff": 3.042011087472929e-14,
+ "LBC_dims": {
+  "abelian": 4,
+  "generic": 16,
+  "parity": 8,
+  "seed_residual": 2
+ },
+ "LD": {
+  "ctrl_q": 0.0,
+  "ctrl_z": 0.0,
+  "in_access": 1.2878587085651816e-14,
+  "out_access": 1.5473602185999114,
+  "post_quench": 0.3817979805356479,
+  "pre_quench": 7.771561172376096e-16
+ },
+ "LE_maxdiff": 2.6162482723075493e-15,
+ "charter_commit": "4013a32",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "L-E refactorization is nontrivial: |H'-H| = 0.493, |B'-B| = 0.296 (genuinely noncommuting recombination)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-E GATE: coherence identical under entangling refactorization, max diff = 2.62e-15 < 1e-9 (analytic identity; breach would HALT)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-E verdict component: the factorization/embedding is REPRESENTATIONAL -- an entangling recombination of the declared subsystems changes nothing observable through the declared access",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-A GATE: in-access coherence identical across inequivalent declarations, max diff = 3.04e-14 < 1e-9 (analytic: decoupled commuting factor)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-A verdict component: the declared partition difference (different total algebras, identical coupling map) changes nothing coupled -- access as bookkeeping is REPRESENTATIONAL for uncoupled structure",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-B/C case (i) generic seed + generic H: closure dim = 16 (expected 16, full algebra), stable = True",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-B/C case (ii) parity-symmetric ([., z1z2] = 0): closure dim = 8 (expected 8, the commutant block), stable = True",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-B/C case (iii) abelian seed, commuting H: closure dim = 4 (small, measured), stable = True",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "SEED RESIDUAL (reported, not absorbed): same dynamics, seed {I, B} alone closes at dim 2 vs dim 4 for {I, H, B} -- the closure is canonical GIVEN a seed; the seed itself remains a declaration",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "ADJUDICATION (frozen): symmetry constrains the closure to the commutant -- bicommutant theory CITED as standard mathematics; as a candidate new principle this is NULL-REDUNDANT. Seedless minimality: no canonical selection generically (P-1 trichotomy carries) -- class UNDERDETERMINED",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-D GATE (i) in-access: probe coherence identical on all of (0, 10], max diff = 1.29e-14 < 1e-9 (analytic: hidden sectors decoupled)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-D matched control (hidden-A vs hidden-A): out-of-access trajectory diff = 0.0e+00 < 1e-12",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE (ii) out-of-access: max |<sz2(t)>_A - <sz2(t)>_B| = 1.547 > 0.05 -- the constructions differ physically",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-D matched control (quench, hidden-A vs hidden-A): diff = 0.0e+00 < 1e-12",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-D GATE (iii-pre): pre-quench coherence identical, max diff = 7.77e-16 < 1e-9",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE (iii-post): post-quench (B -> B + 0.4 sx2 at t* = 3.0) coherence differs, max diff = 0.3818 > 1e-3",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-D verdict component (frozen consequence rule): (i)+(ii) => ACCESS-SPLIT -- the access boundary is underdetermining: in-access influence data cannot fix out-of-access physics; (iii) => the split is CONDITIONALLY PHYSICAL: invisible forever under fixed access, consequential exactly when access changes",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "REPRESENTATIONAL: factorization/embedding and partition bookkeeping (L-E, L-A gates)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "DYNAMICALLY-CONSTRAINED: the generated algebra GIVEN a seed (L-B/C dims 16/8/small as declared) -- with the seed reported as the residual declaration",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "NULL-REDUNDANT: the symmetry constraint (bicommutant = standard structure); no new principle",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "ACCESS-SPLIT, CONDITIONALLY PHYSICAL: L-D gates -- identical in-access hierarchy, different out-of-access physics, difference exposed exactly when access extends",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "UNDERDETERMINED: seedless minimality -- generically no canonical seed selection",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 0.12,
+ "failures": [],
+ "grid": {
+  "dt": 0.05,
+  "nt": 200,
+  "t_star": 3.0
+ },
+ "halts": [],
+ "hard_stop": "verdict recorded; owner rules on the next layer",
+ "instrument": "p5_access"
+}
