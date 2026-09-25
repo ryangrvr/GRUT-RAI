@@ -1,0 +1,122 @@
+{
+ "E": {
+  "E1": true,
+  "E2": true,
+  "E3": true,
+  "E4": true
+ },
+ "L3": {
+  "nonisomorphic_A_Bprime": true,
+  "same_A_B": true
+ },
+ "answer": "NO at fixed influence data (K, N) and S-limited access; YES across influence-data classes",
+ "charter_commit": "53ab11f",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "K identical for A/B/B' (Lanczos exactness)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "K identical for A/D (state-independence of the kernel)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "sensitivity: 1% perturbation shifts K by 2.8e-02 > 1e-3",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "N identical for A/B' (same influence data)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "N differs for A/D by 1.09 (same K, different fluctuations)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "A and B: same dimension, same full spectrum (one theory, two representations)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "A and B': different dimension (genuinely non-isomorphic micro-theories)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "E3 sensitivity: Delta_1(A,B'') = 7.8e-03 > 1e-3 -- metrics detect a 1% influence-data difference",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "E1 UNDERDETERMINATION: same-(K,N) micro-distinct theories are S-indistinguishable at every tested access level (Delta_1 = 4.5e-15, Delta_2 = 6.3e-15) while full-theory invariants differ",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "E2 NOISE CHANNEL: kernel-equal, state-different theories ARE S-distinguishable (Delta_1(A,D) = 0.91)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "E4 REPRESENTATION: the star/chain pair is one theory twice (all levels equal, invariants identical)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "ANSWER: NO at fixed influence data (K, N) and S-limited access; YES across influence-data classes",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "CONSEQUENCE: the medium-vs-relational dispute is REPRESENTATIONAL at fixed (K, N); any genuine ontology-level discriminator must live in what CONSTRAINS the (K, N) pair, not in the kernel alone",
+   "ok": true
+  }
+ ],
+ "consequence": "the medium-vs-relational dispute is REPRESENTATIONAL at fixed (K, N); any genuine ontology-level discriminator must live in what CONSTRAINS the (K, N) pair, not in the kernel alone",
+ "date": "2026-09-25",
+ "delta_K": {
+  "W-B''(chain,1% perturbed)": 0.02793304221304319,
+  "W-B'(chain+2 hidden,ground)": 6.31717901870054e-15,
+  "W-B(chain,ground)": 6.31717901870054e-15,
+  "W-D(star,thermal T=0.8)": 0.0
+ },
+ "delta_L1": {
+  "W-B''(chain,1% perturbed)": 0.007784766854845738,
+  "W-B'(chain+2 hidden,ground)": 4.5153792857597154e-15,
+  "W-B(chain,ground)": 4.5153792857597154e-15,
+  "W-D(star,thermal T=0.8)": 0.9117059724316021
+ },
+ "delta_L2": {
+  "W-B'(chain+2 hidden,ground)": 6.310262347609629e-15,
+  "W-B(chain,ground)": 6.310262347609629e-15
+ },
+ "elapsed_s": 4.05,
+ "failures": [],
+ "hard_stop": "verdict recorded; owner rules on the vocabularies and orders P-2 or otherwise",
+ "instrument": "discriminator_d1",
+ "noise_delta_AD": 1.088930774738389,
+ "scope": "Gaussian class, factorized initial state; the gravitational-sector pointer (state-dependent noise; the O(H^2) FDT/KMS obstruction) is a pointer, not a computation; noise fork stays owner-held",
+ "worlds": {
+  "W-A(star,ground)": {
+   "dim": 9
+  },
+  "W-B''(chain,1% perturbed)": {
+   "dim": 9
+  },
+  "W-B'(chain+2 hidden,ground)": {
+   "dim": 11
+  },
+  "W-B(chain,ground)": {
+   "dim": 9
+  },
+  "W-D(star,thermal T=0.8)": {
+   "dim": 9
+  }
+ }
+}
