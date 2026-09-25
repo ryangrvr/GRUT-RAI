@@ -453,14 +453,22 @@ hand.
 **Consequence.** The owner's question resolves into a sharp completion
 criterion, equivalent to (and refining) C1–C4:
 
-> GRUT becomes **one theory simpliciter** exactly when (a) the core
-> domain is extended across S1 and S2, and (b) the inventory fibration
-> is collapsed — each Iₖ either given a derived section or promoted to
-> a declared axiom by a principled irreducibility verdict.
+> GRUT becomes **one theory simpliciter** when (a) the domain is
+> explicitly enlarged across the seams S1 and S2, and (b) every
+> inventory coordinate is assigned a **formally closed status** —
+> either **derived**, or **established as an irreducible primitive**,
+> or **explicitly fixed as boundary/state data within the theory's
+> domain**. *(Tightened per AMENDMENT 01: a supplied input need not
+> become a derived section for a legitimate one-theory formulation —
+> a theory can coherently have axioms and primitive structures;
+> "collapse of the fibration" was too strong.)*
 
 Nothing in this criterion requires the inventory to empty; it requires
-the fibration to be *closed by proof* rather than by habit. That is
-the formal restatement of the paper's headline sentence.
+every coordinate's status to be *closed by proof or by explicit
+typing* rather than by habit. That is the formal restatement of the
+paper's headline sentence — and it prevents "one theory" from secretly
+meaning "theory from nothing," which the campaign has already taught
+the program not to demand.
 
 ---
 
@@ -482,8 +490,29 @@ the formal restatement of the paper's headline sentence.
 Formalization 01 recorded: the datum, the seven objects, the sixteen
 typed maps, the seams as domain boundaries, and the one-theory answer
 — **one theory on the core; a fibered family over the inventory on the
-branch; completion = extend the domain and close the fibration by
-proof.** The decision this stop waits on: **the owner reads the
+branch; completion = extend the domain and close every coordinate's
+status.** The decision this stop waits on: **the owner reads the
 formalization and rules — amend it, iterate the paper on top of it, or
 select the first completion problem with the fibration picture in
 hand.**
+
+---
+
+## AMENDMENT 01 (owner ruling, 2026-09-25 — applied as a dated amendment)
+
+Formalization 01 is **accepted** with one tightening, applied above in
+§6: the one-theory-simpliciter criterion must not require the
+fibration to *collapse*. A coordinate is closed by any of **three**
+statuses — derived, irreducible primitive, or explicitly typed
+boundary/state data within the theory's domain — because a theory can
+coherently have axioms and primitive structures; requiring derivation
+of everything would smuggle back the "theory from nothing" demand the
+campaign refuted. The owner also fixed two standing qualifications,
+binding on successors: (i) "one theory on the core" is a **checked
+property of the assembled record**, never a theorem in the ordinary
+mathematical sense — the qualification stays prominent; (ii) **the
+termination points are part of the theory, not omissions from it.**
+
+Successor document: `GRUT_FORMALIZATION_02.md` (the mathematical
+statement of GRUT on the datum/fibration architecture). No physics
+fork before it exists (owner ruling).
