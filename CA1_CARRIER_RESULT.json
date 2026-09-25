@@ -1,0 +1,179 @@
+{
+ "LMC": {
+  "hops": {
+   "D": {
+    "3": 2.9997126009442265,
+    "4": 3.9993100812312528
+   },
+   "M": {
+    "3": 3.000289684535049,
+    "4": 4.000695080752511
+   },
+   "P": {
+    "3": 3.000043990241189,
+    "4": 4.000107973878982
+   },
+   "T": {
+    "3": 3.0000133835930765,
+    "4": 4.000032850436778
+   }
+  },
+  "profile_dev": 3.907985046680551e-14,
+  "ring_dev": 1.4210854715202004e-14
+ },
+ "LSEL": {
+  "F_additivity": 1.0203581852729617,
+  "F_hops": {
+   "3": 3.0002896845350486,
+   "4": 4.00069508075251
+  },
+  "J1": 0.38426842359946217,
+  "T05_w1": 0.19213421179973109,
+  "T05_w3": -0.03827300405708617,
+  "T0_margin": -0.19213421179973109
+ },
+ "adjudication": {
+  "CARRIER_identification": "IRREDUCIBLE INPUT (reduced to access-seed coincidence, P-6)",
+  "bar_met_for_carrier_set": true,
+  "carrier_set": "CONSTRAINED-NONUNIQUE",
+  "carriers": [
+   "P",
+   "M",
+   "T",
+   "D"
+  ],
+  "cut_by_earned": [
+   "D"
+  ],
+  "noncarrier_bath_survives": true,
+  "surviving_carriers": [
+   "P",
+   "M",
+   "T"
+  ]
+ },
+ "charter_commit": "e67b1d5",
+ "checks": [
+  {
+   "kind": "ctrl",
+   "msg": "L-MC control: phonon kernel reproduces R(0,d) = d(N-d)/N to 1.4e-14 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-MC GATE (a): normalized resistance profile R(0,d)/R(0,1), d = 1..32, identical for P, M, T, D to 3.9e-14 < 1e-12",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-MC GATE (b) P: hop distances recovered from its OWN short-time response: d_hat(3) = 3.000, d_hat(4) = 4.000 (each within 0.3)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-MC GATE (b) M: hop distances recovered from its OWN short-time response: d_hat(3) = 3.000, d_hat(4) = 4.001 (each within 0.3)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-MC GATE (b) T: hop distances recovered from its OWN short-time response: d_hat(3) = 3.000, d_hat(4) = 4.000 (each within 0.3)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-MC GATE (b) D: hop distances recovered from its OWN short-time response: d_hat(3) = 3.000, d_hat(4) = 3.999 (each within 0.3)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-MC consequence (frozen): genuinely different sectors -- z = 1 and z = 2, quantum and classical, rescaled -- carry IDENTICAL recovered geometric data. The recovered geometry is a property of the substrate operator K; 'the carrier' is not unique",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-SEL control: classical carrier at T = 0 has noise exactly 0 with response J(1) = 0.3843 > 0 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-SEL GATE (i) T = 0: nu - J/2 = -0.1921 < -1e-3 at omega = 1 -- the classical carrier VIOLATES the P-2 floor",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-SEL GATE (i) T = 0.5: admissible at omega = 1 (0.1921) but violates at omega = 3 (-0.0383) -- excluded at every T once omega > 4T",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-SEL (i) consequence (frozen): \ud835\udd20_full ELIMINATES the classical relaxational carrier -- an earned elimination of a genuinely different carrier. Quantum carriers P, M, T sit on the floor in vacuum (P-2, GR-1 L-H; noted by construction, not re-gated)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-SEL GATE (ii) non-carrier bath F: its own hop recovery d_hat(3) = 3.000, d_hat(4) = 4.001 -- shares the graph and passes locality/hop geometry",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-SEL GATE (ii) F's local additive metric FAILS: A = 1.0204 < 1.3 -- it does not carry the recovered additive geometry",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-SEL (ii) note: F's fermionic vacuum sits on the P-2 floor (by construction) -- \ud835\udd20_full-admissible",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-SEL (ii) consequence (frozen): a gravitational bath that does NOT carry the recovered additive geometry passes influence positivity, locality and hop-geometry recovery. Earned structure does NOT force the bath to be the geometry carrier",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-SEL (iii) consequence (frozen): among the surviving carriers {P, M, T} -- admissible, geometrically identical -- which one the gravitational probe couples to is an ACCESS declaration (P-6: the seed is irreducible). CARRIER reduces to: the gravitational probe's access seed coincides with the geometry-recovery access seed. Supplied",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "carriers: ['P', 'M', 'T', 'D']",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "cut_by_earned: ['D']",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "surviving_carriers: ['P', 'M', 'T']",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "carrier_set: CONSTRAINED-NONUNIQUE",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "bar_met_for_carrier_set: True",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "noncarrier_bath_survives: True",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "CARRIER_identification: IRREDUCIBLE INPUT (reduced to access-seed coincidence, P-6)",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 0.02,
+ "failures": [],
+ "halts": [],
+ "hard_stop": "verdict recorded",
+ "instrument": "ca1_carrier"
+}
