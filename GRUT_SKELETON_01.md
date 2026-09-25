@@ -1,6 +1,6 @@
 # GRUT: THE SKELETON — claims, status, and kill conditions
 
-**Version 02, 2026-09-24.** GRUT — *Grand Responsive Universe Theory*, a name retained
+**Version 02.1, 2026-09-24.** GRUT — *Grand Responsive Universe Theory*, a name retained
 by program convention (§11) — is presented here for a physicist outside the program:
 what it claims, what has actually been derived, what is measured rather than derived,
 what remains conjectural, and what would kill it. Version 02 incorporates an
@@ -280,7 +280,7 @@ This program's recurring documented failure mode is **narrative-vs-run mismatch*
 verdict or summary asserting what its own checks refuted. Four instances are on
 record: (1) a kernel exponent t^(−d) vs t^(−d/2) narrative/body mismatch
 (continuum-origin, since repaired); (2) a t^(−3) vs t^(−4) inconsistency
-(spectral-match, correction pending); (3) a coupling verdict_detail describing a run
+(spectral-match, corrected 2026-09-24 at three sites, committed); (3) a coupling verdict_detail describing a run
 that did not happen (§5); and (4) — found by the adversarial verification of *this
 document's version 01* — persistence/representation prose asserting a theorem whose
 defining checks failed (P3 tail error 0.995 vs threshold 0.05; P4 Hankel rank 4 at
