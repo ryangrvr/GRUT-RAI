@@ -1,0 +1,228 @@
+{
+ "LA": {
+  "A1": {
+   "chi_ratio_mass": 2.003091979224038,
+   "chi_ratio_pin": 7.837289232941964,
+   "hops": [
+    1.000363616415286,
+    2.0002597103565725,
+    3.0002019904274326,
+    4.000165261804054
+   ],
+   "noncons": 2.0,
+   "psd_min": -1.1461096238618734e-16,
+   "res_ratio": 1.0,
+   "shape": 1.9984014443252818e-15
+  },
+  "A2": {
+   "chi": 4.3105612034169605,
+   "gram_min": 0.09235255382902667,
+   "graph_same": true,
+   "noncons": 7.981700570680412,
+   "shape": 0.007533175887302568
+  }
+ },
+ "LP": {
+  "massive": {
+   "fp_min": 1.5305026792418885,
+   "proca_min": 0.29456006917729094
+  },
+  "spin2": {
+   "cons_dev": 1.0222933610748441e-12,
+   "cons_min": 0.016561276082769805,
+   "non_min": -17.818443050769414
+  },
+  "vector": {
+   "cons_dev": 3.552713678800501e-15,
+   "cons_min": 0.00945472594605436,
+   "non_min": -10.617825792867652
+  }
+ },
+ "LS": {
+  "H": {
+   "D_rel": 3.0636200665995326e-30,
+   "comm_rel": 0.0
+  },
+  "H^2": {
+   "D_rel": 3.598753292358606e-30,
+   "comm_rel": 2.730356498332863e-16
+  },
+  "W_metric": 12.304196326707405,
+  "constant_stationary_spread": 4.265337574760008e-15,
+  "equivalence": true,
+  "pair_H": 5.551115123125783e-17,
+  "sum X": {
+   "D_rel": 0.5929939309550938,
+   "comm_rel": 0.2866923619782478
+  },
+  "sum Z": {
+   "D_rel": 0.5778279637564119,
+   "comm_rel": 0.09231514468114103
+  }
+ },
+ "adjudication": {
+  "components": [
+   "NOT SELECTED at the constant level (non-conserved survivor)",
+   "CONSTRAINED-NONUNIQUE (static regularity cuts IR-singular couplings)",
+   "stationarity-under-driving == C_cons (restatement)",
+   "blanket C_cons contradicts GR-1's channel (component-specific at most)",
+   "CLASS-SPLIT by probe field content (massless gauge forces; massive not)"
+  ],
+  "overall": "IRREDUCIBLE INPUT, reduced to supplied massless-gauge probe content"
+ },
+ "charter_commit": "86a839f",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "L-A1 GATE phonon mass modulation O_M = 1/2 sum p^2: NON-conserved, max|AJM_H - M_HJA| = 2.000 > 0",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-A1 GATE \ud835\udd20_full: H + hO_M PSD, min eigenvalue -1.15e-16",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-A1 GATE G-2 hop geometry unchanged: d_hat = 1.000, 2.000, 3.000, 4.000 (GeoInv also satisfied -- recorded only)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-A1 GATE G-2 static resistance R(0,8) ratio = 1.000000000000000 (unchanged)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-A1 GATE spectrally a unit change: normalized mode-frequency shape unchanged to 2.0e-15 < 1e-12 (omega' = sqrt(1+h) omega; halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-A1 GATE static-limit regular: chi(N=40)/chi(N=20) = 2.0031 in [1.8, 2.2] (extensive)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-A1' GATE pinning O_pin = 1/2 sum u^2 (non-conserved): chi ratio = 7.837 > 4 -- IR-singular, excluded by static-limit regularity",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-A2 GATE MFIM O_X = sum X_i: non-conserved (7.982), \ud835\udd20_full Gram PSD (9.24e-02), interaction graph unchanged (True), static chi finite (4.311)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-A2 GATE: O_X changes the normalized spectral shape by 7.533e-03 > 1e-4 -- only the unearned Sel-4 objects",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-A consequence (frozen): the phonon mass modulation is non-conserved yet passes EVERY earned constant-level selector -- \ud835\udd20_full, G-2 hop and resistance geometry, static regularity -- and is even spectrally a unit change satisfying GeoInv. C_cons is NOT selected at the constant level. Static regularity does cut IR-singular couplings (pinning): CONSTRAINED-NONUNIQUE",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-S(i) H: driven (nonzero-frequency) weight D/||O||^2 = 3.06e-30, ||[O,H]||/||O|| = 0.00e+00",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-S(i) sum X: driven (nonzero-frequency) weight D/||O||^2 = 5.93e-01, ||[O,H]||/||O|| = 2.87e-01",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-S(i) sum Z: driven (nonzero-frequency) weight D/||O||^2 = 5.78e-01, ||[O,H]||/||O|| = 9.23e-02",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-S(i) H^2: driven (nonzero-frequency) weight D/||O||^2 = 3.60e-30, ||[O,H]||/||O|| = 2.73e-16",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-S(i) GATE: D(O) = 0 <=> [O, H] = 0 for all four operators (halt-grade identity) -- 'stationary under driving' IS C_cons, restated; it adds no independent ground",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-S(ii) GATE: under the CONSTANT non-conserved probe H + h sum X, two-time correlators depend only on the time difference (max spread 4.3e-15) -- a constant probe needs no conservation to be stationary",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-S(iii) GATE: phonon H pair amplitude max 5.6e-17 (conserved: none), but the geometric T_xx vertex (CP-1) has dynamic weight sum V^2 = 1.2304e+01 > 1e-6 -- a BLANKET C_cons would delete GR-1's own channel; C_cons can at most be component-specific",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-P GATE massless vector, conserved sources: min residue 9.455e-03 >= 0 and equal to the physical transverse sum to 3.6e-15 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE massless vector, NON-conserved sources: min residue -10.618 < -1e-3 -- negative-norm exchange, a \ud835\udd20_full violation",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-P GATE massless spin-2, conserved T: min residue 1.656e-02 >= 0 and equal to the physical helicity-2 sum to 1.0e-12 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE massless spin-2, NON-conserved T: min residue -17.818 < -1e-3 -- ghost exchange, a \ud835\udd20_full violation",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE massive probes (Proca, Fierz-Pauli; m = 1, on shell): min residue for NON-conserved sources 2.946e-01 (vector), 1.531e+00 (spin-2), both >= 0 -- positivity does NOT force conservation",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-P consequence (frozen): \ud835\udd20_full positivity forces source conservation IF AND ONLY IF the probe is a massless gauge field (covariant, redundant polarizations). That field content is SUPPLIED -- C_cons reduces to it; it is not derived. The conservation obtained is CURRENT conservation: its zero-momentum time component is S4-1's clock C_cons, while T_xx stays a non-conserved flux, consistent with L-S(iii)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "NOT SELECTED at the constant level (non-conserved survivor)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "CONSTRAINED-NONUNIQUE (static regularity cuts IR-singular couplings)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "stationarity-under-driving == C_cons (restatement)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "blanket C_cons contradicts GR-1's channel (component-specific at most)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "CLASS-SPLIT by probe field content (massless gauge forces; massive not)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "OVERALL: IRREDUCIBLE INPUT, reduced to supplied massless-gauge probe content. GeoInv untouched and unearned; retained sector, omega^7, GR-1 3D red, hbar, D = 4 TT/xi, ordering, geometry selection fenced. Class-4 OPEN",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 3.29,
+ "failures": [],
+ "halts": [],
+ "hard_stop": "verdict recorded; owner rules",
+ "instrument": "cc1_ccons",
+ "seed": 20260925
+}
