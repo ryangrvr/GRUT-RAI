@@ -1,0 +1,229 @@
+{
+ "LG": {
+  "hop_H": [
+   1.0003818002427058,
+   2.000272697200098,
+   3.000212090637741,
+   4.00017352529563
+  ],
+  "hop_P1_d1": 0.5049270680830549,
+  "hop_Q2_d2": 0.001733497089662861,
+  "resistance_ratio": {
+   "H": 0.9523809523809501,
+   "P1": 1.0,
+   "Q2": 0.9615451601204986
+  }
+ },
+ "LI": {
+  "amp_inv": 3.6614507748402374e-16,
+  "dP1": 0.2630443874250741,
+  "dQ1": 0.017798055797925816,
+  "ratios": {
+   "H": 0.03723963589548379,
+   "P1": 0.04703531310754413,
+   "Q1": 0.03790242901304605
+  },
+  "vacuum": {
+   "H": 0.0,
+   "P1": 0.0,
+   "Q1": 0.0
+  }
+ },
+ "LP": {
+  "H": -2.0335976985524248e-16,
+  "P1": -2.6228727578270046e-16,
+  "Q2": -1.9667829128128174e-17,
+  "tower#0": -1.809910246164792e-16,
+  "tower#1": -2.175797801839445e-16,
+  "tower#2": -3.0391194660247154e-17,
+  "tower#3": -1.6683454188320042e-16,
+  "tower#4": -3.4374785563977503e-16,
+  "tower#5": -1.1563677821932223e-16
+ },
+ "LS": {
+  "H_residual": 4.0697662735997785e-16,
+  "dim": 1
+ },
+ "LT": {
+  "1": 2,
+  "2": 4,
+  "3": 6,
+  "4": 8
+ },
+ "adjudication": {
+  "conditional_on": "C_cons (unresolved import)",
+  "distinguish": {
+   "G2_hop_geometry": "YES",
+   "dynamic_influence": "NO (UNDERDETERMINED)",
+   "static_multiT_influence": "YES"
+  },
+  "earned_dim": 6,
+  "select": "IRREDUCIBLE INPUT (reduced to GeoInv)",
+  "structural": true,
+  "tower_dim": 6
+ },
+ "charter_commit": "19fd85f",
+ "checks": [
+  {
+   "kind": "ctrl",
+   "msg": "L-T control: [H, H] residual max|AJM_H - M_HJA| = 0.0e+00 < 1e-12 (halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-T GATE R = 1: conserved subspace of the 7-element range-<=1 basis has dim 2 (predicted 2R = 2)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-T GATE R = 2: conserved subspace of the 11-element range-<=2 basis has dim 4 (predicted 2R = 4)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-T GATE R = 3: conserved subspace of the 15-element range-<=3 basis has dim 6 (predicted 2R = 6)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-T GATE R = 4: conserved subspace of the 19-element range-<=4 basis has dim 8 (predicted 2R = 8)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-T GATE: explicit Q2 (residual 0.0e+00) and P1 (residual 0.0e+00) are conserved, both < 1e-10",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-T consequence (frozen): the free phonon sector carries a tower of local conserved quadratic charges that grows linearly with range -- the S4-1 free-sector exception is STRUCTURAL, not a spin-model artifact",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE H: H + hO (h = 0.05, O scaled to ||H||) has min eigenvalue -2.03e-16 >= -1e-10 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE Q2: H + hO (h = 0.05, O scaled to ||H||) has min eigenvalue -1.97e-17 >= -1e-10 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE P1: H + hO (h = 0.05, O scaled to ||H||) has min eigenvalue -2.62e-16 >= -1e-10 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE tower#0: H + hO (h = 0.05, O scaled to ||H||) has min eigenvalue -1.81e-16 >= -1e-10 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE tower#1: H + hO (h = 0.05, O scaled to ||H||) has min eigenvalue -2.18e-16 >= -1e-10 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE tower#2: H + hO (h = 0.05, O scaled to ||H||) has min eigenvalue -3.04e-17 >= -1e-10 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE tower#3: H + hO (h = 0.05, O scaled to ||H||) has min eigenvalue -1.67e-16 >= -1e-10 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE tower#4: H + hO (h = 0.05, O scaled to ||H||) has min eigenvalue -3.44e-16 >= -1e-10 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-P GATE tower#5: H + hO (h = 0.05, O scaled to ||H||) has min eigenvalue -1.16e-16 >= -1e-10 -- \ud835\udd20_full admits it",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-P consequence (frozen): every member of the conserved tower is \ud835\udd20_full-admissible -- NULL as a selector",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-I GATE (a): vacuum connected correlator of every conserved coupling is exactly zero ({'H': 0.0, 'Q1': 0.0, 'P1': 0.0}) -- a conserved charge annihilates the vacuum's fluctuations (halt-grade identity)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-I (a) consequence (frozen): for any conserved O the probe's connected two-time correlator is time-independent, so J(omega != 0) = 0 identically. Dynamic influence data CANNOT distinguish O = H from any conserved charge (UNDERDETERMINED), and conserved clock couplings contribute nothing to GR-1's zero-momentum pair channel",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-I GATE (b): static multi-temperature ratio Var(T=0.5)/Var(T=2): H 0.03724, Q1 0.03790, P1 0.04704; |R_Q1/R_H - 1| = 0.018, |R_P1/R_H - 1| = 0.263 (both > 1e-2): distinguishable",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-I control: amplitude invariance R(3.7 O) = R(O) to 3.7e-16 (the discriminator is amplitude-free; halt-grade)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G GATE O = H: hop estimates d_hat(0,d) = 1.000, 2.000, 3.000, 4.000 for d = 1..4 (each within 0.3 of d): the unit change preserves the recovered geometry",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G GATE O = Q2: d_hat(0,2) = 0.002 < 0.5 -- the constant probe REWIRES the recovered geometry (distance-2 sites become adjacent)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-G GATE O = P1: d_hat(0,1) = 0.505 < 0.8 -- recovered geometry altered",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-G reported only: static resistance R(0,8) relative to unperturbed -- H 0.95238, Q2 0.96155, P1 1.00000",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-S GATE: GeoInv leaves a null space of dim 1 in the 6-dim conserved tower (predicted 1)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-S GATE: the GeoInv survivor is H itself, residual 4.1e-16 < 1e-8",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-S consequence (frozen): among the free sector's local conserved charges, 'the constant probe preserves the recovered hop geometry' selects O ~ H exactly. GeoInv is NOT earned -- it is chartered as a candidate",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "STRUCTURAL free-sector exception: True",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "DISTINGUISH: {'dynamic_influence': 'NO (UNDERDETERMINED)', 'static_multiT_influence': 'YES', 'G2_hop_geometry': 'YES'}",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "SELECT: IRREDUCIBLE INPUT (reduced to GeoInv) (earned constraints leave 6 of 6 tower dimensions); conditional on C_cons (unresolved import)",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 1.69,
+ "failures": [],
+ "halts": [],
+ "hard_stop": "verdict recorded; owner rules on the next layer",
+ "instrument": "fs1_free"
+}
