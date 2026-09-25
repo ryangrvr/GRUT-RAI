@@ -1,0 +1,192 @@
+{
+ "LB": {
+  "linear_max": 0.0,
+  "same_sign_min": 0.02
+ },
+ "LD": {
+  "slope_1d": 2.222392421336448,
+  "slope_3d": 5.361663847134572
+ },
+ "LH": {
+  "gram_min": 0.0007444499987059514,
+  "kernel_id": 1.51000905086748e-14,
+  "tail_slope": -8.974578714597358,
+  "tamper_binding": -0.6488703826542074,
+  "tamper_frozen": 0.0007444499987059514,
+  "thermal_margin": 1.162545836939596e-08
+ },
+ "LX": {
+  "increment": 4.003793088166773,
+  "rescale_dev": 0.0,
+  "s_full": 8.005419679013105,
+  "s_kin": 4.001626590846332,
+  "s_non": 4.010999254328895,
+  "s_pot": 4.003794021366405
+ },
+ "charter_commit": "ece56e7",
+ "checks": [
+  {
+   "kind": "ok",
+   "msg": "L-B: same-sign pair channel at zero net momentum kinematically CLOSED -- min |q + q'| over the scan = 0.020 > 0 (both momenta positive; no interior root exists)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-B GATE: gapped counterfactual EMPTY below threshold 2*Omega = 2 (no root at omega = 0.5, 1.0, 1.9; root q = 0.750 at omega = 2.5) -- the true-emptiness fingerprint, fresh; the retained gapless sector is what makes ANY low-omega response possible",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-B GATE: exactly linear dispersion kills the full vertex IDENTICALLY, max |M| = 0.0e+00 < 1e-14 (tracelessness cancellation is exact without curvature)",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-B consequence (frozen): branch elimination is structural (kinematics, threshold, symmetry) -- min-dominance then selects the sole surviving branch trivially",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-X GATE: base class agrees as predicted -- kinetic-only 4.002, potential-only 4.004, non-minimal (eps = 0.3) 4.011 (all base b, cancellation destroyed in the non-minimal case)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-X GATE: full minimal-stress vertex = base + 4.004 (predicted +4: the order-2 tracelessness cancellation leaves the curvature residual -2 alpha q^4)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-X GATE: exactly-linear vertex = 0 (0.0e+00 < 1e-14)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-X GATE: all slopes invariant under coupling rescale lambda = 16, |Delta slope| = 0.0e+00 -- kappa = 1/M_Pl is AMPLITUDE-ONLY",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-X adjudication (frozen): every counterfactual landed on its pre-written prediction -- the exponent tracks STRUCTURE (which symmetry cancellation is present), so the channel exponent is SELECTED-BY-STRUCTURE in-class, not merely reproduced. In this 1D zero-transverse convention b = 4; increments are convention-free (S-1); the absolute 7 = base-3 (v3 convention) + 4 stays graded CONSISTENT-BY-MECHANISM, never one-formula-derived here",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE 1D: pair-count exponent = 2.222 (= 2d with d = 1, gate +-0.4; counts 12 -> 56) on the chain where G-2 recovered d_hat = 1.000",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-D GATE 3D: pair-count exponent = 5.362 (= 2d with d = 3, gate +-0.6; counts 94 -> 3865) on the lattice where G-2 recovered d_hat = 2.942",
+   "ok": false
+  },
+  {
+   "kind": "note",
+   "msg": "L-D POST-HOC DIAGNOSTIC (labeled): the same frozen window on lattices 13^3 / 21^3 / 31^3 gives exponents 5.362 -> 5.493 -> 5.662, converging monotonically toward 2d = 6 -- the frozen-gate miss is low-window spectral discreteness on the 13^3 lattice (the lowest mode sits at 24% of the window edge), not a dimension inconsistency. The gate stays red as found",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-D consequence (frozen): the d entering the gravitational phase-space counting equals the d the interface recovers spectrally -- the hierarchy point sits over the RECOVERED geometric substrate, not an inserted label",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H: vacuum floor saturation nu_i = hbar J_i / 2 EXACT (by construction of the vacuum bath, labeled as such) -- gravity's vacuum point sits ON the P-2 floor; hbar inherited (located), never generated",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H GATE: thermal point (beta = 2) strictly interior, min margin = 1.16e-08 > 0",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H GATE: 4x4 operator Gram over {1, B(0), B(1.3), B(2.9)} PSD, min eig / C0 = 7.44e-04 >= -1e-12",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-H frozen-times tamper (REPORTED AS FOUND, control mis-frozen): tampered min eig / C0 = 7.44e-04 -- NOT negative, and provably could not be: max |C(t)|/C(0) at the frozen times = 0.506, so the tampered Gram is strictly diagonally dominant. Disclosed repair: the operative detector runs at binding times below",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-H: Gram at binding times (0.15, 0.35) PSD, min eig / C0 = 1.53e-04",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-H GATE (operative tamper detector): x1.5 inflated commutator at binding times DETECTED, min eig / C0 = -6.49e-01 < -1e-6 (halt-grade: a floor violation is catchable by this instrument)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-H GATE: lambda J admissible for lambda in {0.1, 16} -- amplitudes free at the gravity point (S-1 PC-D)",
+   "ok": true
+  },
+  {
+   "kind": "ctrl",
+   "msg": "L-H GATE: kernel quadrature matches the closed form Im[Gamma(8)(1-it)^-8] at t = 5, 20, 60, max rel diff = 1.51e-14 < 1e-6",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-H kernel tail (REPORTED ONLY): measured large-t slope on [20, 80] = -8.975 in THIS convention (J = w^7 e^-w, sine transform). The sealed t^-8 class lives in the v3 propagator convention; no cross-convention gate is manufactured",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-I: kappa = 1/M_Pl DISCHARGED as amplitude-only (exponent invariant under rescale; the amplitude remains supplied, as S-1 priced)",
+   "ok": true
+  },
+  {
+   "kind": "ok",
+   "msg": "L-I: minimal-stress import LOAD-BEARING -- the non-minimal counterfactual loses the +4 (slope 4.011 = base class): the +4 hinges on the tracelessness structure of the minimal coupling",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-I: retained-sector import LOAD-BEARING -- the gapped counterfactual is empty below threshold (L-B): a gapless retained sector is a precondition for any low-omega gravitational response",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "L-I VERDICT INPUT (frozen consequence rule): two imports beyond locality + symmetry are load-bearing (minimal-stress, retained-sector), so the CLASS-4 GATE REMAINS OPEN. The residual obstruction is now named exactly: the exponent is selected by counting GIVEN the coupling class; the coupling class is supplied. kappa alone is discharged",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "GRAV-HIERARCHY-ADMISSIBLE: the omega^7 point inhabits the admissible hierarchy -- vacuum ON the floor, thermal interior, Gram PSD, lambda-free, kernel representation verified",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "SELECTED-BY-STRUCTURE-IN-CLASS: branch elimination structural (L-B); every counterfactual exponent landed on its pre-written prediction (L-X) -- the channel exponent is selected by the surviving per-branch counting, not merely reproduced by a chosen occupancy",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "DIMENSION-CONSISTENT at recorded strength: certified by the 1D gate; the 3D frozen gate is RED as found (5.362 vs 6 +- 0.6), with the labeled diagnostic converging 5.36 -> 5.49 -> 5.66 toward 6 under lattice refinement -- consistency indicated, not gate-certified in 3D",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "CLASS-4-OPEN (per the frozen L-I rule): minimal-stress and retained-sector imports are load-bearing; kappa discharged as amplitude-only. The omega^7 record keeps exactly its prior status (CONDITIONALLY DERIVED, v3 20/20 cited by hash), now with its selection component certified and its residual obstruction named",
+   "ok": true
+  },
+  {
+   "kind": "note",
+   "msg": "Fences held: no Einstein equations; hbar inherited-not-generated; geometry consumed only as the G-2-recovered substrate; Lambda_R, Matsubara, Pi_0, U5 untouched; increments gated, absolute exponents never compared across conventions",
+   "ok": true
+  }
+ ],
+ "date": "2026-09-25",
+ "elapsed_s": 0.04,
+ "failures": [
+  "L-D GATE 3D: pair-count exponent = 5.362 (= 2d with d = 3, gate +-0.6; counts 94 -> 3865) on the lattice where G-2 recovered d_hat = 2.942"
+ ],
+ "halts": [],
+ "hard_stop": "verdict recorded; owner rules (hard stop after gravity verdict)",
+ "instrument": "gr1_gravity"
+}
