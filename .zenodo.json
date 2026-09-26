@@ -1,0 +1,24 @@
+{
+  "title": "GRUT-RAI: Consolidated Theory Public Record (source boundary 25 September 2026)",
+  "upload_type": "software",
+  "description": "<p>Public-record release of the GRUT (Grand Responsive Universe Theory) research program at a consolidation point, together with the GRUT-RAI computational and provenance infrastructure that produced it.</p><p>The central document is <em>GRUT — Grand Responsive Universe Theory: Consolidated Theory, Formal Architecture, Results, Limits, and Completion Program</em> (uploads/GRUT_Consolidated_Theory_PUBLIC_RECORD.md and .pdf). It states, at the source boundary master-w25bu9 @ 6abbf316, what the program has constructed within declared model classes (continuum spectral structure, memory, and effective irreversibility from strictly local finite dynamics; an influence hierarchy that is complete as an interface in class; access-relative reconstruction of tested geometry; a finite stepped nonstationary extension of the core construction), what remains a supplied primitive input (access seed, massless gauge/Lorentz probe structure, universal reach, co-stretch declaration, cross-sector light cone, hbar, Born measure, noncommutativity, states and boundary data, microscopic sector content), the unresolved seams, and every preserved failed pre-registered gate.</p><p><strong>Scope statement:</strong> this is an in-house research record. No external peer review is claimed. No experimental validation is claimed. No confirmed novel quantitative prediction is claimed. It is not a completed theory of everything. Earlier releases in this lineage carried stronger claims that the current record has demoted; where they conflict, this record supersedes them (see Section 29 of the document).</p><p>The repository snapshot includes all frozen charters, executable pure-stdlib instruments (calc/), sha-hashed result artifacts, verdicts, and formalizations cited by the document; owner rulings are recorded on GitHub Issue #2.</p>",
+  "creators": [
+    {
+      "name": "Grover, D. Ryan"
+    }
+  ],
+  "keywords": [
+    "open quantum systems",
+    "influence functional",
+    "memory kernel",
+    "emergent continuum",
+    "spectral geometry",
+    "emergent gravity",
+    "pre-registration",
+    "research provenance",
+    "GRUT"
+  ],
+  "license": "MIT",
+  "language": "eng",
+  "notes": "Public-record release at a consolidation pause. Source boundary: master-w25bu9 @ 6abbf3164655c513b72dfc72f4a64013b061c489; foundations on adjudicator-track @ affdf52 and 90218f5. AI agents were used as computational, drafting, and audit instruments under the author's direction."
+}

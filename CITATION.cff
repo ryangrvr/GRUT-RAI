@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you cite this work, please cite the consolidated public record together with the repository snapshot, and cite frozen artifacts for numerical provenance."
+title: "GRUT — Grand Responsive Universe Theory: Consolidated Theory, Formal Architecture, Results, Limits, and Completion Program"
+type: software
+authors:
+  - family-names: Grover
+    given-names: D. Ryan
+repository-code: "https://github.com/ryangrvr/GRUT-RAI"
+license: MIT
+date-released: 2026-09-26
+keywords:
+  - open quantum systems
+  - influence functional
+  - memory kernel
+  - emergent continuum
+  - spectral geometry
+  - emergent gravity
+abstract: >-
+  Public-record consolidation of the GRUT research program at source boundary
+  master-w25bu9 @ 6abbf316 (25 September 2026). Reports what the program has
+  constructed within declared model classes, the explicit inventory of
+  supplied primitive inputs, the unresolved seams, and every preserved failed
+  pre-registered gate. In-house record: no external peer review, no
+  experimental validation, and no confirmed novel quantitative prediction is
+  claimed.
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.19803663
+    description: "GRUT concept DOI (version lineage)"
