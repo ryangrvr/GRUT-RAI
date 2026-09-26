@@ -39,9 +39,13 @@ was made, as follows:
    - The Layer-I results come from branch `adjudicator-track` (commits
      `affdf52` and `90218f5`), not from the stated source branch.
    - This is now disclosed explicitly.
-5. **A nonexistent branch was cited.** The draft cited an "older `v4`
-   branch", but no such branch exists in the repository. The reference was
-   removed.
+5. **~~A nonexistent branch was cited.~~ WITHDRAWN (correction, 26
+   September 2026).** This item originally said the draft's "older `v4`
+   branch" does not exist, and the reference was removed. That was wrong.
+   The check looked only at the branches fetched into the editing
+   environment. The public repository has `v4`, `main`, `physics-final`,
+   `v2`, `v1-retired`, and `testingi-rrt`. The draft's disclosure was
+   accurate, and the public-record edition restores it.
 6. **The EQ-1, P-6, and RS-1 red-register descriptions were imprecise
    (§23).** They were replaced with the recorded content: the measured
    value, the frozen threshold, and the labeled diagnostic.
