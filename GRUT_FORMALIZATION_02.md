@@ -324,3 +324,18 @@ recorded strength** (charter `fa6ac44`, verdict
   not rewrite C1-a.
 - Fences unchanged: no C2; no reopening of ω⁷, Class-4, GR-1, or any
   closed fork.
+
+
+## AMENDMENT 02 (owner ruling on C1-a2, 2026-09-25 — packaging certification accepted at finite stepped level)
+
+C1-a2 was separately chartered after C1-a, with C1-a's two L-B reds declared immutable. The new packaging instrument was frozen at commit `3b139ab` before evaluation; calibration by the labeled C1-a diagnostics was disclosed on the charter face and therefore does not upgrade the result to blind prediction. The executed battery passed 7/7 with zero failures and zero halts.
+
+Effects on this document:
+
+- **S1 finite stepped packaging is now CLOSED at the recorded in-class scope.** P-1 local-scale two-time magnitude = 0.1182 > 0.05; P-2 amplitude scaling = 1.6769 ∈ [1.5,2.5]; P-3 every member of the declared local-anchor family fails at ε_m=1.0; and P-4 excludes the whole declared Δt-only class at the stated scope, using the per-lag mean as the L²-optimal Δt-only fit. P-5 and P-6 controls passed at halt-grade.
+- **The priced datum is formally named at this scope:** the stationary single spectral measure is insufficient; the finite stepped construction requires strictly more information, exhibited as the per-epoch spectral data `{λ_e,u_e}` plus the epoch mixing matrices `C=V_newᵀV_old` (equivalently, the bath propagator family). **Minimality of this datum is not claimed.**
+- **C1-a remains immutable.** Its two L-B gates remain red permanently. C1-a2 is a new certification under a new charter, not a retroactive repair.
+- **The finite stepped stratum of S1 is therefore fully classified:** ε extends; continuity holds; hierarchy/admissibility structure extends; the stationary one-time spectral packaging does not; and a two-time datum is required at the certified scope.
+- **Remaining S1 work:** C1-b (infinite-volume nonstationary limit) and C1-c (smooth modulation) remain open, named, and not opened. This amendment does not imply either extension.
+- **Strength limitation:** the certification is in-class and at the declared model family/window. It does not establish a theorem over arbitrary nonstationary laws, and it does not prove the mixing datum is minimal.
+- **Fences unchanged:** no C2 content; no reopening of ω⁷, Class-4, GR-1, or any closed fork; no absolute exponent; ℏ remains located-not-generated; operator ordering remains fenced.
