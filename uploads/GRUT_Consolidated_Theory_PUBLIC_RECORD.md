@@ -2,12 +2,12 @@
 ## Consolidated Theory, Formal Architecture, Results, Limits, and Completion Program
 
 **Version:** Consolidated Research Record 02 — public-record edition
-**Record date (source boundary):** 25 September 2026
-**Prepared for deposit:** 26 September 2026
+**Date of this version:** 26 September 2026
+**Earlier version:** the 25 September 2026 draft (preserved as `uploads/GRUT_Consolidated_Theory_2026-09-25_DRAFT_as_received.md`)
 **Author / program owner:** D. Ryan Grover
 **Repository:** `https://github.com/ryangrvr/GRUT-RAI`
 **Publication source branch:** `master-w25bu9`
-**Publication source commit:** `6abbf3164655c513b72dfc72f4a64013b061c489`
+**Publication source commit:** `6abbf3164655c513b72dfc72f4a64013b061c489` (committed 25 September 2026, 21:54 UTC−5; 26 September 2026, 02:54 UTC)
 **DOI (this version):** 10.5281/zenodo.22983638
 **Concept DOI (cite all versions):** 10.5281/zenodo.19803663
 **Software archive (GRUT-RAI, all versions):** 10.5281/zenodo.18993689
@@ -44,7 +44,7 @@ No outside human reviewer has checked any GRUT-specific result.**
 | Research program | **GRUT — Grand Responsive Universe Theory** |
 | Computational infrastructure | **GRUT-RAI** |
 | Publication source | `master-w25bu9` @ `6abbf316` (foundations: `adjudicator-track` @ `affdf52`, `90218f5`) |
-| Record date | 25 September 2026 |
+| Date of this version | 26 September 2026 |
 | Evidence base | Frozen charters, executable instruments, sha-hashed result artifacts, labeled diagnostics, formalizations, owner rulings |
 | External peer review | **None claimed** |
 | Experimental validation | **None claimed** |
@@ -1324,7 +1324,7 @@ definition of the core.
 
 # 32. Present status in one statement
 
-As of 25 September 2026, at the publication source boundary defined at the
+As of 26 September 2026, at the publication source boundary defined at the
 beginning of this document:
 
 > **GRUT has earned a generative open-system core. In it, strictly local microscopic dynamics produce continuum spectral structure, persistent memory, effective irreversible response, and an influence hierarchy that is complete as an interface within the declared model and access class. Sufficiently rich access reconstructs tested graph and substrate geometry from accessible influence functionals. The core construction now extends constructively to finite stepped nonstationary dynamics, where a single stationary spectral measure or $\Delta t$-only kernel provably cannot package the response at the certified scope. A conditional chain from influence, access, and geometry to a gravitational-side response has been reduced, within the tested scope, to a small inventory of explicit primitive inputs and unresolved seams. The theory remains incomplete in the full nonstationary limit, causal structure, access-seed selection, probe derivation, quantum scale and outcomes, the gravity red gates, and external gravitational confrontation. It has no confirmed novel quantitative prediction.**
@@ -1436,8 +1436,8 @@ frozen artifacts whenever a claim needs numerical provenance.
 **Recommended citation:**
 Grover, D. Ryan (2026). *GRUT — Grand Responsive Universe Theory: Consolidated
 Theory, Formal Architecture, Results, Limits, and Completion Program.*
-Consolidated Research Record 02 (public-record edition), source boundary
-25 September 2026. GRUT-RAI research record. Zenodo.
+Consolidated Research Record 02 (public-record edition), 26 September 2026.
+GRUT-RAI research record. Zenodo.
 https://doi.org/10.5281/zenodo.22983638 (this version). All versions:
 https://doi.org/10.5281/zenodo.19803663.
 

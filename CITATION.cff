@@ -24,8 +24,8 @@ abstract: >-
   Computational and provenance infrastructure of the GRUT research program:
   frozen pre-registration charters, executable instruments, sha-hashed result
   artifacts, verdicts, and formalizations. It is released with the program's
-  public record at source boundary master-w25bu9 @ 6abbf316 (25 September
-  2026). This is an in-house record: no external peer review, no experimental
+  public record on 26 September 2026 (source boundary master-w25bu9 @
+  6abbf316). This is an in-house record: no external peer review, no experimental
   validation, and no confirmed novel quantitative prediction is claimed.
 preferred-citation:
   type: article
@@ -37,4 +37,4 @@ preferred-citation:
   publisher:
     name: Zenodo
   doi: 10.5281/zenodo.22983638
-  notes: "Consolidated Research Record 02 (public-record edition), source boundary 25 September 2026. All versions: 10.5281/zenodo.19803663."
+  notes: "Consolidated Research Record 02 (public-record edition), 26 September 2026. All versions: 10.5281/zenodo.19803663."
