@@ -14,6 +14,8 @@ local SYMBOLS = {
   ["κ"] = "\\kappa", ["τ"] = "\\tau", ["λ"] = "\\lambda", ["ν"] = "\\nu",
   ["π"] = "\\pi", ["ε"] = "\\varepsilon", ["Δ"] = "\\Delta", ["σ"] = "\\sigma",
   ["⁷"] = "^{7}", ["₄"] = "_{4}", ["²"] = "^{2}",
+  ["≈"] = "\\approx", ["⟺"] = "\\Longleftrightarrow", ["↦"] = "\\mapsto",
+  ["′"] = "^{\\prime}", ["𝔄"] = "\\mathfrak{A}",
 }
 
 local function split_str(text)
@@ -41,6 +43,19 @@ local function Str(el)
     if el.text:find(ch, 1, true) then
       return split_str(el.text)
     end
+  end
+  return nil
+end
+
+-- (4) use the vector (PDF) version of a figure when one sits beside the PNG
+local function Image(el)
+  local pdf = el.src:gsub("%.png$", ".pdf")
+  if pdf == el.src then return nil end
+  local dirs = { "." }
+  for _, d in ipairs(PANDOC_STATE.resource_path or {}) do table.insert(dirs, d) end
+  for _, d in ipairs(dirs) do
+    local f = io.open(d .. "/" .. pdf, "r")
+    if f then f:close(); el.src = pdf; return el end
   end
   return nil
 end
@@ -92,6 +107,6 @@ end
 
 -- symbol pass runs first on the whole document, then the structural pass
 return {
-  { Str = Str, Code = Code },
+  { Str = Str, Code = Code, Image = Image },
   { Pandoc = Pandoc },
 }

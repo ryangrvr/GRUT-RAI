@@ -17,9 +17,10 @@ OUT="${2:-$HERE/../GRUT_Consolidated_Theory_PUBLIC_RECORD.pdf}"
 PANDOC="${PANDOC:-pandoc}"
 
 "$PANDOC" "$IN" \
-  --from=markdown+tex_math_dollars+pipe_tables-implicit_figures \
+  --from=markdown+tex_math_dollars+pipe_tables+lists_without_preceding_blankline-implicit_figures \
   --to=pdf \
   --pdf-engine=xelatex \
+  --resource-path="$(dirname "$IN")" \
   --lua-filter="$HERE/grut_filter.lua" \
   --include-in-header="$HERE/grut_header.tex" \
   --toc --toc-depth=2 \
