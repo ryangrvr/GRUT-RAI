@@ -1440,6 +1440,12 @@ Consolidated Research Record 02 (public-record edition), source boundary
 
 **Repository:** `https://github.com/ryangrvr/GRUT-RAI`, branch `master-w25bu9`.
 
+**License and copyright:** © 2026 D. Ryan Grover. This document and the
+Zenodo deposit are released under the Creative Commons Attribution 4.0
+International license (CC BY 4.0), matching the GRUT Zenodo record lineage.
+The source code in the repository is additionally available under the MIT
+License (`LICENSE` file).
+
 The Zenodo record should preserve the repository snapshot that corresponds
 to this publication. This consolidation should not replace the detailed
 computational artifacts.
