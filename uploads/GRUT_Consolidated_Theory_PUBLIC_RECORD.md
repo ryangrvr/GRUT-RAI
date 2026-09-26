@@ -163,8 +163,8 @@ observable.
 **The core.** In the tested classes, eliminating the hidden modes of a
 finite local network gives the retained part an exact memory kernel. The
 infinite-volume limit gives continuous spectra and effectively
-irreversible response. Lattice dimension selects the late-time memory
-class. These limits are graded as family-level facts, not general
+irreversible response. Lattice dimension sets the late-time decay of the
+memory. These limits are graded as family-level facts, not general
 theorems. The direction of the arrow of time is supplied, not derived.
 
 **Influence.** In the declared Gaussian class, realizable response and
