@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "If you cite this work, please cite the consolidated public record together with the repository snapshot, and cite frozen artifacts for numerical provenance."
-title: "GRUT — Grand Responsive Universe Theory: Consolidated Theory, Formal Architecture, Results, Limits, and Completion Program"
+message: "If you use this software or its records, please cite the GRUT public-record paper (preferred citation) and the GRUT-RAI archive. Cite frozen artifacts for numerical provenance."
+title: "GRUT-RAI: research and provenance infrastructure for the GRUT program"
 type: software
 authors:
   - family-names: Grover
@@ -8,6 +8,11 @@ authors:
 repository-code: "https://github.com/ryangrvr/GRUT-RAI"
 license: CC-BY-4.0
 date-released: 2026-09-26
+doi: 10.5281/zenodo.18993689
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.18993689
+    description: "GRUT-RAI concept DOI: all software versions"
 keywords:
   - open quantum systems
   - influence functional
@@ -16,18 +21,20 @@ keywords:
   - spectral geometry
   - emergent gravity
 abstract: >-
-  Public-record consolidation of the GRUT research program at source boundary
-  master-w25bu9 @ 6abbf316 (25 September 2026). Reports what the program has
-  constructed within declared model classes, the explicit inventory of
-  supplied primitive inputs, the unresolved seams, and every preserved failed
-  pre-registered gate. In-house record: no external peer review, no
-  experimental validation, and no confirmed novel quantitative prediction is
-  claimed.
-doi: 10.5281/zenodo.22983638
-identifiers:
-  - type: doi
-    value: 10.5281/zenodo.22983638
-    description: "This version (Consolidated Research Record 02, public-record edition)"
-  - type: doi
-    value: 10.5281/zenodo.19803663
-    description: "Concept DOI: cite all versions"
+  Computational and provenance infrastructure of the GRUT research program:
+  frozen pre-registration charters, executable instruments, sha-hashed result
+  artifacts, verdicts, and formalizations. It is released with the program's
+  public record at source boundary master-w25bu9 @ 6abbf316 (25 September
+  2026). This is an in-house record: no external peer review, no experimental
+  validation, and no confirmed novel quantitative prediction is claimed.
+preferred-citation:
+  type: article
+  title: "GRUT — Grand Responsive Universe Theory: Consolidated Theory, Formal Architecture, Results, Limits, and Completion Program"
+  authors:
+    - family-names: Grover
+      given-names: D. Ryan
+  year: 2026
+  publisher:
+    name: Zenodo
+  doi: 10.5281/zenodo.22983638
+  notes: "Consolidated Research Record 02 (public-record edition), source boundary 25 September 2026. All versions: 10.5281/zenodo.19803663."

@@ -1,7 +1,7 @@
 {
-  "title": "GRUT-RAI: Consolidated Theory Public Record (source boundary 25 September 2026)",
+  "title": "GRUT-RAI: research and provenance infrastructure for the GRUT program — public-record release (source boundary 25 September 2026)",
   "upload_type": "software",
-  "description": "<p>Public-record release of the GRUT (Grand Responsive Universe Theory) research program at a consolidation point, together with the GRUT-RAI computational and provenance infrastructure that produced it.</p><p>The central document is <em>GRUT — Grand Responsive Universe Theory: Consolidated Theory, Formal Architecture, Results, Limits, and Completion Program</em> (uploads/GRUT_Consolidated_Theory_PUBLIC_RECORD.md and .pdf). It states, at the source boundary master-w25bu9 @ 6abbf316, what the program has constructed within declared model classes (continuum spectral structure, memory, and effective irreversibility from strictly local finite dynamics; an influence hierarchy that is complete as an interface in class; access-relative reconstruction of tested geometry; a finite stepped nonstationary extension of the core construction), what remains a supplied primitive input (access seed, massless gauge/Lorentz probe structure, universal reach, co-stretch declaration, cross-sector light cone, hbar, Born measure, noncommutativity, states and boundary data, microscopic sector content), the unresolved seams, and every preserved failed pre-registered gate.</p><p><strong>Scope statement:</strong> this is an in-house research record. No external peer review is claimed. No experimental validation is claimed. No confirmed novel quantitative prediction is claimed. It is not a completed theory of everything. Earlier releases in this lineage carried stronger claims that the current record has demoted; where they conflict, this record supersedes them (see Section 29 of the document).</p><p>The repository snapshot includes all frozen charters, executable pure-stdlib instruments (calc/), sha-hashed result artifacts, verdicts, and formalizations cited by the document; owner rulings are recorded on GitHub Issue #2.</p>",
+  "description": "<p>Software and provenance archive of GRUT-RAI, the computational and audit infrastructure of the GRUT (Grand Responsive Universe Theory) research program. It is released at a consolidation point, together with the program's public record.</p><p>The companion paper is <em>GRUT — Grand Responsive Universe Theory: Consolidated Theory, Formal Architecture, Results, Limits, and Completion Program</em> by D. Ryan Grover, DOI <a href=\"https://doi.org/10.5281/zenodo.22983638\">10.5281/zenodo.22983638</a>. All versions of the theory record are under <a href=\"https://doi.org/10.5281/zenodo.19803663\">10.5281/zenodo.19803663</a>. The paper's Markdown source, LaTeX build, and PDF are included under uploads/.</p><p>This archive contains everything the paper cites:</p><ul><li>frozen pre-registration charters;</li><li>executable pure-stdlib instruments (calc/);</li><li>sha-hashed result artifacts;</li><li>verdicts and formalizations;</li><li>the foundations record, archived from the adjudicator-track branch.</li></ul><p>Owner rulings are recorded on GitHub Issue #2.</p><p><strong>Scope statement:</strong> this is an in-house research record.</p><ul><li>No external peer review is claimed.</li><li>No experimental validation is claimed.</li><li>No confirmed novel quantitative prediction is claimed.</li><li>It is not a completed theory of everything.</li></ul><p>Earlier releases in this lineage carried stronger claims that the current record has demoted. Where they conflict, the current record governs (paper, Section 29).</p>",
   "creators": [
     {
       "name": "Grover, D. Ryan"
@@ -20,14 +20,20 @@
   ],
   "license": "cc-by-4.0",
   "language": "eng",
-  "notes": "Public-record release at a consolidation pause. Source boundary: master-w25bu9 @ 6abbf3164655c513b72dfc72f4a64013b061c489; foundations on adjudicator-track @ affdf52 and 90218f5. AI agents were used as computational, drafting, and audit instruments under the author's direction. License: the deposit is released under Creative Commons Attribution 4.0 International (CC BY 4.0), matching the GRUT Zenodo record lineage; copyright (c) 2026 D. Ryan Grover. The source code in the repository is additionally available under the MIT License (LICENSE file). Reserved version DOI: 10.5281/zenodo.22983638. Concept DOI (all versions): 10.5281/zenodo.19803663. This version supersedes the June 2026 deposit 10.5281/zenodo.20783057, whose claims are withdrawn.",
-  "version": "Consolidated Research Record 02 (public-record edition)",
+  "version": "public-record release, source boundary 25 September 2026",
   "related_identifiers": [
     {
-      "identifier": "10.5281/zenodo.20783057",
-      "relation": "isNewVersionOf",
+      "identifier": "10.5281/zenodo.22983638",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.19803663",
+      "relation": "isSupplementTo",
       "resource_type": "publication-preprint",
       "scheme": "doi"
     }
-  ]
+  ],
+  "notes": "GRUT-RAI concept DOI (all software versions): 10.5281/zenodo.18993689. Source boundary: master-w25bu9 @ 6abbf3164655c513b72dfc72f4a64013b061c489. The foundations record is archived from adjudicator-track @ affdf52 and 90218f5. License: the deposit is CC BY 4.0, copyright (c) 2026 D. Ryan Grover; the source code is also available under the MIT License (LICENSE file). AI agents were used as computational, drafting, and audit instruments under the author's direction."
 }
