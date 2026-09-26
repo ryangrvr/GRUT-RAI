@@ -1,0 +1,202 @@
+{
+  "instrument": "calc/u3_kernel_minimality.py",
+  "checks": [
+    {
+      "name": "E2a one-variable realization matches single-pole convolution",
+      "pass": true,
+      "msg": "max |phi_ode - R_conv| = 6.89e-03 < 1.5e-2 discretization bound (tau=1)"
+    },
+    {
+      "name": "E2b scalar auxiliary law realizes ONLY an exponential",
+      "pass": true,
+      "msg": "phi'=a*phi+b*X, R=c*phi -> impulse response = c*b*e^(a t); max dev 4.89e-04 (a=-0.7, b=1.3, c=2.1) -- uniqueness of the 1-variable class"
+    },
+    {
+      "name": "E3a counterexamples to uniqueness exist",
+      "pass": true,
+      "msg": "5 kernels pass ALL SIX constraints with Markov dimension > 1: ['two_pole', 'jordan', 'damped_cosine', 'boxcar_delay', 'power_law'] -- H is REFUTED AS STATED"
+    },
+    {
+      "name": "E4a passivity does NOT select the single pole either",
+      "pass": true,
+      "msg": "killed: ['jordan', 'boxcar_delay']; PASSIVE and still dim>1: ['two_pole', 'damped_cosine', 'power_law'] -- even the register's own 7th constraint admits multi-variable realizations"
+    },
+    {
+      "name": "E5a single_pole * single_pole = Jordan (t e^{-t})",
+      "pass": true,
+      "msg": "max |K*K - t e^-t| = 1.00e-02 < 2.5e-2 discretization bound -- composing two first-order evolutions yields a TWO-variable (Jordan) evolution: the minimal class is closed under composition, the single pole is not a fixed point of it"
+    }
+  ],
+  "hypothesis": "single-pole kernel emerges uniquely from {state, causality, persistence, finite memory, stability, time-translation invariance} as the minimal Markovian realization",
+  "summary": {
+    "hypothesis": "REFUTED AS STATED",
+    "counterexamples_with_dim_gt_1": [
+      "two_pole",
+      "jordan",
+      "damped_cosine",
+      "boxcar_delay",
+      "power_law"
+    ],
+    "killed_by_passivity": [
+      "jordan",
+      "boxcar_delay"
+    ],
+    "uniqueness_theorem": "the exponential is the UNIQUE one-auxiliary-variable Markovian realization (E2); the six constraints alone select a whole CLASS of admissible kernels, not the single pole",
+    "relocated_posit": "the ontological posit moves from kernel SHAPE to a MINIMALITY principle (exactly one retained-history variable); multi-pole kernels = more retained history, boxcar/power-law = continuum of retained history (delay/branch-cut)",
+    "composability_finding": "composition of first-order evolutions generates the Jordan hierarchy t^n e^{-t/tau}: the admissible class is closed under composition while the single pole is not its fixed point",
+    "verdict": "U3 PARTIAL: first-order relaxation is derivable GIVEN minimality; minimality is an additional principle the six constraints do not supply. The decisive question is now: why ONE auxiliary variable rather than many or a continuum -- this is the sharpened form of rung3_single_pole."
+  },
+  "kernel_table": [
+    {
+      "name": "single_pole",
+      "causal": true,
+      "bibostable": true,
+      "l1": 1.0050021583348276,
+      "finite_memory": true,
+      "first_moment": 0.99991142273178,
+      "tti": true,
+      "passive": true,
+      "re_chi": [
+        1.0050021583348276,
+        0.8050028974830298,
+        0.5050040666033534,
+        0.20500557365041558,
+        0.10500658829817491,
+        0.06383100395416706,
+        0.04346976712106338,
+        0.02500907027151635,
+        0.014909605913251281
+      ],
+      "passes_six": true,
+      "passes_seven": true,
+      "markov_dim_analytic": 1,
+      "passive_expected": true
+    },
+    {
+      "name": "two_pole",
+      "causal": true,
+      "bibostable": true,
+      "l1": 0.671678497135937,
+      "finite_memory": true,
+      "first_moment": 0.49996491864066833,
+      "tti": true,
+      "passive": true,
+      "re_chi": [
+        0.671678497135937,
+        0.5854042337290275,
+        0.43834579994907386,
+        0.23834630246764177,
+        0.14091074352861935,
+        0.09128811324183607,
+        0.06381137962774536,
+        0.03683803655777864,
+        0.021134831387125703
+      ],
+      "passes_six": true,
+      "passes_seven": true,
+      "markov_dim_analytic": 2,
+      "passive_expected": true
+    },
+    {
+      "name": "jordan",
+      "causal": true,
+      "bibostable": true,
+      "l1": 0.99991142273178,
+      "finite_memory": true,
+      "first_moment": 1.9989510538395014,
+      "tti": true,
+      "passive": false,
+      "re_chi": [
+        0.99991142273178,
+        0.4799225060854176,
+        -6.118279219241038e-05,
+        -0.12004202896598871,
+        -0.0800297069494614,
+        -0.05192209631366386,
+        -0.03551279684388791,
+        -0.019199571442515873,
+        -0.009709872846062385
+      ],
+      "passes_six": true,
+      "passes_seven": false,
+      "markov_dim_analytic": 2,
+      "passive_expected": true
+    },
+    {
+      "name": "damped_cosine",
+      "causal": true,
+      "bibostable": true,
+      "l1": 1.2807688189751185,
+      "finite_memory": true,
+      "first_moment": 2.4920896924911533,
+      "tti": true,
+      "passive": true,
+      "re_chi": [
+        0.05827970457616,
+        0.06268337733418916,
+        0.07841372142493983,
+        0.21390406540913812,
+        1.0094903515867582,
+        0.20926660380070686,
+        0.06728068495396931,
+        0.02273822323970345,
+        0.011610816114208675
+      ],
+      "passes_six": true,
+      "passes_seven": true,
+      "markov_dim_analytic": 2,
+      "passive_expected": true
+    },
+    {
+      "name": "boxcar_delay",
+      "causal": true,
+      "bibostable": true,
+      "l1": 1.01,
+      "finite_memory": true,
+      "first_moment": 0.505,
+      "tti": true,
+      "passive": false,
+      "re_chi": [
+        1.01,
+        0.9682369924106147,
+        0.8491654840673434,
+        0.45755282417195736,
+        0.047086512150497535,
+        -0.18744361450871758,
+        -0.1853265871623024,
+        0.10258641231168004,
+        -0.05355212608409692
+      ],
+      "passes_six": true,
+      "passes_seven": false,
+      "markov_dim_analytic": Infinity,
+      "passive_expected": false
+    },
+    {
+      "name": "power_law",
+      "causal": true,
+      "bibostable": true,
+      "l1": 0.5020641425790957,
+      "finite_memory": true,
+      "first_moment": 0.4259998534462666,
+      "tti": true,
+      "passive": true,
+      "re_chi": [
+        0.5020641425790957,
+        0.4204338352940519,
+        0.3330247839545849,
+        0.21572002068658613,
+        0.14838062186930492,
+        0.10751836023048573,
+        0.08130073199335258,
+        0.0513132851554464,
+        0.03062173970483657
+      ],
+      "passes_six": true,
+      "passes_seven": true,
+      "markov_dim_analytic": Infinity,
+      "passive_expected": true
+    }
+  ],
+  "w0": "computed result; banking requires the owner through the register gates"
+}

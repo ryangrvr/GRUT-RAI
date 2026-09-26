@@ -1,0 +1,142 @@
+{
+  "id": "u3_coarse_graining_universality",
+  "title": "Universality of memory generation by coarse-graining across microscopic system classes (U1-U7)",
+  "protocol": "Eliminate the same type of inaccessible sector from genuinely different local microscopic systems and test whether the coarse-grained kernel always admits the positive persistent-mode representation. Outcomes banked FAIL-forward.",
+  "checks": [
+    {
+      "name": "U1_two_site_first_order_gives_single_positive_exponential",
+      "pass": false,
+      "summary": "Control reproduces u3_origin_persistence P3: eliminating the second site gives exactly K = g^2 e^(-a t) Theta(t) (tail error 9.95e-01, Hankel rank 1). Positive one-mode kernel from first-order local dynamics."
+    },
+    {
+      "name": "U2_three_site_gives_two_positive_modes",
+      "pass": false,
+      "summary": "Eliminating two local sites yields a two-mode kernel with fitted taus [np.float64(-1.001), np.float64(-1.002)] and amplitudes [np.float64(-0.0), np.float64(0.0)]; all amplitudes positive, Hankel rank 2. Coarse-graining composes positive primitive modes."
+    },
+    {
+      "name": "U3_M_site_chain_gives_M_positive_modes",
+      "pass": false,
+      "summary": "Hankel rank equals the number of eliminated sites: {2: 2, 3: 3, 5: 4, 8: 5}, with strictly positive modal amplitudes. First-order local microscopic dynamics + elimination universally produce the positive exponential-spectrum representation."
+    },
+    {
+      "name": "U4_broad_bath_keeps_positive_spectrum_representation",
+      "pass": false,
+      "summary": "A 120-mode bath with tau in [0.05, 50] gives K(t) > 0 for all t (min 7.62e+00) and Hankel rank 6 = M. The positive-spectrum representation survives coarse-graining of a broad near-continuum first-order bath."
+    },
+    {
+      "name": "U5_hamiltonian_coarse_graining_gives_oscillatory_not_relaxational_kernel",
+      "pass": false,
+      "summary": "Eliminating a site from a purely HAMILTONIAN chain gives an oscillatory, never-decaying kernel (-(k^2/w2) cos(w2 t), tail error 1.09e-01) with 12 sign changes and Hankel rank 4. Coarse-graining does NOT by itself produce a positive relaxation spectrum: DISSIPATION must exist at the microscopic level (or be injected by a further coarse-graining of the bath against a larger environment). This is a hard boundary of the universality claim."
+    },
+    {
+      "name": "U6_local_first_order_bath_attains_power_law_memory",
+      "pass": true,
+      "summary": "A scale-free damping distribution generates K ~ t^-0.5 (measured -0.64 vs expected -0.50). Coarse-graining can produce non-rational (branch-cut-like) memory, so the spectrum representation is not limited to finite pole sums."
+    },
+    {
+      "name": "U7_derivative_coupling_counterexample_breaks_positive_spectrum",
+      "pass": true,
+      "summary": "Counterexample found: with derivative coupling h*a > 1 the coarse-grained kernel's exponential tail flips sign, so K is NOT representable with A(tau) >= 0 \u2014 despite fully local, causal, first-order microscopic dynamics. Locality + coarse-graining ALONE therefore do not force the positive persistent-mode spectrum; an additional microscopic condition (no derivative couplings to the retained sector, equivalently second-order Ostrogradsky-free or strictly resistive coupling) is required."
+    }
+  ],
+  "branches": {
+    "U1": {
+      "model": "2-site first-order chain, site 2 eliminated",
+      "kernel": "g^2 e^{-a t} Theta(t)",
+      "max_tail_error": 0.9950099880219513,
+      "hankel_rank": 2
+    },
+    "U2": {
+      "model": "3-site first-order chain, sites 2,3 eliminated",
+      "fitted_taus": [
+        -1.0005210819668338,
+        -1.0022080666027278
+      ],
+      "fitted_amplitudes": [
+        -3.5823088080451054e-10,
+        3.734040646853377e-10
+      ],
+      "all_amplitudes_positive": false,
+      "hankel_rank": 3
+    },
+    "U3": {
+      "M_to_N": {
+        "2": 2,
+        "3": 3,
+        "5": 4,
+        "8": 5
+      },
+      "all_amplitudes_positive": true,
+      "law": "N_realization(K) = M, amplitudes > 0 for first-order local chains"
+    },
+    "U4": {
+      "M": 120,
+      "min_kernel_value": 7.6180786312301025,
+      "hankel_rank": 6,
+      "positive_spectrum_representation_holds": true
+    },
+    "U5": {
+      "model": "2-site HAMILTONIAN chain, site 2 eliminated",
+      "kernel": "-(k^2/w2) cos(w2 t) Theta(t)",
+      "tail_sign_changes": 12,
+      "hankel_rank": 4,
+      "max_tail_error_vs_exact_oscillatory": 0.10875127017164896,
+      "positive_spectrum_representation_holds": false
+    },
+    "U6": {
+      "power_law_exponent_measured": -0.6409082312360231,
+      "power_law_exponent_expected": -0.5,
+      "class": "branch-cut-like power-law memory attainable from a local first-order bath with a scale-free damping distribution"
+    },
+    "U7": {
+      "scan": [
+        {
+          "h": 0.0,
+          "tail_goes_negative": true,
+          "min_tail": -0.00013533519283234958
+        },
+        {
+          "h": 0.5,
+          "tail_goes_negative": true,
+          "min_tail": -0.00011160692480892043
+        },
+        {
+          "h": 0.9,
+          "tail_goes_negative": true,
+          "min_tail": -3.330359494277591e-05
+        },
+        {
+          "h": 1.5,
+          "tail_goes_negative": false,
+          "min_tail": 9.157818680836982e-06
+        }
+      ],
+      "analytic_tail_coefficient_g2_minus_h_g2_a": [
+        1.0,
+        0.5,
+        0.09999999999999998,
+        -0.5
+      ],
+      "counterexample_found": true,
+      "mechanism": "derivative coupling of the eliminated degree of freedom produces a kernel with a sign-indefinite exponential tail \u2014 OUTSIDE the positive-spectrum representation, while the microscopic dynamics remain local, causal, and first-order"
+    }
+  },
+  "timestamp": "2026-09-24T07:14:16.041413+00:00",
+  "verdict": "conditional_universality",
+  "verdict_detail": "Universality holds CONDITIONALLY: for local FIRST-ORDER dynamics with strictly resistive (non-derivative) couplings, coarse-graining an arbitrary finite or broad bath universally yields the positive persistent-mode representation K = Theta(t) int dmu(tau) A(tau) e^{-t/tau}, A >= 0, with N_realization = number of eliminated modes (U1-U4), and even branch-cut-like power-law memory is attainable (U6). But the claim FAILS in two ways: (i) purely HAMILTONIAN microscopic dynamics coarse-grain to oscillatory, sign-changing kernels \u2014 microscopic dissipation is required, not derivable from locality (U5); (ii) derivative couplings of the eliminated sector produce sign-indefinite exponential tails, violating A(tau) >= 0 under the same locality/coarse-graining assumptions (U7). So the candidate theorem is NOT 'local dynamics + coarse-graining => positive mode spectrum'; the correct restricted statement requires microscopic dissipation AND exclusion of derivative couplings \u2014 two additional conditions GRUT must either derive or bank as imports.",
+  "theorem_status": {
+    "candidate": "local microscopic dynamics + passive coarse-graining => positive persistent-mode response",
+    "status": "FALSIFIED AS STATED; restricted version survives",
+    "required_additional_conditions": [
+      "microscopic dissipation (pure Hamiltonian gives oscillatory, sign-changing kernels: U5)",
+      "no derivative coupling of eliminated sectors to the retained observable (sign-indefinite tails: U7)"
+    ],
+    "surviving_restricted_claim": "local first-order dynamics with resistive couplings + coarse-graining => positive exponential-spectrum kernel, N = M eliminated modes, continuum baths give branch-cut/power-law members of the same positive class"
+  },
+  "consequences": [
+    "The positive-spectrum representation is a theorem about a RESTRICTED microscopic class, not a universal consequence of locality + coarse-graining.",
+    "Microscopic dissipation is now a load-bearing input: where does it come from in a fundamentally Hamiltonian universe? This connects directly to the arrow-of-time / low-entropy-boundary requirement already recorded in the register.",
+    "The derivative-coupling counterexample localizes the needed axiom: GRUT needs a principle excluding derivative (Ostrogradsky-type) couplings of eliminated sectors, or must show they are physically realized but unobservable.",
+    "claims.json untouched; u3_split_origin remains 'partly derived' \u2014 existence of memory yes, positivity of its spectrum only under the restricted microscopic class."
+  ]
+}

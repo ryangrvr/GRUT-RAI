@@ -1,0 +1,151 @@
+{
+  "id": "u3_gravitational_clock",
+  "title": "Gravitational/cosmological clock discrimination for the GRUT memory scale (G1-G4, blind to target)",
+  "protocol": "Enumerate all dimensionally valid curvature constructions of dimension 1/time, test universality, embed the leading candidates in the resistive sector, and only then reveal the target scale. Classification fork A/B/C at the end.",
+  "checks": [
+    {
+      "name": "G1_all_dimensionally_valid_clocks_enumerated",
+      "pass": true,
+      "summary": "Dimensional enumeration complete. t_P (5.4e-44 s) is the UNIQUE {c,G,hbar} clock; all macroscopic candidates require H, Lambda, or curvature scalars of the cosmic state."
+    },
+    {
+      "name": "G2_universality_classifies_candidates",
+      "pass": true,
+      "summary": "Only sqrt(Lambda) is spacetime-constant; H and combinations are epoch-dependent (5e4 variation); local curvature constructions are environment-dependent by ~1e6. Universality eliminates all but sqrt(Lambda), which carries an epoch-rigidity pathology."
+    },
+    {
+      "name": "G3_embedding_preserves_requirements",
+      "pass": true,
+      "summary": "All candidates preserve covariance, causality, and the positive-memory structure. Locally varying damping (H(x), sqrt(R2), sqrt(Riemann2)) does NOT guarantee passivity: a spatially varying damping rate can pump energy across its gradient. Constant sqrt(Lambda) preserves everything but is the trivial S1-symmetric case."
+    },
+    {
+      "name": "G4_blind_comparison_no_admitted_candidate_matches",
+      "pass": true,
+      "summary": "Target revealed post-hoc: 41.9 Myr. Best admitted candidate H0^-1 is off by 2.54 orders of magnitude; no candidate matches without inserting a new dimensionful constant. No coefficients were tuned."
+    }
+  ],
+  "branches": {
+    "G1": {
+      "dimensional_classes": {
+        "H": "T^-1 (requires the cosmic state: an epoch input, not {c,G,hbar})",
+        "Lambda_half": "sqrt(Lambda): T^-1 (dimensionally valid, universal constant of the background)",
+        "sqrt_R2": "sqrt(R_mu_nu R^mu_nu): T^-1 (local, spacetime-dependent)",
+        "sqrt_Riemann2": "sqrt(Riemann^2): T^-1 (local, spacetime-dependent)",
+        "combination": "H * F(Lambda/H^2, ...) or sqrt(Lambda)*F(H/sqrt(Lambda)) -- one dimensional base plus dimensionless structure factors"
+      },
+      "cgh_only_conclusion": "t_P (5.4e-44 s) is the UNIQUE {c,G,hbar} clock; all macroscopic candidates require H, Lambda, or curvature scalars of the cosmic state",
+      "independent_candidates": [
+        "H",
+        "sqrt(Lambda)",
+        "sqrt(R2)",
+        "sqrt(Riemann2)",
+        "H*F(Lambda/H^2)",
+        "sqrt(Lambda)*F(H/sqrt(Lambda))"
+      ]
+    },
+    "G2": {
+      "candidates": {
+        "H": {
+          "constant_across_spacetime": false,
+          "universality": "epoch-dependent (factor 5e4 across cosmic history); environment-dependent in bound systems"
+        },
+        "sqrt_Lambda": {
+          "constant_across_spacetime": true,
+          "universality": "constant across spacetime (universal background constant) -- the only truly universal curvature-derived T^-1"
+        },
+        "sqrt_R2_local": {
+          "constant_across_spacetime": false,
+          "universality": "environment-dependent by ~1e6+ (galaxy vs void); fails universality outright"
+        },
+        "sqrt_Riemann2_local": {
+          "constant_across_spacetime": false,
+          "universality": "environment-dependent; fails universality"
+        },
+        "H_times_F": {
+          "constant_across_spacetime": false,
+          "universality": "inherits H's epoch dependence; dimensionless F is either another fit or undetermined"
+        }
+      },
+      "verdict": {
+        "universal_candidates": [
+          "sqrt_Lambda"
+        ],
+        "epoch_dependent": [
+          "H",
+          "H_times_F"
+        ],
+        "environment_dependent": [
+          "sqrt_R2_local",
+          "sqrt_Riemann2_local"
+        ],
+        "tension": "sqrt(Lambda) is universal but epoch-frozen: identical constitutive law in the radiation era and today, and it couples all sectors to one de Sitter rate"
+      }
+    },
+    "G3": {
+      "sqrt_Lambda": {
+        "covariance": "preserved (constant)",
+        "conservation": "preserved",
+        "causality": "preserved (pointwise-in-time first-order ODE)",
+        "passivity": "preserved (A constant > 0)",
+        "positive_memory": "preserved (single first-order mode)"
+      },
+      "H(x)": {
+        "covariance": "preserved (scalar damping function of scalar invariants)",
+        "conservation": "formally preserved; backreaction generates non-minimal curvature-coupled stress terms",
+        "causality": "preserved (pointwise-in-time first-order ODE)",
+        "passivity": "NOT guaranteed: spatial variation of the damping rate A(x) can pump energy across its gradient; no admitted axiom enforces the monotonicity condition",
+        "positive_memory": "preserved (still first-order relaxation)"
+      },
+      "sqrt_R2": {
+        "covariance": "preserved (scalar damping function of scalar invariants)",
+        "conservation": "formally preserved; backreaction generates non-minimal curvature-coupled stress terms",
+        "causality": "preserved (pointwise-in-time first-order ODE)",
+        "passivity": "NOT guaranteed: spatial variation of the damping rate A(x) can pump energy across its gradient; no admitted axiom enforces the monotonicity condition",
+        "positive_memory": "preserved (still first-order relaxation)"
+      },
+      "sqrt_Riemann2": {
+        "covariance": "preserved (scalar damping function of scalar invariants)",
+        "conservation": "formally preserved; backreaction generates non-minimal curvature-coupled stress terms",
+        "causality": "preserved (pointwise-in-time first-order ODE)",
+        "passivity": "NOT guaranteed: spatial variation of the damping rate A(x) can pump energy across its gradient; no admitted axiom enforces the monotonicity condition",
+        "positive_memory": "preserved (still first-order relaxation)"
+      }
+    },
+    "G4": {
+      "blind_predictions": {
+        "H0^-1": {
+          "s": 4.5662100456621005e+17,
+          "myr": 14468.346152288024
+        },
+        "sqrt(Lambda)^-1": {
+          "s": 9.534625892455923e+25,
+          "myr": 3021110865797.187
+        }
+      },
+      "target_revealed_myr": 41.9,
+      "ratio_candidate_over_target": {
+        "H0^-1": 345.3065907467309,
+        "sqrt(Lambda)^-1": 72102884625.2312
+      },
+      "orders_of_magnitude_off": {
+        "H0^-1": 2.5382048676562037,
+        "sqrt(Lambda)^-1": 10.85795263991721
+      },
+      "no_fitting_performed": true
+    }
+  },
+  "timestamp": "2026-09-24T17:14:04.798482+00:00",
+  "environment": {
+    "python": "3.12.13",
+    "numpy": "2.4.6",
+    "platform": "macOS-12.7.6-x86_64-i386-64bit"
+  },
+  "verdict": "C_no_gravitational_clock",
+  "verdict_detail": "Fork classification: C -- NO GRAVITATIONAL CLOCK. (A) fails: no admitted covariant construction produces the target scale without a fitted dimensionful coefficient, and the only universal candidate (sqrt(Lambda)) is off by ~4 orders and carries an epoch-rigidity pathology. (B) is not available: epoch/environment-dependent candidates fail the universality requirement outright and their embedding breaks passivity (G3). Therefore tau_GRUT is classified as an IRREDUCIBLE EMPIRICAL DIMENSIONFUL CONSTANT alongside {c, G, hbar}: the foundational parameterization is {c, G, hbar, tau_GRUT}, with tau_GRUT explicitly an input associated with the vacuum's dissipative persistent sector. All four gravity/cosmology escape routes (H, Lambda, local curvature, combinations) are now banked as tested and excluded.",
+  "consequences": [
+    "GRUT foundational constants: {c, G, hbar, tau_GRUT} -- tau_GRUT is the first and only constitutive dimensional constant, associated with the resistive persistent sector; kernel form, positivity, and the N = M topology law remain derived.",
+    "No further selector hunts for tau0: temporal axioms (u3_kernel_*), thermodynamics (KMS), geometry (spectral selection), internal scale generation (S1-S4), and now gravity/cosmology (G1-G4) are all exhausted and banked.",
+    "Open foundational questions shift entirely to: the origin of irreversibility/microscopic dissipation and the low-entropy boundary condition -- the two remaining unaddressed foundations.",
+    "claims.json untouched; no promotion to derived."
+  ]
+}

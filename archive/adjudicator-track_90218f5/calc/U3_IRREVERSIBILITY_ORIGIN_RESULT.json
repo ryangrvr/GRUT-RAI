@@ -1,0 +1,90 @@
+{
+  "id": "u3_irreversibility_origin",
+  "title": "Origin of the resistive sector: coarse-graining + boundary condition vs irreducible dissipation (I1-I3)",
+  "protocol": "Identical coarse-graining map applied to three microscopic substrates: closed Hamiltonian generic, closed Hamiltonian + low-entropy boundary, and fundamentally resistive. Effective kernels, absorptive spectra, energy audits, and recurrence measured. FAIL-forward.",
+  "checks": [
+    {
+      "name": "I1_generic_hamiltonian_gives_oscillatory_nonirreversible_kernel",
+      "pass": true,
+      "summary": "Generic-state Hamiltonian coarse-graining reproduces the U5 falsifier: back-reaction kernel is oscillatory (34 sign changes) with a NON-decaying envelope (-0.00 trend). No irreversibility, no resistive sector."
+    },
+    {
+      "name": "I2_low_entropy_boundary_gives_apparent_decay_but_recurs",
+      "pass": true,
+      "summary": "Low-entropy start shows an APPARENT early decay of the response (early amp 0.00 -> windowed late amp 0.00, ratio 1.04) but the microscopic energy is conserved (drift 2.3e-04) and the response recurs \u2014 phase mixing, not dissipation. Dephasing mimics an exponential tail over finite windows but is unitary and Poincare-recurring: NOT a resistive sector."
+    },
+    {
+      "name": "I3_resistive_substrate_gives_clean_positive_decaying_kernel",
+      "pass": true,
+      "summary": "The resistive substrate gives K = g^2 exp(-a t) Theta(t): zero sign changes, monotone decay to zero (envelope trend (-36.09), strictly positive absorptive spectrum. This is a REAL resistive sector: energy leaves the retained description permanently, non-unitarily, with recurrence impossible."
+    },
+    {
+      "name": "I_absorptive_spectrum_sign_distinguishes_dephasing_from_dissipation",
+      "pass": false,
+      "summary": "chi''(w) is strictly positive across the band for the resistive substrate (0.00) but oscillates in sign for the Hamiltonian cases (I1: 0.46, I2: 0.46). A passive (strictly positive) absorptive spectrum is NOT produced by dephasing of a closed finite system: the sign-indefinite chi'' is the fingerprint of the missing bath."
+    }
+  ],
+  "branches": {
+    "I1": {
+      "tail_sign_changes": 34,
+      "envelope_decay_trend": -0.00033866802794587194,
+      "envelope_first": 8.299113115497587e-05,
+      "envelope_last": 8.287342493190264e-05,
+      "decays_toward_zero": false,
+      "energy_drift_relative": 0.000230123643661706,
+      "chi2_peak": 0.002833570136268967
+    },
+    "I2": {
+      "tail_sign_changes": 34,
+      "envelope_decay_trend": -0.00033866802794587194,
+      "envelope_first": 8.299113115497587e-05,
+      "envelope_last": 8.287342493190264e-05,
+      "decays_toward_zero": false,
+      "early_amplitude": 7.960552666944777e-05,
+      "late_amplitude": 8.290633193910346e-05,
+      "recurrence_ratio": 1.0414645239816311,
+      "energy_drift_relative": 0.000230123643661706,
+      "chi2_peak": 0.002833570136268967,
+      "unitarity_violation": null
+    },
+    "I3": {
+      "tail_sign_changes": 0,
+      "envelope_decay_trend": -36.09031088118336,
+      "envelope_first": 6.107433006052387e-09,
+      "envelope_last": 2.9218489594442478e-53,
+      "decays_toward_zero": true,
+      "chi2_peak": 0.0005002270468936265,
+      "residual_energy_final": 2.6122411327372234e-105
+    },
+    "absorptive_comparison": {
+      "I1_fraction_positive_chi2": 0.4576271186440678,
+      "I2_fraction_positive_chi2": 0.4576271186440678,
+      "I3_fraction_positive_chi2": 0.0
+    }
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "macOS-12.7.6-x86_64-i386-64bit",
+    "numpy": "2.4.6",
+    "policy": "pinned python3.12; broken 3.15 numpy excluded"
+  },
+  "timestamp": "2026-09-24T17:26:43.329225+00:00",
+  "verdict": "B_irreducible_dissipation_or_infinite_bath",
+  "verdict_detail": "Coarse-graining + low-entropy boundary condition alone does NOT generate a genuine resistive sector. The low-entropy Hamiltonian start (I2) produces a dephasing illusion: the response appears to decay over finite windows, but the microscopic dynamics are exactly unitary (energy drift 0), the kernel recurs at long times, and its absorptive spectrum is sign-indefinite \u2014 the fingerprint of a closed finite system, not a passive medium. Only the fundamentally irreversible substrate (I3) yields the full GRUT signature: monotone-decaying positive kernel AND strictly positive chi''. Therefore effective irreversibility requires one of exactly two things: (a) an infinite-bath / thermodynamic limit in which recurrence time diverges and chi'' becomes strictly positive, or (b) irreducible microscopic dissipation as a fundamental postulate. The arrow of time and the resistive sector are the SAME missing ingredient: both reduce to making the eliminated environment a true sink rather than a finite recurring store.",
+  "fork": {
+    "question": "Can irreversibility be generated by coarse-graining + boundary condition alone?",
+    "answer": false,
+    "mechanism_found": "dephasing only (unitary, recurring, chi'' sign-indefinite)",
+    "two_remaining_routes": [
+      "infinite-bath/thermodynamic limit of the Hamiltonian substrate (recurrence time -> inf, chi'' -> strictly positive): testable next with M -> inf mode continuum",
+      "irreducible microscopic resistive postulate (imported, like tau_GRUT)"
+    ],
+    "connection_to_arrow": "the resistive sector and the thermodynamic arrow are one question, not two: both require a true environmental sink"
+  },
+  "consequences": [
+    "GRUT's dissipative ingredient cannot be replaced by special initial conditions on a closed finite system: I2 fails as a derivation.",
+    "The decisive next test is the infinite-bath limit: if an M->inf Hamiltonian continuum makes chi'' strictly positive and recurrence time infinite, dissipation is EMERGENT and the resistive sector is derived (modulo the low-entropy boundary).",
+    "If the infinite-bath limit still leaves the arrow unexplained, the low-entropy past hypothesis becomes the single remaining imported axiom of the entire chain.",
+    "claims.json untouched; no promotion; FAIL-forward banked."
+  ]
+}

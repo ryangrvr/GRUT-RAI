@@ -1,0 +1,117 @@
+{
+  "id": "u3_scale_origin",
+  "title": "Origin of a physical memory relaxation scale (blind protocol)",
+  "protocol": "PHASE A runs all four derivation branches with NO reference to the candidate macroscopic scale. PHASE B loads the comparison target only after PHASE A completes and compares post-hoc.",
+  "checks": [
+    {
+      "name": "B1_only_planck_time_from_baseline_constants",
+      "pass": true,
+      "summary": "dim map det=-2 (nonzero => unique solution): the only time from {c,G,hbar} is the Planck time 5.391e-44 s. No macroscopic time is dimensionally reachable from the baseline constants."
+    },
+    {
+      "name": "B1_macroscopic_time_requires_new_dimensional_input",
+      "pass": true,
+      "summary": "hbar/E is the only route to long times; E is not derivable from baseline constants. New dimensional input REQUIRED for any macroscopic memory scale: energy (or its equivalents)."
+    },
+    {
+      "name": "B2_background_candidates_span_no_macroscopic_memory_scale",
+      "pass": true,
+      "summary": "Background-derived candidates are either Planckian (~1e-44 s) or cosmological (~1e17-1e18 s). None is an independent, universal, non-epoch-dependent relaxation scale; H0^-1 and Lambda scales are epoch-dependent by construction."
+    },
+    {
+      "name": "B3_selfconsistency_cannot_generate_isolated_scale",
+      "pass": true,
+      "summary": "self-consistency map is homogeneous of degree 1.0: every solution comes in a continuum of rescaled copies, so an isolated tau_eff requires a NEW inserted scale. Self-consistent generation FAILS without additional structure."
+    },
+    {
+      "name": "B4_scale_invariance_not_broken_by_admitted_principles",
+      "pass": true,
+      "summary": "No admitted principle breaks scale invariance; rho ~ tau^-p survives all constraints. A finite tau_0 requires exactly one new dimensionful input, whose value remains empirical."
+    },
+    {
+      "name": "PHASE_B_no_admitted_candidate_matches_target",
+      "pass": true,
+      "summary": "best candidate Hubble_time_H0^-1 misses by 2.54 orders of magnitude; every candidate required a new dimensional input beyond {c,G,hbar}. The target scale is NOT derivable."
+    },
+    {
+      "name": "VERDICT_tau0_is_empirical_input_to_GRUT",
+      "pass": true,
+      "summary": "All four branches negative: B1 Planck-time-only; B2 background scales epoch-dependent and far off; B3 no isolated fixed point without inserted scale; B4 scale invariance unbroken. GRUT currently contains NO mechanism generating its characteristic macroscopic memory time; tau_0 is an empirical structural input."
+    }
+  ],
+  "phaseA": {
+    "B1_dimensional_emergence": {
+      "inputs": [
+        "c",
+        "G",
+        "hbar"
+      ],
+      "unique_combination": "sqrt(hbar G / c^5)",
+      "value_s": 5.391246446661944e-44,
+      "det_of_dimension_map": -2,
+      "rank_full": true
+    },
+    "B1_new_input_required": "an energy/mass/density/temperature scale (e.g. E, m, rho, T); none is derivable from {c,G,hbar}",
+    "B2_background_candidates": {
+      "Hubble_time_H0^-1": [
+        4.578189910979228e+17,
+        "H0"
+      ],
+      "Lambda_geom_time_Lambda^-1/2": [
+        9.510448211356669e+25,
+        "Lambda"
+      ],
+      "vacuum_energy_time_hbar/rho_vac-c-units": [
+        7.351547939692765e-51,
+        "rho_vac"
+      ],
+      "Planck_time": [
+        5.391246446661944e-44,
+        null
+      ]
+    },
+    "B3_self_consistent_scale": {
+      "fixed_point_equation": "tau_eff = <tau>_{rho, tau_eff}",
+      "homogeneity_degree": 1.0,
+      "isolated_fixed_point_possible": false
+    },
+    "B4_scale_free": {
+      "admitted_principles_force_scale": false,
+      "scale_free_spectrum_admitted": "rho ~ tau^-p",
+      "minimal_scale_breaking_ingredient": "one new dimensionful quantity (energy/mass/density/time); its VALUE is not derivable from admitted inputs"
+    }
+  },
+  "phaseB": {
+    "target_s": 1322263440000000.0,
+    "comparison": {
+      "Hubble_time_H0^-1": {
+        "value_s": 4.578189910979228e+17,
+        "log10_error": 2.5393758139225757,
+        "new_input": "H0"
+      },
+      "Lambda_geom_time_Lambda^-1/2": {
+        "value_s": 9.510448211356669e+25,
+        "log10_error": 10.856882994933416,
+        "new_input": "Lambda"
+      },
+      "vacuum_energy_time_hbar/rho_vac-c-units": {
+        "value_s": 7.351547939692765e-51,
+        "log10_error": 65.25493919642497,
+        "new_input": "rho_vac"
+      },
+      "Planck_time": {
+        "value_s": 5.391246446661944e-44,
+        "log10_error": 58.389628805138294,
+        "new_input": null
+      }
+    }
+  },
+  "timestamp": "2026-09-24T05:57:53.846991+00:00",
+  "verdict": "No branch derives a macroscopic memory scale: dimensional emergence from {c,G,hbar} yields only the Planck time; background scales (H0, Lambda, rho_vac) are epoch-dependent and miss the target by orders of magnitude; self-consistent fixed points are scale-degenerate (no isolated tau without an inserted scale); admitted principles leave exact scale invariance unbroken. GRUT has NO mechanism generating its macroscopic memory time -- tau_0 ~ target is an empirical structural input, matching the target only if inserted.",
+  "consequences": [
+    "Banked negative: the characteristic memory scale is not derivable from the admitted GRUT inputs; it is an empirical input at the level of the spectrum itself (same status as N and rho(tau)).",
+    "Any future derivation must supply exactly ONE new dimensionful quantity, and must justify its value -- e.g. from a dynamics not yet in the theory.",
+    "The single-pole GRUT kernel with tau_0 is now a parametrized effective ansatz: form partly derived (passive simple pole), scale imported.",
+    "Next level: either import the scale explicitly and document it as an external input in the hypothesis register, or seek physics beyond the admitted principles to generate it."
+  ]
+}
