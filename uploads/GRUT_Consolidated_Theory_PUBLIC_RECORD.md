@@ -4,7 +4,7 @@
 **Version:** Consolidated Research Record 02 — public-record edition
 **Record date (source boundary):** 25 September 2026
 **Prepared for deposit:** 26 September 2026
-**Author / program owner:** R. Grover
+**Author / program owner:** D. Ryan Grover
 **Repository:** `https://github.com/ryangrvr/GRUT-RAI`
 **Publication source branch:** `master-w25bu9`
 **Publication source commit:** `6abbf3164655c513b72dfc72f4a64013b061c489`
@@ -1432,7 +1432,7 @@ should be cited together with the GRUT-RAI repository snapshot, and with the
 frozen artifacts whenever a claim needs numerical provenance.
 
 **Recommended citation:**
-Grover, R. (2026). *GRUT — Grand Responsive Universe Theory: Consolidated
+Grover, D. Ryan (2026). *GRUT — Grand Responsive Universe Theory: Consolidated
 Theory, Formal Architecture, Results, Limits, and Completion Program.*
 Consolidated Research Record 02 (public-record edition), source boundary
 25 September 2026. GRUT-RAI research record. Zenodo. Concept DOI:
