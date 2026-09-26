@@ -1366,7 +1366,7 @@ discriminator 0.049, against $1.8\times10^{-14}$ for universal coupling), yet
 nothing earned forbids them.
 
 A dynamical probe that couples only through clocks mediates no exchange:
-the bath energy $\langle H_B\rangle(t)$ stays constant to
+the second sector's energy $\langle H_B\rangle(t)$ stays constant to
 $7.5\times10^{-15}$. Universal reach is therefore not self-generating: **it
 is supplied** (I4).
 
@@ -1381,7 +1381,10 @@ redshift).
 
 - **Generic interacting sectors.** Such a sector has no local conserved
   charge other than $H$, so C_cons forces $O\propto H$ (derived in class,
-  S4-1; the finite-system analogue of Weinberg's universality argument).
+  S4-1: non-integrable chains carry no extra local conserved charges).
+  That interactions leave only the total energy conserved is, in S4-1's
+  words, "the finite-system analogue of Weinberg's universality
+  argument".
 - **Free and integrable sectors.** An exact phonon ring carries exactly
   $2R$ independent local conserved quadratic charges within range $R$, so
   $H$ is not singled out.
@@ -1438,11 +1441,14 @@ RS-1 tested five candidate sectors against two selectors.
   $A=R(0,16)/R(0,8)$ of the static effective resistance. A sector that
   carries an additive one-dimensional metric gives $A\approx2$; the frozen
   window is $[1.8,2.2]$.
-- **The supplied selector, from the probe:** infrared boost compatibility,
-  the ratio $v_gv_p/v^2$ of group and phase velocities, which tends to 1 for
-  linear dispersion ($z=1$, $\omega\propto k$) and fails for $z=2$.
+- **The supplied selector, from the probe:** infrared boost compatibility.
+  A massless spin-2 probe needs a symmetric conserved source, which for
+  quasiparticles means that the product $v_gv_p$ of group and phase
+  velocities is constant in the infrared. The test is the doubling ratio
+  $r=v_gv_p(2k)/v_gv_p(k)$: it is 1 for linear dispersion ($z=1$,
+  $\omega\propto k$) and about 4 for $z=2$.
 
-| Candidate | $A=R(0,16)/R(0,8)$ | $v_gv_p/v^2$ | Status |
+| Candidate | $A=R(0,16)/R(0,8)$ | $v_gv_p(2k)/v_gv_p(k)$ | Status |
 |-----------|---------------|--------|--------------------|
 | Phonon | 1.936 (additive) | 0.999 | **survives both** |
 | Magnon ($z=2$) | 1.936 (additive) | 3.993 | eliminated by the supplied layer |
@@ -1507,9 +1513,9 @@ prediction landed:
   the gapped counterfactual is exactly empty below $2\Omega$.
 
 In the v3 convention the base exponent is 3, so the channel's exponent is
-$3+4=7$, and its memory kernel decays as $t^{-8}$. GR-1 grades the absolute
-value "consistent by mechanism at increment level, never one-formula
-derived".
+$3+4=7$, and its memory kernel decays as $t^{-8}$. GR-1 carries S-1's grade
+for the absolute value: "consistent-by-mechanism at increment level …
+never one-formula-derived".
 
 ## 17.2 The measured values and the sealed ledger
 
@@ -1543,9 +1549,11 @@ $\omega\in[0.02,0.32]$, which is $7.00\pm0.05$ in the propagator convention.
   ledger's G6 constants is not implemented.
 - *Several sealed gates have no implementation in v3:* the ledger's
   synthetic pipeline test and normalization map (G1), its own fit window
-  (G5), a parity fit (G7), the gapped-step coefficient (G8), a broadening
-  stability check (G9), and its +4 tidal control. Only the instrument's own
-  +2 tidal variant was run.
+  (G5), a parity fit (G7), the gapped-step coefficient (G8), and its +4
+  tidal control. G9's criterion, stability to better than 0.1% under
+  broadening and grid changes, is not applied: v3 halves its energy window
+  only against a 0.75–1.35 band, and its last measured ratio, 1.12, would
+  fail G9. Only the instrument's own +2 tidal variant was run.
 - *Blindness is limited.* Two-sided blindness is attested only for the
   first rebuilt run (18:49 local time, timestamp-attested, not
   commit-sealed), which measured $\omega^{5.03}$ in its own convention. An
@@ -2009,7 +2017,7 @@ hypothesis.
     robust across the release's headline data combinations, and published.
     The same file records that sustained non-crossing would confer no
     credit, and that the threshold is "this program's commitment about its
-    own model, not a test the cosmology literature would recognize as
+    own model, not as a test the cosmology literature would recognize as
     addressed to it".
   - *Present data.* Published DESI analyses prefer evolving dark energy;
     the record cites about 3.1σ for DESI Data Release 2 with CMB data
