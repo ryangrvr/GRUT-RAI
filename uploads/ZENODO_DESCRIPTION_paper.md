@@ -9,17 +9,45 @@ This release consolidates the program at a deliberate pause, under the same disc
 - every failed pre-registered gate is kept on the record;
 - every supplied assumption is named.
 
-What the record reports. It asks one question: in explicit model systems, which structures appear on their own, and which must be put in by hand? The models are mostly local networks of coupled oscillators (masses and springs, or their overdamped analogues), plus small quantum spin and lattice systems, each observed only in part.
+What the record reports.
 
-The answer is organized as a dependency-resolved chain from local microscopic dynamics to continuum structure, influence data, access, geometry, effective sectors, and a gravitational-side response. Every link is marked as one of: derived within a stated model class, conditional on named inputs, supplied, or open.
+The record asks one question of explicit model systems: which structures appear on their own, and which must be put in by hand? The models are mostly local networks of coupled oscillators (masses and springs, or their overdamped analogues), plus small quantum spin and lattice systems. Each is observed only in part: some degrees of freedom are retained, and the rest act as a hidden environment. The answer is organized as one dependency-resolved chain, from local microscopic dynamics through continuum structure, influence data, access, and geometry, to effective sectors and a gravitational-side response. Every link in the chain is graded as one of:
+- derived within a stated model class;
+- a family-level fact;
+- conditional on named inputs;
+- supplied;
+- open.
 
-Much of the mathematics is standard, and the record names each standard source where it applies:
+Failed pre-registered gates stay on the record beside the results they bound.
+
+The first part of the record is the generative core. In the tested classes, eliminating the hidden modes of a strictly local finite network gives the retained part an exact memory kernel, and the number of distinct eliminated modes fixes the realization dimension. In the infinite-volume limit, discrete spectra become continuous and the response becomes effectively irreversible; the lattice dimension selects the long-time memory class. These limit results are family-level facts, demonstrated across tested families rather than proved in general. The existence of irreversibility is derived in class, but its direction, the arrow of time, enters as boundary data. The record then extends the core past its original stationarity assumption. For finite networks whose couplings change in steps, the same construction stays exact and reduces continuously to the stationary case. A separately pre-registered test certifies that the resulting memory is genuinely two-time: no single spectral measure and no function of the time difference alone can represent it.
+
+The second part concerns what the retained system can know about its environment: the influence data. For Gaussian environments, realizable response and noise spectra fill exactly a two-inequality cone, J ≥ 0 and ν ≥ ℏJ/2. This is standard open-systems mathematics, verified in class. Within it, Planck's constant appears as the height of a fluctuation floor that the record locates but does not derive. The pair of response and noise kernels is not the whole interface: environments that agree on both can still be separated by higher-order correlations. The full hierarchy of those correlations is complete as an interface within the declared class, and its positivity turns out to be ordinary quantum state positivity, a restatement rather than a new principle. Locality and symmetry power counting constrain the scaling class of a sector's influence data, but never its amplitude or state.
+
+The third part is access. Across many counterexample-driven tests, one statement recurs: a distinction is physical exactly as far as it changes the influence data an observer can access. Different microscopic environments with identical accessible data are, at that access, the same physics; changing what is accessible can make hidden differences observable. Access therefore carries physical content. But the access seed itself, which degrees of freedom an observer couples to, could not be selected by any tested principle, and the record lists it as a supplied input. Geometry follows access. In the tested classes, rich access reconstructs the dimension, distances, and metric density of the hidden network and rules out genuinely different geometries, including isospectral ones. Restricted access leaves distinct geometries indistinguishable, and topology stays invisible below circumference order. Geometry in this record is reconstructed and access-relative, never absolute.
+
+The fourth part attacks, one assumption at a time, the route from this core to a gravitational identification. Each attack either derived part of an assumption within a stated class or reduced it to a smaller, explicitly supplied premise. What remains supplied:
+- a massless, gauge- and Lorentz-redundant probe;
+- universal reach across sectors;
+- a declaration that constant probes act as unit changes;
+- a shared light cone between sectors;
+- the identification of the geometry-carrying sector with the gravitationally coupled one.
+
+Given those inputs, the retained gravitational-side sector is constrained to a gapless, z = 1, Goldstone-like class, and the transverse-traceless coupling structure is forced within the tested family. Whether the channel exists at all depends on dispersion details the program has not derived. A matter-side dissipation exponent, ω⁷, was confirmed within its class against a sealed prediction. It remains occupancy evidence, not a derivation of gravity, and several gravity-side gates remain failed on the record.
+
+The fifth part turns all of this into a formal statement. GRUT is written as a datum (microscopic model, access, state, and inventory), a core object defined on representation-equivalence classes, and sixteen typed maps. Each map is constructive, conditional on named inputs, or terminating at a supplied input or open seam, and the termination points are part of the theory's content. On its core, the theory is one coherent structure; this is a checked property of the assembled record, not a theorem. On its conditional branch, it is a family of theories indexed by eleven named inputs. Two seams remain where the construction is not yet defined:
+- the infinite-volume and smoothly modulated nonstationary limits;
+- the causal structure shared between sectors.
+
+Completion is defined as seven named mathematical problems. Each closes either by derivation or by a certified status: an irreducible primitive, or explicitly typed boundary data. Completion therefore does not require every input to be derived.
+
+Much of the mathematics is standard, and the record names its sources where they apply:
 - open-system elimination (Nakajima–Zwanzig/Mori, Feynman–Vernon, Caldeira–Leggett);
 - positive spectral representations (Bernstein–Widder);
 - Lanczos chains and spectral graph theory;
 - Weinberg's soft-graviton arguments.
 
-What the record adds is pre-registered, in-house verification within those classes, and a map of what depends on what.
+What the record adds is pre-registered, in-house verification within those classes, and a precise map of what depends on what. It does not add a confirmed prediction: the GRUT-specific prediction ledger stands at zero. The record's achievement is narrower and more exact. Repeated counterexample-driven attacks have reduced a diffuse set of assumptions to a small number of explicitly identified structural inputs and unresolved seams, each located at the point in the theory where it enters.
 
 Twelve key points of this release:
 
