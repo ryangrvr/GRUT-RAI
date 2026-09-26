@@ -1,0 +1,29 @@
+% grut_header.tex — LaTeX preamble additions for the GRUT public-record PDF.
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{titling}
+\usepackage{etoolbox}
+\usepackage{xurl}
+\usepackage{microtype}
+\usepackage{ragged2e}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\itshape GRUT --- Consolidated Theory · Public Record}
+\fancyhead[R]{\footnotesize\itshape Source boundary 25 September 2026}
+\fancyfoot[C]{\footnotesize D.~Ryan Grover \quad·\quad page \thepage\ of \pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\footnotesize D.~Ryan Grover \quad·\quad page \thepage\ of \pageref*{LastPage}}\renewcommand{\headrulewidth}{0pt}}
+% compact, readable tables
+\AtBeginEnvironment{longtable}{\footnotesize\RaggedRight}
+\renewcommand{\arraystretch}{1.15}
+% blockquotes: indented, italic-free, with a rule
+\renewenvironment{quote}{\begin{list}{}{\leftmargin=1.4em\rightmargin=1.4em}\item\relax\small}{\end{list}}
+% inline code (hashes, paths) is emitted as \path by the filter so that
+% xurl can break it anywhere; use a slightly smaller typewriter face
+\renewcommand{\UrlFont}{\ttfamily\small}
+% table of contents on its own page, after the title page
+\pretocmd{\tableofcontents}{\clearpage}{}{}
+\apptocmd{\tableofcontents}{\clearpage}{}{}
+\setcounter{tocdepth}{2}

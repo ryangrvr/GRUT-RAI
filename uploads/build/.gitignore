@@ -1,3 +1,6 @@
-node_modules
+*.aux
+*.log
+*.out
+*.toc
 _render.html
-package-lock.json
+node_modules
