@@ -10,6 +10,7 @@
 **Publication source commit:** `6abbf3164655c513b72dfc72f4a64013b061c489`
 **DOI (this version):** 10.5281/zenodo.22983638
 **Concept DOI (cite all versions):** 10.5281/zenodo.19803663
+**Software archive (GRUT-RAI, all versions):** 10.5281/zenodo.18993689
 **Research infrastructure:** GRUT-RAI. AI agents, including Claude Code, were
 used as computational, drafting, and audit instruments under the owner's
 direction. They carry no authority over what the record says (see Appendix D).
@@ -1439,6 +1440,12 @@ Consolidated Research Record 02 (public-record edition), source boundary
 25 September 2026. GRUT-RAI research record. Zenodo.
 https://doi.org/10.5281/zenodo.22983638 (this version). All versions:
 https://doi.org/10.5281/zenodo.19803663.
+
+**Software and provenance archive:** Grover, D. Ryan (2026). *GRUT-RAI:
+research and provenance infrastructure for the GRUT program*. Zenodo.
+All versions: https://doi.org/10.5281/zenodo.18993689. The release
+corresponding to this record carries its own version DOI, minted on
+deposit.
 
 **Repository:** `https://github.com/ryangrvr/GRUT-RAI`, branch `master-w25bu9`.
 
