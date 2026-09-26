@@ -20,5 +20,14 @@
   ],
   "license": "cc-by-4.0",
   "language": "eng",
-  "notes": "Public-record release at a consolidation pause. Source boundary: master-w25bu9 @ 6abbf3164655c513b72dfc72f4a64013b061c489; foundations on adjudicator-track @ affdf52 and 90218f5. AI agents were used as computational, drafting, and audit instruments under the author's direction. License: the deposit is released under Creative Commons Attribution 4.0 International (CC BY 4.0), matching the GRUT Zenodo record lineage; copyright (c) 2026 D. Ryan Grover. The source code in the repository is additionally available under the MIT License (LICENSE file)."
+  "notes": "Public-record release at a consolidation pause. Source boundary: master-w25bu9 @ 6abbf3164655c513b72dfc72f4a64013b061c489; foundations on adjudicator-track @ affdf52 and 90218f5. AI agents were used as computational, drafting, and audit instruments under the author's direction. License: the deposit is released under Creative Commons Attribution 4.0 International (CC BY 4.0), matching the GRUT Zenodo record lineage; copyright (c) 2026 D. Ryan Grover. The source code in the repository is additionally available under the MIT License (LICENSE file). Reserved version DOI: 10.5281/zenodo.22983638. Concept DOI (all versions): 10.5281/zenodo.19803663. This version supersedes the June 2026 deposit 10.5281/zenodo.20783057, whose claims are withdrawn.",
+  "version": "Consolidated Research Record 02 (public-record edition)",
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.20783057",
+      "relation": "isNewVersionOf",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    }
+  ]
 }

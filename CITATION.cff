@@ -23,7 +23,11 @@ abstract: >-
   pre-registered gate. In-house record: no external peer review, no
   experimental validation, and no confirmed novel quantitative prediction is
   claimed.
+doi: 10.5281/zenodo.22983638
 identifiers:
   - type: doi
+    value: 10.5281/zenodo.22983638
+    description: "This version (Consolidated Research Record 02, public-record edition)"
+  - type: doi
     value: 10.5281/zenodo.19803663
-    description: "GRUT concept DOI (version lineage)"
+    description: "Concept DOI: cite all versions"

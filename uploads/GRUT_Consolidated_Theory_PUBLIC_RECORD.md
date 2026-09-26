@@ -8,7 +8,8 @@
 **Repository:** `https://github.com/ryangrvr/GRUT-RAI`
 **Publication source branch:** `master-w25bu9`
 **Publication source commit:** `6abbf3164655c513b72dfc72f4a64013b061c489`
-**GRUT concept DOI (version lineage):** 10.5281/zenodo.19803663
+**DOI (this version):** 10.5281/zenodo.22983638
+**Concept DOI (cite all versions):** 10.5281/zenodo.19803663
 **Research infrastructure:** GRUT-RAI. AI agents, including Claude Code, were
 used as computational, drafting, and audit instruments under the owner's
 direction. They carry no authority over what the record says (see Appendix D).
@@ -1435,8 +1436,9 @@ frozen artifacts whenever a claim needs numerical provenance.
 Grover, D. Ryan (2026). *GRUT — Grand Responsive Universe Theory: Consolidated
 Theory, Formal Architecture, Results, Limits, and Completion Program.*
 Consolidated Research Record 02 (public-record edition), source boundary
-25 September 2026. GRUT-RAI research record. Zenodo. Concept DOI:
-10.5281/zenodo.19803663.
+25 September 2026. GRUT-RAI research record. Zenodo.
+https://doi.org/10.5281/zenodo.22983638 (this version). All versions:
+https://doi.org/10.5281/zenodo.19803663.
 
 **Repository:** `https://github.com/ryangrvr/GRUT-RAI`, branch `master-w25bu9`.
 
