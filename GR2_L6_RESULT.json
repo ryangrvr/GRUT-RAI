@@ -1,0 +1,158 @@
+{
+ "fork": "GR2-L6",
+ "charter": "GR2_L6_FINITE_SIZE_CHARTER_01.md (frozen 29ee4d7; Amendment 01 at 5d5b270)",
+ "directive": "GR2_CAMPAIGN_DIRECTIVE_01.md (Layer 6)",
+ "timestamp": "2026-09-27T03:48:38+00:00",
+ "environment": {
+  "python": "3.11.15",
+  "pure_stdlib": true,
+  "deterministic": "no randomness anywhere"
+ },
+ "sealed_constants": {
+  "S_inf": 6.2147,
+  "b1": 22.571,
+  "c2": 150.58
+ },
+ "measurements": {
+  "P09_121": 15972730,
+  "P09_131": 25253165,
+  "P09_45": 61464,
+  "P09_63": 394219,
+  "P09_91": 3126125,
+  "P18_121": 1049323437,
+  "P18_131": 1673541239,
+  "P18_45": 3410006,
+  "P18_63": 23425157,
+  "P18_91": 197866132,
+  "S_inf_M101": 6.214654020007871,
+  "S_inf_M121": 6.214173578845944,
+  "S_inf_lowwindow": 6.045377900039258,
+  "S_noplane_13": 8.519636252843213,
+  "S_noplane_31": 7.05788724811998,
+  "S_open_121": 6.037704709750572,
+  "S_open_13": 5.361663847134572,
+  "S_open_131": 6.050296078425111,
+  "S_open_21": 5.492995546700438,
+  "S_open_31": 5.662048974296604,
+  "S_open_45": 5.793888808719112,
+  "S_open_63": 5.892917595920596,
+  "S_open_91": 5.984005416094238,
+  "b1": 22.570762721480577,
+  "qhat_09": 10.477008648790427,
+  "qhat_18": 5.262055134296501
+ },
+ "checks": [
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "R-1 s=13: replicated slope 5.361664 vs recorded 5.361664 (|Delta| = 1.53e-07 < 5e-7)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "R-1 s=21: replicated slope 5.492996 vs recorded 5.492996 (|Delta| = 4.53e-07 < 5e-7)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "R-1 s=31: replicated slope 5.662049 vs recorded 5.662049 (|Delta| = 2.57e-08 < 5e-7)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "C-1a: continuum slope (M=121) = 6.2142 vs sealed 6.2147 (|Delta| = 0.0005 < 0.002)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "C-1b: quadrature convergence |S(121) - S(101)| = 4.80e-04 < 0.002"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "C-2: continuum slope on the halved window [0.45, 0.9] = 6.0454 vs quadratic-curvature prediction 6.054 (|Delta| = 0.0086 < 0.04)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "C-3: surface-mode coefficient b1 = 22.571 (quadrature) vs sealed 22.571 (|Delta| = 0.000 < 0.1)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "B s=45: measured slope 5.7939 vs frozen prediction 5.7874 (|Delta| = 0.0065 < 0.05)"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "decomposition s=45: deficit vs S_inf = +0.4208 (surface term -b1/s = -0.5016; c2/s^2 = +0.0744); window curvature above 6 = +0.2147"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "B s=63: measured slope 5.8929 vs frozen prediction 5.8943 (|Delta| = 0.0014 < 0.05)"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "decomposition s=63: deficit vs S_inf = +0.3218 (surface term -b1/s = -0.3583; c2/s^2 = +0.0379); window curvature above 6 = +0.2147"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "B s=91: measured slope 5.9840 vs frozen prediction 5.9848 (|Delta| = 0.0008 < 0.05)"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "decomposition s=91: deficit vs S_inf = +0.2307 (surface term -b1/s = -0.2480; c2/s^2 = +0.0182); window curvature above 6 = +0.2147"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "B s=121: measured slope 6.0377 vs frozen prediction 6.0384 (|Delta| = 0.0007 < 0.05)"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "decomposition s=121: deficit vs S_inf = +0.1770 (surface term -b1/s = -0.1865; c2/s^2 = +0.0103); window curvature above 6 = +0.2147"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "B s=131: measured slope 6.0503 vs frozen prediction 6.0511 (|Delta| = 0.0008 < 0.05)"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "decomposition s=131: deficit vs S_inf = +0.1644 (surface term -b1/s = -0.1723; c2/s^2 = +0.0088); window curvature above 6 = +0.2147"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "B-6 CROSSING GATE: S(131) = 6.0503 > 6.000 -- the slope passes THROUGH 2d = 6 and keeps rising toward S_inf = 6.2142: the sequence does not converge to 6"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "N-1 s=13 no-plane: slope 8.5196 > S_inf 6.2142 -- the bias flips sign when the boundary planes are removed (with-plane value was 5.3617)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "N-2 s=31 no-plane: slope 7.0579 in (6.2142, 7.6704] (with-plane value was 5.6620)"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "wording note: the GR-1 diagnostic's 'lowest mode sits at 24% of the window edge' refers to the absolute value omega_min(13) = 0.241; that is 27% of the 0.9 edge and 13% of the 1.8 edge"
+  }
+ ],
+ "adjudication": {
+  "verdict": "L6-MECHANISM-DERIVED",
+  "verdict_detail": "S_inf(window [0.9,1.8]) = 6.2142 (= 6 dimensional +0.2142 lattice-curvature window offset); deficit law S(s) = S_inf - b1/s + c2/s^2 with analytic b1 = 22.571; S(131) = 6.0503 vs 6; GR-1 3D gate UNCHANGED, RED",
+  "gr1_3d_gate": "RED, unchanged (5.362 vs frozen 6 +/- 0.6); this fork re-adjudicates nothing",
+  "scope": "the L-D pair-count object of gr1_gravity.py, frozen window [0.9, 1.8]; open-chain tensor-cube spectra; class (b) lattice"
+ },
+ "elapsed_s": 3.92
+}
