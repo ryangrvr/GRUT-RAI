@@ -155,3 +155,28 @@ $C_\ell(x)$ evaluations dominate). Scope: exactly the frozen pipeline's
 band ℓ ∈ [2, 30], its declared κ members, its named points; the
 activation-scale frontier (A8's two blocked inputs) is out of scope and
 untouched.
+
+---
+
+## AMENDMENT 01 (pre-run, disclosed; the GR2-d Amendment precedent — appended, never edited in place)
+
+**Discovered before any instrument run,** in a satisfiability check of
+RC-2 against the calibration data already disclosed in §2: the frozen
+window "full-TT D30/D2 ∈ [0.75, 0.90]" was taken from the record's
+**memory-grade** citation ("~0.82–0.84 Boltzmann"). The computed CAMB
+value, from the §2 calibration run itself (D_ℓ = ℓ(ℓ+1)C_ℓ/2π, μK²:
+D₂ = 1052.6, D₃₀ = 1027.1), is **0.976** — outside the frozen window —
+and the memory-grade figure matches **no member** of the decomposition
+(mono+full-ISW gives 0.38; mono+late-ISW ≈ 0.49). The discrepancy is
+itself evidence for this fork's premise: the A6 fence's *direction* and
+*O(signal) magnitude* were right (per the one-signed f^A), but its
+cited Boltzmann shape number was memory-grade and does not reproduce.
+
+**Repair (this amendment):** RC-2's first half becomes a
+convention-explicit replication-of-calibration control — full-TT
+D30/D2 (D_ℓ convention) ∈ [0.90, 1.05] — with the blindness for this
+control acknowledged as already spent by the disclosed §2 calibration.
+The member-agreement half of RC-2 is unchanged. The non-reproduction of
+the memory-grade 0.82–0.84 figure under any tested convention or member
+is promoted to a **named finding** for the verdict. No other gate,
+threshold, member, or outcome rule is touched.
