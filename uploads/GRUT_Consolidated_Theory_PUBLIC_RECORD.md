@@ -510,7 +510,8 @@ $K_R(t)=\sum_k (v_{1k})^2e^{\lambda_k t}$ with $\operatorname{Re}\lambda_k<0$
 (eigenvalues of the generator $-\mathbf K_{yy}$), and write the reduced
 equation schematically as $\dot q=-\int K_R\,q+\text{drive}$. That is the
 same kernel with the opposite sign convention for $\lambda$; the schematic
-equation omits the instantaneous term and the sign of the memory term.
+equation omits the instantaneous term and carries the opposite sign on the
+memory term.
 This record uses the decay-rate form above throughout (Appendix I).
 
 > **Worked example: one hidden node.** Let
@@ -522,8 +523,9 @@ This record uses the decay-rate form above throughout (Appendix I).
 > $1/\gamma$. As $\gamma\to\infty$ the hidden node follows $q$ instantly and
 > the memory disappears. This is what "memory exists if and only if there
 > is persistent auxiliary state" means. The foundations record's check P3
-> uses exactly this model and records the kernel
-> $g^2e^{-at}\Theta(t)$.
+> uses this model with $K_{SS}=\gamma=a$ plus a drive (run at $g=a=1$,
+> where $\mathbf K$ is only positive semidefinite) and records the kernel
+> $g^2e^{-at}\Theta(t)$, with $a\equiv\gamma$.
 
 **What the foundations record establishes, in class.**
 
@@ -595,13 +597,14 @@ The computation recorded six checks, all marked as passed, with the verdict
 | (vi) | Viability of gravity as the bath | **Order-of-magnitude count only** (asserted in the code): suppressing recurrences beyond the cosmic age needs $\gtrsim10^{18}$ modes; the gravitational field has $\sim10^{183}$ in a Hubble volume |
 
 **How to read the table.**
-- *Five computational checks and one count.* Check (vi) is recorded as a
-  pass but is an estimate, not a derivation; gravity-as-bath remains a
-  hypothesis (Section 12). Check (iv) is true by construction.
+- *Four computed checks, one structural assertion, and one count.* Check
+  (iv) is asserted in the code (true by construction). Check (vi) is
+  recorded as a pass but is an order-of-magnitude count, not a derivation;
+  gravity-as-bath remains a hypothesis (Section 12).
 - *Check (i) reflects finite propagation speed.* On a fixed window, a long
-  enough chain reproduces the infinite-chain kernel exactly (already at
-  $L=64$) before boundary reflections return. Finite systems still recur,
-  on a time scale that grows with $L$.
+  enough periodic chain reproduces the $L=8192$ reference kernel to machine
+  precision (already at $L=64$) before the wrap-around signal returns.
+  Finite systems still recur, on a time scale that grows with $L$.
 - *Check (iii).* The instrument labels $d=1$ "recurrent, oscillatory
   ($J_0$ class)" and $d\ge2$ "power law". The recorded slopes show the same
   $t^{-d/2}$ envelope law in all three dimensions, with dimension setting
@@ -670,11 +673,13 @@ $$
 positive-real sense does not by itself exclude complex poles: the class (b)
 kernels of Section 4.2 oscillate.
 
-**Uniqueness has limits.** The measure $\rho$ is uniquely recoverable from
-$k$ only for light tails (a Stieltjes moment-problem condition, named in the
-instrument). The heavy-tailed kernels relevant to the gravitational
-constructions lie outside that uniqueness class, although the support of
-$\rho$ stays observable.
+**Uniqueness has limits.** The instrument ties unique recovery of $\rho$
+from $k$ to a Stieltjes moment condition (finite moments, light tails).
+Strictly, the exact kernel on all of $t>0$ determines $\rho$ uniquely,
+because the Laplace transform is injective; what heavy tails lose is
+determinacy from moment data and stable numerical inversion. The
+heavy-tailed kernels relevant to the gravitational constructions are in
+that class, although the support of $\rho$ stays observable.
 
 In summary:
 - the **form** of the representation is derived in class;
@@ -691,7 +696,7 @@ record on the branch is:
 | persistence origin (P1–P7) | 7/7 | 5/7 before the same-day repair (Section 4.1) |
 | spectrum (E-series) | 13/13 | 12/13 before repair (E4a) |
 | realization dimension | 8/8 | |
-| continuum origin | 6/6 | two checks true by construction (Section 4.2) |
+| continuum origin | 6/6 | two checks hard-coded as passes: (iv) by construction, (vi) a count (Section 4.2) |
 | infinite bath | 4/4 | |
 | irreversibility origin | **3/4** | failed check and further defects in Section 4.3 |
 | minimal generative ontology | **5/6** | the failed check (a derivative coupling outside the positive class) contradicts its own summary; a second check passes although its measured exponent is −0.19 against an expected −0.5 |
@@ -725,11 +730,13 @@ $0.4/H_0$, and $k=0.5,1,2$. On that frozen grid:
 - The best unconstrained $\Delta t$-only approximation leaves a pooled
   residual fraction $R=0.516$ of the kernel's sampled variation.
 - The same-lag drift reaches 1.53: at fixed lag, the kernel changes by more
-  than its own mean magnitude as the anchor moves. Part of this is a
-  fixed-comoving-$k$ labelling effect, which a de Sitter comparator also
-  shows (drift ≈ 0.99). The excess specific to the expanding background is
-  0.17, 0.24, and 0.54 at lags 0.1, 0.2, and $0.4/H_0$.
-- **Kernel transport** (11/11, `05226bf`). No tested local transport rule
+  than its own mean magnitude as the anchor moves. Relative to the declared
+  de Sitter ($H_0$) comparator, which itself drifts ≈ 0.99 (the
+  fixed-comoving-$k$ labelling effect), the FRW-specific excess is 0.17,
+  0.24, and 0.54 at lags 0.1, 0.2, and $0.4/H_0$. This split is operational,
+  against that comparator (Correction 01), not an exact decomposition.
+- **Kernel transport** (a separate instrument, on its own grid; 11/11,
+  `05226bf`). No tested local transport rule
   (the de Sitter kernel re-rated at the observation, midpoint, or emission
   rate) reproduces the exact kernel over the relevant interval. The local
   de Sitter transport matches to ≤ 0.3% at lags up to about $0.25/H_0$; the
@@ -785,7 +792,7 @@ boundary, $m\mapsto Cm$. Integration is fourth-order Runge–Kutta with step
 | **The map $\epsilon$** | **DERIVED EXTENSION, in class.** The S-level solve reproduces the exact full nonstationary dynamics to $1.0\times10^{-12}$. The step-halving error ratio is 17.85, a fourth-order signature, so the residual is integrator error. |
 | **Continuity** | $k(t,s)\to k(t-s)$ **exactly** when time-translation invariance is restored ($7.8\times10^{-16}$). The deviation is linear in the modulation amplitude (ratio 1.9968 between $\epsilon_m=0.02$ and $0.01$). |
 | **Earned structure** | **Preserved.** Passivity holds, and the multi-time Gram matrix stays positive semidefinite off the stationary domain (to $8.6\times10^{-14}$). A deliberately tampered Gram matrix is detected at −0.160. Hierarchy positivity is therefore stationarity-independent by measurement, not only by identity. |
-| **Packaging** | Two frozen gates **RED** (Section 23): the same-lag drift measured 0.0498 against a threshold of 0.1, and the local-anchor family's midpoint member measured 0.0494 against 0.05. The labeled diagnostic found the thresholds miscalibrated against the frozen *peak* normalization: $k(0)=v^{\mathsf T}v$ does not depend on the modulation, so normalizing by the peak suppresses the effect being measured. |
+| **Packaging** | Two frozen gates **RED** (Section 23): the same-lag drift measured 0.0498 against a threshold of 0.1, and the local-anchor family's midpoint member measured 0.0494 against 0.05. The labeled diagnostic found the thresholds miscalibrated against the frozen normalization and working point: the drift statistic divides by the peak $k(0)=v^{\mathsf T}v$, which does not depend on the modulation, and the anchor-family misses scale with the modulation amplitude. |
 
 The owner accepted the map, continuity, and structure components and
 carried the packaging question to C1-a2. The formal domain extension is
@@ -818,7 +825,7 @@ P-6, labels unrelated to the forks P-1 to P-6 of Sections 6–8.
 | A2-1 (P-1) | Largest local-scale difference between the kernel at the same lag from anchors in different epochs, $\epsilon_m=0.5$ | 0.1182 | > 0.05 |
 | A2-2 (P-2) | Ratio of that statistic at $\epsilon_m=1.0$ to $\epsilon_m=0.5$ | 1.6769 | 1.5–2.5 |
 | A2-3 (P-3) | Worst error of each frozen local-anchor rule (anchor at emission, observation, midpoint), $\epsilon_m=1.0$ | 0.1095 / 0.1484 / 0.0968 | each > 0.05 |
-| A2-4 (P-4) | Largest per-lag spread of $k(a+\tau,a)$ over the six anchors, divided by its mean | 0.1100 | > 0.05 |
+| A2-4 (P-4) | Largest per-lag standard deviation of $k(a+\tau,a)$ over the six anchors, divided by the mean of $\lvert k\rvert$ | 0.1100 | > 0.05 |
 | A2-5 (P-5) | Stationary control, both statistics | $4.4\times10^{-15}$, $1.8\times10^{-15}$ | < $10^{-10}$ |
 | A2-6 (P-6) | Stationary world with all springs ×1.25: drift statistic | $3.8\times10^{-15}$ | < $10^{-10}$ |
 | A2-6 (P-6) | The same world: kernel difference from the base world | 0.2737 | > 0.05 |
@@ -1009,8 +1016,8 @@ Two further results bound the law:
   stay free.
 - **Matrix masking.** With several channels, the lowest exponent dominates
   at low frequency ("min-dominance"), so a cancelled branch can be hidden by
-  another. The frozen eigenvalue-level gate for S-1's hypothesis H3 remains
-  **RED** (+2.216 against a predicted +4). The labeled post-hoc diagnostic
+  another. P-3's frozen eigenvalue-level gate, the matrix-channel test of S-1's
+  hypothesis H3, remains **RED** (+2.216 against a predicted +4). The labeled post-hoc diagnostic
   shows the +4 increment surviving at branch level: +3.999 exactly on the
   cancelled branch's spectral weight.
 
@@ -1221,8 +1228,8 @@ All of these deformations are admitted by the earned structure: it
 tested class, for sectors with two or more intrinsic scales; for
 single-scale sectors the distinction is vacuous. Which operation a
 gravitational probe performs is the supplied **co-stretch declaration**
-(Sel-4x; inventory item I5), the ruler counterpart of "a uniform static
-field rescales all rods equally".
+(Sel-4x; inventory item I5): the ruler counterpart of the assumption that
+a uniform static field rescales all rods equally.
 
 **Decidability splits by access.** A pure unit change and a unit change
 plus an interior deformation give identical single-site data (to
