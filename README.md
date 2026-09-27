@@ -1,4 +1,21 @@
-# GRUT ResponsiveAI — workspace
+# GRUT-RAI
+
+> **Current state (26 September 2026): the public record.** The program's
+> consolidated statement is the paper *GRUT — Grand Responsive Universe
+> Theory: Consolidated Theory, Formal Architecture, Results, Limits, and
+> Completion Program* (D. Ryan Grover), DOI
+> [10.5281/zenodo.22983638](https://doi.org/10.5281/zenodo.22983638), whose
+> source and PDF are in [`uploads/`](uploads/). Its Section 29 governs
+> wherever anything below conflicts with it. The register-era material in
+> the rest of this README is **historical**: the program was closed on
+> 23 September 2026 (`GRUT_PROGRAM_CLOSURE_01.md`) and reopened on
+> 25 September 2026 (`GRUT_PROGRAM_REOPEN_01.md`), and the current
+> campaign record is indexed in the paper's Appendix G. Release notes:
+> [`uploads/RELEASE_NOTES_GRUT_RAI_2026-09-26.md`](uploads/RELEASE_NOTES_GRUT_RAI_2026-09-26.md).
+> No external peer review, no experimental validation, and no confirmed
+> prediction is claimed.
+
+# GRUT ResponsiveAI — workspace (historical front page)
 
 ## The two lineages, stated plainly (read this first)
 
