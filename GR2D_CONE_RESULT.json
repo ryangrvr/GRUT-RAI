@@ -1,0 +1,338 @@
+{
+ "fork": "GR2-d",
+ "charter": "GR2D_CONE_CHARTER_01.md (frozen ff8db42)",
+ "directive": "GR2_CAMPAIGN_DIRECTIVE_01.md (Layer 4 / seam S2); GR2C_OWNER_RULING_01.md (authorization)",
+ "timestamp": "2026-09-27T16:59:18+00:00",
+ "environment": {
+  "python": "3.11.15",
+  "pure_stdlib": true,
+  "deterministic": "no RNG in this fork"
+ },
+ "defect_history": [],
+ "measurements": {
+  "c1a_kernel_A_0.5": 0.3579003057466822,
+  "c1a_kernel_A_1.0": 0.15947541182881608,
+  "c1a_kernel_B_0.5": 0.28747160517460996,
+  "c1a_kernel_B_1.0": 0.13288100887965787,
+  "LX_stress_slope": 8.005419679013105,
+  "classical_fronts": {
+   "v_A": 1.0256410256410227,
+   "t_star_A": [
+    27.900000000000002,
+    35.7,
+    43.5,
+    51.300000000000004
+   ],
+   "v_B": 1.3300083125519564,
+   "t_star_B": [
+    21.450000000000003,
+    27.450000000000003,
+    33.45,
+    39.5
+   ],
+   "ratio": 1.2967581047381613
+  },
+  "quantum_fronts": {
+   "t_star_A": {
+    "1": 0.05,
+    "2": 0.45,
+    "3": 0.9,
+    "4": 1.4000000000000001,
+    "5": 1.9000000000000001
+   },
+   "t_star_B": {
+    "1": 0.05,
+    "2": 0.4,
+    "3": 0.8500000000000001,
+    "4": 1.3,
+    "5": 1.75
+   },
+   "t_star_Z5_A": 2.25,
+   "t_star_Z5_B": 2.2
+  },
+  "exchange": {
+   "(1.0,1.69)": {
+    "acoustic_slope": 1.159740788989402,
+    "avg_pred": 1.1597413504743201,
+    "v_minus_max": 1.1597394685596616,
+    "v_plus_max": 1.169106133180886,
+    "v_minus_qstar": 0.9287155656734214,
+    "v_plus_qstar": 1.1648597099123137
+   },
+   "(1.0,2.56)": {
+    "acoustic_slope": 1.3341640707341764,
+    "avg_pred": 1.3341664064126333,
+    "v_minus_max": 1.3341586834002663,
+    "v_plus_max": 1.476860561455684,
+    "v_minus_qstar": 0.9101738074890342,
+    "v_plus_qstar": 1.4765237080216487
+   },
+   "(1.0,1.0)": {
+    "acoustic_slope": 0.9999999583255024,
+    "avg_pred": 1.0,
+    "v_minus_max": 0.999999833362921,
+    "v_plus_max": 0.8543089306534135,
+    "v_minus_qstar": 0.9553364891945471,
+    "v_plus_qstar": 0.8423477690366887
+   }
+  },
+  "lambda_relabeling": {
+   "density": {
+    "slope": 0.0016265908463323172,
+    "slope_lambda": 0.0016265908463323172,
+    "dev": 0.0,
+    "J_lambda_min": 0.25009380863479586
+   },
+   "current": {
+    "slope": 2.0027103061063687,
+    "slope_lambda": 2.0027103061063687,
+    "dev": 0.0,
+    "J_lambda_min": 0.000625390898639069
+   },
+   "stress": {
+    "slope": 8.005419679013105,
+    "slope_lambda": 8.005419679013105,
+    "dev": 0.0,
+    "J_lambda_min": 9.777843982004349e-14
+   }
+  },
+  "memory_kernels": {
+   "1.0": {
+    "0.5": 0.3579003057466822,
+    "1.0": 0.15947541182881608
+   },
+   "1.69": {
+    "0.5": 0.22268091750447203,
+    "1.0": 0.08311171420269486
+   }
+  },
+  "support_sharpness": {
+   "A": {
+    "ratio": 2.2558999131716523e-14,
+    "r_out": 66
+   },
+   "B": {
+    "ratio": 8.792156657702954e-14,
+    "r_out": 85
+   }
+  }
+ },
+ "elimination_table": [
+  {
+   "leg": "N",
+   "system": "classical ring K = 1.69",
+   "eliminated": false,
+   "tests": {
+    "J_min": 1.843152030929804e-14,
+    "topology_same": true
+   }
+  },
+  {
+   "leg": "Q",
+   "system": "quantum sector B (1.3, 0.7, 0.5)",
+   "eliminated": false,
+   "tests": {
+    "gram_min": 0.3765545705896943,
+    "graph_same": true
+   }
+  },
+  {
+   "leg": "X",
+   "system": "coupled pair (1.0, 1.69), g = 0.05",
+   "eliminated": false,
+   "tests": {
+    "branch_omegas_real_nonneg": true
+   }
+  },
+  {
+   "leg": "X",
+   "system": "coupled pair (1.0, 2.56), g = 0.05",
+   "eliminated": false,
+   "tests": {
+    "branch_omegas_real_nonneg": true
+   }
+  },
+  {
+   "leg": "K",
+   "system": "lambda = 2 relabeling, density vertex",
+   "eliminated": false,
+   "tests": {
+    "J_lambda_min": 0.25009380863479586
+   }
+  },
+  {
+   "leg": "K",
+   "system": "lambda = 2 relabeling, current vertex",
+   "eliminated": false,
+   "tests": {
+    "J_lambda_min": 0.000625390898639069
+   }
+  },
+  {
+   "leg": "K",
+   "system": "lambda = 2 relabeling, stress vertex",
+   "eliminated": false,
+   "tests": {
+    "J_lambda_min": 9.777843982004349e-14
+   }
+  }
+ ],
+ "checks": [
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RM-1 C1-a epoch-A kernel at tau = 0.5: 0.357900306 replicates the recorded 0.3579003"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RM-2 C1-a epoch-A kernel at tau = 1.0: 0.159475412 replicates the recorded 0.1594754"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RM-3 C1-a epoch-B kernel at tau = 0.5: 0.287471605 replicates the recorded 0.2874716"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RM-4 C1-a epoch-B kernel at tau = 1.0: 0.132881009 replicates the recorded 0.132881"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RL-1 L-X stress-source slope 8.005419679013 replicates the recorded 8.005419679013105"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RN-1 classical procedure replicates its calibration: momentum identity |sum u_dot - 1| = 3.0e-14 < 1e-9; v_A = 1.0256410256 (calibrated 1.0256410256)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "N-1 the fronts differ by the supplied-stiffness factor: v_B / v_A = 1.296758 in [1.25, 1.35] (analytic sqrt(1.69) = 1.3; procedure systematics cancel in the ratio) -- two earned-admissible sectors, two causal cones"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "N-2 both sectors earned-admissible: per-sector pair kernels J(w) >= 0 on the scan (min 1.843e-14); identical ring topology -- the earned battery passes for BOTH cones"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "QI-1 identity: F(r, 0) = ||[X_0, X_r] psi0|| < 1e-10 for all r >= 1, both sectors (max 3.8e-14; equal-time commutators of disjoint sites vanish)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "QI-2 unitarity: | ||X_0(t) psi0|| - 1 | at t = 2 is 8.1e-14 < 1e-8, both sectors"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "Q-1 fronts exist and move outward: t*(r) strictly increasing over r = 1..5, both sectors (A: [0.05, 0.45, 0.9, 1.4000000000000001, 1.9000000000000001]; B: [0.05, 0.4, 0.8500000000000001, 1.3, 1.75])"
+  },
+  {
+   "kind": "ok",
+   "pass": false,
+   "summary": "Q-2 THE CONES DIFFER: |t*_A(5) - t*_B(5)| = 0.15 > 0.1 * max(1.90, 1.75) -- the record's own two sector parameter sets propagate at different speeds"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "Q-3 the earned geometry is identical: the interaction graphs of H_A and H_B are equal -- recovered geometry underdetermines the cone"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "Q-4 earned positivity indifferent: ground-state two-time Gram of sum X_i PSD for both sectors (A 1.3e-01, B 3.8e-01)"
+  },
+  {
+   "kind": "diag",
+   "pass": true,
+   "summary": "Q-diag (labeled, ungated): Z-probe arrivals t*_Z(5): A 2.25, B 2.20 -- the front is a property of the sector, not of the probe representation"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "X-1 the hybrid long-wavelength cone is the AVERAGE of the supplied parameters: acoustic slope (1, 1.69) = 1.1597408 vs sqrt(1.345) = 1.1597414; (1, 2.56) = 1.3341641 vs sqrt(1.78) = 1.3341664 -- the cone tracks the inputs continuously; nothing invariant appears"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "X-2 (per Amendment 01) exchange does NOT equalize: at q* = 0.6, |v+ - v-| = 0.2361 for (1, 1.69) and 0.5663 for (1, 2.56), both > 0.05 -- the branches retain the two sector characters at finite exchange"
+  },
+  {
+   "kind": "diag",
+   "pass": true,
+   "summary": "X-diag (labeled, ungated; the Amendment-01 disclosure): the global branch maxima for (1, 1.69) are v-_max = 1.1597 (the hybrid q->0 average) and v+_max = 1.1691 (the suppressed optical maximum) -- a numerical near-coincidence of two different quantities, not an equalization; for (1, 2.56) they differ by 0.1427"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "X-3 the compatibility row: equal supplied parameters give the common cone (acoustic slope 1.0000000 = 1.0) -- a common cone is COMPATIBLE exactly when the inputs are equal, never forced when they are not"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "X-4 propagation exists: impulse in A produces max|strain_B(r=40)| = 2.918e-02 > 1e-6 in the (1, 1.69) pair -- exchange creates shared support (causal propagation exists) while X-2 shows no universal cone is created: the ruling's distinction, mechanical"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "K-1 the earned frequency battery is EXACTLY blind to the relabeling, for every representation: |slope_lambda - slope| = density 0.0e+00, current 0.0e+00, stress 0.0e+00 (all < 1e-12); J_lambda >= 0 on the scan"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "K-2 while the cone moves: v_lambda = 2.000000000000 = lambda * v = 2.000000000000 -- an arbitrary front speed at identical earned-battery verdicts, for every representation class"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "M-1 the memory battery is cone-blind: kernels positive and decreasing in tau for springs 1.0 (0.357900 -> 0.159475) and 1.69 (0.222681 -> 0.083112) -- identical memory verdicts for sectors whose fronts differ (N-1); temporal memory carries no spatial support variable"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "M-2 a true support boundary exists per sector: strain outside/inside = 2.3e-14 (A, r_out 66) and 8.8e-14 (B, r_out 85), both < 1e-6 -- a sharp causal support, not a decaying tail; its slope is sector-dependent and nothing earned selects it"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "V-1 EARNED LAYER ELIMINATES NO CONE: 0 of the 7 different-cone systems tested (classical K = 1.69; quantum sector B; lambda = 2 x 3 vertices; coupled (1, 1.69) and (1, 2.56)) fails any earned admissibility test (eliminated: 0 of 7)"
+  },
+  {
+   "kind": "ok",
+   "pass": false,
+   "summary": "V-2 THE BOXED GATE: two earned-admissible systems with different causal cones EXIST (classical ratio 1.2968; quantum arrival gap 0.15; all admissibility passed) => UNIVERSAL CAUSALITY IS NOT DERIVED"
+  },
+  {
+   "kind": "ok",
+   "pass": false,
+   "summary": "V-3 THE TRICHOTOMY: a common limiting velocity is COMPATIBLE (X-3: equal inputs give equal cones) and where the record uses one it is SUPPLIED (TT-1's per-sector v = c; the inventory's cross-sector light-cone relation, supplied, U-1 territory -- cited, not re-adjudicated), but it is NOT DERIVED (V-2)"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "empirical firewall (frozen, the owner's rule): the constraints that would collapse the cone family -- light-speed constancy, observed Lorentz invariance -- are external data, recorded here, never used internally"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "the ruling's distinction, held: causal propagation exists (X-4, N-1, Q-1) != a universal causal cone is selected (X-2, V-1, V-2)"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "M-3 attacked constructively, not restated: the recorded missing common cone is exhibited as a two-admissible-cones demonstration on the record's own sector parameters"
+  }
+ ],
+ "adjudication": {
+  "verdict": "D-PARTIAL",
+  "verdict_detail": "",
+  "scope": "classical rings N = 400 and 7-site open quantum chains; D = 1 propagation; the g = 0.05 exchange family; lambda-relabeling at lambda = 2. Relativistic field content, curved backgrounds, and larger exchange families out of scope; this fork ends the chartered GR-2 sequence pending the Layer-7 synthesis"
+ },
+ "elapsed_s": 16.69
+}
