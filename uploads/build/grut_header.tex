@@ -27,3 +27,14 @@
 \pretocmd{\tableofcontents}{\clearpage}{}{}
 \apptocmd{\tableofcontents}{\clearpage}{}{}
 \setcounter{tocdepth}{2}
+% Unicode fallbacks: relation symbols missing from Latin Modern text fonts
+% (esp. their bold faces) are typeset in math mode instead of dropped.
+\usepackage{newunicodechar}
+\newunicodechar{⇏}{\ensuremath{\nRightarrow}}
+\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{₀}{\ensuremath{{}_{0}}}
+\newunicodechar{₁}{\ensuremath{{}_{1}}}
+\newunicodechar{₂}{\ensuremath{{}_{2}}}
+\newunicodechar{₃}{\ensuremath{{}_{3}}}
+\newunicodechar{₄}{\ensuremath{{}_{4}}}
+\newunicodechar{₉}{\ensuremath{{}_{9}}}
