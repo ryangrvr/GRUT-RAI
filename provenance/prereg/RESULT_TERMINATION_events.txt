@@ -299,3 +299,32 @@ caught it, as it caught the same error once before.)
             physicist has answered any physics question put by this program" -- now rests on
             a complete audit (49/49 classified: 17 prospective, 28 a-pass-that-ran, 2
             collective, 2 filename references) rather than on one that missed eight.
+
+2026-09-27  C3 EVENT: A6 DISCHARGED; OWNER ADJUDICATION: C3 STILL OPEN (MIXED MEMBERS).
+            Cites v4, sha256 =
+            f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61.
+            THE COMPUTATION: the owed A6 Boltzmann-grade common-mode differential check of
+            the frozen TT-auto gate ran under its own frozen charter
+            (A6_COMMON_MODE_CHARTER_01.md at 59ab1ec, pre-run Amendment 01 at 0c9e9e3;
+            instrument calc/a6_common_mode.py; artifact A6_COMMON_MODE_RESULT.json, sha256
+            49e9f987587b2850...; verdict A6_COMMON_MODE_VERDICT_01.md: A6-DISCHARGED, 5/5,
+            zero halts). Corrected verdicts: every kappa=1 named-point kill survives the
+            correction (alpha^2: 6.24 -> 4.87 sigma); kappa=3 survivals strengthen
+            (0.86 -> 0.67); corrected 2-sigma edges 0.0489 (kappa=1) and 0.388 (kappa=3,
+            sharp theta). The A8 insertion marking stands whole (repair scoped to the
+            common-mode defect only).
+            THE ADJUDICATION (per R2, the owner's, operative from this entry; the owner's
+            operative language quoted verbatim per R4): "C3 = STILL OPEN (mixed members)"
+            with the sub-status "A6 = DISCHARGED" -- "Those are not contradictory." --
+            "C3 remains open after A6 discharge; the corrected Boltzmann-grade computation
+            resolves the common-mode contamination but does not, by itself, discharge the
+            remaining kappa-conditional named points." Full ruling: A6_OWNER_RULING_01.md.
+            CHANNEL LINE (R1 form): C3 STILL OPEN -- mixed members (named points
+            kappa-conditional: killed at kappa=1, surviving at kappa=3; window statement
+            clean at each member; A6 discharged).
+            STOP-TRIGGER CHECK: C3 is not discharged, so R5(ii) (both Part-7 fronts) is
+            unaffected; no reply event (R5(iii) untouched); the date (R5(i)) has not
+            arrived. NO STOP TRIGGER FIRES. The R5 clock continues to run exactly as
+            before this entry. C5 remains owed-or-retired; per the same ruling, work
+            proceeds to C5 "without letting C3's unresolved status contaminate its
+            charter."
