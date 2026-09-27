@@ -136,3 +136,15 @@ deterministic (no randomness), single run, no post-hoc tuning; writes
 `GR2_L6_RESULT.json` (sha-hashed) at the repository root; assembles its
 verdict string from measured variables; halts (no verdict) on any R-gate
 miss. Expected runtime: minutes (the $131^3$ lattice has 2.25M modes).
+
+---
+
+## AMENDMENT 01 (pre-run, disclosed control repair)
+
+Recorded 2026-09-27, before the instrument was implemented or run
+(precedent: GR-1's disclosed pre-run control repair). The R-gates as
+frozen compare a full-precision recomputation against constants recorded
+to six decimals, so $|\Delta|<10^{-9}$ is unsatisfiable by construction —
+a threshold-definition defect, not physics. Repair: the R-1a/b/c tolerance
+becomes $|\Delta|<5\times10^{-7}$ (the rounding radius of the recorded
+constants). No prediction, gate value, or tolerance elsewhere changes.
