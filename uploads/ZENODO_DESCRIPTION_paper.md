@@ -89,9 +89,9 @@ Twelve key points of this release:
 Novelty, stated as none. No novelty is claimed for this record, and no documented literature search has been performed for it (unlike the previous version). Its results are in-house verifications within declared model classes. Its contribution is the dependency map: which structures the tested models generate, which they do not, and exactly where each supplied input enters.
 
 Contents (Markdown source, PDF, and figure):
-- GRUT_Consolidated_Theory_PUBLIC_RECORD.md is the authoritative source (SHA-256 [to be filled at final build]).
-- GRUT_Consolidated_Theory_PUBLIC_RECORD.pdf is typeset from it by a conversion-only LaTeX build (pandoc + XeLaTeX; SHA-256 [to be filled]).
-- Figure 1 (grut_architecture.pdf) is built from its TikZ source.
+- GRUT_Consolidated_Theory_PUBLIC_RECORD.md is the authoritative source (SHA-256 8d3da9fc45c29827959391df1d49abf28d799bd242f477d401078c450fa9317e).
+- GRUT_Consolidated_Theory_PUBLIC_RECORD.pdf is typeset from it by a conversion-only LaTeX build (pandoc + XeLaTeX; SHA-256 ac220ee1567f66ed8a56ee408e972baf5c4e5c43c836125d0e339d9581dd439e).
+- Figure 1 (grut_architecture.pdf) is built from its TikZ source (SHA-256 9ef95fdc510aa3d864b1e634b08590958532dab99118910da1ed429d46eec512).
 
 The companion software and provenance archive, GRUT-RAI (all versions: 10.5281/zenodo.18993689), contains everything the record cites:
 - the frozen pre-registration charters;
@@ -100,7 +100,7 @@ The companion software and provenance archive, GRUT-RAI (all versions: 10.5281/z
 - the verdicts and formalizations;
 - the foundations record.
 
-Source: github.com/ryangrvr/GRUT-RAI, branch master-w25bu9 (source boundary commit 6abbf31; release commit [to be filled]).
+Source: github.com/ryangrvr/GRUT-RAI, branch master-w25bu9 (source boundary commit 6abbf316; release commit 0958a40, which holds the deposited files).
 
 Working-edition statement. All verification is in-house and machine-executed. No external human review has occurred. This is a working research record offered for exactly that scrutiny, not a publication claim.
 
