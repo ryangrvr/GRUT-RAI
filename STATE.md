@@ -1,5 +1,28 @@
 # GRUT — STATE (standing snapshot)
 
+> **CURRENT BOUNDARY 2026-09-27 — GR2 COMPLETE + GRAVITY_UNDERDETERMINED + v4 RUNNING.**
+> The program was closed 2026-09-23 (`GRUT_PROGRAM_CLOSURE_01.md`), reopened 2026-09-25
+> (`GRUT_PROGRAM_REOPEN_01.md`), and the consolidated public record was published 2026-09-26
+> (paper DOI 10.5281/zenodo.22983638; release `public-record-2026-09-26`). The **GR-2
+> gravitational-forcing campaign** then ran to completion under frozen charters (GR2-L6, -a,
+> -b, -c, -d, -d2 + the Layer-7 synthesis, each owner-adjudicated; Issue #2 is the
+> adjudication thread): scientific verdict **GRAVITY_UNDERDETERMINED** — the earned core
+> forces none of {coupling class, spin, universal reach, universal causal cone}; each is an
+> additional structural input; GR-1 stays red; nothing is refuted. The signed **v4
+> termination condition** (`f4bc613c…`, in force 2026-08-10) was reconciled
+> criterion-by-criterion (`V4_TERMINATION_RECONCILIATION_01.md`, owner-accepted): **no
+> criterion satisfied, no stop trigger fired, the deposit not yet due**; the clock runs to
+> the earliest of 2026-12-31 / both Part-7 fronts discharged / an unconditional cut-class
+> reply. The dated public-record update is
+> `uploads/GRUT_PUBLIC_RECORD_UPDATE_2026-09-27.md` (+ 6-page PDF and Zenodo package);
+> **publication cadence, owner-set 2026-09-27: the repo record stays canonical and current
+> as research proceeds; Zenodo versions are batched, published by the owner when ready —
+> not every update is published.** The live deadline-bound front: the two Part-7
+> obligations (v4 C3, the TT-auto calc — its A8-demoted gate owes the A6 Boltzmann-grade
+> common-mode check before any κ=3 kill-grade use; and v4 C5, the ξ_ij/Γ_T calc), each
+> OWED-OR-RETIRED before the stop. The dispatch (v4 C1) remains unsent and HELD. The stage
+> banners below this line are historical.
+
 > **STAGE CLOSED 2026-08-19** (owner's direction) — see `STAGE_CLOSE_2026-08-19.md` for this
 > stage's verified state, what it did, and the seven adjudications plus the bank gate that
 > remain with the owner. The previous boundary follows.
