@@ -1,0 +1,357 @@
+{
+ "fork": "GR2-a",
+ "charter": "GR2A_COUPLING_CHARTER_01.md (frozen e5687b0)",
+ "directive": "GR2_CAMPAIGN_DIRECTIVE_01.md (Layer 1); GR2_L6_OWNER_RULING_01.md (authorization)",
+ "timestamp": "2026-09-27T04:01:11+00:00",
+ "environment": {
+  "python": "3.11.15",
+  "pure_stdlib": true,
+  "deterministic": "no randomness anywhere"
+ },
+ "convention": "GR-1 L-X fresh pair instrument, replicated (alpha = 0.05)",
+ "members": [
+  {
+   "member": "1 stress point (= v_ful)",
+   "c": [
+    0.0,
+    -1.0,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "slope": 8.005419679013105,
+   "frozen_class": 8,
+   "law_class": 8
+  },
+  {
+   "member": "2 mass modulation (CC-1)",
+   "c": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "slope": 0.0016265908463323172,
+   "frozen_class": 0,
+   "law_class": 0
+  },
+  {
+   "member": "3 potential-only",
+   "c": [
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "slope": 4.003794021366405,
+   "frozen_class": 4,
+   "law_class": 4
+  },
+  {
+   "member": "4 kinetic-only (= v_kin)",
+   "c": [
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "slope": 4.001626590846332,
+   "frozen_class": 4,
+   "law_class": 4
+  },
+  {
+   "member": "5 non-minimal (= v_non)",
+   "c": [
+    0.0,
+    -1.3,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "slope": 4.010999254328895,
+   "frozen_class": 4,
+   "law_class": 4
+  },
+  {
+   "member": "6 pure HD potential",
+   "c": [
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0
+   ],
+   "slope": 8.005961451886476,
+   "frozen_class": 8,
+   "law_class": 8
+  },
+  {
+   "member": "7 pure kinetic gradient",
+   "c": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "slope": 8.003794021366405,
+   "frozen_class": 8,
+   "law_class": 8
+  },
+  {
+   "member": "8 stress + HD admixture",
+   "c": [
+    0.0,
+    -1.0,
+    1.0,
+    1.0,
+    0.0
+   ],
+   "slope": 8.00602163841265,
+   "frozen_class": 8,
+   "law_class": 8
+  },
+  {
+   "member": "9 tuned deep cancellation",
+   "c": [
+    0.0,
+    -1.0,
+    1.0,
+    0.1,
+    0.0
+   ],
+   "slope": 12.008128859392084,
+   "frozen_class": 12,
+   "law_class": 12
+  },
+  {
+   "member": "10 stress + mass admixture",
+   "c": [
+    0.3,
+    -1.0,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "slope": 0.0015362547592515311,
+   "frozen_class": 0,
+   "law_class": 0
+  },
+  {
+   "member": "11 symmetric mix",
+   "c": [
+    0.0,
+    0.5,
+    0.5,
+    0.0,
+    0.0
+   ],
+   "slope": 4.002710645127843,
+   "frozen_class": 4,
+   "law_class": 4
+  },
+  {
+   "member": "12 partial cancellation",
+   "c": [
+    0.0,
+    -0.5,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "slope": 3.999456445300094,
+   "frozen_class": 4,
+   "law_class": 4
+  },
+  {
+   "member": "13 mass + kinetic",
+   "c": [
+    2.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0
+   ],
+   "slope": 0.012413108386768987,
+   "frozen_class": 0,
+   "law_class": 0
+  },
+  {
+   "member": "14 on-locus mixed",
+   "c": [
+    0.0,
+    -1.0,
+    1.0,
+    -0.08,
+    0.2
+   ],
+   "slope": 7.986904795176348,
+   "frozen_class": 8,
+   "law_class": 8
+  },
+  {
+   "member": "15 all-positive mix",
+   "c": [
+    0.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "slope": 4.024243576241582,
+   "frozen_class": 4,
+   "law_class": 4
+  }
+ ],
+ "checks": [
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "R s_kin: replicated 4.001626590846 vs recorded 4.001626590846 (|Delta| = 0.0e+00 < 1e-9)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "R s_pot: replicated 4.003794021366 vs recorded 4.003794021366 (|Delta| = 0.0e+00 < 1e-9)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "R s_non: replicated 4.010999254329 vs recorded 4.010999254329 (|Delta| = 0.0e+00 < 1e-9)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "R s_full: replicated 8.005419679013 vs recorded 8.005419679013 (|Delta| = 0.0e+00 < 1e-9)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "R linear-kill: exactly-linear vertex = 0.0e+00 < 1e-14"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "R rescale: slope invariant under coupling x16, |Delta| = 0.0e+00 < 1e-12"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "F-1 1 stress point (= v_ful): slope 8.005419679013 equals recorded s_full (|Delta| = 0.0e+00 < 1e-9) -- the family contains the stress point identically"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 2 mass modulation (CC-1): measured slope 0.0016 vs frozen class 0 (|Delta| = 0.0016 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 3 potential-only: measured slope 4.0038 vs frozen class 4 (|Delta| = 0.0038 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 4 kinetic-only (= v_kin): measured slope 4.0016 vs frozen class 4 (|Delta| = 0.0016 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 5 non-minimal (= v_non): measured slope 4.0110 vs frozen class 4 (|Delta| = 0.0110 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 6 pure HD potential: measured slope 8.0060 vs frozen class 8 (|Delta| = 0.0060 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 7 pure kinetic gradient: measured slope 8.0038 vs frozen class 8 (|Delta| = 0.0038 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 8 stress + HD admixture: measured slope 8.0060 vs frozen class 8 (|Delta| = 0.0060 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 9 tuned deep cancellation: measured slope 12.0081 vs frozen class 12 (|Delta| = 0.0081 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 10 stress + mass admixture: measured slope 0.0015 vs frozen class 0 (|Delta| = 0.0015 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 11 symmetric mix: measured slope 4.0027 vs frozen class 4 (|Delta| = 0.0027 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 12 partial cancellation: measured slope 3.9995 vs frozen class 4 (|Delta| = 0.0005 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 13 mass + kinetic: measured slope 0.0124 vs frozen class 0 (|Delta| = 0.0124 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 14 on-locus mixed: measured slope 7.9869 vs frozen class 8 (|Delta| = 0.0131 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G 15 all-positive mix: measured slope 4.0242 vs frozen class 4 (|Delta| = 0.0242 < 0.2)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "E-1 LOCALITY IS EXPONENT-BLIND: the local family exhibits classes [0, 4, 8, 12] -- four distinct low-frequency classes among local couplings"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "E-2 CONE IS EXPONENT-BLIND: min J(w) over all members and the scan = 7.644e-22 >= 0 (golden-rule positivity; P-2 realizability of (J, nu = J/2) cited) -- every class is cone-admissible"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "E-3 THE SELECTION RULE IDENTIFIED: for all 15 members the measured class equals the frozen coefficient law -- membership of the omega^7 class is decided exactly by {c1 = 0 and c2 + c3 = 0} (the soft-flux condition) and by nothing else"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "E-4 THE +4 LOCUS IS NONUNIQUE: non-stress members 6, 7, 8, 14 all land in class 8 (slopes 8.006, 8.004, 8.006, 7.987) -- including the purely kinetic member 7, with no tracelessness narrative"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "E-5 THE LOCUS IS UNSTABLE TO THE EARNED-ADMISSIBLE CHANNEL: the stress point plus 0.3 x mass modulation (the coupling CC-1 found passing every earned constant-level selector) drops from class 8 to slope 0.0015 (class 0) -- nothing earned forbids the admixture that destroys the cancellation"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "recovered geometry is member-blind by construction: every member couples to the same substrate, whose recovered geometry is the substrate's (CP-1 L-G2 identity at 2.2e-16; CA-1 leg 1). Geometry cannot select a coupling here"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "constraint statuses (charter section 6): locality -- admitted core principle, exponent-blind (E-1); cone -- DERIVED-IN-CLASS (P-2, borrowed-standard), exponent-blind (E-2); geometry -- blind by construction; conservation -- SUPPLIED (CC-1 irreducible); Lorentz/gauge -- SUPPLIED (I3); spin-2 -- OPEN here (GR2-b); stress structure -- SUPPLIED (one family point); +4/tracelessness -- CONDITIONAL, mechanically the soft-flux condition"
+  }
+ ],
+ "adjudication": {
+  "verdict": "A-COUPLING-NOT-SELECTED",
+  "verdict_detail": "classes present among local, cone-admissible couplings: [0, 4, 8, 12]; the omega^7 class (slope 8 here) is the locus {c1 = 0, c2 + c3 = 0} -- vanishing soft flux -- imposed by nothing earned, occupied by non-stress and purely kinetic members, and destroyed by admixture of the earned-admissible mass-modulation channel. The core does not select omega^7; the gravitational branch requires an additional primitive coupling structure. omega^7's recorded status (within-class occupancy evidence, conditional) is unchanged",
+  "scope": "1D single-sector counter-propagating pair channel, the L-X convention, this five-channel local family; class (e)"
+ },
+ "elapsed_s": 0.0
+}
