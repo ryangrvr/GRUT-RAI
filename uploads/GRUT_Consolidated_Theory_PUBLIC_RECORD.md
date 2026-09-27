@@ -2268,8 +2268,8 @@ Zenodo concept record lists every version.
   negative results had faced none of the checks applied to positive ones
   (`RAI_GRUT_RESURRECTION.md`). The codified response is the N1–N10
   negative-control standard, including displaced-gate mutation testing. It
-  is graded only partially repaired, "a detector, not a certifier", and only
-  N4 and N5 have committed definitions. The red-gate discipline complements
+  is graded partially repaired — "repaired as a detector, unrepaired as a
+  certifier" — and only N4 and N5 have committed definitions. The red-gate discipline complements
   it by keeping failed gates from being softened by prose. The "Cherenkov
   no-go" of Section 17, accepted and refuted the same evening, is an
   example of the asymmetry.
@@ -2493,9 +2493,10 @@ its calibration disclosure on the face of its charter.
 ## D.2 What "pre-registered" means here, and what it does not establish
 
 - For each of the 24 chartered forks of Appendix G, a charter file was
-  committed alone, and the instrument, result, and verdict were then
-  committed together in the next commit. Each verdict commit's parent is
-  its charter commit.
+  committed before its run — in seven cases together with the previous
+  fork's owner-ruling document, and otherwise alone — and the instrument,
+  result, and verdict were then committed together in the next commit.
+  Each verdict commit's parent is its charter commit.
 - The gap between the two commits ranged from 76 s (SX-1) to 676 s (G-1),
   with a median of about 3 minutes.
 - Because each instrument is first committed together with its result, the
@@ -2790,10 +2791,11 @@ The owner's acceptance of C1-a2 (Formalization 02 Amendment 02) is commit
 # References
 
 Citation keys without a dagger are held in the program's own source
-register. The register records a verification tier for each entry: most
-here were checked at metadata or abstract level (via Crossref, arXiv, or
-the publisher) on 23 September 2026, and some are noted as known only
-through secondary literature. **References marked † are supplied for this
+register, except where an entry names another in-repository location. The
+register records a verification tier for each entry: most here were
+checked at metadata or abstract level (via Crossref, arXiv, or the
+publisher) on 23 September 2026, and some are noted as known only through
+secondary literature. **References marked † are supplied for this
 edition. Their bibliographic data have not been verified against the
 program's source register.** No systematic literature search has been
 performed for this record.
@@ -2827,7 +2829,8 @@ performed for this record.
   arXiv:2103.08547.
 - [TW96] N. C. Tsamis and R. P. Woodard, "One loop graviton self-energy in a
   locally de Sitter background", *Phys. Rev. D* **54**, 2621 (1996);
-  hep-ph/9602317.
+  hep-ph/9602317. (Held in the program's literature pass and in the de
+  Sitter paper's reference list, not in the source register.)
 - [Vik05] A. Vikman, "Can dark energy evolve to the phantom?", *Phys. Rev. D*
   **71**, 023515 (2005); astro-ph/0407107.
 - [WW80] S. Weinberg and E. Witten, "Limits on massless particles", *Phys.
