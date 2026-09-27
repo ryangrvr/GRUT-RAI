@@ -1,0 +1,142 @@
+{
+ "fork": "GR2-d2",
+ "charter": "GR2D2_QCONE_CHARTER_01.md (frozen 75f2069)",
+ "directive": "GR2D_OWNER_RULING_01.md (narrow authorization: a re-charter of GR2-d gate Q-2 only)",
+ "timestamp": "2026-09-27T17:14:52+00:00",
+ "environment": {
+  "python": "3.11.15",
+  "pure_stdlib": true,
+  "deterministic": "no RNG in this fork"
+ },
+ "defect_history": [],
+ "measurements": {
+  "analytic_velocities": {
+   "C": 1.8089999824730876,
+   "D": 0.9999999560505259,
+   "ratio": 1.809000061977689
+  },
+  "controls": {
+   "A": {
+    "1": 0.05,
+    "2": 0.45,
+    "3": 0.9,
+    "4": 1.4000000000000001,
+    "5": 1.9000000000000001
+   },
+   "E2": {
+    "1": 0.1,
+    "2": 0.65,
+    "3": 1.3,
+    "4": 2.0,
+    "5": 2.7
+   },
+   "E3": {
+    "1": 0.1,
+    "2": 0.55,
+    "3": 1.1,
+    "4": 1.7000000000000002,
+    "5": 2.25
+   }
+  },
+  "targets": {
+   "C": {
+    "1": 0.05,
+    "2": 0.45,
+    "3": 0.9,
+    "4": 1.35,
+    "5": 1.85
+   },
+   "D": {
+    "1": 0.1,
+    "2": 0.65,
+    "3": 1.35,
+    "4": 2.0500000000000003,
+    "5": 2.8000000000000003
+   }
+  },
+  "separation": {
+   "slope_C": 0.45,
+   "slope_D": 0.6800000000000003,
+   "slope_ratio": 1.5111111111111117,
+   "v_est_C": 2.2222222222222223,
+   "v_est_D": 1.470588235294117,
+   "gap_r5": 0.9500000000000002,
+   "gap_rel": 0.3392857142857143
+  }
+ },
+ "elimination_table": [
+  {
+   "leg": "S",
+   "system": "quantum sector D = (0.5, 0.9, 0)",
+   "eliminated": false,
+   "tests": {
+    "gram_min": 0.02279112546341418,
+    "graph_same": true,
+    "fronts_monotone": true
+   }
+  }
+ ],
+ "checks": [
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "P-1 the targets are analytically separated BEFORE measurement: v_C = 1.809000 (2 min(J,h) = 1.8090), v_D = 1.000000 (1.0000), ratio 1.8090 >= 1.5; D is not a rescale of C (J/h = 1.105 vs 0.556)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RQ-1 the GR2-d recorded sector-A table replicates exactly on its original [0, 6] window: t* = [0.05, 0.45, 0.9, 1.4, 1.9] (recorded 0.05, 0.45, 0.90, 1.40, 1.90) -- the estimator is anchored to the accepted GR2-d run"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RQ-2 calibration sector E2 = (0.7, 0.6, 0) replicates its disclosed table: t* = [0.1, 0.65, 1.3, 2.0, 2.7] (calibrated 0.10, 0.65, 1.30, 2.00, 2.70; analytic v 1.2, systematic x1.2723)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RQ-3 calibration sector E3 = (0.8, 0.75, 0) replicates its disclosed table: t* = [0.1, 0.55, 1.1, 1.7, 2.25] (calibrated 0.10, 0.55, 1.10, 1.70, 2.25; analytic v 1.5, systematic x1.2232)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "QI-1 identity: F(r, 0) < 1e-10 for every sector and r (max 3.4e-14)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "QI-2 unitarity at t = 2: max deviation 7.8e-14 < 1e-8, every sector"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "S-1 THE CONES SEPARATE: fitted-slope ratio slope_D / slope_C = 1.5111 in [1.5, 2.1] (analytic ratio 1.809; measured v_est C 2.2222, D 1.4706) -- frozen blind, before this measurement"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "S-2 the GR2-d Q-2 form at STRICTER threshold: |t*_C(5) - t*_D(5)| = 0.95 > 0.25 * max(1.85, 2.80) = 0.700 (the threshold that failed in GR2-d was 0.10)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "S-3 both targets EARNED-ADMISSIBLE: fronts strictly outward (C [0.05, 0.45, 0.9, 1.35, 1.85]; D [0.1, 0.65, 1.35, 2.0500000000000003, 2.8000000000000003]); identical interaction graphs; ground-state Gram of sum X_i PSD (C 2.1e-01, D 2.3e-02) -- the different-cone sector D survives the whole earned battery"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "consequence discipline (frozen from the ruling): a clean result establishes in-class quantum cone DISTINCTION only; the universal cone is NOT thereby derived, and GR2-d's V-2/V-3 failures stand at recorded strength under every outcome here"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "the hard rule (frozen from the ruling): had S-1/S-2 failed, the failure would be recorded with no parameter re-selection"
+  }
+ ],
+ "adjudication": {
+  "verdict": "D2-QCONE-DISTINCT",
+  "verdict_detail": "two earned-admissible quantum sectors of the record's own chain family, analytically separated before measurement (exact transverse-field velocities 1.809 vs 1.000), exhibit measurably distinct causal cones under thresholds frozen blind -- quantum causal-cone distinction is demonstrable within the tested class. The irreducibility demonstration for the cone coordinate is strengthened: locality + influence + geometry + memory + quantum dynamics do not imply c_universal. The universal cone is NOT thereby derived; GR2-d's D-PARTIAL and its V-2/V-3 failures stand as recorded",
+  "scope": "exactly the GR2-d quantum-leg construction: 7-site open chains, D = 1, the X-commutator front estimator. The classical, exchange, relabeling, and memory legs are adjudicated in GR2-d and untouched here"
+ },
+ "elapsed_s": 29.71
+}
