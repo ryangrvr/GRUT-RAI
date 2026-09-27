@@ -269,3 +269,30 @@ $g = 0.05$ exchange family; λ-relabeling at λ = 2. Relativistic field
 content, curved backgrounds, and larger exchange families are out of
 scope; this fork ends the chartered GR-2 sequence pending the Layer-7
 synthesis.
+
+---
+
+## AMENDMENT 01 (pre-run, disclosed; GR2-L6 Amendment 01 precedent — appended, never edited in place)
+
+**Discovered before any instrument run,** during a satisfiability check
+of the frozen thresholds: gate X-2 as frozen compares the two **global
+branch maxima**, and for the pair $(1, 1.69, g = 0.05)$ these nearly
+coincide numerically — $v^{\max}_- = 1.1597$ (the hybrid $q \to 0$
+average) vs $v^{\max}_+ = 1.1691$ (the suppressed optical maximum),
+gap 0.0094 — a near-coincidence of two *different* quantities, not an
+equalization of propagation speeds. The frozen threshold 0.05 is
+unsatisfiable for that pair, and the comparison was aimed at the wrong
+q-region: the physical non-equalization statement lives at interior q,
+where the branches carry the two sector characters.
+
+**Repair (this amendment):** X-2 becomes — at the frozen interior point
+$q^* = 0.6$, $|v_+(q^*) - v_-(q^*)| > 0.05$ for **both** unequal pairs
+$(1, 1.69)$ and $(1, 2.56)$ at $g = 0.05$. The branch maxima are
+reported **ungated**, including the $(1, 1.69)$ near-coincidence, which
+is disclosed as the defect that prompted this amendment. Blindness for
+this gate is lost by the satisfiability check and is therefore fully
+disclosed rather than pretended: the repair verification measured
+$|v_+(0.6) - v_-(0.6)| = 0.2361$ for $(1, 1.69)$ and $0.5663$ for
+$(1, 2.56)$, tracking the decoupled per-chain values ($0.955$ vs
+$1.242$ and $1.529$). No other gate, threshold, leg, or outcome rule is
+touched.
