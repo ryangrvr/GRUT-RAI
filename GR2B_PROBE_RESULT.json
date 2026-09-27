@@ -1,0 +1,187 @@
+{
+ "fork": "GR2-b",
+ "charter": "GR2B_PROBE_CHARTER_01.md (frozen 940ef46)",
+ "directive": "GR2_CAMPAIGN_DIRECTIVE_01.md (Layer 2); GR2A_OWNER_RULING_01.md (authorization)",
+ "timestamp": "2026-09-27T04:54:28+00:00",
+ "environment": {
+  "python": "3.11.15",
+  "pure_stdlib": true,
+  "deterministic": "seeded scans only (seed 20260925)"
+ },
+ "defect_history": [
+  "Run 1 (2026-09-27, not committed): the access-leg closure computation breached the analytic identity dim <= dim sp(6) = 21 (reported dim 30 for the density seed; stress-seed defect 0.94). Cause: brackets stored unnormalized, so exponential norm growth defeated the absolute independence tolerance. Instrument bug, never physics; every RC/RL/S/I/N/V gate outside the access leg passed identically in run 1. Repair: brackets normalized, relative independence test, and the dim <= 21 identity added as a halt gate. No gate threshold changed. Run 2 is the recorded run."
+ ],
+ "measurements": {
+  "vector": {
+   "cons_min": 0.00945472594605436,
+   "non_min": -10.617825792867652
+  },
+  "spin2": {
+   "cons_min": 0.016561276082769805,
+   "non_min": -17.818443050769414
+  },
+  "massive": {
+   "proca_min": 0.29456006917729094,
+   "fp_min": 1.5305026792418885
+  },
+  "scalar": {
+   "massless_min": 0.00014008447741307097,
+   "massive_min": 2.1660885574952744e-05
+  },
+  "slopes": {
+   "density": 0.0016265908463323172,
+   "stress": 8.005419679013105
+  },
+  "closure_density": {
+   "dim": 21,
+   "sweeps": 8,
+   "defect": 9.71562268159143e-15
+  },
+  "closure_current": {
+   "dim": 21,
+   "sweeps": 5,
+   "defect": 1.2896818758329625e-15
+  },
+  "closure_stress": {
+   "dim": 21,
+   "sweeps": 8,
+   "defect": 6.599813579307616e-15
+  },
+  "static_signs": {
+   "scalar": 1.0,
+   "vector": -1.0,
+   "tensor": 0.5
+  }
+ },
+ "survivors_earned": {
+  "scalar_massless": true,
+  "scalar_massive": true,
+  "vector_massless": true,
+  "vector_massive": true,
+  "spin2_massless": true,
+  "spin2_massive": true
+ },
+ "checks": [
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-1 massless vector, conserved: min residue 0.009454725946 replicates recorded 0.009454725946 (dev 3.6e-15)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-2 massless vector, non-conserved: min residue -10.617825792868 replicates recorded -10.617825792868"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-3 massless spin-2, conserved: min residue 0.016561276083 replicates recorded 0.016561276083 (dev 1.0e-12)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-4 massless spin-2, non-conserved: min residue -17.818443050769 replicates recorded -17.818443050769"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-5 Proca (massive vector), arbitrary sources: min residue 0.294560069177 replicates recorded 0.294560069177 >= 0"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-6 Fierz-Pauli (massive spin-2), arbitrary sources: min residue 1.530502679242 replicates recorded 1.530502679242 >= 0"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RL-1 L-X stress-source slope 8.005419679013 replicates the recorded 8.005419679013105"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "S-1 massless scalar, arbitrary sources: min residue 1.401e-04 >= 0 -- positivity places NO constraint on the scalar's source; the conservation-for-masslessness tie is a spin >= 1 phenomenon"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "S-2 massive scalar, arbitrary sources: min residue 2.166e-05 >= 0"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "I-1 induced pair-channel J(w) >= 0 for the density-source and stress-source candidates (min 1.956e-13) -- both cone-admissible"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "I-2 the influence data DISTINGUISH representations without forbidding either: density-source class 0 (slope 0.0016), stress-source class 8 (slope 8.0054)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A-1 identity: closure dim 21 <= dim sp(6) = 21 (halt-grade; run 1 breached this identity)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "A-1 the density seed generates, with H, a bracket-closed subalgebra of sp(6): dim 21 (of 21), stable in 8 sweeps, closure defect 9.7e-15 < 1e-8 -- a canonical access assignment"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A-2 identity: closure dim 21 <= dim sp(6) = 21 (halt-grade; run 1 breached this identity)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "A-2 the current seed generates, with H, a bracket-closed subalgebra of sp(6): dim 21 (of 21), stable in 5 sweeps, closure defect 1.3e-15 < 1e-8 -- a canonical access assignment"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A-3 identity: closure dim 21 <= dim sp(6) = 21 (halt-grade; run 1 breached this identity)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "A-3 the stress seed generates, with H, a bracket-closed subalgebra of sp(6): dim 21 (of 21), stable in 8 sweeps, closure defect 6.6e-15 < 1e-8 -- a canonical access assignment"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "access consequence: every representation's source type is an admissible seed; per P-6 (cited, not re-run) the seed is a supplied input -- access does not select the representation"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "N-1 static exchange between like sources: scalar +1.0 (attractive), massless vector -1.0 (repulsive), massless spin-2 +0.5 (attractive) -- the classic discriminator, and it is an EMPIRICAL datum (universal attraction) found nowhere in the record's earned or supplied layers"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "V-1 EARNED LAYER ELIMINATES NOTHING: all six candidates have admissible realizations under locality, exchange/cone positivity, access, and recovered geometry (eliminated: 0 of 6)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "V-2 SUPPLIED LAYER DOES NOT SELECT SPIN: imposing the record's supplied set (masslessness, Lorentz/gauge structure) ties spin >= 1 to conserved sources (RC-2, RC-4) but leaves 3 representation classes standing: scalar_massless (any source); vector_massless (conserved current); spin2_massless (conserved symmetric T) -- the map influence structure -> probe representation is NOT injective"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "recovered geometry is probe-blind by construction (CA-1 leg 1; CP-1 L-G2 at 2.2e-16); universal reach and clock universality are conditional/supplied per U-1 -- cited, not re-run"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "the further elimination down to spin-2 requires empirical inputs external to the record: universal ATTRACTION removes the vector (N-1), and LIGHT BENDING removes the Nordstrom-type scalar -- neither is earned or supplied anywhere in the record"
+  }
+ ],
+ "adjudication": {
+  "verdict": "B-SPIN-NOT-SELECTED",
+  "verdict_detail": "no earned structure distinguishes representation class except to label it through the influence data (classes 0 vs 8, both admissible); the supplied layer ties masslessness of spin >= 1 to source conservation but leaves scalar, vector, and spin-2 standing; the elimination down to spin-2 lives in empirical inputs (universal attraction; light bending) external to the record. I3 is sharpened as an irreducible primitive at this level: the representation-degeneracy demonstration half of its certificate",
+  "scope": "D = 4 exchange kinematics as in CC-1; the 1D L-X pair channel; sp(6) closures on the 3-site chain. Higher spins, probe mixtures, and sector universality out of scope (GR2-c, GR2-d)"
+ },
+ "elapsed_s": 0.46
+}
