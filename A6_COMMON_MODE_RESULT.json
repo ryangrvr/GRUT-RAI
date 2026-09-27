@@ -1,0 +1,225 @@
+{
+ "fork": "A6-1 (the first Part-7 front's blocking item; v4 C3 context)",
+ "charter": "A6_COMMON_MODE_CHARTER_01.md (frozen 59ab1ec; Amendment 01 at 0c9e9e3)",
+ "timestamp": "2026-09-27T18:15:44+00:00",
+ "environment": {
+  "python": "3.11.15",
+  "pipeline": "isw_tt_auto imported unchanged",
+  "harness": "CAMB 2.0.4 + camb.symbolic custom sources (declared external ground truth; A1/mpmath precedent)",
+  "deterministic": true
+ },
+ "defect_history": [],
+ "a8_marking": "EVERY NUMBER REMAINS INSERTION-CONTAMINATED at the kappa-filter level (GRUT-plus-an-unbanked-filter); this fork repairs the common-mode defect only",
+ "measurements": {
+  "replication": {
+   "isw_share_l2": 0.22796347439644127,
+   "isw_share_l10": 0.07985467356824161,
+   "edge_k1": 0.037199707031250015,
+   "edge_k3": 0.358056640625,
+   "N111_k1": 6.235291487155108,
+   "N111_k3": 0.857732869035231
+  },
+  "f_members": {
+   "A_diagnostic": {
+    "2": 0.12887723461554934,
+    "3": 0.14202282449891568,
+    "4": 0.15317651892897777,
+    "5": 0.16596605983691104,
+    "6": 0.18271481328676975,
+    "7": 0.20487742170822432,
+    "8": 0.23223624304778467,
+    "9": 0.26501565979870456,
+    "10": 0.30328790169995146,
+    "11": 0.3459298354778906,
+    "12": 0.39273104156450844,
+    "13": 0.44425639856496457,
+    "14": 0.5002451541907886,
+    "15": 0.5600332816101576,
+    "16": 0.6234541441101562,
+    "17": 0.690771614563545,
+    "18": 0.7621311290357149,
+    "19": 0.8377125099632059,
+    "20": 0.9168656575733971,
+    "21": 1.0011073122501912,
+    "22": 1.089356778010285,
+    "23": 1.1806724757324005,
+    "24": 1.276044999863923,
+    "25": 1.3758745438118805,
+    "26": 1.4788548320429613,
+    "27": 1.5857470177096444,
+    "28": 1.695855395061153,
+    "29": 1.8089127874797626,
+    "30": 1.9253378730487025
+   },
+   "B_as_1_50": {
+    "2": -0.0960576353589192,
+    "3": -0.10484726477606132,
+    "4": -0.1119061154943487,
+    "5": -0.11562272795170025,
+    "6": -0.11498764590153643,
+    "7": -0.10944623685197441,
+    "8": -0.09972469466567524,
+    "9": -0.08588050619644372,
+    "10": -0.06809775977713572,
+    "11": -0.04751811998785904,
+    "12": -0.024304247391431555,
+    "13": 0.0019710795992025076,
+    "14": 0.03090072964988555,
+    "15": 0.06181888617345077,
+    "16": 0.09458974481870275,
+    "17": 0.12945963676836336,
+    "18": 0.1664160629149467,
+    "19": 0.20589757060676095,
+    "20": 0.24722478331331743,
+    "21": 0.2913431991328439,
+    "22": 0.33766663230059724,
+    "23": 0.38565621785637116,
+    "24": 0.4360013721321314,
+    "25": 0.4890617718058703,
+    "26": 0.5441620393716149,
+    "27": 0.6019232801299303,
+    "28": 0.662081237753311,
+    "29": 0.7247055228878885,
+    "30": 0.7903318048110868
+   },
+   "C_as_1_20": {
+    "2": -0.11164948580873058,
+    "3": -0.1207055110107117,
+    "4": -0.12753020999163467,
+    "5": -0.13073590112083477,
+    "6": -0.12944336147071112,
+    "7": -0.123218385693182,
+    "8": -0.11282462407962879,
+    "9": -0.0983165374919156,
+    "10": -0.07993114627482079,
+    "11": -0.058795251608130705,
+    "12": -0.0350011011152519,
+    "13": -0.008122384851688258,
+    "14": 0.021385882842513082,
+    "15": 0.052842364052552604,
+    "16": 0.0861279878385861,
+    "17": 0.12150321572648282,
+    "18": 0.1589566801120108,
+    "19": 0.19891331649358146,
+    "20": 0.24068887811432682,
+    "21": 0.2852187581627983,
+    "22": 0.3319137859373875,
+    "23": 0.3802364118564796,
+    "24": 0.4308750487476316,
+    "25": 0.48419191269395,
+    "26": 0.539518882569975,
+    "27": 0.5974809215827184,
+    "28": 0.6578214411609244,
+    "29": 0.7206152438654116,
+    "30": 0.786402121372582
+   }
+  },
+  "harness": {
+   "full_TT_D30_D2": 0.975790640408809,
+   "max_fB_fC_gap": 0.015858246234650375,
+   "camb_version": "2.0.4"
+  },
+  "corrected_table": {
+   "x=0.0625,k=1": {
+    "uncorrected": 3.42607893459536,
+    "B": 2.601634417057551,
+    "C": 2.6152864042090007,
+    "A_diag": 1.7420057087330554,
+    "gauss_uncorrected": 3.8460176530403363
+   },
+   "x=0.111,k=1": {
+    "uncorrected": 6.235291487155108,
+    "B": 4.86804473059754,
+    "C": 4.892215876986537,
+    "A_diag": 3.341052676687102,
+    "gauss_uncorrected": 7.730806797550871
+   },
+   "x=0.333,k=1": {
+    "uncorrected": 18.509385852856994,
+    "B": 15.8345644392005,
+    "C": 15.891553948367758,
+    "A_diag": 12.07350357707668,
+    "gauss_uncorrected": 37.78177022855384
+   },
+   "x=0.0625,k=3": {
+    "uncorrected": 0.6257009941554496,
+    "B": 0.48112294568833686,
+    "C": 0.4844035295249215,
+    "A_diag": 0.3166594085828888,
+    "gauss_uncorrected": 0.6135659745398273
+   },
+   "x=0.111,k=3": {
+    "uncorrected": 0.857732869035231,
+    "B": 0.6665303758239619,
+    "C": 0.6712909858285434,
+    "A_diag": 0.4395990366921813,
+    "gauss_uncorrected": 0.8350597012828118
+   },
+   "x=0.333,k=3": {
+    "uncorrected": 1.4484192739279569,
+    "B": 1.0218133946495203,
+    "C": 1.0263822922537322,
+    "A_diag": 0.6626045986507056,
+    "gauss_uncorrected": 1.5314586969377677
+   }
+  },
+  "corrected_edges": {
+   "k=1,B": 0.04892333984375,
+   "k=1,C": 0.048684082031250006,
+   "k=3,B": 0.388232421875,
+   "k=3,C": 0.38784179687500003
+  },
+  "kill_status_k1": {
+   "0.0625": "KILL-CONFIRMED-AT-MEMBER",
+   "0.111": "KILL-CONFIRMED-AT-MEMBER",
+   "0.333": "KILL-CONFIRMED-AT-MEMBER"
+  }
+ },
+ "checks": [
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-1 the frozen pipeline replicates: ISW shares (0.228, 0.080) vs (0.23, 0.08); edges (0.0372, 0.3581) vs (0.0372, 0.358); N(0.111) (6.235, 0.858) vs (6.24, 0.86)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-2 (per Amendment 01) harness validates: full-TT D30/D2 = 0.9758 in [0.90, 1.05] (replicates the disclosed calibration 0.976); quotable members agree, max |fB - fC| = 0.0159 < 0.05"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-3 identities: f^A_ell > 0 for every ell (min 0.1289; Doppler+quadrupole add positive power against the full-ISW baseline); corrected metric at x = 0 is exactly zero (0.0e+00)"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "named finding (Amendment 01): the record's memory-grade '~0.82-0.84 Boltzmann' D30/D2 reproduces under NO tested convention or member (full TT 0.976; mono+full-ISW 0.377; mono+late-ISW 0.493) -- the fence's direction and O(signal) magnitude were right, its cited shape number was not"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "M-1 the corrected table is complete: 3 named points x 2 members x {B, C} (+ the A bracket and the uncorrected value beside every entry), and 4 corrected edges"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "M-2 the kappa=3 survival at the natural point is Boltzmann-robust: N_corr(0.111, k=3) = 0.667 (B), 0.671 (C), both < 2 (uncorrected 0.86)"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "M-3 kappa=1 named-point kill statuses (classification, either way a finding): x=0.0625: KILL-CONFIRMED-AT-MEMBER (B 2.60, C 2.62); x=0.111: KILL-CONFIRMED-AT-MEMBER (B 4.87, C 4.89); x=0.333: KILL-CONFIRMED-AT-MEMBER (B 15.83, C 15.89)"
+  },
+  {
+   "kind": "diag",
+   "pass": true,
+   "summary": "D-1 diagnostics: pipeline LCDM shape D30/D2 = 0.623 vs CAMB matched-source 0.493 (B member) -- the proportional-attachment insertion's residual shape mismatch, declared; f^A bracket and Gaussian metric in the artifact"
+  }
+ ],
+ "adjudication": {
+  "verdict": "A6-DISCHARGED",
+  "scope": "the frozen pipeline's band ell in [2, 30], its declared kappa members and named points; the activation-scale frontier (A8's two blocked inputs) untouched; no register field moves here (v4 R2)"
+ },
+ "elapsed_s": 40.16
+}

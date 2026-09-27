@@ -50,3 +50,22 @@
 3. **Insertion, not scheme** — P2 is exact line-of-sight; `act()` edits the prediction; there is no quasi-static approximation in this pipeline to guard. The filter is an **unbanked world-model insertion**, and the ISW signal's central 68% (k/aH ∈ [1.7, 15.7]) sits exactly where the register is silent.
 
 **Quotable object now:** *x < 0.358 conditional on the declared filter family (sharp θ, κ ≤ 3); no unconditional x-bound exists from this gate pending the activation-scale frontier.* Every number this gate emits is **insertion-contaminated** — a property of GRUT-plus-filter, to be declared by any consumer, never inherited. Surviving floors: κ ≥ 1 (a floor, never a value); A6's Boltzmann-grade check still precedes any κ=3 kill-grade use.
+
+---
+
+## A6 DISCHARGED (2026-09-27) — appended, per the freeze's append-and-mark rule
+
+The owed Boltzmann-grade common-mode differential check ran under its
+own frozen charter (`A6_COMMON_MODE_CHARTER_01.md`, Amendment 01;
+instrument `calc/a6_common_mode.py`; artifact
+`A6_COMMON_MODE_RESULT.json`, sha `49e9f987…`; verdict
+`A6_COMMON_MODE_VERDICT_01.md`: **A6-DISCHARGED**, 5/5). Corrected
+table: every κ=1 named-point kill survives (α²: 6.24σ → 4.87σ), the
+κ=3 survivals strengthen (0.86 → 0.67), edges loosen to 0.0489 (κ=1)
+and 0.388 (κ=3, sharp θ). The memory-grade "~0.82–0.84 Boltzmann"
+shape figure cited in A6 above reproduces under no tested convention or
+member (full TT 0.976) — its direction and magnitude were right, the
+number was not. **A8 stands whole: every number remains
+insertion-contaminated at the κ-filter level.** Consumers cite the
+corrected table; the κ=3 kill-grade gating condition of A6 is
+discharged.
