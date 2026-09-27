@@ -1,0 +1,329 @@
+{
+ "fork": "GR2-c",
+ "charter": "GR2C_REACH_CHARTER_01.md (frozen c12edfd)",
+ "directive": "GR2_CAMPAIGN_DIRECTIVE_01.md (Layer 3); GR2B_OWNER_RULING_01.md (authorization)",
+ "timestamp": "2026-09-27T05:13:53+00:00",
+ "environment": {
+  "python": "3.11.15",
+  "pure_stdlib": true,
+  "deterministic": "seeded scans only (seed 20260925)"
+ },
+ "defect_history": [
+  "Run 1 (2026-09-27, not committed): the joint-cone leg breached the J-2 analytic identity (spectrum of the rank-1 C(w) must be {|g|^2 J0, 0, 0}; measured relative deviation 2.0, exactly the raw-diagonal signature). Cause: jacobi_eig's convergence tolerance is absolute (1e-12) while C(w)'s entries are of order J0 ~ 1e-13..1e-11, so the solver returned the unrotated diagonal -- and run 1's J-1 pass was therefore vacuous. Instrument bug, never physics; every control and every gate outside the J leg passed identically in run 1. Repair: the matrix is normalized by its largest entry before jacobi_eig and the eigenvalues rescaled (the decomposition is scale-invariant). No gate threshold changed. Run 2 is the recorded run."
+ ],
+ "measurements": {
+  "LC_replication": {
+   "Delta_universal": 1.84297022087776e-14,
+   "Delta_nonuniversal": 0.04947765826773509
+  },
+  "LG_replication": {
+   "classI_max": 0.0,
+   "classII_min_neq": 0.1297458179916556,
+   "classII_max_eq": 8.881784197001252e-16
+  },
+  "LD_clock_replication": {
+   "comm_HA": 8.881784197001252e-16,
+   "HB_variation": 7.549516567451064e-15
+  },
+  "LX_stress_slope": 8.005419679013105,
+  "exchange_grid": {
+   "(0.3,0.18)": {
+    "comm_HA": 2.1708000000000003,
+    "HB_variation": 0.30270478920041,
+    "gram_min": 0.057254260724926447
+   },
+   "(0.3,0.3)": {
+    "comm_HA": 2.1708000000000003,
+    "HB_variation": 0.6564757950111839,
+    "gram_min": 0.05008793402835696
+   },
+   "(0.3,0.03)": {
+    "comm_HA": 2.1708000000000003,
+    "HB_variation": 0.03463872209683716,
+    "gram_min": 0.06467318748839826
+   },
+   "(0.3,0.6)": {
+    "comm_HA": 2.1708000000000003,
+    "HB_variation": 1.4632792716186767,
+    "gram_min": 0.06401914759696348
+   }
+  },
+  "joint_cone": {
+   "(1.0, 1.0, 1.0)": {
+    "min_eig_rel": -1.2516060686067683e-17,
+    "identity_dev_rel": 0.0,
+    "zero_eigs_rel": 1.2516060686067683e-17
+   },
+   "(1.0, 0.6, 0.36)": {
+    "min_eig_rel": -2.1541652236556615e-17,
+    "identity_dev_rel": 1.8767725532563278e-16,
+    "zero_eigs_rel": 2.584259858008491e-17
+   },
+   "(1.0, 0.1, 10.0)": {
+    "min_eig_rel": -2.1360686730611678e-20,
+    "identity_dev_rel": 1.8946761657380094e-16,
+    "zero_eigs_rel": 2.0437063389449058e-18
+   },
+   "(1.0, -0.7, 0.2)": {
+    "min_eig_rel": -3.683442268427391e-17,
+    "identity_dev_rel": 1.9544652726837857e-16,
+    "zero_eigs_rel": 4.260574072826606e-17
+   },
+   "(2.0, 0.0, 1.0)": {
+    "min_eig_rel": 0.0,
+    "identity_dev_rel": 0.0,
+    "zero_eigs_rel": 0.0
+   }
+  },
+  "geometry_grid": {
+   "0.3": {
+    "graph_same": true,
+    "gram_min": -3.1012182224582766e-17
+   },
+   "0.6": {
+    "graph_same": true,
+    "gram_min": -3.8688992175234145e-60
+   },
+   "0.9": {
+    "graph_same": true,
+    "gram_min": -3.1085969367709004e-17
+   },
+   "1.5": {
+    "graph_same": true,
+    "gram_min": -3.9699563823745603e-60
+   }
+  },
+  "shape_rescale_dev": 4.6629367034256575e-15,
+  "observability": {
+   "0.3": 0.07981074010445632,
+   "0.6": 0.04947765826773509,
+   "0.9": 0.011871070411349494
+  }
+ },
+ "elimination_table": [
+  {
+   "leg": "E",
+   "assignment": "(g_A, g_B) = (0.3, 0.18)",
+   "eliminated": false,
+   "tests": {
+    "gram_min": 0.057254260724926447
+   }
+  },
+  {
+   "leg": "E",
+   "assignment": "(g_A, g_B) = (0.3, 0.03)",
+   "eliminated": false,
+   "tests": {
+    "gram_min": 0.06467318748839826
+   }
+  },
+  {
+   "leg": "E",
+   "assignment": "(g_A, g_B) = (0.3, 0.6)",
+   "eliminated": false,
+   "tests": {
+    "gram_min": 0.06401914759696348
+   }
+  },
+  {
+   "leg": "J",
+   "assignment": "g = (1.0, 0.6, 0.36)",
+   "eliminated": false,
+   "tests": {
+    "joint_cone_min_eig_rel": -2.1541652236556615e-17
+   }
+  },
+  {
+   "leg": "J",
+   "assignment": "g = (1.0, 0.1, 10.0)",
+   "eliminated": false,
+   "tests": {
+    "joint_cone_min_eig_rel": -2.1360686730611678e-20
+   }
+  },
+  {
+   "leg": "J",
+   "assignment": "g = (1.0, -0.7, 0.2)",
+   "eliminated": false,
+   "tests": {
+    "joint_cone_min_eig_rel": -3.683442268427391e-17
+   }
+  },
+  {
+   "leg": "J",
+   "assignment": "g = (2.0, 0.0, 1.0)",
+   "eliminated": false,
+   "tests": {
+    "joint_cone_min_eig_rel": 0.0
+   }
+  },
+  {
+   "leg": "G",
+   "assignment": "O = H_A + 0.3 H_B",
+   "eliminated": false,
+   "tests": {
+    "graph_same": true,
+    "gram_min": -3.1012182224582766e-17
+   }
+  },
+  {
+   "leg": "G",
+   "assignment": "O = H_A + 0.6 H_B",
+   "eliminated": false,
+   "tests": {
+    "graph_same": true,
+    "gram_min": -3.8688992175234145e-60
+   }
+  },
+  {
+   "leg": "G",
+   "assignment": "O = H_A + 0.9 H_B",
+   "eliminated": false,
+   "tests": {
+    "graph_same": true,
+    "gram_min": -3.1085969367709004e-17
+   }
+  },
+  {
+   "leg": "G",
+   "assignment": "O = H_A + 1.5 H_B",
+   "eliminated": false,
+   "tests": {
+    "graph_same": true,
+    "gram_min": -3.9699563823745603e-60
+   }
+  },
+  {
+   "leg": "O",
+   "assignment": "O = H_A + 0.3 H_B (joint access row)",
+   "eliminated": false,
+   "tests": {
+    "admissibility": "the G-leg tests at this eps (the discriminator is labeling, not elimination)"
+   }
+  },
+  {
+   "leg": "O",
+   "assignment": "O = H_A + 0.6 H_B (joint access row)",
+   "eliminated": false,
+   "tests": {
+    "admissibility": "the G-leg tests at this eps (the discriminator is labeling, not elimination)"
+   }
+  },
+  {
+   "leg": "O",
+   "assignment": "O = H_A + 0.9 H_B (joint access row)",
+   "eliminated": false,
+   "tests": {
+    "admissibility": "the G-leg tests at this eps (the discriminator is labeling, not elimination)"
+   }
+  }
+ ],
+ "checks": [
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RU-1 L-C universal probe: joint Delta 1.842970e-14 replicates the recorded 1.84297022087776e-14"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RU-2 L-C non-universal probe (eps_B = 0.6): joint Delta 0.049477658268 replicates the recorded 0.04947765826773509"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RU-3 L-G gauge variation replicates: classI_max 0.0e+00 (recorded 0.0), classII_min_neq 0.129745817992 (recorded 0.1297458179916556), classII_max_eq 8.881784e-16 (recorded 8.881784197001252e-16)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RU-4 L-D clock-only probe replicates: ||[H_A, H_full]|| = 8.881784e-16 (recorded 8.881784197001252e-16), <H_B> variation 7.549517e-15 (recorded 7.549516567451064e-15)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RL-1 L-X stress-source slope 8.005419679013 replicates the recorded 8.005419679013105 -- J0 is this channel's kernel"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RU-5 L-D non-conserved probe at (0.3, 0.18) replicates: ||[H_A, H_full]|| = 2.170800000000 (recorded 2.1708000000000003), <H_B> variation 0.302704789200 (recorded 0.30270478920041)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "E-1 earned positivity for EVERY pair: ground-state two-time Gram of the coupling operator PSD (min eig / scale >= -1e-12: (0.3,0.18) 5.7e-02, (0.3,0.3) 5.0e-02, (0.3,0.03) 6.5e-02, (0.3,0.6) 6.4e-02) -- equal and unequal couplings pass identically"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "E-2 the exchange channel functions for EVERY pair: ||[H_A, H_full]|| > 1e-3 and <H_B> variation > 1e-4 ((0.3,0.18) var 3.027e-01, (0.3,0.3) var 6.565e-01, (0.3,0.03) var 3.464e-02, (0.3,0.6) var 1.463e+00) -- unequal couplings sustain exchange; nothing earned degrades or forbids g_A != g_B"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "J-1 the joint cone admits EVERY assignment: min eig of C(w) >= -1e-12 * lambda_max across the grid and the w-scan (worst -3.7e-17) -- sign-non-universal (1, -0.7, 0.2) and zero-coupling (2, 0, 1) included"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "J-2 identity: spectrum of C(w) is {|g|^2 J0(w), 0, 0} -- max |lambda_max - |g|^2 J0| / lambda_max = 2.0e-16 < 1e-9; max |zero eigs| / lambda_max = 4.3e-17 < 1e-10 (halt-grade; GR2-b discipline)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G-1 the interaction graph of H + hO_eps equals that of H for every eps in {0.3, 0.6, 0.9, 1.5} -- the recovered hop geometry is blind to the coupling assignment"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G-2 normalized spectral shape invariant under overall rescale (1 + h): deviation 4.7e-15 < 1e-12 -- the earned geometry cannot register an absolute coupling"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "O-1 every tested non-universal assignment is observable by joint access: Delta(0.3) = 0.079811, Delta(0.9) = 0.011871, both > 1e-3"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "O-2 the deviation is graded in |1 - eps| and vanishes at the universal point (RU-1's 1.8e-14): Delta(0.3) = 0.079811 > Delta(0.6) = 0.049478 > Delta(0.9) = 0.011871 -- observable, never forbidden"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "V-1 EARNED LAYER ELIMINATES NOTHING: 0 of the 14 non-universal coupling assignments tested (J-leg 4, E-leg 3, G-leg 4, O-leg 3) fails any earned admissibility test (eliminated: 0 of 14)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "V-2 FORCING LOCATED IN THE SUPPLIED LAYER: the only mechanism in the record that forces g_A = g_B is the supplied massless gauge structure, acting only on exchanging sectors (class I free at 0.0e+00 with kappa_A != kappa_B; class II forced: min variation 0.1297 for unequal vs 8.9e-16 for equal), while every unequal exchange pair passes every EARNED gate -- and reach into the exchange component is itself SUPPLIED (U-1's recorded residual, cited)"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "compatible != selected (frozen, the owner's warning): the universal rows (1,1,1) and (0.3,0.3) passing every earned gate demonstrates COMPATIBILITY only; selection would require an earned test failing at some non-universal assignment, and none does"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "empirical firewall (frozen, the owner's rule): the eliminators of non-universal reach -- universal attraction, light bending, Eotvos-type universality -- are empirical inputs found nowhere in the record's earned or supplied layers, and this fork does NOT introduce them as domain data"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "sign note (frozen): the joint cone is PSD even for the sign-non-universal assignment (1, -0.7, 0.2) -- the earned cone does not force a common coupling SIGN, let alone a common magnitude"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "recorded fact carried (frozen): U-1's own exchange-channel demonstration used UNEQUAL couplings (0.3, 0.18) and passed every earned gate -- the record already contains a functioning non-universal exchange channel; access does not select the assignment (P-6, GR2-b A-leg -- cited, not re-run)"
+  }
+ ],
+ "adjudication": {
+  "verdict": "C-REACH-NOT-FORCED",
+  "verdict_detail": "nothing earned eliminates any non-universal coupling assignment: the joint cone is rank-1 PSD for every real coupling vector (signs included), the exchange machinery functions identically at unequal couplings, the recovered geometry is blind to the assignment, and joint access OBSERVES non-universality without forbidding it. The only forcing of g_A = g_B in the record is the supplied massless gauge structure, conditional on the sectors exchanging energy-momentum -- and that every sector sits in the exchange-coupled component is itself supplied (U-1's residual). The reach coordinate is sharpened as an irreducible primitive at this level: the demonstration half of its certificate, feeding C4 and Layer 7. U-1's DERIVED-IN-CLASS status for exchanging sectors STANDS",
+  "scope": "the U-1 ladder (L = 3) and two-sector+probe (80-dim) systems; N = 3 in the joint cone leg; the L-X pair channel as J0; the D = 4 soft-emission algebra. Larger sector counts, probe mixtures, and the causal cone out of scope (GR2-d)"
+ },
+ "elapsed_s": 12.4
+}
