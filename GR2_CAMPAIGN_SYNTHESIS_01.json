@@ -1,0 +1,38 @@
+{
+ "record": "GR2_CAMPAIGN_SYNTHESIS_01",
+ "layer": 7,
+ "date": "2026-09-27",
+ "authority": "GR2D2_OWNER_RULING_01.md (Product A authorized); GR2_CAMPAIGN_DIRECTIVE_01.md Layer 7",
+ "nature": "synthesis of already-adjudicated results; no new experiment; no status moved; v4 termination reconciliation (Product B) quarantined and not performed here",
+ "campaign_verdict": "GRAVITY_UNDERDETERMINED",
+ "final_statement": "Nothing tested in the GRUT generative core forces gravity: at the four coordinates where the gravitational identification had to be forced (coupling, representation, reach, cone), frozen instruments found zero earned selection pressure, with explicit admissible alternatives at each coordinate. The core stops being generative at the boundary {causal cone | coupling | spin | universal reach}; those are additional structural inputs, not consequences.",
+ "earned_spine": ["local ontology", "continuum / finite reduction (C1-a, C1-a2; within tested classes)", "memory / irreversible response (C1 kernels)", "influence hierarchy / response cone (P-2, c_full)"],
+ "unforced_branches": [
+  {"coordinate": "coupling class", "fork": "GR2-a", "verdict": "A-COUPLING-NOT-SELECTED", "battery": "26/26", "grade": "not selected; additional primitive", "key_evidence": "earned selectors blind across classes 0/4/8/12; omega^7/+4 locus {c1=0, c2+c3=0} nonunique, unstable to earned-admissible admixture (class 8 -> 0)", "charter_commit": "e5687b0", "result_sha16": "a5f15017"},
+  {"coordinate": "probe representation (spin)", "fork": "GR2-b", "verdict": "B-SPIN-NOT-SELECTED", "battery": "20/20 (run 2)", "grade": "not selected; additional primitive; I3 demonstration half", "key_evidence": "0 of 6 candidates eliminated by earned tests; supplied layer leaves scalar/vector/spin-2; eliminators (universal attraction, light bending) empirical, outside the record", "charter_commit": "940ef46", "result_sha16": "effbb5ab"},
+  {"coordinate": "universal reach", "fork": "GR2-c", "verdict": "C-REACH-NOT-FORCED", "battery": "16/16 (run 2)", "grade": "not forced; additional primitive; U-1 DERIVED-IN-CLASS stands with premises located", "key_evidence": "0 of 14 non-universal assignments eliminated; rank-1 joint cone PSD for every real coupling vector including signs; forcing lives only in the supplied gauge layer, conditional on exchange; exchange-component membership itself supplied", "charter_commit": "c12edfd", "result_sha16": "452a052b"},
+  {"coordinate": "universal causal cone", "fork": "GR2-d + GR2-d2", "verdict": "D-PARTIAL (accepted) + D2-QCONE-DISTINCT", "battery": "22/25 + 9/9", "grade": "not derived; demonstrated counterexample (in-class); GR2-d V-2/V-3 failures preserved", "key_evidence": "0/7 and 0/1 different-cone systems eliminated; exchange composes supplied cones into the exact average sqrt((KA+KB)/2); earned frequency battery exactly blind (lambda identity, per representation); quantum pair analytically separated (1.809 vs 1.000) measured distinct under blind thresholds (S-1 1.5111 thin margin disclosed; S-2 0.95 > 0.700)", "charter_commits": ["ff8db42", "18624a6", "75f2069"], "result_sha16": ["c1718e6c", "b512cbee"]}
+ ],
+ "mechanism_fork": {"coordinate": "GR-1 3D red gate", "fork": "GR2-L6", "verdict": "L6-MECHANISM-DERIVED", "battery": "15/15", "grade": "mechanism derived; red gate preserved", "key_evidence": "S(s) = S_inf - b1/s + c2/s^2 with mechanism-derived b1 = 22.571; S_inf = 6.2142 a property of the counting construction; five blind sizes validated; GR-1 3D stays RED", "charter_commit": "29ee4d7", "result_sha16": "64d20c89"},
+ "directive_questions": {
+  "A_massless_spin2_forced": "no (GR2-b; not selected)",
+  "B_universal_reach_forced": "no (GR2-c; not forced)",
+  "C_common_light_cone_forced": "no evidence; explicit in-class counterexample pair (GR2-d accepted D-PARTIAL + GR2-d2); empirical universal cone outside this campaign",
+  "D_stress_coupling_forced": "no (GR2-a; not selected)",
+  "E_plus4_cancellation_forced": "no (GR2-a; nonunique locus, unstable to earned-admissible admixture)",
+  "F_omega7_forced": "no (GR2-a owner status: conditional occupancy evidence, not selected)",
+  "G_einstein_action_forced": "no longer well posed as a forcing question: all four prerequisites are adjudicated unforced primitives; chartering any residual GR2-e is the owner's decision",
+  "H_smallest_remaining_primitive_structure": "the supplied quadruple {coupling class / C_cons, spin-2 representation, universal reach (gauge structure + exchange-component membership), common causal cone} on top of the pre-GR2 supplied items (CARRIER, access seed, Sel-4x, hbar located, sector amplitudes/boundary data); granting it, the conditional derivations (U-1, RS-1, TT-1) engage"
+ },
+ "label_glossary": ["derived", "derived-in-class", "conditionally derived", "supplied", "compatible", "not selected", "not forced", "demonstrated counterexample", "open"],
+ "forbidden_inferences": [
+  "'the core does not force universal causality' does NOT become 'GRUT predicts no universal causality' (the core is compatible with a universal cone)",
+  "'the core does not force universal causality' does NOT become 'universal causality can simply be supplied' (the legitimacy/economy of supplying it was not tested)",
+  "demonstrated distinct quantum cones do NOT disprove the universal cone as an empirical law (empirical light-speed/Lorentz constraints stayed outside the earned machinery throughout)"
+ ],
+ "standings_preserved": ["all red gates (GR-1 3D included)", "gravitational branch conditional (public record)", "Class-4 never passed", "zero confirmed novel predictions", "GR2-d V-2/V-3 failures at recorded strength", "no historical verdict altered"],
+ "disclosures_carried": ["GR2-b run-1 closure-identity breach (repaired, run 2 recorded)", "GR2-c run-1 eigensolver-scaling breach (repaired, run 2 recorded)", "GR2-d Amendment 01 pre-run (branch-maxima near-coincidence; lost blindness disclosed)", "GR2-d Q-2 failed at 8% vs frozen 10% and stays failed", "GR2-d2 S-1 thin margin 1.5111 vs floor 1.5 (slow-sector systematic x1.471 above calibration extrapolation)", "the record's two MFIM parameter sets have LR fronts within ~8% (a fact about those supplied choices)"],
+ "quarantine": "the v4 termination reconciliation is the owner's separate adjudication; this synthesis makes no statement about whether the v4 criteria are satisfied",
+ "public_paper": "untouched until Product A and Product B are both adjudicated; the standing GR2-a editorial instruction applies to the eventual dated update",
+ "hard_stop": "synthesis recorded pending owner ruling"
+}
