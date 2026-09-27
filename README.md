@@ -14,6 +14,18 @@
 > [`uploads/RELEASE_NOTES_GRUT_RAI_2026-09-26.md`](uploads/RELEASE_NOTES_GRUT_RAI_2026-09-26.md).
 > No external peer review, no experimental validation, and no confirmed
 > prediction is claimed.
+>
+> **Update (27 September 2026): the GR-2 gravitational-forcing campaign
+> is complete and adjudicated.** Scientific verdict:
+> **GRAVITY_UNDERDETERMINED** — nothing tested in the generative core
+> forces the coupling class, the spin, universal reach, or a universal
+> causal cone; each is an additional structural input, not a
+> consequence. GR2 does not refute gravity and does not derive it. The
+> signed v4 termination condition remains **in force and running** (no
+> criterion satisfied; no stop trigger fired; the deposit not yet due).
+> The dated update — the program's current source boundary, superseding
+> the snapshot where they differ without upgrading any claim — is
+> [`uploads/GRUT_PUBLIC_RECORD_UPDATE_2026-09-27.md`](uploads/GRUT_PUBLIC_RECORD_UPDATE_2026-09-27.md).
 
 # GRUT ResponsiveAI — workspace (historical front page)
 
