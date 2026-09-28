@@ -365,3 +365,27 @@ caught it, as it caught the same error once before.)
             (the owner may resolve (a) or (b) before the deposit is finalized). (iii) The
             deposit draft is prepared as V4_DEPOSIT_DRAFT_01.md and finalizes on owner
             ruling within the month.
+
+2026-09-28  THE DEPOSIT IS FILED; A SUCCESSOR PROGRAM OPENS (the v4 program unchanged).
+            Cites v4, sha256 =
+            f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61.
+            THE DEPOSIT: V4_DEPOSIT_01.md, filed this date in the first wave after the
+            stop (due 2026-10-28; filed early under the owner's going-ahead ruling of
+            this date, which fixed the sequence deposit -> reopening -> charter). Five
+            channel lines, one each, per the sealed form: C1 STILL OPEN (unsent); C2
+            STILL OPEN (data not landed; no decline logged; the freeze-permissibility
+            question framed in C2_THRESHOLD_PROCEDURAL_MEMO_01.md, not changing the
+            line); C3 STILL OPEN (mixed members; the owner's deciding quote of
+            2026-09-27); C4 STILL OPEN (no uptake; zero of three legs); C5 STILL OPEN
+            (computed, unconsumed at its node; per the owner's ruling of 2026-09-28
+            quoted in the deposit). External results consumed before filing: none are
+            landed and unconsumed on this log. The filing act is this entry, per the
+            owner's authorization quoted in GRUT_PROGRAM_REOPEN_02.md ("We are going
+            ahead ... The waiting period is over").
+            THE SUCCESSOR PROGRAM: GRUT_PROGRAM_REOPEN_02.md opens the Level-0 phase by
+            owner decision, post-deposit. Descriptive facts, asserting nothing about
+            register text: the v4 program does NOT reopen -- its channels rest as
+            deposited, movable only by the events they name and owner adjudications;
+            its stop stands permanently. In-house calculation resumes for the successor
+            program only. The successor has no termination condition of its own yet;
+            flagged in the reopening record for deliberate early choice.
