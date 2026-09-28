@@ -1,0 +1,193 @@
+{
+ "fork": "L0-1b (D-LOC, the Level-0 sweep's second instrument)",
+ "charter": "L0_1B_CHARTER_01.md (frozen 55dafe6)",
+ "authority": "L0_1A_OWNER_RULING_01.md (D-LOC authorized; Outcomes A and B named in advance)",
+ "timestamp": "2026-09-28T18:41:35+00:00",
+ "environment": {
+  "python": "3.11.15",
+  "pure_stdlib": true,
+  "deterministic": "no RNG"
+ },
+ "defect_history": [],
+ "measurements": {
+  "members": {
+   "anchor": {
+    "alpha": null,
+    "lambda_min_bath": 0.30446624275369416,
+    "k0": 1.000000000000004,
+    "k40": 6.8195192260507686e-09,
+    "max_monotone_breach": -1.2539805714519411e-09,
+    "grade": "EXPONENTIAL-GRADE",
+    "laplacian_zero_modes": 1,
+    "laplacian_lambda2": 0.01711027725237909,
+    "Q": 23.000000000000224,
+    "ordering_monotone": true,
+    "geometry": "SURVIVES",
+    "R_1_24": 23.000000000000142,
+    "R_min_offdiag": 0.9999999999999964
+   },
+   "alpha=4": {
+    "alpha": 4.0,
+    "lambda_min_bath": 0.3062070654025281,
+    "k0": 1.0000000000000007,
+    "k40": 6.745796823797048e-09,
+    "max_monotone_breach": -1.2364070181063758e-09,
+    "grade": "EXPONENTIAL-GRADE",
+    "laplacian_zero_modes": 1,
+    "laplacian_lambda2": 0.024729558888587973,
+    "Q": 18.039068649319532,
+    "ordering_monotone": true,
+    "geometry": "SURVIVES",
+    "R_1_24": 16.51614805754228,
+    "R_min_offdiag": 0.9155765399321378
+   },
+   "alpha=3": {
+    "alpha": 3.0,
+    "lambda_min_bath": 0.3101973885857109,
+    "k0": 1.0000000000000033,
+    "k40": 7.645828636635246e-09,
+    "max_monotone_breach": -1.364197332663243e-09,
+    "grade": "EXPONENTIAL-GRADE",
+    "laplacian_zero_modes": 1,
+    "laplacian_lambda2": 0.04550620522609471,
+    "Q": 11.802291462991793,
+    "ordering_monotone": true,
+    "geometry": "DEGRADED",
+    "R_1_24": 9.940779990702175,
+    "R_min_offdiag": 0.8422754193008433
+   },
+   "alpha=2": {
+    "alpha": 2.0,
+    "lambda_min_bath": 0.3239776655839752,
+    "k0": 1.0000000000000029,
+    "k40": 1.5752790244415706e-08,
+    "max_monotone_breach": -2.7725086859515995e-09,
+    "grade": "EXPONENTIAL-GRADE",
+    "laplacian_zero_modes": 1,
+    "laplacian_lambda2": 0.15665960545079446,
+    "Q": 5.1261557123420145,
+    "ordering_monotone": true,
+    "geometry": "DEGRADED",
+    "R_1_24": 4.022125528533541,
+    "R_min_offdiag": 0.784628043750144
+   },
+   "alpha=1.5": {
+    "alpha": 1.5,
+    "lambda_min_bath": 0.3364812956373119,
+    "k0": 1.000000000000002,
+    "k40": 2.047850856793499e-08,
+    "max_monotone_breach": -3.752103296116987e-09,
+    "grade": "EXPONENTIAL-GRADE",
+    "laplacian_zero_modes": 1,
+    "laplacian_lambda2": 0.3344382102143621,
+    "Q": 3.2142564897593098,
+    "ordering_monotone": true,
+    "geometry": "DEGRADED",
+    "R_1_24": 2.5286502237096653,
+    "R_min_offdiag": 0.7866983334298303
+   },
+   "alpha=1": {
+    "alpha": 1.0,
+    "lambda_min_bath": 0.3511406850923328,
+    "k0": 1.0000000000000002,
+    "k40": 2.041037782178242e-08,
+    "max_monotone_breach": -3.917278679577307e-09,
+    "grade": "EXPONENTIAL-GRADE",
+    "laplacian_zero_modes": 1,
+    "laplacian_lambda2": 0.6904522849179834,
+    "Q": 2.1043951381502173,
+    "ordering_monotone": true,
+    "geometry": "DEGRADED",
+    "R_1_24": 1.7249770435639233,
+    "R_min_offdiag": 0.8197020665425953
+   },
+   "alpha=0.5": {
+    "alpha": 0.5,
+    "lambda_min_bath": 0.3666716847705809,
+    "k0": 1.0000000000000016,
+    "k40": 1.5696604008027117e-08,
+    "max_monotone_breach": -3.15843550098266e-09,
+    "grade": "EXPONENTIAL-GRADE",
+    "laplacian_zero_modes": 1,
+    "laplacian_lambda2": 1.2671386966696776,
+    "Q": 1.438099899740431,
+    "ordering_monotone": false,
+    "geometry": "FAILS",
+    "R_1_24": 1.2786969026154136,
+    "R_min_offdiag": 0.8891572156052657
+   },
+   "deleted (alpha=0)": {
+    "alpha": 0.0,
+    "lambda_min_bath": 0.38333333333333214,
+    "k0": 0.9999999999999997,
+    "k40": 9.529938722467285e-09,
+    "max_monotone_breach": -2.0133586488724657e-09,
+    "grade": "EXPONENTIAL-GRADE",
+    "laplacian_zero_modes": 1,
+    "laplacian_lambda2": 1.999999999999997,
+    "Q": 1.0000000000000016,
+    "ordering_monotone": false,
+    "geometry": "FAILS",
+    "R_1_24": 1.0000000000000002,
+    "R_min_offdiag": 0.9999999999999998
+   }
+  }
+ },
+ "checks": [
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-1 the anchor reproduces L0-1a exactly: K(anchor) equals build_K(24, 0) entrywise (max dev 0.0e+00 < 1e-15) and k(40) = 6.819519e-09 matches the recorded 6.8195e-9 (|rel Delta| = 0.0e+00 < 1e-6)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-2 per-member identities: k(0) = 1 (|Delta| < 1e-12); lambda_min(bath) >= 0.3 - 1e-12 (the pin identity -- gap and passivity held by construction); L(w) has exactly one zero mode (< 1e-10) with lambda_2 > 1e-10 (connectivity)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-3 the end identities: anchor max|R_ij - |i-j|| = 1.8e-13 < 1e-9 (series law); deleted member max|R_ij - 1| = 1.3e-15 < 1e-9 (complete-graph symmetry, R = 2/(N*w) = 1)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "M-1 finite-memory-grade survival at EVERY member including the full deletion: max k(40) = 2.048e-08 < 1e-5 (the held pin guarantees k(40) <= e^-12 = 6.1e-6)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "M-2 the kernel is monotone decreasing at every member: max step increase -1.24e-09 <= 1e-12 (positivity survival by construction)"
+  },
+  {
+   "kind": "diag",
+   "pass": true,
+   "summary": "M-diag (ungated): the grade comparator reads anchor: EXPONENTIAL-GRADE, alpha=4: EXPONENTIAL-GRADE, alpha=3: EXPONENTIAL-GRADE, alpha=2: EXPONENTIAL-GRADE, alpha=1.5: EXPONENTIAL-GRADE, alpha=1: EXPONENTIAL-GRADE, alpha=0.5: EXPONENTIAL-GRADE, deleted (alpha=0): EXPONENTIAL-GRADE -- reported, adjudicating nothing"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G-1 (identity-backed) the anchor SURVIVES (Q = 23.000 >= 12, ordering monotone) and the deleted member FAILS (Q = 1.000000 < 2): removing locality entirely destroys recoverable line geometry"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G-2 H-SR, the attackable non-identity prediction: the short-range class survives genuine nonlocality -- at alpha = 4 (all pairs coupled) Q = 18.039 >= 12 and the ordering is monotone"
+  },
+  {
+   "kind": "diag",
+   "pass": true,
+   "summary": "G-map (ungated, the crossover map): anchor: Q=23.000, SURVIVES; alpha=4: Q=18.039, SURVIVES; alpha=3: Q=11.802, DEGRADED; alpha=2: Q=5.126, DEGRADED; alpha=1.5: Q=3.214, DEGRADED; alpha=1: Q=2.104, DEGRADED; alpha=0.5: Q=1.438, FAILS; deleted (alpha=0): Q=1.000, FAILS -- the frozen pre-run note expected the boundary near alpha ~ 2; reported, adjudicating nothing"
+  }
+ ],
+ "adjudication": {
+  "verdict_memory": "LOCALITY: NOT-LOAD-BEARING for P_memory",
+  "verdict_positivity": "LOCALITY: NOT-LOAD-BEARING for P_positivity",
+  "verdict_geometry": "LOCALITY: NECESSITY-CERTIFIED for P_geometry (G-2 H-SR: survived)",
+  "outcome_B_the_split": "CERTIFIED",
+  "outcome_A_note": "Outcome A (collapse) is identity-impossible with the pin held; it is decidable only by a future fork that deletes locality without the pin (out of scope here, per charter Sec. 5)",
+  "composition": "the per-property lines are NEVER composed into a single label (frozen rule)",
+  "scope": "within the declared background mathematics (real symmetric matrices, exact eigendecomposition), the tested weighted-network class w_ij = c_a*|i-j|^-a on N = 24 with the coupling norm held at 23, the window tau in [1, 40], and the Sec. 2 resistance-metric criterion. No claim about 'the axioms of reality'. No v4 channel moves; no red gate is touched"
+ },
+ "elapsed_s": 0.27
+}
