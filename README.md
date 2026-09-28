@@ -26,6 +26,17 @@
 > The dated update — the program's current source boundary, superseding
 > the snapshot where they differ without upgrading any claim — is
 > [`uploads/GRUT_PUBLIC_RECORD_UPDATE_2026-09-27.md`](uploads/GRUT_PUBLIC_RECORD_UPDATE_2026-09-27.md).
+>
+> **28 September 2026 — the termination stop has fired.** The owner
+> adjudicated v4's R5(ii) as satisfied under its sealed calc-completed
+> branch (both Part-7 fronts' calculations complete). **In-house physics
+> calculation is stopped; the deposit is due by 2026-10-28**
+> ([`V4_DEPOSIT_DRAFT_01.md`](V4_DEPOSIT_DRAFT_01.md)). The scientific
+> verdict is untouched; the channel adjudications are untouched (C3
+> still open, mixed members). The recorded next scientific direction —
+> the Level-0 descent — is design-only under the stop
+> ([`LEVEL0_DIRECTION_01.md`](LEVEL0_DIRECTION_01.md)). Addendum §9 of
+> the dated update carries the stop on the public-record face.
 
 # GRUT ResponsiveAI — workspace (historical front page)
 

@@ -248,3 +248,37 @@ result artifacts, the sealed v4 file, and its canonical event log.
 repository (`GR2_SYNTHESIS_OWNER_RULING_01.md`,
 `V4_RECONCILIATION_OWNER_RULING_01.md`) and is the program's dated
 source boundary as of 27 September 2026.*
+
+---
+
+## 9. Addendum (28 September 2026): the termination stop has fired
+
+Sections 4 and 6 of this update reported, correctly as of its date,
+that no v4 stop trigger had fired. **On 28 September 2026 the owner
+adjudicated R5(ii) as SATISFIED** under the sealed condition's own
+calc-completed branch — *"both Part-7 fronts discharged (calc
+completed, or retired with a statement naming what dies and why)"* —
+because both fronts' calculations are now complete: the TT-auto gate's
+owed Boltzmann-grade common-mode check (A6, discharged 5/5, with every
+κ=1 exclusion surviving the correction and the κ=3 survivals
+strengthening) and the dissipation-channel closures (the parameter-free
+Γ_T pinned 62.7 orders below the shared-slot bound, 2026-09-06; the
+ξ_ij stochastic background computed Boltzmann-dead — e^(−2πω/H₀) —
+at every licensed frequency, parameter-free and kernel-independent,
+2026-09-27). **In-house physics calculation is stopped from
+28 September 2026; the deposit is due within one calendar month.**
+
+The channel adjudications are unchanged by the stop: C3 remains STILL
+OPEN (mixed members) — completing its calculation did not satisfy its
+criterion — and the other channels stand as reconciled. The scientific
+verdict, GRAVITY_UNDERDETERMINED, is untouched: the two statuses are
+compatible and independent, exactly as §4 required.
+
+The recorded next scientific direction — the **Level-0 descent**: the
+split between generative (pre-universe) and emergent (in-universe)
+rules, and the necessity sweep of the never-axiomatized local-finite
+substrate — is **design-only under the stop** (`LEVEL0_DIRECTION_01.md`
+in the repository). The program's own summary of the moment: the right
+next question was found at exactly the point where the pre-committed
+rules require the in-house program to stop asking it — which is what
+the termination condition was designed to accomplish.

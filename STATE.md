@@ -1,6 +1,23 @@
 # GRUT — STATE (standing snapshot)
 
-> **CURRENT BOUNDARY 2026-09-27 — GR2 COMPLETE + GRAVITY_UNDERDETERMINED + v4 RUNNING.**
+> **CURRENT BOUNDARY 2026-09-28 — THE STOP HAS FIRED. IN-HOUSE CALCULATION STOPPED.**
+> By owner adjudication of 2026-09-28 (`V4_STOP_OWNER_RULING_01.md`; logged in the
+> canonical event log), **R5(ii) is SATISFIED** under the sealed parenthetical's
+> calc-completed branch: both Part-7 fronts' calculations are complete (the TT-auto gate
+> with its owed A6 check discharged, `A6_COMMON_MODE_*`; the ξ_ij and Γ_T closures
+> computed, `XI_STOCHASTIC_*`, `calc/gw_tensor_friction.py`). **In-house physics
+> calculation is stopped from 2026-09-28; the deposit is due by 2026-10-28**
+> (`V4_DEPOSIT_DRAFT_01.md` — five channel lines: C1 unsent/held; C2 data not landed;
+> C3 STILL OPEN mixed members; C4 zero legs; C5 computed-unconsumed, owner bracket
+> open). The channel adjudications are untouched by the stop. The scientific verdict
+> stands separately: **GRAVITY_UNDERDETERMINED**. The recorded next scientific
+> direction is the **Level-0 descent** (`LEVEL0_DIRECTION_01.md`): the two-level split
+> (generative/pre-universe vs emergent rules), the eight-layer roadmap, and the L0-1
+> necessity sweep of the never-axiomatized C1-a substrate — **design authorized,
+> execution blocked while the stop is active.** The 2026-09-27 banner below is
+> historical as of the stop.
+
+> **BOUNDARY 2026-09-27 (historical) — GR2 COMPLETE + GRAVITY_UNDERDETERMINED + v4 RUNNING.**
 > The program was closed 2026-09-23 (`GRUT_PROGRAM_CLOSURE_01.md`), reopened 2026-09-25
 > (`GRUT_PROGRAM_REOPEN_01.md`), and the consolidated public record was published 2026-09-26
 > (paper DOI 10.5281/zenodo.22983638; release `public-record-2026-09-26`). The **GR-2
