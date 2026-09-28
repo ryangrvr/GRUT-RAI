@@ -1,6 +1,21 @@
 # GRUT — STATE (standing snapshot)
 
-> **CURRENT BOUNDARY 2026-09-28 — THE STOP HAS FIRED. IN-HOUSE CALCULATION STOPPED.**
+> **CURRENT BOUNDARY 2026-09-28 (later) — DEPOSIT FILED · SUCCESSOR PROGRAM OPEN · FIRST
+> LEVEL-0 CERTIFICATES RECORDED.** In the owner's fixed sequence: the v4 deposit was filed
+> early (`V4_DEPOSIT_01.md`; all five channels STILL OPEN with R1 causes; the v4 program is
+> complete and rests as deposited); the **Level-0 successor program** opened by owner
+> decision (`GRUT_PROGRAM_REOPEN_02.md`; in-house calculation resumed for the successor
+> only; no successor termination condition yet — flagged for deliberate early choice); and
+> the first instrument ran under its frozen charter (`L0_1A_CHARTER_01.md` at bb77df9):
+> **L0-1a, 8/8 — GAP: NECESSITY-CERTIFIED for P_memory; PASSIVITY: NECESSITY-CERTIFIED for
+> P_positivity** (`L0_1A_RESULT.json`, `L0_1A_VERDICT_01.md`), with the exact factorization
+> k_pin(τ) = e^(−pin·τ)·k_0(τ) exposed by the run — finite memory and positivity are now
+> conditional theorems of the substrate, not axioms, at the declared scope. HARD STOP
+> pending owner ruling; next in the frozen priority order: L0-1b (D-LOC, the response/space
+> split). Standing owner items: the L0-1a ruling; the C2 A/B/C memo; the C5 bracket; the
+> dispatch; batched Zenodo publication. The stop-era banner below is historical.
+
+> **BOUNDARY 2026-09-28 (historical) — THE STOP HAS FIRED. IN-HOUSE CALCULATION STOPPED.**
 > By owner adjudication of 2026-09-28 (`V4_STOP_OWNER_RULING_01.md`; logged in the
 > canonical event log), **R5(ii) is SATISFIED** under the sealed parenthetical's
 > calc-completed branch: both Part-7 fronts' calculations are complete (the TT-auto gate

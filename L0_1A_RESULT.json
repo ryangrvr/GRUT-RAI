@@ -1,0 +1,171 @@
+{
+ "fork": "L0-1a (the successor program's first instrument)",
+ "charter": "L0_1A_CHARTER_01.md (frozen bb77df9)",
+ "authority": "GRUT_PROGRAM_REOPEN_02.md (owner decision, post-deposit, 2026-09-28)",
+ "timestamp": "2026-09-28T05:03:44+00:00",
+ "environment": {
+  "python": "3.11.15",
+  "pure_stdlib": true,
+  "deterministic": "no RNG"
+ },
+ "defect_history": [],
+ "measurements": {
+  "D_GAP": {
+   "0.3": {
+    "lambda_min": 0.30446624275369416,
+    "k40": 6.8195192260507686e-09,
+    "k0": 1.000000000000004,
+    "R_exp": 1.9809889100368165,
+    "R_alg": 4.7907669413552245,
+    "grade": "EXPONENTIAL-GRADE",
+    "fit_rate": 0.39878454683881015,
+    "fit_powerlaw": 5.249978061309043
+   },
+   "0.1": {
+    "lambda_min": 0.1044662427536939,
+    "k40": 2.0328700304681065e-05,
+    "k0": 1.0000000000000036,
+    "R_exp": 1.9809889100368303,
+    "R_alg": 1.6968322756366299,
+    "grade": "ALGEBRAIC-GRADE",
+    "fit_rate": 0.1987845468388089,
+    "fit_powerlaw": 2.7260664606186062
+   },
+   "0.03": {
+    "lambda_min": 0.034466242753694136,
+    "k40": 0.00033429829582597544,
+    "k0": 1.0000000000000038,
+    "R_exp": 1.9809889100368325,
+    "R_alg": 0.6139551426350838,
+    "grade": "ALGEBRAIC-GRADE",
+    "fit_rate": 0.1287845468388086,
+    "fit_powerlaw": 1.8426974003769403
+   },
+   "0.01": {
+    "lambda_min": 0.014466242753693471,
+    "k40": 0.000743994539685997,
+    "k0": 1.0000000000000033,
+    "R_exp": 1.9809889100368243,
+    "R_alg": 0.30456167606321305,
+    "grade": "ALGEBRAIC-GRADE",
+    "fit_rate": 0.1087845468388088,
+    "fit_powerlaw": 1.590306240307891
+   },
+   "0.003": {
+    "lambda_min": 0.0074662427536940305,
+    "k40": 0.0009844013556747943,
+    "k0": 1.0000000000000033,
+    "R_exp": 1.9809889100368312,
+    "R_alg": 0.1962739627630441,
+    "grade": "ALGEBRAIC-GRADE",
+    "fit_rate": 0.10178454683880901,
+    "fit_powerlaw": 1.5019693342837233
+   },
+   "0.0": {
+    "lambda_min": 0.004466242753693635,
+    "k40": 0.0011099094292138158,
+    "k0": 1.000000000000003,
+    "R_exp": 1.9809889100368263,
+    "R_alg": 0.1498649427773202,
+    "grade": "ALGEBRAIC-GRADE",
+    "fit_rate": 0.09878454683880873,
+    "fit_powerlaw": 1.464110660273383
+   }
+  },
+  "N_scan_pin0": {
+   "lambda_min": {
+    "24": 0.004466242753693635,
+    "48": 0.001093485318147864,
+    "96": 0.0002705348508016087
+   },
+   "ratios": [
+    4.084410352448553,
+    4.0419388293516
+   ]
+  },
+  "D_PASS": {
+   "1.0": {
+    "lambda_min": 0.30446624275369416,
+    "k40": 6.8195192260507686e-09,
+    "k0": 1.000000000000004,
+    "max_monotone_breach": -1.2539805714519411e-09
+   },
+   "-0.3": {
+    "lambda_min": 0.12422377805407704,
+    "k40": 0.00031800057266747933,
+    "k0": 1.000000000000004,
+    "max_monotone_breach": -2.0378961415571924e-05
+   },
+   "-1.0": {
+    "lambda_min": -1.0184218781568275,
+    "k40": 1.9795182984628264e+16,
+    "k0": 1.0000000000000016,
+    "max_monotone_breach": 7898879915162946.0
+   }
+  }
+ },
+ "checks": [
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-1 the sealed C1-a kernels replicate (all four |Delta| < 5e-8) and the parametric builder at pin = 0.3 equals build_K(24, 0) entrywise (max dev 0.0e+00)"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "RC-2 identities: k(0) = 1 (|Delta| < 1e-12) and lambda_min >= pin (halt-grade; an eigensolver bug, never physics) for every D-GAP member"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G-1 THE DELETION CONTRAST: k(40 | pin=0.3) = 6.820e-09 < 1e-5 (analytic bound e^-12 = 6.1e-6) and k(40 | pin=0)/k(40 | pin=0.3) = 1.628e+05 > 100"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G-2 GRADE AT THE ENDS (frozen comparator): anchor EXPONENTIAL-GRADE (R_exp 1.981 vs R_alg 4.791); deleted ALGEBRAIC-GRADE (R_alg 0.150 vs R_exp 1.981)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "G-3 THE DELETION IS REAL (large-N): lambda_min(pin=0, N) scales 1/N^2 -- ratios 4.084, 4.042 in [3.5, 4.5]; the deleted member's residual gap is a finite-size artifact"
+  },
+  {
+   "kind": "diag",
+   "pass": true,
+   "summary": "G-diag (ungated, the crossover map): the intermediate members classify pin=0.1: ALGEBRAIC-GRADE, pin=0.03: ALGEBRAIC-GRADE, pin=0.01: ALGEBRAIC-GRADE, pin=0.003: ALGEBRAIC-GRADE -- the property degrades where lambda_min * window ~ 1, as the design anticipated; reported, adjudicating nothing"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "P-1 the anchor is passive and completely monotone: lambda_min = 0.304466 >= 0.3; k strictly decreasing on the grid"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "P-2 the deep member breaches passivity: lambda_min = -1.018422 < 0 (direction guaranteed by Cauchy interlacing against the -0.7 principal block eigenvalue; the instrument confirms the algebra)"
+  },
+  {
+   "kind": "ok",
+   "pass": true,
+   "summary": "P-3 the positivity phenomenon breaks with it: k(40) = 1.980e+16 > k(0) = 1 on the deep member -- the kernel grows; complete monotonicity is gone"
+  },
+  {
+   "kind": "diag",
+   "pass": true,
+   "summary": "P-diag (ungated, the boundary map): the marginal member spring(2,3) = -0.3 has lambda_min = +0.124224 and max step increase -2.04e-05 -- reported, adjudicating nothing"
+  },
+  {
+   "kind": "note",
+   "pass": true,
+   "summary": "separation rule honored (frozen): P_memory was adjudicated only from D-GAP members and P_positivity only from D-PASS members; no cross-reading occurred"
+  }
+ ],
+ "adjudication": {
+  "verdict_gap": "GAP: NECESSITY-CERTIFIED for P_memory",
+  "verdict_passivity": "PASSIVITY: NECESSITY-CERTIFIED for P_positivity",
+  "composition": "the two lines are NEVER composed into a single label (frozen rule)",
+  "scope": "within the declared background mathematics (real symmetric matrices, exact eigendecomposition) and the tested construction class (the C1-a chain family), on the declared window tau in [1, 40]. No claim about 'the axioms of reality'. No v4 channel moves; no red gate is touched"
+ },
+ "elapsed_s": 1.82
+}
