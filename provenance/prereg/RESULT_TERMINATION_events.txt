@@ -328,3 +328,40 @@ caught it, as it caught the same error once before.)
             before this entry. C5 remains owed-or-retired; per the same ruling, work
             proceeds to C5 "without letting C3's unresolved status contaminate its
             charter."
+
+2026-09-28  *** THE STOP FIRES: R5(ii) SATISFIED BY OWNER ADJUDICATION (CALC-STATE READING). ***
+            Cites v4, sha256 =
+            f4bc613c5ec38cd7fe780366d710c7b0e0741f50586ff5f75dde73ded9a8fa61.
+            THE PRECIPITATING RECORDS: the C5 front's second calc completed 2026-09-27
+            (XI_STOCHASTIC_RESULT.json, sha256 6ca7ae40dd29086c...; verdict
+            XI-CLOSED-NO-EFFECT, 4/4; the Gamma_T half already closed 2026-09-06); the
+            C3 front's owed A6 calculation completed 2026-09-27
+            (A6_COMMON_MODE_RESULT.json, sha256 49e9f987587b2850...; A6-DISCHARGED, 5/5).
+            The R5(ii) reading divergence was flagged on the record BEFORE adjudication
+            (XI_STOCHASTIC_VERDICT_01.md).
+            THE ADJUDICATION (the owner's, operative from this entry; operative language
+            quoted verbatim per R4): "the R5(ii) calc-state reading governs, so the stop
+            has fired." -- "R5(ii) = SATISFIED" because "C3's outstanding A6 calculation
+            is complete. C5's outstanding xi_ij calculation is complete. The Gamma_T
+            component was already closed. Therefore both Part-7 computational fronts
+            satisfy the explicit 'calc completed' branch." -- "The reason is not the new
+            Layer-0 argument. It is simply the literal sealed wording ... The
+            parenthetical explicitly creates calculation completion as an independent
+            discharge route." -- "At the same time: C3 = STILL OPEN. That remains
+            untouched." -- "we don't need to force a C5 channel interpretation merely to
+            make R5(ii) work." Full ruling: V4_STOP_OWNER_RULING_01.md.
+            CONSEQUENCES (per R5, verbatim scope): in-house physics calculation STOPS
+            from this date. "After the stop, only external results are consumed -- all of
+            them, favorable and adverse alike, before the deposit -- and the deposit is
+            written in the first wave after the stop, within one calendar month" (due by
+            2026-10-28). No external result is currently landed-and-unconsumed on this
+            log (DESI DR3 has not landed).
+            SCOPE NOTES: (i) the stop binds in-house physics CALCULATION; per the owner's
+            same-date ruling the L0-1 next-direction work is "designed, not run" --
+            preparation authorized, instrument execution blocked while the stop is
+            active (LEVEL0_DIRECTION_01.md). (ii) Channel lines are NOT changed by this
+            entry: C1 unsent/held; C2 data not landed; C3 STILL OPEN (mixed members, the
+            2026-09-27 adjudication); C4 zero legs; C5 computed, unconsumed at its node
+            (the owner may resolve (a) or (b) before the deposit is finalized). (iii) The
+            deposit draft is prepared as V4_DEPOSIT_DRAFT_01.md and finalizes on owner
+            ruling within the month.
