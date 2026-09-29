@@ -1,235 +1,303 @@
 # L0-1f — D-ORD-a THEOREM DOCUMENT 01 (obligation O-5: ordering in the dissipative classes)
 
-**STATUS: DRAFT — pending analytic review (termination condition T1:
-O-5 is a "theorem document, reviewed, not a run").** No computation was
-run to write it. Every statement is a theorem (proof or standard
-citation given), a definition, or a labeled hypothesis.
+**STATUS: REVISION 2, reviewed; one owner ruling pending (§6).**
+Revision 1 (`314f2c3`) was reviewed by two analytic reviewers (proofs;
+scope and honesty). Their findings are all confirmed and incorporated,
+and they are recorded in `L0_1F_REVIEW_01.md`. Two were genuine
+mathematical errors in revision 1, each with a counterexample, both
+fixed below. No computation on any record member was run. The
+reviewers' toy checks used generic small matrices and are disclosed
+in the review record.
 
 **Authority:** `L0_1E_OWNER_RULING_02.md` (D-ORD/O-5 authorized);
-design basis `L0_1_FLOOR_DESIGN_01.md` §3 D-ORD (F-3, F-4, the
-resolvent presentation); registry R-3 (static readings, theorem-
-equivalent **at declared linear-class scope only**, with the owner's
-qualification binding); the no-`t` rule of `LEVEL0_DIRECTION_01.md` §2
-(any ordering in a Layer-0 instrument must be derived and labeled).
+design basis `L0_1_FLOOR_DESIGN_01.md` §3 D-ORD; registry R-3 (static
+readings are theorem-equivalent **at declared linear-class scope
+only**; the owner's qualification binds: *not every time-domain
+predicate is interchangeable with a static one*); the no-`t` rule of
+`LEVEL0_DIRECTION_01.md` §2 (any ordering in a Layer-0 instrument must
+be derived and labeled).
 
-## §0 The obligation, and what "formulated without ordering" means here
+## §0 The obligation, the classes, and what is presupposed
 
 > **Can the substrate be formulated without a primitive time
-> parameter, with every ordering the batteries use *derived* from
-> static substrate data and labeled as derived?**
+> parameter, with every ordering the batteries use derived from
+> substrate data and labeled?**
 
-**Two distinctions are kept separate throughout:**
-- **Order vs orientation.** A *total order* on the states of an orbit
-  says which state is between which. An *orientation* says which end is
-  "later". The design (F-3) already noted that the orientation may be
-  only a one-bit convention even when the order is derived.
-- **Relaxational vs stationary.** A relaxing trajectory, whose state
-  changes, is a different object from a stationary process, whose
-  state statistics do not. The stationary class needs its own theorem
-  (§4).
+**Stated first, because the review showed it is where the question
+lives. The formulation removes a primitive time *parameter*. It does
+not derive the generator.**
+- In every class below, the substrate datum includes the generator:
+  the vector field f, or K, or (V, metric g).
+- The **magnitude** of f is exactly what the derived clock reads.
+- The **sign** of f (and, in D-1, the choice of the one-sided
+  transform) is what fixes which direction along an orbit is "later".
+- **The generator is therefore a presupposition on this document's
+  face, not something it derives.** The design's §0 names "a
+  generator" as one of the floor's three primitive-looking assumptions.
+  Deriving the generator itself is **not** in O-5's scope (T1: "the
+  formulability proof for the dissipative classes: Lyapunov ordering;
+  the linear-class static presentation"). It is added to the successor
+  list as S-5.
 
-**Classes in scope (O-5):** the dissipative classes on the record.
-- **𝒞₁**, the linear relaxational class ẋ = −Kx. This covers:
-  - K symmetric positive definite: the sealed chain and L0-1a/b;
-  - K accretive non-normal (K_s ≻ 0): the L0-1d ring members.
-- **𝒞₂**, the nonlinear gradient class ẋ = −∇V (the L0-1c convex
-  quartic).
-- **𝒞₃**, the stationary linear-Gaussian stochastic class (L0-1e).
+**Classes in scope** (corrected per the review; members named):
+- **𝒞₁, linear relaxational, ẋ = −Kx with −K Hurwitz:**
+  - symmetric positive definite K: the sealed chain; L0-1b members;
+    L0-1a's anchor and pin > 0 D-GAP members;
+  - accretive non-normal K, K_s ≻ 0: the L0-1d ring members;
+  - spectrally stable but non-accretive K: this covers O-2's named
+    candidate, the attached directed ring.
+- **Excluded from 𝒞₁ by name:**
+  - L0-1a's D-GAP pin = 0 member (K positive semidefinite and singular:
+    not Hurwitz);
+  - L0-1a's D-PASS members with a negative spring (K indefinite: not
+    dissipative).
+- **𝒞₂, nonlinear gradient, ẋ = −∇_g V:** the L0-1c convex quartic,
+  with data (V, the Euclidean metric g, x₀).
+- **𝒞₃, the stationary linear-Gaussian class,**
+  dx = −Kx dt + B dW with −K Hurwitz: L0-1e. **All variables are even
+  under time reversal** (no momentum-like coordinates); that hypothesis
+  is required by D-5.
 
-**Out of scope (O-6 and beyond):** the conservative classes (Hamiltonian
-and unitary). Only their boundary is stated here (§5).
+**Out of scope (O-6):** conservative classes. Their boundary appears
+in §3 only.
 
-## §1 The static presentation of 𝒞₁ (R-3 scope)
+## §1 Static presentations (R-3; 𝒞₁ and 𝒞₃ only, since 𝒞₂ is nonlinear and outside R-3)
 
-**Theorem D-1 (static substrate data suffice for the response).** For
-K ∈ 𝒞₁, the retained-site response k(τ) = e₁ᵀe^{−Kτ}e₁ is determined
-uniquely by static data in any of these forms, none of which contains
-a time parameter:
-- (i) the resolvent G(z) = e₁ᵀ(K + zI)⁻¹e₁, defined by the linear
-  constraint (K + z)y = e₁, for z outside −spec(K);
-- (ii) the moments sₙ = e₁ᵀKⁿe₁, n ≤ 2d − 1, where d is the McMillan
-  degree;
+**Theorem D-1 (response, 𝒞₁).** The retained-site response
+k(τ) = e₁ᵀe^{−Kτ}e₁ is determined uniquely by any of the following:
+- (i) the resolvent G(z) = e₁ᵀ(K + zI)⁻¹e₁, defined by the static
+  constraint (K + z)y = e₁;
+- (ii) the moments s₀ … s_{2N−1} (N = dim K), where the McMillan
+  degree is d = rank H_N and the first 2d moments determine G;
 - (iii) for symmetric K, the Jacobi matrix from Lanczos on (K, e₁).
 
-*Proof.* G is the Laplace transform of k on Re z > −min Re λ, and the
-Laplace transform is injective, so G determines k. G is rational of
-McMillan degree d, and is determined by its first 2d Taylor
-coefficients at ∞, which are (−1)ⁿsₙ (Kronecker). (iii) is the Lanczos
-factorization of (ii). ∎
+*Proof.* G is the Laplace transform of k on Re z > −min Re λ(K).
+Laplace is injective, and G is rational, so it extends by continuation.
+The expansion (K + z)⁻¹ = Σₙ(−1)ⁿKⁿz^{−n−1} gives
+G = Σₙ(−1)ⁿsₙz^{−n−1}. By Kronecker, finite Hankel rank d ⟺ G is
+rational of degree d. By partial realization (Ho–Kalman), 2d Markov
+parameters determine G. d ≤ r ≤ N, so moments up to 2N−1 suffice to
+find d. (iii) is the Lanczos factorization, which for symmetric K has
+no breakdown (H₀ is a Gram matrix, so d = r). ∎
 
-Here τ enters only as the **dual variable of an inverse transform.** It
-is a derived, labeled coordinate, not substrate data.
+**Theorem D-1′ (correlation, 𝒞₃; added per the review).** The
+stationary autocorrelation C(τ) = e₁ᵀe^{−Kτ}Σe₁ (τ ≥ 0) has Laplace
+transform e₁ᵀ(K + z)⁻¹Σe₁. Σ is fixed by the static Lyapunov equation
+KΣ + ΣKᵀ = Q. So C is determined by static data (K, Q, e₁) exactly as
+in D-1, with moments e₁ᵀKⁿΣe₁. **Scope: second-order statistics.**
+These are complete for this class, because the stationary process is
+Gaussian and zero-mean and so is determined by its covariance function
+(ties to successor item S-1).
 
-**Theorem D-2 (static readings of the registry batteries on 𝒞₁).**
-Stated component by component, including where **no** exact static
-reading exists:
+**In both, τ is only the dual variable of a one-sided inverse
+transform.** The half-line [0, ∞) that transform uses is where D-1
+carries the orientation (§0). It is named here, not hidden.
+
+**Theorem D-2 (static readings of the registry batteries, 𝒞₁; 𝒞₃ via
+D-1′), component by component:**
 
 | Battery | Static reading | Grade |
 |---|---|---|
-| P_positivity (c), CM | H₀ ≻ 0 and H₁ ≻ 0 on the moment Hankel of size d. For symmetric K, equivalently a positive Jacobi measure (Favard). | **Exact.** Already *used* on the record: L0-1d and L0-1e adjudicated CM with no τ anywhere. |
-| P_positivity (a), nonnegativity | Sufficient static conditions only: −K Metzler (sign pattern), or CM. | **Sufficient only.** No exact finite static test in general. |
-| P_positivity (b), monotone decrease | Sufficient static condition only: CM. | **Sufficient only.** |
-| P_memory: the exponential *class* | G has no pole with nonzero residue in Re z > −c ⟺ \|k(τ)\| ≤ Ce^{−cτ}. The rate is read from the poles of G. | **Exact** for the asymptotic class. |
-| P_memory: the comparator's *window grade* | **None.** It is a statement about a fit on a declared τ window. | **Stays a τ-battery**, now using a *derived* τ (D-1). |
-| P_geometry | The resistance metric R_ij from L⁺ (L0-1b). | **Exact.** It never contained τ. |
-| P_exact-reduction | The eigen-reduction itself. | Definitional. |
+| P_positivity (c), CM | H₀ ≻ 0 (size d) on the moment Hankel; H₁ ≻ 0 is then automatic under accretivity. Exact on all of 𝒞₁, including non-symmetric K: complex pairs and Jordan blocks make H₀ indefinite. **On the symmetric subclass CM is identity-held** (the spectral measure is |⟨e₁, v_j⟩|² ≥ 0), so it is not a test there. | **Exact.** Used on the record for the response (L0-1d) and, via D-1′, for the correlation (L0-1e). |
+| The asymptotic exponential class (**not a registry battery**) | \|k(τ)\| ≤ Ce^{−cτ} ⟺ every pole of the reduced G has Re z < −c, **or** Re z = −c and is simple. Existence of some c > 0 ⟺ every pole has Re z < 0, which is identity-held on 𝒞₁. | **Exact.** Revision 1's "no pole with nonzero residue" was **false**: see the counterexamples in the review record, including a double pole with zero residue in an accretive 3×3 K. |
+| **P_memory, the registry battery** (the comparator's grade on the envelope over a declared τ window) | **None.** | **Stays τ-indexed.** Its τ is derived under D-3, which ties it to the Lyapunov-ordered orbit from e₁, not under D-1. |
+| P_positivity (a), nonnegativity; (b), monotone decrease | Sufficient static conditions: −K Metzler for (a); CM for both. A necessary static condition: the dominant pole is real with a positive coefficient. | **No exact finite static test is known in general.** Continuous-time positivity of exponential polynomials is an open problem (Ouaknine–Worrell). It is decidable in special cases, e.g. real commensurate exponents without Jordan terms (via u = e^{−τ/q} and Sturm). **None is claimed here.** |
+| P_geometry | The resistance metric from L⁺ (L0-1b). | **Exact.** It never contained τ. |
+| P_exact-reduction | The eigen-reduction. | Definitional. |
 
-*Proof sketches.* The CM row is the finite Hamburger/Hermite and
-Bernstein argument recorded in the L0-1d/e charters. The memory-class
-row holds because k is a finite sum of polynomial-times-exponential
-terms, whose exponents are exactly the poles of G. The (a) and (b)
-rows are sufficiency only: nonnegativity of an exponential polynomial
-on [0, ∞) has no finite algebraic characterization in general, and
-none is claimed. ∎
+**R-3, restated on the face:** these equivalences hold within the
+declared linear classes under the stated hypotheses. **Not every
+time-domain predicate has a static counterpart:** P_memory's window
+grade has none, and (a) and (b) have only sufficient conditions.
 
-**Consequence.** In 𝒞₁ the record's batteries split three ways: two
-are **fully static** (CM, geometry); one is **static in its asymptotic
-content** (the memory class); and two have **only sufficient static
-readings** ((a), (b)). The comparator's window grade is the one reading
-that stays irreducibly τ-indexed. Under D-1 its τ is derived, not
-primitive, so it complies with the no-`t` rule, and its presence is
-recorded.
+## §2 Derived order on relaxing orbits (𝒞₁, 𝒞₂)
 
-## §2 Derived ordering on relaxing orbits (𝒞₁ and 𝒞₂)
+**Theorem D-3 (strict-Lyapunov order).** Let ẋ = f(x) be locally
+Lipschitz, with V ∈ C¹ and V̇ = ∇V·f < 0 off equilibria. On a
+non-equilibrium forward half-orbit from x₀:
+- (i) V strictly decreases, so **V totally orders the orbit's states;**
+- (ii) with σ = V(x₀) − V(x) ∈ [0, σ*), where
+  σ* = V(x₀) − lim_{t→∞} V(x(t)), the orbit solves the σ-ODE
+  dx/dσ = f(x)/(−V̇(x));
+- (iii) the derived clock τ(σ) = ∫₀^σ dσ′/(−V̇(x(σ′))) reproduces t
+  exactly on [0, σ*). As σ → σ*, V̇ → 0 and τ(σ) → ∞: the equilibrium
+  is approached only asymptotically and is never reached.
 
-**Theorem D-3 (strict-Lyapunov ordering).** Let ẋ = f(x) be locally
-Lipschitz, with a C¹ function V satisfying V̇ = ∇V·f < 0 off equilibria
-(a *strict Lyapunov function*). Then along every non-equilibrium orbit:
-- (i) V is strictly decreasing, so **V totally orders the orbit's
-  states**;
-- (ii) the orbit is the solution of the **σ-ODE**
-  dx/dσ = f(x)/(−V̇(x)), with σ = V(x₀) − V(x). This uses only static
-  data (f, V, x₀) and no time parameter;
-- (iii) the **derived clock** τ(σ) = ∫₀^σ dσ′/(−V̇(x(σ′))) reproduces
-  the original parametrization exactly.
+*Proof.* (i) is immediate. For (ii) and (iii), dσ/dt = −V̇ > 0, so
+t ↦ σ is a C¹ bijection onto [0, σ*), and the chain rule gives both.
+**Uniqueness** (revised per the review, because revision 1's
+Lipschitz argument needed V ∈ C^{1,1}): any solution y of the σ-ODE
+has dV(y)/dσ = −1. Define t(σ) = ∫dσ/(−V̇(y)). Then y∘σ(t) solves
+ẋ = f, so uniqueness for f transfers to y. ∎
 
-*Proof.* (i) is immediate. For (ii) and (iii), dσ/dt = −V̇ > 0 on the
-orbit, so t ↦ σ is a C¹ diffeomorphism onto its image, and the chain
-rule gives the σ-ODE and τ(σ) = t. Uniqueness for the σ-ODE follows
-from local Lipschitz continuity of f/(−V̇) away from equilibria. ∎
+**Instances.** Every V is exhibited, not inferred:
 
-**Instances on the record** (each V is static substrate data):
-
-| Class | Strict Lyapunov function | Resulting σ-ODE |
+| Class | Strict Lyapunov function V | σ-ODE |
 |---|---|---|
-| 𝒞₁, K symmetric positive definite | V = ½xᵀKx or ½\|x\|² | — |
-| 𝒞₁, K accretive non-normal (the L0-1d ring) | V = ½\|x\|², since V̇ = −xᵀK_s x < 0 | dx/dσ = −Kx/(xᵀK_s x) |
-| 𝒞₂, gradient flow (L0-1c) | V itself, V̇ = −\|∇V\|² | dx/dσ = −∇V/\|∇V\|²; τ = ∫dσ/\|∇V\|² |
+| 𝒞₁, K symmetric positive definite | ½xᵀKx (V̇ = −\|Kx\|²), or ½\|x\|² (V̇ = −xᵀKx) | −Kx/\|Kx\|² (first choice) |
+| 𝒞₁, K accretive (K_s ≻ 0) | ½\|x\|² (V̇ = −xᵀK_s x) | −Kx/(xᵀK_s x) |
+| **𝒞₁, K spectrally stable, non-accretive** (e.g. O-2's candidate) | **xᵀPx, with P ≻ 0 solving KᵀP + PK = I (Lyapunov's theorem)**, so V̇ = −\|x\|² | −Kx/\|x\|² |
+| 𝒞₂, gradient in metric g | V (V̇ = −\|∇_g V\|²_g) | −∇_g V/\|∇_g V\|²_g |
 
-**What is derived, and what is not.** The **order** is derived. The
-**orientation** is a one-bit convention: V distinguishes the two ends
-of the orbit structurally, and calling the low-V end "later" is a
-labeling choice. The design recorded this at F-3, and it is restated
-here as part of the theorem's face.
+(In the gradient rows the data are (V, g, x₀). The rate information
+lives in g, as the design's F-3 wrote it. The ring and non-accretive
+rows need the raw vector field, because those generators are not
+gradients in any metric.)
 
-**The batteries under D-3 (no primitive t).** Every τ-indexed reading
-used on these classes can be taken on the derived clock, because
-k(τ) = x₁(σ⁻¹(τ)) along the orbit from x₀ = e₁. That includes the
-comparator's window grade and the L0-1c trajectory batteries. The
-derived clock is exactly the original parametrization (D-3(iii)), so
-every certified reading on these classes is unchanged.
+**What is derived and what is not (corrected per the review):**
+- The **order** is derived.
+- **Which direction is "later" is carried by the sign of the
+  generator f, not by the static data alone.** Reversing f forces
+  V → −V.
+- The two ends of an orbit are always *distinguishable* (V differs),
+  but naming one of them "later" is equivalent to reading "along f" as
+  forward in time. That is the one bit the design called a convention
+  at F-3. It is **not** a free bit: once f is given it is fixed. It is
+  the generator's sign.
 
-## §3 The sharpened boundary: non-recurrence, not "dissipation"
+**The batteries under D-3.** Take x₀ = e₁. Every τ-indexed reading on
+these classes is k(τ) = x₁(σ(τ)), where σ(·) is the inverse of the
+clock map τ(·). That covers the comparator's window grade and the L0-1c
+trajectory batteries. Since the derived clock equals the original
+parametrization, every certified reading is unchanged.
 
-**Theorem D-4 (recurrence obstruction, general).** Let x(t) be an
-orbit of a continuous flow that is **recurrent**: there exist tₙ → ∞
-with x(tₙ) → x(0). Then **no continuous function of state is strictly
-monotone along it.**
+## §3 A boundary on the design's hypothesis (recorded for O-7 and the successor list; no result claimed)
 
-*Proof.* Suppose f is continuous and strictly increasing along the
-orbit. For tₙ > t₁ > 0, f(x(tₙ)) > f(x(t₁)) > f(x(0)). But
-f(x(tₙ)) → f(x(0)) by continuity, which contradicts the strict gap
-f(x(t₁)) − f(x(0)) > 0. ∎
+**Theorem D-4 (recurrence obstruction).** Let γ be an orbit of a
+continuous flow with **α(γ) ∩ ω(γ) ≠ ∅.** This includes every
+recurrent orbit (x(tₙ) → x(0) with tₙ → +∞ or −∞), and every homoclinic
+orbit. Then **no continuous function of state is strictly monotone
+along γ.**
 
-**Consequence (this sharpens the design's hypothesis, and is recorded
-as such).** The design (§2) paired *dissipation* with derivable
-ordering. D-3 and D-4 show that the property doing the work is **the
-existence of a strict Lyapunov function along the orbit, equivalently
-the orbit being non-recurrent.** Two cases show why:
-- **A dissipative system can be obstructed.** A limit cycle attracts
-  its neighbourhood and is dissipative, yet on the cycle itself the
-  orbit is periodic, so D-4 forbids any state-derived order there. The
-  dissipative class is therefore *not* uniformly ordering.
-- **Every class currently on the record is safe.** Each has a global
-  strict Lyapunov function (§2), because each is linear-accretive or
-  gradient, and neither admits a limit cycle.
+*Proof (monotone function written F).* Let F be continuous and
+strictly increasing along γ, and let p ∈ α(γ) ∩ ω(γ). Then
+F(x(t)) → F(p) both as t → −∞ and as t → +∞. A strictly increasing
+function cannot have equal limits at both ends. ∎
 
-**Hypothesis refinement, carried to O-7 (labeled, not a result):** the
-floor's "dissipation" property should be read as **"non-recurrence /
-strict-Lyapunov structure"**. This matters for O-6 and O-7:
-- a conservative substrate is recurrent (Poincaré);
-- a dissipative substrate with recurrent attractors would be obstructed
-  on them too.
+**Corrections to revision 1** (errors, now fixed, not wording):
+- **"Strict Lyapunov function, equivalently non-recurrent" was
+  false.** A homoclinic orbit to a saddle is non-recurrent and still
+  obstructed (by D-4 as corrected).
+- The accurate statement: **D-3 is sufficient; D-4 is necessary.**
+  The general boundary is Conley's fundamental theorem: a continuous
+  Lyapunov function exists that strictly decreases off the
+  **chain-recurrent set**. This is cited, not used here.
+- The limit-cycle example needs the cycle to be **stable** (attracting).
+  Orbits spiralling onto it can still be ordered; the cycle itself
+  cannot.
 
-## §4 The stationary class 𝒞₃: orientation exists iff detailed balance is broken
+**Scoped statements:**
+- **Every dissipative *relaxational* class on the record (𝒞₁ as
+  enumerated in §0, and 𝒞₂) has an exhibited global strict Lyapunov
+  function** (the §2 table).
+- **𝒞₃ does not order its sample paths.** Stationary OU paths are
+  almost surely neighbourhood-recurrent, so by D-4's argument no state
+  function strictly orders a sample path. Its ordering question is
+  therefore posed at the level of law (D-5), not paths.
+- **Conservative classes:** every orbit is recurrent for
+  positive-definite quadratic Hamiltonians (quasi-periodicity) and for
+  finite-dimensional unitary dynamics. Almost every orbit is recurrent
+  on compact energy shells (Poincaré). Not every conservative system
+  is recurrent (a free particle is not), so the statement is scoped,
+  as the design's F-4 wrote it.
 
-A stationary process has no relaxing orbit, so D-3 gives it nothing.
-The question becomes whether the **lag** τ of its stationary
-correlations carries a derivable orientation.
+**Relation to the frozen hypothesis (DORD-5 fix).** The design's H-ORD
+says ordering is derivable "*exactly* in the dissipative classes". The
+stable-limit-cycle case shows that wording **fails for general
+dissipative systems**. Within the record's tested classes it holds (the
+§2 table). **The frozen hypothesis wording for O-7 is unchanged.**
+Revision 1's proposed re-reading ("dissipation → non-recurrence";
+"detailed balance → stationary orientation") is **withdrawn from this
+document** and recorded as successor item **S-4**, for O-7 or the
+Level-0 synthesis to consider. Re-wording a frozen hypothesis requires
+an owner ruling (T4).
 
-**Theorem D-5 (stationary arrow ⟺ broken detailed balance, OU
-class).** Take the stationary Ornstein–Uhlenbeck process
-dx = −Kx dt + B dW, Q = BBᵀ, with stationary covariance Σ, and its
-cross-correlation matrix C(τ) = e^{−Kτ}Σ for τ ≥ 0, C(−τ) = C(τ)ᵀ.
-- (i) **Every autocorrelation C_ii(τ) is even in τ.** No
-  single-coordinate statistic of the stationary process can orient the
-  lag.
-- (ii) **C(τ) = C(τ)ᵀ for all τ ⟺ KΣ = ΣKᵀ ⟺ the process is
-  reversible (detailed balance).** So the lag carries an
-  observationally derivable orientation, the sign of the antisymmetric
-  part of C, **if and only if detailed balance is broken.**
+## §4 The stationary class 𝒞₃: when can the lag directions be told apart?
 
-*Proof.* (i) C_ii(−τ) = C_ii(τ) by stationarity. For (ii):
-C(τ) − C(τ)ᵀ = e^{−Kτ}Σ − Σe^{−Kᵀτ}. At first order in τ this is
-−τ(KΣ − ΣKᵀ), so symmetry for all τ forces KΣ = ΣKᵀ. Conversely,
-KΣ = ΣKᵀ gives Kⁿ Σ = Σ(Kᵀ)ⁿ for all n, hence e^{−Kτ}Σ = Σe^{−Kᵀτ}.
-For the OU process, KΣ = ΣKᵀ is the standard detailed-balance
-(reversibility) condition. ∎
+**Theorem D-5 (OU, all variables even under time reversal).** Let
+C(τ) = E[x(t+τ)x(t)ᵀ] = e^{−Kτ}Σ for τ ≥ 0, with C(−τ) = C(τ)ᵀ.
+- (i) Every autocorrelation C_ii is even. Moreover, **any scalar
+  linear readout cᵀx is reversible in law:** a stationary zero-mean
+  Gaussian scalar process is determined by its autocovariance, which is
+  even. So **no single-channel observation can tell the lag directions
+  apart. At least two jointly observed channels are needed.**
+- (ii) C(τ) = C(τ)ᵀ for all τ ⟺ KΣ = ΣKᵀ ⟺ the process is reversible
+  in law (detailed balance for even variables).
 
-**On the record:** at L0-1e's F member (KΣ = I = ΣK, reversible), the
-lag is **unorientable**. At every FDT-broken member (T-11: KΣ ≠ ΣK) it
-**is** orientable, but **only through cross-correlations**: the
-retained-site autocorrelation L0-1e studied is even at every member,
-by D-5(i).
+*Proof.* (i) follows from stationarity plus Gaussian determinacy. For
+(ii): C(τ) − C(τ)ᵀ = −τ(KΣ − ΣKᵀ) + O(τ²), which gives necessity.
+KΣ = ΣKᵀ implies KⁿΣ = Σ(Kᵀ)ⁿ by induction, hence e^{−Kτ}Σ is
+symmetric, which gives sufficiency. For a Gaussian stationary Markov
+process, reversibility in law ⟺ C(−τ) = C(τ). ∎
 
-**Consequence for the two-property hypothesis (labeled; this is O-7's
-input, not a result):**
-- **Relaxational order** is carried by **non-recurrence / strict
-  Lyapunov structure** (D-3, D-4).
-- **Stationary orientation** is carried by **broken detailed balance**
-  (D-5).
-
-These are the two properties the design named, but D-5 attaches
-detailed balance to *orientation in stationarity*, not to ordering
-generally. The scope is the OU class only: linear drift, additive
-Gaussian noise.
+**Framing aligned with §2 (DORD-2 fix).** D-5 decides whether the two
+lag directions are **statically distinguishable**: exactly when
+KΣ ≠ ΣKᵀ, a static datum. **Naming one of them "forward" is the same
+one-bit reading as in §2.** The real contrast between the classes is
+this. On a relaxing orbit (𝒞₁, 𝒞₂) the two directions are *always*
+distinguishable. In a reversible stationary process (𝒞₃ with
+KΣ = ΣKᵀ) they are distinguishable *by nothing at all*.
+- **On the record:** L0-1e's F member is indistinguishable in both lag
+  directions. Its FDT-broken members are distinguishable only through
+  cross-correlations. The retained-site autocorrelation L0-1e studied
+  is even at every member, by (i).
+- **Scope:** if momentum-like (odd) variables are present, detailed
+  balance becomes C(τ) = εC(τ)ᵀε, and (ii) changes. This must be
+  restated before any reuse beyond even variables.
 
 ## §5 What O-5 establishes, and what it hands on
 
-- **Formulability is discharged for 𝒞₁, 𝒞₂, and 𝒞₃ as scoped.**
-  - 𝒞₁ and 𝒞₂: the substrate is formulable from static data; the order
-    of relaxing states is derived (D-3); every battery reading is
-    either static (D-1, D-2) or taken on a derived clock (D-3).
-  - 𝒞₃: whether an orientation exists is decided by a static datum,
-    KΣ − ΣKᵀ (D-5). The single-site battery cannot see it (D-5(i)).
-- **Where a primitive-looking element survives, it is named:**
-  - the one-bit orientation convention on relaxing orbits;
-  - the τ-window of the comparator grade, which is derived under D-1
-    and D-3 but still a window.
-- **Handed to O-6:** conservative substrates are recurrent (D-4), so no
-  state-derived order exists there. Any ordering must come through
-  emergent dissipation (the system/bath split, frontier F2), and would
-  be **window-relative at best**. That is the one numerical question
-  O-6 exists to ask.
-- **Handed to O-7:** the refinement "dissipation → non-recurrence"
-  (§3), and the split "order ↔ non-recurrence; stationary orientation
-  ↔ broken detailed balance" (§4). Both are hypotheses for the
-  synthesis.
-- **Reversal diagnostic:** no property → ingredient edge is created
-  here. The graph stays acyclic, and the diagnostic is neither
-  supported nor refuted.
+- **Formulable without a primitive time parameter, for 𝒞₁, 𝒞₂, 𝒞₃ as
+  scoped:**
+  - static presentations: D-1 for 𝒞₁, D-1′ for 𝒞₃;
+  - derived order on relaxing orbits: D-3, for 𝒞₁ (every spectrally
+    stable member) and 𝒞₂;
+  - static distinguishability of the lag directions in 𝒞₃: D-5.
+- **Presupposed, on the face:**
+  - **the generator** (f, K, or (V, g)), whose magnitude gives the
+    derived clock;
+  - **the orientation bit** ("later" = along f; the one-sided
+    transform), which the generator's sign carries.
+  - Named residual: P_memory's comparator window, τ-indexed through
+    D-3's derived clock.
+- **Handed to O-6 (reworded per the review; nothing prejudged):** by
+  D-4 plus quasi-periodicity or Poincaré, no continuous function of the
+  full state is strictly monotone along the conservative classes'
+  orbits. So at finite N any state-derived monotonicity is at best
+  window-limited. **Whether emergent dissipation through the
+  system/bath split supplies an ordering, and how, is H-ORD, O-6's
+  hypothesis, untested here.**
+- **Reversal diagnostic (DORD-8 fix):**
+  - D-3 and D-5 are theorems about **substrate data** (V, g, K, Σ,
+    KΣ − ΣKᵀ), not certified property nodes.
+  - Cross-correlation antisymmetry is **not** a registry predicate.
+  - **Owner acceptance of O-5 may not be cited as certifying any edge**
+    in the diagnostic's graph. The graph stays acyclic, and the
+    diagnostic is neither supported nor refuted.
 
-**Proposed terminal label for O-5, for the owner to assign after
-review:** **DISCHARGED** for 𝒞₁, 𝒞₂, 𝒞₃ as scoped. It carries the
-named residuals (orientation convention; comparator window) and the
-explicit boundary (D-4) on its face.
+## §6 The ruling O-5's label depends on (put to the owner explicitly)
+
+> **Does an order that is derived from substrate data, with its
+> orientation carried by the sign of the (presupposed) generator and
+> labeled as such, satisfy the no-`t` rule's "derived and labeled"?**
+
+- **If yes: O-5 = DISCHARGED** for 𝒞₁, 𝒞₂, 𝒞₃ as scoped. The face
+  carries the generator presupposition and the orientation carrier.
+  The question of deriving the generator itself is S-5.
+- **If no: O-5 = UNFORMULABLE-WITH-DOCUMENTED-REASON.** The documented
+  reason: *the orientation of the derived order is carried by the sign
+  of the generator, not by static substrate data; within these classes
+  no generator-free presentation fixes it* (D-3 and D-5 framing).
+
+**Operator's recommendation: yes, and so DISCHARGED.** Two reasons:
+- The no-`t` rule targets a **primitive time parameter**, and D-1, D-3
+  and D-5 remove it.
+- The generator is not a time parameter. It is substrate structure, of
+  the same kind the floor has been deleting and holding throughout
+  (D-HERM tested its self-adjointness; it did not dispense with it).
+
+What the "no" branch would really be recording is the absence of a
+**generator-free** formulation. That is a deeper and separate question
+(S-5), not a failure of O-5 as T1 posed it. Either ruling is honest.
+What would *not* be honest is leaving the generator unmentioned, as
+revision 1 did.
