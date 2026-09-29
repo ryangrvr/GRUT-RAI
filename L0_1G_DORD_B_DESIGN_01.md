@@ -1,8 +1,28 @@
 # L0-1g — D-ORD-b (O-6) DESIGN 01: ordering on a conservative substrate through its bath
 
-**Status: DESIGN — NOT A CHARTER.** No computation was run. The
-identities below are theorems with proofs, pending one focused analytic
-verification. **One operationalization choice belongs to the owner
+**Status: DESIGN REVISION 2 — NOT A CHARTER.**
+
+**Revision 2 note (the focused verification's findings are all
+incorporated).** I-1 … I-4 are confirmed, with fixes:
+- I-1 now cites D-4's *non-strict* form.
+- I-2 is extended from quadratic functionals to all C¹ functionals, on
+  classes containing C₀.
+- I-3 is worded for E₁ and E_B specifically.
+- I-4's caveat is added.
+
+The verifier also found a **new identity, I-5 (the initial slip)**. It
+shows that §3's "no identity decides the ensemble question" was
+**false for half of the proposed batteries**. §3 and §4 are rewritten
+accordingly.
+
+**Verifier toy checks (disclosed):** a symbolic small-t expansion on a
+generic N = 4 chain with free-symbol entries, and a numerical N = 3
+toy (entries 3.1/2.7/1.9, couplings −0.7/−0.5). Nothing was evaluated
+on the declared chain, and no L1 or L2 curve on the window was
+computed.
+
+**Original status line:** no computation was run by the operator. The
+identities below are theorems with proofs. **One operationalization choice belongs to the owner
 (§4) before any charter is frozen**, because it decides what the
 question *means*.
 
@@ -37,9 +57,12 @@ substrate via the system/bath split".
 here).** Let F be C¹ on the phase space of an autonomous flow. If F is
 non-increasing on [0, T] (T > 0) along the trajectory from **every**
 initial state, then dF/dt ≤ 0 **everywhere**, because every point is
-an initial state. On 𝒦_N every orbit is quasi-periodic, hence
-recurrent, so by D-4 (L0-1f) F is constant on every orbit: **F is
-conserved.**
+an initial state. On 𝒦_N every orbit is a translation on a torus
+(frequencies ω_k > 0), so it is recurrent in both time directions. By
+**D-4's argument in its non-strict form**, F is constant on every
+orbit, so **F is conserved.** The non-strict form: a monotone function
+along an orbit with α∩ω ≠ ∅ has equal limits at ±∞, and so is constant.
+Only continuity of F is needed.
 
 **Consequence:** a *nontrivial* window-relative ordering exists **only
 relative to a restricted class of initial conditions.** O-6 must
@@ -70,6 +93,19 @@ bath at rest).**
   state orders trajectories there, at any N. The argument uses only
   local structure, so it holds equally at N = ∞.
 
+**Extension to every C¹ functional G(z₁), on any class containing C₀
+(verifier).**
+- Step (a) forces ∇G·A₀z ≤ 0 for all z. The isolated oscillator's flow
+  is periodic, so G is constant on its ellipses: G = g(E₁).
+- Then dG/dt = g′(E₁)·p₁q₂, and the indefinite cone of step (b), scaled
+  to any energy level, forces g′ ≡ 0.
+- **So no C¹ function of the system's state orders trajectories on any
+  window, over any initial class containing C₀.** (For classes *not*
+  containing C₀, step (a)'s argument does not apply, and none is
+  claimed.)
+- A concrete backflow instance: with q₁₀ = 0, p₁q₂ ≈ (t³/6)p₁₀² > 0,
+  sourced by the negative interaction energy −q₁q₂.
+
 **Reading:** this is non-Markovianity at the level of identities. The
 reduced dynamics of a conservative split is not autonomous in z₁, so
 z₁ alone cannot carry an arrow. That holds even where the bath is
@@ -83,15 +119,71 @@ is indefinite (same determinant argument): some initial state makes the
 bath *lose* energy on every window. **Energy partition functions do not
 order pointwise over the class either.**
 
+**I-5 (the initial slip; new, from the verifier; symbolic on a generic
+chain, valid for every N ≥ 2 and any coupling g = −K₁₂, including
+N = ∞).**
+- **Setup:** a product Gaussian initial state ρ_S(T_s) ⊗ ρ_B(T_b). The
+  interaction energy starts at 0 and the system–bath correlations start
+  at 0.
+- **Bath-energy current:**
+  d⟨E_B⟩/dt = g²(T_s/K₁₁)·t − g²(2T_bK₁₁ + T_sK₁₁ + T_sK₂₂)/(6K₁₁)·t³
+  + O(t⁵).
+  **Its leading term is positive for every T_s > 0, whatever T_b is.**
+  (Operator check: ⟨p₂q₁⟩(0) = 0 and d⟨p₂q₁⟩/dt|₀ = −K₂₁⟨q₁²⟩ =
+  gT_s/K₁₁.) **So when the system is colder than the bath, the bath
+  still first *gains* energy from it.** That is the coupling
+  switch-on: the interaction energy goes negative as correlations
+  build.
+- **Reduced relative entropy** against any reference state with
+  ⟨p₁²⟩ = T_b (the local Gibbs state, or the reduced global Gibbs
+  state):
+  D(t) − D(0) = ½g²(K_BB⁻¹)₂₂(1 − T_b/T_s)·t² + O(t³).
+  Bath noise reaches ⟨p₁²⟩ at order t². The system's own dissipation
+  enters only at order t⁴. **So when the system is hotter than the
+  bath, the reduced relative entropy first *rises*.**
+- **Consequence:** under the textbook past hypothesis (a product
+  state), **the switch-on transient runs *against* the relaxation arrow
+  at t = 0⁺ for half of the temperature orderings, by identity, at
+  every N.** It fails on every window, so it is not a finite-size
+  effect.
+
 **I-4 (trivial orderings exist and must be excluded).** On any orbit
 segment before its first return, the orbit map is injective, so "time
 since leaving C₀" is a function of state there. It orders trivially.
 It is also **the dynamics itself read backwards**: a clock by
-construction. So **the ordering functional must come from a declared
+construction. It is well defined per orbit, or as "time since the most
+recent visit to C₀", since an orbit can re-enter C₀. So **the ordering functional must come from a declared
 structural class** (energies, entropies, locality-defined quantities),
 fixed before evaluation. Otherwise the question is vacuous.
 
-## §3 What remains open after the identities
+## §3 What remains open after the identities (REVISED by I-5; the original text below is superseded where it conflicts)
+
+**After I-5, exactly two ensemble directions remain open under a
+product initial state:**
+
+| Battery | Temperature ordering | Status |
+|---|---|---|
+| L1: mean bath energy **non-decreasing** | hot system, cold bath (T_s > T_b) | **Open.** The leading slope is positive; later sign changes are not decided. |
+| L2: reduced relative entropy **non-increasing** | cold system, hot bath (T_s < T_b) | **Open.** The leading slope is negative; later backflow is not decided. |
+| L1 read as "heat flows the right way" | cold system, hot bath (T_s < T_b) | **Fails at t = 0⁺ by identity (I-5).** |
+| L2 | hot system, cold bath (T_s > T_b) | **Fails at t = 0⁺ by identity (I-5).** |
+
+**The L2 reference state must be pinned before any charter.** The
+local Gibbs state is **not** the N → ∞ limit of the reduced state: by
+the Schur complement, (K⁻¹)₁₁ > 1/K₁₁. So D measured against the local
+Gibbs state tends to a nonzero limit, and the natural reference is the
+**reduced global Gibbs state** at T_b.
+
+**Corrected overclaim:** "beyond T_rec, D-4 guarantees failure" should
+read: D-4, applied to the recurrent covariance flow in its non-strict
+form, guarantees **non-monotonicity somewhere on [0, ∞)** at every
+finite N. It does not guarantee failure in any particular interval
+after T_rec.
+
+---
+
+**(Original §3 text, superseded where it conflicts with the table
+above.)**
 
 I-1 through I-4 close the pointwise, all-state and reduced-state
 routes. **What is left is genuinely open: ordering at the level of
@@ -129,7 +221,41 @@ ensembles, given a declared product initial state.**
   emergent *ordering*.
 - **Neither outcome is predicted by an identity here.**
 
-## §4 The owner's decision: what counts as "ordering arising through the bath"
+## §4 REVISED — the owner's decision after I-5
+
+The dead routes are now: A (I-1); B for every C¹ system-state
+functional on classes containing C₀ (I-2 as extended); B′ for E₁ and
+E_B (I-3); and **half of C under a product initial state (I-5).**
+Two ways remain to ask O-6's question:
+
+- **C1 (the narrowed product-state version).** Keep the textbook past
+  hypothesis (a product state). Charter only the two open directions:
+  L1 for T_s > T_b, and L2 for T_s < T_b against the **reduced global
+  Gibbs state**. Record I-5's two identity failures as findings.
+  *What it tests:* whether the arrow, once past the switch-on slip,
+  holds throughout the window, or is spoiled later by memory
+  (band-edge backflow).
+- **C2 (the correlated version).** Replace the product state with a
+  **local perturbation of the coupled system's global Gibbs state**:
+  heat or displace the system's marginal while keeping the equilibrium
+  system–bath correlations. That removes the switch-on artifact at its
+  source, since the interaction energy is already equilibrated. It
+  needs a fresh identity check before chartering, because its t = 0⁺
+  behavior is not yet derived.
+
+**Operator's recommendation: C1**, with I-5 recorded as a first-class
+finding. C1 keeps the standard past hypothesis the record has been
+circling, and its open content is sharp. **The I-5 finding is already
+an O-7 input:** *the textbook past hypothesis produces an
+identity-forced anti-arrow at switch-on, so any arrow in this class
+emerges only after a slip.* C2 is a legitimate alternative, and could
+go to the successor list if the owner prefers C1.
+
+---
+
+**(Original §4, superseded where it conflicts.)**
+
+## §4 (original) The owner's decision: what counts as "ordering arising through the bath"
 
 | Option | Operationalization | Status after §2 |
 |---|---|---|
