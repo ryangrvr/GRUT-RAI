@@ -1,12 +1,5 @@
 # L0-1c — LINEARITY (D-LIN): CHARTER + PRE-REGISTRATION (frozen before evaluation)
 
-**STATUS: DRAFT REVISION 2 — NOT YET FROZEN. EXECUTION BLOCKED.** All
-findings confirmed by the pre-freeze review to date are incorporated;
-four verifier verdicts (honesty lens F4–F7) are still outstanding and
-will be reconciled before freeze. The charter freezes at the commit
-that removes this banner. No instrument exists and no gate binds until
-then.
-
 **Fork:** L0-1c, the third fork of the Level-0 necessity sweep.
 **Authority:** `L0_1B_OWNER_RULING_01.md` (D-LIN authorized next per
 the frozen descent order; the pin-free locality fork queued separate,
@@ -51,8 +44,10 @@ instrument-separated per the registry.
 - **Outcome B (the instrument split, the H3 target):** the
   eigen-reduction dies exactly where its defining premise
   (superposition) dies, while the phenomena survive — *linearity
-  belongs to the instrument, not to the emergence class* — under the
-  §3.4 transient-limited qualifier.
+  belongs to the instrument, not to the tested response phenomena
+  (P_memory; P_positivity as operationalized)* — under the §3.4
+  transient-limited qualifier, with P_continuum and P_geometry
+  visibly unclaimed (untested by this fork).
 
 **The deletion touches linearity ONLY.** Every member keeps the pin
 (0.3), the chain couplings (+1), and a convex potential, so
@@ -224,10 +219,16 @@ diagnostic-only, no halved audit, RC-3 with the quadratic V.
    in-window distortion budget of ≲ 0.2 nats against the sealed
    comparator's multi-nat discriminant (R_alg − R_exp ≈ 2.8 on the
    anchor), drifting in the passing direction — never in-window
-   nonlinear dominance, which §3.4 caps; M-2 (componentwise monotone decrease of a nonlinear
-   cooperative flow on a finite window is unproven — only eventual
-   monotonicity is forced — but the structure makes a rebound
-   remote). *Genuinely unpreviewed:* **M-3, the trajectory-Gram PSD
+   nonlinear dominance, which §3.4 caps; M-2 at adjudicating legs —
+   the exact algebra of a rebound is frozen here so its status is
+   auditable: row 1 of K_b gives ẋ₁ = −2.3x₁ − 4βx₁³ + x₂, so x₁
+   rises iff x₂ > 2.3x₁ + 4βx₁³; asymptotically the state aligns
+   with the slow mode, whose exact eigen-row identity
+   2.3 − φ₂/φ₁ = λ_min (φ₂/φ₁ ≈ 1.9955 < 2.3) forces eventual strict
+   decrease — but nothing forces it on the finite window from a
+   transient-deformed state, which is the genuinely open part. The
+   β = 0 legs are identity-grade for both M-2 and M-3 (the sealed
+   kernel is exactly completely monotone). *Genuinely unpreviewed:* **M-3, the trajectory-Gram PSD
    gate — no identity forces near-complete-monotonicity of the
    nonlinear response, and no preview touched the Gram spectrum; this
    is the fork's sharpest live content** — plus the D_act activation
