@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "a7251e6",
-  "subject": "Access bridge verification + corrections + rank-drop theorem",
+  "commit": "a767d39",
+  "subject": "Lift selection verification + corrections",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -108,7 +108,7 @@
     "qualifications": "binding per L0_1_FLOOR_DEPOSIT_01.md section 2; never cite a label without its scope"
    },
    "post_floor": {
-    "status": "Access bridge terminal NONUNIQUE-LIFT; Route C selected (selection boundary); lift-selection gate L0_LIFT_SELECTION_01.md drafted as pre-registration for owner review",
+    "status": "Lift selection evaluated: mechanical terminal IRREDUCIBLE/SUPPLIED pending owner review (D-5 reading disclosed)",
     "authority": "EA0_OWNER_RULING_02.md",
     "records": [
      "LEVEL0_FOREST_SYNTHESIS_01.md",
@@ -119,7 +119,10 @@
      "L0_ACCESS_BRIDGE_VERIFICATION_01.md",
      "L0_ACCESS_BRIDGE_CORRECTIONS_01.md",
      "L0_ACCESS_RANKDROP_THEOREM_01.md",
-     "L0_LIFT_SELECTION_01.md"
+     "L0_LIFT_SELECTION_01.md",
+     "L0_LIFT_SELECTION_VERIFICATION_01.md",
+     "L0_LIFT_SELECTION_CORRECTIONS_01.md",
+     "L0_LIFT_SELECTION_EVALUATION_01.md"
     ],
     "new_physics_runs": "NONE until owner review"
    },
@@ -146,12 +149,30 @@
      "C": "SELECTED as NONUNIQUE PHYSICAL LIFT / SELECTION BOUNDARY (not 'category boundary')"
     },
     "not_meaning": "does NOT mean classical mathematics cannot connect to noncommutative mathematics (KvN exists); not every noncommutative construction needs hbar; GRUT has not derived physical hbar"
+   },
+   "lift_selection": {
+    "record": "L0_LIFT_SELECTION_01.md",
+    "frozen_at": "a14c722",
+    "ruling": "L0_LIFT_SELECTION_OWNER_RULING_01.md (comment 5899215672)",
+    "earned_selectors": [
+     "D-1",
+     "D-4 (narrowed)",
+     "D-5 (narrowed)"
+    ],
+    "criteria_priced_only": [
+     "D-2",
+     "D-3",
+     "D-6",
+     "D-7"
+    ],
+    "evaluation": "L0_LIFT_SELECTION_EVALUATION_01.md",
+    "terminal_mechanical": "IRREDUCIBLE/SUPPLIED (R-1 as frozen), pending owner review; D-5 reading disclosed (R-b plus variant counting would give CONSTRAINED-NONUNIQUE); no unique physical lift selected under any reading"
    }
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "Pending owner review of L0_LIFT_SELECTION_01.md (R-0 rulings on discriminators D-1..D-7; verification of front-run identities). No S-5, no EA-1, no gravity reopening, no numerical physics."
+  "note": "Pending owner review of L0_LIFT_SELECTION_EVALUATION_01.md (terminal and the D-5 reading question). No S-5, no EA-1, no gravity reopening, no numerical physics."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -168,8 +189,8 @@
  "active_proposals_not_findings": [
   {
    "item": "Lift-selection gate",
-   "record": "L0_LIFT_SELECTION_01.md",
-   "status": "PRE-REGISTRATION DRAFT; death criteria stated; no discriminator evaluated"
+   "record": "L0_LIFT_SELECTION_EVALUATION_01.md",
+   "status": "evaluated; mechanical terminal IRREDUCIBLE/SUPPLIED awaiting owner ruling"
   },
   {
    "item": "EA-1",
@@ -228,6 +249,10 @@
   {
    "record": "Access bridge",
    "note": "L0_ACCESS_BRIDGE_CORRECTIONS_01.md: BC-1..BC-12 (geometry path scope; seed reduction narrowed; KvN lift; LF-4 'first step' deleted; hbar distinction; statistics unselected)"
+  },
+  {
+   "record": "Lift selection",
+   "note": "L0_LIFT_SELECTION_CORRECTIONS_01.md: LS-1..LS-10 (I-1 collective counterexample; I-3 narrowed; no Koopman/real-bosonic merge; D-6 exclusion withdrawn; complex-structure price)"
   }
  ]
 }

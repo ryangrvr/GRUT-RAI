@@ -1,5 +1,8 @@
 # L0 LIFT SELECTION 01 — does any earned structure select among the surviving lifts?
 
+> **EVALUATED 2026-09-29.** The corrections are in `L0_LIFT_SELECTION_CORRECTIONS_01.md` (LS-1 … LS-10), which govern where they conflict with this text.
+> The evaluation is `L0_LIFT_SELECTION_EVALUATION_01.md`. **Mechanical terminal (R-1 as frozen): IRREDUCIBLE/SUPPLIED**, with the D-5 reading question disclosed. Awaiting owner review.
+
 **STATUS: FROZEN PRE-REGISTRATION (amended per owner ruling `5899215672`, recorded in
 `L0_LIFT_SELECTION_OWNER_RULING_01.md`). The freeze is this commit. NOT A RESULT.**
 - **R-0 is settled.**
