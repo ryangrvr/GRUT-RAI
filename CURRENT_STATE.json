@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "a767d39",
-  "subject": "Lift selection verification + corrections",
+  "commit": "4b5a156",
+  "subject": "Lift selection evaluation 01",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -108,8 +108,8 @@
     "qualifications": "binding per L0_1_FLOOR_DEPOSIT_01.md section 2; never cite a label without its scope"
    },
    "post_floor": {
-    "status": "Lift selection evaluated: mechanical terminal IRREDUCIBLE/SUPPLIED pending owner review (D-5 reading disclosed)",
-    "authority": "EA0_OWNER_RULING_02.md",
+    "status": "POST-FLOOR CHAIN DEPOSITED (L0_POSTFLOOR_DEPOSIT_01.md): earned classical substrate -> NONUNIQUE-LIFT -> lift selection IRREDUCIBLE/SUPPLIED",
+    "deposit": "L0_POSTFLOOR_DEPOSIT_01.md",
     "records": [
      "LEVEL0_FOREST_SYNTHESIS_01.md",
      "EA0_ENDOGENOUS_ACCESS_FORMULATION_01.md",
@@ -124,7 +124,7 @@
      "L0_LIFT_SELECTION_CORRECTIONS_01.md",
      "L0_LIFT_SELECTION_EVALUATION_01.md"
     ],
-    "new_physics_runs": "NONE until owner review"
+    "new_physics_runs": "NONE; next campaign is the owner's choice"
    },
    "ea0": {
     "terminal": "UNFORMULABLE (earned Level-0 scope)",
@@ -146,7 +146,7 @@
     "routes": {
      "A": "HELD / NOT SELECTED",
      "B": "CLOSED at earned scope (retained end-site identity readout only)",
-     "C": "SELECTED as NONUNIQUE PHYSICAL LIFT / SELECTION BOUNDARY (not 'category boundary')"
+     "C": "RESOLVED into nonunique-lift / selection-boundary result (lift selection IRREDUCIBLE/SUPPLIED)"
     },
     "not_meaning": "does NOT mean classical mathematics cannot connect to noncommutative mathematics (KvN exists); not every noncommutative construction needs hbar; GRUT has not derived physical hbar"
    },
@@ -166,13 +166,14 @@
      "D-7"
     ],
     "evaluation": "L0_LIFT_SELECTION_EVALUATION_01.md",
-    "terminal_mechanical": "IRREDUCIBLE/SUPPLIED (R-1 as frozen), pending owner review; D-5 reading disclosed (R-b plus variant counting would give CONSTRAINED-NONUNIQUE); no unique physical lift selected under any reading"
+    "terminal": "IRREDUCIBLE/SUPPLIED (owner ruling 02, comment 5899585621)",
+    "ruling_terminal": "L0_LIFT_SELECTION_OWNER_RULING_02.md"
    }
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "Pending owner review of L0_LIFT_SELECTION_EVALUATION_01.md (terminal and the D-5 reading question). No S-5, no EA-1, no gravity reopening, no numerical physics."
+  "note": "Post-floor deposit filed. Awaiting the owner's choice of the next scientific campaign (experiment, S-5, gravity, quantum outcome structure, or a new constructive route). No new selector, no S-5, no EA-1, no gravity reopening."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -183,15 +184,11 @@
    "L0_1B_OWNER_RULING_01.md",
    "L0_1C_OWNER_RULING_01.md",
    "L0_1_FLOOR_DEPOSIT_01.md",
-   "LEVEL0_FOREST_SYNTHESIS_OWNER_RULING_01.md"
+   "LEVEL0_FOREST_SYNTHESIS_OWNER_RULING_01.md",
+   "L0_POSTFLOOR_DEPOSIT_01.md"
   ]
  },
  "active_proposals_not_findings": [
-  {
-   "item": "Lift-selection gate",
-   "record": "L0_LIFT_SELECTION_EVALUATION_01.md",
-   "status": "evaluated; mechanical terminal IRREDUCIBLE/SUPPLIED awaiting owner ruling"
-  },
   {
    "item": "EA-1",
    "status": "CLOSED as immediate next step (EA0_OWNER_RULING_02.md section 5); may be reformulated if a common access formalism is earned"
