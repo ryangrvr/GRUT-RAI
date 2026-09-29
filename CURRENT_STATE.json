@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "7cd8371",
-  "subject": "Floor COMPLETE: O-7 = FALSIFIED (owner ruling); floor deposit 01 filed",
+  "commit": "454ba5a",
+  "subject": "Forest synthesis owner ruling 01 recorded; H-ADM corrected; P-4 correction 01",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -108,15 +108,19 @@
     "qualifications": "binding per L0_1_FLOOR_DEPOSIT_01.md section 2; never cite a label without its scope"
    },
    "post_floor": {
-    "status": "FOREST SYNTHESIS PRESENTED (LEVEL0_FOREST_SYNTHESIS_01.md; synthesis / hypothesis generation, not a result)",
-    "authority": "L0_1_FLOOR_O7_OWNER_RULING_01.md section 5",
+    "status": "FOREST SYNTHESIS ACCEPTED (with H-ADM correction applied); EA-0 formulation gate delivered, proposed terminal CLASS-SPLIT, awaiting owner ruling; EA-1 NOT AUTHORIZED",
+    "authority": "LEVEL0_FOREST_SYNTHESIS_OWNER_RULING_01.md",
+    "records": [
+     "LEVEL0_FOREST_SYNTHESIS_01.md",
+     "EA0_ENDOGENOUS_ACCESS_FORMULATION_01.md"
+    ],
     "new_physics_runs": "NONE until owner review"
    }
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "Pending owner review of LEVEL0_FOREST_SYNTHESIS_01.md (dependency map and candidate next charter). No new physics runs until then."
+  "note": "Pending the owner's ruling on EA0_ENDOGENOUS_ACCESS_FORMULATION_01.md: whether EA-0 produced a seedless, non-circular access map or renamed the primitive, and whether the local net may be presupposed. EA-1 is not authorized."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -126,18 +130,19 @@
    "L0_1A_OWNER_RULING_01.md",
    "L0_1B_OWNER_RULING_01.md",
    "L0_1C_OWNER_RULING_01.md",
-   "L0_1_FLOOR_DEPOSIT_01.md"
+   "L0_1_FLOOR_DEPOSIT_01.md",
+   "LEVEL0_FOREST_SYNTHESIS_OWNER_RULING_01.md"
   ]
  },
  "active_proposals_not_findings": [
   {
-   "item": "Forest synthesis (access / distinguishability / equivalence classes / selection)",
-   "record": "LEVEL0_FOREST_SYNTHESIS_01.md",
-   "status": "SYNTHESIS / HYPOTHESIS GENERATION, NOT A RESULT"
+   "item": "EA-0 endogenous-access formulation",
+   "record": "EA0_ENDOGENOUS_ACCESS_FORMULATION_01.md",
+   "status": "PROPOSED TERMINAL CLASS-SPLIT (formulation document; no run); owner ruling pending"
   },
   {
-   "item": "Endogenous-access / state-exclusion route",
-   "status": "HYPOTHESIS; not chartered; must be shown distinct from GR2 from the record before any charter"
+   "item": "EA-1 endogenous-access falsification fork",
+   "status": "NOT AUTHORIZED (owner ruling); EA-0 finds its live question moves upstream to the generator (S-5)"
   },
   {
    "item": "Reversal/chiasm diagnostic",
@@ -171,5 +176,15 @@
    "batched Zenodo publication"
   ]
  },
- "open_deadlines": []
+ "open_deadlines": [],
+ "record_corrections": [
+  {
+   "record": "P-4",
+   "note": "P4_HIERARCHY_CORRECTION_01.md: the descriptiveness attack was an asserted note, not an executed search; main standing unchanged"
+  },
+  {
+   "record": "Forest synthesis H-ADM",
+   "note": "LEVEL0_FOREST_SYNTHESIS_01.md section 8: P-1/X2 intrinsic partition selection restored"
+  }
+ ]
 }
