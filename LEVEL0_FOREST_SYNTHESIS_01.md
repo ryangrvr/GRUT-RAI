@@ -1,6 +1,9 @@
 # LEVEL-0 FOREST SYNTHESIS 01 — access, distinguishability, equivalence classes, selection
 
 **STATUS: SYNTHESIS / HYPOTHESIS GENERATION — NOT A NEW RESULT.**
+**ACCEPTED by owner ruling, with a required H-ADM correction applied**
+(`LEVEL0_FOREST_SYNTHESIS_OWNER_RULING_01.md`). The corrected passages are in §0 item 2, §2 and
+§6; the original wording is kept in §8 (correction log).
 - No computation was run. The work was four read-only record audits, plus the operator's own
   adjudication of what they found.
 - Nothing here changes any label, ruling or deposit. It is a separate post-floor task and does
@@ -36,8 +39,10 @@
 2. **H-ADM survives as a description of the record, not as a discriminating claim about GRUT.**
    The hypothesis: *"GRUT derives admissible classes far more often than it selects members."*
    - 12 of 15 targets end admissible-but-unselected.
-   - The three selections (partition, geometry, temporal order) each succeed **only relative to
-     a supplied input.**
+   - *Corrected (owner ruling):* of the three selections, geometry and temporal order are
+     conditional on supplied access/generator structure. **Partition selection is intrinsic in
+     the structured P-1/X2 regime** (no anchor supplied), but the criterion class is
+     non-univocal. No record establishes a universal selector.
    - It is non-discriminating because several targets (ħ, spin, coupling, Born weights) are not
      selected by any known effective framework, and several "derived" admissible classes are
      borrowed-standard mathematics.
@@ -161,7 +166,7 @@ counterexamples and the recoveries that H-PROJ must explain away.
 | Target | Earned | Remaining | Discriminator | Result | Needed | Info status |
 |---|---|---|---|---|---|---|
 | Microscopic realization | Equivalence at fixed (K,N) / full hierarchy (D-1, P-4) | Non-isomorphic realizations | S-access metrics, probe | Failed at fixed data (by construction); N discriminated (E2) | A different access map, or a framework constraining (K,N) | unknown |
-| Subsystem / partition | Trichotomy (P-1): emergent / representational / unselected | Tie-orbits; nothing selects generic worlds; criteria disagree | C1–C4 intrinsic criteria | **Succeeded in the structured regime (X2)**; failed in X1, X3 | An anchor or a criterion choice | derived (structured) / supplied (generic) |
+| Subsystem / partition | Trichotomy (P-1): emergent / representational / unselected | Tie-orbits; nothing selects generic worlds; criteria disagree | C1–C4 intrinsic criteria | **Succeeded intrinsically in the structured regime (X2): causal cohesion, gap 0.678, coarse-graining stable, no anchor**; failed in X1, X3 | A criterion-independent selector (the class is non-univocal); an anchor or supplied partition in generic worlds | **derived** (X2, one intrinsic criterion, anchor-free) / supplied (generic) |
 | Access seed | Canonical closure given a seed; blocks of reducible dynamics (P-5, P-6) | Nonunique, path-dependent, degenerate orbits; closure non-injective | Minimality, causal graph + conservation, symmetry, sufficiency | Failed (except block level) | The seed | **supplied**; derivation from the state **unformulable-yet** |
 | Geometry | Selected up to relabeling under full access; dynamic data beat static (GS-1) | Non-isometric family under single-site access; topology horizon | Site-resolved, ω² hierarchy, LocPos | **Succeeded under full / boundary-dynamic access**; failed single-site; LocPos narrows only | Access reach | supplied (reduces to the seed) |
 | Carrier | Classical carrier cut by the ν cone (CA-1) | P, M, T equivalent; F not excluded | Cone, locality, hop recovery | Partial | Probe-seed coincidence | supplied (reduces to the seed) |
@@ -178,9 +183,20 @@ counterexamples and the recoveries that H-PROJ must explain away.
 
 **Tally:** 15 targets.
 - An admissible class is earned in 15 of 15.
-- A member is selected in **3** (partition, geometry, temporal order), and each selection is
-  **relative to a supplied input**: the anchoring structure, the access reach, the generator.
-- **No target has been selected without a supplied input.**
+- A member is selected in **3** (partition, geometry, temporal order).
+- *Corrected (owner ruling, verbatim):* "The record constrains admissible classes much more often
+  than it uniquely selects members. Of the three targets with demonstrated member-selection,
+  geometry and temporal order are conditional on supplied access/generator structure. Partition
+  selection occurs intrinsically in the structured P-1/X2 regime, but the criterion class is
+  non-univocal: one intrinsic criterion selects strongly while the others do not establish a
+  universal criterion-independent selector. No record establishes a universal selector across
+  the target classes."
+- **Adjusted tally:**
+  - 12 of 15 targets are unselected.
+  - 2 of 15 are selected conditionally on a supplied input (geometry: access reach; temporal
+    order: the generator).
+  - **1 of 15 is selected intrinsically**, in one regime, by one of three inequivalent criteria
+    (partition, P-1/X2).
 
 **Verdict on H-ADM: SURVIVES as a description of the record. It is NOT a discriminating finding
 about GRUT.**
@@ -188,9 +204,10 @@ about GRUT.**
   framework, so failing to select them is not specific to GRUT.
 - (b) Several "derived" admissible classes are borrowed-standard mathematics: Gaussian
   realizability, bicommutant closure, improper mixtures.
-- (c) The sharp form that carries information is narrower: **every selection GRUT achieved was
-  conditional on a supplied input, and the most frequently inherited supplied input is the
-  access seed.**
+- (c) *Corrected:* the sharp form is the owner's sentence above. The most frequently
+  inherited supplied input among the *conditional* selections and non-selections is still the
+  access seed. **The P-1/X2 intrinsic partition selection is a genuine positive result** and is
+  not weakened here.
 
 ## §3 The GR2 / endogenous-access distinction, proved from the record
 
@@ -247,6 +264,16 @@ question".
   pre-judges it.
 
 ## §5 Candidate successor charters, ranked by dependency (not by preference)
+
+> **Owner ruling on this section** (`LEVEL0_FOREST_SYNTHESIS_OWNER_RULING_01.md` §§4–5):
+> - **EA-0 is AUTHORIZED** as a non-computational formulation/theorem gate, with a sharper
+>   question and a seven-way terminal taxonomy. It is carried out in
+>   `EA0_ENDOGENOUS_ACCESS_FORMULATION_01.md`, which supersedes the EA-0 sketch below.
+> - **The EA-0 sketch's first candidate is ruled NOT seedless:** cl(S;H) restricted to the
+>   reachable sector of ρ still contains the seed S. It is kept only as a control.
+> - **EA-1 is NOT YET AUTHORIZED.**
+> - **GR2's partial coverage does not disqualify the route.** GR2 is supporting context, not a
+>   required fourth dependency.
 
 **Dependency rule:** an item ranks above another only if the other needs its output.
 
@@ -366,3 +393,23 @@ classification.
 - The Experiment P paraphrase was narrowed to what its record states.
 
 **HARD STOP** for owner review before any new physics run.
+
+## §8 Correction log (additive; the original wording is preserved here)
+
+Owner ruling 01 required the following strikes. **Both struck statements were false at the
+recorded P-1/X2 scope** (`RELATIONAL_ONTOLOGY_MAP_01.md` §1: causal cohesion "selected the
+impurity {0} uniquely, strongly (gap 0.678), and stably under coarse-graining, without being told
+it existed").
+- §0 item 2, originally: "The three selections (partition, geometry, temporal order) each
+  succeed **only relative to a supplied input.**"
+- §2 tally, originally: "each selection is **relative to a supplied input**: the anchoring
+  structure, the access reach, the generator" and "**No target has been selected without a
+  supplied input.**"
+- §2 verdict (c), originally: "**every selection GRUT achieved was conditional on a supplied
+  input**, and the most frequently inherited supplied input is the access seed."
+- §2 partition row, "Needed" column, originally: "An anchor or a criterion choice". X2 needed no
+  anchor.
+
+**Cause of the error (operator):** the partition row's "succeeded in X2" was recorded correctly,
+but the tally conflated P-1's *anchored* criterion C4 with the *intrinsic* criterion C3 that
+actually selected.

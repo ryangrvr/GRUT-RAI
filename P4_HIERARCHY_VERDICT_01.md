@@ -93,3 +93,13 @@ structure question that D-1 and P-4 have now jointly promoted (what
 determines the physical access boundary — the last place a genuinely new
 principle could hide on this record). Λ_R, Matsubara, Π₀, U5 remain
 fenced.
+
+---
+
+> **CORRECTION NOTE (appended 2026-09-29; additive, owner-required).** The section "THE
+> DESCRIPTIVENESS ATTACK" above records a conclusion that the instrument entered as
+> `check(True, …, "note")` (`calc/p4_hierarchy.py:251`). It was **not** an executed adversarial
+> search, and no pair with matched full hierarchies was constructed or searched for. It must not
+> be cited as an executed test. Interface-completeness at the declared scope rests on the class
+> construction, the mathematical characterization and inherited controls. Everything else in this
+> verdict stands. See `P4_HIERARCHY_CORRECTION_01.md`.
