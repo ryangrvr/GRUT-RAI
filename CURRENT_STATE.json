@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "1748ccd",
-  "subject": "EA-0 endogenous-access formulation gate 01",
+  "commit": "966e2ba",
+  "subject": "EA-0 owner ruling 01",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -108,7 +108,7 @@
     "qualifications": "binding per L0_1_FLOOR_DEPOSIT_01.md section 2; never cite a label without its scope"
    },
    "post_floor": {
-    "status": "EA-0 terminal WITHHELD (owner ruling EA0_OWNER_RULING_01.md); owner provisional reading: TRIVIAL/IDENTITY ON EARNED SCOPE + CONDITIONAL FORMULABLE BRANCH; independent verification in progress; EA-1 NOT AUTHORIZED",
+    "status": "EA-0 independent verification delivered (EA0_INDEPENDENT_VERIFICATION_01.md): recommends TRIVIAL/IDENTITY ON EARNED SCOPE + CONDITIONAL FORMULABLE BRANCH (C-6 UNFORMULABLE-YET on the classical L0 substrate); L7 mechanism language refuted; terminal awaiting owner; EA-1 NOT AUTHORIZED",
     "authority": "LEVEL0_FOREST_SYNTHESIS_OWNER_RULING_01.md",
     "records": [
      "LEVEL0_FOREST_SYNTHESIS_01.md",
@@ -119,8 +119,8 @@
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "Owner-ordered independent verification of EA-0 in progress (EA0_OWNER_RULING_01.md); HARD STOP after EA0_INDEPENDENT_VERIFICATION_01.md is reported."
+  "active": true,
+  "note": "Pending the owner's EA-0 terminal and acceptance of the proposed additive corrections (EA0_INDEPENDENT_VERIFICATION_01.md section 5). EA-1 is not authorized."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
