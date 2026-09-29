@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "4b5a156",
-  "subject": "Lift selection evaluation 01",
+  "commit": "130ebf3",
+  "subject": "Pi0 campaign: owner direction 01 recorded",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -169,11 +169,27 @@
     "terminal": "IRREDUCIBLE/SUPPLIED (owner ruling 02, comment 5899585621)",
     "ruling_terminal": "L0_LIFT_SELECTION_OWNER_RULING_02.md"
    }
+  },
+  "pi0_campaign": {
+   "status": "Pi0-0 AUDIT DELIVERED; proposed outcome FRONTIER-BLOCKED; no Pi0-1 charter drafted; awaiting owner review",
+   "direction": "PI0_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5899711204)",
+   "audit": "PI0_TRACE_CHANNEL_REOPEN_01.md",
+   "blockers": [
+    "B-1 gauge-invariant spin-0 assembly unavailable (TT-projection gauge safety; Ward residual nonzero at H0 for scalar leg; no ghosts/non-TT lines)",
+    "B-2 target limit omega->0 outside certified domain (flat part ~omega^4 log vanishes; dS IR region refused by design)"
+   ],
+   "auxiliary": [
+    "A-1 scheme ruling pending",
+    "A-2 no Pi0 order of limits declared",
+    "A-3 no spin-0 probe coupling declared",
+    "A-4 x=f(Pi0/Pi2) map never written; x->mu carries alpha"
+   ],
+   "scope_fence": "conditional on the supplied gravitational branch; not 'Level-0 predicts gravity'; GR2 not upgraded"
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "Post-floor deposit filed. Awaiting the owner's choice of the next scientific campaign (experiment, S-5, gravity, quantum outcome structure, or a new constructive route). No new selector, no S-5, no EA-1, no gravity reopening."
+  "note": "Pending owner review of PI0_TRACE_CHANNEL_REOPEN_01.md (proposed FRONTIER-BLOCKED). No Pi0-1 charter, no Pi0 physics run, no empirical fitting."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -189,6 +205,11 @@
   ]
  },
  "active_proposals_not_findings": [
+  {
+   "item": "Pi0 trace-channel campaign",
+   "record": "PI0_TRACE_CHANNEL_REOPEN_01.md",
+   "status": "Pi0-0 audit: proposed FRONTIER-BLOCKED; owner review pending"
+  },
   {
    "item": "EA-1",
    "status": "CLOSED as immediate next step (EA0_OWNER_RULING_02.md section 5); may be reformulated if a common access formalism is earned"
