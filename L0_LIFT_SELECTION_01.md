@@ -1,6 +1,14 @@
 # L0 LIFT SELECTION 01 — does any earned structure select among the surviving lifts?
 
-**STATUS: PRE-REGISTRATION DRAFT FOR OWNER REVIEW — NOT A RESULT.**
+**STATUS: FROZEN PRE-REGISTRATION (amended per owner ruling `5899215672`, recorded in
+`L0_LIFT_SELECTION_OWNER_RULING_01.md`). The freeze is this commit. NOT A RESULT.**
+- **R-0 is settled.**
+  - **EARNED selectors:** D-1, D-4 (narrowed) and D-5 (narrowed).
+  - **CRITERION (priced only; never counted toward a terminal):** D-2, D-3, D-6 and D-7.
+  - No discriminator outside D-1 … D-7 may be added.
+- The identities I-1 … I-4 below are **front-run and unverified.** Independent verification
+  (V-1 … V-7) precedes any evaluation. Failed identities are corrected additively and their
+  dependent predictions struck.
 - No new mathematics beyond identities.
 - No evaluation of any discriminator.
 - No empirical selectors.
@@ -69,18 +77,18 @@ result.
 | # | Discriminator | Source (earned?) | What it would test | Predicted status (front-run) |
 |---|---|---|---|---|
 | D-1 | The retained-site kernel, P_memory, P_positivity, the geometry support | L0-1a/b/c, the floor (earned) | whether any lift alters the earned predicates | **non-discriminating** (I-1) |
-| D-2 | **Coverage of the whole earned class** (a lift must apply canonically to the linear **and** L0-1c nonlinear members) | L0-1c (the nonlinear class is earned). *Whether "must cover" is earned or a criterion is the owner's ruling.* | whether quasi-free lifts are excluded | would exclude Λ-B and Λ-F (I-4) and leave Λ-K, Λ-KvN and the cotangent lift, which are **representational**, or which need further priced quantization |
-| D-3 | **Classical limit / correspondence with the declared FDT noise** | L0-1e (the stochastic members are a *declared extension*, not the earned deterministic core). A correspondence principle is **not** earned | whether a lift's occupation statistics admit the classical equipartition limit that the FDT-held members use | would disfavor Λ-F (bounded occupations). **Priced twice:** a declared noise datum plus a correspondence criterion |
-| D-4 | **Complete positivity + passivity/accretivity** | L0-1a passivity, R-4 accretivity (earned) | whether each lift is a legitimate CP semigroup for accretive K | **non-discriminating** at the one-particle level (both CP; verified). Bosonic noise-floor conditions depend on the quadrature structure. **To verify.** |
-| D-5 | **Lyapunov / ordering** (O-5) | O-5 (earned, theorem-document scope) | monotone relative entropy / a Lyapunov functional under each lift | **non-discriminating** (predicted: CP quasi-free semigroups are contractive in relative entropy) |
-| D-6 | **A commuting local net** | the site net, admissible as declared substrate structure (EA-0 ruling 01 §2; L0-1b locality). Classical coordinates at distinct sites commute | whether each lift's local algebras commute across sites | **would constrain Λ-F:** odd CAR operators at distinct sites *anticommute*, so Λ-F needs graded locality or parity superselection (additional structure). Λ-B (complexified) local algebras commute |
-| D-7 | **One real coordinate per site** (the earned kinematics) | L0-1a/b/c (earned) | whether each noncommutative lift needs structure beyond the real one-particle space | **would constrain Λ-B:** noncommutativity needs a *supplied complex structure*. Λ-F (real Clifford) needs none |
+| D-2 | **Coverage of the whole earned class** (a lift must apply canonically to the linear **and** L0-1c nonlinear members) | L0-1c (the nonlinear class is earned). *Whether "must cover" is earned or a criterion is the owner's ruling.* | whether quasi-free lifts are excluded | **CRITERION (owner R-0).** Recorded as the quasi-free lifts' scope/price limitation. Cannot exclude them. |
+| D-3 | **Classical limit / correspondence with the declared FDT noise** | L0-1e (the stochastic members are a *declared extension*, not the earned deterministic core). A correspondence principle is **not** earned | whether a lift's occupation statistics admit the classical equipartition limit that the FDT-held members use | **CRITERION (owner R-0).** Cannot select statistics. Reported as a price only. |
+| D-4 | **Source passivity/accretivity compatibility** (amended A): does the lift preserve the already-earned passive/accretive contraction structure on the classical/one-particle sector from which it descends? | L0-1a passivity, R-4 accretivity (earned) | preservation of the descended contraction's passivity/accretivity | **EARNED (narrowed).** CP is reported separately as a lift-internal property, not as a selector. |
+| D-5 | **Source ordering compatibility** (amended B): does the lift preserve or faithfully represent the strict Lyapunov/order structure earned in O-5, when restricted to the descended source observables? | O-5 (earned, theorem-document scope) | preservation of the O-5 Lyapunov/order structure on source observables | **EARNED (narrowed).** No lifted entropy functional is required. |
+| D-6 | Commuting local net (amended C) | The fact (commuting classical site coordinates; the declared net) is earned. **Tensor-product locality of all field generators, as against graded locality with commuting even algebras, is not earned.** | compatibility check only | **CRITERION.** Any fermionic "exclusion" is only a priced interpretation. |
+| D-7 | One real coordinate per site (amended D) | The fact is earned. **Requiring no additional complex structure is a minimality criterion.** | pricing of supplied complex structure | **CRITERION.** A complex structure is reported as a supplied price, never as an exclusion. |
 
-**Tension, recorded in advance.** D-6 constrains the fermionic lift. D-7 constrains the
-noncommutative bosonic lift. D-2 constrains both quasi-free lifts. If all three were ruled earned,
-the predicted result would be that **no non-representational lift survives without supplied
-structure.** That prediction is stated so that it cannot be adopted after the fact; it is not a
-finding.
+**Former "tension" paragraph: WITHDRAWN by amendment.** D-2, D-6 and D-7 are CRITERION, so their
+predicted exclusions (quasi-free coverage, fermion locality, bosonic complex structure) are
+**priced interpretations only.** The earlier prediction that "no non-representational lift
+survives without supplied structure" is withdrawn as a selector-based prediction. It is kept in
+the git history, commit `66725e5`.
 
 ## §4 Shared vs distinguishing properties (the owner's minimum comparison)
 
@@ -94,7 +102,7 @@ finding.
 ## §5 Pre-registered adjudication rules and death criteria (frozen on owner approval of this draft)
 
 **The rules:**
-- **R-0.** Before any evaluation, the owner rules each of D-1 … D-7 as **EARNED** (usable as a
+- **R-0 (SETTLED by owner ruling `5899215672`).** Before any evaluation, the owner rules each of D-1 … D-7 as **EARNED** (usable as a
   selector) or **CRITERION** (usable only as a priced assumption and never counted toward
   selection). No discriminator may be added after evaluation begins; new ones go to a successor
   list.
