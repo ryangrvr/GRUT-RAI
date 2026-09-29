@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "966e2ba",
-  "subject": "EA-0 owner ruling 01",
+  "commit": "2091d97",
+  "subject": "EA-0 owner ruling 02; corrections applied",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -108,19 +108,32 @@
     "qualifications": "binding per L0_1_FLOOR_DEPOSIT_01.md section 2; never cite a label without its scope"
    },
    "post_floor": {
-    "status": "EA-0 independent verification delivered (EA0_INDEPENDENT_VERIFICATION_01.md): recommends TRIVIAL/IDENTITY ON EARNED SCOPE + CONDITIONAL FORMULABLE BRANCH (C-6 UNFORMULABLE-YET on the classical L0 substrate); L7 mechanism language refuted; terminal awaiting owner; EA-1 NOT AUTHORIZED",
-    "authority": "LEVEL0_FOREST_SYNTHESIS_OWNER_RULING_01.md",
+    "status": "EA-0 = UNFORMULABLE at earned Level-0 scope (EA0_OWNER_RULING_02.md); access-bridge gate L0_ACCESS_BRIDGE_01.md drafted for owner review (formulation only; no terminal proposed); EA-1 CLOSED as immediate next step; S-5 not executed",
+    "authority": "EA0_OWNER_RULING_02.md",
     "records": [
      "LEVEL0_FOREST_SYNTHESIS_01.md",
-     "EA0_ENDOGENOUS_ACCESS_FORMULATION_01.md"
+     "EA0_ENDOGENOUS_ACCESS_FORMULATION_01.md",
+     "EA0_INDEPENDENT_VERIFICATION_01.md",
+     "EA0_CORRECTIONS_01.md",
+     "L0_ACCESS_BRIDGE_01.md"
     ],
     "new_physics_runs": "NONE until owner review"
+   },
+   "ea0": {
+    "terminal": "UNFORMULABLE (earned Level-0 scope)",
+    "ruling": "EA0_OWNER_RULING_02.md",
+    "subordinate_auxiliary_findings": [
+     "finite-dimensional quantum reach-based: faithful states TRIVIAL/IDENTITY",
+     "generic quantum H: Gamma(rho) non-selective (L3', d = 4, 8 only)",
+     "constrained classes: CONDITIONAL FORMULABLE; Theorem S sufficient only; no iff characterization"
+    ],
+    "note": "auxiliary findings do not upgrade the Level-0 terminal"
    }
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "Pending the owner's EA-0 terminal and acceptance of the proposed additive corrections (EA0_INDEPENDENT_VERIFICATION_01.md section 5). EA-1 is not authorized."
+  "note": "Pending owner review of L0_ACCESS_BRIDGE_01.md (verification pass; value-vs-structure ruling for the classical route; optional rank-drop theorem task). No EA-1; no S-5 execution; no new numerical physics."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -136,18 +149,22 @@
  },
  "active_proposals_not_findings": [
   {
-   "item": "EA-0 endogenous-access formulation",
-   "record": "EA0_ENDOGENOUS_ACCESS_FORMULATION_01.md",
-   "status": "terminal WITHHELD pending independent verification; local net admissible as declared substrate structure (EA-0 does not derive locality); C-9 CRITERION-SMUGGLED / EXTERNAL-UNVERIFIED"
+   "item": "Access-bridge gate",
+   "record": "L0_ACCESS_BRIDGE_01.md",
+   "status": "FORMULATION DRAFT; front-run observations unverified; no terminal proposed"
   },
   {
-   "item": "EA-1 endogenous-access falsification fork",
-   "status": "NOT AUTHORIZED (owner ruling); EA-0 finds its live question moves upstream to the generator (S-5)"
+   "item": "EA-1",
+   "status": "CLOSED as immediate next step (EA0_OWNER_RULING_02.md section 5); may be reformulated if a common access formalism is earned"
+  },
+  {
+   "item": "S-5 generator origin",
+   "status": "motivated, not forced; not executed"
   },
   {
    "item": "Reversal/chiasm diagnostic",
    "record": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_01.md",
-   "status": "pre-registered Level-0 synthesis test; not evaluated; neither supported nor refuted"
+   "status": "pre-registered Level-0 synthesis test; not evaluated"
   }
  ],
  "successor_list": {
@@ -185,6 +202,10 @@
   {
    "record": "Forest synthesis H-ADM",
    "note": "LEVEL0_FOREST_SYNTHESIS_01.md section 8: P-1/X2 intrinsic partition selection restored"
+  },
+  {
+   "record": "EA-0",
+   "note": "EA0_CORRECTIONS_01.md: eight verifier corrections applied additively; L7 mechanism, 'canonical', 'exclusion never inclusion' retired"
   }
  ]
 }
