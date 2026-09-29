@@ -1,5 +1,11 @@
 # L0 ACCESS BRIDGE 01 — can the earned classical substrate support an access/state structure, and is there a priced map to the later algebra?
 
+> **VERIFIED 2026-09-29 — `L0_ACCESS_BRIDGE_CORRECTIONS_01.md` (BC-1 … BC-12) governs wherever it conflicts with this text**,
+> which is preserved as written. See `L0_ACCESS_BRIDGE_VERIFICATION_01.md` and `L0_ACCESS_RANKDROP_THEOREM_01.md`
+> (the earned-site rank-drop route is closed by theorem). The owner's value-vs-structure ruling is in
+> `L0_ACCESS_BRIDGE_OWNER_RULING_01.md` §2. **No bridge terminal has been assigned.**
+
+
 **STATUS: FORMULATION DRAFT FOR OWNER REVIEW — NOT A RESULT; NO TERMINAL PROPOSED.**
 - No computation. No member evaluated. No physics model chosen.
 - The items marked **front-run** are identity-grade or standard-mathematics observations written

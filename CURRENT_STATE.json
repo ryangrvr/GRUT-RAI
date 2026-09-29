@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "ba3cc59",
-  "subject": "L0 access bridge 01 (formulation draft)",
+  "commit": "1fc9d3c",
+  "subject": "Access bridge owner ruling 01",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -108,14 +108,17 @@
     "qualifications": "binding per L0_1_FLOOR_DEPOSIT_01.md section 2; never cite a label without its scope"
    },
    "post_floor": {
-    "status": "Access bridge ACCEPTED as working gate, no terminal (L0_ACCESS_BRIDGE_OWNER_RULING_01.md); value-vs-structure ruled (continuous reweighting of fixed support is NOT structural access); independent verification in progress; L0-1c rank-drop theorem authorized after verification; EA-1 closed; S-5 not executed",
+    "status": "Access bridge verified (L0_ACCESS_BRIDGE_VERIFICATION_01.md) with additive corrections (L0_ACCESS_BRIDGE_CORRECTIONS_01.md); L0-1c rank-drop theorem delivered (L0_ACCESS_RANKDROP_THEOREM_01.md): RANK-CONSTANT and globally observable at the earned retained end site (theorem), accessibility PROBE-DEPENDENT; bridge terminal and Route A/B/C awaiting owner",
     "authority": "EA0_OWNER_RULING_02.md",
     "records": [
      "LEVEL0_FOREST_SYNTHESIS_01.md",
      "EA0_ENDOGENOUS_ACCESS_FORMULATION_01.md",
      "EA0_INDEPENDENT_VERIFICATION_01.md",
      "EA0_CORRECTIONS_01.md",
-     "L0_ACCESS_BRIDGE_01.md"
+     "L0_ACCESS_BRIDGE_01.md",
+     "L0_ACCESS_BRIDGE_VERIFICATION_01.md",
+     "L0_ACCESS_BRIDGE_CORRECTIONS_01.md",
+     "L0_ACCESS_RANKDROP_THEOREM_01.md"
     ],
     "new_physics_runs": "NONE until owner review"
    },
@@ -132,8 +135,8 @@
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "Owner-authorized sequence in progress: bridge verification -> additive corrections -> L0-1c rank-drop theorem -> HARD STOP for bridge terminal and Route A/B/C."
+  "active": true,
+  "note": "Pending owner ruling on the access-bridge terminal and Route A/B/C (L0_ACCESS_BRIDGE_OWNER_RULING_01.md section 7). No EA-1, no S-5 execution, no numerical physics."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -151,7 +154,7 @@
   {
    "item": "Access-bridge gate",
    "record": "L0_ACCESS_BRIDGE_01.md",
-   "status": "ACCEPTED as working formulation; no terminal; verification and rank-drop theorem pending"
+   "status": "verified and corrected; rank-drop theorem delivered; terminal awaiting owner"
   },
   {
    "item": "EA-1",
@@ -206,6 +209,10 @@
   {
    "record": "EA-0",
    "note": "EA0_CORRECTIONS_01.md: eight verifier corrections applied additively; L7 mechanism, 'canonical', 'exclusion never inclusion' retired"
+  },
+  {
+   "record": "Access bridge",
+   "note": "L0_ACCESS_BRIDGE_CORRECTIONS_01.md: BC-1..BC-12 (geometry path scope; seed reduction narrowed; KvN lift; LF-4 'first step' deleted; hbar distinction; statistics unselected)"
   }
  ]
 }
