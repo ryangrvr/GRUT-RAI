@@ -91,3 +91,19 @@ strength within an explicitly declared class.
 ## 6. HARD STOP
 
 Stop after the verification report. **EA-1 remains NOT AUTHORIZED.**
+
+## Addendum: the owner's reading, restated in session (recorded; no new decision)
+
+The owner re-sent the ruling above and added a reflection:
+
+> state ⇏ new structure by itself; provisionally, generator supplies invariant structure → state
+> selects a sector → effective access changes. If that survives the adversarial pass, EA-0 has
+> demoted endogenous access from a new independent principle to a possible consequence of
+> generator structure … the sharper question becomes: **what constrains or generates the
+> generator itself?** … I would be careful not to call that a discovery yet … if L7 survives in a
+> narrowed rigorous form, the project's next forest-level target should be the origin and
+> necessity structure of the generator, not EA-1 as originally conceived.
+
+**Operator note (sequence):** the verification this reflection waits on had already been delivered
+when it was sent (`EA0_INDEPENDENT_VERIFICATION_01.md`, commit `41895a4`). Its bearing on the
+reflection is summarised in the operator's reply of the same date. No decision is taken here.
