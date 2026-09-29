@@ -15,6 +15,8 @@ or by an explicit T4 scope-change ruling.
 | S-4 | **Re-reading the two-property hypothesis.** Should "dissipation → derivable order" read "strict-Lyapunov structure / off the chain-recurrent set", and should "detailed balance" be attached to "stationary lag distinguishability"? | L0-1f (O-5) revision 1, withdrawn per review DORD-5 | D-3 (sufficient), D-4 (necessary; α∩ω obstruction), Conley's chain-recurrence theorem (cited), D-5. The frozen H-ORD wording ("*exactly* in the dissipative classes") fails for stable limit cycles, which are outside the record's classes. Re-wording the frozen hypothesis needs an owner ruling (T4). |
 | S-5 | **Can the generator itself be derived rather than presupposed?** Every O-5 formulation takes the generator (f, K, or (V, g)) as substrate data. Its magnitude sets the derived clock and its sign carries the orientation. | L0-1f (O-5) §0, §6 | The design's §0 lists "a generator" as a primitive-looking floor assumption. O-5's T1 scope does not include deriving it. |
 
+| S-6 | **Does a coarse-grained arrow survive band-edge memory?** Candidate measures: the worst drawdown of ⟨E_B⟩ against its net rise, and the backflow fraction ∫J⁻/∫\|J\|. | O-6 ruling (`5895858851`): FALSIFIED for the strict form only. | `L0_1G_PREFREEZE_REVIEW_01.md` §3(a) lists the magnitude maps. A test needs a principled coarse-graining criterion, fixed before evaluation. |
+
 **Held elsewhere, not on this list:** the pin-free locality fork
 (L0-1b's Outcome A; outside the floor per T8); the reversal diagnostic
 (a pre-registered Level-0 synthesis diagnostic, owner ruling
