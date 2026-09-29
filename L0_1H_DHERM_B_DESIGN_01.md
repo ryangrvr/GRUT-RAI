@@ -1,157 +1,188 @@
-# L0-1h — D-HERM-b (O-2) DESIGN 01: accretivity vs spectral stability on the attached one-way ring
+# L0-1h — D-HERM-b (O-2) DESIGN 01, rev 2: accretivity vs spectral stability on the attached one-way ring
 
 **Status: DESIGN — NOT A CHARTER.** No computation was run on any
-declared member. Items marked *identity* have proofs here. Items marked
-*estimate* are analytic sketches pending one focused verification.
+declared member (n = 23, a = 1). Items marked *identity* or *theorem*
+have proofs here. Items marked *estimate* rest on non-member toys only.
 **The owner's direction binds** (`L0_1_FLOOR_SYNTHESIS_DRAFT_01.md`
 §3a): attack as hard as possible; O-2 is allowed to fail; the direction
 is O-2 → O-7, never the reverse.
 
+**Rev 2 (after one independent verification pass):** J-1 … J-5 were
+confirmed, and J-4's exceptional set was removed. E-2 and E-3 were
+promoted to theorems (P-1, P-2). E-1's conclusion was confirmed, but
+its criterion was wrong and has been replaced. §4's overclaim was
+withdrawn. H-HERM-2 has been split into clauses **before** any member
+is evaluated (§4). The toys are archived as
+`calc/feasibility/l01h_verifier_toy{1..5}_nonmember.py`; each skips
+n = 23, a = 1. **Disclosure:** one toy ran n = 25, a = 1, a close
+neighbour of the family.
+
 **O-2's frozen content (T1):** D-HERM-b, accretivity vs spectral
-stability. The hypothesis under attack, as the L0-1d draft stated it:
+stability. The hypothesis, as the L0-1d draft stated it:
 
 > **H-HERM-2:** on members that hold spectral stability but drop
 > accretivity, transient growth breaks P_positivity's monotone half; of
 > the two passivity notions, it is **accretivity** that carries
 > positivity.
 
-## §1 The family (the named candidate; parameters to be frozen by the charter)
+## §1 The family (the named candidate; the charter freezes its parameters)
 
 The **attached directed ring:** n = 23 sites, one-way transport
 i → i+1 (with n → 1), and the record's attachment spring on site 1:
 
 > K(d, g) = d·I + a·E₁₁ − g·Q, where Q_{i+1,i} = 1, Q_{1,n} = 1,
-> a = 1 (the attachment), and g ≥ 0.
+> a = 1, and g > 0.
 
-- **Accretive** ⟺ K_s = dI + aE₁₁ − (g/2)(Q + Qᵀ) ≻ 0. The bottom of
-  the band is ≈ d − g, raised slightly by the defect.
+- **Accretive** ⟺ K_s = (K + Kᵀ)/2 ⪰ 0 (strictly: ≻ 0). The threshold
+  is d > d_acc(g) = g − δ.
 - **Spectrally stable** ⟺ every eigenvalue has Re λ > 0.
-- Both are **construction data**, not results. The charter must
-  compute them exactly per member and declare the members accordingly.
 
-## §2 Exact structure (identities)
+## §2 Exact structure (identities; all confirmed)
 
-**J-1 (secular equation and closed-form resolvent).** With w = d + s,
-the retained-site transform is:
-- the free-ring part: [(wI − gQ)⁻¹]₁₁ = w^{n−1}/(wⁿ − gⁿ), since Q^m
-  returns to site 1 only when n | m;
-- adding the rank-one defect: **G(s) = e₁ᵀ(K + s)⁻¹e₁ =
-  w^{n−1}/(w^{n−1}(w + a) − gⁿ).**
+**J-1 (secular equation, closed-form resolvent).** With w = d + s:
+- **G(s) = e₁ᵀ(K + s)⁻¹e₁ = w^{n−1}/p(w)**, where
+  **p(w) = w^{n−1}(w + a) − gⁿ = det(wI − gQ + aE₁₁)**.
+- For g > 0, e₁ is cyclic for both K and Kᵀ: the Krylov vectors are
+  triangular with leading coefficient (−g)ᵐ. Also p(0) = −gⁿ ≠ 0, so
+  G has no cancellation. **The poles of G are the whole spectrum,** and
+  the retained site sees every mode.
+- At g = 0, e₁ is not cyclic: the eigenvalue d, of multiplicity n − 1,
+  is hidden from G.
+- **The positive root w\* has the largest real part.** Suppose w is not
+  real and Re w ≥ w\*. Then |w|^{n−1}|w + a| > w\*^{n−1}(w\* + a) = gⁿ,
+  which contradicts p(w) = 0. So **stability ⟺ d > w\*
+  ⟺ (g/d)ⁿ < 1 + a/d.** (Rev 1 had "1 + a/g", a typo.)
 
-The eigenvalues are λ = d − w, with w running over the roots of
-**p(w) = w^{n−1}(w + a) − gⁿ**. That is an exact, closed-form degree-n
-polynomial. Stability ⟺ every root satisfies Re w < d.
+**J-2 (the lap expansion).** Expanding G in gⁿ:
+- G = Σ_{j≥0} g^{nj}/[w^{(n−1)j}(w + a)^{j+1}].
+- **k(t) = e^{−(d+a)t} + Σ_{j≥1} g^{nj}e^{−dt}hⱼ(t)**, where hⱼ is the
+  convolution of t^{(n−1)j−1}/((n−1)j−1)! with tʲe^{−at}/j!.
+- Each hⱼ satisfies 0 ≤ hⱼ ≤ t^{nj}/(nj)!, so the series converges for
+  every t, uniformly on compacts. Term-by-term inversion is valid.
 
-**J-2 (the lap expansion: the kernel is a positive sum of returns).**
-Expanding G in gⁿ:
+**J-3 ((a), nonnegativity).** −K is Metzler, so k(t) > 0.
 
-> G = Σ_{j≥0} g^{nj} / [w^{(n−1)j}(w + a)^{j+1}].
+**J-4 ((c), CM: broken for every g > 0, with no exceptions).**
+- By Descartes' rule (n odd), p has at most three real roots. So for
+  n = 23 it has at least 20 non-real roots.
+- A double root occurs only at the real point w₀ = −(n−1)a/n, for a
+  single value of g. **Non-real roots are therefore always simple.**
+- Their residues, w/(nw + (n−1)a), are never zero.
+- A CM kernel has a transform ∫dμ(x)/(s + x), which is holomorphic off
+  the real axis. G is rational with a non-real pole of nonzero residue,
+  so it cannot be such a transform. **CM fails for every g > 0 (n ≥ 4),
+  accretive or not.** (Rev 1's "isolated exceptional set" was
+  unnecessary.)
 
-Each term inverts to e^{−dt}·hⱼ(t), with hⱼ = the convolution of the
-Gamma kernel t^{(n−1)j−1}/((n−1)j−1)! with t^j e^{−at}/j!, so **hⱼ ≥ 0.**
-- **k(t) = e^{−(d+a)t} + Σ_{j≥1} g^{nj} e^{−dt} hⱼ(t).**
-- The j = 0 term is the pulse decaying straight out of site 1.
-- The j ≥ 1 terms are the pulse returning after j laps.
+**J-5 (accretive ⇒ decay).** If K_s ⪰ μI, then |k(t)| ≤ e^{−μt}. This
+is superseded by P-1.
 
-**J-3 (component (a), nonnegativity: identity).** −K is Metzler
-(off-diagonals g ≥ 0), so k(t) > 0. J-2 shows it term by term.
+## §3 Promoted and corrected
 
-**J-4 (component (c), CM: broken for every g > 0, by theorem).**
-- By Descartes' rule, p has exactly one positive root and zero or two
-  negative roots (for n odd), so at most three real roots. For n = 23
-  it therefore has ≥ 20 non-real roots.
-- The residues are w^{n−1}/p′(w) ≠ 0, and the roots are simple except
-  at isolated values of g, where p and p′ share a root at
-  w = −(n−1)a/n.
-- Non-real poles with nonzero residue rule out complete monotonicity
-  (Bernstein uniqueness). So **CM fails for every g > 0 outside that
-  isolated set, whatever d is, accretive or not.**
-- This is consistent with O-1: the one-way ring has maximal cycle
-  affinity, since K_ij·K_ji = 0.
+**P-1 (theorem, was E-2: no retained-site growth for ANY stable member).**
+- −K is Metzler and irreducible. Its Perron vector is
+  v_i = (g/w\*)^{i−1} > 0, with Kv = (d − w\*)v. Row 1 uses
+  p(w\*) = 0, i.e. g(g/w\*)^{n−1} = w\* + a.
+- e^{−Kt} is entrywise nonnegative, so
+  k(t) = (e^{−Kt})₁₁v₁ ≤ (e^{−Kt}v)₁ = e^{−(d−w\*)t}.
+- Hence **k(t) ≤ e^{−(d−w\*)t} < 1 for all t > 0 on every stable
+  member, accretive or not.** The same holds for every diagonal entry.
+- When K_s is not ⪰ 0, the **state norm** ‖e^{−Kt}‖ does grow at
+  t = 0⁺. That growth is real, but no diagonal kernel can see it.
+- **This settles the "observability limit" framing exactly.** Transient
+  growth exists in the state, but it is provably invisible at the
+  retained site. That is a property of the observable, not a verdict
+  on accretivity (per the owner's O-2 ruling).
+- Toy check: no violations of the bound across 360 band members.
 
-**J-5 (no growth when accretive: identity).** K_s ≻ μI gives
-|k(t)| ≤ e^{−μt} < 1 for t > 0.
+**P-2 (theorem, was E-3: the stable, non-accretive band is non-empty,
+n ≥ 3, a > 0).**
+- At d = w\*, Kv = 0, so vᵀK_s v = 0 and λ_min(K_s) ≤ 0.
+- Suppose equality held. Then v would minimise the form, so K_s v = 0
+  and hence Kᵀv = 0.
+- Rows 2 … n−1 of Kᵀv = 0 force g = w\*, which makes v uniform. But
+  then row 1 of Kv reads a = 0, a contradiction.
+- So d_acc > w\* strictly, and **the band (w\*, d_acc) is non-empty.**
+  It is empty only if a = 0 (or n = 2).
+- The sign question is settled. Only the band's width at n = 23 is left
+  to compute.
+- **Corrected width scaling (estimate, toy-confirmed).** The defect
+  δ = g − d_acc lies in (0, a/n).
+  - Regime na ≫ g: δ ≈ (π²g/2n²)(1 − 4g/(an)), and the width is
+    ≈ g·ln(1 + a/g)/n − π²g/(2n²). This is O(1/n), with an O(1/n²)
+    correction. (Rev 1 wrongly gave δ = O(a/n).)
+  - Regime na ≪ g: the width is ≈ a²(n−1)(n−2)/(6gn²).
 
-## §3 The attackable content, estimated (pending verification)
+**E-1 (estimate, corrected): (b) breaks inside the accretive region.**
+- **Rev 1's criterion was wrong.** The ratio of lap 1 to the direct
+  term, gⁿe^{at}h₁(t), increases to ∞ for every g > 0, so it sets no
+  threshold.
+- **The correct criterion:** (b) breaks when lap 1 overtakes the direct
+  term while lap 1 is still rising, i.e. before t ≈ (n − 2)/d.
+- **Large-n asymptote:** g_b/d → e^{−(1 + a/d)}, with a correction of
+  order (ln n)/n that pushes it upward. A stronger attachment makes (b)
+  break *more easily*. The threshold compares the direct escape rate
+  d + a with the lap transit time.
+- **Non-member toys (d = 1, a = 1):** g_b ≈ 0.72, 0.50, 0.34, 0.30 and
+  0.21 at n = 5, 7, 11, 13 and 25. **In every toy, g_b < g_acc**
+  (including n = 3). So accretive, non-monotone members exist. Rev 1's
+  "g ≳ 0.5" was too high.
+- **Toy observation, not a theorem:** in every toy, every stable,
+  non-accretive member was also non-monotone. So (b) separated in one
+  direction only: every monotone member was accretive.
 
-**E-1 (component (b), monotone decrease, breaks regardless of
-accretivity; estimate).**
-- The j = 1 lap term rises while t < (n−1)/d, because its Gamma factor
-  peaks at ≈ (n−1)/d, and the j = 0 term decays like e^{−(d+a)t}.
-- For d = 1, a = 1 at t ≈ 11, the ratio of lap 1 to the direct term is
-  roughly g²³·4×10⁶. So **for g ≳ 0.5 the returning pulse makes k rise:
-  (b) breaks.**
-- **Accretivity at d = 1 holds up to g ≈ 1.** So there is an estimated
-  band g ∈ (≈ 0.5, ≈ 1) where the members are **accretive and still
-  non-monotone.**
-- **If this holds, H-HERM-2's "accretivity carries the monotone half"
-  is false in this family.** The monotone half is carried by the
-  round-trip gain gⁿ (the lap), which is a cycle-affinity/transport
-  quantity, not a passivity quantity.
+## §4 H-HERM-2, split into clauses (written before any member is evaluated)
 
-**E-2 (growth above k(0) = 1, the sharp non-accretive signature, looks
-unreachable; estimate).**
-- Stability requires d > w*, the positive root. That gives
-  (g/d)ⁿ < 1 + a/g, so the per-lap gain is bounded.
-- Each lap's Gamma pulse also spreads by about 1/√(2πnj).
-- So **k probably never exceeds 1 anywhere in the stable, non-accretive
-  band.** Growth at the retained site would then be unobservable in
-  this family.
-- This is the corrected F-7 situation again. It is not F-7 itself,
-  since the attachment breaks normality. It would be an
-  **observability limit of the retained-site kernel, not a verdict on
-  accretivity** (the owner's O-2 ruling applies).
+**Disclosure:** this split was written *after* the non-member toys. It
+follows the hypothesis's own grammar, and it adds no success condition.
 
-**E-3 (the width of the stable, non-accretive band is O(1/n);
-estimate).**
-- Stability: d > g(1 − ln(1 + a/g)/n) approximately.
-- Accretivity: d > g − δ, with a defect correction δ = O(a/n).
-- **The band between them is O(1/n) wide, and even its sign must be
-  computed exactly.** It may be empty or tiny at n = 23. The charter
-  must establish exactly whether it is non-empty before declaring any
-  "stable, non-accretive" member. If it is empty, H-HERM-2's premise
-  has no member in this family.
-
-## §4 What O-2 can honestly deliver
-
-If E-1 … E-3 survive verification, the family decides H-HERM-2 almost
-entirely from structure:
-
-| Component at the retained site | Accretive members | Stable, non-accretive members |
+| Clause | Content | Standing before the charter |
 |---|---|---|
-| (a) nonnegativity | holds (identity) | holds (identity) |
-| (c) complete monotonicity | **fails** (theorem, J-4) | **fails** (theorem) |
-| (b) monotone decrease | **fails for g ≳ 0.5** (E-1) | fails (E-1) |
-| growth above 1 | impossible (identity, J-5) | probably unreachable (E-2) |
+| **H2-m (mechanism)** | On stable, non-accretive members, *transient growth* at the retained site is what breaks (b). | **Excluded by theorem P-1** for every member of the family. No computation needed. |
+| **H2-s (sufficiency: "carries")** | Accretive ⇒ (b) holds at the retained site. | Estimated to FAIL (E-1). Decided by exact computation of g_b(d) against d_acc on the declared grid. |
+| **H2-n (necessity)** | Stable and non-accretive ⇒ (b) fails. | Toy-consistent. Decided by exact computation on the declared grid, over the non-empty band (P-2). |
 
-So: **no retained-site positivity component separates accretivity
-from spectral stability in this family.** Where (b) and (c) break,
-they break because of the lap, meaning transport round the cycle.
+**The mapping from clauses to O-2's single terminal label is the
+owner's to fix before evaluation.** The operator recommends the
+following, so that the hypothesis is not rescued by its surviving part:
+- The hypothesis asserts H2-m **and** "carries". If H2-m falls by
+  theorem (it has) or H2-s fails at member scope, then **O-2 =
+  FALSIFIED**, with its scope named clause by clause.
+- H2-n is recorded as a separate result at its own grade. It never
+  upgrades the label.
+- If H2-n also held, the accurate reading would be: "accretivity is
+  necessary for the monotone half at the retained site, not sufficient;
+  what breaks (b) is the lap (transport round the cycle), not growth."
 
-**The probable O-2 result:** H-HERM-2 **FALSIFIED at scope**, because
-accretivity does not carry the monotone half. A cleanly declared
-secondary statement would add that the accretive/stable distinction,
-through growth, is **not observable at the retained site** in this
-family.
+**What rev 1 overclaimed, now withdrawn.** Rev 1 said "no
+retained-site component separates accretivity from stability." That
+may be false in one direction (H2-n). Whether it is decides at member
+scope, and the result is not to be anticipated here.
 
-**Recommended form (the O-4 precedent):** a theorem document (J-1 …
-J-5, plus E-1 … E-3 once verified or proved) with an **exact
-appendix**, since G is rational in s with integer structure. Its list,
-frozen before evaluation:
-- the exact accretive and stable thresholds for the declared (d, g)
-  grid;
-- the band's non-emptiness;
-- the monotone-break threshold g_b(d);
-- the maximum of k over t;
-- the lap decomposition.
+## §5 Recommended form (the O-4 precedent)
 
-**Separately pre-registered, never folded into O-2's label:** an
-affinity line, "the one-way ring (maximal affinity) breaks CM by J-4".
-This is consistent with O-1 and adds a second cycle structure to the
-generator-route evidence for O-7's clause DB, without being O-2's
-verdict.
+**A theorem document** (J-1 … J-5, P-1, P-2) **plus an exact
+appendix.** G is rational in s, and p has integer coefficients once d
+and g are rational. The appendix list is frozen before evaluation:
+1. Exact d_acc(g) (the sign of λ_min(K_s) through exact Sylvester
+   pivots) and exact w\*(g) (Sturm isolation of p's positive root) on a
+   declared rational (d, g) grid.
+2. The band's width at n = 23 (its non-emptiness is already P-2).
+3. g_b(d), bracketed rigorously: k′(t) > 0 somewhere, with a certified
+   bracket from interval evaluation of the lap series and its truncation
+   bound (J-2).
+4. H2-s and H2-n decided on every grid point.
+5. max_t k(t), reported only as a check on P-1, never as a gate.
 
-## §5 Standing
+**Separately pre-registered, never folded into O-2's label:** the
+affinity line. The one-way ring has maximal cycle affinity
+(K_ij·K_ji = 0) and breaks CM for every g > 0 (J-4). This is
+consistent with O-1, and it is evidence for O-7's clause DB (the
+generator route).
 
-This design changes no status. It creates no property → ingredient
-edge. O-2 remains open until a charter or theorem document is ruled on.
+## §6 Standing
+
+This design changes no status and creates no property → ingredient
+edge. **P-1 is a theorem about every member**, so H2-m is already
+decided without any member computation. O-2 remains **open** until a
+charter or theorem document is ruled on.
