@@ -1,6 +1,10 @@
 # L0-1 FLOOR — O-7 ADJUDICATION 01 (proposal for owner ruling)
 
-**Status: PROPOSAL.** O-1 … O-6 are all terminal (T5 precondition met;
+**Status: RULED — O-7 = FALSIFIED, terminal** (`L0_1_FLOOR_O7_OWNER_RULING_01.md`).
+The proposal text below is kept as written, except that §1(iii) carries the
+owner's scope restriction on its face.
+
+*Original status:* PROPOSAL. O-1 … O-6 are all terminal (T5 precondition met;
 `L0_1H_OWNER_RULING_03.md`). This document adjudicates the frozen
 two-property hypothesis from those six records **exactly as they
 stand.** No new computation was run.
@@ -58,15 +62,16 @@ affinity. The components have **different boundaries.**
   criterion fails at every member, independent of d. That is
   construction data, not a result.
 - Yet component (b) **switches** across d_mono.
-- So **even on the generator route, detailed-balance status does not
-  decide (b).**
-
-*Operator flag, for the owner to accept or strike:* this reading uses
-only the family's construction data and the O-2 certificate. It does
-**not** use the affinity line (J-4, CM), which stays outside O-2 and
-unregistered. If the owner judges that even this use contaminates the
-separation, strike (iii), and clause DB reverts to the O-1/O-4 reading
-alone. §3's proposed label does not depend on (iii).
+- **As ruled (owner, verbatim; this replaces the draft's wording):**
+  "Within the declared O-2 one-way-ring family, detailed-balance status
+  is fixed while the monotone-decrease property switches across d_mono.
+  Therefore detailed-balance status does not decide monotone retained
+  response in that family."
+- **Scope, on its face:** this is a scoped counterexample to
+  sufficiency, nothing more.
+  - It is **not** a general theorem that detailed balance cannot govern
+    monotonicity in other classes.
+  - The affinity/CM line is **not** folded into O-2.
 
 ## §2 The clauses (frozen wording unchanged)
 
@@ -88,7 +93,7 @@ generator-route residue.**
 - **Decisive:** generator route, response object, component (c) (O-1).
 - **Not decisive:** noise route, correlation object (O-4). Placement
   decides there.
-- **Unreduced residue** (O-2, via §1(iii), if the owner keeps it):
+- **Unreduced residue** (O-2, via §1(iii); kept by owner ruling, scoped to the O-2 family and the monotone component):
   component (b) on the generator route switches at fixed
   detailed-balance status.
 - **The D-HERM obligation does not reduce to detailed balance.** Its
@@ -201,5 +206,5 @@ post-floor work, not as an interpretation of this table (owner ruling
   accepted.
 - The broader investigation stays open beyond that boundary (T6).
 
-**HARD STOP** pending the owner's ruling on O-7's label, on §1(iii),
+*Superseded by the ruling:* this adjudication previously awaited the owner's ruling on O-7's label, on §1(iii),
 and on S-7/S-8.
