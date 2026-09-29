@@ -139,6 +139,75 @@ conflation the program had been making):
   reversal diagnostic's graph is still acyclic; that diagnostic is
   Level-0 synthesis work and is not evaluated here.
 
+## §3a The owner's reading of the provisional synthesis (recorded 2026-09-29, in-session; hedges preserved)
+
+**On what the floor has done.** The substrate is "looking less like a
+bundle of axioms and more like a factorization of functions: different
+structural ingredients doing different jobs." The original simple
+story (gap + passivity + locality + linearity → memory + positivity +
+geometry + reduction, then dissipation + detailed balance as the deeper
+pair) has been **systematically split apart.**
+
+**On time.** "Dissipation produces time" is too crude. There are at
+least two kinds of dissipation:
+- dissipation **already present in the effective generator**, which
+  can supply a Lyapunov ordering (O-5);
+- dissipation **emerging from coarse-graining a conservative system**,
+  which supplies memory and irreversible-looking behavior yet no strict
+  arrow (O-6).
+
+The descent "has not simply found 'the source of time.' It has found
+**conditions under which ordering can and cannot be reconstructed.**"
+
+**On detailed balance.** The story has fractured: cycle affinity
+breaks response CM, and noise-side detailed-balance breaking does not
+break correlation CM. The system asks "how is the nonequilibrium
+structure positioned relative to the observable/access point?" rather
+than "how far from equilibrium?". The owner flags, *"very carefully"*,
+a possible common theme with the earlier access-relative geometry
+result: **structure is relational rather than scalar.** Recorded as a
+live interpretive theme, **not** a result.
+
+**On method (binding for O-7).**
+- **The direction is O-2 result → O-7 synthesis, never O-7
+  hypothesis → interpretation of O-2.**
+- Once O-2 closes, O-7 is **an accounting exercise**: *given
+  everything actually earned, what is the smallest structural statement
+  that survives all of the deletions and counterexamples?*
+- It is **not** "what theory accommodates everything?".
+
+**On the failures.** The owner reads the "not ⇒" results as possibly
+the deepest content, "exactly what a minimality program ought to do":
+- linearity ⇏ memory;
+- locality ⇏ memory;
+- asymmetry ⇏ irreversibility;
+- noise nonequilibrium ⇏ correlation failure;
+- effective dissipation ⇏ strict ordering;
+- past hypothesis ⇏ arrow at t = 0.
+
+Each holds at its recorded scope.
+
+**On O-2.** Don't rush it. Let the one-way ring attack the question as
+hard as possible. The valuable outcome is a clean separation between
+what is genuinely necessary and what merely happened to work in the
+earlier construction. O-2 is allowed to fail.
+
+**Operator notes on this reading (for the owner to correct or accept):**
+1. **O-2's frozen content is H-HERM-2**, accretivity vs spectral
+   stability, not the generalization of the cycle-affinity result. The
+   one-way ring also carries maximal affinity, so a *separately
+   pre-registered* affinity line is possible, but it must not be folded
+   into O-2's terminal verdict.
+2. **No floor obligation can produce a property → ingredient edge.**
+   Each deletes an ingredient and reads a property. The reversal
+   diagnostic's positive outcome needs *constructive* post-floor work,
+   so it will not come from O-2.
+3. **O-4's "placement over magnitude" has a local mechanism:** the
+   odd-moment hierarchy (the retained site sees near temperatures
+   first). The "relational rather than scalar" theme must not rest on
+   O-4 alone, because part of it reduces to locality plus a distance
+   hierarchy.
+
 ## §4 What is needed to finish O-7
 
 1. **O-2 must reach a terminal label** (T5). Two routes:
