@@ -1,5 +1,8 @@
 # L0-1 FLOOR — O-7 SYNTHESIS: PROVISIONAL DRAFT 01
 
+> **SUPERSEDED** by `L0_1_FLOOR_O7_ADJUDICATION_01.md` once O-2 became terminal
+> (`L0_1H_OWNER_RULING_03.md`). §3 and §3a carry over unchanged. The rest is kept as the provisional record.
+
 **STATUS: PROVISIONAL. NOT ADJUDICABLE YET.** By T5 of the adopted
 termination condition, O-7 is adjudicated only once O-1 … O-6 are all
 terminal, and **O-2 is still open.** This draft assembles what the
