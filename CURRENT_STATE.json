@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "1fc9d3c",
-  "subject": "Access bridge owner ruling 01",
+  "commit": "a7251e6",
+  "subject": "Access bridge verification + corrections + rank-drop theorem",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -108,7 +108,7 @@
     "qualifications": "binding per L0_1_FLOOR_DEPOSIT_01.md section 2; never cite a label without its scope"
    },
    "post_floor": {
-    "status": "Access bridge verified (L0_ACCESS_BRIDGE_VERIFICATION_01.md) with additive corrections (L0_ACCESS_BRIDGE_CORRECTIONS_01.md); L0-1c rank-drop theorem delivered (L0_ACCESS_RANKDROP_THEOREM_01.md): RANK-CONSTANT and globally observable at the earned retained end site (theorem), accessibility PROBE-DEPENDENT; bridge terminal and Route A/B/C awaiting owner",
+    "status": "Access bridge terminal NONUNIQUE-LIFT; Route C selected (selection boundary); lift-selection gate L0_LIFT_SELECTION_01.md drafted as pre-registration for owner review",
     "authority": "EA0_OWNER_RULING_02.md",
     "records": [
      "LEVEL0_FOREST_SYNTHESIS_01.md",
@@ -118,7 +118,8 @@
      "L0_ACCESS_BRIDGE_01.md",
      "L0_ACCESS_BRIDGE_VERIFICATION_01.md",
      "L0_ACCESS_BRIDGE_CORRECTIONS_01.md",
-     "L0_ACCESS_RANKDROP_THEOREM_01.md"
+     "L0_ACCESS_RANKDROP_THEOREM_01.md",
+     "L0_LIFT_SELECTION_01.md"
     ],
     "new_physics_runs": "NONE until owner review"
    },
@@ -131,12 +132,26 @@
      "constrained classes: CONDITIONAL FORMULABLE; Theorem S sufficient only; no iff characterization"
     ],
     "note": "auxiliary findings do not upgrade the Level-0 terminal"
+   },
+   "access_bridge": {
+    "terminal": "NONUNIQUE-LIFT (declared scope)",
+    "ruling": "L0_ACCESS_BRIDGE_OWNER_RULING_02.md",
+    "subordinate": {
+     "direct_classical_earned_access": "TRIVIAL/IDENTITY (Theorem 1: retained end-site identity readout globally observable, det DPhi = 1 for K_b)",
+     "accessibility_with_injected_control": "PROBE-DEPENDENT"
+    },
+    "routes": {
+     "A": "HELD / NOT SELECTED",
+     "B": "CLOSED at earned scope (retained end-site identity readout only)",
+     "C": "SELECTED as NONUNIQUE PHYSICAL LIFT / SELECTION BOUNDARY (not 'category boundary')"
+    },
+    "not_meaning": "does NOT mean classical mathematics cannot connect to noncommutative mathematics (KvN exists); not every noncommutative construction needs hbar; GRUT has not derived physical hbar"
    }
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "Pending owner ruling on the access-bridge terminal and Route A/B/C (L0_ACCESS_BRIDGE_OWNER_RULING_01.md section 7). No EA-1, no S-5 execution, no numerical physics."
+  "note": "Pending owner review of L0_LIFT_SELECTION_01.md (R-0 rulings on discriminators D-1..D-7; verification of front-run identities). No S-5, no EA-1, no gravity reopening, no numerical physics."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -152,9 +167,9 @@
  },
  "active_proposals_not_findings": [
   {
-   "item": "Access-bridge gate",
-   "record": "L0_ACCESS_BRIDGE_01.md",
-   "status": "verified and corrected; rank-drop theorem delivered; terminal awaiting owner"
+   "item": "Lift-selection gate",
+   "record": "L0_LIFT_SELECTION_01.md",
+   "status": "PRE-REGISTRATION DRAFT; death criteria stated; no discriminator evaluated"
   },
   {
    "item": "EA-1",

@@ -2,12 +2,12 @@
 
 <!-- CURRENT-STATE:BEGIN (rendered from CURRENT_STATE.json by provenance/emit_current_state.py; do not edit by hand) -->
 > **CURRENT BOUNDARY 2026-09-29 — source of truth: [`CURRENT_STATE.json`](CURRENT_STATE.json).**
-> Canonical repository `ryangrvr/grut-rai`; active research branch `master-w25bu9` (state recorded through `1fc9d3c`).
+> Canonical repository `ryangrvr/grut-rai`; active research branch `master-w25bu9` (state recorded through `a7251e6`).
 > - **v4:** DEPOSITED_CLOSED (`V4_DEPOSIT_01.md`).
 > - **GR2:** GRAVITY_UNDERDETERMINED (`GR2_SYNTHESIS_OWNER_RULING_01.md`).
 > - **Level-0:** OPEN. The L0-1 formulability floor is **COMPLETE** (`L0_1_FLOOR_DEPOSIT_01.md`): O-1 CLASS-SPLIT · O-2 FALSIFIED · O-3 DISCHARGED · O-4 CLASS-SPLIT · O-5 DISCHARGED · O-6 FALSIFIED · O-7 FALSIFIED. Never cite a label without its scope (deposit §2).
-> - **Post-floor:** Access bridge verified (L0_ACCESS_BRIDGE_VERIFICATION_01.md) with additive corrections (L0_ACCESS_BRIDGE_CORRECTIONS_01.md); L0-1c rank-drop theorem delivered (L0_ACCESS_RANKDROP_THEOREM_01.md): RANK-CONSTANT and globally observable at the earned retained end site (theorem), accessibility PROBE-DEPENDENT; bridge terminal and Route A/B/C awaiting owner; new physics runs: NONE until owner review.
-> - **Hard stop:** **HARD STOP active** — Pending owner ruling on the access-bridge terminal and Route A/B/C (L0_ACCESS_BRIDGE_OWNER_RULING_01.md section 7). No EA-1, no S-5 execution, no numerical physics.
+> - **Post-floor:** Access bridge terminal NONUNIQUE-LIFT; Route C selected (selection boundary); lift-selection gate L0_LIFT_SELECTION_01.md drafted as pre-registration for owner review; new physics runs: NONE until owner review.
+> - **Hard stop:** **HARD STOP active** — Pending owner review of L0_LIFT_SELECTION_01.md (R-0 rulings on discriminators D-1..D-7; verification of front-run identities). No S-5, no EA-1, no gravity reopening, no numerical physics.
 > - **Public record:** paper DOI 10.5281/zenodo.22983638 (snapshot `6abbf31`, 2026-09-26), with the dated update of 2026-09-27. Not yet on the public face: V4_DEPOSIT_01.md filing (2026-09-28); Level-0 successor program (GRUT_PROGRAM_REOPEN_02.md); L0-1a ... L0-1h results; L0-1 floor deposit (L0_1_FLOOR_DEPOSIT_01.md).
 > - **Branches:** `master-w25bu9` = CURRENT_RESEARCH_LINE; `master` = HISTORICAL_BASE; `adjudicator-track` = ARCHIVED_ADJUDICATION_PROVENANCE; `TestingGRUT` = EXPERIMENTAL_TESTING_REPOSITORY_NOT_CANONICAL_LEVEL0_STATE; all other branches: role not ruled.
 > - **Successors:** S-1; S-2; S-3; S-4; S-5; S-6; S-7; S-8 (`L0_1_FLOOR_SUCCESSOR_LIST.md`); S-7/S-8 are local follow-ups, not the priority front.

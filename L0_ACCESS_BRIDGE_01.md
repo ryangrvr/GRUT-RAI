@@ -3,7 +3,10 @@
 > **VERIFIED 2026-09-29 — `L0_ACCESS_BRIDGE_CORRECTIONS_01.md` (BC-1 … BC-12) governs wherever it conflicts with this text**,
 > which is preserved as written. See `L0_ACCESS_BRIDGE_VERIFICATION_01.md` and `L0_ACCESS_RANKDROP_THEOREM_01.md`
 > (the earned-site rank-drop route is closed by theorem). The owner's value-vs-structure ruling is in
-> `L0_ACCESS_BRIDGE_OWNER_RULING_01.md` §2. **No bridge terminal has been assigned.**
+> `L0_ACCESS_BRIDGE_OWNER_RULING_01.md` §2.
+> **TERMINAL (`L0_ACCESS_BRIDGE_OWNER_RULING_02.md`): NONUNIQUE-LIFT.** The subordinate labels are:
+> direct classical branch TRIVIAL/IDENTITY at the earned declaration; accessibility PROBE-DEPENDENT.
+> Route C is selected and renamed "nonunique physical lift / selection boundary"; Route B is closed at earned scope; Route A is held.
 
 
 **STATUS: FORMULATION DRAFT FOR OWNER REVIEW — NOT A RESULT; NO TERMINAL PROPOSED.**
