@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "454ba5a",
-  "subject": "Forest synthesis owner ruling 01 recorded; H-ADM corrected; P-4 correction 01",
+  "commit": "1748ccd",
+  "subject": "EA-0 endogenous-access formulation gate 01",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -108,7 +108,7 @@
     "qualifications": "binding per L0_1_FLOOR_DEPOSIT_01.md section 2; never cite a label without its scope"
    },
    "post_floor": {
-    "status": "FOREST SYNTHESIS ACCEPTED (with H-ADM correction applied); EA-0 formulation gate delivered, proposed terminal CLASS-SPLIT, awaiting owner ruling; EA-1 NOT AUTHORIZED",
+    "status": "EA-0 terminal WITHHELD (owner ruling EA0_OWNER_RULING_01.md); owner provisional reading: TRIVIAL/IDENTITY ON EARNED SCOPE + CONDITIONAL FORMULABLE BRANCH; independent verification in progress; EA-1 NOT AUTHORIZED",
     "authority": "LEVEL0_FOREST_SYNTHESIS_OWNER_RULING_01.md",
     "records": [
      "LEVEL0_FOREST_SYNTHESIS_01.md",
@@ -119,8 +119,8 @@
   }
  },
  "hard_stop": {
-  "active": true,
-  "note": "Pending the owner's ruling on EA0_ENDOGENOUS_ACCESS_FORMULATION_01.md: whether EA-0 produced a seedless, non-circular access map or renamed the primitive, and whether the local net may be presupposed. EA-1 is not authorized."
+  "active": false,
+  "note": "Owner-ordered independent verification of EA-0 in progress (EA0_OWNER_RULING_01.md); HARD STOP after EA0_INDEPENDENT_VERIFICATION_01.md is reported."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -138,7 +138,7 @@
   {
    "item": "EA-0 endogenous-access formulation",
    "record": "EA0_ENDOGENOUS_ACCESS_FORMULATION_01.md",
-   "status": "PROPOSED TERMINAL CLASS-SPLIT (formulation document; no run); owner ruling pending"
+   "status": "terminal WITHHELD pending independent verification; local net admissible as declared substrate structure (EA-0 does not derive locality); C-9 CRITERION-SMUGGLED / EXTERNAL-UNVERIFIED"
   },
   {
    "item": "EA-1 endogenous-access falsification fork",
