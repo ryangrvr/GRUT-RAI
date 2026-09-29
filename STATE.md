@@ -6,8 +6,8 @@
 > - **v4:** DEPOSITED_CLOSED (`V4_DEPOSIT_01.md`).
 > - **GR2:** GRAVITY_UNDERDETERMINED (`GR2_SYNTHESIS_OWNER_RULING_01.md`).
 > - **Level-0:** OPEN. The L0-1 formulability floor is **COMPLETE** (`L0_1_FLOOR_DEPOSIT_01.md`): O-1 CLASS-SPLIT · O-2 FALSIFIED · O-3 DISCHARGED · O-4 CLASS-SPLIT · O-5 DISCHARGED · O-6 FALSIFIED · O-7 FALSIFIED. Never cite a label without its scope (deposit §2).
-> - **Post-floor:** PROJECT-STATE RECONCILIATION AND FOREST SYNTHESIS (non-computational); new physics runs: NONE until owner review.
-> - **Hard stop:** No hard stop active. No owner ruling is pending at this sync. The owner's sequence ends in a HARD STOP after the forest synthesis is presented (L0_1_FLOOR_O7_OWNER_RULING_01.md section 5).
+> - **Post-floor:** FOREST SYNTHESIS PRESENTED (LEVEL0_FOREST_SYNTHESIS_01.md; synthesis / hypothesis generation, not a result); new physics runs: NONE until owner review.
+> - **Hard stop:** **HARD STOP active** — Pending owner review of LEVEL0_FOREST_SYNTHESIS_01.md (dependency map and candidate next charter). No new physics runs until then.
 > - **Public record:** paper DOI 10.5281/zenodo.22983638 (snapshot `6abbf31`, 2026-09-26), with the dated update of 2026-09-27. Not yet on the public face: V4_DEPOSIT_01.md filing (2026-09-28); Level-0 successor program (GRUT_PROGRAM_REOPEN_02.md); L0-1a ... L0-1h results; L0-1 floor deposit (L0_1_FLOOR_DEPOSIT_01.md).
 > - **Branches:** `master-w25bu9` = CURRENT_RESEARCH_LINE; `master` = HISTORICAL_BASE; `adjudicator-track` = ARCHIVED_ADJUDICATION_PROVENANCE; `TestingGRUT` = EXPERIMENTAL_TESTING_REPOSITORY_NOT_CANONICAL_LEVEL0_STATE; all other branches: role not ruled.
 > - **Successors:** S-1; S-2; S-3; S-4; S-5; S-6; S-7; S-8 (`L0_1_FLOOR_SUCCESSOR_LIST.md`); S-7/S-8 are local follow-ups, not the priority front.

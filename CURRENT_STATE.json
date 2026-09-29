@@ -11,14 +11,38 @@
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
-  "master-w25bu9": {"role": "CURRENT_RESEARCH_LINE", "authority": "owner direction 2026-09-29"},
-  "master": {"role": "HISTORICAL_BASE", "qualifier": "unless explicitly changed by the owner", "authority": "owner direction 2026-09-29"},
-  "adjudicator-track": {"role": "ARCHIVED_ADJUDICATION_PROVENANCE", "authority": "owner direction 2026-09-29", "evidence": "unmerged; archived byte-exact in archive/adjudicator-track_90218f5/ (uploads/RELEASE_NOTES_GRUT_RAI_2026-09-26.md)"},
-  "TestingGRUT": {"role": "EXPERIMENTAL_TESTING_REPOSITORY_NOT_CANONICAL_LEVEL0_STATE", "kind": "separate repository, not a branch of this one", "authority": "owner direction 2026-09-29", "evidence": "GRUT_PROGRAM_CLOSURE_01.md (TestingGRUT master at ceeecd9)"},
+  "master-w25bu9": {
+   "role": "CURRENT_RESEARCH_LINE",
+   "authority": "owner direction 2026-09-29"
+  },
+  "master": {
+   "role": "HISTORICAL_BASE",
+   "qualifier": "unless explicitly changed by the owner",
+   "authority": "owner direction 2026-09-29"
+  },
+  "adjudicator-track": {
+   "role": "ARCHIVED_ADJUDICATION_PROVENANCE",
+   "authority": "owner direction 2026-09-29",
+   "evidence": "unmerged; archived byte-exact in archive/adjudicator-track_90218f5/ (uploads/RELEASE_NOTES_GRUT_RAI_2026-09-26.md)"
+  },
+  "TestingGRUT": {
+   "role": "EXPERIMENTAL_TESTING_REPOSITORY_NOT_CANONICAL_LEVEL0_STATE",
+   "kind": "separate repository, not a branch of this one",
+   "authority": "owner direction 2026-09-29",
+   "evidence": "GRUT_PROGRAM_CLOSURE_01.md (TestingGRUT master at ceeecd9)"
+  },
   "other_remote_branches": {
    "role": "NOT_RULED",
    "note": "Listed for completeness; the owner has not assigned roles. Lineage per GRUT_PROGRAM_CLOSURE_01.md: v1-retired (canonical builds, Mar-May 2026) -> v2 (retired archival baseline) -> main (v3/v4 deposits, Jun 2026) -> v4 (Aug-Sep 2026) -> physics-final (T3 physics line and publication, Sep 2026). rrt0-phase2 and testingi-rrt point at the same commit (510c105).",
-   "branches": ["main", "physics-final", "rrt0-phase2", "testingi-rrt", "v1-retired", "v2", "v4"]
+   "branches": [
+    "main",
+    "physics-final",
+    "rrt0-phase2",
+    "testingi-rrt",
+    "v1-retired",
+    "v2",
+    "v4"
+   ]
   }
  },
  "public_record_boundary": {
@@ -28,20 +52,44 @@
   "snapshot_source_commit": "6abbf31",
   "snapshot_date": "2026-09-26",
   "dated_update": "uploads/GRUT_PUBLIC_RECORD_UPDATE_2026-09-27.md (supersedes the snapshot where they differ, upgrading no claim; addendum section 9 carries the 2026-09-28 stop)",
-  "not_yet_on_public_face": ["V4_DEPOSIT_01.md filing (2026-09-28)", "Level-0 successor program (GRUT_PROGRAM_REOPEN_02.md)", "L0-1a ... L0-1h results", "L0-1 floor deposit (L0_1_FLOOR_DEPOSIT_01.md)"],
+  "not_yet_on_public_face": [
+   "V4_DEPOSIT_01.md filing (2026-09-28)",
+   "Level-0 successor program (GRUT_PROGRAM_REOPEN_02.md)",
+   "L0-1a ... L0-1h results",
+   "L0-1 floor deposit (L0_1_FLOOR_DEPOSIT_01.md)"
+  ],
   "cadence_rule": "the repo record stays canonical and current; Zenodo versions are batched and published by the owner when ready (STATE.md, 2026-09-27 boundary)"
  },
  "program_status": {
-  "v4": {"status": "DEPOSITED_CLOSED", "record": "V4_DEPOSIT_01.md", "filed": "2026-09-28", "note": "all five channels STILL OPEN with recorded causes; the v4 program is complete and does not reopen (GRUT_PROGRAM_REOPEN_02.md)"},
-  "gr2": {"status": "GRAVITY_UNDERDETERMINED", "record": "GR2_CAMPAIGN_SYNTHESIS_01.json", "ruling": "GR2_SYNTHESIS_OWNER_RULING_01.md", "note": "coupling class, spin, universal reach and universal causal cone are not forced by the generative core; terminal, unmodified"},
+  "v4": {
+   "status": "DEPOSITED_CLOSED",
+   "record": "V4_DEPOSIT_01.md",
+   "filed": "2026-09-28",
+   "note": "all five channels STILL OPEN with recorded causes; the v4 program is complete and does not reopen (GRUT_PROGRAM_REOPEN_02.md)"
+  },
+  "gr2": {
+   "status": "GRAVITY_UNDERDETERMINED",
+   "record": "GR2_CAMPAIGN_SYNTHESIS_01.json",
+   "ruling": "GR2_SYNTHESIS_OWNER_RULING_01.md",
+   "note": "coupling class, spin, universal reach and universal causal cone are not forced by the generative core; terminal, unmodified"
+  },
   "level0": {
    "status": "OPEN",
    "opened_by": "GRUT_PROGRAM_REOPEN_02.md",
    "direction": "LEVEL0_DIRECTION_01.md",
    "necessity_sweep": {
-    "L0-1a": {"result": "gap NECESSITY-CERTIFIED for P_memory; passivity NECESSITY-CERTIFIED for P_positivity", "ruling": "L0_1A_OWNER_RULING_01.md"},
-    "L0-1b": {"result": "locality not load-bearing for memory/positivity; NECESSITY-CERTIFIED for P_geometry (Outcome B)", "ruling": "L0_1B_OWNER_RULING_01.md"},
-    "L0-1c": {"result": "linearity necessity-certified only for P_exact-reduction", "ruling": "L0_1C_OWNER_RULING_01.md"}
+    "L0-1a": {
+     "result": "gap NECESSITY-CERTIFIED for P_memory; passivity NECESSITY-CERTIFIED for P_positivity",
+     "ruling": "L0_1A_OWNER_RULING_01.md"
+    },
+    "L0-1b": {
+     "result": "locality not load-bearing for memory/positivity; NECESSITY-CERTIFIED for P_geometry (Outcome B)",
+     "ruling": "L0_1B_OWNER_RULING_01.md"
+    },
+    "L0-1c": {
+     "result": "linearity necessity-certified only for P_exact-reduction",
+     "ruling": "L0_1C_OWNER_RULING_01.md"
+    }
    },
    "formulability_floor": {
     "status": "COMPLETE",
@@ -59,21 +107,43 @@
     "surviving_statement": "At the floor, the retained-site description has no single deep organizing pair. Its behavioral properties factor across distinct structural ingredients, each with its own certified boundary. The certified relations among them are almost entirely non-implications.",
     "qualifications": "binding per L0_1_FLOOR_DEPOSIT_01.md section 2; never cite a label without its scope"
    },
-   "post_floor": {"status": "PROJECT-STATE RECONCILIATION AND FOREST SYNTHESIS (non-computational)", "authority": "L0_1_FLOOR_O7_OWNER_RULING_01.md section 5", "new_physics_runs": "NONE until owner review"}
+   "post_floor": {
+    "status": "FOREST SYNTHESIS PRESENTED (LEVEL0_FOREST_SYNTHESIS_01.md; synthesis / hypothesis generation, not a result)",
+    "authority": "L0_1_FLOOR_O7_OWNER_RULING_01.md section 5",
+    "new_physics_runs": "NONE until owner review"
+   }
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "No owner ruling is pending at this sync. The owner's sequence ends in a HARD STOP after the forest synthesis is presented (L0_1_FLOOR_O7_OWNER_RULING_01.md section 5)."
+  "active": true,
+  "note": "Pending owner review of LEVEL0_FOREST_SYNTHESIS_01.md (dependency map and candidate next charter). No new physics runs until then."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
-  "records": ["V4_DEPOSIT_01.md", "GR2_SYNTHESIS_OWNER_RULING_01.md", "L0_1A_OWNER_RULING_01.md", "L0_1B_OWNER_RULING_01.md", "L0_1C_OWNER_RULING_01.md", "L0_1_FLOOR_DEPOSIT_01.md"]
+  "records": [
+   "V4_DEPOSIT_01.md",
+   "GR2_SYNTHESIS_OWNER_RULING_01.md",
+   "L0_1A_OWNER_RULING_01.md",
+   "L0_1B_OWNER_RULING_01.md",
+   "L0_1C_OWNER_RULING_01.md",
+   "L0_1_FLOOR_DEPOSIT_01.md"
+  ]
  },
  "active_proposals_not_findings": [
-  {"item": "Forest synthesis (access / distinguishability / equivalence classes / selection)", "record": "LEVEL0_FOREST_SYNTHESIS_01.md", "status": "SYNTHESIS / HYPOTHESIS GENERATION, NOT A RESULT"},
-  {"item": "Endogenous-access / state-exclusion route", "status": "HYPOTHESIS; not chartered; must be shown distinct from GR2 from the record before any charter"},
-  {"item": "Reversal/chiasm diagnostic", "record": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_01.md", "status": "pre-registered Level-0 synthesis test; not evaluated; neither supported nor refuted"}
+  {
+   "item": "Forest synthesis (access / distinguishability / equivalence classes / selection)",
+   "record": "LEVEL0_FOREST_SYNTHESIS_01.md",
+   "status": "SYNTHESIS / HYPOTHESIS GENERATION, NOT A RESULT"
+  },
+  {
+   "item": "Endogenous-access / state-exclusion route",
+   "status": "HYPOTHESIS; not chartered; must be shown distinct from GR2 from the record before any charter"
+  },
+  {
+   "item": "Reversal/chiasm diagnostic",
+   "record": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_01.md",
+   "status": "pre-registered Level-0 synthesis test; not evaluated; neither supported nor refuted"
+  }
  ],
  "successor_list": {
   "record": "L0_1_FLOOR_SUCCESSOR_LIST.md",
@@ -87,11 +157,19 @@
    "S-7": "What sets the monotone boundary d_mono? (local follow-up, not the priority front)",
    "S-8": "The affinity/CM line, pre-registered independently (local follow-up, not the priority front)"
   },
-  "held_elsewhere": ["pin-free locality fork (L0-1b Outcome A; outside the floor)", "reversal/chiasm diagnostic (Level-0 synthesis)"]
+  "held_elsewhere": [
+   "pin-free locality fork (L0-1b Outcome A; outside the floor)",
+   "reversal/chiasm diagnostic (Level-0 synthesis)"
+  ]
  },
  "standing_owner_items": {
   "note": "Carried from STATE.md (2026-09-28 later banner); not re-adjudicated here.",
-  "items": ["C2 A/B/C memo (C2_THRESHOLD_PROCEDURAL_MEMO_01.md)", "C5 bracket (V4_DEPOSIT_01.md)", "C1 dispatch (HELD)", "batched Zenodo publication"]
+  "items": [
+   "C2 A/B/C memo (C2_THRESHOLD_PROCEDURAL_MEMO_01.md)",
+   "C5 bracket (V4_DEPOSIT_01.md)",
+   "C1 dispatch (HELD)",
+   "batched Zenodo publication"
+  ]
  },
  "open_deadlines": []
 }
