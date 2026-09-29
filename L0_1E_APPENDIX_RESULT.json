@@ -1,0 +1,957 @@
+{
+ "document": "L0_1E_THEOREM_01.md Sec. 6 (frozen 550a237)",
+ "authority": "owner ruling 5888965691 (theorem document + exact appendix)",
+ "timestamp": "2026-09-29T11:12:04+00:00",
+ "environment": {
+  "python": "3.11.15",
+  "pure_stdlib": true,
+  "deterministic": "no RNG"
+ },
+ "defect_history": [],
+ "part_A": [
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A1 sealed replication k(40) rel 0.0e+00; build_K bath == float(M/10) entrywise: True"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A2 T-1 closed-form spectrum vs jacobi_eig: max |dlambda| = 1.8e-14"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A3 exact Lyapunov residual zero and Sigma symmetric at every profile"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A4 T-7 odd-moment hierarchy: m1 = T1, m3 and m5 closed forms, exact at every profile"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A5 T-4 (O-3 instantiation): K Sigma = I at F (True); m_n = s_(n-1), n=1..47 (True); exact CM with d_c = 23"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A6 T-11 K Sigma != Sigma K exactly at every nonuniform profile"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A7 T-5 y > 0 entrywise, exact, at every profile"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A8 T-8/T-9: G(inf), H(inf), G(1000) fail exact CM; F and delta1 pass"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A9 T-9 Perron: float w_1 > 0 at every profile"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A10 T-6 cone consistency: exact CM statuses monotone along every ray; a passing limit shape implies every member passes"
+  },
+  {
+   "kind": "ctrl",
+   "pass": true,
+   "summary": "A11 comparator certification: R_exp |D| 0.0e+00, R_alg |D| 0.0e+00, EXPONENTIAL-GRADE"
+  }
+ ],
+ "part_B": {
+  "F": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3386145039476836,
+   "R_alg": 5.017281104275308,
+   "E40": 3.4983401041912515e-08,
+   "monotone_max_step": -6.380875351706495e-09,
+   "gram_min_eig": -4.0736841474969243e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0,
+    "3": 1.0,
+    "4": 1.0,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.0
+  },
+  "delta1": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.726447877227591,
+   "R_alg": 4.911198054154632,
+   "E40": 1.2751104817933279e-08,
+   "monotone_max_step": -2.3406598984760322e-09,
+   "gram_min_eig": -3.0734803523551287e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0998193008825352,
+    "3": 1.1589825119236883,
+    "4": 1.1956427905884333,
+    "5": 1.2200113083868376
+   },
+   "commutator_ratio": 0.6364871259615802
+  },
+  "G(2)": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3173681917751114,
+   "R_alg": 5.020086677117314,
+   "E40": 3.713333811721889e-08,
+   "monotone_max_step": -6.769214857049801e-09,
+   "gram_min_eig": -3.206867747883736e-19,
+   "fdt_ratios_n2_5": {
+    "2": 0.9951458978133954,
+    "3": 0.9927735221852869,
+    "4": 0.9915017564950035,
+    "5": 0.9907359008585271
+   },
+   "commutator_ratio": 0.02918532402277998
+  },
+  "G(10)": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.1882459805437706,
+   "R_alg": 5.047804110741935,
+   "E40": 5.298400038410589e-08,
+   "monotone_max_step": -9.632293230266642e-09,
+   "gram_min_eig": -8.755069735620751e-19,
+   "fdt_ratios_n2_5": {
+    "2": 0.9563130803205578,
+    "3": 0.934961699667582,
+    "4": 0.9235158084550315,
+    "5": 0.9166231077267447
+   },
+   "commutator_ratio": 0.0654997828422464
+  },
+  "G(100)": {
+   "exact_CM": false,
+   "d_c": 23,
+   "H0_inertia": [
+    17,
+    6
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+   ],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 0.846657789869758,
+   "R_alg": 5.1822259417822085,
+   "E40": 1.459594007916674e-07,
+   "monotone_max_step": -2.6426282886090978e-08,
+   "gram_min_eig": -9.248974658363548e-13,
+   "fdt_ratios_n2_5": {
+    "2": 0.5194438835261366,
+    "3": 0.2845786963434022,
+    "4": 0.15867389300534573,
+    "5": 0.08285418499419189
+   },
+   "commutator_ratio": 0.0753133529008105
+  },
+  "G(1000)": {
+   "exact_CM": false,
+   "d_c": 23,
+   "H0_inertia": [
+    10,
+    13
+   ],
+   "m3_sign": -1,
+   "m5_sign": -1,
+   "float_negative_weight_modes": [
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+   ],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 0.7164488750306118,
+   "R_alg": 5.249349659752714,
+   "E40": 2.4254198118001746e-07,
+   "monotone_max_step": -4.3871831373805546e-08,
+   "gram_min_eig": -1.133966823735337e-05,
+   "fdt_ratios_n2_5": {
+    "2": -3.8492480844180763,
+    "3": -6.219251336898396,
+    "4": -7.489745261491511,
+    "5": -8.254835042331337
+   },
+   "commutator_ratio": 0.07631853370187311
+  },
+  "G(inf)": {
+   "exact_CM": false,
+   "d_c": 23,
+   "H0_inertia": [
+    10,
+    13
+   ],
+   "m3_sign": -1,
+   "m5_sign": -1,
+   "float_negative_weight_modes": [
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+   ],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 0.697607742438036,
+   "R_alg": 5.25961603013637,
+   "E40": 2.645158492196234e-07,
+   "monotone_max_step": -4.784093407127098e-08,
+   "gram_min_eig": -2.380362013270024e-05,
+   "fdt_ratios_n2_5": null,
+   "commutator_ratio": 0.07643044590618402
+  },
+  "GR(10)": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.359060215180575,
+   "R_alg": 5.015132642737473,
+   "E40": 3.3013398469901765e-08,
+   "monotone_max_step": -6.0250371120079225e-09,
+   "gram_min_eig": -8.99737919506454e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0043686919679442,
+    "3": 1.0065038300332418,
+    "4": 1.0076484191544968,
+    "5": 1.0083376892273255
+   },
+   "commutator_ratio": 0.06549978284224639
+  },
+  "GR(1000)": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3613914417863135,
+   "R_alg": 5.014923675169356,
+   "E40": 3.2794631782332496e-08,
+   "monotone_max_step": -5.985521654457089e-09,
+   "gram_min_eig": -2.833921882466184e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.004849248084418,
+    "3": 1.0072192513368985,
+    "4": 1.0084897452614916,
+    "5": 1.0092548350423314
+   },
+   "commutator_ratio": 0.07631853370187305
+  },
+  "GR(inf)": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.361415075682771,
+   "R_alg": 5.014921595351591,
+   "E40": 3.2792419908500955e-08,
+   "monotone_max_step": -5.985122127420003e-09,
+   "gram_min_eig": -1.9199463100954964e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0048541021866046,
+    "3": 1.007226477814713,
+    "4": 1.0084982435049965,
+    "5": 1.0092640991414727
+   },
+   "commutator_ratio": 0.076430445906184
+  },
+  "H(1000)": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3459089466581378,
+   "R_alg": 4.883030601484691,
+   "E40": 4.678999061250117e-08,
+   "monotone_max_step": -8.390115557007779e-09,
+   "gram_min_eig": -6.986442217753549e-19,
+   "fdt_ratios_n2_5": {
+    "2": 0.9999933223690499,
+    "3": 1.0,
+    "4": 1.000000162484947,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.8664145506733794
+  },
+  "H(inf)": {
+   "exact_CM": false,
+   "d_c": 23,
+   "H0_inertia": [
+    12,
+    11
+   ],
+   "m3_sign": 0,
+   "m5_sign": 0,
+   "float_negative_weight_modes": [
+    3,
+    4,
+    7,
+    8,
+    11,
+    12,
+    15,
+    16,
+    19,
+    20,
+    23
+   ],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 0.8093189667178244,
+   "R_alg": 5.022483569923999,
+   "E40": 2.0358837481240912e-05,
+   "monotone_max_step": -3.465085397980108e-06,
+   "gram_min_eig": -0.3175689263922298,
+   "fdt_ratios_n2_5": null,
+   "commutator_ratio": 0.8671266177498221
+  },
+  "S_1": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.726447877227591,
+   "R_alg": 4.911198054154632,
+   "E40": 1.2751104817933279e-08,
+   "monotone_max_step": -2.3406598984760322e-09,
+   "gram_min_eig": -3.0734803523551287e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0998193008825352,
+    "3": 1.1589825119236883,
+    "4": 1.1956427905884333,
+    "5": 1.2200113083868376
+   },
+   "commutator_ratio": 0.6364871259615802
+  },
+  "S_2": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.5284112029384413,
+   "R_alg": 5.0013679899914685,
+   "E40": 2.1264802786448435e-08,
+   "monotone_max_step": -3.897644086849566e-09,
+   "gram_min_eig": -3.7851773079807603e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0059846685730347,
+    "3": 1.0,
+    "4": 0.991634388988298,
+    "5": 0.9837988727255642
+   },
+   "commutator_ratio": 0.5169274839435185
+  },
+  "S_3": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.4227930323378377,
+   "R_alg": 5.0328210064369685,
+   "E40": 2.7239347731608305e-08,
+   "monotone_max_step": -4.985922041230196e-09,
+   "gram_min_eig": -5.106969897914801e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0008027425099892,
+    "3": 1.0,
+    "4": 0.9997130568424814,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.43713834546922486
+  },
+  "S_4": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.37289324568836,
+   "R_alg": 5.036789270659484,
+   "E40": 3.087309905295806e-08,
+   "monotone_max_step": -5.6446826851356356e-09,
+   "gram_min_eig": -6.337794496069604e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0001440085615532,
+    "3": 1.0,
+    "4": 0.9999749215599136,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.3830298355419517
+  },
+  "S_5": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3514366460880682,
+   "R_alg": 5.032013179663386,
+   "E40": 3.289684242247464e-08,
+   "monotone_max_step": -6.00955814379235e-09,
+   "gram_min_eig": -4.917262855777466e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.000030203530711,
+    "3": 1.0,
+    "4": 0.9999968151601978,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.34433124960928574
+  },
+  "S_6": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3429560006909258,
+   "R_alg": 5.026458505012137,
+   "E40": 3.395937170859559e-08,
+   "monotone_max_step": -6.199945321411696e-09,
+   "gram_min_eig": -3.8153560094127114e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000069841585633,
+    "3": 1.0,
+    "4": 0.9999994983986892,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.3152140766718384
+  },
+  "S_7": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3398840934245964,
+   "R_alg": 5.022409799505496,
+   "E40": 3.449409749189036e-08,
+   "monotone_max_step": -6.2951013817243645e-09,
+   "gram_min_eig": -5.966903997142304e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000017258730314,
+    "3": 1.0,
+    "4": 0.9999999089737929,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.29237384125364635
+  },
+  "S_8": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3388855631170284,
+   "R_alg": 5.019949022863725,
+   "E40": 3.475466172994005e-08,
+   "monotone_max_step": -6.341120310471068e-09,
+   "gram_min_eig": -5.228312926914928e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000004473827198,
+    "3": 1.0,
+    "4": 0.9999999817379074,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.273861822154814
+  },
+  "S_9": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3386128732825122,
+   "R_alg": 5.018599575033744,
+   "E40": 3.4878408511850205e-08,
+   "monotone_max_step": -6.362796437732231e-09,
+   "gram_min_eig": -5.686485191453106e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.000000120214196,
+    "3": 1.0,
+    "4": 0.9999999960526538,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.25846991101775146
+  },
+  "S_10": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.33856545751192,
+   "R_alg": 5.017908102720995,
+   "E40": 3.4935946879270504e-08,
+   "monotone_max_step": -6.372785778042499e-09,
+   "gram_min_eig": -5.815638906716944e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000000332153864,
+    "3": 1.0,
+    "4": 0.9999999990964412,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.24541136276558698
+  },
+  "S_11": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3385743879347018,
+   "R_alg": 5.017570571155401,
+   "E40": 3.4962228622303174e-08,
+   "monotone_max_step": -6.377304953428447e-09,
+   "gram_min_eig": -1.142572042738115e-18,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000000093833987,
+    "3": 1.0,
+    "4": 0.99999999978359,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.2341509209328169
+  },
+  "S_12": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3385899897184748,
+   "R_alg": 5.017411704627999,
+   "E40": 3.497405391545836e-08,
+   "monotone_max_step": -6.379317376582489e-09,
+   "gram_min_eig": -4.357710610628124e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000000026990834,
+    "3": 1.0,
+    "4": 0.9999999999462377,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.22431061929822244
+  },
+  "S_13": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3386012495019306,
+   "R_alg": 5.017339001636634,
+   "E40": 3.497930781838269e-08,
+   "monotone_max_step": -6.3802015681472e-09,
+   "gram_min_eig": -5.430571284440034e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.000000000788058,
+    "3": 1.0,
+    "4": 0.9999999999862365,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.21561512031564578
+  },
+  "S_14": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.338607802366256,
+   "R_alg": 5.017306447797927,
+   "E40": 3.4981618204223044e-08,
+   "monotone_max_step": -6.380585752183269e-09,
+   "gram_min_eig": -3.1163068856941366e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.000000000233003,
+    "3": 1.0,
+    "4": 0.9999999999963869,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.20785866694030805
+  },
+  "S_15": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3386112504284278,
+   "R_alg": 5.017292111267933,
+   "E40": 3.4982626284730446e-08,
+   "monotone_max_step": -6.380751239423113e-09,
+   "gram_min_eig": -3.7522081621856467e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000000000696423,
+    "3": 1.0,
+    "4": 0.9999999999990312,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.20088471783462264
+  },
+  "S_16": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.338612963278016,
+   "R_alg": 5.0172858716232085,
+   "E40": 3.498306393078646e-08,
+   "monotone_max_step": -6.380822107518788e-09,
+   "gram_min_eig": -3.8805862058684926e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000000000210227,
+    "3": 1.0,
+    "4": 0.9999999999997354,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.1945746965619249
+  },
+  "S_17": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.338613784693595,
+   "R_alg": 5.017283174718706,
+   "E40": 3.4983253591727616e-08,
+   "monotone_max_step": -6.380852382537524e-09,
+   "gram_min_eig": -5.28560149714865e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000000000064146,
+    "3": 1.0,
+    "4": 0.9999999999999266,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.18884874136590402
+  },
+  "S_18": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.338614170387,
+   "R_alg": 5.017282010897089,
+   "E40": 3.4983335955449016e-08,
+   "monotone_max_step": -6.380865339671623e-09,
+   "gram_min_eig": -7.08584607134049e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000000000019897,
+    "3": 1.0,
+    "4": 0.9999999999999792,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.18369920152703767
+  },
+  "S_19": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3386143495774574,
+   "R_alg": 5.017281506278719,
+   "E40": 3.498337196897455e-08,
+   "monotone_max_step": -6.380870925473169e-09,
+   "gram_min_eig": -7.487290976331361e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000000000006382,
+    "3": 1.0,
+    "4": 0.9999999999999939,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.17934086255084428
+  },
+  "S_20": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3386144327641434,
+   "R_alg": 5.01728128454144,
+   "E40": 3.4983387934383283e-08,
+   "monotone_max_step": -6.380873370386397e-09,
+   "gram_min_eig": -5.486829241427347e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000000000002192,
+    "3": 1.0,
+    "4": 0.9999999999999981,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.17677595251474182
+  },
+  "S_21": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.338614471975883,
+   "R_alg": 5.017281184109468,
+   "E40": 3.4983395220182304e-08,
+   "monotone_max_step": -6.380874474977387e-09,
+   "gram_min_eig": -8.01173449293872e-19,
+   "fdt_ratios_n2_5": {
+    "2": 1.0000000000000826,
+    "3": 1.0,
+    "4": 0.9999999999999993,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.17961332346964018
+  },
+  "S_22": {
+   "exact_CM": true,
+   "d_c": 23,
+   "H0_inertia": [
+    23,
+    0
+   ],
+   "m3_sign": 1,
+   "m5_sign": 1,
+   "float_negative_weight_modes": [],
+   "memory_grade": "EXPONENTIAL-GRADE",
+   "R_exp": 1.3386144916693643,
+   "R_alg": 5.017281134807298,
+   "E40": 3.498339881347786e-08,
+   "monotone_max_step": -6.380875016487846e-09,
+   "gram_min_eig": -1.0105277770232934e-18,
+   "fdt_ratios_n2_5": {
+    "2": 1.00000000000003,
+    "3": 1.0,
+    "4": 0.9999999999999998,
+    "5": 1.0
+   },
+   "commutator_ratio": 0.19625681641668616
+  }
+ },
+ "B2": {
+  "R_star": {
+   "ramp": 83.15652877276445,
+   "reversed": Infinity,
+   "hotspot": 9800.10665768138
+  },
+  "ramp_lower_exit_R_minus": -11.645701209603086,
+  "consistency_Rminus_le_0_iff_GRinf_CM": true
+ },
+ "step_profiles_CM": {
+  "S_1": true,
+  "S_2": true,
+  "S_3": true,
+  "S_4": true,
+  "S_5": true,
+  "S_6": true,
+  "S_7": true,
+  "S_8": true,
+  "S_9": true,
+  "S_10": true,
+  "S_11": true,
+  "S_12": true,
+  "S_13": true,
+  "S_14": true,
+  "S_15": true,
+  "S_16": true,
+  "S_17": true,
+  "S_18": true,
+  "S_19": true,
+  "S_20": true,
+  "S_21": true,
+  "S_22": true
+ },
+ "elapsed_s": 93.29
+}
