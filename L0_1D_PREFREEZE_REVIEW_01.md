@@ -61,6 +61,20 @@ incorporated, except where §3 notes a refinement.
 - **Reviewer 1, D-5** (matched twin) and **reviewer 3, D-4** (balanced ring on the same K_s) are both adopted. They answer different questions: the twin isolates affinity from edge renormalization; the balanced ring is the asymmetry-without-affinity control.
 - **Reviewer 3, D-6's** open question, where the exceptional points are, becomes an **exact ungated map**: a Sturm real-root count on the retained-site recurrence polynomial, together with H₀ inertia.
 
-## 4. Focused verification of revision 2 (pending)
+## 4. Focused verification of revision 2 (complete)
 
-Revision 2 introduces the exact-CM theorem (§3.4), the pseudo-Hermitian analysis (§3.5), the twin moment agreement, the balanced pattern, and RC-9. One analytic-only verifier is checking these before freeze. Its findings and their disposition will be appended here.
+One analytic-only verifier checked every new claim in revision 2 against a refute-by-default standard. It ran two toy checks on non-member matrices (a 2×2 counterexample and a 3-site ring) and computed nothing about any member. **No defect was found in the core mathematics.** Its findings and their disposition:
+
+| # | Verdict | Disposition |
+|---|---|---|
+| CM characterization sized by Krylov dimension r | **DEFECT** (statement). The atom count is the McMillan degree d ≤ r. Toy: K = [[1,0],[1,2]] gives r = 2, d = 1, and k = e^{−τ} is CM, but a size-r test says "not CM". Low risk here, because d = r at every member with a simple spectrum; it can fail only at a non-generic degeneracy. | Test sized by **d = rank of the 24×24 Hankel**. d = r is halt-grade at the zero-affinity members (RC-8) and mapped at the C members. The mechanism-map polynomial is built from the degree-d moment recurrence. |
+| H₀/H₁ criterion and signature argument | CONFIRMED. H₁ is redundant given H₀ ≻ 0, since the atoms are then ≥ μ > 0.3. | An H₁-only failure is now **HALT (RC-10)**, never counted as a CM breach. H-1 reads "H₀ not ≻ 0". |
+| Exact matrix construction | **DEFECT** (implementation). `Fraction(float)` would give the binary value of 0.3, not 3/10: exact arithmetic on the wrong matrix, with digit counts inflated about 10×. | **The integer matrix M = 10K is mandated**, built from integers, with entry-wise float(M/10) == K asserted (RC-9). Scaling is a congruence, so inertia and Sturm counts are unchanged. |
+| LDLᵀ pivots = Sylvester | CONFIRMED (stop at the first pivot ≤ 0; no pivoting). | Stated in §2. |
+| Reflection RKR = Kᵀ; parity; simplicity; real spectrum at small γ; weight formula | CONFIRMED, and **strengthened**: the "one sign" step is provable, which gives c_j = −4γ²φ²_{j,2}(Σ_m u²_{m,1}/(o_j−ν_m)²)² + O(γ⁴) < 0. | Recorded in §3.5 as a **small-γ theorem**. H-1 at the declared γ stays analytic-leaning, because "sufficiently small" is not bounded. |
+| Twin moment agreement through n = 22; balanced pattern | CONFIRMED. B's twin is not S(γ): it has −1 on edge 23. | S_B(γ) is defined explicitly (§3.1). All twins are diagonally dominant and so PD. |
+| RC-9, r = d = 12 at C(0) | CONFIRMED as an identity. | Kept, together with r = d = 23 at T(0). |
+| Stale cross-references | DEFECT (minor). §0 pointed to §3.4 instead of §3.5; the owner's adoption record cites F-7 as §3.7, but it is §3.8 in revision 2. | §0 is fixed. A note was added in the charter; the owner's record is not edited. |
+| Feasibility of exact arithmetic | CONFIRMED given integer construction. Numbers reach about 10⁸¹ (moments) and about 10¹⁹⁰⁰ (minors); about 4k big-integer operations, taking seconds. | Integer construction is mandated. Sturm signs at ±∞ are read from leading coefficients. |
+
+**Review complete. The charter freezes with these incorporated.**

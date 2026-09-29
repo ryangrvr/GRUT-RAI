@@ -1,14 +1,12 @@
 # L0-1d — D-HERM-a (CYCLE AFFINITY): CHARTER + PRE-REGISTRATION (frozen before evaluation)
 
-**STATUS: DRAFT REVISION 2 — NOT YET FROZEN. EXECUTION BLOCKED.**
-The floor termination condition is adopted
-(`L0_1_FLOOR_TERMINATION_ADOPTION_01.md`). The analytic-only pre-freeze
-review (three independent reviewers, no member dynamics computed) is
-complete. Its confirmed findings are incorporated below and recorded
-in `L0_1D_PREFREEZE_REVIEW_01.md`. Revision 2 adds new mathematics
-(the exact moment-Hankel battery, §2–§3), which gets one focused
-analytic verification before freeze. The charter freezes at the commit
-that removes this banner.
+**Pre-freeze provenance.** This charter froze after an analytic-only
+adversarial review: three reviewers, then a focused verification of
+revision 2's new mathematics. No member dynamics, kernel, moment
+sequence, Gram matrix, or member spectrum was computed at any stage,
+so nothing is quarantined. The review is recorded in
+`L0_1D_PREFREEZE_REVIEW_01.md`. It ran under the adopted floor
+termination condition (`L0_1_FLOOR_TERMINATION_ADOPTION_01.md`).
 
 **Fork:** L0-1d, the first floor fork. It works on obligation **O-1**.
 **Authority:** registry rulings R-1 … R-4 (R-3 at declared
@@ -36,8 +34,9 @@ per the review):**
   symmetrizable. The retained-site kernel is then exactly that of a
   symmetric **reciprocal twin**, so it is exactly CM. *Affinity is
   necessary for a CM breach* is therefore a theorem, not a finding.
-- **Analytic, not theorem (§3.4):** that every declared circulating
-  member *does* breach CM.
+- **Analytic, not theorem (§3.5):** that every declared circulating
+  member *does* breach CM. At small γ this is a theorem (§3.5); at the
+  declared γ it is not.
 - **Certified by this run:** the exact CM status of every declared
   member (a finite exact computation, §2); the P_memory reading at
   every member; and the maps.
@@ -104,24 +103,40 @@ exact computation in §2 is exact in ℚ.
 ## 2. Instruments and batteries (frozen)
 
 **Instrument E (exact, static; R-3 at declared linear-class scope).**
-For each member, compute in exact rational arithmetic (`fractions`):
-- the Krylov vectors vₙ = Kⁿe₁;
+**Exact construction (mandated):** each member is built as the
+**integer matrix M = 10K** from exact integers: diagonal 33 at site 1
+and 23 elsewhere on the ring, K_b's 23 and 13 on the tree, and
+off-diagonals −10 ± 10γa_i. These are never converted from floats.
+Every entry is asserted equal to the float instrument's K, entry by
+entry, as float(M/10) == K (RC-9). Scaling by 10 is a congruence
+(diag(10ⁱ)) on the Hankel matrices: it leaves inertia, definiteness,
+and Sturm counts unchanged. For each member, compute exactly:
+- the Krylov vectors vₙ = Mⁿe₁;
 - the moments sₙ = (vₙ)₁ for n = 0 … 47;
 - the Krylov dimension r, the exact rank of [v₀ … v₂₃];
+- **the atom count d**, the exact rank of the 24×24 Hankel matrix
+  [s_{i+j}], 0 ≤ i, j ≤ 23. d is the McMillan degree of the
+  retained-site response, and d ≤ r;
 - the Hankel matrices H₀ = [s_{i+j}] and H₁ = [s_{i+j+1}],
-  0 ≤ i, j < r.
+  0 ≤ i, j < d. By Kronecker's theorem the leading d×d block is
+  nonsingular.
 
-**Exact CM test:** k is CM ⟺ H₀ ≻ 0 and H₁ ≻ 0. The test uses exact
-LDLᵀ pivots, and every pivot must be strictly positive. The theorem is
-§3.4.
+**Exact CM test:** k is CM ⟺ H₀ ≻ 0, with H₁ ≻ 0 identity-held given
+H₀ ≻ 0 (§3.4). Definiteness is tested by exact Gaussian elimination
+without pivoting. It stops at the first pivot ≤ 0 and declares "not
+PD". Pivot k equals D_k/D_{k−1}, so "all pivots > 0" is exactly
+Sylvester's criterion. The theorem is §3.4.
 
 **Exact mechanism map (ungated):**
-- the retained-site recurrence polynomial p (monic, degree r, from
-  the exact Krylov dependence);
+- the retained-site recurrence polynomial p: monic, **degree d**, the
+  minimal linear recurrence of the moment sequence. It is not the
+  Krylov minimal polynomial, which can carry zero-residue poles;
 - squarefreeness (gcd(p, p′));
-- the number of distinct real roots, by an exact Sturm sequence;
+- the number of distinct real roots, by an exact Sturm sequence with
+  signs at ±∞ read from leading coefficients;
 - the inertia of H₀ (signs of its exact pivots), when no zero pivot
-  arises.
+  arises;
+- d versus r at every member.
 
 **Instrument B (time-domain, eigen-free; P_memory and maps).**
 x(0) = e₁, ẋ = −Kx, k(τ) = x₁(τ). RK4 on L0-1c's integer-count
@@ -149,8 +164,11 @@ member.
 
 1. **F-1, reciprocal twin (identity).** For |γ| < 1, T(γ) is
    diagonally similar to S_T(γ), so k_{T(γ)} = k_{S_T(γ)} exactly.
-   Likewise B(γ) is diagonally similar to its own symmetric twin,
-   because its single cycle is balanced (Kolmogorov). **These kernels
+   Likewise B(γ) is diagonally similar to its own symmetric twin
+   **S_B(γ)**, because its single cycle is balanced (Kolmogorov). S_B(γ)
+   has K_s's diagonal, couplings −√(1−γ²) on edges 1–22, and −1 on edge
+   23, so it is *not* S(γ). All twins are strictly diagonally dominant,
+   and therefore positive definite. **These kernels
    do change with γ;** what is identity-held is that they stay in the
    reciprocal (exactly CM) class. RC-3 and RC-8 instantiate this.
 2. **Accretive envelope (identity).** K_s ⪰ μI gives
@@ -163,17 +181,32 @@ member.
    diag)τ} > 0. RC-5 instantiates this.
 4. **The exact CM theorem behind Instrument E.** Here k is an
    exponential polynomial whose moments sₙ = (−1)ⁿk⁽ⁿ⁾(0) satisfy the
-   order-r recurrence p. By Bernstein's theorem and the uniqueness of
-   exponential-polynomial representations, k is CM ⟺ the retained-site
-   spectral data are r real, simple, nonnegative poles with positive
-   residues. That excludes a non-real pole, a negative residue, and a
-   higher-order (Jordan) pole. By the finite Hamburger/Hermite theorem,
-   the quadratic form ⟨p, q⟩ = L(pq) on polynomials of degree < r has
-   Gram matrix H₀. It is positive definite ⟺ all r atoms are real and
-   simple with positive weights; each complex pair or Jordan block
-   contributes indefinite signature. H₁ ≻ 0 then places the atoms in
-   (0, ∞). The test is exact: no tolerance, no integration, no
-   floating point.
+   minimal recurrence p, of degree d. By Bernstein's theorem and the
+   linear independence of τᵐe^{−λτ}, k is CM ⟺ every pole is real and
+   ≥ 0, every residue is positive, and there is no τᵐ (Jordan) term.
+   That excludes a non-real pole, a negative residue, and a
+   higher-order pole.
+   - **The atom count is the McMillan degree d**, the rank of the
+     infinite Hankel matrix, which can be smaller than the Krylov
+     dimension r. The verification's toy counterexample:
+     K = [[1,0],[1,2]] has r = 2 but k = e^{−τ}, with d = 1. So the
+     test is sized by d.
+   - With d atoms, H₀ = VᵀCV for a nonsingular (confluent) Vandermonde
+     V. Each real simple atom contributes the sign of its weight; each
+     complex pair contributes inertia (1,1); each Jordan block of size
+     m ≥ 2 contributes at least one positive and one negative
+     direction. **So H₀ ≻ 0 ⟺ all d atoms are real and simple with
+     positive weights** (finite Hamburger/Hermite).
+   - H₁ = VᵀCΛV. Given H₀ ≻ 0 the atoms are real eigenvalues, which are
+     ≥ μ > 0.3 by accretivity, so **H₁ ≻ 0 is identity-held.** An
+     H₁-only failure is therefore HALT (RC-10), never a CM breach.
+   - d = r is identity-held at the zero-affinity members (H₀ = WᵀW) and
+     at C(γ) whenever its spectrum is simple (H₀ = WᵀRW, with every
+     Krylov-space eigenvector carrying a nonzero residue). d < r can
+     occur only at a non-generic degeneracy; it is mapped at the C
+     members.
+
+   The test is exact: no tolerance, no integration, no floating point.
 5. **Why a circulating member should breach CM (analytic, not
    theorem).** The review corrected the charter's earlier circulant
    picture, which ignored the e₁e₁ᵀ defect and was wrong at small γ.
@@ -185,16 +218,21 @@ member.
    - **Hence the spectrum stays real for small γ > 0** (γ below the
      first collision, an exceptional point).
    - In that real phase, the weight of an odd-born mode is
-     cⱼ = (vⱼ,₁)² / (vⱼᵀRvⱼ), with vᵀRv = −1 + O(γ²), and vⱼ,₁ = O(γ)
-     nonzero by first-order perturbation, because all its terms have
-     one sign. **So cⱼ = −O(γ²) < 0: CM breaks through negative real
-     weights, with no oscillation.**
+     cⱼ = (vⱼ,₁)² / (vⱼᵀRvⱼ), with vᵀRv = −1 + O(γ²).
+   - **Small-γ theorem (supplied by the focused verification):** the
+     commutator [K_s, P − Pᵀ] = e₁(e₂−e₂₃)ᵀ + (e₂−e₂₃)e₁ᵀ gives
+     v′ⱼ,₁(0) = −2φⱼ,₂·Σ_m u²_{m,1}/(oⱼ − ν_m)². Every term of the sum
+     has one sign, and φⱼ,₂ ∝ sin(2πk/23) ≠ 0. **So
+     cⱼ = −4γ²φ²ⱼ,₂(Σ_m u²_{m,1}/(oⱼ−ν_m)²)² + O(γ⁴) < 0: for all
+     sufficiently small γ > 0, exact CM is broken through negative real
+     weights, with no oscillation.** The verifier checked the formula
+     against a 3-site toy ring (not a member) to about 10⁻³ relative.
    - Beyond an exceptional point, non-real poles break it.
 
-   Either way, a breach is expected at every γ > 0. It is
-   analytic-leaning rather than theorem because the perturbation
-   argument is first-order and the exceptional-point locations are not
-   derived.
+   A breach is therefore a theorem for sufficiently small γ. At the
+   declared γ ∈ {0.1, 0.3, 0.6, 0.9} it stays **analytic-leaning**:
+   "sufficiently small" is not bounded, and the exceptional-point
+   locations are not derived.
 6. **Labeled analytic expectations for the maps (recorded to be
    confirmed or refuted; they move no label):**
    - C(0.1) is in the real phase: the Sturm count equals r, and p is
@@ -240,6 +278,10 @@ member.
      directed ring is a live O-2 candidate for its own charter.
      "Perron weight at e₁ above 1" is recorded only as a sufficient
      witness of non-normal-similarity, not a necessary condition.
+   - *Cross-reference note:* the owner's adoption record
+     (`L0_1_FLOOR_TERMINATION_ADOPTION_01.md`) cites F-7 as "§3.7",
+     which was its location in draft revision 1. In this revision it is
+     §3.8. The owner's record is not edited.
 
 ## 4. The gates (frozen, mechanical)
 
@@ -265,13 +307,16 @@ member.
   - the comparator on E reproduces R_exp = 1.9809889100368165 and
     R_alg = 4.7907669413552245 (|Δ| < 10⁻¹² each) and the grade string
     "EXPONENTIAL-GRADE" exactly.
-- **RC-8 exact CM on every zero-affinity member (identity):** H₀ ≻ 0
-  and H₁ ≻ 0 exactly, at T(0), T(0.9), C(0), B(0.3), and B(0.9).
-- **RC-9 exact-arithmetic self-check:** at C(0), the Krylov dimension
-  r is exactly 12 (the R-even sector). Separately, at every member the
-  exact moments s₀ … s₄ match the float moments of the recorded K to
-  |rel Δ| < 10⁻¹²; a mismatch means the rational and float
-  constructions diverge.
+- **RC-8 exact CM on every zero-affinity member (identity):** d = r,
+  and H₀ ≻ 0 exactly, at T(0), T(0.9), C(0), B(0.3), and B(0.9).
+- **RC-9 exact-construction self-check:**
+  - every entry of each integer matrix M satisfies float(M/10) == the
+    float instrument's K entry, exactly;
+  - at C(0), r = d = 12 exactly (the R-even sector; the 11 odd modes
+    have zero overlap with e₁);
+  - at T(0), r = d = 23.
+- **RC-10 H₁ identity:** at every member where H₀ ≻ 0, H₁ ≻ 0 as well
+  (§3.4). An H₁-only failure is HALT.
 
 **X, the affinity deletion acts in the window (conditions only the
 P_memory line):**
@@ -281,7 +326,10 @@ P_memory line):**
 **The response properties:**
 - **H-1, P_positivity (c), exact (the H-HERM-1 gate; analytic-leaning):**
   every adjudicating member C(0.1), C(0.3), C(0.6), C(0.9) fails the
-  exact CM test (H₀ or H₁ not ≻ 0).
+  exact CM test: **H₀ (size d) is not ≻ 0.** d versus r is recorded
+  per member. If d < r occurs at a C member, it is disclosed on the
+  verdict face as a non-generic degeneracy, and the test is still run
+  at size d.
 - **M-1, P_memory (R-1 envelope reading):** the comparator on E reads
   EXPONENTIAL-GRADE at every member.
 - **Maps (ungated):**
@@ -362,8 +410,9 @@ verdict, pending owner ruling on the lines and O-1's terminal label.
 
 ## 6. Instrument contract
 
-`calc/l01d_cycle_affinity.py`: pure stdlib (`fractions` for
-Instrument E). It imports `build_K` (for K_b) and `jacobi_eig`
+`calc/l01d_cycle_affinity.py`: pure stdlib. Instrument E uses exact
+integers and `fractions`, on the integer matrices M = 10K built from
+integers per §2 and never from floats. It imports `build_K` (for K_b) and `jacobi_eig`
 (symmetric references and the symmetric data Gram only) unchanged. It
 carries the RC-7-certified textual copy of `fit_residuals` + TAUS. RK4
 runs exactly as in §2. It is deterministic, with no RNG, and runs once:
