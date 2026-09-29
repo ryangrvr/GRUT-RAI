@@ -1,11 +1,9 @@
 # L0-1h — O-2 THEOREM DOCUMENT 01 (D-HERM-b): accretivity vs spectral stability on the attached one-way ring
 
-**Status: PROPOSED FREEZE — NOT FROZEN.** The owner adopted this form
-(`L0_1H_OWNER_RULING_01.md`). Writing it up exposed a new identity,
-**J-6**, which changes the appendix list the owner saw in design rev 2
-§5. It also sharpens the question the owner asked the appendix to
-watch. **The appendix list freezes only after the owner confirms §0.**
-No computation has been run on any member (n = 23, a = 1).
+**Status: FROZEN** by owner ruling 02 (`L0_1H_OWNER_RULING_02.md`),
+which confirms the label mapping (§0.2) and the appendix list (§4)
+exactly as written. The freeze is this commit. No computation had been
+run on any member (n = 23, a = 1) when it was made.
 
 ## §0 For the owner, before the freeze
 
@@ -87,7 +85,7 @@ nested).**
 - **CM fails for every g > 0 (J-4).** This is recorded under the
   separately pre-registered affinity line, not under O-2's label.
 
-## §4 Exact appendix (PROPOSED list; freezes on owner confirmation)
+## §4 Exact appendix (FROZEN list)
 
 **Declared g-grid:** g ∈ {1/20, 1/10, 1/4, 1/2, 1, 2, 4, 10}, with
 n = 23 and a = 1. All arithmetic is in `fractions` unless marked
@@ -129,7 +127,8 @@ g. The O-2 label follows the owner's mapping (§0.2), not the appendix.
 
 ## §5 Standing
 
-O-2 remains **open.** This document creates no property → ingredient
-edge. After the owner confirms §0: freeze the list (commit), build the
-instrument and test it on non-members only, run it once on the members,
-write the result, post it, and stop.
+The label is fixed by the confirmed mapping: **O-2 = FALSIFIED**
+(H2-m fails by P-1). The appendix records H2-s and H2-n at the clause
+level. This document creates no property → ingredient edge. Next: build
+the instrument, test it on non-members only, run it once on the
+members, write the result, post it, and stop.
