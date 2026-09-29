@@ -1,5 +1,12 @@
 # EA-0 — ENDOGENOUS ACCESS: FORMULATION / THEOREM GATE 01
 
+> **RULED 2026-09-29 — EA-0 = UNFORMULABLE at earned Level-0 scope** (`EA0_OWNER_RULING_02.md`).
+> The text below is preserved as written. **`EA0_CORRECTIONS_01.md` governs wherever the two conflict**:
+> the L2 category error; "canonical" deleted; the L7 mechanism retired; "exclusion, never inclusion"
+> retired as a physical prediction; L6 withdrawn as support for C-6; Theorem S kept as sufficient only.
+> The verification is `EA0_INDEPENDENT_VERIFICATION_01.md`.
+
+
 **STATUS: FORMULATION DOCUMENT — PROPOSED TERMINAL FOR OWNER RULING. NOT A RESULT OF ANY RUN.**
 - No computation. No member evaluated. No physics model chosen for an attack.
 - The lemmas below are proved in sketch at identity/standard-mathematics grade. **One independent
@@ -382,3 +389,7 @@ non-circular access map, or merely rename the primitive? The operator's proposed
 **Proposed terminal: CLASS-SPLIT.** The alternative the owner may prefer is
 **TRIVIAL/IDENTITY on the earned scope, with the constrained-class branch recorded as
 generator-carried (→ S-5).**
+
+---
+
+> **Correction pointer (appended 2026-09-29):** see `EA0_CORRECTIONS_01.md` (C-1 … C-8) and `EA0_OWNER_RULING_02.md`.
