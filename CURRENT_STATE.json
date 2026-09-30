@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "fbd15c8",
-  "subject": "S6-1 charter frozen",
+  "commit": "84e244d",
+  "subject": "S6-1 certification script",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -378,7 +378,7 @@
    "architectural_reading": "descent shows ingredient->earned property; not yet earned property at level n -> new structural ingredient at level n+1"
   },
   "s6_campaign": {
-   "status": "S6-0 CLOSED / ACCEPTED: PRINCIPLED-COARSE-ARROW-TEST-FOUND (S6_OWNER_RULING_01.md, comment 5914432316); S6-1 charter FROZEN; ONE analytic/certified execution authorized (S6-1 v4 exception)",
+   "status": "S6-1 EXECUTED (one run): proposed NET-ARROW-CONFIRMED + NO-ERASURE-ON-OPEN-MEMBERS; HARD STOP",
    "direction": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_OWNER_RULING_01.md §§8-15 (comment 5913714570)",
    "record": "S6_COARSEGRAINED_ARROW_01.md",
    "question": "Can the declared conservative pinned-chain (O-6) parent exhibit a threshold-free, mathematically principled coarse-grained temporal arrow despite band-edge memory destroying strict pointwise ordering?",
@@ -402,12 +402,25 @@
    "terminal": "PRINCIPLED-COARSE-ARROW-TEST-FOUND",
    "execution_gate": "ONE S6-1 analytic/certified execution; sequence: theorem doc -> commit -> script -> commit -> one run -> verdict -> HARD STOP",
    "charter_frozen_at": "fbd15c8",
-   "theorem_block": "S6_1_THEOREM_01.md VERIFIED (independent adversarial verifier; VC-1 edge phases, VC-2 analytic non-degeneracy p40>0; LS-1/LS-2 unchanged)"
+   "theorem_block": "S6_1_THEOREM_01.md VERIFIED (independent adversarial verifier; VC-1 edge phases, VC-2 analytic non-degeneracy p40>0; LS-1/LS-2 unchanged)",
+   "s6_1_run": {
+    "theorem": "S6_1_THEOREM_01.md verified 122928a",
+    "script": "calc/s6_1_certify.py 84e244d (one run, 65.5 s)",
+    "result": "S6_1_RESULT.json sha256 f0f88f4080168a9f…",
+    "verdict": "S6_1_VERDICT_01.md",
+    "integrity": "P-7 (i)-(v) all pass; defects []",
+    "T1": "X_f(inf) forward = +1.16943, +9.16943, +0.33057, +0.73057 (offset T_b r^2/2 = 0.16943)",
+    "T2": "X_sigma(inf)=D(0) = 0.19967, 5.57787, 0.27578, 1.53584",
+    "T3_T4": "TRUE on J(2,1), J(10,1), sigma(1/2,1), sigma(1/10,1); 0 unresolved boxes",
+    "controls": "switch-on negativity re-certified on J-L2, sigma-L1",
+    "LS3": "Ddot leading class t^-6, sign reversal unconditional (p40>0); O-6 t^-3 wording = loose upper bound (additive note pending acceptance)",
+    "proposed_terminals": "primary NET-ARROW-CONFIRMED; secondary NO-ERASURE-ON-OPEN-MEMBERS"
+   }
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "S6-1 authorized: theorem document, certification script, one execution in progress. HARD STOP after verdict."
+  "active": true,
+  "note": "S6-1 one execution complete; proposed NET-ARROW-CONFIRMED + NO-ERASURE-ON-OPEN-MEMBERS. HARD STOP for owner adjudication."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
