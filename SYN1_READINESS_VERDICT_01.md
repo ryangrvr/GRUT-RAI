@@ -1,5 +1,18 @@
 # SYN-1 — PUBLICATION READINESS VERDICT 01
 
+> **ACCEPTED (owner ruling SYN1-01, Issue #2 comment `5916545551`; `SYN1_OWNER_RULING_01.md`):**
+> - **SYN-1 = READY-WITH-ADDITIVE-CORRECTIONS**, with **NOT-READY — RECORD CONFLICT = FALSE**.
+> - **A-1 … A-4 are approved** and have been applied with the owner's exact wording:
+>   - A-1: the banner on `GRUT_WORKING_THEORY_01.md`;
+>   - A-2: **THEOREM LD = ACCEPTED AT AUDITED S2-0 SCOPE** (owner statement, ruling §3, with its fences);
+>   - A-3: **SECTOR-SELECTION S-1 = PROVISIONAL (IN CLASS)** (owner statement, ruling §4, with its fences);
+>   - A-4: the pointer on `L0_1_FLOOR_SUCCESSOR_LIST.md`.
+> - Per ruling §6, on a passing read-only editorial cross-check the state advances **mechanically** to
+>   **PUBLICATION-READY**, with no second adjudication.
+> - **No Zenodo upload is authorized.** HARD STOP for the owner's publication decision.
+>
+> The verdict below is preserved as filed. The cross-check record is appended at the end.
+
 **Mechanical answer (`SYN0_OWNER_RULING_01.md` §10): READY-WITH-ADDITIVE-CORRECTIONS.** This is proposed for owner
 adjudication. **No Zenodo upload is authorized. HARD STOP.**
 

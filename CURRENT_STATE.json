@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "28fdd8f",
-  "subject": "SYN-1 deliverables drafted",
+  "commit": "cec1f14",
+  "subject": "SYN-1 verdict",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -434,7 +434,7 @@
    "inconsistencies": "13 record inconsistencies reported in §7 (none repaired)"
   },
   "syn1": {
-   "status": "SYN-1 COMPLETE: proposed READY-WITH-ADDITIVE-CORRECTIONS (SYN1_READINESS_VERDICT_01.md); HARD STOP; no Zenodo upload authorized",
+   "status": "READY-WITH-ADDITIVE-CORRECTIONS ACCEPTED (SYN1_OWNER_RULING_01.md, comment 5916545551); A-1..A-4 APPLIED; editorial cross-check in progress before mechanical advance to PUBLICATION-READY",
    "direction": "SYN0_OWNER_RULING_01.md §§8-12 (comment 5915940892)",
    "deliverables": [
     "GRUT_WORKING_THEORY_DEPOSIT_01.md",
@@ -445,7 +445,8 @@
    "final_gate": "PUBLICATION-READY | READY-WITH-ADDITIVE-CORRECTIONS | NOT-READY — RECORD CONFLICT; no Zenodo upload authorized",
    "preserved_not_opened": "faithful-representation lift audit (constraint, not uniqueness)",
    "deliverables_status": "D-1..D-4 complete; independent verification (V1-V4 blocking, m1-m10 minor) applied",
-   "recommended_additive_corrections": "A-1 WT01 banner; A-2 owner acknowledgement of Theorem LD; A-3 owner note: sector-selection S-1 PROVISIONAL (in class); A-4 pointer on historical successor list (pending owner approval)"
+   "recommended_additive_corrections": "A-1..A-4 APPLIED (see GRUT_RECORD_RECONCILIATION_INDEX_01.md application record)",
+   "owner_status_rulings": "THEOREM LD = ACCEPTED AT AUDITED S2-0 SCOPE (with fences); SECTOR-SELECTION S-1 = PROVISIONAL (IN CLASS) in the P3/P4 form (with fences)"
   }
  },
  "hard_stop": {

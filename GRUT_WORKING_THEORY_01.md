@@ -1,5 +1,10 @@
 # GRUT WORKING THEORY 01 — the smallest theory the record has actually earned
 
+> **CURRENT WORKING-THEORY POINTER:** The governing working-theory statement is
+> `GRUT_WORKING_THEORY_SYNTHESIS_01.md` (SYN-0, accepted). The canonical deposit is
+> `GRUT_WORKING_THEORY_DEPOSIT_01.md`. For superseded wording on the ω⁷ grade and on noncommutativity versus physical
+> lift selection, see `GRUT_RECORD_RECONCILIATION_INDEX_01.md` items 5 and 6.
+
 **Date:** 2026-09-25 · **Authority:** owner ruling, in-session, after the
 TT-1 acceptance: *synthesize now; no new physics fork.* · **Status:
 SYNTHESIS, NOTHING BANKED.** This document assembles the frozen experiment

@@ -42,7 +42,7 @@ found these of its fields stale and updated them in the SYN-1 commit.
 | L-4 | `successor_list` | Question texts only | Now points to the live status index (D-3) |
 | L-5 | `record_corrections` | — | `L0_1G_CORRECTIONS_01.md` added |
 
-## Recommended additive corrections (for owner approval; none applied)
+## Additive corrections A-1 … A-4 (owner-approved, comment `5916545551`; ALL APPLIED)
 
 | # | Correction | Text |
 |---|---|---|
@@ -52,3 +52,13 @@ found these of its fields stale and updated them in the SYN-1 commit.
 | **A-4** | Pointer line at the top of `L0_1_FLOOR_SUCCESSOR_LIST.md` | "Current statuses: see `GRUT_SUCCESSOR_STATUS_01.md`. Historical content below is unchanged." |
 
 None of these changes a terminal. All four are additive.
+
+**Application record (2026-09-30):**
+- **A-1 APPLIED**, with the owner's exact banner text (ruling §2), at the top of `GRUT_WORKING_THEORY_01.md`. The
+  owner's wording governs over the draft text in the table above.
+- **A-2 APPLIED** as the owner statement in `SYN1_OWNER_RULING_01.md` §3: **THEOREM LD = ACCEPTED AT AUDITED S2-0
+  SCOPE**, with its binding statement, consequence and fences. The S2 audit is not rewritten.
+- **A-3 APPLIED** as the owner statement in `SYN1_OWNER_RULING_01.md` §4: **SECTOR-SELECTION S-1 = PROVISIONAL (IN
+  CLASS)**, in the governing P3/P4 form, with its fences. `SECTOR_SELECTION_VERDICT_01.md` is unchanged.
+- **A-4 APPLIED**, with the owner's exact pointer text (ruling §5), at the top of `L0_1_FLOOR_SUCCESSOR_LIST.md`.
+- **No historical body text was rewritten** by any of the four.

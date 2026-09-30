@@ -2,7 +2,7 @@
 
 <!-- CURRENT-STATE:BEGIN (rendered from CURRENT_STATE.json by provenance/emit_current_state.py; do not edit by hand) -->
 > **CURRENT BOUNDARY 2026-09-30 — source of truth: [`CURRENT_STATE.json`](CURRENT_STATE.json).**
-> Canonical repository `ryangrvr/grut-rai`; active research branch `master-w25bu9` (state recorded through `28fdd8f`).
+> Canonical repository `ryangrvr/grut-rai`; active research branch `master-w25bu9` (state recorded through `cec1f14`).
 > - **v4:** DEPOSITED_CLOSED (`V4_DEPOSIT_01.md`).
 > - **GR2:** GRAVITY_UNDERDETERMINED (`GR2_SYNTHESIS_OWNER_RULING_01.md`).
 > - **Level-0:** OPEN. The L0-1 formulability floor is **COMPLETE** (`L0_1_FLOOR_DEPOSIT_01.md`): O-1 CLASS-SPLIT · O-2 FALSIFIED · O-3 DISCHARGED · O-4 CLASS-SPLIT · O-5 DISCHARGED · O-6 FALSIFIED · O-7 FALSIFIED. Never cite a label without its scope (deposit §2).

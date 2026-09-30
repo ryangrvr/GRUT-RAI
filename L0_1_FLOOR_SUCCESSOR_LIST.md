@@ -1,5 +1,8 @@
 # L0-1 FLOOR — SUCCESSOR LIST (T4: preserved, not executed under floor authority)
 
+> **CURRENT STATUS POINTER:** Current successor statuses are maintained in `GRUT_SUCCESSOR_STATUS_01.md`. The
+> historical successor questions below are preserved unchanged.
+
 The floor's obligation list is closed (T4 of the adopted termination
 condition). Questions the floor raises are recorded here. They are
 **preserved, not executed** under floor authority. Anything here moves
