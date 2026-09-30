@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "3fd5b46",
-  "subject": "SFG-0 audit",
+  "commit": "afab923",
+  "subject": "SFG-0 accepted; S5-0 pre-registered",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -233,7 +233,7 @@
    "architecture": "A: general mechanism YES (SF-1); B: earned GRUT mechanism NO CURRENT CANDIDATE; C: supplied higher structure YES. The SF-1 mechanism does not migrate into the earned substrate."
   },
   "s5_campaign": {
-   "status": "SELECTED; S5-0 audit/formulation only; definitions pre-registered",
+   "status": "S5-0 AUDIT COMPLETE; proposed outcome awaiting owner ruling",
    "authority": "SFG0_OWNER_RULING_01.md section 6",
    "record": "S5_GENERATOR_ORIGIN_01.md",
    "question": "Can the generator itself be derived rather than presupposed? (kind of time evolution first)",
@@ -245,12 +245,21 @@
     "REPRESENTATIONAL-ONLY",
     "UNFORMULABLE"
    ],
-   "fences": "no S5-1 run; no v4 exception; imports (least action, max entropy, ...) listed not consumed; no SF-2, new parent, gravity, Pi0, cosmology"
+   "fences": "no S5-1 run; no v4 exception; imports (least action, max entropy, ...) listed not consumed; no SF-2, new parent, gravity, Pi0, cosmology",
+   "preregistered_at": "afab923",
+   "proposed_outcome": "GENERATOR-IRREDUCIBLE/SUPPLIED (mechanical): generator is a declared premise (record: 'presupposed, not derived'); Level-0 dynamical selectors (passivity, gap/memory, CM, order, FDT, gradient) are definitional to G-D (H-1 -> CRITERION); earned static selectors (locality, geometry, observability, access identity) eliminate no class on ring K or K_b; P-2 cone cut CONDITIONAL on supplied hbar floor; NG-1 accepted at CA-1 ring scope; K itself declared",
+   "flags": [
+    "F-1 UNFORMULABLE alternative (generator 'type' imports temporal structure)",
+    "F-2 P-2 cone regrade overrides CA-1 wording",
+    "F-3 pre-registration defect: scalar c*K rescaling should be quotiented (outcome unaffected)",
+    "F-4 NG-1 demonstrated on ring only; none on K_b",
+    "F-5 G-L is a realization of G-D; G-F = G-S + supplied statistics/state"
+   ]
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "S5-0 read-only audit in progress. HARD STOP after the audit."
+  "active": true,
+  "note": "S5-0 audit complete (proposed GENERATOR-IRREDUCIBLE/SUPPLIED). Awaiting owner ruling. No S5-1 run, no imports consumed, no SF-2/gravity/Pi0/cosmology."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
