@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "84e244d",
-  "subject": "S6-1 certification script",
+  "commit": "3753210",
+  "subject": "S6-1 result and verdict",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -378,7 +378,7 @@
    "architectural_reading": "descent shows ingredient->earned property; not yet earned property at level n -> new structural ingredient at level n+1"
   },
   "s6_campaign": {
-   "status": "S6-1 EXECUTED (one run): proposed NET-ARROW-CONFIRMED + NO-ERASURE-ON-OPEN-MEMBERS; HARD STOP",
+   "status": "CLOSED: S6-0 PRINCIPLED-COARSE-ARROW-TEST-FOUND -> S6-1 NET-ARROW-CONFIRMED (secondary NO-ERASURE-ON-OPEN-MEMBERS); S6_OWNER_RULING_02.md (comment 5915173769)",
    "direction": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_OWNER_RULING_01.md §§8-15 (comment 5913714570)",
    "record": "S6_COARSEGRAINED_ARROW_01.md",
    "question": "Can the declared conservative pinned-chain (O-6) parent exhibit a threshold-free, mathematically principled coarse-grained temporal arrow despite band-edge memory destroying strict pointwise ordering?",
@@ -414,13 +414,23 @@
     "T3_T4": "TRUE on J(2,1), J(10,1), sigma(1/2,1), sigma(1/10,1); 0 unresolved boxes",
     "controls": "switch-on negativity re-certified on J-L2, sigma-L1",
     "LS3": "Ddot leading class t^-6, sign reversal unconditional (p40>0); O-6 t^-3 wording = loose upper bound (additive note pending acceptance)",
-    "proposed_terminals": "primary NET-ARROW-CONFIRMED; secondary NO-ERASURE-ON-OPEN-MEMBERS"
-   }
+    "proposed_terminals": "ACCEPTED: primary NET-ARROW-CONFIRMED; secondary NO-ERASURE-ON-OPEN-MEMBERS"
+   },
+   "banked": "LS-1 return to equilibrium; LS-2 closed forms (J = bath self-energy flux, offset T_b r^2/2); LS-3 D,Ddot ~ t^-6 with late sign reversal",
+   "deposit": "S6_COARSEGRAINED_ARROW_DEPOSIT_01.md",
+   "o6_correction": "L0_1G_CORRECTIONS_01.md (additive; O-6 remains FALSIFIED)"
+  },
+  "syn0": {
+   "status": "OPEN: read-only working-theory synthesis",
+   "direction": "S6_OWNER_RULING_02.md §§12-14 (comment 5915173769)",
+   "record": "GRUT_WORKING_THEORY_SYNTHESIS_01.md",
+   "structure": "ledgers A supplied, B derived, C conditional emergence, D failed/blocked, E minimal architecture (arrows DERIVED/CONDITIONAL/SUPPLIED/BLOCKED/FALSIFIED-NON-IMPLICATION); answer 4 questions",
+   "fences": "no new physics, no gap-filling equations, no v4 exception, no run; no S-7/S-8/S-4, no new bath, no gravity/Pi0 reopening, no new quantum route"
   }
  },
  "hard_stop": {
-  "active": true,
-  "note": "S6-1 one execution complete; proposed NET-ARROW-CONFIRMED + NO-ERASURE-ON-OPEN-MEMBERS. HARD STOP for owner adjudication."
+  "active": false,
+  "note": "SYN-0 read-only synthesis in progress. HARD STOP after synthesis."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",

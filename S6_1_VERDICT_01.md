@@ -1,5 +1,13 @@
 # S6-1 — COARSE-GRAINED ARROW VERDICT 01
 
+> **ACCEPTED (owner ruling S6-02, Issue #2 comment `5915173769`; `S6_OWNER_RULING_02.md`):**
+> - **S6-1 = NET-ARROW-CONFIRMED**, with secondary **NO-ERASURE-ON-OPEN-MEMBERS**.
+> - **LS-1, LS-2 and LS-3 are banked as theorem-grade.**
+> - The additive O-6 correction is in `L0_1G_CORRECTIONS_01.md`.
+> - **S-6 is CLOSED**; deposit `S6_COARSEGRAINED_ARROW_DEPOSIT_01.md`.
+>
+> The verdict below is preserved as filed.
+
 **Mechanical terminals (charter §4), proposed for owner adjudication:**
 - **Primary:** **NET-ARROW-CONFIRMED**
 - **Secondary:** **NO-ERASURE-ON-OPEN-MEMBERS**
