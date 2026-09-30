@@ -1,5 +1,11 @@
 # L0 STRUCTURAL DIAGNOSTIC 01 — DOES THE EARNED DEPENDENCY GRAPH CONTAIN A NONTRIVIAL REVERSAL? (pre-registered; not a result)
 
+> **STATUS POINTER (additive; the criteria below are unchanged).**
+> - **Evaluated by REV-0** (`L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_EVALUATION_01.md`).
+> - **Terminal accepted:** **NOT SUPPORTED at recorded scope** (the §3 death criterion;
+>   `L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_OWNER_RULING_01.md`, comment `5913714570`).
+> - **The hypothesis is CLOSED:** no reframing and no alternative diagram search.
+
 **Date:** 2026-09-29 · **Owner instruction, given in-session** on the
 L0-1e review (`L0_1E_PREFREEZE_REVIEW_01.md`, commit `f7a6d53`).
 Recorded from the owner's words; any misstatement is corrected by

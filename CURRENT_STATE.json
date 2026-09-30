@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "3cc3d4a",
-  "subject": "S3-0 accepted; REV-0 opened",
+  "commit": "6c8b2fd",
+  "subject": "REV-0 evaluation",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -364,21 +364,39 @@
    "accepted_statement": "The crossed cell is not present in the declared theory at fixed invariants; the apparent response/correlation inversion remains confounded. R2 off-invariant: P^corr_CM == P^resp_CM (trivial); R1: open only in undeclared hybrid."
   },
   "rev0": {
-   "status": "EVALUATION COMPLETE; proposed NOT SUPPORTED at recorded scope; HARD STOP for owner adjudication",
+   "status": "CLOSED / ACCEPTED: NOT SUPPORTED at recorded scope (L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_OWNER_RULING_01.md, comment 5913714570); no reframing, no alternative diagram search, no REV-1",
    "direction": "S3_OWNER_RULING_01.md §§11-13 (comment 5909891161)",
    "criteria": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_01.md §3 (frozen 2026-09-29)",
    "record": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_EVALUATION_01.md",
    "scope": "entire accepted Level-0 / post-floor record through S3-0 (access/lift, SF/SFG, S5, S2, S3)",
    "outcomes": "qualifying nontrivial reversal; qualifying self-duality; NOT SUPPORTED at recorded scope (frozen death criterion); no new labels",
    "fences": "no physics, no hybrid, no S-4/S-6, no S5-WB/OD, no gravity/Pi0/cosmology",
-   "proposed_result": "NOT SUPPORTED at recorded scope (frozen death criterion; earned by scanning access/lift, EA-0, forest, SF/SFG, S5, S2, S2-HB, S3)",
    "findings": "certified edges all ingredient->property (E1-E4 literal words; E2', E5, E6 accepted under other wording, N-1); 26 property->ingredient candidates, none meets frozen rule; G acyclic; no record-certified self-duality; S3 notes create no edge",
-   "adjudication_notes": "N-1 status of E2'/E5/E6 (cannot change R-5); N-2 DORD-8 bar is operator text in accepted doc (verdict does not rely on it)"
+   "adjudication_notes": "N-1: E2', E6 accepted relations, not graph edges; N-2: DORD-8 not independent owner authority (no effect)",
+   "terminal": "NOT SUPPORTED at recorded scope",
+   "canonical_edges": "E1 gap->P_memory; E2 passivity->P_positivity; E3 locality->P_geometry; E4 linearity->P_exact-reduction; E5 cycle affinity->not P^resp_CM; no property->ingredient edge",
+   "architectural_reading": "descent shows ingredient->earned property; not yet earned property at level n -> new structural ingredient at level n+1"
+  },
+  "s6_campaign": {
+   "status": "OPEN: S6-0 formulation/audit gate only",
+   "direction": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_OWNER_RULING_01.md §§8-15 (comment 5913714570)",
+   "record": "S6_COARSEGRAINED_ARROW_01.md",
+   "question": "Can the declared conservative pinned-chain (O-6) parent exhibit a threshold-free, mathematically principled coarse-grained temporal arrow despite band-edge memory destroying strict pointwise ordering?",
+   "candidate_measures": "B backflow fraction (B<1/2 iff integral J>0); D drawdown vs net rise (no threshold until derived); entropy analogue for reduced relative-entropy derivative",
+   "outcomes": [
+    "PRINCIPLED-COARSE-ARROW-TEST-FOUND",
+    "IDENTITY-DECIDED",
+    "ONLY-ARBITRARY-THRESHOLDS",
+    "FORMULABLE-ONLY-WITH-NEW-COARSE-GRAINING",
+    "UNFORMULABLE"
+   ],
+   "fences": "no S6 run, no v4 exception; no S-4/S-7/S-8; no new reversal diagnostic; no S5-WB/OD; no gravity/Pi0/cosmology; O-6 remains FALSIFIED for its strict charter",
+   "not_selected": "S-4 preserved, not selected"
   }
  },
  "hard_stop": {
-  "active": true,
-  "note": "REV-0 evaluation complete; proposed NOT SUPPORTED at recorded scope. HARD STOP for owner adjudication. Nothing opened."
+  "active": false,
+  "note": "S6-0 pre-registration and read-only analytic/formulation audit in progress. HARD STOP after audit."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",

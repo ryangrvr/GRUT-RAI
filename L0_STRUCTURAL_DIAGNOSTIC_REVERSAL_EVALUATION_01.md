@@ -1,5 +1,15 @@
 # L0 STRUCTURAL DIAGNOSTIC 01 — EVALUATION 01 (REV-0; read-only)
 
+> **ACCEPTED (owner ruling, Issue #2 comment `5913714570`;
+> `L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_OWNER_RULING_01.md`):**
+> - **REV-0 = NOT SUPPORTED at recorded scope.** This is the frozen death criterion.
+> - **CLOSED:** no reframing, no alternative diagram search, no REV-1.
+> - **N-1:** the canonical edges are E1–E5 (E5 was retained because diagnostic §4 already listed it).
+>   E2′ and E6 are accepted relations, not graph edges.
+> - **N-2:** DORD-8 is not independent owner authority. The terminal does not change.
+>
+> The text below is preserved as filed.
+
 **Status: EVALUATION COMPLETE. The mechanical result is proposed for owner adjudication. HARD STOP.**
 - **Authority:** `S3_OWNER_RULING_01.md` §§11-14 (Issue #2 comment `5909891161`).
 - **Criteria:** `L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_01.md` §3, **frozen 2026-09-29 and applied without
