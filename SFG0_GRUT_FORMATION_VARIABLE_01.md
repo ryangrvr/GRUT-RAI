@@ -1,5 +1,17 @@
 # SFG-0 — GRUT FORMATION-VARIABLE AUDIT (audit only; no new physics run)
 
+> **OWNER RULING (Issue #2 comment `5903805047`; `SFG0_OWNER_RULING_01.md`): SFG-0 = CLASS-SPLIT,
+> ACCEPTED, with the mandatory qualifier.**
+> - Tier E (the earned Level-0 core) has no formation variable at the audited scope.
+> - Tier C contains the already-demonstrated CA-1 F conserved-number mechanism, conditional on
+>   supplied conservative fermionic statistics.
+> - No GRUT-native formation variable beyond SF-1 was found.
+> - CA-1 F is ruled CLEAN in Tier C. It is not excluded as circular.
+> - **O-6 sub-torus occupancy is ruled STATE-NOT-LAW**, and the §4.2/§5 "contested / formulable"
+>   alternative is withdrawn.
+>
+> §§0–5 below are preserved as filed.
+
 **STATUS: AUDIT COMPLETE.**
 - §§0–3 were pre-registered at `0d8aafd` and are unchanged.
 - §4 (the audit) and §5 (proposed mechanical outcome: **CLASS-SPLIT**, heavily qualified; see §5)

@@ -1,5 +1,16 @@
 # SF-0 — CORRECTIONS 01 (additive; auditor-initiated after SF-1)
 
+> **ACCEPTED (SC-1/SC-2) by owner ruling, Issue #2 comment `5903805047` (`SFG0_OWNER_RULING_01.md` §1),
+> with this wording fence:**
+>
+> "Quadratic/Gaussian dynamics are not automatically state-blind at the level of sector-conditioned
+> response support. Linear retained observables have state-independent linear response in the
+> relevant quadratic classes, but quadratic observables can carry occupation/action dependence.
+> Whether that dependence rises to a different structural effective-law class must still be shown
+> case by case."
+>
+> The blanket inference "linear/Gaussian ⇒ STATE-NOT-LAW" is retired. The SF-0 terminal is unchanged.
+
 - **Date:** 2026-09-30.
 - **Trigger:** the accepted SF-1 result (`SF1_OWNER_RULING_02.md`) is a counterexample to a blanket
   argument in `SF0_PARENT_SECTOR_FORMATION_01.md` §4.

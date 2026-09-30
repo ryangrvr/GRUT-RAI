@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "0d8aafd",
-  "subject": "SF-1 accepted; SF0 corrections; SFG-0 pre-registered",
+  "commit": "3fd5b46",
+  "subject": "SFG-0 audit",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -213,7 +213,7 @@
    "architectural_consequence": "A supplied sector does not imply a supplied effective law: distinguish microscopic-law selection / sector-boundary selection / effective-law emergence within the sector (H_micro + S_boundary -> L_eff[S]). Does NOT discharge lift IRREDUCIBLE/SUPPLIED."
   },
   "sfg0_campaign": {
-   "status": "AUDIT COMPLETE; proposed outcome awaiting owner ruling",
+   "status": "CLOSED / ACCEPTED",
    "authority": "SF1_OWNER_RULING_02.md section 9",
    "record": "SFG0_GRUT_FORMATION_VARIABLE_01.md",
    "outcomes": [
@@ -226,20 +226,31 @@
    ],
    "fences": "no new variable; no SF-2; no S-5 yet; no cosmology",
    "preregistered_at": "0d8aafd",
-   "proposed_outcome": "CLASS-SPLIT (mechanical): Tier E earned core provably has no formation variable (no nontrivial conserved quantity, single persistent state, linear readout; identity grade [AA] + record); only CLEAN candidate = CA-1 F conserved fermion number = the SF-1 parent itself, conditional on supplied fermionic statistics (tier contested C/L); O-6 sub-torus occupancy contested/formulable only",
-   "qualifications": "circular (no GRUT-native variable beyond SF-1's); GRUT's declared fermion lift of K_b is Lindblad loss (N not conserved -> NOT-PERSISTENT); if CA-1 F ruled out: STATE-NOT-LAW or CLASS-SPLIT(O-6) per O-6 ruling",
-   "reading": "earned core contains no formation variable; SF-1 mechanism hosted in the record only by supplied conservative fermionic structure; strengthens S-5 (supplied selections upstream in generator/statistics/lift)",
-   "owner_rulings_needed": [
-    "CA-1 F scope/tier",
-    "O-6 sub-torus case",
-    "SFG-0 terminal",
-    "next step (S-5 or otherwise)"
-   ]
+   "ruling": "SFG0_OWNER_RULING_01.md (comment 5903805047)",
+   "terminal": "CLASS-SPLIT: Tier E (earned Level-0 core) has no formation variable at the audited scope; Tier C contains the already-demonstrated CA-1 F conserved-number mechanism, conditional on supplied conservative fermionic statistics. No GRUT-native formation variable beyond SF-1 was found.",
+   "CA1_F": "CLEAN Tier C; not GRUT-native, not the declared Level-0 lift (Level-0 fermion lift is lossy)",
+   "O6_subtorus": "STATE-NOT-LAW at current structural resolution; no O-6 formation test opened",
+   "architecture": "A: general mechanism YES (SF-1); B: earned GRUT mechanism NO CURRENT CANDIDATE; C: supplied higher structure YES. The SF-1 mechanism does not migrate into the earned substrate."
+  },
+  "s5_campaign": {
+   "status": "SELECTED; S5-0 audit/formulation only; definitions pre-registered",
+   "authority": "SFG0_OWNER_RULING_01.md section 6",
+   "record": "S5_GENERATOR_ORIGIN_01.md",
+   "question": "Can the generator itself be derived rather than presupposed? (kind of time evolution first)",
+   "outcomes": [
+    "GENERATOR-SELECTED-IN-CLASS",
+    "GENERATOR-CONSTRAINED-NONUNIQUE",
+    "GENERATOR-IRREDUCIBLE/SUPPLIED",
+    "CLASS-SPLIT",
+    "REPRESENTATIONAL-ONLY",
+    "UNFORMULABLE"
+   ],
+   "fences": "no S5-1 run; no v4 exception; imports (least action, max entropy, ...) listed not consumed; no SF-2, new parent, gravity, Pi0, cosmology"
   }
  },
  "hard_stop": {
-  "active": true,
-  "note": "SFG-0 audit complete (proposed CLASS-SPLIT, heavily qualified). Awaiting owner ruling. No S-5, no SF-2, no new variable, no physics run."
+  "active": false,
+  "note": "S5-0 read-only audit in progress. HARD STOP after the audit."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -262,7 +273,7 @@
   },
   {
    "item": "S-5 generator origin",
-   "status": "motivated, not forced; HELD pending SF-1 (SF0_OWNER_RULING_01.md section 6); not executed"
+   "status": "SELECTED as next campaign (S5-0 audit only)"
   },
   {
    "item": "Reversal/chiasm diagnostic",
@@ -329,7 +340,7 @@
   },
   {
    "record": "SF-0 audit section 4",
-   "note": "SF0_CORRECTIONS_01.md (auditor-proposed after SF-1): 'Linear/Gaussian => STATE-NOT-LAW by construction' holds only for linear retained observables; FS-1 fixed-H and O-6 tori rows re-opened for SFG-0"
+   "note": "SF0_CORRECTIONS_01.md (auditor-proposed after SF-1): 'Linear/Gaussian => STATE-NOT-LAW by construction' holds only for linear retained observables; FS-1 fixed-H and O-6 tori rows re-opened for SFG-0 -- ACCEPTED (SFG0_OWNER_RULING_01.md section 1, with wording fence: case-by-case)"
   }
  ]
 }
