@@ -1,5 +1,26 @@
 # S5-0 — GENERATOR ORIGIN: can the generator be derived rather than presupposed? (audit/formulation only)
 
+> **OWNER RULING (Issue #2 comment `5904042956`; `S5_OWNER_RULING_01.md`): S5-0 =
+> GENERATOR-IRREDUCIBLE/SUPPLIED, ACCEPTED at the current GRUT scope.**
+>
+> *Nothing GRUT has already earned selects the kind of temporal generator. The first-order
+> dissipative generator is a declared substrate premise, not a derived consequence of the earned
+> static structure.*
+>
+> Flags:
+> - **F-1:** UNFORMULABLE does not fire.
+> - **F-2:** P-2 is earned within a supplied quantum-class premise, and it is CONDITIONAL only as a
+>   generator-origin selector. CA-1's wording is not overwritten.
+> - **F-3:** ≃_G quotients positive clock rescalings c𝒜 (c > 0); see `S5_CORRECTIONS_01.md`.
+> - **F-4:** NG-1 is ring-scoped. The chain's non-uniqueness is a separate argument (the selector
+>   audit).
+> - **F-5:** the comparison set is {G-D, G-OU, G-W, G-S}. G-L is downstream; G-F statistics is a
+>   separate supplied axis.
+>
+> **Not a metaphysical claim** (ruling §8).
+>
+> §§0–6 below are preserved as filed.
+
 **STATUS: AUDIT COMPLETE.**
 - §§0–4 were pre-registered at `afab923` and are unchanged.
 - §5 (the audit) and §6 (the proposed mechanical outcome, **GENERATOR-IRREDUCIBLE/SUPPLIED**) have
