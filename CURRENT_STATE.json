@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "8e1c8e7",
-  "subject": "S-2 opened; S2-0 pre-registered",
+  "commit": "227dd09",
+  "subject": "S2-1 charter FROZEN",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -278,26 +278,27 @@
    ]
   },
   "s2_campaign": {
-   "status": "S2-0 AUDIT COMPLETE; proposed MINIMAL-CLASS-FOUND (C-B) conditional on flag F-1; S2-1 charter DRAFTED (not frozen, not run)",
+   "status": "S2-0 CLOSED = CLASS-SPLIT (accepted); S2-1 charter FROZEN at 227dd09; single authorized exact execution in progress",
    "direction": "S2_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5904589246)",
    "record": "S2_NOISE_ORIGIN_HARD_DDET_01.md",
    "question": "primitive stochastic forcing after t=0 vs deterministic dynamics + uncertain initial state, in a class beyond the S-1 linear-additive-Gaussian equivalence",
    "candidates": "C-A multiplicative/linear drift; C-B L0-1c nonlinear drift + L0-1e additive noise; C-C colored; C-D non-Gaussian",
    "fences": "no simulation/RNG/sweep, no v4 exception; S-3, S-6 held; no S5-WB/OD; no gravity/Pi0/cosmology",
    "preregistered_at": "8e1c8e7",
-   "proposed_outcome": "MINIMAL-CLASS-FOUND: C-B (L0-1c cubic drift + L0-1e additive noise), IDENTITY-DISTINGUISHABLE on the retained mean response map: m1^S - phi = -12 beta T1 a t^2 + O(t^3) (M1); no preparation-independent hidden law with finite 7th moments reproduces it for >=2 preparations (M2). C-A, C-C, C-D SECOND-ORDER-EQUIVALENT by Theorem LD (linear canonical drift closes the conditional mean). Breaking ingredient: drift curvature reached by noise spread, not noise type or Ito/Strat conversion.",
    "verification": "independent adversarial verifier: claims 1,3,5 qualified, 2 confirmed exactly, 4 refuted-as-worded and corrected (curvature in any component feeding x1)",
-   "flags": [
-    "F-1 hidden-law admissibility: finite moments (a) or arbitrary with T-HT obligation (b)",
-    "F-2 T4 wording corrected",
-    "F-3 C-A O-2 degenerate, T3 non-vacuous (moot)"
-   ],
-   "s2_1_charter": "S2_NOISE_ORIGIN_CHARTER_01.md DRAFT (exact Dynkin coefficients, M2 no-go, T-HT if F-1(b), controls; open items OR-1..OR-4)"
+   "s2_1_charter": "S2_NOISE_ORIGIN_CHARTER_01.md FROZEN at 227dd09 (draft 47a9a7b; AM-1..AM-8)",
+   "s2_0": {
+    "terminal": "CLASS-SPLIT (S2_OWNER_RULING_01.md, comment 5905401028)",
+    "qualifier": "C-B theorem-level distinguishable on retained mean response under M1 and under M2 for finite-moment hidden laws; arbitrary M2 open; C-A, C-C, C-D equivalent on frozen O-1/O-2 at audited scopes",
+    "accepted_identity": "m1^S - m1^D = -12 beta T1 a t^2 + O(t^3) (C-B, M1)",
+    "structural_reading": "The S-1 equivalence breaks when noise-generated spread reaches curvature of the canonical drift that can feed the retained observable."
+   },
+   "execution_gate": "ONE S2-1 analytic/exact execution authorized; S2-1-only v4 exception; no RNG/simulation"
   }
  },
  "hard_stop": {
-  "active": true,
-  "note": "S2-0 audit complete (proposed MINIMAL-CLASS-FOUND C-B, conditional on F-1); S2-1 charter drafted. Awaiting owner review. No execution, simulation, RNG, v4 exception; S-3/S-6 held."
+  "active": false,
+  "note": "S2-1 single authorized exact execution in progress under frozen charter 227dd09; HARD STOP after verdict."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
