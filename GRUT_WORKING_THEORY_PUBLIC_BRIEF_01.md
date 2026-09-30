@@ -3,7 +3,8 @@
 *A conservative public summary of where the GRUT research program stands. It is based only on results the program's
 owner has accepted. The canonical record is `GRUT_WORKING_THEORY_DEPOSIT_01.md`; every statement below traces there.*
 
-**Status of this brief:** it is prepared for publication, but **no upload is authorized yet**.
+**Status of this brief:** publication authorized (owner ruling SYN1-02, Issue #2 comment `5918358573`); deposit
+pending. Publication is not claimed until the returned DOI/version is recorded in the canonical state.
 
 ---
 

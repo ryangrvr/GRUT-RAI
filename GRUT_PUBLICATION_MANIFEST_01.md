@@ -28,6 +28,18 @@ scientific analysis.**
 6. `SYN1_READINESS_VERDICT_01.md` — the readiness verdict, with the editorial cross-check appendix
 7. `SYN1_OWNER_RULING_01.md` — the owner ruling fixing the A-1 … A-4 statuses
 
+**Rendered release artifacts (conversion-only):**
+- `uploads/GRUT_Working_Theory_2026-09-30.md` — the combined release source: a front-matter page built from this
+  manifest's fields, then Parts I–III rendering the public brief, the canonical deposit and this manifest with no
+  content changes (each file's title line is replaced by its part heading).
+- `uploads/GRUT_Working_Theory_2026-09-30.pdf` — the public-facing PDF (12 pages, A4), typeset from that source with
+  the existing `uploads/build/` pipeline (pandoc + XeLaTeX, Latin Modern, `grut_filter.lua`, `grut_header.tex` +
+  `grut_wt_extra.tex`). Zero missing-glyph warnings; verified to contain the mandatory statements, the frozen
+  boundary and the lineage.
+- One permitted status-bookkeeping edit accompanies the packaging (SYN1-01 §6 cross-check clause): the brief's
+  status line now reads "publication authorized … deposit pending", replacing the pre-authorization "no upload is
+  authorized yet". No other content changed.
+
 The repository snapshot at the release commit remains the deeper technical source; the documents above point readers
 into it.
 

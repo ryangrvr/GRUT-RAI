@@ -458,7 +458,8 @@
     "packaging_commit_rule": "the descendant adding only the manifest, publication rulings and state bookkeeping (git log -1 -- GRUT_PUBLICATION_MANIFEST_01.md)",
     "lineage": "next version on concept DOI 10.5281/zenodo.19803663 (prior paper version 10.5281/zenodo.22983638)",
     "manifest_check": "4/4 PASS: 7 listed files exist at 404f2cd; mandatory statements present at 404f2cd (line-wrap verified); DOI lineage matches state; packaging delta = manifest + ruling record only",
-    "upload_status": "PENDING external owner action; DOI/version to be recorded here on return"
+    "upload_status": "PENDING external owner action; DOI/version to be recorded here on return",
+    "rendered_artifacts": "uploads/GRUT_Working_Theory_2026-09-30.md (combined source) and uploads/GRUT_Working_Theory_2026-09-30.pdf (public-facing PDF, 12pp A4, pandoc+XeLaTeX uploads/build pipeline, zero missing glyphs); brief status line updated to 'publication authorized; deposit pending' (permitted status bookkeeping)"
    }
   }
  },
