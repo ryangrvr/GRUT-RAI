@@ -1,218 +1,247 @@
-# S5-1 — CONSERVATIVE-ORIGIN / MARKOVIAN-LIMIT GATE (charter draft; formulation only)
+# S5-1 — CONSERVATIVE-ORIGIN / MARKOVIAN-LIMIT GATE (charter)
 
-**STATUS: DRAFT FOR OWNER REVIEW. NOT FROZEN. NOTHING DERIVED OR COMPUTED.**
-- **Authority:** `S5_OWNER_RULING_01.md` §9 (Issue #2 comment `5904042956`): "charter/formulation
-  gate first … No physics run yet; no v4 exception in this ruling … HARD STOP for owner review before
-  any new derivation/run."
+**STATUS: FROZEN FOR EXECUTION** (amended per `S5_OWNER_RULING_02.md`, Issue #2 comment
+`5904251680`).
+- **The frozen commit is the commit that introduces this revision.** CURRENT_STATE records its hash
+  as the **frozen S5-1 charter.**
+- **ONE S5-1 analytic physics execution is authorized**, with a campaign-specific post-v4 exception
+  for S5-1 only.
+- **Draft history:** the draft is at `4761f6c`, and the amendment log is §12.
 - **Date:** 2026-09-30 · **Branch:** `master-w25bu9`.
 
-**Disclosure of prior expectations (not results, not assumed).** From the O-6 record and standard
-open-system theory, the auditor expects:
-- finite N: recurrence blocks any strictly dissipative exact generator;
-- N = ∞: band-edge algebraic tails;
-- a weak-coupling (van Hove) limit may give a Markov semigroup of **damped-oscillator
-  (phase-space) type rather than the Level-0 first-order G-D type**.
+**Disclosures:**
+- *Prior expectation (draft, carried).* A weak-coupling limit may give a damped-oscillator Markov law
+  rather than the Level-0 G-D law.
+- *Planning note (new, honest).* In preparing this freeze, the auditor sketched the standard
+  structure of the problem mentally, **without computing any member**:
+  - the retained resolvent is a Schur complement;
+  - the uniform semi-infinite tridiagonal has a semicircle-type spectral measure;
+  - weak coupling gives a resonance.
 
-The grades and outcomes below are written so that none of these expectations decides the result by
-wording. §8 carries an outcome specifically for the last case.
+  This sketch is not the derivation, and **no gate or window below was tuned to it.** The
+  cross-check g-values and windows are fixed by rule (§7), not by a computed rate.
 
-## §0 Question (ruling §9, verbatim)
+## §0 Question (ruling S5-01 §9, verbatim)
 
 > Can the already-declared O-6 / pinned-chain conservative parent produce the Level-0 first-order
 > Markov generator, or its retained kernel class, as a controlled reduction/scaling limit without
 > inserting friction, white noise, or a Markov law by hand?
 
-## §1 Parent (fixed; record definitions only)
+## §1 Parent (fixed; record definitions)
 
-- **𝒦_N:** q̈ = −K_N q, the O-6 pinned chain (`L0_1G_CHARTER_01.md` §1).
+- **𝒦_N:** q̈ = −K_N q (`L0_1G_CHARTER_01.md` §1).
   - K_N is N × N tridiagonal, with diagonal 2.3 (sites 1 … N−1), 1.3 (site N), and off-diagonal −1.
-  - **K₂₃ = K_b**, the sealed Level-0 bath block.
-  - Closed form: λ_k = 2.3 − 2cos((2k−1)π/(2N+1)), v_k(i) ∝ sin((2k−1)iπ/(2N+1)).
-  - Phase space z = (q, p) ∈ ℝ^{2N}, with ż = Az, A = [[0, I], [−K_N, 0]], and
-    H = ½|p|² + ½qᵀK_N q conserved.
-- **Split (O-6):**
+  - K₂₃ = K_b.
+  - λ_k = 2.3 − 2cos((2k−1)π/(2N+1)) and v_k(i) ∝ sin((2k−1)iπ/(2N+1)).
+  - z = (q, p), ż = Az, A = [[0, I], [−K_N, 0]], with H = ½|p|² + ½qᵀK_N q conserved.
+- **Split:**
   - retained system: site 1, with K₁₁ = 2.3;
-  - coupling: g = −K₁₂ = 1;
-  - bath: sites 2 … N, with K_BB of the same structure at size N − 1.
-- **N sequence:** the declared {23, 47, 95} and the N → ∞ limit.
-- **Initial classes (O-6, record):**
-  - **C₀:** bath at rest, z₁(0) arbitrary. This gives the deterministic reduced map.
-  - **Gibbs product:** the declared "past hypothesis". Fluctuations are report-only, §7.
-- **Nothing added (NI checklist, audited in §9):** no friction coefficient, Langevin noise, external
-  reservoir, Lindblad operator, chemical potential, or phenomenological exponential kernel.
+  - coupling: g = −K₁₂;
+  - bath: sites 2 … N.
+- **The isolated system generator:** A₀ = [[0, 1], [−K₁₁, 0]].
+- **N:** {23, 47, 95} and N → ∞.
+- **Initial class C₀:** the bath at rest. The Gibbs product is report-only.
+- **Nothing added** (NI, §9).
 
-## §2 The Level-0 target (fixed; record definitions only)
+## §2 Admitted limits (OR-A ruled)
 
-- **Generator:** ẋ = −Kx, the first-order dissipative convention (`L0_1C_CHARTER_01.md:70-75`),
-  on the same K.
-- **Retained kernel:** k_D(τ) = e₁ᵀe^{−K_bτ}e₁ (`L0_1C_CHARTER_01.md:70-72`;
-  `L0_1F_DORD_THEOREM_01.md` §1), with K_b = K₂₃.
+| Tag | Definition | Status |
+|---|---|---|
+| **L-N** | N → ∞ at fixed declared local parameters (g = 1) | **ADMITTED** (primary; parent-preserving) |
+| **L-vH** | **The K(g) family:** K₁₁ = 2.3 fixed; K_BB fixed; only K₁₂ = K₂₁ = −g varies, 0 < g ≤ 1; every other entry fixed. Take N → ∞ first, then g → 0 with τ = g²t fixed. | **ADMITTED as a controlled deformation of the declared parent class, not an already-evaluated O-6 member.** Results are labelled **conditional on the weak-coupling deformation.** **Positive definiteness of the whole family must be proved before use.** |
+| L-WB | wide-band / flat spectral density | **NOT ADMITTED**: a named missing ingredient only |
+| L-OD | overdamped / Smoluchowski | **NOT ADMITTED**: a named missing ingredient only |
 
-**Target membership levels (frozen):**
+## §3 Retained objects
+
+- **R1 (primary):** Φ_N(t) := the (z₁, z₁) 2 × 2 block of e^{At} on C₀, in the physical variables
+  (q₁, p₁).
+- **R2 (scalar response preparation):** φ_N(t) := e₁ᵀcos(√K_N t)e₁, from q₁(0) = 1, p₁(0) = 0 and the
+  bath at rest.
+  - **C₀′ is not an invariant one-dimensional state space**, because the parent generates
+    p₁(t) ≠ 0.
+  - R2 adjudicates the **retained response/kernel class.**
+  - R2 supports M-2 **only if closure/restartability is proved in the claimed limit.** That means
+    either a proven slaving relation eliminating p₁, or a directly proven scalar semigroup with
+    restartability that does not depend on hidden momentum or history.
+- **Short-time control (to be proved formally):** φ_N(0) = 1, φ_N′(0) = 0, φ_N″(0) = −K₁₁.
+- **Retained-response comparison with the Level-0 object k_D(t) = e₁ᵀe^{−K_b t}e₁:**
+  - Level-0's retained response is the same-site diagonal response, a scalar function of t with
+    value 1 at t = 0.
+  - The parent's comparable object is **φ_N** (the same-site diagonal, value 1 at t = 0, from a
+    position preparation).
+  - The R1 matrix Φ_N is used for the generator levels M-1/M-2.
+- **Memory diagnostic (categorically separate; never identified with k_D):** the exact GLE friction
+  kernel from eliminating the bath, expected in the form Γ_fric(t) = g²e₁ᵀK_BB⁻¹cos(√K_BB t)e₁ (with
+  the exact form as derived), and optionally the sine/self-energy form.
+
+## §4 Target levels (renamed per ruling §6)
 
 | Level | Name | Definition |
 |---|---|---|
-| **M-1** | MARKOV | The reduced map is a semigroup, Φ(t+s) = Φ(t)Φ(s) for all t, s ≥ 0 (equivalently Φ(t) = e^{−Mt} with M fixed), **and strictly dissipative**: every eigenvalue of M has Re > 0. |
-| **M-2** | G-D-PROPER | M-1, **and** the retained law is of Level-0 first-order type: M has real non-negative spectrum and the retained response is completely monotone (the G-D reading; Bernstein). Equivalently, a first-order law on the retained position alone. |
-| **K-L0** | Kernel class | The parent's retained **memory kernel** (from eliminating the bath) is in the Level-0 kernel class: pole-only / exponential-grade and CM, like k_D. |
+| **M-1** | PHYSICAL MARKOV | A closed retained physical-variable map that is a time-homogeneous, **strictly dissipative** semigroup, exactly or as a controlled limit. |
+| **M-2** | G-D-PROPER | M-1, plus an **autonomous first-order retained law**, real non-negative decay spectrum (up to the S5 clock-rescaling quotient, SC5-1), and a **CM scalar response** where applicable. |
+| **K-L0** | RETAINED-KERNEL-CLASS | The parent's **retained response** (φ, not Γ_fric) lies in the Level-0 response-kernel class: CM (scalar), pole-only / rational Laplace transform at finite-dimensional G-D scope, and exponential-grade semigroup structure. |
 
-**Equivalence:** SC5-1 applies. A positive clock rescaling c𝒜 (c > 0) is quotiented. Sign flips,
-f(K), noise and phase-space doubling are not.
+## §5 Grades and the van Hove statement (corrected per ruling §1)
 
-## §3 Retained variables and reduced objects (frozen)
+**T-A (exact).** At a declared N, or at N = ∞: is Φ (R1) exactly e^{−Mt}? Is φ in K-L0?
 
-**Retained variable sets:**
-- **R1 (primary):** z₁ = (q₁, p₁), the O-6 split.
-  - The reduced map on C₀ is Φ_N(t) := the (z₁, z₁) 2 × 2 block of e^{At}.
-- **R2 (Level-0-like scalar):** q₁ alone, on the class C₀′ = C₀ ∩ {p₁(0) = 0}.
-  - The reduced map is φ_N(t) := e₁ᵀcos(√K_N t)e₁.
+**T-B (controlled limit, L-vH).** The frozen primary statement:
 
-**Memory kernel (bath elimination; record-form GLE):**
-- Γ_N(t) := g²·e₁ᵀcos(√K_BB t)K_BB⁻¹e₁, the friction-kernel form for site 1.
-- It is to be **compared with the Level-0 k_D on the same bath block structure.**
-- Whether the derivation instead produces the propagator form g²·e₁ᵀK_BB^{−1/2}sin(√K_BB t)e₁ must be
-  stated in the derivation. Both are functionals of the one bath spectral measure μ_B at e₁.
+  Ψ_g(τ) := e^{−A₀τ/g²} Φ_{∞,g}(τ/g²) → e^{Bτ}, **compact-uniformly on every finite τ-interval**,
 
-## §4 Grades (ruling §9.2)
+with B **derived** from the parent spectral measure.
 
-- **T-A, exact generator.**
-  - At a declared N (finite, or N = ∞ as a defined limit object): does Φ_N (R1) or φ_N (R2) equal
-    e^{−Mt} for all t ≥ 0, with M determined by the parent, at level M-1 / M-2?
-  - Does Γ_N meet K-L0?
-- **T-B, controlled Markov limit.** In an **admitted** limit (§5), does the reduced map converge
-  under the frozen norm/window (§6) to e^{−Mt}, with M **determined by the limit** (not fitted), at
-  level M-1 / M-2?
-- **T-C, non-Markovian-only.** The parent produces retained decay (Φ → 0 in some admitted limit),
-  but with an irreducible memory kernel, branch cut or algebraic tail. Record it as:
+- **Then, separately, reconstruct the physical retained dynamics.** An interaction-picture Markov
+  envelope counts toward MARKOV-LIMIT-OTHER-CLASS **only if** the derivation also yields a controlled,
+  time-homogeneous, damped-oscillator effective generator in the physical variables (equivalently
+  A₀ + g²B_eff + ⋯ on kinetic times), with a stated error control.
+- **The free oscillation may not be discarded** when assigning M-1 vs M-2.
+- **An interaction-picture exponential by itself is not a Level-0 G-D derivation.**
+- **There is no finite rescaled-time "lab-frame generator" −A₀ + Γ**; the draft §6 statement is
+  withdrawn.
 
-  > **effective dissipation emerges, but the Level-0 Markov generator does not.**
+**T-C (non-Markovian-only).** Decay with irreducible memory, a branch cut or an algebraic tail gives:
+*"effective dissipation emerges, but the Level-0 Markov generator does not."*
 
-## §5 Scaling limits (frozen before evaluation; from existing parent parameters only)
+A good exponential fit on a finite window never counts.
 
-| Tag | Limit | Parent parameters used | Status |
-|---|---|---|---|
-| **L-N** | N → ∞ at fixed (K₁₁, g, pin, springs) | N (declared sequence) | **ADMITTED** (native; O-6) |
-| **L-vH** | Weak coupling (van Hove): g = −K₁₂ → 0 with **K₁₁ held at 2.3** (the O-6 split lists K₁₁ and g as separate entries) and **N = ∞ taken first**; rescaled time τ = g²t fixed; interaction frame with respect to the isolated system flow e^{A₀t}, A₀ = [[0, 1], [−K₁₁, 0]] (an exact frame change, not an added term) | g | **ADMITTED, subject to OR-A.** K_N stays positive definite for 0 < g ≤ 1 by diagonal dominance, which must be checked. Whether the system frequency √K₁₁ lies inside the bath band is **derived, not assumed.** |
-| L-WB | Wide-band / flat spectral density (bath band → ∞ with the coupled rate fixed) | would scale the bath spring stiffness (unit springs) and g jointly | **NAMED, NOT ADMITTED.** It is singular; its parent-consistency needs an owner ruling (OR-A). |
-| L-OD | Overdamped / Smoluchowski (friction ≫ system frequency, then adiabatic elimination of p₁) | would need a mass or stiffness scale not present (unit masses) | **NAMED, NOT ADMITTED** (OR-A) |
+## §6 Required analytic sequence (frozen order; ruling §8)
 
-A limit not in the ADMITTED rows can be reported as the **required ingredient** (§8). It cannot be
-consumed to claim a derivation.
+1. **Finite-N theorem.**
+   - Recurrence / almost-periodicity of Φ_N and φ_N.
+   - No exact strictly decaying semigroup.
+   - The R2 short-time obstruction (φ_N″(0) = −K₁₁ versus e^{−γt}).
+2. **Infinite-N spectral theorem.**
+   - The exact or closed spectral measure of K_∞ at e₁, or a sufficient resolvent representation.
+   - A **bound-state audit.**
+   - Band-edge branch structure.
+   - The long-time class of the retained response.
+   - Consume O-6 D-1 and the infinite-chain algebraic memory.
+   - Fenced from general unitary dilations.
+3. **Kernel-class theorem.**
+   - **Local CM tests**, not late tails alone: φ″(0), and Γ_fric″(0) with its exact normalization.
+   - The pole/branch-cut distinction.
+   - The exact GLE friction-kernel derivation, kept separate from k_D.
+4. **Weak-coupling theorem.**
+   - Prove the K(g) family is valid (positive definite for all 0 < g ≤ 1, and the N → ∞ object
+     well defined).
+   - Locate √K₁₁ relative to the bath spectrum.
+   - Derive, or fail, the Ψ_g → e^{Bτ} semigroup.
+   - Reconstruct the physical-variable effective dynamics.
+   - Assign M-1/M-2 only in that sense, together with R2 closure.
+5. **NI audit** (§9).
+6. **Mechanical terminal** (§8).
 
-## §6 Frozen norm and window for T-B
+The optional cross-checks (§7) run **only after steps 1–4.**
 
-- **Norm:** the operator 2-norm on R1 (|·| on R2).
-- **L-vH criterion:**
+## §7 Numerical cross-checks (pre-frozen; non-adjudicating)
 
-  lim_{g→0} sup_{τ∈[0,τ_max]} ‖e^{−A₀τ/g²}Φ_{∞,g}(τ/g²) − e^{−Γτ}‖ = 0 for **every** fixed τ_max,
+**Members:**
+- N ∈ {23, 47, 95};
+- K(g) at **g ∈ {1, 0.5, 0.25}** with N = 95.
 
-  with Γ obtained from the limit (a Fermi-golden-rule-type expression in the parent's bath spectral
-  measure). This is compact-uniform convergence in rescaled time.
-  - The **lab-frame limit generator** is M = −A₀ + Γ.
-  - Its membership level (M-1 / M-2) is read **in the lab frame.** The frame change is not allowed
-    to hide the system oscillation.
-- **L-N:** T-A at N = ∞, meaning exact equality for all t ≥ 0. No window is involved.
-- **A good exponential fit on a finite window is NOT a T-B result** (ruling §9.5).
+The g-values are chosen by rule (halving from the O-6 value). No rate estimate was used.
 
-## §7 Mandatory analytic no-go attack (before any numerics; ruling §9.3)
+**Window rule:** t ∈ [0, 0.9·T_rec(95)], with T_rec from the O-6 frozen formula
+(T_rec(N) = 2(N−1)/v_max, where v_max is the maximum over k ∈ (0, π) of sin k/√(2.3 − 2cos k)). The
+grid is t = 0.05·j.
 
-The following statements are to be **proved or killed at the exact scope of 𝒦_N.** None is assumed.
-Each needs a written proof, or a counterexample within the parent.
+**Norm:** the max-abs entry of Φ in the coordinates (q₁, p₁/√K₁₁).
 
-- **NG-A1 (finite N).** Φ_N(t) and φ_N(t) are almost-periodic (finite sums of cos/sin(ω_k t)) and do
-  not tend to 0. No M-1 semigroup (which decays strictly) can equal them.
-  - Also to settle: the only exact first-order generator of the full parent on the full phase space
-    is the conservative A itself, which is G-W in first-order form and is not dissipative.
-  - **Consume:** O-6 I-1 (orbit recurrence) and T_rec(N).
-- **NG-A2 (N = ∞).** Four parts:
-  1. Determine the retained spectral measure μ₁ of K_∞ at e₁: its absolutely continuous part on
-     [0.3, 4.3], its band-edge exponents, and **whether any bound state lies outside the band**. A
-     bound state would give an undamped component, so Φ_∞ would not tend to 0.
-  2. If μ₁ is purely a.c. with power-law edges, show that Φ_∞ decays **algebraically** and that its
-     Laplace transform has **branch points** at the band edges. It is then not rational and cannot
-     equal e₁ᵀe^{−Mt}e₁ for any finite M.
-  3. **Consume** O-6 D-1 (band-edge t⁻³ sign-alternating ripples in current and entropy derivative
-     at N = ∞) and the O-6 infinite-chain algebraic memory. Do not rediscover them.
-  4. **Scope fence:** do not generalize to all unitary dilations. The lift work shows abstract
-     unitary dilations of contraction semigroups exist (Sz.-Nagy). The claim is only about **the
-     declared local 𝒦_N.**
-- **NG-A3 (kernel class).** Decide whether Γ_N (and Γ_∞) can be CM / pole-only at any declared N.
-  The oscillatory cos(√λ t) structure versus the Level-0 CM e^{−λτ} reading of the same kind of
-  spectral measure is the point at issue.
-- **NG-A4 (van Hove, if L-vH is admitted).** Derive the limit generator and its membership level.
-  In particular, decide whether the lab-frame M has complex spectrum (damped oscillation, which is
-  M-1 but not M-2) or real spectrum (M-2).
-- **Numerics** (only after an owner authorization naming them): finite-N closed-form checks of the
-  analytic statements. Never a replacement for them.
+| # | Check | Kind |
+|---|---|---|
+| X-1 | The closed-form spectra of K_N (g = 1) match `numpy.linalg.eigvalsh` (max \|Δλ\| < 10⁻¹²). The K(g) spectra are listed. | verify |
+| X-2 | The derived bound-state statement, shadowed at finite N: every eigenvalue of K_95(g) (g ∈ {1, 0.5, 0.25}) lies in the derived band closure. The minimum eigenvalue is > 0. | report |
+| X-3 | The short-time identities φ_N(0) = 1, φ_N′(0) = 0, φ_N″(0) = −K₁₁, evaluated as spectral moments Σ w_k λ_k^m (N ∈ {23, 47, 95}). | verify |
+| X-4 | The derived N = ∞ asymptotic formula for φ_∞, compared with φ_95 on t ∈ [T_rec(95)/3, 0.9·T_rec(95)]. The maximum deviation is reported. | report |
+| X-5 | The derived weak-coupling approximant, compared with Φ_{95,g} over the window, for g ∈ {0.5, 0.25}. The sup-deviation is reported for each g. | report |
 
-## §8 Outcomes and determination rule (frozen at freeze; proposed here)
+**Not allowed:**
+- fitting;
+- choosing windows after seeing data;
+- searching g;
+- using numerics to settle a theorem claim.
 
-The ruling §9.5 minimum set, plus one auditor-proposed outcome (marked †) for owner acceptance.
+A defect in a cross-check is preserved and stops the run before any re-run, unless the analytic
+terminal is wholly independent of it (ruling §2).
+
+## §8 Outcomes and determination rule (frozen; ruling §§3, 7)
 
 The first matching item decides:
 
-1. **UNFORMULABLE:** the reduced objects of §3 cannot be defined on the declared classes without
-   adding structure.
-2. **EXACT-GENERATOR-DERIVED:** T-A holds at level **M-2** (R1 or R2) at a declared N or at N = ∞.
-   K-L0 is reported alongside.
-3. **MARKOV-LIMIT-DERIVED:** T-B holds at level **M-2** in an ADMITTED limit.
-4. **† MARKOV-LIMIT-OTHER-CLASS:** T-B holds at level **M-1 but not M-2** in an ADMITTED limit.
-   - Meaning: the parent derives *a* Markov generator, but **not the Level-0 G-D kind** (for
-     example an underdamped phase-space semigroup).
-   - The required further ingredient for G-D must be named.
-5. **REQUIRES-SINGULAR/NEW-PARENT:** items 2–4 fail, **and** the analysis shows that level M-2 is
-   reachable only through a **NOT-ADMITTED** limit (L-WB, L-OD) or through bath structure absent from
-   𝒦_N. The ingredient must be named.
-6. **NONMARKOVIAN-DISSIPATION-ONLY:** items 2–5 fail, **and** retained decay is proven in an
-   ADMITTED limit with irreducible memory (T-C). The field "required ingredient" is filled if it is
-   identified, else "unidentified".
-7. **UNDERDETERMINED:** the analysis cannot settle the grade at the declared scope, or R1 and R2
-   give conflicting answers that the rules above do not order.
+1. **UNFORMULABLE:** the §3 objects cannot be defined on the declared classes without adding
+   structure.
+2. **EXACT-GENERATOR-DERIVED:** T-A at **M-2** at a declared N or at N = ∞.
+3. **MARKOV-LIMIT-DERIVED:** T-B in an ADMITTED limit at **M-2**, with a physical-variable
+   reconstruction; R2 closure is required for a scalar claim.
+4. **MARKOV-LIMIT-OTHER-CLASS:** an admitted limit derives a genuine **time-homogeneous Markov
+   semigroup / effective generator for the retained physical variables** (M-1), with a controlled
+   physical-variable reconstruction, **but its structural type is not the Level-0 first-order
+   CM/real-spectrum G-D class** (not M-2). A rotating-frame envelope alone is not enough.
+5. **REQUIRES-SINGULAR/NEW-PARENT:** fires **only if** the analysis **establishes** that M-2 requires
+   a **specifically identified** non-admitted ingredient (wide-band, an overdamped/slaving scale, an
+   altered spectral density, or other changed parent structure). It does not fire merely because L-N
+   and L-vH fail.
+6. **NONMARKOVIAN-DISSIPATION-ONLY:** the admitted parent yields only decay with memory, and the
+   needed ingredient is not established.
+7. **UNDERDETERMINED:** the analysis cannot settle the grade at the declared scope.
 
-**Fences:**
-- A finite-window exponential fit never counts.
-- An abstract dilation outside 𝒦_N never counts.
-- No imported selector (least action, maximum entropy, …).
+The terminal also reports K-L0 (on φ) and the memory diagnostic (Γ_fric), without identifying them.
 
-## §9 No-insertion audit (NI; applied to every derivation step)
+## §9 No-insertion audit (NI)
 
-**Each step must declare that it introduces none of the following:**
+Every derivation step must declare that it adds none of the following:
 - a friction coefficient not computed from the parent;
-- a noise term not generated by the parent's declared initial ensemble;
-- a Markov assumption (for example a Born–Markov truncation without the limit that justifies it);
+- a noise term not generated by the declared ensemble;
+- a Markov assumption, such as a Born–Markov truncation without the limit theorem that justifies it;
 - a reservoir or Lindblad operator;
 - a chemical potential;
-- an exponential kernel ansatz;
-- a change of K entries other than the admitted limit parameter.
+- an exponential ansatz;
+- any K-entry change other than g in L-vH.
 
 **A violation voids the step.**
 
-## §10 Scope limits (carried into any result)
+## §10 Scope limits (carried)
 
-- **SL-1.** The O-6 split retains **one site.** A positive result derives a first-order Markov law
-  **for the retained site's reduced dynamics.** It does **not** by itself derive the Level-0
-  multi-site generator ẋ = −Kx on the whole net. Each Level-0 site would need its own reduction, and
-  the parent's "bath" of site i is the rest of the same chain. Any full-net claim needs a separate
-  argument.
-- **SL-2.** Fluctuations: whether the Gibbs-bath force becomes white in the admitted limit is
-  **report-only.** It bears on G-OU, not on the deterministic G-D target.
-- **SL-3.** Even a positive result is **conditional on the conservative parent and the admitted
-  limit** (ruling §9.6). It does not make the generator unconditionally derived.
+- **SL-1:** a positive result concerns **the retained site's reduced law**, not the Level-0
+  multi-site net ẋ = −Kx.
+- **SL-2:** fluctuation whiteness is report-only.
+- **SL-3:** any result is conditional on the parent, **and on the weak-coupling deformation for
+  L-vH.**
 
-## §11 Open items for owner review (before freezing)
+## §11 Owner rulings replacing the draft's open items (`S5_OWNER_RULING_02.md`)
 
-- **OR-A. Admitted limits.**
-  - Is L-vH admitted as defined: g → 0 at fixed K₁₁ = 2.3, N = ∞ first, in the interaction frame
-    with a lab-frame membership reading?
-  - Should L-WB or L-OD be admitted, or left as named "required ingredients" only?
-- **OR-B. Execution mode.**
-  - S5-1 is primarily an **analytic derivation** (§7).
-  - Does its execution need the campaign-specific v4 exception, as a physics run would?
-  - Are numerical cross-checks allowed, and on which members?
-- **OR-C. Outcome †.** Accept MARKOV-LIMIT-OTHER-CLASS as a frozen outcome, or fold it into
-  REQUIRES-SINGULAR/NEW-PARENT.
-- **OR-D. R2 class.** Accept C₀′ (p₁(0) = 0) as the admissible class for the scalar reading.
-- **OR-E. Kernel form.** Friction-kernel versus propagator form for Γ (§3). Both are to be reported;
-  confirm which one K-L0 is read on.
+- **OR-A:** admit L-N and L-vH only (L-vH as the frozen K(g) deformation). L-WB and L-OD are named
+  missing ingredients.
+- **OR-B:** analytic derivation is physics work, and one execution is authorized with the S5-1
+  exception. Numerics are non-adjudicating, run after the analytics, on pre-frozen members.
+- **OR-C:** MARKOV-LIMIT-OTHER-CLASS is a distinct frozen outcome.
+- **OR-D:** R2 is a response preparation only. Closure/restartability is required for M-2, and the
+  short-time control is added.
+- **OR-E:** K-L0 is read on the retained response. The friction kernel is a separate diagnostic.
+  The local CM attack is added.
 
-**HARD STOP.** No derivation or computation until the owner reviews and freezes this charter.
+## §12 Amendment log (draft `4761f6c` → frozen)
+
+| # | Change | Source |
+|---|---|---|
+| AM-1 | L-vH redefined as the explicit K(g) family, admitted as a controlled deformation, conditional; positive-definiteness proof required. L-WB and L-OD set to NOT ADMITTED. | §1 |
+| AM-2 | The draft §6 "lab-frame M = −A₀ + Γ" is withdrawn. Ψ_g → e^{Bτ} is frozen, followed by a separate physical reconstruction. An interaction-picture exponential is not G-D. | §1 |
+| AM-3 | Execution needs the exception (granted). Numerics are non-adjudicating and run after the analytics. The g-set {1, 0.5, 0.25} at N = 95 and the window rule are frozen. | §2 |
+| AM-4 | MARKOV-LIMIT-OTHER-CLASS is frozen with its binding meaning. | §3 |
+| AM-5 | R2 is a response preparation, not an invariant state space. Closure/restartability is required. The short-time control is added. | §4 |
+| AM-6 | K-L0 moves to the retained response φ. Γ_fric is a separate diagnostic. The local CM attack is added. | §5 |
+| AM-7 | Target levels renamed: M-1 PHYSICAL MARKOV, M-2 G-D-PROPER, K-L0 RETAINED-KERNEL-CLASS. | §6 |
+| AM-8 | Outcome item 5 tightened: it requires an established, specifically identified ingredient. | §7 |
+| AM-9 | The analytic sequence is frozen in order. | §8 |
+
+**Artifacts at execution:**
+- `S5_CONSERVATIVE_ORIGIN_DERIVATION_01.md`, the analytic steps 1–5;
+- `calc/s5_conservative_origin.py`, containing symbolic identity checks for the derivation and the
+  §7 cross-checks, which run after the analytic document is written;
+- `S5_CONSERVATIVE_ORIGIN_RESULT.json`;
+- `S5_CONSERVATIVE_ORIGIN_VERDICT_01.md`.
+
+Then **HARD STOP.**
