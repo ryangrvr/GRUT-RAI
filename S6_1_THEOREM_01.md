@@ -1,7 +1,9 @@
 # S6-1 — ANALYTIC THEOREM BLOCK 01 (LS-0 … LS-5)
 
-**Status: written before the certification script.** It is to be independently verified and then committed
-(charter `S6_1_COARSEGRAINED_ARROW_CHARTER_01.md` §2 and §5.1). The charter was frozen at `fbd15c8`.
+**Status: DRAFT, committed pending independent verification.**
+- It was written before the certification script, which is not yet committed.
+- Verification corrections, if any, will follow as an additive commit, before the script is committed (charter
+  `S6_1_COARSEGRAINED_ARROW_CHARTER_01.md` §2 and §5.1). The charter was frozen at `fbd15c8`.
 
 **Authority:** `S6_OWNER_RULING_01.md` §9.
 
