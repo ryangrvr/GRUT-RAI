@@ -11,7 +11,7 @@ E-2  symbolic re-derivation of the finite-moment M2 coefficient algebra, and of 
      and q - q0 identities used by HT-B.
 E-3  structural checks: K_b symmetric positive definite (exact Cholesky), off-diagonal <= 0, f odd.
 
-Usage: python3 calc/s2_noise_origin.py   (writes S2_NOISE_ORIGIN_RESULT.json)
+Usage: python3 calc/s2_noise_origin.py   (writes S2_NOISE_ORIGIN_RESULT_CORRECTIVE_01.json)
 """
 import hashlib
 import json
@@ -21,7 +21,7 @@ import traceback
 import sympy as sp
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-OUT = ROOT / "S2_NOISE_ORIGIN_RESULT.json"
+OUT = ROOT / "S2_NOISE_ORIGIN_RESULT_CORRECTIVE_01.json"  # void artifact S2_NOISE_ORIGIN_RESULT.json preserved
 N = 23
 NMAX = 4
 R = {"charter_commit": "227dd09", "derivation_commit": "32645cc",
@@ -111,7 +111,7 @@ try:
         sub_T = {Ts[i]: Tv[i] for i in range(N)}
         for bv in BETAS:
             for av in AS:
-                vals = [sp.nsimplify(Delta[n].subs(sub_T).subs({b: bv, a: av})) for n in range(NMAX + 1)]
+                vals = [Delta[n].subs(sub_T).subs({b: bv, a: av}) for n in range(NMAX + 1)]
                 key = f"{pname}|beta={bv}|a={av}"
                 tab[key] = {f"Delta_{n}": str(vals[n]) for n in range(NMAX + 1)}
                 tab[key].update({f"t^{n}_coeff": str(vals[n] / sp.factorial(n)) for n in range(NMAX + 1)})
@@ -138,8 +138,8 @@ try:
             rep[f"beta={bv}|a={av}"] = {
                 "G(inf)_Delta_3": g["Delta_3"], "G(inf)_Delta_4": g["Delta_4"],
                 "G(inf)_first_nonzero_order<=4": first,
-                "F_minus_GR(inf)_Delta_3": str(sp.nsimplify(sp.Rational(fk["Delta_3"]) - sp.Rational(gk["Delta_3"]))),
-                "F_minus_GR(inf)_Delta_4": str(sp.nsimplify(sp.Rational(fk["Delta_4"]) - sp.Rational(gk["Delta_4"])))}
+                "F_minus_GR(inf)_Delta_3": str(sp.Rational(fk["Delta_3"]) - sp.Rational(gk["Delta_3"])),
+                "F_minus_GR(inf)_Delta_4": str(sp.Rational(fk["Delta_4"]) - sp.Rational(gk["Delta_4"]))}
     R["reported"] = rep
 
     # ---------------- E-2 symbolic M2 algebra and HT-B identities ----------------
