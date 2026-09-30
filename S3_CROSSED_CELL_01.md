@@ -1,5 +1,18 @@
 # S3-0 — THE CROSSED CELL 01 (formulation/audit gate only)
 
+> **CLOSED / ACCEPTED (owner ruling S3-01, Issue #2 comment `5909891161`; `S3_OWNER_RULING_01.md`):**
+> **S3-0 = FORMULABLE-ONLY-WITH-CHANGE**, under both declared readings.
+> - **The changed invariants are accepted:** I-1, I-4, and I-5/X-c.
+> - **D-1 … D-6 are resolved.** In particular, absence is not identity, and identity-forced counts only
+>   at the invariants.
+> - **READING-DEPENDENT is not assigned.**
+> - **Status of the two readings:** R₂ (P^corr_CM ≡ P^resp_CM) is trivial and carries no reversal
+>   evidence. R₁ is open only in an undeclared hybrid.
+> - **The response/correlation inversion remains confounded.** No hybrid and no run.
+> - **Next:** REV-0 (`L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_EVALUATION_01.md`).
+>
+> The text below is preserved as filed.
+
 **STATUS: PRE-REGISTERED.** §§0–3 are frozen at the commit that introduces this file, **before any
 candidate record is inspected**.
 - **Read before freezing, to define the question only:**

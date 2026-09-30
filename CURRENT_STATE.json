@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "febc3f6",
-  "subject": "S3-0 pre-registration",
+  "commit": "b2b8f8b",
+  "subject": "S3-0 audit §4/§5",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -349,7 +349,7 @@
    "deposit_02": "S2_NOISE_ORIGIN_DEPOSIT_02.md"
   },
   "s3_campaign": {
-   "status": "S3-0 AUDIT COMPLETE; proposed FORMULABLE-ONLY-WITH-CHANGE; HARD STOP for owner adjudication",
+   "status": "S3-0 CLOSED / ACCEPTED: FORMULABLE-ONLY-WITH-CHANGE (S3_OWNER_RULING_01.md, comment 5909891161)",
    "direction": "S2_HB_OWNER_RULING_02.md §12 (comment 5909652190)",
    "record": "S3_CROSSED_CELL_01.md",
    "question": "Does generator-side cycle affinity break correlation complete monotonicity when the noise is held FDT-like?",
@@ -357,15 +357,25 @@
    "fences": "no S3 physics run, no v4 exception, no reversal-diagnostic terminal, no new bath, no S-6, no S5-WB/OD, no gravity/Pi0/cosmology",
    "preregistration": "S3_CROSSED_CELL_01.md §§0-3 (outcomes CELL-ALREADY-CERTIFIED, CELL-IDENTITY-FORCED, FORMULABLE-CROSSED-CELL, FORMULABLE-ONLY-WITH-CHANGE, UNFORMULABLE)",
    "preregistered_at": "febc3f6",
-   "proposed_terminal": "FORMULABLE-ONLY-WITH-CHANGE (both FDT-like readings; not READING-DEPENDENT)",
    "changed_invariants": "I-1 substrate (G ring L0-1d vs N chain L0-1e; affinity impossible on chain by F-1); I-4 noise rule (R1 L0-1e Q=2T I symmetric-K only; R2 lift-selection Q=K+K^T); I-5/X-c Lyapunov form (K Sigma + Sigma K = Q -> general form); I-3 literal only",
    "report_only": "off-invariant: R2 on ring identity-forced CM-LOST (Sigma=T I => C=T k, copy of L-2, no evidence); R1 on ring OPEN",
-   "adjudication_items": "D-1..D-6 pre-registration wording defects (none changes terminal)"
+   "adjudication_items": "D-1 absence is not identity; D-2 third-record rule valid reading but off-invariant; D-3 'any accretive K' is declared extension; D-4 identity-forced only at invariants; D-5 READING-DEPENDENT refers to predicates; D-6 Lyapunov generalization counts as change",
+   "terminal": "FORMULABLE-ONLY-WITH-CHANGE (both readings; READING-DEPENDENT not assigned)",
+   "accepted_statement": "The crossed cell is not present in the declared theory at fixed invariants; the apparent response/correlation inversion remains confounded. R2 off-invariant: P^corr_CM == P^resp_CM (trivial); R1: open only in undeclared hybrid."
+  },
+  "rev0": {
+   "status": "OPEN: read-only evaluation of the pre-registered reversal diagnostic (no new definitions)",
+   "direction": "S3_OWNER_RULING_01.md §§11-13 (comment 5909891161)",
+   "criteria": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_01.md §3 (frozen 2026-09-29)",
+   "record": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_EVALUATION_01.md",
+   "scope": "entire accepted Level-0 / post-floor record through S3-0 (access/lift, SF/SFG, S5, S2, S3)",
+   "outcomes": "qualifying nontrivial reversal; qualifying self-duality; NOT SUPPORTED at recorded scope (frozen death criterion); no new labels",
+   "fences": "no physics, no hybrid, no S-4/S-6, no S5-WB/OD, no gravity/Pi0/cosmology"
   }
  },
  "hard_stop": {
-  "active": true,
-  "note": "S3-0 audit complete; proposed FORMULABLE-ONLY-WITH-CHANGE. HARD STOP for owner adjudication. No run, no hybrid, nothing opened."
+  "active": false,
+  "note": "REV-0 read-only graph audit in progress. HARD STOP after audit."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
