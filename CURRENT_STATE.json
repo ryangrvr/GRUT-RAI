@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "8e6a105",
-  "subject": "SF-0 audit (proposed REQUIRES-NEW-PARENT, conditional on R-F)",
+  "commit": "8a4f71c",
+  "subject": "SF-1 charter FROZEN for execution",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -188,20 +188,21 @@
    "governance": "direction 5899711204 lifted the Pi0 fence for the Pi0-0 audit only; it did not reopen general post-v4 in-house physics"
   },
   "sf0_campaign": {
-   "status": "SF-0 CLOSED with terminal; SF-1 charter drafted (not run)",
+   "status": "SF-0 CLOSED (FORMULABLE-IN-EXISTING-CLASS); SF-1 frozen charter 8a4f71c; single authorized run pending",
    "direction": "SF0_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5903141169)",
    "record": "SF0_PARENT_SECTOR_FORMATION_01.md (sections 0-3 pre-registered at 123abaa; sections 4-5 audit at 8e6a105; section 6 ruling)",
    "ruling": "SF0_OWNER_RULING_01.md (comment 5903310812): R-F = (b), excitation law of the exact invariant particle-number sector",
    "terminal": "SF-0 = FORMULABLE-IN-EXISTING-CLASS (CA-1 F conserved filling sectors), owner R-F = (b); proposed REQUIRES-NEW-PARENT NOT ADOPTED",
    "scope": "formation-by-conserved-sector / boundary data, not attractor selection; reference state declared (sector ground state), not dynamically reached; dilute family is the nu->0 edge (scope qualification); H-SF NOT demonstrated",
-   "sf1_charter": "SF1_FORMATION_CHARTER_01.md: DRAFT for owner review; NOT RUN; open items OR-1 (void-run status, C-2/C-3 mapping), OR-2 (optional sub-extensive control C-6), OR-3 (periodic BC vs RS-1 antiperiodic; odd-N convention)",
-   "execution_gate": "any SF-1 run requires explicit owner authorization granting a campaign-specific v4 exception; none granted",
-   "not_meaning": "not multiverse; not domain formation; not varying constants; not GRUT substrate property; S-5 not solved"
+   "sf1_charter": "SF1_FORMATION_CHARTER_01.md FROZEN at 8a4f71c (draft f2177da; amendments AM-1..AM-8 per SF1_OWNER_RULING_01.md)",
+   "execution_gate": "campaign-specific v4 exception GRANTED for SF-1 only (one run; no second run after void/failure without ruling)",
+   "not_meaning": "not multiverse; not domain formation; not varying constants; not GRUT substrate property; S-5 not solved",
+   "sf1_ruling": "SF1_OWNER_RULING_01.md (comment 5903400225): charter approved with amendments; ONE run authorized"
   }
  },
  "hard_stop": {
-  "active": true,
-  "note": "SF-0 terminal FORMULABLE-IN-EXISTING-CLASS recorded; SF1_FORMATION_CHARTER_01.md drafted for owner review. No SF-1 run (no v4 exception granted), no new parent, no S-5, no SF-2."
+  "active": false,
+  "note": "SF-1 single authorized run in progress under frozen charter 8a4f71c; HARD STOP after verdict."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -234,7 +235,7 @@
   {
    "item": "SF-1 formation test",
    "record": "SF1_FORMATION_CHARTER_01.md",
-   "status": "charter drafted; not run; awaiting owner review and v4-exception authorization"
+   "status": "charter FROZEN at 8a4f71c; one run authorized (SF-1-only v4 exception)"
   }
  ],
  "successor_list": {
