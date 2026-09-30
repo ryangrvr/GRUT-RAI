@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "d1ba71d",
-  "subject": "S2-HB interim owner ruling 01",
+  "commit": "bf0706e",
+  "subject": "S2-HB audit §4/§5",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -278,7 +278,7 @@
    ]
   },
   "s2_campaign": {
-   "status": "S2-1 CLOSED / ACCEPTED: FULL-DISCRIMINATOR-CONFIRMED; S2-HB audit complete, proposed UNRESTRICTED-REALIZATION-ONLY (HARD STOP)",
+   "status": "CLOSED: S2-0 CLASS-SPLIT -> S2-1 FULL-DISCRIMINATOR-CONFIRMED -> S2-HB UNRESTRICTED-REALIZATION-ONLY (sub-label NO-PHYSICAL-BATH-CANDIDATE)",
    "direction": "S2_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5904589246)",
    "record": "S2_NOISE_ORIGIN_HARD_DDET_01.md",
    "question": "primitive stochastic forcing after t=0 vs deterministic dynamics + uncertain initial state, in a class beyond the S-1 linear-additive-Gaussian equivalence",
@@ -319,7 +319,7 @@
    "deposit": "S2_NOISE_ORIGIN_DEPOSIT_01.md",
    "s2_hb": {
     "record": "S2_HAMILTONIAN_BATH_BOUNDARY_01.md",
-    "status": "AUDIT COMPLETE; proposed terminal UNRESTRICTED-REALIZATION-ONLY; HARD STOP for owner adjudication",
+    "status": "CLOSED / ACCEPTED (S2_HB_OWNER_RULING_02.md, comment 5909652190)",
     "question": "Can the C-B reduced stochastic response be reproduced by deterministic evolution on a larger state space with hidden environmental DOF randomized only at t=0?",
     "distinction": "HB-U unrestricted (path-space/dilation) vs HB-P physically constrained local autonomous Hamiltonian parent",
     "outcomes": [
@@ -332,23 +332,34 @@
     ],
     "preregistered_at": "0942dbd",
     "interim_ruling": "S2_HB_OWNER_RULING_01.md (comment 5909260267): DC-1 confirmed; O-5 read narrowly",
-    "proposed_terminal": "UNRESTRICTED-REALIZATION-ONLY",
     "sub_labels": [
-     "NO-PHYSICAL-BATH-CANDIDATE (literal P-4/P-6 readings; conditional on A-1a/A-1b)",
-     "FORMULABLE-ONLY-WITH-NEW-COUPLING"
+     "NO-PHYSICAL-BATH-CANDIDATE (accepted; A-1a O-6 fails P-4; A-1b S5-1 C0 fails P-6)",
+     "FORMULABLE-ONLY-WITH-NEW-COUPLING (report-only, necessary not sufficient)"
     ],
     "not_assigned": [
      "SECOND-ORDER-ONLY (prior expectation refuted)",
      "BLOCKED-BY-NOT-ADMITTED-LIMIT"
     ],
     "findings": "HB-U: C-B Wiener-shift skew product, GENERAL-THEOREM-ONLY, R-FULL (no declared equivalent). HB-P: none; O-6 declared ensemble randomizes system (P-4 fail), S5-1 has no forcing (P-6 N/A); S-1 FKM general-theorem-only (P-7 fail); no declared bath parent carries the quartic system part or a first-order x-reduction.",
-    "adjudication_items": "A-1 HB-P/scope-NONE gap; A-1a system-momentum randomness vs P-4; A-1b N/A P-6; A-2 R-2 member anchoring; A-3 O-5 wording (resolved by interim ruling); A-4 missing-structure list beyond coupling"
-   }
+    "adjudication_items": "A-1 latent taxonomy gap, inactive; A-1a/A-1b audit readings upheld; A-2 R-2 = beta=0 control class (wording); A-4 reporting only",
+    "terminal": "UNRESTRICTED-REALIZATION-ONLY; sub-label NO-PHYSICAL-BATH-CANDIDATE; report-only FORMULABLE-ONLY-WITH-NEW-COUPLING (necessary, not sufficient)",
+    "accepted_statement": "The current GRUT record can distinguish ongoing noise from initial uncertainty on the same nonlinear state space, but does not yet distinguish fundamental stochasticity from a suitably enlarged deterministic physical environment because no such physical parent has been declared and tested.",
+    "not_opened": "physical C-B bath construction (new-parent rescue; future owner-chosen campaign only)"
+   },
+   "deposit_02": "S2_NOISE_ORIGIN_DEPOSIT_02.md"
+  },
+  "s3_campaign": {
+   "status": "OPEN: S3-0 formulation/audit gate only",
+   "direction": "S2_HB_OWNER_RULING_02.md §12 (comment 5909652190)",
+   "record": "S3_CROSSED_CELL_01.md",
+   "question": "Does generator-side cycle affinity break correlation complete monotonicity when the noise is held FDT-like?",
+   "constraint": "from declared records only; no change of substrate class, retained observable, stochastic convention, temperature/noise rule, response/correlation normalization; if not formulable, stop (no hybrid)",
+   "fences": "no S3 physics run, no v4 exception, no reversal-diagnostic terminal, no new bath, no S-6, no S5-WB/OD, no gravity/Pi0/cosmology"
   }
  },
  "hard_stop": {
-  "active": true,
-  "note": "S2-HB audit complete; proposed UNRESTRICTED-REALIZATION-ONLY. HARD STOP for owner adjudication. No physics run, no new bath, nothing opened."
+  "active": false,
+  "note": "S3-0 pre-registration and read-only audit in progress. HARD STOP after audit."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",

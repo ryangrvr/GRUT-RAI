@@ -1,5 +1,20 @@
 # S2-HB — HAMILTONIAN-BATH BOUNDARY 01 (audit/formulation only)
 
+> **ACCEPTED (owner ruling S2-HB-02, Issue #2 comment `5909652190`; `S2_HB_OWNER_RULING_02.md`):**
+> - **S2-HB = UNRESTRICTED-REALIZATION-ONLY**, with sub-label **NO-PHYSICAL-BATH-CANDIDATE**.
+> - **FORMULABLE-ONLY-WITH-NEW-COUPLING** is report-only, with a fence: the coupling is *necessary, not
+>   sufficient*.
+> - Rulings on the open items:
+>   - **A-1:** a latent taxonomy gap; inactive here.
+>   - **A-1a:** O-6 fails P-4.
+>   - **A-1b:** S5-1 C₀ fails P-6.
+>   - **A-2:** R-2 means the β = 0 control class (a wording clarification).
+>   - **A-4:** reporting only.
+> - **SECOND-ORDER-ONLY = FALSE** and **BLOCKED-BY-NOT-ADMITTED-LIMIT** is not assigned.
+> - **No rescue bath.** The S-2 chain is closed; see `S2_NOISE_ORIGIN_DEPOSIT_02.md`.
+>
+> The text below is preserved as filed.
+
 **STATUS: PRE-REGISTERED.** §§0–3 are frozen at the commit that introduces this file, **before any
 candidate record is inspected**. The audit (§4) and the mechanical assignment (§5) are appended later
 in separate commits.
