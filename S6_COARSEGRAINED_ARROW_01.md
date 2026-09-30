@@ -1,5 +1,24 @@
 # S6-0 — COARSE-GRAINED ARROW 01 (formulation/audit gate only)
 
+> **CLOSED / ACCEPTED** (owner ruling S6-01, Issue #2 comment `5914432316`; `S6_OWNER_RULING_01.md`).
+>
+> **S6-0 = PRINCIPLED-COARSE-ARROW-TEST-FOUND.**
+>
+> **A-1 (aggregation).** Unresolved dominates at the family level. Consequences:
+> - all four K-1/K-2 pairs are EXECUTABLE;
+> - O-2 is not a sub-label;
+> - member note: "IDENTITY-DECIDED FALSE members exist for K-2".
+>
+> **A-2.** K-1 stays EXECUTABLE. Theorem LS is report-only until S6-1 banks it.
+>
+> **A-3.** J is the **bath self-energy flux**.
+>
+> **A-4.** Integration from t = 0 is kept.
+>
+> **A-5.** The Ḋ tail must be derived in S6-1 before any O-6 wording changes.
+>
+> The text below is preserved as filed.
+
 **STATUS: PRE-REGISTERED.**
 - §§0–3 are frozen at the commit that introduces this file, **before any candidate measure is
   evaluated and before the O-6 records are re-inspected for this gate**.
