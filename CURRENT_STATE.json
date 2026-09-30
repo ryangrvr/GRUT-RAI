@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "a70cf6c",
-  "subject": "Pi0-0 current-scope object audit",
+  "commit": "123abaa",
+  "subject": "SF-0: owner direction recorded; SF0 definitions pre-registered",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -186,11 +186,22 @@
    ],
    "interpretation": "The present GRUT record has no calculable path from its declared gravitational branch to the Pi0-based percent-level cosmological prediction; the obstruction is upstream, not observational sensitivity. NOT: Pi0 = 0; scalar response absent; GRUT predicts LCDM; trace channel unphysical; no future treatment could calculate it.",
    "governance": "direction 5899711204 lifted the Pi0 fence for the Pi0-0 audit only; it did not reopen general post-v4 in-house physics"
+  },
+  "sf0_campaign": {
+   "status": "Phase SF-0 audit complete; proposed outcome awaiting owner ruling",
+   "direction": "SF0_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5903141169)",
+   "record": "SF0_PARENT_SECTOR_FORMATION_01.md (sections 0-3 pre-registered at 123abaa; sections 4-5 added after)",
+   "proposed_outcome": "REQUIRES-NEW-PARENT (mechanical tie-break: every candidate STATE-NOT-LAW or SECTOR-SMUGGLED; no existing class hosts a clean test)",
+   "conditional_on": "owner ruling R-F: CA-1 F free-fermion filling sectors (z=1 finite filling vs z=2 dilute edge) - single-particle-law reading (a, applied) vs excitation-law reading (b, would give FORMULABLE-IN-EXISTING-CLASS)",
+   "minimal_ingredients": "M-1 non-convexity with symmetry-inequivalent persistent states; M-2 invariant-changing linearization (marginal state or continuous SSB gapless branch); M-3 interacting conserved/topological charges; M-4 state-dependent kinetic/coupling structure. Clean test needs M-1 + (M-2|M-3|M-4), or M-3.",
+   "sf1_charter": "NOT drafted",
+   "owner_choices": "rule R-F; if REQUIRES-NEW-PARENT: build new parent (needs v4 exception) / return to S-5 / abandon",
+   "not_meaning": "not H-SF false; not formation impossible; S-5 not thereby forced; no multiverse claim"
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "Pi0 prediction-recovery campaign CLOSED at Pi0-0 (FRONTIER-BLOCKED). Awaiting owner selection of a genuinely new campaign. No automatic S-5, EA-1, gravity reopening, or Pi0 physics."
+  "note": "SF-0 audit complete; proposed REQUIRES-NEW-PARENT conditional on ruling R-F. Awaiting owner ruling. No SF-1 charter, no new parent, no S-5, no physics run."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
