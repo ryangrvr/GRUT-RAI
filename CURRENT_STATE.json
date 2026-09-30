@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "b2b8f8b",
-  "subject": "S3-0 audit §4/§5",
+  "commit": "3cc3d4a",
+  "subject": "S3-0 accepted; REV-0 opened",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -364,18 +364,21 @@
    "accepted_statement": "The crossed cell is not present in the declared theory at fixed invariants; the apparent response/correlation inversion remains confounded. R2 off-invariant: P^corr_CM == P^resp_CM (trivial); R1: open only in undeclared hybrid."
   },
   "rev0": {
-   "status": "OPEN: read-only evaluation of the pre-registered reversal diagnostic (no new definitions)",
+   "status": "EVALUATION COMPLETE; proposed NOT SUPPORTED at recorded scope; HARD STOP for owner adjudication",
    "direction": "S3_OWNER_RULING_01.md §§11-13 (comment 5909891161)",
    "criteria": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_01.md §3 (frozen 2026-09-29)",
    "record": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_EVALUATION_01.md",
    "scope": "entire accepted Level-0 / post-floor record through S3-0 (access/lift, SF/SFG, S5, S2, S3)",
    "outcomes": "qualifying nontrivial reversal; qualifying self-duality; NOT SUPPORTED at recorded scope (frozen death criterion); no new labels",
-   "fences": "no physics, no hybrid, no S-4/S-6, no S5-WB/OD, no gravity/Pi0/cosmology"
+   "fences": "no physics, no hybrid, no S-4/S-6, no S5-WB/OD, no gravity/Pi0/cosmology",
+   "proposed_result": "NOT SUPPORTED at recorded scope (frozen death criterion; earned by scanning access/lift, EA-0, forest, SF/SFG, S5, S2, S2-HB, S3)",
+   "findings": "certified edges all ingredient->property (E1-E4 literal words; E2', E5, E6 accepted under other wording, N-1); 26 property->ingredient candidates, none meets frozen rule; G acyclic; no record-certified self-duality; S3 notes create no edge",
+   "adjudication_notes": "N-1 status of E2'/E5/E6 (cannot change R-5); N-2 DORD-8 bar is operator text in accepted doc (verdict does not rely on it)"
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "REV-0 read-only graph audit in progress. HARD STOP after audit."
+  "active": true,
+  "note": "REV-0 evaluation complete; proposed NOT SUPPORTED at recorded scope. HARD STOP for owner adjudication. Nothing opened."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
