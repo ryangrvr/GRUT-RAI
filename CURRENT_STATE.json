@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "123abaa",
-  "subject": "SF-0: owner direction recorded; SF0 definitions pre-registered",
+  "commit": "8e6a105",
+  "subject": "SF-0 audit (proposed REQUIRES-NEW-PARENT, conditional on R-F)",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -188,20 +188,20 @@
    "governance": "direction 5899711204 lifted the Pi0 fence for the Pi0-0 audit only; it did not reopen general post-v4 in-house physics"
   },
   "sf0_campaign": {
-   "status": "Phase SF-0 audit complete; proposed outcome awaiting owner ruling",
+   "status": "SF-0 CLOSED with terminal; SF-1 charter drafted (not run)",
    "direction": "SF0_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5903141169)",
-   "record": "SF0_PARENT_SECTOR_FORMATION_01.md (sections 0-3 pre-registered at 123abaa; sections 4-5 added after)",
-   "proposed_outcome": "REQUIRES-NEW-PARENT (mechanical tie-break: every candidate STATE-NOT-LAW or SECTOR-SMUGGLED; no existing class hosts a clean test)",
-   "conditional_on": "owner ruling R-F: CA-1 F free-fermion filling sectors (z=1 finite filling vs z=2 dilute edge) - single-particle-law reading (a, applied) vs excitation-law reading (b, would give FORMULABLE-IN-EXISTING-CLASS)",
-   "minimal_ingredients": "M-1 non-convexity with symmetry-inequivalent persistent states; M-2 invariant-changing linearization (marginal state or continuous SSB gapless branch); M-3 interacting conserved/topological charges; M-4 state-dependent kinetic/coupling structure. Clean test needs M-1 + (M-2|M-3|M-4), or M-3.",
-   "sf1_charter": "NOT drafted",
-   "owner_choices": "rule R-F; if REQUIRES-NEW-PARENT: build new parent (needs v4 exception) / return to S-5 / abandon",
-   "not_meaning": "not H-SF false; not formation impossible; S-5 not thereby forced; no multiverse claim"
+   "record": "SF0_PARENT_SECTOR_FORMATION_01.md (sections 0-3 pre-registered at 123abaa; sections 4-5 audit at 8e6a105; section 6 ruling)",
+   "ruling": "SF0_OWNER_RULING_01.md (comment 5903310812): R-F = (b), excitation law of the exact invariant particle-number sector",
+   "terminal": "SF-0 = FORMULABLE-IN-EXISTING-CLASS (CA-1 F conserved filling sectors), owner R-F = (b); proposed REQUIRES-NEW-PARENT NOT ADOPTED",
+   "scope": "formation-by-conserved-sector / boundary data, not attractor selection; reference state declared (sector ground state), not dynamically reached; dilute family is the nu->0 edge (scope qualification); H-SF NOT demonstrated",
+   "sf1_charter": "SF1_FORMATION_CHARTER_01.md: DRAFT for owner review; NOT RUN; open items OR-1 (void-run status, C-2/C-3 mapping), OR-2 (optional sub-extensive control C-6), OR-3 (periodic BC vs RS-1 antiperiodic; odd-N convention)",
+   "execution_gate": "any SF-1 run requires explicit owner authorization granting a campaign-specific v4 exception; none granted",
+   "not_meaning": "not multiverse; not domain formation; not varying constants; not GRUT substrate property; S-5 not solved"
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "SF-0 audit complete; proposed REQUIRES-NEW-PARENT conditional on ruling R-F. Awaiting owner ruling. No SF-1 charter, no new parent, no S-5, no physics run."
+  "note": "SF-0 terminal FORMULABLE-IN-EXISTING-CLASS recorded; SF1_FORMATION_CHARTER_01.md drafted for owner review. No SF-1 run (no v4 exception granted), no new parent, no S-5, no SF-2."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -224,12 +224,17 @@
   },
   {
    "item": "S-5 generator origin",
-   "status": "motivated, not forced; not executed"
+   "status": "motivated, not forced; HELD pending SF-1 (SF0_OWNER_RULING_01.md section 6); not executed"
   },
   {
    "item": "Reversal/chiasm diagnostic",
    "record": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_01.md",
    "status": "pre-registered Level-0 synthesis test; not evaluated"
+  },
+  {
+   "item": "SF-1 formation test",
+   "record": "SF1_FORMATION_CHARTER_01.md",
+   "status": "charter drafted; not run; awaiting owner review and v4-exception authorization"
   }
  ],
  "successor_list": {

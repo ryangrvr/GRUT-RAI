@@ -1,7 +1,12 @@
 # SF-0 — PARENT-SECTOR FORMATION / LAW-SELECTION: definitions (pre-registered) and record audit
 
-**STATUS: §4 audit and §5 proposed outcome ADDED (REQUIRES-NEW-PARENT, conditional on owner
-ruling R-F); awaiting owner ruling. HARD STOP.** §§0–3 below are unchanged since `123abaa`.
+> **OWNER RULING (Issue #2 comment `5903310812`; `SF0_OWNER_RULING_01.md`): R-F = (b).
+> SF-0 = FORMULABLE-IN-EXISTING-CLASS (CA-1 F conserved filling sectors).** The proposed
+> REQUIRES-NEW-PARENT in §5 is **NOT ADOPTED**. §§4–5 are kept as filed; see §6.
+> SF-1 charter: `SF1_FORMATION_CHARTER_01.md` (draft; not run).
+
+**Previous status: §4 audit and §5 proposed outcome ADDED (REQUIRES-NEW-PARENT, conditional on owner
+ruling R-F); awaiting owner ruling.** §§0–3 below are unchanged since `123abaa`.
 
 **Original status (§§0–3): PRE-REGISTERED.** They are committed **before any candidate is inspected**, per
 the owner's direction ("The audit must define the equivalence relation before inspecting a
@@ -233,3 +238,23 @@ classes. Each item is stated as what the current classes lack, not as a construc
    - (iii) abandon the route.
 
 No physics was run. No SF-1 charter was drafted.
+
+## §6 Owner ruling and terminal (added; §§0–5 unchanged)
+
+**Source:** Issue #2 comment `5903310812`, recorded in `SF0_OWNER_RULING_01.md`.
+
+- **R-F = (b).** The excitation law of the exact invariant particle-number sector is the frozen
+  object under 𝓔-sector (§1) and I-z (§2). Reading (a), the one-particle hopping matrix taken in
+  isolation, discards the sector restriction.
+- **§4.1 objections:**
+  - "edge-only" is a **scope qualification**, not a value reduction;
+  - PH maps ν ↔ 1 − ν, not a finite density onto the dilute sector;
+  - finite-size gaps do not erase a thermodynamic-limit z (the RS-1 / CA-1 precedent).
+- **Terminal:** **SF-0 = FORMULABLE-IN-EXISTING-CLASS (CA-1 F conserved filling sectors).**
+- **Carried scope qualifications:**
+  - The dilute family is the ν → 0 edge.
+  - Formation here means **by conserved sector / boundary data, not by attractor selection.**
+  - The reference state is **declared** as the sector ground state; it is not reached dynamically.
+  - H-SF is **not** demonstrated.
+- **The §5.1 minimal-ingredient list (M-1 … M-4)** stays on record as a description of what the
+  *other* audited classes lack. It is not an active branch.
