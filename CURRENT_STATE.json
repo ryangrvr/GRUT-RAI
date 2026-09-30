@@ -55,8 +55,11 @@
   "not_yet_on_public_face": [
    "V4_DEPOSIT_01.md filing (2026-09-28)",
    "Level-0 successor program (GRUT_PROGRAM_REOPEN_02.md)",
-   "L0-1a ... L0-1h results",
-   "L0-1 floor deposit (L0_1_FLOOR_DEPOSIT_01.md)"
+   "L0-1a ... L0-1h results; L0-1 floor deposit (L0_1_FLOOR_DEPOSIT_01.md)",
+   "Forest synthesis, EA-0, access bridge, lift selection; L0_POSTFLOOR_DEPOSIT_01.md",
+   "Pi0-0 audit (FRONTIER-BLOCKED)",
+   "SF-0/SF-1/SFG-0; S5-0/S5-1 (S5_GENERATOR_ORIGIN_DEPOSIT_01.md); S2-0/S2-1/S2-HB (S2_NOISE_ORIGIN_DEPOSIT_01/02.md); S3-0; REV-0; S6-0/S6-1 (S6_COARSEGRAINED_ARROW_DEPOSIT_01.md)",
+   "SYN-0 working-theory synthesis (GRUT_WORKING_THEORY_SYNTHESIS_01.md) and SYN-1 canonical deposit (GRUT_WORKING_THEORY_DEPOSIT_01.md, GRUT_WORKING_THEORY_PUBLIC_BRIEF_01.md)"
   ],
   "cadence_rule": "the repo record stays canonical and current; Zenodo versions are batched and published by the owner when ready (STATE.md, 2026-09-27 boundary)"
  },
@@ -440,7 +443,8 @@
     "GRUT_WORKING_THEORY_PUBLIC_BRIEF_01.md"
    ],
    "final_gate": "PUBLICATION-READY | READY-WITH-ADDITIVE-CORRECTIONS | NOT-READY — RECORD CONFLICT; no Zenodo upload authorized",
-   "preserved_not_opened": "faithful-representation lift audit (constraint, not uniqueness)"
+   "preserved_not_opened": "faithful-representation lift audit (constraint, not uniqueness)",
+   "deliverables_status": "D-1..D-4 drafted; verification in progress"
   }
  },
  "hard_stop": {
@@ -458,7 +462,16 @@
    "L0_1_FLOOR_DEPOSIT_01.md",
    "LEVEL0_FOREST_SYNTHESIS_OWNER_RULING_01.md",
    "L0_POSTFLOOR_DEPOSIT_01.md",
-   "PI0_TRACE_CHANNEL_OWNER_RULING_01.md"
+   "PI0_TRACE_CHANNEL_OWNER_RULING_01.md",
+   "SF1_OWNER_RULING_02.md",
+   "SFG0_OWNER_RULING_01.md",
+   "S5_GENERATOR_ORIGIN_DEPOSIT_01.md",
+   "S2_NOISE_ORIGIN_DEPOSIT_02.md",
+   "S3_OWNER_RULING_01.md",
+   "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_OWNER_RULING_01.md",
+   "S6_COARSEGRAINED_ARROW_DEPOSIT_01.md",
+   "SYN0_OWNER_RULING_01.md",
+   "GRUT_WORKING_THEORY_DEPOSIT_01.md"
   ]
  },
  "active_proposals_not_findings": [
@@ -473,12 +486,16 @@
   {
    "item": "Reversal/chiasm diagnostic",
    "record": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_01.md",
-   "status": "pre-registered Level-0 synthesis test; not evaluated"
+   "status": "CLOSED: NOT SUPPORTED at recorded scope (REV-0; L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_OWNER_RULING_01.md); no REV-1"
   },
   {
    "item": "SF-1 formation test",
    "record": "SF1_FORMATION_CHARTER_01.md",
    "status": "CLOSED / ACCEPTED (see program_status.sf0_campaign)"
+  },
+  {
+   "item": "Faithful-representation lift audit",
+   "status": "PRESERVED, NOT OPENED (SYN0_OWNER_RULING_01.md §11); constraint not uniqueness; cannot alter L0 LIFT SELECTION = IRREDUCIBLE/SUPPLIED"
   }
  ],
  "successor_list": {
@@ -496,7 +513,8 @@
   "held_elsewhere": [
    "pin-free locality fork (L0-1b Outcome A; outside the floor)",
    "reversal/chiasm diagnostic (Level-0 synthesis)"
-  ]
+  ],
+  "live_status_index": "GRUT_SUCCESSOR_STATUS_01.md (governs current status; historical list unchanged)"
  },
  "standing_owner_items": {
   "note": "Carried from STATE.md (2026-09-28 later banner); not re-adjudicated here.",
@@ -544,6 +562,14 @@
   {
    "record": "S5-1 result JSON",
    "note": "S5_CONSERVATIVE_ORIGIN_CORRECTIONS_01.md: S-5 ok=false is a supplementary criterion defect; 'defects': [] means no X-block exception; JSON not rewritten"
+  },
+  {
+   "record": "O-6 (L0-1g)",
+   "note": "L0_1G_CORRECTIONS_01.md C-1: Ddot leading power t^-6 (t^-3 a loose bound); late sign reversal survives; no terminal change"
+  },
+  {
+   "record": "Record reconciliation",
+   "note": "GRUT_RECORD_RECONCILIATION_INDEX_01.md: canonical pointers for the 13 SYN-0 §7 items; recommended additive corrections A-1..A-4 pending owner approval"
   }
  ]
 }
