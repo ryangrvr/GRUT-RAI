@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "1fedd3e",
-  "subject": "SF-1 single authorized run: result + verdict",
+  "commit": "0d8aafd",
+  "subject": "SF-1 accepted; SF0 corrections; SFG-0 pre-registered",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -213,7 +213,7 @@
    "architectural_consequence": "A supplied sector does not imply a supplied effective law: distinguish microscopic-law selection / sector-boundary selection / effective-law emergence within the sector (H_micro + S_boundary -> L_eff[S]). Does NOT discharge lift IRREDUCIBLE/SUPPLIED."
   },
   "sfg0_campaign": {
-   "status": "OPEN, audit only (no new physics run); definitions pre-registered",
+   "status": "AUDIT COMPLETE; proposed outcome awaiting owner ruling",
    "authority": "SF1_OWNER_RULING_02.md section 9",
    "record": "SFG0_GRUT_FORMATION_VARIABLE_01.md",
    "outcomes": [
@@ -224,12 +224,22 @@
     "NO-CANDIDATE-IN-EARNED-CORE",
     "UNFORMULABLE"
    ],
-   "fences": "no new variable; no SF-2; no S-5 yet; no cosmology"
+   "fences": "no new variable; no SF-2; no S-5 yet; no cosmology",
+   "preregistered_at": "0d8aafd",
+   "proposed_outcome": "CLASS-SPLIT (mechanical): Tier E earned core provably has no formation variable (no nontrivial conserved quantity, single persistent state, linear readout; identity grade [AA] + record); only CLEAN candidate = CA-1 F conserved fermion number = the SF-1 parent itself, conditional on supplied fermionic statistics (tier contested C/L); O-6 sub-torus occupancy contested/formulable only",
+   "qualifications": "circular (no GRUT-native variable beyond SF-1's); GRUT's declared fermion lift of K_b is Lindblad loss (N not conserved -> NOT-PERSISTENT); if CA-1 F ruled out: STATE-NOT-LAW or CLASS-SPLIT(O-6) per O-6 ruling",
+   "reading": "earned core contains no formation variable; SF-1 mechanism hosted in the record only by supplied conservative fermionic structure; strengthens S-5 (supplied selections upstream in generator/statistics/lift)",
+   "owner_rulings_needed": [
+    "CA-1 F scope/tier",
+    "O-6 sub-torus case",
+    "SFG-0 terminal",
+    "next step (S-5 or otherwise)"
+   ]
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "SFG-0 audit in progress (read-only). HARD STOP after the audit."
+  "active": true,
+  "note": "SFG-0 audit complete (proposed CLASS-SPLIT, heavily qualified). Awaiting owner ruling. No S-5, no SF-2, no new variable, no physics run."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
