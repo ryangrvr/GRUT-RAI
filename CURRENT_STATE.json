@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "8a4f71c",
-  "subject": "SF-1 charter FROZEN for execution",
+  "commit": "840b3c3",
+  "subject": "SF-1 script committed before its single execution",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -188,7 +188,7 @@
    "governance": "direction 5899711204 lifted the Pi0 fence for the Pi0-0 audit only; it did not reopen general post-v4 in-house physics"
   },
   "sf0_campaign": {
-   "status": "SF-0 CLOSED (FORMULABLE-IN-EXISTING-CLASS); SF-1 frozen charter 8a4f71c; single authorized run pending",
+   "status": "SF-0 CLOSED (FORMULABLE-IN-EXISTING-CLASS); SF-1 single authorized run EXECUTED; proposed terminal awaiting owner adjudication",
    "direction": "SF0_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5903141169)",
    "record": "SF0_PARENT_SECTOR_FORMATION_01.md (sections 0-3 pre-registered at 123abaa; sections 4-5 audit at 8e6a105; section 6 ruling)",
    "ruling": "SF0_OWNER_RULING_01.md (comment 5903310812): R-F = (b), excitation law of the exact invariant particle-number sector",
@@ -197,12 +197,21 @@
    "sf1_charter": "SF1_FORMATION_CHARTER_01.md FROZEN at 8a4f71c (draft f2177da; amendments AM-1..AM-8 per SF1_OWNER_RULING_01.md)",
    "execution_gate": "campaign-specific v4 exception GRANTED for SF-1 only (one run; no second run after void/failure without ruling)",
    "not_meaning": "not multiverse; not domain formation; not varying constants; not GRUT substrate property; S-5 not solved",
-   "sf1_ruling": "SF1_OWNER_RULING_01.md (comment 5903400225): charter approved with amendments; ONE run authorized"
+   "sf1_ruling": "SF1_OWNER_RULING_01.md (comment 5903400225): charter approved with amendments; ONE run authorized",
+   "sf1_run": {
+    "script": "calc/sf1_formation.py (committed 840b3c3 before execution; one run)",
+    "result": "SF1_FORMATION_RESULT.json",
+    "verdict": "SF1_FORMATION_VERDICT_01.md",
+    "proposed_terminal": "FORMATION-OF-LAW-CLASS (mechanical; all integrity controls V-FOCK/A-ODD/C-1/C-5 pass; C-2, C-3, C-4 pass)",
+    "classes": "D (nu=1/2): I-z=1, I-q=2; E (N0=1): I-z=2, I-q=1; controls D-1/4, D-3/4 = (1,2); E-3, Ebar = (2,1)",
+    "C6_report_only": "MULTISCALE / PATH-DEPENDENT IR (z_P=2, z_P'=3/2; kF ~ L^-1/2)",
+    "scope": "sector supplied by conserved boundary/state data (not dynamical selection); textbook one-band contrast placed under the frozen formation gate; free parent; dense/dilute are asymptotic sector classes separated by a crossover; not universes/constants/cosmology/GRUT substrate"
+   }
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "SF-1 single authorized run in progress under frozen charter 8a4f71c; HARD STOP after verdict."
+  "active": true,
+  "note": "SF-1 run complete (proposed FORMATION-OF-LAW-CLASS; C-6 MULTISCALE/PATH-DEPENDENT IR report-only). Awaiting owner adjudication. No second run, no SF-2, no S-5, no migration to cosmology or GRUT substrate."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -235,7 +244,7 @@
   {
    "item": "SF-1 formation test",
    "record": "SF1_FORMATION_CHARTER_01.md",
-   "status": "charter FROZEN at 8a4f71c; one run authorized (SF-1-only v4 exception)"
+   "status": "run executed once; proposed FORMATION-OF-LAW-CLASS awaiting owner adjudication (not yet an accepted finding)"
   }
  ],
  "successor_list": {
