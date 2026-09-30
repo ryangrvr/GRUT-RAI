@@ -354,7 +354,8 @@
    "record": "S3_CROSSED_CELL_01.md",
    "question": "Does generator-side cycle affinity break correlation complete monotonicity when the noise is held FDT-like?",
    "constraint": "from declared records only; no change of substrate class, retained observable, stochastic convention, temperature/noise rule, response/correlation normalization; if not formulable, stop (no hybrid)",
-   "fences": "no S3 physics run, no v4 exception, no reversal-diagnostic terminal, no new bath, no S-6, no S5-WB/OD, no gravity/Pi0/cosmology"
+   "fences": "no S3 physics run, no v4 exception, no reversal-diagnostic terminal, no new bath, no S-6, no S5-WB/OD, no gravity/Pi0/cosmology",
+   "preregistration": "S3_CROSSED_CELL_01.md §§0-3 (outcomes CELL-ALREADY-CERTIFIED, CELL-IDENTITY-FORCED, FORMULABLE-CROSSED-CELL, FORMULABLE-ONLY-WITH-CHANGE, UNFORMULABLE)"
   }
  },
  "hard_stop": {
