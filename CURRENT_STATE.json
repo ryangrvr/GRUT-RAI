@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "e92cf29",
-  "subject": "S2-1 script committed before single run",
+  "commit": "64d9cc9",
+  "subject": "S2-1 corrective patch + provenance note",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -278,7 +278,7 @@
    ]
   },
   "s2_campaign": {
-   "status": "S2-0 CLOSED = CLASS-SPLIT; S2-1 single execution RUN VOID (implementation defect); awaiting owner ruling",
+   "status": "S2-0 CLOSED = CLASS-SPLIT; S2-1 first run RUN VOID (preserved); corrective run DONE; proposed FULL-DISCRIMINATOR-CONFIRMED awaiting owner adjudication",
    "direction": "S2_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5904589246)",
    "record": "S2_NOISE_ORIGIN_HARD_DDET_01.md",
    "question": "primitive stochastic forcing after t=0 vs deterministic dynamics + uncertain initial state, in a class beyond the S-1 linear-additive-Gaussian equivalence",
@@ -303,12 +303,22 @@
     "passed_in_artifact": "E-3; E-1 symbolic (Delta_2 = -24 beta T1 a, Delta_3 = 24 beta T1 a (44 beta a^2 + 5 K11), no T2 dependence); I-1..I-4",
     "readable_not_adjudicated": "symbolic Delta_4 includes 200 T2 term: G(inf) first nonzero order 4 (Delta_4 = -48 a beta/11); F vs GR(inf) differ first at order 4",
     "owner_options": "authorize fixed rerun; or rule E-2 discharged by verifier + derivation and adjudicate from artifact; or other"
+   },
+   "s2_1_corrective": {
+    "ruling": "S2_OWNER_RULING_02.md (comment 5908791267)",
+    "correction_note": "S2_RUN_VOID_CORRECTION_01.md",
+    "patched_script_commit": "64d9cc9",
+    "result": "S2_NOISE_ORIGIN_RESULT_CORRECTIVE_01.json",
+    "verdict": "S2_NOISE_ORIGIN_VERDICT_02.md",
+    "checks": "all 18 pass in one artifact (E-3, E-1 symbolic, I-1..I-4, E-2/I-5); 1080 exact rationals",
+    "proposed_terminal": "FULL-DISCRIMINATOR-CONFIRMED (T-HT closed by HT-B; beta>0, T1>0 profiles F and GR(inf))",
+    "reported": "G(inf): first nonzero order 4, Delta_4 = -48 a beta/11; F vs GR(inf): identical through order 3, differ at order 4 by -48 a beta/11"
    }
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "S2-1 RUN VOID (implementation defect, preserved). Awaiting owner ruling. No rerun, repair, or terminal."
+  "note": "S2-1 corrective run complete (proposed FULL-DISCRIMINATOR-CONFIRMED). Awaiting owner adjudication. No Hamiltonian-bath follow-up, S-3, S-6, S5-WB/OD, gravity/Pi0/cosmology."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",

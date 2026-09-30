@@ -1,5 +1,11 @@
 # S2-1 — NOISE-ORIGIN VERDICT 01
 
+> **POINTER (additive).**
+> - This execution **stays RUN VOID** (ruling S2-02, comment `5908791267`; option 2 not adopted).
+> - One corrective execution was authorized. See `S2_RUN_VOID_CORRECTION_01.md` and
+>   `S2_NOISE_ORIGIN_VERDICT_02.md`.
+> - This record and `S2_NOISE_ORIGIN_RESULT.json` are preserved unchanged below.
+
 **Mechanical status: RUN VOID** (charter §5, item 1).
 - An **implementation defect** prevented integrity item I-5 (the E-2 symbolic re-derivations) from
   executing.
