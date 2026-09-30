@@ -8,7 +8,8 @@ scientific analysis.**
 | **Public title** | **GRUT Working Theory: Certified Structure, Conditional Emergence, and Open Primitives** |
 | **Release identity** | Working-theory / program-status synthesis (not a ToE claim, not a prediction paper, not peer-reviewed) |
 | **Manifest date** | 2026-09-30 |
-| **Publication date** | Assigned at deposit; recorded with the returned DOI/version |
+| **Publication date** | 2026-09-30 (deposited; owner-reported) |
+| **Returned DOI (this version)** | **10.5281/zenodo.23069654** |
 | **Repository** | `ryangrvr/grut-rai` |
 | **Branch** | `master-w25bu9` |
 | **Frozen content boundary (exact commit)** | **`404f2cd`** — the publication-ready state (5/5 editorial cross-check) |

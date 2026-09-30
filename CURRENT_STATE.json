@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "404f2cd",
-  "subject": "SYN-1 PUBLICATION-READY",
+  "commit": "c7f6220",
+  "subject": "release packaging final",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -46,23 +46,17 @@
   }
  },
  "public_record_boundary": {
-  "paper_doi": "10.5281/zenodo.22983638",
+  "paper_doi": "10.5281/zenodo.23069654",
   "concept_doi": "10.5281/zenodo.19803663",
   "software_concept_doi": "10.5281/zenodo.18993689",
-  "snapshot_source_commit": "6abbf31",
-  "snapshot_date": "2026-09-26",
-  "dated_update": "uploads/GRUT_PUBLIC_RECORD_UPDATE_2026-09-27.md (supersedes the snapshot where they differ, upgrading no claim; addendum section 9 carries the 2026-09-28 stop)",
-  "not_yet_on_public_face": [
-   "V4_DEPOSIT_01.md filing (2026-09-28)",
-   "Level-0 successor program (GRUT_PROGRAM_REOPEN_02.md)",
-   "L0-1a ... L0-1h results; L0-1 floor deposit (L0_1_FLOOR_DEPOSIT_01.md)",
-   "Forest synthesis, EA-0, access bridge, lift selection; L0_POSTFLOOR_DEPOSIT_01.md",
-   "Pi0-0 audit (FRONTIER-BLOCKED)",
-   "SF-0/SF-1/SFG-0; S5-0/S5-1 (S5_GENERATOR_ORIGIN_DEPOSIT_01.md); S2-0/S2-1/S2-HB (S2_NOISE_ORIGIN_DEPOSIT_01/02.md); S3-0; REV-0; S6-0/S6-1 (S6_COARSEGRAINED_ARROW_DEPOSIT_01.md)",
-   "SYN-0 working-theory synthesis (GRUT_WORKING_THEORY_SYNTHESIS_01.md) and SYN-1 package (GRUT_WORKING_THEORY_DEPOSIT_01.md, GRUT_RECORD_RECONCILIATION_INDEX_01.md, GRUT_SUCCESSOR_STATUS_01.md, GRUT_WORKING_THEORY_PUBLIC_BRIEF_01.md)"
-  ],
+  "snapshot_source_commit": "c7f6220",
+  "snapshot_date": "2026-09-30",
+  "not_yet_on_public_face": [],
   "cadence_rule": "the repo record stays canonical and current; Zenodo versions are batched and published by the owner when ready (STATE.md, 2026-09-27 boundary)",
-  "pending_release": "AUTHORIZED, not yet deposited: 'GRUT Working Theory: Certified Structure, Conditional Emergence, and Open Primitives' (SYN-1 package; frozen boundary 404f2cd; manifest GRUT_PUBLICATION_MANIFEST_01.md; concept lineage 10.5281/zenodo.19803663). Publication is not claimed until the returned DOI/version is recorded."
+  "pending_release": "NONE. The 2026-09-30 working-theory release is DEPOSITED: DOI 10.5281/zenodo.23069654 (owner-reported, 2026-09-30). Deeper campaign records are reached through the cited repository snapshot.",
+  "release_title": "GRUT Working Theory: Certified Structure, Conditional Emergence, and Open Primitives",
+  "content_boundary": "404f2cd",
+  "prior_paper_version": "DOI 10.5281/zenodo.22983638 (snapshot 6abbf31, 2026-09-26, with the dated update of 2026-09-27 carrying the 2026-09-28 stop)"
  },
  "program_status": {
   "v4": {
@@ -435,7 +429,7 @@
    "inconsistencies": "13 record inconsistencies reported in §7 (none repaired)"
   },
   "syn1": {
-   "status": "PUBLICATION AUTHORIZED (SYN1_OWNER_RULING_02.md, comment 5918358573); manifest created and checked (4/4 PASS); Zenodo upload authorized as an external/manual owner action; publication NOT claimed until the returned DOI/version is recorded",
+   "status": "CLOSED: published as DOI 10.5281/zenodo.23069654 (release commit c7f6220, content boundary 404f2cd)",
    "direction": "SYN0_OWNER_RULING_01.md §§8-12 (comment 5915940892)",
    "deliverables": [
     "GRUT_WORKING_THEORY_DEPOSIT_01.md",
@@ -458,14 +452,14 @@
     "packaging_commit_rule": "the descendant adding only the manifest, publication rulings and state bookkeeping (git log -1 -- GRUT_PUBLICATION_MANIFEST_01.md)",
     "lineage": "next version on concept DOI 10.5281/zenodo.19803663 (prior paper version 10.5281/zenodo.22983638)",
     "manifest_check": "4/4 PASS: 7 listed files exist at 404f2cd; mandatory statements present at 404f2cd (line-wrap verified); DOI lineage matches state; packaging delta = manifest + ruling record only",
-    "upload_status": "PENDING external owner action; DOI/version to be recorded here on return",
+    "upload_status": "DEPOSITED: DOI 10.5281/zenodo.23069654 (owner-reported 2026-09-30); recorded in the publication boundary per SYN1_OWNER_RULING_02.md §9",
     "rendered_artifacts": "uploads/GRUT_Working_Theory_2026-09-30.md (combined source) and uploads/GRUT_Working_Theory_2026-09-30.pdf (public-facing PDF, 12pp A4, pandoc+XeLaTeX uploads/build pipeline, zero missing glyphs); brief status line updated to 'publication authorized; deposit pending' (permitted status bookkeeping)"
    }
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "PUBLICATION AUTHORIZED; upload is an external owner action. HARD STOP ON NEW PHYSICS until the new public DOI/version is recorded in CURRENT_STATE. Nothing opened (faithful-representation audit remains preserved, not opened)."
+  "note": "Publication recorded (DOI 10.5281/zenodo.23069654). The SYN cycle is closed. Per SYN1_OWNER_RULING_02.md §10 the next scientific campaign is the owner's separate choice; nothing is opened. Preserved leading option: the faithful-representation audit."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",

@@ -36,9 +36,11 @@ def render(s):
         f"(deposit §2).",
         f"> - **Post-floor:** {l0['post_floor']['status']}; new physics runs: {l0['post_floor']['new_physics_runs']}.",
         f"> - **Hard stop:** {stop}",
-        f"> - **Public record:** paper DOI {prb['paper_doi']} (snapshot `{prb['snapshot_source_commit']}`, "
-        f"{prb['snapshot_date']}), with the dated update of 2026-09-27. Not yet on the public face: "
-        + "; ".join(prb["not_yet_on_public_face"]) + ".",
+        f"> - **Public record:** paper DOI {prb['paper_doi']} — \"{prb['release_title']}\" "
+        f"(release commit `{prb['snapshot_source_commit']}`, content boundary `{prb['content_boundary']}`, "
+        f"{prb['snapshot_date']}). Prior version: {prb['prior_paper_version']}."
+        + (" Not yet on the public face: " + "; ".join(prb["not_yet_on_public_face"]) + "."
+           if prb.get("not_yet_on_public_face") else ""),
         "> - **Branches:** " + "; ".join(
             f"`{k}` = {v['role']}" for k, v in s["branch_roles"].items() if k != "other_remote_branches")
         + "; all other branches: role not ruled.",
