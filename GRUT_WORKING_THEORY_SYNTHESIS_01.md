@@ -1,5 +1,16 @@
 # GRUT WORKING THEORY SYNTHESIS 01 (SYN-0; read-only)
 
+> **ACCEPTED (owner ruling SYN0-01, Issue #2 comment `5915940892`; `SYN0_OWNER_RULING_01.md`).**
+> - **Governing version:** `91eaefd`, the current working-theory statement of GRUT. The draft `14edd65` remains
+>   historical.
+> - **Precision:** the nine-layer architecture is the **minimal bookkeeping architecture supported by the record**,
+>   not a claim that nature consists of exactly nine layers.
+> - **Q4's lift-selection campaign is NOT adopted.** L0 LIFT SELECTION = IRREDUCIBLE/SUPPLIED stands. The
+>   faithful-representation audit is preserved as a future option (a constraint, not uniqueness).
+> - **Next:** SYN-1, the canonical deposit (`GRUT_WORKING_THEORY_DEPOSIT_01.md`).
+>
+> The text below is preserved as filed.
+
 **Status: SYNTHESIS COMPLETE. Proposed for owner adjudication. HARD STOP.**
 - **Authority:** `S6_OWNER_RULING_02.md` §§12–14 (Issue #2 comment `5915173769`).
 - **Method:**

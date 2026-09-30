@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "14edd65",
-  "subject": "SYN-0 synthesis draft",
+  "commit": "91eaefd",
+  "subject": "SYN-0 synthesis final",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -421,7 +421,7 @@
    "o6_correction": "L0_1G_CORRECTIONS_01.md (additive; O-6 remains FALSIFIED)"
   },
   "syn0": {
-   "status": "SYNTHESIS COMPLETE (verified PASS-WITH-FIXES, all fixes applied); proposed for owner adjudication; HARD STOP",
+   "status": "CLOSED / ACCEPTED (SYN0_OWNER_RULING_01.md, comment 5915940892); 91eaefd governs; nine layers = minimal bookkeeping architecture, not a claim about nature; Q4 campaign NOT adopted (L0 LIFT SELECTION = IRREDUCIBLE/SUPPLIED stands)",
    "direction": "S6_OWNER_RULING_02.md §§12-14 (comment 5915173769)",
    "record": "GRUT_WORKING_THEORY_SYNTHESIS_01.md",
    "structure": "ledgers A supplied, B derived, C conditional emergence, D failed/blocked, E minimal architecture (arrows DERIVED/CONDITIONAL/SUPPLIED/BLOCKED/FALSIFIED-NON-IMPLICATION); answer 4 questions",
@@ -429,11 +429,23 @@
    "architecture": "layered conditional-emergence architecture: nine mutually non-selecting supplied layers (substrate; generator+drift+orientation; access/readout; state/sector/preparation; environment/partition/coarse-graining; physical lift+prices; hbar; outcome rule; gravitational branch+cosmology inputs) feeding downward-only derivations; no property->ingredient edge (REV-0 scope)",
    "answers": "Q1 theory-construction program producing a certified dependency map over a supplied multi-layer foundation (not a fundamental theory, not only an EFT); Q4 recommendation (not authorization): classical-substrate -> state/access-algebra seam (EA-0 '?'), with physical lift selection as operational form, via a pre-registered formulation audit that cannot alter L0 LIFT SELECTION = IRREDUCIBLE/SUPPLIED",
    "inconsistencies": "13 record inconsistencies reported in §7 (none repaired)"
+  },
+  "syn1": {
+   "status": "OPEN: record consolidation only (no physics)",
+   "direction": "SYN0_OWNER_RULING_01.md §§8-12 (comment 5915940892)",
+   "deliverables": [
+    "GRUT_WORKING_THEORY_DEPOSIT_01.md",
+    "GRUT_RECORD_RECONCILIATION_INDEX_01.md",
+    "GRUT_SUCCESSOR_STATUS_01.md",
+    "GRUT_WORKING_THEORY_PUBLIC_BRIEF_01.md"
+   ],
+   "final_gate": "PUBLICATION-READY | READY-WITH-ADDITIVE-CORRECTIONS | NOT-READY — RECORD CONFLICT; no Zenodo upload authorized",
+   "preserved_not_opened": "faithful-representation lift audit (constraint, not uniqueness)"
   }
  },
  "hard_stop": {
-  "active": true,
-  "note": "SYN-0 synthesis complete; proposed for owner adjudication. HARD STOP. Nothing opened (Q4 is a recommendation only)."
+  "active": false,
+  "note": "SYN-1 record consolidation in progress. HARD STOP after readiness verdict."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
