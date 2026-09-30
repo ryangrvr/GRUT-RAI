@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "a9017e8",
-  "subject": "S6-0 audit and S6-1 draft",
+  "commit": "fbd15c8",
+  "subject": "S6-1 charter frozen",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -400,7 +400,9 @@
    "charter_draft": "S6_1_COARSEGRAINED_ARROW_CHARTER_01.md FROZEN (amended AM-1..AM-5; draft a9017e8)",
    "provenance_note": "O-6 charter never frozen; O-6 ruled from pre-freeze review; objects confirmed by reviewer and reused by S5",
    "terminal": "PRINCIPLED-COARSE-ARROW-TEST-FOUND",
-   "execution_gate": "ONE S6-1 analytic/certified execution; sequence: theorem doc -> commit -> script -> commit -> one run -> verdict -> HARD STOP"
+   "execution_gate": "ONE S6-1 analytic/certified execution; sequence: theorem doc -> commit -> script -> commit -> one run -> verdict -> HARD STOP",
+   "charter_frozen_at": "fbd15c8",
+   "theorem_block": "S6_1_THEOREM_01.md (draft committed; independent verification in progress)"
   }
  },
  "hard_stop": {
