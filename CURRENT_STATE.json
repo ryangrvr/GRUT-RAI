@@ -391,7 +391,8 @@
     "UNFORMULABLE"
    ],
    "fences": "no S6 run, no v4 exception; no S-4/S-7/S-8; no new reversal diagnostic; no S5-WB/OD; no gravity/Pi0/cosmology; O-6 remains FALSIFIED for its strict charter",
-   "not_selected": "S-4 preserved, not selected"
+   "not_selected": "S-4 preserved, not selected",
+   "preregistration": "S6_COARSEGRAINED_ARROW_01.md §§0-3 (criteria K-1 asymptotic dominance, K-2 no complete erasure, K-3 drawdown; classes UNDEF/NEEDS-CG/ARBITRARY/DECIDED/EXECUTABLE; outcomes in ruling list order)"
   }
  },
  "hard_stop": {
