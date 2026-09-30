@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "6a17b57",
-  "subject": "S5-1 result + verdict",
+  "commit": "3024b3b",
+  "subject": "S-5 deposit",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -276,11 +276,19 @@
     "S5-WB wide-band parent limit",
     "S5-OD earned overdamped/slaving hierarchy"
    ]
+  },
+  "s2_campaign": {
+   "status": "OPEN; S2-0 formulation/class-selection gate; definitions pre-registered",
+   "direction": "S2_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5904589246)",
+   "record": "S2_NOISE_ORIGIN_HARD_DDET_01.md",
+   "question": "primitive stochastic forcing after t=0 vs deterministic dynamics + uncertain initial state, in a class beyond the S-1 linear-additive-Gaussian equivalence",
+   "candidates": "C-A multiplicative/linear drift; C-B L0-1c nonlinear drift + L0-1e additive noise; C-C colored; C-D non-Gaussian",
+   "fences": "no simulation/RNG/sweep, no v4 exception; S-3, S-6 held; no S5-WB/OD; no gravity/Pi0/cosmology"
   }
  },
  "hard_stop": {
-  "active": true,
-  "note": "S-5 closed at current-parent scope and deposited. Awaiting owner selection of a genuinely new campaign. No S5-2, rerun, new parent, SF-2, gravity, Pi0, cosmology."
+  "active": false,
+  "note": "S2-0 audit in progress (formulation only). HARD STOP after audit (and charter draft if executable)."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
