@@ -95,3 +95,27 @@ cross-consistency.
 - no S5-WB or S5-OD;
 - no gravity or Π₀;
 - no new quantum route.
+
+---
+
+## Appendix: editorial cross-check record (ruling SYN1-01 §6; read-only; 2026-09-30)
+
+The check ran against the diff `cec1f14` → `71337ae` (the commit applying A-1 … A-4).
+
+| # | Check | Result |
+|---|---|---|
+| 1 | All four corrections exist | **PASS.** The A-1 banner, the A-2 and A-3 owner statements (`SYN1_OWNER_RULING_01.md` §§3–4), and the A-4 pointer are each present exactly once. |
+| 2 | No historical body text rewritten | **PASS.** `GRUT_WORKING_THEORY_01.md` and `L0_1_FLOOR_SUCCESSOR_LIST.md` each received one purely additive block directly under the title, with **zero deleted lines**. |
+| 3 | D-1 and D-4 content-equivalent | **PASS.** `GRUT_WORKING_THEORY_DEPOSIT_01.md`, `GRUT_WORKING_THEORY_PUBLIC_BRIEF_01.md`, `GRUT_SUCCESSOR_STATUS_01.md` and `GRUT_WORKING_THEORY_SYNTHESIS_01.md` are byte-identical across the diff. |
+| 4 | Deletions confined to required bookkeeping | **PASS.** The only removed lines are live-state fields in `CURRENT_STATE.json`, the regenerated README/STATE render line, and the reconciliation-index section heading (replaced by its APPLIED form). |
+| 5 | No terminal wording changed | **PASS.** Twelve terminal spot-checks in D-1 all present verbatim (GRAVITY_UNDERDETERMINED; FRONTIER-BLOCKED; IRREDUCIBLE/SUPPLIED; NOT SUPPORTED at recorded scope; O-6 = FALSIFIED; UNRESTRICTED-REALIZATION-ONLY; UNFORMULABLE at the earned Level-0 scope; "Zero confirmed novel quantitative predictions; no external human peer review"; NET-ARROW-CONFIRMED; FULL-DISCRIMINATOR-CONFIRMED; MARKOV-LIMIT-OTHER-CLASS; FORMATION-OF-LAW-CLASS). One initial grep mismatch was a case-sensitivity artifact ("zero" vs "Zero"), verified present. |
+
+**Per ruling §6, the readiness state therefore advances mechanically:**
+
+> **SYN-1 = PUBLICATION-READY.**
+
+**What this means (ruling §7):** the canonical working-theory package is internally reconciled and suitable to serve
+as the next public GRUT record. It does **not** mean experimental confirmation, fundamentality, peer review, or a
+confirmed novel quantitative prediction, and the public brief keeps its statement of that.
+
+**No Zenodo upload is authorized (ruling §8). HARD STOP for the owner's publication decision.**

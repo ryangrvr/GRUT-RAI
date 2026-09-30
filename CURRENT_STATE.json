@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "cec1f14",
-  "subject": "SYN-1 verdict",
+  "commit": "71337ae",
+  "subject": "A-1..A-4 applied",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -434,7 +434,7 @@
    "inconsistencies": "13 record inconsistencies reported in §7 (none repaired)"
   },
   "syn1": {
-   "status": "READY-WITH-ADDITIVE-CORRECTIONS ACCEPTED (SYN1_OWNER_RULING_01.md, comment 5916545551); A-1..A-4 APPLIED; editorial cross-check in progress before mechanical advance to PUBLICATION-READY",
+   "status": "PUBLICATION-READY (mechanical advance per SYN1_OWNER_RULING_01.md §6; cross-check PASS, appendix of SYN1_READINESS_VERDICT_01.md); no Zenodo upload authorized; HARD STOP for owner publication decision",
    "direction": "SYN0_OWNER_RULING_01.md §§8-12 (comment 5915940892)",
    "deliverables": [
     "GRUT_WORKING_THEORY_DEPOSIT_01.md",
@@ -446,12 +446,13 @@
    "preserved_not_opened": "faithful-representation lift audit (constraint, not uniqueness)",
    "deliverables_status": "D-1..D-4 complete; independent verification (V1-V4 blocking, m1-m10 minor) applied",
    "recommended_additive_corrections": "A-1..A-4 APPLIED (see GRUT_RECORD_RECONCILIATION_INDEX_01.md application record)",
-   "owner_status_rulings": "THEOREM LD = ACCEPTED AT AUDITED S2-0 SCOPE (with fences); SECTOR-SELECTION S-1 = PROVISIONAL (IN CLASS) in the P3/P4 form (with fences)"
+   "owner_status_rulings": "THEOREM LD = ACCEPTED AT AUDITED S2-0 SCOPE (with fences); SECTOR-SELECTION S-1 = PROVISIONAL (IN CLASS) in the P3/P4 form (with fences)",
+   "cross_check": "5/5 PASS on diff cec1f14->71337ae: corrections exist; historical files purely additive; D-1/D-4/D-3/SYN-0 byte-identical; deletions confined to bookkeeping; terminals verbatim"
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "SYN-1 readiness verdict proposed: READY-WITH-ADDITIVE-CORRECTIONS. HARD STOP for owner adjudication. No Zenodo upload authorized; nothing opened."
+  "note": "SYN-1 = PUBLICATION-READY (mechanical). No Zenodo upload authorized. HARD STOP for the owner's publication decision. Nothing opened."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
