@@ -35,7 +35,8 @@ scientific analysis.**
 - `uploads/GRUT_Working_Theory_2026-09-30.pdf` — the public-facing PDF (12 pages, A4), typeset from that source with
   the existing `uploads/build/` pipeline (pandoc + XeLaTeX, Latin Modern, `grut_filter.lua`, `grut_header.tex` +
   `grut_wt_extra.tex`). Zero missing-glyph warnings; verified to contain the mandatory statements, the frozen
-  boundary and the lineage.
+  boundary and the lineage. Part III renders this manifest as of assembly — i.e. without this artifact subsection,
+  which describes the PDF itself (the unavoidable self-reference).
 - One permitted status-bookkeeping edit accompanies the packaging (SYN1-01 §6 cross-check clause): the brief's
   status line now reads "publication authorized … deposit pending", replacing the pre-authorization "no upload is
   authorized yet". No other content changed.
