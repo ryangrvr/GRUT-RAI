@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "6c8b2fd",
-  "subject": "REV-0 evaluation",
+  "commit": "fc51def",
+  "subject": "S6-0 pre-registration",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -378,7 +378,7 @@
    "architectural_reading": "descent shows ingredient->earned property; not yet earned property at level n -> new structural ingredient at level n+1"
   },
   "s6_campaign": {
-   "status": "OPEN: S6-0 formulation/audit gate only",
+   "status": "S6-0 AUDIT COMPLETE; proposed PRINCIPLED-COARSE-ARROW-TEST-FOUND (strict §1.6 reading); S6-1 charter DRAFT (not frozen); HARD STOP",
    "direction": "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_OWNER_RULING_01.md §§8-15 (comment 5913714570)",
    "record": "S6_COARSEGRAINED_ARROW_01.md",
    "question": "Can the declared conservative pinned-chain (O-6) parent exhibit a threshold-free, mathematically principled coarse-grained temporal arrow despite band-edge memory destroying strict pointwise ordering?",
@@ -392,12 +392,19 @@
    ],
    "fences": "no S6 run, no v4 exception; no S-4/S-7/S-8; no new reversal diagnostic; no S5-WB/OD; no gravity/Pi0/cosmology; O-6 remains FALSIFIED for its strict charter",
    "not_selected": "S-4 preserved, not selected",
-   "preregistration": "S6_COARSEGRAINED_ARROW_01.md §§0-3 (criteria K-1 asymptotic dominance, K-2 no complete erasure, K-3 drawdown; classes UNDEF/NEEDS-CG/ARBITRARY/DECIDED/EXECUTABLE; outcomes in ruling list order)"
+   "preregistration": "S6_COARSEGRAINED_ARROW_01.md §§0-3 (criteria K-1 asymptotic dominance, K-2 no complete erasure, K-3 drawdown; classes UNDEF/NEEDS-CG/ARBITRARY/DECIDED/EXECUTABLE; outcomes in ruling list order)",
+   "preregistered_at": "fc51def",
+   "proposed_terminal": "PRINCIPLED-COARSE-ARROW-TEST-FOUND; sub-label IDENTITY-DECIDED (A-1 dependent: K-2 FALSE by I-5 on J-L2 and sigma-L1)",
+   "classification": "K-1 J/sigma EXECUTABLE (audit-derived TRUE at all 4 pairs, not DECIDED); K-2 split: DECIDED FALSE (J-L2, sigma-L1) / EXECUTABLE (J-L1, sigma-L2); K-3 ARBITRARY",
+   "report_only": "Theorem LS (reduced state -> reduced global Gibbs, verified sound, not on record); X_J(inf)=(T_s-T_b)+T_b r^2/2, r=(2.3-sqrt(1.29))/2; X_sigma(inf)=D(0)>0; J tail O(t^-3), Ddot O(t^-6)",
+   "adjudication_items": "A-1 member aggregation; A-2 DECIDED general-facts scope (limit-state theorem); A-3 J not unique hot->cold flux (bath self-energy); A-4 integration from 0 vs t_s; A-5 D-1 Ddot tail wording",
+   "charter_draft": "S6_1_COARSEGRAINED_ARROW_CHARTER_01.md (DRAFT, NOT FROZEN, EXECUTION BLOCKED)",
+   "provenance_note": "O-6 charter never frozen; O-6 ruled from pre-freeze review; objects confirmed by reviewer and reused by S5"
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "S6-0 pre-registration and read-only analytic/formulation audit in progress. HARD STOP after audit."
+  "active": true,
+  "note": "S6-0 audit complete; proposed PRINCIPLED-COARSE-ARROW-TEST-FOUND; S6-1 charter drafted, not frozen. HARD STOP for owner adjudication. No run."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
