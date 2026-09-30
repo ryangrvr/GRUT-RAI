@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "71337ae",
-  "subject": "A-1..A-4 applied",
+  "commit": "404f2cd",
+  "subject": "SYN-1 PUBLICATION-READY",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -61,7 +61,8 @@
    "SF-0/SF-1/SFG-0; S5-0/S5-1 (S5_GENERATOR_ORIGIN_DEPOSIT_01.md); S2-0/S2-1/S2-HB (S2_NOISE_ORIGIN_DEPOSIT_01/02.md); S3-0; REV-0; S6-0/S6-1 (S6_COARSEGRAINED_ARROW_DEPOSIT_01.md)",
    "SYN-0 working-theory synthesis (GRUT_WORKING_THEORY_SYNTHESIS_01.md) and SYN-1 package (GRUT_WORKING_THEORY_DEPOSIT_01.md, GRUT_RECORD_RECONCILIATION_INDEX_01.md, GRUT_SUCCESSOR_STATUS_01.md, GRUT_WORKING_THEORY_PUBLIC_BRIEF_01.md)"
   ],
-  "cadence_rule": "the repo record stays canonical and current; Zenodo versions are batched and published by the owner when ready (STATE.md, 2026-09-27 boundary)"
+  "cadence_rule": "the repo record stays canonical and current; Zenodo versions are batched and published by the owner when ready (STATE.md, 2026-09-27 boundary)",
+  "pending_release": "AUTHORIZED, not yet deposited: 'GRUT Working Theory: Certified Structure, Conditional Emergence, and Open Primitives' (SYN-1 package; frozen boundary 404f2cd; manifest GRUT_PUBLICATION_MANIFEST_01.md; concept lineage 10.5281/zenodo.19803663). Publication is not claimed until the returned DOI/version is recorded."
  },
  "program_status": {
   "v4": {
@@ -434,7 +435,7 @@
    "inconsistencies": "13 record inconsistencies reported in §7 (none repaired)"
   },
   "syn1": {
-   "status": "PUBLICATION-READY (mechanical advance per SYN1_OWNER_RULING_01.md §6; cross-check PASS, appendix of SYN1_READINESS_VERDICT_01.md); no Zenodo upload authorized; HARD STOP for owner publication decision",
+   "status": "PUBLICATION AUTHORIZED (SYN1_OWNER_RULING_02.md, comment 5918358573); manifest created and checked (4/4 PASS); Zenodo upload authorized as an external/manual owner action; publication NOT claimed until the returned DOI/version is recorded",
    "direction": "SYN0_OWNER_RULING_01.md §§8-12 (comment 5915940892)",
    "deliverables": [
     "GRUT_WORKING_THEORY_DEPOSIT_01.md",
@@ -447,12 +448,23 @@
    "deliverables_status": "D-1..D-4 complete; independent verification (V1-V4 blocking, m1-m10 minor) applied",
    "recommended_additive_corrections": "A-1..A-4 APPLIED (see GRUT_RECORD_RECONCILIATION_INDEX_01.md application record)",
    "owner_status_rulings": "THEOREM LD = ACCEPTED AT AUDITED S2-0 SCOPE (with fences); SECTOR-SELECTION S-1 = PROVISIONAL (IN CLASS) in the P3/P4 form (with fences)",
-   "cross_check": "5/5 PASS on diff cec1f14->71337ae: corrections exist; historical files purely additive; D-1/D-4/D-3/SYN-0 byte-identical; deletions confined to bookkeeping; terminals verbatim"
+   "cross_check": "5/5 PASS on diff cec1f14->71337ae: corrections exist; historical files purely additive; D-1/D-4/D-3/SYN-0 byte-identical; deletions confined to bookkeeping; terminals verbatim",
+   "publication": {
+    "decision": "PUBLICATION AUTHORIZED",
+    "title": "GRUT Working Theory: Certified Structure, Conditional Emergence, and Open Primitives",
+    "identity": "working-theory / program-status synthesis (not ToE, not prediction paper, not peer-reviewed)",
+    "manifest": "GRUT_PUBLICATION_MANIFEST_01.md",
+    "frozen_content_boundary": "404f2cd",
+    "packaging_commit_rule": "the descendant adding only the manifest, publication rulings and state bookkeeping (git log -1 -- GRUT_PUBLICATION_MANIFEST_01.md)",
+    "lineage": "next version on concept DOI 10.5281/zenodo.19803663 (prior paper version 10.5281/zenodo.22983638)",
+    "manifest_check": "4/4 PASS: 7 listed files exist at 404f2cd; mandatory statements present at 404f2cd (line-wrap verified); DOI lineage matches state; packaging delta = manifest + ruling record only",
+    "upload_status": "PENDING external owner action; DOI/version to be recorded here on return"
+   }
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "SYN-1 = PUBLICATION-READY (mechanical). No Zenodo upload authorized. HARD STOP for the owner's publication decision. Nothing opened."
+  "note": "PUBLICATION AUTHORIZED; upload is an external owner action. HARD STOP ON NEW PHYSICS until the new public DOI/version is recorded in CURRENT_STATE. Nothing opened (faithful-representation audit remains preserved, not opened)."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
