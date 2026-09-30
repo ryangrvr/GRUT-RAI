@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "334662a",
-  "subject": "S5-0 audit",
+  "commit": "d603db5",
+  "subject": "S5-1 charter FROZEN for execution",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -233,7 +233,7 @@
    "architecture": "A: general mechanism YES (SF-1); B: earned GRUT mechanism NO CURRENT CANDIDATE; C: supplied higher structure YES. The SF-1 mechanism does not migrate into the earned substrate."
   },
   "s5_campaign": {
-   "status": "S5-0 CLOSED / ACCEPTED: GENERATOR-IRREDUCIBLE/SUPPLIED; S5-1 charter DRAFTED (not frozen, nothing derived)",
+   "status": "S5-0 CLOSED/ACCEPTED; S5-1 charter FROZEN at d603db5; single authorized analytic execution in progress",
    "authority": "SFG0_OWNER_RULING_01.md section 6",
    "record": "S5_GENERATOR_ORIGIN_01.md",
    "question": "Can the generator itself be derived rather than presupposed? (kind of time evolution first)",
@@ -256,21 +256,16 @@
    },
    "s5_1": {
     "record": "S5_CONSERVATIVE_ORIGIN_01.md",
-    "status": "charter DRAFT for owner review; not frozen; no derivation or computation",
-    "question": "Can the O-6 conservative pinned-chain parent produce the Level-0 first-order Markov generator (or its retained kernel class) as a controlled reduction/scaling limit without inserting friction, noise or Markov law by hand?",
-    "open_items": [
-     "OR-A admitted limits (L-vH; L-WB/L-OD named not admitted)",
-     "OR-B execution mode / v4 exception for analytic derivation",
-     "OR-C outcome MARKOV-LIMIT-OTHER-CLASS",
-     "OR-D R2 class C0'",
-     "OR-E kernel form"
-    ]
+    "frozen_charter": "d603db5 (draft 4761f6c; AM-1..AM-9)",
+    "ruling": "S5_OWNER_RULING_02.md (comment 5904251680)",
+    "execution_gate": "ONE S5-1 analytic physics execution authorized; campaign-specific v4 exception for S5-1 only; numerics non-adjudicating, after analytics, pre-frozen members",
+    "admitted_limits": "L-N; L-vH (frozen K(g) deformation, conditional); L-WB and L-OD NOT ADMITTED"
    }
   }
  },
  "hard_stop": {
-  "active": true,
-  "note": "S5-0 closed (GENERATOR-IRREDUCIBLE/SUPPLIED). S5-1 charter drafted for owner review. No derivation, computation, v4 exception, new parent, SF-2, gravity, Pi0, cosmology, or imported selector."
+  "active": false,
+  "note": "S5-1 single authorized analytic execution in progress under frozen charter d603db5; HARD STOP after verdict."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
