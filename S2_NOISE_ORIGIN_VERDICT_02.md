@@ -1,5 +1,14 @@
 # S2-1 — NOISE-ORIGIN VERDICT 02 (corrective execution)
 
+> **ACCEPTED (owner ruling 03, Issue #2 comment `5909019588`; `S2_OWNER_RULING_03.md`):**
+> - **S2-1 = FULL-DISCRIMINATOR-CONFIRMED** at the frozen scope.
+> - This corrective execution is the adjudicating artifact. The first execution is permanently RUN
+>   VOID.
+> - **Deposit:** `S2_NOISE_ORIGIN_DEPOSIT_01.md`.
+> - **The enlarged deterministic environment remains open** (S2-HB).
+>
+> The verdict below is preserved as filed.
+
 **Mechanical terminal: FULL-DISCRIMINATOR-CONFIRMED.**
 - This is proposed for owner adjudication. **HARD STOP.**
 - The first execution stays **RUN VOID**, per `S2_NOISE_ORIGIN_VERDICT_01.md` and ruling S2-02 §1. It is
