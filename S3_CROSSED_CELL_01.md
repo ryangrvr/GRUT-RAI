@@ -187,8 +187,170 @@ These are guesses from memory. The audit must test them and report any record th
 
 ## §4 Audit
 
-*(appended after this pre-registration is committed)*
+**How the audit was run.** §§0–3 were frozen at `febc3f6` before any candidate was inspected. Two
+read-only auditors ran (A: the generator side; B: the noise side plus the discovery sweep), followed by
+one independent adversarial verifier on V1–V6. **No claim was refuted.** Two reasoning corrections were
+applied (§4.4). No code was run on members, and no RNG was used.
+
+### 4.1 G side: L0-1d (D-HERM-a) is the only certified generator record
+
+**Substrate.** A 23-site ring, K_s = K_b + (e₁ − e₂₃)(e₁ − e₂₃)ᵀ, with diagonal 3.3 at site 1 and 2.3
+elsewhere (`L0_1D_CHARTER_01.md:80-82`).
+
+**Affinity (X-a) is a declared, variable parameter.**
+- An antisymmetric deformation γa_i gives 𝒜 = Σ ln[(1 + γa_i)/(1 − γa_i)] (`:69-73`).
+- **Zero-affinity members:** C(0), B(·), T(·).
+- **Nonzero-affinity members:** C(0.1 … 0.9), with 𝒜 = 4.6 … 67.7 (`:83-99`;
+  `L0_1D_VERDICT_01.md:43-44`).
+- K_s is held fixed, so every member is accretive with μ > 0.3 (`L0_1D_CHARTER_01.md:174-176`).
+
+**The certified edge.** "Nonzero cycle affinity breaks complete monotonicity at all four circulating
+members" (L-2, `L0_1D_OWNER_RULING_01.md:15,18,58`; diagnostic §4).
+
+**What the record contains.**
+- Response: k(τ) = e₁ᵀe^{−Kτ}e₁, with k(0) = 1.
+- **No noise, no FDT rule, no covariance, and no correlation object.** A grep of `L0_1D_*.md` finds
+  none.
+
+**Excluded.** L0-1h, the one-way ring, is not a certified G edge. Its affinity "stays completely
+outside O-2" (`L0_1H_OWNER_RULING_02.md:47-51`), and it remains the open successor item S-8.
+
+### 4.2 N side: L0-1e (D-DET) on the symmetric chain K_b
+
+**Setting.**
+- K = K_b, symmetric (`L0_1E_THEOREM_01.md:17-27`).
+- Noise: Q = 2·diag(T_i), "never set from rung2's KMS lock".
+- Σ is defined by **KΣ + ΣK = Q**.
+
+**The FDT point.** T-4 gives Q = 2I, Σ = K⁻¹ and **−C′ = k_resp** (`:68-79`). The temperature form F-6
+holds only "if … K is symmetric" (`L0_1_FLOOR_DESIGN_01.md:117-118`).
+
+**The P^corr_CM object.**
+- C(τ) = e₁ᵀe^{−Kτ}Σe₁, with c = C/C(0) and τ ≥ 0 (`L0_1E_CHARTER_01.md:59-75`).
+- Noise is additive, so the result is convention-free.
+
+**Affinity is impossible on the chain.** By F-1, every sign-consistent tree coupling is diagonally
+similar to a symmetric one (`L0_1_FLOOR_DESIGN_01.md:47-59`).
+
+**The crossed cell is left open on the record.** L0-1e says separating the axes "needs successor item
+S-3" (`L0_1E_THEOREM_01.md:198-199`).
+
+### 4.3 Home record and FDT-like readings
+
+**No home record exists (1.3(i)).** No declared record pairs a variable affinity generator with a
+declared FDT-like rule. The verifier ran its own co-occurrence sweep over every `*.md`.
+
+| Near-miss | Why it fails |
+|---|---|
+| D-ORD | Lists the ring members only in the deterministic class 𝒞₁; its stochastic class 𝒞₃ is L0-1e only (`L0_1F_DORD_THEOREM_01.md:46,56-59`) |
+| Lift selection | Declares an FDT-like rule, but has no affinity parameter |
+| CA-1 | A symmetric Laplacian ring with no affinity |
+| S2 candidates C-A … C-D | All on K_b |
+| rung2 KMS lock | Not defined for L0 matrices; L0-1e excludes it |
+
+**Two declared FDT-like readings (1.4):**
+
+- **R₁ (L0-1e).** Q = 2T·I at the FDT point.
+  - Declared FDT, but **only for symmetric K**. The record does not extend it.
+  - Satisfies the record's FDT relation −C′ = T·k_resp.
+- **R₂ (lift selection, real Λ-B).** Q = K + Kᵀ.
+  - "FDT-held, L0-1e-type declared extension, which exists iff K is accretive"
+    (`L0_LIFT_SELECTION_VERIFICATION_01.md:97-98`); "FDT pairing" (`S5_GENERATOR_ORIGIN_01.md:306`).
+  - **The record itself extends it to non-symmetric K.** The "iff accretive" condition, the
+    non-symmetric 2-mode check (`:86`), and the general-K covariance with Σ = I (LS-2,
+    `L0_LIFT_SELECTION_CORRECTIONS_01.md:12`) all say so. It is instantiated only on K_b.
+  - **Caveats:**
+    - The governing correction LS-5 and `L0_LIFT_SELECTION_OWNER_RULING_02.md:37` repeat
+      Q = K + Kᵀ **without** the "FDT-held" label.
+    - R₂ gives **C = T·k**, not the record's FDT relation −C′ = T·k_resp. On the ring,
+      −C′(0) = T·K₁₁ = 3.3T ≠ T.
+    - It is FDT-like by label (an Einstein relation with K as the mobility), not by the N-side
+      identity.
+
+### 4.4 Per-reading construction of 𝒳 (with the verifier's corrections)
+
+Both readings need the **ring** (I-1 changes) and a **different noise rule from N's**:
+- R₁ would have to be extended to non-symmetric K, which the record does not do.
+- R₂ replaces 2I by 2K_s, and it is not diagonal even on the chain.
+
+So I-4 changes under both readings.
+
+**Correction 1 (Lyapunov form).**
+- N's literal definition, KΣ + ΣK = Q, is valid only for symmetric K.
+- For non-symmetric K it must be replaced by the general form KΣ + ΣKᵀ = Q
+  (`L0_1_FLOOR_DESIGN_01.md:114-115`; `L0_1F_DORD_THEOREM_01.md:85-86`).
+- This is a definitional change to X-c/I-5 under both readings.
+
+**Correction 2 (identity-forced).** 1.5 defines "identity-forced" only at the invariants. The R₂
+result below is therefore a **note carrying no evidence**, not an O-2 tag.
+
+**Answers of the off-invariant constructions (reported only; no predicate relies on them):**
+- **R₁ on the ring: OPEN.** With non-symmetric K, K(TK⁻¹) + (TK⁻¹)Kᵀ = T(I + K⁻¹Kᵀ) ≠ 2TI. So
+  Σ ≠ TK⁻¹, and no recorded identity fixes CM.
+- **R₂ on the ring: CM-LOST, by identity.**
+  - −K is Hurwitz, since Re λ ≥ λ_min(K_s) > 0.3.
+  - Q = 2T·K_s ≻ 0 is the same for every member.
+  - So Σ = T·I is unique, C = T·k, and c = k.
+  - Hence CM-LOST at C(0.1) … C(0.9) and CM at the zero-affinity members. **This is a copy of L-2.**
+  - By §2 caution 2 it carries **no independent reversal evidence.**
+
+### 4.5 The five invariants
+
+| Invariant | G (L0-1d) | N (L0-1e) | 𝒳 under R₁ / R₂ |
+|---|---|---|---|
+| I-1 substrate | 23-site ring, K_s held | symmetric chain K_b | **changed** under both (affinity impossible on the chain) |
+| I-2 observable | x₁ / e₁ | x₁ / e₁ | unchanged (the 3.3 vs 2.3 diagonal is an I-1 effect) |
+| I-3 convention | absent (deterministic) | additive | literal change only; no substantive effect (additive noise is convention-free) |
+| I-4 noise rule | absent | Q = 2·diag(T_i), FDT Q = 2I, symmetric K only | **changed** under both (R₁ extended; R₂ replaced) |
+| I-5 normalization / X-c | k unnormalized, k(0) = 1 | c = C/C(0); KΣ + ΣK = Q | the normalization is unchanged; **the Lyapunov form changes** under both |
+
+### 4.6 Prior expectations (§3.5)
+
+- **Expectation 1 is confirmed:** the generator side is on a ring and the noise side on a chain.
+- **Expectation 2's premise is not met.** The declared form is Q = K + Kᵀ, not T(K + Kᵀ), and it is
+  never paired with an affinity generator. Its conditional algebra is correct, but only under the
+  general Lyapunov form.
+
+### 4.7 Wording defects reported for adjudication (not repaired)
+
+| # | Defect | Effect here |
+|---|---|---|
+| D-1 | 1.3(ii) does not say how to treat an invariant that is absent on one side. | Affects I-3 and I-4; the terminal does not change. |
+| D-2 | 1.3 does not cover an FDT rule sourced from a third record. | Applies to R₂, from lift selection. |
+| D-3 | 1.4 does not say whether a formula stated for "any accretive K", but instantiated only on symmetric K, counts as the record extending the rule. | Read here as extended. |
+| D-4 | 1.5 leaves "identity-forced" undefined for off-invariant constructions. | Handled as a note carrying no evidence. |
+| D-5 | 3.2(3) does not say whether READING-DEPENDENT refers to the predicates or to the off-invariant tags. | The predicates agree (O-4 under both); only the off-invariant tags differ (OPEN vs CM-LOST). |
+| D-6 | X-c's phrase "as declared on the N side" imports the symmetric-only KΣ + ΣK = Q. | Recorded as a change of the Lyapunov form. |
 
 ## §5 Mechanical assignment
 
-*(appended after §4)*
+| Predicate | Value | Ground |
+|---|---|---|
+| O-1 CELL-ALREADY-CERTIFIED | **false** | No ruling decides P^corr_CM under generator affinity; L0-1e defers it to S-3. |
+| O-2 CELL-IDENTITY-FORCED | **false** | 𝒳 is not formulable at the invariants under either reading. |
+| O-3 FORMULABLE-CROSSED-CELL | **false** | Same reason. |
+| **O-4 FORMULABLE-ONLY-WITH-CHANGE** | **true, under both readings** | Changed invariants: **I-1** (ring vs chain; affinity impossible on the chain), **I-4** (R₁ must be extended to non-symmetric K; R₂ replaces N's rule), and **the I-5/X-c Lyapunov form**. I-3 is a literal change only. |
+| O-5 UNFORMULABLE | **false** | Every load-bearing object is declared: affinity, two FDT-like rules, and P^corr_CM. |
+
+> **S3-0 = FORMULABLE-ONLY-WITH-CHANGE** (proposed, mechanical).
+> - It is **not READING-DEPENDENT** at the predicate level.
+> - **Changed invariants:** I-1, I-4, and the I-5/X-c Lyapunov form. I-3 is a literal change only.
+> - **Stop. No hybrid is built.**
+
+**Report-only (outside the invariants; no evidence):**
+- **R₂ on the ring would be identity-forced to CM-LOST.** Σ = T·I gives C = T·k, which reproduces
+  L-2. It carries no independent reversal evidence.
+- **R₁ on the ring would be OPEN.**
+
+**Reading (fenced).**
+- As the record stands, the crossed cell cannot be posed without changing the substrate and the
+  noise rule.
+- Of the two declared FDT-like rules that could be carried to the ring:
+  - **R₂ would make the cell trivial:** correlation ∝ response, a copy of the generator result.
+  - **R₁ would leave a genuine open question**, but only after both changes.
+- Either way, the separation of "response ↔ correlation" from "generator ↔ noise" that reversal
+  diagnostic §2 caution 3 asks for **is not available from declared structure alone.**
+- The diagnostic graph 𝒢 is unchanged: no edge is added and no reversal is assessed.
+
+**HARD STOP.** This is proposed for owner adjudication. There is no run and no hybrid, and nothing is
+opened: no S-6, no S5-WB or S5-OD, and no gravity, Π₀ or cosmology.
