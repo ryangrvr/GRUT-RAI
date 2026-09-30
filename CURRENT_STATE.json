@@ -402,7 +402,7 @@
    "terminal": "PRINCIPLED-COARSE-ARROW-TEST-FOUND",
    "execution_gate": "ONE S6-1 analytic/certified execution; sequence: theorem doc -> commit -> script -> commit -> one run -> verdict -> HARD STOP",
    "charter_frozen_at": "fbd15c8",
-   "theorem_block": "S6_1_THEOREM_01.md (draft committed; independent verification in progress)"
+   "theorem_block": "S6_1_THEOREM_01.md VERIFIED (independent adversarial verifier; VC-1 edge phases, VC-2 analytic non-degeneracy p40>0; LS-1/LS-2 unchanged)"
   }
  },
  "hard_stop": {

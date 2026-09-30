@@ -1,8 +1,10 @@
 # S6-1 — ANALYTIC THEOREM BLOCK 01 (LS-0 … LS-5)
 
-**Status: DRAFT, committed pending independent verification.**
-- It was written before the certification script, which is not yet committed.
-- Verification corrections, if any, will follow as an additive commit, before the script is committed (charter
+**Status: VERIFIED.**
+- An independent adversarial verification passed after corrections VC-1 and VC-2; see the verification record at
+  the end.
+- The draft was committed at `303d3f3`/`303a216`.
+- This verified version is committed **before** the certification script (charter
   `S6_1_COARSEGRAINED_ARROW_CHARTER_01.md` §2 and §5.1). The charter was frozen at `fbd15c8`.
 
 **Authority:** `S6_OWNER_RULING_01.md` §9.
@@ -192,8 +194,13 @@ Hence **d(E₁ + E_int)/dt = −q₁p₂**, and in expectation this equals −J.
 
 *Endpoint stationary phase.* Using ∫₀^∞ x²e^{±iαx²}dx = (√π/4)α^{−3/2}e^{±3πi/4}:
 
-> **I^e_{k,w}(t) = t^{−3/2} Σ_{±} A_± e^{i(ω_± t ± 3π/4)} + O(t^{−5/2})**,
+> **I^e_{k,w}(t) = t^{−3/2}[A₋e^{i(ω₋t + 3π/4)} + A₊e^{i(ω₊t − 3π/4)}] + O(t^{−5/2})**,
 > with A_± = (1/(2√π))·w(λ_±) λ_±^{k/2}(2ω_±)^{3/2}.
+
+The lower edge carries +3π/4 and the upper edge −3π/4 (verification correction VC-1).
+
+**Consistency with S5.** For k = 0, w = 1, A₋ = Γ(3/2)c₋, which is S5's retained-response tail for
+⟨e₁, cos(√K t)e₁⟩ = c0.
 
 Here λ₋ = 0.3, λ₊ = 4.3, w₂(λ₋) = 2 and w₂(λ₊) = −2. Take I^c = Re I^e and I^s = Im I^e.
 
@@ -203,7 +210,7 @@ with the remainder O(t^{−5/2}).
 **3.2 The quadratic expansion.**
 - Let E = R^{−1/2}(S₁ − R)R^{−1/2}, and let μ_i be the eigenvalues of I + E. Then D = ½Σ(μ_i − 1 − ln μ_i).
 - Since μ − 1 − ln μ = ½(μ − 1)² + O((μ − 1)³), we get **D = ¼‖E‖_F² + O(‖E‖³)**.
-- By 1.3, E = t⁻³M(t) + O(t⁻⁴), where M is a quasi-periodic, real-symmetric, trig-polynomial matrix. Its
+- By 1.3 and 3.1, E = t⁻³M(t) + O(t⁻⁴), where M is a quasi-periodic, real-symmetric, trig-polynomial matrix. Its
   frequencies lie in {0, 2ω₋, 2ω₊, ω₊ ± ω₋}.
 - Hence:
 
@@ -217,19 +224,31 @@ with the remainder O(t^{−5/2}).
 
 **3.4 Non-degeneracy and sign reversal.**
 - P is almost periodic, so P′ has mean zero.
-- **If P is not constant**, then P′ ≢ 0. It takes values ≥ η > 0 and ≤ −η infinitely often, for all large t.
-- Therefore **Ḋ changes sign infinitely often, with magnitude of order t⁻⁶.**
-- If P is constant, the leading term gives no sign-reversal claim.
-- **Non-degeneracy is certified in the run** (charter P-8): P is shown to take different values at two points.
-- On the declared members P ≢ 0 whenever M ≢ 0. M ≢ 0 because the amplitudes A_± are nonzero and the three
-  coefficient groups (T_s/2.3, T_b/r, T_s − T_b) are not all zero.
+- **If P is not constant**, then P′ ≢ 0. On unbounded sets of t it takes values ≥ η > 0, and on other unbounded
+  sets values ≤ −η.
+- Therefore **Ḋ changes sign on an unbounded set of t, with magnitude of order t⁻⁶.**
+
+**Non-degeneracy (analytic; verification correction VC-2, replacing an invalid argument in the draft).**
+- ω₊/ω₋ = √(43/3) is irrational, so the frequencies mω₋ + nω₊ (m, n ∈ ℤ) are pairwise distinct.
+- P is a trigonometric polynomial in ψ₋ = ω₋t + 3π/4 and ψ₊ = ω₊t − 3π/4.
+- Its coefficient of e^{4iψ₋} depends only on the lower-edge amplitudes. It equals
+
+  > p₄,₀ = [(21414449 + 1879537√129)T_b² + (7929480 + 687240√129)T_bT_s + (752400 + 61200√129)T_s²] / (16π²·3174000·T_b²).
+
+  Every coefficient is positive, so **p₄,₀ > 0 for all T_s, T_b > 0.**
+- It was derived symbolically for generic T_s and T_b by the independent verifier. The verifier cross-checked it
+  by a 2-D FFT at the non-member pairs (3,2), (0.3,0.7), (5,0.2) and (0.01,5), agreeing to machine precision.
+- **Hence P is non-constant for every positive temperature pair, and the sign reversal of Ḋ holds unconditionally
+  on the declared family.**
+- The charter P-8 two-point evaluation is kept as a cross-check only.
 
 **3.5 Answer on the O-6 wording.**
 - The accepted D-1 text reads "t⁻³ sign-alternating ripples in both heat current and entropy derivative"
   (`L0_1G_OWNER_RULING_02.md:36-38`; `PREFREEZE:31`).
-- **For J**, it is correct as the leading class (J = O(t⁻³), bilinear).
+- **For J**, it is consistent: J = O(t⁻³) is proved as an upper bound, since J is bilinear. The non-vanishing of
+  J's t⁻³ coefficient is not examined here.
 - **For Ḋ**, it is a **valid upper bound but not the leading power.** The leading class is **t⁻⁶**.
-- The qualitative sign-reversal claim for Ḋ survives only under the non-degeneracy of 3.4.
+- The qualitative sign-reversal claim for Ḋ **survives unconditionally** (3.4, non-degeneracy).
 - The correction is **additive only**. It is recorded after owner acceptance, and **no O-6 terminal changes.**
 
 ## LS-4 Tail bound
@@ -274,7 +293,20 @@ For J, T ≥ T\*_J = √(2C_J/|X_J(∞)|) gives |X_f(T) − X_f(∞)| ≤ ½|X_f
 |---|---|
 | **LS-1** | Return to equilibrium (Gibbs invariance + rank-≤3 perturbation + absolute continuity + L¹ weights + Riemann–Lebesgue). **Proved.** |
 | **LS-2** | X_J(∞) = (T_s − T_b) + ½T_br² (record convention), with offset ½T_br². X_σ(∞) = D(0) > 0. Exact X_f''(0), with X_f(0) = X_f′(0) = 0. **Proved.** |
-| **LS-3** | D = t⁻⁶P + O(t⁻⁷) and Ḋ = t⁻⁶P′ + O(t⁻⁷). O-6's "t⁻³" for Ḋ is a loose upper bound. Sign reversal holds under the non-degeneracy of 3.4, which the run certifies. |
+| **LS-3** | D = t⁻⁶P + O(t⁻⁷) and Ḋ = t⁻⁶P′ + O(t⁻⁷). O-6's "t⁻³" for Ḋ is a loose upper bound, and the leading class is t⁻⁶. P is non-constant analytically (p₄,₀ > 0), so the sign reversal of Ḋ holds unconditionally. |
+
+## Verification record
+
+The block was verified by an independent adversarial verifier, read-only with respect to the repository. It used
+symbolic checks and finite-chain exact evolution at non-member temperatures only.
+
+| Item | Verdict |
+|---|---|
+| V1 LS-0; V2 LS-1.1/1.2; V3 LS-1.3 (five deviation formulas, matched to ~1e-40 on N = 6–10); V4 LS-1.4 (L¹ step); V5 LS-2.1/2.2; V6 LS-2.3/2.4 (D''(0) finite-difference check); V8 LS-4 (IBP, and t\|I\| ≤ V for all eight families); V9 LS-5 | **CONFIRMED** |
+| V7 LS-3 | Two defects were corrected: **VC-1**, the edge phase signs; **VC-2**, the invalid non-degeneracy argument, replaced by the analytic p₄,₀ > 0. Minor wording was also fixed. |
+| V10 completeness against charter §2 / ruling §9 | **CONFIRMED** after VC-2 |
+
+**Overall: PASS after VC-1 and VC-2.** No LS-1 or LS-2 conclusion changed, and T-1 and T-2 are unaffected.
 | **LS-4 / LS-5** | Explicit tail constants, and the entropy tail inequality. |
 
 **Consequence of LS-2 for T-1 and T-2** (theorem-grade once these pass verification and the run's integrity
