@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "840b3c3",
-  "subject": "SF-1 script committed before its single execution",
+  "commit": "1fedd3e",
+  "subject": "SF-1 single authorized run: result + verdict",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -188,7 +188,7 @@
    "governance": "direction 5899711204 lifted the Pi0 fence for the Pi0-0 audit only; it did not reopen general post-v4 in-house physics"
   },
   "sf0_campaign": {
-   "status": "SF-0 CLOSED (FORMULABLE-IN-EXISTING-CLASS); SF-1 single authorized run EXECUTED; proposed terminal awaiting owner adjudication",
+   "status": "SF-0 CLOSED (FORMULABLE-IN-EXISTING-CLASS); SF-1 CLOSED / ACCEPTED: FORMATION-OF-LAW-CLASS",
    "direction": "SF0_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5903141169)",
    "record": "SF0_PARENT_SECTOR_FORMATION_01.md (sections 0-3 pre-registered at 123abaa; sections 4-5 audit at 8e6a105; section 6 ruling)",
    "ruling": "SF0_OWNER_RULING_01.md (comment 5903310812): R-F = (b), excitation law of the exact invariant particle-number sector",
@@ -202,16 +202,34 @@
     "script": "calc/sf1_formation.py (committed 840b3c3 before execution; one run)",
     "result": "SF1_FORMATION_RESULT.json",
     "verdict": "SF1_FORMATION_VERDICT_01.md",
-    "proposed_terminal": "FORMATION-OF-LAW-CLASS (mechanical; all integrity controls V-FOCK/A-ODD/C-1/C-5 pass; C-2, C-3, C-4 pass)",
     "classes": "D (nu=1/2): I-z=1, I-q=2; E (N0=1): I-z=2, I-q=1; controls D-1/4, D-3/4 = (1,2); E-3, Ebar = (2,1)",
     "C6_report_only": "MULTISCALE / PATH-DEPENDENT IR (z_P=2, z_P'=3/2; kF ~ L^-1/2)",
-    "scope": "sector supplied by conserved boundary/state data (not dynamical selection); textbook one-band contrast placed under the frozen formation gate; free parent; dense/dilute are asymptotic sector classes separated by a crossover; not universes/constants/cosmology/GRUT substrate"
-   }
+    "scope": "sector supplied by conserved boundary/state data (not dynamical selection); textbook one-band contrast placed under the frozen formation gate; free parent; dense/dilute are asymptotic sector classes separated by a crossover; not universes/constants/cosmology/GRUT substrate",
+    "accepted": "SF1_OWNER_RULING_02.md (comment 5903593151): SF-1 = FORMATION-OF-LAW-CLASS accepted at frozen scope; C-6 = MULTISCALE / PATH-DEPENDENT IR (report-only); no rerun",
+    "terminal": "FORMATION-OF-LAW-CLASS (ACCEPTED)"
+   },
+   "accepted_finding": "Within one fixed free-fermion microscopic parent, different exact conserved particle-number scaling sectors support inequivalent IR effective-law classes under the preregistered density-response coarse-graining; intermediate sub-extensive scalings form a crossover/multiscale regime (C-6).",
+   "terminology_fence": "'law class' = effective-law / IR universality class; the microscopic law did not change",
+   "architectural_consequence": "A supplied sector does not imply a supplied effective law: distinguish microscopic-law selection / sector-boundary selection / effective-law emergence within the sector (H_micro + S_boundary -> L_eff[S]). Does NOT discharge lift IRREDUCIBLE/SUPPLIED."
+  },
+  "sfg0_campaign": {
+   "status": "OPEN, audit only (no new physics run); definitions pre-registered",
+   "authority": "SF1_OWNER_RULING_02.md section 9",
+   "record": "SFG0_GRUT_FORMATION_VARIABLE_01.md",
+   "outcomes": [
+    "GRUT-CANDIDATE-FOUND",
+    "CLASS-SPLIT",
+    "STATE-NOT-LAW",
+    "SECTOR-SMUGGLED",
+    "NO-CANDIDATE-IN-EARNED-CORE",
+    "UNFORMULABLE"
+   ],
+   "fences": "no new variable; no SF-2; no S-5 yet; no cosmology"
   }
  },
  "hard_stop": {
-  "active": true,
-  "note": "SF-1 run complete (proposed FORMATION-OF-LAW-CLASS; C-6 MULTISCALE/PATH-DEPENDENT IR report-only). Awaiting owner adjudication. No second run, no SF-2, no S-5, no migration to cosmology or GRUT substrate."
+  "active": false,
+  "note": "SFG-0 audit in progress (read-only). HARD STOP after the audit."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -244,7 +262,7 @@
   {
    "item": "SF-1 formation test",
    "record": "SF1_FORMATION_CHARTER_01.md",
-   "status": "run executed once; proposed FORMATION-OF-LAW-CLASS awaiting owner adjudication (not yet an accepted finding)"
+   "status": "CLOSED / ACCEPTED (see program_status.sf0_campaign)"
   }
  ],
  "successor_list": {
@@ -298,6 +316,10 @@
   {
    "record": "Pi0 route",
    "note": "PI0_ROUTE_CORRECTION_01.md: x = f(Pi0/Pi2) never instantiated ('banked' unsupported); S_IF x = c0/c0^trace-only is a different definition; operator 'alpha-free map' claim struck"
+  },
+  {
+   "record": "SF-0 audit section 4",
+   "note": "SF0_CORRECTIONS_01.md (auditor-proposed after SF-1): 'Linear/Gaussian => STATE-NOT-LAW by construction' holds only for linear retained observables; FS-1 fixed-H and O-6 tori rows re-opened for SFG-0"
   }
  ]
 }

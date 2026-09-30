@@ -1,5 +1,15 @@
 # SF-1 — FORMATION VERDICT 01
 
+> **ACCEPTED (owner ruling 02, Issue #2 comment `5903593151`; `SF1_OWNER_RULING_02.md`):**
+> - **SF-1 = FORMATION-OF-LAW-CLASS** (terminal at frozen scope).
+> - **C-6 = MULTISCALE / PATH-DEPENDENT IR** (report-only).
+> - No re-run.
+> - **Terminology fence:** read "law class" as **effective-law / IR universality class**. The
+>   microscopic law did not change.
+> - **Architectural consequence:** *a supplied sector does not imply a supplied effective law.*
+>
+> The verdict below is preserved as filed.
+
 **Mechanical terminal: FORMATION-OF-LAW-CLASS.**
 **C-6 (report-only): MULTISCALE / PATH-DEPENDENT IR.**
 

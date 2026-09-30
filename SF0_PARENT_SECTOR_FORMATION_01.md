@@ -4,6 +4,11 @@
 > SF-0 = FORMULABLE-IN-EXISTING-CLASS (CA-1 F conserved filling sectors).** The proposed
 > REQUIRES-NEW-PARENT in §5 is **NOT ADOPTED**. §§4–5 are kept as filed; see §6.
 > SF-1 charter: `SF1_FORMATION_CHARTER_01.md` (draft; not run).
+>
+> **CORRECTION POINTER:** `SF0_CORRECTIONS_01.md` SC-1/SC-2 (auditor-proposed after SF-1).
+> - The §4 "Linear/Gaussian ⇒ STATE-NOT-LAW by construction" argument holds only for linear
+>   retained observables.
+> - The FS-1 fixed-H and O-6 tori rows are re-opened for SFG-0.
 
 **Previous status: §4 audit and §5 proposed outcome ADDED (REQUIRES-NEW-PARENT, conditional on owner
 ruling R-F); awaiting owner ruling.** §§0–3 below are unchanged since `123abaa`.
