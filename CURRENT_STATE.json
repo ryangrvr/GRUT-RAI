@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "de6eb46",
-  "subject": "S2-1 corrective result + verdict",
+  "commit": "d1ba71d",
+  "subject": "S2-HB interim owner ruling 01",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -278,7 +278,7 @@
    ]
   },
   "s2_campaign": {
-   "status": "S2-1 CLOSED / ACCEPTED: FULL-DISCRIMINATOR-CONFIRMED; S2-HB boundary audit opened (audit only)",
+   "status": "S2-1 CLOSED / ACCEPTED: FULL-DISCRIMINATOR-CONFIRMED; S2-HB audit complete, proposed UNRESTRICTED-REALIZATION-ONLY (HARD STOP)",
    "direction": "S2_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5904589246)",
    "record": "S2_NOISE_ORIGIN_HARD_DDET_01.md",
    "question": "primitive stochastic forcing after t=0 vs deterministic dynamics + uncertain initial state, in a class beyond the S-1 linear-additive-Gaussian equivalence",
@@ -319,7 +319,7 @@
    "deposit": "S2_NOISE_ORIGIN_DEPOSIT_01.md",
    "s2_hb": {
     "record": "S2_HAMILTONIAN_BATH_BOUNDARY_01.md",
-    "status": "OPEN, audit/formulation only",
+    "status": "AUDIT COMPLETE; proposed terminal UNRESTRICTED-REALIZATION-ONLY; HARD STOP for owner adjudication",
     "question": "Can the C-B reduced stochastic response be reproduced by deterministic evolution on a larger state space with hidden environmental DOF randomized only at t=0?",
     "distinction": "HB-U unrestricted (path-space/dilation) vs HB-P physically constrained local autonomous Hamiltonian parent",
     "outcomes": [
@@ -329,13 +329,26 @@
      "SECOND-ORDER-ONLY",
      "NO-PHYSICAL-BATH-CANDIDATE",
      "UNFORMULABLE"
-    ]
+    ],
+    "preregistered_at": "0942dbd",
+    "interim_ruling": "S2_HB_OWNER_RULING_01.md (comment 5909260267): DC-1 confirmed; O-5 read narrowly",
+    "proposed_terminal": "UNRESTRICTED-REALIZATION-ONLY",
+    "sub_labels": [
+     "NO-PHYSICAL-BATH-CANDIDATE (literal P-4/P-6 readings; conditional on A-1a/A-1b)",
+     "FORMULABLE-ONLY-WITH-NEW-COUPLING"
+    ],
+    "not_assigned": [
+     "SECOND-ORDER-ONLY (prior expectation refuted)",
+     "BLOCKED-BY-NOT-ADMITTED-LIMIT"
+    ],
+    "findings": "HB-U: C-B Wiener-shift skew product, GENERAL-THEOREM-ONLY, R-FULL (no declared equivalent). HB-P: none; O-6 declared ensemble randomizes system (P-4 fail), S5-1 has no forcing (P-6 N/A); S-1 FKM general-theorem-only (P-7 fail); no declared bath parent carries the quartic system part or a first-order x-reduction.",
+    "adjudication_items": "A-1 HB-P/scope-NONE gap; A-1a system-momentum randomness vs P-4; A-1b N/A P-6; A-2 R-2 member anchoring; A-3 O-5 wording (resolved by interim ruling); A-4 missing-structure list beyond coupling"
    }
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "S2-HB read-only audit in progress. HARD STOP after audit."
+  "active": true,
+  "note": "S2-HB audit complete; proposed UNRESTRICTED-REALIZATION-ONLY. HARD STOP for owner adjudication. No physics run, no new bath, nothing opened."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
