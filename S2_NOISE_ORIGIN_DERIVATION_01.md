@@ -1,10 +1,11 @@
 # S2-1 — ANALYTIC DERIVATION 01 (coefficients; finite-moment M2; T-HT)
 
-> **STATUS: DRAFT, PENDING INDEPENDENT ADVERSARIAL VERIFICATION of §1 and §3 (HT-B).**
-> - No script has been written or run.
-> - Any correction will be applied in a later commit, **before** `calc/s2_noise_origin.py` is
->   committed.
-> - This status line will then be updated.
+> **STATUS: VERIFIED.**
+> - An independent adversarial verifier refuted nothing. It confirmed §1 exactly and every step of
+>   §3 with exact sympy on symbolic chains. There was no RNG and no member numerics.
+> - It raised three presentation gaps, **VG-1 … VG-3**, which do not affect validity. They are fixed
+>   additively in §3 and §0.
+> - This is the execution derivation. It precedes `calc/s2_noise_origin.py`.
 
 - **Charter:** `S2_NOISE_ORIGIN_CHARTER_01.md`, frozen at `227dd09`.
 - **Authority:** `S2_OWNER_RULING_01.md` (one analytic/exact execution; S2-1-only v4 exception).
@@ -30,6 +31,11 @@
 | **F4 (coming down from infinity)** | For u = \|x\|²: u̇ = −2xᵀKx − 8βΣx_i⁴ ≤ −(8β/N)u², using Σx_i⁴ ≥ u²/N. Hence \|φ_t(y)\|² ≤ min(\|y\|², N/(8βt)) for every y and t > 0. Solutions exist globally. | |
 | **F5 (oddness)** | f(−x) = −f(x), so φ_t(−y) = −φ_t(y). With symmetric additive noise, the law of x under −x₀ is the image of the law under x₀. | |
 | **F6 (stochastic regularity)** | 𝓛\|x\|^{2p} ≤ c_p(1 + \|x\|^{2p}), because x·f ≤ 0. So every moment of 𝒮 is bounded on compact time intervals, and Dynkin's expansion holds to every finite order with a remainder of the next order. | |
+
+**VG-3 (added): the explicit continuity argument for F6.**
+- x_s → a·e₁ in L² as s → 0, because the process starts at a deterministic point.
+- The moment bounds make f₁(x_s) uniformly integrable, so s ↦ 𝔼f₁(x_s) is continuous.
+- Hence m^𝒮(t) = a + ∫₀ᵗ𝔼f₁(x_s)ds is C¹, and (m^𝒮)′(t) → f₁(a·e₁) as t → 0.
 
 From F5: m^𝒮(t; −a) = −m^𝒮(t; a).
 From F6: m^𝒮(t; a) = Σ_{n≤4} c_n tⁿ/n! + O(t⁵).
@@ -75,6 +81,9 @@ From F6: m^𝒮(t; a) = Σ_{n≤4} c_n tⁿ/n! + O(t⁵).
 **Theorem HT-B.** Let β > 0, and let the profile have T₁ > 0 (F, or GR(∞)). Suppose the frozen
 preparation set A contains a pair a > a′ and a symmetric pair ±a with a ≠ 0. The frozen
 A = {±1/1000, ±1, ±3} does.
+
+**VG-2:** a single symmetric pair (a, −a) suffices for both steps, because it also serves as the pair
+a > a′ in Step A.
 
 Let ν be **any** law on ℝ²³, independent of the preparation, with 𝔼|ξ₁| < ∞. That is exactly the
 charter's admissibility: the O-1 mean is defined at t = 0.
@@ -148,7 +157,11 @@ with e(0) = 0.
 *Lemma B2 (pointwise).* For each fixed ξ, e(·, ξ) is C^∞ (polynomial ODE), and:
 - e(0) = 0.
 - ė(0) = 0, because g₂(0) = g⁰₂(0) = 0 and ρ(0) = 0.
-- ë(0) = ġ₂(0) − ġ⁰₂(0) − 4βρ̇(0)g₁(0) = 2a − 2a − 0 = 0. Here ġ₂(0) = −K₂₁·2a (since
+- **VG-1: the full derivative.** Writing c(t) for the coefficient of e in (v),
+
+  ë = −ċe − cė + (ġ₂ − ġ⁰₂) − 4β(ρ̇g₁ + ρġ₁).
+
+  At t = 0, e = ė = ρ = 0, so ë(0) = ġ₂(0) − ġ⁰₂(0) − 4βρ̇(0)g₁(0) = 2a − 2a − 0 = 0. Here ġ₂(0) = −K₂₁·2a (since
   g₂(0) = g₃(0) = 0), and ρ̇(0) = 0 because δ^±(0) = 0.
 - Hence e(t, ξ) = O(t³), so **e/t² → 0.**
 
