@@ -1,101 +1,147 @@
-# S2-1 — NOISE-ORIGIN DISCRIMINATOR CHARTER 01 (C-B; DRAFT)
+# S2-1 — NOISE-ORIGIN DISCRIMINATOR CHARTER 01 (C-B)
 
-**STATUS: DRAFT FOR OWNER REVIEW. NOT FROZEN. NOT RUN. NOT EXECUTABLE.**
-- **Authority:** `S2_CAMPAIGN_OWNER_DIRECTION_01.md` §11. The charter is drafted only because the S2-0
-  gate proposes MINIMAL-CLASS-FOUND (`S2_NOISE_ORIGIN_HARD_DDET_01.md` §5).
-- **Execution needs:**
-  - owner review and freeze;
-  - a **campaign-specific v4 exception** (none is granted);
-  - a ruling on flag F-1.
+**STATUS: FROZEN FOR EXECUTION** (amended per `S2_OWNER_RULING_01.md`, Issue #2 comment `5905401028`).
+- **The frozen commit is the commit that introduces this revision.** CURRENT_STATE records its hash.
+- **ONE S2-1 analytic/exact physics execution is authorized**, with a campaign-specific v4 exception
+  for S2-1 only.
+- **Draft history:** the draft is at `47a9a7b`, and the amendment log is §8.
 - **Date:** 2026-09-30 · **Branch:** `master-w25bu9`.
 
 ## §0 Target
 
-Confirm, at exact (theorem/rational) grade on the declared C-B members, the S2-0 discriminator:
+At exact (theorem/rational) grade, for **C-B**: dx = [−Kx − 4βx^{∘3}]dt + B dW, Q = BBᵀ = 2·diag(T_i),
+on K = K_b.
 
-> the retained mean response map m₁(t; a) of dx = [−Kx − 4βx^{∘3}]dt + B dW differs from that of every
-> deterministic flow of the same drift with preparation-independent hidden initial data. The leading
-> difference is −12βT₁a·t².
+**(a) Coefficient identities.** With c_n := (𝓛ⁿx₁)(a·e₁), 𝓛 = f·∇ + ½Q:∇∇, c_n^φ := ((f·∇)ⁿx₁)(a·e₁),
+Δc_n := c_n − c_n^φ, and m₁(t) = Σ_n c_n tⁿ/n!:
 
-The charter also produces the exact higher Taylor coefficients, without claiming any finite-time
-magnitude.
+- **Δc₂ = −24βT₁a**, so the coefficient of t² is **−12βT₁a**.
+- **Δc₃ = 24βT₁a(44βa² + 5K₁₁)**, so the coefficient of t³ is **4βT₁a(44βa² + 5K₁₁)**.
+
+(Dynkin coefficients versus ordinary Taylor coefficients: the factor n! is frozen here.)
+
+**(b) T-HT (mandatory).** Decide whether any **arbitrary** preparation-independent hidden law ν on
+the full state space (x(0) = a·e₁ + ξ, ξ ~ ν, with the O-1 mean defined) reproduces the C-B response
+map m₁(t; a) for all frozen a on some 0 ≤ t < ε. Do this by HT-A, HT-B or HT-C (§3).
 
 ## §1 Parent and members (all declared; no new ingredient)
 
-- **K = K_b** (sealed, 23 sites, rational).
+- **K = K_b:** the sealed 23-site bath block; rational entries 23/10 (13/10 at site 23), with
+  off-diagonal −1.
 - **Drift:** f_β = −Kx − 4βx^{∘3}.
-- **Noise:** Q = 2·diag(T_i), additive, so the result is convention-free.
-- **Members:**
-  - β ∈ {0 (control), 0.03, 0.1, 0.3, 1.0, 3.0};
-  - T-profiles **F** (T_i ≡ 1; primary) and **G(∞)** (T₁ = 0; a higher-order control, where the t²
-    coefficient must vanish);
-  - preparations a ∈ {±0.001, ±1.0, ±3.0}, which are the declared values and their negatives, at
-    least 5 distinct and nonzero.
+- **Noise:** additive, so it is convention-free.
+- **β ∈ {0, 3/100, 1/10, 3/10, 1, 3}.**
+- **a ∈ {±1/1000, ±1, ±3}.**
+- **Profiles** (OR-4, exactly):
+  - **F:** T_i = 1;
+  - **G(∞):** T_i = (i−1)/22, so T₁ = 0;
+  - **GR(∞):** T_i = (23−i)/22, so T₁ = 1.
+- No finite-R profile.
 
-## §2 Execution (exact; deterministic; no simulation, no RNG)
+## §2 Execution (frozen order; exact; no RNG; no simulation; no stochastic trajectories)
 
-- **E-1: exact Dynkin coefficients.** For n ≤ n_max, compute, in exact rational arithmetic:
-  - c_n^𝒮(a) := (𝓛ⁿx₁)(a·e₁), with 𝓛 = f·∇ + ½Q:∇∇;
-  - c_n^φ(a) := ((f·∇)ⁿx₁)(a·e₁).
+1. **Analytic derivation, written and committed first** (`S2_NOISE_ORIGIN_DERIVATION_01.md`):
+   - the general Δc₂ and Δc₃ at a·e₁;
+   - the finite-moment M2 no-go, restated;
+   - **T-HT**, by HT-A, HT-B or HT-C, with proofs.
+2. **`calc/s2_noise_origin.py`, committed before its single run.** It contains:
+   - **E-1:** exact symbolic 𝓛ⁿx₁ and (f·∇)ⁿx₁ for n ≤ **4** (n_max = 4) on the full 23-site K_b,
+     instantiated exactly (sympy Rational) at every (β, a, profile).
+   - **E-2:** a symbolic re-derivation of the finite-moment M2 coefficient algebra and of the
+     ξ-independence identities that T-HT uses, on generic symbolic data.
+   - **E-3:** structural checks: K_b is symmetric positive definite with non-positive off-diagonal
+     (so the drift is cooperative); f is odd.
+3. **One run.** Then the result, the verdict, and HARD STOP.
 
-  Here n_max = 6 is proposed (OR-2). By locality (K is tridiagonal), 𝓛ⁿx₁ involves only sites
-  1 … n + 1. Report Δ_n(a) = c_n^𝒮 − c_n^φ, as exact rationals.
-- **E-2: the M2 no-go at declared generality.**
-  - A formal proof, restated with explicit moment conditions (verifier: finite 7th moments suffice
-    for orders ≤ 2 plus the remainder).
-  - Extended symbolically to the order at which the first nonzero Δ_n appears for each T-profile.
-  - Include the Dirac-shift single-preparation counter-construction, to document that a single
-    preparation is not decisive.
-- **E-3: theorem obligation T-HT** (mandatory only if F-1(b) is ruled). Either close or refute the
-  no-go for hidden laws ν with 𝔼|ξ| < ∞ but infinite higher moments.
-- **E-4: controls** (integrity):
-  - β = 0 ⇒ Δ_n ≡ 0 for every n (Theorem LD instantiated).
-  - G(∞) ⇒ Δ₂ = 0 exactly. The first nonzero order is reported. (The T4 correction predicts a
-    higher-order separation through coupling; this is not assumed.)
-  - A re-derivation on the verifier's generic 2- and 4-site symbolic chain reproduces
-    Δ₂ = −12βT₁a·(t²-normalized) and Δ₃ = 4βT₁a(44βa² + 5K₁₁).
+## §3 T-HT routes (ruling §5)
 
-## §3 Outcomes (proposed; to freeze at freeze)
+| Route | Requirement |
+|---|---|
+| **HT-A** | Matching on 0 ≤ t < ε for the frozen preparations forces enough integrability for the finite-moment no-go. |
+| **HT-B** | A moment-free no-go: no admissible preparation-independent ν reproduces the response map across the frozen preparations. |
+| **HT-C** | An explicit admissible heavy-tailed ν reproduces the **full response map** across all frozen preparations on a nonzero interval. |
 
-1. **RUN VOID:** an integrity failure (E-4, or an arithmetic or locality check). Preserve the defect;
-   no re-run without a ruling.
-2. **DISCRIMINATOR-CONFIRMED:**
-   - Δ₂(a) = −24βT₁a (in the coefficient-of-t²/2 normalization) exactly, for every declared (β > 0,
-     F, a);
-   - the M2 no-go is proved at the admissibility class ruled under F-1;
-   - the controls pass.
-3. **DISCRIMINATOR-CONFIRMED-FINITE-MOMENT:** as item 2, but under F-1(b) with T-HT left open.
-4. **DISCRIMINATOR-REFUTED:** the exact coefficients contradict the S2-0 identity, or an M2 ν
-   reproducing the response map is exhibited.
+- Finite Taylor matching is not HT-C.
+- Failing HT-A or HT-B is not evidence for HT-C.
+- **"Admissible"** means any law on ℝ²³, independent of a, **such that the O-1 mean is defined on the
+  matching interval, including t = 0** (for t = 0 this means 𝔼|ξ₁| < ∞). No other moment condition
+  may be assumed.
 
-**No finite-time magnitude, sign-over-a-window or "size of the effect" claim** is made unless a
-rigorous remainder bound is separately chartered (OR-3).
+## §4 Integrity identities and controls (frozen)
 
-## §4 Fences
+| # | Identity | Kind |
+|---|---|---|
+| I-1 | **F:** Δc₂ = −24βT₁a and Δc₃ = 24βT₁a(44βa² + 5K₁₁), exactly, with T₁ = 1 and K₁₁ = 23/10, at every β and a | coefficient identity |
+| I-2 | **β = 0:** Δc_n = 0 for n ≤ 4, at every profile and a (Theorem LD instantiated) | control identity |
+| I-3 | **G(∞):** Δc₂ = 0 exactly (T₁ = 0) | control identity |
+| I-4 | **GR(∞):** Δc₂ = −24βT₁a with T₁ = 1 | the "leading coefficient follows T₁" test (a coefficient identity) |
+| I-5 | E-3 structural checks, and the E-2 symbolic re-derivations | integrity |
 
-- **First-gate comparison only.** The Hamiltonian-bath (enlarged deterministic) comparison is
-  deferred, and becomes eligible only if S2-1 confirms.
-- **Conditional on the declared L0-1c drift**, a supplied premise (S-5).
-- **The claim** is only that primitive forcing leaves response structure that
-  preparation-independent initial uncertainty cannot reproduce in C-B. It is **not** "noise is
-  primitive".
-- **Not authorized:**
-  - simulation or RNG;
-  - S-3, S-6, S5-WB/OD;
-  - gravity, Π₀ or cosmology.
+**Reported only, with no pre-registered sign or value:**
+- G(∞): Δc₃ and Δc₄, and its first nonzero order ≤ 4 (if any);
+- the difference between F and GR(∞) in Δc₃ and Δc₄ (the remote-orientation effect);
+- all Δc_n tables.
 
-## §5 Open items for owner review
+## §5 Outcomes (frozen; ruling §7)
 
-- **OR-1 (= S2-0 F-1):** hidden-law admissibility: finite moments (a), or arbitrary with T-HT (b).
-- **OR-2:** n_max (6 is proposed), and whether E-1 runs on all members or only on the adjudicating
-  set (β ∈ {1.0, 3.0}; a ∈ {±1, ±3}).
-- **OR-3:** whether to add a rigorous finite-time remainder bound (Lyapunov-moment-based) so that a
-  finite-window statement becomes possible, or to stay at Taylor grade.
-- **OR-4:** whether to include G(∞) and GR(∞) as the T₁ = 0 / T₁ > 0 profile controls.
+The first matching item decides:
 
-**Artifacts at execution:**
-- `calc/s2_noise_origin.py`, exact rational and sympy only;
-- `S2_NOISE_ORIGIN_RESULT.json`;
-- `S2_NOISE_ORIGIN_VERDICT_01.md`.
+1. **RUN VOID:** a frozen exact-arithmetic or integrity identity (I-1 … I-5) fails for an
+   implementation reason. Preserve the artifact; no re-run without a ruling.
+2. **COEFFICIENT/CONTROL-REFUTED:** a coefficient identity (I-1, I-4) or the finite-moment M2 theorem
+   fails, without an implementation defect.
+3. **FULL-DISCRIMINATOR-CONFIRMED:** I-1 … I-5 pass; the finite-moment M2 no-go is reproduced; **T-HT
+   closes by HT-A or HT-B**; and no arbitrary preparation-independent ν reproduces O-1 across the
+   frozen preparations.
+4. **ARBITRARY-M2-COUNTEREXAMPLE:** HT-C succeeds. The finite-moment result stands separately.
+5. **FINITE-MOMENT-DISCRIMINATOR-CONFIRMED:** the identities and the finite-moment theorem pass, but
+   T-HT is unresolved.
 
-Then **HARD STOP.**
+There is **no finite-time magnitude or remainder bound** (OR-3). The result stays at exact
+local/Taylor grade.
+
+## §6 Fences (ruling §§9–10)
+
+**Strongest allowed statement:**
+
+> **Within the declared nonlinear C-B class, ongoing primitive forcing is observationally
+> distinguishable in the retained mean-response map from uncertainty confined to the initial condition
+> on the same deterministic state space.**
+
+**Not established:**
+- fundamental noise;
+- that GRUT requires primitive randomness;
+- that enlarged deterministic baths cannot reproduce the reduced process (the Hamiltonian-bath
+  comparison is deferred);
+- quantum outcome selection or Born probabilities.
+
+**Conditional on the L0-1c drift**, a supplied premise (S-5).
+
+**Not authorized:**
+- RNG or simulation;
+- a second run, or any drift/noise change after the freeze;
+- S-3, the reversal diagnostic, S-6;
+- S5-WB or S5-OD;
+- gravity, Π₀ or cosmology.
+
+## §7 Owner rulings replacing the draft's open items
+
+| Item | Ruling |
+|---|---|
+| OR-1 | Arbitrary M2; T-HT mandatory |
+| OR-2 | n_max = 4; the full member set |
+| OR-3 | No finite-time bound |
+| OR-4 | Exactly the profiles F, G(∞) and GR(∞) |
+
+## §8 Amendment log (draft `47a9a7b` → frozen)
+
+| # | Change | Source |
+|---|---|---|
+| AM-1 | M2 arbitrary; T-HT mandatory, with routes HT-A, HT-B and HT-C and the admissibility clause | ruling §§1, 5 |
+| AM-2 | n_max 6 → **4**; the full member set | ruling §6 OR-2 |
+| AM-3 | **Normalization frozen:** Δc₂ = −24βT₁a (t² coefficient −12βT₁a); Δc₃ = 24βT₁a(44βa² + 5K₁₁) (t³ coefficient 4βT₁a(44βa² + 5K₁₁)), consistently in §0, §4 and §5 | ruling §6 |
+| AM-4 | The OR-3 finite-time bound is removed | ruling §6 |
+| AM-5 | The profiles are exactly F, G(∞) and GR(∞). G(∞) has only Δc₂ = 0 frozen; the rest is reported without a pre-registered sign or value. GR(∞) tests the leading coefficient against T₁. | ruling §6 OR-4 |
+| AM-6 | The outcome set is replaced by the ruling §7 set | ruling §7 |
+| AM-7 | The execution order is frozen: derivation (with T-HT), then the committed script, then one run | ruling §8 |
+| AM-8 | **Auditor pre-freeze note (disclosed):** Δc₃ at a·e₁ depends only on T₁, not on T₂. In 𝓛³x₁, the ½Q₂₂∂₂² term acts on f·∇f₁ and leaves only 24βK₁₂x₂, which is 0 at a·e₁. The I-1/I-4 Δc₃ identity is therefore well-posed for every profile; I-4 freezes only Δc₂ per the ruling. | pre-freeze; no member computed |

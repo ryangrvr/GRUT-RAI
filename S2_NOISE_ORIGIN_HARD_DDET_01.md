@@ -1,5 +1,19 @@
 # S2-0 — HARD D-DET / NOISE-ORIGIN DISCRIMINATOR: formulation / class-selection gate
 
+> **OWNER RULING (Issue #2 comment `5905401028`; `S2_OWNER_RULING_01.md`):**
+> - **F-1 = (b):** M2 stays **arbitrary**, as pre-registered.
+> - **S2-0 = CLASS-SPLIT** (accepted). The proposed MINIMAL-CLASS-FOUND is **NOT ADOPTED yet.**
+> - **Binding qualifier:** C-B is theorem-level distinguishable on the retained mean response under
+>   M1, and under M2 for preparation-independent hidden laws with the required finite moments;
+>   arbitrary M2 remains open. C-A, C-C and C-D remain equivalent on the frozen control-blind
+>   observables at their audited scopes.
+> - **Accepted at theorem scope:** m₁^𝒮 − m₁^𝒟 = −12βT₁a·t² + O(t³) (C-B, M1).
+> - **F-2 and F-3 accepted.** The SECOND-ORDER-EQUIVALENT labels are to be read narrowly, as
+>   O-1/O-2 at the audited scope only.
+> - **T-HT is mandatory in S2-1.**
+>
+> §§0–5 below are preserved as filed.
+
 **STATUS: AUDIT COMPLETE.**
 - §§0–3 were pre-registered at `8e1c8e7` and are unchanged.
 - §4 (the audit) and §5 (the proposed outcome, **MINIMAL-CLASS-FOUND (C-B)**, conditional on flag
