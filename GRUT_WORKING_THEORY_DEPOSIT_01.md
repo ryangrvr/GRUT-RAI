@@ -14,9 +14,9 @@
 
 ## A. Current identity
 
-> **GRUT is a theory-construction / conditional-emergence research program whose accepted product is a certified
-> dependency map of effective structure over explicitly supplied physical layers. It is not a fundamental theory, and it
-> is not only an EFT.**
+> **GRUT is presently a theory-construction program whose accepted product is a certified dependency map of effective
+> structure over an explicitly supplied, multi-layer foundation. It is not a fundamental theory, and it is not only an
+> EFT.** (`SYN0_OWNER_RULING_01.md` §2, verbatim)
 
 **Fence:** the nine-layer architecture (§E) is the **minimal bookkeeping architecture supported by the current record**,
 not a claim that nature is fundamentally partitioned into exactly nine layers (`SYN0_OWNER_RULING_01.md` §2).
@@ -62,7 +62,8 @@ All of these hold on the declared C1-a class, at recorded scope.
 - linearity ⇏ memory (L0-1c convex-quartic class). This is the accepted content of the "nonlinear relaxation class": a
   **deletion** result, transient-limited, and not a selected class;
 - emergent dissipation ⇏ strict ordering (O-6 conservative parent);
-- the remaining floor non-implications (`L0_1_FLOOR_DEPOSIT_01.md:95-102`).
+- the remaining floor non-implications (`L0_1_FLOOR_DEPOSIT_01.md:95-102`), excluding locality ⇏ memory, which is
+  core.
 
 ### C-2 Conditionally emergent: derived given explicitly supplied upstream structure
 
@@ -75,7 +76,9 @@ All of these hold on the declared C1-a class, at recorded scope.
 | Influence-cone geometry | P-2 CONE-CONFIRMED (Gaussian class) | ħ / quantum class | `P2_S1_OWNER_RULING_01.md` |
 | Gravity-sector results (U-1, RS-1, TT-1, ω⁷ occupancy) | conditional | the supplied quadruple | `GR2_SYNTHESIS_OWNER_RULING_01.md`; `GR2A_OWNER_RULING_01.md` |
 | FRW kernel transport | computable | admitted inputs | `KERNEL_TRANSPORT_OWNER_RULING_01.md` |
-| Branch-class selection | PROVISIONAL (in class) | amplitude/state sector-supplied | `P3_P4_OWNER_RULING_01.md:38-44` |
+
+**Also recorded, but not in the owner's §3 list:** branch-class selection, PROVISIONAL (in class). See
+`GRUT_RECORD_RECONCILIATION_INDEX_01.md`, item 10.
 
 **These are not "derived from GRUT from nothing."**
 
@@ -85,8 +88,8 @@ All of these hold on the declared C1-a class, at recorded scope.
 
 | Terminal (exact) | Record |
 |---|---|
-| ħ emergence: **FAILED**, ħ is an irreducible input ("located, not derived") | `program/GRUT_REALITY_CHECK_01.md:44`; `P2_S1_OWNER_RULING_01.md:37-43` |
-| **EXPERIMENT_P_FRONTIER = CLOSED_AT_TESTED_MODEL_CLASS**; outcome selection / Born weights not derived | `GRUT_PROGRAM_CLOSURE_01.md:38-43` |
+| ħ emergence: **FAILED**, ħ is an irreducible input ("located, not derived"; P-2: "Located, not generated") | `program/GRUT_REALITY_CHECK_01.md:44`; `GRUT_WORKING_THEORY_01.md:311`; `P2_S1_OWNER_RULING_01.md:37-43` |
+| **EXPERIMENT_P_FRONTIER = CLOSED_AT_TESTED_MODEL_CLASS** ("not a universal disproof of the Born rule"); outcome selection / Born weights not derived | `GRUT_PROGRAM_CLOSURE_01.md:38-43` |
 | **GRAVITY_UNDERDETERMINED** | `GR2_SYNTHESIS_OWNER_RULING_01.md:13-14` |
 | **Π0-0 = FRONTIER-BLOCKED** | `PI0_TRACE_CHANNEL_OWNER_RULING_01.md:11-12` |
 | **L0 ACCESS BRIDGE = NONUNIQUE-LIFT**; **L0 LIFT SELECTION = IRREDUCIBLE/SUPPLIED** | `L0_ACCESS_BRIDGE_OWNER_RULING_02.md:10`; `L0_LIFT_SELECTION_OWNER_RULING_02.md:9` |
@@ -94,8 +97,10 @@ All of these hold on the declared C1-a class, at recorded scope.
 | **O-6 = FALSIFIED** (strict pointwise arrow) | `L0_1G_OWNER_RULING_02.md:9-10` |
 | **O-2 = FALSIFIED**; **O-7 = FALSIFIED** | `L0_1H_OWNER_RULING_03.md:8`; `L0_1_FLOOR_O7_OWNER_RULING_01.md:10` |
 | **S5-0 = GENERATOR-IRREDUCIBLE/SUPPLIED**; the conservative parent does not derive the Level-0 G-D generator | `S5_OWNER_RULING_01.md:9`; `S5_OWNER_RULING_03.md:117-120` |
-| **SFG-0**: Tier E has no formation variable ("NO CURRENT CANDIDATE") | `SFG0_OWNER_RULING_01.md:60,73` |
+| **SFG-0 = CLASS-SPLIT** (Tier E: no formation variable; "NO CURRENT CANDIDATE") | `SFG0_OWNER_RULING_01.md:60,73` |
 | **S3-0 = FORMULABLE-ONLY-WITH-CHANGE** (the crossed cell is not in the theory at fixed invariants) | `S3_OWNER_RULING_01.md:9` |
+
+The full list is in SYN-0 §4.
 
 ### Unresolved (not failed)
 
@@ -119,7 +124,7 @@ All of these hold on the declared C1-a class, at recorded scope.
 
 - **The nine supplied layers** are listed in `SYN0_OWNER_RULING_01.md` §2. They are **mutually non-selecting** on the
   record. The only cross-layer relations are possibility without selection (NONUNIQUE-LIFT) and conditional supply
-  (statistics → sector, SFG-0 Tier C).
+  (statistics → sector, SFG-0 Tier C). Physical ħ is also one of the lift's prices, so those two layers overlap.
 - **Arrow grades** are DERIVED / CONDITIONAL / SUPPLIED / BLOCKED / FALSIFIED-NON-IMPLICATION: 14 graded arrows and 18
   graded non-arrows, in SYN-0 §5.2.
 - **Direction:** all derivations run downward, and no property → ingredient edge exists (REV-0, recorded scope).
@@ -147,4 +152,10 @@ All of these hold on the declared C1-a class, at recorded scope.
 - that J is a unique heat current (it is the bath self-energy flux);
 - that any earned property constructs a supplied ingredient;
 - that nature consists of exactly nine layers;
-- any confirmed novel quantitative prediction.
+- any confirmed novel quantitative prediction;
+- that the temporal generator or the L0-1c drift is derived;
+- that coarse-graining is dynamically derived;
+- that O-6 is repaired;
+- that GRUT has a formation variable;
+- a disproof of the Born rule;
+- that reality is nonlocal.

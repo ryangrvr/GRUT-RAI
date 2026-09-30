@@ -30,7 +30,7 @@
 |---|---|---|
 | **Faithful-representation lift audit.** Does physical realization require a faithful representation of the full source observable algebra, and which surviving lifts would it exclude? | **PRESERVED, NOT OPENED.** It must be pre-registered separately. Its value is constraint, not uniqueness. It cannot alter L0 LIFT SELECTION = IRREDUCIBLE/SUPPLIED at the old gate's scope. | `SYN0_OWNER_RULING_01.md` §§6, 11; `L0_LIFT_SELECTION_OWNER_RULING_02.md:30-32` |
 | **S5-WB / S5-OD** (wide-band / overdamped limits) | **PRESERVED, NOT SELECTED.** Future named options only. | `S5_OWNER_RULING_03.md:122-130` |
-| **Physical C-B bath construction** | **FUTURE OWNER-CHOSEN NEW-PARENT CAMPAIGN ONLY.** It is not a rescue. | `S2_HB_OWNER_RULING_02.md` §10; `S2_NOISE_ORIGIN_DEPOSIT_02.md` |
+| **Physical C-B bath construction** | **FUTURE OWNER-CHOSEN NEW-PARENT CAMPAIGN ONLY.** The record classes it as a new-parent rescue, and no automatic rescue bath is authorized (`S2_HB_OWNER_RULING_02.md` §10). | `S2_HB_OWNER_RULING_02.md` §10; `S2_NOISE_ORIGIN_DEPOSIT_02.md` |
 | **EA-1** | **CLOSED as the immediate next step.** It may be reformulated only if a common access formalism is earned. | `EA0_OWNER_RULING_02.md:60-70` |
 | **Pin-free locality fork** (L0-1b Outcome A) | **Held outside the floor; undecided.** | `L0_1B_OWNER_RULING_01.md:55-59` |
 | **Gravity (GR2) / Π₀** | **NOT REOPENED.** Π0-0 is FRONTIER-BLOCKED, and no Π0-1 charter is authorized. | `GR2_SYNTHESIS_OWNER_RULING_01.md`; `PI0_TRACE_CHANNEL_OWNER_RULING_01.md:11-12` |

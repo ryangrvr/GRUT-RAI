@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "91eaefd",
-  "subject": "SYN-0 synthesis final",
+  "commit": "28fdd8f",
+  "subject": "SYN-1 deliverables drafted",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -59,7 +59,7 @@
    "Forest synthesis, EA-0, access bridge, lift selection; L0_POSTFLOOR_DEPOSIT_01.md",
    "Pi0-0 audit (FRONTIER-BLOCKED)",
    "SF-0/SF-1/SFG-0; S5-0/S5-1 (S5_GENERATOR_ORIGIN_DEPOSIT_01.md); S2-0/S2-1/S2-HB (S2_NOISE_ORIGIN_DEPOSIT_01/02.md); S3-0; REV-0; S6-0/S6-1 (S6_COARSEGRAINED_ARROW_DEPOSIT_01.md)",
-   "SYN-0 working-theory synthesis (GRUT_WORKING_THEORY_SYNTHESIS_01.md) and SYN-1 canonical deposit (GRUT_WORKING_THEORY_DEPOSIT_01.md, GRUT_WORKING_THEORY_PUBLIC_BRIEF_01.md)"
+   "SYN-0 working-theory synthesis (GRUT_WORKING_THEORY_SYNTHESIS_01.md) and SYN-1 package (GRUT_WORKING_THEORY_DEPOSIT_01.md, GRUT_RECORD_RECONCILIATION_INDEX_01.md, GRUT_SUCCESSOR_STATUS_01.md, GRUT_WORKING_THEORY_PUBLIC_BRIEF_01.md)"
   ],
   "cadence_rule": "the repo record stays canonical and current; Zenodo versions are batched and published by the owner when ready (STATE.md, 2026-09-27 boundary)"
  },
@@ -434,7 +434,7 @@
    "inconsistencies": "13 record inconsistencies reported in §7 (none repaired)"
   },
   "syn1": {
-   "status": "OPEN: record consolidation only (no physics)",
+   "status": "SYN-1 COMPLETE: proposed READY-WITH-ADDITIVE-CORRECTIONS (SYN1_READINESS_VERDICT_01.md); HARD STOP; no Zenodo upload authorized",
    "direction": "SYN0_OWNER_RULING_01.md §§8-12 (comment 5915940892)",
    "deliverables": [
     "GRUT_WORKING_THEORY_DEPOSIT_01.md",
@@ -444,12 +444,13 @@
    ],
    "final_gate": "PUBLICATION-READY | READY-WITH-ADDITIVE-CORRECTIONS | NOT-READY — RECORD CONFLICT; no Zenodo upload authorized",
    "preserved_not_opened": "faithful-representation lift audit (constraint, not uniqueness)",
-   "deliverables_status": "D-1..D-4 drafted; verification in progress"
+   "deliverables_status": "D-1..D-4 complete; independent verification (V1-V4 blocking, m1-m10 minor) applied",
+   "recommended_additive_corrections": "A-1 WT01 banner; A-2 owner acknowledgement of Theorem LD; A-3 owner note: sector-selection S-1 PROVISIONAL (in class); A-4 pointer on historical successor list (pending owner approval)"
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "SYN-1 record consolidation in progress. HARD STOP after readiness verdict."
+  "active": true,
+  "note": "SYN-1 readiness verdict proposed: READY-WITH-ADDITIVE-CORRECTIONS. HARD STOP for owner adjudication. No Zenodo upload authorized; nothing opened."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -470,8 +471,9 @@
    "S3_OWNER_RULING_01.md",
    "L0_STRUCTURAL_DIAGNOSTIC_REVERSAL_OWNER_RULING_01.md",
    "S6_COARSEGRAINED_ARROW_DEPOSIT_01.md",
+   "GRUT_WORKING_THEORY_SYNTHESIS_01.md (SYN-0, accepted; 91eaefd governs)",
    "SYN0_OWNER_RULING_01.md",
-   "GRUT_WORKING_THEORY_DEPOSIT_01.md"
+   "GRUT_WORKING_THEORY_DEPOSIT_01.md (SYN-1; pending owner acceptance of readiness verdict)"
   ]
  },
  "active_proposals_not_findings": [
@@ -512,7 +514,7 @@
   },
   "held_elsewhere": [
    "pin-free locality fork (L0-1b Outcome A; outside the floor)",
-   "reversal/chiasm diagnostic (Level-0 synthesis)"
+   "reversal/chiasm diagnostic (Level-0 synthesis) — CLOSED: REV-0 NOT SUPPORTED"
   ],
   "live_status_index": "GRUT_SUCCESSOR_STATUS_01.md (governs current status; historical list unchanged)"
  },
