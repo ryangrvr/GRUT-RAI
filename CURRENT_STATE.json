@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "d603db5",
-  "subject": "S5-1 charter FROZEN for execution",
+  "commit": "ed2bbe3",
+  "subject": "S5-1 script committed before single run",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -233,7 +233,7 @@
    "architecture": "A: general mechanism YES (SF-1); B: earned GRUT mechanism NO CURRENT CANDIDATE; C: supplied higher structure YES. The SF-1 mechanism does not migrate into the earned substrate."
   },
   "s5_campaign": {
-   "status": "S5-0 CLOSED/ACCEPTED; S5-1 charter FROZEN at d603db5; single authorized analytic execution in progress",
+   "status": "S5-0 CLOSED/ACCEPTED; S5-1 single analytic execution DONE; proposed terminal awaiting owner adjudication",
    "authority": "SFG0_OWNER_RULING_01.md section 6",
    "record": "S5_GENERATOR_ORIGIN_01.md",
    "question": "Can the generator itself be derived rather than presupposed? (kind of time evolution first)",
@@ -259,13 +259,20 @@
     "frozen_charter": "d603db5 (draft 4761f6c; AM-1..AM-9)",
     "ruling": "S5_OWNER_RULING_02.md (comment 5904251680)",
     "execution_gate": "ONE S5-1 analytic physics execution authorized; campaign-specific v4 exception for S5-1 only; numerics non-adjudicating, after analytics, pre-frozen members",
-    "admitted_limits": "L-N; L-vH (frozen K(g) deformation, conditional); L-WB and L-OD NOT ADMITTED"
+    "admitted_limits": "L-N; L-vH (frozen K(g) deformation, conditional); L-WB and L-OD NOT ADMITTED",
+    "derivation": "S5_CONSERVATIVE_ORIGIN_DERIVATION_01.md (6170129, before numerics)",
+    "script": "calc/s5_conservative_origin.py (ed2bbe3, one run)",
+    "result": "S5_CONSERVATIVE_ORIGIN_RESULT.json",
+    "verdict": "S5_CONSERVATIVE_ORIGIN_VERDICT_01.md",
+    "proposed_terminal": "MARKOV-LIMIT-OTHER-CLASS (conditional on L-vH weak-coupling deformation): controlled limit sup_t||Phi_g - exp((A0 - kappa g^2 I)t)|| -> 0, kappa = 1/(2 sqrt 2.3) derived; underdamped oscillator, M-1 not M-2",
+    "sub_findings": "L-N native g=1: non-Markovian dissipation only (branch cut, t^-3/2); K-L0 fails everywhere (phi''(0)=-K11); Gamma_fric''(0)=-g^2, never white; missing for M-2 (indicated not established): L-OD slaving scale, L-WB",
+    "defect": "S-5 symbolic re-verification pass-criterion defect (strict decrease at x=0 where deviation identically 0); sympy limit matched; preserved, not rerun; terminal independent"
    }
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "S5-1 single authorized analytic execution in progress under frozen charter d603db5; HARD STOP after verdict."
+  "active": true,
+  "note": "S5-1 executed once (proposed MARKOV-LIMIT-OTHER-CLASS). Awaiting owner adjudication. No rerun, no S5-2, no L-WB/L-OD route, no new parent."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
