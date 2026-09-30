@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "227dd09",
-  "subject": "S2-1 charter FROZEN",
+  "commit": "e92cf29",
+  "subject": "S2-1 script committed before single run",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -278,7 +278,7 @@
    ]
   },
   "s2_campaign": {
-   "status": "S2-0 CLOSED = CLASS-SPLIT (accepted); S2-1 charter FROZEN at 227dd09; single authorized exact execution in progress",
+   "status": "S2-0 CLOSED = CLASS-SPLIT; S2-1 single execution RUN VOID (implementation defect); awaiting owner ruling",
    "direction": "S2_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5904589246)",
    "record": "S2_NOISE_ORIGIN_HARD_DDET_01.md",
    "question": "primitive stochastic forcing after t=0 vs deterministic dynamics + uncertain initial state, in a class beyond the S-1 linear-additive-Gaussian equivalence",
@@ -293,12 +293,22 @@
     "accepted_identity": "m1^S - m1^D = -12 beta T1 a t^2 + O(t^3) (C-B, M1)",
     "structural_reading": "The S-1 equivalence breaks when noise-generated spread reaches curvature of the canonical drift that can feed the retained observable."
    },
-   "execution_gate": "ONE S2-1 analytic/exact execution authorized; S2-1-only v4 exception; no RNG/simulation"
+   "execution_gate": "ONE S2-1 analytic/exact execution authorized; S2-1-only v4 exception; no RNG/simulation",
+   "s2_1_run": {
+    "derivation": "S2_NOISE_ORIGIN_DERIVATION_01.md (verified 32645cc; Theorem HT-B moment-free no-go for T1>0 profiles)",
+    "script": "calc/s2_noise_origin.py (e92cf29, one run)",
+    "result": "S2_NOISE_ORIGIN_RESULT.json (preserved)",
+    "verdict": "S2_NOISE_ORIGIN_VERDICT_01.md",
+    "mechanical_status": "RUN VOID: sp.nsimplify rewrote 8/540 report-only Delta_4 exact rationals into radical forms; crash in report block prevented E-2 (I-5) execution",
+    "passed_in_artifact": "E-3; E-1 symbolic (Delta_2 = -24 beta T1 a, Delta_3 = 24 beta T1 a (44 beta a^2 + 5 K11), no T2 dependence); I-1..I-4",
+    "readable_not_adjudicated": "symbolic Delta_4 includes 200 T2 term: G(inf) first nonzero order 4 (Delta_4 = -48 a beta/11); F vs GR(inf) differ first at order 4",
+    "owner_options": "authorize fixed rerun; or rule E-2 discharged by verifier + derivation and adjudicate from artifact; or other"
+   }
   }
  },
  "hard_stop": {
-  "active": false,
-  "note": "S2-1 single authorized exact execution in progress under frozen charter 227dd09; HARD STOP after verdict."
+  "active": true,
+  "note": "S2-1 RUN VOID (implementation defect, preserved). Awaiting owner ruling. No rerun, repair, or terminal."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
