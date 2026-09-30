@@ -1,5 +1,10 @@
 # Π₀ TRACE CHANNEL — REOPEN 01: Phase Π0-0 current-scope feasibility / object audit
 
+> **RULED 2026-09-30 — Π0-0 = FRONTIER-BLOCKED, terminal** (`PI0_TRACE_CHANNEL_OWNER_RULING_01.md`, comment `5902971222`).
+> The Π₀ prediction-recovery campaign is **CLOSED at Phase Π0-0.** The text below is preserved as written.
+> **`PI0_ROUTE_CORRECTION_01.md` governs A-1, A-4, §4 and §6.** The operator's "α-free map required" claim is **struck**.
+> The missing item is the never-written **Π₀ → x** normalization; α is an existing conditional/supplied input.
+
 **STATUS: AUDIT. No new numerical physics was run.** The proposed Π0-0 outcome is for owner review.
 - **Authority:** `PI0_CAMPAIGN_OWNER_DIRECTION_01.md` (Issue #2 comment `5899711204`).
 - **Sources:** three read-only record audits (object history; machinery inventory; the declared
@@ -256,3 +261,7 @@ spin-2 anchor −3ω⁴/1280π.
 
 **HARD STOP** for owner review. No Π0-1 charter, no Π₀ physics run, no empirical fitting, no S-5,
 no EA-1, no GR2-e.
+
+---
+
+> **Correction pointer (appended 2026-09-30):** see `PI0_ROUTE_CORRECTION_01.md` and `PI0_TRACE_CHANNEL_OWNER_RULING_01.md`.

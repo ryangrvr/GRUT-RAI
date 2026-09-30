@@ -2,12 +2,12 @@
  "record": "CURRENT_STATE",
  "schema_version": 1,
  "nature": "machine-readable source of truth for the project's CURRENT boundary. Hand-maintained; the current-boundary blocks in STATE.md and README.md are RENDERED from this file by provenance/emit_current_state.py and checked by provenance/test_current_state_sync.py. Historical banners in those files are not rewritten. This file asserts nothing beyond the records it cites.",
- "as_of_date": "2026-09-29",
+ "as_of_date": "2026-09-30",
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "130ebf3",
-  "subject": "Pi0 campaign: owner direction 01 recorded",
+  "commit": "a70cf6c",
+  "subject": "Pi0-0 current-scope object audit",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -171,25 +171,26 @@
    }
   },
   "pi0_campaign": {
-   "status": "Pi0-0 AUDIT DELIVERED; proposed outcome FRONTIER-BLOCKED; no Pi0-1 charter drafted; awaiting owner review",
-   "direction": "PI0_CAMPAIGN_OWNER_DIRECTION_01.md (comment 5899711204)",
+   "status": "CLOSED at Phase Pi0-0",
+   "terminal": "Pi0-0 = FRONTIER-BLOCKED (owner ruling, comment 5902971222)",
+   "ruling": "PI0_TRACE_CHANNEL_OWNER_RULING_01.md",
    "audit": "PI0_TRACE_CHANNEL_REOPEN_01.md",
+   "correction": "PI0_ROUTE_CORRECTION_01.md (A-4: the Pi0 -> x map was never written; alpha is an existing conditional input, not the missing map; no alpha-free map required)",
    "blockers": [
-    "B-1 gauge-invariant spin-0 assembly unavailable (TT-projection gauge safety; Ward residual nonzero at H0 for scalar leg; no ghosts/non-TT lines)",
-    "B-2 target limit omega->0 outside certified domain (flat part ~omega^4 log vanishes; dS IR region refused by design)"
+    "gauge-invariant spin-0 assembly unavailable",
+    "omega->0 deep-dS IR target outside certified domain"
    ],
-   "auxiliary": [
-    "A-1 scheme ruling pending",
-    "A-2 no Pi0 order of limits declared",
-    "A-3 no spin-0 probe coupling declared",
-    "A-4 x=f(Pi0/Pi2) map never written; x->mu carries alpha"
+   "preserved_unexecuted": [
+    "flat-space gauge-invariant J=0 diagnostic (named future option; needs explicit v4-stop exception)",
+    "external/specialist dS trace-channel calculation (frontier-reserved)"
    ],
-   "scope_fence": "conditional on the supplied gravitational branch; not 'Level-0 predicts gravity'; GR2 not upgraded"
+   "interpretation": "The present GRUT record has no calculable path from its declared gravitational branch to the Pi0-based percent-level cosmological prediction; the obstruction is upstream, not observational sensitivity. NOT: Pi0 = 0; scalar response absent; GRUT predicts LCDM; trace channel unphysical; no future treatment could calculate it.",
+   "governance": "direction 5899711204 lifted the Pi0 fence for the Pi0-0 audit only; it did not reopen general post-v4 in-house physics"
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "Pending owner review of PI0_TRACE_CHANNEL_REOPEN_01.md (proposed FRONTIER-BLOCKED). No Pi0-1 charter, no Pi0 physics run, no empirical fitting."
+  "note": "Pi0 prediction-recovery campaign CLOSED at Pi0-0 (FRONTIER-BLOCKED). Awaiting owner selection of a genuinely new campaign. No automatic S-5, EA-1, gravity reopening, or Pi0 physics."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -201,15 +202,11 @@
    "L0_1C_OWNER_RULING_01.md",
    "L0_1_FLOOR_DEPOSIT_01.md",
    "LEVEL0_FOREST_SYNTHESIS_OWNER_RULING_01.md",
-   "L0_POSTFLOOR_DEPOSIT_01.md"
+   "L0_POSTFLOOR_DEPOSIT_01.md",
+   "PI0_TRACE_CHANNEL_OWNER_RULING_01.md"
   ]
  },
  "active_proposals_not_findings": [
-  {
-   "item": "Pi0 trace-channel campaign",
-   "record": "PI0_TRACE_CHANNEL_REOPEN_01.md",
-   "status": "Pi0-0 audit: proposed FRONTIER-BLOCKED; owner review pending"
-  },
   {
    "item": "EA-1",
    "status": "CLOSED as immediate next step (EA0_OWNER_RULING_02.md section 5); may be reformulated if a common access formalism is earned"
@@ -271,6 +268,10 @@
   {
    "record": "Lift selection",
    "note": "L0_LIFT_SELECTION_CORRECTIONS_01.md: LS-1..LS-10 (I-1 collective counterexample; I-3 narrowed; no Koopman/real-bosonic merge; D-6 exclusion withdrawn; complex-structure price)"
+  },
+  {
+   "record": "Pi0 route",
+   "note": "PI0_ROUTE_CORRECTION_01.md: x = f(Pi0/Pi2) never instantiated ('banked' unsupported); S_IF x = c0/c0^trace-only is a different definition; operator 'alpha-free map' claim struck"
   }
  ]
 }
