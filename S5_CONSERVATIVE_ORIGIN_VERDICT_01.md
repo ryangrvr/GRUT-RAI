@@ -1,5 +1,15 @@
 # S5-1 — CONSERVATIVE-ORIGIN VERDICT 01
 
+> **ACCEPTED (owner ruling 03, Issue #2 comment `5904495463`; `S5_OWNER_RULING_03.md`):**
+> - **S5-1 = MARKOV-LIMIT-OTHER-CLASS**, conditional on the admitted L-vH weak-coupling deformation.
+> - M-1 YES; M-2 NO; K-L0 FAILS. Native g = 1 gives NON-MARKOVIAN DISSIPATION ONLY.
+> - **Wording fence:** the weak-coupling *kinetic* limit derives a controlled underdamped Markov
+>   effective dynamics, with a parent-derived damping rate of order g². In physical time κg² → 0.
+> - S-5 flag: see `S5_CONSERVATIVE_ORIGIN_CORRECTIONS_01.md`.
+> - The S-5 chain is deposited in `S5_GENERATOR_ORIGIN_DEPOSIT_01.md`.
+>
+> The verdict below is preserved as filed.
+
 **Mechanical terminal: MARKOV-LIMIT-OTHER-CLASS**, conditional on the admitted weak-coupling
 deformation L-vH.
 

@@ -6,8 +6,8 @@
  "canonical_repository": "ryangrvr/grut-rai",
  "active_research_branch": "master-w25bu9",
  "head_commit_at_sync": {
-  "commit": "ed2bbe3",
-  "subject": "S5-1 script committed before single run",
+  "commit": "6a17b57",
+  "subject": "S5-1 result + verdict",
   "note": "The last commit whose state this file records. The commit that adds or updates this file is its descendant; `git log -1 -- CURRENT_STATE.json` gives that commit."
  },
  "branch_roles": {
@@ -233,7 +233,7 @@
    "architecture": "A: general mechanism YES (SF-1); B: earned GRUT mechanism NO CURRENT CANDIDATE; C: supplied higher structure YES. The SF-1 mechanism does not migrate into the earned substrate."
   },
   "s5_campaign": {
-   "status": "S5-0 CLOSED/ACCEPTED; S5-1 single analytic execution DONE; proposed terminal awaiting owner adjudication",
+   "status": "S-5 CLOSED at current-parent scope (S5-0 GENERATOR-IRREDUCIBLE/SUPPLIED; S5-1 MARKOV-LIMIT-OTHER-CLASS)",
    "authority": "SFG0_OWNER_RULING_01.md section 6",
    "record": "S5_GENERATOR_ORIGIN_01.md",
    "question": "Can the generator itself be derived rather than presupposed? (kind of time evolution first)",
@@ -264,15 +264,23 @@
     "script": "calc/s5_conservative_origin.py (ed2bbe3, one run)",
     "result": "S5_CONSERVATIVE_ORIGIN_RESULT.json",
     "verdict": "S5_CONSERVATIVE_ORIGIN_VERDICT_01.md",
-    "proposed_terminal": "MARKOV-LIMIT-OTHER-CLASS (conditional on L-vH weak-coupling deformation): controlled limit sup_t||Phi_g - exp((A0 - kappa g^2 I)t)|| -> 0, kappa = 1/(2 sqrt 2.3) derived; underdamped oscillator, M-1 not M-2",
     "sub_findings": "L-N native g=1: non-Markovian dissipation only (branch cut, t^-3/2); K-L0 fails everywhere (phi''(0)=-K11); Gamma_fric''(0)=-g^2, never white; missing for M-2 (indicated not established): L-OD slaving scale, L-WB",
-    "defect": "S-5 symbolic re-verification pass-criterion defect (strict decrease at x=0 where deviation identically 0); sympy limit matched; preserved, not rerun; terminal independent"
-   }
+    "defect": "S-5 symbolic re-verification pass-criterion defect (strict decrease at x=0 where deviation identically 0); sympy limit matched; preserved, not rerun; terminal independent",
+    "terminal": "MARKOV-LIMIT-OTHER-CLASS (ACCEPTED, S5_OWNER_RULING_03.md, comment 5904495463), conditional on L-vH weak-coupling deformation",
+    "binding": "The declared local conservative parent does not derive the Level-0 first-order G-D generator; in the admitted weak-coupling limit it derives a controlled underdamped Markov effective law (A0 - kappa g^2 I, kappa = 1/(2 sqrt 2.3)). M-1 YES; M-2 NO; K-L0 FAILS; native g=1 NON-MARKOVIAN DISSIPATION ONLY. Wording: kinetic-limit damping rate O(g^2); physical-time rate -> 0.",
+    "correction": "S5_CONSERVATIVE_ORIGIN_CORRECTIONS_01.md (S-5 is a supplementary criterion defect; JSON defects field = X-block exceptions only; terminal independent)"
+   },
+   "deposit": "S5_GENERATOR_ORIGIN_DEPOSIT_01.md",
+   "synthesis": "Static GRUT structure does not select the temporal generator. The existing conservative parent can derive an underdamped Markov effective law in a controlled weak-coupling limit, but neither the native parent nor that admitted limit derives the Level-0 first-order completely-monotone generator. Level-0 G-D remains IRREDUCIBLE/SUPPLIED relative to the current GRUT parent and admitted reductions.",
+   "preserved_not_selected": [
+    "S5-WB wide-band parent limit",
+    "S5-OD earned overdamped/slaving hierarchy"
+   ]
   }
  },
  "hard_stop": {
   "active": true,
-  "note": "S5-1 executed once (proposed MARKOV-LIMIT-OTHER-CLASS). Awaiting owner adjudication. No rerun, no S5-2, no L-WB/L-OD route, no new parent."
+  "note": "S-5 closed at current-parent scope and deposited. Awaiting owner selection of a genuinely new campaign. No S5-2, rerun, new parent, SF-2, gravity, Pi0, cosmology."
  },
  "accepted_findings_pointer": {
   "note": "Accepted findings live in their ruled records; this is an index, not a restatement.",
@@ -295,7 +303,7 @@
   },
   {
    "item": "S-5 generator origin",
-   "status": "SELECTED as next campaign (S5-0 audit only)"
+   "status": "CLOSED at current-parent scope (see program_status.s5_campaign); S5-WB/S5-OD preserved as future named options, not selected"
   },
   {
    "item": "Reversal/chiasm diagnostic",
@@ -367,6 +375,10 @@
   {
    "record": "S5-0 equivalence relation",
    "note": "S5_CORRECTIONS_01.md SC5-1: positive clock rescalings c*A (c>0) quotiented; f(K), noise, doubling, complexification, statistics, sign flip not quotiented"
+  },
+  {
+   "record": "S5-1 result JSON",
+   "note": "S5_CONSERVATIVE_ORIGIN_CORRECTIONS_01.md: S-5 ok=false is a supplementary criterion defect; 'defects': [] means no X-block exception; JSON not rewritten"
   }
  ]
 }
